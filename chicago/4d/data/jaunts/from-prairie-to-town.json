@@ -3,12 +3,12 @@
   "id": "from-prairie-to-town",
   "content_version": 1,
   "title": "From Prairie to Town",
-  "premise": "Come in from the open shore south of the fort: pass Fort Dearborn's stockade, find a store on South Water Street and finish at a public house's door.",
+  "premise": "Come in off the open shore south of the fort: start at the factor's house below Fort Dearborn, pass its stockade, find a store on South Water Street and finish at a public house's door.",
   "category": "Migration and routes",
   "scene": "1835",
   "opening": {
-    "text": "You have come up from the south and stop on open ground by the lake, three-quarters of a mile below Fort Dearborn. Ride north past the fort, find a store on the river street, and end at a public house. The traveller and the ride are invented; the places are the town's. Fly or Instantly shortens the long first leg.",
-    "read_s": 18
+    "text": "You have come up the open shore from the south and stop at the last house below Fort Dearborn. Ride north past the fort, find a store on the river street, and end at a public house. The traveller and the ride are invented; the places are the town's.",
+    "read_s": 15
   },
   "default_mode": "horse",
   "allowed_modes": [
@@ -20,30 +20,31 @@
   ],
   "stops": [
     {
-      "id": "open-shore",
+      "id": "factors-house",
       "destination": {
-        "kind": "anchor",
-        "id": "lake_shore_south"
+        "kind": "structure",
+        "id": "fort_dearborn_us_factors_house"
       },
-      "text": "Open shore, the lake to the east and the town to the north. Wright's 1834 map names this ground Fractional Section 15. Nobody had bought it from the land office, and it was not laid out in lots until June 1836. No street, lot or house stands here. This viewpoint is ours, not a named place.",
+      "text": "Start at the U.S. Factor's House below the stockade. Hubbard, who knew it from 1818, recalled a two-story, squared-log house, and Harrison's 1830 plan letters it here; no later source describes it. Beyond the Reservation to the south the shore lies open: Wright's 1834 map names that ground Fractional Section 15, and nobody had bought it.",
       "read_s": 26,
       "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_us_factors_house",
+          "label": "About this place"
+        },
         {
           "kind": "source",
           "id": "wright_1834_nara_hup",
           "label": "Wright's 1834 map"
-        },
-        {
-          "kind": "source",
-          "id": "moses_kirkland_history_of_chicago_v1",
-          "label": "The 1836 platting"
         }
       ],
       "evidence": [
-        "shore-viewpoint",
+        "factor-house-look",
+        "factor-house-plan",
+        "factor-house-standing",
         "section15-named",
         "section15-unentered",
-        "section15-platted",
         "ride"
       ],
       "next": "the-stockade",
@@ -52,8 +53,8 @@
     {
       "id": "the-stockade",
       "destination": {
-        "kind": "structure",
-        "id": "fort_dearborn_palisade"
+        "kind": "anchor",
+        "id": "fort_dearborn"
       },
       "text": "North to Fort Dearborn's stockade at the river mouth. Juliette Kinzie, who lived inside it in 1831, wrote of high pickets and large gates to the north and south. Troops had held the post since June 1832, so today it is a working garrison. Look from outside; the gates are shown shut.",
       "read_s": 22,
@@ -70,6 +71,7 @@
         }
       ],
       "evidence": [
+        "fort-viewpoint",
         "pickets-gates",
         "garrisoned",
         "ride"
@@ -139,7 +141,7 @@
   "endings": [
     {
       "id": "in-town",
-      "text": "You reach the Sauganash's door having come in the long way: from open shore past the fort, along the river street to a store, and on to a public house. The traveller and the route are the outing's invention; the places are the town's.",
+      "text": "You reach the Sauganash's door having come in from the south: from the last house below the fort, along the river street to a store, and on to a public house. The traveller and the route are the outing's invention; the places are the town's.",
       "read_s": 13,
       "default": true,
       "completion_eligible": true
@@ -153,23 +155,42 @@
   },
   "evidence": [
     {
-      "id": "shore-viewpoint",
-      "text": "The first stop is the scene's typed viewpoint 'The lake shore, three-quarters of a mile south of the fort', on open ground with the committed 1835 lake shore to its east; on today's map it falls in Grant Park near Jackson Boulevard. It is a camera position, not a named or attested place.",
+      "id": "factor-house-look",
+      "text": "Gurdon Hubbard, who reached Chicago in 1818, describes the Factor House as 'a two-story, squared-log structure'.",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911"
+      ],
+      "locator": "Hubbard's autobiography (1911), the inventory of the place as he found it in 1818, bk_hub_063, leaf 76, printed p. 38 (read at data/sidecars/1835/fort_dearborn_us_factors_house.json, attributes.construction and documented_range)."
+    },
+    {
+      "id": "factor-house-plan",
+      "text": "The 1830 plan of the river mouth letters 'U.S. Factor's House' against buildings on the Reservation just south of the fort.",
+      "confidence": "attested",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "andreas_1884_v1"
+      ],
+      "locator": "F. Harrison Jr., Map of the Mouth of Chicago River, approved 24 February 1830, as reproduced in Andreas vol. 1, p. 113: the label 'U.S. Factor's House' (read at data/traces/harrison_1830_us_factors_house.json)."
+    },
+    {
+      "id": "factor-house-standing",
+      "text": "The house is taken to stand on 1 July 1835: it is seen in 1818, sold to the American Fur Company in 1822 and drawn in 1830, and nothing says it came down. No source after 1830 describes it.",
       "confidence": "inferred",
       "sources": [
-        "wright_1834",
-        "osm_streets_2026"
+        "chicago_antiquities_american_fur_co",
+        "harrison_1830_river_mouth"
       ],
-      "reasoning": "The anchor stands at local E +1340, N -1000 in data/scenes/1835.json, about 1.2 km south of the stockade as placed from the 1830 plan and Wright 1834, which is three-quarters of a mile. The ground reading (data/render/anchor_ground_reading.json) has it dry and inside the modelled box, 47.5 m from the nearest edge. Converting through data/datum.json puts it near 41.878 N, 87.622 W, east of Michigan Avenue at Jackson. No structure record stands within 600 m of it."
+      "reasoning": "Hurlbut has the American Fur Company buy 'the Factory House, located just south of Fort Dearborn' from the United States in 1822 (bk_afc_009), and the Harrison plan of 24 February 1830 letters it. The structure record's range (1818 to 29 December 1836) is graded inferred for the same reason: the last five years are an argument from silence, so the stop says no later source describes it and claims no occupant. Its position is read off the 1830 plate and carries about 25 m."
     },
     {
       "id": "section15-named",
-      "text": "Wright's 1834 survey of Chicago colours and names a tract 'Fractional Section 15' south of the United States Reservation, cut on the east by the lake shore; the viewpoint stands inside it.",
+      "text": "Wright's 1834 survey of Chicago colours and names a tract 'Fractional Section 15' south of the United States Reservation, cut on the east by the lake shore.",
       "confidence": "attested",
       "sources": [
         "wright_1834_nara_hup"
       ],
-      "locator": "Wright 1834, legend chip 7, lettered 'Fractional Section 15' (read at docs/RESEARCH/wright_1834_legend_swatches.md, table row 7). The tract's polygon in data/reconstruction/1835_survey_tracts.json (id fractional_section_15) contains the anchor at local E +1340, N -1000."
+      "locator": "Wright 1834, legend chip 7, lettered 'Fractional Section 15' (read at docs/RESEARCH/wright_1834_legend_swatches.md, table row 7); the tract's polygon is data/reconstruction/1835_survey_tracts.json, id fractional_section_15."
     },
     {
       "id": "section15-unentered",
@@ -181,30 +202,21 @@
       "reasoning": "An absence in the register, read as data/reconstruction/1835_survey_tracts.json records it (fractional_section_15.owner_on_scene_date: no entries before the scene date). It is a statement about the land office's register, not proof that nobody was on the ground, so the stop says nobody had bought it rather than that nobody was there."
     },
     {
-      "id": "section15-platted",
-      "text": "The canal commissioners' addition on fractional section 15 was platted by Edward B. Talcott, assistant engineer, on 13 June 1836 and the plat recorded on 20 July; so on the scene date the ground carried no lots or streets.",
-      "confidence": "attested",
-      "sources": [
-        "moses_kirkland_history_of_chicago_v1"
-      ],
-      "locator": "Moses & Kirkland vol. 1, the real-estate passage on the additions, committed OCR text lines 13110-13119 ('Then came the laying out of the addition by the canal commissioners on fractional section 15. This addition was platted, under the direction of the commissioners, by Edward B. Talcott, assistant engineer, June 13, 1836, and the plat recorded July 20')."
-    },
-    {
-      "id": "fort-cemetery",
-      "text": "The 1830 plan of the river mouth letters a parcel 'Fort Cemetery' on the reservation south-south-east of the fort, between the road and the lake.",
-      "confidence": "attested",
-      "sources": [
-        "harrison_1830_river_mouth",
-        "andreas_1884_v1"
-      ],
-      "locator": "F. Harrison Jr., Map of the Mouth of Chicago River, approved 24 February 1830, as reproduced in Andreas vol. 1, p. 113: the parcel lettered 'Fort Cemetery' (read at data/reconstruction/1835_no_build_ground.json, region fort_cemetery)."
-    },
-    {
       "id": "shore-camps",
       "text": "The land-sale camp (L355) and the emigrants' tents (L358) the scene pitches on the reservation south of the fort are conjectural; no committed source says anyone camped there.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L355"
+    },
+    {
+      "id": "fort-viewpoint",
+      "text": "The second stop is the scene's typed viewpoint 'Fort Dearborn, from the south-west', about 30 m off the stockade's south-west corner; it is a camera position looking at the pickets from outside, not a claimed path or gate.",
+      "confidence": "inferred",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "wright_1834"
+      ],
+      "reasoning": "The anchor stands at local E +1100, N +175 in data/scenes/1835.json, facing north-east; the stockade record (fort_dearborn_palisade) is placed at E +1122, N +198 from the 1830 plan and Wright 1834. The stop's facts about the pickets and the garrison are the separate pickets-gates and garrisoned readings."
     },
     {
       "id": "pickets-gates",
@@ -297,15 +309,15 @@
   ],
   "legs": [
     {
-      "from": "open-shore",
+      "from": "factors-house",
       "to": "the-stockade",
-      "note": "The long leg: about 1.2 km north over unplatted shore onto the Reservation, past the 1830 plan's Fort Cemetery. Any tents there are our conjecture.",
+      "note": "A short ride north over the Reservation to the fort's south-west corner, about 0.15 km. The tents the scene pitches on this ground are our conjecture.",
       "evidence": [
-        "shore-viewpoint",
-        "fort-cemetery",
+        "factor-house-plan",
+        "fort-viewpoint",
         "shore-camps"
       ],
-      "story": "From open ground to the first works of the town.",
+      "story": "From the last house to the first works of the town.",
       "story_evidence": [
         "ride"
       ]
@@ -315,6 +327,7 @@
       "to": "the-store",
       "note": "West along the river's south bank to the corner of South Water and LaSalle, about 0.7 km.",
       "evidence": [
+        "fort-viewpoint",
         "peck-place"
       ],
       "story": "Into the trading street.",

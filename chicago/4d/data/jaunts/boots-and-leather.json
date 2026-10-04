@@ -3,12 +3,12 @@
   "id": "boots-and-leather",
   "content_version": 1,
   "title": "Boots, Leather and the Road",
-  "premise": "Outfit a rider for tomorrow's road: boots at Holbrook's on South Water Street, a look at Miller's tannery at the forks where the town's leather began, the saddler at Lake and Canal, and the Green Tree to lay it all out.",
+  "premise": "Outfit a rider for tomorrow's road: boots at Holbrook's on South Water Street, a look across the forks from Wolf Point at Miller's tannery, where the town's leather began, the saddler at Lake and Canal, and the Green Tree to lay it all out.",
   "category": "Trades",
   "scene": "1835",
   "opening": {
-    "text": "You ride out tomorrow, and tonight you lodge at the Green Tree on the west bank. An outfit for the road is leather and cloth, and in this town each came from a different trade. The rider, the road and the purchases are invented; the shops, the tannery and their trades are not.",
-    "read_s": 16
+    "text": "You ride out tomorrow and lodge tonight at the Green Tree on the west bank. An outfit for the road is leather and cloth, each from a different trade. The rider and the purchases are invented; the shops and their trades are not.",
+    "read_s": 13
   },
   "default_mode": "horse",
   "allowed_modes": [
@@ -43,9 +43,9 @@
         "kind": "structure",
         "id": "john_holbrook_store"
       },
-      "text": "Start one door east of Dearborn on South Water Street. In June 1835 John Holbrook advertised hats, clothing, boots and shoes, wholesale and retail, as agent for the manufacturers, with more arriving every fifteen or twenty days. These are made goods, shipped in; the building is our reconstruction.",
+      "text": "Start one door east of Dearborn on South Water Street. In June 1835 John Holbrook advertised hats, clothing, boots and shoes, wholesale and retail, as agent for the manufacturers. These are made goods, shipped in; the building is our reconstruction.",
       "narrative": "Boots for the road, or a hat?",
-      "read_s": 26,
+      "read_s": 22,
       "action_s": 15,
       "links": [
         {
@@ -103,12 +103,12 @@
     {
       "id": "tannery",
       "destination": {
-        "kind": "structure",
-        "id": "miller_tannery"
+        "kind": "anchor",
+        "id": "forks"
       },
-      "text": "Over the river to the forks. In 1831 John Miller built a log house here and used it as a tannery, Chicago's first recorded factory; Andreas puts it just north of Miller's tavern, with Benjamin Hall, tanner, his partner from 1832. Whether hides were still worked here this summer, no source says.",
+      "text": "Over the South Branch to Wolf Point. Across the North Branch, in 1831, John Miller built a log house on the point and used it as a tannery, Chicago's first recorded factory. Whether hides were still worked this summer, no source says.",
       "narrative": "Leather begins as hides, somewhere.",
-      "read_s": 28,
+      "read_s": 23,
       "action_s": 5,
       "links": [
         {
@@ -133,6 +133,7 @@
         }
       ],
       "evidence": [
+        "wolf-point-view",
         "tannery-built",
         "tannery-1835",
         "tannery-place",
@@ -147,9 +148,9 @@
         "kind": "structure",
         "id": "goss_cobb_saddlery"
       },
-      "text": "Over the North Branch to Lake and Canal. Goss & Cobb opened here in 1833 making saddles, harness, bridles, martingales and trunks to order, and repairing. The partners parted in February 1835, and S. B. Cobb's June card says he will continue the business. Neither card names boots.",
+      "text": "South down the west bank to Lake and Canal. Goss & Cobb opened here in 1833 making saddles, harness, bridles, martingales and trunks to order. The partners parted in February 1835, and S. B. Cobb's June card says he will continue. Neither card names boots.",
       "narrative": "Leather for the horse, or for the baggage?",
-      "read_s": 28,
+      "read_s": 26,
       "action_s": 15,
       "links": [
         {
@@ -222,9 +223,9 @@
         "kind": "structure",
         "id": "green_tree_tavern"
       },
-      "text": "East along Lake to West Water and the Green Tree, which James Kinzie built in 1833 as the first house in the place put up for hotel purposes. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837. Here you lay the outfit out for the morning.",
+      "text": "East along Lake to West Water and the Green Tree, which James Kinzie built in 1833 as the first house here put up for hotel purposes. Old settlers recalled Chester Ingersoll keeping it from 1834 to 1837. Lay the outfit out here for the morning.",
       "narrative": "Ride at first light, or wait a day?",
-      "read_s": 28,
+      "read_s": 26,
       "action_s": 10,
       "links": [
         {
@@ -288,10 +289,10 @@
     {
       "from": "ready-made",
       "to": "tannery",
-      "note": "West from South Water Street and over the river to the point at the forks; which crossing is not claimed.",
+      "note": "West along South Water Street and over the South Branch to Wolf Point; which crossing is not claimed.",
       "evidence": [
         "holbrook-place",
-        "tannery-place"
+        "wolf-point-view"
       ],
       "story": "What you bought rides in front of you.",
       "story_evidence": [
@@ -301,9 +302,9 @@
     {
       "from": "tannery",
       "to": "saddler",
-      "note": "Over the North Branch to the west side and south to Lake and Canal; no particular path is claimed.",
+      "note": "South down the west bank to Lake and Canal; no particular path is claimed.",
       "evidence": [
-        "tannery-place",
+        "wolf-point-view",
         "cobb-corner"
       ]
     },
@@ -427,6 +428,15 @@
         "drloih_wolf_point"
       ],
       "reasoning": "Andreas gives the direction ('just north of Miller's tavern') and DRLOIH the proximity; the structure record places the log house against this project's own miller_house record with an invented 11.5 m separation, about 40 m working uncertainty. The stop says 'at the forks' and claims no door."
+    },
+    {
+      "id": "wolf-point-view",
+      "text": "The second stop is the scene's typed viewpoint 'The forks, from Wolf Point', on the west bank where the North and South Branches meet; the tannery as the scene places it stands about 155 m to the north-east, across the North Branch. The viewpoint is a camera position, not a claimed path or a place anyone stood.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_wolf_point"
+      ],
+      "reasoning": "DRLOIH puts Wolf Point on the west bank at the forks. The anchor stands at local E -100, N -28 in data/scenes/1835.json and miller_tannery's placement at E +14, N +78, so the tannery is seen across the water rather than reached; the tannery's own place is the separate tannery-place reading."
     },
     {
       "id": "cobb-trade",

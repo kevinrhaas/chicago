@@ -8,13 +8,12 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 
 | Jaunt | Recommended | Stops | Content s | Travel s | Measured min | Estimate min | Menu says | Fly min | Instantly min | 1280x800 min | Verdict |
 |---|---|---:|---:|---:|---:|---:|---|---:|---:|---:|---|
-| from-prairie-to-town | horse | 4 | 114 | 447 | 9.35 | 10.20 | about 10 | 3.85 | 1.90 | 9.33 | **over by 201 s** |
-| boots-and-leather | horse | 4 | 171 | 293 | 7.73 | 7.63 | about 7.5 | 3.88 | 2.85 | — | **over by 104 s** |
-| soap-and-candles | horse | 4 | 168 | 260 | 7.13 | 7.08 | about 7 | 3.62 | 2.80 | — | **over by 68 s** |
 | along-the-harbor | horse | 4 | 160 | 197 | 5.95 | 5.87 | about 6 | 3.68 | 2.67 | 5.38 | in band |
+| boots-and-leather | horse | 4 | 155 | 197 | 5.87 | 5.87 | about 6 | 3.55 | 2.58 | 3.93 | in band |
 | freight-for-the-store | wagon | 4 | 163 | 185 | 5.80 | 5.78 | about 6 | 3.45 | 2.72 | 5.52 | in band |
 | sunday-circuit | horse | 4 | 74 | 273 | 5.78 | 5.82 | about 6 | 2.37 | 1.23 | 5.73 | in band |
 | across-wolf-point | walk | 4 | 116 | 230 | 5.77 | 5.52 | about 5.5 | 2.35 | 1.93 | 5.42 | in band |
+| soap-and-candles | horse | 4 | 171 | 172 | 5.72 | 5.73 | about 5.5 | 3.68 | 2.85 | 5.65 | in band |
 | news-before-breakfast | horse | 4 | 204 | 138 | 5.70 | 5.63 | about 5.5 | 4.25 | 3.40 | — | in band |
 | work-on-waterfront | horse | 4 | 166 | 176 | 5.70 | 5.65 | about 5.5 | 3.68 | 2.77 | 5.52 | in band |
 | gossip-or-notice | horse | 4 | 172 | 168 | 5.67 | 5.55 | about 5.5 | 3.78 | 2.87 | — | in band |
@@ -22,6 +21,7 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 | schoolday-errand | horse | 4 | 137 | 202 | 5.65 | 5.67 | about 5.5 | 3.35 | 2.28 | 5.60 | in band |
 | bed-for-the-night | horse | 4 | 162 | 168 | 5.50 | 5.58 | about 5.5 | 3.68 | 2.70 | — | in band |
 | fort-dearborn-errand | walk | 4 | 100 | 229 | 5.48 | 5.73 | about 5.5 | 2.00 | 1.67 | — | in band |
+| from-prairie-to-town | horse | 4 | 111 | 216 | 5.45 | 5.30 | about 5.5 | 2.92 | 1.85 | 5.40 | in band |
 | taverns-of-chicago | horse | 4 | 202 | 94 | 4.93 | 4.95 | about 5 | 3.95 | 3.37 | — | in band |
 | outfit-for-the-west | horse | 5 | 156 | 138 | 4.90 | 4.93 | about 5 | 3.38 | 2.60 | 4.87 | in band |
 | household-provisions | walk | 4 | 136 | 153 | 4.82 | 4.97 | about 5 | 2.57 | 2.27 | — | in band |
@@ -35,10 +35,4 @@ The band is 3–6 minutes at the recommended mode; Fly and Instantly must each b
 | shopping-south-water | wagon | 4 | 124 | 112 | 3.93 | 3.93 | about 4 | 2.55 | 2.07 | — | in band |
 | inspect-a-lot | horse | 4 | 137 | 62 | 3.32 | 3.35 | about 3.5 | 2.77 | 2.28 | — | in band |
 
-26 jaunts measured: 23 in band, 3 over, 0 under.
-
-## Findings
-
-- boots-and-leather: recommended horse measures 7.73 min, outside 3-6
-- from-prairie-to-town: recommended horse measures 9.35 min, outside 3-6
-- soap-and-candles: recommended horse measures 7.13 min, outside 3-6
+26 jaunts measured: 26 in band, 0 over, 0 under.
