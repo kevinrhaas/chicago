@@ -7,6 +7,7 @@
   "_must_actually_write": "A step's command must WRITE the files it claims. Obvious, and it is the one thing --check cannot see by reading, so `rederive.mjs --prove` runs every command and asserts each `resolves` file's mtime advanced. It exists because read_newberry_index.py was listed here for `data/research/newberry_index/leads.json` and, invoked bare, PRINTS ITS USAGE AND EXITS 0 — it writes nothing, and rebuilding leads.json needs --parse over OCR shards that live outside the repo. The bad entry survived a --check (the tool is gated), an idempotency test (nothing changed, because nothing ran) and a full-sequence run. It failed only when a real merge needed it, as `leads.json does not re-derive from its inputs`. The idempotency test that missed it used `timeout 400` with output suppressed, so a killed tool and a no-op tool looked identical. Run --prove when this file changes; a tool that needs inputs from outside the repo does not belong here at all.",
   "_must_reproduce": "AND A GATED TOOL THAT PASSES --check MAY STILL NOT BELONG HERE, which is the rule `_only_gated_tools` does not cover and the one that nearly admitted two more files on 2026-09-14. `--check` asks whether the committed OUTCOMES still follow from the inputs; a manifest entry resolves a conflict by re-running the BUILD and keeping whatever it writes. Those are different questions and they can disagree. Measured on a clean `dev` that afternoon: `crosswalk_census_1840_heads.py --check` reported `OK: 965 named 1840 head(s) — 13 matched, 18 candidate, 934 refused` and exited 0, while `--build` on the SAME TREE rewrote 137 lines of census_1840/crosswalk.json and resident_crosswalk.json — rule prose and evidence lists that had drifted, picking up the 1844 directory and a fourth Sherman. Nothing is stale by the gate's measure and the file still does not rebuild to itself. Listing it would have made the lap push those 137 lines into EVERY pull request it lapped, as a silent content change no ticket asked for. So before adding a step: run its command on a clean base and require that git reports NOTHING moved. A green --check is necessary and it is not sufficient.",
   "_never": "A file declaring `hand_authored: true` is refused even if listed. data/research/land_sales/resident_rulings.json is the one such file today: a judgement is not a derivation, and re-running a tool over it would erase the argument. rederive.mjs --check fails if any listed path declares it.",
+  "_a_reader_sits_below_what_it_reads": "A STEP THAT READS A FILE ANOTHER STEP REBUILDS SAYS SO, AND --check HOLDS IT BELOW THAT STEP (T-2080). The sequence is a measured order, not a graph, so an edge nobody wrote down is an edge the next insertion can break without a sound: on a clean tree every committed file already agrees with its inputs and a reader placed above its writer passes, and the lag shows only on a MERGED tree, as a refusal that reads like a data fault (`location_spend.py` refusing a business whose seat had moved, T-1720) or, worse, as a stale file written without complaint (`report_convergence_coverage.py`). `reads` on a step lists files it reads that the manifest also resolves; check() requires each to be rebuilt by a step ABOVE it, and requires the reader's own source to name the file, so a declaration cannot be cargo. A lag the order cannot remove — a cycle — is not declared here; it is `second_pass` with `reads_rebuilt`, which is the same edge stated from the other side. Not every edge is declared yet: a scan of each tool's source for the basenames of files resolved below it names about 48 candidates, most of them reads of sources/index.json for citation checks, and each has to be read before it is written down.",
   "_the_second_pass": "A STEP THAT READS A FILE A LATER STEP REBUILDS IS ONE MODEL BEHIND WHEN THE SEQUENCE ENDS, AND `--run` TWICE DOES NOT FIX IT (T-1363). The sequence below is a measured order, not a graph — its own `_doc` says so — and this is the edge it cannot express. `reconstruct_residents_1835.py --stage attribute_fill_arrival` DRAWS from data/reconstruction/1835_town_model.json, and model_town_1835.py rebuilds that model from the population the stage itself writes into. So any run that moves the population leaves the arrival draws standing on the model as it was BEFORE the move, and `reconstruct_residents_1835.py --check` goes red on roughly 1,400 cards with 'the committed value does not re-derive from the programme'. Measured on #1495 (T-1172, 2026-09-19) three times over, and reproduced deterministically for T-1363 on 2026-09-21 by moving one weight in arrival_year_of_the_known_layer: one full pass left 1,434 red assertions, and the three commands below cleared every one of them and returned the tree byte-identical to dev. RE-ORDERING CANNOT FIX IT: the model is derived FROM the layer the arrival stage writes into, so moving the stage below the model trades the lag for the opposite lag. A declared second pass can, because it is the cycle walked once more from a settled model, and tools/check.sh is the proof that it settles — model, profile, tiers and residents all --check green afterwards, which is what convergence means here. Entries run AFTER every step, in the order written, and each must name a step above: the second pass re-runs the sequence's own commands and admits no tool the sequence has not already gated and proven. The first entry carries `reads_rebuilt` — the file whose rebuild is the lag — and --check asserts a later step really does resolve it, so an entry cannot claim a lag that is not there. The entries after it carry no `reads_rebuilt` because their reason is different and one step removed: they are the repairs the lagging reader's rewrite makes necessary, so they must follow it. T-1602 ADDED A SECOND LAGGING READER AND PUT IT FIRST: the model reads the scene's people.json and the town census, both rebuilt below it, so it is rebuilt from them before the arrival stage draws from it. Any entry may carry `reads_rebuilt`; --check holds each one to a step below it that really rebuilds the file.",
   "second_pass": [
     {
@@ -1514,7 +1515,23 @@
       ]
     },
     {
-      "why": "The business location spend — evidence reach apart from model seat, with four retentions a gate holds (T-1239). It keys on resident identities, so anything that moves a card moves its counts: it went red on the T-1155 splitter change and had to be rebuilt by hand because it was gated and unlisted.",
+      "why": "One row per home, workplace and business-location claim, resolved as far as its evidence reaches and no further (T-1237). It keys on resident ids, so a change to the identity splitter moves its rows. ADDED 2026-09-18 by tools/audit_manifest_coverage.mjs, the gate that refuses a gated writer the manifest has never heard of. Reproduction measured on a clean dev tree before listing, per `_must_reproduce`: the rebuild changed no committed byte. MOVED UP, 2026-10-04 (T-2080): it sat at step 112, BELOW the two steps that read the file it writes — location_spend.py (107) and report_convergence_coverage.py (108) — so on a merged tree both read the pre-merge rows. Measured on dev at 09ded1d0 with the .gz from before each of the last five merges that moved a seat (#396, #335, #166, #153, #151): location_spend.py refused every one ('business_elmira_fowler: adopted with no seat' after #396; '…: unseated, yet it seats on recon_1835_blk_south_water_franklin_c2_10' after #335), and report_convergence_coverage.py did not refuse at all — it wrote a stale convergence_coverage.json.gz that the gate would then call red with nothing below it to rebuild it. Rebuilt first, the same five trees come back byte-identical to dev. It reads the household cards, the register, the gazetteer, the street-face adoptions and the structure records; the four steps it moved past (convergence, presence rulings, profile, model) write none of those, so it reads exactly what it read before and only its readers see a different file. Its own lags on compile_gazetteer.py and adopt_street_faces.py, both still below it, are unchanged by the move.",
+      "command": [
+        "python3",
+        "tools/location_reconciliation.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/research/location_reconciliation.json.gz",
+        "chicago/4d/docs/RESEARCH/location-reconciliation-2026-09-17.md"
+      ],
+      "verify": [
+        "python3",
+        "tools/location_reconciliation.py",
+        "--check"
+      ]
+    },
+    {
       "command": [
         "python3",
         "tools/location_spend.py",
@@ -1528,10 +1545,13 @@
         "python3",
         "tools/location_spend.py",
         "--check"
-      ]
+      ],
+      "reads": [
+        "chicago/4d/data/research/location_reconciliation.json.gz"
+      ],
+      "why": "The business location spend — evidence reach apart from model seat, with four retentions a gate holds (T-1239). It keys on resident identities, so anything that moves a card moves its counts: it went red on the T-1155 splitter change and had to be rebuilt by hand because it was gated and unlisted."
     },
     {
-      "why": "T-1144 acceptance 7: the per-person convergence coverage table and its report — which roles[] and which home/work/other locations reach 1 July 1835, joined from the roles, the location reconciliation and the business register. A gated writer, so it belongs here: it re-derives whenever any of those three layers moves, and a lap that rebuilt them without rebuilding this join would leave check.sh red with nothing to run.",
       "command": [
         "python3",
         "tools/report_convergence_coverage.py",
@@ -1546,7 +1566,11 @@
         "tools/report_convergence_coverage.py",
         "--check",
         "--quiet"
-      ]
+      ],
+      "reads": [
+        "chicago/4d/data/research/location_reconciliation.json.gz"
+      ],
+      "why": "T-1144 acceptance 7: the per-person convergence coverage table and its report — which roles[] and which home/work/other locations reach 1 July 1835, joined from the roles, the location reconciliation and the business register. A gated writer, so it belongs here: it re-derives whenever any of those three layers moves, and a lap that rebuilt them without rebuilding this join would leave check.sh red with nothing to run."
     },
     {
       "why": "THE PRESENCE RULINGS (T-1386): the 827 people the research left `uncertain` ruled into the town, each at the tier its own dated readings reach. AFTER every writer that can change a card's `present_on_scene_date` or its evidence blocks — the mints, the spends, the carries and the evidence leg — because the ruling is derived from those blocks and from nothing else. BEFORE everything that counts the town: profile_population_1835.py, build_order_book_1835.py and town_census.py all read this file, and the gate screen reads the census. Placed by layer and reasoned from what it reads, like its neighbours; the honest test is the first time a card's evidence moves and this fails to follow, which `--check` turns into a red gate.",
@@ -1595,23 +1619,6 @@
       "verify": [
         "python3",
         "tools/model_town_1835.py",
-        "--check"
-      ]
-    },
-    {
-      "why": "One row per home, workplace and business-location claim, resolved as far as its evidence reaches and no further (T-1237). It keys on resident ids, so a change to the identity splitter moves its rows. ADDED 2026-09-18 by tools/audit_manifest_coverage.mjs, the gate that refuses a gated writer the manifest has never heard of. Reproduction measured on a clean dev tree before listing, per `_must_reproduce`: the rebuild changed no committed byte.",
-      "command": [
-        "python3",
-        "tools/location_reconciliation.py",
-        "--build"
-      ],
-      "resolves": [
-        "chicago/4d/data/research/location_reconciliation.json.gz",
-        "chicago/4d/docs/RESEARCH/location-reconciliation-2026-09-17.md"
-      ],
-      "verify": [
-        "python3",
-        "tools/location_reconciliation.py",
         "--check"
       ]
     },
