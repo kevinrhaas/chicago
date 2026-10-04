@@ -65,16 +65,21 @@
  * `--gate` HOLDS THE CEILING (T-2111): a still-frame time ceiling per tier at
  * the worst stand, beside T-1975's triangle ceilings (`DETAIL` in `main.js`),
  * written down in `tools/still_frame_ceilings.json` with the reading it was set
- * on. A millisecond on a software rasteriser is the machine's and not the
- * scene's, so the gate does not compare milliseconds: it compares the worst
- * frame against a frame with every layer hidden (clear and sky, one call, the
- * whole screen shaded once) timed in the same page — the frame in UNITS OF A
- * BARE SCREEN, which a faster or slower runner moves in step. Both are printed;
- * only the ratio is gated. `.github/workflows/chicago-4d-frame-time.yml` runs it.
+ * on. A millisecond on a software rasteriser is the MACHINE's, so the ceilings
+ * are kept per machine (CPU model and core count, printed on every reading) and
+ * a machine with no ceilings of its own is read and warned about, never failed
+ * on another machine's numbers; `--strict` fails it. The frame is also printed
+ * in BARE SCREENS (over a frame with every layer hidden, timed in the same
+ * page), which was the first design for a machine-free unit and is NOT gated:
+ * the two machines read on 2026-10-04 moved the frame and the bare screen in
+ * opposite directions, so the ratio differed by a quarter where the
+ * milliseconds differed by a tenth. `.github/workflows/chicago-4d-frame-time.yml`
+ * runs the gate.
  */
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import os from 'node:os';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
@@ -453,33 +458,43 @@ for (const pass of passes) {
     }
   }
 }
-// THE CEILING (T-2111). Each tier's frame at the worst stand, in bare screens,
-// against the number written in `still_frame_ceilings.json` for that viewport.
-// A reading the file has no ceiling for is a failure, not a pass: a tier or a
-// viewport added without a number is exactly what a gate exists to notice.
+// THE CEILING (T-2111). Each tier's frame at the worst stand, in milliseconds,
+// against the number written in `still_frame_ceilings.json` for THIS machine and
+// viewport. A machine the file does not know is read and warned about — its
+// milliseconds are not another machine's — and fails only under `--strict`. On
+// a known machine, a tier or viewport with no number is a failure, not a pass.
+const CPU = { model: os.cpus()[0]?.model?.trim() || 'unknown', cores: os.cpus().length };
+console.log(`\nmachine: ${CPU.model}, ${CPU.cores} core(s)`);
 if (GATE) {
+  const machine = CEILINGS.machines.find((m) => m.cpu === CPU.model && m.cores === CPU.cores);
   console.log(`\n================  the still-frame ceiling (${path.basename(CEILINGS_PATH)})  ================`);
-  console.log(`year ${YEAR}, stand ${CEILINGS.stand}; unit: the frame over a bare screen in the same page`);
+  console.log(`year ${YEAR}, stand ${CEILINGS.stand}; ceilings for `
+    + (machine ? `${machine.cpu}, ${machine.cores} cores (${machine.where})` : 'THIS MACHINE: none'));
   for (const pass of passes) {
     const vp = pass.viewport.startsWith('phone') ? 'mobile' : 'desktop';
     for (const row of pass.rows) {
-      const ceiling = CEILINGS.tiers[row.level]?.[vp];
-      const ok = typeof ceiling === 'number' && row.screens <= ceiling;
-      if (!ok) bad++;
-      console.log(`  ${ok ? 'ok  ' : 'FAIL'}  ${vp.padEnd(8)} ${row.level.padEnd(9)} `
-        + `${String(row.screens).padStart(7)} screens  (ceiling ${ceiling ?? 'NONE'})`
-        + `   ${row.frame.toFixed(0)} ms over ${row.bare.frame.toFixed(1)} ms, `
+      const ceiling = machine?.tiers[row.level]?.[vp];
+      const ok = typeof ceiling === 'number' && row.frame <= ceiling;
+      if (machine && !ok) bad++;
+      console.log(`  ${ok ? 'ok  ' : machine ? 'FAIL' : '--  '}  ${vp.padEnd(8)} ${row.level.padEnd(9)} `
+        + `${row.frame.toFixed(0).padStart(7)} ms  (ceiling ${ceiling ?? 'NONE'})`
+        + `   ${row.screens} bare screens of ${row.bare.frame.toFixed(1)} ms, `
         + `${row.triangles.toLocaleString()} triangles`);
     }
   }
+  if (!machine) {
+    console.log(`::warning title=still-frame ceiling::no ceilings for ${CPU.model} (${CPU.cores} cores) `
+      + `in ${path.basename(CEILINGS_PATH)}: read, not held. Add this machine's reading by the file's rule.`);
+    if (process.argv.includes('--strict')) bad++;
+  }
   console.log(bad ? `\nTHE CEILING IS BROKEN: ${bad} reading(s) over or unbudgeted. A parcel that `
     + 'makes every frame slower argues its own number in still_frame_ceilings.json, '
-    + 'with the reading, in the same commit.' : '\nevery tier under its ceiling');
+    + 'with the reading, in the same commit.' : machine ? '\nevery tier under its ceiling' : '');
 }
 if (jsonOut) {
   fs.writeFileSync(jsonOut, `${JSON.stringify({ ticket: GATE || ARRIVAL || JAUNT_STAND.length ? 'T-2111' : 'T-2099',
     tree: wantSource ? 'source' : 'published', year: YEAR, frames: FRAMES, warmup: WARMUP,
-    throttle: THROTTLE, passes }, null, 2)}\n`);
+    throttle: THROTTLE, machine: CPU, passes }, null, 2)}\n`);
   console.log(`\nwritten ${jsonOut}`);
 }
 process.exit(bad ? 1 : 0);
