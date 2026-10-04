@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1445, ts: '2026-10-04T21:19:25.978Z', date: 'Oct 4, 2026, 4:19 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
+      'Two cheaper kinds of glass are ready to try. Either one makes the 1904 landing about twice as fast to draw, on a phone and on a desktop.',
+      'Add &glass=clear or &glass=dark to the address of the 1904 scene to compare them. Clear looks almost the same as today. Dark makes every pane a darker plate.',
+      'The owner will choose which one ships.',
+    ] },
   { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [
       'This note was first published on 19 September as release 971. Twenty-five minutes later a merge dropped it from this list and gave its number to the next release. It is back under a new number, and the list now refuses any change that drops a published note or moves its number.',
