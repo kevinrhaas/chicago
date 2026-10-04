@@ -1546,7 +1546,7 @@ kbd {
 #welcome-picker[hidden] { display: none; }
 #welcome-search { font: inherit; font-size: 16px; padding: 11px; width: 100%; min-height: 44px; color: var(--ink); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; }
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; }
-.welcome-kinds button { padding: 6px 10px; font-size: 12px; }
+.welcome-kinds button { padding: 6px 10px; font-size: 12px; min-width: 44px; flex: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 55px; max-height: 240px; flex: 1; }
 .welcome-destination { width: 100%; text-align: left; padding: 10px; margin-bottom: 5px; }
@@ -1554,6 +1554,11 @@ kbd {
 .welcome-destination:disabled { opacity: .6; cursor: default; }
 #welcome-message { font-size: 13px; margin: 0; }
 #welcome-message:empty { display: none; }
+/* T-2046: held sideways the picker's search, kinds and first result need more height than
+   the card has; the welcome keeps its natural height and the card scrolls, instead of the
+   picker spilling out of its box under 'Tap to enter Chicago'. */
+.gate[data-region="explore"] #welcome { flex-shrink: 0; }
+#welcome-jaunts-region:focus { outline: none; }
 .gate[data-region="explore"] .welcome-intro { display: none; }
 .gate[data-region="explore"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
 .gate[data-region="explore"] .welcome-action { padding: 8px; }
@@ -1571,6 +1576,15 @@ kbd {
   .gate.welcome-compact[data-region="explore"] h1,
   .gate.welcome-compact[data-region="explore"] .welcome-actions { display: none; }
   .gate.welcome-compact[data-region="explore"] .welcome-region { margin-top: 0; }
+  /* T-2046: the Jaunts region's compact form lives beside the picker's, not in the
+     lazily loaded jaunt.css — loaded late, it hid the button just pressed a beat after
+     the press, the welcome jumped, and focus fell to the page. */
+  .gate.welcome-compact[data-region="jaunts"] .gate-eyebrow,
+  .gate.welcome-compact[data-region="jaunts"] h1,
+  .gate.welcome-compact[data-region="jaunts"] .welcome-actions { display: none; }
+  .gate.welcome-compact[data-region="jaunts"] .welcome-region { margin-top: 0; }
+/* First entry must not shrink the menu on return and hide its restored focus. */
+.gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }
 
 .gate[data-state="welcome"] #gate-build { display: none; }
 .gate[data-state="welcome"] #gate-title:focus { outline: none; }

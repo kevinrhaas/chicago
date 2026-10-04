@@ -49,7 +49,12 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     $('welcome-explore').setAttribute('aria-expanded', String(explore));
     $('welcome-jaunts').setAttribute('aria-expanded', String(!explore));
     if (explore) { onExplore(); render(); search.focus(); }
-    else onJaunts();
+    else {
+      onJaunts();
+      // T-2046: held sideways the compact welcome hides the button that was just
+      // pressed, so focus would fall to the page; give it to the region it opened.
+      if (!$('welcome-jaunts').getClientRects().length) { jaunts.tabIndex = -1; jaunts.focus({ preventScroll: true }); }
+    }
   }
   function show({ focus = true } = {}) {
     pause(); state = 'welcome'; gate.hidden = false; gate.dataset.state = state;

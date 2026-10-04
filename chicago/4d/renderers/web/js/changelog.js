@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1393, ts: '2026-10-04T02:04:09.643Z', date: 'Oct 3, 2026, 9:04 PM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+    items: [
+      'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
+      'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
+      'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
+      'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
+      'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
   { v: 1392, ts: '2026-10-04T00:09:05.510Z', date: 'Oct 3, 2026, 7:09 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
     items: [
       'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
