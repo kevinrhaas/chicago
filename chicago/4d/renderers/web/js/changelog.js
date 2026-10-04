@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1406, ts: '2026-10-04T07:06:15.901Z', date: 'Oct 4, 2026, 2:06 AM CT', title: 'The 1835 town can now be packed as one checked download', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. This is groundwork for running the town outside the browser, starting with the Unreal version.',
+      'One command now packs a version of the 1835 town into a single file: every building and its records, the ground and the water.',
+      'Every file in the package is fingerprinted. A copy with one changed byte, a missing file or an extra file is refused.',
+      'Packing the same version twice gives an identical file. The streets, trees, fences and other things drawn as the page loads are listed as not yet included.',
+    ] },
   { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
       'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',

@@ -59,6 +59,8 @@ are copied here. Source asset licenses remain authoritative.
    referenced textures, runtime-safe provenance, license inventory, and checksums. This
    is what the existing Blender bake can publish without Unreal. Preserve master assets
    independently of web-optimized derivatives; compatibility decides which Unreal consumes.
+   **Contract and packer exist since 2026-10-04 (T-2067):** [SCENE-BUNDLE.md](SCENE-BUNDLE.md),
+   `tools/scene_bundle.py`. Publishing from the scheduled bake is T-2068.
 2. **Unreal project/import:** pinned engine/plugin configuration, importer, materials,
    playable map and pawn, collision/navigation decisions, incremental update behavior.
    Generated Unreal caches and local absolute paths are not the portable source.
