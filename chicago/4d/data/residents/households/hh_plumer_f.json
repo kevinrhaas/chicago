@@ -29,7 +29,7 @@
   "sources": [
    "chicago_democrat_1833_1835"
   ],
-  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 January 1834 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1834-03-04, 62 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1834-01-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
+  "note": "A BOUND FROM THE RETURN, NOT AN ARRIVAL. The office's list of letters uncalled-for is a RETURN — its statement of what was still unclaimed on ONE day — and the paper reprinted one return over as many consecutive issues as it took, so the bound is dated by the return of 1 January 1834 and not by the issue it was read in (T-0425). The earliest issue this project reads the name in is 1834-01-28, 27 days later; that gap is an accident of which impression an extraction pass reached, and it is not evidence. Somebody was writing to this name at Chicago by 1834-01-01 and at no stated time before it; nothing says when they came. The date lines the printings set, and how they were weighed, stand beside this rule in tools/mint_letter_list_residents.py.",
   "precision": "not_later_than"
  },
  "arrival_year": {
@@ -120,12 +120,12 @@
  "persons": [
   {
    "id": "plumer_f",
-   "name": "F. Plumer",
+   "name": "S. F. Plumer",
    "relationship": "head",
    "grade": "inferred",
    "letter_list_only": true,
    "letter_list_returns": [
-    "1834-03-04"
+    "1834-01-28"
    ],
    "occupation": {
     "value": "none_recorded",

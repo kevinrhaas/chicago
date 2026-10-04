@@ -35,12 +35,6 @@
    "reader": "T-2072"
   },
   {
-   "id": "hh_crissy_william",
-   "class": "gained",
-   "name": "William Crissy",
-   "reader": "T-2072"
-  },
-  {
    "id": "hh_dickinson_alexander",
    "class": "gained",
    "name": "Alexander Dickinson",
@@ -263,138 +257,6 @@
    "reader": "T-2072"
   },
   {
-   "id": "hh_adains_will_si",
-   "class": "lost",
-   "name": "Willisi Adains",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_bandle_will_nm",
-   "class": "lost",
-   "name": "Willinm Bandle",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_crisey_william",
-   "class": "lost",
-   "name": "William Crisey",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_pease_h",
-   "class": "lost",
-   "name": "H. Pease",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_plumer_f",
-   "class": "lost",
-   "name": "F. Plumer",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_swena_benjam_n",
-   "class": "lost",
-   "name": "Benjamin Jr. Swena",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_toby_samuel",
-   "class": "lost",
-   "name": "Samuel E. Toby",
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_adains_willisi",
-   "class": "re-minted",
-   "name": "Willisi Adains",
-   "already_in_the_layer_as": [
-    "hh_adains_will_si"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_bandle_willinm",
-   "class": "re-minted",
-   "name": "Willinm Bandle",
-   "already_in_the_layer_as": [
-    "hh_bandle_will_nm"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_frazer_wm_h",
-   "class": "re-minted",
-   "name": "Wm. H. Frazer",
-   "already_in_the_layer_as": [
-    "hh_fraser_wm_h"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_pease_c_h",
-   "class": "re-minted",
-   "name": "C. H. Pease",
-   "already_in_the_layer_as": [
-    "hh_pease_h"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_plumer_s_f",
-   "class": "re-minted",
-   "name": "S. F. Plumer",
-   "already_in_the_layer_as": [
-    "hh_plumer_f"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_pruvis_joshua",
-   "class": "re-minted",
-   "name": "Joshua Pruvis",
-   "already_in_the_layer_as": [
-    "hh_provis_joshua"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_salmon_rutherford_3",
-   "class": "re-minted",
-   "name": "Rutherford [?] Salmon",
-   "already_in_the_layer_as": [
-    "hh_rutherford_salmon"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_swena_benjamin",
-   "class": "re-minted",
-   "name": "Benjamin Jr. Swena",
-   "already_in_the_layer_as": [
-    "hh_swena_benjam_n"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_toby_samuel_e",
-   "class": "re-minted",
-   "name": "Samuel E. Toby",
-   "already_in_the_layer_as": [
-    "hh_toby_samuel"
-   ],
-   "reader": "T-2071"
-  },
-  {
-   "id": "hh_vandine_john",
-   "class": "re-minted",
-   "name": "John Vandine",
-   "already_in_the_layer_as": [
-    "hh_vandino_john"
-   ],
-   "reader": "T-2071"
-  },
-  {
    "id": "hh_abbott_constant",
    "class": "rewritten",
    "keys": [
@@ -507,15 +369,6 @@
    "reader": "T-2073"
   },
   {
-   "id": "hh_fraser_wm_h",
-   "class": "rewritten",
-   "keys": [
-    "name",
-    "persons[].name"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_heere_anthony",
    "class": "rewritten",
    "keys": [
@@ -573,15 +426,6 @@
    "reader": "T-2073"
   },
   {
-   "id": "hh_provis_joshua",
-   "class": "rewritten",
-   "keys": [
-    "name",
-    "persons[].name"
-   ],
-   "reader": "T-2073"
-  },
-  {
    "id": "hh_simons_e",
    "class": "rewritten",
    "keys": [
@@ -604,15 +448,6 @@
    "class": "rewritten",
    "keys": [
     "present_on_scene_date.note"
-   ],
-   "reader": "T-2073"
-  },
-  {
-   "id": "hh_vandino_john",
-   "class": "rewritten",
-   "keys": [
-    "name",
-    "persons[].name"
    ],
    "reader": "T-2073"
   },

@@ -1094,7 +1094,8 @@ def collision_block(collision: dict, fam: str) -> dict:
     }
 
 
-def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
+def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
+           standing: tuple[str, str] | None = None) -> dict:
     name = display(cand["name"])
     fam = surname(cand["name"]).title()
     sources = paper_for(gaz["mentions"])
@@ -1106,8 +1107,13 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
     titles = titles_in(cand["name"])
 
     legacy_id = PREFIX + slug(cand["name"])
-    hid = household_id(cand["name"], PREFIX, "letter_list", docs, taken_ids)
-    pid = (PERSON_PREFIX + slug(cand["name"])) if hid == legacy_id else hid.removeprefix("hh_")
+    if standing:
+        # T-2071. The candidate IS a person a committed card of this pass holds: the
+        # card keeps its handle whatever the name splitter now makes of the letters.
+        hid, pid = standing
+    else:
+        hid = household_id(cand["name"], PREFIX, "letter_list", docs, taken_ids)
+        pid = (PERSON_PREFIX + slug(cand["name"])) if hid == legacy_id else hid.removeprefix("hh_")
     span = (f"{cand['first_seen']} to {cand['last_seen']}"
             if cand["first_seen"] != cand["last_seen"] else cand["first_seen"])
 
@@ -1259,6 +1265,101 @@ def carry_over(doc: dict, existing: dict) -> dict:
     return carry_resident_mint(doc, existing, owned_person_keys=("sex",))
 
 
+# T-2071. FOUR LINES OF THE 1 JANUARY 1834 RETURN THAT THE REGISTER RE-READ AND LOST HOLD
+# OF. Each was minted as a card from a transcription; the page image (T-0424, tied line by
+# line by T-1010's concordance) then read the same printed line more fully, and the
+# register, matching on the new letters, took the better reading for a NEW person instead
+# of an `enrich` of the standing one. A re-reading is not a second resident, so the
+# candidate is minted onto the standing card and the card takes the better letters; the
+# handle stays, under T-1139's rule N5 — an id is a handle, not a claim — and because the
+# identity master, the research passes and the sidecars all know the person by it.
+# register person -> (standing person id, the reading that ties them)
+READ_ONTO: dict[str, tuple[str, str]] = {
+    "person_c_h_pease": ("pease_h",
+        "concordance line 121: the 4 March 1834 impression, column 27, which hh_pease_h "
+        "was minted from as `H. Pease`; the page image sets `C. H. Pease`"),
+    "person_s_f_plumer": ("plumer_f",
+        "concordance line 119: the same line in the 28 January (`8. F. Plumer`) and 4 March "
+        "(`Plumer`, column 27, where hh_plumer_f read `F. Plumer`) impressions"),
+    "person_william_crissy": ("crisey_william",
+        "concordance line 42: the 28 January impression's line hh_crisey_william was minted "
+        "from, tied by the image to the 4 March impression's `Willism Crisey`"),
+    "person_salmon_rutherford_3": ("rutherford_salmon",
+        "concordance line 126 resolves it to person_salmon_rutherford: the 4 March "
+        "impression's `on Rutherford 3` is the cut head of the same line, not a third man"),
+}
+
+
+def standing_person(cand: dict, held: dict[str, pathlib.Path]) -> str | None:
+    """The person id on a committed card of this pass that this candidate IS, if any.
+
+    The register says so itself for most of them — an `enrich` aimed at the card's
+    person — and READ_ONTO says it for the four lines it re-read and lost hold of."""
+    target = (cand.get("action_target") if cand.get("action") == "enrich"
+              else (READ_ONTO.get(cand["id"]) or (None,))[0])
+    return target if target in held else None
+
+
+def onto_standing(accepted: list, docs: dict) -> list:
+    """T-2071: (cand, gaz, standing) per household, folding the candidates that are one card.
+
+    `standing` is (household id, person id) for a candidate that IS a person a committed
+    card of this pass holds, else None and record() derives the id from the name. Two
+    candidates that reach one card are one person read twice — T-1133 folded each such
+    pair under card_merge_rulings.json, and the register aims both at the survivor — so
+    their printings are read together: the first-ranked candidate leads, the mentions are
+    the union, and the displayed name is the one T-1139's ruling file gives the card."""
+    held = {person["id"]: path
+            for path, doc in docs.items() if minted_by(path, doc, "letter_list", PREFIX)
+            for person in (doc.get("persons") or []) if person.get("id")}
+    for reg_id, (pid, _why) in READ_ONTO.items():
+        if pid not in held:
+            raise SystemExit(f"READ_ONTO {reg_id} -> {pid}: no committed letter-list card "
+                             f"holds {pid}; the reading is stale, re-read it")
+    renamed = ruled_renamings()
+    out: list = []
+    groups: dict[str, list] = {}
+    for cand, gaz in accepted:
+        pid = standing_person(cand, held)
+        if pid is None:
+            out.append((cand, gaz, None))
+        elif pid not in groups:
+            groups[pid] = [(cand, gaz)]
+            out.append(pid)
+        else:
+            groups[pid].append((cand, gaz))
+    for i, pid in enumerate(out):
+        if not isinstance(pid, str):
+            continue
+        group = groups[pid]
+        # The card's own reading leads where a candidate still reads it so: a fold adds
+        # printings to a card, and the cut head of a line (`on Rutherford 3`) must not
+        # rename the man its whole line names. Otherwise the first-ranked leads.
+        shown = (docs[held[pid]].get("persons") or [{}])[0].get("name")
+        lead_cand, lead_gaz = next((cg for cg in group if display(cg[0]["name"]) == shown),
+                                   group[0])
+        cand, gaz = dict(lead_cand), dict(lead_gaz)
+        for other, other_gaz in group:
+            if other is lead_cand:
+                continue
+            cand["first_seen"] = min(cand["first_seen"], other["first_seen"])
+            cand["last_seen"] = max(cand["last_seen"], other["last_seen"])
+            gaz["mentions"] = sorted(set(gaz["mentions"]) | set(other_gaz["mentions"]))
+            gaz["variants"] = (list(gaz.get("variants") or [])
+                               + list(other_gaz.get("variants") or []))
+        if pid in renamed:
+            cand["name"] = renamed[pid]["card"]["displayed_name_is"]
+        elif not id_family_name(pid, display(cand["name"])):
+            # A re-reading may give a standing card fuller letters (`H. Pease` is
+            # `C. H. Pease`); it may not respell the surname its handle was minted off.
+            # That is an adjudication, and T-1218 gives it to the ruling file alone:
+            # line 42's image sets `Crissy` where hh_crisey_william's impression set
+            # `Crisey`, and until a ruling awards one the card keeps the one it wears.
+            cand["name"] = shown
+        out[i] = (cand, gaz, (held[pid].stem, pid))
+    return out
+
+
 def build(preload: dict | None = None):
     docs = ({p: json.loads(t) for p, t in preload.items() if p != INDEX}
             if preload is not None
@@ -1271,8 +1372,8 @@ def build(preload: dict | None = None):
 
     files = {}
     seen: set[str] = set()
-    for cand, gaz in accepted:
-        doc = record(cand, gaz, docs, seen)
+    for cand, gaz, standing in onto_standing(accepted, docs):
+        doc = record(cand, gaz, docs, seen, standing)
         existing = docs.get(HOUSEHOLDS / f"{doc['id']}.json") or {}
         carry_over(doc, existing)
         if doc["id"] in seen:
@@ -2012,6 +2113,8 @@ def return_bound_self_test() -> int:
 
 def self_test() -> int:
     """Break each invariant on a copy of the tree and require the gate to name it."""
+    if standing_self_test():
+        return 1
     if ownership_self_test():
         return 1
     if name_reading_self_test():
@@ -2496,6 +2599,68 @@ def ownership_self_test() -> int:
         print(f"   {failed} of the mint-owned comparison's cases misbehave")
         return 1
     print(f"   OK: all {len(cases)} of the mint-owned comparison's cases behave")
+    return 0
+
+
+def standing_self_test() -> int:
+    """T-2071: a candidate that IS a standing card's person keeps the card, and no more."""
+    def card(hid, pid, name):
+        return HOUSEHOLDS / f"{hid}.json", {"id": hid, "source_pass": "letter_list",
+                                            "persons": [{"id": pid, "name": name}]}
+    docs = dict([card("hh_adains_will_si", "adains_will_si", "Willisi Adains"),
+                 card("hh_fraser_wm_h", "fraser_wm_h", "Wm. H. Frazer"),
+                 card("hh_pease_h", "pease_h", "H. Pease"),
+                 card("hh_plumer_f", "plumer_f", "F. Plumer"),
+                 card("hh_crisey_william", "crisey_william", "William Crisey"),
+                 card("hh_rutherford_salmon", "rutherford_salmon", "Salmon Rutherford")])
+
+    def cand(rid, name, seen, claim, target=None):
+        return ({"id": rid, "name": name, "first_seen": seen, "last_seen": seen,
+                 "action": "enrich" if target else "new_resident", "action_target": target},
+                {"mentions": [claim], "variants": []})
+    jan, mar = "chicago_democrat_1834_01_28#c001", "chicago_democrat_1834_03_04#c027"
+    accepted = [cand("person_wm_h_frazer", "Wm. H. Frazer", "1834-03-04", mar, "fraser_wm_h"),
+                cand("person_salmon_rutherford_3", "Salmon Rutherford 3", "1834-03-04", mar),
+                cand("person_c_h_pease", "C. H. Pease", "1834-03-04", mar),
+                cand("person_william_crissy", "William Crissy", "1834-01-28", jan),
+                cand("person_adains_willisi", "Adains, Willisi", "1835-07-01",
+                     "chicago_democrat_1835_07_01#c002", "adains_will_si"),
+                cand("person_wm_h_fraser", "Wm. H. Fraser", "1834-01-28", jan, "fraser_wm_h"),
+                cand("person_salmon_rutherford", "Salmon Rutherford", "1834-01-28", jan,
+                     "rutherford_salmon"),
+                cand("person_nobody_held", "Nobody Held", "1834-01-28", jan)]
+    out = {pin[0] if pin else c["id"]: (c, g) for c, g, pin in onto_standing(accepted, docs)}
+    failed = []
+
+    def expect(label, ok):
+        print(f"   {'held' if ok else 'BROKEN'}: {label}")
+        if not ok:
+            failed.append(label)
+    expect("an enrich of a standing person keeps the card's handle",
+           "hh_adains_will_si" in out and "person_adains_willisi" not in out)
+    expect("two readings of one line fold onto one card, with both printings",
+           sorted(out["hh_fraser_wm_h"][1]["mentions"]) == [jan, mar]
+           and out["hh_fraser_wm_h"][0]["last_seen"] == "1834-03-04")
+    expect("a fold wears the name the ruling file awards the card",
+           out["hh_fraser_wm_h"][0]["name"] == "Wm. H. Frazer")
+    expect("a cut head of a line does not rename the man its line names",
+           out["hh_rutherford_salmon"][0]["name"] == "Salmon Rutherford")
+    expect("a re-reading gives a standing card fuller letters",
+           out["hh_pease_h"][0]["name"] == "C. H. Pease")
+    expect("a re-reading does not respell a handle's surname without a ruling",
+           out["hh_crisey_william"][0]["name"] == "William Crisey")
+    expect("a candidate nothing ties to a card still mints from its name",
+           "person_nobody_held" in out and len(out) == 6)
+    del docs[HOUSEHOLDS / "hh_plumer_f.json"]
+    try:
+        onto_standing(accepted, docs)
+        expect("a READ_ONTO row whose card is gone stops the mint", False)
+    except SystemExit:
+        expect("a READ_ONTO row whose card is gone stops the mint", True)
+    if failed:
+        print(f"   {len(failed)} of the standing-card cases misbehave")
+        return 1
+    print("   OK: all 8 standing-card cases behave")
     return 0
 
 

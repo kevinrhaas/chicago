@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Ten people from the letter lists keep their records instead of being filed twice', kind: 'change',
+    items: [
+      'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
+      'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
+      'Two names read better from the page image: H. Pease is C. H. Pease, and F. Plumer is S. F. Plumer, who now appears from the January 1834 printing of the list rather than the March one.',
+      'Where two printings of one list spell a name differently, the record lists both printings. William Crisey keeps that spelling for now, because the page image reads Crissy and choosing between them needs a written ruling.',
+    ] },
   { v: 1412, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
     items: [
       'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
