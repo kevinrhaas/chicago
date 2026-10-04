@@ -323,6 +323,10 @@ def placed_structures():
             pos = phase.get("position") or {}
             if pos.get("utm_e") is None:
                 continue
+            # T-2050: a phase gone before the 1835 ground existed (the first fort,
+            # burned 1812, seated only in the 1812 scene) stands on no 1835 tract.
+            if (phase.get("documented_range") or {}).get("to", "9999") < "1833-07-01":
+                continue
             out.append((record["id"], path, record,
                         (pos["utm_e"] - datum["origin_utm_e"],
                          pos["utm_n"] - datum["origin_utm_n"])))
