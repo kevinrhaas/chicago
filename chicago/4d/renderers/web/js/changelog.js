@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1422, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
@@ -7,57 +7,73 @@ export const CHANGELOG = [ // newest first
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
     ] },
-  { v: 1421, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1420, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1419, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1418, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1417, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1416, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1415, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1414, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1413, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1412, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
-  { v: 1411, ts: '2026-10-04T08:33:42.543Z', date: 'Oct 4, 2026, 3:33 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1412, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
+      'The pass that adds them was not checked at all, because later passes rightly rewrite parts of the same records. It is now checked on the parts that are its own.',
+      'What it would still change is listed person by person for reading: 43 people it would add, 7 it would drop, 10 it would file under a new name and 27 records whose dates or names moved.',
+    ] },
+  { v: 1411, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
