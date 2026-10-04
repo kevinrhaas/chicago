@@ -565,6 +565,25 @@ export async function createWorkingBank({
   mat.polygonOffset = true;
   mat.polygonOffsetFactor = -2;
   mat.polygonOffsetUnits = -2;
+  /**
+   * A DECAL PAINTS THE GROUND; IT DOES NOT HIDE WHAT STANDS ON IT. Drawn
+   * opaque, this layer wrote its offset depth, and `polygonOffsetFactor` grows
+   * with the polygon's depth slope, which at the grazing angle a bank is seen
+   * at is enormous. So beyond ~30 m from a walking eye the biased bank stood
+   * in front of the river walk's boards (0.11 m up), the timber lost the depth
+   * test, and the walk ended short of its real end and grew back toward the
+   * visitor as they approached it (T-2098, the owner, 2026-10-04).
+   *
+   * The street ribbon and the yards are decals drawn this way already, and
+   * the timber's own comment (frontage.js, T-0625) is why ordering rather than
+   * a counter-bias is the repair: the bank joins the transparent list FIRST,
+   * tests against the terrain with the same offset it always had, and writes
+   * no depth, so the ribbon (renderOrder 0) still lies over it and the timber
+   * (renderOrder 1) tests against the ground alone. Alpha stays 1; nothing
+   * blends. Free: no geometry, pass or program changes.
+   */
+  mat.transparent = true;
+  mat.depthWrite = false;
   mat.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, {
       uGround: { value: prairie },
@@ -596,6 +615,7 @@ export async function createWorkingBank({
 
   const mesh = new THREE.Mesh(geo, mat);
   mesh.name = 'working_bank';
+  mesh.renderOrder = -1;            // under the ribbon and the timber (above)
   mesh.receiveShadow = true;
   mesh.castShadow = false;
   group.add(mesh);
