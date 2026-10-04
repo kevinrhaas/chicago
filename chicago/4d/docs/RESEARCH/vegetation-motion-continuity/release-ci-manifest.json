@@ -146,5 +146,18 @@
       "noJavaScript": true,
       "source": "release-appearance.log"
     }
-  ]
+  ],
+  "finalIntegration": {
+    "dev": "a7bea86d5495542f360c05dfd3fbd3bffb3259f4",
+    "version": 1389,
+    "changes": "Fort Dearborn source/register and appended release notes; no scene geometry or renderer logic",
+    "focusedCheck": "final-source-integration.json",
+    "viewports": [
+      "desktop",
+      "mobile"
+    ],
+    "result": "pass",
+    "preflightSteps": 762,
+    "selfTests": 314
+  }
 }

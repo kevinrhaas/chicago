@@ -321,6 +321,14 @@ step "the 1812 pre-cut shore still re-derives from its readings (T-1242)" \
 step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T-1286)" \
   python3 tools/measure_shore_1812_harrison.py --check
 
+# T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
+# register the first fort will be built from (T-2049). The raster is not committed, so
+# this holds what can be held without it: the scale is the 75 ft staff's arithmetic,
+# every foot in the file is what its pixel box gives, and all 34 of the drafter's index
+# numbers are accounted for. `--remeasure` re-finds the staff on the fetched sheet.
+step "the Whistler 1808 reading of the first fort still adds up (T-2048)" \
+  python3 tools/read_whistler_1808.py --check
+
 # T-1249. A scene date is a claim about WHEN this reconstruction stands, and until
 # now the 1880s one was the only claim in the terrain layer that nothing derived and
 # nothing checked: the step above carried a bare `date(1885, 7, 1)` that T-1152 wrote

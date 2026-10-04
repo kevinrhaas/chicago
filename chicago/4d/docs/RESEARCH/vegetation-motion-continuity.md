@@ -249,3 +249,25 @@ The six-stand geometry costs, 42 motion combinations with the final Light repeat
 exact tuft attribute/triangle proof, 144 plank image pairs and two reach controls
 are complete. The final post-evidence preflight and GitHub gate are the remaining
 merge steps. This parcel targets the dev preview only.
+
+
+## Last source-only dev addition, 23:01 UTC
+
+Checkpoint eight (`c06a29d2`) preserves the complete release evidence and another
+761-step preflight pass. Dev `a7bea86d` subsequently adds Whistler's 1808 Fort
+Dearborn source/register and a reader gate. It changes no scene geometry or
+renderer logic; the only renderer file is its appended release note. Both STATUS
+sections are preserved and the release is restamped. The complete browser suite
+is carried forward with its original commit provenance; the added source and
+new release-notes DOM receive a focused desktop/mobile check, and the expanded
+source preflight is rerun. This is a bounded integration check, not a claim that
+the earlier full sweep used this source-only tree.
+
+The final focused check passes at 1280×800 and 390×780/DPR 2: all 1,389
+release entries render, only the new entry is flagged for a v1388 return, its
+stamp and seen marker agree, and the new source is present in the published
+index and sidecar with its recorded tier. No page errors. The first draft of
+this diagnostic used the wrong source URL; the passing probe uses the same
+`sidecars/1835/sources/` route as `mountSources`. The expanded preflight passes
+all 762 steps, including 314 self-tests. The final receipt is
+`vegetation-motion-continuity/final-source-integration.json`.
