@@ -32,6 +32,10 @@
     {
       "id": "town_woodpiles",
       "file": "town_woodpiles.json"
+    },
+    {
+      "id": "town_kept_ground",
+      "file": "town_kept_ground.json"
     }
   ]
 }

@@ -658,6 +658,13 @@
       "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
       "placed": "not yet ordered (T-1959): it reads data/enclosures/town_dooryard_pickets.json, data/flora/plantings/*.json and data/yard/*.json, so its slot is after generate_dooryard_pickets, generate_dooryard_plantings and generate_yard_goods; the manifest's own ordering pass places it"
     },
+    "generate_kept_ground.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-04 \u2014 directly after tools/generate_yard_outbuildings.py, whose outbuildings it reads; see the manifest step"
+    },
     "generate_yard_goods.py": {
       "placement": "manifest",
       "write_mode": "(bare)",

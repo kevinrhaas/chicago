@@ -1434,6 +1434,11 @@ step "nothing placed in the town stands in a doorway (T-1984)" \
 # lot survey the fences read and the house's own class and age — a rule, so re-derived here.
 step "the yard outbuildings re-derive from the rule that dealt them by household" \
   python3 tools/generate_yard_outbuildings.py --check
+# The kept ground (T-2086) reads those outbuildings: per improved lot, the kept ring where the
+# forb layer stands back, the refuges at the foot of each outbuilding and the worn paths to
+# them — which ground is kept is a rule, so it is re-derived here.
+step "the kept yards, their refuges and their worn paths re-derive from the lot survey (T-2086)" \
+  python3 tools/generate_kept_ground.py --check
 
 # And the OTHER HALF of that ordinance, which the goods record refused in writing:
 # timber, stone and brick are building material on a lot that is going up, not a
