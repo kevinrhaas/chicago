@@ -1,0 +1,158 @@
+{
+  "viewport": "desktop",
+  "levels": [
+    "full"
+  ],
+  "stands": [
+    {
+      "id": "alley_randolph_wells",
+      "label": "in the alley of the Randolph-Wells block, looking east",
+      "pose": {
+        "local_e": 352,
+        "local_n": -323.2,
+        "yaw_deg": 90,
+        "pitch_deg": -8
+      }
+    },
+    {
+      "id": "alley_mouth_wells",
+      "label": "on Wells Street at the alley's mouth, looking east into it",
+      "pose": {
+        "local_e": 327,
+        "local_n": -322.5,
+        "yaw_deg": 92,
+        "pitch_deg": -7
+      }
+    },
+    {
+      "id": "alley_lake_wells",
+      "label": "in the alley behind the Lake Street row, Wells to LaSalle, looking east",
+      "pose": {
+        "local_e": 350,
+        "local_n": -184.2,
+        "yaw_deg": 90,
+        "pitch_deg": -8
+      }
+    }
+  ],
+  "after": {
+    "root": "/home/runner/work/polecat-platform/polecat-platform/chicago-repo/site/4d",
+    "errors": [],
+    "rows": [
+      {
+        "level": "full",
+        "stand": "alley_randolph_wells",
+        "triangles": 1699453,
+        "calls": 236,
+        "floraTriangles": 22317,
+        "floraCalls": 8,
+        "floraSets": {
+          "flora-near": 218,
+          "flora-mid": 0,
+          "flora-forb": 8,
+          "flora-rosette": 13,
+          "flora-shrub": 1,
+          "flora-far": 14,
+          "flora-shrub-far": 27,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 325,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 55,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 6537.59999999986,
+        "heapMB": 690.5936851501465
+      },
+      {
+        "level": "full",
+        "stand": "alley_mouth_wells",
+        "triangles": 1684540,
+        "calls": 241,
+        "floraTriangles": 4470,
+        "floraCalls": 8,
+        "floraSets": {
+          "flora-near": 17,
+          "flora-mid": 0,
+          "flora-forb": 1,
+          "flora-rosette": 2,
+          "flora-shrub": 2,
+          "flora-far": 4,
+          "flora-shrub-far": 31,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 19,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 20,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 7082.09999999986,
+        "heapMB": 690.8870134353638
+      },
+      {
+        "level": "full",
+        "stand": "alley_lake_wells",
+        "triangles": 1849573,
+        "calls": 248,
+        "floraTriangles": 18246,
+        "floraCalls": 7,
+        "floraSets": {
+          "flora-near": 158,
+          "flora-mid": 0,
+          "flora-forb": 8,
+          "flora-rosette": 7,
+          "flora-shrub": 4,
+          "flora-far": 0,
+          "flora-shrub-far": 38,
+          "flora-near-carry": 0,
+          "flora-mid-carry": 0,
+          "flora-head-spike": 186,
+          "flora-head-spire": 0,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 57,
+          "flora-head-dome": 0,
+          "flora-head-corymb": 0,
+          "flora-head-compound": 0
+        },
+        "turf": {
+          "zones": [
+            "z10_settled_town"
+          ],
+          "painted": true,
+          "cellM": 8.46031746031746,
+          "texels": 24107
+        },
+        "frameMs": 6110.100000000093,
+        "heapMB": 691.0421648025513
+      }
+    ]
+  }
+}

@@ -21025,3 +21025,31 @@ settled-town planting until the other half of T-2086 decides what a grazed remna
 lot that shows where its ground was bare, cropped or weedy would replace the strip, corner and
 refuge widths, and a plan placing a house's privy path would replace the straight line.
 **Recorded:** 2026-10-04 (T-2086).
+
+### L377 — The town's block alleys are drawn as worn lanes where something stands on the block
+**Decision:** on every block where the plat model cuts a mid-block alley
+(`data/traces/vectors/thompson_lots.json` `alley_local_enu_m`) and at least one structure stands
+on the scene date, the walkthrough lays a band of the road's own dirt 2.4 m wide down the strip's
+centreline (narrower where the strip is, so 0.6 m of turf is always left at each edge), its edges
+wandering 0.22 m over 9 m, and carries it at each end across the street corridor to the cross
+street's travelled track and 0.4 m onto it, widening 1.2 m each side over the last 4 m. Where the
+cross street has no track it stops 1.5 m past the block edge. No plant grows on the band. 29
+alleys, 3.3 km of lane (`tools/generate_alley_lanes.py`, `data/enclosures/town_alley_lanes.json`,
+drawn by `yards.js` as `road_earth`).
+**Why:** the owner, 2026-10-04 (T-2087, piece T-2095): the alleys still read as ground nobody
+used. The yard outbuildings have stood "off the alley" behind the built lots since T-1960, and
+nothing on the ground said where the alley was.
+**What is recorded and what is not:** the strip is the plat model's, and the model is itself
+`reconstructed` on which blocks were alleyed and where the alley ran (`module.alley_note`). The
+fact of wear, the band's width (a cart's 5 ft gauge and a horse between the shafts, with a hand
+either side), the wobble and the mouth are all ours. Seven alleyed blocks with nothing standing
+on them stay turf, and are named in the record's `left_in_turf`. No alley is added where the plat
+model draws none (Wabansia, the unlotted blocks of Kinzie's Addition).
+**Consequence:** a lane stops where a committed footprint stands across it, and the record lists
+each stop under `cut_by_structures`: fifteen, ten of them reconstructed houses on the Lake
+Street blocks from Franklin to State whose backs stand in the plat's alley strip. Those are cuts in the lane, not
+corrections to the houses.
+**How to resolve:** a source that says which 1835 blocks were alleyed, or describes one, replaces
+the plat model's strip; a reading of the Lake Street houses' seating that moves them out of the
+strip lets those lanes run through.
+**Recorded:** 2026-10-04 (T-2095).
