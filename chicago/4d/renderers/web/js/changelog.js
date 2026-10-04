@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
+    items: [
+      'Walk into a house yard and the middle of it is now short, cropped ground: the tall lamb\'s-quarters, ragweed, dock and vervain no longer stand in the open where people and animals walked every day.',
+      'The weeds and flowers are still in town, gathered where scythe, hoof and foot did not reach: a strip along every lot line, the lot\'s back corners and the foot of each privy and stable.',
+      'A worn earth path now runs from each house\'s back wall to its privy, stable or shed, 239 of them across 183 lots.',
+      'Empty lots are unchanged for now. Where the ground is kept and where the paths run is a reconstruction (Liberty L376).',
+    ] },
   { v: 1437, ts: '2026-10-04T17:29:51.479Z', date: 'Oct 4, 2026, 12:29 PM CT', title: '37 more people from the post office\u2019s letter lists join the town', kind: 'change',
     items: [
       'Open People: 37 more names appear, each from an 1834 or July 1835 list of letters waiting uncalled-for at the Chicago post office. Like the other letter-list people, each card claims a name and nothing more: no trade, street or house.',
