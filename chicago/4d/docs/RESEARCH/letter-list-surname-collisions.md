@@ -27,11 +27,11 @@ rows they were, read now off what the pass says rather than off who it drops.
 ## The two readings, over the same pool
 
 * the pool the register offers this pass: **1856** candidates
-* accepted under the pre-T-0638 reading: **769**
-* accepted under the corrected reading: **789**
+* accepted under the pre-T-0638 reading: **772**
+* accepted under the corrected reading: **784**
 * standing records a mint-time refusal lands on, corrected reading: **79**; pre-T-0638 reading: **70**
 * THE COLLISIONS THIS FAULT UNCOVERED — said under the corrected reading and not under the old one: **9**
-* candidates the correction ADMITS that the old reading refused: **20**
+* candidates the correction ADMITS that the old reading refused: **12**
 
 ## The collisions — what the paper printed, and who holds the surname instead
 
@@ -71,7 +71,7 @@ and they are why the owner answered it with (c) — keep both, say the collision
 ## The committed cohort against its own derivation
 
 The tree holds **743** letter-list households. The pass, run today
-against that same tree, derives **789**. `check.sh` runs this pass's
+against that same tree, derives **784**. `check.sh` runs this pass's
 `--gate` and not its `--check`, so the gap has never been red. Under the ruling the
 mint-time causes are gone from this table by construction — a standing record is no
 longer out of step with its own pass for colliding on a family name. What is left is
@@ -97,14 +97,8 @@ The other half of the same diff, and none of them is committed today.
 | printed | as a card would show it | old | new | returns |
 |---|---|---|---|---|
 | `Augustus H, Conant` | Conant Augustus H | `h` | `augustus` | 1 |
-| `Chester Marshall 2` | Marshall [?] Chester | `2` | `chester` | 1 |
-| `Eliphalet Atkins 2` | Atkins [?] Eliphalet | `2` | `eliphalet` | 1 |
-| `Julius Perrin 2` | Perrin [?] Julius | `2` | `julius` | 1 |
-| `Lauretta Plympton 2` | Plympton [?] Lauretta | `2` | `lauretta` | 1 |
-| `Levi Hills 2` | Hills [?] Levi | `2` | `levi` | 1 |
+| `Daniel B. Clevinger 4` | B. Clevinger [?] Daniel | `4` | `daniel` | 1 |
 | `Loweley. Watere e` | Watere e Loweley | `e` | `loweley` | 1 |
-| `Miranda Miner 2` | Miner [?] Miranda | `2` | `miranda` | 1 |
-| `Mr. Roult 2` | Roult [?] Mr | `2` | `roult` | 1 |
 | `Nett Robert A.` | Robert A. Nett | `a` | `nett` | 1 |
 | `Nicholson Joshua F.` | Joshua F. Nicholson | `f` | `nicholson` | 1 |
 | `Orisbee Edgar I..` | Edgar I.. Orisbee | `i` | `orisbee` | 1 |
@@ -112,10 +106,8 @@ The other half of the same diff, and none of them is committed today.
 | `Osborn B.` | B. Osborn | `b` | `osborn` | 1 |
 | `Pedrick Robert c.` | Robert c. Pedrick | `c` | `pedrick` | 1 |
 | `Root Ez c.` | Ez c. Root | `c` | `root` | 1 |
-| `Salmon Rutherford 3` | Rutherford [?] Salmon | `3` | `salmon` | 1 |
 | `Swanwick F.` | F. Swanwick | `f` | `swanwick` | 1 |
 | `Timothy B.` | B. Timothy | `b` | `timothy` | 1 |
-| `W. Vanzandt 2` | Vanzandt [?] W. | `2` | `vanzandt` | 1 |
 
 ## A residual fault in the corrected reading
 

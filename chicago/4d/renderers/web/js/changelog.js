@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1417, ts: '2026-10-04T10:23:52.787Z', date: 'Oct 4, 2026, 5:23 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+  { v: null, ts: '', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
     items: [
       'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
       'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
       'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
       'The 1835 scene keeps every section it had.',
+    ] },
+  { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
+      'Some lines of the 1834 post-office letter list end with how many letters were waiting, as in \u201cPeter Temple 3\u201d. The pass that adds letter-list people read that number as part of the name, so it looked up \u201cPeter\u201d as the family name.',
+      'Read without the number, four of the people it was about to add are turned away. Peter Temple is already in the town. The town already has a Marshall and a Miner, and \u201cMr. Roult\u201d gives no first name. A fifth, Salmon Rutherford, is already in the town and would have been added a second time.',
+      'The other 39 new names wait for a separate fix. Adding them shifts the numbers the town\u2019s made-up households are planned from, and one planned move no longer fits.',
     ] },
   { v: 1416, ts: '2026-10-04T09:51:42.459Z', date: 'Oct 4, 2026, 4:51 AM CT', title: 'Seven households no longer called letter-list names alone', kind: 'fix',
     items: [
