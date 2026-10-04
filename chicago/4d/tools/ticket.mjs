@@ -2156,6 +2156,70 @@ function claimIsDead(t) {
   return t.state === 'claimed' && age !== null && age >= RUN_HOURS;
 }
 
+/**
+ * T-1344. WHO IS ALREADY ON A TICKET THAT IS ABOUT TO BE SPLIT.
+ *
+ * The claim lock is per id, and a split mints NEW ids out of an old one. So a parent
+ * somebody holds becomes children nobody does, and the queue offers them at once.
+ * Measured 2026-09-18: T-1144 held `claim/t-1144` and an open PR when it was split into
+ * T-1333/T-1334 (#1471). The in-flight run retargeted onto T-1333 and opened #1477; a
+ * fresh run claimed T-1333 from the queue and opened #1480. Both built the same
+ * acceptance (five overlapping files) and #1477 was closed as the duplicate. Both
+ * claims were valid under the rules as they stood. The lock did its job; the split
+ * was the gap, and only the splitter is in a position to see it.
+ *
+ * So the splitter asks, at the one moment it matters, the same questions `claim` and
+ * `inflight` ask:
+ *   - the CLAIM in the ticket's own front matter (local; in repo mode the authority),
+ *     and in embedded mode the `claim/t-NNNN` marker on the remote as well;
+ *   - an OPEN PULL REQUEST: a ticket in `review` names its PR locally, and the REST
+ *     list of open PRs catches one whose title or branch carries the id. That second
+ *     signal is not local, which is why `--pr-json` exists: the self-test asserts the
+ *     reading, not today's GitHub. An unreadable list is a NOTE and never a refusal,
+ *     because a network blip must not be able to stop a run.
+ *
+ * Each signal is sorted into OWN or RIVAL. Splitting your own claim mid-run is the
+ * documented remedy (AGENTS.md), so it is never refused; what it gets instead is the
+ * record on the children (see `split`). A dead claim (RUN_HOURS) is neither: `claim`
+ * would steal it, so it does not hold the ticket.
+ */
+function liveWorkOn(t, { pulls = undefined, lockless = false } = {}) {
+  const rival = []; const own = []; const notes = [];
+  const here = currentBranch();
+  const me = runUrl();
+  if (t.state === 'claimed' && !claimIsDead(t)) {
+    const line = `claim — ${sinceWords(claimAgeHours(t))}, ${t.claimed_by ?? 'holder unknown'}`
+      + `${t.claimed_run ? ` (${t.claimed_run})` : ''}`;
+    // Both null is a hand claim split by hand, which is one operator, not two.
+    ((t.claimed_run ?? null) === me ? own : rival).push(line);
+  }
+  if (!inRepoMode() && !lockless) {
+    const m = inspectClaim(t.id);
+    if (m.sha && !(m.ageHours !== null && m.ageHours > RUN_HOURS)) {
+      const first = (m.by ?? '').split('\n')[0];
+      // This checkout's own claim says so in its front matter; anyone else's does not.
+      const mine = t.state === 'claimed' && !!t.claimed_by && first.includes(t.claimed_by);
+      if (!mine) rival.push(`${claimBranch(t.id)} on the remote — ${sinceWords(m.ageHours)}, ${first || 'holder unknown'}`);
+    }
+  }
+  if (t.state === 'review' && t.pr) rival.push(`PR #${t.pr} — the ticket is in review, so its PR is open`);
+  const open = pulls !== undefined ? pulls : restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
+  if (open === null) notes.push('the open pull requests could not be read, so only the claim was checked');
+  else {
+    for (const p of open) {
+      if (p.state && p.state !== 'open') continue;
+      const ref = p.head?.ref ?? '';
+      if (!prTicketIds(p.title).includes(t.id) && !branchCarries(ref, t.id)) continue;
+      if (t.state === 'review' && String(p.number) === String(t.pr)) continue;   // said above
+      ((ref && ref === here) ? own : rival).push(`PR #${p.number} on ${ref || 'an unknown branch'} — ${p.title}`);
+    }
+  }
+  const branches = remoteBranches()
+    .filter((b) => b.name !== here && !isClaimMarker(b.name) && !isIdLock(b.name) && branchCarries(b.name, t.id))
+    .map((b) => b.name);
+  return { rival, own, notes, branches, here: here && branchCarries(here, t.id) ? here : null, me };
+}
+
 /** The owner question an `ask` wrote into a ticket body, read back for the board. */
 export function decisionOf(body) {
   const sec = /\n## Decision needed\n([\s\S]*?)(?=\n## |$)/.exec(`\n${body ?? ''}`)?.[1] ?? '';
@@ -2770,7 +2834,9 @@ switch (cmd) {
     // than one demonstration. The parent becomes the grouping record (state
     // `split`, out of the queue) and the children take its place in the order.
     const t = find(tickets, args[0]);
-    const titles = args.slice(1).filter((a) => !a.startsWith('--'));
+    // `--why` and `--pr-json` carry a value, and a value is not a piece title.
+    const titles = args.slice(1)
+      .filter((a, i, all) => !a.startsWith('--') && !['--why', '--pr-json'].includes(all[i - 1]));
     if (titles.length < 2) {
       console.error(`usage: ticket.mjs split ${t.id} "first piece" "second piece" [...]`);
       process.exit(1);
@@ -2809,6 +2875,47 @@ switch (cmd) {
       console.error(`File what remains with \`ticket.mjs new\` instead.`);
       process.exit(1);
     }
+
+    // A SPLIT MUST NOT PUT TWO RUNS ON ONE ACCEPTANCE (T-1344) — see `liveWorkOn`.
+    // A rival claim or an open PR refuses, unless the splitter says why it knows better.
+    let pulls;
+    const prJson = flag('pr-json');
+    if (typeof prJson === 'string') {
+      const raw = JSON.parse(readFileSync(prJson, 'utf8'));
+      const list = Array.isArray(raw) ? raw : raw?.pulls;
+      pulls = Array.isArray(list) ? list.map(normalizePull) : null;
+    }
+    const live = liveWorkOn(t, { pulls, lockless: has('no-lock') });
+    for (const n of live.notes) console.error(`  note: ${n}`);
+    const why = typeof flag('why') === 'string' ? flag('why').trim() : '';
+    if (live.rival.length && !(has('anyway') && why)) {
+      console.error(`${t.id} IS ALREADY BEING WORKED, so splitting it now mints pieces nobody holds`
+        + ` out of a parent somebody does:`);
+      for (const l of live.rival) console.error(`  ${l}`);
+      for (const b of live.branches) console.error(`  branch ${b}`);
+      console.error(`\nThat run would carry on onto one piece while the same piece goes into the queue`
+        + ` for a fresh claim,\nand the two claims never meet: T-1144 was split under a live branch and`
+        + ` #1477 and #1480 built\nthe same acceptance twice. Leave the split to the run that holds it,`
+        + ` or take the next workable ticket:\n  node tools/ticket.mjs list --workable\n`
+        + (has('anyway') ? `\n--anyway needs --why "…": the pieces carry that reason to whoever claims them next.\n` : '')
+        + `If that work is dead, or you are coordinating with it, split anyway and say why:\n`
+        + `  node tools/ticket.mjs split ${t.id} "first piece" "second piece" --anyway --why "what you know"`);
+      process.exit(1);
+    }
+    // EVERY CHILD SAYS WHAT WAS ALREADY ON ITS PARENT, so the next run to claim one can
+    // see it is walking into somebody's work rather than finding out at the merge.
+    const onParent = [
+      ...live.own.map((l) => `- ${l} — held by the run that split it`),
+      ...(live.here ? [`- branch \`${live.here}\` — the splitter's own`] : []),
+      ...live.rival.map((l) => `- ${l}`),
+      ...live.branches.map((b) => `- branch \`${b}\``),
+    ];
+    const liveNote = !onParent.length ? '' : `## SPLIT WHILE WORK STOOD ON THE PARENT\n\n`
+      + `When ${t.id} was split (${nowIso()}), this was already on it. Read it before you claim`
+      + ` this piece, and check the PR list for a branch that has already taken it:\n\n${onParent.join('\n')}\n\n`
+      + (live.own.length || live.here
+        ? `The run that split it (${live.me ?? 'by hand'}) may be working one of the pieces now.\n\n` : '')
+      + (live.rival.length ? `Split past that with --anyway: "${why}"\n\n` : '');
     const minted = mintIds(tickets, titles.length);
     const rows = [];
     titles.forEach((title, n) => {
@@ -2823,6 +2930,7 @@ switch (cmd) {
         body: `\n${title}.\n\nPiece ${n + 1} of ${titles.length} of **${t.id} — ${t.title}**, `
           + `split because the parent needed more than one run's demonstration to be done. `
           + `The parent keeps the full ask and its links; this ticket owns one slice of it.\n\n`
+          + liveNote
           + `**Acceptance:** (state it before working — one demonstration, never weakened to pass)\n`,
       };
       writeTicket(child);
