@@ -138,6 +138,100 @@
     },
     "note": {
       "type": "string"
+    },
+    "cards": {
+      "type": "array",
+      "description": "Interpretive cards the welcome panel opens for this scene (T-0472): what an event is called, what the evidence for it is and whose it is, where the accounts disagree, and what the scene deliberately does not show. The card's `text` is this project's own prose; every `quotes` entry is a source's words, verbatim, with the locator it was read at, and its source_id must resolve in data/sources. A card that quotes carries a confidence (documented needs a quote; inferred and conjectural need a confidence_note). A card with no quote is `kind: project` - a statement of what this reconstruction does, which claims nothing about the past. `review_required` here blocks the scene from release exactly as it does on a structure, and the card must say why in its own `review_note` (tools/validate.py, the AGENTS.md standing constraint).",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "title",
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "evidence",
+              "terminology",
+              "conflict",
+              "project"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 900
+          },
+          "quotes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "source_id",
+                "locator",
+                "cite",
+                "text"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "cite": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120,
+                  "description": "The attribution the visitor reads under the quote: whose words, and where printed. The locator is for the next reader of the data; this is for the person on the card."
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                }
+              }
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "documented",
+              "inferred",
+              "conjectural"
+            ]
+          },
+          "confidence_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_required": {
+            "type": "boolean",
+            "default": false
+          },
+          "review_note": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
     }
   }
 }
