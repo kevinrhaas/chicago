@@ -73,7 +73,7 @@
     "lodged_at_stated": 307
   },
   "at_work": {
-    "working_age": 2231,
+    "working_age": 2229,
     "placed": {
       "attested": 159,
       "inferred": 7,
@@ -92,7 +92,7 @@
     "no_trade_recorded": {
       "attested": 232,
       "inferred": 934,
-      "reconstructed": 376
+      "reconstructed": 374
     },
     "owed_by_reason": {
       "held_on_an_identity_question": 1,

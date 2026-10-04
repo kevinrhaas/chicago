@@ -50,9 +50,9 @@ Of the **2,515** people housed in a standing building: **10.5 % attested** (265)
 | at a workplace | 159 | 7 | 160 | 326 |
 | no fixed premises (stated) | 20 | 0 | 316 | 336 |
 | owed a workplace | 1 | 0 | 26 | 27 |
-| no trade recorded | 232 | 934 | 376 | 1,542 |
-| **all** | **412** | **941** | **878** | **2,231** |
-| share | 18.5 % | 42.2 % | 39.4 % | |
+| no trade recorded | 232 | 934 | 374 | 1,540 |
+| **all** | **412** | **941** | **876** | **2,229** |
+| share | 18.5 % | 42.2 % | 39.3 % | |
 
 ### Businesses (by the primary location's tier)
 
