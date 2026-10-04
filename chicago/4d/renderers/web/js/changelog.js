@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1416, ts: '2026-10-04T09:30:44.094Z', date: 'Oct 4, 2026, 4:30 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+    items: [
+      'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
+      'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
+      'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
+      'The 1835 scene keeps every section it had.',
+    ] },
   { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
     items: [
       'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',

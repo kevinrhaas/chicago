@@ -1403,6 +1403,22 @@ async function boot() {
   const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
   const layerProblems = (layer) => (draws(layer) ? problems : []);
   api.sceneLayers = [...sceneLayers];
+  /**
+   * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
+   * below read the 1835 town's records just as the drawn layers do — its residents,
+   * its firms, its animals and plants, its census, its research record of buildings
+   * left out — so the 1904 scene was offering 1,421 households of 1835, 286 of its
+   * firms and its order book under a 1904 badge. Each one is now offered only by a
+   * scene that lists the layer it reads; one that does not gets no tab, no tile and
+   * no fetch, rather than a panel saying it failed to load.
+   */
+  const DRAWER_TABS = { people: 'residents', businesses: 'businesses' };
+  const DRAWER_TOPICS = {
+    city: 'residents', population: 'residents', orderbook: 'residents',
+    fauna: 'fauna', plants: 'flora', exclusions: 'exclusions', uncertain: 'exclusions',
+  };
+  const notListed = (map) => Object.keys(map).filter((id) => !draws(map[id]));
+  api.drawerOmitted = { tabs: notListed(DRAWER_TABS), topics: notListed(DRAWER_TOPICS) };
   api.registry = loaded.registry;
   // The survey junctions the Go-to menu offers, from the same list the menu is
   // built from. Exposed because the smoke asserted the menu's junction count
@@ -2256,7 +2272,7 @@ async function boot() {
   // them (T-1325). The index is one file and the crosswalk is one fold of it; a
   // person's card and a building's card both ask it the same two questions, so
   // neither is allowed to fold 196 rows for itself.
-  api.businessIndex = await (async () => {
+  api.businessIndex = !draws('businesses') ? null : await (async () => {
     try {
       const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
       if (res.ok) return res.json();
@@ -2346,8 +2362,10 @@ async function boot() {
     });
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
+  hud.omitTabs(api.drawerOmitted.tabs);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
+    omit: api.drawerOmitted.topics,
     onTopic: id => { if (id === 'sources') openSources(); },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
@@ -2356,7 +2374,7 @@ async function boot() {
   // MutationObserver replaces the City tile's ellipsis when both files paint.
   let cityCensusPromise = null;
   const ensureCityCensus = () => {
-    if (!cityCensusPromise) {
+    if (!cityCensusPromise && draws('residents')) {
       cityCensusPromise = mountCityCensus({
         dataBase: bases.dataBase,
         root: document.getElementById('city'),
@@ -2420,7 +2438,7 @@ async function boot() {
   // is exactly why nobody noticed that a household with no attested residence
   // and no attested workplace attaches to no building and so reached no card
   // anywhere: ROADMAP K52. Nothing of it is drawn; this is the record, on a card.
-  api.residents = await mountResidents({
+  api.residents = !draws('residents') ? null : await mountResidents({
     mount: document.getElementById('residents'),
     noteMount: document.getElementById('residents-note'),
     dataBase: bases.dataBase,
@@ -2440,7 +2458,7 @@ async function boot() {
 
   // …and the same people as a DIRECTORY: one row a person, searchable and
   // filterable, with the way to the building they lived or worked at.
-  try { api.people = await mountPeople({
+  if (draws('residents')) try { api.people = await mountPeople({
     mount: document.getElementById('people-directory'),
     people,
     registry: loaded.registry,
@@ -2457,6 +2475,7 @@ async function boot() {
   });
   bootController.end('people');
   } catch (err) { bootController.fail('people', err); }
+  else bootController.end('people');
 
   // …and the town's FIRMS, which until now reached a visitor only through the
   // roof they stood in. 166 of the 196 the register knows have no roof here — 26
@@ -2465,7 +2484,7 @@ async function boot() {
   // thing this project will not do to make them visible is invent a building for
   // them. So they get a directory and a card: every firm findable by trade,
   // street, grade and how far the record could place it, and every limit printed.
-  api.businesses = await mountBusinesses({
+  api.businesses = !draws('businesses') ? null : await mountBusinesses({
     mount: document.getElementById('businesses-directory'),
     index: api.businessIndex,
     registry: loaded.registry,
@@ -2490,7 +2509,7 @@ async function boot() {
   // nothing: ROADMAP K42 measured that no renderer source opened the directory
   // and the publish step did not copy it, so the layer stopped at the
   // repository. Nothing of it is drawn; this is the record, on a card.
-  api.fauna = await mountFauna({
+  api.fauna = !draws('fauna') ? null : await mountFauna({
     mount: document.getElementById('fauna'),
     noteMount: document.getElementById('fauna-note'),
     dataBase: bases.dataBase,
@@ -2504,7 +2523,7 @@ async function boot() {
   // the ten communities ask for more small plants than the sward lattice can
   // hold, and until this section the share a visitor actually stands in was
   // declared in docs/STATUS.md and nowhere a visitor reads.
-  api.plants = await mountPlants({
+  api.plants = !draws('flora') ? null : await mountPlants({
     mount: document.getElementById('plants'),
     noteMount: document.getElementById('plants-note'),
     dataBase: bases.dataBase,
@@ -2517,7 +2536,7 @@ async function boot() {
   // …and the third category, which neither of those can hold: researched, and
   // still open. One of the four is standing in the scene, so it cannot go on the
   // not-here list without that list becoming false.
-  api.exclusions = await mountExclusions({
+  api.exclusions = !draws('exclusions') ? null : await mountExclusions({
     mount: document.getElementById('exclusions'),
     uncertainMount: document.getElementById('uncertain'),
     // …and what each of the two lists says it is, in the compiled document's own
@@ -2533,14 +2552,14 @@ async function boot() {
   // standing in the scene, and the panel's entry for it promises that the
   // provenance card shows the claim carrying the doubt; the card is where a
   // visitor who walked up to that building would think to ask.
-  popup.setOpenQuestions(api.exclusions.uncertain);
+  if (api.exclusions) popup.setOpenQuestions(api.exclusions.uncertain);
 
   // …and the shape of what is known about the people themselves (T-1160). The
   // walkthrough can stand a visitor next to a named resident; only this says how
   // few of them there are, how thin each attribute is, and what the reconstruction
   // bands below still have to supply. Rendered from the generated profile, so a
   // resident pass that moves the layer moves this panel too.
-  api.population = await mountPopulation({
+  api.population = !draws('residents') ? null : await mountPopulation({
     mount: document.getElementById('population'),
     noteMount: document.getElementById('population-note'),
     dataBase: bases.dataBase,
@@ -2552,7 +2571,7 @@ async function boot() {
   // roofs the models say were here and the sources cannot, which ticket owes each
   // bucket, and how much of it has been built. It is the progress view of the three
   // reconstruction bands, filled by their own builds rather than by hand.
-  api.orderBook = await mountOrderBook({
+  api.orderBook = !draws('residents') ? null : await mountOrderBook({
     mount: document.getElementById('order-book'),
     noteMount: document.getElementById('order-book-note'),
     dataBase: bases.dataBase,
