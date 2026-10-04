@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1418, ts: '2026-10-04T10:34:49.982Z', date: 'Oct 4, 2026, 5:34 AM CT', title: 'The 1904 drawer stops showing the 1835 town', kind: 'fix',
+    items: [
+      'In the Prairie Avenue scene of 1904, the drawer no longer offers the People and Firms sections. They listed the residents and businesses of 1835.',
+      'Its Evidence panel no longer shows the 1835 town\u2019s City, wildlife, plants, not-here, open-questions, population and order-book topics.',
+      'Go to no longer lists 286 firms of 1835 that could not be reached from 1904.',
+      'The 1835 scene keeps every section it had.',
+    ] },
   { v: 1417, ts: '2026-10-04T10:19:51.514Z', date: 'Oct 4, 2026, 5:19 AM CT', title: 'Four letter-list names are no longer added twice or wrongly', kind: 'change',
     items: [
       'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
