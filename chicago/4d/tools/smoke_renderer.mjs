@@ -4592,6 +4592,27 @@ for (const [label, viewport, touch] of [
         }
         return false;
       };
+      // A GATE IS NOT A DECK EITHER (T-2112). A street fence's gate leaf swings
+      // off the fence line into the lot, its low rail 0.18 m up, so a leaf
+      // standing open is fence timber outside the 0.2 m band above. It only
+      // ever swings to the lot side (`opens_into_local_enu_m`), and the walk is
+      // on the street side, so a half-disc on the lot side of each opening, a
+      // leaf's reach in radius, is fence and nothing else.
+      const gateDiscs = [];
+      for (const r of f?.records ?? []) {
+        for (const fence of r.fences ?? []) {
+          for (const o of fence.openings ?? []) {
+            if (!o.gate || !o.at_local_enu_m || !o.opens_into_local_enu_m) continue;
+            const [ge, gn] = o.at_local_enu_m;
+            const ie = o.opens_into_local_enu_m[0] - ge;
+            const iN = o.opens_into_local_enu_m[1] - gn;
+            const il = Math.hypot(ie, iN) || 1;
+            gateDiscs.push({ ge, gn, ie: ie / il, iN: iN / il, r: (o.width_m ?? 1) + 0.2 });
+          }
+        }
+      }
+      const onGate = (e, n) => gateDiscs.some((g) => Math.hypot(e - g.ge, n - g.gn) <= g.r
+        && (e - g.ge) * g.ie + (n - g.gn) * g.iN >= -0.2);
       // THE BUSINESS-FRONT FITTINGS ARE NOT DECK (T-1813). A stoop's landing
       // stands 0.38 m over its ground, a mounting block 0.46 m and a tie rail's
       // rail 0.93 to 1.03 m, so they are measured against their own records
@@ -4664,7 +4685,7 @@ for (const [label, viewport, touch] of [
           const deck = deckAt(e, n);
           const base = deck === null ? ground
             : (Number.isFinite(ground) ? Math.max(ground, deck) : deck);
-          if (Number.isFinite(base) && !onFence(e, n) && !onFitting(e, n)) {
+          if (Number.isFinite(base) && !onFence(e, n) && !onGate(e, n) && !onFitting(e, n)) {
             const d = y - base;
             highest = Math.max(highest, d);
             // The deck: everything under a metre. The post and its board are
