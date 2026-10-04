@@ -1,0 +1,47 @@
+{
+  "id": "1812",
+  "title": "Fort Dearborn, summer 1812",
+  "target_date": "1812-08-01",
+  "terrain_epoch": "e1830_natural",
+  "lighting": {
+    "local_time": "15:00",
+    "note": "Mid-afternoon, 1 August 1812, in local mean solar time at the datum. Chosen for the view the scene opens on: the visitor stands south-west of the fort facing north-east, so a sun in the south-west lights the south and west faces of the picket rows and the south-west blockhouse corner they see first, rather than leaving the fort in its own shadow as a morning sun would."
+  },
+  "spawn": {
+    "local_e": 1112.0,
+    "local_n": 180.0,
+    "yaw_deg": 45.0
+  },
+  "anchors": [
+    {
+      "id": "first_fort_dearborn",
+      "label": "The first Fort Dearborn, from the south-west",
+      "local_e": 1112.0,
+      "local_n": 180.0,
+      "yaw_deg": 45.0
+    },
+    {
+      "id": "first_fort_gate",
+      "label": "Before the main gate, in the south picket rows",
+      "local_e": 1149.6,
+      "local_n": 196.0,
+      "yaw_deg": 0.0
+    },
+    {
+      "id": "first_fort_from_above",
+      "label": "From above - the fort, the river bend and the spit",
+      "local_e": 1152.0,
+      "local_n": 60.0,
+      "yaw_deg": 0.0,
+      "altitude_m": 120.0,
+      "pitch_deg": -35.0
+    }
+  ],
+  "layers": [
+    "terrain",
+    "water",
+    "structures"
+  ],
+  "released": false,
+  "note": "The 1812 scene (T-2050, piece 3 of T-0469): the first Fort Dearborn on its natural ground, two weeks before the evacuation of 15 August 1812 and the burning of the 16th. It resolves exactly the fourteen first_fort_dearborn_* records (phase first_fort_1803, 1803-08-17..1812-08-16) and nothing of 1835: every other record's phases open later, and the second fort's open on 1816-07-01, so no date can draw the two forts together - tools/read_whistler_1808.py --check holds both of those. It stands on e1830_natural, the pre-cut mouth with the river turned south behind the baymouth spit (T-2002, T-2003). The fort is seated with one origin and one bearing: the draught's staff foot on the fort site at local E +1152, N +221, the frame's north on grid north (each record's position note says why). THE SPAWN IS A CAMERA, NOT A CLAIM: 57 m south-west of the staff, outside both picket rows, facing it. `first_fort_gate` stands 25 m south of the staff, 8 m outside the outward row, on the line of the main gate's passage (E -11.1..-4.9 ft in the fort's frame). Only the town-wide layers written for 1835 are left out - flora, fauna, streets, enclosures and the rest are dated 1 July 1835 and none of them is true here - so the ground is the epoch's bare ground. No person is drawn: the Indigenous-history review gates of T-0472 come before any figure, card or narrative of 1812, and this scene is not released."
+}

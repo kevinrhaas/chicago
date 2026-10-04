@@ -422,13 +422,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # terrain_gen.py's mesher and the common modules, so terrain reach goes 4 -> 6 and the
 # common reach with it; emit.py builds no terrain, so 546 stands, and pier_crib still 2.
 #
+# 551 -> 565 and 545 -> 559 on 2026-10-04 (T-2050): the first Fort Dearborn's fourteen
+# meshes, baked for the first time once the 1812 scene resolved them — eleven
+# `fort_structure`, two `palisade`, one `outbuilding`, all through emit.py and the common
+# modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 551,
+    "assets": 565,
     "restales": {
-        "generators/common/*.py": 551,
+        "generators/common/*.py": 565,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 545,
+        "generators/emit.py": 559,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1402, ts: '2026-10-04T05:28:27.380Z', date: 'Oct 4, 2026, 12:28 AM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
+  { v: 1403, ts: '2026-10-04T05:35:08.992Z', date: 'Oct 4, 2026, 12:35 AM CT', title: 'Three horseback jaunts now take under six minutes', kind: 'change',
     items: [
       'From Prairie to Town now starts at the U.S. Factor\u2019s House, the last house below Fort Dearborn, not three-quarters of a mile down the shore. The open shore is what that stop looks south to. You see the stockade from the fort\u2019s south-west corner, and the ride takes about five and a half minutes on horseback, down from over nine.',
       'Boots, Leather and the Road now views Miller\u2019s tannery across the North Branch from Wolf Point, without riding over the river to it. Its stops read a little shorter, and the ride takes just under six minutes, down from almost eight.',
       'Soap and Candles now starts at Wolf Point, looking up the North Branch to where we place Elston & Co.\u2019s works, so you cross the river once instead of twice. The ride takes under six minutes, down from seven.',
       'Each was timed by riding it on the published site. Flying and Instantly are still faster on all three. What the stops say about each place is unchanged, and new claims are cited in the stop\u2019s sources.',
+    ] },
+  { v: 1402, ts: '2026-10-04T05:01:49.654Z', date: 'Oct 4, 2026, 12:01 AM CT', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
+    items: [
+      'Open the 1812 door on the front page: it now shows the first Fort Dearborn as it stood in the summer of 1812, two weeks before it was evacuated and burned. Until now that door said the year was still being surveyed.',
+      'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
+      'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
+      'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
     ] },
   { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
