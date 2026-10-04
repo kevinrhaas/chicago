@@ -2403,15 +2403,26 @@ for (const [label, viewport, touch] of [
       { kind: 'intersection', local_e: -127.7, local_n: -292 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const yardWith = await page.evaluate(() => window.__chicago4d.capture());
+    // T-2035: retain thin rails in the image measurement. At 12 x 12, dark
+    // rails and the now-continuous grass behind them cancel inside a cell:
+    // the unchanged phone view measures 0.271, although the fence is visible.
+    // 96 x 96 measures 0.319 from the SAME view. Finer cells reduce that
+    // cancellation; camera, scene, mean>=0.3 and worst>=6 remain unchanged.
+    // The restored frame is also checked, so unrelated movement cannot pass.
+    const yardWith = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = false; });
-    const yardWithout = await page.evaluate(() => window.__chicago4d.capture());
+    const yardWithout = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = true; });
+    const yardRestored = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     const dYard = signatureDistance(yardWith, yardWithout);
+    const dYardRestored = signatureDistance(yardWith, yardRestored);
     check(`${label}: the yard fence reaches the screen from inside the yard`,
-      dYard.worst >= 6 && dYard.mean >= 0.3,
-      `cell delta mean ${dYard.mean?.toFixed(2)}, worst ${dYard.worst} (need worst>=6)`);
+      dYard.worst >= 6 && dYard.mean >= 0.3
+        && dYardRestored.worst <= 1 && dYardRestored.mean <= 0.02,
+      `96x96 cell delta mean ${dYard.mean?.toFixed(3)}, worst ${dYard.worst} `
+      + `(need mean>=0.3, worst>=6); restored mean ${dYardRestored.mean?.toFixed(3)}, `
+      + `worst ${dYardRestored.worst}`);
 
     // --- the town pound is a fence, not a box (T-0051) -----------------------
     //
@@ -4920,12 +4931,23 @@ for (const [label, viewport, touch] of [
         // These two split that apart: `authored` is what the layer laid, which
         // is the number a census clause can hold across stages, and `merged` is
         // the artefact count, reported beside it rather than folded into it.
-        authored: (f?.group?.children ?? []).filter((c) => !c.userData?.farMerged).length,
+        // T-2037's exact distant walk tops are another derived draw, not a
+        // newly authored walk. Keep both derived kinds out of the census and
+        // assert the new kind separately below; an unrelated extra mesh still
+        // fails the unchanged authored count.
+        authored: (f?.group?.children ?? [])
+          .filter((c) => !c.userData?.farMerged && !c.userData?.farWalkTops).length,
         authoredNames: (f?.group?.children ?? [])
-          .filter((c) => !c.userData?.farMerged).map((c) => c.name),
+          .filter((c) => !c.userData?.farMerged && !c.userData?.farWalkTops).map((c) => c.name),
         merged: (f?.group?.children ?? []).filter((c) => !!c.userData?.farMerged).length,
         mergedNames: (f?.group?.children ?? [])
           .filter((c) => !!c.userData?.farMerged).map((c) => c.name),
+        farWalkTops: (f?.group?.children ?? []).filter((c) => c.userData?.farWalkTops)
+          .map((c) => ({ name: c.name, sharedMaterial: c.material === mesh?.material,
+            castsShadow: c.castShadow, groundHugging: c.userData.groundHugging,
+            candidates: c.geometry.getAttribute('position').count / 3,
+            drawn: c.geometry.drawRange.count / 3 })),
+        farWalkState: f?.farWalkTops ?? null,
         verts,
         letterVerts: letters?.geometry?.getAttribute('position')?.count ?? 0,
         letterMap: !!letters?.material?.map,
@@ -5447,6 +5469,14 @@ for (const [label, viewport, touch] of [
       // both figures, so the next run that wonders whether the merge artefacts
       // are still arriving can read it off the log instead of re-measuring.
       true);
+    check(`${label}: the distant walk draw is one exact derived top-face batch`,
+      frontage.farWalkTops.length === 1
+        && frontage.farWalkTops.every((m) => m.name === 'frontage-far-walk-tops'
+          && m.sharedMaterial && !m.castsShadow && m.groundHugging
+          && m.candidates === frontage.farWalkState?.candidateTriangles
+          && m.candidates === 107532
+          && m.drawn === frontage.farWalkState?.triangles),
+      JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
     // renderer (L135), and it is the record's wording rather than the renderer's:
     // a board whose painted name drifted from the record would be this project

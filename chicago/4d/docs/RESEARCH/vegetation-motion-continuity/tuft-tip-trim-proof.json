@@ -1,0 +1,30 @@
+{
+  "scope": "CPU geometry comparison before and after omitting collapsed tuft-tip triangles; no visual or performance claim. Every vertex attribute is byte-identical, and retained triangle index order is identical. Removed triangles have identical duplicated tip positions and deformation aSide values. Density, height, placement, instances and material shaders are unchanged by this edit.",
+  "publishedFloraSha256": "378715bad1095c4aac9895e6de404241389823f53b3d2e2b53a669500b7d0561",
+  "cases": [
+    {
+      "segments": 1,
+      "before": 18,
+      "after": 9,
+      "removed": 9,
+      "allVertexAttributes": "byte-identical",
+      "retainedTriangles": "same indices and order"
+    },
+    {
+      "segments": 2,
+      "before": 36,
+      "after": 27,
+      "removed": 9,
+      "allVertexAttributes": "byte-identical",
+      "retainedTriangles": "same indices and order"
+    },
+    {
+      "segments": 4,
+      "before": 72,
+      "after": 63,
+      "removed": 9,
+      "allVertexAttributes": "byte-identical",
+      "retainedTriangles": "same indices and order"
+    }
+  ]
+}

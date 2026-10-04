@@ -1,0 +1,839 @@
+{
+  "sparseRender": true,
+  "errors": [],
+  "change": "light forb coverage band 1.6m to1.75m; partial coverage remains outside9.05m",
+  "routes": {
+    "flight-light-desktop": {
+      "frames": [
+        {
+          "frame": 0,
+          "pose": {
+            "local_e": 170,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 673928,
+          "calls": 75,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 1,
+          "pose": {
+            "local_e": 170.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 2,
+          "pose": {
+            "local_e": 171.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 3,
+          "pose": {
+            "local_e": 172.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 4,
+          "pose": {
+            "local_e": 173,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 679373,
+          "calls": 76,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 5,
+          "pose": {
+            "local_e": 173.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 6,
+          "pose": {
+            "local_e": 174.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 7,
+          "pose": {
+            "local_e": 175.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 8,
+          "pose": {
+            "local_e": 176,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 680143,
+          "calls": 76,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 9,
+          "pose": {
+            "local_e": 176.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 10,
+          "pose": {
+            "local_e": 177.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 11,
+          "pose": {
+            "local_e": 178.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 12,
+          "pose": {
+            "local_e": 179,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 681060,
+          "calls": 76,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 13,
+          "pose": {
+            "local_e": 179.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 14,
+          "pose": {
+            "local_e": 180.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 15,
+          "pose": {
+            "local_e": 181.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 16,
+          "pose": {
+            "local_e": 182,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 682447,
+          "calls": 76,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 17,
+          "pose": {
+            "local_e": 182.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 18,
+          "pose": {
+            "local_e": 183.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 19,
+          "pose": {
+            "local_e": 184.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 20,
+          "pose": {
+            "local_e": 185,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 689163,
+          "calls": 76,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 21,
+          "pose": {
+            "local_e": 185.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 22,
+          "pose": {
+            "local_e": 186.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 23,
+          "pose": {
+            "local_e": 187.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 693741,
+          "calls": 78,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        }
+      ],
+      "maxTriangles": 693741,
+      "maxCalls": 78,
+      "jumps": 0,
+      "identityErrors": 0
+    },
+    "flight-light-mobile": {
+      "frames": [
+        {
+          "frame": 0,
+          "pose": {
+            "local_e": 170,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 820464,
+          "calls": 72,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 1,
+          "pose": {
+            "local_e": 170.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 2,
+          "pose": {
+            "local_e": 171.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 3,
+          "pose": {
+            "local_e": 172.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 4,
+          "pose": {
+            "local_e": 173,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 822346,
+          "calls": 73,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 5,
+          "pose": {
+            "local_e": 173.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 6,
+          "pose": {
+            "local_e": 174.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 7,
+          "pose": {
+            "local_e": 175.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 8,
+          "pose": {
+            "local_e": 176,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 821188,
+          "calls": 73,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 9,
+          "pose": {
+            "local_e": 176.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 10,
+          "pose": {
+            "local_e": 177.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 11,
+          "pose": {
+            "local_e": 178.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 12,
+          "pose": {
+            "local_e": 179,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 821426,
+          "calls": 73,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 13,
+          "pose": {
+            "local_e": 179.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 14,
+          "pose": {
+            "local_e": 180.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 15,
+          "pose": {
+            "local_e": 181.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 16,
+          "pose": {
+            "local_e": 182,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 819932,
+          "calls": 74,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 17,
+          "pose": {
+            "local_e": 182.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 18,
+          "pose": {
+            "local_e": 183.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 19,
+          "pose": {
+            "local_e": 184.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 20,
+          "pose": {
+            "local_e": 185,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 821024,
+          "calls": 73,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 21,
+          "pose": {
+            "local_e": 185.75,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 22,
+          "pose": {
+            "local_e": 186.5,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": false,
+          "triangles": null,
+          "calls": null,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        },
+        {
+          "frame": 23,
+          "pose": {
+            "local_e": 187.25,
+            "local_n": -75,
+            "yaw_deg": 90,
+            "pitch_deg": -35,
+            "altitude_m": 18
+          },
+          "detail": "light",
+          "rendered": true,
+          "triangles": 822039,
+          "calls": 74,
+          "jumps": [],
+          "identityErrors": [],
+          "shortfall": {}
+        }
+      ],
+      "maxTriangles": 822346,
+      "maxCalls": 74,
+      "jumps": 0,
+      "identityErrors": 0
+    }
+  }
+}

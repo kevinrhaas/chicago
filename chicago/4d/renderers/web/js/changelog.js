@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1396, ts: '2026-10-04T03:22:23.168Z', date: 'Oct 3, 2026, 10:22 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+    items: [
+      'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
+      'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
     ] },
   { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
     items: [
