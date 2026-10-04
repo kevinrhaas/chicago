@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "id": "work-on-waterfront",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Work on the Waterfront",
   "premise": "Read the town's notices for working hands, ask after work at two Newberry & Dole warehouses and leave with a work chit or a sensible next lead.",
   "category": "Employment",
   "scene": "1835",
   "opening": {
-    "text": "The papers this summer print a few calls for working hands, and the river trade needs backs as well as trades. Choose the skill you are offering, read the notices, ask at two of Newberry & Dole's warehouses and weigh your prospects over breakfast. The errand, the asking and the chit are invented; the notices are not.",
-    "read_s": 20
+    "text": "The river trade needs backs as well as trades. Choose your skill, read the notices, ask at two of Newberry & Dole's warehouses and weigh it over breakfast. The errand and the chit are invented; the notices are not.",
+    "read_s": 14
   },
   "default_mode": "horse",
   "allowed_modes": [
@@ -51,9 +51,9 @@
         "kind": "structure",
         "id": "chicago_democrat_office"
       },
-      "text": "John Calhoun printed the Democrat at this corner from 1833; by 20 May its office was over Jones & King's hardware, and that week it wanted an apprentice to the printing business. On 17 June Jones, King & Co. wanted, immediately, one coppersmith and one tin and sheet-iron worker.",
+      "text": "John Calhoun's Democrat, printed here and by May over Jones & King's hardware, wanted a printer's apprentice that week. On 17 June Jones, King & Co. wanted one coppersmith and one tin and sheet-iron worker.",
       "narrative": "Choose the skill you are offering.",
-      "read_s": 30,
+      "read_s": 22,
       "action_s": 15,
       "links": [
         {
@@ -128,9 +128,9 @@
         "kind": "structure",
         "id": "dole_warehouse_south"
       },
-      "text": "Andreas puts George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole's packing was winter work, with hogs killed in December, and by 1834 the partners had built a slaughter-house on the South Branch. In July this yard has nothing to pack.",
+      "text": "Andreas puts George Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Packing was winter work, hogs killed in December, and by 1834 the partners had a slaughter-house on the South Branch. In July, nothing to pack.",
       "narrative": "Ask to be remembered, or go on to the river?",
-      "read_s": 28,
+      "read_s": 25,
       "action_s": 15,
       "links": [
         {
@@ -178,9 +178,9 @@
         "kind": "structure",
         "id": "newberry_dole_warehouse"
       },
-      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833, and the schooner Illinois was cheered at their wharf in July 1834. In June the American named them agents for freight or passage on the steamboat Michigan to Detroit and Buffalo. Which bank their house stood on is disputed.",
+      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833; in June the American named them agents for the steamboat Michigan to Detroit and Buffalo. Which bank their house stood on is disputed.",
       "narrative": "Ask about work, or watch the wharf?",
-      "read_s": 32,
+      "read_s": 23,
       "action_s": 15,
       "links": [
         {
@@ -235,9 +235,9 @@
         "kind": "structure",
         "id": "exchange_coffee_house"
       },
-      "text": "Breakfast at the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. Lay out what the morning gave you: two printed notices, a yard waiting on the winter and a forwarding house on the river.",
+      "text": "Breakfast at the Exchange Coffee House at Lake and Wells, built by Mark Beaubien and kept by the Murphys since August 1834. Lay out the morning: two notices, a yard waiting on winter, a forwarding house.",
       "narrative": "Where will you ask first tomorrow?",
-      "read_s": 28,
+      "read_s": 22,
       "action_s": 15,
       "links": [
         {
