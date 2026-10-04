@@ -288,3 +288,22 @@ the focused release-note/source check is repeated for v1395. Their final
 verdicts and tested tree identity are recorded on PR #364 before merge; they
 are not represented as tests of the earlier v1389 checkpoint. The original
 CI failures and all retained image/cost measurements remain available.
+
+
+## Completed arrival check and first-fort data integration, 03:12 UTC
+
+The published v1395 integration passes part 14 at both viewports: 44 checks,
+zero failures and zero page errors, in 6m56s. The focused v1395 check also
+passes desktop and phone: all 1,395 entries render, one entry is new to a
+v1394 return, its date/seen state agrees, and the published Whistler source
+is present. Receipts are `release-part14.log` and
+`final-jaunts-integration.json`. These use the content saved in checkpoint
+ten (`dba67228`, tree `66fc77af`); the published build metadata still names
+its pre-commit parent because publication preceded the checkpoint.
+
+Dev then adds `7186f5bb`: fourteen first-fort records ending in 1812, outside
+the 1835 and 1904 scene dates. No renderer logic or committed geometry changes.
+Both append-only liberty sections are retained; generated conflicts are rebuilt
+with the canonical rederive tool. The changelog is restamped v1396. Earlier
+browser readings retain their actual version and are not relabelled; source
+preflight and the live dev-preview verification cover this data-only integration.

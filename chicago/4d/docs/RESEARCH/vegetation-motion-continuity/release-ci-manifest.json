@@ -159,5 +159,34 @@
     "result": "pass",
     "preflightSteps": 762,
     "selfTests": 314
+  },
+  "subsequentIntegration": {
+    "testedContentCommit": "dba67228e78d6af4e986c17155536b2be6f9ebb3",
+    "testedVersion": 1395,
+    "part14": {
+      "viewports": [
+        "mobile",
+        "desktop"
+      ],
+      "passed": 44,
+      "failed": 0,
+      "pageErrors": 0,
+      "elapsedSeconds": 416,
+      "log": "release-part14.log"
+    },
+    "releaseNotes": {
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "result": "pass",
+      "pageErrors": 0,
+      "receipt": "final-jaunts-integration.json"
+    },
+    "laterDataIntegration": {
+      "dev": "7186f5bb8a5ec442a36367557b04ebba11ce80ee",
+      "version": 1396,
+      "scope": "First-fort data ending in 1812; no 1835 scene geometry or renderer logic changes. Prior browser readings retain their actual tested version."
+    }
   }
 }
