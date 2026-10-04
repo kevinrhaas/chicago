@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1439, ts: '2026-10-04T19:35:50.395Z', date: 'Oct 4, 2026, 2:35 PM CT', title: 'Where the lag comes from when you stand still', kind: 'change',
+    items: [
+      'Nothing on screen changes in this update. We timed a still frame at every viewpoint we check, at every Scene detail setting, on a desktop-sized window and on a phone-sized one, in 1812, 1835 and 1904.',
+      'The slowest view is 1904 at the Glessner house. Its glass windows make the browser draw the whole scene twice every frame, and that second drawing is about half of every frame there.',
+      'In 1835 the slowest view is a back yard on Washington Street, and the trees and the ground take the most time to draw. Shadows cost very little.',
+      'On a phone, setting Image sharpness to Low makes each frame about a quarter to a third cheaper.',
+      'These readings decide what gets faster next. The full table is in the project\u2019s measurements.',
+    ] },
   { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
     items: [
       'Walk into a house yard and the middle of it is now short, cropped ground: the tall lamb\'s-quarters, ragweed, dock and vervain no longer stand in the open where people and animals walked every day.',
