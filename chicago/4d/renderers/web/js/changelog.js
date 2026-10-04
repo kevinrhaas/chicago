@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
+  { v: 1428, ts: '2026-10-04T13:16:37.685Z', date: 'Oct 4, 2026, 8:16 AM CT', title: 'Ten letter-list people keep their records instead of being filed twice', kind: 'change',
     items: [
       'Nobody joins or leaves the town. Ten people known only from the post office\u2019s lists of uncalled-for letters keep the records they already had.',
       'The pass that adds these people was set to file seven of them again under new names, and to drop their old records. It now knows when a name it reads is someone the town already holds, and adds the new reading to that person\u2019s record.',
