@@ -4060,8 +4060,13 @@ def cmd_self_test() -> int:
     shut_bands = [band for band, _, _, _ in AGE_BANDS
                   if doc["trade_re_cut"]["participation"]["factors"][band] == 0.0]
     assert shut_bands, "every band is in the trade cut; the overfill fixtures have no fixed bucket"
+    # AND ONE THE FAMILY RULING ORDERS NOTHING INTO (T-2021): a ruled cell's order carries
+    # the ruling's fills on top of the re-cut's, so `to_reconstruct + 1` there is no longer
+    # inside the gap the fixtures below stand in, and they would fault for the ruling's
+    # reason rather than their own.
     first = next(b for b in doc["bucket_families"][0]["buckets"]
-                 if b["axes"].get("age_band") in shut_bands and (b["to_reconstruct"] or 0) > 0)
+                 if b["axes"].get("age_band") in shut_bands and (b["to_reconstruct"] or 0) > 0
+                 and not b.get("ordered_by_the_family_ruling"))
     BYPASS = 10_000
     fires("a bucket filled past its quota",
           lambda: build(data, [{"ticket": "T-1347", "bucket": first["key"],
