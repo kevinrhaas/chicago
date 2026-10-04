@@ -111,9 +111,11 @@
    "days_before_scene_date": 42,
    "leg": "sighting",
    "person": "stiles_david",
-   "record": null,
-   "sources": [],
-   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `letter_list_returns` as `1835-05-20`, which reaches 1835-05-20 — 42 day(s) short of 1835-07-01. A RETURN IS A DATE AND NOT A CITATION: `letter_list_returns` carries no source per return, so this leg cites none and the corpus that printed it is named in the person's own `sources`. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+   "record": "person_david_stiles",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1835-05-20`, which reaches 1835-05-20 — 42 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
   },
   "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Nothing after 1835-05-20 follows this person to 1 July 1835 or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
@@ -123,6 +125,7 @@
    "name": "David Stiles",
    "relationship": "head",
    "grade": "inferred",
+   "ladder_rule": "G2e",
    "letter_list_only": true,
    "letter_list_returns": [
     "1835-05-20"
@@ -135,7 +138,7 @@
    "sources": [
     "chicago_democrat_1833_1835"
    ],
-   "note": "KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print '@ Stules, David' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
+   "note": "GRADED BY THE OWNER'S RATIFIED LADDER — rule G2e, applied 2026-09-04. This identity is inferred because that rung fired on the civic and press rows recorded on this card, which the resident-research corpus does not read. This programme's letter-list rule of 2026-09-02 would call it a projected resident on the absence of a research row; it is superseded here, and a no-find in one corpus is not a finding about another (T-0822). KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print '@ Stules, David' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1).",
    "sex": "male",
    "sex_basis": {
     "value": "male",

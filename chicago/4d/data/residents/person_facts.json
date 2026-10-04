@@ -4,14 +4,14 @@
  "generated_by": "tools/spend_person_facts.py",
  "scene_date": "1835-07-01",
  "counts": {
-  "rows": 912,
+  "rows": 913,
   "by_adjudication": {
    "asserted": 40,
    "contradicted": 6,
    "duplicate": 9,
    "insufficient_identity": 133,
    "later_only": 44,
-   "no_candidate": 668,
+   "no_candidate": 669,
    "outside_chicago": 5,
    "unresolved": 7
   },
@@ -14382,6 +14382,24 @@
    "quote": "Fergus 1839, 'Stewart, Royal, attorney at law, Lake street', and the 1837 election return, 'Royal Stewart'",
    "adjudication": "later_only",
    "reason": "Two later records expand the bare R. the same way, which is the discriminator that made the identity. Both are after the scene, so the expansion is recorded and the card's name does not move."
+  },
+  {
+   "person_id": "stiles_david",
+   "household_id": "hh_stiles_david",
+   "name_as_read": "David Stiles",
+   "source_id": null,
+   "claim_or_record_id": "resident_research:unticketed",
+   "describes_date": "",
+   "field": "none",
+   "proposed_value": null,
+   "precision": null,
+   "confidence": null,
+   "place_class": "not_a_place",
+   "quote": "",
+   "adjudication": "no_candidate",
+   "reason": "The research reviewed this person and found nothing outside the record already held. A documented no-find, not evidence that the person did not exist, and nothing to spend.",
+   "research_outcome": "unstated",
+   "candidate_ids": null
   },
   {
    "person_id": "stimson_s_c",

@@ -13,20 +13,20 @@
  "counts": {
   "person_records": 2929,
   "carried_by_the_civic_mint": 511,
-  "rungs_spent": 843,
-  "conflicts_for_the_owner": 84,
+  "rungs_spent": 844,
+  "conflicts_for_the_owner": 83,
   "spent_by_rule": {
    "G1a": 22,
    "G1b": 92,
    "G1c": 11,
    "G2c": 1,
-   "G2e": 53,
+   "G2e": 54,
    "G3": 664
   },
   "conflicts_by_kind": {
    "abstention": 46,
    "downgrade": 35,
-   "subtype": 3
+   "subtype": 2
   }
  },
  "refusal_kinds": {
@@ -6643,6 +6643,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "stiles_david",
+   "household_id": "hh_stiles_david",
+   "name": "David Stiles",
+   "identity": "id_stiles_david",
+   "rule": "G2e",
+   "grade": "inferred",
+   "resident_subtype": null
+  },
+  {
    "person_id": "stimson_s_c",
    "household_id": "hh_stimson_s_c",
    "name": "S. C. Stimson",
@@ -8749,21 +8758,6 @@
     "resident_subtype": null
    },
    "why": "the rung proposes a LOWER grade than the card carries. T-0515 ruled on this row and declined it, because the card rests on evidence the consolidation never read; the refusal is on the card. Writing the rung here would say the card carries a grade it does not."
-  },
-  {
-   "person_id": "stiles_david",
-   "household_id": "hh_stiles_david",
-   "name": "David Stiles",
-   "identity": "id_stiles_david",
-   "rule": "G2e",
-   "grade": "inferred",
-   "resident_subtype": "projected_resident",
-   "kind": "subtype",
-   "proposed": {
-    "grade": "inferred",
-    "resident_subtype": null
-   },
-   "why": "the rung proposes the same grade with a DIFFERENT resident_subtype. Taking a `projected_resident` caveat off a card, or putting one on, is a change to what the card claims and not a reason for what it already says."
   },
   {
    "person_id": "stow_william_h",

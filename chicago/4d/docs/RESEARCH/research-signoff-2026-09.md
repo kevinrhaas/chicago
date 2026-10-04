@@ -70,7 +70,7 @@ Not one of those owners asks for another READING. The heaviest are T-1335 (169),
 | Persons graded `inferred` | 1,030 |
 | Persons graded `reconstructed` | 1,487 |
 | Letter-list-only names | 774 |
-| Carrying the PROJECTED RESIDENT qualifier | 761 |
+| Carrying the PROJECTED RESIDENT qualifier | 760 |
 
 Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/synthesize_resident_research.py --drift` · `python3 tools/report_research_closing_audit.py --check`.
 
