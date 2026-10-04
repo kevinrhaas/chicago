@@ -6142,6 +6142,13 @@
       "by": "tools/reconstruct_businesses_1835.py --build"
     },
     {
+      "bucket": "businesses/physician",
+      "ticket": "T-1529",
+      "stage": "physicians",
+      "records": 2,
+      "by": "tools/reconstruct_businesses_1835.py --build"
+    },
+    {
       "bucket": "persons/female/10_19/north/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
@@ -7085,13 +7092,6 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
-    },
-    {
-      "bucket": "businesses/physician",
-      "ticket": "T-1529",
-      "stage": "physicians",
-      "records": 2,
-      "by": "tools/reconstruct_businesses_1835.py --build"
     }
   ],
   "re_family_ledger": {
