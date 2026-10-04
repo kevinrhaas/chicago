@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1440, ts: '2026-10-04T18:40:31.102Z', date: 'Oct 4, 2026, 1:40 PM CT', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
+  { v: null, ts: '', title: 'Newberry & Dole\u2019s warehouse moves out of the road at Franklin', kind: 'fix',
     items: [
       'Walk up Franklin Street to the river: Newberry & Dole\u2019s forwarding and commission warehouse no longer stands across the end of the street and in South Water Street. It now sits back in the corner west of Franklin and south of South Water, still facing the river.',
       'Its dock moved with it, to the river bank just across South Water Street, and the tree at the corner still stands in front of it.',
       'No source says where on South Water Street the warehouse stood, so the new spot is our choice, made on the owner\u2019s word. It is listed under Liberties (L377).',
+    ] },
+  { v: 1440, ts: '2026-10-04T18:27:55.960Z', date: 'Oct 4, 2026, 1:27 PM CT', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+    items: [
+      'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
+      'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
   { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
     items: [
