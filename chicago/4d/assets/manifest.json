@@ -439,7 +439,17 @@
       "inputs_sha256": "34cd4ff61f3f88a8c2bb408a2b12d7af21548c18701cdf162f34ffaf7d60ccab",
       "kind": "generated",
       "phase_id": "as_built_1887",
-      "structure_id": "glessner_house"
+      "structure_id": "glessner_house",
+      "web_lods": {
+        "light": {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "master_sha256": "b2e6b557c726613af3f30664a3865eeaf9a2488103674fe66ebff91258e2af3c",
+          "output_sha256": "92118ddbd25cd67379b876c2e4d100c55b7faaa3b20f59996ec742504bea1273",
+          "recipe_sha256": "8aa3147cf089b2a522bb95c6d02b6b0fb9c2134003482a781f1c439b01c86710",
+          "triangles": 193679
+        }
+      },
+      "web_master_sha256": "b2e6b557c726613af3f30664a3865eeaf9a2488103674fe66ebff91258e2af3c"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",
