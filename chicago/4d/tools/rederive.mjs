@@ -49,17 +49,28 @@
  * tools/check.sh is the proof that it settles, because it asserts the model, the
  * profile, the tier table and the resident cards all still re-derive afterwards.
  *
+ * AND THE PASS IS NOT THE END OF IT, which is T-1602. The model is a lagging reader
+ * too — it reads the scene's people.json and the town census, both rebuilt far below
+ * it — so it leads the pass. And the pass rewrites cards that compile_scene.py and
+ * everything below it read, so `--run` ends with the manifest's `after_the_pass`
+ * tail, repeated until a lap changes nothing: the scene and its generators read
+ * each other, and one lap leaves the sidecars a lap behind the structures. Before
+ * this, `--run` alone left the gate red on any branch that moved the population,
+ * and only pr-lap.sh's own late `--tail` (plus a hand step) turned it green.
+ *
  *   node tools/rederive.mjs --check                 the manifest is well-formed
  *   node tools/rederive.mjs --resolvable <paths…>   may these conflicts be cleared?
- *   node tools/rederive.mjs --run                   run the sequence, then the second pass
- *   node tools/rederive.mjs --tail <tools/x.py>     that step and every step below it (T-1661)
+ *   node tools/rederive.mjs --run                   the sequence, the second pass, then the settled tail
+ *   node tools/rederive.mjs --tail <tools/x.py>     that step and every step below it (T-1661),
+ *                                                   repeated until a lap moves nothing (T-1602)
  *   node tools/rederive.mjs --resolve               mid-merge: clear derived conflicts by rebuilding
  *   node tools/rederive.mjs --callers <script…>     no caller re-runs a step bare (T-1661)
  *   node tools/rederive.mjs --prove                 does every step write what it claims?
  *   node tools/rederive.mjs --self-test
  */
-import { readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync, copyFileSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -205,13 +216,41 @@ function check(m = load()) {
     });
   }
 
+  // THE SETTLED TAIL AFTER THE PASS (T-1602). It must start at one real step, and
+  // that step must sit BELOW every second-pass step — a tail that began above the
+  // pass would re-run the cycle the pass just closed and move the population back.
+  const after = m.after_the_pass;
+  if (after !== undefined) {
+    const at = 'after_the_pass';
+    const hits = m.steps.map((s, i) => [i, s])
+      .filter(([, s]) => s.command.join(' ').includes(String(after.tail_from ?? '').trim() || '\u0000'));
+    if (hits.length !== 1) {
+      problems.push(`${at}: tail_from must name exactly one step of the sequence; `
+        + `${JSON.stringify(after.tail_from)} matches ${hits.length}`);
+    } else {
+      const passAt = secondPass.map((e) => stepAt.get(key(e.command))).filter((i) => i !== undefined);
+      const above = passAt.filter((i) => i >= hits[0][0]);
+      if (above.length) {
+        problems.push(`${at}: tail_from (step ${hits[0][0] + 1}) is at or above second-pass `
+          + `step(s) ${above.map((i) => i + 1).join(', ')}. The tail would re-run the cycle the `
+          + 'pass just closed; start it below the pass.');
+      }
+    }
+    if (!Number.isInteger(after.max_laps) || after.max_laps < 2 || after.max_laps > 5) {
+      problems.push(`${at}: max_laps must be an integer from 2 to 5 — one lap cannot show `
+        + 'that the tree has stopped moving, and more than five is a loop that is not settling');
+    }
+    if (!after.why || !String(after.why).trim()) problems.push(`${at}: needs a why`);
+  }
+
   if (problems.length) {
     console.error('derived manifest FAILED:');
     for (const p of problems) console.error(`  - ${p}`);
     return 1;
   }
   console.log(`derived manifest OK — ${m.steps.length} step(s), ${allResolved(m).length} `
-    + `resolvable file(s), none hand-authored; second pass of ${secondPass.length} step(s)`);
+    + `resolvable file(s), none hand-authored; second pass of ${secondPass.length} step(s)`
+    + (after ? `, then the tail from ${after.tail_from} until it settles` : ''));
   return 0;
 }
 
@@ -276,7 +315,39 @@ function run(m = load()) {
 
   console.log(`derived layer rebuilt — ${m.steps.length} step(s) in dependency order, then a `
     + `second pass of ${secondPass.length} over the steps that read what the sequence rebuilds`);
-  return 0;
+
+  // AND EVERYTHING THAT READS THE CARDS THE PASS JUST MOVED, UNTIL IT STOPS MOVING
+  // (T-1602). Without this a `--run` on a branch that moved the population ended with
+  // the scene, its generators and their sidecars standing on the pre-pass cards, and
+  // only the lap's own late `--tail` — or a person — knew to fix it.
+  if (!m.after_the_pass) return 0;
+  const first = tailFrom(m.after_the_pass.tail_from, m);
+  if (first < 0) return 1;
+  return runFrom(first, m);
+}
+
+/**
+ * WHAT THE TREE UNDER chicago/4d HOLDS RIGHT NOW, AS ONE GIT TREE ID (T-1602).
+ *
+ * Written into a throwaway copy of the index, so the real one — mid-merge, during
+ * `--resolve` — is never touched. Copying the index keeps its stat cache, so only the
+ * files a lap actually rewrote are hashed again. Returns null outside a git checkout,
+ * and the caller then runs one lap and does not claim to know whether it settled.
+ */
+function treeState() {
+  const tmp = path.join(tmpdir(), `c4d-rederive-index-${process.pid}`);
+  try {
+    const index = path.resolve(REPO, execFileSync('git', ['rev-parse', '--git-path', 'index'],
+      { cwd: REPO, encoding: 'utf8' }).trim());
+    if (existsSync(index)) copyFileSync(index, tmp);
+    const env = { ...process.env, GIT_INDEX_FILE: tmp };
+    execFileSync('git', ['add', '-A', '--', path.relative(REPO, APP)], { cwd: REPO, env, stdio: 'ignore' });
+    return execFileSync('git', ['write-tree'], { cwd: REPO, env, encoding: 'utf8' }).trim();
+  } catch {
+    return null;
+  } finally {
+    rmSync(tmp, { force: true });
+  }
 }
 
 /* --------------------------------------------------------------------- tail */
@@ -303,9 +374,9 @@ function run(m = load()) {
  * picks it up with no edit, which a hand-written pair of commands would not.
  *
  * NO SECOND PASS. The pass walks the residents/model cycle once more (see
- * `_the_second_pass`), and its own steps sit ABOVE this tail at manifest indices
- * 76, 102 and 105; running it again here would move the population under the
- * very steps this tail just settled. The caller has already had it from `--run`.
+ * `_the_second_pass`), and its own steps sit ABOVE this tail — `--check` holds that
+ * for `after_the_pass` — so running it again here would move the population under
+ * the very steps this tail just settled. The caller has already had it from `--run`.
  */
 function tailFrom(from, m = load()) {
   const name = (from ?? '').trim();
@@ -332,21 +403,41 @@ function tail(from, m = load()) {
   return runFrom(first, m);
 }
 
+/**
+ * A TAIL, REPEATED UNTIL A LAP CHANGES NOTHING (T-1602). The scene and its generators
+ * read each other — compile_scene.py reads the structure records the infill
+ * generators write, and they read the sidecars it writes — so one lap can leave the
+ * sidecars a lap behind. A settled tree costs exactly one lap: the one that shows
+ * nothing moved. Still moving after `max_laps` is reported, not hidden, and check.sh
+ * stays the proof either way.
+ */
 function runFrom(first, m = load()) {
   const run_ = m.steps.slice(first);
-  for (const [i, s] of run_.entries()) {
-    const label = s.command.join(' ');
-    process.stdout.write(`  [${first + i + 1}/${m.steps.length}] ${label}\n`);
-    try {
-      execFileSync(s.command[0], s.command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
-    } catch (e) {
-      console.error(`  FAILED: ${label}`);
-      console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-8).map((l) => `    ${l}`).join('\n'));
-      return 1;
+  const maxLaps = m.after_the_pass?.max_laps ?? 1;
+  for (let lap = 1; lap <= maxLaps; lap += 1) {
+    const before = maxLaps > 1 ? treeState() : null;
+    if (lap > 1) process.stdout.write(`  — lap ${lap} of at most ${maxLaps}: the last one moved the tree —\n`);
+    for (const [i, s] of run_.entries()) {
+      const label = s.command.join(' ');
+      process.stdout.write(`  [${first + i + 1}/${m.steps.length}] ${label}\n`);
+      try {
+        execFileSync(s.command[0], s.command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
+      } catch (e) {
+        console.error(`  FAILED: ${label}`);
+        console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-8).map((l) => `    ${l}`).join('\n'));
+        return 1;
+      }
+    }
+    const after = before ? treeState() : null;
+    if (!before || !after || before === after) {
+      console.log(`derived layer rebuilt from step ${first + 1} — ${run_.length} step(s) in manifest `
+        + `order, ${lap} lap(s)${before && after ? ', and the last one moved nothing' : ''}; `
+        + 'no second pass (it sits above this tail)');
+      return 0;
     }
   }
-  console.log(`derived layer rebuilt from step ${first + 1} — ${run_.length} step(s) in manifest `
-    + 'order, no second pass (the caller has already had it from --run)');
+  console.error(`WARNING: the tail from step ${first + 1} was still moving the tree after `
+    + `${maxLaps} laps. Something below it is not converging — ./tools/check.sh will say which.`);
   return 0;
 }
 
@@ -612,16 +703,27 @@ async function selfTest() {
   check_('the shipped manifest declares one', pass.length > 0, `${pass.length} step(s)`);
   check_('every entry re-runs a command the sequence already runs — no new tool sneaks in',
     pass.every((e) => real.steps.some((s) => k(s.command) === k(e.command))));
-  check_('the lagging reader leads it, and it is the arrival stage',
-    (pass[0]?.command ?? []).join(' ').includes('attribute_fill_arrival')
-      && Array.isArray(pass[0]?.reads_rebuilt));
-  check_('the file it lags on IS rebuilt by a later step — the lag is real, not cargo',
-    (pass[0]?.reads_rebuilt ?? []).every((rel) => {
+  check_('the model leads it, lagging on the scene and the census rebuilt below it (T-1602)',
+    (pass[0]?.command ?? []).join(' ').includes('model_town_1835.py')
+      && ['chicago/4d/data/sidecars/1835/people.json', 'chicago/4d/data/town_census.json']
+        .every((rel) => (pass[0]?.reads_rebuilt ?? []).includes(rel)));
+  check_('and the arrival stage, which draws from the model, follows it',
+    (pass[1]?.command ?? []).join(' ').includes('attribute_fill_arrival')
+      && Array.isArray(pass[1]?.reads_rebuilt));
+  check_('every file an entry lags on IS rebuilt by a later step — the lag is real, not cargo',
+    pass.filter((e) => e.reads_rebuilt).every((e) => e.reads_rebuilt.every((rel) => {
       const owner = real.steps.findIndex((s) => (s.resolves ?? []).includes(rel));
-      const mine = real.steps.findIndex((s) => k(s.command) === k(pass[0].command));
+      const mine = real.steps.findIndex((s) => k(s.command) === k(e.command));
       return owner > mine && mine >= 0;
-    }));
+    })));
   check_('every entry says why it is re-run', pass.every((e) => String(e.why ?? '').trim().length > 0));
+
+  console.log('\n  and after the pass, the tail that reads what it moved, until it settles (T-1602)');
+  const after = real.after_the_pass ?? {};
+  check_('the shipped manifest declares it, from compile_scene.py — the lap\'s own late step',
+    after.tail_from === 'tools/compile_scene.py' && tailFrom(after.tail_from, real) >= 0);
+  check_('it may take more than one lap, because the scene and its generators read each other',
+    Number.isInteger(after.max_laps) && after.max_laps >= 2, `max_laps ${after.max_laps}`);
 
   console.log('\n  a late re-run is that step and everything below it (T-1661)');
   const scene = 'tools/compile_scene.py';
@@ -699,6 +801,30 @@ async function selfTest() {
       }]) === 1);
     check_('a repair with no lagging reader above it — it is repairing nothing',
       withPass([{ command: ['python3', 'tools/compile_scene.py'], why: 'downstream of nothing' }]) === 1);
+
+    const withAfter = (after_the_pass) => {
+      const f = path.join(tmp, 'a.json');
+      writeFileSync(f, JSON.stringify({
+        schema: 1,
+        steps: [
+          { command: ['python3', 'tools/compile_scene.py'], resolves: [] },
+          { command: ['python3', 'tools/model_town_1835.py', '--build'],
+            resolves: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+          { command: ['python3', 'tools/town_census.py'], resolves: [] },
+        ],
+        second_pass: [reader],
+        after_the_pass,
+      }));
+      return check(load(f));
+    };
+    const settle = { tail_from: 'tools/town_census.py', max_laps: 3, why: 'reads what the pass moved' };
+    check_('a settled tail below the pass is accepted', withAfter(settle) === 0);
+    check_('a settled tail starting AT a pass step — it would re-open the cycle',
+      withAfter({ ...settle, tail_from: 'tools/compile_scene.py' }) === 1);
+    check_('a settled tail naming no step', withAfter({ ...settle, tail_from: 'tools/no_such.py' }) === 1);
+    check_('a settled tail of one lap — one lap cannot show the tree stopped moving',
+      withAfter({ ...settle, max_laps: 1 }) === 1);
+    check_('a settled tail with no why', withAfter({ ...settle, why: '' }) === 1);
 
     console.log('\n  and a merge in a clone resolves the way the lap does (--resolve)');
     const src = (id) => `chicago/4d/data/sidecars/1835/sources/${id}.json`;

@@ -2891,6 +2891,10 @@ export async function createYardGoods({
     // The whole point of the chunk: its own bounding sphere, around its own
     // block of the town, so the frustum can leave it out.
     geo.computeBoundingSphere();
+    // The geometry holds a Float32 copy now; the JS arrays (twice its size) are
+    // scratch, and the chunk maps would otherwise keep them for the life of the
+    // page (T-2063 — what got the 1835 tab killed on an iPhone).
+    chunk.buf.pos = chunk.buf.nrm = chunk.buf.conf = chunk.buf.col = chunk.buf.uv = null;
     const mesh = new THREE.Mesh(geo, mat);
     mesh.name = 'yard-chunk';
     mesh.castShadow = true;

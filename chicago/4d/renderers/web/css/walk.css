@@ -244,8 +244,8 @@ html, body {
   color: var(--ink);
 }
 .gate-touch { display: none; }
-body.is-touch .gate-keys:not(.gate-touch) { display: none; }
-body.is-touch .gate-touch { display: block; }
+body:is(.is-touch, .touch-first) .gate-keys:not(.gate-touch) { display: none; }
+body:is(.is-touch, .touch-first) .gate-touch { display: block; }
 
 .gate-fine {
   margin: 16px 0 0;
