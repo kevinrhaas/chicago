@@ -4,13 +4,36 @@
 # nothing. Its whole job is that a pull request no automation in this repository
 # can move is never SILENT about it.
 #
-# IT REPORTS TWO SHAPES. The first is the deadlock below. The second (T-1510) is a
+# IT REPORTS THREE SHAPES. The first is the deadlock below. The second (T-1510) is a
 # PR whose `gate` has COMPLETED with a failing conclusion while the steward run that
 # owns the branch has finished — the one state with no owner at all in this repo, as
 # the lap does not gate, `merge-ready` merges only `clean`, and the run is over.
 # Measured 2026-09-21 on #1616 and #1618: both runs completed SUCCESS around the
 # minute their own gate went red, and both PRs sat until a person read the logs. It
 # names the failing steps, because having to open the logs is most of the cost.
+#
+# THE THIRD SHAPE (T-1520) is a PR GitHub calls `unstable` — required checks green,
+# some other check finished and not green — under a finished run. Measured on #1617
+# (2026-09-21): gate success, generate success, `report` CANCELLED, and the PR sat
+# until a person re-ran that one check, after which it went `clean` inside a minute.
+# Seen again on #324 (2026-10-03) and on #384 (2026-10-04), where it also stopped
+# the steward's own `pr-automerge`, which reads `cancelled` as red. The cancelled
+# check was THIS reporter's: chicago-4d-pr-stuck.yml runs under one concurrency
+# group with `cancel-in-progress: true` and fires on every steward-branch push, so
+# a second push anywhere inside one sweep's minute cancels the first sweep and
+# leaves its `report` check cancelled on the first push's head — which, for a run
+# that pushes its gated commit and then its dev merge, is a PR's head.
+#
+# THE READING ON `cancel-in-progress`, which the ticket asks for in writing: the
+# trigger is the real cause, and the cure is to scope the group per ref
+# (`chicago-4d-pr-stuck-${{ github.ref }}`) rather than to drop cancellation. Then a
+# sweep is only ever cancelled by a newer push to THE SAME branch, whose old head is
+# no longer the PR's head and whose cancelled check no longer matters; the
+# newest-wins economy the workflow's own comment defends survives on each ref. It is
+# a workflow change, which needs an owner-visible PR, so it is filed as its own
+# ticket and NOT made here. Until it lands, this shape is how the reporter covers
+# the state its own trigger creates — and it would be needed after it, too, for any
+# other non-required check that is cancelled or fails and is never re-run.
 #
 # THE DEADLOCK IT REPORTS, stated as the cycle it is:
 #
@@ -320,7 +343,24 @@ failing_steps() {
           | "  * \(.name)"' 2>/dev/null
 }
 
-STUCK=0; RED=0; HELD=0; MIDRUN=0; YOUNG=0; FINE=0; CLEARED=0; RESUMABLE=0
+# Every check run on a head that has NOT passed, one per line as
+# `name\tstatus\tconclusion\tdetails_url` — still-running ones included, so the
+# caller can tell "not finished" from "finished and not green". `filter=latest`
+# (GitHub's default, spelled out) keeps only the newest run of each name, so a
+# check cancelled and then re-run green does not count against the head. It is
+# asked of THE CURRENT HEAD and nothing else: a cancelled check on an older head
+# of the branch has no bearing on whether this one can merge.
+odd_checks() {
+  gh api "repos/$REPO/commits/$1/check-runs?per_page=100&filter=latest" \
+    --jq '.check_runs[]?
+          | select(.status != "completed"
+                   or ((.conclusion == "success" or .conclusion == "neutral"
+                        or .conclusion == "skipped") | not))
+          | "\(.name)\t\(.status)\t\(.conclusion // "none")\t\(.details_url // "")"' \
+    2>/dev/null
+}
+
+STUCK=0; RED=0; UNSTABLE=0; HELD=0; MIDRUN=0; YOUNG=0; FINE=0; CLEARED=0; RESUMABLE=0
 
 while IFS=$'\t' read -r N BR SHA LABELS; do
   [ -n "${N:-}" ] || continue
@@ -373,7 +413,7 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
     sleep "$RETRY_SLEEP"
   done
 
-  # TWO SHAPES OF STUCK, and the second was added by T-1510 after a queue grew
+  # THREE SHAPES OF STUCK; the second was added by T-1510 after a queue grew
   # 1 -> 5 open PRs in two hours with `dev` still for 95 minutes of it.
   #
   #   A. `dirty` — the T-1368 deadlock the header sets out at length.
@@ -407,6 +447,17 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
         failure|timed_out|cancelled|action_required) SHAPE=redgate ;;
       esac
     fi
+    # C. `unstable` UNDER A GATE THAT IS NOT RED (T-1520). `unstable` is GitHub's
+    #    word for "the required checks pass and some other check does not", and a
+    #    check that has COMPLETED is never re-run by anything here. Only a head
+    #    whose checks have ALL finished qualifies: one still running is moving, and
+    #    a head where every check passed is GitHub's state still catching up.
+    if [ -z "$SHAPE" ] && [ "$STATE" = "unstable" ]; then
+      ODD=$(odd_checks "$SHA")
+      if [ -n "$ODD" ] && ! printf '%s\n' "$ODD" | awk -F'\t' '$2!="completed"{f=1} END{exit !f}'; then
+        SHAPE=unstable
+      fi
+    fi
   fi
 
   if [ -z "$SHAPE" ]; then
@@ -436,6 +487,7 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
   # PR is conflicted or red, and each was learned the expensive way once already.
   SAW="$SHAPE"
   [ "$SHAPE" = "redgate" ] && SAW="$STATE with a red gate"
+  [ "$SHAPE" = "unstable" ] && SAW="unstable on a check that will not re-run itself"
   if [ "${HEAD_EPOCH:-0}" -eq 0 ]; then
     say "#$N  $SAW, but its head commit date could not be read — not reporting on a PR whose age is unknown"
     YOUNG=$((YOUNG+1)); continue
@@ -458,6 +510,9 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
   if [ "$SHAPE" = "redgate" ]; then
     say "#$N  STUCK — $STATE, gate $GATE_CONC, ${AGE_MIN}m old, and $LIVE_WHY"
     RED=$((RED+1))
+  elif [ "$SHAPE" = "unstable" ]; then
+    say "#$N  STUCK — unstable on $(printf '%s\n' "$ODD" | awk -F'\t' '{printf "%s%s %s", (NR>1?", ":""), $1, $3}'), gate ${GATE_CONC:-absent}, ${AGE_MIN}m old, and $LIVE_WHY"
+    UNSTABLE=$((UNSTABLE+1))
   else
     say "#$N  STUCK — dirty, $CHECKS check run(s), ${AGE_MIN}m old, and $LIVE_WHY"
     STUCK=$((STUCK+1))
@@ -475,6 +530,8 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
   # sha is in the marker, so each distinct stuck head is said exactly once.
   if [ "$SHAPE" = "redgate" ]; then
     MARK="PR stuck: the gate is red and the run that owned it has finished (\`${SHA:0:8}\`)"
+  elif [ "$SHAPE" = "unstable" ]; then
+    MARK="PR stuck: a finished check that did not pass holds this PR \`unstable\` (\`${SHA:0:8}\`)"
   else
     MARK="PR stuck: no automation in this repository can move this pull request (\`${SHA:0:8}\`)"
   fi
@@ -538,6 +595,34 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
       printf 'which writes the reason where a machine and a person can both read it.\n\n'
       printf -- '---\n_Generated by [Claude Code](https://claude.ai/code)_\n'
     } > /tmp/pr-stuck-comment.md
+  elif [ "$SHAPE" = "unstable" ]; then
+    { printf '%s.\n\n' "$MARK"
+      printf 'GitHub reports this PR `unstable`, and every check run on this head has finished.\n'
+      printf 'The one(s) that did not pass:\n\n'
+      printf '%s\n' "$ODD" | awk -F'\t' '{printf "* `%s` — **%s**\n", $1, $3}'
+      printf '\nThe gate may well be green (on this head it reads **%s**) and this PR still\n' "${GATE_CONC:-absent}"
+      printf 'cannot merge: `.github/steward/merge-ready.sh` merges only what GitHub calls `clean`,\n'
+      printf 'deliberately, and `unstable` is not `clean`. Nothing in this repository re-runs a\n'
+      printf 'check that has completed, and the lap pushes only when `%s` has moved — so this\n' "$BASE"
+      printf 'stays exactly as it is until somebody acts. #1617 sat like this on 2026-09-21 with\n'
+      printf 'a green gate and a `report` check cancelled by the next push'"'"'s sweep.\n\n'
+      printf 'What clears it: **re-run the check that did not pass.**\n\n'
+      printf '```\n'
+      printf '%s\n' "$ODD" | while IFS=$'\t' read -r _ _ _ url; do
+        rid=$(printf '%s' "$url" | sed -n 's|.*/actions/runs/\([0-9][0-9]*\).*|\1|p')
+        [ -n "$rid" ] && printf 'gh api -X POST repos/%s/actions/runs/%s/rerun\n' "$REPO" "$rid"
+      done | sort -u
+      printf '```\n\n'
+      printf 'or press **Re-run** on it from the Checks tab. It went `clean` within a minute of\n'
+      printf 'that on #1617. Do NOT push an empty commit to kick CI: that is refused everywhere\n'
+      printf 'else in this repository, and it would re-gate a tree the gate has already passed.\n\n'
+      printf 'If it is waiting on the OWNER on purpose, park it with `hold` — this reporter\n'
+      printf 'reads labels first and leaves a held PR alone. If it is merely UNFINISHED, hand\n'
+      printf 'it to the next run instead:\n\n'
+      printf '    .github/steward/pr-rest.sh resume %s --why "..." --waits-on nothing\n\n' "$N"
+      printf 'which writes the reason where a machine and a person can both read it.\n\n'
+      printf -- '---\n_Generated by [Claude Code](https://claude.ai/code)_\n'
+    } > /tmp/pr-stuck-comment.md
   else
   { printf '%s.\n\n' "$MARK"
     printf 'GitHub reports this PR `dirty`'
@@ -594,5 +679,5 @@ while IFS=$'\t' read -r N BR SHA LABELS; do
 done <<< "$PRS"
 
 say ""
-say "PR stuck: deadlocked=$STUCK red-gate=$RED held=$HELD resumable=$RESUMABLE mid-run=$MIDRUN too-young=$YOUNG moving=$FINE unlabelled=$CLEARED"
+say "PR stuck: deadlocked=$STUCK red-gate=$RED unstable=$UNSTABLE held=$HELD resumable=$RESUMABLE mid-run=$MIDRUN too-young=$YOUNG moving=$FINE unlabelled=$CLEARED"
 say "  (it reports; it never merges, pushes or resolves. The lap and merge-ready do those.)"
