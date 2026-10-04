@@ -183,6 +183,18 @@ lap_publish_mirror() {
   ( cd chicago/4d && bash tools/publish.sh ) >/tmp/lap-publish.log 2>&1
 }
 
+# The newest `gate` check run on a head, as `status:conclusion`, or nothing when
+# the head carries none (T-1362). NEWEST BY `started_at`, not array order — a
+# re-gated head carries several, and pr-stuck.sh's `gate_verdict` reads it the
+# same way for the same reason.
+lap_gate_verdict() {
+  gh api "repos/$REPO/commits/$1/check-runs?per_page=100" \
+    --jq '[.check_runs[]? | select(.name=="gate")]
+          | sort_by(.started_at // "") | last
+          | if . == null then empty else "\(.status):\(.conclusion // "none")" end' \
+    2>/dev/null
+}
+
 # --- dev's drivers, registered by absolute path so any branch can use them
 git fetch origin "$BASE" -q
 for f in merge-queue.mjs merge-changelog.mjs merge-generated.mjs merge-smoke-state.mjs; do
@@ -328,7 +340,7 @@ while IFS=$'\t' read -r N BR; do
   # iteration unless it is reset at the top — and a stale REDERIVED would silently
   # skip the derived-layer rebuild for the next PR, which is the exact fault the
   # rebuild exists to prevent.
-  REDERIVED=
+  REDERIVED=; CURRENT_RED=
   say "=== PR #$N  ($BR)"
   # THE TWO GUARDS THAT SAID FOUR WORDS AND NOTHING ELSE (T-1565). Both of these
   # were `... 2>/dev/null || { say "  fetch failed"; ... }`, with git's stderr
@@ -378,14 +390,63 @@ while IFS=$'\t' read -r N BR; do
     SKIPPED=$((SKIPPED+1)); continue
   fi
 
+  # CURRENT WITH THE BASE IS NOT CURRENT WITH THE BASE'S GATES (T-1362). This
+  # line used to end the iteration on "nothing to merge", and so it ended it on a
+  # branch the base had just made RED. #1480 landed a new gate on dev; #1487
+  # already agreed with dev about every file, so the lap printed
+  #
+  #   === PR #1487  (steward/t-1340-books-arrival-lists)
+  #     already current — nothing to lap
+  #
+  # while four manifest-owned files sat stale on it and its gate read 4 red of
+  # 513. `rederive.mjs --run` turned all four green; nobody ran it, because the
+  # only two places this script rebuilds are inside the merge, and a branch with
+  # nothing to merge never reaches either. #1518 sat the same way for two hours.
+  #
+  # ASK THE GATE, DO NOT GUESS AT IT. The obvious cure — rebuild every current
+  # branch on every lap — is ~10 minutes of `--run` per PR per lap on trees that
+  # almost never need it, and a hand-kept list of "the cheap checks" goes stale
+  # exactly the way the layer does (T-1362's own finding, corrected within the
+  # hour of writing it: eleven checks found one of #1518's five reds). The one
+  # authority on what is stale is check.sh, and CI has ALREADY run it on this very
+  # head: its `gate` check run is the verdict. Reading it is one REST call —
+  # measured 0.45-0.49 s on three open PRs, 2026-10-04 — so the path every clean
+  # PR takes on every lap costs half a second, and only a branch that is current
+  # AND red pays for a rebuild.
+  #
+  # A RED GATE IS NOT ALWAYS A STALE DERIVATION. It may be the branch's own fault,
+  # which no rebuild fixes — so a rebuild that moves nothing pushes NOTHING (an
+  # empty lap commit on every pass to every red branch would be worse than the
+  # bug), says so on the PR once per head, and the next lap reads that note and
+  # does not spend the rebuild on the same head again.
+  CURRENT_RED=
   if [ "$(git rev-list --count "HEAD..origin/$BASE")" -eq 0 ]; then
-    say "  already current — nothing to lap"; NOOP=$((NOOP+1)); continue
+    HEAD_SHA=$(git rev-parse HEAD)
+    VERDICT=$(lap_gate_verdict "$HEAD_SHA")
+    case "$VERDICT" in
+      completed:failure|completed:timed_out) ;;
+      *) say "  already current — nothing to lap (its gate: ${VERDICT:-not run on this head})"
+         NOOP=$((NOOP+1)); continue ;;
+    esac
+    STALE_MARK="PR lap: re-derived \`${HEAD_SHA:0:12}\` and nothing changed"
+    if gh api --paginate "repos/$REPO/issues/$N/comments" --jq '.[].body' 2>/dev/null \
+         | grep -qF "$STALE_MARK"; then
+      say "  already current, gate RED — and a re-derive of this head already moved nothing:"
+      say "    the red is this branch's own, not a stale derivation; left for its owner"
+      SKIPPED=$((SKIPPED+1)); continue
+    fi
+    say "  already current with $BASE, but its gate is RED ($VERDICT) — re-deriving in place (T-1362)"
+    CURRENT_RED=1
   fi
 
   BEFORE=$(git rev-parse HEAD)
-  git merge "origin/$BASE" --no-edit >/tmp/lap-merge.log 2>&1
-  MERGED=$?
-  U=$(git diff --name-only --diff-filter=U)
+  if [ -n "$CURRENT_RED" ]; then
+    MERGED=0; U=
+  else
+    git merge "origin/$BASE" --no-edit >/tmp/lap-merge.log 2>&1
+    MERGED=$?
+    U=$(git diff --name-only --diff-filter=U)
+  fi
 
   # A MERGE CAN FAIL WITHOUT LEAVING A CONFLICT, and this used to read as success.
   # The exit status was discarded and only `--diff-filter=U` was consulted, so a
@@ -615,6 +676,15 @@ while IFS=$'\t' read -r N BR; do
       git merge --abort 2>/dev/null; SKIPPED=$((SKIPPED+1)); continue; }
 
   git add -A
+  if [ -n "$CURRENT_RED" ]; then
+    git -c user.name="polecat-steward" -c user.email="steward@polecat.live" \
+        commit -q -m "Lap: re-derived against $BASE's gates — already current, and red
+
+This branch had nothing to merge from $BASE, and its gate was red. The derived
+layer was rebuilt from its own committed inputs (rederive.mjs --run, then the
+settled tail) and this is what moved. Nothing in this branch's own diff was
+touched; CI re-gates the push (T-1362)." 2>/dev/null
+  else
   git -c user.name="polecat-steward" -c user.email="steward@polecat.live" \
       commit -q --no-edit -m "Lap onto $BASE: generated files regenerated, not merged
 
@@ -624,6 +694,7 @@ in this branch's own diff was touched.
 
 Merge drivers registered from $BASE rather than from this branch, so a branch cut
 before T-0831 resolves the same way one cut after it does (T-0857)." 2>/dev/null
+  fi
 
   # THE LAP NO LONGER GATES BEFORE PUSHING, AND THIS IS THE ROOT-CAUSE FIX.
   #
@@ -667,7 +738,26 @@ before T-0831 resolves the same way one cut after it does (T-0857)." 2>/dev/null
   # that will not re-run. That sentence is the one a person reads to decide the
   # lane is healthy, so it has to be earned: compare HEAD against the head this
   # PR started the lap on, and only claim a push when the branch really moved.
-  if [ "$(git rev-parse HEAD)" = "$BEFORE" ]; then
+  if [ "$(git rev-parse HEAD)" = "$BEFORE" ] && [ -n "$CURRENT_RED" ]; then
+    say "  re-derived, and NOTHING CHANGED — the red is not a stale derivation; left for its owner"
+    # Once per head, and only so the next lap can read it: the marker is what
+    # stops a red branch paying for the same no-op rebuild on every pass.
+    { printf '%s, so the lap left this red branch alone.\n\n' "$STALE_MARK"
+      printf 'It was already current with `%s` and its `gate` read `%s`. The lap rebuilt the\n' "$BASE" "$VERDICT"
+      printf 'derived layer in place from the branch'"'"'s own inputs and the tree came out identical,\n'
+      printf 'so whatever the gate refuses is not a stale derivation — it wants the run that owns\n'
+      printf 'the ticket. The lap will not re-derive this head again; a new push resets it (T-1362).\n\n'
+      printf -- '---\n_Generated by [Claude Code](https://claude.ai/code)_\n'
+    } > /tmp/lap-comment.md
+    if jq -Rs '{body: .}' < /tmp/lap-comment.md \
+         | gh api -X POST "repos/$REPO/issues/$N/comments" --input - >/dev/null 2>/tmp/lap-comment.err; then
+      say "  said so on the PR"
+    else
+      say "  could not comment on #$N — $(tail -1 /tmp/lap-comment.err 2>/dev/null | cut -c1-120)"
+      say "  the next lap will re-derive this head again, having no note to read"
+    fi
+    SKIPPED=$((SKIPPED+1))
+  elif [ "$(git rev-parse HEAD)" = "$BEFORE" ]; then
     say "  the lap produced no new commit — nothing to push, and this PR is unchanged"
     NOOP=$((NOOP+1))
   elif git push origin "HEAD:$BR" >/dev/null 2>&1; then
