@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1405, ts: '2026-10-04T06:38:44.336Z', date: 'Oct 4, 2026, 1:38 AM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
+    items: [
+      'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
+      'The zone runs along the 1812 shore from just south of Harrison Street down to Eighteenth Street, between the water and the sand ridge a hundred yards back. It is a strip of beach, not a pin.',
+      'Captain Heald, who led the garrison out of the fort on 15 August 1812, wrote that it had gone \u201cabout a mile and a half\u201d when it was attacked from behind the bank. Two cottonwoods later standing in Eighteenth Street were long remembered as marking the spot. Those two places are more than a kilometre apart, so the zone takes in both and does not choose.',
+      'The route the column took is mapped too: down the river to its old mouth near Madison Street, then south along the beach. It is not drawn in the 1812 view yet.',
+    ] },
   { v: 1404, ts: '2026-10-04T06:05:14.950Z', date: 'Oct 4, 2026, 1:05 AM CT', title: 'The 1812 shore grows prairie, beach grass and two remembered cottonwoods', kind: 'feature',
     items: [
       'Open 1812 and the fort no longer stands on bare ground: the prairie, the sedge and marsh by the river, the river timber and the sand prairie and beach grass along the lake now grow there, from the same plant records as 1835.',
