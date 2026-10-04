@@ -286,16 +286,16 @@
    "west/tradesman_dwellings": 127
   },
   "reconstructed_seats": 1452,
-  "dealt_a_roof": 249,
-  "dealt_a_standing_roof": 220,
+  "dealt_a_roof": 250,
+  "dealt_a_standing_roof": 221,
   "dealt_a_slot_not_yet_built": 29,
   "dealt_by_ticket": {
-   "T-1613": 176,
+   "T-1613": 177,
    "T-1614": 73
   },
   "dealt_by_ground": {
    "off_plat_parcel": 73,
-   "platted_lot": 176
+   "platted_lot": 177
   }
  },
  "rows": [
@@ -3943,14 +3943,14 @@
    },
    "seed": "hh_bakwith_albert|T-1522|division:3f7c1ea6827e|class:431b74391fad",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_randolph_clark_d2_05",
+    "structure_id": "recon_1835_blk_randolph_dearborn_d1_04",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_randolph_clark#05",
-    "block_id": "blk_randolph_clark",
+    "on": "blk_randolph_dearborn#03",
+    "block_id": "blk_randolph_dearborn",
     "fronts": "washington",
-    "family": "D2",
+    "family": "D1",
     "clause": "labourer_dwellings",
     "district": "south",
     "stands_on": "lot",
@@ -3958,7 +3958,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_clark_d2_05, a family D2 roof on blk_randolph_clark#05. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_dearborn_d1_04, a family D1 roof on blk_randolph_dearborn#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -4345,14 +4345,14 @@
    },
    "seed": "hh_bane_george_b|T-1522|division:8efb76885ac7|class:2f5266e1810a",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_randolph_clark_d1_06",
+    "structure_id": "recon_1835_blk_randolph_clark_d2_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_randolph_clark#03",
+    "on": "blk_randolph_clark#05",
     "block_id": "blk_randolph_clark",
     "fronts": "washington",
-    "family": "D1",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "south",
     "stands_on": "lot",
@@ -4360,7 +4360,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_clark_d1_06, a family D1 roof on blk_randolph_clark#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_clark_d2_05, a family D2 roof on blk_randolph_clark#05. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -4807,12 +4807,12 @@
    },
    "seed": "hh_barney_anne_maria|T-1522|division:7a436927bd1b|class:3faba4369199",
    "dealt_roof": {
-    "structure_id": "recon_1835_blk_randolph_market_d1_10",
+    "structure_id": "recon_1835_blk_randolph_clark_d1_06",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_randolph_market#01",
-    "block_id": "blk_randolph_market",
+    "on": "blk_randolph_clark#03",
+    "block_id": "blk_randolph_clark",
     "fronts": "washington",
     "family": "D1",
     "clause": "labourer_dwellings",
@@ -4822,7 +4822,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_market_d1_10, a family D1 roof on blk_randolph_market#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_clark_d1_06, a family D1 roof on blk_randolph_clark#03. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -22928,12 +22928,12 @@
    },
    "seed": "hh_falker_j_b|T-1522|division:70599d7b73b2|class:42d29c9910ab",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d2_024",
+    "structure_id": "recon_1835_blk_randolph_market_d2_05",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_wells#01",
-    "block_id": "blk_lake_wells",
+    "on": "blk_randolph_market#00",
+    "block_id": "blk_randolph_market",
     "fronts": "randolph",
     "family": "D2",
     "clause": "labourer_dwellings",
@@ -22943,7 +22943,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d2_024, a family D2 roof on blk_lake_wells#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_blk_randolph_market_d2_05, a family D2 roof on blk_randolph_market#00. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -23908,13 +23908,13 @@
    },
    "seed": "hh_folliott_jonathan|T-1522|division:4dc79b8620ec|class:38c9db67da01",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d2_005",
+    "structure_id": "recon_1835_south_d2_024",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_wells#00",
+    "on": "blk_lake_wells#01",
     "block_id": "blk_lake_wells",
-    "fronts": "lake",
+    "fronts": "randolph",
     "family": "D2",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -23923,7 +23923,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d2_005, a family D2 roof on blk_lake_wells#00. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d2_024, a family D2 roof on blk_lake_wells#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -25745,14 +25745,14 @@
    },
    "seed": "hh_gifford_hezekiah|T-1522|division:a253a0be9412|class:3b5385030443",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d1_021",
+    "structure_id": "recon_1835_south_d2_005",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_franklin#01",
-    "block_id": "blk_lake_franklin",
-    "fronts": "randolph",
-    "family": "D1",
+    "on": "blk_lake_wells#00",
+    "block_id": "blk_lake_wells",
+    "fronts": "lake",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "south",
     "stands_on": "lot",
@@ -25760,7 +25760,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_021, a family D1 roof on blk_lake_franklin#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d2_005, a family D2 roof on blk_lake_wells#00. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -27131,12 +27131,12 @@
    },
    "seed": "hh_haighs_isaac|T-1522|division:4f12c009d137|class:389258f173cd",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d1_033",
+    "structure_id": "recon_1835_south_d1_021",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_dearborn#01",
-    "block_id": "blk_lake_dearborn",
+    "on": "blk_lake_franklin#01",
+    "block_id": "blk_lake_franklin",
     "fronts": "randolph",
     "family": "D1",
     "clause": "labourer_dwellings",
@@ -27146,7 +27146,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_033, a family D1 roof on blk_lake_dearborn#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_021, a family D1 roof on blk_lake_franklin#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -28112,12 +28112,12 @@
    },
    "seed": "hh_hasslen_daniel|T-1522|division:c0ba9be479cf|class:32fc1dd18f92",
    "dealt_roof": {
-    "structure_id": "recon_1835_south_d1_032",
+    "structure_id": "recon_1835_south_d1_033",
     "how": "adopted",
     "dealt_by": "T-1613",
     "ground": "platted_lot",
-    "on": "blk_lake_clark#07",
-    "block_id": "blk_lake_clark",
+    "on": "blk_lake_dearborn#01",
+    "block_id": "blk_lake_dearborn",
     "fronts": "randolph",
     "family": "D1",
     "clause": "labourer_dwellings",
@@ -28127,7 +28127,7 @@
     "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_032, a family D1 roof on blk_lake_clark#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_033, a family D1 roof on blk_lake_dearborn#01. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -29720,7 +29720,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_horr_raiph_c|T-1522|division:a0a1a2748521|class:41ab7d6d816e",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_south_d1_032",
+    "how": "adopted",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_lake_clark#07",
+    "block_id": "blk_lake_clark",
+    "fronts": "randolph",
+    "family": "D1",
+    "clause": "labourer_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_horr_raiph_c|T-1522|division:a0a1a2748521|class:41ab7d6d816e",
+    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_south_d1_032, a family D1 roof on blk_lake_clark#07. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_house_chester",
