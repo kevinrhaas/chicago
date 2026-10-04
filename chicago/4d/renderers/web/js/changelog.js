@@ -1,11 +1,11 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
+  { v: 1412, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: 'The letter-list residents are now checked on what their pass owns', kind: 'change',
     items: [
       'Nothing you can see in the town changes. This is a check on how the people known only from the post office\u2019s lists of uncalled-for letters are kept.',
       'The pass that adds them was not checked at all, because later passes rightly rewrite parts of the same records. It is now checked on the parts that are its own.',
       'What it would still change is listed person by person for reading: 43 people it would add, 7 it would drop, 10 it would file under a new name and 27 records whose dates or names moved.',
     ] },
-  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+  { v: 1411, ts: '2026-10-04T08:31:38.702Z', date: 'Oct 4, 2026, 3:31 AM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
     items: [
       "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
       'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
