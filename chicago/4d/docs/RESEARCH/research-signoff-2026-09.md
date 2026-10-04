@@ -32,13 +32,13 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 375 |
-| asserted | 1,395 |
+| asserted | 1,396 |
 | later_only | 12,596 |
 | outside_chicago | 119 |
-| refused | 8,735 |
+| refused | 8,734 |
 | unresolved | 477 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,395 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,396 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
@@ -229,14 +229,14 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 
 ## 5. Withheld is legible
 
-**21,825** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
+**21,824** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
 
 | Withheld as | Units |
 | --- | ---: |
 | `aggregate_only` | 375 |
 | `later_only` | 12,596 |
 | `outside_chicago` | 119 |
-| `refused` | 8,735 |
+| `refused` | 8,734 |
 
 The same rule over the gate itself: of **274** tools carrying a `--check`, **266** are run by `tools/check.sh` and **8** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
