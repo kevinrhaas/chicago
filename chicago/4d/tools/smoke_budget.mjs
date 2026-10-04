@@ -242,6 +242,7 @@ const COVERAGE = [
   // T-1055. terrain.js's ground tile, lifted into its own module so a tool can
   // measure it without a browser. Same part as the file it was lifted out of.
   ['renderers/web/js/prairie-tile.js', [3], 'the ground tile the prairie is painted from'],
+  ['renderers/web/js/turf-tile.js', [3, 10, 11], 'the town turf: painted by the ground, thinned in the sward'],
   // T-1797. The ground-strip proof: imported only under `?proof=ground`, which
   // no part loads, so the boot chain never reaches it. Part 1 boots the scene
   // and holds it to zero pageerrors, which is the claim "not imported" rests on.
