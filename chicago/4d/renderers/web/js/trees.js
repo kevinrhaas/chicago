@@ -1372,7 +1372,7 @@ class MeshBuf {
     this.idx = [];
   }
 
-  get count() { return this.pos.length / 3; }
+  get count() { return this.pos ? this.pos.length / 3 : this.vertexCount; }
 
   vert(x, y, z, nx, ny, nz, r, g, b, flex, conf, uv = treeAtlasUV(15, 0.5, 0.5), leaf = 0) {
     this.pos.push(x, y, z);
@@ -1400,6 +1400,15 @@ class MeshBuf {
     g.setIndex(new THREE.BufferAttribute(new Uint32Array(this.idx), 1));
     g.computeBoundingSphere();
     return g;
+  }
+
+  /** Drop the scratch arrays once `build()` has copied them (T-2063). They are
+   *  JS number arrays at twice a Float32Array's size, and the chunk map that
+   *  holds them outlives the boot. Counts are kept so the stats still read. */
+  release() {
+    this.vertexCount = this.count;
+    this.indexCount = this.idx.length;
+    this.pos = this.nrm = this.col = this.flex = this.conf = this.uv = this.leaf = this.idx = null;
   }
 }
 
@@ -3136,6 +3145,7 @@ export async function createTrees({
       batch.addInstance(batch.addGeometry(geo));
       // The batch owns a copy from here; the source geometry is scratch.
       geo.dispose();
+      b.release();
     }
     batch.computeBoundingSphere();
     group.add(batch);

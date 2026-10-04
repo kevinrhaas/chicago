@@ -27,29 +27,29 @@ Under option (a) the town LOST people, and with 34 of 60 heads adopted the loss 
 | if a move may change | ceiling |
 |---|---|
 | the division only | 0 |
-| the division and the household kind | 10 |
-| those and the trade as well | 67 |
-| the household-kind bound with movability applied, a house free to split | 10 |
+| the division and the household kind | 12 |
+| those and the trade as well | 69 |
+| the household-kind bound with movability applied, a house free to split | 12 |
 | **under this rule, with movability applied** | **139** |
 | what T-1556 § 3 named | 265 |
 
-Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 20 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time.
+Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 22 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time.
 
-T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 67: 214 of the 224 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 10 slots between them.
+T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 69: 215 of the 227 open slots stand in adult-MALE cells while the surplus holds 224 people under twenty and 105 adult women, whose cells hold 12 slots between them.
 
-A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -129 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.
+A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -127 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.
 
 ## What the town converges to
 
-- standing in the layer: 2,381
-- still owed: 224
-- converges to now: 2,605
-- converges to if this rule is spent: 2,466
-- 2,466 is inside the model's 2,362-3,265 and 77 below its 2,543 point, against 62 above it today.
+- standing in the layer: 2,889
+- still owed: 227
+- converges to now: 3,116
+- converges to if this rule is spent: 2,977
+- 2,977 is inside the model's 2,362-3,265 and 434 above its 2,543 point, against 573 above it today.
 
 ## What would raise the ceiling
 
-- **more_orders_in_the_women_and_children_cells** (T-1532, T-1536, T-1538 (the lodging band) and the book itself) — The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 9 and 1 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.
+- **more_orders_in_the_women_and_children_cells** (T-1532, T-1536, T-1538 (the lodging band) and the book itself) — The binding constraint is room, not willingness: the surplus is 224 people under twenty and 105 adult women, and their cells hold 10 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.
 - **a_ruling_that_an_adoption_may_be_RE_SEATED** (the business staffing band (T-1189 and its successors)) — 200 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.
 - **the_22_seated_households** (T-1199) — 24 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.
 - **and_the_honest_alternative** (T-1560, the programme's report) — What is left standing after the rule is spent is a remainder that NOTHING can move, and T-1459's ruling says it is held rather than clamped. The book will go on naming both numbers per bucket, which is the state the owner's ruling improved on rather than abolished.

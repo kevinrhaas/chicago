@@ -753,6 +753,8 @@ export function createFencedGround({
     // what carries the fringe out into the sward without a seam.
     geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 4));
     geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
+    // Scratch from here (T-2063): the geometry holds the Float32 copy.
+    buf.pos = buf.uv = buf.col = buf.conf = null;
     geo.computeVertexNormals();
     geo.computeBoundingSphere();
     // `road_earth` draws the road's own grit (T-2013) and carries no canvas.

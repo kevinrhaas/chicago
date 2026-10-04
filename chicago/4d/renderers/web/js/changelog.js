@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1400, ts: '2026-10-04T04:40:34.155Z', date: 'Oct 3, 2026, 11:40 PM CT', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Where the accounts place the 1812 attack, mapped as a zone', kind: 'feature',
     items: [
       'The Go-to viewpoint on the beach below Sixteenth Street used to say \u201cthe 1812 ground, not yet located\u201d. It now opens on the 1812 battle zone, looking north from near Eighteenth Street.',
       'The zone runs along the 1812 shore from just south of Harrison Street down to Eighteenth Street, between the water and the sand ridge a hundred yards back. It is a strip of beach, not a pin.',
       'Captain Heald, who led the garrison out of the fort on 15 August 1812, wrote that it had gone \u201cabout a mile and a half\u201d when it was attacked from behind the bank. Two cottonwoods later standing in Eighteenth Street were long remembered as marking the spot. Those two places are more than a kilometre apart, so the zone takes in both and does not choose.',
       'The route the column took is mapped too: down the river to its old mouth near Madison Street, then south along the beach. It will be drawn when the 1812 scene is built.',
+    ] },
+  { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
+    items: [
+      'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',
+      'The other 121 stand alone, and each card says why. The town had reached the top of the model\u2019s range for children under ten, so the seeded order stopped there.',
+      'Every one of these people is our reconstruction, not a record. No source names them, and none says these men married.',
+    ] },
+  { v: 1400, ts: '2026-10-04T04:29:40.593Z', date: 'Oct 3, 2026, 11:29 PM CT', title: 'The 1835 town opens on an iPhone again', kind: 'fix',
+    items: [
+      'On a phone, opening 1835 could close the browser tab before the town appeared, because the page held far more memory than a phone allows. It now uses about a third as much once the town has loaded, and the town itself is unchanged.',
+      'The extra memory was left over from laying the plank walks, fences, trees and yard goods, which was kept after those pieces had been built.',
     ] },
   { v: 1399, ts: '2026-10-04T04:12:17.062Z', date: 'Oct 3, 2026, 11:12 PM CT', title: 'Nothing you can see: rebuilding the research no longer stops half-finished', kind: 'chore',
     items: [
