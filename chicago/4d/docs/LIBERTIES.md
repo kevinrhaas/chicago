@@ -20871,3 +20871,32 @@ stand on is itself conjectural ground south of Twelfth Street.
 **How to resolve:** a street plat or photograph that draws the surviving tree against the curb
 and the railroad would make the easting inferred.
 **Recorded:** 2026-10-04 (T-0471).
+
+### L373 — The plank shanty on Lake Street takes the Dearborn corner the Mansion House left
+**Decision:** T-1679 moved `mansion_house` (Haddock's Tavern) and its stable one platted lot
+east, from `blk_south_water_dearborn` lot #01 (plat lot 5, the Lake-and-Dearborn corner) to lot
+#03 (plat lot 6), on G. Spring's 1834 notice selling lot 7 "one lot east of Haddock's Tavern".
+The move itself is an **inference** and is argued in the house's own position note, not here.
+**The liberty is the anonymous roof it displaced:** `recon_1835_blk_south_water_dearborn_d2_04`,
+a D2 plank dwelling or shanty, stood on lot #03 and could not stand beside the tavern. Its slot
+in `data/reconstruction/1835_platted_block_parcels.json` now names lot 1 instead of lot 3, with
+the same face, setback and lateral offset, and `tools/generate_block_infill.py` set it out from
+the lot polygon as before. No coordinate is authored, no roof is added or removed, and the
+block's family mix is unchanged.
+**Why:** a slot on a free lot is an invented count-unit, and moving it to the lot the tavern
+vacated is the smallest change that keeps the block's roof count without crowding a documented
+house. Re-dealing the whole block to put a better roof on the corner would have been a second
+decision riding on the first.
+Sliding it east on lot #03 instead was tried and refused: a recipe slot may not share a lot with a
+committed principal roof.
+**Consequence:** the meanest roof on the block now stands on its most prominent corner, which the
+end rule would not have chosen. The platted deal does not seat a labourer's household on a corner
+lot, so the household the shanty housed takes the next roof in the deal's order, nine more move
+one roof each down that chain, and the last is handed to T-1614 with the plat's other unseated
+households (`data/reconstruction/1835_platted_seats.json`, 179 seated to 178). All of those were
+seats dealt onto anonymous roofs; no source-backed home moved. T-0324 reads J. K. Botsford's store on that corner; no record
+places the store yet.
+**How to resolve:** a record that places Botsford's store (or any documented building) on the
+north-east corner of Lake and Dearborn substitutes for this count-unit.
+**Covers:** `recon_1835_blk_south_water_dearborn_d2_04.inferred_1835.position`
+**Recorded:** 2026-10-04 (T-1679).

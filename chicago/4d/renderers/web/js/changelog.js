@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
+    items: [
+      'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
+      'Why: an 1834 newspaper notice sells lot 7 of the block as \u201cone lot east of Haddock\u2019s Tavern\u201d. That puts the tavern on lot 6, next door to lot 7. Another 1834 advertiser\u2019s two addresses point to the same lot.',
+      'Its stable moved with it, to the back of the new lot.',
+      'The small plank shanty that stood on lot 6 is a reconstruction, not a recorded building. It now stands on the corner lot the tavern left.',
+    ] },
   { v: 1406, ts: '2026-10-04T07:06:15.901Z', date: 'Oct 4, 2026, 2:06 AM CT', title: 'The 1835 town can now be packed as one checked download', kind: 'change',
     items: [
       'Nothing you can see in the town changes. This is groundwork for running the town outside the browser, starting with the Unreal version.',
