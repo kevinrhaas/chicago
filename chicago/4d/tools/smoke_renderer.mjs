@@ -10,7 +10,7 @@
  * `SMOKE_VIEWPORT=mobile` (or `desktop`) runs one of the two while iterating.
  * That is not the gate and the run says so on its first line.
  *
- * `SMOKE_STAGE=1` … `13` runs one part of each viewport's body (T-0060, re-cut
+ * `SMOKE_STAGE=1` … `14` runs one part of each viewport's body (T-0060, re-cut
  * by T-0121, T-0167, T-0346, T-0173 and T-0170), and `SMOKE_STAGE=1-2` runs a
  * contiguous run.
  * The cuts sit at section boundaries measured for zero crossing bindings. It
@@ -37,12 +37,14 @@
  * 1280x800 on an IDLE runner it was killed at 9 m 20 s with the street readouts
  * and the Settings units still to run, so old parts 11-12 became 12-13 and there
  * are thirteen.
+ * T-2044 APPENDED PART 14: the arrival-to-jaunt path a visitor walks, on a fresh
+ * context that does not wave the welcome through. An append renumbers nothing.
  *
  * A staged run is not the gate either, and says so; the gate is both viewports,
  * every part, e.g.:
  *
- *   for s in 1-2 3-6 7-9 10-13;               do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
- *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13;   do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1-2 3-6 7-9 10-13 14;            do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
  *
  * `SMOKE_TIMING=1` stamps each check line with the elapsed clock. Off by
  * default; turn it on to profile a part, because a part that BREACHES the
@@ -1300,7 +1302,11 @@ if (ONLY) console.log(`NOT THE FULL GATE — viewports filtered to "${ONLY}"\n`)
 // the readouts. The pairing rule is unchanged in content — 1+2, 3+4+5+6, 7+8+9,
 // 10+11+12+13 — and the mobile recipe's last range widens from `10-12` to
 // `10-13`, still four commands.
-const PARTS = 13;
+// T-2044 APPENDED PART 14, the arrival-to-jaunt path on a fresh context. It is an
+// append, so parts 1-13 keep their numbers and every banked reading stands; it
+// joins no existing leg either, because it boots the town a second time and a
+// leg already near its cap should not carry that. Its own nightly leg is `14`.
+const PARTS = 14;
 const STAGE = process.env.SMOKE_STAGE || '';
 // `3` is one part; `3-4` is a contiguous run of them; `1,5-6` is any set. The
 // range form exists so the cheap viewport does not pay eight boots to run a
@@ -15786,6 +15792,228 @@ for (const [label, viewport, touch] of [
 
     inStageWork = false;
     } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)
+
+    // --- PART 14: the arrival-to-jaunt path, end to end (T-2044, from T-1272) --------
+    // Every part above boots with the welcome waved straight through (`enterTown`), so
+    // the path a visitor actually walks — the arrival year counting down, the welcome,
+    // the Starting At… picker, a jaunt, the cards and sources it links to, a change of
+    // travel mode, End, a second jaunt and Explore Myself — was covered only by the
+    // standalone jaunt harnesses, never in the gate. This part takes it on a FRESH
+    // context, because the first thing it asserts is what the arrival shows before
+    // `api.ready`, and the body's own page has long since passed that moment. The main
+    // page is parked on about:blank first so two copies of the town do not split the
+    // machine's frames; part 14 is the last part, so nothing after it reads that page.
+    // Rides are finished with `travel.simulate`, as the jaunt harnesses do: what is
+    // asserted is the outing's state and its controls, not the speed of a horse drawn
+    // in software at a few frames a second.
+    if (stageOn(14)) {
+    inStageWork = true;
+    await page.goto('about:blank');
+    const ctx14 = await browser.newContext({
+      viewport, hasTouch: touch, isMobile: false, deviceScaleFactor: touch ? 2 : 1,
+    });
+    // Every change of the arrival's year, with whether the scene was ready when it
+    // showed. Recorded from the first byte, before any page script can run.
+    await ctx14.addInitScript(() => {
+      window.__arrivalYears = [];
+      new MutationObserver(() => {
+        const year = document.getElementById('arrival-year')?.dataset.year;
+        if (year && year !== window.__arrivalYears.at(-1)?.year) {
+          window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true });
+        }
+      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year'] });
+    });
+    // The path is chrome, not rendering, so the town is drawn at `light` — the tier a
+    // touch device boots into anyway — as a visitor who chose it in Settings would see
+    // it. At `full` a desktop frame in software costs seconds and every step queues
+    // behind one. The parts above own the drawing at every tier.
+    await ctx14.addInitScript(() => {
+      try {
+        if (!localStorage.getItem('chicago4d.settings')) {
+          localStorage.setItem('chicago4d.settings', JSON.stringify({ detail: 'light' }));
+        }
+      } catch { /* storage refused: the default tier stands */ }
+    });
+    const p14 = await ctx14.newPage();
+    p14.setDefaultTimeout(90_000);
+    // Polled on an interval, not on animation frames: Playwright's default waits a
+    // frame per poll, and a frame of this town in software costs seconds at 1280x800,
+    // so the first desktop run spent a minute or more on each step and was killed at
+    // the ceiling with the mode change still running.
+    const until = (fn, arg = null) => p14.waitForFunction(fn, arg, { polling: 250 });
+    p14.on('pageerror', (e) => errors.push(`part 14 pageerror: ${e.message || e}`));
+    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 14 HTTP ${r.status()} ${r.url()}`); });
+    p14.on('console', (m) => {
+      const t = m.text();
+      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 14 console.error: ${t}`);
+    });
+    const jaunt = () => p14.evaluate(() => {
+      const s = window.__chicago4d.jaunts.state;
+      return s ? { id: s.jaunt?.id ?? null, phase: s.phase, stopIndex: s.stopIndex, mode: s.mode,
+        estimate: s.estimate ? JSON.stringify(s.estimate) : null } : null;
+    });
+    const atStop = () => until(() => window.__chicago4d.jaunts.state?.phase === 'atStop');
+    const finishRide = async () => {
+      await p14.evaluate(() => {
+        if (window.__chicago4d.travel.state.phase !== 'idle') window.__chicago4d.travel.simulate(600);
+      });
+      await atStop();
+    };
+    // A visitor's own tap: the first VISIBLE match, scrolled into view, hit-tested at its
+    // centre so a covered or disabled control fails here by name, then a trusted click.
+    const tap = async (sel, text = null) => {
+      const at = await p14.evaluate(([s, t]) => {
+        const el = [...document.querySelectorAll(s)].find((x) => x.getClientRects().length
+          && getComputedStyle(x).visibility !== 'hidden' && (t === null || x.textContent.trim() === t));
+        if (!el) return { why: `nothing visible matches ${s}` };
+        if (el.disabled) return { why: `${s} is disabled` };
+        el.scrollIntoView({ block: 'nearest' });
+        const r = el.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2;
+        const top = document.elementFromPoint(x, y);
+        if (!top || !(top === el || el.contains(top))) {
+          return { why: `${s} is covered at its centre by <${top?.tagName.toLowerCase() ?? 'nothing'} class="${top?.className ?? ''}">` };
+        }
+        return { x, y };
+      }, [sel, text]);
+      if (at.why) throw new Error(`part 14 tap: ${at.why}${text ? ` ("${text}")` : ''}`);
+      await p14.mouse.click(at.x, at.y);
+    };
+
+    await p14.goto(base, { waitUntil: 'domcontentloaded' });
+    await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome',
+      null, { timeout: 240_000, polling: 500 });
+    const years = await p14.evaluate(() => window.__arrivalYears);
+    const early = years.filter((y) => y.year === '1835' && !y.ready);
+    check(`${label}: the arrival counts down from the present and never reads 1835 before the scene is ready`,
+      years.length >= 2 && Number(years[0].year) > 1835 && early.length === 0
+      && years.every((y, i) => i === 0 || Number(y.year) <= Number(years[i - 1].year)),
+      years.map((y) => `${y.year}${y.ready ? '' : '·'}`).join(' '), true);
+
+    const welcome = await p14.evaluate(() => {
+      const gate = document.getElementById('gate');
+      const bar = document.getElementById('gate-bar');
+      return { text: gate.innerText, bar: !!bar && bar.getClientRects().length > 0
+        && getComputedStyle(bar).visibility !== 'hidden' };
+    });
+    const counted = /\d\s*%|\b\d[\d,]*\s+(?:buildings?|structures?|places|people|persons|residents|sources|records|businesses|households)\b/i
+      .exec(welcome.text);
+    check(`${label}: the welcome shows no count and no percentage`,
+      !counted && !welcome.bar, counted ? `reads "${counted[0]}"` : (welcome.bar ? 'the progress bar is still showing' : ''));
+
+    // --- Starting At…: a picked place enters the town with no pointer lock ---------
+    await tap('#welcome-explore');
+    await until(() => !!document.querySelector('#welcome-picker:not([hidden]) .welcome-destination:not(:disabled)'));
+    await tap('#welcome-results .welcome-destination:not(:disabled)');
+    await until(() => window.__chicago4d.welcome.state === 'world');
+    await p14.waitForTimeout(300);
+    check(`${label}: a place picked under Starting At… enters the town without taking the pointer`,
+      await p14.evaluate(() => !document.pointerLockElement && document.getElementById('gate').hidden));
+
+    // --- a jaunt from the menu, at its first stop ----------------------------------
+    await tap('#btn-start');
+    await until(() => window.__chicago4d.welcome.state === 'welcome');
+    await tap('#welcome-jaunts');
+    await until(() => !!document.querySelector('[data-jaunt="new-in-chicago"] [data-action="start"]'));
+    await tap('[data-jaunt="new-in-chicago"] [data-action="start"]');
+    await atStop();
+    const first = await jaunt();
+    check(`${label}: a jaunt started from the menu stands at its first stop, Previous disabled`,
+      first.id === 'new-in-chicago' && first.stopIndex === 0
+      && await p14.locator('#jaunt-panel [data-action="prev"]').isDisabled(), JSON.stringify(first));
+
+    // --- the card for this stop, and back to the same stop -------------------------
+    await tap('[data-link="structure:sauganash_hotel"]');
+    await until(() => window.__chicago4d.jaunts.state.phase === 'detail'
+      && !document.getElementById('popup').hidden);
+    await tap('#jaunt-panel [data-action="return"]');
+    await atStop();
+    const afterCard = await jaunt();
+    check(`${label}: the stop's place card opens, and Return comes back to the same stop`,
+      afterCard.stopIndex === 0 && await p14.evaluate(() => document.getElementById('popup').hidden),
+      JSON.stringify(afterCard));
+
+    // --- the source the stop cites, against the published catalog ------------------
+    await tap('[data-link="source:kinzie_waubun_1856"]');
+    await until(() => window.__chicago4d.jaunts.state.phase === 'detail'
+      && window.__chicago4d.sources?.state.detail === 'kinzie_waubun_1856'
+      && !document.getElementById('panel').hidden);
+    let catalog = null;
+    try {
+      catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'sidecars', '1835', 'sources', 'index.json'), 'utf8'));
+    } catch { catalog = null; }
+    const shown = await p14.evaluate(() => ({ rows: window.__chicago4d.sources.rows.length,
+      count: document.getElementById('sources')?.dataset.count ?? null,
+      cited: window.__chicago4d.sources.rows.some((r) => r.source_id === 'kinzie_waubun_1856') }));
+    check(`${label}: the stop's source opens in Sources, whose count is the published catalog's`,
+      !!catalog && shown.rows === catalog.sources.length && shown.count === String(catalog.sources.length) && shown.cited,
+      `${shown.rows} rows, data-count ${shown.count}; index.json ${catalog ? catalog.sources.length : 'unreadable'}`, true);
+    await tap('#jaunt-panel [data-action="return"]');
+    await atStop();
+    check(`${label}: Return from the source comes back to the same stop with the drawer shut`,
+      (await jaunt()).stopIndex === 0 && await p14.evaluate(() => document.getElementById('panel').hidden));
+
+    // --- a change of travel mode changes the ride and its estimate ------------------
+    const modeBefore = await jaunt();
+    const remainingBefore = await p14.locator('#jaunt-panel [data-jaunt-remaining]').innerText().catch(() => '');
+    const otherMode = modeBefore.mode === 'horse' ? 'walk' : 'horse';
+    await p14.selectOption('#jaunt-panel select[aria-label="Jaunt travel mode"]', otherMode);
+    await until((m) => window.__chicago4d.jaunts.state.mode === m, otherMode);
+    const modeAfter = await jaunt();
+    const remainingAfter = await p14.locator('#jaunt-panel [data-jaunt-remaining]').innerText().catch(() => '');
+    await tap('#jaunt-panel [data-action="next"]');
+    const riding = await p14.evaluate(() => ({ phase: window.__chicago4d.jaunts.state.phase,
+      travel: window.__chicago4d.travel.state.phase, mode: window.__chicago4d.travel.mode }));
+    check(`${label}: changing the travel mode changes the estimate, and the next ride goes at that mode`,
+      modeAfter.estimate !== modeBefore.estimate && remainingAfter !== remainingBefore
+      && riding.phase === 'travelling' && riding.mode === otherMode,
+      `${modeBefore.mode} "${remainingBefore}" -> ${otherMode} "${remainingAfter}"; ride ${JSON.stringify(riding)}`, true);
+    await finishRide();
+    const second = (await jaunt()).stopIndex;
+    await tap('#jaunt-panel [data-action="prev"]');
+    await finishRide();
+    const back = (await jaunt()).stopIndex;
+    await tap('#jaunt-panel [data-action="next"]');
+    await finishRide();
+    check(`${label}: Next and Previous move between stops 1 and 2`,
+      second === 1 && back === 0 && (await jaunt()).stopIndex === 1, `${second} -> ${back} -> ${(await jaunt()).stopIndex}`);
+
+    // --- Menu pauses, Resume returns, End is quick ----------------------------------
+    await tap('#jaunt-panel [data-action="menu"]');
+    await until(() => window.__chicago4d.welcome.state === 'welcome');
+    await until(() => [...document.querySelectorAll('#welcome-jaunts-content button')]
+      .some((x) => x.textContent.trim() === 'Resume Jaunt'));
+    await tap('#welcome-jaunts-content button', 'Resume Jaunt');
+    await atStop();
+    check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
+      (await jaunt()).stopIndex === 1);
+    const endMs = await p14.evaluate(() => {
+      const t0 = performance.now();
+      document.querySelector('#jaunt-panel [data-action="end"]').click();
+      const shown = !document.getElementById('gate').hidden;
+      return shown ? performance.now() - t0 : null;
+    });
+    check(`${label}: End Jaunt returns to the menu in under 200 ms`,
+      endMs !== null && endMs < 200 && (await jaunt()).id === null,
+      endMs === null ? 'the menu was not showing when the click returned' : `${endMs.toFixed(1)} ms`, true);
+
+    // --- a second jaunt, then Explore Myself clears it -----------------------------
+    await until(() => !!document.querySelector('[data-jaunt="taverns-of-chicago"] [data-action="start"]'));
+    await tap('[data-jaunt="taverns-of-chicago"] [data-action="start"]');
+    await atStop();
+    const another = await jaunt();
+    check(`${label}: a second jaunt starts at its own first stop`,
+      another.id === 'taverns-of-chicago' && another.stopIndex === 0, JSON.stringify(another));
+    await tap('#jaunt-panel [data-action="menu"]');
+    await until(() => window.__chicago4d.welcome.state === 'welcome'
+      && window.__chicago4d.jaunts.state.phase === 'menu');
+    await tap('#welcome-jaunts-explore');
+    await until(() => !document.getElementById('welcome-picker').hidden);
+    check(`${label}: Explore on my own clears a paused jaunt`,
+      (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
+    if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
+    await ctx14.close();
+    inStageWork = false;
+    } // end PART 14 (T-2044)
     } catch (e) {
       inStageWork = false;
       thrown = e;

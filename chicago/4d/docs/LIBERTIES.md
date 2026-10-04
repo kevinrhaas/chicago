@@ -16459,6 +16459,8 @@ row whose idiom it borrows), **L10** (the yard that is still a fence nobody mode
 
 **Recorded:** 2026-10-03 (T-1262).
 
+**Revised:** 2026-10-03 (T-2052). The outing measured 10.4 minutes on foot (T-2051) against a 3–6 minute band; the forks-to-LaSalle leg alone is four minutes of walking. The recommended mode is now a ride on horseback, which is invented like the rest of the first day, and the one leg story that said to walk the river street now says to ride it. The five stops and their texts are unchanged.
+
 ### L285 — The agency's ring of log buildings: four sentences that name the occupants and never describe a house
 
 **Decision:** three `log_dwelling` records — `mckee_log_house`, `caldwell_agency_log_house` and
@@ -17637,6 +17639,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-02 (T-1260).
 
+**Revised:** 2026-10-03 (T-2054). The outing measured 9.0 minutes by wagon (T-2051) against a 3–6 minute band, and no order of the five trades fits it at a wagon's pace, because the river crossing alone is about 500 m. So the recommended mode is now a ride on horseback, also invented, and the stops run in the order that crosses the river once: the list at the Green Tree, then how the load will travel at Cobb's, the ironwork at Pierce's on the same corner, and over the river to the Jones grocery and Peck's. Choosing pack or harness before the goods are bought, and leaving the smith before the stores, are part of the same invented errand. The five places, the purse, the prices and the endings are unchanged.
+
 ### L-jaunt-shopping-south-water — Shopping South Water Street: an invented list, purse and prices
 
 **Decision:** Shopping South Water Street links four existing exterior destinations — Peck's store, Carpenter's drug store, the Harmon and Loomis store and Thomas Church's store — in an invented errand to fill a household list. The three-dollar purse, every price in the choices (25¢–$2), the basket, the substitution of a cheaper tea when the purse is short, the two endings and The Household List memento are reconstructed. No sale, price, customer or conversation is attested; no named person speaks; no interior is opened. Each good is bought only from a store whose own advertisement lists it — flour and calico from Peck, liquorice ball from Carpenter, tea, loaf sugar and crockery from Harmon, Loomis & Co. — and that pairing is the only part of the errand the evidence bounds. Nothing is bought at Thomas Church's store, because the one note that records it names no stock; the stop is the tally, and its place on Lake Street is the structure record's own reconstruction.
@@ -17649,6 +17653,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 
 **Recorded:** 2026-10-03 (T-1263).
 
+**Revised:** 2026-10-03 (T-2053). The outing measured 6.6 minutes on foot (T-2051) against a 3–6 minute band. The recommended mode is now a drive in a light wagon, invented like the rest of the errand (a household buying flour would plausibly bring one), and the last stop's "Walk up to Lake Street" now says "Drive". The four stops, the stores' advertised goods and the prices are unchanged; Walk stays allowed.
+
 ### L-jaunt-fort-dearborn-errand — Fort Dearborn Errand: an invented note, parcel and delivery
 
 **Decision:** Fort Dearborn Errand links five existing exterior destinations — the stockade, the guard-house, the sutler's store, the store-house and the shop on the outer ground — in an invented errand: choose a small supply at the sutler's, check the parcel against a note outside the store-house, and set it down at the shop. The note, the parcel, the choice of candles or thread, the tally, the delivery, the readiness count, the two endings and the Accounted for at the Fort memento are reconstructed. No sutler's stock list for Fort Dearborn was found, so the two supplies are commonplace goods chosen for the story, not a claim about what this store sold. No soldier, sentry, sutler or commissary is shown or named, no garrison procedure is staged, no reply is invented, no interior is opened and the gates are not described as passed. What the evidence bounds is the setting: the buildings' functions and places (Hubbard 1827, the 1830 plan, the 1855 key, the 1834 beef notices) and the post being garrisoned on the scene date.
@@ -17660,6 +17666,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/fort-dearborn-errand.json`.
 
 **Recorded:** 2026-10-03 (T-1265).
+
+**Revised:** 2026-10-03 (T-2053). The errand measured 6.4 minutes on foot (T-2051) against a 3–6 minute band. It stays a walk, because it crosses the parade inside the pickets, so the first stop is folded into the second: the visitor now starts at the south gate, where the guard-house stop carries the stockade's card link, Juliette Kinzie's pickets and gates and the June 1832 garrison in one shorter text. The jaunt has four stops, not five; the sutler's store, store-house and shop stops are unchanged, and nothing new is claimed. The stop's prompt now carries the old text's “nobody replies”: no reply is invented.
 
 ### L-jaunt-taverns — Taverns of Chicago: an imagined evening round of four public houses
 
@@ -17696,6 +17704,8 @@ yard-building argument this one departs from), **L263** (the shingle exposure th
 **Applies to:** `data/jaunts/news-before-breakfast.json`.
 
 **Recorded:** 2026-10-03 (T-2004).
+
+**Revised:** 2026-10-03 (T-2052). The jaunt measured 17.6 minutes on foot (T-2051) against a 3–6 minute band, and walking cannot fit it: the leg between the two offices alone is about two minutes on foot. So the recommended mode is now a ride on horseback, also invented, and breakfast moves from the Exchange Coffee House at Lake and Wells, the long ride back west, to the first Tremont House at Lake and Dearborn, a block from the American's office. The Tremont stop rests on Andreas and the 1874 Tribune letter the structure record already carries; the Exchange is no longer a stop, and nothing printed in either paper changed.
 
 ### L-jaunt-work-waterfront — Work on the Waterfront: an invented search for work
 
@@ -20313,6 +20323,8 @@ sounding of the pre-cut channel.
 
 **Recorded:** 2026-10-03 (T-2008).
 
+**Revised:** 2026-10-03 (T-2053). The errand measured 6.8 minutes on foot (T-2051) against a 3–6 minute band. The recommended mode is now a ride on horseback between the four stops, invented like the rest of the errand; no stop text named walking, and the choice that promises to walk a lot's own ground still means a later errand on foot. The stops, notices and endings are unchanged; Walk stays allowed.
+
 ### L-jaunt-bed-for-the-night — A Bed for the Night: an invented search for lodging
 
 **Decision:** A Bed for the Night links four existing exterior destinations — the Western Hotel, the Sauganash, Mrs Rufus Brown's boarding house and the Mansion House — in an invented search for a bed by a visitor with a modest purse. The search itself, the cost-or-convenience preference, the route order (west side, over the South Branch bridge, east along Lake Street), the relative cost of the four houses, the choice of where to ask first, the three endings and the A Place to Lay Your Head memento are reconstructed. No price, vacancy, booking, conversation or encounter is attested; no named person speaks; no interior is opened. The houses, their keepers and their fabric are each cited at their own tier, and the crowding of June 1835 is told in the two papers' own words. The Mansion House's keeper on the scene date (Haddock or Markle) is stated as open rather than chosen, and Brown's exact spot is called a placement.
@@ -20428,6 +20440,8 @@ photographs or restoration records would replace these proportional choices.
 **Applies to:** `data/jaunts/freight-for-the-store.json`.
 
 **Recorded:** 2026-10-03 (T-2009).
+
+**Revised:** 2026-10-03 (T-2054). The jaunt measured 6.1 minutes by wagon (T-2051), seven seconds over a 3–6 minute band. The opening and the four stop texts are shortened, and their reading seconds lowered with them at no faster a reading rate; no fact was added and the wagon stays the recommendation, because loading it is the errand. The tally stop now says the yard is *likely* quiet in July, as its inferred evidence does.
 
 ### L366 — South Water Street's last 22 m to State Street are its own bearing carried to the corner
 

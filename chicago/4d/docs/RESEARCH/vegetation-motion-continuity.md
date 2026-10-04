@@ -271,3 +271,20 @@ this diagnostic used the wrong source URL; the passing probe uses the same
 `sidecars/1835/sources/` route as `mountSources`. The expanded preflight passes
 all 762 steps, including 314 self-tests. The final receipt is
 `vegetation-motion-continuity/final-source-integration.json`.
+
+
+## Subsequent jaunt integration, 2026-10-04 03:00 UTC
+
+Checkpoint nine (`e7ff0070`) retains the v1389 source integration receipts.
+Dev advanced to `ea0e26ab` with six jaunt/acceptance merges, including the
+appended arrival-to-jaunt smoke part 14. Those changes are preserved in full.
+No scene geometry or renderer logic changes in this integration; the release
+entry is restamped v1395. The expanded preflight again passes all 762 steps,
+including 314 self-tests.
+
+Parts 1–13 retain their recorded passing coverage and provenance above. The
+new part 14 is run separately at both viewports on this integrated tree, and
+the focused release-note/source check is repeated for v1395. Their final
+verdicts and tested tree identity are recorded on PR #364 before merge; they
+are not represented as tests of the earlier v1389 checkpoint. The original
+CI failures and all retained image/cost measurements remain available.

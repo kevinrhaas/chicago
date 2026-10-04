@@ -1,9 +1,45 @@
 export const CHANGELOG = [ // newest first
-  { v: 1389, ts: '2026-10-03T23:02:46.238Z', date: 'Oct 3, 2026, 6:02 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+  { v: 1395, ts: '2026-10-04T02:59:20.430Z', date: 'Oct 3, 2026, 9:59 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
     items: [
       'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
       'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
       'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
+    ] },
+  { v: 1394, ts: '2026-10-04T01:47:12.825Z', date: 'Oct 3, 2026, 8:47 PM CT', title: 'Nothing you can see: how heavy and slow the first visit has become', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'We measured what a first visit costs. The arrival and the jaunts add about 11 KB of it, and the jaunt catalog and the sources still load only when you open them.',
+      'Two of the town\u2019s own limits are now broken, and neither by the jaunts: a first visit downloads 13.1 MB against our 13 MB budget, and the newest trees make a phone stutter while the prairie is planted. Each now has its own fix ticketed.',
+    ] },
+  { v: 1393, ts: '2026-10-04T00:41:27.391Z', date: 'Oct 3, 2026, 7:41 PM CT', title: 'Four more horseback jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and Materials for a Roof now each take about five and a half to six minutes on horseback, down from just over six.',
+      'Each stop reads shorter. The places, the route, the choices and the endings are unchanged.',
+      'Every stop still says what is invented and where a place is uncertain.',
+    ] },
+  { v: 1392, ts: '2026-10-04T00:09:05.510Z', date: 'Oct 3, 2026, 7:09 PM CT', title: 'Two long jaunts now take about four and six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick News Before Breakfast: it now recommends riding, and breakfast is at the Tremont House on Lake and Dearborn, a block from the second paper. It takes about 5.5 minutes instead of 17.5 on foot.',
+      'New in Chicago also recommends riding now, and takes about four minutes instead of ten and a half. Its five stops are unchanged.',
+      'You can still choose to walk either one. The ride and the Tremont breakfast are our reconstruction (liberties L-jaunt-news-breakfast and L-jaunt-new-in-chicago).',
+    ] },
+  { v: 1391, ts: '2026-10-03T23:41:06.651Z', date: 'Oct 3, 2026, 6:41 PM CT', title: 'Nothing you can see: the way into a jaunt is now checked', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'Every build now walks the path a visitor takes, on a phone and on a desktop: the year counting down to 1835, the welcome, Starting At…, a jaunt with its place card and source, a change of travel mode, the Jaunts menu and Resume, End, a second jaunt, and Explore on my own.',
+      'It found nothing broken. End returns to the menu in under a millisecond, and the Sources count matches the published catalog.',
+    ] },
+  { v: 1390, ts: '2026-10-03T23:24:44.264Z', date: 'Oct 3, 2026, 6:24 PM CT', title: 'Three more jaunts fit inside six minutes', kind: 'fix',
+    items: [
+      'Open Jaunts and pick Look Before You Buy a Lot: it now recommends riding, and takes about three and a half minutes instead of seven on foot.',
+      'Shopping South Water Street now recommends a light wagon for the household list, and takes about four minutes instead of six and a half.',
+      'Fort Dearborn Errand now starts at the fort\'s south gate, where one stop tells you about the stockade and the guard-house together. It takes about five and a half minutes on foot.',
+      'You can still walk any of them. The ride, the wagon and the shorter fort errand are our reconstruction, noted in the liberties for each jaunt.',
+    ] },
+  { v: 1389, ts: '2026-10-03T23:03:35.041Z', date: 'Oct 3, 2026, 6:03 PM CT', title: 'Outfit for the West and Freight for the Store now fit inside six minutes', kind: 'fix',
+    items: [
+      'Outfit for the West took about nine minutes by wagon. It now suggests riding on horseback and crosses the river only once: the list at the Green Tree, then the saddler and the smith at Lake and Canal, then over the river to the Jones grocery and Peck\'s store. It takes about five minutes. The five places, the purse and the prices are unchanged.',
+      'Freight for the Store took a few seconds over six minutes. Its opening and its four stops are a little shorter, so it now takes under six minutes by wagon. Nothing new is claimed. The tally stop now says Dole\'s yard is likely quiet in July, because the evidence for that is an inference.',
     ] },
   { v: 1388, ts: '2026-10-03T22:49:02.145Z', date: 'Oct 3, 2026, 5:49 PM CT', title: 'The first Fort Dearborn\u2019s own plan, read and measured', kind: 'change',
     items: [
