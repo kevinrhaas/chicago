@@ -33,6 +33,49 @@ title: the register reads the Factors House and the House in Factors Dept. as `n
 the agent's and interpreter's houses, the stables and the gardens as drawn "without any Regular
 rule" (`sheet_only`), so the draught does not place any of them to scale. They are T-2062 rather
 than placed by eye.
+## T-2035 / T-2037 / T-2038 — continuous vegetation and distant plankwalks
+
+PR #364 addresses the owner's walking/flying plant pop-in, wild shrub rows and
+South Water plankwalk gaps. Ten recoverable checkpoints were saved through
+`dba67228`; the final integration includes dev `7186f5bb`, retaining its jaunt
+timing changes, appended arrival test and first-fort data. Those records are
+dated before 1835 and add no geometry to this scene; the release is stamped v1396.
+
+Near and distant plants retain the same rooted identities through their detail
+transitions, downward flight retains visible vegetation, and wild shrubs use
+independent full-cell scatter. The sampled community includes red-osier and grey
+dogwoods, common elderberry and ninebark, with meadowsweet nearby.
+
+The plank repair filters subpixel board gaps, refines ground only under emitted
+crossings, and retains exact distant deck tops beyond the furniture reach.
+It removes all 1,855 measured ground intersections, adds 8,704 ground triangles
+and at most one distant-walk call. All 107,532 emitted top triangles are clear.
+Footprints, walking heights, recorded species and intentional slough gaps remain.
+
+After removing zero-area grass-tip triangles, measured limits are 2,840,000 Full /
+2,145,000 Balanced / 1,040,000 Light, under the owner's October 3 authorization.
+Draw-call caps are unchanged. Six-stand measurements fit those limits; these
+software-rendered readings do not predict consumer frame rates.
+
+All 13 release sections have passing published desktop/mobile coverage across
+recorded checkpoints, with parts 1–2 repeated after instrument corrections and
+part 12 repeated on the integrated v1388 interface; the subsequent source-only
+release is checked separately for its added source and rendered release notes. The original failed census and
+coarse fence measurements are retained; their original thresholds remain, with
+additional derived-mesh and restoration checks. The dedicated appearance test
+also passes at both widths and without JavaScript. The final source-only
+integration passes its desktop/mobile check of all 1,389 release entries and
+the new published source. Final preflight passes 762 steps, including 314
+self-tests. Seven motion routes
+across all tiers and both viewports pass after the recorded Light repeat, with
+zero coverage jumps, identity errors or instance shortfalls. All 144 plank pairs
+and two reach controls pass. See `docs/RESEARCH/vegetation-motion-continuity.md`
+for exact scope and limitations. The v1395 integration repeats the 762-step
+preflight successfully; its new part 14 passes all 44 checks across both viewports, and the focused
+v1395 release-note/source check passes both viewports with no page errors. Production promotion is not part
+of this work.
+
+
 
 ## T-2049 — the first fort's fourteen structure records, built from the 1808 register (2026-10-04)
 
@@ -69,6 +112,7 @@ cannot be baked until a scene for 1812 exists. Two things to look at in that fir
 archetype centres a palisade gate on its side while the draught's passage is about 8 ft west of
 the rows' centre, and the inward row's closed loop stands against the ranges' back walls, where
 the draught draws it only between them.
+
 ## T-2047 — the arrival and jaunts against the town's budgets; two budgets broken elsewhere (2026-10-04)
 
 **What a visitor sees:** nothing changed. This is piece 4 of 4 of T-1272: the budgets, the

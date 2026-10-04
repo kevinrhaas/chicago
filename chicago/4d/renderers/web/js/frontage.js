@@ -179,18 +179,24 @@ function boardTone(tone, cx, cz) {
 const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
 
 /** An empty timber buffer: positions, normals, confidence and colour. */
-const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], tone: TIMBER_LINEAR, vary: false });
+const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], seam: [],
+  walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
 
 /**
  * Lay `build` into `buf` in `walk`'s tone, board by board, and hand the buffer
  * back in the fences' and posts' `TIMBER` afterwards.
  */
 function inWalkTone(buf, walk, build) {
+  const from = buf.pos.length / 3;
   buf.tone = walkTone(walk);
   buf.vary = true;
   try {
     return build();
   } finally {
+    if ((walk.kind === 'plank_walk' || walk.kind === 'board_crossing' || walk.kind === 'decked_walk')
+        && buf.pos.length / 3 > from) {
+      buf.walkTopRanges.push({ from, to: buf.pos.length / 3 });
+    }
     buf.tone = TIMBER_LINEAR;
     buf.vary = false;
   }
@@ -234,8 +240,8 @@ function inOwnerTone(buf, owner, build) {
  * board starts the tile at its own seeded offset, so two neighbours never show
  * the same figure and no 4.48 m period lines up down a street.
  *
- * Four slots, all stock — nothing here touches `onBeforeCompile`, which the
- * confidence overlay already owns:
+ * Four stock texture slots — the relief needs no shader patch and composes
+ * with the confidence overlay and subpixel plank-gap filter:
  *   normalMap      `normal_gl`, the grain's relief
  *   roughnessMap   the packed `orm`'s G, scaled so its mean is the layer's 0.9
  *   aoMap          the same `orm`'s R, the checks' and the grain's occlusion
@@ -385,6 +391,85 @@ async function loadTimberRelief(assetBase) {
 const SKIRT_M = 0.02;
 /** Daylight between two boards — a plank walk is not a slab. */
 const PLANK_GAP_M = 0.02;
+/** Physical framebuffer pixels, not CSS pixels. Resolvable gaps stay exact. */
+const PLANK_GAP_CLOSE_PX = 0.35;
+const PLANK_GAP_OPEN_PX = 1.0;
+
+/** Four bytes per vertex; the signed XZ pair is in half-gap units. Its maximum
+ * quantization error is 0.31 micrometres, far below a visible geometric seam. */
+function plankGapAttribute(seams) {
+  const packed = new Int16Array((seams.length / 3) * 2);
+  const scale = 32767 / (PLANK_GAP_M / 2);
+  for (let i = 0, j = 0; i < seams.length; i += 3, j += 2) {
+    packed[j] = Math.round(seams[i] * scale);
+    packed[j + 1] = Math.round(seams[i + 2] * scale);
+  }
+  return new THREE.BufferAttribute(packed, 2, true);
+}
+
+/**
+ * T-2037. Filter a walk's unresolved board gaps without adding a deck above it.
+ *
+ * At a grazing distance the 20 mm gaps become a subpixel comb: moving the eye
+ * alternately samples timber and the ground between boards. Each deck-board
+ * vertex carries at most half a gap, directed along the run. Only when that
+ * gap is smaller than a framebuffer pixel does the existing box expand into
+ * it, smoothly meeting its neighbour. Y, the walk's width and its endpoints
+ * stay put; the kerbs already reach each segment's full length. Close boards,
+ * posts, fences, crossings and lettering keep their original geometry.
+ *
+ * No new faces, material or render pass; no depth bias. Ground and buildings
+ * still occlude the filtered walk. Far merging copies this attribute with the
+ * other vertex streams: frontage chunks already use their parent coordinate
+ * system and have identity transforms. Reach culling remains a separate policy.
+ */
+function filterPlankGaps(material) {
+  const viewport = new THREE.Vector4();
+  const uniforms = {
+    uChiPlankGapViewport: { value: new THREE.Vector2(1, 1) },
+    uChiPlankGapEnabled: { value: 1 },
+  };
+  // A diagnostic control for paired captures, not a visitor setting.
+  material.userData.plankGapFilter = {
+    enabled: uniforms.uChiPlankGapEnabled,
+    closePx: PLANK_GAP_CLOSE_PX, openPx: PLANK_GAP_OPEN_PX,
+    units: 'framebuffer pixels',
+  };
+  const beforeRender = material.onBeforeRender;
+  material.onBeforeRender = function (renderer, ...args) {
+    beforeRender?.call(this, renderer, ...args);
+    // getCurrentViewport is already multiplied by DPR and also honours an
+    // offscreen target's viewport. getSize/getViewport would read CSS pixels.
+    renderer.getCurrentViewport(viewport);
+    uniforms.uChiPlankGapViewport.value.set(viewport.z, viewport.w);
+  };
+  const beforeCompile = material.onBeforeCompile;
+  material.onBeforeCompile = function (shader, renderer) {
+    beforeCompile?.call(this, shader, renderer);
+    Object.assign(shader.uniforms, uniforms);
+    shader.vertexShader = /* glsl */`
+attribute vec2 aChiPlankGap;
+uniform vec2 uChiPlankGapViewport;
+uniform float uChiPlankGapEnabled;
+` + shader.vertexShader.replace('#include <begin_vertex>', /* glsl */`
+#include <begin_vertex>
+if (uChiPlankGapEnabled > 0.0 && dot(aChiPlankGap, aChiPlankGap) > 0.0) {
+  vec3 chiGapDelta = vec3(aChiPlankGap.x, 0.0, aChiPlankGap.y)
+    * ${(PLANK_GAP_M / 2).toFixed(6)};
+  vec4 chiGap0 = projectionMatrix * (modelViewMatrix * vec4(transformed, 1.0));
+  vec4 chiGap1 = projectionMatrix
+    * (modelViewMatrix * vec4(transformed + 2.0 * chiGapDelta, 1.0));
+  if (chiGap0.w > 0.0 && chiGap1.w > 0.0) {
+    float chiGapPx = length((chiGap1.xy / chiGap1.w - chiGap0.xy / chiGap0.w)
+      * uChiPlankGapViewport * 0.5);
+    float chiGapClose = 1.0 - smoothstep(${PLANK_GAP_CLOSE_PX.toFixed(2)},
+      ${PLANK_GAP_OPEN_PX.toFixed(2)}, chiGapPx);
+    transformed += chiGapDelta * chiGapClose;
+  }
+}
+`);
+  };
+}
 /** A crossing is subdivided this often ALONG its run so it follows the ground. */
 const CROSSING_STEP_M = 0.9;
 /**
@@ -436,7 +521,7 @@ const KERB_STOCK_M = 0.09;
  * layers drawing small timber the same way is one thing to reason about.
  */
 function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
-                 skipUnderside = false) {
+                 skipUnderside = false, seamHalfM = 0) {
   const vx = -uz;
   const vz = ux;
   const P = (a, b, c) => [
@@ -488,6 +573,8 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
         buf.pos.push(p[i][0], p[i][1], p[i][2]);
         buf.nrm.push(n[0], n[1], n[2]);
         buf.conf.push(level);
+        buf.seam.push(vx * CORNER[i][1] * seamHalfM, 0,
+          vz * CORNER[i][1] * seamHalfM);
         buf.uv?.push(CORNER[i][ua] * half[ua] + ou, CORNER[i][va] * half[va] + ov);
         const k = kFace * (ax < 2 && CORNER[i][2] < 0 ? contact : 1);
         buf.col?.push(c[0] * k, c[1] * k, c[2] * k);
@@ -635,7 +722,8 @@ function laySegment(buf, walk, ax, ay, bx, by, terrain, level, stats = null) {
     // The board itself, its long axis ACROSS the run, stopping at the inner
     // face of the string piece that holds its ends.
     pushBox(buf, cx, top - thick / 2, cz, wx, wz,
-      boardHalf, Math.max(0.02, (step - PLANK_GAP_M) / 2), thick / 2, level, bare);
+      boardHalf, Math.max(0.02, (step - PLANK_GAP_M) / 2), thick / 2, level, bare,
+      Math.min(PLANK_GAP_M / 2, Math.max(0, step / 2 - 0.02)));
     // A board whose bay carries it is held by that bay's string piece, laid
     // once below; every other board carries its own, cut to the board pitch and
     // butted against its neighbours so the face stays unbroken.
@@ -1132,6 +1220,110 @@ function makeLettering(boards) {
 /* the layer                                                                   */
 /* -------------------------------------------------------------------------- */
 
+/** T-2037: the furniture reach may hide board detail, but not the footway.
+ * Copy only emitted walk/crossing top faces, preserving every source attribute.
+ * A changing index submits eligible, reach-culled chunks in one shared-material
+ * draw. The source and its replacement never draw together; farMerge hiding a
+ * source is not a reason to replace it. No heights, gaps or support are inferred.
+ */
+function createFarWalkTops(group, sources, material) {
+  const entries = [];
+  let vertices = 0;
+  for (const { mesh, ranges } of sources) {
+    const normal = mesh.geometry.getAttribute('normal');
+    const selected = [];
+    for (const { from, to } of ranges) {
+      for (let i = from; i < to; i += 3) {
+        if (normal.getY(i) < 0.99) continue;
+        selected.push(i, i + 1, i + 2);
+      }
+    }
+    if (!selected.length) continue;
+    if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere();
+    entries.push({ source: mesh, selected, from: vertices,
+      count: selected.length, active: false,
+      sphere: mesh.geometry.boundingSphere.clone() });
+    vertices += selected.length;
+  }
+  const geometry = new THREE.BufferGeometry();
+  if (entries.length) {
+    for (const [name, attribute] of Object.entries(entries[0].source.geometry.attributes)) {
+      const size = attribute.itemSize;
+      const packed = new attribute.array.constructor(vertices * size);
+      let offset = 0;
+      for (const entry of entries) {
+        const original = entry.source.geometry.getAttribute(name).array;
+        for (const vertex of entry.selected) {
+          for (let k = 0; k < size; k++) packed[offset++] = original[vertex * size + k];
+        }
+      }
+      geometry.setAttribute(name, new THREE.BufferAttribute(packed, size, attribute.normalized));
+    }
+    geometry.computeBoundingSphere();
+  }
+  const index = new THREE.BufferAttribute(new Uint32Array(vertices), 1);
+  index.setUsage(THREE.DynamicDrawUsage);
+  geometry.setIndex(index);
+  geometry.setDrawRange(0, 0);
+  const mesh = new THREE.Mesh(geometry, material);
+  mesh.name = 'frontage-far-walk-tops';
+  mesh.userData.farWalkTops = true;
+  mesh.userData.groundHugging = true;
+  mesh.renderOrder = 1;
+  mesh.castShadow = false;
+  mesh.receiveShadow = true;
+  mesh.visible = false;
+  group.add(mesh);
+  group.updateWorldMatrix(true, true);
+  for (const entry of entries) {
+    entry.sphere.applyMatrix4(entry.source.matrixWorld);
+    // Indices are copied only when the selected chunk set changes.
+    entry.indices = Uint32Array.from({ length: entry.count }, (_, i) => entry.from + i);
+    delete entry.selected;
+  }
+  const frustum = new THREE.Frustum();
+  const viewProjection = new THREE.Matrix4();
+  const state = { candidateChunks: entries.length, candidateTriangles: vertices / 3,
+    eligibleChunks: 0, eligibleTriangles: 0, activeChunks: 0, triangles: 0,
+    drawCalls: 0, indexUpdates: 0 };
+  function update(camera, crossStreetWalks = true) {
+    camera.updateMatrixWorld();
+    viewProjection.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+    frustum.setFromProjectionMatrix(viewProjection);
+    let changed = false, activeChunks = 0, triangles = 0;
+    let eligibleChunks = 0, eligibleTriangles = 0;
+    for (const entry of entries) {
+      const source = entry.source;
+      const eligible = crossStreetWalks || !source.userData.crossStreet;
+      if (eligible) { eligibleChunks++; eligibleTriangles += entry.count / 3; }
+      const active = eligible && source.userData.reachCulled === true
+        && !source.visible && frustum.intersectsSphere(entry.sphere);
+      if (active !== entry.active) changed = true;
+      entry.active = active;
+      if (active) { activeChunks++; triangles += entry.count / 3; }
+    }
+    if (changed) {
+      let offset = 0;
+      for (const entry of entries) {
+        if (!entry.active) continue;
+        index.array.set(entry.indices, offset);
+        offset += entry.count;
+      }
+      index.clearUpdateRanges();
+      if (offset) index.addUpdateRange(0, offset);
+      index.needsUpdate = true;
+      geometry.setDrawRange(0, offset);
+      state.indexUpdates++;
+    }
+    mesh.visible = activeChunks > 0;
+    Object.assign(state, { eligibleChunks, eligibleTriangles, activeChunks,
+      triangles, drawCalls: activeChunks > 0 ? 1 : 0 });
+    return state;
+  }
+  return { mesh, state, update, dispose: () => geometry.dispose() };
+}
+
+
 async function getJSON(url) {
   const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`${res.status} ${res.statusText} — ${url}`);
@@ -1228,6 +1420,9 @@ export async function createFrontage({
   const buf = timberBuf();
   const spans = [];
   const boards = [];
+  // T-2037: planting exclusions also include yards and fittings. Only emitted
+  // board crossings ask the far terrain to resolve their lowered street bed.
+  const crossingFootprints = [];
   /** What the string pieces down the walks' edges came to (T-0460). */
   const edgeStats = { kerb: 0, kerbStep: 0 };
   /**
@@ -1360,6 +1555,19 @@ export async function createFrontage({
       }
       if (!ok) continue;
       out.walks.push(walk);
+      if (crossing) {
+        // buildCrossing uses the first two points and this 1.22 m fallback.
+        const [a, b] = line;
+        const de = b[0] - a[0], dn = b[1] - a[1];
+        const halfWidth = (walk.width_m ?? 1.22) / 2;
+        const length = Math.hypot(de, dn);
+        const pe = -dn / length * halfWidth, pn = de / length * halfWidth;
+        crossingFootprints.push({
+          id: walk.id,
+          pts: [[a[0] + pe, a[1] + pn], [b[0] + pe, b[1] + pn],
+            [b[0] - pe, b[1] - pn], [a[0] - pe, a[1] - pn]],
+        });
+      }
       out.census[crossing ? 'crossings' : 'walks'] += 1;
       // A walk that rides a committed deck registers the planks as a surface
       // the walker stands on (T-0119) — see `walkableDecks` above.
@@ -1533,6 +1741,7 @@ export async function createFrontage({
   geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
   geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 3));
   geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
+  geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam));
   geo.computeBoundingSphere();
 
   const mat = new THREE.MeshStandardMaterial({
@@ -1580,6 +1789,7 @@ export async function createFrontage({
   if (grain.problem) problems.push(`frontage: ${grain.problem}`);
   else grain.apply(mat);
   out.census.relief = grain.problem ? null : grain.id;
+  filterPlankGaps(mat);
   confidence?.patch(mat);
   /**
    * ITS OWN PROGRAM CACHE KEY. three caches a compiled program under a key
@@ -1589,7 +1799,7 @@ export async function createFrontage({
    * whole layer in another layer's shader once already; ticket T-0053 is the
    * general fix and this is the local guard every derived layer carries.
    */
-  mat.customProgramCacheKey = () => 'chicago4d-frontage-timber';
+  mat.customProgramCacheKey = () => 'chicago4d-frontage-timber-subpixel-gaps';
 
   const mesh = new THREE.Mesh(geo, mat);
   /**
@@ -1621,6 +1831,7 @@ export async function createFrontage({
   // pick carries the owner on the mesh itself — a chunk is one walk's timber
   // and nothing else, so it needs no face-span arithmetic.
   const chunkMeshes = [];
+  const walkTopSources = [{ mesh, ranges: buf.walkTopRanges }];
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
     cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
@@ -1628,6 +1839,7 @@ export async function createFrontage({
     cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
     cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
     cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
+    cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam));
     cgeo.computeBoundingSphere();
     const cmesh = new THREE.Mesh(cgeo, mat);
     cmesh.renderOrder = 1;                 // same street-decal ordering as above
@@ -1644,10 +1856,12 @@ export async function createFrontage({
     if (chunk.crossStreet) cmesh.userData.crossStreet = true;
     group.add(cmesh);
     chunkMeshes.push(cmesh);
+    walkTopSources.push({ mesh: cmesh, ranges: chunk.buf.walkTopRanges });
   }
   out.census.meshes = group.children.length;
   out.census.kerb = edgeStats.kerb;
   out.census.kerbStep_m = Math.round(edgeStats.kerbStep * 1000) / 1000;
+  terrain.protectGroundUnder?.(crossingFootprints);
 
   const letters = makeLettering(boards);
   let letterMat = null;
@@ -1680,6 +1894,11 @@ export async function createFrontage({
     out.lettering = letters.text;
   }
   group.userData.census = out.census;
+  // A replacement draw, not another frontage item: keep it outside the census
+  // and picker just as the furniture's far-merge batches are counted separately.
+  const farWalkTops = createFarWalkTops(group, walkTopSources, mat);
+  out.updateFarWalks = farWalkTops.update;
+  out.farWalkTops = farWalkTops.state;
 
   const raycaster = new THREE.Raycaster();
   /**
@@ -1710,6 +1929,7 @@ export async function createFrontage({
   out.dispose = () => {
     geo.dispose();
     for (const c of chunkMeshes) c.geometry.dispose();
+    farWalkTops.dispose();
     mat.dispose();
     grain.dispose?.();
     if (letters) { letters.geo.dispose(); letters.texture.dispose(); }

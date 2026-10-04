@@ -5,6 +5,21 @@ export const CHANGELOG = [ // newest first
       'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
       'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
       'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
+  { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
+    items: [
+      'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
+      'If loading fails on a phone, the Retry screen shows the touch hints too.',
+    ] },
+  { v: 1397, ts: '2026-10-04T03:36:03.066Z', date: 'Oct 3, 2026, 10:36 PM CT', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
+    items: [
+      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
+      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
+    ] },
+  { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+    items: [
+      'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
+      'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
     ] },
   { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
     items: [

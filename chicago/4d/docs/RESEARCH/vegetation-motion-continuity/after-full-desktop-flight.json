@@ -1,0 +1,3467 @@
+{
+  "frames": [
+    {
+      "frame": 0,
+      "pose": {
+        "local_e": 170,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1851771,
+        "drawCalls": 185,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 250,
+          "flora-mid": 640,
+          "flora-forb": 42,
+          "flora-rosette": 234,
+          "flora-shrub": 39,
+          "flora-far": 121,
+          "flora-shrub-far": 385,
+          "flora-near-carry": 7044,
+          "flora-mid-carry": 4221,
+          "flora-head-spike": 533,
+          "flora-head-spire": 1,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 132,
+          "flora-head-dome": 237,
+          "flora-head-corymb": 72,
+          "flora-head-compound": 0
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:181.7818:73.8361",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 1,
+      "pose": {
+        "local_e": 170.75,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1852610,
+        "drawCalls": 185,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 241,
+          "flora-mid": 645,
+          "flora-forb": 41,
+          "flora-rosette": 233,
+          "flora-shrub": 41,
+          "flora-far": 124,
+          "flora-shrub-far": 385,
+          "flora-near-carry": 7044,
+          "flora-mid-carry": 4221,
+          "flora-head-spike": 494,
+          "flora-head-spire": 1,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 141,
+          "flora-head-dome": 253,
+          "flora-head-corymb": 87,
+          "flora-head-compound": 0
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 2,
+      "pose": {
+        "local_e": 171.5,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1855979,
+        "drawCalls": 185,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 247,
+          "flora-mid": 667,
+          "flora-forb": 41,
+          "flora-rosette": 233,
+          "flora-shrub": 46,
+          "flora-far": 124,
+          "flora-shrub-far": 385,
+          "flora-near-carry": 7044,
+          "flora-mid-carry": 4221,
+          "flora-head-spike": 483,
+          "flora-head-spire": 1,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 154,
+          "flora-head-dome": 274,
+          "flora-head-corymb": 87,
+          "flora-head-compound": 0
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 3,
+      "pose": {
+        "local_e": 172.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1858308,
+        "drawCalls": 185,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 251,
+          "flora-mid": 686,
+          "flora-forb": 47,
+          "flora-rosette": 231,
+          "flora-shrub": 49,
+          "flora-far": 120,
+          "flora-shrub-far": 385,
+          "flora-near-carry": 7044,
+          "flora-mid-carry": 4221,
+          "flora-head-spike": 462,
+          "flora-head-spire": 3,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 156,
+          "flora-head-dome": 274,
+          "flora-head-corymb": 87,
+          "flora-head-compound": 0
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 4,
+      "pose": {
+        "local_e": 173,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1863286,
+        "drawCalls": 186,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 251,
+          "flora-mid": 695,
+          "flora-forb": 43,
+          "flora-rosette": 234,
+          "flora-shrub": 48,
+          "flora-far": 118,
+          "flora-shrub-far": 385,
+          "flora-near-carry": 7044,
+          "flora-mid-carry": 4221,
+          "flora-head-spike": 444,
+          "flora-head-spire": 3,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 136,
+          "flora-head-dome": 284,
+          "flora-head-corymb": 97,
+          "flora-head-compound": 0
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 5,
+      "pose": {
+        "local_e": 173.75,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1862137,
+        "drawCalls": 187,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 261,
+          "flora-mid": 715,
+          "flora-forb": 43,
+          "flora-rosette": 234,
+          "flora-shrub": 49,
+          "flora-far": 116,
+          "flora-shrub-far": 385,
+          "flora-near-carry": 7044,
+          "flora-mid-carry": 4221,
+          "flora-head-spike": 429,
+          "flora-head-spire": 3,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 177,
+          "flora-head-dome": 283,
+          "flora-head-corymb": 135,
+          "flora-head-compound": 8
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 6,
+      "pose": {
+        "local_e": 174.5,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1864818,
+        "drawCalls": 188,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 265,
+          "flora-mid": 734,
+          "flora-forb": 45,
+          "flora-rosette": 233,
+          "flora-shrub": 48,
+          "flora-far": 117,
+          "flora-shrub-far": 380,
+          "flora-near-carry": 6882,
+          "flora-mid-carry": 4317,
+          "flora-head-spike": 416,
+          "flora-head-spire": 6,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 155,
+          "flora-head-dome": 298,
+          "flora-head-corymb": 135,
+          "flora-head-compound": 26
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 7,
+      "pose": {
+        "local_e": 175.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1864143,
+        "drawCalls": 188,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 257,
+          "flora-mid": 751,
+          "flora-forb": 40,
+          "flora-rosette": 234,
+          "flora-shrub": 50,
+          "flora-far": 117,
+          "flora-shrub-far": 380,
+          "flora-near-carry": 6882,
+          "flora-mid-carry": 4317,
+          "flora-head-spike": 329,
+          "flora-head-spire": 6,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 132,
+          "flora-head-dome": 307,
+          "flora-head-corymb": 141,
+          "flora-head-compound": 26
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 8,
+      "pose": {
+        "local_e": 176,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1867065,
+        "drawCalls": 189,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 250,
+          "flora-mid": 774,
+          "flora-forb": 40,
+          "flora-rosette": 236,
+          "flora-shrub": 53,
+          "flora-far": 117,
+          "flora-shrub-far": 380,
+          "flora-near-carry": 6882,
+          "flora-mid-carry": 4317,
+          "flora-head-spike": 315,
+          "flora-head-spire": 6,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 131,
+          "flora-head-dome": 312,
+          "flora-head-corymb": 158,
+          "flora-head-compound": 26
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 9,
+      "pose": {
+        "local_e": 176.75,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1866757,
+        "drawCalls": 189,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 257,
+          "flora-mid": 768,
+          "flora-forb": 43,
+          "flora-rosette": 240,
+          "flora-shrub": 52,
+          "flora-far": 116,
+          "flora-shrub-far": 380,
+          "flora-near-carry": 6882,
+          "flora-mid-carry": 4317,
+          "flora-head-spike": 275,
+          "flora-head-spire": 6,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 0,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 106,
+          "flora-head-dome": 317,
+          "flora-head-corymb": 162,
+          "flora-head-compound": 26
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 10,
+      "pose": {
+        "local_e": 177.5,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1873099,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 262,
+          "flora-mid": 755,
+          "flora-forb": 39,
+          "flora-rosette": 239,
+          "flora-shrub": 53,
+          "flora-far": 118,
+          "flora-shrub-far": 380,
+          "flora-near-carry": 6882,
+          "flora-mid-carry": 4317,
+          "flora-head-spike": 237,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 8,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 109,
+          "flora-head-dome": 319,
+          "flora-head-corymb": 162,
+          "flora-head-compound": 26
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:186.1093:92.3570",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 11,
+      "pose": {
+        "local_e": 178.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1874103,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 263,
+          "flora-mid": 749,
+          "flora-forb": 41,
+          "flora-rosette": 239,
+          "flora-shrub": 53,
+          "flora-far": 118,
+          "flora-shrub-far": 380,
+          "flora-near-carry": 6882,
+          "flora-mid-carry": 4317,
+          "flora-head-spike": 192,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 22,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 94,
+          "flora-head-dome": 327,
+          "flora-head-corymb": 181,
+          "flora-head-compound": 39
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:187.0078:93.7539",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:183.6178:86.0545",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 12,
+      "pose": {
+        "local_e": 179,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1862051,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 251,
+          "flora-mid": 733,
+          "flora-forb": 43,
+          "flora-rosette": 237,
+          "flora-shrub": 51,
+          "flora-far": 118,
+          "flora-shrub-far": 364,
+          "flora-near-carry": 6567,
+          "flora-mid-carry": 4508,
+          "flora-head-spike": 176,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 22,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 92,
+          "flora-head-dome": 336,
+          "flora-head-corymb": 190,
+          "flora-head-compound": 47
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z10_settled_town",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 13,
+      "pose": {
+        "local_e": 179.75,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1866023,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 260,
+          "flora-mid": 724,
+          "flora-forb": 46,
+          "flora-rosette": 226,
+          "flora-shrub": 50,
+          "flora-far": 119,
+          "flora-shrub-far": 364,
+          "flora-near-carry": 6567,
+          "flora-mid-carry": 4508,
+          "flora-head-spike": 152,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 14,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 92,
+          "flora-head-dome": 327,
+          "flora-head-corymb": 209,
+          "flora-head-compound": 47
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:183.0084:81.7645",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 14,
+      "pose": {
+        "local_e": 180.5,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1868599,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 255,
+          "flora-mid": 705,
+          "flora-forb": 48,
+          "flora-rosette": 216,
+          "flora-shrub": 47,
+          "flora-far": 122,
+          "flora-shrub-far": 364,
+          "flora-near-carry": 6567,
+          "flora-mid-carry": 4508,
+          "flora-head-spike": 184,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 14,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 87,
+          "flora-head-dome": 330,
+          "flora-head-corymb": 203,
+          "flora-head-compound": 47
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.2507:78.5902",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:182.3011:75.0448",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:181.7818:73.8361",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 15,
+      "pose": {
+        "local_e": 181.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1866736,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 259,
+          "flora-mid": 683,
+          "flora-forb": 48,
+          "flora-rosette": 207,
+          "flora-shrub": 45,
+          "flora-far": 125,
+          "flora-shrub-far": 364,
+          "flora-near-carry": 6567,
+          "flora-mid-carry": 4508,
+          "flora-head-spike": 171,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 24,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 83,
+          "flora-head-dome": 319,
+          "flora-head-corymb": 218,
+          "flora-head-compound": 39
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:181.7818:73.8361",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 16,
+      "pose": {
+        "local_e": 182,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1862560,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 245,
+          "flora-mid": 668,
+          "flora-forb": 48,
+          "flora-rosette": 197,
+          "flora-shrub": 43,
+          "flora-far": 123,
+          "flora-shrub-far": 364,
+          "flora-near-carry": 6567,
+          "flora-mid-carry": 4508,
+          "flora-head-spike": 153,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 76,
+          "flora-head-dome": 312,
+          "flora-head-corymb": 218,
+          "flora-head-compound": 39
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:187.9369:87.1068",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 17,
+      "pose": {
+        "local_e": 182.75,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1860401,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 242,
+          "flora-mid": 649,
+          "flora-forb": 46,
+          "flora-rosette": 193,
+          "flora-shrub": 41,
+          "flora-far": 125,
+          "flora-shrub-far": 364,
+          "flora-near-carry": 6567,
+          "flora-mid-carry": 4508,
+          "flora-head-spike": 150,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 76,
+          "flora-head-dome": 303,
+          "flora-head-corymb": 223,
+          "flora-head-compound": 39
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.5307:82.9844",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.2165:83.4087",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9110:79.4077",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 18,
+      "pose": {
+        "local_e": 183.5,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1860899,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 251,
+          "flora-mid": 629,
+          "flora-forb": 45,
+          "flora-rosette": 180,
+          "flora-shrub": 38,
+          "flora-far": 128,
+          "flora-shrub-far": 357,
+          "flora-near-carry": 6639,
+          "flora-mid-carry": 4682,
+          "flora-head-spike": 152,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 62,
+          "flora-head-dome": 282,
+          "flora-head-corymb": 227,
+          "flora-head-compound": 39
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.4576:68.9708",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.1440:70.4985",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.2319:68.7579",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 19,
+      "pose": {
+        "local_e": 184.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1862325,
+        "drawCalls": 190,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 253,
+          "flora-mid": 615,
+          "flora-forb": 46,
+          "flora-rosette": 173,
+          "flora-shrub": 36,
+          "flora-far": 129,
+          "flora-shrub-far": 357,
+          "flora-near-carry": 6639,
+          "flora-mid-carry": 4682,
+          "flora-head-spike": 152,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 59,
+          "flora-head-dome": 265,
+          "flora-head-corymb": 238,
+          "flora-head-compound": 39
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.1440:70.4985",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.2319:68.7579",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.9488:70.0811",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 20,
+      "pose": {
+        "local_e": 185,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1864928,
+        "drawCalls": 191,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 251,
+          "flora-mid": 608,
+          "flora-forb": 46,
+          "flora-rosette": 164,
+          "flora-shrub": 36,
+          "flora-far": 126,
+          "flora-shrub-far": 357,
+          "flora-near-carry": 6639,
+          "flora-mid-carry": 4682,
+          "flora-head-spike": 168,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 59,
+          "flora-head-dome": 252,
+          "flora-head-corymb": 238,
+          "flora-head-compound": 44
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:187.1440:70.4985",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.2319:68.7579",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.9488:70.0811",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 21,
+      "pose": {
+        "local_e": 185.75,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1868682,
+        "drawCalls": 192,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 247,
+          "flora-mid": 597,
+          "flora-forb": 45,
+          "flora-rosette": 154,
+          "flora-shrub": 35,
+          "flora-far": 130,
+          "flora-shrub-far": 357,
+          "flora-near-carry": 6639,
+          "flora-mid-carry": 4682,
+          "flora-head-spike": 164,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 57,
+          "flora-head-dome": 241,
+          "flora-head-corymb": 208,
+          "flora-head-compound": 44
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:184.9376:73.1283",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.2319:68.7579",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.9488:70.0811",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:199.1932:70.8533",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 22,
+      "pose": {
+        "local_e": 186.5,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1867338,
+        "drawCalls": 192,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 250,
+          "flora-mid": 587,
+          "flora-forb": 49,
+          "flora-rosette": 153,
+          "flora-shrub": 32,
+          "flora-far": 133,
+          "flora-shrub-far": 357,
+          "flora-near-carry": 6639,
+          "flora-mid-carry": 4682,
+          "flora-head-spike": 158,
+          "flora-head-spire": 5,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 49,
+          "flora-head-dome": 235,
+          "flora-head-corymb": 208,
+          "flora-head-compound": 44
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:190.7917:83.1010",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:186.0019:76.5929",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.2319:68.7579",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.9488:70.0811",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:199.1932:70.8533",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:203.1181:68.5113",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    },
+    {
+      "frame": 23,
+      "pose": {
+        "local_e": 187.25,
+        "local_n": -75,
+        "yaw_deg": 90,
+        "pitch_deg": -35,
+        "altitude_m": 18
+      },
+      "jumps": [],
+      "identityErrors": [],
+      "stats": {
+        "triangles": 1869619,
+        "drawCalls": 193,
+        "withinBudget": true
+      },
+      "flora": {
+        "shortfall": {},
+        "demand": {
+          "flora-near": 250,
+          "flora-mid": 575,
+          "flora-forb": 46,
+          "flora-rosette": 143,
+          "flora-shrub": 30,
+          "flora-far": 133,
+          "flora-shrub-far": 357,
+          "flora-near-carry": 6639,
+          "flora-mid-carry": 4682,
+          "flora-head-spike": 138,
+          "flora-head-spire": 2,
+          "flora-head-panicle": 0,
+          "flora-head-ray": 10,
+          "flora-head-raydroop": 0,
+          "flora-head-pompom": 46,
+          "flora-head-dome": 218,
+          "flora-head-corymb": 208,
+          "flora-head-compound": 31
+        },
+        "caps": {
+          "flora-near": 2400,
+          "flora-mid": 4400,
+          "flora-forb": 900,
+          "flora-rosette": 405,
+          "flora-shrub": 900,
+          "flora-far": 420,
+          "flora-shrub-far": 3200,
+          "flora-near-carry": 40000,
+          "flora-mid-carry": 32000,
+          "flora-head-spike": 1259,
+          "flora-head-spire": 259,
+          "flora-head-panicle": 259,
+          "flora-head-ray": 420,
+          "flora-head-raydroop": 1156,
+          "flora-head-pompom": 1096,
+          "flora-head-dome": 1684,
+          "flora-head-corymb": 987,
+          "flora-head-compound": 259
+        }
+      },
+      "zone": "z05_riverbank_timber",
+      "near": 0.7000000000000001,
+      "shrubZones": [
+        {
+          "key": "flora-shrub:198.6981:92.2474",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:195.7021:85.2037",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.2227:82.9348",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2550:79.0146",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.0321:81.2737",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.7771:79.8437",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:213.8274:79.0429",
+          "zone": "z01_wet_prairie"
+        },
+        {
+          "key": "flora-shrub:188.9937:75.4996",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.9932:75.7230",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6965:78.0924",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.8823:75.7275",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:201.3772:74.9306",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:189.2860:73.5489",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:195.8483:73.0847",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:197.2706:74.2871",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:192.2319:68.7579",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.9488:70.0811",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:199.1932:70.8533",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:203.1181:68.5113",
+          "zone": "z05_riverbank_timber"
+        },
+        {
+          "key": "flora-shrub:194.6900:66.3410",
+          "zone": "z05_riverbank_timber"
+        }
+      ]
+    }
+  ],
+  "jumps": [],
+  "identityErrors": [],
+  "maxTriangles": 1874103,
+  "maxCalls": 193,
+  "run_errors_after_completed_route": [
+    "review: page.evaluate: Target crashed \n    at /workspace/scratch/728bcee376d6/chicago/chicago/4d/tools/vegetation_motion_review.mjs:123:32"
+  ]
+}
