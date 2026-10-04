@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1402, ts: '2026-10-04T05:01:49.654Z', date: 'Oct 4, 2026, 12:01 AM CT', title: 'The first Fort Dearborn stands in an 1812 view', kind: 'feature',
+    items: [
+      'Open the 1812 door on the front page: it now shows the first Fort Dearborn as it stood in the summer of 1812, two weeks before it was evacuated and burned. Until now that door said the year was still being surveyed.',
+      'You see the double row of pickets, the two blockhouses at opposite corners, the four barracks ranges facing the parade, the brick magazine, two small houses and the 75-foot flagstaff. Their plans come from the drawing the fort\u2019s commander made in 1808. Their heights and roofs are our reconstruction (liberty L370).',
+      'The fort stands on the same ground as the 1835 fort, on the river and shore as they were before the harbour was cut. Its plan is turned to face north as the 1808 drawing implies, not borrowed from the later fort.',
+      'The 1812 view and the 1835 view can never show both forts at once. No people are shown in 1812: the history of that August is still under review.',
+    ] },
   { v: 1401, ts: '2026-10-04T04:38:01.026Z', date: 'Oct 3, 2026, 11:38 PM CT', title: '156 lone men in the 1835 town now have families', kind: 'change',
     items: [
       'Open the People directory and look up a married house the town had no wife for: 156 of them now hold the wife and children the household model drew for them, 508 people in all.',

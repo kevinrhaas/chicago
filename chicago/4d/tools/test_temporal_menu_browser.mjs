@@ -51,7 +51,9 @@ try {
   await page.evaluate(()=>localStorage.setItem('chicago4d.skin','steampunk'));await page.reload();assert.equal(await page.locator('html').getAttribute('data-skin'),'brass');
   // Dev preview remains within its own prefix.
   await page.goto(origin+'/4d/dev/');await page.locator('[data-year="1904"]').click();await page.waitForURL('**/4d/dev/1904/');
-  await page.goto(origin+'/4d/1812/');assert(await page.getByText('Survey in progress · reconstruction pending',{exact:true}).isVisible());
+  // Since T-2050 the 1812 door opens the renderer on the first fort, as 1835 and 1904 do.
+  await page.goto(origin+'/4d/1812/');await page.locator('.gate-card .skin-tools .machine-dial').waitFor();
+  assert.equal(await page.locator('base').getAttribute('href'),'../walk/','the 1812 door is the renderer door, not the pending page');
   // Explicit old root links keep query and fragment.
   await page.goto(origin+'/4d/?year=1904&structure=glessner_house#evidence');await page.waitForURL('**/4d/1904/?year=1904&structure=glessner_house#evidence');
   assert.equal(errors.length,0,errors.join('\n'));
