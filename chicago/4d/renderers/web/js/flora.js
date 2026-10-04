@@ -1056,13 +1056,16 @@ const GRASS_SHAPE = {
  * @param {object} o  dataBase (data/ root) · terrain (createTerrain's return) ·
  *   footprints (nothing grows through a wall) · growthBlocked (a narrow dated
  *   travelway clears plants, without clearing its whole legal corridor) ·
+ *   verge (T-2094: where in an opened street's corridor a point stands, so a
+ *   turf community's tall plants give way there — see `trodden`) ·
  *   confidence (every material is patched into it) · problems (the shared
  *   collector) · lowSpec (touch/mobile) · forbSeat (T-2086: where a forb
  *   slot stands — null where it is, false nowhere, [e, n] re-seated)
  */
 export async function createFlora({
   checkpoint = () => null,
-  dataBase, terrain, footprints = [], growthBlocked = () => false, forbSeat = () => null,
+  dataBase, terrain, footprints = [], growthBlocked = () => false, verge = () => null,
+  forbSeat = () => null,
   confidence = null, problems = [], lowSpec = false, detail = 'full', sceneId = null,
 } = {}) {
   const group = new THREE.Group();
@@ -1202,7 +1205,7 @@ export async function createFlora({
   };
 
   const water = await waterField(terrain, checkpoint);
-  const blocks = footprintCircles(footprints);
+  const blocks = circleGrid(footprintCircles(footprints));
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
@@ -1340,6 +1343,33 @@ export async function createFlora({
     'flora-forb': rings.forb, 'flora-rosette': rings.forb, 'flora-shrub': rings.forb,
   };
 
+  /**
+   * T-2094 — A STREET'S VERGE IN TOWN IS CROPPED TO THE TOWN'S OWN TURF.
+   *
+   * Inside an opened street's corridor, a plant of a turf community taller than
+   * that community's own low layer (`turfCeiling`, the tallest of its matrix and
+   * ground species: Poa, plantain, knotweed and clover to 0.25 m today) has no
+   * station: not on the worked roadway, and not on the verge between it and the
+   * lot line, where hooves, wheels pulling out to pass and feet crop it. The
+   * number is the record's, not this module's, so a re-reading of the zone
+   * moves it with nothing here to edit.
+   *
+   * A FEW WEEDS ARE KEPT, where nothing treads: in the last VERGE_KEEP_M of the
+   * corridor at the lot line, or at the street edge of a plank walk that stands
+   * there, in patches one VERGE_CELL_M cell wide that a positional hash keeps at
+   * VERGE_KEEP_SHARE. Positional, so a re-centred lattice keeps the same tufts,
+   * and patchy, because a dock at a post base is a clump and not an even
+   * dusting. All three are reconstructed (L327, revised for T-2094).
+   */
+  function trodden(e, n, zone, species) {
+    if (!zone?.turfCeiling || !species?.height || species.height[1] <= zone.turfCeiling) return false;
+    const at = verge(e, n);
+    if (!at) return false;
+    if (at.band !== 'verge' || at.edgeM > VERGE_KEEP_M) return true;
+    return hash3(Math.floor(e / VERGE_CELL_M), Math.floor(n / VERGE_CELL_M), 0x2094) / 4294967296
+      >= VERGE_KEEP_SHARE;
+  }
+
   /** A community that stands in no water, for the plantable-ground question the
    *  gate asks without naming a species. */
   const NO_COMMUNITY = { standsInWater: false };
@@ -1349,6 +1379,7 @@ export async function createFlora({
    *  lattice slot to choose which half of the community it may pick from. */
   function station(e, n, zone, species, wet = water.isWater(e, n)) {
     if (growthBlocked(e, n)) return null;
+    if (trodden(e, n, zone, species)) return null;
     // THE FLOOR TEST COMES BEFORE THE WATER TEST, and the order is the bug it
     // fixes. This block-list rejection used to sit below the `wet` early return,
     // so it only ever governed DRY ground - and every deck standing over water
@@ -1356,7 +1387,11 @@ export async function createFlora({
     // entitled to the riverbed under a dock as a bluestem is to the soil under a
     // walk, and neither may come up through the planks. Owner-reported twice:
     // reeds through the dock decks, sward through the sidewalks (T-0085/T-0124).
-    for (const b of blocks) {
+    // T-2096: only the floors whose circle reaches this slot's cell are asked.
+    // The whole list was walked for every slot of every rebuild, and it was the
+    // largest single cost of a turn in place (tools/measure_walk_frames.mjs).
+    const near = blocks.at(e, n);
+    if (near) for (const b of near) {
       const dx = e - b.e;
       const dz = n - b.n;
       if (dx * dx + dz * dz < b.r2 && pointInPolygon(b.pts, e, n)) return null;
@@ -2759,6 +2794,10 @@ function compileZones({ index, files }, terrain, problems, stats) {
       /** Every drawn species of this community by id, so a gate can ask the
        *  placer about one by name. */
       byId: new Map([...graminoids, ...forbs, ...shrubs].map((s) => [s.id, s])),
+      /** T-2094. How tall the turf's own low layer grows — the tallest matrix
+       *  or ground species — which is the height a trodden verge is cropped to
+       *  (`trodden`). Null off the turf communities. */
+      turfCeiling: isTurfCommunity(rec) ? turfCeilingOf([...graminoids, ...forbs]) : null,
       /** Chance a matrix lattice slot is used at all: the record's own
        *  `cover.matrix_fraction`. Clamped only because a fraction over 1 would
        *  be a bookkeeping error the validator already refuses. */
@@ -3524,6 +3563,39 @@ function footprintCircles(footprints) {
   });
 }
 
+/**
+ * T-2096. The floor circles bucketed on a world grid, so `station` asks only
+ * the ones that can contain the slot. Every circle is filed in every cell its
+ * bounding square touches, and a point inside a circle is inside that square,
+ * so the bucket holds every circle the full list would have matched: the answer
+ * is the same and only the misses are no longer paid for.
+ */
+const CIRCLE_CELL_M = 8;
+function circleGrid(circles) {
+  const cells = new Map();
+  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
+  for (const b of circles) {
+    const r = Math.sqrt(b.r2);
+    const i0 = Math.floor((b.e - r) / CIRCLE_CELL_M);
+    const i1 = Math.floor((b.e + r) / CIRCLE_CELL_M);
+    const j0 = Math.floor((b.n - r) / CIRCLE_CELL_M);
+    const j1 = Math.floor((b.n + r) / CIRCLE_CELL_M);
+    for (let i = i0; i <= i1; i++) {
+      for (let j = j0; j <= j1; j++) {
+        const k = key(i, j);
+        const list = cells.get(k);
+        if (list) list.push(b); else cells.set(k, [b]);
+      }
+    }
+  }
+  return {
+    size: circles.length,
+    at(e, n) {
+      return cells.get(key(Math.floor(e / CIRCLE_CELL_M), Math.floor(n / CIRCLE_CELL_M)));
+    },
+  };
+}
+
 /* -------------------------------------------------------------------------- */
 /* the lattice                                                                 */
 /* -------------------------------------------------------------------------- */
@@ -3535,6 +3607,23 @@ function smoothstep(lo, hi, x) {
   if (!(hi > lo)) return x >= hi ? 1 : 0;
   const t = Math.min(1, Math.max(0, (x - lo) / (hi - lo)));
   return t * t * (3 - 2 * t);
+}
+
+/**
+ * T-2094 — the trodden verge's kept weeds (`trodden`): within this far of the
+ * corridor's edge, one VERGE_CELL_M cell in VERGE_KEEP_SHARE keeps its tall
+ * plants. 2.6 m is a plank walk (1.83 m) and its 0.2 m clearance standing at
+ * the lot line, plus the half metre at its street edge a boot does not reach.
+ */
+const VERGE_KEEP_M = 2.6;
+const VERGE_CELL_M = 1.5;
+const VERGE_KEEP_SHARE = 0.22;
+
+/** T-2094. The tallest recorded height of a community's low layer. */
+function turfCeilingOf(species) {
+  const low = species.filter((sp) => (sp.role === 'matrix' || sp.role === 'ground')
+    && Array.isArray(sp.height));
+  return low.length ? Math.max(...low.map((sp) => sp.height[1])) : null;
 }
 
 /** Deterministic hash -> a repeatable per-slot random stream, so re-centring
@@ -3943,8 +4032,32 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
   // start would put it back where K49(f) left it.
   const globalShift = hash3(salt, STRAT_SALT, 0x9e3779b9) / 4294967296;
   yield { done: 0, total: r1 - r0 + 1 };
+  // T-2096. A cell no slot of which can pass the ring or the cone test below is
+  // skipped before its slots are hashed. Each slot's stream is seeded from its
+  // own cell and index, so skipping a cell moves no other slot: the plants
+  // dealt are exactly the ones the per-slot tests would have kept. Three
+  // quarters of the bounding square is outside a walker's cone, and hashing it
+  // was most of what a rebuild spent before a single plant was asked about.
+  const halfDiag = cell * Math.SQRT1_2;
   for (let r = r0; r <= r1; r++) {
+    const ny0 = r * cell - camN, ny1 = (r + 1) * cell - camN;
+    const ny = ny0 > 0 ? ny0 : ny1 < 0 ? -ny1 : 0;
+    const fy = Math.max(Math.abs(ny0), Math.abs(ny1));
     for (let c = c0; c <= c1; c++) {
+      const nx0 = c * cell - camE, nx1 = (c + 1) * cell - camE;
+      const nx = nx0 > 0 ? nx0 : nx1 < 0 ? -nx1 : 0;
+      if (nx * nx + ny * ny > rr) continue;
+      const fx = Math.max(Math.abs(nx0), Math.abs(nx1));
+      if (fx * fx + fy * fy < ri) continue;
+      if (cone) {
+        const ce = (c + 0.5) * cell - camE, cn = (r + 0.5) * cell - camN;
+        const cd = Math.hypot(ce, cn);
+        if (cd - halfDiag > CONE_KEEP_M) {
+          const low = cone.cos >= 0 ? (cd - halfDiag) * cone.cos : (cd + halfDiag) * cone.cos;
+          if (ce * cone.fe + cn * cone.fn + halfDiag
+            < low - 2 * (cone.margin ?? 0) - 1e-6) continue;
+        }
+      }
       const cellSeed = hash3(c, r, salt);
       // ROADMAP K49(b). One rotation per 16×16-cell block of the WORLD lattice —
       // and, K49(d), one permutation key per the same block.

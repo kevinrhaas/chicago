@@ -227,21 +227,21 @@
     "fronts": "lake",
     "sequence": 6,
     "finish_key": "whitewash",
-    "roof_condition": "fresh",
-    "age_state": "recent",
+    "roof_condition": "weathered",
+    "age_state": "established",
     "fabric_basis": {
       "rule": "F-M",
       "class": "merchant",
       "by": "keeper_trade",
       "household": "hh_blanshard_g",
-      "words": "whitewashed boards under a new roof — The Blanshard household's, a land agent, in Chicago since 1834 (rule F-M)"
+      "words": "whitewashed boards under a weathered roof — The Blanshard household's, a land agent, in Chicago since 1833 (rule F-M)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "merchant",
-    "age_state": "recent",
-    "weather_years": 1.5,
+    "age_state": "established",
+    "weather_years": 2.5,
     "weather_rate": 0.5,
     "lay_m": 0.003,
     "confidence": "reconstructed"

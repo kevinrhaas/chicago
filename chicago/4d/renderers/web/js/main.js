@@ -31,6 +31,7 @@ import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
+import { readGlassMode } from './glass.js';
 import { createConfidenceView } from './confidence.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
@@ -1195,6 +1196,8 @@ const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [
 const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
 document.getElementById('view').setAttribute('aria-label', `Chicago, ${YEAR}`);
 const DEBUG = params.get('debug') === '1';
+// T-2109: which glass a transmissive pane is drawn with (glass.js).
+const GLASS = readGlassMode(params);
 /** T-1727: `?structure=<id>&version=<label>` — one committed alternate of one structure,
  *  for comparing competing builds side by side. Null when the address asks for none. */
 const VERSION_REQUEST = readVersionRequest(location.search);
@@ -1461,6 +1464,7 @@ async function boot() {
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
     lowSpec: coarse,
+    glass: GLASS,
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
   });
@@ -1986,6 +1990,9 @@ async function boot() {
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
   const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-2094. Past the cleared track the rest of an opened street's corridor is
+  // trodden: flora.js crops a turf community's tall plants there to the turf's
+  // own height (`streets.verge` says where; the zone record says how tall).
   // T-2086 — THE KEPT YARDS. The forb layer alone stands back inside a lot's
   // kept ring (the yard layer carries the record), and a stated share of its
   // weeds is re-seated in the strip along the lot lines; the back corners and
@@ -2003,7 +2010,7 @@ async function boot() {
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
     dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-    growthBlocked: swardBlocked, forbSeat,
+    growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -2059,7 +2066,7 @@ async function boot() {
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse });
+            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse, glass: GLASS });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }
@@ -2068,7 +2075,7 @@ async function boot() {
         }
         next.flora = await createFlora({
           dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-          growthBlocked: swardBlocked, forbSeat,
+          growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
@@ -2169,7 +2176,7 @@ async function boot() {
       flora.dispose?.();
       flora = await createFlora({
         dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
-        growthBlocked: swardBlocked, forbSeat,
+        growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);

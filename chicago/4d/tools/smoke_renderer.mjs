@@ -5191,7 +5191,10 @@ for (const [label, viewport, touch] of [
         // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
         // T-1823 — the fronts-only faces: the Western Hotel's two and three West
         // Division stores' one each, 48 to 53. A fronts-only face takes no fence.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 32
+        // T-1679 (#396) moved Haddock's Tavern one lot east on blk_south_water_dearborn,
+        // and the Lake Street face it left now takes a street fence
+        // (blk_south_water_dearborn_south_fence_6): 32 to 33. Restated in T-2102 for T-2093.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 33
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -6576,8 +6579,22 @@ for (const [label, viewport, touch] of [
     // looking down the dock's own waterward normal — and hold the clock so the
     // grass cannot supply the difference. Same bar as the fences, the boards and
     // the goods: worst >= 6 and mean >= 0.3.
-    await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 204.5, local_n: 9.8, yaw_deg: 339.4, pitch_deg: -6 }));
+    // The stand is read off the wharf record rather than typed in: 3 m back from
+    // the heel's midpoint along the waterward normal. T-2097 set the warehouse
+    // back across South Water Street and its dock moved 25 m with it, which left
+    // the old fixed stand (204.5, 9.8) looking at open water.
+    await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const d = (a.wharves.wharves ?? []).find((w) => w.structure_id === 'newberry_dole_warehouse');
+      const [heelL, heelR] = d.deck_quad_local_enu_m;
+      const [ne, nn] = d.waterward_normal;
+      a.walker.teleport({
+        local_e: (heelL[0] + heelR[0]) / 2 - ne * 3.0,
+        local_n: (heelL[1] + heelR[1]) / 2 - nn * 3.0,
+        yaw_deg: (Math.atan2(ne, nn) * 180) / Math.PI,
+        pitch_deg: -6,
+      });
+    });
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const dockWith = await page.evaluate(() => window.__chicago4d.capture());

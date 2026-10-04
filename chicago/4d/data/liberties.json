@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 401,
+  "count": 404,
   "liberties": [
     {
       "id": "L1",
@@ -21207,7 +21207,7 @@
       "subjects": [],
       "covers": [],
       "recorded": "2026-10-01",
-      "revised": null,
+      "revised": "2026-10-04",
       "fields": [
         {
           "label": "Applies to",
@@ -21232,6 +21232,10 @@
         {
           "label": "Ticket",
           "text": "T-1811 (piece 1 of T-1770)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-04 (T-2094, piece 1 of T-2087) — the omission above is answered for the town. In every opened street's corridor inside a turf community (the settled town), nothing taller than that community's own low layer stands past the cleared track: not on the worked roadway, and not on the verge between it and the lot line. The cap is read off the zone record, the tallest of its matrix and ground species (Poa, plantain, knotweed and clover to 0.25 m), so the lamb's-quarters, ragweed, dock and vervain to 1.2 m are gone from the street, and the ground there is T-2085's cropped turf grading into the roadway's dirt. A few weeds are kept where nothing treads: within 2.6 m of the corridor's edge (a 1.83 m walk, its 0.2 m clearance and the half metre at its street edge), in 1.5 m patches a positional hash keeps at 0.22. The trampling, the band and the share are all ours; no source describes a Chicago street verge in 1835. A street that runs out across open prairie keeps its prairie, because the cap belongs to the ground's community and not to the street."
         },
         {
           "label": "Recorded",
@@ -24503,6 +24507,124 @@
     },
     {
       "id": "L377",
+      "title": "The town's block alleys are drawn as worn lanes where something stands on the block",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "on every block where the plat model cuts a mid-block alley (`data/traces/vectors/thompson_lots.json` `alley_local_enu_m`) and at least one structure stands on the scene date, the walkthrough lays a band of the road's own dirt 2.4 m wide down the strip's centreline (narrower where the strip is, so 0.6 m of turf is always left at each edge), its edges wandering 0.22 m over 9 m, and carries it at each end across the street corridor to the cross street's travelled track and 0.4 m onto it, widening 1.2 m each side over the last 4 m. Where the cross street has no track it stops 1.5 m past the block edge. No plant grows on the band. 29 alleys, 3.3 km of lane (`tools/generate_alley_lanes.py`, `data/enclosures/town_alley_lanes.json`, drawn by `yards.js` as `road_earth`)."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-04 (T-2087, piece T-2095): the alleys still read as ground nobody used. The yard outbuildings have stood \"off the alley\" behind the built lots since T-1960, and nothing on the ground said where the alley was."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "the strip is the plat model's, and the model is itself `reconstructed` on which blocks were alleyed and where the alley ran (`module.alley_note`). The fact of wear, the band's width (a cart's 5 ft gauge and a horse between the shafts, with a hand either side), the wobble and the mouth are all ours. Seven alleyed blocks with nothing standing on them stay turf, and are named in the record's `left_in_turf`. No alley is added where the plat model draws none (Wabansia, the unlotted blocks of Kinzie's Addition)."
+        },
+        {
+          "label": "Consequence",
+          "text": "a lane stops where a committed footprint stands across it, and the record lists each stop under `cut_by_structures`: fifteen, ten of them reconstructed houses on the Lake Street blocks from Franklin to State whose backs stand in the plat's alley strip. Those are cuts in the lane, not corrections to the houses."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a source that says which 1835 blocks were alleyed, or describes one, replaces the plat model's strip; a reading of the Lake Street houses' seating that moves them out of the strip lets those lanes run through."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-04 (T-2095)."
+        }
+      ]
+    },
+    {
+      "id": "L378",
+      "title": "Newberry & Dole's warehouse stands back in the Franklin corner, across the street from its dock",
+      "section": "per_subject",
+      "subjects": [
+        "newberry_dole_warehouse"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "newberry_dole_warehouse",
+          "phase": "frame_1833",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "`newberry_dole_warehouse` moves out of the roadway. It had stood at local E +200 to +211, across the head of Franklin Street and inside South Water Street's platted corridor (9.8 m into Franklin's and 12.1 m into South Water's by `tools/measure_corridor_intrusion.py`). It now stands in the inside corner of the block west of Franklin and south of South Water (plat block 21, which this dataset does not lot), origin local E +184.0, N -31.3, with its east wall and its river wall each about 1.2 m clear of the drawn corridors. Its facade turns from bearing 0 to 345, square to South Water where the street bends there, so it still faces the river. The dock is not authored: `tools/generate_river_wharves.py` re-derives it from the new wall, and it lands on the traced bank across the street, about 25 m north-west of where it was, at the same reconstructed size."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-04 (T-2097): \"should come back south and west so it sits at that northwest inside corner of franklin and south water ... this way it is not in the road\". The first placement was a point chosen on South Water Street with nothing behind it but the street (L66), so moving it a few metres back along the same frontage trades one free choice for another that does not stand in a public way."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "the bank stays the south bank, adopted against Andreas and Bonnell as before (L66, T-1723). That the firm faced its wharf is an argument from the trade. The lot, the corner, the setback and the bearing are ours; no source gives this building a block."
+        },
+        {
+          "label": "Consequence",
+          "text": "the warehouse now has a street between it and its landing, which is how South Water's stores stood. A wagon crosses the roadway to load. The tree west of the Franklin crossing is not part of any record and stands where the town's timber rule puts it."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a Chicago Democrat advertisement of 1834-35 giving the firm's street address, or an identified c. 1835 view, places the house; T-1723 may move it to the north bank."
+        },
+        {
+          "label": "Covers",
+          "text": "`newberry_dole_warehouse.frame_1833.position`"
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-04 (T-2097)."
+        }
+      ]
+    },
+    {
+      "id": "L379",
+      "title": "A fenced town lot is closed all round, open only on a street a building fronts",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every lot the yard-fence rule of L161 fences (`tools/generate_lot_line_fences.py`) is now enclosed on its whole perimeter instead of along its rear 40 ft. Both side lot lines carry fence from the street corner to the rear corner, the rear (alley) line keeps its cart gateway, and the street line is fenced too unless a building on the lot stands in its front half, in which case the street face is left open so the house or store is seen from the road. A lot whose buildings all stand in the back half has its street line fenced with a 10 ft street gateway. A committed wall on a lot line still stands in for the fence there, a doorway still breaks it, and a fence already standing along the line (a dooryard garden's pickets, a T-0069 street-lining fence) takes over only the span it shadows. Lots the rule refused, and every unimproved lot, stay unfenced."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-04 (T-2102): *\"you have fences nicely at the rear of the properties each lot area but the sides and front are open all across ... the half built fence seems odd if there is no facing of a building on that street\"*. Nothing in the sources asked for the half fence: it was L161's 40 ft cap on the yard, applied to lots 150 to 180 ft deep. The evidence pulls the other way. Chicago's first town code, printed in the Chicago Democrat of 26 November 1833 (`chicago_democrat_1833_11_26`), fines the owner of any hog found running at large in the town *without* a ring in its nose or a yoke on its neck, so ringed hogs were lawfully at large in the streets, and the town kept an estray pen (`andreas_1884_v1`). A fence open on two sides and the street keeps nothing out. Image 12 of the 2026-08-18 owner brief shows fences enclosing every property in view."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "no source names a fence on any of these lots, as L161 says. That an enclosed lot is closed all round is the ordinance's consequence; the \"front half\" test for a building that fronts its street, the choice to leave that street face open rather than paling the dooryard, and the street gateway are ours."
+        },
+        {
+          "label": "Consequence",
+          "text": "the lot-line fences grow from about 7.2 km to about 16.3 km of timber, nearly all of it on side lines. The three records' run count goes from 442 to 474."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a Chicago or Cook County fence ordinance of the 1830s, or any lot description naming its fences, replaces the rule; a view showing open-fronted house lots on a street settles the front-half test."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-04 (T-2102)."
+        }
+      ]
+    },
+    {
+      "id": "L380",
       "title": "The far treeline rises from nothing near the town and is not drawn from the air",
       "section": "per_subject",
       "subjects": [],

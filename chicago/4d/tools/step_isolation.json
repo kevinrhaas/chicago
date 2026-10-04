@@ -2558,6 +2558,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/changelog-history.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check-changelog-entry.mjs": {
       "wrote": [],
       "wrote_ignored": []
@@ -2623,6 +2627,10 @@
       "wrote_ignored": []
     },
     "tools/check_only_selection.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_glass_modes.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2887,6 +2895,10 @@
       "wrote_ignored": []
     },
     "tools/fergus_1839_street_faces.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_alley_lanes.py": {
       "wrote": [],
       "wrote_ignored": []
     },
