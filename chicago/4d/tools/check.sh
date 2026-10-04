@@ -43,6 +43,9 @@ step "Emitted plank crossings remain above the distant terrain (T-2037)" \
 step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
   node tools/check_far_plank_tops.mjs
 
+step "The working bank never hides the timber standing on it (T-2098)" \
+  node tools/check_bank_decal_depth.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 

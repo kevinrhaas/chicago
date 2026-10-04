@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: 'The river walk on South Water reaches all the way down the street', kind: 'fix',
+    items: [
+      'Stand on South Water Street and look along the river: the plank walk on the river side now runs to its far end, where it used to stop about 30 metres ahead and grow toward you as you walked.',
+      'The worn riverbank it lies on was being drawn in front of the boards at a distance. The bank now always lies under the walk and the road, as it does up close.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
+    ] },
   { v: 1435, ts: '2026-10-04T16:11:51.956Z', date: 'Oct 4, 2026, 11:11 AM CT', title: 'Yards, pens and gardens are made of the same ground as the road and the prairie', kind: 'change',
     items: [
       'Step into the Western Hotel\'s wagon yard or a pound and the ground is now the same worn dirt as the road outside, grain and all, lit by the sun, where it used to be a blurry print of squares.',
