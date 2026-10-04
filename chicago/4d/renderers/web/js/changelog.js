@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1396, ts: '2026-10-04T03:18:41.471Z', date: 'Oct 3, 2026, 10:18 PM CT', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts fit a phone held sideways, and a 320px screen', kind: 'fix',
     items: [
       'Turn your phone sideways during a jaunt: the stop\'s story now sits beside the buttons instead of being hidden under them, and its links can be tapped.',
       'On a narrow phone, a place card or source opened from a stop no longer covers the second row of buttons at the top.',
       'Held sideways, Starting At\u2026 now scrolls instead of drawing Tap to enter Chicago over the list of places.',
       'Small buttons on the way in are now thumb-sized: the place kinds, End, the business buttons on a place card, and the two links at the foot of the welcome.',
       'With a keyboard or screen reader, opening a stop\'s card or source now keeps your place on Return instead of dropping it.',
+    ] },
+  { v: 1396, ts: '2026-10-04T03:15:45.040Z', date: 'Oct 3, 2026, 10:15 PM CT', title: 'More continuous summer vegetation', kind: 'fix',
+    items: [
+      'Grass and river reeds keep a simpler version of the same clump beyond the close-detail range, so approaching them adds detail to plants already present.',
+      'Distant plants transition gradually, downward flight views retain their visible vegetation, and shrub placement no longer selects repeated corners of a planting grid.',
+      'Plankwalks keep a continuous surface when their narrow board gaps become too small to resolve from above or farther away; street crossings stay above the distant ground and far sidewalks retain their board tops when other timber detail is hidden.',
     ] },
   { v: 1395, ts: '2026-10-04T02:55:17.869Z', date: 'Oct 3, 2026, 9:55 PM CT', title: 'Nothing you can see: the first Fort Dearborn\u2019s buildings are recorded', kind: 'change',
     items: [
