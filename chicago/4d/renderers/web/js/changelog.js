@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1399, ts: '2026-10-04T04:12:17.062Z', date: 'Oct 3, 2026, 11:12 PM CT', title: 'Nothing you can see: rebuilding the research no longer stops half-finished', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'When a change adds or moves residents, the tool that rebuilds the town\u2019s derived research now finishes the job by itself. Before, it left the population model one step behind the people it counts, and someone had to rebuild that model by hand before the checks would pass.',
+      'It now rebuilds the model before it re-draws when people arrived, and it re-runs the scene until nothing more changes. On a test that reproduced the fault, the rebuild now matches the published town byte for byte.',
+    ] },
   { v: 1398, ts: '2026-10-04T03:54:13.850Z', date: 'Oct 3, 2026, 10:54 PM CT', title: 'On a phone, the arrival shows the touch hints', kind: 'fix',
     items: [
       'While the town loads on a phone or tablet, the arrival screen now says how to move by touch: left thumb to walk, drag to look, tap to inspect. Before, it showed keyboard keys like W A S D and Esc until you entered the town, and again whenever you went back to the welcome.',
