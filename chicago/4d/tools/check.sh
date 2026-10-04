@@ -2988,6 +2988,12 @@ step "the shrub keeps its recorded width and its shell is not see-through" \
 step "changelog contract" \
   node tools/check-changelog.mjs
 
+# T-1380. The contract step above now also holds the tree to its merge base, so a
+# merge that drops, re-stamps or renumbers a shipped entry is refused. That is the
+# half that read "contract OK" on 25 dev merges; prove its refusals still fire.
+selftest "…and a shipped release note cannot leave or change its number" \
+  node tools/changelog-history.mjs --self-test
+
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
 # drift, a stale BOARD, a block with no stated question — all merge-refusing.
