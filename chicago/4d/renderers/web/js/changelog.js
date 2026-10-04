@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
+  { v: 1434, ts: '2026-10-04T15:57:34.725Z', date: 'Oct 4, 2026, 10:57 AM CT', title: 'Town lots and streets stand in short, trodden grass, not prairie', kind: 'change',
     items: [
       'Walk into a back yard, along a road or up to a shop front anywhere in the town: the waist-high prairie grass and tall flowers are gone, and the ground is the short, grazed, dusty turf of a lived-in town.',
       'The town\u2019s ground now reaches 50 metres past every laid-out block and every building, the edge of the grazed ground the town\u2019s pigs and cattle kept short. Before, it covered only the few buildings around the forks.',
