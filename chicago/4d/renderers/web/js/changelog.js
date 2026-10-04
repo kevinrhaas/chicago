@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Four people the letter lists would have added twice or wrongly are turned away', kind: 'change',
+    items: [
+      'Nothing you can see in the town changes. Nobody already in the town was added, removed or renamed.',
+      'Some lines of the 1834 post-office letter list end with how many letters were waiting, as in \u201cPeter Temple 3\u201d. The pass that adds letter-list people read that number as part of the name, so it looked up \u201cPeter\u201d as the family name.',
+      'Read without the number, four of the people it was about to add are turned away. Peter Temple is already in the town. The town already has a Marshall and a Miner, and \u201cMr. Roult\u201d gives no first name. A fifth, Salmon Rutherford, is already in the town and would have been added a second time.',
+      'The other 39 new names wait for a separate fix. Adding them shifts the numbers the town\u2019s made-up households are planned from, and one planned move no longer fits.',
+    ] },
   { v: 1415, ts: '2026-10-04T09:13:50.743Z', date: 'Oct 4, 2026, 4:13 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
     items: [
       'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
