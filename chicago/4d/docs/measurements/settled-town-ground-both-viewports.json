@@ -1,0 +1,1123 @@
+{
+ "id": "settled_town_ground_both_viewports_2026_10_04",
+ "ticket": "T-2092",
+ "parent_ticket": "T-2084",
+ "instrument": "node tools/measure_detail_ceilings.mjs --town --flora --stepped --stands <subset> --levels <tier> --only <viewport> --mirror <tree> --tree <name>; captures: --levels none --shots DIR (animation loop on, welcome entered)",
+ "trees": {
+  "production": "origin/main @ 2761a5ae (promoted 2026-10-03), published with its own tools/publish.sh",
+  "dev": "origin/dev @ c602f498 (after T-2091 #410, T-2089 #411, T-2082 #412), published with tools/publish.sh"
+ },
+ "renderer": "headless Chromium on SwiftShader, four-core runner; triangles and draw calls are the renderer's own counters and reproduced exactly on a repeat; frame time is not read on a software renderer",
+ "ceilings": {
+  "production": {
+   "full": 1845000,
+   "balanced": 1615000,
+   "light": 825000
+  },
+  "dev": {
+   "full": 2840000,
+   "balanced": 2145000,
+   "light": 1040000
+  }
+ },
+ "what_this_is_not": "Not T-2084's change alone. Production is 2026-10-03's promotion and dev carries everything merged since, including the richer vegetation and the raised ceilings; T-2091's own before/after (settled-town-ground.json, dev before and after the ground alone) is the reading that isolates the ground. The heap is Chromium's usedJSHeapSize after a forced gc at the end of each pass, on a desktop browser at the phone's viewport, not a phone.",
+ "heap_after_gc": [
+  {
+   "viewport": "desktop 1280x800",
+   "levels": "light",
+   "stands": "all eight",
+   "production_mib": 904.4,
+   "dev_mib": 888.9
+  },
+  {
+   "viewport": "mobile 390x780",
+   "levels": "light",
+   "stands": "all eight",
+   "production_mib": 904.5,
+   "dev_mib": 848.9
+  },
+  {
+   "viewport": "mobile 390x780",
+   "levels": "full",
+   "stands": "T-0135's five",
+   "production_mib": 811.4,
+   "dev_mib": 790.3
+  },
+  {
+   "viewport": "mobile 390x780",
+   "levels": "balanced",
+   "stands": "T-0135's five",
+   "production_mib": 935.4,
+   "dev_mib": 938.4
+  },
+  {
+   "viewport": "mobile 390x780",
+   "levels": "full,balanced",
+   "stands": "the in-town three",
+   "production_mib": 867.7,
+   "dev_mib": 880.4,
+   "repeat": {
+    "production_mib": 867.5,
+    "dev_mib": 880.3
+   }
+  }
+ ],
+ "rows": [
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "sauganash_26",
+   "group": "t0135",
+   "production": {
+    "triangles": 1348649,
+    "calls": 152,
+    "flora": {
+     "tris": 10004,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 1803275,
+    "calls": 172,
+    "flora": {
+     "tris": 105350,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "lake_at_canal",
+   "group": "t0135",
+   "production": {
+    "triangles": 1857267,
+    "calls": 224,
+    "flora": {
+     "tris": 22586,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 2446313,
+    "calls": 261,
+    "flora": {
+     "tris": 142893,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "the_forks",
+   "group": "t0135",
+   "production": {
+    "triangles": 1775428,
+    "calls": 187,
+    "flora": {
+     "tris": 32314,
+     "calls": 9
+    }
+   },
+   "dev": {
+    "triangles": 2456313,
+    "calls": 225,
+    "flora": {
+     "tris": 235478,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "from_above",
+   "group": "t0135",
+   "production": {
+    "triangles": 1669507,
+    "calls": 168,
+    "flora": {
+     "tris": 56017,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 2195640,
+    "calls": 170,
+    "flora": {
+     "tris": 4184,
+     "calls": 4
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "lake_and_market",
+   "group": "t0135",
+   "production": {
+    "triangles": 1603205,
+    "calls": 209,
+    "flora": {
+     "tris": 8309,
+     "calls": 6
+    }
+   },
+   "dev": {
+    "triangles": 2099847,
+    "calls": 238,
+    "flora": {
+     "tris": 111099,
+     "calls": 9
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_backyard",
+   "group": "town",
+   "production": {
+    "triangles": 2040791,
+    "calls": 220,
+    "flora": {
+     "tris": 88403,
+     "calls": 13
+    }
+   },
+   "dev": {
+    "triangles": 2866436,
+    "calls": 250,
+    "flora": {
+     "tris": 252893,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_lake_shoulder",
+   "group": "town",
+   "production": {
+    "triangles": 1705648,
+    "calls": 216,
+    "flora": {
+     "tris": 32614,
+     "calls": 14
+    }
+   },
+   "dev": {
+    "triangles": 2076216,
+    "calls": 231,
+    "flora": {
+     "tris": 155131,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "town_south_water_store",
+   "group": "town",
+   "production": {
+    "triangles": 1653003,
+    "calls": 193,
+    "flora": {
+     "tris": 23427,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 2177453,
+    "calls": 225,
+    "flora": {
+     "tris": 167512,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "sauganash_26",
+   "group": "t0135",
+   "production": {
+    "triangles": 1256951,
+    "calls": 152,
+    "flora": {
+     "tris": 4470,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 1460099,
+    "calls": 171,
+    "flora": {
+     "tris": 40402,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "lake_at_canal",
+   "group": "t0135",
+   "production": {
+    "triangles": 1626744,
+    "calls": 207,
+    "flora": {
+     "tris": 10535,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 1936751,
+    "calls": 239,
+    "flora": {
+     "tris": 60063,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "the_forks",
+   "group": "t0135",
+   "production": {
+    "triangles": 1563954,
+    "calls": 171,
+    "flora": {
+     "tris": 19436,
+     "calls": 8
+    }
+   },
+   "dev": {
+    "triangles": 1936108,
+    "calls": 207,
+    "flora": {
+     "tris": 125489,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "from_above",
+   "group": "t0135",
+   "production": {
+    "triangles": 1499491,
+    "calls": 164,
+    "flora": {
+     "tris": 34001,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 1698552,
+    "calls": 165,
+    "flora": {
+     "tris": 840,
+     "calls": 3
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "lake_and_market",
+   "group": "t0135",
+   "production": {
+    "triangles": 1457888,
+    "calls": 207,
+    "flora": {
+     "tris": 4136,
+     "calls": 5
+    }
+   },
+   "dev": {
+    "triangles": 1771578,
+    "calls": 236,
+    "flora": {
+     "tris": 52854,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_backyard",
+   "group": "town",
+   "production": {
+    "triangles": 1805792,
+    "calls": 210,
+    "flora": {
+     "tris": 51432,
+     "calls": 13
+    }
+   },
+   "dev": {
+    "triangles": 2242107,
+    "calls": 239,
+    "flora": {
+     "tris": 145564,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_lake_shoulder",
+   "group": "town",
+   "production": {
+    "triangles": 1503673,
+    "calls": 198,
+    "flora": {
+     "tris": 17761,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 1713466,
+    "calls": 221,
+    "flora": {
+     "tris": 71395,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "town_south_water_store",
+   "group": "town",
+   "production": {
+    "triangles": 1490720,
+    "calls": 193,
+    "flora": {
+     "tris": 7326,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 1812343,
+    "calls": 224,
+    "flora": {
+     "tris": 65208,
+     "calls": 9
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "sauganash_26",
+   "group": "t0135",
+   "production": {
+    "triangles": 707224,
+    "calls": 67,
+    "flora": {
+     "tris": 1928,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 715454,
+    "calls": 72,
+    "flora": {
+     "tris": 12284,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "lake_at_canal",
+   "group": "t0135",
+   "production": {
+    "triangles": 801916,
+    "calls": 54,
+    "flora": {
+     "tris": 3929,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 873382,
+    "calls": 57,
+    "flora": {
+     "tris": 17345,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "the_forks",
+   "group": "t0135",
+   "production": {
+    "triangles": 851431,
+    "calls": 57,
+    "flora": {
+     "tris": 11721,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 902727,
+    "calls": 60,
+    "flora": {
+     "tris": 37258,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "from_above",
+   "group": "t0135",
+   "production": {
+    "triangles": 813093,
+    "calls": 60,
+    "flora": {
+     "tris": 20921,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 804182,
+    "calls": 54,
+    "flora": {
+     "tris": 136,
+     "calls": 2
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "lake_and_market",
+   "group": "t0135",
+   "production": {
+    "triangles": 742332,
+    "calls": 73,
+    "flora": {
+     "tris": 1886,
+     "calls": 5
+    }
+   },
+   "dev": {
+    "triangles": 777081,
+    "calls": 77,
+    "flora": {
+     "tris": 15439,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_backyard",
+   "group": "town",
+   "production": {
+    "triangles": 982478,
+    "calls": 80,
+    "flora": {
+     "tris": 31185,
+     "calls": 12
+    }
+   },
+   "dev": {
+    "triangles": 1039558,
+    "calls": 80,
+    "flora": {
+     "tris": 44949,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_lake_shoulder",
+   "group": "town",
+   "production": {
+    "triangles": 845879,
+    "calls": 78,
+    "flora": {
+     "tris": 11151,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 867849,
+    "calls": 81,
+    "flora": {
+     "tris": 23323,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "town_south_water_store",
+   "group": "town",
+   "production": {
+    "triangles": 792321,
+    "calls": 76,
+    "flora": {
+     "tris": 4036,
+     "calls": 9
+    }
+   },
+   "dev": {
+    "triangles": 818613,
+    "calls": 78,
+    "flora": {
+     "tris": 19847,
+     "calls": 9
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "sauganash_26",
+   "group": "t0135",
+   "production": {
+    "triangles": 1297909,
+    "calls": 139,
+    "flora": {
+     "tris": 13247,
+     "calls": 8
+    }
+   },
+   "dev": {
+    "triangles": 1753637,
+    "calls": 154,
+    "flora": {
+     "tris": 130521,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "lake_at_canal",
+   "group": "t0135",
+   "production": {
+    "triangles": 1708162,
+    "calls": 217,
+    "flora": {
+     "tris": 22586,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 2196033,
+    "calls": 256,
+    "flora": {
+     "tris": 142893,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "the_forks",
+   "group": "t0135",
+   "production": {
+    "triangles": 1490928,
+    "calls": 174,
+    "flora": {
+     "tris": 32314,
+     "calls": 9
+    }
+   },
+   "dev": {
+    "triangles": 2010826,
+    "calls": 203,
+    "flora": {
+     "tris": 235478,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "from_above",
+   "group": "t0135",
+   "production": {
+    "triangles": 1522707,
+    "calls": 145,
+    "flora": {
+     "tris": 56017,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 2253270,
+    "calls": 152,
+    "flora": {
+     "tris": 258868,
+     "calls": 12
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "lake_and_market",
+   "group": "t0135",
+   "production": {
+    "triangles": 1359375,
+    "calls": 190,
+    "flora": {
+     "tris": 8309,
+     "calls": 6
+    }
+   },
+   "dev": {
+    "triangles": 1742140,
+    "calls": 216,
+    "flora": {
+     "tris": 111099,
+     "calls": 9
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "town_backyard",
+   "group": "town",
+   "production": {
+    "triangles": 1815112,
+    "calls": 184,
+    "flora": {
+     "tris": 88403,
+     "calls": 13
+    }
+   },
+   "dev": {
+    "triangles": 2575212,
+    "calls": 206,
+    "flora": {
+     "tris": 252893,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "town_lake_shoulder",
+   "group": "town",
+   "production": {
+    "triangles": 1581151,
+    "calls": 203,
+    "flora": {
+     "tris": 32614,
+     "calls": 14
+    }
+   },
+   "dev": {
+    "triangles": 1883597,
+    "calls": 214,
+    "flora": {
+     "tris": 155131,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "town_south_water_store",
+   "group": "town",
+   "production": {
+    "triangles": 1497603,
+    "calls": 170,
+    "flora": {
+     "tris": 23427,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 1960493,
+    "calls": 197,
+    "flora": {
+     "tris": 167512,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "sauganash_26",
+   "group": "t0135",
+   "production": {
+    "triangles": 1190765,
+    "calls": 137,
+    "flora": {
+     "tris": 4347,
+     "calls": 6
+    }
+   },
+   "dev": {
+    "triangles": 1402091,
+    "calls": 154,
+    "flora": {
+     "tris": 51291,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "lake_at_canal",
+   "group": "t0135",
+   "production": {
+    "triangles": 1485977,
+    "calls": 201,
+    "flora": {
+     "tris": 10535,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 1783373,
+    "calls": 235,
+    "flora": {
+     "tris": 60063,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "the_forks",
+   "group": "t0135",
+   "production": {
+    "triangles": 1335176,
+    "calls": 148,
+    "flora": {
+     "tris": 19436,
+     "calls": 8
+    }
+   },
+   "dev": {
+    "triangles": 1602257,
+    "calls": 174,
+    "flora": {
+     "tris": 125489,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "from_above",
+   "group": "t0135",
+   "production": {
+    "triangles": 1378035,
+    "calls": 145,
+    "flora": {
+     "tris": 34001,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 1702158,
+    "calls": 152,
+    "flora": {
+     "tris": 159072,
+     "calls": 12
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "lake_and_market",
+   "group": "t0135",
+   "production": {
+    "triangles": 1258792,
+    "calls": 189,
+    "flora": {
+     "tris": 4136,
+     "calls": 5
+    }
+   },
+   "dev": {
+    "triangles": 1536241,
+    "calls": 215,
+    "flora": {
+     "tris": 52854,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "town_backyard",
+   "group": "town",
+   "production": {
+    "triangles": 1612337,
+    "calls": 180,
+    "flora": {
+     "tris": 51432,
+     "calls": 13
+    }
+   },
+   "dev": {
+    "triangles": 2003783,
+    "calls": 202,
+    "flora": {
+     "tris": 145564,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "town_lake_shoulder",
+   "group": "town",
+   "production": {
+    "triangles": 1395556,
+    "calls": 185,
+    "flora": {
+     "tris": 17761,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 1566783,
+    "calls": 204,
+    "flora": {
+     "tris": 71395,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "town_south_water_store",
+   "group": "town",
+   "production": {
+    "triangles": 1349780,
+    "calls": 170,
+    "flora": {
+     "tris": 7326,
+     "calls": 11
+    }
+   },
+   "dev": {
+    "triangles": 1622955,
+    "calls": 196,
+    "flora": {
+     "tris": 65208,
+     "calls": 9
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "sauganash_26",
+   "group": "t0135",
+   "production": {
+    "triangles": 690433,
+    "calls": 62,
+    "flora": {
+     "tris": 2075,
+     "calls": 5
+    }
+   },
+   "dev": {
+    "triangles": 690470,
+    "calls": 66,
+    "flora": {
+     "tris": 15030,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "lake_at_canal",
+   "group": "t0135",
+   "production": {
+    "triangles": 718908,
+    "calls": 52,
+    "flora": {
+     "tris": 3929,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 787656,
+    "calls": 55,
+    "flora": {
+     "tris": 17345,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "the_forks",
+   "group": "t0135",
+   "production": {
+    "triangles": 755526,
+    "calls": 51,
+    "flora": {
+     "tris": 11721,
+     "calls": 7
+    }
+   },
+   "dev": {
+    "triangles": 791555,
+    "calls": 54,
+    "flora": {
+     "tris": 37258,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "from_above",
+   "group": "t0135",
+   "production": {
+    "triangles": 769222,
+    "calls": 61,
+    "flora": {
+     "tris": 20921,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 803246,
+    "calls": 64,
+    "flora": {
+     "tris": 48231,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "lake_and_market",
+   "group": "t0135",
+   "production": {
+    "triangles": 640924,
+    "calls": 70,
+    "flora": {
+     "tris": 1886,
+     "calls": 5
+    }
+   },
+   "dev": {
+    "triangles": 679901,
+    "calls": 75,
+    "flora": {
+     "tris": 15439,
+     "calls": 8
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "town_backyard",
+   "group": "town",
+   "production": {
+    "triangles": 876650,
+    "calls": 74,
+    "flora": {
+     "tris": 31185,
+     "calls": 12
+    }
+   },
+   "dev": {
+    "triangles": 917414,
+    "calls": 74,
+    "flora": {
+     "tris": 44949,
+     "calls": 10
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "town_lake_shoulder",
+   "group": "town",
+   "production": {
+    "triangles": 784371,
+    "calls": 75,
+    "flora": {
+     "tris": 11151,
+     "calls": 10
+    }
+   },
+   "dev": {
+    "triangles": 806873,
+    "calls": 78,
+    "flora": {
+     "tris": 23323,
+     "calls": 11
+    }
+   }
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "town_south_water_store",
+   "group": "town",
+   "production": {
+    "triangles": 723223,
+    "calls": 68,
+    "flora": {
+     "tris": 4036,
+     "calls": 9
+    }
+   },
+   "dev": {
+    "triangles": 745657,
+    "calls": 70,
+    "flora": {
+     "tris": 19847,
+     "calls": 9
+    }
+   }
+  }
+ ]
+}

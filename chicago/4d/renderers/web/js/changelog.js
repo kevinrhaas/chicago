@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1439, ts: '2026-10-04T18:14:43.479Z', date: 'Oct 4, 2026, 1:14 PM CT', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
+  { v: null, ts: '', title: 'The town\'s street sides are trodden, not weedy', kind: 'change',
     items: [
       'Walk down Lake Street or stand at a shop front: the knee-high stalks of ragweed, dock and lamb\'s-quarters that still stood between the wagon ruts and the lot line are gone, and the street\'s sides are the same short, cropped turf as the town, worn into the road\'s dirt.',
       'A few weeds still stand where no foot or wheel reaches, in patches along the lot line and at the edge of the plank walks.',
       'Streets that run out across the open prairie keep their prairie. The trodden verge is a reconstruction (Liberty L327).',
+    ] },
+  { v: 1439, ts: '2026-10-04T18:11:34.742Z', date: 'Oct 4, 2026, 1:11 PM CT', title: 'Nothing you can see: the town\u2019s new ground measured on phones', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed.',
+      'The short town ground from the last release was measured at phone and desktop size, at every Scene detail setting, against the version that is live today.',
+      'On a phone every standard view stays inside its drawing budget at every setting.',
     ] },
   { v: 1438, ts: '2026-10-04T17:47:42.763Z', date: 'Oct 4, 2026, 12:47 PM CT', title: 'House yards are kept short, with weeds left along the fences', kind: 'change',
     items: [
