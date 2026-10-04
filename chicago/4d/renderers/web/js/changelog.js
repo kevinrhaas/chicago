@@ -1,19 +1,9 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
+  { v: 1420, ts: '2026-10-04T11:18:02.264Z', date: 'Oct 4, 2026, 6:18 AM CT', title: 'Nothing you can see: four research reports stay where readers find them', kind: 'change',
     items: [
       'Nothing in the town or on its menus changed.',
       'Four research reports were candidates to stop being kept in the project\u2019s history, because they change often. They stay: a count of 925 recent merges found that dropping them would not have avoided a single conflict.',
       'So they remain readable on GitHub without building anything, and the reasoning is written beside the rule.',
-    ] },
-  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
-    ] },
-  { v: null, ts: '', title: "Kelsey's boarding-house on the sand hills is painted yellow", kind: 'feature',
-    items: [
-      "The small house among the sand hills north-east of the Lake House now stands in yellow paint instead of bare clapboard. A visitor in 1835 described it as \"a small yellow house\", the only house colour any of our sources gives.",
-      'That it was yellow comes from the source. The exact shade is our reconstruction, a cheap yellow paint of the period (liberty L291).',
     ] },
   { v: 1419, ts: '2026-10-04T10:51:45.456Z', date: 'Oct 4, 2026, 5:51 AM CT', title: 'Nothing you can see: stuck up-to-date changes now get rebuilt', kind: 'chore',
     items: [
