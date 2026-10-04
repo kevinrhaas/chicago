@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
+  { v: 1434, ts: '2026-10-04T16:34:54.089Z', date: 'Oct 4, 2026, 11:34 AM CT', title: 'The town\u2019s ground is short worn turf, and cheaper to draw', kind: 'change',
     items: [
       'Across the town, the ground between the houses is now short grazed turf: a close grain of grass blades, clover and plantain, broken by patches of bare, dusty earth.',
       'Past a few steps from you the turf is painted on the ground instead of being drawn as clumps of grass, so it no longer stands knee-high across the town.',
