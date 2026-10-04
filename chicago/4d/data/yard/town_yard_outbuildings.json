@@ -616,21 +616,21 @@
       "lot": "blk_south_water_dearborn_lot1",
       "belongs_to": "recon_1835_blk_south_water_dearborn_d2_04",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        712.07,
-        -58.53
+        712.0,
+        -58.45
       ],
       "bearing_deg": -179.65,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_south_water_dearborn_lot2",

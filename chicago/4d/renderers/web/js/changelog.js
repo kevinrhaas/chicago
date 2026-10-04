@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
+  { v: 1407, ts: '2026-10-04T08:48:27.358Z', date: 'Oct 4, 2026, 3:48 AM CT', title: 'Haddock\u2019s Tavern moves one lot east on Lake Street', kind: 'change',
     items: [
       'The Mansion House, also called Haddock\u2019s Tavern, now stands on the second lot east of Dearborn Street on Lake Street, about 26 m east of where it stood. It used to stand on the corner.',
       'Why: an 1834 newspaper notice sells lot 7 of the block as \u201cone lot east of Haddock\u2019s Tavern\u201d. That puts the tavern on lot 6, next door to lot 7. Another 1834 advertiser\u2019s two addresses point to the same lot.',

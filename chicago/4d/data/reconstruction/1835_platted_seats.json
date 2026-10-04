@@ -71,8 +71,8 @@
    "merchant_and_professional_dwellings": 373,
    "tradesman_dwellings": 516
   },
-  "roofs_offered_for_adoption": 158,
-  "roofs_held_back": 55
+  "roofs_offered_for_adoption": 157,
+  "roofs_held_back": 56
  },
  "what_the_plat_could_not_hold": {
   "rows": 1209,
@@ -331,6 +331,13 @@
    "family": "C3",
    "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
    "occupants": "Peter Cohen — clothier, grocer and liquor dealer"
+  },
+  {
+   "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+   "lot_id": "blk_south_water_dearborn#01",
+   "family": "D2",
+   "why": "its own record already states an occupancy, and a policy deal does not overturn a committed claim about the town",
+   "occupants": "Elmira Fowler — millinery and dress making"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_c2_08",

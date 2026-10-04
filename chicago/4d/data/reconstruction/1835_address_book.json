@@ -262,8 +262,8 @@
   "owed": 11,
   "by_seat_kind": {
    "division_band": 1387,
-   "street_face": 17,
-   "structure": 119
+   "street_face": 16,
+   "structure": 120
   },
   "by_band": {
    "north/division_ground": 6,
@@ -285,7 +285,7 @@
    "west/merchant_and_professional_dwellings": 76,
    "west/tradesman_dwellings": 127
   },
-  "reconstructed_seats": 1415,
+  "reconstructed_seats": 1414,
   "dealt_a_roof": 251,
   "dealt_a_standing_roof": 222,
   "dealt_a_slot_not_yet_built": 29,
@@ -61904,23 +61904,22 @@
    "name": "Elmira Fowler",
    "rung": "face",
    "seat": {
-    "kind": "street_face",
-    "id": "dearborn",
-    "street_name": "Dearborn Street"
+    "kind": "structure",
+    "id": "recon_1835_blk_south_water_dearborn_d2_04"
    },
    "works_seat": null,
    "reach": "face",
    "reach_value": "Dearborn Street",
    "division": null,
-   "tier": "reconstructed",
-   "basis": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: every roof on the face is spoken for.",
-   "words": "The paper reaches Dearborn Street and nothing narrower, and no ROOF on it could be adopted — every one is spoken for. So this firm stands on the FACE itself: on that street, in no building this model holds, with no lot and no coordinate claimed. The street is the reading; standing them on it without a roof is the reconstructed step.",
+   "tier": "inferred",
+   "basis": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_d2_04', which is housing and not a reading: substitutable, no lot, no anchor.",
+   "words": "The paper reaches Dearborn Street and nothing narrower. The street-face adoption houses this firm on that face, which is housing and not a reading: substitutable, no lot, no anchor.",
    "replaceable_by": "a printing that names a lot, a corner ordinal or a building for this firm",
    "owed_to": null,
    "band": null,
-   "seed": "business_elmira_fowler|dearborn|T-1512",
-   "seat_is_substitutable": false,
-   "adjudicated_grade": "street_only_unseated",
+   "seed": null,
+   "seat_is_substitutable": true,
+   "adjudicated_grade": "street_only_adopted",
    "dealt_roof": null
   },
   {
