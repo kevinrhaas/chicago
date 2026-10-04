@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Nothing you can see: rebuilding the town\u2019s research no longer leaves it half-finished', kind: 'chore',
+  { v: 1396, ts: '2026-10-04T03:47:05.170Z', date: 'Oct 3, 2026, 10:47 PM CT', title: 'Nothing you can see: rebuilding the town\u2019s research no longer leaves it half-finished', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed.',
       'When a change adds or moves residents, the tool that rebuilds the town\u2019s derived research now finishes the job by itself. Before, it left the population model one step behind the people it counts, and someone had to rebuild that model by hand before the checks would pass.',
