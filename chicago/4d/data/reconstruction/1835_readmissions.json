@@ -15363,7 +15363,7 @@
    "row_id": "card:hh_pease_h",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_pease_h",
-   "name_as_read": "H. Pease",
+   "name_as_read": "C. H. Pease",
    "dated_evidence": "1834-03-04",
    "dated_evidence_read_as": "1834-03-04",
    "years_before_the_scene": 1.3251,
@@ -15643,11 +15643,11 @@
    "row_id": "card:hh_plumer_f",
    "class": "R1_in_window_uncertain",
    "household_id": "hh_plumer_f",
-   "name_as_read": "F. Plumer",
-   "dated_evidence": "1834-03-04",
-   "dated_evidence_read_as": "1834-03-04",
-   "years_before_the_scene": 1.3251,
-   "persistence": 0.9192,
+   "name_as_read": "S. F. Plumer",
+   "dated_evidence": "1834-01-28",
+   "dated_evidence_read_as": "1834-01-28",
+   "years_before_the_scene": 1.421,
+   "persistence": 0.9137,
    "seed": "hh_plumer_f:persistence",
    "present_on_scene_date": {
     "value": "present",
@@ -15656,7 +15656,7 @@
     "basis": {
      "kind": "model",
      "id": "persistence_1835",
-     "note": "The corpus last names this person on 1834-03-04, 1.33 years before the scene date, and says nothing after it. The persistence model gives 0.919 for that lag; the draw seeded on this household reads present."
+     "note": "The corpus last names this person on 1834-01-28, 1.42 years before the scene date, and says nothing after it. The persistence model gives 0.914 for that lag; the draw seeded on this household reads present."
     },
     "seed": "hh_plumer_f:persistence",
     "replaceable_by": {

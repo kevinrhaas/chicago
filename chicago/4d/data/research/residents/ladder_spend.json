@@ -13,18 +13,18 @@
  "counts": {
   "person_records": 2891,
   "carried_by_the_civic_mint": 511,
-  "rungs_spent": 810,
-  "conflicts_for_the_owner": 79,
+  "rungs_spent": 812,
+  "conflicts_for_the_owner": 77,
   "spent_by_rule": {
    "G1a": 22,
    "G1b": 92,
    "G1c": 11,
    "G2c": 1,
    "G2e": 53,
-   "G3": 631
+   "G3": 633
   },
   "conflicts_by_kind": {
-   "abstention": 43,
+   "abstention": 41,
    "downgrade": 35,
    "subtype": 1
   }
@@ -5293,6 +5293,15 @@
    "resident_subtype": null
   },
   {
+   "person_id": "pease_h",
+   "household_id": "hh_pease_h",
+   "name": "C. H. Pease",
+   "identity": "id_pease_c_h",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
    "person_id": "peck_philip",
    "household_id": "hh_peck_philip",
    "name": "Philip F. W. Peck",
@@ -5405,6 +5414,15 @@
    "household_id": "hh_plimpton_lauretta",
    "name": "Lauretta Plimpton",
    "identity": "id_plimpton_lauretta",
+   "rule": "G3",
+   "grade": "inferred",
+   "resident_subtype": "projected_resident"
+  },
+  {
+   "person_id": "plumer_f",
+   "household_id": "hh_plumer_f",
+   "name": "S. F. Plumer",
+   "identity": "id_plumer_s_f",
    "rule": "G3",
    "grade": "inferred",
    "resident_subtype": "projected_resident"
@@ -8229,40 +8247,10 @@
    "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
   },
   {
-   "person_id": "pease_h",
-   "household_id": "hh_pease_h",
-   "name": "H. Pease",
-   "identity": "id_pease_h",
-   "rule": "G5",
-   "grade": "inferred",
-   "resident_subtype": "projected_resident",
-   "kind": "abstention",
-   "proposed": {
-    "grade": null,
-    "resident_subtype": null
-   },
-   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
-  },
-  {
    "person_id": "perry_a_8",
    "household_id": "hh_perry_a_8",
    "name": "A. [?] Perry",
    "identity": "id_perry_abijah_s",
-   "rule": "G5",
-   "grade": "inferred",
-   "resident_subtype": "projected_resident",
-   "kind": "abstention",
-   "proposed": {
-    "grade": null,
-    "resident_subtype": null
-   },
-   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
-  },
-  {
-   "person_id": "plumer_f",
-   "household_id": "hh_plumer_f",
-   "name": "F. Plumer",
-   "identity": "id_plumer_f",
    "rule": "G5",
    "grade": "inferred",
    "resident_subtype": "projected_resident",
