@@ -7,17 +7,17 @@
     "gazetteer": {
       "claims": 1189,
       "persons": 2667,
-      "businesses": 196
+      "businesses": 193
     },
-    "structures": 542,
-    "structures_sharing_a_name": 69,
+    "structures": 546,
+    "structures_sharing_a_name": 68,
     "streets": 79,
-    "resident_persons": 1404
+    "resident_persons": 1441
   },
   "counts": {
     "businesses": {
-      "total": 196,
-      "present_at_scene_date": 179,
+      "total": 193,
+      "present_at_scene_date": 176,
       "excluded": {
         "contradicted_before_scene_date": 13,
         "opening_announced_after_scene_date": 4
@@ -25,31 +25,31 @@
       "by_action": {
         "enrich_existing": 31,
         "new_building": 27,
-        "street_only": 59,
+        "street_only": 56,
         "unplaceable": 79
       },
       "by_placement_class": {
         "corner": 16,
         "none": 62,
-        "relative": 101,
+        "relative": 98,
         "street_only": 17
       },
       "present_by_action": {
         "enrich_existing": 31,
         "new_building": 27,
-        "street_only": 59,
+        "street_only": 56,
         "unplaceable": 62
       },
       "outside_the_plat": 5,
       "survival_liberty_required": 95,
-      "backdating_liberty_required": 26,
+      "backdating_liberty_required": 24,
       "dissolved_after_scene_date": 1
     },
     "persons": {
       "total": 2667,
       "by_action": {
-        "enrich": 1366,
-        "new_resident": 1278,
+        "enrich": 1411,
+        "new_resident": 1233,
         "replace_invented": 23
       },
       "letter_list_only": 1952
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 982,
+        "none_recorded": 1019,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 988,
+      "households_total": 1025,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -315,48 +315,6 @@
       "match_tier": null,
       "match_evidence": null,
       "action_note": "No street the model holds. The paper gives no anchor."
-    },
-    {
-      "id": "business_a_new_auction_and_commission_room_south_water_street",
-      "business_record_id": "biz_a_new_auction_and_commission_room_south_water_street",
-      "name": "a new auction and commission room, South Water Street",
-      "trade": "auction and commission",
-      "occupation": "auctioneer",
-      "proprietors": [
-        "W. Montgomery"
-      ],
-      "partners": [
-        "W. Montgomery"
-      ],
-      "firm_styles": [],
-      "street": "South Water Street",
-      "street_id": "south_water",
-      "placement_class": "relative",
-      "evidence": {
-        "first_issue": "1835-06-27",
-        "last_issue": "1835-07-25"
-      },
-      "present_at_scene_date": true,
-      "exclusion": null,
-      "exclusion_note": null,
-      "dissolved_after_scene_date": [],
-      "opening_announced": [],
-      "survival_liberty_required": false,
-      "backdating_liberty_required": false,
-      "anchor": {
-        "kind": "unresolved",
-        "target": null,
-        "streets": null,
-        "via": null,
-        "note": "The anchor \"J. Wright's\" names nothing the committed town holds."
-      },
-      "anchor_change": null,
-      "outside_plat": null,
-      "action": "street_only",
-      "action_target": "south_water",
-      "match_tier": null,
-      "match_evidence": null,
-      "action_note": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds."
     },
     {
       "id": "business_a_new_tailoring_establishment_chicago_june_1835",
@@ -5519,50 +5477,6 @@
       "action_note": "The paper names Randolph Street and nothing narrower; the anchor is a reach of dearborn and names nothing narrower."
     },
     {
-      "id": "business_montgomery_auction_and_commission_house",
-      "business_record_id": "biz_montgomery_auction_and_commission_house",
-      "name": "Montgomery, auction and commission house",
-      "trade": "auction and commission house, selling merchandize and real estate",
-      "occupation": "auctioneer",
-      "proprietors": [
-        "Montgomery"
-      ],
-      "partners": [
-        "Montgomery"
-      ],
-      "firm_styles": [],
-      "street": "South Water Street",
-      "street_id": "south_water",
-      "placement_class": "relative",
-      "evidence": {
-        "first_issue": "1835-06-24",
-        "last_issue": "1835-06-24"
-      },
-      "present_at_scene_date": true,
-      "exclusion": null,
-      "exclusion_note": null,
-      "dissolved_after_scene_date": [],
-      "opening_announced": [],
-      "survival_liberty_required": false,
-      "backdating_liberty_required": false,
-      "anchor": {
-        "kind": "street",
-        "target": null,
-        "streets": [
-          "south_water"
-        ],
-        "via": null,
-        "note": "The anchor is a reach of south_water and names nothing narrower."
-      },
-      "anchor_change": null,
-      "outside_plat": null,
-      "action": "street_only",
-      "action_target": "south_water",
-      "match_tier": null,
-      "match_evidence": null,
-      "action_note": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower."
-    },
-    {
       "id": "business_mrs_h_sherman",
       "business_record_id": "biz_mrs_h_sherman",
       "name": "Mrs. H. Sherman",
@@ -8582,21 +8496,25 @@
       "id": "business_w_montgomery",
       "business_record_id": "biz_w_montgomery",
       "name": "W. Montgomery",
-      "trade": "auction and commission house",
+      "trade": "auction and commission",
       "occupation": "auctioneer",
       "proprietors": [
-        "W. Montgomery"
+        "W. Montgomery",
+        "Montgomery",
+        "Montgomery, W."
       ],
       "partners": [
-        "W. Montgomery"
+        "W. Montgomery",
+        "Montgomery",
+        "Montgomery, W."
       ],
       "firm_styles": [],
       "street": "South Water Street",
       "street_id": "south_water",
       "placement_class": "relative",
       "evidence": {
-        "first_issue": "1835-07-08",
-        "last_issue": "1835-07-29"
+        "first_issue": "1835-06-24",
+        "last_issue": "1835-08-05"
       },
       "present_at_scene_date": true,
       "exclusion": null,
@@ -8610,50 +8528,7 @@
           "iso": "1835-07-06",
           "verbatim": "has taken David Carver's Old Stand, South Water-Street, for the purpose of transacting the above business",
           "note": "'Has taken' over a dateline of 6 July 1835: the stand was taken on or before that day, never after it. The fuller printing of the same copy in this issue ('New Establishment', page 3 columns 5-6) says his first public sale falls on 'the 1st day of July', which is the scene date."
-        }
-      ],
-      "survival_liberty_required": false,
-      "backdating_liberty_required": true,
-      "anchor": {
-        "kind": "unresolved",
-        "target": null,
-        "streets": null,
-        "via": null,
-        "note": "The anchor \"David Carver's Old Stand\" names nothing the committed town holds."
-      },
-      "anchor_change": null,
-      "outside_plat": null,
-      "action": "street_only",
-      "action_target": "south_water",
-      "match_tier": null,
-      "match_evidence": null,
-      "action_note": "The paper names South Water Street and nothing narrower; the anchor \"David Carver's Old Stand\" names nothing the committed town holds."
-    },
-    {
-      "id": "business_w_montgomery_auction_and_commission_house",
-      "business_record_id": "biz_w_montgomery_auction_and_commission_house",
-      "name": "W. Montgomery, Auction and Commission House",
-      "trade": "auction and commission",
-      "occupation": "auctioneer",
-      "proprietors": [
-        "Montgomery, W."
-      ],
-      "partners": [
-        "Montgomery, W."
-      ],
-      "firm_styles": [],
-      "street": "South Water Street",
-      "street_id": "south_water",
-      "placement_class": "relative",
-      "evidence": {
-        "first_issue": "1835-08-05",
-        "last_issue": "1835-08-05"
-      },
-      "present_at_scene_date": true,
-      "exclusion": null,
-      "exclusion_note": null,
-      "dissolved_after_scene_date": [],
-      "opening_announced": [
+        },
         {
           "claim": "chicago_democrat_1835_08_05#c009",
           "issue": "1835-08-05",
@@ -8664,13 +8539,13 @@
         }
       ],
       "survival_liberty_required": false,
-      "backdating_liberty_required": true,
+      "backdating_liberty_required": false,
       "anchor": {
         "kind": "unresolved",
         "target": null,
         "streets": null,
         "via": null,
-        "note": "The anchor \"David Carver's old stand\" names nothing the committed town holds."
+        "note": "The anchor \"J. Wright's\" names nothing the committed town holds."
       },
       "anchor_change": null,
       "outside_plat": null,
@@ -8678,7 +8553,7 @@
       "action_target": "south_water",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "The paper names South Water Street and nothing narrower; the anchor \"David Carver's old stand\" names nothing the committed town holds."
+      "action_note": "The paper names South Water Street and nothing narrower; the anchor \"J. Wright's\" names nothing the committed town holds."
     },
     {
       "id": "business_w_reed",
@@ -9322,9 +9197,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "mdaniel_a",
+      "action_note": "data/residents/ already holds this person as mdaniel_a (hh_mdaniel_a, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_a_m_gregor",
@@ -9509,9 +9384,9 @@
       "letter_list_only": true,
       "first_seen": "1834-01-28",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "whitcomb_aaron",
+      "action_note": "data/residents/ already holds this person as whitcomb_aaron (hh_whitcomb_aaron, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_aarri_t_bradford",
@@ -9652,9 +9527,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "vanderwerker_adam",
+      "action_note": "data/residents/ already holds this person as vanderwerker_adam (hh_vanderwerker_adam, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_adam_vandorwerk",
@@ -9861,9 +9736,9 @@
       "letter_list_only": true,
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "dickinson_alexander",
+      "action_note": "data/residents/ already holds this person as dickinson_alexander (hh_dickinson_alexander, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_alexander_fullerton",
@@ -10785,9 +10660,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "bacon_richani",
+      "action_note": "data/residents/ already holds this person as bacon_richani (hh_bacon_richani, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_bacon_richard",
@@ -10796,9 +10671,9 @@
       "letter_list_only": true,
       "first_seen": "1835-08-19",
       "last_seen": "1835-08-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "bacon_richani",
+      "action_note": "data/residents/ already holds this person as bacon_richani (hh_bacon_richani, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_bailey_bennet",
@@ -11104,9 +10979,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "barnes_wheeler",
+      "action_note": "data/residents/ already holds this person as barnes_wheeler (hh_barnes_wheeler, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_barney_john",
@@ -12567,9 +12442,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "pease_h",
+      "action_note": "data/residents/ already holds this person as pease_h (hh_pease_h, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_c_handler_fi_s_her",
@@ -14173,9 +14048,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "crandall_beman",
+      "action_note": "data/residents/ already holds this person as crandall_beman (hh_crandall_beman, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_crane_h_y",
@@ -14525,9 +14400,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "haight_d_s",
+      "action_note": "data/residents/ already holds this person as haight_d_s (hh_haight_d_s, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_d_u_dly_peck",
@@ -15064,9 +14939,9 @@
       "letter_list_only": true,
       "first_seen": "1835-05-20",
       "last_seen": "1835-05-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "stiles_david",
+      "action_note": "data/residents/ already holds this person as stiles_david (hh_stiles_david, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_davie_wilham_h",
@@ -16439,9 +16314,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "eliphalet_atkins_2",
+      "action_note": "data/residents/ already holds this person as eliphalet_atkins_2 (hh_eliphalet_atkins_2, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_elisha_h_hazzard",
@@ -18331,9 +18206,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "poel_green",
+      "action_note": "data/residents/ already holds this person as poel_green (hh_poel_green, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_green_seth",
@@ -20729,9 +20604,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "killigoss_isaac",
+      "action_note": "data/residents/ already holds this person as killigoss_isaac (hh_killigoss_isaac, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_isaac_l_hill",
@@ -21477,9 +21352,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "natta_j_v",
+      "action_note": "data/residents/ already holds this person as natta_j_v (hh_natta_j_v, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_j_v_owen",
@@ -21840,9 +21715,9 @@
       "letter_list_only": true,
       "first_seen": "1834-07-02",
       "last_seen": "1834-07-16",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "sawyer_james_a",
+      "action_note": "data/residents/ already holds this person as sawyer_james_a (hh_sawyer_james_a, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_james_arrasmith",
@@ -22082,9 +21957,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "mackel_james",
+      "action_note": "data/residents/ already holds this person as mackel_james (hh_mackel_james, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_james_mackie",
@@ -23193,9 +23068,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "monreou_john",
+      "action_note": "data/residents/ already holds this person as monreou_john (hh_monreou_john, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_john_moore",
@@ -24337,9 +24212,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "julius_perrin_2",
+      "action_note": "data/residents/ already holds this person as julius_perrin_2 (hh_julius_perrin_2, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_junie_aaron_capt",
@@ -25459,9 +25334,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "kerchevel_lewis",
+      "action_note": "data/residents/ already holds this person as kerchevel_lewis (hh_kerchevel_lewis, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_lewis_lafton",
@@ -25822,9 +25697,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "loweley_watere_e",
+      "action_note": "data/residents/ already holds this person as loweley_watere_e (hh_loweley_watere_e, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_lowell_wiliam",
@@ -26636,9 +26511,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "meriams_mary",
+      "action_note": "data/residents/ already holds this person as meriams_mary (hh_meriams_mary, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_mary_noble",
@@ -27868,9 +27743,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "mcarty_n",
+      "action_note": "data/residents/ already holds this person as mcarty_n (hh_mcarty_n, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_n_w_easling",
@@ -28143,9 +28018,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "nett_robert_a",
+      "action_note": "data/residents/ already holds this person as nett_robert_a (hh_nett_robert_a, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_newberry_dole",
@@ -28242,9 +28117,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "nicholson_joshua_f",
+      "action_note": "data/residents/ already holds this person as nicholson_joshua_f (hh_nicholson_joshua_f, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_night_clapp",
@@ -28418,9 +28293,9 @@
       "letter_list_only": true,
       "first_seen": "1835-05-20",
       "last_seen": "1835-05-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "sheldon_oliveann",
+      "action_note": "data/residents/ already holds this person as sheldon_oliveann (hh_sheldon_oliveann, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_oliver_goss",
@@ -28517,9 +28392,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "orisbee_edgar_i",
+      "action_note": "data/residents/ already holds this person as orisbee_edgar_i (hh_orisbee_edgar_i, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_ormshee_s_b",
@@ -28528,9 +28403,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "ormshee_s_b",
+      "action_note": "data/residents/ already holds this person as ormshee_s_b (hh_ormshee_s_b, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_orro_samuel",
@@ -28550,9 +28425,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "osborn_b",
+      "action_note": "data/residents/ already holds this person as osborn_b (hh_osborn_b, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_oscar_l_hawley",
@@ -29177,9 +29052,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "pedrick_robert_c",
+      "action_note": "data/residents/ already holds this person as pedrick_robert_c (hh_pedrick_robert_c, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_peet_le_wi_s",
@@ -29430,9 +29305,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "willaee_philip",
+      "action_note": "data/residents/ already holds this person as willaee_philip (hh_willaee_philip, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_phillips_james",
@@ -29727,9 +29602,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "thorn_platt",
+      "action_note": "data/residents/ already holds this person as thorn_platt (hh_thorn_platt, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_poke_edward",
@@ -30970,9 +30845,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "root_ez_c",
+      "action_note": "data/residents/ already holds this person as root_ez_c (hh_root_ez_c, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_rowe_anson_or_joseph",
@@ -31267,9 +31142,9 @@
       "letter_list_only": true,
       "first_seen": "1834-01-28",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "plumer_f",
+      "action_note": "data/residents/ already holds this person as plumer_f (hh_plumer_f, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_s_foot",
@@ -31531,9 +31406,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "weed_sally",
+      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_salmon_rutherford",
@@ -32169,9 +32044,9 @@
       "letter_list_only": true,
       "first_seen": "1835-08-19",
       "last_seen": "1835-08-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "sheldon_oliveann",
+      "action_note": "data/residents/ already holds this person as sheldon_oliveann (hh_sheldon_oliveann, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_sheldon_philo",
@@ -32851,9 +32726,9 @@
       "letter_list_only": true,
       "first_seen": "1834-10-22",
       "last_seen": "1834-10-22",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "stiles_david",
+      "action_note": "data/residents/ already holds this person as stiles_david (hh_stiles_david, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_stallord_arnold",
@@ -33390,9 +33265,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "swanwick_f",
+      "action_note": "data/residents/ already holds this person as swanwick_f (hh_swanwick_f, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_swapp_abram",
@@ -34116,9 +33991,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "wrickey_thomas_h",
+      "action_note": "data/residents/ already holds this person as wrickey_thomas_h (hh_wrickey_thomas_h, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_thomas_hartec_l_l",
@@ -34314,9 +34189,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "richey_thos_h",
+      "action_note": "data/residents/ already holds this person as richey_thos_h (hh_richey_thos_h, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_thos_h_ritchy",
@@ -34358,9 +34233,9 @@
       "letter_list_only": true,
       "first_seen": "1835-07-01",
       "last_seen": "1835-07-01",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "timothy_b",
+      "action_note": "data/residents/ already holds this person as timothy_b (hh_timothy_b, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_timothy_b_clark",
@@ -35304,9 +35179,9 @@
       "letter_list_only": true,
       "first_seen": "1835-05-20",
       "last_seen": "1835-05-20",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "natta_j_v",
+      "action_note": "data/residents/ already holds this person as natta_j_v (hh_natta_j_v, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_noble_wesencaft",
@@ -35458,9 +35333,9 @@
       "letter_list_only": true,
       "first_seen": "1834-01-28",
       "last_seen": "1834-01-28",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "weed_sally",
+      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_samuel_stout",
@@ -36822,9 +36697,9 @@
       "letter_list_only": true,
       "first_seen": "1834-03-04",
       "last_seen": "1834-03-04",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "vanzandt_w_2",
+      "action_note": "data/residents/ already holds this person as vanzandt_w_2 (hh_vanzandt_w_2, inferred) — the letter_list pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_w_wattles",
@@ -37097,9 +36972,9 @@
       "letter_list_only": true,
       "first_seen": "1835-08-19",
       "last_seen": "1835-08-19",
-      "action": "new_resident",
-      "action_target": null,
-      "action_note": "Ruling 1: a named person the town does not hold. Known only from the post-office letter lists."
+      "action": "enrich",
+      "action_target": "weed_sally",
+      "action_note": "data/residents/ already holds this person as weed_sally (hh_weed_sally, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_wells_andrew_8",

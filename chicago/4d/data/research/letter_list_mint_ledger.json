@@ -1,0 +1,7 @@
+{
+ "schema": 1,
+ "ticket": "T-2070, out of T-1222",
+ "what": "The drift between tools/mint_letter_list_residents.py's derivation and the committed letter-list cards, in the keys and the membership the mint OWNS (KEY_OWNERS in that file), as it stood on 2026-10-04 when --check was first gated on it. Each row is a reading still owed, and names the ticket that owes it: T-2071 the households the mint no longer derives and the ones it re-mints under a new id, T-2078 the people it would add (T-2072 split: T-2077 refused the four whose name carries the office's letter count), T-2073 the cards whose mint-owned keys moved — read on 2026-10-04: twelve written, two refused as a later pass's (CARD_OWNERS), and six handed on to T-2076, each row saying why.",
+ "how_to_change_it": "SHRINK ONLY. Read a row, write or refuse what it describes, then run `python3 tools/mint_letter_list_residents.py --retire-ledger`, which takes off the rows whose drift no longer stands and adds none. `--check` is red on drift that is on no row, on a row whose drift no longer stands, and on a rewritten card whose ledgered keys grew. Adding a row by hand is blessing drift nobody has read: don't.",
+ "rows": []
+}

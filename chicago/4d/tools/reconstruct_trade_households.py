@@ -91,6 +91,7 @@ ROOT = Path(__file__).resolve().parents[1]
 RESIDENTS = ROOT / "data" / "residents"
 HOUSEHOLDS = RESIDENTS / "households"
 READMITTED = RESIDENTS / "readmitted"
+LODGERS = RESIDENTS / "lodgers"
 MINTED = RESIDENTS / "reconstructed_trades"
 MODEL = ROOT / "data" / "reconstruction" / "1835_town_model.json"
 POOLS = ROOT / "data" / "reconstruction" / "1835_invented_name_pools.json"
@@ -411,7 +412,13 @@ def layer() -> tuple:
     into `households/` and draws from the same pools, so both of those are live.
     """
     all_names, real, ids = set(), set(), set()
-    for directory in (HOUSEHOLDS, READMITTED):
+    # AND THE LODGERS (T-1529). The lodgers stage draws after this one and steps past every
+    # id this one holds, so while the deal never moved the two could not meet. The business
+    # floor moved one slot, and its first draw was `rc_tuttle_alvah` — an id a boarder in
+    # Reconstructed H3 boarding house #05 already held, so the People directory carried one
+    # id for two people. Reading the lodgers here costs no card a draw it already had: no
+    # head this stage drew bears a lodger's name, which is the lodgers stage's own rule.
+    for directory in (HOUSEHOLDS, READMITTED, LODGERS):
         if not directory.exists():
             continue
         for path in sorted(directory.glob("hh_*.json")):
@@ -431,11 +438,45 @@ def layer() -> tuple:
 
 # ------------------------------------------------------------------- the plan --
 
+def business_floors() -> dict:
+    """trade -> the heads the order book's own business bucket orders at it (T-1529).
+
+    THE BOOK ORDERS THE HOUSE AND THIS STAGE DRAWS THE MAN, AND THE TWO WERE NEVER HELD
+    TOGETHER. A census line that counts PEOPLE — fourteen physicians, twenty-two lawyers —
+    is ordered twice over: once here, as heads dealt a trade at the 1839 directory's share,
+    and once in `bucket_families[businesses]`, as houses the town is short of at the scene
+    date. The business band ADOPTS the heads drawn here and never mints one, and it refuses
+    to half-fill a count, so a share that rounds under the business order leaves the order
+    unbuildable for ever. That is exactly what T-1525's re-cut did to `businesses/physician`:
+    it raised the order to two, the 1839 share of 0.0041 over 197 men still rounds to one,
+    and the one drawn physician lost the office he kept.
+
+    So the business order is a FLOOR under the share, and only that: never above the
+    census ceiling (`ceilings` is still the bound), never for a class two trades share —
+    `silversmith_jeweller` is one shop the register prints under two words, and which word
+    the second head takes is a reading nobody has made — and the heads it raises come out
+    of the RESIDUAL, as a ceiling's refusals go into it. The ledger prints both."""
+    by_class = defaultdict(list)
+    for trade, klass in CENSUS_CEILINGS.items():
+        by_class[klass].append(trade)
+    book = json.loads(BOOK.read_text(encoding="utf-8"))
+    family = next((f for f in book.get("bucket_families", []) if f.get("key") == "businesses"),
+                  {"buckets": []})
+    out = {}
+    for bucket in family["buckets"]:
+        trades = by_class.get(bucket["axes"]["class"], [])
+        if len(trades) == 1 and int(bucket.get("to_reconstruct") or 0) > 0:
+            out[trades[0]] = out.get(trades[0], 0) + int(bucket["to_reconstruct"])
+    return dict(sorted(out.items()))
+
+
 def trade_plan() -> dict:
     """sex -> {trade: heads}. Shares from the 1839 table, ceilings from the December
-    census, the remainder to the residual. Pure arithmetic — nothing is drawn here."""
+    census, floors from the order book's business rows, the remainder to the residual.
+    Pure arithmetic — nothing is drawn here."""
     rows = dict(trade_rows())
     caps = ceilings()
+    floors = business_floors()
     per_sex = Counter()
     for _key, sex, _band, _division, capacity in buckets():
         per_sex[sex] += capacity
@@ -468,6 +509,21 @@ def trade_plan() -> dict:
         moved = sum(refused.values())
         if moved:
             planned[residual] = planned.get(residual, 0) + moved
+        raised = {}
+        for trade in sorted(floors):
+            if trade not in dict(weights) or trade == residual:
+                continue
+            want = min(floors[trade], caps.get(trade, floors[trade]))
+            if planned.get(trade, 0) < want:
+                raised[trade] = want - planned.get(trade, 0)
+                planned[trade] = want
+        lifted = sum(raised.values())
+        if lifted:
+            if planned.get(residual, 0) < lifted:
+                raise SystemExit(
+                    f"the business order's floors ask {lifted} {sex} head(s) of the residual "
+                    f"and the residual holds {planned.get(residual, 0)}")
+            planned[residual] -= lifted
         out[sex] = dict(sorted(planned.items()))
         workings[sex] = {
             "heads_ordered": per_sex[sex],
@@ -475,9 +531,12 @@ def trade_plan() -> dict:
             "residual_trade": residual,
             "refused_by_a_census_ceiling": dict(sorted(refused.items())),
             "moved_to_the_residual": moved,
+            "raised_to_a_business_order": dict(sorted(raised.items())),
+            "taken_from_the_residual": lifted,
             "residual_total": planned.get(residual, 0),
         }
-    return {"by_sex": out, "workings": workings, "ceilings": dict(sorted(caps.items()))}
+    return {"by_sex": out, "workings": workings, "ceilings": dict(sorted(caps.items())),
+            "business_floors": floors}
 
 
 def deal() -> list:
@@ -489,6 +548,24 @@ def deal() -> list:
     for key, sex, band, division, capacity in buckets():
         if capacity:
             by_sex[sex].append((key, band, division, capacity))
+    # THE FLOORS ARE DEALT LAST AND OUT OF THE RESIDUAL'S OWN SLOTS (T-1529). Dealt with
+    # the shares, one more physician moves the rounding of every trade dealt after him and
+    # 67 of the 197 men change bucket, name and id — and the owner's ruling of 2026-09-20
+    # (T-1459) is that nothing already drawn moves. So the shares are dealt exactly as
+    # they were before any floor existed, and each head a floor raises then TAKES a slot
+    # the residual was dealt: one labourer's slot becomes one physician's, seeded, in the
+    # bucket the labourer stood in, and every other card is drawn off the slot it always was.
+    raised = {sex: work.get("raised_to_a_business_order") or {}
+              for sex, work in plan["workings"].items()}
+    shares = {}
+    for sex, planned in plan["by_sex"].items():
+        planned = dict(planned)
+        for trade, n in raised.get(sex, {}).items():
+            planned[trade] -= n
+            if not planned[trade]:
+                del planned[trade]
+            planned[RESIDUAL[sex]] = planned.get(RESIDUAL[sex], 0) + n
+        shares[sex] = planned
 
     slots = []
     for sex in sorted(by_sex):
@@ -497,7 +574,7 @@ def deal() -> list:
         assigned = defaultdict(list)
         # Deal the largest trades first, so the rounding remainder of a big trade does not
         # get pushed into a bucket a small one has already filled.
-        for trade, total in sorted(plan["by_sex"][sex].items(), key=lambda kv: (-kv[1], kv[0])):
+        for trade, total in sorted(shares[sex].items(), key=lambda kv: (-kv[1], kv[0])):
             share = allocate(total, [(k, room[k]) for k, _c in weights if room[k]])
             spill = total
             for key in sorted(share):
@@ -522,6 +599,14 @@ def deal() -> list:
                 for _ in range(count):
                     index += 1
                     slots.append((key, sex, band, division, trade, index))
+    for sex in sorted(raised):
+        for trade, n in sorted(raised[sex].items()):
+            for ordinal in range(1, n + 1):
+                pool = [i for i, slot in enumerate(slots)
+                        if slot[1] == sex and slot[4] == RESIDUAL[sex]]
+                at = pool[draw(f"{STAGE}:floor:{trade}:{ordinal:03d}") % len(pool)]
+                key, _sex, band, division, _residual, index = slots[at]
+                slots[at] = (key, sex, band, division, trade, index)
     return slots
 
 
@@ -571,8 +656,21 @@ def band_block(band: str, seed: str) -> dict:
     }
 
 
+def moved_slots(moves: dict) -> dict:
+    """{the slot a moved head was dealt in: his person id} (T-2078).
+
+    The rule's move rows name the head and not the slot; its held roster names both, as
+    `deal_key`, which is this stage's own slot id. Only heads the rule moves are read."""
+    if not moves or not REFAMILY_RULE.exists():
+        return {}
+    moved = {r["person"] for rows in moves.values() for r in rows}
+    doc = json.loads(REFAMILY_RULE.read_text(encoding="utf-8"))
+    return {r["deal_key"]: r["person"] for r in doc.get("the_held_roster") or []
+            if r.get("person") in moved and r.get("deal_key")}
+
+
 def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
-             moves: dict | None = None) -> dict:
+             moves: dict | None = None, pins: dict | None = None) -> dict:
     bucket, sex, band, division, trade, index = slot
     slot_id = f"{STAGE}:{bucket}:{trade}:{index:03d}"
     community = community_for(trade, slot_id, pool)
@@ -587,6 +685,26 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
     second = draw(f"{slot_id}:forename")
     surname = surnames[first % len(surnames)]
     given = givens[second % len(givens)]
+    # A HEAD THE RULE HAS MOVED KEEPS THE NAME IT MOVED UNDER (T-2078). The search below
+    # steps past every name the layer holds, including the garrison's, which is drawn
+    # AFTER this stage and redraws whenever a real surname joins the town. When T-2078's
+    # 39 letter-list residents did that, the garrison let go of `Lemuel Leland`, this slot
+    # stopped stepping past him, and `rc_leland_silas` — moved, seated in a west-side
+    # house, counted in the book's ledger — would have been dealt again as somebody else.
+    # A move is matched to its slot by the rule's `deal_key` (`moved_slots`), and if the
+    # pair it names is still free here the search starts on it; if it is not, the search
+    # runs as before and the move check below says so. On a tree where nothing redrew,
+    # the search would have found this same pair, so no card changes.
+    pinned = (pins or {}).get(slot_id)
+    search_from = (first, second)
+    if pinned:
+        for s_i, cand_s in enumerate(surnames):
+            for g_i, cand_g in enumerate(givens):
+                if (f"{PREFIX}{cand_s.lower()}_{cand_g.lower()}" == pinned
+                        and f"{cand_g} {cand_s}".lower() not in taken_names
+                        and pinned not in taken_ids):
+                    search_from = (s_i, g_i)
+    first, second = search_from
     for step_s in range(len(surnames)):
         candidate_surname = surnames[(first + step_s) % len(surnames)]
         for step_g in range(len(givens)):
@@ -857,6 +975,7 @@ def fill() -> tuple:
     plan = trade_plan()
     taken_names, _real, taken_ids = layer()
     moves = refamily_moves()
+    pins = moved_slots(moves)
 
     cards = {}
     by_trade = Counter()
@@ -867,7 +986,7 @@ def fill() -> tuple:
     sizes_owed = Counter()
 
     for slot in deal():
-        card = card_for(slot, pool, sizes, caps, taken_names, taken_ids, moves)
+        card = card_for(slot, pool, sizes, caps, taken_names, taken_ids, moves, pins)
         cards[card["id"]] = card
         by_trade[slot[4]] += 1
         by_division[slot[3]] += 1
@@ -1197,7 +1316,24 @@ def self_test() -> int:
           all(plan["workings"][sex]["moved_to_the_residual"]
               <= plan["workings"][sex]["residual_total"] for sex in plan["workings"]))
 
+    fires("a business order's floor is drawn, never past its ceiling (T-1529)",
+          all(plan["by_sex"]["male"].get(t, 0) >= min(n, caps.get(t, n))
+              for t, n in plan["business_floors"].items()))
+
     slots = deal()
+    global business_floors
+    floored, business_floors = business_floors, dict
+    try:
+        unfloored = deal()
+    finally:
+        business_floors = floored
+    changed = [(a, b) for a, b in zip(unfloored, slots) if a != b]
+    fires("a floor takes residual slots and moves no other card (T-1529)",
+          len(unfloored) == len(slots)
+          and len(changed) == sum(sum(w["raised_to_a_business_order"].values())
+                                  for w in plan["workings"].values())
+          and all(a[:4] + (a[5],) == b[:4] + (b[5],) and a[4] in RESIDUAL.values()
+                  for a, b in changed))
     fires("the deal fills every bucket to its capacity and no further",
           Counter(s[0] for s in slots)
           == Counter({k: c for k, _s, _b, _d, c in buckets() if c}))
@@ -1230,7 +1366,7 @@ def self_test() -> int:
                                       lambda w, m: problems.append((w, m)))
     fires("every drawn person satisfies the programme's record contract", not problems)
 
-    print("   %d rule(s) checked, %d failed" % (23, len(failures)))
+    print("   %d rule(s) checked, %d failed" % (25, len(failures)))
     return 1 if failures else 0
 
 

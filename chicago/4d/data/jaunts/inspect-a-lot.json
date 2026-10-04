@@ -1,0 +1,455 @@
+{
+  "schema_version": 1,
+  "id": "inspect-a-lot",
+  "content_version": 2,
+  "title": "Look Before You Buy a Lot",
+  "premise": "Read a land notice, see the room where lots are cried, find your corner and look at the ground before you pay.",
+  "category": "Land",
+  "scene": "1835",
+  "opening": {
+    "text": "Money in mind and land in view: look in on the room where lots are sold, read a land notice, take your bearings at a known corner and see the ground before you pay. The errand is invented; the notices and the ground are not.",
+    "read_s": 15
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "notice": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "decision": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "auction",
+      "destination": {
+        "kind": "structure",
+        "id": "bates_auction_room"
+      },
+      "text": "Start on Dearborn Street at John Bates Jr.'s new auction room. On 12 and 13 June the Democrat's notice put up fifty town lots of Marseilles here, with fifty more to follow. That sale is over, and the room sells whatever is brought to it.",
+      "read_s": 22,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "bates_auction_room",
+          "label": "About this place"
+        }
+      ],
+      "evidence": [
+        "bates-room",
+        "bates-new",
+        "marseilles-sale",
+        "bates-place",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "chicago-lots",
+          "label": "It sold Chicago lots",
+          "consequence": "Read it again: the lots were Marseilles's. The room is a market, not the land.",
+          "next": "notice"
+        },
+        {
+          "id": "another-town",
+          "label": "It sold another town's lots",
+          "consequence": "Right: a Chicago room, a sale for somewhere else.",
+          "next": "notice"
+        }
+      ],
+      "narrative": "What did that notice actually sell?"
+    },
+    {
+      "id": "notice",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "West to Clark. The Democrat was printed at this corner from 1833; by 20 May its office had moved over Jones & King's hardware. Your copy carries two land notices: E. K. Hubbard's lots in the School Section and the original town, and J. W. Fell's land on the canal route.",
+      "read_s": 26,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "democrat-corner",
+        "democrat-moved",
+        "hubbard-lots",
+        "fell-land",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "town-lots",
+          "label": "Follow Hubbard's town lots",
+          "consequence": "You will look for a lot in the town itself.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "notice",
+              "value": 1
+            }
+          ],
+          "next": "corner"
+        },
+        {
+          "id": "canal-land",
+          "label": "Follow Fell's canal-route land",
+          "consequence": "You will look at land outside the town, on the canal line.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "notice",
+              "value": 2
+            }
+          ],
+          "next": "corner"
+        }
+      ],
+      "narrative": "Choose the notice you will follow."
+    },
+    {
+      "id": "corner",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "On west to LaSalle, where Peck's two-storey frame store holds the corner his own advertisements name. A lot is bought by its corners and street lines, so take your bearings here: the river to the north, the town's lots running south.",
+      "read_s": 20,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "person",
+          "id": "peck_philip",
+          "label": "Philip F. W. Peck"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "peck",
+        "bearings",
+        "errand"
+      ],
+      "next": "ground",
+      "narrative": "Find the corner and face south, into the lots."
+    },
+    {
+      "id": "ground",
+      "destination": {
+        "kind": "structure",
+        "id": "lasalle_slough_crossing"
+      },
+      "text": "A few steps east, a small drain runs under South Water to the river; this reconstruction carries the street over it on logs. An account of the early town calls the South Division generally low and marshy, wetter still along the river. Decide what the ground tells you.",
+      "read_s": 24,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "lasalle_slough_crossing",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "wright_1834",
+          "label": "Wright's 1834 map"
+        }
+      ],
+      "evidence": [
+        "drain",
+        "crossing",
+        "marshy",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "inquire",
+          "label": "Inquire about one lot first",
+          "consequence": "You will ask after a particular lot and walk its own ground.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "decision",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "hold",
+          "label": "Hold your money",
+          "consequence": "You keep your money for now.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "decision",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        }
+      ],
+      "narrative": "Inquire further, or hold your money?"
+    }
+  ],
+  "endings": [
+    {
+      "id": "inquire-town",
+      "text": "You will ask after one particular lot from Hubbard's notice and stand on its own ground before paying. No lot, price or title is chosen today; that is the next errand.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "notice",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "decision",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "inquire-canal",
+      "text": "You will apply at the New York House, as Fell's notice asks, for the terms of one parcel on the canal route, and walk it before paying. No price is settled today.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "notice",
+            "op": "==",
+            "value": 2
+          },
+          {
+            "var": "decision",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "held",
+      "text": "You keep your money. A notice, a sale room and a wet street have told you enough for one morning, and caution is a good ending to this errand.",
+      "read_s": 10,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "read-the-ground",
+    "title": "Read the Ground",
+    "text": "A fictional note of a land notice read, a sale room seen and the ground walked before any money changed hands."
+  },
+  "evidence": [
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat's first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun's office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat's colophon gives the office as over Messrs. Jones & King's hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "hubbard-lots",
+      "text": "A notice headed 'Lots for Sale' and signed E. K. Hubbard offers, on liberal terms, a number of lots eligibly situated in the School Section, on the river, and in the original town. It names no particular lot and no price.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "27 May 1835, p. 3, col. 4 (transcription lines 2414–2419; extracted claim chicago_democrat_1835_05_27#c010), dated Chicago, May 1[9], 1835. Transcription-mediated reading."
+    },
+    {
+      "id": "fell-land",
+      "text": "A notice headed 'Chicago Lands For Sale' and signed J. W. Fell, dated 16 June 1835, offers half-quarter sections 'near the Town of Chicago, on the canal route' in sections 28 and 30 of township 39 north, range 14 east, and in township 40 north, range 12 east, terms on application at the N. Y. House. It names no price.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835, p. 3, col. 3 (transcription lines 1472–1485; extracted claim chicago_democrat_1835_06_17#c012). Transcription-mediated reading; the section number of the last parcel is partly lost ('3[0]')."
+    },
+    {
+      "id": "bates-room",
+      "text": "Andreas records a wooden structure erected in 1833 or 1834 by John Bates for an auction-room, on the west side of Dearborn Street between Lake and South Water.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas, History of Chicago vol. 1, the early-buildings account of Dearborn Street ('a wooden structure, erected in 1833 or 1834, by John Bates, for an auction-room'), as quoted in the bates_auction_room structure record."
+    },
+    {
+      "id": "bates-new",
+      "text": "The Democrat of 17 June 1835 announces the first annual Fair of the Ladies of the Protestant Episcopal Church, to be held at Bates' new auction room on Thursday the 18th.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "17 June 1835, p. 2, col. 4 (extracted claim chicago_democrat_1835_06_17#c005). Transcription-mediated reading."
+    },
+    {
+      "id": "marseilles-sale",
+      "text": "A notice headed 'Important Public Sale' announces that fifty of the town lots of Marseilles will be sold at public auction at the Auction Room, Dearborn Street, Chicago, on the 12th and 13th of June, and fifty other lots in the same town later in the month.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835, p. 3, col. 3 (transcription lines 2420–2424; extracted claim chicago_democrat_1835_06_10#c012). Transcription-mediated reading: the possessive before 'Auction Room' and the date of the second sale are lost at the column edge; the room is read as Bates' from the 17 June notice."
+    },
+    {
+      "id": "bates-place",
+      "text": "The auction room is placed at the middle of the west block face of Dearborn Street between Lake and South Water, fronting east.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Andreas fixes the side of the street and the two cross streets but not the point along the block, so the structure record centres the building on the 126 m face; along the street the position is uncertain by about half the block. The stop names the street and claims no front door."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 ('a full stock of fresh GOODS'). Transcription-mediated reading."
+    },
+    {
+      "id": "peck",
+      "text": "Jeremiah Porter lodged in the unfinished loft of Peck's two-storey store in May 1833.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
+    },
+    {
+      "id": "bearings",
+      "text": "South Water Street ran along the south bank of the main river, so at LaSalle the river lies to the north and the platted town's blocks and lots run south.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Wright's 1834 survey draws South Water Street as the river frontage of the south side with the block and lot grid south of it, and the project's street record equates it with today's Wacker Drive along the south bank. The bearing is read from the map, not from any account of a purchase."
+    },
+    {
+      "id": "drain",
+      "text": "Wright's 1834 map draws a drain entering the main river just east of LaSalle Street, on the south bank, where South Water Street meets it.",
+      "confidence": "inferred",
+      "sources": [
+        "wright_1834"
+      ],
+      "reasoning": "The drain's mouth is the south-shore re-entrant traced from Wright's survey into the project's terrain record (lasalle_slough_lower). Wright stops the drain at the street line; carrying it under the street to the river follows the owner's 2026-08-21 ruling and is reconstruction, recorded at L195."
+    },
+    {
+      "id": "crossing",
+      "text": "The log crossing that carries South Water Street over the drain is a reconstruction: no source records a bridge, culvert or fill at this place.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L195"
+    },
+    {
+      "id": "marshy",
+      "text": "An account of the early town describes the South Division as generally low and marshy ground, with a strip along the river shore still more marshy, where land and water mingled, covered with tall grass, reeds and rushes.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire273"
+      ],
+      "locator": "Chicagology, 'Wolf's Point and the Town of Chicago', the description of the South Division's ground ('generally low and marshy ground'; 'still more marshy, where land and water mingled'), transcribed at docs/research/01-terrain-hydrology.md § 2.2."
+    },
+    {
+      "id": "errand",
+      "text": "The visitor's errand, the choice of notice, the reading of the sale, the ride on horseback (the recommended mode), the decision to inquire or hold, the three endings, the timing inputs and the Read the Ground keepsake are invented connective narrative. No lot, owner, price, title or purchase is claimed, and no named person is met.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-inspect-a-lot"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-inspect-a-lot",
+    "L195"
+  ],
+  "legs": [
+    {
+      "from": "auction",
+      "to": "notice",
+      "note": "North up Dearborn to South Water Street and west along it to the Clark Street corner; the record places the auction room mid-block, which no source fixes.",
+      "evidence": [
+        "bates-place",
+        "democrat-corner"
+      ],
+      "story": "Leave the sale room for the paper that advertised it.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "notice",
+      "to": "corner",
+      "note": "West along South Water Street, one block, to the LaSalle corner.",
+      "evidence": [
+        "peck-stock"
+      ],
+      "story": "Carry your notice to a corner you can trust.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "corner",
+      "to": "ground",
+      "note": "A few steps east along South Water Street to where the drain meets the river.",
+      "evidence": [
+        "drain"
+      ],
+      "story": "Now look down, at the ground itself.",
+      "story_evidence": [
+        "errand"
+      ]
+    }
+  ]
+}

@@ -70,7 +70,7 @@
   "local_n": 390.5,
   "yaw_deg": 0,
   "on_modelled_ground": true,
-  "ground_m": 1.535,
+  "ground_m": 1.454,
   "metres_to_n_max": 729.5,
   "note": "It stands on modelled ground and looks north at the wall."
  },
@@ -79,7 +79,7 @@
   "drawn": {
    "streets": 28,
    "partly_off_grid": 0,
-   "on_grid_m": 16746.19,
+   "on_grid_m": 16768.19,
    "off_grid_m": 0,
    "off_grid_fraction": 0
   },

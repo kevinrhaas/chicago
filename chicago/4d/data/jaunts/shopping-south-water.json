@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "shopping-south-water",
-  "content_version": 1,
+  "content_version": 2,
   "title": "Shopping South Water Street",
   "premise": "Fill a small household list along the working riverfront without buying everything you see.",
   "category": "Commerce",
@@ -11,7 +11,7 @@
     "text": "You have an imagined three dollars and a short household list: something for a cough, a staple and tea. Three South Water Street stores sell them; a fourth, on Lake Street, is where you tally up. The list, purse and prices are reconstructed.",
     "read_s": 16
   },
-  "default_mode": "walk",
+  "default_mode": "wagon",
   "allowed_modes": [
     "walk",
     "wagon",
@@ -291,7 +291,7 @@
         "kind": "structure",
         "id": "thomas_church_store"
       },
-      "text": "Walk up to Lake Street. A modern note, the only one found, credits Thomas Church with the first store building on this street, a two-storey frame. It names no stock, so nothing is bought here. Where on Lake Street it stood is reconstructed. Tally your basket.",
+      "text": "Drive up to Lake Street. A modern note, the only one found, credits Thomas Church with the first store building on this street, a two-storey frame. It names no stock, so nothing is bought here. Where on Lake Street it stood is reconstructed. Tally your basket.",
       "read_s": 24,
       "links": [
         {
@@ -431,7 +431,7 @@
     },
     {
       "id": "errand",
-      "text": "The household list, the three-dollar purse, every price, the basket, the two endings and The Household List keepsake are invented connective narrative, not historical events or prices. Each good is bought only from a store whose own advertisement lists it.",
+      "text": "The household list, the three-dollar purse, every price, the basket, the drive in a light wagon (the recommended mode), the two endings and The Household List keepsake are invented connective narrative, not historical events or prices. Each good is bought only from a store whose own advertisement lists it.",
       "confidence": "reconstructed",
       "sources": [],
       "liberty": "L-jaunt-shopping-south-water"
@@ -445,7 +445,7 @@
     {
       "from": "remedy",
       "to": "staples",
-      "note": "A short walk east along the south side of South Water Street to Peck's corner at LaSalle.",
+      "note": "A short drive east along the south side of South Water Street to Peck's corner at LaSalle.",
       "evidence": [
         "carpenter-place"
       ],

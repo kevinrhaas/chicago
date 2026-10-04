@@ -1,3 +1,1230 @@
+## T-2091 — the settled town's ground, derived over every built block (2026-10-04)
+
+The first piece of the owner's T-2084 ("the town stands in wet prairie"). `z10_settled_town`'s
+extent was a hand-drawn polygon around the eight buildings the scene placed when it was drawn;
+on 2026-10-04 it held 19 of the 560 placed structures and every other lot stood in wet or mesic
+prairie. `tools/derive_settled_town_extent.py` now derives it — the plat's 78 blocks, the
+footprints of the 544 structures standing on 1835-07-01 and the old forks polygon as a seed,
+grown by the dossier's 50 m grazed halo — and `check.sh` refuses a hand edit or a district built
+without re-running it (the tool is in the derived manifest, before the dooryard plantings that
+count against its polygon). 541 of 544 standing structures are inside; the three outside are
+named by the tool with their reasons (the estray pen and the log jail in the public square,
+which z03 keeps as slough; Kelsey's boarding house inside the beach band z08 keeps).
+
+**Measured, and only at 1280x800**: at the three new in-town poses (`--town` in
+`measure_detail_ceilings.mjs`) the flora group's triangles fall at every tier — the back yard
+at `full` from 545,853 to 252,893 — and no draw-call count rises
+(`docs/measurements/settled-town-ground.md`). **Not measured**: 390x780, T-0135's five stands,
+the phone heap and the before/after captures; those are T-2092. The trees do not read this
+extent (trees.js places timber from the heightfield and asks the zone classifier only for the
+dune), so they cannot have moved; no stem count was taken. The street corridors are inside the
+town wherever they run between blocks; of 79 streets, 26 lie wholly on town ground, 35 leave it
+as country roads, and 18 never reach it.
+
+**And the lookup it made expensive is fixed in the same PR.** The derived ring has 457 vertices,
+and flora.js tested a point against a polygon edge by edge: about 30 us per lookup against the old
+ring's 11, and the sward asks millions per deal. Desktop smoke part 10, whose census walks 82,000
+lookups at each of three tiers, ran past the 600 s foreground limit twice on the branch. flora.js
+now bins each ring's edges by northing once and reads one bin per point: 0.15 us a lookup, and the
+identical answer at 2.1 million points compared on the committed rings.
+## T-1691 — the Lake Street blocks' roofs name their keepers (2026-10-04)
+
+`tools/name_the_keepers_1835.py` now runs over a third district, `lake` (of T-1201), and is
+wired through three roof layers rather than one (`ROOF_LAYERS`): the block infill it always
+had, plus `generate_inferred_infill.py` (`recon_1835_south_*`) and `generate_west_infill.py`
+(`recon_1835_west_*`), which now hand over `resident_assignment` the way the block infill has
+since T-1638. That second half is T-1697's finding, folded in: the deal seats by lot position
+and the pass owned roofs by id prefix, so 40 of the Lake blocks' 44 seated roofs, and three on
+`blk_randolph_clinton`, were owed by construction.
+
+- **Lake district: 44 seats, 26 keepers written, 18 refusals said on the roof** (every one the
+  letter-list ruling of 2026-08-30). Town-wide: written 23 → **51**, refused 78 (55 on the
+  roof), owed 48 → **20**. `--check` and `--self-test` green; L276 restated.
+- **21 roofs re-baked** (`bake.sh`'s Blender step `--only` those ids, then
+  `web_derivatives.sh --only` each): a named roof's fabric follows its keeper's arrival under
+  the T-1816 finish rule (L330), so their finish, roof condition, age and, on one H1, the frame
+  moved. The 18 refused roofs carry prose only and no mesh moved.
+- **The yard privy dealer now refuses a corner a door opens onto** (`generate_yard_outbuildings.py`
+  asks `generate_entrances.doorway_zones()`, the zone `measure_doorways.py --gate` holds): the
+  H1 roof on `blk_lake_lasalle` became a merchant's house with a roofed porch and its doorway
+  reached the neighbouring lot's privy. One privy moved to its other corner.
+- Downstream re-derived: entrance aprons, woodpiles, yard outbuildings, the roof redeal audit,
+  1835 sidecars, source-use backlinks, the closing research audit.
+
+**Unverified:** no source places any of these households on these lots; the seat is L270's
+invention and the card says so. 20 seats stay owed, by name, outside the three districts.
+
+## T-1740 — the drawer follows the scene's layers list (2026-10-04)
+
+**What a visitor sees:** at /4d/1904/ the drawer rail is Go to, Travel, Evidence,
+Settings, Controls and What's new — the People and Firms sections are gone — and the
+Evidence hub shows four tiles (How we grade, Sources, What we made up, the ground's
+claims) instead of eleven. Go to no longer offers the 286 firms of 1835's register,
+every one of which read "No known address" there. The 1835 scene offers all eight
+sections and eleven tiles exactly as before.
+
+- **The mechanism is T-1739's, extended to the drawer.** `main.js` maps each section and
+  topic to the layer it reads — `residents` → People, City, Population, Order book;
+  `businesses` (a new layer value, listed by 1835 only) → Firms and the Go-to firm rows;
+  `fauna` → wildlife; `flora` → plants; `exclusions` → not-here and open questions. A
+  scene that does not list the layer gets no tab (`hud.omitTabs`), no tile
+  (`createEvidenceHub({ omit })`) and no fetch; nothing mounts to say it failed.
+- **1812 follows the same list**, which it did not before: it lists `flora` and
+  `structures`, so it keeps the plants topic and loses People, Firms, wildlife and the
+  residents topics. That is the list's own answer and the intended one.
+- **Not done, and said so:** the Sources topic still reads `sidecars/1835/sources/`
+  (hard-coded in `sources.js`), so 1904's Sources is the 1835 catalog — it needs a
+  per-scene source index compiled, which is its own ticket. What we made up is the one
+  project-wide liberties list, 1904's own entries (L293, L296) among it; it is left
+  whole on purpose.
+- **Verified:** smoke part 13 asserts the 1904 drawer at both viewports (no People,
+  no Firms, none of the seven topics, no 1835 firm in Go to, and the six sections it
+  keeps); the 1835 drawer is held by the parts that already read it.
+
+## T-0470 — the 15 August 1812 route and battle zone, derived from the accounts (2026-10-04)
+
+**What a visitor sees:** the Go-to viewpoint `battle_reach_1812`, which said "the 1812
+ground, not yet located", now reads "The 1812 battle zone, looking north from near
+Eighteenth". It has not moved: it was already standing inside the zone, 157 m north of
+Eighteenth Street's row. The route and the zone are data; there is no 1812 scene to draw
+them in yet (T-2050 seats the first fort; T-0472 builds the interpretive scene).
+
+- **`data/terrain/1812_evacuation_readings.json`** holds the statements and nothing else.
+  The readings are Heald's own "about a mile and a half", read as quoted by Moses &
+  Kirkland 1895, p. 50. Darius Heald's 1881 account and Quaife 1913, p. 226, say the
+  same, and both are graded as not independent of him. Walter Jordan's contemporary
+  "half a mile" is kept beside it and not adopted; the 1895 editors class it among
+  "contemporary lies". The Eighteenth Street cottonwoods tradition comes from pp. 60-61
+  (Juliette Kinzie through Mrs. King, Isaac Arnold, Mary Clark Williams). The ridge is
+  "about one hundred yards" from the beach (Quaife) and the bank "a hundred feet or
+  more" back (p. 60).
+- **`tools/derive_evacuation_1812.py`** lays them along the route: the fort anchor
+  Swearingen's half mile is measured from, down the old channel's west bank to the
+  outlet, along the derived 1812 shore to the Twelfth Street seam, a 48.5 m step across
+  the two traces' disagreement there, then the carried Rees 1849 shore. It writes
+  `data/terrain/1812_evacuation_route.geojson`: the route, one station per distance
+  reading, the Eighteenth Street row, the trees' locus (a 143 m line along the street,
+  not a point) and `battle_zone_1812`. `check.sh` runs its `--check`.
+- **The disagreement, measured.** Heald's band (1.25-1.75 mi, the interval that rounds to
+  his half-mile figure) is 2,012-2,816 m along the route. Eighteenth Street is
+  3,870 m along (2.40 mi), 1,054 m beyond the band's south end. In a straight line from
+  the fort anchor it is 3,490 m (2.17 mi), still past the band. The traced waterline is
+  11 per cent longer than its chord between the outlet and Twelfth Street, and a walked
+  distance lies between the two figures. **The zone spans the two readings and prefers
+  neither, and no point inside it is claimed.**
+- **What is not drawn.** Heald's withdrawal to "a small elevation in the open prairie,
+  out of shot of the bank" has a direction and no distance. The two accounts also
+  disagree about where the sand hills began: the 1895 editors say at Twelfth Street,
+  Quaife says at the mouth. Both are recorded. Later scholarship beyond Quaife has not
+  been read into this project, and none is cited.
+- **Held for review.** The readings file and the zone carry `review_required` with their
+  reason: every account was written by the garrison's side or by settler historians.
+  Nothing is staged and no one is depicted.
+- **New text read.** Quaife 1913 was read from archive.org item `chicagooldnorthw00quai`
+  (djvu text, sha256 `3e0022fa…bd79`, lines 10256-10330). The text is not committed;
+  the readings file carries the line locators.
+
+## T-2050 — the first fort seated in the 1812 scene (2026-10-04)
+
+Piece 3 of 3 of T-0469. **What a visitor sees:** /4d/1812/ opens the renderer on the first Fort
+Dearborn instead of the "reconstruction pending" page: the fourteen records T-2049 built, baked
+for the first time, on the e1830_natural ground (the pre-cut mouth, the river turned south behind
+the spit). The scene is `released: false`, draws no person, and lists only `terrain`, `water` and
+`structures` — every other layer is written for 1 July 1835 and none of it is true in 1812.
+
+**The seat is one origin and one bearing.** The staff's foot (the register's parade centre, within
+a foot of both picket rows' centres) stands at local E +1152, N +221, the Wright 1834 reading of
+the fort site — the SITE, which Kinzie says both forts shared, not the second fort's plan. The
+frame's north is grid north, the register's own inference that the sheet's right is east; the
+second fort's 8 degrees is Harrison's reading of THAT fort and is not borrowed. Each record's
+origin is its box's corner after its facing (the ranges, magazine and north-east small house
+face the parade or the south, as their records say). A check, not a fit: seated so, the outward
+row's west side is ~124 ft from the 1812 river; the draught's red-ink "122 feet to River" is a
+figure of that size.
+
+**How it is held.** `tools/read_whistler_1808.py --check` now refuses a record not at the point
+and rotation the seat gives its box (0.01 m), any second-fort phase opening inside 1803-08-17..
+1812-08-16, a scene resolving both forts or only some of the first fort's records, and an 1812
+scene that does not resolve all fourteen. `validate.py` measures each phase's ground contact on
+the ground of the scene that resolves it — before this, the heightfield was "the first epoch in
+sorted order", and e1830_natural sorting first would have stood every 1835 record on 1812 ground.
+
+**Exclusions.** `fort_dearborn_first_1803`, `fort_dearborn_sally_port` and
+`fort_dearborn_artillery_pieces_1812` stay as the 1835 guards they are, and each now says where
+the feature lives in 1812: the fourteen records; the register's index no. 33, omitted by the
+drafter; the blockhouse records, which carry Wilson's guns and build none.
+
+**Not done here, and why.** The factor's house, the gardens and the outbuildings in this ticket's
+title: the register reads the Factors House and the House in Factors Dept. as `not_located`, and
+the agent's and interpreter's houses, the stables and the gardens as drawn "without any Regular
+rule" (`sheet_only`), so the draught does not place any of them to scale. They are T-2062 rather
+than placed by eye.
+## T-2021 — the married houses no woman in the town fits, ruled on (2026-10-03)
+
+**What a visitor sees:** 156 married houses in the People directory now hold the wife and children
+the household model drew for them (508 people), and 121 stand alone with a card that says why.
+
+- **The ruling.** In a seeded order, each of the 277 refused houses is given the whole family this
+  stage drew for it and refused, while the town the order book converges to stays at or under
+  3,265 AND the under-ten share at or under the model's 0.2702. The walk stops at the first house
+  either bound refuses (a prefix, never a packing). It stopped at house 157 on the under-ten
+  bracket. Frozen in `data/reconstruction/1835_family_ruling.json`.
+- **Measured:** town converges 2,605 → 3,113; under-ten share 0.1894 → 0.2699; adult sex ratio
+  435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
+- **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
+  T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
+- **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
+  past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
+  re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first
+  initial: a drawn child displacing a read man. The ruling now also steps past the initial of every
+  roster name that stage mints (six of its 508 forenames moved; 121 re-admissions stand, as before).
+  The boarders lose three: the ruling seats seven more people in lodging places before that stage
+  deals, Edward Haddock's family now fills the Mansion House, whose lodging card retires, and one
+  keeper's child is refused for the name pool (L252 restated, 150 in 23 to 147 in 22).
+- **How it was re-derived.** Seven stages the rebuild manifest does not list (re-admissions,
+  transients, Native and Metis, church register, boarders, the staffing join's three tools, door
+  aprons) were rebuilt by hand around two `rederive.mjs --run` passes until a further pass changed
+  nothing; nine structures whose occupancy moved were rebaked with `bake.sh --only`.
+
+## T-2035 / T-2037 / T-2038 — continuous vegetation and distant plankwalks
+
+PR #364 addresses the owner's walking/flying plant pop-in, wild shrub rows and
+South Water plankwalk gaps. Ten recoverable checkpoints were saved through
+`dba67228`; the final integration includes dev `7186f5bb`, retaining its jaunt
+timing changes, appended arrival test and first-fort data. Those records are
+dated before 1835 and add no geometry to this scene; the release is stamped v1396.
+
+Near and distant plants retain the same rooted identities through their detail
+transitions, downward flight retains visible vegetation, and wild shrubs use
+independent full-cell scatter. The sampled community includes red-osier and grey
+dogwoods, common elderberry and ninebark, with meadowsweet nearby.
+
+The plank repair filters subpixel board gaps, refines ground only under emitted
+crossings, and retains exact distant deck tops beyond the furniture reach.
+It removes all 1,855 measured ground intersections, adds 8,704 ground triangles
+and at most one distant-walk call. All 107,532 emitted top triangles are clear.
+Footprints, walking heights, recorded species and intentional slough gaps remain.
+
+After removing zero-area grass-tip triangles, measured limits are 2,840,000 Full /
+2,145,000 Balanced / 1,040,000 Light, under the owner's October 3 authorization.
+Draw-call caps are unchanged. Six-stand measurements fit those limits; these
+software-rendered readings do not predict consumer frame rates.
+
+All 13 release sections have passing published desktop/mobile coverage across
+recorded checkpoints, with parts 1–2 repeated after instrument corrections and
+part 12 repeated on the integrated v1388 interface; the subsequent source-only
+release is checked separately for its added source and rendered release notes. The original failed census and
+coarse fence measurements are retained; their original thresholds remain, with
+additional derived-mesh and restoration checks. The dedicated appearance test
+also passes at both widths and without JavaScript. The final source-only
+integration passes its desktop/mobile check of all 1,389 release entries and
+the new published source. Final preflight passes 762 steps, including 314
+self-tests. Seven motion routes
+across all tiers and both viewports pass after the recorded Light repeat, with
+zero coverage jumps, identity errors or instance shortfalls. All 144 plank pairs
+and two reach controls pass. See `docs/RESEARCH/vegetation-motion-continuity.md`
+for exact scope and limitations. The v1395 integration repeats the 762-step
+preflight successfully; its new part 14 passes all 44 checks across both viewports, and the focused
+v1395 release-note/source check passes both viewports with no page errors. Production promotion is not part
+of this work.
+
+
+
+## T-2049 — the first fort's fourteen structure records, built from the 1808 register (2026-10-04)
+
+Piece 2 of 3 of T-0469. **Nothing a visitor can see changed, and that is the honest state:** the
+records are dated 1803-08-17 to 1812-08-16, no committed scene date falls in that range, and no
+scene for 1812 exists yet. They are invisible by construction until T-2050 seats them.
+
+**What was built.** `data/structures/first_fort_dearborn_*.json`, fourteen records, every plan
+taken from `data/traces/whistler_1808_fort_dearborn.json` (T-2048): the inward and outward picket
+rows (89.6 x 91.2 ft and 108.0 x 111.3 ft, `palisade`), the north-west and south-east blockhouses,
+the commanding officer's (east), officers' (west) and soldiers' (south, either side of the main
+gate) ranges, the north range with the contractor's store as its west room, the brick magazine,
+the two small houses, the parade and the 75 ft flagstaff. Two storeys, galleries fronting the
+parade and the shingled roofs are ATTESTED from Whistler's own note; every height, pitch, cap,
+stack and picket dimension is reconstructed at the second fort's figure, under L370.
+
+**What was refused, with the register's reasons.** The guard house (9), the hospital store (14),
+the assistant military agent's store (15) and the wicket gate (8) are in the ticket's title but
+not on the sheet where the register could find them; placing them inside a measured plan would
+be inventing the one thing the plan is good for. The covered way (33) and the gutters (34) are
+"Omited in their places" by the drafter. The magazine and the north-east small house are drawn
+in elevation only, so their widths and fronts are measured and their 10 ft depths are ours.
+
+**How it is held.** `tools/read_whistler_1808.py --check` (already in check.sh) now also maps each
+record to its register part and refuses a footprint more than 0.02 m off the part's measured
+plan, a `symbolic_location` that does not carry the part's fort-frame box, a range other than the
+first fort's, and any scene date that would resolve the first fort while no 1812 scene owns it.
+
+**What T-2050 inherits.** Each record carries `utm_e`/`utm_n` null and its box in the draught's
+own frame (feet east and north of the staff's foot, "east" being the sheet's right). Seating the
+fort is therefore one origin and one bearing applied to all fourteen. **The bake moved with it:**
+`generators/build.py` builds only phases some committed scene resolves (T-1732), so these records
+cannot be baked until a scene for 1812 exists. Two things to look at in that first bake: the
+archetype centres a palisade gate on its side while the draught's passage is about 8 ft west of
+the rows' centre, and the inward row's closed loop stands against the ranges' back walls, where
+the draught draws it only between them.
+
+## T-2047 — the arrival and jaunts against the town's budgets; two budgets broken elsewhere (2026-10-04)
+
+**What a visitor sees:** nothing changed. This is piece 4 of 4 of T-1272: the budgets, the
+legacy surfaces and the acceptance report, `docs/measurements/arrival_jaunts_acceptance_2026-10.md`.
+
+- **The section is inside its own budget.** It adds 11.5 KB to a first visit (`arrival.js`,
+  `welcome.js`, `loading-early.js`, `data/loading/statuses.json`), and no catalog, jaunt file
+  or source-index URL is among the 1306 boot requests.
+- **The boot payload is OVER its budget on dev: 13.122 MB > 13 MB** (`measure_boot_payload.mjs
+  --check`). T-1973's tree re-measures at its own 12.575 MB, so the +0.547 MB is growth:
+  sidecars +0.263, T-2036's fonts +0.071, the entrance aprons +0.050. No gate has said so,
+  because every dev bake since 2026-10-03 was cancelled by a newer push. → T-2058.
+- **The mobile flora heartbeat is past its 250 ms check:** 320-356 ms on dev. Bisected to
+  T-2015 (#333): 143 → 339 ms across that one merge. → T-2059.
+- **The boot moved 25-70 % against the tree before the arrival**, on one runner. Most of
+  it is a ~2.9 s long task now opening the terrain phase (0.72 → 3.71 s), already present on
+  2026-10-02 and so not the arrival's. `boot-weights.js` was NOT rewritten: its seconds come
+  from another machine and pace every first visit's arrival. → T-2060 decides which machine.
+- **Frame cost** at desktop full and balanced is inside every ceiling at all six stands, but
+  balanced stands at 99.0-99.3 % at two of them. The light level and mobile were not read: two
+  sweeps hit the 580 s cap. The smoke's part 4 holds them, last passed in CI on 2026-10-01.
+- **Legacy surfaces** (smoke, `--published`, this branch): mobile part 3 PASS 102/102 and
+  mobile part 12 PASS 97/97, both with zero page errors. Desktop part 12 was cut off at the
+  590 s cap with 49 passed and none failed, so it is NOT a pass. Part 13 was not run.
+- **Unverified here:** T-2045's boot variants and T-2046's layouts, which were in flight. Their
+  verdicts are theirs. No budget was raised.
+
+## T-2056 — four horse jaunts just over six minutes brought inside it (2026-10-03)
+
+**What a visitor sees:** A Sunday Circuit, A Schoolday Errand, Work on the Waterfront and
+Materials for a Roof each read shorter at every stop and now fit inside six minutes on
+horseback. Piece 6 of 6 of T-2041.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only sunday-circuit,schoolday-errand,work-on-waterfront,materials-for-a-roof`:**
+  sunday-circuit 6.55 → **5.78 min** (Fly 2.37, Instantly 1.23); schoolday-errand 6.35 →
+  **5.65** (Fly 3.35, Instantly 2.28); work-on-waterfront 6.23 → **5.70** (Fly 3.68, Instantly
+  2.77); materials-for-a-roof 6.07 → **5.65** (Fly 3.35, Instantly 2.35). At 1280×800,
+  recommended mode only: 5.73, 5.60, 5.52, 5.68. Zero page errors. `docs/measurements/jaunt-timing.*`
+  carry the new rows merged into the committed library reading (`--merge`; the 1280×800 column
+  kept from the committed table, with these four taken fresh); the other 22 rows were not
+  re-ridden. 3 jaunts remain over the band, all owned by T-2055.
+- **Why this lever.** All four already recommend Horse, the fastest ground pace, so a change
+  of mode can only slow them. The cost was reading: 120–198 s of each path. The opening and
+  every stop text are re-cut (each stop stays inside the 25–60 word rule), and every `read_s`
+  is scaled by its own passage's authored rate — `round(old × new words / old words)` — so no
+  reading speed was raised to buy time. `action_s`, the stops, routes, choices and endings
+  are unchanged. A Sunday Circuit, the tightest (393 s, 273 of them riding across the South
+  Branch and back to the Walker meeting house), takes the deepest cut: 120 s of reading to 74.
+- **What the texts still say:** every invention named as invented (the neighbour and the
+  visit; the household and its question; the errand and the chit; the house and its list),
+  every placement and dispute (the Walker placeholder, the disputed Newberry & Dole bank,
+  the uncredited 1835 groundbreaking, Chappel's contested site), and the 7 July meeting as
+  called rather than held. Detail dropped from the narration — the schooner Illinois at the
+  wharf, St. Mary's lumber by scow, Hamilton's nineteen years in his house — keeps its claim
+  in each jaunt's evidence. `content_version` is bumped on all four, so a saved session is
+  discarded with the runtime's usual note.
+- **Liberties:** unchanged. No invention was added or widened; the re-cut only removes words.
+
+## T-2052 — News Before Breakfast and New in Chicago brought inside six minutes (2026-10-03)
+
+**What a visitor sees:** both jaunts now recommend a ride on horseback, and News Before
+Breakfast ends at the first Tremont House at Lake and Dearborn instead of the Exchange Coffee
+House at Lake and Wells. Fix half of T-2051's reading (piece 2 of 6 of T-2041).
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only news-before-breakfast,new-in-chicago`:**
+  news-before-breakfast 17.65 → **5.70 min** (Fly 4.25, Instantly 3.40); new-in-chicago 10.42 →
+  **4.04 min** (Fly 2.90, Instantly 2.10). Zero page errors. `docs/measurements/jaunt-timing.*`
+  carry the new rows merged into T-2051's library reading (`--merge`); the other 24 rows are
+  not re-ridden here. With T-2054's two and T-2053's three also in band, 7 jaunts remain over it, owned by T-2055 and T-2056.
+- **Why a pace change, and why it is not enough alone.** Walking is 1.45 m/s. On News Before
+  Breakfast the Democrat-to-American leg is about two minutes on foot by itself, so no choice of
+  stops fits 204 s of reading inside six minutes on foot; on horseback the briefed route still read
+  about 6.6 because breakfast was 530 m back west. The Tremont is the nearest attested public house
+  to the American's office (about 80 m), so it is the stop that moves. New in Chicago's long leg is
+  the forks to LaSalle, which every order of its five stops crosses, so there the mode alone is
+  the lever.
+- **What was not touched:** the estimate formula, every `read_s` and `action_s`, and every printed
+  item quoted. Text changed only where it named walking. `content_version` is bumped on both, so a
+  saved session from the walking version is discarded with the runtime's usual note.
+- **Margin:** News Before Breakfast is 18 s inside the band. A longer stop text there would need
+  its own re-timing.
+- **Liberties:** L-jaunt-news-breakfast and L-jaunt-new-in-chicago each gain a **Revised** line
+  (append-only): the ride is invented like the rest of each outing.
+
+## T-2053 — three jaunts just over six minutes brought inside it (2026-10-03)
+
+**What a visitor sees:** Look Before You Buy a Lot now recommends a ride on horseback,
+Shopping South Water Street a drive in a light wagon, and Fort Dearborn Errand starts at the
+south gate with four stops instead of five. Piece 3 of 6 of T-2041.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only inspect-a-lot,shopping-south-water,fort-dearborn-errand`:**
+  inspect-a-lot 6.78 → **3.32 min** on horseback (Fly 2.76, Instantly 2.28); shopping-south-water
+  6.60 → **3.94 min** by wagon (Fly 2.55, Instantly 2.07); fort-dearborn-errand 6.37 → **5.48 min**
+  on foot (Fly 1.99, Instantly 1.67). Zero page errors. `docs/measurements/jaunt-timing.*` carry
+  the new rows merged into T-2051's library reading (`--merge`, with the 1280×800 column kept from
+  the committed table); the other 23 rows were not re-ridden. 9 jaunts remain over the band,
+  owned by T-2052, T-2055 and T-2056.
+- **Why these levers.** The lot and shopping errands are each about 390 m of walking, 270 s of
+  the band's 360, and no nearer supported stop shortens them much: the auction room is a block
+  east of the other three stops, and the receipt is on Lake Street by design. No stop text in
+  the lot errand named walking; the shopping errand's one "Walk up to Lake Street" now says
+  "Drive". Horse would put the shopping errand at about three minutes, the band's floor, so it
+  takes the wagon. The fort errand crosses the parade inside the pickets, where a horse or wagon
+  does not belong, and trimming all five texts would have reached only about 365 s, so its
+  orientation stop is folded into the south-gate stop beside it: one 50-word text in place of
+  78 words over two stops (22 s, from 34 s, at the same reading rate) and no 47 m first leg.
+- **What was not touched:** the estimate formula, every other `read_s` and `action_s`, every
+  source claim. The merged stop keeps the stockade's card link and its evidence (Kinzie's
+  pickets and gates, the 1832 garrison); "gates are shown shut" is the one rendering remark
+  dropped. `content_version` is bumped on all three, so a saved session is discarded with the
+  runtime's usual note.
+- **Liberties:** L-jaunt-inspect-a-lot, L-jaunt-shopping-south-water and
+  L-jaunt-fort-dearborn-errand each gain a **Revised** line (append-only).
+
+
+## T-2054 — Outfit for the West and Freight for the Store brought inside six minutes (2026-10-03)
+
+**What a visitor sees:** Outfit for the West now recommends horseback, and its stops run Green Tree →
+Cobb → Pierce → Jones → Peck, so the river is crossed once. Freight for the Store has a shorter
+opening and shorter stop texts. This is piece 4 of 6 of T-2041, fixing two of the jaunts T-2051 timed over the band.
+
+- **Measured, 390×780, `node tools/time_jaunts.mjs --only outfit-for-the-west,freight-for-the-store`:**
+  outfit-for-the-west 8.98 min by wagon → **4.90 min on horseback** (Fly 3.38, Instantly 2.60; 4.86
+  at 1280×800). freight-for-the-store 6.12 → **5.80 min by wagon** (Fly 3.45, Instantly 2.72; 5.52 at
+  1280×800). There were zero page errors. `docs/measurements/jaunt-timing.*` has the new rows merged into the
+  library reading (`--merge`, with the 1280×800 column carried through `--also`). The other 24 rows
+  were not ridden again.
+- **Outfit: why both a mode change and a new order.** T-1260's route note already found that no
+  order of the five trades fits six minutes at a wagon's 3.6 m/s, because the South Branch crossing alone is about 500 m.
+  It also ruled that the overrun is not a reason to substitute a stop. On horseback the shipped order still
+  read about 6.1 min, because it crosses the river twice. The one-crossing order is 721 m in straight lines against 1,045.
+  The prose allows the horse, because the visitor hires a wagon only through the harness choice. Stop texts changed only where they named the old
+  crossings, and no `read_s` or `action_s` was lowered.
+- **Freight: why text only.** Loading the wagon is the errand, and every position on the route is
+  attested or the structure record's own reconstruction. So the opening and four stop texts lose
+  about 45 words, and their reading seconds drop with them at no faster a reading rate than before
+  (22 s of reading in all). No fact is added, and the tally stop now says the yard is *likely* quiet,
+  matching its inferred evidence.
+- **Margin:** freight is 12 s inside the band at 390×780. A longer stop text there would need re-timing.
+- **Not touched:** the estimate formula and any other jaunt. `content_version` is bumped on both,
+  so a saved session from the old version is discarded with the runtime's usual note.
+- **Liberties:** L-jaunt-outfit-west and L-jaunt-freight-store each gain a **Revised** line
+  (append-only).
+
+## T-2048 — Whistler's 1808 draught of the first fort, read into a register (2026-10-03)
+
+**What a visitor sees: nothing.** This is piece 1 of 3 of T-0469 (the first Fort Dearborn as it
+stood in August 1812), split because the parent needed more than one demonstration. This piece
+is the measurement half, so it is exemption 2 of the visible-progress rule. T-2049 builds the fort
+from it and T-2050 seats it in the 1812 scene, which does not exist yet.
+
+- **The sheet.** Quaife (1913) prints, facing p. 164, Captain Whistler's own draught of the fort
+  he built, dated in the parade 25 January 1808. It is now a source record,
+  `whistler_1808_fort_dearborn_draught`: tier 1, public domain, geometry permitted. The working
+  copy is pinned by URL and sha256 and is not committed. Quaife's other "first fort" plate,
+  facing p. 100, is a photograph of a later model and is not this source.
+- **The scale is measured, not assumed.** The note says the garrison is "laid down at twenty feet
+  to the Inch", but a reproduction loses the inch. The flagstaff is lettered "75 feete" and is
+  drawn laid down from its foot. That foot lands on the parade's centre to under a foot, so its
+  339 px give **4.52 px/ft**. `--remeasure` finds the same two ends on the fetched sheet.
+- **What it reads** (`data/traces/whistler_1808_fort_dearborn.json`). Two picket rows: the inner
+  encloses **89.6 x 91.2 ft**, the outer **108 x 111 ft**. Two blockhouses at the north-west and
+  south-east angles (17.3 x 19.0 and 19.2 x 18.4 ft), each straddling both rows. Commanding
+  officer's range east, officers' west, soldiers' south either side of the main gate, contractor's
+  store and soldiers north. The brick magazine, in elevation only, between the north range and
+  the north-west blockhouse. Two small houses at diagonally opposite corners.
+- **All 34 index numbers are accounted for:** 10 located, 8 drawn but not to scale (sheet
+  position only), 14 not located with the reason, and 2 that the drafter says he omitted (the
+  covered way, the gutters).
+- **What it refuses.** No height: the four ranges' folded elevations, all "two storeys high",
+  read 11.1 to 18.8 ft. No bearing to true north: no arrow was found. No positions outside the
+  stockade: the note says those houses are "without any Regular rule" and the red-ink distances
+  are "not laid down by a scale". Two of them disagree by a factor of two, which bears that out.
+  No guard house, wicket gate or stores 14 and 15: their numerals are not legible.
+- **Gated.** `tools/read_whistler_1808.py --check` in `check.sh`. It holds the scale's arithmetic,
+  every foot against its pixel box, the 34-number index, and the cross-checks the file says hold.
+
+## T-2040 — the jaunt library is read for what it must never say (2026-10-03)
+
+**One stop's wording changed; the rest is a gate.** `compile_jaunts.py` proves a jaunt is
+well-formed; nothing read what a jaunt SAYS. `tools/audit_jaunt_refusals.py` now reads every
+visitor-facing passage of all 27 jaunts (26 in 1835, one in 1904) for four refusals and runs
+in `check.sh` with an in-memory self-test that breaks each rule once:
+
+- **No reconstructed Indigenous encounter.** No stop may visit a Native or Métis home or
+  business (91 people, 2 places, 1 business, read from the records' `community` and
+  `touches_removal`). An Indigenous subject may not be named in the story's invented voice
+  (premise, opening, choices, endings, keepsake), and may be named in a told passage only
+  where an attested or inferred claim of that passage names it, no reconstructed claim of it
+  touches the subject, and the sentence does not put the visitor in it. The lexicon includes
+  the names of every Native and Métis person record. One name is exempt: "Sauganash" names the
+  tavern, and only in a jaunt that references `sauganash_hotel`.
+- **No figure.** No string outside the claims may carry an asset path or URL, and the schema
+  must stay closed at every object, so a field that could carry one is a visible schema change.
+- **No quotation in a named person's mouth.** Every quoted span must stand verbatim in an
+  attested claim the passage cites, and no named person "tells you" or "asks you" anything.
+- **Rights.** No `restricted` source may be cited. `check_required` sources are cited in text
+  only, which is rule 6's allowance.
+
+**What it found, and the fix.** One quotation. The stop at the American quoted the bank
+notice's "on the square, near the court house". The transcription reads "on the squa[re,
+near] the court house": the comma and "near" are the extraction's supplies, not print, and
+the attested claim gives the phrase unquoted. The stop now gives it in plain words, as the
+same jaunt already does with the land-sale figure it cannot read (content_version 2).
+
+**Unverified, and said so.** An invented sentence describing an unnamed person's appearance
+is not detected; no lexicon for it would spare "a wet street has told you enough". The
+library's shape (T-2039) and timing (T-2041) are other pieces of T-1271.
+
+## T-2051 — every jaunt's primary path ridden and timed, measurement half of T-2041 (2026-10-03)
+
+**What a visitor sees: nothing.** This is the measurement half of a split (AGENTS.md's
+visible-progress exemption 2). T-2041 asked to time all 25 primary paths and re-cut any outside
+3–6 minutes. The timing found 14 to re-cut, which is more than one run, so it was split into this
+measurement and five fix tickets (T-2052–T-2056) that carry the readings. Landing the reading red
+first means a fix cannot redefine success.
+
+- **`tools/time_jaunts.mjs`** serves the published mirror and starts each available jaunt in the
+  real walkthrough. It rides every leg with the travel controller itself (`travel.simulate`, the
+  harness path of `tick()`) until it arrives. Measured = opening read + each visited stop's read
+  and action time + simulated ride seconds. The menu's own estimate (`jaunts.state.estimate` at
+  the first stop) sits beside each reading. At a branching stop it takes the choice that leads to
+  the next listed stop, and falls through when a stop refuses one (taverns-of-chicago's `glass`
+  needs money ≥ 6). `--continue` and `--merge` let the 78 runs be taken across several 600 s
+  calls. Each run is saved the moment it ends.
+- **The phone is the reference viewport.** The clock is simulated, so a viewport moves a reading
+  only through where a stop is framed from. Mostly that is a few seconds, but on across-wolf-point
+  it is 21 s, and along-the-harbor's estimate reads 35 s above its ride on 1280×800 against 5 s
+  on the phone. The software renderer draws the phone 3–7× faster, which is what made 78 runs
+  fit. The six jaunts near the line carry desktop readings too.
+- **Taken on the tree this merges onto.** `dev` took T-1743 (Beaubien's homestead, off the fort
+  road) mid-run, so the library was ridden again after it. Two readings moved:
+  fort-dearborn-errand +11 s (6.18 → 6.37 min, and over on desktop too now) and along-the-harbor
+  +2 s. The other 73 runs repeated to the second.
+
+**Measured** (`docs/measurements/jaunt-timing.md`, 390×780, seed 1279, default paces): 78 runs
+over all 26 jaunts (over-the-draw, T-2042's 26th, landed mid-run and reads 4.73 min on
+horseback), zero page errors, no stalled ride. 12 in band, 14 over, 0 under. Over: news-before-breakfast
+17.65 min on foot, new-in-chicago 10.42 on foot, from-prairie-to-town 9.35 horse,
+outfit-for-the-west 8.98 wagon, boots-and-leather 7.73, soap-and-candles 7.13, inspect-a-lot 6.78,
+shopping-south-water 6.60, sunday-circuit 6.55, schoolday-errand 6.35, work-on-waterfront 6.23,
+fort-dearborn-errand 6.37, freight-for-the-store 6.12, materials-for-a-roof 6.07. Fly and
+Instantly are faster than the recommended mode on all 26. On the phone the menu's estimate
+tracks the ride within 15 s everywhere except from-prairie-to-town, where it reads 51 s above
+the ride. The
+readings agree with the per-jaunt figures earlier runs filed (an-evening-stroll 268 s at Horse,
+the same here). Repeat runs give the same seconds.
+## T-1743 — Col. Beaubien's homestead is one house and two outbuildings, off the fort road (2026-10-03)
+
+**Owner-reported**, so the visible-progress rule's first exemption would apply; it is visible anyway.
+The owner saw three identical log houses by the fort, two of them on the fort road, and ruled (answer
+b on the ticket) for one dwelling and two outbuildings.
+
+- **Measured before the fix:** `beaubien_new_residence` and `beaubien_trading_post`, placed by eye on
+  T-1712, stood astride the `fort_road` centreline (0.0 m from it, 6.0 m deep in its 12 m corridor).
+  The house clears it by 8.2 m and the barn by 13.8 m.
+- **Fold:** `beaubien_new_residence` is withdrawn (record, sidecar, master and web GLB, manifest rows)
+  and folded into `jb_beaubien_homestead` on § 6a's reading; dossier § 4 says so.
+- **Re-site and redraw:** the trading post moves onto the outbuilding archetype (log, shed roof, man
+  door, no chimney) 4.0 m west of the house, where the ground lands it (the frontage line itself
+  stood it 0.39 m into the slope). The barn keeps its place and gains
+  a loft door. L283 is revised and struck; L219, L263 and L266 restate their counts.
+- **Gate:** `tools/check_structure_corridors.py --gate` measures every street in
+  `data/streets/1835.json` at its own width against every phase standing on its date — 48 laps across
+  41 records are banked as a ratchet (most on `north_water`, from sourced positions, and not moved);
+  a new, deeper or cleared-but-banked lap is refused. The self-test puts the trading post back on the
+  fort road and watches it go red.
+- **Not done here:** the trading post's and barn's meshes need the pinned-Blender bake, which this
+  container cannot run; the bake is dispatched on the branch. The garden Wentworth names is still
+  unbuilt.
+
+## T-2003 — the 1812 ground generated: mouth, heightfield, ground and water meshes (2026-10-03)
+
+**What a visitor sees: nothing yet.** No scene stands on `e1830_natural`. The 1812 Fort Dearborn
+scene that will is T-0469 to T-0472, and this is the ground they were waiting on. This run is the
+one invisible run the four-run cap allows; the three entries before it are visible.
+
+- **`generators/terrain_gen_e1830.py`** is the 1812 ground's one generator. It imports
+  `check_terrain_e1830.resolve()` (T-2002) for the effective table, writes
+  `e1830_natural/river.geojson`, translates the table into the keys `terrain_gen.build_field`
+  reads, and calls it. So the 1812 ground is the 1834 field's own arithmetic on the 1812
+  planform. `terrain_gen.py` is not edited, so neither the 1834 nor the 1904 ground goes stale.
+- **The mouth is spliced, not drawn.** The 1834 harbour ring keeps every vertex except the north
+  shore from where the neck leaves the bank to the pier head (index 39). Those vertices become
+  the neck's river face, the spit's ring the long way round, the neck's lake face, and the
+  chord. The two new vertices at each end are crossings of committed lines. The 1834 bar hole
+  is gone, because the bar is no longer an island.
+- **The spit and neck are lifted after the field.** `build_field` builds an island from its ring
+  as a waterline all round. Across a joined spit's root that notches the neck to the water,
+  which is the breach the isthmus decision forbids. So the spit and neck go in as land the lake
+  rules may not flood (a water polygon that is wholly its own island). They are lifted to
+  `spit_1812.crest_ft` across `face_m` and graded into the mainland across the neck's width.
+  Measured on the committed field: the neck runs at +4.0 ft from about 25 m out to the spit, and
+  rises to +5.9 ft at the root. Across its middle it falls to the water on both faces. No notch.
+- **Grades.** Zero documented vertices. Conjectural: everything south of Twelfth Street, the
+  spit and neck, and the `channel_west_bank_ruling` band. That band is the channel and the ground
+  within `west_band_m` west of its bank, between N −426.75 and −69. Together the conjectural
+  vertices are 48.2 % of the box.
+  `west_band_m` (157.1 m) is now a spec figure, and the check holds it to T-1286's measured worst
+  separation.
+- **What else moved, and why it is right.** Against the 1834 field, 257,821 cells differ. The
+  water beds shift by a median 12.5 cm far from the mouth, because the bed is an inverse-distance
+  blend of every reach and 1812 drops the cut and deepens the old channel to −4 ft. The 1835
+  street sections are dropped (there were no streets in 1812), so the roadway beds across the
+  town rise back to the plain. Gradient audit: plain max 0.468 ft per 300 ft, under the 0.5 rule.
+- **Wired.** Seven 1812 blocks are `compile_scene.GROUND_GROUPS` groups with
+  `terrain_inputs.CONSUMED` entries and `mesh:` declarations for every figure the generator does
+  not read. L362, L363 and L364 carry `Covers:` tokens for the five reconstructed ones. The old
+  refusal of a ground-group name in `check_terrain_e1830.py` is replaced by two rules: no authored
+  block may shadow a carried 1834 one, and every graded 1812 block must reach the panel with a
+  CONSUMED entry. Its self-tests go from 18 to 22.
+- **Hashed.** `terrain_inputs.OVERLAY_EPOCHS` hashes the 1812 spec and vectors, the 1834 spec and
+  all six vector files the field loads, the mouth readings, the generator, and the source of
+  `resolve()` alone (not the whole check module, so rewording a refusal costs no bake).
+- **Gates.** `measure_terrain_fit --epoch e1830_natural --gate`: master within 2.5 mm of the
+  field. `measure_terrain_horizontal --epoch e1830_natural --gate`: shipped vertices 0.0 mm from
+  the master in plan, drawn surface within 10.0 mm. Both are now check.sh steps. **Not in
+  check.sh:** the byte-for-byte re-derivation (`terrain_gen_e1830.py --check`). It is the 1834
+  field's arithmetic over 1.9 million cells and takes about 76 s, which the pool cannot spend
+  (rule 9). `validate.py --stale` holds the input hash instead.
+- **Banked, not repaired: two rights findings.** `spit_1812` and `outlet_channel_1812` cite
+  `chicagology_prefire274` and `chicago_architecture_history_115`, whose rights are unresolved,
+  and both blocks now reach a vertex. They are banked in `tools/rights_derivation_baseline.json`
+  on the same terms as the 1834 claims they are carried back from (`reaches.old_south_channel`
+  and `reaches.harbour_cut_1834` are already banked there). The heights themselves are dossier
+  zone figures, graded reconstructed. The fix is the rights check on those two sources, and it
+  is unchanged by this run.
+- **The masters are big.** `terrain__e1830_natural.glb` is 29.6 MB (1,136,722 triangles), on the
+  1834 grid at the 1834 decimation, beside the 1834 master's 30.3 MB. The web derivative is
+  2.9 MB.
+## T-0252 — the load-drawn layers leave the repository as exports, not bakes (2026-10-03)
+
+**Nothing you can see changed.** This is a contract and a gate. It is the decision T-1360
+(the first Unreal street corridor) and its successors were blocked on.
+
+**The decision**, in `docs/GLB-CONTRACT.md` § Layers drawn at load: the baked town carries
+**none** of the ten layers drawn at load (boats, enclosures, fauna, flora, frontage,
+residents, signage, wells, wharves, yard), nor the street network. Their portable form is
+an export made by the renderer module that already draws each one. Its `create*({ terrain })`
+factory runs headless against the scene's epoch heightfield, and the output is stamped with
+that heightfield's hash and the records' hashes. The export lives in the scene bundle
+(T-1357) and is never committed. The reasons, all measured before: a shared generator edit
+re-stales all 550 committed meshes; most of these layers read the heightfield at load, so a
+bake would freeze them against a ground that keeps moving (T-0001's fault); and six layers'
+records are re-derived byte for byte by `check.sh`, a gate that stays on the record. Cards
+(fauna, residents, businesses) export as JSON, and no human figure is exported for anyone.
+
+**The inventory** has one row per layer: what it draws, whether it reads the ground, where
+its variation is seeded, its portable form, instancing and collision intent, and what a glTF
+cannot carry yet. Most layers patch their shaders at compile time, and signage rasterises
+system fonts with no recorded licence. Both are written into their rows rather than left to
+the first exporter to find out.
+
+**The gate.** `tools/measure_generator_half.py --gate` keeps all of its readings.
+`layers_with_a_generator: 0` is now the rule rather than a debt. A new check requires a
+contract row naming the drawing module for every layer the tool names. Shown red twice on
+this branch (the boats row removed; the wells row naming the wrong module), then green.
+
+**Unverified.** Nothing has been exported. The contract describes the factories as they read
+today; the first corridor (T-1360) is expected to correct it where the code disagrees. The
+legacy K5 box is no longer in `docs/ROADMAP.md`. The Unreal programme paragraph there now
+points at the decision, and older "the generator half is still owed" lines in this file are
+history and were left as written.
+
+## T-2034 — An Evening Stroll, the batch's quiet published jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *An Evening Stroll* (Leisure, Horse, 4
+stops, Neighbors). It begins at the Sauganash's corner of Lake and Market, passes P. F. W.
+Peck's store at South Water and LaSalle (his card's stock), stops at South Water and Clark where
+the Democrat was first printed (by 20 May its office was over Jones & King's hardware), and
+reaches the Exchange Coffee House at Lake and Wells. There the walker chooses where the evening
+ends: at the Exchange, or back along Lake Street to the Sauganash. Two endings, one keepsake,
+*A Pleasant Circuit*, to Neighbors. Content only: one JSON file, a liberty
+(`L-jaunt-an-evening-stroll`), the regenerated catalog and source-use edges, and brief 25's
+route note. No engine, compiler or CSS change. Piece 3 of the three T-1270 was split into, so
+the batch's three jaunts are now all published.
+
+**This is the batch's quiet outing.** It declares no variable and no inventory, and the drive
+counted zero items in the resource strip. The evening is a premise only: no lighting change, no
+entertainment, no meeting and no dated event. Every place-fact reuses evidence already published
+in other jaunts, word for word. The one new claim is inferred: the Democrat came out weekly, on
+Wednesdays, read off the volume and issue numbers of the dated numbers already cited (Vol. II
+No. 5 on 20 May to No. 11 on 1 July). No masthead statement was read for it, and the liberty
+says so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, 2 endings, 1 keepsake. Card estimates on
+the published mirror at 390×780: Walk 12.5 min, Wagon 6.5, Horse 4.5, Fly 3, Instantly 2. At
+1280×800 Walk and Wagon read 12 and 6. The primary path measured 268 s at Horse against the
+card's 265 s (258 s against 256 s at 1280), 173 s at Fly and 765 s at Walk. Horse sits inside
+the 4–6 min band. Walk, which the brief named, does not, so the default is Horse and Walk stays
+offered. A Playwright drive at 390×780 went from the card through Start, the first stop, the
+Sauganash's card and back to the same stop, the choice at the Exchange, the ending
+(`where-you-began`, keepsake shown), and a second Start with End back to the menu. Zero page
+errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-an-evening-stroll/`.
+## T-2030 — Calling on Neighbors, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Calling on Neighbors* (Social life, Horse,
+4 stops, Neighbors). A newcomer lodging at Mrs Rufus Brown's log boarding house behind Peck's store
+chooses which letter of introduction to present (a merchant's or a minister's); reads the Peck
+household on its card at the corner of South Water and LaSalle rather than at its door; finds at
+the Exchange Coffee House a public meeting place — the Democrat reports Democratic meetings held
+there in April and June 1835, and J. A. Marshall's November 1834 dancing-school notice asked
+would-be pupils to leave their address there — and leaves a calling card there or at the
+Sauganash. Three endings; the keepsake *An Introduction Made* goes to Neighbors. Content only: one
+JSON file, a liberty (`L-jaunt-calling-on-neighbors`), the regenerated catalog and source-use
+edges, and brief 21's route note. No engine, compiler or CSS change. Third of the four pieces
+T-1269 was split into.
+
+**The brief's cautions hold by construction.** No named person is met, quoted or said to be at
+home; Peck's household is read on its card, which marks what is inferred. The two new attested
+claims are the Democrat's own meeting reports (20 May 1835 p. 1 col. 3; 10 June 1835 p. 2 col. 5)
+and the dancing-school card (19 Nov 1834 p. 3 col. 2). The April meeting's printed day and weekday
+do not agree in the transcription, so the stop gives the month only.
+
+**Recommended mode moved from Walk to Horse.** The primary path (merchant's letter → card left at
+the Exchange) measured 522 s at Walk against the card's 533 s at 390×780 — past the 4–6 min band —
+so the card recommends Horse: 244 s against 244 s at 390×780 and 237 s against 235 s at 1280×800.
+Fly: 193 s against 200 s and 192 s against 198 s. Wagon: 309 s and 297 s. Walk stays allowed.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+at 390×780: Walk 9 min, Wagon 5, Horse 4, Fly 3.5, Instantly 2.5. A Playwright drive at 390×780
+(card, Start Jaunt, the first stop, About this place and back to the same stop, the ending; a
+second Start then End Jaunt back to the menu) reached `merchant-at-the-exchange`; zero page errors
+at either viewport. Stills and the receipt are in `docs/performance/jaunt-calling-on-neighbors/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API,
+and the desktop card's mode estimates were not read (the card's selector did not appear inside
+30 s in the headless desktop page).
+
+## T-2032 — Along the Working Harbor, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Along the Working Harbor* (River
+transportation, Horse, 4 stops, Wayfinding). It starts at Newberry & Dole's warehouse, whose
+card in the Democrat of 1 July 1835 offers storage, forwarding and commission for the Merchants'
+Line. It passes Norton's 1834 drawbridge at Dearborn Street (about 300 ft, a sixty-foot draw,
+gallows frames), then the forty-foot 1832 light at the river's mouth. It ends at the south pier,
+looking across the cut at the north pier: 180 vessels discharged there in 1834, and $32,800 more
+was voted in 1835. One choice decides what goes on the route note, the light or the end of the
+north pier. Two endings; the keepsake *Knows the Harbor* goes to Wayfinding. Content only: one
+JSON file, a liberty (`L-jaunt-along-the-harbor`), the regenerated catalog and source-use edges,
+and brief 23's route note. No engine, compiler or CSS change. First of the three pieces T-1270
+was split into.
+
+**The route was re-cut, on a measurement.** In the briefed order the card read Horse 9.5 min.
+The north pier's stand-off is on the north bank, 949 m from the Dearborn draw, and every order
+of the four briefed stops routes at 2.6 km or more. The south pier's stand-off is 147 m from the
+light and about 93 m from the north pier's, across the channel. So the jaunt stops there and
+looks across; the north pier remains the subject of the stop and of the choice. Both piers'
+lengths are interpolations, and the stop calls them our estimate.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, two endings, one keepsake. Card estimates on
+the published mirror, identical at 390×780 and 1280×800: Walk 17 min, Wagon 8.5, Horse 6, Fly 4,
+Instantly 2.5. The primary path (mark the end of the north pier) measured 355 s at Horse and
+221 s at Fly against the card's 350 s and 227 s at 390×780. At 1280×800 it measured 320 s and
+221 s against 354 s and 228 s. A Playwright drive at 390×780 (card, Start, the first stop, About
+this place and back to the same stop, the choice, the ending, End back to the menu) reached
+`a-note-to-redraw`. Zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-along-the-harbor/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+At 1280×800 the first leg rode in 40 s against 81 s at 390×780, and this run did not find out
+why. Both viewports sit inside the 4–6 min band.
+
+## T-2033 — From Prairie to Town, a published 1835 arrival jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *From Prairie to Town* (Migration and
+routes, Horse, 4 stops, Wayfinding). It starts on open ground by the lake three-quarters of a
+mile south of the fort, the scene anchor `lake_shore_south`, and the stop calls itself a
+viewpoint, not a place. What it says of the ground is cited: Wright's 1834 map names it
+Fractional Section 15, the state register has no entry on it before 31 May 1836, and Moses &
+Kirkland date its platting to 13 June 1836. Next comes Fort Dearborn's stockade (Kinzie's high
+pickets and two gates; garrisoned since June 1832), then Peck's store at South Water and LaSalle
+(his card's stock; Porter's night in the unfinished loft), and finally the door of the
+Sauganash. One ending; the keepsake *Into Town* goes to Wayfinding. Content only: one JSON file,
+a liberty (`L-jaunt-from-prairie-to-town`), the regenerated catalog and source-use edges, and
+brief 24's route note. No engine, compiler or CSS change. Piece 2 of the three T-1270 was split
+into.
+
+**The brief's cautions hold by construction.** Nothing of August 1812 is staged on this shore:
+no removal, no battle and no Native presence. The first leg passes the conjectural camps on the
+reservation, and its note says any tents there are our conjecture (L355, L358). Nobody is met,
+and no bed or purchase is claimed.
+
+**Measured: the long leg, as the brief asked.** `play_jaunt.mjs --all-paths`: 1 path, one
+ending, one keepsake. Card estimates on the published mirror, the same at 390×780 and 1280×800:
+Walk 39 min, Wagon 17, Horse 10, Fly 4, Instantly 2. The shore → stockade leg alone is 300 s at
+Horse and 58 s at Fly. The primary path measured 560 s at Horse against the card's 612 s (610 s
+at 1280), and 231 s at Fly against 239 s. **Horse is three and a half minutes over the 4–6 min
+band, and that is kept on purpose:** the outing is about arriving from outside the town, the
+anchor is the brief's, and Fly (4 min) and Instantly stay offered at every stop. A Playwright
+drive at 390×780 went from the card through Start, the first stop, the stockade's card and back
+to the same stop, the ending (`in-town`, keepsake kept), and a second Start with End back to the
+menu. Zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-from-prairie-to-town/`.
+
+## T-2031 — Gossip or Printed Notice?, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Gossip or Printed Notice?* (News and social
+life, Horse, 4 stops, News & Knowledge). Two invented rumors heard at the Wolf Point Tavern — a
+million dollars at the land sale, a bank opening on the square within weeks — are carried past
+the Exchange Coffee House, where someone asks if they are true, to the town's two printing
+offices. The Democrat of 1 July 1835 would only guess at the land office's take; the American of
+27 June reprints the Sangamon Journal: a Chicago branch decided, no officers named, and the brick
+building on the square is Springfield's. At the American the visitor chooses what to carry back.
+Five endings; the keepsake *A Careful Reader* goes to News & Knowledge. Content only: one JSON
+file, a liberty (`L-jaunt-gossip-or-notice`), the regenerated catalog and source-use edges, and
+brief 22's route note. No engine, compiler or CSS change. Last of the four pieces T-1269 was
+split into (T-2028..T-2031).
+
+**The brief's cautions hold by construction.** Neither rumor is said by a real person, and no
+named person is met. The Democrat's estimate is quoted with its own hedge, and its second figure,
+which the transcription loses, is not supplied: the extraction's "[Six Hund]red" is an editor's
+fill, so the stop says the figure is lost. "Not settled" and "say nothing" are full endings.
+
+**The route was re-cut.** The briefed order (tavern → Democrat → American → Exchange) doubles back
+from Dearborn to Wells: Walk 1,233 s and Horse 402 s on the published mirror. Taking the Exchange
+second never doubles back. No order makes a 4–6 min walk, because the forks are across the river
+from both papers, so the default mode is Horse (as for A Schoolday Errand).
+
+**Measured.** `play_jaunt.mjs --all-paths`: 12 paths, five endings, one keepsake. Card estimates
+on the published mirror: Walk 15 min (14.5 at 1280×800), Wagon 7.5, Horse 5.5, Fly 4, Instantly 3.
+The primary path (promise → note the guess → carry the print → true-to-the-page) measured 340 s
+at Horse against the card's 333 s, and 227 s at Fly against 233 s (331 s and 226 s at 1280×800);
+Walk 821 s against 889 s. A Playwright drive at 390×780 went card → Start → first stop → the
+tavern's card and back to the same stop → ending → menu, zero page errors at both viewports.
+Stills and receipt: `docs/performance/jaunt-gossip-or-notice/`.
+
+## T-2028 — A Schoolday Errand, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Schoolday Errand* (Education, Horse, 4
+stops, News & Knowledge). A newly arrived household's question (where could a child of five, or
+of ten, learn?) is carried past the places the town's first classes met. It starts at Richard J.
+Hamilton's house on Michigan Street, where John Watkins taught. Next is the North Side school-house
+on the river bank just east of Clark, which Andreas has as the North Side's public school in 1835.
+Then it crosses to the log house by State Street where Eliza Chappel's infant school met in
+1833–34. It finishes at the Democrat's former corner with the School District No. 4 meeting
+notice from the paper dated 1 July 1835. Five endings; the keepsake *A Schooling Note* goes to
+News & Knowledge. Content only: one JSON file, a liberty (`L-jaunt-schoolday-errand`), the
+regenerated catalog and source-use edges, and brief 19's route note. No engine, compiler or CSS
+change. First of the four pieces T-1269 was split into (T-2028..T-2031).
+
+**The brief's caution holds by construction.** Two of the three school sites are marked "use on the
+scene date unattested" in their records, and both are narrated as history. The Michigan Street house
+is a dwelling with no 1835 class recorded. Chappel's school had moved into the Presbyterian church in
+1834, and her site is an open three-way conflict, which the stop says. The third is narrated only by
+its year ("The year is attested; this July is not"). Nobody is met and nobody speaks. The notice is
+the scene date's own: Democrat, 1 July 1835, p. 3 col. 5 (first printed 17 June).
+
+**The route was re-cut.** The briefed order (Chappel → Watkins's house → north-bank school →
+Democrat) crosses the river twice. Routed on the published mirror it is 808 + 607 + 330 m, and it
+read Horse 449 s (card 7.5 min) and Walk 23 min. Starting north of the river crosses once, and it
+also reads the schools in date order.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 8 paths, five endings, one keepsake. Card estimates on
+the published mirror, the same at 390×780 and 1280×800: Walk 18 min, Wagon 9, Horse 6.5, Fly 4,
+Instantly 3. The primary path (scholar → write it down → copy the notice → two-answers) measured
+381 s at Horse against the card's 382 s, and 242 s at Fly against 251 s (378 s and 242 s at 1280×800).
+**Horse is about 20 s over the 4–6 min band.** 179 s of it is the declared reading budget, and the
+one river crossing is about 94 s. A Playwright drive at 390×780 went card → Start → first stop →
+the house's card and back to the same stop → `two-answers` → End, and returned to the menu. Both
+viewports had zero page errors. Stills and the receipt are in
+`docs/performance/jaunt-schoolday-errand/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-2016 — Glessner connected roof plan (2026-10-03)
+
+The north ridge is straight to the west wall, and the full-height stable ridge
+continues to a south gable with a courtyard-facing roof. The courtyard north
+slope is planar. The west dormer joins the host with a decorated ridge; two tiled
+returns meet the dining bay copper roof, and copper fills the northeast court
+corner. Earlier north and west aperture corrections remain. The owner aerial
+is the geometric target; roof joins and two service stacks are reconstructed.
+Historical review did not establish that the stacks were absent in 1904.
+See `docs/RESEARCH/glessner-connected-roof-plan/work.md` and liberty
+`L-glessner-connected-roof-2016`. The full and light exports, 1,800 roof samples, 186 opening rays and published
+desktop/mobile detail switching pass. Integration with dev 1b56a552 passes all
+750 source checks and preflight. Official published stage 13 passes at both
+viewports with zero page errors; logs and scope are in the research folder.
+No production promotion is included.
+
+## T-2026 — Materials for a Roof, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Materials for a Roof* (Building trades,
+Horse, 4 stops, Livelihood). A builder with a small frame house to roof starts at Newberry &
+Dole's warehouse on the river, whose card in the Democrat of 1 July 1835 offers storage,
+forwarding and commission; chooses nails or nail rods at Peck's corner, from his September 1834
+notice of nails, nail rods, bar iron and steel; chooses brick for a chimney or none at Blodgett's
+brickyard on the North Side; and ends at the Lake House site at Rush Street, seen from the
+street. Three endings; the keepsake *A Builder's List* goes to Livelihood. Content only: one JSON
+file, a liberty (`L-jaunt-materials-for-a-roof`), the regenerated catalog and source-use edges,
+and brief 17's route note. No engine, compiler or CSS change. Third of the four pieces T-1268 was
+split into.
+
+**The brief's cautions hold by construction.** The Lake House is a building site: Andreas's
+finished hotel is dated autumn 1836, the 1835 groundbreaking is an uncredited modern paragraph
+and the stop says so, and the shell is called our reconstruction. No price, order or sale is
+claimed anywhere. The brickyard's structure record says Andreas traces the Lake House's brick to
+this yard; he does not, so the jaunt says nothing of whose brick it was.
+
+**The route was re-cut.** The briefed order (warehouse → brickyard → Lake House → Peck's) crosses
+the river twice, about 1,660 m in straight lines; taking Peck's second crosses once, about 954 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 4 paths, three endings, one keepsake. Card estimates
+on the published mirror, identical at 390×780 and 1280×800: Walk 17.5 min, Wagon 8.5, Horse 6, Fly
+4, Instantly 3. The primary path (cut nails → brick chimney → nails-and-brick) measured 364 s at
+Horse and 226 s at Fly against the card's 361 s and 232 s at 390×780, and 365 s and 225 s against
+364 s and 232 s at 1280×800, inside the 4–6 min band. A Playwright drive at 390×780 (card, Start,
+the first stop, About this place and back to the same stop, the ending, End back to the menu)
+reached `nails-and-brick`; zero page errors at either viewport. Stills and the receipt are in
+`docs/performance/jaunt-materials-for-a-roof/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+## T-2027 — Boots, Leather and the Road, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Boots, Leather and the Road* (Trades,
+Horse, 4 stops, Livelihood). A rider who leaves tomorrow chooses boots or a hat at John
+Holbrook's clothing store one door east of Dearborn; looks from the road at John Miller's
+tannery at the forks, recorded as the town's first factory; chooses a bridle or a trunk at S. B.
+Cobb's saddle, harness and trunk shop at Lake and Canal, or asks him for boots and is told by his
+own card why not; and lays the outfit out at the Green Tree. Four endings; the keepsake *Equipped
+to Travel* goes to Livelihood. The kit is a two-item inventory (the engine shows it as a
+"Basket 1/2" strip); no purse, price or sale is claimed. Content only: one JSON file, a liberty
+(`L-jaunt-boots-and-leather`), the regenerated catalog and source-use edges, and brief 18's
+route note. No engine, compiler or CSS change. Last of the four pieces T-1268 was split into.
+
+**The brief's cautions hold by construction.** The saddler is not made a bootmaker: his card
+(Democrat, 26 November 1833; Cobb's continuation card, American, 13 June 1835) lists saddles,
+harness, bridles, martingales, trunks and repairing, and the boots are Holbrook's (Democrat, 10
+June 1835; American, 13 June 1835), so no shoemaker was substituted. The tannery stop says its
+source trail ends in 1832 and claims no work on the scene date. Nobody is met.
+
+**The route was re-cut.** The briefed order (tannery → Cobb → Holbrook → Green Tree) runs about
+1,871 m in straight lines and crosses the South Branch twice; starting at Holbrook's runs about
+1,090 m one way, east to west.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 24 min, Wagon 11.5, Horse 7.5, Fly 4, Instantly 3
+(Walk 23.5 at 1280×800, the rest the same). The primary path (boots → bridle → ride →
+`equipped`) measured 464 s at Horse and 233 s at Fly against the card's 458 s and 239 s (455 s
+and 233 s at 1280×800). **Horse is 1.5 minutes over the 4–6 min band**: 143 s of it is the one
+ride from South Water Street over the river to the forks, which any order that includes both
+Holbrook's and the tannery pays; Fly is the quick version. Zero page errors at both viewports;
+End returns to the menu. Stills and the receipt are in `docs/performance/jaunt-boots-and-leather/`.
+
+**Unverified.** The detail-card round trip was proven on a first pass (card opened from the
+tannery stop and returned to it) but not on the final pass that produced the stills; T-2025's
+stills remain the batch's full card → detail → ending sequence.
+
+## T-2015 — Realistic procedural vegetation (2026-10-03)
+
+**Implemented and validated.** Replace solid crown blobs and rectangular understory sprays with detailed cutout foliage, textured bark and tapered branching. Species, placement, July phenology and confidence retain their existing data authority. Shared rendering work reaches every existing consumer of the trees/flora modules; it does not fill missing historical landscape data.
+
+**Verification.** Source preflight passed all 750 checks through checkpoint 04ddd3939. Published normal-loop part 5 passes 27 checks each at desktop 1280×800 and touch mobile 390×780/DPR 2. Mobile parts 9–11 pass 60 checks. Desktop parts 9/10 passed within a combined run that later hit a native-click timeout; the repaired part 11 rerun passes 23 checks, with the original red receipt preserved. All these runs report zero page errors. Full/balanced/light ceilings remain 2,475,000 / 1,880,000 / 910,000 triangles, with 295 general calls and the unchanged 90-call light cap. The final integration includes dev 7ab5019 and vegetation disclosure L369; the refreshed focused review passes 58 checks (29 each), with zero page, console or resource errors. Final source gate and preflight pass all 750 steps on the 7ab5019 integration. PR #333. Details and exact scope: `docs/RESEARCH/procedural-vegetation-quality.md`.
+
+## T-2029 — A Sunday Circuit, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Sunday Circuit* (Social life, Horse,
+4 stops, Neighbors). Going to a call at the Sauganash, the visitor passes St. Mary's on Lake
+Street (built 1833 for about $400, unplastered, unpainted, no steeple or tower), then the
+Presbyterian church at Lake and Clark, dedicated 4 January 1834. The papers that June had called
+School District No. 4 to meet there on 7 July. Next comes the log meeting house at Wolf Point,
+which Wau-Bun remembered as a school-house used for worship whenever a travelling minister came.
+The walk ends at the Sauganash's door. One ending; the keepsake *A Morning Among Neighbors* goes to
+Neighbors. Content only: one JSON file, a liberty (`L-jaunt-sunday-circuit`), the regenerated
+catalog and source-use edges, and brief 20's route note. No engine, compiler or CSS change.
+Second of the four pieces T-1269 was split into.
+
+**The brief's caution holds by construction.** No service, sermon, minister, congregation or day
+of the week is claimed. 1 July 1835 was a Wednesday, and the title names a kind of outing, not a
+date. The school-district meeting is printed before the scene date and falls after it, so it is
+a notice, never an event. St. Mary's later tower and bell are left out. The Walker meeting house's
+bank is disputed and its position conjectural, and the stop calls the marker a placeholder.
+Nobody is met. The outing declares no variable or inventory, so it shows no strip.
+
+**The route was re-cut.** The briefed order (Presbyterian → St. Mary's → Walker → Sauganash) goes
+east and then back west across the river, about 1,420 m in straight lines. Starting at St. Mary's
+walks one way, about 1,169 m.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 1 path, one ending, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22.5 min, Wagon 10, Horse 6.5, Fly 3.5, Instantly 2 (Walk 22
+at 1280×800, the rest the same). The primary path measured 393 s at Horse and 188 s at Fly against
+the card's 395 s and 197 s (390 s and 187 s at 1280×800, against 387 s and 195 s). **Horse is half
+a minute over the 4–6 min band**: the Walker meeting house stands across the South Branch from the
+other three, so every order that keeps it and ends at the Sauganash crosses the river twice. The
+route note says so. Walk measures 22 min, which is why the default is Horse, not the brief's Walk.
+A Playwright drive at 390×780 went from the card through Start, the first stop, St. Mary's card and
+back to the same stop, the ending (`among-neighbors`), and End back to the menu, with zero page
+errors. Stills and the receipt are in `docs/performance/jaunt-sunday-circuit/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-2025 — Soap and Candles, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Soap and Candles* (Household and trades,
+Horse, 4 stops, Provisions). A boarder in the log house behind Peck's store starts on the North
+Branch at Daniel Elston & Co.'s soap and candle works, seen from the road, and settles whether
+light or soap matters most; makes the list at Jones's grocery on South Water Street and chooses
+what to carry; passes the Lake Street store Thomas Church built, where nothing is bought; and
+comes home to Mrs Rufus Brown's boarding house. Four endings; the keepsake *Light for the
+Evening* goes to Provisions. Content only: one JSON file, a liberty
+(`L-jaunt-soap-and-candles`), the regenerated catalog and source-use edges, and brief 16's route
+note. No engine, compiler or CSS change. Second of the four pieces T-1268 was split into.
+
+**The brief's caution holds by construction.** No counter at the works is claimed and no sale
+anywhere is: the works stop is an exterior observation, its site is the scene's conjectural
+placement and the stop says no source gives it, and the bundle's origin is left unrecorded. The
+goods are Elston & Co.'s own notice (Democrat, 26 November 1833, p. 3 col. 6; still printed 2 July
+1834). Church's store names no stock, so it sells nothing. Nobody is met.
+
+**The route was re-cut.** The briefed order (Jones → works → Church → Brown) crosses the river
+twice and read Horse 9 min, Walk 31.5 on the published mirror. Starting at the works crosses once.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780: Walk 22 min, Wagon 10.5, Horse 7, Fly 3.5, Instantly 3 (Walk 21.5
+at 1280×800, the rest the same). The primary path (light → candles → candle-lit) measured 428 s at
+Horse and 217 s at Fly against the card's 425 s and 224 s. **Horse is a minute over the 4–6 min
+band**: about three minutes of it is the one ride from the works to South Water Street, which
+every order pays; the route note says so. A Playwright drive at 390×780 — card, Start, the first
+stop, Elston & Co.'s card and back to the same stop, the ending, End back to the menu — reached
+`candle-lit` with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-soap-and-candles/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-1259 — browse the Jaunts menu (2026-10-02)
+
+The lazy menu now carries title, premise, category, stops, travel mode and an
+instant duration estimate. Featured comes from the authored flag through the
+compiler. Search and catalog-derived categories filter the title-sorted list;
+explicit Earlier/More controls window it at twenty cards, with at most six
+featured copies. This avoids removing a focused control during scrolling.
+The selected mode stays synchronized between the featured and main card.
+
+End, preview-back and menu/resume preserve the browsing window, filters and
+scroll position. Explore Myself uses the shared destination picker and clears
+paused sessions. Sources & City opens the existing Evidence hub before entry,
+returning to the welcome on close without entering the world.
+
+Validation passed on the recovered implementation integrated with dev `604daa6`:
+preflight (including the full check.sh gate); the published-menu acceptance at
+390×780 and 1280×800; and scaffold smoke stage 1 at both viewports (80 passed,
+zero failed each). The 55-row harness mounts at most 26 cards, loads no jaunt
+code/catalog at boot, and restores the exact scroll and focused Start control.
+The standalone first-load measurement passed at 12.911 MB of the 13 MB budget.
+The first payload attempt timed out under concurrent validation; the standalone
+retry passed without changing the test. Desktop smoke took 10m31s on this host.
+Receipts and reviewed screenshots are under `docs/performance/jaunt-menu/`;
+`validation.json` records the tested integration base and command coverage.
+The full preflight passed again after integrating dev `de920bf` (750 steps).
+The catalog retains all eight current 1835 jaunts. Published menu acceptance
+passed again at both viewports on that integration; screenshots were refreshed.
+A transient ticket-checkout synchronization failure passed on the gate quiet retry.
+This ticket authors no new stories. Full scene smoke parts 2–13 were not rerun;
+the targeted menu test and scaffold smoke cover this interface change.
+
+## T-2024 — Mend the Harness, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Mend the Harness* (Trades and repairs,
+Wagon, 4 stops, Livelihood). While harnessing in the yard behind W. H. Stow's Western Hotel the
+visitor finds a cracked trace and may look the whole harness over, which turns up a worn
+whiffletree hook. The trace goes to S. B. Cobb's saddlery at Lake and Canal, to be restitched or
+bound with twine; the hook, if it was found, goes to Asahel Pierce's smithy on the same crossing;
+and at the Green Tree the visitor calls the outfit ready or keeps tomorrow's trip short. Four
+endings; the keepsake *Sound Tack* goes to Livelihood. Content only: one JSON file, a liberty
+(`L-jaunt-mend-harness`), the regenerated catalog and source-use edges, and brief 15's route
+note. No engine, compiler or CSS change. First of the four pieces T-1268 was split into
+(T-2024..T-2027), the same cut T-1267 took.
+
+**The brief's caution holds by construction.** The damage and the repairs are invented and the
+opening says so. Leather and iron are told apart by the firms' own records — Goss & Cobb's 1833
+advertisement (harness, bridles, trunks, repairing) and Cobb's June 1835 continuation card;
+Andreas's Pierce paragraph (stage-line ironing, ploughs). Neither shop is said to have mended
+this harness, and nobody is met. The corner each shop held is not attested and both stops say
+"this corner" / "the same crossing".
+
+**Measured.** `play_jaunt.mjs --all-paths`: 9 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 7.5 min, Wagon 5, Horse 4, Fly 3.5, Instantly 3 (at
+1280×800 Walk 7, Wagon 4.5, the rest the same). The primary path (look over → restitch → hook →
+ready) measured 281 s at Wagon and 207 s at Fly against the card's 290 s and 215 s, inside the
+quick-play 4–6 min band at the recommended mode. A Playwright drive at 390×780 through the panel
+— card, opening, a detail card and back to the same stop, the ending — reached `sound-tack`
+with zero page errors at both viewports. Stills and the receipt are in
+`docs/performance/jaunt-mend-the-harness/`.
+
+**Unverified.** The UI drive ran at 390×780 only; desktop was measured through the runtime API.
+
+## T-2010 — Stock the Household, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Stock the Household* (Household, Walk,
+4 stops, Provisions). With an imagined two dollars and a share of a room at Mrs Rufus Brown's,
+the visitor picks a list for the table or for the room. Then comes Jones's grocery for coffee and
+sugar or tea, Carpenter's drug store for cream of tartar or tooth powder, and Peck's corner for a
+crockery cup and plate or a length of flannel. Every good is offered only where that store's own
+advertisement lists it. There are four endings, and the keepsake *A Cupboard Begun* goes to
+Provisions. Content only: one JSON file, a liberty (`L-jaunt-household-provisions`), the
+regenerated catalog and source-use edges, and brief 13's route note. There is no engine, compiler
+or CSS change.
+
+**The brief's cautions hold by construction.** Quantities and prices are bounded and labelled
+reconstructed, and there is no health score. Jones's stop says that no source places the store and
+that his initial is disputed. Carpenter's cut window-glass notice is not used, because its own
+extract warns it is not proved to be his.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 54 paths, four endings, one keepsake. Card estimates on
+the published mirror at 390×780 were Walk 5 min, Wagon 3.5, Horse 3, Fly 2.5 and Instantly 2.5; at
+1280×800, Walk 4.5 and Wagon 3. A Playwright drive at both viewports (table → coffee → cream of
+tartar → crockery) reached the `table-laid` ending once, with the keepsake under Receipt and zero
+page errors.
+
+**Unverified.** The stills were taken (card, opening, outcome) but are not committed, and no detail
+card was opened during the drive.
+
+## T-0192 — the seven cross streets take the plank walk (2026-10-03)
+
+**What a visitor sees.** Market, Franklin, Wells, La Salle, Clark, Dearborn and State carry the plank
+walk the four east-west streets carry, laid by the same rule (`EDGE_CROSS_STREETS` =
+`EDGE_CROSS_STREETS_ALL` in `tools/generate_frontage_works.py`): 46 platted faces, +4,764.9 m of walk
+and +47 board crossings, so the record goes 47 faces / 3,865.7 m to 93 / 8,630.6 m. No fence or
+hitching post on a cross face — both rules are per-lot and those faces are the ends of lot rows,
+which the record already says. Five wagon stands that would now sit on the boards are refused
+(73 → 68 wagons), and the dooryard plantings re-derive around the new strips.
+
+**Priced and argued where the ceiling is defined.** Owner's queue note of 2026-10-03: a measured
+raise is allowed and `light` is the floor. `tools/measure_detail_ceilings.mjs`, published mirrors of
+dev @ d8b7748d and of this branch, desktop 1280x800, same run:
+
+| tier | dev worst | with the seven | ceiling was | ceiling now |
+| --- | --- | --- | --- | --- |
+| `full` | 1,857,267 (Lake at Canal) | 2,120,153 | 1,845,000 | **2,140,000** |
+| `balanced` | 1,626,744 (Lake at Canal) | 1,801,124 | 1,615,000 | **1,820,000** |
+| `light` | 851,431 (the forks) | 856,275 | 825,000 | 825,000 — not moved |
+| calls | 224 (`full`) | 259 | 240 | **275** |
+
+The rule is T-1975's and T-1987's: worst stand plus T-0672's 18,059 / 16,806, rounded up to 5,000;
+calls + 15. dev was already over `full`/`balanced` (by 12,267 / 11,744) before this branch.
+
+**`light` does not draw them** (`light.crossStreetWalks: false`, the woodpiles' mechanism): Lake and
+Market 798,916 → 738,536 and the open aerial 838,167 → 822,297, back inside. Left at `light`: +4,844 at
+the forks and +9,204 at the aerial over dev. Not boards — those are hidden — but the walks still keep
+the sward and planting off their strips at every tier; that attribution is inferred, not read layer
+by layer on dev. The forks were over on dev already and stay T-1976's to trim.
+
+**The reach test is now per block.** `tools/test_frontage_faces.py` asked whether a lot's face was laid
+*anywhere*; with east/west faces laid on the South Division that would call `blk_randolph_clinton`
+reached while Canal and Clinton are in no tuple. Asked per block, it also names the six
+Washington–Madison blocks whose Madison lots no tuple covers (hidden since T-1707). Named, not fixed:
+Madison was not this ticket's ask.
+
+## T-2009 — Freight for the Store, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Freight for the Store* (River commerce,
+Wagon, 4 stops, Livelihood). An invented bill lists three packages landed at Newberry & Dole's.
+The visitor counts them and loads the wagon (a *Packages* chip tracks the load), or takes only
+Peck's two, or loads all three on trust. Then come Peck's store, with the lines his own cards
+advertised, Thomas Church's store on Lake Street, and the tally handed in at George W. Dole's
+1832 warehouse. There are four endings, and the keepsake *Cargo Accounted For* goes to Livelihood.
+Content only: one JSON file, a liberty (`L-jaunt-freight-store`), the regenerated catalog and
+source-use edges, and brief 12's route note. There is no engine, compiler or CSS change.
+
+**The brief's caution holds by construction.** The shipment, the bill and the tally are invented
+and the opening says so. No firm ships, receives or pays for anything, and no price is named.
+Church's store has no stock on record, so his package is never said to hold anything. Newberry &
+Dole's house and Church's store keep their reconstructed positions, and both stops say so.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 6 paths, four endings, one keepsake. Card estimates
+on the published mirror at 390×780: Walk 10.5 min, Wagon 6, Horse 4.5, Fly 4, Instantly 3. The
+briefed order doubled back across town (961 m straight-line against 546 m), so the tally stop
+moves to the end (brief 12's route note). A Playwright drive at 390×780 (count all three → check
+the marks → leave Church's package → hand in the tally) reached `checked-and-counted` with zero
+page errors. It covered the card, the opening, a detail card and back to the same stop, and the
+ending. The keepsake landed once under Livelihood.
+
+**Unverified.** The drive ran at 390×780 only. The stills are not committed.
+
+## T-2011 — A Decent Coat, the batch's quiet 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *A Decent Coat* (Shopping, Horse, 4 stops,
+Provisions). John Holbrook's clothing store → Harmon, Loomis & Co.'s store → Brown's boarding
+house → the Sauganash, one way west along South Water Street. Holbrook's card (Democrat, 10 June
+1835, p. 3 col. 2; American, 13 June, p. 3 col. 6) sells made clothing, hats, boots and shoes as
+agent for the manufacturers; Harmon, Loomis & Co.'s fall notice (Democrat, 5 Nov 1834, p. 3 col. 2)
+lists broadcloth, cassimere, satinet, flannel, Russia duck and canvas, carried to the scene by
+their June 1835 card. At the Sauganash the visitor goes in a ready-made coat or the old one
+brushed; two endings, both completion-eligible, one keepsake (*Fit for the Occasion*). Content
+only: one JSON file, a liberty (`L-jaunt-a-decent-coat`), the regenerated catalog and source-use
+edges, and brief 14's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** No purchase, price, size, fitting, tailor or maker: Holbrook's card
+names no tailoring and the stop says so. It is the batch's quiet outing (T-1267 acceptance 4):
+no variable, no inventory, no strip. The person record `holbrook_john` is a shoemaker left
+unplaced, so the stop links Holbrook's business card rather than identify the two.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 2 paths, endings `ready-tonight` and `brushed`, one
+keepsake each. On the published mirror's router the brief's order (Brown's first, doubling back
+from Dearborn) read 13.5 min at Walk, so the route was re-cut to run one way west. Even so the
+Sauganash is at the street's far end and Walk reads 10.5 min, so the recommended mode is Horse:
+the card reads, at 390×780 and 1280×800 alike, Walk about 10.5, Wagon 5.5, **Horse 4**, Fly 3,
+Instantly 2. A Playwright drive at 390×780 took stills in order (card, first stop, the detail card
+and back to the same stop, the ending, the menu) with zero page errors; the keepsake landed under
+Provisions.
+
+**Unverified.** At 1280×800 the drive reached the `brushed` ending with its keepsake, but the
+return to the menu was cut off by the 560 s cap; menu return is proved at 390×780 only. The stills
+are not committed.
+
+## T-2013 — the worn ground at the doors drawn with the road's own surface (2026-10-03)
+
+The owner, on dev at Matthias Mason & Co. on Lake Street: the door ground T-1984 laid "is not nearly as
+nice as the road texture ... make those areas with dirt the same as where the road is the same texture
+color so it does not look pixely and jagged". The aprons were drawn as `trodden_earth`, the estray pen's
+128 px canvas of 2 px hash blocks over 3.1 m. They are now `road_earth`, a fourth `yards.js` treatment
+with no canvas: `streets.js`'s grit tile (256 px over 1.6 m, now exported with its worn-earth tones),
+sampled in world east/north so the grain runs straight on across the join, the same lane/between-lane
+tones and 35 m broad tone, and the grit as the normal. Its edge fades over 0.6 m into the grass. The
+smoke's fenced-ground check now expects four treatments. No new liberty: L359 already covers the ground.
+
+## T-2008 — Look Before You Buy a Lot, a published 1835 jaunt (2026-10-03)
+
+**What a visitor sees.** Welcome → Jaunts now lists *Look Before You Buy a Lot* (Land, Walk,
+4 stops, News & Knowledge). Bates's new auction room on Dearborn → the former Democrat corner →
+Peck's store → the La Salle slough crossing. Two small choices: what the Marseilles lot sale at
+Bates's actually sold (another town's lots, cried in a Chicago room), and which of two real land
+notices to follow — E. K. Hubbard's town lots (Democrat, 27 May 1835, p. 3 col. 4) or J. W.
+Fell's canal-route land (17 June 1835, p. 3 col. 3). At the slough the visitor inquires about one
+lot or holds their money; three endings, all completion-eligible, one keepsake (*Read the Ground*).
+Content only: one JSON file, a liberty (`L-jaunt-inspect-a-lot`), the regenerated catalog and
+source-use edges, and brief 11's route note. No engine, compiler or CSS change.
+
+**What it refuses to claim.** Neither notice names a price, and no matched in-window record of a
+particular lot was found, so no lot, owner, price, title, bank or purchase appears; the errand ends
+at an inquiry, which the brief allows. The last stop's crossing is itself reconstructed (L195) and
+the stop text says so; the drain and the marshy South Division are cited at their own tiers.
+T-1267 was split into four one-jaunt tickets (T-2008..T-2011) on the T-1266 precedent: each
+jaunt is one run's demonstration.
+
+**Measured.** `play_jaunt.mjs --all-paths`: 8 paths, endings `inquire-town`, `inquire-canal`,
+`held`, one keepsake each. The brief's order read 9.5 min at Walk on the published mirror because
+it doubled back from Dearborn to LaSalle, so the route was re-cut to start at the sale room. The
+catalog card now reads, at 390×780: Walk about 7, Wagon 4, Horse 3.5, Fly 3, Instantly 2.5
+(Walk 6.5, Horse 3 at 1280×800). Walk stays a minute over the 4–6 min target: the auction room is
+a block east of the other three stops and 2.5 min is reading. A Playwright drive at 390×780 took
+stills in order (card, first stop, the detail card and back to the same stop, the ending, the
+menu) with zero page errors; the keepsake landed under News & Knowledge.
+
+**Unverified.** The 1280×800 drive read the card's figures and opened the detail card with zero
+page errors, but the ride to the ending was cut off by the 580 s cap; the ending was proved at
+390×780 only. The stills are not committed.
+## T-1999 — Glessner north and west elevation repair (2026-10-02)
+
+The owner references drive a new west silhouette, regularized rear openings,
+clear dormer joinery and west rainwater fittings. North window heads are
+reconciled to HABS printed stone courses; north entrance widths remain measured.
+Roof and façade detail changes are reconstructed where unmeasured (L365).
+Full/light spatial checks, the 745-step source gate, preflight and bounded
+published desktop/mobile review pass. Receipts are in
+`docs/RESEARCH/glessner-elevation-rebuild/work.md`.
+
 ## T-2007 — Work on the Waterfront, a published 1835 jaunt (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Work on the Waterfront* (Employment, Horse,
@@ -55,6 +1282,7 @@ to the menu.
 
 **Unverified.** The 1280×800 drive read the card's figures but was cut off by the 560 s cap
 before the ending; the walk-through is proved at 390×780 only. The stills are not committed.
+
 ## T-1265 — Fort Dearborn Errand, a five-stop jaunt round the fort's service buildings (2026-10-03)
 
 **What a visitor sees.** Welcome → Jaunts now lists *Fort Dearborn Errand* (Fort Dearborn, Walk).
@@ -198,6 +1426,7 @@ ending in the browser at either viewport. Headless software rendering stalled th
 the second stop, so the ending, the daybook entry and replay rest on the walker. The marker
 for Carpenter is mid-block and Church's place on Lake Street is reconstructed, and the stops
 say both.
+
 ## T-2002 — the 1812 ground's zone table, written as what 1834 had that 1812 did not (2026-10-02)
 
 Piece 1 of 2 of T-1243 (of T-0468, the owner's e1812 battle landscape). T-1243 asked for the
@@ -319,6 +1548,7 @@ figures it reads off the lodging model and the order book (`roof_draw`, `ROOF_TR
 Who is owed and who is not is a SEEDED DRAW over person and trade (`rank_key`), and each block
 carries its `draw` (rank of 38, against 26 roofs): nothing in the layer orders them, and the block
 says so. Owed a workplace **40 → 28** (after T-2001); placed at work unchanged at 375.
+
 ## T-1970 — the visible walk, fort to Wolf Point, and the card that says whether the town is finished (2026-10-02)
 
 The last piece of T-1215. **Acceptance, stated before the work:** (1) a walk from the fort to
@@ -396,6 +1626,7 @@ filled that bucket".
 
 **Verification.** `./tools/check.sh` and the smoke parts `smoke_budget.mjs --for-diff`
 names; see the PR.
+
 ## T-2000 — 57 drawn mechanics set against the American's twenty-five shops; Mulford's hold named (2026-10-02)
 
 Piece 1 of 2 of T-1998 (→ T-1992 → T-1982 → T-1966 → T-1215). **57** reconstructed heads read
@@ -440,7 +1671,6 @@ residents summary already reads `inside_the_band` from the join (T-1996) and say
 Bates Jr.), a miller, a brickmaker, a soap and candle maker: trades with neither a census line
 nor a count of shops, plus the physician whose bucket T-1529 is blocked on), T-1997 (38
 boarding-house keepers).
-
 
 ## T-1996 — the printed count already held: 37 drawn heads told no house is owed (2026-10-02)
 
@@ -491,6 +1721,7 @@ moves, no business record changes.
 
 **Not done, and owned:** T-1997 (38 boarding-house keepers with no standing roof), T-1998
 (57 at a trade the census never counted, the physician, E. H. Mulford).
+
 ## T-1994 — the 25 attested at a no-premises trade, each joined or told why no house is owed (2026-10-02)
 
 Piece 2 of 3 of T-1991 (→ T-1982 → T-1966 → T-1215). After T-1990, **25** working-age people
@@ -515,7 +1746,6 @@ T-1992: the own-account houses the register does not hold.
 
 **Found, not fixed:** Arnold's and Galaher's cards carry an `associated_with` civic seat at the
 Chicago post office corner; on this reading they kept other offices, so that row is likely wrong.
-
 
 ## T-1995 — the ten reconstructed tradespeople at a class with no room (2026-10-02)
 
@@ -577,6 +1807,7 @@ and prairie grass right up to the entrances. One cause per symptom, each fixed w
 **Known gap, not widened here:** the staleness hash covers builder modules and resolved params
 but not `*_params.py` bytes, so a set-out change living in a params module (`front_window_rects`,
 now `facade_bays`) does not mark its assets stale by itself; these were rebaked by hand.
+
 ## T-1993 — the domestics the taverns had no room for are in another household's service (2026-10-02)
 
 Piece 1 of 3 of T-1991 (T-1982 → T-1966 → T-1215, the owner's *"a place to work"*). After T-1990
@@ -1147,6 +2378,7 @@ substitutes for an anonymous A1 slot. The programme now reads **495 standing, 17
 to fixpoint holds the platted seats at 177 and the keepers at 24, and moves no standing roof.
 The Sauganash's corner lot is nearest Market from every point, so its stable carries an
 `OUTLIER_REASONS` line in `tools/placement_policy_1835.py`.
+
 ## T-1785 — Wabansia's one evidenced household built: the doctor's house, barn and garden (2026-10-01)
 
 **What a visitor sees.** Wabansia, the survey north of Kinzie Street across the North Branch,
@@ -1219,6 +2451,7 @@ Memo: `docs/RESEARCH/west_farm_ground_1835.md`.
 
 **Visible-progress exemption 2** applies: this is the measurement half of a split, and T-1794 lands
 the build. Nothing in the scene changed.
+
 ## T-1781 — the Des Plaines edge farmsteads: five standing redeal verdicts carried out (2026-10-01)
 
 T-1208 (the West Division's outer clusters and Wabansia) was more than one demonstration, so it
@@ -1246,6 +2479,7 @@ band's floor. Baked with `bake.sh --only` (five GLBs and their web derivatives).
 **Not done here, and owned:** no new ground is opened (T-1783 needs a measured West lot
 density, and the ground waits on T-1414); no farm household is seated on these cabins — the
 re-seating put labourers there, and the farms-and-country-seats band stays owed to T-1784.
+
 ## T-1775 — the Western Hotel's stable re-sized to its guests (2026-10-01)
 
 First piece of T-1209 (split this run into T-1775..T-1780). `western_hotel_stable` was
@@ -1395,7 +2629,6 @@ pyproj, Pillow, numpy and scipy all installed, so no step stood on a banked read
 re-run: the four meshes have not moved since the lap that baked them, and what the later
 laps changed is derived data, docs and the order-book owner table — none of which the
 renderer draws.
-
 
 ## T-1730 — the Glessner House, version v2: a second, independent build for the owner's comparison (2026-09-29)
 
@@ -1720,7 +2953,6 @@ Residents, Businesses, Wildlife, Plants, Population, the order book, the jaunts 
 index, all authored for 1835 (filed as T-1740). The house (T-1729) and the street
 surfaces (T-1728) are their own tickets.
 
-
 ## T-1738 — the 1904 ground generated and baked (2026-09-28)
 
 Nothing a visitor sees changed yet: no scene selects this ground until T-1739 writes the 1904
@@ -1760,7 +2992,6 @@ live test. The only committed version is the smoke's TEST FIXTURE
 equals the committed bake, so its mesh was adopted rather than baked; the pinned
 derivative command reproduces the adopted derivative byte for byte.
 
-
 ## T-1251 — the 1904 ground's zone table (2026-09-28)
 
 Nothing a visitor sees changed; this is the spec T-1252 generates the 1904 heightfield from.
@@ -1776,7 +3007,6 @@ the elevation model agree to 0.00 ft. The fill over the conjectural 1835 surface
 so the two epochs are not offsets of one another, and `tools/check_terrain_e1871.py` fails if it
 ever comes out constant; the evidence limit (grade N −3659.9, shore N −3365.2) is derived here.
 Not verified: any 1904 level directly — no survey of the period has been found.
-
 
 ## T-1250 — the Prairie Avenue sheets georeferenced, and the 1904 lake edge (2026-09-28)
 
@@ -1795,7 +3025,6 @@ reconstructed on the eastern bound (L287), with its six segments saying what sta
 1911 sheet draws the edge. The 1852-trestle sentence is ruled against a CPL source. What is not
 verified: the stretch south of 19th Street (no sheet held draws it), and any height — T-1251/T-1252.
 Detail: `docs/RESEARCH/scene_1880s_prairie_avenue.md` § 7.
-
 
 ## T-1280 — session travel modes and route estimates (2026-09-27)
 
@@ -1819,7 +3048,6 @@ and 1.2% differences). Its formerly recommended walk estimates 9.5–10.5 minute
 Full preflight passes all 681 steps; scoped shared smoke remains pending. Receipts and the
 measurement definition are in `performance/jaunt-travel/`. This work depends on
 T-1279; PR #137 remains owned by its other session.
-
 
 ## T-1279 — playable jaunt and persistent navigation (2026-09-27)
 
@@ -3149,7 +4377,6 @@ children are blocked-tech and excluded from the general loop, with visible HOLD
 references. [Runbook](unreal/README.md) records the local prototype and its limits;
 streaming corruption, full walking, parity and remote delivery are NOT verified.
 
-
 ## T-0437 — sparse smoke checkout, 2026-09-17
 
 The bake smoke checkout selects only tools and `docs/SITE-BUDGET.md`, at the
@@ -3200,7 +4427,6 @@ The scheduled nightly adopts this workflow definition on the normal owner-contro
 promotion to `main`; this PR targets `dev` and does not promote production.
 Nothing in the scene changes; no release-note entry is needed for this CI wiring.
 
-
 ## Shipped 2026-09-16 — T-0537, T-0968, T-0232, T-0234, T-0727: the loop's gates, worked as one
 
 Owner-directed batch of the five band-7 gate tickets; nothing in the scene changes. The
@@ -3230,7 +4456,6 @@ worktree to push this branch). The tail was reconstructed from the last clean re
 everything below the seam is restored verbatim from that revision. If T-1143 also edited the
 lost tail, that edit is unrecoverable from the record — this reconstruction restores what the
 repository can prove.
-
 
 ## Shipped 2026-09-15 — T-1143: every research reading has an accountable outcome
 
@@ -3540,7 +4765,6 @@ gain the row.
 The ordinance is 35 days after the scene date. Carried as evidence ABOUT 1835; nothing is
 placed, moved or dated because of it, and `date_standing` in the file says so.
 
-
 ## T-0385 — the New York Clothing Store stands against the Tremont House
 
 Tuthill King's card — American 1835-06-08 c014, 1835-06-20 c007, 1835-07-04 c003,
@@ -3659,7 +4883,6 @@ continuations read line by line and eleven images still inventoried only.
 T-0978 split in place: T-0979 owns this leaf, T-0980 retains ten filled leaves
 and blank BH. PR #1042 carries this completion.
 
-
 ## T-0977 — continuation 9SQ: thirty entries, four unresolved totals
 
 Image 52 is read in `pages/33SQ-GYYJ-9SQ.json`: 30 occupied TOTAL entries,
@@ -3681,7 +4904,6 @@ instrument's truncated-body limitation are recorded on the page.
 Group 3 now has three continuations read line by line and twelve inventoried-only
 images. T-0975 was split in place: T-0977 owns this leaf; T-0978 retains eleven
 filled leaves and blank BH, one leaf per run. PR #1041 carries this completion.
-
 
 ## T-0976 — seven open PRs reconciled
 
@@ -3712,7 +4934,6 @@ T-0973 was split under the queue's one-leaf-per-run rule. T-0974 owns this readi
 T-0975 preserves the remaining twelve filled continuations and the blank leaf in
 the parent's queue position. The continuation coverage count includes inspected
 lines with unresolved cells; it is not a claim that every glyph was deciphered.
-
 
 ## Shipped 2026-09-11 — T-0432: blk_south_water_dearborn's second deal, and the last block with room in it
 
@@ -4704,7 +5925,6 @@ its unit by id — `data/research/civic/town_election_1835_crosswalk.json` — a
 them is a refusal to carry, because T-0542 was forbidden to mint or regrade and says so. civic
 is back to 13 unspent, 499 read against 486 ruled on. **Nobody was added to the town, nobody
 was removed, and no grade moved.**
-
 
 ## Shipped 2026-09-03 — T-0423: the corpus's one lot-and-block address is seated, and stops carding as vacant
 
@@ -19903,7 +21123,6 @@ Arrival, welcome, loading cards and jaunt catalogs are scoped to the selected sc
 
 T-1767 verification: selected-year controller/content tests and 27 compiler tests pass. Published 1835 and 1904 browser flows pass at 390x780 and 1280x800: welcome, correct catalogs, start, per-scene saved-session restore, no horizontal overflow, zero page errors. Additional 1904 year-door/loading checks and 1812 unavailable-scene error checks pass at both widths. The full 13-part renderer suite was not rerun; stage 6 covers the existing gate and welcome chrome. The inherited order-book failure referenced split T-1763: its two store/workshop owner rows now point to the explicit successor T-1766; no quotas or residents changed.
 
-
 ### T-1730 v4 glazing and version-contract refinement
 
 The v4 comparison now has clear dielectric glazing and enclosed dark recesses,
@@ -19912,6 +21131,7 @@ levels. The sidecar validator includes the alternate-version indexes the viewer
 loads; regression cases preserve the missing-field refusal. Full GitHub gate
 and published desktop/mobile smoke are pending. No final photographic-quality
 claim or production promotion. See docs/RESEARCH/glessner_v4_work.md.
+
 ## T-1757 — two more Cass-block cottages and the resumed integration (2026-09-30)
 
 `blk_indiana_north_cass` now carries four cottages and four yard buildings:
@@ -19929,7 +21149,6 @@ its re-derivation check passes. Household seats and meshes do not change in
 this repair. The integrated tree has 177 platted seats and 72 off-plat seats.
 Full gate and published browser verification receipts are recorded on PR #199.
 
-
 ## T-1765 — recovered bridge-head furniture
 
 Four reconstructed timber piles complete this bridge-approach parcel. Recovery
@@ -19937,7 +21156,6 @@ corrects the deck-corner/centerline confusion and retains ferry operation as an
 open historical question. New ground and corner checks validate the placement.
 No roof or baked mesh changes. The project gate passed all 714 steps. The recovery checkpoint passed published mobile part 2 (90 checks). The PR
 validation record carries the subsequent full mobile and desktop results.
-
 
 ## T-1766: Canal approach trade roofs
 
@@ -19957,7 +21175,6 @@ The final evidence commit also integrates dev `773e956` (T-1793). Its new farm-g
 ## T-1768 — Temporal observatory
 
 The root front door is a lightweight three-period menu. SVG orbital graphics and bounded CSS acquisition/departure animations introduce the year links. Shared skin tokens persist across menu and renderer panels; the gate has an appearance selector and All periods link. Explicit root query deep links route to the matching year without losing parameters. 1812 remains explicitly unbuilt. The decorative line drawings are interface illustrations, not reconstruction evidence. Published browser checks passed at 1280x800 and 390x844: all skins, persistent preferences, transfer to 1835, return to menu, dev-prefixed 1904 links, root query/fragment preservation, no horizontal overflow, and no JavaScript errors. All period links remain usable with JavaScript disabled. Published renderer part 1 passed 80/0 at both desktop (10m48s) and mobile (7m46s), with zero page errors. Initial desktop attempts timed out during startup under concurrent local validation; the solo retry passed. The standalone menu checks also cover the final Space Age light/dark synchronization. Full repository CI is pending; local full-gate attempts were interrupted without a complete verdict. Renderer parts 2–13 were not rerun for this interface change; the part-1 ledger deliberately carries no exact final-tree hash because tone synchronization was finalized during the smoke sequence.
-
 
 ## T-1805 — Glessner west roof repair (2026-10-01)
 

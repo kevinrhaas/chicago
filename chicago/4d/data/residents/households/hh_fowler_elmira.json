@@ -119,6 +119,21 @@
   },
   "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Last printed 1834-11-05, at the Democrat of 5 November 1834, column 4, and nothing reached either follows this person to 1 July 1835 or says they left. A documented resident whose whereabouts on one day are unknown is `uncertain` here rather than dropped: that is the same distinction index.json draws for Jeremiah Porter, and it is a finding rather than a gap."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 2,
+  "kin_seated": 4,
+  "seed": "hh_fowler_elmira:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
+  "married": {
+   "ticket": "T-2020",
+   "wife": "rc_gilbert_clarissa",
+   "from_household": "hh_rc_gilbert_clarissa",
+   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Clarissa Gilbert headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 2 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Elmira Fowler married anybody."
+  }
+ },
  "persons": [
   {
    "id": "fowler_elmira",
@@ -159,7 +174,7 @@
     "chicago_democrat_1833_1835",
     "second_presbyterian_chicago_1892"
    ],
-   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'ELMIRA FOWLER' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 5 November 1834, column 4. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `dressmaker` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Fowler, Ellen | Profession. | October 31, 1879.” (second_presb_0018, printed page 155), admitted 1879-10-31 by profession. Under the rule that decided it: Surname 'Fowler' folds to the same string as the roll line's, and the given name of both begins E. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
+   "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'ELMIRA FOWLER' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 5 November 1834, column 4. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `dressmaker` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Fowler, Ellen | Profession. | October 31, 1879.” (second_presb_0019, printed page 155), admitted 1879-10-31 by profession. Under the rule that decided it: Surname 'Fowler' folds to the same string as the roll line's, and the given name of both begins E. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once.",
    "resident_research": {
     "programme": "resident-research-2026",
     "ticket": "T-0509",
@@ -229,6 +244,231 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('fowler_elmira:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   }
+  },
+  {
+   "id": "rc_gilbert_clarissa",
+   "name": "Clarissa Gilbert",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
+    },
+    "seed": "rc_wc_north_010:head_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "dressmaker",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "women_children_fill.female_trades",
+     "note": "Sewing, taken in. Elmira Fowler is attested at the Democrat of 5 November 1834 as dress maker, milliner, and Mrs H. Sherman keeps a shop; the trade is documented in this town and only its frequency is drawn."
+    },
+    "seed": "rc_wc_north_010:female_trades",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a woman of this household and what she did"
+    },
+    "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
+   },
+   "employment": {
+    "business_id": "biz_a_new_tailoring_establishment_chicago_june_1835",
+    "role": "dressmaker",
+    "tier": "reconstructed",
+    "seed": "rc_gilbert_clarissa:employment",
+    "note": "A SEAT THIS PROJECT DREW, NOT A WORKPLACE A SOURCE NAMES. Nobody put this person in this house. tools/seat_reconstructed_trades_1835.py pointed them at it under the staffing model's own rule for their trade, and the reasoning — the term of the order rule that chose it, the class of house, the count of candidates considered and the model row that allows the hand — stands beside this person's id in data/residents/reconstructed_seating.json. It is deliberately NOT a `workplaces` entry: that field is the attested and inferred join, and its gate asserts a business record naming the person back, which no drawn seat has. A source naming where this person actually worked retires it."
+   },
+   "name_basis": {
+    "value": "Clarissa Gilbert",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename and the surname are both drawn from the New England and New York pool: nothing about this house is read, so no part of the name is inherited from a real person."
+    },
+    "seed": "rc_wc_north_010:head_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this north-division household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "sex_ratio",
+    "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the north division."
+   },
+   "seed": "rc_wc_north_010:head_age_bands_1840",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_gilbert_clarissa",
+    "relationship_as_dealt": "head"
+   }
+  },
+  {
+   "id": "rc_gilbert_clarissa_1",
+   "name": "Chauncey Gilbert",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_north_010:rc_gilbert_clarissa:member_1_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Chauncey Gilbert",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_010:rc_gilbert_clarissa:member_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the draw against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_010:rc_gilbert_clarissa:member_1_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_gilbert_clarissa",
+    "relationship_as_dealt": "son"
+   }
+  },
+  {
+   "id": "rc_gilbert_clarissa_2",
+   "name": "Eliza Gilbert",
+   "relationship": "daughter",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_north_residual_01:rc_gilbert_clarissa:member_2_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Eliza Gilbert",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_north_residual_01:rc_gilbert_clarissa:member_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "age_bands_1840",
+    "note": "Drawn by the residual sweep against the north division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_north_residual_01:rc_gilbert_clarissa:member_2_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_gilbert_clarissa",
+    "relationship_as_dealt": "daughter"
    }
   }
  ],

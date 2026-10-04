@@ -1,12 +1,11 @@
 /** Lazy catalog, route preview and session handoff. */
-import { PACES } from './travel-settings.js';
-import { formatEstimate } from './travel-estimate.js';
+import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
 export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0;
   const contents = new Map();
-  const modes = new Map();
+  const menu = createJauntMenu({ root, estimate, onStart, onPreview: select });
   const node = (tag, text, className) => {
     const el = document.createElement(tag); el.textContent = text;
     if (className) el.className = className;
@@ -61,6 +60,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     return line;
   }
   function showDaybook(returnId) {
+    menu.capture();
     ++serial;
     const title = node('h3', journal.book.title), back = button('Back to Jaunts', () => list(api.catalog, returnId));
     const view = node('section', '', 'jaunt-daybook'); view.setAttribute('aria-label', 'Daybook');
@@ -93,13 +93,13 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (!root.closest('[hidden]')) { el.tabIndex = -1; el.focus({ preventScroll: true }); }
   }
   function list(rows, returnId, focusStart = false) {
-    root.replaceChildren(node('p', 'Choose an outing, or read its route before you start.'));
+    const prefix = [node('p', 'Choose an outing, or read its route before you start.')];
     if (journal) {
       const entry = button(`Daybook · ${journal.level().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
-      entry.dataset.action = 'daybook'; root.append(entry);
+      entry.dataset.action = 'daybook'; prefix.push(entry);
     }
     const session = getSession();
-    if (session?.notice) root.append(node('p', session.notice, 'jaunt-session-note'));
+    if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
     if (session?.jaunt && ['menu', 'outcome'].includes(session.phase)) {
       const note = node('section', '', 'jaunt-session-note');
       if (session.phase === 'outcome') {
@@ -108,37 +108,12 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
         if (awarded) note.append(awarded);
         else if (!session.outcome.fallback) note.append(node('h4', session.jaunt.keepsake.title), node('p', session.jaunt.keepsake.text));
         if (journal) note.append(button('Open your daybook', () => showDaybook(session.jaunt.id)));
-      } else note.append(node('h3', `Paused · ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', onResume));
-      note.append(button('Restart Jaunt', () => onStart(session.jaunt.id, { mode: session.mode }))); root.append(note);
+      } else note.append(node('h3', `Resume ${session.jaunt.title}`), node('p', `Stop ${session.stopIndex + 1}`), button('Resume Jaunt', () => { menu.capture(); onResume(); }));
+      note.append(button('Restart Jaunt', () => { menu.capture(); onStart(session.jaunt.id, { mode: session.mode }); })); prefix.push(note);
     }
-    for (const row of rows) {
-      const card = node('article', '', 'jaunt-card'); card.dataset.jaunt = row.id;
-      card.append(node('h3', row.title), node('p', `${row.category} · ${row.stop_count} stops · ${row.primary_family}`, 'jaunt-meta'), node('p', row.premise));
-      if (row.availability === 'available') {
-        const mode = node('select'); mode.setAttribute('aria-label', `Travel mode for ${row.title}`);
-        for (const id of row.allowed_modes || ['walk', 'wagon', 'horse', 'fly', 'instantly']) {
-          const option = node('option', PACES[id]?.label || id); option.value = id; mode.append(option);
-        }
-        mode.value = modes.get(row.id) || row.default_mode || 'walk';
-        const duration = node('p', '', 'jaunt-meta'); duration.dataset.jauntEstimate = row.id;
-        const price = () => { modes.set(row.id, mode.value); duration.textContent = formatEstimate(estimate(row, mode.value)); };
-        mode.addEventListener('change', price); price();
-        card.append(mode, duration, node('p', `Recommended: ${PACES[row.default_mode || 'walk'].label}. Fly is a viewing convenience, not historical transport.`, 'jaunt-meta'));
-        const preview = button('Preview the route', () => select(row));
-        const start = onStart && button('Start Jaunt', async () => {
-          start.disabled = true;
-          try { await onStart(row.id, { mode: mode.value }); } finally { if (start.isConnected) start.disabled = false; }
-        });
-        if (start) card.append(start);
-        card.append(preview); root.append(card);
-        if (returnId === row.id) (focusStart && start ? start : preview).focus({ preventScroll: true });
-      } else {
-        card.append(node('p', `Unavailable — ${row.reason || 'Awaiting review.'}`, 'jaunt-meta'));
-        root.append(card);
-      }
-    }
-    if (!rows.length) root.append(node('p', `No jaunts are available for ${scene} yet. You can explore on your own.`));
+    menu.show(rows, prefix, returnId, focusStart);
   }
+
   async function load(id, options) {
     const rows = await catalog();
     if (!rows.some(row => row.id === id && row.availability === 'available') || !/^[a-zA-Z0-9][a-zA-Z0-9_-]*$/.test(id)) throw new Error('Jaunt unavailable');

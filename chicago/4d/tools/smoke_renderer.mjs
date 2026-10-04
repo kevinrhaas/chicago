@@ -10,7 +10,7 @@
  * `SMOKE_VIEWPORT=mobile` (or `desktop`) runs one of the two while iterating.
  * That is not the gate and the run says so on its first line.
  *
- * `SMOKE_STAGE=1` … `13` runs one part of each viewport's body (T-0060, re-cut
+ * `SMOKE_STAGE=1` … `14` runs one part of each viewport's body (T-0060, re-cut
  * by T-0121, T-0167, T-0346, T-0173 and T-0170), and `SMOKE_STAGE=1-2` runs a
  * contiguous run.
  * The cuts sit at section boundaries measured for zero crossing bindings. It
@@ -37,12 +37,14 @@
  * 1280x800 on an IDLE runner it was killed at 9 m 20 s with the street readouts
  * and the Settings units still to run, so old parts 11-12 became 12-13 and there
  * are thirteen.
+ * T-2044 APPENDED PART 14: the arrival-to-jaunt path a visitor walks, on a fresh
+ * context that does not wave the welcome through. An append renumbers nothing.
  *
  * A staged run is not the gate either, and says so; the gate is both viewports,
  * every part, e.g.:
  *
- *   for s in 1-2 3-6 7-9 10-13;               do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
- *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13;   do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1-2 3-6 7-9 10-13 14;            do SMOKE_VIEWPORT=mobile  SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
+ *   for s in 1 2 3 4 5 6 7 8 9 10 11 12 13 14; do SMOKE_VIEWPORT=desktop SMOKE_STAGE=$s node tools/smoke_renderer.mjs --published; done
  *
  * `SMOKE_TIMING=1` stamps each check line with the elapsed clock. Off by
  * default; turn it on to profile a part, because a part that BREACHES the
@@ -567,10 +569,15 @@ const shadowRigFor = (level, touch) => {
  * software renderer, which is why the margin is what this sweep is judged on
  * and why `SMOKE_TIMING=1` exists to re-take it.
  *
+ * T-2015 adds the West prairie flora-review pose: the original renderer already
+ * read 1,949,552 triangles / 243 calls there at full, 1280x800, above the
+ * 1,845,000 / 240 ceilings before the new foliage. This view sees a broad sward
+ * and the built town together, a cost shape the five town stands did not cover.
+ *
  * `kind` is how the harness gets there: `frame` stands a distance off a
  * structure, `anchor` teleports to one of `data/scenes/1835.json`'s authored
- * viewpoints — the same viewpoints the Go-to menu offers a visitor, which is
- * the point. Nothing here is a camera invented for the test.
+ * viewpoints, and `pose` uses a committed review view. A pose fixes its pitch
+ * as well as position and bearing so a later reading sees the same ground.
  */
 const STANDS = [
   {
@@ -636,6 +643,12 @@ const STANDS = [
     // geometry at full detail, the tier the flora and fence LODs are least able
     // to help with.
     why: 'the densest built corner, stood in rather than looked at',
+  },
+  {
+    id: 'prairie_west', kind: 'pose',
+    label: 'West prairie, east across the sward toward town',
+    pose: { local_e: -250, local_n: -150, yaw_deg: 90, pitch_deg: -8 },
+    why: 'a wide foreground of sward and the whole town share the frame',
   },
 ];
 /**
@@ -1289,7 +1302,11 @@ if (ONLY) console.log(`NOT THE FULL GATE — viewports filtered to "${ONLY}"\n`)
 // the readouts. The pairing rule is unchanged in content — 1+2, 3+4+5+6, 7+8+9,
 // 10+11+12+13 — and the mobile recipe's last range widens from `10-12` to
 // `10-13`, still four commands.
-const PARTS = 13;
+// T-2044 APPENDED PART 14, the arrival-to-jaunt path on a fresh context. It is an
+// append, so parts 1-13 keep their numbers and every banked reading stands; it
+// joins no existing leg either, because it boots the town a second time and a
+// leg already near its cap should not carry that. Its own nightly leg is `14`.
+const PARTS = 14;
 const STAGE = process.env.SMOKE_STAGE || '';
 // `3` is one part; `3-4` is a contiguous run of them; `1,5-6` is any set. The
 // range form exists so the cheap viewport does not pay eight boots to run a
@@ -1703,7 +1720,7 @@ for (const [label, viewport, touch] of [
         let waterPlants = 0;
         let deepWaterPlants = 0;
         for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
-          'flora-shrub']) {
+          'flora-shrub', 'flora-shrub-far']) {
           const mesh = a.flora.group.getObjectByName(name);
           const matrix = mesh?.instanceMatrix?.array;
           if (!matrix) continue;
@@ -2386,15 +2403,26 @@ for (const [label, viewport, touch] of [
       { kind: 'intersection', local_e: -127.7, local_n: -292 }));
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
-    const yardWith = await page.evaluate(() => window.__chicago4d.capture());
+    // T-2035: retain thin rails in the image measurement. At 12 x 12, dark
+    // rails and the now-continuous grass behind them cancel inside a cell:
+    // the unchanged phone view measures 0.271, although the fence is visible.
+    // 96 x 96 measures 0.319 from the SAME view. Finer cells reduce that
+    // cancellation; camera, scene, mean>=0.3 and worst>=6 remain unchanged.
+    // The restored frame is also checked, so unrelated movement cannot pass.
+    const yardWith = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = false; });
-    const yardWithout = await page.evaluate(() => window.__chicago4d.capture());
+    const yardWithout = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => { window.__chicago4d.enclosures.group.visible = true; });
+    const yardRestored = await page.evaluate(() => window.__chicago4d.capture(96));
     await page.evaluate(() => window.__chicago4d.setAnimationHold(false));
     const dYard = signatureDistance(yardWith, yardWithout);
+    const dYardRestored = signatureDistance(yardWith, yardRestored);
     check(`${label}: the yard fence reaches the screen from inside the yard`,
-      dYard.worst >= 6 && dYard.mean >= 0.3,
-      `cell delta mean ${dYard.mean?.toFixed(2)}, worst ${dYard.worst} (need worst>=6)`);
+      dYard.worst >= 6 && dYard.mean >= 0.3
+        && dYardRestored.worst <= 1 && dYardRestored.mean <= 0.02,
+      `96x96 cell delta mean ${dYard.mean?.toFixed(3)}, worst ${dYard.worst} `
+      + `(need mean>=0.3, worst>=6); restored mean ${dYardRestored.mean?.toFixed(3)}, `
+      + `worst ${dYardRestored.worst}`);
 
     // --- the town pound is a fence, not a box (T-0051) -----------------------
     //
@@ -2795,7 +2823,7 @@ for (const [label, viewport, touch] of [
       // working yard, an animal pen and a picketed dooryard. Not a centroid: the
       // Western Hotel's yard is an L wrapped round the hotel's own corner and
       // the average of its six corners lands inside the hotel.
-      const wanted = ['worn_earth', 'trodden_earth', 'dooryard_garden'];
+      const wanted = ['worn_earth', 'trodden_earth', 'road_earth', 'dooryard_garden'];
       const stands = wanted.map((t) => {
         const i = (y?.interiors ?? []).find((x) => x.treatment === t);
         if (!i) return { treatment: t, missing: true };
@@ -2895,7 +2923,8 @@ for (const [label, viewport, touch] of [
     check(`${label}: every fenced interior in the town carries a ground treatment`,
       fenced.declared.length >= 4 && fenced.declared.every((d) => d.interiors >= 1)
       && fenced.census?.interiors >= 8 && fenced.meshes >= 3 && fenced.tris > 0
-      && Object.keys(fenced.census?.byTreatment ?? {}).length === 3,
+      // T-2013: a fourth, `road_earth` — the town's door ground in the road's dirt.
+      && Object.keys(fenced.census?.byTreatment ?? {}).length === 4,
       `${fenced.declared.length} record(s) declare a treatment `
       + `[${fenced.declared.map((d) => `${d.id} ${d.treatment} x${d.interiors}`).join(', ')}]; `
       + `${fenced.census?.interiors} interior(s) in ${fenced.meshes} mesh(es), `
@@ -4902,12 +4931,23 @@ for (const [label, viewport, touch] of [
         // These two split that apart: `authored` is what the layer laid, which
         // is the number a census clause can hold across stages, and `merged` is
         // the artefact count, reported beside it rather than folded into it.
-        authored: (f?.group?.children ?? []).filter((c) => !c.userData?.farMerged).length,
+        // T-2037's exact distant walk tops are another derived draw, not a
+        // newly authored walk. Keep both derived kinds out of the census and
+        // assert the new kind separately below; an unrelated extra mesh still
+        // fails the unchanged authored count.
+        authored: (f?.group?.children ?? [])
+          .filter((c) => !c.userData?.farMerged && !c.userData?.farWalkTops).length,
         authoredNames: (f?.group?.children ?? [])
-          .filter((c) => !c.userData?.farMerged).map((c) => c.name),
+          .filter((c) => !c.userData?.farMerged && !c.userData?.farWalkTops).map((c) => c.name),
         merged: (f?.group?.children ?? []).filter((c) => !!c.userData?.farMerged).length,
         mergedNames: (f?.group?.children ?? [])
           .filter((c) => !!c.userData?.farMerged).map((c) => c.name),
+        farWalkTops: (f?.group?.children ?? []).filter((c) => c.userData?.farWalkTops)
+          .map((c) => ({ name: c.name, sharedMaterial: c.material === mesh?.material,
+            castsShadow: c.castShadow, groundHugging: c.userData.groundHugging,
+            candidates: c.geometry.getAttribute('position').count / 3,
+            drawn: c.geometry.drawRange.count / 3 })),
+        farWalkState: f?.farWalkTops ?? null,
         verts,
         letterVerts: letters?.geometry?.getAttribute('position')?.count ?? 0,
         letterMap: !!letters?.material?.map,
@@ -5081,8 +5121,18 @@ for (const [label, viewport, touch] of [
       // runs (the Western Hotel, four West Division stores) and the freight house's
       // decked walk on West Water, 55 to 61; the Western Hotel's walk meets
       // Randolph's across Canal, 46 to 47 crossings; refusals 117 to 128.
-      frontage.census?.records === 5 && frontage.census?.walks === 61
-        && frontage.census?.crossings === 47
+      // T-0192 — the seven cross streets take the walk: +50 runs and +47 corner
+      // crossings in the record, over 46 platted faces. Read
+      // on the branch at 113 walks and 98 crossings. THESE PINS WERE ALREADY
+      // BEHIND ON dev: its record carries 55 town walks and 49 crossings, so dev
+      // read 63 / 51 against 61 / 47 — a parcel after T-1823 moved the record
+      // and not this line. Re-pinned to the reading, not to a model of it.
+      // T-0193 — blk_lake_clinton's Randolph face (+1 walk) and its crossing over
+      // Randolph (+1); its Lake face was already one fronts-only run and stays one
+      // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
+      // retires and nothing new is refused. ID-set deltas, read off the record.
+      frontage.census?.records === 5 && frontage.census?.walks === 114
+        && frontage.census?.crossings === 99
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5141,7 +5191,10 @@ for (const [label, viewport, touch] of [
         // takes its post at its own tier (+25), an inn stands two (+5), 18 + 30.
         // T-1823 — the fronts-only faces: the Western Hotel's two and three West
         // Division stores' one each, 48 to 53. A fronts-only face takes no fence.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 32
+        // T-1679 (#396) moved Haddock's Tavern one lot east on blk_south_water_dearborn,
+        // and the Lake Street face it left now takes a street fence
+        // (blk_south_water_dearborn_south_fence_6): 32 to 33. Restated in T-2102 for T-2093.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 33
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -5212,7 +5265,11 @@ for (const [label, viewport, touch] of [
         // T-1813 retires the 24 grade refusals (a reconstructed trade now takes its
         // post) and states 18 new ones — fittings and posts the rule could not lay,
         // each naming its clause: 119-24+18=113.
-        && frontage.census?.refused === 128
+        // T-0192: 182, read on the branch. The record goes 124 town refusals to
+        // 172 — each cross face states why it takes no fence and no post (the
+        // end of a lot row), and the one clause that refused the seven on the
+        // frame budget retires. dev's own reading was 134 against this 128.
+        && frontage.census?.refused === 182
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5396,8 +5453,14 @@ for (const [label, viewport, touch] of [
     // T-1823 — five fronts-only runs name their own chunk (+5) and their posts and
     // fittings share ONE standing mesh of their own (+1), 65; the crossing over
     // Canal rides the Randolph run's chunk.
+    // T-0192 — each of the seven cross streets' 50 new runs names its own block-face
+    // chunk (+50), and their crossings ride those chunks: 117, read on the branch
+    // (dev's record names 51 walk chunks, so dev read 67 against the 65 here).
     check(`${label}: the frontage layer draws the meshes it authored`,
-      frontage.authored === (frontage.census?.lettered === 1 ? 66 : 65)
+      // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
+      // block's standing timber rides a west-bank mesh of its own rather than
+      // Lake's and Randolph's (+1): 119.
+      frontage.authored === (frontage.census?.lettered === 1 ? 120 : 119)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5409,6 +5472,14 @@ for (const [label, viewport, touch] of [
       // both figures, so the next run that wonders whether the merge artefacts
       // are still arriving can read it off the log instead of re-measuring.
       true);
+    check(`${label}: the distant walk draw is one exact derived top-face batch`,
+      frontage.farWalkTops.length === 1
+        && frontage.farWalkTops.every((m) => m.name === 'frontage-far-walk-tops'
+          && m.sharedMaterial && !m.castsShadow && m.groundHugging
+          && m.candidates === frontage.farWalkState?.candidateTriangles
+          && m.candidates === 107532
+          && m.drawn === frontage.farWalkState?.triangles),
+      JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
     // renderer (L135), and it is the record's wording rather than the renderer's:
     // a board whose painted name drifted from the record would be this project
@@ -6133,7 +6204,11 @@ for (const [label, viewport, touch] of [
       // Walk-length, fence and deck floors retain their existing strength.
       // T-1823 — five fronts-only faces beyond the covered streets: 40+5=45.
       edge.hasRecord && edge.cardId === 'town_street_edge'
-        && edge.faces === 45 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-0192 — the seven cross streets' 46 platted faces: 93, the record's own
+        // `faces_laid` (dev's record already read 47 against the 45 pinned here).
+        // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
+        // fronts-only and is laid as a street face, and its Randolph face is new: 94.
+        && edge.faces === 94 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6162,8 +6237,10 @@ for (const [label, viewport, touch] of [
     // streets a face is laid fronts-only; each of its five runs is drawn and the
     // boot is on planks in the middle of it.
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
-      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
-        && edge.byBusiness.frontsOn === 5,
+      // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
+      // walk the whole face rather than the store's front.
+      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
+        && edge.byBusiness.frontsOn === 4,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
@@ -6502,8 +6579,22 @@ for (const [label, viewport, touch] of [
     // looking down the dock's own waterward normal — and hold the clock so the
     // grass cannot supply the difference. Same bar as the fences, the boards and
     // the goods: worst >= 6 and mean >= 0.3.
-    await page.evaluate(() => window.__chicago4d.walker.teleport(
-      { local_e: 204.5, local_n: 9.8, yaw_deg: 339.4, pitch_deg: -6 }));
+    // The stand is read off the wharf record rather than typed in: 3 m back from
+    // the heel's midpoint along the waterward normal. T-2097 set the warehouse
+    // back across South Water Street and its dock moved 25 m with it, which left
+    // the old fixed stand (204.5, 9.8) looking at open water.
+    await page.evaluate(() => {
+      const a = window.__chicago4d;
+      const d = (a.wharves.wharves ?? []).find((w) => w.structure_id === 'newberry_dole_warehouse');
+      const [heelL, heelR] = d.deck_quad_local_enu_m;
+      const [ne, nn] = d.waterward_normal;
+      a.walker.teleport({
+        local_e: (heelL[0] + heelR[0]) / 2 - ne * 3.0,
+        local_n: (heelL[1] + heelR[1]) / 2 - nn * 3.0,
+        yaw_deg: (Math.atan2(ne, nn) * 180) / Math.PI,
+        pitch_deg: -6,
+      });
+    });
     await page.waitForTimeout(350);
     await page.evaluate(() => window.__chicago4d.setAnimationHold(true));
     const dockWith = await page.evaluate(() => window.__chicago4d.capture());
@@ -9042,8 +9133,15 @@ for (const [label, viewport, touch] of [
     // over the 200 it was set against, and 222 + 15 rounds up to 240). A
     // re-budget on the owner's T-1215, not a weakening: `light`'s 90-call floor
     // below is untouched and still red at 102 until T-1976's trim.
+    //
+    // T-0192, 2026-10-03: 240 -> 275, moved here in the same commit as `BUDGET`
+    // in `main.js`, where the measurement is written (the seven cross streets'
+    // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
+    // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
+    // T-2015: combined six-stand maximum 277 at narrow prairie, +15 -> 295.
+    // The measured argument is beside BUDGET in main.js; light stays at 90.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 240,
+      stats.budget.drawCalls === 295,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -9321,6 +9419,10 @@ for (const [label, viewport, touch] of [
           // `goTo` on the aerial anchor turns flight ON; every `frame` stand
           // turns it off again, which is why one has to be last.
           if (st.kind === 'frame') { a.setFly(false); a.frame(st.target, st.distance); }
+          else if (st.kind === 'pose') {
+            a.setFly(typeof st.pose.altitude_m === 'number');
+            a.walker.teleport(st.pose);
+          }
           else a.goTo(st.target);
           await settle();
           const r = a.stats();
@@ -11290,7 +11392,28 @@ for (const [label, viewport, touch] of [
         inner: r.fade[3] > 0 ? r.fade[2] - (r.lattice.inner + rings.step) : 0,
       }));
 
-      a.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
+      // T-2085. The walk needs plants to ARRIVE, and the settled town the
+      // Sauganash stands in is short turf now: past its own near ring the ground
+      // paints it, so a walk from the hotel door saw no plant arrive at all and
+      // the bar below read a vacuous zero. It starts instead at the nearest
+      // dense, plantable ground with plantable ground ahead of it — part 11's own
+      // rule for a sward drawn as plants — searched outward from the hotel, so a
+      // town that grows (T-2084) moves the walk rather than emptying it.
+      const denseIds = new Set(a.flora.communities()
+        .filter((c) => c.graminoids && c.matrixShare >= 0.7).map((c) => c.id));
+      const sward = (e, n) => denseIds.has(a.flora.zoneAt(e, n)) && a.flora.plantableAt(e, n);
+      let start = { local_e: 107, local_n: -103 };
+      found: for (let d = 0; d <= 900; d += 6) {
+        for (const [de, dn] of [[-d, 0], [0, -d], [d, 0], [0, d]]) {
+          const e = 107 + de;
+          const n = -103 + dn;
+          if ([0, 3, 6, 9, 12].every((k) => sward(e, n - k))) {
+            start = { local_e: e, local_n: n };
+            break found;
+          }
+        }
+      }
+      a.walker.teleport({ ...start, yaw_deg: 180 });
       a.step();
       const snap = () => {
         const p = a.camera.position;
@@ -11402,9 +11525,11 @@ for (const [label, viewport, touch] of [
       && popIn.inset.every((r) => r.outer >= -1e-9 && r.inner >= -1e-9),
       popIn.inset.map((r) => `${r.id} outer +${r.outer.toFixed(2)} inner +${r.inner.toFixed(2)}`)
         .join(', ') + ` against a ${popIn.step} m rebuild step`);
-    // The bound is one pace, not zero: the rebuild fires on the frame that
-    // carries the walker past the step, so it can overshoot by however far that
-    // one frame moved. 0.15 m of a 2.2 m near band is 7%.
+    // The bound is not zero only for a walker whose pace changes: since T-2085
+    // the rebuild fires a frame EARLY, on the last frame's move (flora.js
+    // `moved`). It used to fire on the frame that carried the walker past the
+    // step, and the near ring's edge is a per-slot handover with no ramp, so
+    // that one pace of overshoot let a tuft arrive at 100% (6.93 m, T-2085).
     check(`${label}: a plant in front of the walker never arrives already visible`,
       popIn.arrivals >= 20 && popIn.worst <= 0.10,
       `${popIn.arrivals} arrivals over ${(20 * popIn.pace).toFixed(2)} m; worst coverage `
@@ -12057,12 +12182,17 @@ for (const [label, viewport, touch] of [
 
     // --- the navigation guide, and the units the whole HUD reads in --------
 
+    // T-2015: desktop 9-11 reached this chrome after every scene assertion
+    // passed, then its native click timed out at 90 s (3.36/3.56 s frames).
+    // Use the same visibility, disabled, box and occlusion checks as part 12;
+    // these controls do not require a frame-bound trusted mouse event.
+    // The guide and unit-system assertions below remain unchanged.
     // The menu is built from the two runtime collections, not from a sampled
     // shortlist.  With an empty query every loaded structure and every compiled
     // control junction must have a button; a real search must narrow both kinds.
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
-    await page.click('#s-show-control-help');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
+    await clickChrome('#s-show-control-help');
     const reopenedGuide = await page.evaluate(() => ({
       shown: !document.getElementById('control-help').hasAttribute('hidden'),
       panelHidden: document.getElementById('panel').hasAttribute('hidden'),
@@ -12070,9 +12200,9 @@ for (const [label, viewport, touch] of [
     check(`${label}: Settings can reopen the dismissed navigation guide`,
       reopenedGuide.shown && reopenedGuide.panelHidden,
       JSON.stringify(reopenedGuide));
-    await page.click('#control-help-close');
-    await page.click('#btn-help');
-    await page.click('.panel-tab[data-tab="settings"]');
+    await clickChrome('#control-help-close');
+    await clickChrome('#btn-help');
+    await clickChrome('.panel-tab[data-tab="settings"]');
     const unitChoice = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const select = document.getElementById('s-units');
@@ -15692,6 +15822,29 @@ for (const [label, viewport, touch] of [
           && at.grid.eighteenth === 'macadam (crushed limestone) (attested)'
           && /cement/.test(at.grid.walk ?? '') && /reconstructed/.test(at.grid.walk ?? ''),
           JSON.stringify({ census: at.grid?.census, prairie: at.grid?.prairie, eighteenth: at.grid?.eighteenth, walk: at.grid?.walk }));
+        // T-1740 — the drawer follows the scene's layers list as the drawn layers do:
+        // 1904 lists no residents, firms, fauna, flora or exclusions, so it offers
+        // no People or Firms section, no Evidence tile for any of the seven 1835
+        // topics, and no 1835 firm in Go to — and the sections it does carry stay.
+        const drawer = await page.evaluate(() => {
+          const a = window.__chicago4d;
+          const tabs = [...document.querySelectorAll('.panel-tab')].filter((t) => !t.hidden).map((t) => t.dataset.tab);
+          const tiles = [...document.querySelectorAll('#evidence-hub .ev-tile')].map((t) => t.dataset.topic);
+          const firms = (a.destinations?.targets ?? []).filter((t) => t.kind === 'business' && !t.derived_from).length;
+          a.hud?.selectTab?.('people');
+          const tab = a.hud?.tab ?? null;
+          a.hud?.selectTab?.('goto');
+          return { tabs, tiles, firms, tab, mounted: ['residents', 'people', 'businesses', 'fauna', 'plants', 'exclusions', 'population', 'orderBook']
+            .filter((k) => a[k] != null) };
+        });
+        const gone = ['city', 'fauna', 'plants', 'exclusions', 'uncertain', 'population', 'orderbook'];
+        check(`${label}: the 1904 drawer offers none of the 1835 town's sections — no People, no Firms, no 1835 Evidence topic, no 1835 firm in Go to (T-1740)`,
+          !drawer.tabs.includes('people') && !drawer.tabs.includes('businesses')
+          && ['goto', 'travel', 'evidence', 'settings', 'controls', 'whatsnew'].every((t) => drawer.tabs.includes(t))
+          && gone.every((t) => !drawer.tiles.includes(t))
+          && ['grades', 'liberties', 'ground'].every((t) => drawer.tiles.includes(t))
+          && drawer.firms === 0 && drawer.tab !== 'people' && drawer.mounted.length === 0,
+          JSON.stringify(drawer));
         check(`${label}: the 1904 boot raises no loader problem (T-1739)`, at.problems.length === 0,
           at.problems.slice(0, 3).join(' | '));
         check(`${label}: the frame at the 1904 spawn is inside the draw budget (T-1739)`, at.budget.within === true,
@@ -15702,6 +15855,228 @@ for (const [label, viewport, touch] of [
 
     inStageWork = false;
     } // end PART 13 (T-0060 stage 4b-ii, cut by T-0167; renumbered by T-0346, T-0173 and T-0170)
+
+    // --- PART 14: the arrival-to-jaunt path, end to end (T-2044, from T-1272) --------
+    // Every part above boots with the welcome waved straight through (`enterTown`), so
+    // the path a visitor actually walks — the arrival year counting down, the welcome,
+    // the Starting At… picker, a jaunt, the cards and sources it links to, a change of
+    // travel mode, End, a second jaunt and Explore Myself — was covered only by the
+    // standalone jaunt harnesses, never in the gate. This part takes it on a FRESH
+    // context, because the first thing it asserts is what the arrival shows before
+    // `api.ready`, and the body's own page has long since passed that moment. The main
+    // page is parked on about:blank first so two copies of the town do not split the
+    // machine's frames; part 14 is the last part, so nothing after it reads that page.
+    // Rides are finished with `travel.simulate`, as the jaunt harnesses do: what is
+    // asserted is the outing's state and its controls, not the speed of a horse drawn
+    // in software at a few frames a second.
+    if (stageOn(14)) {
+    inStageWork = true;
+    await page.goto('about:blank');
+    const ctx14 = await browser.newContext({
+      viewport, hasTouch: touch, isMobile: false, deviceScaleFactor: touch ? 2 : 1,
+    });
+    // Every change of the arrival's year, with whether the scene was ready when it
+    // showed. Recorded from the first byte, before any page script can run.
+    await ctx14.addInitScript(() => {
+      window.__arrivalYears = [];
+      new MutationObserver(() => {
+        const year = document.getElementById('arrival-year')?.dataset.year;
+        if (year && year !== window.__arrivalYears.at(-1)?.year) {
+          window.__arrivalYears.push({ year, ready: window.__chicago4d?.ready === true });
+        }
+      }).observe(document, { subtree: true, childList: true, attributes: true, attributeFilter: ['data-year'] });
+    });
+    // The path is chrome, not rendering, so the town is drawn at `light` — the tier a
+    // touch device boots into anyway — as a visitor who chose it in Settings would see
+    // it. At `full` a desktop frame in software costs seconds and every step queues
+    // behind one. The parts above own the drawing at every tier.
+    await ctx14.addInitScript(() => {
+      try {
+        if (!localStorage.getItem('chicago4d.settings')) {
+          localStorage.setItem('chicago4d.settings', JSON.stringify({ detail: 'light' }));
+        }
+      } catch { /* storage refused: the default tier stands */ }
+    });
+    const p14 = await ctx14.newPage();
+    p14.setDefaultTimeout(90_000);
+    // Polled on an interval, not on animation frames: Playwright's default waits a
+    // frame per poll, and a frame of this town in software costs seconds at 1280x800,
+    // so the first desktop run spent a minute or more on each step and was killed at
+    // the ceiling with the mode change still running.
+    const until = (fn, arg = null) => p14.waitForFunction(fn, arg, { polling: 250 });
+    p14.on('pageerror', (e) => errors.push(`part 14 pageerror: ${e.message || e}`));
+    p14.on('response', (r) => { if (r.status() >= 400) errors.push(`part 14 HTTP ${r.status()} ${r.url()}`); });
+    p14.on('console', (m) => {
+      const t = m.text();
+      if (m.type() === 'error' && !t.startsWith('Failed to load resource')) errors.push(`part 14 console.error: ${t}`);
+    });
+    const jaunt = () => p14.evaluate(() => {
+      const s = window.__chicago4d.jaunts.state;
+      return s ? { id: s.jaunt?.id ?? null, phase: s.phase, stopIndex: s.stopIndex, mode: s.mode,
+        estimate: s.estimate ? JSON.stringify(s.estimate) : null } : null;
+    });
+    const atStop = () => until(() => window.__chicago4d.jaunts.state?.phase === 'atStop');
+    const finishRide = async () => {
+      await p14.evaluate(() => {
+        if (window.__chicago4d.travel.state.phase !== 'idle') window.__chicago4d.travel.simulate(600);
+      });
+      await atStop();
+    };
+    // A visitor's own tap: the first VISIBLE match, scrolled into view, hit-tested at its
+    // centre so a covered or disabled control fails here by name, then a trusted click.
+    const tap = async (sel, text = null) => {
+      const at = await p14.evaluate(([s, t]) => {
+        const el = [...document.querySelectorAll(s)].find((x) => x.getClientRects().length
+          && getComputedStyle(x).visibility !== 'hidden' && (t === null || x.textContent.trim() === t));
+        if (!el) return { why: `nothing visible matches ${s}` };
+        if (el.disabled) return { why: `${s} is disabled` };
+        el.scrollIntoView({ block: 'nearest' });
+        const r = el.getBoundingClientRect(), x = r.x + r.width / 2, y = r.y + r.height / 2;
+        const top = document.elementFromPoint(x, y);
+        if (!top || !(top === el || el.contains(top))) {
+          return { why: `${s} is covered at its centre by <${top?.tagName.toLowerCase() ?? 'nothing'} class="${top?.className ?? ''}">` };
+        }
+        return { x, y };
+      }, [sel, text]);
+      if (at.why) throw new Error(`part 14 tap: ${at.why}${text ? ` ("${text}")` : ''}`);
+      await p14.mouse.click(at.x, at.y);
+    };
+
+    await p14.goto(base, { waitUntil: 'domcontentloaded' });
+    await p14.waitForFunction(() => window.__chicago4d?.welcome?.state === 'welcome',
+      null, { timeout: 240_000, polling: 500 });
+    const years = await p14.evaluate(() => window.__arrivalYears);
+    const early = years.filter((y) => y.year === '1835' && !y.ready);
+    check(`${label}: the arrival counts down from the present and never reads 1835 before the scene is ready`,
+      years.length >= 2 && Number(years[0].year) > 1835 && early.length === 0
+      && years.every((y, i) => i === 0 || Number(y.year) <= Number(years[i - 1].year)),
+      years.map((y) => `${y.year}${y.ready ? '' : '·'}`).join(' '), true);
+
+    const welcome = await p14.evaluate(() => {
+      const gate = document.getElementById('gate');
+      const bar = document.getElementById('gate-bar');
+      return { text: gate.innerText, bar: !!bar && bar.getClientRects().length > 0
+        && getComputedStyle(bar).visibility !== 'hidden' };
+    });
+    const counted = /\d\s*%|\b\d[\d,]*\s+(?:buildings?|structures?|places|people|persons|residents|sources|records|businesses|households)\b/i
+      .exec(welcome.text);
+    check(`${label}: the welcome shows no count and no percentage`,
+      !counted && !welcome.bar, counted ? `reads "${counted[0]}"` : (welcome.bar ? 'the progress bar is still showing' : ''));
+
+    // --- Starting At…: a picked place enters the town with no pointer lock ---------
+    await tap('#welcome-explore');
+    await until(() => !!document.querySelector('#welcome-picker:not([hidden]) .welcome-destination:not(:disabled)'));
+    await tap('#welcome-results .welcome-destination:not(:disabled)');
+    await until(() => window.__chicago4d.welcome.state === 'world');
+    await p14.waitForTimeout(300);
+    check(`${label}: a place picked under Starting At… enters the town without taking the pointer`,
+      await p14.evaluate(() => !document.pointerLockElement && document.getElementById('gate').hidden));
+
+    // --- a jaunt from the menu, at its first stop ----------------------------------
+    await tap('#btn-start');
+    await until(() => window.__chicago4d.welcome.state === 'welcome');
+    await tap('#welcome-jaunts');
+    await until(() => !!document.querySelector('[data-jaunt="new-in-chicago"] [data-action="start"]'));
+    await tap('[data-jaunt="new-in-chicago"] [data-action="start"]');
+    await atStop();
+    const first = await jaunt();
+    check(`${label}: a jaunt started from the menu stands at its first stop, Previous disabled`,
+      first.id === 'new-in-chicago' && first.stopIndex === 0
+      && await p14.locator('#jaunt-panel [data-action="prev"]').isDisabled(), JSON.stringify(first));
+
+    // --- the card for this stop, and back to the same stop -------------------------
+    await tap('[data-link="structure:sauganash_hotel"]');
+    await until(() => window.__chicago4d.jaunts.state.phase === 'detail'
+      && !document.getElementById('popup').hidden);
+    await tap('#jaunt-panel [data-action="return"]');
+    await atStop();
+    const afterCard = await jaunt();
+    check(`${label}: the stop's place card opens, and Return comes back to the same stop`,
+      afterCard.stopIndex === 0 && await p14.evaluate(() => document.getElementById('popup').hidden),
+      JSON.stringify(afterCard));
+
+    // --- the source the stop cites, against the published catalog ------------------
+    await tap('[data-link="source:kinzie_waubun_1856"]');
+    await until(() => window.__chicago4d.jaunts.state.phase === 'detail'
+      && window.__chicago4d.sources?.state.detail === 'kinzie_waubun_1856'
+      && !document.getElementById('panel').hidden);
+    let catalog = null;
+    try {
+      catalog = JSON.parse(fs.readFileSync(path.join(ROOT, 'data', 'sidecars', '1835', 'sources', 'index.json'), 'utf8'));
+    } catch { catalog = null; }
+    const shown = await p14.evaluate(() => ({ rows: window.__chicago4d.sources.rows.length,
+      count: document.getElementById('sources')?.dataset.count ?? null,
+      cited: window.__chicago4d.sources.rows.some((r) => r.source_id === 'kinzie_waubun_1856') }));
+    check(`${label}: the stop's source opens in Sources, whose count is the published catalog's`,
+      !!catalog && shown.rows === catalog.sources.length && shown.count === String(catalog.sources.length) && shown.cited,
+      `${shown.rows} rows, data-count ${shown.count}; index.json ${catalog ? catalog.sources.length : 'unreadable'}`, true);
+    await tap('#jaunt-panel [data-action="return"]');
+    await atStop();
+    check(`${label}: Return from the source comes back to the same stop with the drawer shut`,
+      (await jaunt()).stopIndex === 0 && await p14.evaluate(() => document.getElementById('panel').hidden));
+
+    // --- a change of travel mode changes the ride and its estimate ------------------
+    const modeBefore = await jaunt();
+    const remainingBefore = await p14.locator('#jaunt-panel [data-jaunt-remaining]').innerText().catch(() => '');
+    const otherMode = modeBefore.mode === 'horse' ? 'walk' : 'horse';
+    await p14.selectOption('#jaunt-panel select[aria-label="Jaunt travel mode"]', otherMode);
+    await until((m) => window.__chicago4d.jaunts.state.mode === m, otherMode);
+    const modeAfter = await jaunt();
+    const remainingAfter = await p14.locator('#jaunt-panel [data-jaunt-remaining]').innerText().catch(() => '');
+    await tap('#jaunt-panel [data-action="next"]');
+    const riding = await p14.evaluate(() => ({ phase: window.__chicago4d.jaunts.state.phase,
+      travel: window.__chicago4d.travel.state.phase, mode: window.__chicago4d.travel.mode }));
+    check(`${label}: changing the travel mode changes the estimate, and the next ride goes at that mode`,
+      modeAfter.estimate !== modeBefore.estimate && remainingAfter !== remainingBefore
+      && riding.phase === 'travelling' && riding.mode === otherMode,
+      `${modeBefore.mode} "${remainingBefore}" -> ${otherMode} "${remainingAfter}"; ride ${JSON.stringify(riding)}`, true);
+    await finishRide();
+    const second = (await jaunt()).stopIndex;
+    await tap('#jaunt-panel [data-action="prev"]');
+    await finishRide();
+    const back = (await jaunt()).stopIndex;
+    await tap('#jaunt-panel [data-action="next"]');
+    await finishRide();
+    check(`${label}: Next and Previous move between stops 1 and 2`,
+      second === 1 && back === 0 && (await jaunt()).stopIndex === 1, `${second} -> ${back} -> ${(await jaunt()).stopIndex}`);
+
+    // --- Menu pauses, Resume returns, End is quick ----------------------------------
+    await tap('#jaunt-panel [data-action="menu"]');
+    await until(() => window.__chicago4d.welcome.state === 'welcome');
+    await until(() => [...document.querySelectorAll('#welcome-jaunts-content button')]
+      .some((x) => x.textContent.trim() === 'Resume Jaunt'));
+    await tap('#welcome-jaunts-content button', 'Resume Jaunt');
+    await atStop();
+    check(`${label}: the Jaunts menu pauses the outing and Resume returns to the same stop`,
+      (await jaunt()).stopIndex === 1);
+    const endMs = await p14.evaluate(() => {
+      const t0 = performance.now();
+      document.querySelector('#jaunt-panel [data-action="end"]').click();
+      const shown = !document.getElementById('gate').hidden;
+      return shown ? performance.now() - t0 : null;
+    });
+    check(`${label}: End Jaunt returns to the menu in under 200 ms`,
+      endMs !== null && endMs < 200 && (await jaunt()).id === null,
+      endMs === null ? 'the menu was not showing when the click returned' : `${endMs.toFixed(1)} ms`, true);
+
+    // --- a second jaunt, then Explore Myself clears it -----------------------------
+    await until(() => !!document.querySelector('[data-jaunt="taverns-of-chicago"] [data-action="start"]'));
+    await tap('[data-jaunt="taverns-of-chicago"] [data-action="start"]');
+    await atStop();
+    const another = await jaunt();
+    check(`${label}: a second jaunt starts at its own first stop`,
+      another.id === 'taverns-of-chicago' && another.stopIndex === 0, JSON.stringify(another));
+    await tap('#jaunt-panel [data-action="menu"]');
+    await until(() => window.__chicago4d.welcome.state === 'welcome'
+      && window.__chicago4d.jaunts.state.phase === 'menu');
+    await tap('#welcome-jaunts-explore');
+    await until(() => !document.getElementById('welcome-picker').hidden);
+    check(`${label}: Explore on my own clears a paused jaunt`,
+      (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
+    if (KEEP) await p14.screenshot({ path: path.join(KEEP, `part14-${viewport.width}x${viewport.height}.png`) });
+    await ctx14.close();
+    inStageWork = false;
+    } // end PART 14 (T-2044)
     } catch (e) {
       inStageWork = false;
       thrown = e;

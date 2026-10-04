@@ -16,9 +16,6 @@
     "flora/palette:budget.instances_near": {
       "records": 9
     },
-    "flora/palette:ground.dry_rgb": {
-      "records": 9
-    },
     "flora/palette:ground.rgb": {
       "records": 9
     },
@@ -63,13 +60,13 @@
       "refused_because": "A units declaration, not a figure. It states what woody_stratum.establishes_m's metres are measured from, for a reader of the record and for tools/validate.py, which requires it. A renderer that read it would be a renderer able to convert between datums; if it ever disagreed with the heightfield's own, the right outcome is this gate failing rather than a silent conversion. T-1056."
     },
     "residents/household:arrival_year.replaceable_by.kind": {
-      "records": 1428
+      "records": 1337
     },
     "residents/household:arrival_year.written_by_stage": {
-      "records": 1440
+      "records": 1349
     },
     "residents/household:division": {
-      "records": 1512,
+      "records": 1421,
       "refused_because": "Denormalised. The MANIFEST's copy is what the panel groups and labels rows by, and validate.py fails the build if the two disagree; reading both would be two answers to one question."
     },
     "residents/household:division_reconstructed.band": {
@@ -142,7 +139,7 @@
       "records": 11
     },
     "residents/household:head": {
-      "records": 1512,
+      "records": 1421,
       "refused_because": "The record's own copy of the same foreign key. Refused for the same reason, and it is the record that is authoritative."
     },
     "residents/household:kin[].book_kin": {
@@ -162,10 +159,10 @@
       "records": 11
     },
     "residents/household:origin.replaceable_by.kind": {
-      "records": 1459
+      "records": 1368
     },
     "residents/household:origin.written_by_stage": {
-      "records": 1480
+      "records": 1389
     },
     "residents/household:persons[].appearance_bounds[].as_read": {
       "records": 29
@@ -372,10 +369,10 @@
       "records": 11
     },
     "residents/household:reason_for_coming.replaceable_by.kind": {
-      "records": 1487
+      "records": 1396
     },
     "residents/household:reason_for_coming.written_by_stage": {
-      "records": 1487
+      "records": 1396
     },
     "residents/household:refamilied.changed": {
       "records": 25
@@ -426,35 +423,35 @@
       "records": 25
     },
     "residents/household:source_pass": {
-      "records": 1433,
+      "records": 1342,
       "refused_because": "T-0599/T-0604: provenance for the three mint tools' OWN bookkeeping — which pass (documented/placed/letter_list) minted this record, so a re-run can tell 'a household I minted' from a plain hand-authored one without an id prefix. Not a finding about the person: the evidence the panel already shows — grade, letter_list_only, sources — is what a visitor judges the record by, and which internal tool produced it is not part of that judgment. See data/residents/README.md."
     },
     "residents/household:women_children.head_trade": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.head_trade_seed": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.household_type": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.seated": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.seated_beyond_the_draw": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.seed": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.size_drawn": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.stage": {
-      "records": 124
+      "records": 33
     },
     "residents/household:women_children.ticket": {
-      "records": 124
+      "records": 33
     },
     "residents/manifest:_roles_doc": {
       "records": 1
@@ -479,11 +476,11 @@
       "records": 1305
     },
     "residents/manifest:households[].head": {
-      "records": 1512,
+      "records": 1421,
       "refused_because": "A foreign key into `persons[].id`, not a figure — it names which person heads the household, and that fact already reaches the visitor as that person's `relationship`, shown on their own row."
     },
     "residents/manifest:households[].present_on_scene_date": {
-      "records": 1512,
+      "records": 1421,
       "refused_because": "The flat copy of a graded claim. `residents.js` shows the RECORD's block — its value, its confidence, its reasoning and its sources — and the manifest's bare value carries none of that. Showing the poorer copy would be showing less."
     },
     "residents/manifest:households[].projected_resident": {

@@ -56,83 +56,6 @@
       "note": "DEALT BY RULE for agency_striker_log_house: the closest allowed ground to the house, which is where a dooryard bush stands. 1.27 m is inside the species' recorded band."
     },
     {
-      "id": "beaubien_new_residence_tree_1",
-      "species": "ulmus_americana",
-      "at_local_enu_m": [
-        1167.63,
-        177.85
-      ],
-      "height_m": 18.4,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_new_residence: the best-scored allowed ground in this house's yard quarter. 18.4 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
-    },
-    {
-      "id": "beaubien_new_residence_tree_2",
-      "species": "ulmus_americana",
-      "at_local_enu_m": [
-        1167.02,
-        173.26
-      ],
-      "height_m": 17.3,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_new_residence: the best-scored allowed ground in this house's yard quarter. 17.3 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
-    },
-    {
-      "id": "beaubien_new_residence_bush_1",
-      "species": "ribes_spp",
-      "at_local_enu_m": [
-        1159.19,
-        183.23
-      ],
-      "height_m": 1.23,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_new_residence: the closest allowed ground to the house, which is where a dooryard bush stands. 1.23 m is inside the species' recorded band."
-    },
-    {
-      "id": "beaubien_new_residence_bush_2",
-      "species": "ribes_spp",
-      "at_local_enu_m": [
-        1159.19,
-        172.47
-      ],
-      "height_m": 1.11,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_new_residence: the closest allowed ground to the house, which is where a dooryard bush stands. 1.11 m is inside the species' recorded band."
-    },
-    {
-      "id": "beaubien_trading_post_tree_1",
-      "species": "ulmus_americana",
-      "at_local_enu_m": [
-        1163.96,
-        160.94
-      ],
-      "height_m": 16.4,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_trading_post: the best-scored allowed ground in this house's yard quarter. 16.4 m sits in the low third of the species' recorded 16-24 m band — a kept tree is cut back and a planted one is young, and the record claims neither in particular."
-    },
-    {
-      "id": "beaubien_trading_post_bush_1",
-      "species": "ribes_spp",
-      "at_local_enu_m": [
-        1154.35,
-        167.24
-      ],
-      "height_m": 1.44,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_trading_post: the closest allowed ground to the house, which is where a dooryard bush stands. 1.44 m is inside the species' recorded band."
-    },
-    {
-      "id": "beaubien_trading_post_bush_2",
-      "species": "ribes_spp",
-      "at_local_enu_m": [
-        1154.35,
-        154.64
-      ],
-      "height_m": 0.82,
-      "confidence": "reconstructed",
-      "note": "DEALT BY RULE for beaubien_trading_post: the closest allowed ground to the house, which is where a dooryard bush stands. 0.82 m is inside the species' recorded band."
-    },
-    {
       "id": "caldwell_agency_log_house_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
@@ -444,8 +367,8 @@
       "id": "jb_beaubien_homestead_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        1114.38,
-        177.85
+        1115.02,
+        172.98
       ],
       "height_m": 16.5,
       "confidence": "reconstructed",
@@ -521,8 +444,8 @@
       "id": "recon_1835_blk_indiana_north_cass_d3_02_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        1027.49,
-        507.26
+        1014.27,
+        494.04
       ],
       "height_m": 1.45,
       "confidence": "reconstructed",
@@ -543,7 +466,7 @@
       "id": "recon_1835_blk_indiana_north_cass_d4_05_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        983.34,
+        993.47,
         555.73
       ],
       "height_m": 1.08,
@@ -554,8 +477,8 @@
       "id": "recon_1835_blk_indiana_north_cass_d4_05_bush_2",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        993.47,
-        555.73
+        995.56,
+        539.8
       ],
       "height_m": 1.48,
       "confidence": "reconstructed",
@@ -609,8 +532,8 @@
       "id": "recon_1835_blk_indiana_north_wolcott_d3_01_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        902.31,
-        557.38
+        911.55,
+        541.38
       ],
       "height_m": 1.16,
       "confidence": "reconstructed",
@@ -653,7 +576,7 @@
       "id": "recon_1835_blk_indiana_north_wolcott_d3_02_bush_2",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        900.08,
+        913.1,
         493.42
       ],
       "height_m": 0.92,
@@ -686,8 +609,8 @@
       "id": "recon_1835_blk_indiana_north_wolcott_d3_05_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        886.89,
-        555.75
+        874.1,
+        542.96
       ],
       "height_m": 0.93,
       "confidence": "reconstructed",
@@ -698,7 +621,7 @@
       "species": "ribes_spp",
       "at_local_enu_m": [
         874.1,
-        542.96
+        555.75
       ],
       "height_m": 1.34,
       "confidence": "reconstructed",
@@ -719,8 +642,8 @@
       "id": "recon_1835_blk_indiana_north_wolcott_d3_06_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        886.61,
-        507.02
+        873.72,
+        494.14
       ],
       "height_m": 1.13,
       "confidence": "reconstructed",
@@ -895,8 +818,8 @@
       "id": "recon_1835_blk_randolph_clinton_d7_08_tree_1",
       "species": "populus_deltoides",
       "at_local_enu_m": [
-        -187.49,
-        -352.67
+        -186.78,
+        -353.37
       ],
       "height_m": 19.4,
       "confidence": "reconstructed",
@@ -1137,8 +1060,8 @@
       "id": "recon_1835_blk_south_water_dearborn_h1_03_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        788.36,
-        -102.0
+        790.1,
+        -97.8
       ],
       "height_m": 1.42,
       "confidence": "reconstructed",
@@ -1170,8 +1093,8 @@
       "id": "recon_1835_blk_washington_lasalle_h2_01_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        487.82,
-        -427.21
+        484.99,
+        -424.38
       ],
       "height_m": 16.8,
       "confidence": "reconstructed",
@@ -1181,8 +1104,8 @@
       "id": "recon_1835_blk_washington_lasalle_h2_01_tree_2",
       "species": "populus_deltoides",
       "at_local_enu_m": [
-        484.99,
-        -424.38
+        480.44,
+        -424.13
       ],
       "height_m": 18.7,
       "confidence": "reconstructed",
@@ -1203,8 +1126,8 @@
       "id": "recon_1835_blk_washington_wells_d7_04_tree_2",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        433.15,
-        -422.99
+        431.52,
+        -427.96
       ],
       "height_m": 18.6,
       "confidence": "reconstructed",
@@ -1214,8 +1137,8 @@
       "id": "recon_1835_blk_washington_wells_d7_04_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        436.37,
-        -411.08
+        432.3,
+        -430.86
       ],
       "height_m": 0.88,
       "confidence": "reconstructed",
@@ -1247,8 +1170,8 @@
       "id": "recon_1835_blk_west_randolph_des_plaines_d5_04_tree_1",
       "species": "populus_deltoides",
       "at_local_enu_m": [
-        -428.0,
-        -350.58
+        -427.3,
+        -351.28
       ],
       "height_m": 19.4,
       "confidence": "reconstructed",
@@ -1269,8 +1192,8 @@
       "id": "recon_1835_blk_west_randolph_des_plaines_d5_04_bush_2",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        -410.55,
-        -371.61
+        -406.1,
+        -357.76
       ],
       "height_m": 1.45,
       "confidence": "reconstructed",
@@ -1391,7 +1314,7 @@
       "species": "ribes_spp",
       "at_local_enu_m": [
         720.0,
-        286.39
+        303.61
       ],
       "height_m": 1.01,
       "confidence": "reconstructed",
@@ -1797,7 +1720,7 @@
       "id": "recon_1835_north_d4_025_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        810.04,
+        799.96,
         291.27
       ],
       "height_m": 0.91,
@@ -2116,8 +2039,8 @@
       "id": "recon_1835_south_d6_020_tree_2",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        788.08,
-        -155.92
+        789.49,
+        -154.51
       ],
       "height_m": 18.6,
       "confidence": "reconstructed",
@@ -2227,7 +2150,7 @@
       "species": "ribes_spp",
       "at_local_enu_m": [
         -213.76,
-        33.33
+        33.83
       ],
       "height_m": 0.83,
       "confidence": "reconstructed",
@@ -2238,7 +2161,7 @@
       "species": "ribes_spp",
       "at_local_enu_m": [
         -232.24,
-        22.66
+        23.16
       ],
       "height_m": 1.4,
       "confidence": "reconstructed",
@@ -2248,8 +2171,8 @@
       "id": "recon_1835_west_008_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -241.54,
-        -144.66
+        -246.0,
+        -145.24
       ],
       "height_m": 18.0,
       "confidence": "reconstructed",
@@ -2260,7 +2183,7 @@
       "species": "populus_deltoides",
       "at_local_enu_m": [
         -246.0,
-        -144.24
+        -142.24
       ],
       "height_m": 20.4,
       "confidence": "reconstructed",
@@ -2633,8 +2556,8 @@
       "id": "recon_1835_west_033_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        -417.71,
-        -188.55
+        -406.79,
+        -207.45
       ],
       "height_m": 1.16,
       "confidence": "reconstructed",
@@ -2699,8 +2622,8 @@
       "id": "recon_1835_west_042_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -481.77,
-        -141.78
+        -486.0,
+        -140.33
       ],
       "height_m": 17.1,
       "confidence": "reconstructed",
@@ -2963,8 +2886,8 @@
       "id": "wabansia_doctors_house_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        -437.99,
-        296.5
+        -434.02,
+        290.54
       ],
       "height_m": 18.4,
       "confidence": "reconstructed",
@@ -3147,5 +3070,5 @@
     "wright_building_to_let_b: no allowed ground for tree 1",
     "wright_building_to_let_b: no allowed ground for bush 1"
   ],
-  "research_note": "135 DOORYARD TREES AND 132 CURRANT BUSHES ACROSS 122 OF THE TOWN'S 231 DWELLINGS, EVERY ONE OF THEM DEALT BY THE RULE IN tools/generate_dooryard_plantings.py — no source counts any house's trees, so the honest shape is a rule that says why each house got what it got, re-derived on every commit. THE DEAL IS DELIBERATELY THIN: at most two trees and two bushes to a house, under half a town of houses drawing any tree at all, and the dense party-wall blocks refuse themselves (a stem must clear every committed footprint by more than the renderer's own margin, so a rowhouse yard offers no allowed ground — the refusals below name each one). WHAT THE DENSITY IS NOT: ZONE 10's 8-25/ha relict band binds the DEALT wood inside that zone's drawn extent, and only 3 of these 267 stems stand inside it; this record makes a HOUSEHOLD claim (a dooryard's stems), not an ecological one, and the two must not be added together. Whether any given tree was kept from the clearing or planted by the household is unknowable and unclaimed. Heights: trees in the LOW third of their recorded bands (cut-back if kept, young if planted); bushes anywhere in theirs. Every coordinate, count and height is reconstructed and claimed in docs/LIBERTIES.md L151. WHAT IS DELIBERATELY NOT HERE: the Lombardy poplars the ticket names are not dealt, because no committed flora zone record describes the species and the renderer refuses a stem the zone records do not carry — holding the poplar as a species is its own ticket; and the currant clumps are drawn without their July fruit, because the clonal draw path carries no berry (stated in trees.js). WHAT WOULD UPGRADE IT: T-0075's source records for the plates, or any sale notice, diary or view that counts or places a particular house's trees."
+  "research_note": "132 DOORYARD TREES AND 128 CURRANT BUSHES ACROSS 120 OF THE TOWN'S 229 DWELLINGS, EVERY ONE OF THEM DEALT BY THE RULE IN tools/generate_dooryard_plantings.py — no source counts any house's trees, so the honest shape is a rule that says why each house got what it got, re-derived on every commit. THE DEAL IS DELIBERATELY THIN: at most two trees and two bushes to a house, under half a town of houses drawing any tree at all, and the dense party-wall blocks refuse themselves (a stem must clear every committed footprint by more than the renderer's own margin, so a rowhouse yard offers no allowed ground — the refusals below name each one). WHAT THE DENSITY IS NOT: ZONE 10's 8-25/ha relict band binds the DEALT wood inside that zone's drawn extent, and only 259 of these 260 stems stand inside it; this record makes a HOUSEHOLD claim (a dooryard's stems), not an ecological one, and the two must not be added together. Whether any given tree was kept from the clearing or planted by the household is unknowable and unclaimed. Heights: trees in the LOW third of their recorded bands (cut-back if kept, young if planted); bushes anywhere in theirs. Every coordinate, count and height is reconstructed and claimed in docs/LIBERTIES.md L151. WHAT IS DELIBERATELY NOT HERE: the Lombardy poplars the ticket names are not dealt, because no committed flora zone record describes the species and the renderer refuses a stem the zone records do not carry — holding the poplar as a species is its own ticket; and the currant clumps are drawn without their July fruit, because the clonal draw path carries no berry (stated in trees.js). WHAT WOULD UPGRADE IT: T-0075's source records for the plates, or any sale notice, diary or view that counts or places a particular house's trees."
 }

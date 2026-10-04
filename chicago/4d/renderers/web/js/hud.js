@@ -396,6 +396,8 @@ export function createHud({
 
   const panelScroll = $('panel-scroll');
   function selectTab(want) {
+    // A section the scene does not carry (T-1740) is never selected, by any route.
+    if (root.querySelector(`.panel-tab[data-tab="${want}"]`)?.hidden) return;
     currentTab = want;
     root.querySelectorAll('.panel-tab').forEach((x) => {
       const on = x.dataset.tab === want;
@@ -418,7 +420,7 @@ export function createHud({
 
   // The rail is a list of sections: the arrow keys walk it when one has focus.
   root.querySelector('.panel-tabs')?.addEventListener('keydown', (e) => {
-    const tabs = [...root.querySelectorAll('.panel-tab')];
+    const tabs = [...root.querySelectorAll('.panel-tab')].filter((t) => !t.hidden);
     const i = tabs.indexOf(document.activeElement);
     if (i < 0) return;
     const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
@@ -685,6 +687,17 @@ export function createHud({
     setPanel,
     selectTab,
     setTitle,
+    /** T-1740 — take sections out of the rail: a scene that does not list the
+     *  layer a section reads offers no tab for it, so the arrow keys skip it and
+     *  no route can select it. */
+    omitTabs(ids) {
+      for (const id of ids) {
+        const tab = root.querySelector(`.panel-tab[data-tab="${id}"]`);
+        if (tab) tab.hidden = true;
+        root.querySelector(`.panel-body[data-panel="${id}"]`)?.setAttribute('hidden', '');
+      }
+      if (ids.includes(currentTab)) selectTab('goto');
+    },
     /** Let one listener know which section is showing. */
     onTabChange(fn) { onTab = fn; },
     get tab() { return currentTab; },

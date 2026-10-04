@@ -83,36 +83,116 @@ def continuous_gable(r):
     return result
 
 
+def lower_rear_gable(r):
+    """T-1999: high alley cross-gable, low rear roof, exact north-range join.
+
+    The alley silhouette is controlled independently from the surveyed north
+    range. A level cross crest reaches the stable's north-gable axis, then a
+    short set of planar facets meets the north range's ridge and kicked eave.
+    Every transition shares its boundary vertices. The rear gable remains level
+    from its intersection with the crossing roof through the solid south end.
+    """
+    import math
+    g = r['stable_roof']; n = g['north_range']
+    x0, x1, xm = r['x0'], r['x1'], r['ridge_at']
+    y0, y1 = r['y0'], r['y1']
+    cy, sy = g['cross_y'], g['south_foot_y']
+    cross = [slope('y', y1, g['north_eave'], cy, g['cross_z']),
+             slope('y', sy, g['cross_foot_eave'], cy, g['cross_z'])]
+    rear = [slope('x', x0, g['rear_west_eave'], g['rear_x'], g['rear_z']),
+            slope('x', x1, g['rear_east_eave'], g['rear_x'], g['rear_z'])]
+    north = [slope('x', g['front_x0'], g['north_eave'], xm, r['ridge_z']),
+             slope('x', g['front_x1'], g['north_eave'], xm, r['ridge_z'])]
+    result = [('cross', (x0-.15, xm, y0-.20, y1), cross),
+              ('rear_gable', (x0-.15, x1, y0-.20, cy), rear),
+              ('north', (x0-.15, x1, cy, y1), north)]
+    # Match the north roof at its wall AND its actual courtyard overhang.
+    # The extra station below the overhang tapers to the lower rear shoulder;
+    # no vertical lip or floating fascia is concealed at the court corner.
+    run = n['kick']['run_m']
+    pitch = math.tan(math.radians(n['kick']['pitch_deg']))
+    east = [(sy, g['rear_east_eave']),
+            (n['y0']-.20, n['eave_lo_z']-.20*pitch),
+            (n['y0'], n['eave_lo_z']),
+            (n['y0']+run, n['eave_lo_z']+run*pitch),
+            (n['ridge_at'], n['ridge_z']),
+            (y1, n['eave_hi_z'])]
+    # The intermediate stations remain on one plane at the high gable side.
+    # Their fractions correspond to the measured eastern eave/ridge section.
+    middle = []
+    for ey, _ in east:
+        if ey <= n['ridge_at']:
+            my = sy+(cy-sy)*(ey-sy)/(n['ridge_at']-sy)
+        else:
+            my = cy+(y1-cy)*(ey-n['ridge_at'])/(y1-n['ridge_at'])
+        middle.append((my, min(z(p, xm, my) for p in cross)))
+    for i, ((ma, mb), (ea, eb)) in enumerate(zip(zip(middle, middle[1:]), zip(east, east[1:]))):
+        quad = [(xm, ma[0], ma[1]), (x1, ea[0], ea[1]),
+                (x1, eb[0], eb[1]), (xm, mb[0], mb[1])]
+        for j, ids in enumerate(((0, 1, 2), (0, 2, 3))):
+            a, b, c = (quad[k] for k in ids)
+            u = [b[k]-a[k] for k in range(3)]
+            v = [c[k]-a[k] for k in range(3)]
+            normal = (u[1]*v[2]-u[2]*v[1], u[2]*v[0]-u[0]*v[2], u[0]*v[1]-u[1]*v[0])
+            aa, bb = -normal[0]/normal[2], -normal[1]/normal[2]
+            plane = (aa, bb, a[2]-aa*a[0]-bb*a[1])
+            result.append((f'court_join_{i}_{j}', [(q[0], q[1]) for q in (a,b,c)], [plane]))
+    return result
+
+
+def connected_roof(r):
+    """T-2016: two straight gables, joined only at their true plane intersections.
+
+    The stable keeps the surveyed north door/loft axis and its existing gable
+    section all the way south. The lower E-W ridge retains the measured range
+    height; it is locally occluded where the taller stable crosses it. No skewed
+    connector, lowered rear ridge, hip, or warped four-corner patch is needed.
+    """
+    g=r['stable_roof'];n=g['north_range']
+    stable=[slope('x',g['front_x0'],g['north_eave'],r['ridge_at'],r['ridge_z']),
+            slope('x',g['front_x1'],g['north_eave'],r['ridge_at'],r['ridge_z'])]
+    north=[slope('y',n['y0'],n['eave_lo_z'],n['ridge_at'],n['ridge_z']),
+           slope('y',n['y1'],n['eave_hi_z'],n['ridge_at'],n['ridge_z'])]
+    return [('stable_gable',(r['x0']-.20,r['x1']+.20,r['y0']-.20,r['y1']),stable),
+            ('straight_north',(r['x0']-.20,r['x1']+.20,r['y0']-.20,n['y1']),north)]
+
+
 def components(r, include_dormer=True):
     g=r['stable_roof'];x0,x1,y0,y1=r['x0'],r['x1'],r['y0'],r['y1'];ov=.15
     box=(x0-ov,x1,y0-ov,y1)
-    # Northern full west-facing gable. Its southern foot returns to the lower
-    # alley eave; the old crossing range stopped far above that foot.
-    cross=[slope('y',y1,g['north_eave'],g['cross_y'],g['cross_z']),
-           slope('y',g['south_foot_y'],g.get('cross_foot_eave',g['rear_west_eave']),g['cross_y'],g['cross_z'])]
-    # The shorter, asymmetric rear range has a hipped south end. The hip stays
-    # above the sheet-3 upper windows and does not invent a full-height rear gable.
-    rear=[slope('x',x0,g['rear_west_eave'],g['rear_x'],g['rear_z']),
-          slope('x',x1,g['rear_east_eave'],g['rear_x'],g['rear_z']),
-          slope('y',y0,g['south_eave'],g['hip_y'],g['rear_z'])]
-    north=[slope('x',g['front_x0'],g['north_eave'],r['ridge_at'],r['ridge_z']),
-           slope('x',g['front_x1'],g['north_eave'],r['ridge_at'],r['ridge_z']),
-           slope('y',g['front_hip_y'],r['ridge_z'],g['cross_y'],g['cross_z'])]
-    # The north-range courtyard kick meets the higher east-side wall. A narrow
-    # inward-sloping connector preserves that surveyed section at its seam.
-    n=g['north_range'];nr=n['ridge_at'];nz=n['ridge_z'];yk=n['y0']+n['kick']['run_m']
-    import math
-    zk=n['eave_lo_z']+n['kick']['run_m']*math.tan(math.radians(n['kick']['pitch_deg']))
-    high=slope('y',yk,zk,nr,nz);low=slope('y',n['y0'],n['eave_lo_z'],yk,zk)
-    def taper(p):return (p[0]+1.5,p[1],p[2]-1.5*x1)
-    comps=[('cross',box,cross),('rear',(x0-ov,x1,y0-ov,g['cross_y']),rear),
-           ('north',(x0-ov,x1,g['cross_y'],y1),north),
-           ('connector_upper',(x0-ov,x1,yk,nr),[taper(high)]),
-           ('connector_kick',(x0-ov,x1,n['y0'],yk),[taper(low)])]
-    if g.get('continuous_south_gable'):
-        comps=[comps[0],*continuous_gable(r),*comps[3:]]
+    if g.get('connected_roof_plan'):
+        comps=connected_roof(r)
+    else:
+        # Northern full west-facing gable. Its southern foot returns to the lower
+        # alley eave; the old crossing range stopped far above that foot.
+        cross=[slope('y',y1,g['north_eave'],g['cross_y'],g['cross_z']),
+               slope('y',g['south_foot_y'],g.get('cross_foot_eave',g['rear_west_eave']),g['cross_y'],g['cross_z'])]
+        # The shorter, asymmetric rear range has a hipped south end. The hip stays
+        # above the sheet-3 upper windows and does not invent a full-height rear gable.
+        rear=[slope('x',x0,g['rear_west_eave'],g['rear_x'],g['rear_z']),
+              slope('x',x1,g['rear_east_eave'],g['rear_x'],g['rear_z']),
+              slope('y',y0,g['south_eave'],g['hip_y'],g['rear_z'])]
+        north=[slope('x',g['front_x0'],g['north_eave'],r['ridge_at'],r['ridge_z']),
+               slope('x',g['front_x1'],g['north_eave'],r['ridge_at'],r['ridge_z']),
+               slope('y',g['front_hip_y'],r['ridge_z'],g['cross_y'],g['cross_z'])]
+        # The north-range courtyard kick meets the higher east-side wall. A narrow
+        # inward-sloping connector preserves that surveyed section at its seam.
+        n=g['north_range'];nr=n['ridge_at'];nz=n['ridge_z'];yk=n['y0']+n['kick']['run_m']
+        import math
+        zk=n['eave_lo_z']+n['kick']['run_m']*math.tan(math.radians(n['kick']['pitch_deg']))
+        high=slope('y',yk,zk,nr,nz);low=slope('y',n['y0'],n['eave_lo_z'],yk,zk)
+        def taper(p):return (p[0]+1.5,p[1],p[2]-1.5*x1)
+        comps=[('cross',box,cross),('rear',(x0-ov,x1,y0-ov,g['cross_y']),rear),
+               ('north',(x0-ov,x1,g['cross_y'],y1),north),
+               ('connector_upper',(x0-ov,x1,yk,nr),[taper(high)]),
+               ('connector_kick',(x0-ov,x1,n['y0'],yk),[taper(low)])]
+        if g.get('continuous_south_gable'):
+            comps=[comps[0],*continuous_gable(r),*comps[3:]]
+        if g.get('lower_rear_gable'):
+            comps=lower_rear_gable(r)
     if include_dormer and g.get('dormer'):
-        d=g['dormer'];front=d['hood_front'];back=d['back'];a=d['u0']-.25;c=d['u1']+.25
+        d=g['dormer'];front=d['hood_front'];back=d['back'];overhang=d.get('hood_overhang_m',.25)
+        a=d['u0']-overhang;c=d['u1']+overhang
         peak=d['apex_z'];eave=d['eave_z'];cx=d['crest_x'];mid=(a+c)/2
         # Hipped, flared hood, with a level eave at the front and both sides.
         inner=(front+.42,back-.12,a+.23,c-.23);rise=.13
@@ -124,6 +204,10 @@ def components(r, include_dormer=True):
                slope('x',back,eave,inner[1],eave+rise),
                slope('y',a,eave,inner[2],eave+rise),
                slope('y',c,eave,inner[3],eave+rise)]
+        if d.get('connected_ridge'):
+            # Remove the rear hip: the hood ridge now reaches the host slope.
+            planes.pop(1)
+            skirt.pop(1)
         comps.append(('dormer',(front,back,a,c),planes))
         comps.append(('dormer_skirt',(front,back,a,c),skirt))
     return comps
@@ -206,10 +290,20 @@ def ridge_ranges(r):
     g=r['stable_roof'];candidates=[('y',r['ridge_at'],r['ridge_z'],g['front_hip_y'],r['y1']),
       ('x',g['cross_y'],g['cross_z'],r['x0'],r['x1']),
       ('y',g['rear_x'],g['rear_z'],g['hip_y'],g['cross_y'])]
+    if g.get('connected_roof_plan'):
+        candidates=[('y',r['ridge_at'],r['ridge_z'],r['y0'],r['y1']),
+                    ('x',g['north_range']['ridge_at'],g['north_range']['ridge_z'],r['x0'],r['x1'])]
+        d=g.get('dormer')
+        if d and d.get('connected_ridge'):
+            candidates.append(('x',(d['u0']+d['u1'])/2,d['apex_z'],d['crest_x'],d['back']))
     if g.get('continuous_south_gable'):
         candidates=[('y',r['ridge_at'],r['ridge_z'],g['cross_y'],r['y1']),
                     ('x',g['cross_y'],g['cross_z'],r['x0'],r['x1']),
                     ('y',g['rear_x'],g['rear_z'],r['y0'],g['north_range']['y0'])]
+    if g.get('lower_rear_gable'):
+        candidates=[('y',r['ridge_at'],r['ridge_z'],g['cross_y'],r['y1']),
+                    ('x',g['cross_y'],g['cross_z'],r['x0'],r['ridge_at']),
+                    ('y',g['rear_x'],g['rear_z'],r['y0'],g['cross_y'])]
     out=[]
     for axis,at,rz,lo,hi in candidates:
         steps=max(1,round((hi-lo)/.08));start=None
@@ -220,7 +314,12 @@ def ridge_ranges(r):
             if (not ok or i==steps) and start is not None:
                 if a-start>.05:out.append(({**r,'axis':axis,'ridge_at':at,'ridge_z':rz},start,a))
                 start=None
-    if g.get('continuous_south_gable'):
+    if g.get('lower_rear_gable'):
+        lo,hi=r['ridge_at'],r['x1'];n=g['north_range']
+        out.append(({**r,'axis':'x','ridge_at':g['cross_y'],'ridge_z':g['cross_z'],
+                     'ridge_origin':lo,'ridge_skew':(n['ridge_at']-g['cross_y'])/(hi-lo),
+                     'ridge_slope':(n['ridge_z']-g['cross_z'])/(hi-lo)},lo,hi))
+    if g.get('continuous_south_gable') and not g.get('lower_rear_gable'):
         lo,hi=g['north_range']['y0'],g['cross_y']
         out.append(({**r,'axis':'y','ridge_at':g['rear_x'],'ridge_z':g['rear_z'],
                      'ridge_origin':lo,'ridge_skew':(r['ridge_at']-g['rear_x'])/(hi-lo)},lo,hi))

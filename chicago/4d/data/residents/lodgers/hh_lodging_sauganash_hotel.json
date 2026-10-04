@@ -73,8 +73,8 @@
  },
  "persons": [
   {
-   "id": "rc_gilbert_polly",
-   "name": "Polly Gilbert",
+   "id": "rc_gilbert_amanda",
+   "name": "Amanda Gilbert",
    "relationship": "lodger",
    "grade": "reconstructed",
    "sex": "female",
@@ -97,7 +97,7 @@
     "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
    },
    "name_basis": {
-    "value": "Polly Gilbert",
+    "value": "Amanda Gilbert",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {

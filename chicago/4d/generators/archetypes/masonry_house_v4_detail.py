@@ -591,6 +591,10 @@ def linen_shade(b,u0,u1,z0,z1,point,normal,conf,seed,prairie_colonnade=False):
 def opening(b,o,courtyard=False):
     """An opening with 280 mm deep jambs, inset glazing, sash and separate sill."""
     kind=o['kind']; a,c,z0,z1=o['u0'],o['u1'],o['z0'],o['z1']; conf=o['conf']
+    if o.get('style') in ('stable_leaded','west_hood_clear'):
+        from archetypes.masonry_house_v4_west_fabric import stable_window
+        stable_window(b,o)
+        return
     if kind=='band':
         if o.get('face')=='east' and c-a>3 and z0>5:
             ornament.sill(b,o)
@@ -628,6 +632,10 @@ def opening(b,o,courtyard=False):
         return
     if kind in ('door','doors'):
         style=o.get('style','')
+        if style=='stable_carriage_doors' and b.params.detail.get('north_stable_fabric'):
+            from archetypes.masonry_house_v4_north import carriage_doors
+            carriage_doors(b,o,b.params.detail['north_stable_fabric'])
+            return
         if style in ('prairie_front_door','porte_cochere') or (o.get('face')=='east' and o['at']>45):
             detailed_door(b,o,'porte_cochere' if kind=='doors' else 'prairie_front_door')
             return
@@ -640,6 +648,10 @@ def opening(b,o,courtyard=False):
             slab(b,o,la,la+.055,z0+.05,z1-.05,-.24,-.18,conf,WOOD)
             slab(b,o,lc-.055,lc,z0+.05,z1-.05,-.24,-.18,conf,WOOD)
             slab(b,o,lc-.16,lc-.12,z0+(z1-z0)*.43,z0+(z1-z0)*.55,-.20,-.15,conf,IRON)
+        return
+    if o.get('style')=='stable_loft_opening' and b.params.detail.get('north_stable_fabric'):
+        from archetypes.masonry_house_v4_north import loft_opening
+        loft_opening(b,o,b.params.detail['north_stable_fabric'])
         return
     # Small basement grid apertures have stone mullions and only recessed glass.
     small=min(c-a,z1-z0)<.45
@@ -752,10 +764,10 @@ def roof_ridges(b,params):
             for j in range(8):
                 p,q=math.pi*j/8,math.pi*(j+1)/8
                 def P(a,l):
-                    across=r['ridge_at']+r.get('ridge_skew',0)*(l-r.get('ridge_origin',0))+.14*math.cos(a);z=r['ridge_z']+.055+.14*math.sin(a)
+                    across=r['ridge_at']+r.get('ridge_skew',0)*(l-r.get('ridge_origin',0))+.14*math.cos(a);z=r['ridge_z']+r.get('ridge_slope',0)*(l-r.get('ridge_origin',0))+.055+.14*math.sin(a)
                     return (across,l,z) if r['axis']=='y' else (l,across,z)
                 b.raw([P(p,lo),P(q,lo),P(q,hi),P(p,hi)],r['conf_roof'],19+i%3,(0,0,1))
-            add_ridge_crest(b,r['axis'],r['ridge_at'],r['ridge_z'],lo,hi,1.0,19+i%3,r.get('ridge_skew',0),r.get('ridge_origin',0))
+            add_ridge_crest(b,r['axis'],r['ridge_at'],r['ridge_z'],lo,hi,1.0,19+i%3,r.get('ridge_skew',0),r.get('ridge_origin',0),r.get('ridge_slope',0))
 
 
 def chimney(b,c):
@@ -823,6 +835,8 @@ def bow(b,w):
         a,c=op['a0'],op['a1'];mid=(a+c)/2
         p=(cx+r*math.cos(a),cy+r*math.sin(a));q=(cx+r*math.cos(c),cy+r*math.sin(c))
         facet_window(b,p,q,op['z0'],op['z1'],(math.cos(mid),math.sin(mid),0),conf,stone_jambs=False,door=op['door'])
+    if b.params.detail.get('continuous_copper_corner'):
+        return  # One joined fan and return are emitted in supplemental().
     z=w['wall_top_z'];zr=z+w['roof_rise_m'];ro=r+.20
     for i in range(48):
         a=a0+(a1-a0)*i/48;c=a0+(a1-a0)*(i+1)/48
@@ -1352,8 +1366,8 @@ def north_entry(b,p):
         x=sx0+i*run;h=landing+(threshold-landing)*(i+1)/n
         legacy._box(b,x,sy0,landing,x+run,sy1,h,conf,TRIM)
         legacy._box(b,x-.025,sy0-.025,h-.045,x+run,sy1+.025,h,conf,TRIM)
-    legacy._box(b,ca,yf-.52,landing,cc,yf-.08,d['cheek_top'],conf,GRANITE)
-    legacy._box(b,ca-.035,yf-.55,d['cheek_top'],cc+.035,yf-.05,d['cheek_top']+.10,conf,TRIM)
+    from archetypes.masonry_house_v4_north import porch_cheek
+    porch_cheek(b,d,landing)
     b.decorate=old
 
 
@@ -1362,10 +1376,11 @@ def west_hood(b,p,d):
     from archetypes.masonry_house_v4_west_roof import height, patches
     r=next(r for r in p.ranges if r.get('stable_roof'))
     a,c=d['u0'],d['u1'];front,back=d['front'],d['back'];conf=d['conf']
+    overhang=d.get('hood_overhang_m',.25)
     pl={'axis':'x','sign':-1,'at':front}
     # The wide opening in sheet 3 belongs up here, above the four lower lights.
     o={**pl,'face':'west','kind':'window','u0':a+.22,'u1':c-.22,
-       'z0':d['eave_z']-1.35,'z1':d['eave_z']-.13,'conf':conf,'style':'courtyard_sash'}
+       'z0':d['eave_z']-1.35,'z1':d['eave_z']-.13,'conf':conf,'style':'west_hood_clear'}
     apron_front=r['x0']-.10
     apron_z=height(r,apron_front,(a+c)/2)+.025
     # The upper envelope trims the host at the hood's overhang, while the
@@ -1376,11 +1391,22 @@ def west_hood(b,p,d):
         normal=legacy._normal([p0,p1,p2])
         def roof_z(x,y):
             return p0[2]-(normal[0]*(x-p0[0])+normal[1]*(y-p0[1]))/normal[2]
-        for lo,hi in ((a-.25,a),(c,c+.25)):
+        for lo,hi in ((a-overhang,a),(c,c+overhang)):
             strip=rect_clip([(v[0],v[1]) for v in pts],
                             d['hood_front'],lo,back,hi)
             if strip:
-                legacy._two_sided_roof(b,[(x,y,roof_z(x,y)) for x,y in strip],conf,ROOF)
+                fragments=[strip]
+                if d.get('connected_ridge'):
+                    fragments=[]
+                    for name,hood in patches(r,True):
+                        if not name.startswith('dormer'):continue
+                        part=strip
+                        poly=[(v[0],v[1]) for v in hood]
+                        if area(poly)<0:poly.reverse()
+                        for pa,pb in zip(poly,poly[1:]+poly[:1]):part=clip(part,pa,pb)
+                        if part:fragments.append(part)
+                for fragment in fragments:
+                    legacy._two_sided_roof(b,[(x,y,roof_z(x,y)) for x,y in fragment],conf,ROOF)
     old=b.decorate;b.decorate=False
     # Wooden boards around an actual aperture; no opaque panel behind the glass.
     # The sash is set into the roof, above a steep tiled apron. A tall wooden
@@ -1396,7 +1422,11 @@ def west_hood(b,p,d):
         zf=height(r,front,u);zb=height(r,back,u)
         b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,19,
               (0,-1 if u==a else 1,0))
-        cheek=[(front,u,zf),(back,u,zb),(back,u,d['eave_z']),(front,u,d['eave_z'])]
+        cheek_back=back
+        if d.get('connected_ridge') and zb>d['eave_z']:
+            cheek_back=front+(back-front)*(d['eave_z']-zf)/(zb-zf)
+            zb=d['eave_z']
+        cheek=[(front,u,zf),(cheek_back,u,zb),(cheek_back,u,d['eave_z']),(front,u,d['eave_z'])]
         b.raw(cheek,conf,19,(0,-1 if u==a else 1,0))
         # Restrained overlapping tile courses on the cheeks (not masonry).
         low=min(zf,zb);step=.13
@@ -1404,17 +1434,20 @@ def west_hood(b,p,d):
             zl=low+i*step;zh=min(d['eave_z'],zl+step)
             if zh<=max(zf,zb):continue
             at=u+(-.014 if u==a else .014)
-            b.raw([(front,at,max(zl,zf)),(back,at,max(zl,zb)),(back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
+            b.raw([(front,at,max(zl,zf)),(cheek_back,at,max(zl,zb)),(cheek_back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
     opening(b,o)
     # Outward fascia, sill and small hood brackets are visible from below.
-    slab(b,pl,a-.25,c+.25,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
+    slab(b,pl,a-overhang,c+overhang,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
     for u in (a+.1,c-.1):
         slab(b,pl,u-.06,u+.06,d['eave_z']-.42,d['eave_z']-.08,0,.22,conf,23)
+    legacy._finial(b,d['crest_x'],(a+c)/2,d['apex_z'],d.get('finial_m',.41),conf,COPPER)
     b.decorate=old
 
 
 def supplemental(b,p):
     north_entry(b,p)
+    from archetypes.masonry_house_v4_north import stable_fabric
+    stable_fabric(b,p)
     g=p.detail.get('west_cross_gable')
     if g and not any(r.get('north_cross_gable') for r in p.ranges):
         lo,hi=g['u0'],g['u1'];base=min(g['eave_lo_z'],g['eave_hi_z'])
@@ -1437,11 +1470,21 @@ def supplemental(b,p):
             legacy._two_sided_roof(b,[(d['front']-.1,u,d['eave_z']),(d['back'],u,d['eave_z']),(d['back'],mid,d['apex_z']),(d['front']-.1,mid,d['apex_z'])],d['conf'],ROOF)
         opening(b,o)
     r=p.detail.get('copper_return')
-    if r:
+    if r and not p.detail.get('continuous_copper_corner'):
         z=r['wall_top_z'];zt=z+r['rise_m']
         copper_seams(b,[(r['x0'],r['y0'],z),(r['x1'],r['y0'],z),(r['x1'],r['y1'],zt),(r['x0'],r['y1'],zt)],r['conf'])
         # Folded front fascia gives the metal roof its thickness in silhouette.
         b.raw([(r['x0'],r['y0'],z-.055),(r['x1'],r['y0'],z-.055),(r['x1'],r['y0'],z),(r['x0'],r['y0'],z)],r['conf'],COPPER,(0,-1,0))
+
+
+    if p.detail.get('dining_roof_junction'):
+        from archetypes.masonry_house_v4_courtyard_roof import dining
+        for tri in dining(p)[0]:
+            legacy._two_sided_roof(b,list(tri),1.0,ROOF)
+    if p.detail.get('continuous_copper_corner'):
+        from archetypes.masonry_house_v4_courtyard_roof import copper
+        for tri in copper(p)[0]:
+            copper_seams(b,list(tri),1.0)
 
 
 

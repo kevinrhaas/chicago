@@ -91,7 +91,7 @@ CONSUMED = frozenset({
     "bay_dining", "bay_dining_elevation",
     "dormers", "dormer_depth",
     "turret_stable",
-    "chimneys", "chimney_plans", "chimney_dining_room",
+    "chimneys", "chimney_plans", "chimney_dining_room", "chimney_service_east", "chimney_service_west",
     "openings_prairie", "openings_18th", "openings_18th_stable", "openings_18th_photo",
     "openings_stable_doors", "openings_alley", "openings_court", "openings_court_north",
     "opening_heights",
@@ -654,6 +654,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "back": fr.x(wd["back_W"]), "u0": fr.y(wd["centre_S"] + half),
                 "u1": fr.y(wd["centre_S"] - half), "z0": fr.zval(wd["base"]),
                 "eave_z": fr.zval(wd["eave"]), "apex_z": fr.zval(wd["apex"]),
+                "finial_m": float(wd.get("finial_ft",0.0))*FT,
+                "hood_overhang_m": float(wd.get("hood_overhang_ft",.25/FT))*FT,
                 "conf": cf("v4_detail")}
         rework = raw.get("stable_roof_rework")
         if rework:
@@ -675,8 +677,10 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "hip_y": fr.y(rework["south_hip_S"]),
                 "front_hip_y": fr.y(rework["front_hip_S"]),
                 "north_range": dict(north)}
+            west["stable_roof"]["connected_roof_plan"] = rework.get("connected_roof_plan", False)
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
-            if west["stable_roof"]["continuous_south_gable"]:
+            west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
+            if any(west["stable_roof"].get(k) for k in ("connected_roof_plan", "continuous_south_gable", "lower_rear_gable")):
                 # The owner's reconstructed section now drives both the roof
                 # and the masonry silhouette; retain that tier in both meshes.
                 west["conf_roof"] = max(west["conf_roof"], cf("v4_detail"))
@@ -684,6 +688,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             west["stable_roof"]["cross_foot_eave"] = fr.zval(rework.get("cross_foot_eave",rework["rear_eave_west"]))
             dormer = p.detail.get("west_dormer")
             if dormer:
+                dormer["connected_ridge"] = wd.get("connected_ridge", False)
                 dormer["style"] = wd.get("style")
                 dormer["crest_x"] = fr.x(wd["crest_W"])
                 dormer["hood_front"] = fr.x(wd["hood_front_W"])
@@ -706,10 +711,33 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "window_x": sorted(fr.x(v) for v in alcove["window_W"]),
                 "window_z": [fr.z(v) for v in alcove["window_z"]],
                 "cheek_x": sorted(fr.x(v) for v in alcove["cheek_W"]),
-                "cheek_top": fr.zval(alcove["cheek_top"])}
+                "cheek_top": fr.zval(alcove["cheek_top"]),
+                "cheek_cap_top": fr.zval(alcove.get("cheek_cap_top", alcove["cheek_top"])) +
+                    (0 if "cheek_cap_top" in alcove else .10),
+                "cheek_depth": float(alcove.get("cheek_depth_ft", 1.75))*FT,
+                "cheek_corner_radius": float(alcove.get("cheek_corner_radius_ft", .45))*FT}
             for o in p.openings:
                 if o["face"] == "north" and o["kind"] == "arch" and o["u1"]-o["u0"] > 3:
                     o["style"] = "north_entry_alcove"
+        stable_fabric = raw.get("north_stable_fabric")
+        if stable_fabric:
+            arch = stable_fabric["relieving_arch"]
+            hoist = stable_fabric["hoist_stone"]
+            p.detail["north_stable_fabric"] = {
+                "plane": _face(fr, "north", 0),
+                "door_board_top": fr.zval(stable_fabric["door_board_top"]),
+                "door_upper_panes": stable_fabric["door_upper_panes"],
+                "door_boards_per_leaf": stable_fabric["door_boards_per_leaf"],
+                "lintels": [{"u": sorted(fr.x(v) for v in s["W"]),
+                             "z": [fr.z(v) for v in s["z"]]}
+                            for s in stable_fabric["lintels"]],
+                "relieving_arch": {"u": sorted(fr.x(v) for v in arch["W"]),
+                    "spring": fr.zval(arch["spring"]), "rise": arch["rise_ft"]*FT,
+                    "ring": arch["ring_ft"]*FT, "voussoirs": arch["voussoirs"]},
+                "hoist_stone": {"u": sorted(fr.x(v) for v in hoist["W"]),
+                    "z": [fr.z(v) for v in hoist["z"]],
+                    "projection": hoist["projection_ft"]*FT},
+                "loft_frame": stable_fabric["loft_frame_ft"]*FT}
         cr = raw.get("copper_return")
         if cr:
             p.detail["copper_return"] = {"x0": min(fr.x(w) for w in cr["W"]),
@@ -740,6 +768,8 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "window_count": bt["window_count"], "window_z": [fr.z(v) for v in bt["window_z"]],
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
+        p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
+        p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
         if service_stair:

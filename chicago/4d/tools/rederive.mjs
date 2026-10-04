@@ -49,17 +49,28 @@
  * tools/check.sh is the proof that it settles, because it asserts the model, the
  * profile, the tier table and the resident cards all still re-derive afterwards.
  *
+ * AND THE PASS IS NOT THE END OF IT, which is T-1602. The model is a lagging reader
+ * too — it reads the scene's people.json and the town census, both rebuilt far below
+ * it — so it leads the pass. And the pass rewrites cards that compile_scene.py and
+ * everything below it read, so `--run` ends with the manifest's `after_the_pass`
+ * tail, repeated until a lap changes nothing: the scene and its generators read
+ * each other, and one lap leaves the sidecars a lap behind the structures. Before
+ * this, `--run` alone left the gate red on any branch that moved the population,
+ * and only pr-lap.sh's own late `--tail` (plus a hand step) turned it green.
+ *
  *   node tools/rederive.mjs --check                 the manifest is well-formed
  *   node tools/rederive.mjs --resolvable <paths…>   may these conflicts be cleared?
- *   node tools/rederive.mjs --run                   run the sequence, then the second pass
- *   node tools/rederive.mjs --tail <tools/x.py>     that step and every step below it (T-1661)
+ *   node tools/rederive.mjs --run                   the sequence, the second pass, then the settled tail
+ *   node tools/rederive.mjs --tail <tools/x.py>     that step and every step below it (T-1661),
+ *                                                   repeated until a lap moves nothing (T-1602)
  *   node tools/rederive.mjs --resolve               mid-merge: clear derived conflicts by rebuilding
  *   node tools/rederive.mjs --callers <script…>     no caller re-runs a step bare (T-1661)
  *   node tools/rederive.mjs --prove                 does every step write what it claims?
  *   node tools/rederive.mjs --self-test
  */
-import { readFileSync, existsSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, statSync, copyFileSync, rmSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
@@ -144,6 +155,44 @@ function check(m = load()) {
     }
   });
 
+  // A READER SITS BELOW WHAT IT READS (T-2080). On a clean tree a reader placed above
+  // its writer passes, because every committed file already agrees with its inputs;
+  // the lag shows only on a merged tree, as a refusal that reads like a data fault or
+  // as a stale file written without complaint. So the edge is declared on the reader
+  // (`reads`) and held here: rebuilt by a step ABOVE it, and named in the reader's own
+  // source, so the declaration cannot be cargo. A cycle is `second_pass`, not this.
+  m.steps.forEach((s, i) => {
+    if (s.reads === undefined) return;
+    const at = `step ${i + 1} (${(s.command ?? []).join(' ')})`;
+    if (!Array.isArray(s.reads) || s.reads.length === 0) {
+      problems.push(`${at}: reads must be a non-empty array of paths`);
+      return;
+    }
+    const script = path.join(APP, String(s.command?.[1] ?? ''));
+    const source = existsSync(script) ? readFileSync(script, 'utf8') : '';
+    for (const rel of s.reads) {
+      const owner = m.steps.findIndex((st) => (st.resolves ?? []).includes(rel));
+      if (owner < 0) {
+        problems.push(`${at}: declares it reads ${rel}, which no step rebuilds — there is no `
+          + 'edge to hold. Declare only files the sequence itself rewrites.');
+      } else if (owner === i) {
+        problems.push(`${at}: declares it reads ${rel}, which it rebuilds itself. A step is `
+          + 'not downstream of its own output.');
+      } else if (owner > i) {
+        problems.push(`${at}: reads ${rel}, which step ${owner + 1} (${m.steps[owner].command.join(' ')}) `
+          + 'rebuilds BELOW it. On a merged tree this step reads the pre-merge file — T-2080 '
+          + 'measured location_spend.py refusing a business whose seat had moved, and '
+          + 'report_convergence_coverage.py writing a stale join without a word. Move the '
+          + `writer above step ${i + 1}; if they read each other, it is a cycle and belongs `
+          + 'in second_pass with reads_rebuilt.');
+      }
+      if (source && !source.includes(path.basename(rel))) {
+        problems.push(`${at}: declares it reads ${rel}, and ${s.command[1]} never names `
+          + `${path.basename(rel)}. A read the tool does not make is an edge that holds nothing.`);
+      }
+    }
+  });
+
   // THE SECOND PASS (T-1363). Its safety rests entirely on every entry naming a
   // step from the list above: re-running a command the sequence already runs adds
   // no tool that `_only_gated_tools` has not gated and `--prove` has not proved.
@@ -205,14 +254,129 @@ function check(m = load()) {
     });
   }
 
+  // THE SETTLED TAIL AFTER THE PASS (T-1602). It must start at one real step, and
+  // that step must sit BELOW every second-pass step — a tail that began above the
+  // pass would re-run the cycle the pass just closed and move the population back.
+  const after = m.after_the_pass;
+  if (after !== undefined) {
+    const at = 'after_the_pass';
+    const hits = m.steps.map((s, i) => [i, s])
+      .filter(([, s]) => s.command.join(' ').includes(String(after.tail_from ?? '').trim() || '\u0000'));
+    if (hits.length !== 1) {
+      problems.push(`${at}: tail_from must name exactly one step of the sequence; `
+        + `${JSON.stringify(after.tail_from)} matches ${hits.length}`);
+    } else {
+      const passAt = secondPass.map((e) => stepAt.get(key(e.command))).filter((i) => i !== undefined);
+      const above = passAt.filter((i) => i >= hits[0][0]);
+      if (above.length) {
+        problems.push(`${at}: tail_from (step ${hits[0][0] + 1}) is at or above second-pass `
+          + `step(s) ${above.map((i) => i + 1).join(', ')}. The tail would re-run the cycle the `
+          + 'pass just closed; start it below the pass.');
+      }
+      const lo = passAt.length ? Math.min(...passAt) : hits[0][0];
+      problems.push(...between(m, m.steps.map((_, i) => i)
+        .filter((i) => i > lo && i < hits[0][0] && !passAt.includes(i)), passAt));
+    }
+    if (!Number.isInteger(after.max_laps) || after.max_laps < 2 || after.max_laps > 5) {
+      problems.push(`${at}: max_laps must be an integer from 2 to 5 — one lap cannot show `
+        + 'that the tree has stopped moving, and more than five is a loop that is not settling');
+    }
+    if (!after.why || !String(after.why).trim()) problems.push(`${at}: needs a why`);
+  }
+
   if (problems.length) {
     console.error('derived manifest FAILED:');
     for (const p of problems) console.error(`  - ${p}`);
     return 1;
   }
   console.log(`derived manifest OK — ${m.steps.length} step(s), ${allResolved(m).length} `
-    + `resolvable file(s), none hand-authored; second pass of ${secondPass.length} step(s)`);
+    + `resolvable file(s), none hand-authored; second pass of ${secondPass.length} step(s)`
+    + (after ? `, then the tail from ${after.tail_from} until it settles` : ''));
   return 0;
+}
+
+/**
+ * THE STEPS BETWEEN THE PASS AND THE TAIL (T-2082, T-1671's step 3). `window` is every
+ * step below the pass's first step and above `tail_from` that is not itself in the pass.
+ * Nothing re-runs these after the pass moves the population, so each one is safe there
+ * only if it reads nothing the pass moves, and that is a measurement, not a property of
+ * the code: a source scan says nearly all of them read the resident cards. So the answer
+ * is written down, as `after_the_pass.between`, with the date and the perturbation that
+ * took it, and held here. A step inserted into the window, or a pass entry that widens
+ * it, fails until somebody measures the step the same way and lists it. A step found
+ * sensitive does not get listed: it joins the pass or goes below the tail, which is what
+ * happened to seat_trade_roofs_1835.py when this was first measured.
+ */
+function between(m, window, passAt) {
+  const problems = [];
+  const at = 'after_the_pass.between';
+  const b = m.after_the_pass?.between;
+  const cmd = (i) => m.steps[i].command.join(' ');
+  if (b === undefined) {
+    if (window.length) {
+      problems.push(`${at}: steps ${window.map((i) => i + 1).join(', ')} sit between the second `
+        + 'pass and the tail, where nothing re-runs them after the pass moves the population, '
+        + 'and no measured answer says they are safe there. Perturb what the pass writes, '
+        + '--check each of them, and record what you found here.');
+    }
+    return problems;
+  }
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(String(b?.measured ?? ''))) {
+    problems.push(`${at}: measured must be the date the answer was taken (YYYY-MM-DD)`);
+  }
+  if (!String(b?.how ?? '').trim()) {
+    problems.push(`${at}: needs how: the perturbation that took the answer, so the next step `
+      + 'inserted here can be measured the same way');
+  }
+  const listed = b?.insensitive;
+  if (!Array.isArray(listed)) {
+    problems.push(`${at}: insensitive must be the array of commands measured safe there`);
+    return problems;
+  }
+  const here = new Set(window.map(cmd));
+  for (const i of window) {
+    if (!listed.includes(cmd(i))) {
+      problems.push(`${at}: step ${i + 1} (${cmd(i)}) sits between the pass and the tail and was `
+        + 'never measured there. If it reads what the pass moves, a --run ends with it stale '
+        + 'and nothing says so. Measure it the way `how` says and list it, or, if it moves, put '
+        + 'it in second_pass or below tail_from.');
+    }
+  }
+  listed.forEach((c, j) => {
+    if (listed.indexOf(c) !== j) problems.push(`${at}: lists ${c} twice`);
+    else if (!here.has(c)) {
+      problems.push(`${at}: lists ${c}, which does not sit between the pass and the tail. The `
+        + 'answer is a reading of the steps actually there; take it off.');
+    }
+  });
+  // A DECLARED read of a file a pass step rewrites is the one edge the answer must name.
+  // It is the case most likely to move, so it gets its own measured why.
+  const rewrites = new Map();
+  for (const i of passAt) for (const rel of m.steps[i].resolves ?? []) rewrites.set(rel, i);
+  const readers = b.declared_readers ?? {};
+  if (typeof readers !== 'object' || Array.isArray(readers)) {
+    problems.push(`${at}: declared_readers must map a command to its measured why`);
+    return problems;
+  }
+  const owed = new Set();
+  for (const i of window) {
+    const hit = (m.steps[i].reads ?? []).filter((rel) => rewrites.has(rel));
+    if (!hit.length) continue;
+    owed.add(cmd(i));
+    if (!String(readers[cmd(i)] ?? '').trim()) {
+      problems.push(`${at}: step ${i + 1} (${cmd(i)}) declares it reads ${hit.map((rel) => `${rel} `
+        + `(rewritten by pass step ${rewrites.get(rel) + 1})`).join(', ')}. Say in `
+        + 'declared_readers why that rewrite does not move it, measured, or put it in the pass.');
+    }
+  }
+  for (const c of Object.keys(readers)) {
+    if (!owed.has(c)) {
+      problems.push(`${at}: declared_readers names ${c}, which declares no read of a file the `
+        + 'pass rewrites, or is not between the pass and the tail. A why for an edge that is '
+        + 'not there is cargo.');
+    }
+  }
+  return problems;
 }
 
 /* ------------------------------------------------------- resolvable? */
@@ -276,7 +440,39 @@ function run(m = load()) {
 
   console.log(`derived layer rebuilt — ${m.steps.length} step(s) in dependency order, then a `
     + `second pass of ${secondPass.length} over the steps that read what the sequence rebuilds`);
-  return 0;
+
+  // AND EVERYTHING THAT READS THE CARDS THE PASS JUST MOVED, UNTIL IT STOPS MOVING
+  // (T-1602). Without this a `--run` on a branch that moved the population ended with
+  // the scene, its generators and their sidecars standing on the pre-pass cards, and
+  // only the lap's own late `--tail` — or a person — knew to fix it.
+  if (!m.after_the_pass) return 0;
+  const first = tailFrom(m.after_the_pass.tail_from, m);
+  if (first < 0) return 1;
+  return runFrom(first, m);
+}
+
+/**
+ * WHAT THE TREE UNDER chicago/4d HOLDS RIGHT NOW, AS ONE GIT TREE ID (T-1602).
+ *
+ * Written into a throwaway copy of the index, so the real one — mid-merge, during
+ * `--resolve` — is never touched. Copying the index keeps its stat cache, so only the
+ * files a lap actually rewrote are hashed again. Returns null outside a git checkout,
+ * and the caller then runs one lap and does not claim to know whether it settled.
+ */
+function treeState() {
+  const tmp = path.join(tmpdir(), `c4d-rederive-index-${process.pid}`);
+  try {
+    const index = path.resolve(REPO, execFileSync('git', ['rev-parse', '--git-path', 'index'],
+      { cwd: REPO, encoding: 'utf8' }).trim());
+    if (existsSync(index)) copyFileSync(index, tmp);
+    const env = { ...process.env, GIT_INDEX_FILE: tmp };
+    execFileSync('git', ['add', '-A', '--', path.relative(REPO, APP)], { cwd: REPO, env, stdio: 'ignore' });
+    return execFileSync('git', ['write-tree'], { cwd: REPO, env, encoding: 'utf8' }).trim();
+  } catch {
+    return null;
+  } finally {
+    rmSync(tmp, { force: true });
+  }
 }
 
 /* --------------------------------------------------------------------- tail */
@@ -303,9 +499,9 @@ function run(m = load()) {
  * picks it up with no edit, which a hand-written pair of commands would not.
  *
  * NO SECOND PASS. The pass walks the residents/model cycle once more (see
- * `_the_second_pass`), and its own steps sit ABOVE this tail at manifest indices
- * 76, 102 and 105; running it again here would move the population under the
- * very steps this tail just settled. The caller has already had it from `--run`.
+ * `_the_second_pass`), and its own steps sit ABOVE this tail — `--check` holds that
+ * for `after_the_pass` — so running it again here would move the population under
+ * the very steps this tail just settled. The caller has already had it from `--run`.
  */
 function tailFrom(from, m = load()) {
   const name = (from ?? '').trim();
@@ -332,21 +528,41 @@ function tail(from, m = load()) {
   return runFrom(first, m);
 }
 
+/**
+ * A TAIL, REPEATED UNTIL A LAP CHANGES NOTHING (T-1602). The scene and its generators
+ * read each other — compile_scene.py reads the structure records the infill
+ * generators write, and they read the sidecars it writes — so one lap can leave the
+ * sidecars a lap behind. A settled tree costs exactly one lap: the one that shows
+ * nothing moved. Still moving after `max_laps` is reported, not hidden, and check.sh
+ * stays the proof either way.
+ */
 function runFrom(first, m = load()) {
   const run_ = m.steps.slice(first);
-  for (const [i, s] of run_.entries()) {
-    const label = s.command.join(' ');
-    process.stdout.write(`  [${first + i + 1}/${m.steps.length}] ${label}\n`);
-    try {
-      execFileSync(s.command[0], s.command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
-    } catch (e) {
-      console.error(`  FAILED: ${label}`);
-      console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-8).map((l) => `    ${l}`).join('\n'));
-      return 1;
+  const maxLaps = m.after_the_pass?.max_laps ?? 1;
+  for (let lap = 1; lap <= maxLaps; lap += 1) {
+    const before = maxLaps > 1 ? treeState() : null;
+    if (lap > 1) process.stdout.write(`  — lap ${lap} of at most ${maxLaps}: the last one moved the tree —\n`);
+    for (const [i, s] of run_.entries()) {
+      const label = s.command.join(' ');
+      process.stdout.write(`  [${first + i + 1}/${m.steps.length}] ${label}\n`);
+      try {
+        execFileSync(s.command[0], s.command.slice(1), { cwd: APP, stdio: ['ignore', 'pipe', 'pipe'] });
+      } catch (e) {
+        console.error(`  FAILED: ${label}`);
+        console.error(`${e.stdout ?? ''}${e.stderr ?? ''}`.split('\n').slice(-8).map((l) => `    ${l}`).join('\n'));
+        return 1;
+      }
+    }
+    const after = before ? treeState() : null;
+    if (!before || !after || before === after) {
+      console.log(`derived layer rebuilt from step ${first + 1} — ${run_.length} step(s) in manifest `
+        + `order, ${lap} lap(s)${before && after ? ', and the last one moved nothing' : ''}; `
+        + 'no second pass (it sits above this tail)');
+      return 0;
     }
   }
-  console.log(`derived layer rebuilt from step ${first + 1} — ${run_.length} step(s) in manifest `
-    + 'order, no second pass (the caller has already had it from --run)');
+  console.error(`WARNING: the tail from step ${first + 1} was still moving the tree after `
+    + `${maxLaps} laps. Something below it is not converging — ./tools/check.sh will say which.`);
   return 0;
 }
 
@@ -588,8 +804,13 @@ async function selfTest() {
     real.steps.every((s) => Array.isArray(s.resolves)));
   check_('the hand-authored file is NOT resolvable',
     resolvable(['chicago/4d/data/research/land_sales/resident_rulings.json'], real) === 1);
-  check_('a file nobody derives is NOT resolvable',
+  check_('a file that is its own input is NOT resolvable',
     resolvable(['chicago/4d/data/residents/households/hh_taylor_c.json'], real) === 1);
+  // T-1282: a household card is the input of the steps that write into it, so taking
+  // either side of a card conflict drops the other side's evidence and re-derives green.
+  // `_a_card_is_its_own_input` in the manifest is the measurement.
+  check_('no household card is listed — a card is its own writers\' input (T-1282)',
+    !allResolved(real).some((r) => r.startsWith('chicago/4d/data/residents/households/')));
   check_('a file the manifest owns IS resolvable',
     resolvable(['chicago/4d/data/research/land_sales/resident_crosswalk.json'], real) === 0);
   check_('a MIXED set is refused as a whole — half a merge is not a merge',
@@ -605,6 +826,12 @@ async function selfTest() {
   check_('mint comes after consolidate, which moves the inputs it reads (PR #1055)',
     real.steps.findIndex((s) => s.command.join(' ').includes('mint_civic_residents'))
       > real.steps.findIndex((s) => s.command.join(' ').includes('consolidate_resident_evidence')));
+  const gz = 'chicago/4d/data/research/location_reconciliation.json.gz';
+  const stepOf = (t) => real.steps.findIndex((s) => s.command[1] === t);
+  check_('both readers of the location reconciliation declare it and sit below it (T-2080)',
+    ['tools/location_spend.py', 'tools/report_convergence_coverage.py'].every((t) =>
+      (real.steps[stepOf(t)]?.reads ?? []).includes(gz)
+        && stepOf(t) > stepOf('tools/location_reconciliation.py')));
 
   console.log('\n  the second pass that closes the cycle (T-1363)');
   const pass = real.second_pass ?? [];
@@ -612,16 +839,27 @@ async function selfTest() {
   check_('the shipped manifest declares one', pass.length > 0, `${pass.length} step(s)`);
   check_('every entry re-runs a command the sequence already runs — no new tool sneaks in',
     pass.every((e) => real.steps.some((s) => k(s.command) === k(e.command))));
-  check_('the lagging reader leads it, and it is the arrival stage',
-    (pass[0]?.command ?? []).join(' ').includes('attribute_fill_arrival')
-      && Array.isArray(pass[0]?.reads_rebuilt));
-  check_('the file it lags on IS rebuilt by a later step — the lag is real, not cargo',
-    (pass[0]?.reads_rebuilt ?? []).every((rel) => {
+  check_('the model leads it, lagging on the scene and the census rebuilt below it (T-1602)',
+    (pass[0]?.command ?? []).join(' ').includes('model_town_1835.py')
+      && ['chicago/4d/data/sidecars/1835/people.json', 'chicago/4d/data/town_census.json']
+        .every((rel) => (pass[0]?.reads_rebuilt ?? []).includes(rel)));
+  check_('and the arrival stage, which draws from the model, follows it',
+    (pass[1]?.command ?? []).join(' ').includes('attribute_fill_arrival')
+      && Array.isArray(pass[1]?.reads_rebuilt));
+  check_('every file an entry lags on IS rebuilt by a later step — the lag is real, not cargo',
+    pass.filter((e) => e.reads_rebuilt).every((e) => e.reads_rebuilt.every((rel) => {
       const owner = real.steps.findIndex((s) => (s.resolves ?? []).includes(rel));
-      const mine = real.steps.findIndex((s) => k(s.command) === k(pass[0].command));
+      const mine = real.steps.findIndex((s) => k(s.command) === k(e.command));
       return owner > mine && mine >= 0;
-    }));
+    })));
   check_('every entry says why it is re-run', pass.every((e) => String(e.why ?? '').trim().length > 0));
+
+  console.log('\n  and after the pass, the tail that reads what it moved, until it settles (T-1602)');
+  const after = real.after_the_pass ?? {};
+  check_('the shipped manifest declares it, from compile_scene.py — the lap\'s own late step',
+    after.tail_from === 'tools/compile_scene.py' && tailFrom(after.tail_from, real) >= 0);
+  check_('it may take more than one lap, because the scene and its generators read each other',
+    Number.isInteger(after.max_laps) && after.max_laps >= 2, `max_laps ${after.max_laps}`);
 
   console.log('\n  a late re-run is that step and everything below it (T-1661)');
   const scene = 'tools/compile_scene.py';
@@ -661,6 +899,19 @@ async function selfTest() {
     check_('a listed path that is not in the tree',
       bad([{ command: ['python3', 'tools/compile_scene.py'], resolves: ['chicago/4d/data/nope.json'] }]) === 1);
 
+    // …and the declared reads (T-2080): the order that shipped until then is the
+    // first case, and it must be refused.
+    const recon = { command: ['python3', 'tools/location_reconciliation.py', '--build'], resolves: [gz] };
+    const spend = { command: ['python3', 'tools/location_spend.py', '--build'], resolves: [], reads: [gz] };
+    check_('a reader ABOVE the step that rebuilds what it reads — the order before T-2080',
+      bad([spend, recon]) === 1);
+    check_('the same reader BELOW it is accepted', bad([recon, spend]) === 0);
+    check_('a declared read of a file no step rebuilds — no edge to hold',
+      bad([recon, { ...spend, reads: ['chicago/4d/data/town_census.json'] }]) === 1);
+    check_('a declared read the tool\'s own source never names — cargo',
+      bad([recon, { command: ['python3', 'tools/compile_scene.py'], resolves: [], reads: [gz] }]) === 1);
+    check_('an empty reads list', bad([recon, { ...spend, reads: [] }]) === 1);
+
     // …and the second pass's own assertions. Each is a way the pass could quietly
     // stop meaning anything: a tool nothing gated, a claimed lag that is not one,
     // a repair with nothing above it to repair, a loop written as a pass.
@@ -699,6 +950,80 @@ async function selfTest() {
       }]) === 1);
     check_('a repair with no lagging reader above it — it is repairing nothing',
       withPass([{ command: ['python3', 'tools/compile_scene.py'], why: 'downstream of nothing' }]) === 1);
+
+    const withAfter = (after_the_pass) => {
+      const f = path.join(tmp, 'a.json');
+      writeFileSync(f, JSON.stringify({
+        schema: 1,
+        steps: [
+          { command: ['python3', 'tools/compile_scene.py'], resolves: [] },
+          { command: ['python3', 'tools/model_town_1835.py', '--build'],
+            resolves: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+          { command: ['python3', 'tools/town_census.py'], resolves: [] },
+        ],
+        second_pass: [reader],
+        after_the_pass,
+      }));
+      return check(load(f));
+    };
+    // compile_scene.py is the pass, town_census.py the tail; model_town_1835.py sits between.
+    const answered = { measured: '2026-10-04', how: 'perturb what the pass writes, --check each',
+      insensitive: ['python3 tools/model_town_1835.py --build'] };
+    const settle = { tail_from: 'tools/town_census.py', max_laps: 3, why: 'reads what the pass moved',
+      between: answered };
+    check_('a settled tail below the pass is accepted', withAfter(settle) === 0);
+    check_('a settled tail starting AT a pass step — it would re-open the cycle',
+      withAfter({ ...settle, tail_from: 'tools/compile_scene.py' }) === 1);
+    check_('a settled tail naming no step', withAfter({ ...settle, tail_from: 'tools/no_such.py' }) === 1);
+    check_('a settled tail of one lap — one lap cannot show the tree stopped moving',
+      withAfter({ ...settle, max_laps: 1 }) === 1);
+    check_('a settled tail with no why', withAfter({ ...settle, why: '' }) === 1);
+
+    console.log('\n  and the steps between the pass and the tail are a measured answer, held (T-2082)');
+    const real_between = real.after_the_pass?.between ?? {};
+    check_('the shipped answer lists steps, and says when and how it was taken',
+      (real_between.insensitive ?? []).length > 0 && /^\d{4}-\d{2}-\d{2}$/.test(real_between.measured ?? '')
+      && String(real_between.how ?? '').length > 0, `${(real_between.insensitive ?? []).length} step(s)`);
+    check_('seat_trade_roofs_1835.py, measured to move with the deals, is in the pass and not the answer',
+      (real.second_pass ?? []).some((e) => k(e.command).includes('seat_trade_roofs_1835.py'))
+      && !(real_between.insensitive ?? []).some((c) => c.includes('seat_trade_roofs_1835.py')));
+    check_('a window with no answer at all — the hole T-1671 found',
+      withAfter({ ...settle, between: undefined }) === 1);
+    check_('a step INSERTED into the window that nobody measured',
+      withAfter({ ...settle, between: { ...answered, insensitive: [] } }) === 1);
+    check_('a listed step that is not between the pass and the tail',
+      withAfter({ ...settle, between: { ...answered,
+        insensitive: [...answered.insensitive, 'python3 tools/town_census.py'] } }) === 1);
+    check_('a step listed twice',
+      withAfter({ ...settle, between: { ...answered,
+        insensitive: [...answered.insensitive, ...answered.insensitive] } }) === 1);
+    check_('an answer with no date', withAfter({ ...settle, between: { ...answered, measured: 'today' } }) === 1);
+    check_('an answer that does not say how it was taken',
+      withAfter({ ...settle, between: { ...answered, how: ' ' } }) === 1);
+    const withReader = (between_) => {
+      const f = path.join(tmp, 'r.json');
+      const model = ['python3', 'tools/model_town_1835.py', '--build'];
+      writeFileSync(f, JSON.stringify({
+        schema: 1,
+        steps: [
+          { command: model, resolves: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+          { command: ['python3', 'tools/town_census.py'], resolves: [],
+            reads: ['chicago/4d/data/reconstruction/1835_town_model.json'] },
+          { command: ['python3', 'tools/compile_scene.py'], resolves: ['chicago/4d/data/sidecars/1835/people.json'] },
+        ],
+        second_pass: [{ command: model, reads_rebuilt: ['chicago/4d/data/sidecars/1835/people.json'], why: 'lags' }],
+        after_the_pass: { tail_from: 'tools/compile_scene.py', max_laps: 3, why: 'x', between: between_ },
+      }));
+      return check(load(f));
+    };
+    const census = { measured: '2026-10-04', how: 'x', insensitive: ['python3 tools/town_census.py'] };
+    const readerWhy = { 'python3 tools/town_census.py': 'measured still when the model moved' };
+    check_('a step declaring it reads what the pass rewrites, with its measured why, is accepted',
+      withReader({ ...census, declared_readers: readerWhy }) === 0);
+    check_('the same declared read with no why — the edge most likely to move',
+      withReader(census) === 1);
+    check_('a why for a read the step does not declare is cargo',
+      withReader({ ...census, declared_readers: { ...readerWhy, 'python3 tools/compile_scene.py': 'x' } }) === 1);
 
     console.log('\n  and a merge in a clone resolves the way the lap does (--resolve)');
     const src = (id) => `chicago/4d/data/sidecars/1835/sources/${id}.json`;

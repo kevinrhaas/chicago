@@ -20,7 +20,7 @@ planted right up to every threshold in town.
 
 1. **`data/enclosures/town_entrance_aprons.json`**, an enclosure-layer record with no
    fence: only a `ground` block whose interior is one apron per door. `yards.js` lays
-   it as trodden earth and `main.js`'s sward block-list refuses the prairie inside it,
+   it in the road's own dirt (T-2013) and `main.js`'s sward block-list refuses the prairie inside it,
    exactly as it does inside a fenced yard (T-0124). No new renderer layer.
 2. **`data/enclosures/town_entrances.json`**'s sibling list — every door with its
    structure, its kind, its centre on the wall line in local ENU, its outward bearing
@@ -309,7 +309,9 @@ def build() -> dict:
         "openings": [],
         "form": {},
         "ground": {
-            "treatment": "trodden_earth",
+            # The road's own dirt (yards.js `road_earth`, T-2013): the owner asked
+            # for the door ground to be "the same texture color" as the street.
+            "treatment": "road_earth",
             "confidence": "reconstructed",
             "interior_local_enu_m": rings,
             "note": ("One ring per front with a door in `entrances`: a strip "

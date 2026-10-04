@@ -214,7 +214,15 @@ def footprints(datum: dict, exclude: set[str] | frozenset[str] = frozenset()
     Every phase, not the first: a structure that was rebuilt on a different footprint
     stands on whichever lots its phases stand on, and the ledger counts the roof once
     either way.
+
+    Except a phase that was GONE before the town's ground existed (T-2050): every
+    caller measures the 1835 plat and its e1834_harbor_cut ground, and the first Fort
+    Dearborn, burned on 16 August 1812 and seated only in the 1812 scene, stands on
+    neither. A phase closing before that epoch opens is not on this ground at all.
     """
+    town_from = next(e["from"] for e in json.loads(
+        (STRUCTURES.parent / "terrain" / "epochs.json").read_text(encoding="utf-8"))["epochs"]
+        if e["id"] == "e1834_harbor_cut")
     placed: list[tuple[str, list[tuple[float, float]]]] = []
     for path in sorted(STRUCTURES.glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
@@ -224,6 +232,8 @@ def footprints(datum: dict, exclude: set[str] | frozenset[str] = frozenset()
             position = phase.get("position") or {}
             polygon = (phase.get("footprint") or {}).get("polygon") or []
             if position.get("utm_e") is None or len(polygon) < 3:
+                continue
+            if (phase.get("documented_range") or {}).get("to", "9999") < town_from:
                 continue
             placed.append((record["id"], world_polygon(phase, datum)))
     return placed

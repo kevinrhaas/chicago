@@ -1,0 +1,1567 @@
+{
+ "ticket": "T-2099",
+ "tool": "tools/measure_still_frame.mjs",
+ "tree": "published",
+ "dev": "82087b96",
+ "measured": "2026-10-04",
+ "note": "SwiftShader software rasteriser: absolute ms are this runner's; shares are the reading. attr_forks_desktop was taken with frames 2 / warmup 1 and three settle frames, before the defaults were cut to 2 / 0 / 2.",
+ "readings": [
+  {
+   "run": "desktop_full",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7435.2,
+     "cpu": 4.6,
+     "worst": 7435.2,
+     "triangles": 1720370,
+     "calls": 171
+    },
+    {
+     "level": "full",
+     "stand": "sauganash_26",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7716.1,
+     "cpu": 6.2,
+     "worst": 7716.1,
+     "triangles": 1748469,
+     "calls": 172
+    },
+    {
+     "level": "full",
+     "stand": "lake_at_canal",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 9366.2,
+     "cpu": 7.4,
+     "worst": 9366.2,
+     "triangles": 2336193,
+     "calls": 255
+    },
+    {
+     "level": "full",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 11091.1,
+     "cpu": 7.4,
+     "worst": 11091.1,
+     "triangles": 2414027,
+     "calls": 225
+    },
+    {
+     "level": "full",
+     "stand": "lake_and_market",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7791.3,
+     "cpu": 6.6,
+     "worst": 7791.3,
+     "triangles": 2056139,
+     "calls": 238
+    },
+    {
+     "level": "full",
+     "stand": "prairie_west",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 10113,
+     "cpu": 7.3,
+     "worst": 10113,
+     "triangles": 2375385,
+     "calls": 275
+    },
+    {
+     "level": "full",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 13486.7,
+     "cpu": 6,
+     "worst": 13486.7,
+     "triangles": 2671870,
+     "calls": 247
+    },
+    {
+     "level": "full",
+     "stand": "town_lake_shoulder",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7752.2,
+     "cpu": 5.3,
+     "worst": 7752.2,
+     "triangles": 1964456,
+     "calls": 228
+    },
+    {
+     "level": "full",
+     "stand": "town_south_water_store",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 9154.6,
+     "cpu": 5.2,
+     "worst": 9154.6,
+     "triangles": 2063540,
+     "calls": 225
+    },
+    {
+     "level": "full",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 12398.9,
+     "cpu": 4.5,
+     "worst": 12398.9,
+     "triangles": 2224298,
+     "calls": 169
+    }
+   ]
+  },
+  {
+   "run": "desktop_balanced",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "balanced",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 6496.3,
+     "cpu": 4.6,
+     "worst": 6496.3,
+     "triangles": 1458770,
+     "calls": 170
+    },
+    {
+     "level": "balanced",
+     "stand": "sauganash_26",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 6700.5,
+     "cpu": 5.8,
+     "worst": 6700.5,
+     "triangles": 1456000,
+     "calls": 170
+    },
+    {
+     "level": "balanced",
+     "stand": "lake_at_canal",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7859.3,
+     "cpu": 7.1,
+     "worst": 7859.3,
+     "triangles": 1908476,
+     "calls": 233
+    },
+    {
+     "level": "balanced",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 8241.5,
+     "cpu": 6.7,
+     "worst": 8241.5,
+     "triangles": 1907962,
+     "calls": 207
+    },
+    {
+     "level": "balanced",
+     "stand": "lake_and_market",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7361.7,
+     "cpu": 5.5,
+     "worst": 7361.7,
+     "triangles": 1766559,
+     "calls": 232
+    },
+    {
+     "level": "balanced",
+     "stand": "prairie_west",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7996.2,
+     "cpu": 6.2,
+     "worst": 7996.2,
+     "triangles": 1880302,
+     "calls": 242
+    },
+    {
+     "level": "balanced",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 10416.3,
+     "cpu": 6.3,
+     "worst": 10416.3,
+     "triangles": 2143102,
+     "calls": 236
+    },
+    {
+     "level": "balanced",
+     "stand": "town_lake_shoulder",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 7031.1,
+     "cpu": 5.1,
+     "worst": 7031.1,
+     "triangles": 1682072,
+     "calls": 218
+    },
+    {
+     "level": "balanced",
+     "stand": "town_south_water_store",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 8523.7,
+     "cpu": 7,
+     "worst": 8523.7,
+     "triangles": 1785027,
+     "calls": 223
+    },
+    {
+     "level": "balanced",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 9261.3,
+     "cpu": 6.2,
+     "worst": 9261.3,
+     "triangles": 1728804,
+     "calls": 165
+    }
+   ]
+  },
+  {
+   "run": "desktop_light",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 4388.8,
+     "cpu": 5,
+     "worst": 4388.8,
+     "triangles": 735108,
+     "calls": 71
+    },
+    {
+     "level": "light",
+     "stand": "sauganash_26",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 4429.8,
+     "cpu": 3.7,
+     "worst": 4429.8,
+     "triangles": 736162,
+     "calls": 70
+    },
+    {
+     "level": "light",
+     "stand": "lake_at_canal",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 4873.7,
+     "cpu": 5.1,
+     "worst": 4873.7,
+     "triangles": 886911,
+     "calls": 50
+    },
+    {
+     "level": "light",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 4842.9,
+     "cpu": 4.9,
+     "worst": 4842.9,
+     "triangles": 912765,
+     "calls": 59
+    },
+    {
+     "level": "light",
+     "stand": "lake_and_market",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 4890.3,
+     "cpu": 4.4,
+     "worst": 4890.3,
+     "triangles": 797173,
+     "calls": 73
+    },
+    {
+     "level": "light",
+     "stand": "prairie_west",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 5156.1,
+     "cpu": 5.2,
+     "worst": 5156.1,
+     "triangles": 956732,
+     "calls": 66
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 6551.8,
+     "cpu": 4,
+     "worst": 6551.8,
+     "triangles": 1030639,
+     "calls": 76
+    },
+    {
+     "level": "light",
+     "stand": "town_lake_shoulder",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 5319.6,
+     "cpu": 4.7,
+     "worst": 5319.6,
+     "triangles": 879089,
+     "calls": 77
+    },
+    {
+     "level": "light",
+     "stand": "town_south_water_store",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 6419,
+     "cpu": 3.6,
+     "worst": 6419,
+     "triangles": 833243,
+     "calls": 76
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 5260.1,
+     "cpu": 4.5,
+     "worst": 5260.1,
+     "triangles": 834566,
+     "calls": 54
+    }
+   ]
+  },
+  {
+   "run": "phone_full",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5558.6,
+     "cpu": 18.4,
+     "worst": 5558.6,
+     "triangles": 1618151,
+     "calls": 150
+    },
+    {
+     "level": "full",
+     "stand": "sauganash_26",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5724.3,
+     "cpu": 20.6,
+     "worst": 5724.3,
+     "triangles": 1668693,
+     "calls": 154
+    },
+    {
+     "level": "full",
+     "stand": "lake_at_canal",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 6924,
+     "cpu": 27.6,
+     "worst": 6924,
+     "triangles": 2075967,
+     "calls": 250
+    },
+    {
+     "level": "full",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 6706.9,
+     "cpu": 25.5,
+     "worst": 6706.9,
+     "triangles": 1958586,
+     "calls": 203
+    },
+    {
+     "level": "full",
+     "stand": "lake_and_market",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4789.8,
+     "cpu": 17.7,
+     "worst": 4789.8,
+     "triangles": 1688482,
+     "calls": 216
+    },
+    {
+     "level": "full",
+     "stand": "prairie_west",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 7367.5,
+     "cpu": 23.8,
+     "worst": 7367.5,
+     "triangles": 2136774,
+     "calls": 276
+    },
+    {
+     "level": "full",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 9577.4,
+     "cpu": 20.5,
+     "worst": 9577.4,
+     "triangles": 2370714,
+     "calls": 203
+    },
+    {
+     "level": "full",
+     "stand": "town_lake_shoulder",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4864.8,
+     "cpu": 29,
+     "worst": 4864.8,
+     "triangles": 1761895,
+     "calls": 211
+    },
+    {
+     "level": "full",
+     "stand": "town_south_water_store",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5749.4,
+     "cpu": 21.3,
+     "worst": 5749.4,
+     "triangles": 1836630,
+     "calls": 197
+    },
+    {
+     "level": "full",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 8899.9,
+     "cpu": 27.2,
+     "worst": 8899.9,
+     "triangles": 2143489,
+     "calls": 152
+    }
+   ]
+  },
+  {
+   "run": "phone_balanced",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "balanced",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4638.4,
+     "cpu": 21.5,
+     "worst": 4638.4,
+     "triangles": 1362035,
+     "calls": 149
+    },
+    {
+     "level": "balanced",
+     "stand": "sauganash_26",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4862.2,
+     "cpu": 22.9,
+     "worst": 4862.2,
+     "triangles": 1376137,
+     "calls": 149
+    },
+    {
+     "level": "balanced",
+     "stand": "lake_at_canal",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5875.9,
+     "cpu": 24.8,
+     "worst": 5875.9,
+     "triangles": 1745152,
+     "calls": 229
+    },
+    {
+     "level": "balanced",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4952.7,
+     "cpu": 27.1,
+     "worst": 4952.7,
+     "triangles": 1564157,
+     "calls": 174
+    },
+    {
+     "level": "balanced",
+     "stand": "lake_and_market",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4564.8,
+     "cpu": 20.8,
+     "worst": 4564.8,
+     "triangles": 1521272,
+     "calls": 211
+    },
+    {
+     "level": "balanced",
+     "stand": "prairie_west",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5744.5,
+     "cpu": 22.6,
+     "worst": 5744.5,
+     "triangles": 1713581,
+     "calls": 233
+    },
+    {
+     "level": "balanced",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 6963.3,
+     "cpu": 22.3,
+     "worst": 6963.3,
+     "triangles": 1894846,
+     "calls": 199
+    },
+    {
+     "level": "balanced",
+     "stand": "town_lake_shoulder",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4331.8,
+     "cpu": 20.9,
+     "worst": 4331.8,
+     "triangles": 1525447,
+     "calls": 201
+    },
+    {
+     "level": "balanced",
+     "stand": "town_south_water_store",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5086.6,
+     "cpu": 22.3,
+     "worst": 5086.6,
+     "triangles": 1585689,
+     "calls": 195
+    },
+    {
+     "level": "balanced",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 6299.7,
+     "cpu": 21.8,
+     "worst": 6299.7,
+     "triangles": 1636290,
+     "calls": 152
+    }
+   ]
+  },
+  {
+   "run": "phone_light",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3179.1,
+     "cpu": 22.2,
+     "worst": 3179.1,
+     "triangles": 694896,
+     "calls": 66
+    },
+    {
+     "level": "light",
+     "stand": "sauganash_26",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3388.4,
+     "cpu": 16.4,
+     "worst": 3388.4,
+     "triangles": 698404,
+     "calls": 61
+    },
+    {
+     "level": "light",
+     "stand": "lake_at_canal",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3428.1,
+     "cpu": 17.6,
+     "worst": 3428.1,
+     "triangles": 791239,
+     "calls": 48
+    },
+    {
+     "level": "light",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3155.4,
+     "cpu": 16.8,
+     "worst": 3155.4,
+     "triangles": 791113,
+     "calls": 53
+    },
+    {
+     "level": "light",
+     "stand": "lake_and_market",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3105.9,
+     "cpu": 21,
+     "worst": 3105.9,
+     "triangles": 690043,
+     "calls": 71
+    },
+    {
+     "level": "light",
+     "stand": "prairie_west",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3610.8,
+     "cpu": 17.4,
+     "worst": 3610.8,
+     "triangles": 852463,
+     "calls": 58
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4163.6,
+     "cpu": 14.9,
+     "worst": 4163.6,
+     "triangles": 898557,
+     "calls": 70
+    },
+    {
+     "level": "light",
+     "stand": "town_lake_shoulder",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3257.6,
+     "cpu": 15.4,
+     "worst": 3257.6,
+     "triangles": 808171,
+     "calls": 74
+    },
+    {
+     "level": "light",
+     "stand": "town_south_water_store",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3823.9,
+     "cpu": 18.4,
+     "worst": 3823.9,
+     "triangles": 750337,
+     "calls": 68
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3589,
+     "cpu": 16.6,
+     "worst": 3589,
+     "triangles": 796611,
+     "calls": 64
+    }
+   ]
+  },
+  {
+   "run": "phone_light_attr",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4209.1,
+     "cpu": 18.3,
+     "worst": 4209.1,
+     "triangles": 898557,
+     "calls": 70,
+     "by": {
+      "terrain": {
+       "frame": 1158.9,
+       "cpu": 12.5,
+       "triangles": 150202,
+       "calls": 7
+      },
+      "structures": {
+       "frame": 574,
+       "cpu": 9,
+       "triangles": 130421,
+       "calls": 10
+      },
+      "streets": {
+       "frame": 172.1,
+       "cpu": 0.9,
+       "triangles": 105995,
+       "calls": 3
+      },
+      "street-grid": {
+       "frame": -0.6,
+       "cpu": -0.2,
+       "triangles": 0,
+       "calls": 0
+      },
+      "enclosures": {
+       "frame": 59.1,
+       "cpu": 3.8,
+       "triangles": 22536,
+       "calls": 12
+      },
+      "yard-ground": {
+       "frame": 97.3,
+       "cpu": 0.6,
+       "triangles": 91869,
+       "calls": 5
+      },
+      "signage": {
+       "frame": 3.1,
+       "cpu": 0.2,
+       "triangles": 6072,
+       "calls": 2
+      },
+      "yard": {
+       "frame": 428.5,
+       "cpu": 0.9,
+       "triangles": 9816,
+       "calls": 4
+      },
+      "frontage": {
+       "frame": 413.3,
+       "cpu": 0.4,
+       "triangles": 161586,
+       "calls": 14
+      },
+      "wharves": {
+       "frame": -0.2,
+       "cpu": -0.7,
+       "triangles": 1380,
+       "calls": 1
+      },
+      "working_bank": {
+       "frame": 5.1,
+       "cpu": 0,
+       "triangles": 3708,
+       "calls": 1
+      },
+      "boats": {
+       "frame": -0.8,
+       "cpu": -0.2,
+       "triangles": 1600,
+       "calls": 1
+      },
+      "wells": {
+       "frame": -1.9,
+       "cpu": -1.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "flora": {
+       "frame": 8.2,
+       "cpu": 0.3,
+       "triangles": 5612,
+       "calls": 6
+      },
+      "trees": {
+       "frame": 1246.2,
+       "cpu": 1.2,
+       "triangles": 207748,
+       "calls": 3
+      },
+      "(shadow map render)": {
+       "frame": 39.5,
+       "cpu": -1.9,
+       "triangles": 30032,
+       "calls": 7
+      },
+      "(soft shadow filter)": {
+       "frame": -24.6,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      }
+     },
+     "empty": {
+      "frame": 71.2,
+      "cpu": 3.6,
+      "worst": 71.2,
+      "triangles": 12,
+      "calls": 1
+     },
+     "sum": 4234
+    }
+   ]
+  },
+  {
+   "run": "phone_light_sharpness",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 3140.8,
+     "cpu": 69.6,
+     "worst": 3140.8,
+     "triangles": 898557,
+     "calls": 70
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 4195.6,
+     "cpu": 16.2,
+     "worst": 4195.6,
+     "triangles": 898557,
+     "calls": 70
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 2,
+     "pixelRatio": 2,
+     "frame": 5685.6,
+     "cpu": 18.7,
+     "worst": 5685.6,
+     "triangles": 898557,
+     "calls": 70
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 2514.6,
+     "cpu": 16.4,
+     "worst": 2514.6,
+     "triangles": 796611,
+     "calls": 64
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 3602.9,
+     "cpu": 17.3,
+     "worst": 3602.9,
+     "triangles": 796611,
+     "calls": 64
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 2,
+     "pixelRatio": 2,
+     "frame": 4855.2,
+     "cpu": 13.9,
+     "worst": 4855.2,
+     "triangles": 796611,
+     "calls": 64
+    }
+   ]
+  },
+  {
+   "run": "y1812",
+   "year": "1812",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 3372.6,
+     "cpu": 2.9,
+     "worst": 3372.6,
+     "triangles": 565190,
+     "calls": 40
+    },
+    {
+     "level": "balanced",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 2960.9,
+     "cpu": 2.6,
+     "worst": 2960.9,
+     "triangles": 423007,
+     "calls": 40
+    },
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 2495,
+     "cpu": 2.2,
+     "worst": 2495,
+     "triangles": 251399,
+     "calls": 32
+    }
+   ]
+  },
+  {
+   "run": "y1812",
+   "year": "1812",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 2285.8,
+     "cpu": 13.8,
+     "worst": 2285.8,
+     "triangles": 543196,
+     "calls": 37
+    },
+    {
+     "level": "balanced",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 1968.7,
+     "cpu": 11.2,
+     "worst": 1968.7,
+     "triangles": 401013,
+     "calls": 37
+    },
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 1642,
+     "cpu": 10,
+     "worst": 1642,
+     "triangles": 234349,
+     "calls": 30
+    }
+   ]
+  },
+  {
+   "run": "y1904",
+   "year": "1904",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 15420.9,
+     "cpu": 8.8,
+     "worst": 15420.9,
+     "triangles": 3351314,
+     "calls": 93
+    },
+    {
+     "level": "balanced",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 8904.4,
+     "cpu": 7.4,
+     "worst": 8904.4,
+     "triangles": 726695,
+     "calls": 93
+    },
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 8861.9,
+     "cpu": 4.6,
+     "worst": 8861.9,
+     "triangles": 718761,
+     "calls": 91
+    }
+   ]
+  },
+  {
+   "run": "y1904",
+   "year": "1904",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 11417.9,
+     "cpu": 34,
+     "worst": 11417.9,
+     "triangles": 3360858,
+     "calls": 91
+    },
+    {
+     "level": "balanced",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5727.5,
+     "cpu": 25,
+     "worst": 5727.5,
+     "triangles": 736239,
+     "calls": 91
+    },
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5745.7,
+     "cpu": 22.3,
+     "worst": 5745.7,
+     "triangles": 736239,
+     "calls": 91
+    }
+   ]
+  },
+  {
+   "run": "y1904_light_attr",
+   "year": "1904",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 8889.5,
+     "cpu": 22,
+     "worst": 8889.5,
+     "triangles": 718761,
+     "calls": 91,
+     "by": {
+      "terrain": {
+       "frame": 1436.6,
+       "cpu": 0.2,
+       "triangles": 30274,
+       "calls": 7
+      },
+      "streets": {
+       "frame": 1.2,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "street-grid": {
+       "frame": 575.1,
+       "cpu": 0.3,
+       "triangles": 38576,
+       "calls": 11
+      },
+      "enclosures": {
+       "frame": 5.9,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "yard-ground": {
+       "frame": 1.8,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "signage": {
+       "frame": -0.5,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "yard": {
+       "frame": 0.6,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "frontage": {
+       "frame": 2.8,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "wharves": {
+       "frame": 0.6,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "working_bank": {
+       "frame": -1.3,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "boats": {
+       "frame": 1.2,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "wells": {
+       "frame": 2.5,
+       "cpu": 0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "structures": {
+       "frame": 4792.8,
+       "cpu": 3.8,
+       "triangles": 581049,
+       "calls": 55
+      },
+      "flora": {
+       "frame": 0.9,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "trees": {
+       "frame": 1.4,
+       "cpu": -0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "(shadow map render)": {
+       "frame": 94.9,
+       "cpu": 17.8,
+       "triangles": 193679,
+       "calls": 18
+      },
+      "(soft shadow filter)": {
+       "frame": -54.7,
+       "cpu": 16.8,
+       "triangles": 0,
+       "calls": 0
+      },
+      "(transmission pass)": {
+       "frame": 4593.9,
+       "cpu": 19.6,
+       "triangles": 262541,
+       "calls": 36
+      }
+     },
+     "empty": {
+      "frame": 84.5,
+      "cpu": 0.5,
+      "worst": 84.5,
+      "triangles": 12,
+      "calls": 1
+     },
+     "sum": 6906
+    }
+   ]
+  },
+  {
+   "run": "y1904_light_attr",
+   "year": "1904",
+   "frames": 2,
+   "warmup": 0,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "landing",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 5760.8,
+     "cpu": 36,
+     "worst": 5760.8,
+     "triangles": 736239,
+     "calls": 91,
+     "by": {
+      "terrain": {
+       "frame": 867.5,
+       "cpu": 1.1,
+       "triangles": 41315,
+       "calls": 8
+      },
+      "structures": {
+       "frame": 3192.7,
+       "cpu": 13.7,
+       "triangles": 581049,
+       "calls": 55
+      },
+      "streets": {
+       "frame": -3.1,
+       "cpu": 0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "street-grid": {
+       "frame": 330.8,
+       "cpu": 2,
+       "triangles": 36274,
+       "calls": 10
+      },
+      "enclosures": {
+       "frame": -4.6,
+       "cpu": 0.3,
+       "triangles": 0,
+       "calls": 0
+      },
+      "yard-ground": {
+       "frame": -4.2,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "signage": {
+       "frame": -0.5,
+       "cpu": -0.4,
+       "triangles": 0,
+       "calls": 0
+      },
+      "yard": {
+       "frame": -4,
+       "cpu": 0.2,
+       "triangles": 0,
+       "calls": 0
+      },
+      "frontage": {
+       "frame": -0.2,
+       "cpu": 0.3,
+       "triangles": 0,
+       "calls": 0
+      },
+      "wharves": {
+       "frame": -2.5,
+       "cpu": -0.4,
+       "triangles": 0,
+       "calls": 0
+      },
+      "working_bank": {
+       "frame": 1.1,
+       "cpu": 0.3,
+       "triangles": 0,
+       "calls": 0
+      },
+      "boats": {
+       "frame": -2.2,
+       "cpu": 0,
+       "triangles": 0,
+       "calls": 0
+      },
+      "wells": {
+       "frame": -2.5,
+       "cpu": 0.1,
+       "triangles": 0,
+       "calls": 0
+      },
+      "flora": {
+       "frame": -3,
+       "cpu": 0.4,
+       "triangles": 0,
+       "calls": 0
+      },
+      "trees": {
+       "frame": -2.1,
+       "cpu": -0.4,
+       "triangles": 0,
+       "calls": 0
+      },
+      "(shadow map render)": {
+       "frame": 103.6,
+       "cpu": 16.8,
+       "triangles": 193679,
+       "calls": 18
+      },
+      "(soft shadow filter)": {
+       "frame": -37.7,
+       "cpu": 12.4,
+       "triangles": 0,
+       "calls": 0
+      },
+      "(transmission pass)": {
+       "frame": 2949.6,
+       "cpu": 23.2,
+       "triangles": 271280,
+       "calls": 36
+      }
+     },
+     "empty": {
+      "frame": 71.5,
+      "cpu": 1.8,
+      "worst": 71.5,
+      "triangles": 12,
+      "calls": 1
+     },
+     "sum": 4435
+    }
+   ]
+  },
+  {
+   "run": "attr_forks_desktop",
+   "year": "1835",
+   "frames": 2,
+   "warmup": 1,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 11116.2,
+     "cpu": 8.4,
+     "worst": 11116.2,
+     "triangles": 2414027,
+     "calls": 225,
+     "by": {
+      "terrain": {
+       "frame": 1947.3,
+       "cpu": 0.3,
+       "triangles": 231739,
+       "calls": 16
+      },
+      "structures": {
+       "frame": 1286.8,
+       "cpu": 2.4,
+       "triangles": 297498,
+       "calls": 10
+      },
+      "streets": {
+       "frame": 427.2,
+       "cpu": 0,
+       "triangles": 155009,
+       "calls": 3
+      },
+      "street-grid": {
+       "frame": -0.4,
+       "cpu": -0.2,
+       "triangles": 0,
+       "calls": 0
+      },
+      "enclosures": {
+       "frame": 465.3,
+       "cpu": 0.9,
+       "triangles": 212290,
+       "calls": 49
+      },
+      "yard-ground": {
+       "frame": 105.3,
+       "cpu": 0.1,
+       "triangles": 91869,
+       "calls": 5
+      },
+      "signage": {
+       "frame": 15.1,
+       "cpu": -0.1,
+       "triangles": 6072,
+       "calls": 2
+      },
+      "yard": {
+       "frame": 204.6,
+       "cpu": 0.4,
+       "triangles": 164208,
+       "calls": 49
+      },
+      "frontage": {
+       "frame": 1019.7,
+       "cpu": 0.8,
+       "triangles": 493608,
+       "calls": 69
+      },
+      "wharves": {
+       "frame": 10.2,
+       "cpu": 0,
+       "triangles": 2760,
+       "calls": 2
+      },
+      "working_bank": {
+       "frame": 29.4,
+       "cpu": -0.1,
+       "triangles": 13650,
+       "calls": 1
+      },
+      "boats": {
+       "frame": 23.7,
+       "cpu": 0,
+       "triangles": 3200,
+       "calls": 2
+      },
+      "wells": {
+       "frame": 0.4,
+       "cpu": -0.1,
+       "triangles": 140,
+       "calls": 2
+      },
+      "flora": {
+       "frame": 1279,
+       "cpu": 0.3,
+       "triangles": 162620,
+       "calls": 11
+      },
+      "trees": {
+       "frame": 4258.4,
+       "cpu": 0.3,
+       "triangles": 579352,
+       "calls": 3
+      },
+      "(shadow map render)": {
+       "frame": 406.5,
+       "cpu": 3.3,
+       "triangles": 309035,
+       "calls": 50
+      },
+      "(soft shadow filter)": {
+       "frame": -37.3,
+       "cpu": 2.9,
+       "triangles": 0,
+       "calls": 0
+      }
+     },
+     "empty": {
+      "frame": 82.8,
+      "cpu": 0.9,
+      "worst": 82.8,
+      "triangles": 12,
+      "calls": 1
+     },
+     "sum": 11155
+    }
+   ]
+  }
+ ]
+}

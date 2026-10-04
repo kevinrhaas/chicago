@@ -244,8 +244,8 @@ html, body {
   color: var(--ink);
 }
 .gate-touch { display: none; }
-body.is-touch .gate-keys:not(.gate-touch) { display: none; }
-body.is-touch .gate-touch { display: block; }
+body:is(.is-touch, .touch-first) .gate-keys:not(.gate-touch) { display: none; }
+body:is(.is-touch, .touch-first) .gate-touch { display: block; }
 
 .gate-fine {
   margin: 16px 0 0;
@@ -872,7 +872,7 @@ body.is-touch .crosshair { display: none; }
   -webkit-user-select: none;
   user-select: none;
 }
-.rise-btn.on { background: var(--accent); color: #17140c; }
+.rise-btn.on { background: var(--accent); color: var(--accent-ink, #17140c); }
 
 /* --------------------------------------------------------------- popup --- */
 
@@ -1352,7 +1352,7 @@ kbd {
   padding: 1px 6px;
   border-radius: 999px;
   background: var(--accent);
-  color: #1d1a14;
+  color: var(--accent-ink, #1d1a14);
   font-size: 9.5px;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -1546,7 +1546,7 @@ kbd {
 #welcome-picker[hidden] { display: none; }
 #welcome-search { font: inherit; font-size: 16px; padding: 11px; width: 100%; min-height: 44px; color: var(--ink); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; }
 .welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; }
-.welcome-kinds button { padding: 6px 10px; font-size: 12px; }
+.welcome-kinds button { padding: 6px 10px; font-size: 12px; min-width: 44px; flex: none; }
 .welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 .welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 55px; max-height: 240px; flex: 1; }
 .welcome-destination { width: 100%; text-align: left; padding: 10px; margin-bottom: 5px; }
@@ -1554,7 +1554,27 @@ kbd {
 .welcome-destination:disabled { opacity: .6; cursor: default; }
 #welcome-message { font-size: 13px; margin: 0; }
 #welcome-message:empty { display: none; }
+/* T-2046: held sideways the picker's search, kinds and first result need more height than
+   the card has; the welcome keeps its natural height and the card scrolls, instead of the
+   picker spilling out of its box under 'Tap to enter Chicago'. */
+.gate[data-region="explore"] #welcome { flex-shrink: 0; }
+#welcome-jaunts-region:focus { outline: none; }
 .gate[data-region="explore"] .welcome-intro { display: none; }
+/* T-0472: a scene's interpretive cards, folded under the intro until asked for. */
+.welcome-about { margin: -8px 0 16px; flex: 0 0 auto; }
+.welcome-about[hidden], .gate[data-region] .welcome-about { display: none; }
+.welcome-about summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-size: 14px; color: var(--accent); }
+/* Open, the fold gives up height before the actions do and scrolls inside itself, so
+   the buttons under it never ride over one another; its summary stays to close it. */
+.welcome-about[open] { flex: 0 1 auto; min-height: 96px; overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+.welcome-about[open] summary { position: sticky; top: 0; z-index: 1; background: var(--panel-solid); }
+.welcome-about-card { border-left: 2px solid var(--brass); padding: 2px 0 2px 12px; margin: 8px 0 14px; }
+.welcome-about-card h3 { font-size: 15px; margin: 0 0 6px; }
+.welcome-about-card p { font-size: 13px; line-height: 1.5; margin: 0 0 8px; color: var(--ink-dim); }
+.welcome-about-card figure { margin: 0 0 8px; }
+.welcome-about-card blockquote { margin: 0; font-size: 13px; line-height: 1.45; font-style: italic; color: var(--ink); }
+.welcome-about-card figcaption { font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
+.welcome-about-card .welcome-about-held { font-size: 12px; border: 1px dashed var(--edge); border-radius: 6px; padding: 6px 8px; }
 .gate[data-region="explore"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
 .gate[data-region="explore"] .welcome-action { padding: 8px; }
 .gate[data-region="explore"] .welcome-action strong { font-size: 14px; }
@@ -1571,6 +1591,15 @@ kbd {
   .gate.welcome-compact[data-region="explore"] h1,
   .gate.welcome-compact[data-region="explore"] .welcome-actions { display: none; }
   .gate.welcome-compact[data-region="explore"] .welcome-region { margin-top: 0; }
+  /* T-2046: the Jaunts region's compact form lives beside the picker's, not in the
+     lazily loaded jaunt.css — loaded late, it hid the button just pressed a beat after
+     the press, the welcome jumped, and focus fell to the page. */
+  .gate.welcome-compact[data-region="jaunts"] .gate-eyebrow,
+  .gate.welcome-compact[data-region="jaunts"] h1,
+  .gate.welcome-compact[data-region="jaunts"] .welcome-actions { display: none; }
+  .gate.welcome-compact[data-region="jaunts"] .welcome-region { margin-top: 0; }
+/* First entry must not shrink the menu on return and hide its restored focus. */
+.gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }
 
 .gate[data-state="welcome"] #gate-build { display: none; }
 .gate[data-state="welcome"] #gate-title:focus { outline: none; }

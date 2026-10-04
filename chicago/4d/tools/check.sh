@@ -34,6 +34,18 @@ STRICT=""
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
 source "$_check_tools/check_harness.sh"
 
+step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
+  node tools/check_plank_gap_filter.mjs
+
+step "Emitted plank crossings remain above the distant terrain (T-2037)" \
+  node tools/check_plank_ground.mjs
+
+step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
+  node tools/check_far_plank_tops.mjs
+
+step "The working bank never hides the timber standing on it (T-2098)" \
+  node tools/check_bank_decal_depth.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
@@ -110,6 +122,8 @@ selftest "…only the canonical v4 derivative producer refreshes the package" \
   python3 tools/test_glessner_v4_package_producer.py --self-test
 selftest "…arched apertures preserve whole-stone relief without false joints" \
   python3 tools/test_glessner_block_clipping.py --self-test
+selftest "Scene bundle: one commit packed reproducibly; tampered, missing, extra, forged refused (T-2067)" \
+  python3 tools/scene_bundle.py --self-test
 step "Glessner's west roof has one continuous envelope and a lower rear eave (T-1830)" \
   python3 tools/test_glessner_roof_envelope.py
 
@@ -311,6 +325,22 @@ step "the 1812 pre-cut shore still re-derives from its readings (T-1242)" \
 # evidence_limit quotes from it true to the measurement.
 step "the Harrison 1830 cross-check still measures what the 1812 shore quotes (T-1286)" \
   python3 tools/measure_shore_1812_harrison.py --check
+
+# T-0470. The 15 August 1812 route and battle zone are DERIVED, not drawn: the
+# readings (Heald's mile and a half, the Eighteenth Street tradition, the ridge
+# line) laid along the 1812 shore the step above checks. The zone spans the
+# readings' disagreement and claims no point; this holds the file to its readings
+# byte for byte, and refuses it if the shore moves out from under the stations.
+step "the 1812 evacuation route and battle zone re-derive from their readings (T-0470)" \
+  python3 tools/derive_evacuation_1812.py --check
+
+# T-2048. The first fort's one plan, Whistler's draught of 25 January 1808, read into a
+# register the first fort will be built from (T-2049). The raster is not committed, so
+# this holds what can be held without it: the scale is the 75 ft staff's arithmetic,
+# every foot in the file is what its pixel box gives, and all 34 of the drafter's index
+# numbers are accounted for. `--remeasure` re-finds the staff on the fetched sheet.
+step "the Whistler 1808 reading of the first fort still adds up (T-2048)" \
+  python3 tools/read_whistler_1808.py --check
 
 # T-1249. A scene date is a claim about WHEN this reconstruction stands, and until
 # now the 1880s one was the only claim in the terrain layer that nothing derived and
@@ -1331,6 +1361,14 @@ step "every enclosure run says whose ground it stands on, or records why it cann
 step "the dooryard plantings re-derive from the rule that dealt their stems" \
   python3 tools/generate_dooryard_plantings.py --check
 
+# The settled town's ground is DERIVED, not drawn (T-2084): every plat block, every
+# standing footprint and the forks seed, grown by the dossier's 50 m grazed halo, with
+# the beach and the public square's slough held out. A hand edit of the polygon, or a
+# district built without re-running the tool, leaves its houses standing in prairie —
+# which is what the owner walked through on 2026-10-04 — and this refuses both.
+step "the settled town's ground re-derives from the plat and every standing roof (T-2084)" \
+  python3 tools/derive_settled_town_extent.py --check
+
 # And the planted rows are the same shape again, on the one flora treatment this project
 # has in WORDS rather than in pictures: Wau-Bun states "a broad green space was inclosed
 # between it and the river, and shaded by a row of Lombardy poplars", at a house that is
@@ -1391,11 +1429,21 @@ step "every door is read once, its apron re-derives, and no two holes on a front
   python3 tools/generate_entrances.py --check
 step "nothing placed in the town stands in a doorway (T-1984)" \
   python3 tools/measure_doorways.py --gate
+# T-2095. THE ALLEYS ARE LANES. The plat model's mid-block alley strip, on every block a
+# structure stands on, laid in the road's dirt and carried to the cross street's track —
+# re-derived here, and refused if a ring winds clockwise (yards.js culls it unseen).
+step "the alley lanes re-derive from the plat's strips and the blocks built on (T-2095)" \
+  python3 tools/generate_alley_lanes.py --check
 # The yard outbuildings (T-1960) are the same shape again: a privy in a rear corner of every
 # dwelling lot the plat reaches and a stable for the horse-keeping households, dealt from the
 # lot survey the fences read and the house's own class and age — a rule, so re-derived here.
 step "the yard outbuildings re-derive from the rule that dealt them by household" \
   python3 tools/generate_yard_outbuildings.py --check
+# The kept ground (T-2086) reads those outbuildings: per improved lot, the kept ring where the
+# forb layer stands back, the refuges at the foot of each outbuilding and the worn paths to
+# them — which ground is kept is a rule, so it is re-derived here.
+step "the kept yards, their refuges and their worn paths re-derive from the lot survey (T-2086)" \
+  python3 tools/generate_kept_ground.py --check
 
 # And the OTHER HALF of that ordinance, which the goods record refused in writing:
 # timber, stone and brick are building material on a lot that is going up, not a
@@ -2012,6 +2060,17 @@ step "no building has newly been drawn standing in a platted street" \
 # under both readings and checks which one the gate catches.
 selftest "…and its absolute assertion still fires when a generated roof is put in a street" \
   python3 tools/measure_corridor_intrusion.py --self-test
+
+# That gate and every generator ask the PLATTED corridors only, and the reservation had no
+# plat — so T-1712 placed two Beaubien buildings on the centreline of `fort_road` and
+# nothing asked (T-1743). This asks every street in data/streets/1835.json, at its own
+# declared width, of every phase standing on the layer's date: a ratchet on the 48 laps
+# banked on 2026-10-03, refusing a new one, a deeper one, or a cleared one left banked.
+step "no building is newly drawn standing in any street corridor, the fort road included (T-1743)" \
+  python3 tools/check_structure_corridors.py --gate
+
+selftest "…and it refuses the trading post put back on the fort road (T-1743)" \
+  python3 tools/check_structure_corridors.py --self-test
 
 # The platted corridor above is an Original Town and West Division question: not one of the
 # eleven corridors street_control.json measures is north of the river, and plat_corridors
@@ -2735,6 +2794,23 @@ step "Jaunt schema, destinations and reachable state graph (T-1253)" \
 step "Jaunt refusal and data-only expansion fixtures (T-1253)" \
   python3 tools/test_compile_jaunts.py
 
+# T-2039 (of T-1271): the LIBRARY, not one story — the 25 named premises, the six
+# priority jaunts featured, 4-8 stops, quiet outings, keepsake families and ranks
+# reachable without replay, and the owner's subjects each carried by a jaunt.
+step "Jaunt library shape: roster, featured six, families, ranks, subjects (T-2039)" \
+  python3 tools/audit_jaunts.py
+selftest "…and each of its assertions still fires when the library is broken" \
+  python3 tools/audit_jaunts.py --self-test
+
+# compile_jaunts proves a jaunt is well-formed; this reads what it SAYS: no Indigenous
+# encounter staged, no figure or asset carried, no quotation the claims do not hold
+# verbatim, no restricted source cited (T-2040).
+step "Jaunt content refusals across the library (T-2040)" \
+  python3 tools/audit_jaunt_refusals.py
+
+selftest "…and each refusal still fires when broken (T-2040)" \
+  python3 tools/audit_jaunt_refusals.py --self-test
+
 step "Source-use backlinks match authored claims (T-1248)" \
   python3 tools/compile_source_use.py --check
 
@@ -2797,6 +2873,14 @@ step "the ground mesh still meets the heightfield the walker samples" \
 step "the 1904 ground mesh meets its heightfield too (T-1738)" \
   node tools/measure_terrain_fit.mjs --epoch e1871_postfire --gate
 
+# …and the 1812 ground's (T-2003), which terrain_gen_e1830.py bakes through the same mesher
+# on the 1834 grid. Its heightfield is NOT re-derived here: the field is the 1834 one's
+# arithmetic over a 2.4-million-cell box and takes about 76 s, which this pool cannot spend
+# (rule 9). `validate.py --stale` holds its input hash instead, and
+# `python3 generators/terrain_gen_e1830.py --check` is the byte-for-byte re-derivation.
+step "the 1812 ground mesh meets its heightfield (T-2003)" \
+  node tools/measure_terrain_fit.mjs --epoch e1830_natural --gate
+
 # The OTHER two axes, which conformGroundToField() cannot repair — it reads a
 # height back off the field at a vertex's shipped (E, N), so a vertex the
 # quantiser moved in plan holds the right height for the wrong place, and on the
@@ -2810,6 +2894,9 @@ step "the shipped ground stands where the master does, and inside the road lift"
 
 step "the shipped 1904 ground stands where its master does (T-1738)" \
   node tools/measure_terrain_horizontal.mjs --epoch e1871_postfire --gate
+
+step "the shipped 1812 ground stands where its master does (T-2003)" \
+  node tools/measure_terrain_horizontal.mjs --epoch e1830_natural --gate
 
 # T-1067. The two gates above measure the ground against the mesh drawn FROM it,
 # which cannot see the town standing where there is no ground at all. The box
@@ -2889,6 +2976,12 @@ step "the shrub keeps its recorded width and its shell is not see-through" \
 # A hand-run check cannot cover a file that a merge rewrites; this one can.
 step "changelog contract" \
   node tools/check-changelog.mjs
+
+# T-1380. The contract step above now also holds the tree to its merge base, so a
+# merge that drops, re-stamps or renumbers a shipped entry is refused. That is the
+# half that read "contract OK" on 25 dev merges; prove its refusals still fire.
+selftest "…and a shipped release note cannot leave or change its number" \
+  node tools/changelog-history.mjs --self-test
 
 # The ticket queue: the operational "what next" the owner ordered on 2026-08-17
 # after his own requests went untraceable in the ROADMAP. Duplicate ids, queue
@@ -3177,6 +3270,17 @@ step "the lap publishes the mirror before the rebuild that reads it" \
 step "a lap that cannot check out a branch says which step failed, and why" \
   node tools/test_pr_lap_checkout.mjs
 
+# ...AND A BRANCH LEVEL WITH dev IS NOT THEREFORE CURRENT WITH dev'S GATES (T-1362).
+# The lap rebuilt the derived layer only inside a merge, so a branch with nothing to
+# merge never reached it: #1487 sat red on four stale manifest-owned files while the
+# lap printed `already current — nothing to lap`, and #1518 for two hours the same
+# way. The lap now reads the head's own `gate` verdict (one REST call) and re-derives
+# a current branch only when that reads red; a rebuild that moves nothing pushes
+# nothing and says so on the PR once per head. REAL script, REAL bare remote, stub
+# tools — and run again with the old exit restored, which must fail.
+step "a branch level with dev but red is re-derived, not called current" \
+  node tools/test_pr_lap_current.mjs
+
 # AND THE THING THAT ACTUALLY MERGES A FINISHED PULL REQUEST, which for most of
 # this repository's life was NOBODY. The lap's header said auto-merge did it; the
 # fleet janitor said the lap plus auto-merge did it, while excluding `custom`
@@ -3368,6 +3472,15 @@ selftest "…and the measurement's own readers still parse what check.sh declare
 step "a queue line blocked on a finished ticket is refused, and a closed one's is not" \
   node tools/test_ticket_stale_block.mjs
 
+# And band 8b, which T-1518 made the home of every blocked ticket, is now WRITTEN BY
+# THE TOOL (T-1541). `block` used to drop the queue line and write nothing, so the
+# line T-1518's gate demands was hand-written: T-1479 stood in no band until a run's
+# gate caught it, and T-1532 and T-1536 each stood twice because two branches wrote
+# the same block. `block` writes the line once (a re-block replaces it), `unblock`,
+# `withdraw` and `done` take it out, and `check` refuses a band line standing twice.
+step "band 8b: block writes a blocked ticket's line once, unblock takes it out, a twice is refused" \
+  node tools/test_ticket_blocked_band.mjs
+
 # And the collision the lane's parallelism makes inevitable. `nextIdNum` scans
 # every origin ref before it mints, so a duplicate id is not a missing guard but
 # the window between minting and pushing — on 2026-09-10 PRs #1048 and #1049 each
@@ -3513,8 +3626,8 @@ PY
 #
 # T-1228 gated the first three on 2026-09-17, each at its own slot above, on a
 # field-level ownership contract rather than byte-identity — the same shape T-0662
-# found the letter-list mint wants and has not got yet. Only the mint is still
-# carried as ungated in data/research/check_gate_baseline.json.
+# found the letter-list mint wants. T-2070 gave the mint that contract on 2026-10-04,
+# and its `--check` runs at the mint's own slot below.
 #
 # `mint_documented_residents.py` was on that list until T-1220 read its 10 files, fixed
 # the two faults under them and committed the rest; it is a step of its own below.
@@ -3968,21 +4081,24 @@ selftest "all four resident mints preserve findings across a derived-note change
 # one of them quietly ceasing to fire would now be worth hundreds of records rather than
 # one. `--report` prints the mint and every refusal with its reason; `--scale` counts
 # what the ruling did to the town on whatever tree it is run against.
-# NOT GATED (T-0662; the drift itself is T-1222's. It was T-0691's until 2026-09-18,
-# when the owner's ruling landed and T-0691 shrank to the card gate below — the 798
-# files are a pipeline-ordering question and were never the collisions).
-# This slot ran `synthesize_resident_research.py --check`, which is not the mint.
-# `tools/mint_letter_list_residents.py --check` is, and it reports 798 file(s)
-# differing — but a byte-identity check is the wrong contract for this pass, because
-# it is NOT the last writer of the files it derives: the synthesis above rewrites the
-# `letter_list_only` cohort's grade, subtype and note, and retires households outright.
-# Re-running the mint over the committed tree therefore REVERTS that work — it puts
-# grades back from `inferred` to `attested` and strips the PROJECTED RESIDENT
-# qualifier off post-office-only names, which is a confidence upgrade this project
-# forbids — and it re-mints 54 households under changed ids (hh_adains_will_si becomes
-# hh_adains_willisi) out of the same name-splitting fault as above. The pass is gated
-# below by `--gate` and `--self-test`, which prove what they can. `--report` and
-# `--scale` print the mint and its refusals.
+# GATED ON WHAT IT OWNS (T-2070, out of T-1222; T-0662 found the contract). A byte-for-
+# byte `--check` was the wrong one for this pass, and was carried ungated for it: the
+# mint is NOT the last writer of the files it derives. The synthesis and the ladder
+# rewrite the `letter_list_only` cohort's grade and note after it — the PROJECTED
+# RESIDENT downgrade — and the research passes and the T-1169 fill stage append to the
+# same cards, so re-deriving byte for byte was red on ~800 files of OTHER passes' work,
+# and a re-run would have reverted it (grades back up to `attested`, a confidence
+# upgrade this project forbids). `--check` now compares only what the mint owns: which
+# households it holds, under which ids, and the keys its KEY_OWNERS table rules its
+# own; a key on no row of that table is drift, never a default. What stood on the day
+# it was gated — 43 people a re-run would add, 7 it would lose, 10 it would re-mint
+# under a new id, 27 cards whose returns, bounds or names moved — is written row by
+# row in data/research/letter_list_mint_ledger.json, each row naming the ticket that
+# reads it (T-2071, T-2072, T-2073). The ledger only shrinks: red on drift that is on
+# no row, red on a row that no longer stands. `tools/letter_list_mint_drift.py` prints
+# the whole difference, later passes' keys included, off the same table.
+step "the letter-list mint re-derives what it owns, and only the ledgered drift differs" \
+  python3 tools/mint_letter_list_residents.py --check
 
 # T-0491. The 1840 identity bridges — three adjudicated links from a canonical 1835
 # resident to a named head of household in the federal census five years later. The

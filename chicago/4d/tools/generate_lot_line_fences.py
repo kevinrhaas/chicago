@@ -8,11 +8,19 @@ property in view**. An enclosure is the NORM of an 1830s town lot, not the excep
 until this record the whole town held four of them: a wagon yard, a pound, a hotel's rear
 yard and fifteen garden plots (T-0050/51/52).
 
-WHAT IT BUILDS. The **yard** of every improved platted lot: a fence up one side lot line,
-along the rear lot line at the alley, and down the other side lot line. The fourth side is
-the lot's own buildings and the dooryard in front of them, which is what the Sauganash's
-yard record already says of its own missing side — *"the two buildings that stand on this
-lot close the fourth side themselves"*. The CONTINUOUS STREET-LINING runs at the road edge
+WHAT IT BUILDS. The **whole lot** of every improved platted lot with room for a yard: a
+fence up one side lot line from the street corner, along the rear lot line at the alley,
+and down the other side lot line to the street. The street side is left open where a
+building on the lot fronts it (stands in the lot's front half), so the house or the store
+is seen from the road — which is what the Sauganash's yard record already says of its own
+missing side, *"the two buildings that stand on this lot close the fourth side
+themselves"*; a lot whose buildings all stand at the back is fenced on its street line too,
+with a street gateway. UNTIL T-2102 the side fences ran only along the rear 40 ft (the
+"head of the yard" below), which left a quarter of each side line fenced and the rest of
+the lot open to both neighbours and the street. The owner, 2026-10-04: *"the half built
+fence seems odd if there is no facing of a building on that street"* — and the town's
+1833 code let ringed hogs run at large, so a fence open on three sides kept nothing out
+(docs/LIBERTIES.md L379). The CONTINUOUS STREET-LINING runs at the road edge
 are deliberately NOT here: they are T-0069's half of the owner's sentence, and a fence
 built twice on one line is worse than a fence built once.
 
@@ -95,6 +103,7 @@ STREETS_PATH = DATA / "streets" / "1835.json"
 SIDECARS = DATA / "sidecars" / "1835"
 STRUCTURES = DATA / "structures"
 ENCLOSURES = DATA / "enclosures"
+STREET_EDGE = DATA / "frontage" / "town_street_edge.json"
 
 # The records this writes, in the order the manifest lists them.
 OUT = {
@@ -109,11 +118,12 @@ STANDING = ["western_hotel_wagon_yard.json", "estray_pen.json",
 
 # THE YARD, in feet and recorded converted, per data/datum.json's units rule.
 REAR_CLEAR_M = 3.048       # 10 ft of open ground between a back wall and the yard fence
-MAX_DEPTH_M = 12.192      # 40 ft — the deepest yard this record encloses (see the note)
+MAX_DEPTH_M = 12.192      # 40 ft — the yard the room test and the outbuildings read; no longer where fences stop (T-2102)
 MIN_DEPTH_M = 4.572        # 15 ft — under this it is a gap between buildings, not a yard
 MIN_WIDTH_M = 6.096        # 20 ft
 GATE_WIDTH_M = 3.048       # 10 ft on the alley: a cart's way in, not a person's
 CLEAR_OF_EXISTING_M = 2.0  # how close a new run may come to one already standing
+PARALLEL_DEG = 20.0        # a standing fence within this of a line's bearing runs along it
 BUILDING_CLEAR_M = 0.30    # a fence stops this far off a wall that stands on its line
 MIN_PIECE_M = 2.5          # a piece shorter than this is not a fence, it is a stub
 
@@ -279,20 +289,51 @@ def standing_runs() -> list[list[tuple[float, float]]]:
             pts = run.get("path_local_enu_m") or []
             if len(pts) >= 2:
                 out.append([(p[0], p[1]) for p in pts])
+    # T-2102 — AND THE STREET'S OWN FENCES. T-0069's street-lining fences stand on the
+    # same lot lines this record now closes at the street, so a lot whose street line
+    # that layer already fences takes nothing more there.
+    if STREET_EDGE.exists():
+        for run in load(STREET_EDGE).get("fences", []):
+            pts = run.get("path_local_enu_m") or []
+            if len(pts) >= 2:
+                out.append([(p[0], p[1]) for p in pts])
     return out
 
 
-def near_standing(a, b, runs, clear: float) -> bool:
-    """Does a→b run within `clear` of a fence that already stands? Sampled on both, so a
-    new line crossing or shadowing an old one is caught either way round."""
-    n = max(2, int(math.ceil(seg_len(a, b) / 1.0)))
-    for i in range(n + 1):
-        p = lerp(a, b, i / n)
-        for path in runs:
-            for k in range(len(path) - 1):
-                if point_seg_dist(p, path[k], path[k + 1]) <= clear:
-                    return True
-    return False
+def shadowed_spans(a, b, runs, clear: float) -> list[tuple[float, float]]:
+    """The parameter intervals of a→b that run within `clear` of, and ALONG, a fence that
+    already stands — two fences a metre apart on one line. A standing segment more than
+    `PARALLEL_DEG` off a→b's bearing crosses or meets it and shadows nothing. Sampled at
+    a quarter metre, the same step as `seg_polygon_gaps`."""
+    L = seg_len(a, b)
+    if L <= 1e-9:
+        return []
+    ux, uy = (b[0] - a[0]) / L, (b[1] - a[1]) / L
+    cos_min = math.cos(math.radians(PARALLEL_DEG))
+    segs = []
+    for path in runs:
+        for k in range(len(path) - 1):
+            p, q = path[k], path[k + 1]
+            m = seg_len(p, q)
+            if m > 1e-9 and abs((q[0] - p[0]) * ux + (q[1] - p[1]) * uy) / m >= cos_min:
+                segs.append((p, q))
+    if not segs:
+        return []
+    n = max(2, int(math.ceil(L / 0.25)))
+    hits = [any(point_seg_dist(lerp(a, b, i / n), p, q) <= clear for p, q in segs)
+            for i in range(n + 1)]
+    spans = []
+    i = 0
+    while i <= n:
+        if hits[i]:
+            j = i
+            while j + 1 <= n and hits[j + 1]:
+                j += 1
+            spans.append((i / n, j / n))
+            i = j + 1
+        else:
+            i += 1
+    return spans
 
 
 def survey():
@@ -371,8 +412,15 @@ def yard_for(entry):
     width = seg_len(poly[ra], poly[rb])
     if width < MIN_WIDTH_M:
         return None, f"the lot is only {width:.2f} m wide between its side lines"
-    return {"sides": sides, "rear": (ra, rb), "v_start": v_start, "depth": depth,
-            "v_of": v_of, "poly": poly, "width": width}, None
+    # T-2102 — DOES A BUILDING FRONT THE STREET? One that stands in the front half of the
+    # lot faces the street it is platted on, and its street face is left open so the house
+    # or the store is seen from the road. A lot whose buildings all stand in its back half
+    # turns only a privy or a shed to the street, and its street line is fenced like the
+    # other three.
+    fronts = front_building is not None and front_building[0] < depth / 2
+    return {"sides": sides, "rear": (ra, rb), "front": (fa, fb), "fronts_street": fronts,
+            "v_start": v_start, "depth": depth, "v_of": v_of, "poly": poly,
+            "width": width}, None
 
 
 def build(entries, sidecars):
@@ -394,6 +442,7 @@ def build(entries, sidecars):
     ground: dict[str, tuple[list, list[str]]] = {}
     sides: dict[tuple, dict] = {}
     rears: list[dict] = []
+    fronts: list[dict] = []
     refused: list[str] = []
     fenced: dict[str, list[str]] = {"board": [], "picket": [], "post_and_rail": []}
 
@@ -405,22 +454,21 @@ def build(entries, sidecars):
             refused.append(f"{lot_id} ({', '.join(entry['buildings'])}): {why}")
             continue
         poly = yard["poly"]
-        # The side lines, from the head of the yard back to the rear corner. The segment is
+        # The side lines, street corner to rear corner. The segment is
         # keyed and ORIENTED on its own committed corners, so the two neighbours that claim
         # it compute the same interval on the same line and the fence is built once.
         for (i, j) in yard["sides"]:
             k = tuple(sorted([key(poly[i]), key(poly[j])]))
             a, b = k
             length = seg_len(a, b)
-            va, vb = yard["v_of"](a), yard["v_of"](b)
-            # `t` is where along THIS segment, as the sorted key orients it, the head of
-            # the yard falls. The denominator is SIGNED: the key's order has nothing to do
-            # with which end of the edge is the street, so half of these edges run rear to
-            # front and the fence is the FIRST part of them rather than the last.
-            span = vb - va
-            t = (yard["v_start"] - va) / span if abs(span) > 1e-6 else 0.0
-            t = min(max(t, 0.0), 1.0)
-            lo, hi = (t, 1.0) if span > 0 else (0.0, t)
+            # T-2102 — THE WHOLE SIDE LINE, street corner to rear corner. Until then the
+            # fence ran only along the rear 40 ft of the lot (the head of the yard), which
+            # left the ground between the house and the yard open to both neighbours and
+            # to the street: a fence on three sides of a quarter of a lot, which keeps
+            # nothing out in a town whose ordinance let ringed hogs run at large. A wall
+            # standing on the line still stops it (`pieces` below), so a house built to
+            # its side line is the fence there.
+            lo, hi = 0.0, 1.0
             rec = sides.setdefault(k, {"a": a, "b": b, "lo": 1.0, "hi": 0.0,
                                        "kind": "post_and_rail", "lots": []})
             rec["lo"] = min(rec["lo"], lo)
@@ -436,6 +484,12 @@ def build(entries, sidecars):
                       "yard": round(yard["depth"] - yard["v_start"], 2),
                       "width": round(yard["width"], 2), "class": entry["class"]})
         fenced[entry["kind"]].append(lot_id)
+        # The street line, only where no building on the lot fronts that street.
+        if not yard["fronts_street"]:
+            fa, fb = yard["front"]
+            fronts.append({"a": poly[fa], "b": poly[fb], "kind": entry["kind"],
+                           "lot": lot_id, "buildings": entry["buildings"],
+                           "width": round(seg_len(poly[fa], poly[fb]), 2)})
 
     def pieces(a, b, spans):
         """Turn parameter spans into world segments, trimmed of the buildings that stand
@@ -450,14 +504,20 @@ def build(entries, sidecars):
             if bbox_apart(line, box, 0.30):
                 continue
             cuts += seg_polygon_gaps(a, b, ring, 0.30)
+        # T-2102 — A FENCE ALREADY STANDING BESIDE THE LINE TAKES ONLY THE SPAN IT
+        # SHADOWS. It used to take the whole piece, which was harmless while yard fences
+        # stood only at the alley; on a side line that runs the lot's whole depth it
+        # would hand a whole party fence to a garden plot that shadows two metres of it,
+        # and put the half fence straight back. Only a fence running ALONG the line
+        # shadows it: one meeting it square is a junction, not a second fence.
+        near = [path for path, box in standing
+                if not bbox_apart(line, box, CLEAR_OF_EXISTING_M)]
+        if near:
+            cuts += shadowed_spans(a, b, near, CLEAR_OF_EXISTING_M)
         out = []
         for lo, hi in subtract(spans, cuts):
             p, q = lerp(a, b, lo), lerp(a, b, hi)
             if seg_len(p, q) < MIN_PIECE_M:
-                continue
-            near = [path for path, box in standing
-                    if not bbox_apart(bbox([p, q]), box, CLEAR_OF_EXISTING_M)]
-            if near and near_standing(p, q, near, CLEAR_OF_EXISTING_M):
                 continue
             out.append((p, q))
         return out
@@ -514,10 +574,8 @@ def build(entries, sidecars):
                     f"and a party fence between two yards is one fence. THE LINE IS THE "
                     f"COMMITTED PLAT'S, corner to corner out of "
                     f"data/traces/vectors/thompson_lots.json; what is derived is only "
-                    f"WHERE ALONG IT the timber runs — from the head of the yard, "
-                    f"{REAR_CLEAR_M:.3f} m or more clear of the committed building that "
-                    f"stands nearest the street and no more than {MAX_DEPTH_M:.3f} m from "
-                    f"the rear line, back to the rear corner — and it stops "
+                    f"WHERE ALONG IT the timber runs — the whole line, street corner to rear "
+                    f"corner, since T-2102 closed the lot (L379) — and it stops "
                     f"{BUILDING_CLEAR_M:.2f} m short of any committed footprint standing "
                     f"on the line, because a wall on a lot line is not a hole in the fence, "
                     f"it IS the fence there."
@@ -568,6 +626,44 @@ def build(entries, sidecars):
                         "LEAF IS DRAWN — the fence simply stops, the way it does at the "
                         "wagon yard, the pound and the garden plots, because a hung gate "
                         "would be an invention on top of an invention."
+                    ),
+                })
+
+    for rec in fronts:
+        a, b = rec["a"], rec["b"]
+        got = pieces(a, b, [(0.0, 1.0)])
+        for n, (p, q) in enumerate(got):
+            runs[rec["kind"]].append({
+                "id": f"front_{rec['lot']}" + (f"_{n}" if n else ""),
+                "path_local_enu_m": [[round(p[0], 2), round(p[1], 2)],
+                                     [round(q[0], 2), round(q[1], 2)]],
+                "belongs_to": belongs([rec["lot"]], [p, q]),
+                "note": (
+                    f"THE STREET LOT LINE of {rec['lot']} (T-2102), closing the lot. Its "
+                    f"buildings — {', '.join(rec['buildings'])} — all stand in the back "
+                    f"half of the lot, so none of them fronts the street and the street "
+                    f"line is fenced like the other three; a lot with a house or a store "
+                    f"in its front half leaves this line open so the building is seen "
+                    f"from the road. EVERY COORDINATE IS THE PLAT'S; the invention is that "
+                    f"the line carries a fence at all, and which one."
+                ),
+            })
+        if got:
+            mid = lerp(a, b, 0.5)
+            best = max(got, key=lambda s: seg_len(*s))
+            if not any(point_seg_dist(mid, p, q) < 0.05 for p, q in got):
+                mid = lerp(best[0], best[1], 0.5)
+            if seg_len(*best) > GATE_WIDTH_M + 2 * MIN_PIECE_M:
+                openings[rec["kind"]].append({
+                    "id": f"front_{rec['lot']}_gate",
+                    "on": "street",
+                    "at_local_enu_m": [round(mid[0], 2), round(mid[1], 2)],
+                    "width_m": GATE_WIDTH_M,
+                    "confidence": "reconstructed",
+                    "note": (
+                        "INVENTED, like every gateway on this layer. A lot closed on its "
+                        "street line still has to be got into from the street, so the gap "
+                        "is centred in that line, 10 ft for a cart. NO GATE LEAF IS DRAWN."
                     ),
                 })
 
@@ -763,6 +859,7 @@ def record(kind: str, runs, openings, refused, fenced, counts, owners, prose) ->
             "data/sidecars/1835/*.json",
             "data/structures/*.json",
             "data/enclosures/*.json",
+            "data/frontage/town_street_edge.json",
         ],
         "belongs_to": [],
         "belongs_to_rule": enclosure_owners.rule_block(owners, prose),

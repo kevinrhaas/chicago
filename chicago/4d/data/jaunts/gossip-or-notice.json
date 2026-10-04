@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "id": "gossip-or-notice",
+  "content_version": 2,
+  "title": "Gossip or Printed Notice?",
+  "premise": "Two rumors are going round the forks. Carry them past the Exchange to the town's two printing offices, read what the papers actually said, and decide what you will carry back.",
+  "category": "News and social life",
+  "scene": "1835",
+  "opening": {
+    "text": "The talk at the forks this morning has two rumors in it: the land sale took in a million dollars, and a bank is opening in a brick house on the square. Both rumors are invented for this outing. The papers are real. Walk to the two printing offices and read what they printed before you repeat a word.",
+    "read_s": 20
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "land": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "promised": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "told": {
+      "min": 0,
+      "max": 2,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "the-forks",
+      "destination": {
+        "kind": "structure",
+        "id": "wolf_point_tavern"
+      },
+      "text": "Start at the forks, under the tavern's painted wolf sign, hung by about 1833. One account has William Walters keeping the house until 1836; another says it stopped taking guests in 1834. The talk is our invention: a million dollars at the land sale, and a bank opening on the square within weeks.",
+      "read_s": 30,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "wolf_point_tavern",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "drloih_wolf_point",
+          "label": "Read the Wolf Point source"
+        }
+      ],
+      "evidence": [
+        "wolf-sign",
+        "wolf-dispute",
+        "gossip"
+      ],
+      "next": "the-exchange",
+      "narrative": "Hear the rumors, and believe neither yet."
+    },
+    {
+      "id": "the-exchange",
+      "destination": {
+        "kind": "structure",
+        "id": "exchange_coffee_house"
+      },
+      "text": "Over the river to the Exchange Coffee House, which Mark Beaubien built at Lake and Wells and Mr. and Mrs. Murphy have kept since August 1834. The rumors are here before you, and someone asks whether they are true: our invention, like the rumors.",
+      "read_s": 28,
+      "action_s": 5,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "exchange_coffee_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "exchange-house",
+        "gossip"
+      ],
+      "choices": [
+        {
+          "id": "promise",
+          "label": "Promise to find out",
+          "consequence": "An answer is owed when you are done.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "promised",
+              "value": 1
+            }
+          ],
+          "next": "the-democrat"
+        },
+        {
+          "id": "just-listen",
+          "label": "Just listen",
+          "consequence": "Nobody is owed anything.",
+          "next": "the-democrat"
+        }
+      ],
+      "narrative": "Hear the rumors again, one river later."
+    },
+    {
+      "id": "the-democrat",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_democrat_office"
+      },
+      "text": "At South Water and Clark, the Democrat's first office; by 20 May it printed over Jones & King's hardware. Today's number cannot say what the Land Office took, and is only 'led to believe' it was between five and some hundred thousand dollars. Our copy loses the second figure.",
+      "read_s": 32,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_democrat_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_chicago_democrat_printing_office",
+          "label": "The printing office's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "democrat-corner",
+        "democrat-moved",
+        "land-sale",
+        "gossip"
+      ],
+      "choices": [
+        {
+          "id": "note-the-guess",
+          "label": "Note the paper's guess, doubt and all",
+          "consequence": "Not a million, and not certain: the paper says so itself.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "land",
+              "value": 1
+            }
+          ],
+          "next": "the-american"
+        },
+        {
+          "id": "skip-the-sale",
+          "label": "Leave the land sale to the talkers",
+          "consequence": "Nothing noted here.",
+          "next": "the-american"
+        }
+      ],
+      "narrative": "Find the first rumor in print."
+    },
+    {
+      "id": "the-american",
+      "destination": {
+        "kind": "structure",
+        "id": "chicago_american_office"
+      },
+      "text": "Near the drawbridge, the American is three weeks old. Its 27 June number reprints the Sangamon Journal: the State Bank's directors have decided on a branch at Chicago, but its officers are not yet known. The brick building on the square near the court house is read as Springfield's, not Chicago's.",
+      "read_s": 32,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "chicago_american_office",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "american-office",
+        "american-new",
+        "bank-branch",
+        "bank-springfield",
+        "gossip"
+      ],
+      "choices": [
+        {
+          "id": "carry-the-print",
+          "label": "Carry back what was printed, doubts and all",
+          "consequence": "Only what you read, with the papers' own hedges.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "told",
+              "value": 1
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "not-settled",
+          "label": "Carry back that nothing is settled",
+          "consequence": "Uncertainty, said out loud.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "told",
+              "value": 2
+            }
+          ],
+          "next": "$end"
+        },
+        {
+          "id": "say-nothing",
+          "label": "Carry back nothing for now",
+          "consequence": "The rumors travel without you.",
+          "next": "$end"
+        }
+      ],
+      "narrative": "Decide what you will carry back."
+    }
+  ],
+  "legs": [
+    {
+      "from": "the-forks",
+      "to": "the-exchange",
+      "note": "East over the river to Lake and Wells; no particular crossing is claimed, and the tavern's placement is the weakest in the town.",
+      "evidence": [
+        "wolf-dispute",
+        "exchange-house"
+      ],
+      "story": "Two rumors, walking faster than you.",
+      "story_evidence": [
+        "gossip"
+      ]
+    },
+    {
+      "from": "the-exchange",
+      "to": "the-democrat",
+      "note": "North to South Water Street and east to the corner of Clark.",
+      "evidence": [
+        "exchange-house",
+        "democrat-corner"
+      ],
+      "story": "A paper to read each rumor against.",
+      "story_evidence": [
+        "gossip"
+      ]
+    },
+    {
+      "from": "the-democrat",
+      "to": "the-american",
+      "note": "East along South Water Street to the foot of Dearborn, by the drawbridge.",
+      "evidence": [
+        "democrat-corner",
+        "american-office"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "true-to-the-page",
+      "text": "You carry back both items as printed: a land-sale take the Democrat would only guess at, and a branch bank decided with no officers named and no house in Chicago yet. Less than the forks said, and true to the page. The careful note is the story's.",
+      "read_s": 12,
+      "completion_eligible": true,
+      "when": {
+        "all": [
+          {
+            "var": "told",
+            "op": "==",
+            "value": 1
+          },
+          {
+            "var": "land",
+            "op": "==",
+            "value": 1
+          }
+        ]
+      }
+    },
+    {
+      "id": "one-checked",
+      "text": "You carry back the bank item as printed and leave the land sale alone, because you did not note it. Half a correction, honestly made. The careful note is the story's.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "told",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "not-yet-known",
+      "text": "You carry back that it is not settled: one paper would only guess, and the other names no officer and no house. Uncertainty is an answer too. The careful note is the story's.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "told",
+        "op": "==",
+        "value": 2
+      }
+    },
+    {
+      "id": "owed-an-answer",
+      "text": "You promised an answer at the Exchange and carry none back. The rumors will be repeated there without you, until Saturday's American or next week's Democrat prints more. The careful note is the story's.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "promised",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "held-tongue",
+      "text": "You say nothing, and the rumors go round without you. Saturday's American and next week's Democrat will print more; until then, holding your tongue is a fair way to read the news. The careful note is the story's.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "News & Knowledge",
+    "id": "a-careful-reader",
+    "title": "A Careful Reader",
+    "text": "A fictional note of two rumors heard at the forks in July 1835, set beside what the Democrat and the American printed. No real person said either rumor, and no paper is made to settle what it left uncertain."
+  },
+  "evidence": [
+    {
+      "id": "wolf-sign",
+      "text": "A painted sign of a wolf hung outside the Wolf Point Tavern by about 1833.",
+      "confidence": "attested",
+      "sources": [
+        "drloih_wolf_point",
+        "chicagology_prefire273"
+      ],
+      "locator": "DRLOIH, 'The Beginning of Wolf Point', the tavern's operator succession and its painted wolf sign; chicagology pre-fire page 273, Wentworth's tavern ('He painted a picture of a wolf on it')."
+    },
+    {
+      "id": "wolf-dispute",
+      "text": "One account has William Walters keeping the tavern from 1833 to 1836; the hotel chronology says it ceased operations as a public house in 1834.",
+      "confidence": "attested",
+      "sources": [
+        "drloih_wolf_point",
+        "drloih_hotels"
+      ],
+      "locator": "DRLOIH, 'The Beginning of Wolf Point', the tavern's operator succession (Walters 1833–1836); DRLOIH hotel chronology, Wolf Point Tavern entry ('ceased operations as a public house in 1834')."
+    },
+    {
+      "id": "democrat-corner",
+      "text": "The Democrat's first issue, 26 November 1833, gives its office as the building on the corner of South Water and Clark streets; John Calhoun printed it there.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), the imprint; Andreas vol. 1, the press chapter on Calhoun's office."
+    },
+    {
+      "id": "democrat-moved",
+      "text": "By 20 May 1835 the Democrat's colophon gives the office as over Messrs. Jones & King's hardware store, in South Water Street, so the corner is a former office on the scene date.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "20 May 1835 (Vol. II No. 5), p. 4, col. 6, the colophon (transcription lines 4177–4180). Transcription-mediated reading."
+    },
+    {
+      "id": "land-sale",
+      "text": "The Democrat of 1 July 1835 says it has not been able to ascertain the number of acres sold or the money received at the Land Office, and that from the best information it can obtain it is 'led to believe that between Fi[v]e and […]red Thousand Dollars have been paid' into that office during the sale. The second figure does not survive in the transcription.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "1 July 1835 (Vol. II No. 11), p. 3, col. 2, transcription lines 2566–2592 (extracted claim chicago_democrat_1835_07_01#c020); the left ends of the same printed lines are at col. 1, lines 2321–2340, and do not carry the lost figure. Transcription-mediated reading: the extraction's '[Six Hund]red' is an editorial supply, so the stop says the figure is lost rather than repeating it."
+    },
+    {
+      "id": "american-office",
+      "text": "The Chicago American's office was on Water Street near the drawbridge; this project places it on the south side of South Water Street just east of Dearborn, by the south landing of the Dearborn Street bridge.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas gives a street and a landmark, not a lot. The structure record's inferred position reads the drawbridge as the 1834 Dearborn Street bridge, so the stop says 'near the drawbridge' and claims no front door."
+    },
+    {
+      "id": "american-new",
+      "text": "The Chicago American's first number is dated 8 June 1835, printed by T. O. Davis; its masthead misprints May 8 and the issue corrects it to June 8. On 1 July 1835 the paper is three weeks old.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835",
+        "andreas_1884_v1"
+      ],
+      "locator": "Chicago American, 8 June 1835 (Vol. I, No. 1), the masthead and the issue's own correction of its date; Andreas vol. 1, the press chapter on T. O. Davis's American."
+    },
+    {
+      "id": "bank-branch",
+      "text": "The American of 27 June 1835 reprints from the Sangamon Journal a list of the officers of the State Bank of Illinois, saying the directors have determined to establish branches, Chicago among them, but that the officers of those institutions have not been made known; it adds that the bank has taken a brick building on the square near the court house.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "27 June 1835 (Vol. I, No. 4), p. 1, col. 5, transcription line 108 (extracted claim chicago_american_1835_06_27#c001), headed '[From the Sangamon Jou[rnal]'. Transcription-mediated reading of the weaker of the two runs; the bracketed supplies are the extraction's."
+    },
+    {
+      "id": "bank-springfield",
+      "text": "The brick building on the square near the court house is read as Springfield's, not Chicago's: on 1 July 1835 the Chicago branch is a decision without officers or premises.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "reasoning": "The paragraph is a reprint datelined from the Sangamon Journal, the Springfield paper, and it describes the parent bank before it lists any branch; the same paragraph says the Chicago branch's officers are not yet known. The extraction's own note (chicago_american_1835_06_27#c001) records the trap and that this project holds no court house or brick bank in Chicago on the scene date. The stop therefore says 'read as Springfield's' and claims no Chicago bank."
+    },
+    {
+      "id": "exchange-house",
+      "text": "Mark Beaubien built a new house on the north-west corner of Wells and Lake streets; in August 1834 Mr. and Mrs. Murphy took charge of it as a hotel, christened it the Exchange Coffee House, and remained until 1836.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1",
+        "drloih_hotels"
+      ],
+      "locator": "Andreas vol. 1, printed p. 633, the hotel chapter; the life of Mark Beaubien; DRLOIH hotel chronology, Exchange Coffee House entry."
+    },
+    {
+      "id": "gossip",
+      "text": "The tavern talk, both rumors and their figures (a million dollars, a bank opening on the square within weeks), the rumors reaching the Exchange, the person who asks there and the promise, the visitor's walk, what is noted or carried back, the endings, the timing inputs and the A Careful Reader keepsake are invented connective narrative. No real person is made to say either rumor, and no one named is met.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-gossip-or-notice"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-gossip-or-notice"
+  ]
+}

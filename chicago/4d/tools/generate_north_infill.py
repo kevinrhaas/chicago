@@ -45,9 +45,9 @@ from band_notes import split_notes  # noqa: E402
 # eave band their own note cited (ROADMAP T-V1). The band is now used as the range it
 # was authored as.
 from family_bands import (dimensions_m, eave_floor, eave_for_ridge,  # noqa: E402
-                          families, pitch_deg, storeys, wall_height_m)
+                          eave_limits, families, pitch_deg, storeys, wall_height_m)
 from ridge_model import ridge_run_m  # noqa: E402
-from roof_form import note_refusal, roof_kind  # noqa: E402
+from roof_form import fronts_gable, note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, plan_for  # noqa: E402
 from inferred_occupancy import occupancy  # noqa: E402
 # T-1806. The H2 houses here are boarding houses in the lodging model, so their upper
@@ -125,8 +125,10 @@ FUNCTIONS = {
     "D7": "small_two_story_frame_house", "H1": "small_boarding_house",
     "H2": "medium_boarding_house", "H3": "large_boarding_house",
     "C1": "small_shop_or_office", "C2": "store_residence",
+    "C3": "narrow_two_story_store", "C4": "wide_two_story_store_or_mixed_block",
     "T1": "small_inn_or_tavern", "W1": "blacksmith_shop",
-    "W2": "carpenter_or_joiner_shop", "W5": "large_workshop",
+    "W2": "carpenter_or_joiner_shop", "W3": "cooper_wagon_or_wheelwright_shop",
+    "W5": "large_workshop",
     "F1": "freight_or_storage_shed", "I2": "schoolhouse_or_meeting_hall",
     "A1": "stable", "A2": "barn_or_carriage_shed", "A3": "privy",
     "A4": "woodshed_or_storage_shed", "A5": "small_utility_building",
@@ -151,9 +153,12 @@ LABELS = {
     "H3": "large boarding house",
     "C1": "small shop or office",
     "C2": "store-residence",
+    "C3": "narrow two-story store",
+    "C4": "wide two-story store or mixed block",
     "T1": "small inn or tavern",
     "W1": "blacksmith shop",
     "W2": "carpenter or joiner shop",
+    "W3": "cooper, wagon, or wheelwright shop",
     "W5": "large workshop",
     "F1": "freight or storage shed",
     "I2": "schoolhouse or meeting hall",
@@ -200,7 +205,9 @@ def door_kind(family: str) -> str:
     # of its own band. `cargo` is 2.20 x 2.35 m and takes the floor to 2.43 m.
     if family == "F1":
         return "cargo"
-    if family in ("W1", "W2", "W5", "A2"):
+    # W3 (T-1205) is the cooper's, wagon-maker's or wheelwright's shop, and a wagon
+    # goes in and out of it whole: the block parcel has always given it this door.
+    if family in ("W1", "W2", "W3", "W5", "A2"):
         return "wagon"
     return "stable" if family == "A1" else "man"
 
@@ -298,9 +305,23 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
     roof_type, gable_front = roof_kind(family)
     run = ridge_run_m(archetype, roof_type, width, depth, gable_front)
     floor = eave_floor(family, door_kind(family))
-    wall = eave_for_ridge(wall_height_m(family, spec["eave_ft"], key, floor),
+    # THE STORES AND THE TAVERN ARE BOUNDED BY THEIR ARCHETYPE AT THEIR STOREY COUNT
+    # (T-1205), as the block parcel's are (T-0142). This parcel had no C or T roof until
+    # the Kinzie Street trade deal, so the dwelling-era rule here never had to ask: C3
+    # and C4 author two storeys and `frame_storefront` will not carry a two-storey eave
+    # under its floor or over its ceiling. Asked of C and T only, so no roof this recipe
+    # already builds is redrawn.
+    levels, loft = storeys(spec["levels"], key)
+    if family.startswith("T"):
+        levels = 2
+    ceiling = None
+    if family[0] in "CT":
+        arch_lo, ceiling = eave_limits(archetype, levels)
+        floor = max(floor, arch_lo)
+    wall = eave_for_ridge(wall_height_m(family, spec["eave_ft"], key, floor, ceiling),
                           family, spec["eave_ft"], spec.get("roof"),
-                          spec.get("ridge_ft"), run, _pitch_default(family), key, floor)
+                          spec.get("ridge_ft"), run, _pitch_default(family), key, floor,
+                          ceiling)
 
     # THE PITCH, T-0145. The eave moved onto its band in the pass before this one and
     # the pitch was deliberately left behind, because a pitch is not a dimension that
@@ -347,16 +368,27 @@ def _form_body(family: str, spec: dict, key: str, seq: int, paint: str,
         }
 
     if family.startswith("C"):
-        return {
-            "stories": inferred(1, why), "wall_height_m": inferred(wall, why),
+        # THE STOREY, THE GABLE AND THE LOFT ARE THE FAMILY'S, as the block parcel has
+        # asked them since T-0430 and T-1659; the show windows likewise (T-1667). The
+        # retyped `1` storey and front gable stood for every store this parcel ever
+        # built, and none stands now — T-1480 refamilied them — so the first stores
+        # here since (T-1205) are built on the family's own answers.
+        from generate_block_infill import shop_bays, shop_bays_note  # noqa: PLC0415
+        body = {
+            "stories": inferred(levels, why), "wall_height_m": inferred(wall, why),
             "roof_type": inferred("gable", why),
             "roof_pitch_deg": inferred(pitch(), why),
-            "gable_front": inferred(True, why), "construction": inferred(frame, why),
+            "gable_front": inferred(bool(fronts_gable(family)), why),
+            "construction": inferred(frame, why),
             "cladding": inferred("clapboard", why), "paint": inferred(paint, why),
-            "loft": inferred(family == "C2", why), "chimneys": inferred(1, why),
+            "loft": inferred(loft, why), "chimneys": inferred(1, why),
             "shopfront": inferred(True, why), "goods_door": inferred(True, why),
             "goods_door_side": inferred("end", why),
         }
+        bays = shop_bays(family, spec, width)
+        if bays is not None:
+            body["shopfront_bays"] = inferred(bays, shop_bays_note(family, spec, width, bays))
+        return body
 
     if family.startswith("T") or family.startswith("I") or family in ("H2", "H3"):
         # The I2 school/meeting-hall is a flagged generic block until a dedicated

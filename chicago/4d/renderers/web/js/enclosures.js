@@ -143,8 +143,15 @@ const MAX_STEP_M = 1.5;
  * second in the shadow map. 65 holds a sphere under 33 m, still a fifth inside
  * the bar, and takes the same fence to 40 meshes and 8 calls. A chunk boundary
  * can only fall between two bays at any value, so no member is ever split.
+ *
+ * 76 SINCE T-2102, which closed every fenced lot street to alley and took the
+ * layer from 7.2 km of lot-line fence to 16.3 km. At 65 that was 275 meshes (119
+ * before), and at `full` on a desktop every visible mesh is a call in the frame
+ * and another in the shadow map: Lake and Market read 296 calls of 295. 76 holds
+ * the widest sphere at 38.1 m, inside the 40 m bar, and with `OPEN_CHUNKS` and
+ * the 50 m `BAND_M` below takes the layer to 139 meshes (72 read 160).
  */
-const CHUNK_M = 65;
+const CHUNK_M = 76;
 
 /**
  * How deep a BAND the layer walks its runs in, west to east, before it moves to
@@ -155,8 +162,13 @@ const CHUNK_M = 65;
  * layer: walking the town in bands rather than in `CHUNK_M` cells is 40 meshes
  * against 70, for identical geometry — a chunker can only pack what it is handed
  * in order.
+ *
+ * 50 SINCE T-2102. With every fenced lot closed street to alley a band of 140 m
+ * held two 50 m deep lot tiers that the walk west to east alternated between;
+ * 50 m is about one tier, and with several chunks open at once (`OPEN_CHUNKS`)
+ * it measured 160 meshes for the closed lots against 187 at 140.
  */
-const BAND_M = 140;
+const BAND_M = 50;
 
 /* -------------------------------------------------------------------------- */
 /* geometry                                                                    */
@@ -412,34 +424,65 @@ function formOf(record) {
  * click on it should open, so a record that has one (the estray pen) gets chunks
  * of its own and everything else — which has no card behind it — shares.
  */
+/**
+ * SEVERAL CHUNKS ARE OPEN AT ONCE (T-2102). The chunker used to hold one, so a bay
+ * that did not fit closed it for good. That was enough while a lot fence was a
+ * yard at the alley: the runs of one block arrived west to east inside one
+ * `BAND_M` band and a chunk filled before it moved on. Once a fenced lot is
+ * closed street to alley, a block's two lot tiers each carry fence 50 m deep, the
+ * walk west to east alternates between the north tier and the south tier, and
+ * one open chunk was closed at nearly every run: the same town drew 23 more calls
+ * at `light` on a phone in Lake and Market. Holding `OPEN_CHUNKS` open lets the
+ * north tier and the south tier, and the alley between them, each fill a chunk
+ * of their own while the walk crosses back and forth. Nothing about a chunk's
+ * bound changes: every bay still asks `fits` of the chunk it goes into.
+ */
+const OPEN_CHUNKS = 6;
 function newChunker() {
-  return { chunks: [], buf: newChunk(), owner: undefined, ids: new Set() };
+  return { chunks: [], open: [], buf: null };
+}
+function closeChunk(ch, buf) {
+  if (buf.pos.length) {
+    buf.pickId = buf.owner ?? null;
+    buf.recordIds = [...buf.ids];
+    ch.chunks.push(buf);
+  }
+}
+/** Point `ch.buf` at an open chunk of this owner that can take these feet, opening one
+ *  (and closing the longest-idle) if none can. */
+function chunkFor(ch, owner, recordId, ...feet) {
+  let buf = ch.buf && ch.buf.owner === owner && fits(ch.buf, ...feet) ? ch.buf : null;
+  if (!buf) {
+    const i = ch.open.findIndex((b) => b.owner === owner && fits(b, ...feet));
+    if (i >= 0) {
+      buf = ch.open[i];
+      ch.open.splice(i, 1);
+    } else {
+      buf = Object.assign(newChunk(), { owner, ids: new Set() });
+      if (ch.open.length >= OPEN_CHUNKS) closeChunk(ch, ch.open.pop());
+    }
+    ch.open.unshift(buf);
+  }
+  buf.ids.add(recordId);
+  ch.buf = buf;
 }
 function flushChunk(ch) {
-  if (ch.buf.pos.length) {
-    ch.buf.pickId = ch.owner ?? null;
-    ch.buf.recordIds = [...ch.ids];
-    ch.chunks.push(ch.buf);
-  }
-  ch.buf = newChunk();
-  ch.ids = new Set();
+  for (const buf of ch.open) closeChunk(ch, buf);
+  ch.open = [];
+  ch.buf = null;
 }
 
 /** One run's timber, emitted into the shared chunker. */
 function emitRun(task, terrain, ch, tally, plankPales) {
   const { record, run, form: f } = task;
   const { height, courses, spacing, postHalf, closed, paleW, palePitch, level } = f;
-  // Flushing mid-run starts an empty chunk, and the record this run belongs to has
-  // to be named on that one too — `recordIds` is what a reader asking "what is in
-  // this mesh" gets back.
-  const flush = () => { flushChunk(ch); ch.ids.add(record.id); };
+  // Every chunk this run's timber lands in names the record — `recordIds` is what a
+  // reader asking "what is in this mesh" gets back.
   const path = run.path_local_enu_m;
   // A chunk may hold timber from several records but never from two OWNERS: its
   // `pickId` is what a click on it answers with.
   const owner = record.structure_id ?? null;
-  if (ch.owner !== undefined && owner !== ch.owner) flush();
-  ch.owner = owner;
-  ch.ids.add(record.id);
+  const into = (...feet) => chunkFor(ch, owner, record.id, ...feet);
   const s = measure(path);
   const gaps = (record.openings ?? [])
     .map((o) => ({ d: arcOf(path, s, o.at_local_enu_m), width: o.width_m ?? 4.27, o }))
@@ -472,7 +515,7 @@ function emitRun(task, terrain, ch, tally, plankPales) {
     for (let i = 0; i < n; i++) {
       // The bay's own near post, then its timber: one bay is the smallest
       // thing a chunk boundary may fall between, so it is emitted whole.
-      if (!fits(ch.buf, feet[i], feet[i + 1])) flush();
+      into(feet[i], feet[i + 1]);
       post(feet[i]);
       const a = feet[i];
       const b = feet[i + 1];
@@ -518,7 +561,7 @@ function emitRun(task, terrain, ch, tally, plankPales) {
     }
     // The stretch's far post: the loop above emits each bay's NEAR post, so
     // the last one would otherwise be left off the end of every run.
-    if (!fits(ch.buf, feet[n])) flush();
+    into(feet[n]);
     post(feet[n]);
   }
 }

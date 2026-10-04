@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "derive_settled_town_extent.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-10-04",
+      "finding": "Reproduces: ran `--write` on a clean tree in 4s, wrote its outputs, changed no committed byte.",
+      "placed": "after the structure and plat writers, before generate_dooryard_plantings.py, which reads its polygon (T-2084)"
+    },
     "seat_trade_roofs_1835.py": {
       "placement": "manifest",
       "write_mode": "--build",
@@ -30,6 +37,12 @@
       "write_mode": null,
       "measured": "2026-10-02",
       "finding": "Run bare it prints the --check verdict on the e1830_natural overlay, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: --resolve prints the effective 1812 table to stdout. A checker (T-2002)."
+    },
+    "read_whistler_1808.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-03",
+      "finding": "Run bare it prints the --check verdict on data/traces/whistler_1808_fort_dearborn.json, exits 0 and writes nothing (git status --porcelain identical before and after). It declares no write mode: --remeasure fetches the sheet to /tmp and re-measures it, writing nothing in the tree. A checker (T-2048)."
     },
     "check_terrain_e1871.py": {
       "placement": "manifest",
@@ -143,7 +156,7 @@
       "write_mode": "--build",
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
-      "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+      "placed": "by layer, 2026-09-18 — reasoned, not derived; moved 2026-10-04 (T-2081) to the seating chain, below the two deals whose seat counts it reads and below reconcile_665.py, which writes the programme it reads"
     },
     "build_staffing_model_1835.py": {
       "placement": "manifest",
@@ -176,7 +189,7 @@
       "placement": "pending",
       "write_mode": "--build",
       "measured": "2026-09-25",
-      "placed": "after seat_known_1835.py --build, which writes the address book this reads, and before rebuild_resident_index.py, which denormalises the block's value into the manifest. Both edges are real and neither is in the manifest's order yet — seat_known_1835.py is not in derived_manifest.json at all — so placing this one means placing that one first. T-1523 measured the reproduction and left the ordering to its own pass.",
+      "placed": "after seat_known_1835.py --build, which writes the address book this reads, and before rebuild_resident_index.py, which denormalises the block's value into the manifest. Both edges are real, and since T-2081 (2026-10-04) they point opposite ways in the manifest: seat_known_1835.py sits in the seating chain near the end of the sequence and rebuild_resident_index.py far ABOVE it, so no single slot satisfies both. Placing this needs rebuild_resident_index.py re-run below it (a second_pass entry, measured) or that edge refuted. T-1523 measured the reproduction and left the ordering to its own pass.",
       "finding": "Ran --build on the committed tree: wrote 0 card(s) and git reports no byte moved, so the 1,305 division_reconstructed blocks on disk are exactly what it derives from the address book's rung-5 rows. Its own --check asserts the same field for field, in both directions."
     },
     "carry_stage_blocks.py": {
@@ -427,6 +440,13 @@
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
     },
+    "derive_evacuation_1812.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its one output, changed no committed byte; `--check` reads and writes nothing in-tree.",
+      "placed": "after measure_shore_1812_harrison.py, beside the 1812 shore whose output it reads (T-0470)"
+    },
     "derive_shore_1812.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
@@ -520,6 +540,13 @@
       "measured": "2026-10-02",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 3s, rewrote data/enclosures/town_entrance_aprons.json byte for byte, changed no committed byte.",
       "placed": "not yet placed: it reads data/sidecars/1835/ and data/streets/1835.json, and tools/generate_yard_goods.py reads its output (wagon stands on the trodden ground are refused), so its slot is after the sidecar and street writers and before generate_yard_goods.py — to be measured in its own ordering pass (T-1453), not appended blind (T-1984)"
+    },
+    "generate_alley_lanes.py": {
+      "placement": "pending",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, rewrote data/enclosures/town_alley_lanes.json byte for byte, changed no committed byte.",
+      "placed": "not yet placed: it reads data/traces/vectors/thompson_lots.json, data/sidecars/1835/ and data/streets/1835.json and nothing reads its output, so its slot is after the plat, sidecar and street writers — to be measured in its own ordering pass (T-1453), not appended blind (T-2095)"
     },
     "generate_fort_apron.py": {
       "placement": "manifest",
@@ -637,6 +664,13 @@
       "measured": "2026-10-02",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 5s, wrote its outputs, changed no committed byte.",
       "placed": "not yet ordered (T-1959): it reads data/enclosures/town_dooryard_pickets.json, data/flora/plantings/*.json and data/yard/*.json, so its slot is after generate_dooryard_pickets, generate_dooryard_plantings and generate_yard_goods; the manifest's own ordering pass places it"
+    },
+    "generate_kept_ground.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-04 \u2014 directly after tools/generate_yard_outbuildings.py, whose outbuildings it reads; see the manifest step"
     },
     "generate_yard_goods.py": {
       "placement": "manifest",
@@ -792,6 +826,12 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "mint_letter_list_residents.py": {
+      "placement": "not_derivable",
+      "write_mode": "(bare)",
+      "measured": "2026-10-04",
+      "finding": "Does NOT reproduce: ran `(bare)` on a clean tree and moved 797 committed file(s) — 737 rewritten (736 cards and the manifest), 7 deleted, 53 added. Not a fault in the write: this mint is not the last writer of its cards (later passes own grade, note, sources, occupation and origin), so its `--check` compares only what it owns, against the shrink-only ledger data/research/letter_list_mint_ledger.json (T-2070); the drift in what it owns is T-2071, T-2072 and T-2073's to read."
     },
     "mint_placed_residents.py": {
       "placement": "manifest",
@@ -1398,11 +1438,11 @@
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
     "seat_known_1835.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "--build",
       "measured": "2026-09-20",
       "finding": "Reproduces, and it is a REAL writer rather than an idempotent no-op. `--build` on a clean tree ran in 1s, rewrote data/reconstruction/1835_address_book.json and changed no committed byte; the perturbation test says that is idempotence rather than inertia — the file was deleted, `--check` went red on it (\"is missing or unreadable — run --build\"), `--build` restored it, and `git status` came back clean.",
-      "placed": "not yet — measured to reproduce, but the manifest's order is its own measured pass and this tool reads data/residents/households/, which several reconstruction stages write, as well as data/research/location_spend.json and data/structures/. It has to sit after all of them."
+      "placed": "in the manifest, 2026-10-04 (T-2081): LAST of the seating chain, below build_order_book_1835.py, because it reads the order book and both seat files back. Placed first, as the hand-off order would put it, it refused on a merged tree (measured with the chain's outputs from before #396). Above house_the_present_1835.py, which reads the address book."
     },
     "seat_lodgers_1835.py": {
       "placement": "pending",
@@ -1419,18 +1459,18 @@
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
     "seat_off_plat_ground_1835.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "--build",
       "measured": "2026-09-26",
       "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs \u2014 data/reconstruction/1835_off_plat_ledger.json and data/reconstruction/1835_off_plat_seats.json \u2014 twice in succession, `--check` passed against both, and `git status --porcelain` named nothing but those two files. It writes no structure record and no person card: every seat it deals is an ADOPTION of a roof that already stands, it raises no slot at all, and so it draws nothing off the order book. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands \u2014 --check and --self-test \u2014 writing nothing in-tree.",
-      "placed": "not yet \u2014 measured to reproduce. T-1614, piece 2 of 3 of T-1199, and it sits DOWNSTREAM of seat_platted_ground_1835.py: its scope is that tool's own `owed` list, so a manifest slot for this one has to fall after a slot for that one, which is itself still pending behind seat_known_1835.py. Three tools deep and none of them in derived_manifest.json, so this cannot be appended blind \u2014 the manifest's order is its own measured pass (on #1452 three reconstruction stages oscillated until they sat in the right slot)."
+      "placed": "in the manifest, 2026-10-04 (T-2081): directly below seat_platted_ground_1835.py, whose `owed` list is its scope, and again in second_pass straight after it."
     },
     "seat_platted_ground_1835.py": {
-      "placement": "pending",
+      "placement": "manifest",
       "write_mode": "--build",
       "measured": "2026-09-26",
       "finding": "Reproduces: `--build` on a clean tree rewrote its own two outputs \u2014 data/reconstruction/1835_lot_ledger.json and data/reconstruction/1835_platted_seats.json \u2014 and `git status --porcelain` came back EMPTY afterwards, so not one committed byte moved. It writes no structure record and no person card: an adoption is a pointer at a roof that already stands and a slot is a request the 5C build tickets fulfil, so this pass raises nothing and bakes nothing. Measured again through tools/measure_step_isolation.mjs --tool, which reports both gated commands writing nothing in-tree.",
-      "placed": "not yet \u2014 measured to reproduce. T-1613, piece 1 of 3 of T-1199. Its inputs are the committed lot grid, the 665-roof programme's schedule, the placement policy and the address book, and the LAST of those is written by seat_known_1835.py, which is not in derived_manifest.json at all \u2014 so a slot for this one sits downstream of a tool that has no slot either, and placing this means placing that first. The manifest's order is its own measured pass \u2014 on #1452 three reconstruction stages oscillated until they sat in the right slot \u2014 so this cannot be appended blind."
+      "placed": "in the manifest, 2026-10-04 (T-2081): first of the seating chain, directly below seat_wabansia_streets.py and above build_order_book_1835.py, and again in second_pass, because it reads the address book seat_known_1835.py rebuilds below it. The order and the second pass are measured, not reasoned — see the manifest step and the second_pass entry."
     },
     "seat_reconstructed_trades_1835.py": {
       "placement": "pending",

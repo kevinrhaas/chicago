@@ -1,0 +1,352 @@
+{
+  "schema_version": 1,
+  "id": "from-prairie-to-town",
+  "content_version": 1,
+  "title": "From Prairie to Town",
+  "premise": "Come in off the open shore south of the fort: start at the factor's house below Fort Dearborn, pass its stockade, find a store on South Water Street and finish at a public house's door.",
+  "category": "Migration and routes",
+  "scene": "1835",
+  "opening": {
+    "text": "You have come up the open shore from the south and stop at the last house below Fort Dearborn. Ride north past the fort, find a store on the river street, and end at a public house. The traveller and the ride are invented; the places are the town's.",
+    "read_s": 15
+  },
+  "default_mode": "horse",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "stops": [
+    {
+      "id": "factors-house",
+      "destination": {
+        "kind": "structure",
+        "id": "fort_dearborn_us_factors_house"
+      },
+      "text": "Start at the U.S. Factor's House below the stockade. Hubbard, who knew it from 1818, recalled a two-story, squared-log house, and Harrison's 1830 plan letters it here; no later source describes it. Beyond the Reservation to the south the shore lies open: Wright's 1834 map names that ground Fractional Section 15, and nobody had bought it.",
+      "read_s": 26,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_us_factors_house",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "wright_1834_nara_hup",
+          "label": "Wright's 1834 map"
+        }
+      ],
+      "evidence": [
+        "factor-house-look",
+        "factor-house-plan",
+        "factor-house-standing",
+        "section15-named",
+        "section15-unentered",
+        "ride"
+      ],
+      "next": "the-stockade",
+      "narrative": "Get your bearings."
+    },
+    {
+      "id": "the-stockade",
+      "destination": {
+        "kind": "anchor",
+        "id": "fort_dearborn"
+      },
+      "text": "North to Fort Dearborn's stockade at the river mouth. Juliette Kinzie, who lived inside it in 1831, wrote of high pickets and large gates to the north and south. Troops had held the post since June 1832, so today it is a working garrison. Look from outside; the gates are shown shut.",
+      "read_s": 22,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "fort_dearborn_palisade",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "kinzie_waubun_1856",
+          "label": "Wau-Bun"
+        }
+      ],
+      "evidence": [
+        "fort-viewpoint",
+        "pickets-gates",
+        "garrisoned",
+        "ride"
+      ],
+      "next": "the-store",
+      "narrative": "The first works of the town."
+    },
+    {
+      "id": "the-store",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "West along the river to South Water and LaSalle and P. F. W. Peck's store. His card in the Democrat offered dry goods, hardware, groceries, crockery, boots and shoes, and hats. In May 1833 a newly arrived minister lodged in its unfinished loft. The corner is documented; the footprint is our placement.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "peck-loft",
+        "peck-place",
+        "ride"
+      ],
+      "next": "the-public-house",
+      "narrative": "Somewhere to buy what the road used up."
+    },
+    {
+      "id": "the-public-house",
+      "destination": {
+        "kind": "structure",
+        "id": "sauganash_hotel"
+      },
+      "text": "Last, on to Lake and Market and the Sauganash, on the east bank of the South Branch. Wau-Bun recalled it in 1831 as white and two-story, with bright-blue shutters; on 10 June 1835 the Democrat reported it repaired and newly fitted up. Whether a bed is free tonight is not claimed.",
+      "read_s": 24,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "sauganash_hotel",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "The Chicago Democrat"
+        }
+      ],
+      "evidence": [
+        "sauganash-look",
+        "sauganash-refit",
+        "sauganash-place",
+        "ride"
+      ],
+      "next": "$end",
+      "narrative": "A public house at the end of the ride."
+    }
+  ],
+  "endings": [
+    {
+      "id": "in-town",
+      "text": "You reach the Sauganash's door having come in from the south: from the last house below the fort, along the river street to a store, and on to a public house. The traveller and the route are the outing's invention; the places are the town's.",
+      "read_s": 13,
+      "default": true,
+      "completion_eligible": true
+    }
+  ],
+  "keepsake": {
+    "family": "Wayfinding",
+    "id": "into-town",
+    "title": "Into Town",
+    "text": "A fictional route note of a first ride in from the open shore south of the fort, by way of a store, to the Sauganash's door."
+  },
+  "evidence": [
+    {
+      "id": "factor-house-look",
+      "text": "Gurdon Hubbard, who reached Chicago in 1818, describes the Factor House as 'a two-story, squared-log structure'.",
+      "confidence": "attested",
+      "sources": [
+        "hubbard_autobiography_1911"
+      ],
+      "locator": "Hubbard's autobiography (1911), the inventory of the place as he found it in 1818, bk_hub_063, leaf 76, printed p. 38 (read at data/sidecars/1835/fort_dearborn_us_factors_house.json, attributes.construction and documented_range)."
+    },
+    {
+      "id": "factor-house-plan",
+      "text": "The 1830 plan of the river mouth letters 'U.S. Factor's House' against buildings on the Reservation just south of the fort.",
+      "confidence": "attested",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "andreas_1884_v1"
+      ],
+      "locator": "F. Harrison Jr., Map of the Mouth of Chicago River, approved 24 February 1830, as reproduced in Andreas vol. 1, p. 113: the label 'U.S. Factor's House' (read at data/traces/harrison_1830_us_factors_house.json)."
+    },
+    {
+      "id": "factor-house-standing",
+      "text": "The house is taken to stand on 1 July 1835: it is seen in 1818, sold to the American Fur Company in 1822 and drawn in 1830, and nothing says it came down. No source after 1830 describes it.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_antiquities_american_fur_co",
+        "harrison_1830_river_mouth"
+      ],
+      "reasoning": "Hurlbut has the American Fur Company buy 'the Factory House, located just south of Fort Dearborn' from the United States in 1822 (bk_afc_009), and the Harrison plan of 24 February 1830 letters it. The structure record's range (1818 to 29 December 1836) is graded inferred for the same reason: the last five years are an argument from silence, so the stop says no later source describes it and claims no occupant. Its position is read off the 1830 plate and carries about 25 m."
+    },
+    {
+      "id": "section15-named",
+      "text": "Wright's 1834 survey of Chicago colours and names a tract 'Fractional Section 15' south of the United States Reservation, cut on the east by the lake shore.",
+      "confidence": "attested",
+      "sources": [
+        "wright_1834_nara_hup"
+      ],
+      "locator": "Wright 1834, legend chip 7, lettered 'Fractional Section 15' (read at docs/RESEARCH/wright_1834_legend_swatches.md, table row 7); the tract's polygon is data/reconstruction/1835_survey_tracts.json, id fractional_section_15."
+    },
+    {
+      "id": "section15-unentered",
+      "text": "On 1 July 1835 Fractional Section 15 was unentered public land: the state register's only entry on the section is Mark Noble Jr's addition of 31 May 1836, after the scene date.",
+      "confidence": "inferred",
+      "sources": [
+        "isa_public_domain_land_tract_sales"
+      ],
+      "reasoning": "An absence in the register, read as data/reconstruction/1835_survey_tracts.json records it (fractional_section_15.owner_on_scene_date: no entries before the scene date). It is a statement about the land office's register, not proof that nobody was on the ground, so the stop says nobody had bought it rather than that nobody was there."
+    },
+    {
+      "id": "shore-camps",
+      "text": "The land-sale camp (L355) and the emigrants' tents (L358) the scene pitches on the reservation south of the fort are conjectural; no committed source says anyone camped there.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L355"
+    },
+    {
+      "id": "fort-viewpoint",
+      "text": "The second stop is the scene's typed viewpoint 'Fort Dearborn, from the south-west', about 30 m off the stockade's south-west corner; it is a camera position looking at the pickets from outside, not a claimed path or gate.",
+      "confidence": "inferred",
+      "sources": [
+        "harrison_1830_river_mouth",
+        "wright_1834"
+      ],
+      "reasoning": "The anchor stands at local E +1100, N +175 in data/scenes/1835.json, facing north-east; the stockade record (fort_dearborn_palisade) is placed at E +1122, N +198 from the 1830 plan and Wright 1834. The stop's facts about the pickets and the garrison are the separate pickets-gates and garrisoned readings."
+    },
+    {
+      "id": "pickets-gates",
+      "text": "Fort Dearborn was enclosed by high pickets with large gates to the north and south; Andreas likewise gives the rebuilt fort two gates, one on the north side and one on the south.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856",
+        "andreas_1884_v1"
+      ],
+      "locator": "Kinzie, Wau-Bun, ch. XVII ('The fort was inclosed by high pickets … Large gates opened to the north and south'), describing 1831; Andreas vol. 1, p. 84 ('It had two gates, one on the north and the other on the south side')."
+    },
+    {
+      "id": "garrisoned",
+      "text": "The fort was re-garrisoned in June 1832 and the troops were permanently withdrawn on 29 December 1836, so on 1 July 1835 the post was held.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Andreas vol. 1, p. 84 gives the two ends of the occupation and no gap between them; the scene date falls inside it. No strength figure for mid-1835 was found, so the stop names none. The gates are shown shut because the stockade record builds its leaves shut; no source states the hour or the state of the gates on the day."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes, and hats.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck’s standing card, run to 10 Dec 1834); 2 July 1834, p. 4, col. 4 (‘a full stock of fresh GOODS’). Transcription-mediated reading."
+    },
+    {
+      "id": "peck-loft",
+      "text": "Jeremiah Porter lodged in the unfinished loft of Peck’s two-storey store in May 1833.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Vol. 1, printed p. 303, Jeremiah Porter biography; May 1833 arrival and temporary lodging."
+    },
+    {
+      "id": "peck-place",
+      "text": "Peck's store stood at the south-west corner of South Water and LaSalle Streets; the corner is documented and the footprint's coordinate is derived.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1",
+        "osm_streets_2026"
+      ],
+      "reasoning": "Andreas gives the corner. The structure record derives the coordinate from the modern West Wacker Drive / LaSalle intersection with a working uncertainty of about 20 m, so the stop calls the footprint our placement."
+    },
+    {
+      "id": "sauganash-look",
+      "text": "Wau-Bun describes the Sauganash in 1831 as 'a pretentious white two-story building, with bright-blue wooden shutters'.",
+      "confidence": "attested",
+      "sources": [
+        "kinzie_waubun_1856"
+      ],
+      "locator": "Ch. XVII, 'Chicago in 1831' — the Wolf Point houses, Mark Beaubien's house just completed."
+    },
+    {
+      "id": "sauganash-refit",
+      "text": "The Chicago Democrat of 10 June 1835 reported that the Sauganash had been repaired, fitted up and furnished with neatness and taste.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "10 June 1835 (Vol. II No. 8), p. 2, col. 5, the paragraph on the town's public houses (claim chicago_democrat_1835_06_10#c001). Transcription-mediated reading."
+    },
+    {
+      "id": "sauganash-place",
+      "text": "The Sauganash stood at the south-east corner of Lake and Market Streets, on the east bank of the South Branch.",
+      "confidence": "inferred",
+      "sources": [
+        "drloih_hotels",
+        "chicago_landmark_sauganash"
+      ],
+      "reasoning": "The corner is given by the hotel chronology and the Chicago Landmark designation; the building's coordinate in the scene is the structure record's platted-corner derivation and carries the georeference's uncertainty of about 20 m."
+    },
+    {
+      "id": "ride",
+      "text": "The traveller, the arrival from the south, the ride, the route order, the looking from outside, the ending and the Into Town keepsake are invented connective narrative. No one is met or speaks, no bed or purchase is claimed, and no 1812 event, removal or Native presence is staged.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-from-prairie-to-town"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-from-prairie-to-town",
+    "L355",
+    "L358"
+  ],
+  "legs": [
+    {
+      "from": "factors-house",
+      "to": "the-stockade",
+      "note": "A short ride north over the Reservation to the fort's south-west corner, about 0.15 km. The tents the scene pitches on this ground are our conjecture.",
+      "evidence": [
+        "factor-house-plan",
+        "fort-viewpoint",
+        "shore-camps"
+      ],
+      "story": "From the last house to the first works of the town.",
+      "story_evidence": [
+        "ride"
+      ]
+    },
+    {
+      "from": "the-stockade",
+      "to": "the-store",
+      "note": "West along the river's south bank to the corner of South Water and LaSalle, about 0.7 km.",
+      "evidence": [
+        "fort-viewpoint",
+        "peck-place"
+      ],
+      "story": "Into the trading street.",
+      "story_evidence": [
+        "ride"
+      ]
+    },
+    {
+      "from": "the-store",
+      "to": "the-public-house",
+      "note": "On west to Lake Street and the Market Street corner above the South Branch, about 0.3 km.",
+      "evidence": [
+        "peck-place",
+        "sauganash-place"
+      ],
+      "story": "The last few blocks to a door.",
+      "story_evidence": [
+        "ride"
+      ]
+    }
+  ]
+}

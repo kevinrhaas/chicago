@@ -15,6 +15,7 @@
  * values. See polecat-platform docs/SHELL-API.md.
  */
 import { readFileSync } from 'node:fs';
+import { RETIRED, holdToBase } from './changelog-history.mjs';
 
 const FILE = new URL('../renderers/web/js/changelog.js', import.meta.url);
 const problems = [];
@@ -95,8 +96,18 @@ if (!shape.entries.length) problems.push('no entries found — the `{ v: N,` hea
 // promotion pipeline tags `release-vNNN` from it — so a repeated number
 // mis-tags a release and makes two different entries indistinguishable to
 // every consumer at once.
+//
+// RETIRED numbers are the one sanctioned gap, and each says why; the map lives
+// in changelog-history.mjs, because the base check below must agree with this one
+// on which numbers may leave the file.
 {
   const numbered = shape.entries.filter((e) => e.v !== 'null').map((e) => ({ ...e, n: Number(e.v) }));
+  for (const e of numbered) {
+    if (RETIRED.has(e.n)) {
+      problems.push(`line ${e.line}: v${e.n} is a RETIRED number (${RETIRED.get(e.n)}) — it shipped `
+        + 'once and is never assigned again');
+    }
+  }
   for (let i = 1; i < numbered.length; i++) {
     const prev = numbered[i - 1];
     const cur = numbered[i];
@@ -112,9 +123,11 @@ if (!shape.entries.length) problems.push('no entries found — the `{ v: N,` hea
       break;
     }
   }
-  if (numbered.length > 1 && numbered[0].n !== numbered.length + numbered[0].n - numbered.at(-1).n
-      && numbered.at(-1).n !== numbered[0].n - (numbered.length - 1)) {
-    problems.push(`the numbering has ${numbered[0].n - numbered.at(-1).n + 1 - numbered.length} `
+  const retiredIn = numbered.length
+    ? [...RETIRED.keys()].filter((n) => n < numbered[0].n && n > numbered.at(-1).n).length : 0;
+  const gaps = numbered.length ? numbered[0].n - numbered.at(-1).n + 1 - numbered.length - retiredIn : 0;
+  if (numbered.length > 1 && gaps !== 0) {
+    problems.push(`the numbering has ${gaps} `
       + `gap(s): v${numbered[0].n} down to v${numbered.at(-1).n} over ${numbered.length} entries. `
       + 'A gap means an entry was dropped in a merge');
   }
@@ -202,6 +215,35 @@ if (CHANGELOG?.[0] && Number(CHANGELOG[0].v) >= ENFORCE_FROM) {
   check('total words', iw, LIMITS.words);
 }
 
+// A TITLE TWICE IS AN ENTRY COPIED. The merge driver identifies an entry by its
+// title across base, ours and theirs, so two entries sharing one cannot both
+// survive a merge honestly — and the one way this file has grown a repeat is a
+// lap copying an entry back on top (T-2083: v1397 six times on dev, and nothing
+// here noticed, because each copy had a fresh number and a valid shape).
+{
+  const first = new Map();
+  for (const e of [...(CHANGELOG || [])].reverse()) {           // oldest first: the copy is named
+    const t = String(e.title ?? '');
+    if (first.has(t)) {
+      problems.push(`v${e.v}: repeats the title of v${first.get(t)} ("${t.slice(0, 60)}") — an entry `
+        + 'copied by a merge. Delete the copy; if it was already stamped, retire its number in RETIRED');
+    } else first.set(t, e.v);
+  }
+}
+
+// A SHIPPED ENTRY STAYS, UNDER ITS NUMBER (T-1380). Everything above reads this
+// file alone, and the two worst things a merge has done to it leave nothing in the
+// file to read: an entry dropped with its number handed to the next release (v971,
+// 2026-09-19), and a shipped entry moved to another number (six times on dev,
+// 2026-09-23 to 10-04). Both show only against the base, so this asks it.
+let heldNote = null;
+if (Array.isArray(CHANGELOG)) {
+  const held = await holdToBase(CHANGELOG);
+  heldNote = held.note;
+  problems.push(...held.problems);
+  for (const w of held.warnings) console.warn(`  note  ${w}`);
+}
+
 let prev = Infinity;
 for (const e of CHANGELOG) {
   const at = `v${e.v}`;
@@ -222,7 +264,8 @@ for (const e of CHANGELOG) {
 
 report();
 console.log(`changelog contract OK — ${CHANGELOG.length} entr${CHANGELOG.length === 1 ? 'y' : 'ies'}`
-  + ` (${shape.entries.length} in the literal), latest v${LATEST_VERSION}`);
+  + ` (${shape.entries.length} in the literal), latest v${LATEST_VERSION}`
+  + (heldNote ? `; ${heldNote}` : ''));
 
 function report() {
   if (!problems.length) return;

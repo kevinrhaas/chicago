@@ -297,6 +297,12 @@ is the contract. The short form:
 - **Pick**: take the topmost ticket in `tickets/QUEUE.md` you can actually run (skip
   `needs_bake` on the improve runner, with the skip stated in the PR). `node
   tools/ticket.mjs list --workable` prints the same order.
+- **Skip a LIVE claim, not a dead one** (T-1612). `list --workable` prints each claim's
+  age — `claimed 40m` — and a claim older than the three-hour run window as
+  `TAKEABLE dead claim 10h`: a run that died. That row is workable in its queue place
+  and `claim` steals it without `--force`; the verdict on the line and the one `claim`
+  enforces are the same function. T-1444 sat at the top of its band for 131.8 hours
+  reading `claimed` because nothing on the line said so.
 - **Check it is not ALREADY DONE**: `node tools/ticket.mjs landed` names every workable
   ticket that a MERGED PR names, with the number, the merge instant and the `done`
   command. Git cannot answer this — everything squash-merges, so a merged branch never
@@ -450,7 +456,12 @@ is the contract. The short form:
   already in the queue is cut with `ticket.mjs split T-NNNN "piece" "piece"` — the
   children inherit the parent's exact place in QUEUE, so a split never re-prioritises.
   If a run discovers mid-flight that its ticket is bigger than one demonstration, it
-  splits rather than shipping a self-invented "(1/2)". `--anyway` is the ticket
+  splits rather than shipping a self-invented "(1/2)". **`split` refuses a parent another
+  run holds** — a live claim that is not yours, or an open PR on it (T-1344): the claim
+  lock is per id, so the pieces would go into the queue unheld while that run carries on
+  onto one of them. Your own claim never refuses, and every piece records what stood on
+  the parent; `--anyway --why "…"` splits past a rival and writes the reason into the
+  pieces. Separately, `--anyway` is the ticket
   *budget's* override and cannot reach an L: the queue gate refuses one unconditionally,
   so filing one anyway only chooses whose pull request goes red for it.
 - `tools/check.sh` runs `ticket.mjs check`: duplicate ids, queue drift, stale BOARD, a
@@ -665,6 +676,11 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     What's-new tab and this project's release feed to Manager and the launcher.
     `tools/check.sh` runs the contract check as a step, so a plain `./tools/check.sh` after
     merging covers it.
+  - **A shipped entry keeps its place, its stamp and its number (T-1380).** When you resolve a
+    changelog conflict, the base's entries go back VERBATIM; only your branch's own entries
+    are re-stamped. `check-changelog.mjs` holds the working tree to its merge base with `dev`
+    and refuses an entry that was dropped, re-stamped or renumbered: measured over every dev
+    merge since 2026-08, that happened 25 times and read "contract OK" every time.
   - Nothing stamps after merge. The file is authored inside the app because the What's-new
     tab imports it; `publish.sh` mirrors it to `site/4d/js/changelog.js`, the URL
     Manager and the polecat.live launcher parse live, which must not move — and to

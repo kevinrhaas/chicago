@@ -1,0 +1,476 @@
+{
+  "schema_version": 1,
+  "id": "freight-for-the-store",
+  "content_version": 2,
+  "title": "Freight for the Store",
+  "premise": "Count an invented consignment off Newberry & Dole's wharf, load the wagon, deliver to two stores and carry the tally back to George Dole's warehouse with nothing lost.",
+  "category": "River commerce",
+  "scene": "1835",
+  "opening": {
+    "text": "An invented bill lists three packages landed at Newberry & Dole's: two for Peck's store, one for Thomas Church's. Count them, load the wagon, deliver them and carry the tally to George Dole's warehouse. The shipment, bill and tally are invented; the firms and stores are not.",
+    "read_s": 16
+  },
+  "default_mode": "wagon",
+  "allowed_modes": [
+    "walk",
+    "wagon",
+    "horse",
+    "fly",
+    "instantly"
+  ],
+  "variables": {
+    "packages": {
+      "min": 0,
+      "max": 3,
+      "initial": 0,
+      "unit": "count"
+    },
+    "counted": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "waits": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "preference"
+    },
+    "checked": {
+      "min": 0,
+      "max": 1,
+      "initial": 0,
+      "unit": "preference"
+    }
+  },
+  "stops": [
+    {
+      "id": "wharf",
+      "destination": {
+        "kind": "structure",
+        "id": "newberry_dole_warehouse"
+      },
+      "text": "Newberry & Dole have advertised as forwarding and commission merchants since November 1833, taking in goods off the lake for other men's stores. In June the American named them freight agents for the steamboat Michigan. Which bank their house stood on is disputed.",
+      "narrative": "How will you load the three?",
+      "read_s": 27,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "newberry_dole_warehouse",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_newberry_dole",
+          "label": "Newberry & Dole's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_american_1835",
+          "label": "Read the American source"
+        }
+      ],
+      "evidence": [
+        "nd-trade",
+        "forwarding",
+        "michigan-agents",
+        "nd-bank",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "count-all",
+          "label": "Count all three, then load them",
+          "consequence": "Three packages counted and aboard. The bill and the wagon agree.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "packages",
+              "value": 3
+            },
+            {
+              "op": "set",
+              "var": "counted",
+              "value": 1
+            }
+          ],
+          "next": "store"
+        },
+        {
+          "id": "two-now",
+          "label": "Count, and take only Peck's two",
+          "consequence": "A lighter load. Church's package waits at the wharf for a second trip.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "packages",
+              "value": 2
+            },
+            {
+              "op": "set",
+              "var": "counted",
+              "value": 1
+            },
+            {
+              "op": "set",
+              "var": "waits",
+              "value": 1
+            }
+          ],
+          "next": "store"
+        },
+        {
+          "id": "trust",
+          "label": "Load all three on the bill's word",
+          "consequence": "Quicker, but nobody has checked the bill.",
+          "effects": [
+            {
+              "op": "set",
+              "var": "packages",
+              "value": 3
+            }
+          ],
+          "next": "store"
+        }
+      ]
+    },
+    {
+      "id": "store",
+      "destination": {
+        "kind": "structure",
+        "id": "peck_store"
+      },
+      "text": "Peck's store holds the corner of LaSalle and South Water. His own cards of 1833 and 1834 list dry goods, hardware, groceries, crockery, flannels and calicoes; his two packages belong among those lines.",
+      "narrative": "Check his list, or unload straight away?",
+      "read_s": 23,
+      "action_s": 15,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "peck_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "chicago_democrat_1833_1835",
+          "label": "Read the Democrat source"
+        }
+      ],
+      "evidence": [
+        "peck-stock",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "check",
+          "label": "Check the marks against his card",
+          "consequence": "Dry goods and hardware, both lines his card lists. Two packages delivered.",
+          "effects": [
+            {
+              "op": "inc",
+              "var": "packages",
+              "value": -2
+            },
+            {
+              "op": "set",
+              "var": "checked",
+              "value": 1
+            }
+          ],
+          "next": "church"
+        },
+        {
+          "id": "unload",
+          "label": "Unload both packages and go",
+          "consequence": "Two packages off the wagon, unchecked.",
+          "effects": [
+            {
+              "op": "inc",
+              "var": "packages",
+              "value": -2
+            }
+          ],
+          "next": "church"
+        }
+      ]
+    },
+    {
+      "id": "church",
+      "destination": {
+        "kind": "structure",
+        "id": "thomas_church_store"
+      },
+      "text": "Up to Lake Street. The only note found, a modern one, credits Thomas Church with the street's first store building, a two-storey frame. It names no stock and no year, and the store's place on the street is reconstructed.",
+      "narrative": "Is Church's package aboard?",
+      "read_s": 23,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "thomas_church_store",
+          "label": "About this place"
+        },
+        {
+          "kind": "business",
+          "id": "biz_church_thomas_merchant",
+          "label": "Thomas Church's card"
+        },
+        {
+          "kind": "source",
+          "id": "chicagology_prefire275",
+          "label": "Read the source"
+        }
+      ],
+      "evidence": [
+        "church-store",
+        "continuity",
+        "errand"
+      ],
+      "choices": [
+        {
+          "id": "deliver",
+          "label": "Leave Church's package",
+          "consequence": "The wagon is empty.",
+          "when": {
+            "var": "packages",
+            "op": "==",
+            "value": 1
+          },
+          "effects": [
+            {
+              "op": "inc",
+              "var": "packages",
+              "value": -1
+            }
+          ],
+          "next": "tally"
+        },
+        {
+          "id": "note",
+          "label": "Note the store for the second trip",
+          "consequence": "Church's package is still at the wharf.",
+          "when": {
+            "var": "waits",
+            "op": "==",
+            "value": 1
+          },
+          "next": "tally"
+        }
+      ]
+    },
+    {
+      "id": "tally",
+      "destination": {
+        "kind": "structure",
+        "id": "dole_warehouse_south"
+      },
+      "text": "Andreas puts George W. Dole's 1832 warehouse and slaughter yard near Lake and Dearborn. Dole is the Dole of Newberry & Dole, whose slaughter-house was on the South Branch by 1834, so this yard is likely quiet. Square the bill here.",
+      "narrative": "Hand in the tally.",
+      "read_s": 24,
+      "action_s": 10,
+      "links": [
+        {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "label": "About this place"
+        },
+        {
+          "kind": "source",
+          "id": "andreas_1884_v1",
+          "label": "Read the Andreas source"
+        }
+      ],
+      "evidence": [
+        "dole-yard",
+        "dole-firm",
+        "continuity",
+        "errand"
+      ],
+      "next": "$end"
+    }
+  ],
+  "legs": [
+    {
+      "from": "wharf",
+      "to": "store",
+      "note": "East along South Water Street to LaSalle; no particular path is claimed.",
+      "evidence": [
+        "nd-bank",
+        "continuity"
+      ],
+      "story": "The wagon creaks east with its load.",
+      "story_evidence": [
+        "errand"
+      ]
+    },
+    {
+      "from": "store",
+      "to": "church",
+      "note": "A block south on LaSalle and east along Lake Street to the store's reconstructed place on the block.",
+      "evidence": [
+        "church-store",
+        "continuity"
+      ]
+    },
+    {
+      "from": "church",
+      "to": "tally",
+      "note": "East along Lake Street to Dearborn.",
+      "evidence": [
+        "dole-yard",
+        "continuity"
+      ]
+    }
+  ],
+  "endings": [
+    {
+      "id": "second-trip",
+      "text": "The tally squares for two packages and says so. Church's package waits at Newberry & Dole's for a second, lighter trip. A careful carter, and an honest tally.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "waits",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "taken-on-trust",
+      "text": "All three packages are delivered, but the tally only repeats the bill: nobody counted at the wharf. If a store finds one short, there is no saying where it went. Count first next time.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "counted",
+        "op": "==",
+        "value": 0
+      }
+    },
+    {
+      "id": "checked-and-counted",
+      "text": "Counted off the wharf, checked against Peck's own card and left one by one: two packages at Peck's, one at Church's. The tally matches the bill to the last package.",
+      "read_s": 10,
+      "completion_eligible": true,
+      "when": {
+        "var": "checked",
+        "op": "==",
+        "value": 1
+      }
+    },
+    {
+      "id": "cargo-accounted-for",
+      "text": "Three packages counted off the wharf, two left at Peck's and one at Church's, and a tally that matches the bill. Cargo accounted for.",
+      "read_s": 8,
+      "completion_eligible": true,
+      "default": true
+    }
+  ],
+  "keepsake": {
+    "family": "Livelihood",
+    "id": "cargo-accounted-for",
+    "title": "Cargo Accounted For",
+    "text": "A fictional tally of an invented consignment: three packages off Newberry & Dole's wharf, and where each one went. No real bill, freight charge or price is written on it."
+  },
+  "evidence": [
+    {
+      "id": "nd-trade",
+      "text": "Newberry & Dole advertised in the Democrat’s first issue as forwarding and commission merchants, with an assortment of dry goods, hardware and crockery for cash.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "andreas_1884_v1"
+      ],
+      "locator": "26 Nov 1833 (Vol. I No. 1), p. 3, col. 4 (extracted claim chicago_democrat_1833_11_26#c013); Andreas vol. 1, scan p. 755, the summary of the paper’s early advertising columns."
+    },
+    {
+      "id": "forwarding",
+      "text": "A forwarding and commission merchant received goods landed from vessels and sent them on to, or sold them for, other traders; Newberry & Dole’s card and their Michigan freight notice put them in that trade.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_american_1835"
+      ],
+      "reasoning": "The trade style is the firm’s own (26 Nov 1833 card) and the 20 June 1835 notice makes them the place to apply for freight on the Michigan. What the style meant is read from the trade name itself, not from any account of a particular consignment, so the stop claims the kind of business and the consignment stays invented."
+    },
+    {
+      "id": "michigan-agents",
+      "text": "A notice dated Chicago, 8 June 1835 says the steamboat Michigan will leave Chicago for Detroit and Buffalo, and that for freight or passage one may apply to the master on board or to Newberry & Dole.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_american_1835"
+      ],
+      "locator": "20 June 1835 (Vol. I No. 3), p. 3, col. 6 (transcription lines 366–367, interleaved; extracted claim chicago_american_1835_06_20#c014). Transcription-mediated reading; the day of the June sailing is lost, so the stop claims no vessel in port on the scene date."
+    },
+    {
+      "id": "nd-bank",
+      "text": "Where Newberry & Dole’s forwarding house stood is disputed: one dossier reads the south bank on South Water Street, Andreas puts the firm’s warehouse on the north bank east of the later Rush Street bridge. The scene places it on the south bank as a reconstruction, so the stop claims the firm, not the spot.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "Follows the structure record newberry_dole_warehouse, whose position is reconstructed and whose note carries both readings without settling them. The stop says the bank is disputed and claims no front door."
+    },
+    {
+      "id": "peck-stock",
+      "text": "P. F. W. Peck advertised from the corner of LaSalle and South Water streets a stock of dry goods, hardware, groceries, crockery, boots and shoes and hats, with fifty barrels of superfine flour on hand; a later notice lists flannels, sattinetts, merino cloths, muslins, ginghams and calicoes.",
+      "confidence": "attested",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "locator": "3 Dec 1833, p. 3, col. 4 (Peck's card: stock and '50 bbls. Superfine FLOUR'); 10 Dec 1834, p. 4, col. 4 ('New Goods!!', the dry-goods summary ending in calicoes). Transcription-mediated reading."
+    },
+    {
+      "id": "church-store",
+      "text": "An uncredited modern note says the first store building on Lake Street, a two-storey frame structure, was built by Thomas Church. It gives no year, no stock and no address, and this project grades the note as its weakest kind of source.",
+      "confidence": "attested",
+      "sources": [
+        "chicagology_prefire275"
+      ],
+      "locator": "Chicagology, early street maps gallery, the editorial addendum at the foot of the page: the Thomas Church sentence (accessed 2026-08-11)."
+    },
+    {
+      "id": "dole-yard",
+      "text": "Andreas dates George W. Dole’s warehouse and slaughter yard to 1832 and places them close to the later site of the Tremont House, at Lake and Dearborn streets.",
+      "confidence": "attested",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "locator": "Andreas vol. 1, scan p. 261."
+    },
+    {
+      "id": "dole-firm",
+      "text": "George W. Dole, whose 1832 warehouse this is, was the Dole of Newberry & Dole, and the firm built a slaughter-house on the South Branch in 1834, so this yard was probably quiet by July 1835.",
+      "confidence": "inferred",
+      "sources": [
+        "andreas_1884_v1"
+      ],
+      "reasoning": "The structure record dole_warehouse_south names the warehouse George W. Dole’s and carries Andreas’s 1834 South Branch slaughter-house (scan p. 1151) as the reason to doubt the yard’s use at the scene date; Andreas’s packing chapter treats Dole’s 1832 killing and the firm’s slaughter-house as one business. The partnership is read from that continuity rather than from a located sentence naming the partners, so the claim is inferred and the stop stages no work in the yard."
+    },
+    {
+      "id": "continuity",
+      "text": "The four places are exterior stops in the 1 July 1835 scene. Newberry & Dole’s house and Church’s store stand at reconstructed positions, and no interior, front door, clerk, keeper, vessel in port or delivery on the morning is claimed.",
+      "confidence": "inferred",
+      "sources": [
+        "chicago_democrat_1833_1835",
+        "chicago_american_1835",
+        "andreas_1884_v1",
+        "chicagology_prefire275"
+      ],
+      "reasoning": "Uses the existing structure records’ scene-date phases and positions. Peck’s card dates his stock to 1833-34 and he is attested keeping this store across 1833-35, so it is carried forward; Church’s store rests on one undated modern sentence and is visited for what that sentence says. The stops speak of what each firm did, not of anyone met at the door."
+    },
+    {
+      "id": "errand",
+      "text": "The consignment, the bill of lading, the three packages and their marks, the counting, the wagon load, the second trip, the delivery to each store, the tally carried to Dole’s warehouse, the endings, the timing inputs and the Cargo Accounted For keepsake are invented connective narrative. No firm is claimed to have shipped, received or paid for these goods.",
+      "confidence": "reconstructed",
+      "sources": [],
+      "liberty": "L-jaunt-freight-store"
+    }
+  ],
+  "review_required": false,
+  "liberties": [
+    "L-jaunt-freight-store"
+  ]
+}

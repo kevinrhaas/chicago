@@ -104,6 +104,7 @@ def _downpipe(b,x,y,top,inlet=None):
 
 def add_courtyard_rainwater(b,params):
     """Follow the photographed courtyard eaves and their two clear pipe joints."""
+    add_west_rainwater(b,params)
     ranges={r['name']:r for r in params.ranges}
     north,east=ranges.get('north_range'),ranges.get('east_wing')
     if not north or not east:return
@@ -123,8 +124,13 @@ def add_courtyard_rainwater(b,params):
         da,dc=min(p[0] for p in dining['pts']),max(p[0] for p in dining['pts'])
         runs=[(a,min(c,da)) for a,c in runs if a<da]+[(max(a,dc),c) for a,c in runs if c>dc]
     for a,c in runs:
-        if c>a+.02:_gutter(b,[(a,ny,nz),(c,ny,nz)],[(0,-1,0)]*2)
-    if copper:
+        if c>a+.02:
+            edge=[(a,ny,nz),(c,ny,nz)]
+            if params.detail.get('dining_roof_junction') and dining:
+                if abs(c-da)<.001:edge=[(a,ny,nz),(da-.24,ny,nz),(da,ny,dining['band_top_z'])]
+                elif abs(a-dc)<.001:edge=[(dc,ny,dining['band_top_z']),(dc+.24,ny,nz),(c,ny,nz)]
+            _gutter(b,edge,[(0,-1,0)]*len(edge))
+    if copper and not params.detail.get('continuous_copper_corner'):
         _gutter(b,[(copper['x0'],copper['y0'],copper['wall_top_z']),
                    (copper['x1'],copper['y0'],copper['wall_top_z'])],[(0,-1,0)]*2)
 
@@ -165,3 +171,27 @@ def add_courtyard_rainwater(b,params):
         runs=[(a,min(c,lo)) for a,c in runs if a<lo]+[(max(a,hi),c) for a,c in runs if c>hi]
     for a,c in runs:
         if c>a+.02:_gutter(b,[(ex,a,ez),(ex,c,ez)],[(-1,0,0)]*2)
+
+
+def add_west_rainwater(b,params):
+    """Three alley pipes and a low rear gutter in the owner's west reference.
+
+    Geometry follows the rebuilt eaves; pipe sections are reconstructed using
+    the same historical fitting vocabulary as the courtyard. Present only on
+    the T-1999 lower rear roof, so older registered versions are unchanged.
+    """
+    r=next((r for r in params.ranges if r.get('stable_roof',{}).get('lower_rear_gable') or r.get('stable_roof',{}).get('connected_roof_plan')),None)
+    if not r:return
+    from archetypes.masonry_house_v4_west_roof import height
+    g=r['stable_roof'];x=r['x0'];south=r['y0'];north=r['y1'];join=g['south_foot_y']
+    if g.get('connected_roof_plan'):
+        from archetypes.masonry_house_v4_west_roof import profile
+        join=profile(r,'west')[-3][0] if len(profile(r,'west'))>3 else g['south_foot_y']
+    # The rear gutter has a crisp rolled edge and visibly terminates at the
+    # collector at either end rather than continuing across the gable face.
+    gx=x-.17;gz=height(r,x, south)-.025
+    _gutter(b,[(gx,south,gz),(gx,join,gz)],[(-1,0,0)]*2)
+    for y,top in ((north,g['north_eave']),(join,height(r,x,join)),(south,height(r,x,south))):
+        _downpipe(b,x-.12,y,top,(gx,y))
+        # Collared shoe carries the water down and away from the foundation.
+        _tube(b,[(x-.12,y,.22),(x-.12,y,.10),(x-.27,y,.07)],.044,12)

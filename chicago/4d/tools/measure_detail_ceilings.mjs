@@ -1,9 +1,13 @@
 /**
- * THE THREE SCENE-DETAIL CEILINGS, READ AT T-0135's FIVE STANDS, ON ITS OWN.
+ * THE THREE SCENE-DETAIL CEILINGS, READ AT THE GATE'S SIX STANDS, ON ITS OWN.
  *
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome \
  *     node tools/measure_detail_ceilings.mjs [--source] [--only desktop|mobile]
  *                                            [--json out.json] [--against DIR]
+ *                                            [--stepped] [--south] [--town]
+ *                                            [--flora] [--shots DIR]
+ *                                            [--stands a,b] [--levels a,b]
+ *                                            [--mirror DIR [--tree NAME]]
  *
  * `tools/smoke_renderer.mjs` already walks this sweep and holds each tier to its
  * ceiling — that is the GATE and this is not it. The problem is where the sweep
@@ -13,7 +17,7 @@
  * put a ceiling failure on a PR that did not cause it (T-0089, and T-0126 below),
  * and both times the first job was to find out WHOSE triangles they were.
  *
- * So: the same five stands, the same three levels, the same `__chicago4d.stats()`
+ * So: the same stand set, the same three levels, the same `__chicago4d.stats()`
  * the gate reads, in one command against any tree you can point it at. Verified
  * against the instrument it copies — on `steward/t-0126-openings-glazing` at
  * `69eb7175` it reproduces bake run 32761900576's desktop numbers exactly, to the
@@ -31,6 +35,14 @@
  * does: the source tree loads uncompressed masters and the site loads compressed
  * derivatives, and bugs have shipped in the gap twice. `--source` reads the working
  * tree instead.
+ *
+ * `--stepped` (T-2015) stops the background render loop after boot and settles
+ * each view with two production `api.step()` calls followed by a GPU finish.
+ * It preserves the stands, tier order, placement update and actual draw-count
+ * reading while avoiding unrelated background frames on a contended software
+ * renderer. This is a diagnostic cost reading; published smoke part 5 remains
+ * the release assertion and uses the normal animation loop. Each stand is
+ * logged immediately so an interrupted sweep retains its completed readings.
  *
  * The stand list is COPIED from `tools/smoke_renderer.mjs` STANDS, where the set is
  * owned and each stand's reason is written, and copied rather than imported for the
@@ -88,6 +100,18 @@
  * the drop, put it back, clear `castShadow` across it and read again. The ratio of
  * those two IS the tier's multiplier on a roof, and if a future tier ever does
  * decimate a building this table will say so without anyone editing this comment.
+ *
+ * `--town` (T-2084) ADDS three poses INSIDE the town, where a visitor walks among the
+ * houses rather than looks at them from a street anchor: a back yard on a Washington
+ * Street block, the shoulder of Lake Street, and a storefront on South Water Street.
+ * The owner walked exactly those places and found prairie standing in them, which no
+ * stand above sees from close enough to count. Like `--south` they are reported beside
+ * the five and never counted in the exit tally. `--flora` reads, at every stand, what
+ * the `flora` group alone costs (the frame drawn once with it hidden), and `--shots
+ * DIR` writes one capture per in-town pose at the tier the page booted into, named
+ * `<tree>-<viewport>-<pose>.png`, so a before and an after sit side by side. Every
+ * pass also records the JS heap after a forced collection, because content added to
+ * 1835 has cost the phone its heap before (T-2063).
  * The tightest stand and nowhere else, because that is the only stand whose headroom
  * is being divided — and because three extra settled reads at all five stands at all
  * three tiers cost this sweep more than its own 600 s foreground ceiling, which is a
@@ -126,7 +150,11 @@ const argAt = (name) => {
   return i >= 0 ? process.argv[i + 1] : null;
 };
 const wantSource = process.argv.includes('--source');
+const wantStepped = process.argv.includes('--stepped');
 const wantSouth = process.argv.includes('--south');
+const wantTown = process.argv.includes('--town');
+const wantFlora = process.argv.includes('--flora');
+const shotsDir = argAt('--shots');
 const jsonOut = argAt('--json');
 const against = argAt('--against');
 const ONLY = argAt('--only') || 'desktop';
@@ -149,6 +177,12 @@ const DOWNTOWN = [
     label: 'the open aerial' },
   { id: 'lake_and_market', kind: 'anchor', target: 'lake_market',
     label: 'Lake and Market' },
+  // T-2015: the fixed flora-review view already exceeded the five-town-stand
+  // budget BEFORE the richer vegetation: 1,949,552 triangles / 243 calls at
+  // full, 1280x800. Keep its exact pitch as well as its ground and bearing.
+  { id: 'prairie_west', kind: 'pose',
+    label: 'West prairie, east across the sward toward town',
+    pose: { local_e: -250, local_n: -150, yaw_deg: 90, pitch_deg: -8 } },
 ];
 
 // T-1148. The southern field, at the four poses `tools/measure_ground_tiling.mjs`
@@ -169,7 +203,39 @@ const SOUTH = [
     label: 'from the air over the southern field',
     pose: { local_e: 600, local_n: -1600, yaw_deg: 0, altitude_m: 700, pitch_deg: -45 } },
 ];
-const STANDS = wantSouth ? [...DOWNTOWN, ...SOUTH] : DOWNTOWN;
+// T-2084. Inside the town, at walking height, where the owner found prairie standing
+// in yards, on road shoulders and before shop fronts. Coordinates are scene-local
+// metres read off the committed blocks and roofs on 2026-10-04: the back yards of
+// the Washington Street houses on blk_washington_wells (h1_02 / h1_03 stand at
+// n -418.6, their lots run back to the alley at about -452); Lake Street's north
+// shoulder beside blk_south_water_lasalle (the block's south line is at n -102,
+// the street's centreline near -112); and the South Water Street frontage of the
+// same block, before the two narrow stores c3_12 and c3_13 (n -18 to -20).
+const TOWN = [
+  { id: 'town_backyard', kind: 'pose',
+    label: 'a back yard on Washington and Wells',
+    pose: { local_e: 385, local_n: -450, yaw_deg: 0, pitch_deg: -6 } },
+  { id: 'town_lake_shoulder', kind: 'pose',
+    label: 'the shoulder of Lake Street, looking west',
+    pose: { local_e: 520, local_n: -104, yaw_deg: 270, pitch_deg: -6 } },
+  { id: 'town_south_water_store', kind: 'pose',
+    label: 'a storefront on South Water Street',
+    pose: { local_e: 501, local_n: -2, yaw_deg: 180, pitch_deg: -6 } },
+];
+// `--stands a,b` keeps only the named stands, for a reading that has to fit one
+// 600 s foreground call: on a four-core runner one tier at eight stands with
+// `--flora` is about that long (T-2084). A verdict over a filtered set is printed
+// only for the groups that are still whole.
+const standFilter = argAt('--stands')?.split(',').filter(Boolean) ?? null;
+// T-2092. `--levels a,b` keeps only the named tiers, and `--mirror DIR` (with
+// `--tree NAME` to label it) reads a published mirror other than this checkout's —
+// so a reading too big for one 600 s call can be cut by tier and by tree and taken
+// as several calls, each of which finishes and writes its own JSON.
+const levelFilter = argAt('--levels')?.split(',').filter(Boolean) ?? null;
+const mirrorDir = argAt('--mirror');
+const treeName = argAt('--tree');
+const STANDS = [...DOWNTOWN, ...(wantSouth ? SOUTH : []), ...(wantTown ? TOWN : [])]
+  .filter((st) => !standFilter || standFilter.includes(st.id));
 
 const VIEWPORTS = [
   { label: 'desktop 1280x800', width: 1280, height: 800 },
@@ -337,22 +403,28 @@ async function sweep(browser, root, entry, port, treeLabel) {
       viewport: { width: vp.width, height: vp.height },
     });
     const errors = [];
+    await page.exposeFunction('reportDetailStand', (row) => {
+      console.log(JSON.stringify({ viewport: vp.label, ...row }));
+    });
     page.on('pageerror', (e) => errors.push(String(e)));
     await page.goto(`http://127.0.0.1:${port}${entry}?year=${YEAR}`, { waitUntil: 'load' });
     // The scene boots on a software renderer here; the gate allows the same.
     await page.waitForFunction(() => window.__chicago4d?.ready === true,
       null, { timeout: 300_000 });
-    const seen = await page.evaluate(async ({ stands, price }) => {
+    const seen = await page.evaluate(async ({ stands, price, budgetStandIds, stepped,
+      floraShare, levels }) => {
       const a = window.__chicago4d;
-      const settle = () => new Promise((r) => requestAnimationFrame(
-        () => requestAnimationFrame(r)));
+      if (stepped) a.renderer.setAnimationLoop(null);
+      const settle = stepped
+        ? async () => { a.step(); a.step(); a.renderer.getContext().finish(); }
+        : () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
       // `goTo` on the aerial anchor turns flight ON and every `frame` stand turns
       // it off again, so one has to be last — the smoke orders it the same way.
       const order = [...stands.filter((s) => s.kind !== 'frame'),
         ...stands.filter((s) => s.kind === 'frame')];
       const started = a.detail;
       const rows = [];
-      for (const level of a.detailOrder) {
+      for (const level of a.detailOrder.filter((l) => !levels || levels.includes(l))) {
         await a.setDetail(level);
         await settle();
         const atStands = [];
@@ -368,8 +440,23 @@ async function sweep(browser, root, entry, port, treeLabel) {
           } else a.goTo(st.target);
           await settle();
           const r = a.stats();
+          // T-2084. The flora group's share: the same frame drawn once without it.
+          let flora = null;
+          const fg = floraShare ? a.scene3d.getObjectByName('flora') : null;
+          if (fg) {
+            const was = fg.visible;
+            fg.visible = false;
+            await settle();
+            const without = a.stats();
+            fg.visible = was;
+            await settle();
+            flora = { tris: r.triangles - without.triangles,
+                      calls: r.drawCalls - without.drawCalls };
+          }
+          await window.reportDetailStand({ level, stand: st.id,
+            triangles: r.triangles, calls: r.drawCalls, flora });
           atStands.push({ id: st.id, label: st.label,
-                          tris: r.triangles, calls: r.drawCalls, structures: null });
+                          tris: r.triangles, calls: r.drawCalls, flora, structures: null });
         }
         // T-1674. What the frame spends on STRUCTURES, and how much of that is the
         // sun drawing them a second time — `tools/measure_stand_budget.mjs` owns
@@ -378,14 +465,15 @@ async function sweep(browser, root, entry, port, treeLabel) {
         // only the renderer knows what it actually drew. The ratio of the two is the
         // multiplier a roof costs at this stand at this tier.
         //
-        // TAKEN AT THE WORST DOWNTOWN STAND OF THIS TIER AND NOWHERE ELSE. It is the
+        // TAKEN AT THE WORST BUDGET STAND OF THIS TIER AND NOWHERE ELSE. It is the
         // only stand the pricing uses — the headroom is that stand's — and three
         // extra settled reads at all five cost this sweep more than its own 600 s
         // foreground ceiling when it was written that way, which is a measurement
         // nobody can afford to take.
         if (price) {
-          const downtown = atStands.filter((x) => stands
-            .some((d) => d.id === x.id && d.kind !== 'pose'));
+          // T-2015's prairie is a pose AND a permanent budget stand. Exclude
+          // the optional southern sweep by membership, not by camera kind.
+          const downtown = atStands.filter((x) => budgetStandIds.includes(x.id));
           const worst = downtown.reduce((x, y) => (y.tris > x.tris ? y : x), downtown[0]);
           const st = order.find((o) => o.id === worst?.id);
           const g = a.scene3d.getObjectByName('structures');
@@ -424,12 +512,51 @@ async function sweep(browser, root, entry, port, treeLabel) {
       }
       await a.setDetail(started);
       return rows;
-    }, { stands: STANDS, price: wantPrice });
-    passes.push({ viewport: vp.label, seen, errors });
+    }, { stands: STANDS, price: wantPrice, budgetStandIds: DOWNTOWN.map((s) => s.id),
+      stepped: wantStepped, floraShare: wantFlora, levels: levelFilter });
+    // T-2084. The heap after a forced collection, so the reading is the scene's
+    // own retained size and not whatever garbage the sweep left behind.
+    const heap = await page.evaluate(() => {
+      window.gc?.();
+      return performance.memory ? performance.memory.usedJSHeapSize : null;
+    });
+    if (shotsDir && wantTown) {
+      fs.mkdirSync(shotsDir, { recursive: true });
+      // Into the town first, the way the smoke's `enterTown` does it: the gate and
+      // the welcome are HTML over the canvas, so the counters above never saw them,
+      // but a capture taken with them up is a picture of the welcome (T-2092).
+      await page.evaluate(async () => {
+        const gate = document.getElementById('gate');
+        if (gate && !gate.hasAttribute('hidden')) {
+          if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
+          else document.getElementById('gate-btn')?.click();
+          await new Promise((r) => setTimeout(r, 150));
+        }
+        const help = document.getElementById('control-help');
+        if (help && !help.hasAttribute('hidden')) document.getElementById('control-help-gotit')?.click();
+      });
+      for (const st of TOWN) {
+        // Under `--stepped` the animation loop is off, so a capture waited on two
+        // animation frames would show whichever stand the sweep drew last; step the
+        // production loop instead (T-2092).
+        await page.evaluate(async ({ pose, stepped }) => {
+          const a = window.__chicago4d;
+          a.setFly(false);
+          a.walker.teleport(pose);
+          if (stepped) { a.step(); a.step(); a.renderer.getContext().finish(); }
+          else await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+        }, { pose: st.pose, stepped: wantStepped });
+        const tag = `${treeLabel.replace(/\W+/g, '_')}-${vp.label.split(' ')[0]}-${st.id}`;
+        await page.screenshot({ path: path.join(shotsDir, `${tag}.png`), timeout: 180_000 });
+      }
+    }
+    passes.push({ viewport: vp.label, seen, errors, heap });
     await page.close();
   }
   server.close();
-  return { tree: treeLabel, root, passes };
+  return { tree: treeLabel, root,
+    renderLoop: wantStepped ? 'two production steps and GPU finish' : 'normal animation loop',
+    passes };
 }
 
 const num = (n) => n.toLocaleString('en-US');
@@ -547,12 +674,13 @@ if (priceFrom) {
 const { chromium } = await loadPlaywright();
 const browser = await chromium.launch({
   executablePath: process.env.PW_EXECUTABLE || undefined,
-  args: ['--enable-unsafe-swiftshader'],
+  args: ['--enable-unsafe-swiftshader', '--enable-precise-memory-info',
+    '--js-flags=--expose-gc'],
 });
 
 const ROOT = wantSource
   ? path.resolve(HERE, '..')
-  : path.resolve(HERE, '../../../site/4d');
+  : path.resolve(mirrorDir ?? path.resolve(HERE, '../../../site/4d'));
 const ENTRY = wantSource ? '/renderers/web/index.html' : '/walk/';
 if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
   console.error(`no published mirror at ${ROOT} — run tools/publish.sh first`);
@@ -560,7 +688,7 @@ if (!wantSource && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
 }
 const basePort = Number(process.env.DETAIL_PORT || 4198);
 const results = [await sweep(browser, ROOT, ENTRY, basePort,
-  wantSource ? 'source tree' : 'this tree')];
+  treeName ?? (wantSource ? 'source tree' : 'this tree'))];
 if (against) {
   const other = path.resolve(against);
   const otherEntry = fs.existsSync(path.join(other, 'walk', 'index.html'))
@@ -588,18 +716,24 @@ for (const vp of VIEWPORTS) {
       const seen = group
         .map((st) => mine.atStands.find((x) => x.id === st.id))
         .filter(Boolean);
-      if (!seen.length) return null;
+      if (seen.length < group.length) return null;
       const w = seen.reduce((x, y) => (y.tris > x.tris ? y : x));
       return { ...w, verdict: w.tris <= mine.ceiling
         ? `PASS by ${num(mine.ceiling - w.tris)}`
         : `OVER by ${num(w.tris - mine.ceiling)}` };
     };
     const worst = groupWorst(DOWNTOWN);
-    if (worst.tris > mine.ceiling) over += 1;
-    console.log(`\n${level}  ceiling ${num(mine.ceiling)}  `
-      + `worst ${num(worst.tris)} at ${worst.label}  — ${worst.verdict}`);
-    if (wantSouth) {
-      const s4 = groupWorst(SOUTH);
+    if (worst && worst.tris > mine.ceiling) over += 1;
+    console.log(`\n${level}  ceiling ${num(mine.ceiling)}  ` + (worst
+      ? `worst ${num(worst.tris)} at ${worst.label}  — ${worst.verdict}`
+      : 'the downtown stands were filtered out — no verdict'));
+    const t3 = wantTown ? groupWorst(TOWN) : null;
+    if (t3) {
+      console.log(`${' '.repeat(level.length)}  the in-town three        `
+        + `worst ${num(t3.tris)} at ${t3.label}  — ${t3.verdict}`);
+    }
+    const s4 = wantSouth ? groupWorst(SOUTH) : null;
+    if (s4) {
       southOver += s4.tris > mine.ceiling ? 1 : 0;
       console.log(`${' '.repeat(level.length)}  the southern four        `
         + `worst ${num(s4.tris)} at ${s4.label}  — ${s4.verdict}`);
@@ -611,8 +745,10 @@ for (const vp of VIEWPORTS) {
     console.log(head);
     for (const st of STANDS) {
       const a = mine.atStands.find((x) => x.id === st.id);
+      if (!a) continue;
       let line = `   ${st.label.padEnd(42)} ${num(a.tris).padStart(11)} `
         + `${String(a.calls).padStart(6)}`;
+      if (a.flora) line += `  flora ${num(a.flora.tris).padStart(9)} / ${a.flora.calls}`;
       if (rows.length > 1) {
         const b = rows[1].lv.atStands.find((x) => x.id === st.id);
         const d = a.tris - b.tris;
@@ -624,6 +760,10 @@ for (const vp of VIEWPORTS) {
   }
   const errs = results.flatMap((r) => r.passes
     .filter((p) => p.viewport === vp.label).flatMap((p) => p.errors));
+  for (const r of results) {
+    const h = r.passes.find((p) => p.viewport === vp.label)?.heap;
+    if (h != null) console.log(`   JS heap after gc (${r.tree}): ${(h / 1048576).toFixed(1)} MiB`);
+  }
   if (errs.length) console.log(`\nPAGE ERRORS: ${errs.join('; ')}`);
 }
 if (jsonOut) fs.writeFileSync(jsonOut, `${JSON.stringify(results, null, 2)}\n`);

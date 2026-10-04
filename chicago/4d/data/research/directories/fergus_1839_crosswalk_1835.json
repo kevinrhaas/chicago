@@ -26,7 +26,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1402
+   "n": 1439
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -48,7 +48,7 @@
   "residents_matched_one_entry": 164,
   "residents_ambiguous": 11,
   "residents_contested": 6,
-  "residents_surname_only_refused": 283,
+  "residents_surname_only_refused": 289,
   "voters_matched_one_entry": 122,
   "voters_ambiguous": 39,
   "voters_surname_only_refused": 75,
@@ -60,9 +60,9 @@
   "heads_1840_surname_only_refused": 223,
   "residents_further_initial_disagreed_refused": 6,
   "residents_that_further_initial_refusal_reaches": 6,
-  "residents_initial_agreed_forenames_disagreed_refused": 72,
+  "residents_initial_agreed_forenames_disagreed_refused": 74,
   "of_those_a_garbled_printed_forename": 0,
-  "residents_left_with_no_entry_by_that_refusal": 41,
+  "residents_left_with_no_entry_by_that_refusal": 43,
   "residents_letter_list_bucket_refused": 1,
   "residents_that_refusal_reaches": 1,
   "residents_entries_the_whole_name_refused": 16,
@@ -76,7 +76,7 @@
   "of_those_ambiguous": 2,
   "residents_narrowings_withdrawn_as_a_collision": 0,
   "residents_ties_left_standing": 15,
-  "residents_could_carry_occupation": 91,
+  "residents_could_carry_occupation": 84,
   "residents_could_carry_street": 102
  },
  "residents": {
@@ -100,7 +100,6 @@
     "grade_1835": "attested",
     "occupation_1835": "auctioneer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -124,7 +123,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -152,7 +150,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -179,7 +176,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -207,7 +203,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -236,7 +231,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -262,7 +256,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -290,7 +283,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -317,7 +309,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -343,7 +334,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -369,7 +359,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -395,7 +384,6 @@
     "grade_1835": "attested",
     "occupation_1835": "blacksmith",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -421,7 +409,6 @@
     "grade_1835": "attested",
     "occupation_1835": "plasterer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -447,7 +434,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -473,7 +459,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -501,7 +486,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -530,7 +514,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -557,7 +540,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -583,7 +565,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hardware_merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -607,7 +588,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -633,7 +613,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -657,7 +636,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -685,7 +663,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -712,7 +689,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -740,7 +716,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -769,7 +744,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -796,7 +770,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -822,7 +795,6 @@
     "grade_1835": "attested",
     "occupation_1835": "lumber_merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -848,7 +820,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -874,7 +845,6 @@
     "grade_1835": "attested",
     "occupation_1835": "blacksmith",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "mckee_log_house",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -900,7 +870,6 @@
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -926,7 +895,6 @@
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "harmon_log_cabin",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -952,7 +920,6 @@
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -978,7 +945,6 @@
     "grade_1835": "attested",
     "occupation_1835": "dentist",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1002,7 +968,6 @@
     "grade_1835": "attested",
     "occupation_1835": "army_surgeon",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "fort_dearborn_officers_quarters",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1026,7 +991,6 @@
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1053,7 +1017,6 @@
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1079,7 +1042,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1105,7 +1067,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1133,7 +1094,6 @@
     "grade_1835": "attested",
     "occupation_1835": "watchmaker",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1159,7 +1119,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1187,7 +1146,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1216,7 +1174,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1245,7 +1202,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tavern_keeper",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "mansion_house",
     "could_carry": [
      "street_1839"
@@ -1271,7 +1227,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1297,7 +1252,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1323,7 +1277,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1347,7 +1300,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1385,7 +1337,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1414,10 +1365,8 @@
     "grade_1835": "attested",
     "occupation_1835": "insurance_agent",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
     "could_carry": [
-     "occupation",
      "street_1839"
     ],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1443,7 +1392,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1473,7 +1421,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1502,7 +1449,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1531,7 +1477,6 @@
     "grade_1835": "attested",
     "occupation_1835": "clerk",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1559,7 +1504,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1586,7 +1530,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1614,7 +1557,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1643,7 +1585,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1672,7 +1613,6 @@
     "grade_1835": "attested",
     "occupation_1835": "coffee_house_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1700,7 +1640,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -1729,7 +1668,6 @@
     "grade_1835": "attested",
     "occupation_1835": "forwarding_and_commission",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1757,7 +1695,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hardware_merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1783,7 +1720,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1807,7 +1743,6 @@
     "grade_1835": "attested",
     "occupation_1835": "schoolteacher",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -1831,7 +1766,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1857,11 +1791,8 @@
     "grade_1835": "attested",
     "occupation_1835": "forwarding_and_commission",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
-    "could_carry": [
-     "occupation"
-    ],
+    "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
    },
    {
@@ -1885,7 +1816,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1911,7 +1841,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1937,7 +1866,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -1966,7 +1894,6 @@
     "grade_1835": "attested",
     "occupation_1835": "insurance_agent",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -1994,7 +1921,6 @@
     "grade_1835": "attested",
     "occupation_1835": "speculator",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2022,7 +1948,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hotel_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "tremont_house_1",
     "could_carry": [
      "street_1839"
@@ -2048,7 +1973,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -2076,7 +2000,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2105,7 +2028,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2134,7 +2056,6 @@
     "grade_1835": "attested",
     "occupation_1835": "schoolteacher",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2162,7 +2083,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2190,7 +2110,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2217,7 +2136,6 @@
     "grade_1835": "attested",
     "occupation_1835": "grocer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2243,7 +2161,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2270,7 +2187,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tavern_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2296,7 +2212,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2323,7 +2238,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -2349,7 +2263,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "hotel_keeper",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "tremont_house_1",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2373,7 +2286,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2399,10 +2311,8 @@
     "grade_1835": "attested",
     "occupation_1835": "jeweller",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
     "could_carry": [
-     "occupation",
      "street_1839"
     ],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2428,7 +2338,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "james_kinzie_house",
     "could_carry": [
      "street_1839"
@@ -2456,7 +2365,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2485,7 +2393,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2514,7 +2421,6 @@
     "grade_1835": "attested",
     "occupation_1835": "auctioneer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2543,7 +2449,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2572,7 +2477,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2601,7 +2505,6 @@
     "grade_1835": "attested",
     "occupation_1835": "editor",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2629,7 +2532,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hotel_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "steamboat_hotel",
     "could_carry": [
      "street_1839"
@@ -2657,7 +2559,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2685,7 +2586,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2714,7 +2614,6 @@
     "grade_1835": "attested",
     "occupation_1835": "shoemaker",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2742,7 +2641,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2771,7 +2669,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2800,7 +2697,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2826,7 +2722,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tanner",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2850,7 +2745,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tavern_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "exchange_coffee_house",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -2876,7 +2770,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2902,7 +2795,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -2930,7 +2822,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -2959,7 +2850,6 @@
     "grade_1835": "attested",
     "occupation_1835": "postmaster",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -2995,7 +2885,6 @@
     "grade_1835": "attested",
     "occupation_1835": "clerk",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3021,7 +2910,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -3049,7 +2937,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3078,7 +2965,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3112,7 +2998,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -3140,7 +3025,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3166,7 +3050,6 @@
     "grade_1835": "attested",
     "occupation_1835": "shoemaker",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -3192,7 +3075,6 @@
     "grade_1835": "attested",
     "occupation_1835": "blacksmith",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3218,7 +3100,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -3244,7 +3125,6 @@
     "grade_1835": "attested",
     "occupation_1835": "army_officer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -3270,7 +3150,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tavern_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3296,7 +3175,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -3324,7 +3202,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3353,7 +3230,6 @@
     "grade_1835": "attested",
     "occupation_1835": "ship_carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3381,7 +3257,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3410,7 +3285,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3445,7 +3319,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -3473,7 +3346,6 @@
     "grade_1835": "attested",
     "occupation_1835": "clothier",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3501,7 +3373,6 @@
     "grade_1835": "attested",
     "occupation_1835": "druggist",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3529,7 +3400,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "peck_store",
     "could_carry": [
      "street_1839"
@@ -3557,7 +3427,6 @@
     "grade_1835": "attested",
     "occupation_1835": "druggist",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3585,7 +3454,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3613,7 +3481,6 @@
     "grade_1835": "attested",
     "occupation_1835": "county_clerk",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "watkins_school_house",
     "could_carry": [
      "street_1839"
@@ -3641,7 +3508,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3667,7 +3533,6 @@
     "grade_1835": "attested",
     "occupation_1835": "boarding_house_keeper",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "brown_boarding_house",
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only.",
@@ -3701,7 +3566,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3730,7 +3594,6 @@
     "grade_1835": "attested",
     "occupation_1835": "grocer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3758,7 +3621,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3785,7 +3647,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -3813,7 +3674,6 @@
     "grade_1835": "attested",
     "occupation_1835": "saddler",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3841,10 +3701,8 @@
     "grade_1835": "attested",
     "occupation_1835": "sheriff",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
     "could_carry": [
-     "occupation",
      "street_1839"
     ],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -3870,7 +3728,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3899,7 +3756,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3927,7 +3783,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -3955,7 +3810,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -3984,7 +3838,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4011,7 +3864,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4037,7 +3889,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4065,10 +3916,8 @@
     "grade_1835": "attested",
     "occupation_1835": "clothier",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
     "could_carry": [
-     "occupation",
      "street_1839"
     ],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -4094,7 +3943,6 @@
     "grade_1835": "attested",
     "occupation_1835": "brickmaker",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -4122,7 +3970,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4151,7 +3998,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4180,7 +4026,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4207,7 +4052,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4235,7 +4079,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4262,7 +4105,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4288,7 +4130,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4316,7 +4157,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4345,7 +4185,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4374,7 +4213,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4401,11 +4239,8 @@
     "grade_1835": "attested",
     "occupation_1835": "shoemaker",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
-    "could_carry": [
-     "occupation"
-    ],
+    "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
    },
    {
@@ -4429,7 +4264,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hotel_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "western_hotel",
     "could_carry": [
      "street_1839"
@@ -4457,10 +4291,8 @@
     "grade_1835": "attested",
     "occupation_1835": "hardware_merchant",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null,
     "could_carry": [
-     "occupation",
      "street_1839"
     ],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -4484,7 +4316,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [],
     "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
@@ -4510,7 +4341,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4537,7 +4367,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4565,7 +4394,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4594,7 +4422,6 @@
     "grade_1835": "attested",
     "occupation_1835": "forwarding_and_commission",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "street_1839"
@@ -4692,7 +4519,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4738,7 +4564,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4784,7 +4609,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4830,7 +4654,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation"
@@ -4878,7 +4701,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4927,7 +4749,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "could_carry": [
      "occupation",
@@ -4986,7 +4807,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5037,7 +4857,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5095,7 +4914,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5151,7 +4969,6 @@
     "grade_1835": "attested",
     "occupation_1835": "baker",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5207,7 +5024,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5265,7 +5081,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5318,7 +5133,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5369,7 +5183,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5418,7 +5231,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "heacock_house_monroe",
     "discriminator": {
      "kind": "trade",
@@ -5469,7 +5281,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5521,7 +5332,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null,
     "discriminator": {
      "kind": "trade",
@@ -5557,6 +5367,11 @@
     "name": "Aaron Russell",
     "candidates_under_that_surname": 8,
     "rule": "The surname 'Russell' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Aaron Russell'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Aaron Whitcomb",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Whitcomb' is in Fergus 1839 and no entry under it carries the initial 'A' of 'Aaron Whitcomb'. A surname-only agreement is a refusal."
    },
    {
     "name": "Abel B Carpenter",
@@ -5677,6 +5492,11 @@
     "name": "B Beaubien",
     "candidates_under_that_surname": 4,
     "rule": "The surname 'Beaubien' is in Fergus 1839 and no entry under it carries the initial 'B' of 'B Beaubien'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "B. Osborn",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Osborn' is in Fergus 1839 and no entry under it carries the initial 'B' of 'B. Osborn'. A surname-only agreement is a refusal."
    },
    {
     "name": "Ben Butterfield",
@@ -5817,6 +5637,11 @@
     "name": "D Wilcox",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Wilcox' is in Fergus 1839 and no entry under it carries the initial 'D' of 'D Wilcox'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "D. S. Haight",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Haight' is in Fergus 1839 and no entry under it carries the initial 'D' of 'D. S. Haight'. A surname-only agreement is a refusal."
    },
    {
     "name": "Damel M. Green",
@@ -6224,6 +6049,11 @@
     "rule": "The surname 'Reed' is in Fergus 1839 and no entry under it carries the initial 'J' of 'J. W. Reed'. A surname-only agreement is a refusal."
    },
    {
+    "name": "James A. Sawyer",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Sawyer' is in Fergus 1839 and no entry under it carries the initial 'J' of 'James A. Sawyer'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "James Adams",
     "candidates_under_that_surname": 3,
     "rule": "The surname 'Adams' is in Fergus 1839 and no entry under it carries the initial 'J' of 'James Adams'. A surname-only agreement is a refusal."
@@ -6537,6 +6367,11 @@
     "name": "O. Goss",
     "candidates_under_that_surname": 2,
     "rule": "The surname 'Goss' is in Fergus 1839 and no entry under it carries the initial 'O' of 'O. Goss'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Oliveann Sheldon",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Sheldon' is in Fergus 1839 and no entry under it carries the initial 'O' of 'Oliveann Sheldon'. A surname-only agreement is a refusal."
    },
    {
     "name": "Orson Wheeler",
@@ -6869,6 +6704,11 @@
     "rule": "The surname 'Harmon' is in Fergus 1839 and no entry under it carries the initial 'W' of 'Welthyan Loomis Harmon'. A surname-only agreement is a refusal."
    },
    {
+    "name": "Wheeler Barnes",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Barnes' is in Fergus 1839 and no entry under it carries the initial 'W' of 'Wheeler Barnes'. A surname-only agreement is a refusal."
+   },
+   {
     "name": "William A Bell",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Bell' is in Fergus 1839 and no entry under it carries the initial 'W' of 'William A Bell'. A surname-only agreement is a refusal."
@@ -6988,7 +6828,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7019,7 +6858,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7048,7 +6886,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7077,7 +6914,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7109,7 +6945,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7140,11 +6975,32 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    }
   ],
   "forename_refusals": [
+   {
+    "name": "Alexander Dickinson",
+    "entry_1839": {
+     "claim": "f1839_e0386",
+     "as_printed": "Dickinson, Augustus, porter, City Hotel",
+     "printed_page": 12,
+     "occupation_1839": "porter, City Hotel",
+     "address_1839": null,
+     "streets_1839": [],
+     "address_is_street_only": false,
+     "forename_1835": "Alexander",
+     "forename_printed": "Augustus",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Alexander' against 'Augustus'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "dickinson_alexander",
+    "household_id": "hh_dickinson_alexander",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "lives_at_1835": null
+   },
    {
     "name": "Amanda Morrison",
     "entry_1839": {
@@ -7165,7 +7021,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7188,7 +7043,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7213,7 +7067,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7236,7 +7089,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7259,7 +7111,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7282,7 +7133,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7305,7 +7155,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7328,7 +7177,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7351,7 +7199,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7374,7 +7221,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7400,7 +7246,6 @@
     "grade_1835": "attested",
     "occupation_1835": "trader",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "jb_beaubien_homestead"
    },
    {
@@ -7423,7 +7268,6 @@
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "harmon_log_cabin"
    },
    {
@@ -7446,7 +7290,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7469,7 +7312,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7494,7 +7336,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7519,7 +7360,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7544,7 +7384,6 @@
     "grade_1835": "attested",
     "occupation_1835": "priest",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7569,7 +7408,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7594,7 +7432,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7619,7 +7456,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7644,7 +7480,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7669,7 +7504,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7694,7 +7528,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7719,7 +7552,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7744,7 +7576,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7769,7 +7600,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7794,7 +7624,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7817,7 +7646,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7842,7 +7670,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7867,7 +7694,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7890,7 +7716,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7913,7 +7738,6 @@
     "grade_1835": "attested",
     "occupation_1835": "justice_of_the_peace",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7938,7 +7762,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7961,7 +7784,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -7984,7 +7806,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8007,7 +7828,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8030,7 +7850,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8053,7 +7872,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8076,7 +7894,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8099,7 +7916,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8124,7 +7940,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8147,7 +7962,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8170,7 +7984,6 @@
     "grade_1835": "attested",
     "occupation_1835": "auctioneer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8195,7 +8008,6 @@
     "grade_1835": "attested",
     "occupation_1835": "forwarding_and_commission",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8218,7 +8030,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8243,7 +8054,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tanner",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8266,7 +8076,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tavern_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "exchange_coffee_house"
    },
    {
@@ -8289,7 +8098,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8315,7 +8123,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8341,8 +8148,31 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "jb_beaubien_homestead"
+   },
+   {
+    "name": "Joshua F. Nicholson",
+    "entry_1839": {
+     "claim": "f1839_e1097",
+     "as_printed": "Nicholson, Capt. John, cor. Cass and White streets",
+     "printed_page": 26,
+     "occupation_1839": "cor. Cass and",
+     "address_1839": "White streets",
+     "streets_1839": [
+      "White streets"
+     ],
+     "address_is_street_only": false,
+     "forename_1835": "Joshua",
+     "forename_printed": "John",
+     "garbled_reading": false,
+     "rule": "Both readings print a full forename and the two disagree: 'Joshua' against 'John'. An initial standing against a full name is a match; two full names that differ are not."
+    },
+    "person_id": "nicholson_joshua_f",
+    "household_id": "hh_nicholson_joshua_f",
+    "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "lives_at_1835": null
    },
    {
     "name": "Joshua Howard",
@@ -8364,7 +8194,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8389,7 +8218,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8412,7 +8240,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8437,7 +8264,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8462,7 +8288,6 @@
     "grade_1835": "attested",
     "occupation_1835": "army_officer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8487,7 +8312,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "madore_beaubien_house"
    },
    {
@@ -8512,7 +8336,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "madore_beaubien_house"
    },
    {
@@ -8537,7 +8360,6 @@
     "grade_1835": "attested",
     "occupation_1835": "tavern_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8560,7 +8382,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8583,7 +8404,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8606,7 +8426,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8629,7 +8448,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8654,7 +8472,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8679,7 +8496,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8702,7 +8518,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8727,7 +8542,6 @@
     "grade_1835": "attested",
     "occupation_1835": "county_clerk",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "watkins_school_house"
    },
    {
@@ -8750,7 +8564,6 @@
     "grade_1835": "attested",
     "occupation_1835": "attorney",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "heacock_house_monroe"
    },
    {
@@ -8775,7 +8588,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8800,7 +8612,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8826,7 +8637,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8851,7 +8661,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8874,7 +8683,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    }
   ],
@@ -8904,7 +8712,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    }
   ],
@@ -8930,7 +8737,6 @@
     "grade_1835": "attested",
     "occupation_1835": "carpenter",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8951,7 +8757,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8972,7 +8777,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -8995,7 +8799,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hardware_merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9016,7 +8819,6 @@
     "grade_1835": "attested",
     "occupation_1835": "hotel_keeper",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": "tremont_house_1"
    },
    {
@@ -9039,7 +8841,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9062,7 +8863,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9083,7 +8883,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9106,7 +8905,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9130,7 +8928,6 @@
     "grade_1835": "attested",
     "occupation_1835": "clerk",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9153,7 +8950,6 @@
     "grade_1835": "attested",
     "occupation_1835": "merchant",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9176,7 +8972,6 @@
     "grade_1835": "attested",
     "occupation_1835": "army_officer",
     "occupation_1835_confidence": "attested",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9199,7 +8994,6 @@
     "grade_1835": "inferred",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9220,7 +9014,6 @@
     "grade_1835": "attested",
     "occupation_1835": "shoemaker",
     "occupation_1835_confidence": "inferred",
-    "occupation_1835_promoted": true,
     "lives_at_1835": null
    },
    {
@@ -9241,7 +9034,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    },
    {
@@ -9262,7 +9054,6 @@
     "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
-    "occupation_1835_promoted": false,
     "lives_at_1835": null
    }
   ],

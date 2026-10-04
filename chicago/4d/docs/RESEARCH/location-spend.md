@@ -12,11 +12,11 @@ Clause 4 says the 61 street-only and 62 unplaceable counts may fall only when a 
 |---|---:|---|---:|---|
 | structure | 58 | `structure_committed` | 47 | the anchor resolves to a roof the dataset holds |
 | structure | 58 | `structure_pending` | 11 | the anchor reaches a roof the town has not built |
-| street_only | 59 | `street_only_adopted` | 39 | seated on an existing roof by the 2026-08-29 ruling; substitutable |
-| street_only | 59 | `street_only_unseated` | 20 | the face could not be adopted |
+| street_only | 56 | `street_only_adopted` | 40 | seated on an existing roof by the 2026-08-29 ruling; substitutable |
+| street_only | 56 | `street_only_unseated` | 16 | the face could not be adopted |
 | unplaceable | 62 | `unplaceable` | 62 | no street the model holds |
 
-**0 businesses moved between the published limits.** The three counts T-1157 reads as the sign-off's location axis are unchanged at 58 / 59 / 62.
+**0 businesses moved between the published limits.** The three counts T-1157 reads as the sign-off's location axis are unchanged at 58 / 56 / 62.
 
 ### Why `structure` needed splitting
 
@@ -24,7 +24,7 @@ The register's `new_building` action means the advertisement's anchor is good en
 
 ### Why an adopted roof is not a claim
 
-Clause 3 says a street-only business claims no lot or roof, and 39 of them stand under one — because the owner's street-face adoption ruling of 2026-08-29 seats them there. Two facts were wearing one field. They are separated here: `evidence_reach` is the street the paper named and never becomes the roof, `model_seat` is what the town did about it, and all 39 adopted seats are marked `seat_is_substitutable`. An adopted roof that acquires an anchor target, or a lot, or stops matching the committed adoption ledger, fails the gate.
+Clause 3 says a street-only business claims no lot or roof, and 40 of them stand under one — because the owner's street-face adoption ruling of 2026-08-29 seats them there. Two facts were wearing one field. They are separated here: `evidence_reach` is the street the paper named and never becomes the roof, `model_seat` is what the town did about it, and all 40 adopted seats are marked `seat_is_substitutable`. An adopted roof that acquires an anchor target, or a lot, or stops matching the committed adoption ledger, fails the gate.
 
 ## Households, by seating class
 
@@ -35,19 +35,19 @@ Unchanged by this pass and restated because it is the other half of the axis T-1
 | structure | 33 |
 | lot | 0 |
 | face | 0 |
-| division | 174 |
-| none | 1305 |
+| division | 83 |
+| none | 1342 |
 
 ## The four questions
 
-**Two retained, two resolved, and not one of the two retained is the loop's to resolve** — two are `blocked-owner` and one is `blocked-tech` behind T-0414 and T-0009. Each question carries a guard: the committed fact it stands on, re-measured on every build. It may read `retained` only while that guard holds, so the day the owner rules — or a source lands — the build says so instead of this file going quietly out of date. That is how T-1087 came to read `resolved`: the owner ruled Wabansia and Kinzie's Addition INSIDE on 2026-09-21, B4's third kind was withdrawn rather than re-worded, the guard expired, and the build refused until the retention was re-stated as the ruling. Its guard now measures the ruling itself.
+**One retained, three resolved, and not one of the one retained is the loop's to resolve** — two are `blocked-owner` and one is `blocked-tech` behind T-0414 and T-0009. Each question carries a guard: the committed fact it stands on, re-measured on every build. It may read `retained` only while that guard holds, so the day the owner rules — or a source lands — the build says so instead of this file going quietly out of date. That is how T-1087 came to read `resolved`: the owner ruled Wabansia and Kinzie's Addition INSIDE on 2026-09-21, B4's third kind was withdrawn rather than re-worded, the guard expired, and the build refused until the retention was re-stated as the ruling. Its guard now measures the ruling itself.
 
 | ticket | state | what it costs today | what would resolve it | guard |
 |---|---|---|---|---|
 | T-0251 | resolved | Nothing. The owner ruled on 2026-09-21 that where an ATTESTED placement and an INFERRED one collide on a lot the attested one stands and the inferred one moves or is withdrawn. The church took the 3.395 m and its north wall is 1.50 m back from the committed frontage line; physicians_office gave way and was re-seated on its own Lake Street frontage band, 12.99 m west along the same face and forward onto the street line, its card carrying what displaced it. The two steps of Lake Street's plank walk are laid. | Resolved by the owner's ruling of 2026-09-21, written generally at `tools/plat_occupancy.attested_precedence` and applied to both records. The guard below now holds the RULING rather than the retention: put the church back out in the roadway and this build fails. Neither footprint was narrowed and the 3.0 m separation gate was not weakened — the ruling refuses both in terms. | the church's position note carries the ruling and the 1.90 m measurement it repaired, its wall is reconciled onto the committed line, and physicians_office is still committed — re-seated rather than withdrawn |
 | T-0305 | retained | Four business locations stay at the weaker reading; the saddlery's doubt is on the visitor's card. | Six columns of Chicago American page images — 1835-06-13 p3 c5, 1835-07-04 p4 c4, 1835-06-27 p3 c5, 1835-08-15 p3 c6, 1835-06-08 p3 c5, 1835-07-11 p3 c6. The corpus was tested against all four and settles none. | the saddlery is still on the watch list, so its doubt still reaches the Evidence panel |
-| T-0386 | retained | The Montgomery entries stay street_only on South Water Street; no storefront stands. | T-0414's identity fix to the street-face adoption, which needs T-0009's roofs because South Water Street is out of supply — or a source that gives Carver's stand an address. | every Montgomery entry is still street_only on south_water, and the town still holds no Carver building |
+| T-0386 | resolved | Nothing the papers can pay. The auction house was four register headings — the American's description and three Democrat styles of one card — and the adoption could seat only one of them; they are one house now, 'W. Montgomery', keyed by the signature both papers set, and the street-face adoption seats it under its own board. Carver's stand is still no address: the American of 1835-07-04 c012 puts it '[…] doors west of J. Wright's', and Wright's two positions are invented, so the house stays street_only and its roof stays an allocation. | Resolved on 2026-10-03 by firm_merges in data/research/newspapers/identity.json. The guard below holds the RESOLUTION: split the house again, unseat it, or commit a Carver building — the one thing that would let the anchor resolve — and this build fails. | two Montgomery entries — the bootmaker and the auctioneer — both street_only on south_water, the auctioneer seated on a South Water roof, and still no Carver building |
 | T-1087 | resolved | Nothing. The owner ruled INSIDE on 2026-09-21: B4's third kind is withdrawn, both surveys are ruled on the new B6, and the one person the question cost — person_uncertain_doctor_kimberly, the doctor in Wabansia — moved with it. | Resolved by the owner's ruling of 2026-09-21, written into the vocabulary and re-measured by `tools/resolve_place_vocabulary.py --write`. The guard below now holds the RULING rather than the retention: put either survey back on B4 and this build fails. | both surveys are ruled inside on B6 and the doctor in Wabansia is counted inside |
 
-No retention upgraded a confidence, filled an anchor, minted a citation or moved a building. Four questions were asked of the committed data; two answers came back unchanged and two came back RULED — and the ruling moved exactly the one person it was measured to cost, `person_uncertain_doctor_kimberly`, from undecided to inside.
+No retention upgraded a confidence, filled an anchor, minted a citation or moved a building. Four questions were asked of the committed data; one answers came back unchanged and three came back RULED — and the ruling moved exactly the one person it was measured to cost, `person_uncertain_doctor_kimberly`, from undecided to inside.
 

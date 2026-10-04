@@ -38,7 +38,9 @@
  */
 
 import * as THREE from 'three';
-import { PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture } from './terrain.js';
+import {
+  PRAIRIE_FRAGMENT, WORLD_POS_VERT, prairieTexture, SWARD_HEAD, swardTexture, swardUniforms,
+} from './terrain.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 import { WORKED_SHARE, ridgeHeight } from './streets.js';
 
@@ -278,6 +280,7 @@ varying float vRoad;
 varying float vTrack;
 uniform sampler2D uGround;
 uniform float uPrairieLuma;
+${SWARD_HEAD}
 uniform sampler2D uGrit;
 uniform float uGritM;
 uniform float uGritMean;
@@ -330,7 +333,8 @@ const NORMAL_FRAGMENT = /* glsl */`
   // The grit's relief in a world tangent frame, as the ground strip draws it:
   // full on the dry earth, flattened where the mud has levelled it.
   vec2 wbGN = wbGrit.gb * 2.0 - 1.0;
-  vec2 wbXY = wbGN * wbW * (1.0 - 0.7 * wbWet);
+  vec2 wbXY = wbGN * wbW * (1.0 - 0.7 * wbWet)
+             + chiSwardXY * (1.0 - wbW);   // the sward's, where it draws prairie (T-2089)
   vec3 wbTn = normalize(vec3(wbXY, 1.0));
   vec3 wbEastV = normalize((viewMatrix * vec4(1.0, 0.0, 0.0, 0.0)).xyz);
   vec3 wbT = normalize(wbEastV - normal * dot(wbEastV, normal));
@@ -538,6 +542,7 @@ export async function createWorkingBank({
   geo.computeBoundingSphere();
 
   const prairie = prairieTexture();
+  const sward = swardTexture();
   const gritData = gritTilePixels();
   const gc = document.createElement('canvas');
   gc.width = gc.height = GRIT_TILE_PX;
@@ -560,10 +565,30 @@ export async function createWorkingBank({
   mat.polygonOffset = true;
   mat.polygonOffsetFactor = -2;
   mat.polygonOffsetUnits = -2;
+  /**
+   * A DECAL PAINTS THE GROUND; IT DOES NOT HIDE WHAT STANDS ON IT. Drawn
+   * opaque, this layer wrote its offset depth, and `polygonOffsetFactor` grows
+   * with the polygon's depth slope, which at the grazing angle a bank is seen
+   * at is enormous. So beyond ~30 m from a walking eye the biased bank stood
+   * in front of the river walk's boards (0.11 m up), the timber lost the depth
+   * test, and the walk ended short of its real end and grew back toward the
+   * visitor as they approached it (T-2098, the owner, 2026-10-04).
+   *
+   * The street ribbon and the yards are decals drawn this way already, and
+   * the timber's own comment (frontage.js, T-0625) is why ordering rather than
+   * a counter-bias is the repair: the bank joins the transparent list FIRST,
+   * tests against the terrain with the same offset it always had, and writes
+   * no depth, so the ribbon (renderOrder 0) still lies over it and the timber
+   * (renderOrder 1) tests against the ground alone. Alpha stays 1; nothing
+   * blends. Free: no geometry, pass or program changes.
+   */
+  mat.transparent = true;
+  mat.depthWrite = false;
   mat.onBeforeCompile = (shader) => {
     Object.assign(shader.uniforms, {
       uGround: { value: prairie },
       uPrairieLuma: { value: prairie.userData.meanLinearLuma },
+      ...swardUniforms(sward),
       uGrit: { value: gritTex }, uGritM: { value: GRIT_TILE_M }, uGritMean: { value: gritMean },
       uTrod: { value: linearTone(T.earth_trodden ?? [116, 103, 83]) },
       uRest: { value: linearTone(T.earth_rest ?? [98, 86, 66]) },
@@ -590,6 +615,7 @@ export async function createWorkingBank({
 
   const mesh = new THREE.Mesh(geo, mat);
   mesh.name = 'working_bank';
+  mesh.renderOrder = -1;            // under the ribbon and the timber (above)
   mesh.receiveShadow = true;
   mesh.castShadow = false;
   group.add(mesh);
@@ -598,6 +624,6 @@ export async function createWorkingBank({
   stats.triangles = index.length / 3;
   group.userData.census = stats;
   // The prairie tile is the terrain's as much as this layer's; it is not ours to free.
-  handle.dispose = () => { geo.dispose(); mat.dispose(); gritTex.dispose(); };
+  handle.dispose = () => { geo.dispose(); mat.dispose(); gritTex.dispose(); sward.dispose(); };
   return handle;
 }

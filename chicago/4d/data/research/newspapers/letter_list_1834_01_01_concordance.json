@@ -31,16 +31,17 @@
    "spelling": 14
   },
   "reaches": {
-   "minted": 92,
-   "refused": 66,
+   "minted": 88,
+   "refused": 70,
    "held_already": 12
   },
-  "reaches_a_card": 104,
+  "reaches_a_card": 100,
   "refused_by_reason": {
    "surname already minted": 26,
-   "the town already names that family": 27,
+   "the town already names that family": 30,
    "garbled": 12,
-   "a firm, not a person": 1
+   "a firm, not a person": 1,
+   "a surname and nothing else": 1
   },
   "readings_that_disagree": 3,
   "readings_ruled_onto_the_page_image": 16,
@@ -72,7 +73,7 @@
     "kind": "minted",
     "person": "person_eliphalet_atkins_2",
     "household": "hh_eliphalet_atkins_2",
-    "card_name": null,
+    "card_name": "Atkins [?] Eliphalet",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -889,7 +890,7 @@
    "reaches": {
     "kind": "refused",
     "person": "person_henry_b_clarke_2",
-    "reason": "surname already minted",
+    "reason": "the town already names a Clarke",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -1993,7 +1994,7 @@
     "kind": "minted",
     "person": "person_d_s_haight",
     "household": "hh_haight_d_s",
-    "card_name": null,
+    "card_name": "D. S. Haight",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2054,7 +2055,7 @@
     "kind": "minted",
     "person": "person_isaac_killigoss",
     "household": "hh_killigoss_isaac",
-    "card_name": null,
+    "card_name": "Isaac Killigoss",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2123,7 +2124,7 @@
     "kind": "minted",
     "person": "person_lewis_kerchevel",
     "household": "hh_kerchevel_lewis",
-    "card_name": null,
+    "card_name": "Lewis Kerchevel",
     "by": "tools/mint_letter_list_residents.py",
     "also_resolved_to": [
      "person_lewis_kercheval"
@@ -2261,10 +2262,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_miranda_miner_2",
-    "household": "hh_miranda_miner_2",
-    "card_name": null,
+    "reason": "surname already minted",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2285,7 +2285,7 @@
     "kind": "minted",
     "person": "person_a_m_daniel",
     "household": "hh_mdaniel_a",
-    "card_name": null,
+    "card_name": "A. M'Daniel",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2328,7 +2328,7 @@
     "kind": "minted",
     "person": "person_mary_meriams",
     "household": "hh_meriams_mary",
-    "card_name": null,
+    "card_name": "Mary Meriams",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2349,7 +2349,7 @@
     "kind": "minted",
     "person": "person_james_mackel",
     "household": "hh_mackel_james",
-    "card_name": null,
+    "card_name": "James Mackel",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2413,7 +2413,7 @@
     "kind": "minted",
     "person": "person_n_m_carty",
     "household": "hh_mcarty_n",
-    "card_name": null,
+    "card_name": "N. M'Carty",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2431,10 +2431,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_chester_marshall_2",
-    "household": "hh_chester_marshall_2",
-    "card_name": null,
+    "reason": "the town already names a Marshall",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2455,7 +2454,7 @@
     "kind": "minted",
     "person": "person_john_monreou",
     "household": "hh_monreou_john",
-    "card_name": null,
+    "card_name": "John Monreou",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2516,7 +2515,7 @@
     "kind": "minted",
     "person": "person_j_v_natta",
     "household": "hh_natta_j_v",
-    "card_name": null,
+    "card_name": "J. V. Natta",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2578,7 +2577,7 @@
     "kind": "minted",
     "person": "person_julius_perrin_2",
     "household": "hh_julius_perrin_2",
-    "card_name": null,
+    "card_name": "Perrin [?] Julius",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2657,7 +2656,7 @@
     "kind": "minted",
     "person": "person_green_poel",
     "household": "hh_poel_green",
-    "card_name": null,
+    "card_name": "Green Poel",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2739,7 +2738,7 @@
     "kind": "minted",
     "person": "person_thos_h_richey",
     "household": "hh_richey_thos_h",
-    "card_name": null,
+    "card_name": "Thos. H. Richey",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -2757,10 +2756,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_mr_roult_2",
-    "household": "hh_roult_2",
-    "card_name": null,
+    "reason": "a surname and nothing else",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3431,7 +3429,7 @@
     "kind": "minted",
     "person": "person_platt_thorn",
     "household": "hh_thorn_platt",
-    "card_name": null,
+    "card_name": "Platt Thorn",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3449,10 +3447,9 @@
     }
    ],
    "reaches": {
-    "kind": "minted",
+    "kind": "refused",
     "person": "person_peter_temple_3",
-    "household": "hh_peter_temple_3",
-    "card_name": null,
+    "reason": "the town already names a Temple",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3493,7 +3490,7 @@
     "kind": "minted",
     "person": "person_w_vanzandt_2",
     "household": "hh_vanzandt_w_2",
-    "card_name": null,
+    "card_name": "Vanzandt [?] W.",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3545,7 +3542,7 @@
     "kind": "minted",
     "person": "person_adam_vanderwerker",
     "household": "hh_vanderwerker_adam",
-    "card_name": null,
+    "card_name": "Adam Vanderwerker",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3623,7 +3620,7 @@
     "kind": "minted",
     "person": "person_philip_willaee",
     "household": "hh_willaee_philip",
-    "card_name": null,
+    "card_name": "Philip Willaee",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3711,7 +3708,7 @@
     "kind": "minted",
     "person": "person_sally_weed",
     "household": "hh_weed_sally",
-    "card_name": null,
+    "card_name": "Sally Weed",
     "by": "tools/mint_letter_list_residents.py",
     "also_resolved_to": [
      "person_uncertain_sally_weed"
@@ -3742,7 +3739,7 @@
     "kind": "minted",
     "person": "person_aaron_whitcomb",
     "household": "hh_whitcomb_aaron",
-    "card_name": null,
+    "card_name": "Aaron Whitcomb",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3789,7 +3786,7 @@
     "kind": "minted",
     "person": "person_thomas_h_wrickey",
     "household": "hh_wrickey_thomas_h",
-    "card_name": null,
+    "card_name": "Thomas H. Wrickey",
     "by": "tools/mint_letter_list_residents.py"
    }
   },
@@ -3870,6 +3867,8 @@
    ],
    "reaches": "minted",
    "kind": "the two readings disagree in their letters",
+   "card_name": "Lewis Kerchevel",
+   "card_follows": "the page image",
    "ruled": {
     "ticket": "T-1139",
     "rule": "N2",
@@ -4229,6 +4228,8 @@
    ],
    "reaches": "minted",
    "kind": "the transcription bracketed what the image reads",
+   "card_name": "Sally Weed",
+   "card_follows": "the page image",
    "ruled": {
     "ticket": "T-1139",
     "rule": "N1",

@@ -152,15 +152,15 @@
     "stands_on": "alley",
     "fronts": "randolph",
     "sequence": 6,
-    "finish_key": "mixed_patch",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
-      "rule": "F-L",
-      "class": "labourer",
-      "by": "keeper",
+      "rule": "F-T",
+      "class": "tradesman",
+      "by": "keeper_trade",
       "household": "hh_dewey_d_s",
-      "words": "patched boards under a weathered roof — The Dewey household's, in Chicago since 1834 (rule F-L)"
+      "words": "new-sawn boards under a new roof — The Dewey household's, a milliner, in Chicago since 1835 (rule F-T)"
     }
   },
   "resident_assignment": {

@@ -59,6 +59,8 @@ are copied here. Source asset licenses remain authoritative.
    referenced textures, runtime-safe provenance, license inventory, and checksums. This
    is what the existing Blender bake can publish without Unreal. Preserve master assets
    independently of web-optimized derivatives; compatibility decides which Unreal consumes.
+   **Contract and packer exist since 2026-10-04 (T-2067):** [SCENE-BUNDLE.md](SCENE-BUNDLE.md),
+   `tools/scene_bundle.py`. Publishing from the scheduled bake is T-2068.
 2. **Unreal project/import:** pinned engine/plugin configuration, importer, materials,
    playable map and pawn, collision/navigation decisions, incremental update behavior.
    Generated Unreal caches and local absolute paths are not the portable source.
@@ -128,6 +130,10 @@ its unblocking conditions; do not repeatedly attempt it or manufacture successfu
 
 T-0252 already owns the cross-renderer export decision; this request supplies its missing
 consumer and authorizes pursuing portable scene assets. Resolve the export contract there.
+**Decided 2026-10-03:** [GLB-CONTRACT § Layers drawn at load](../GLB-CONTRACT.md) holds the
+rule (none is baked; each layer is exported by the module that draws it, stamped with its
+heightfield) and the per-layer inventory this section asks for. No layer has a parity
+receipt yet.
 Inventory current layers, including streets/alleys, frontage/plank walks, wharves and bridge
 approaches, flora, fauna subject to project constraints, fences/enclosures, yards/wells,
 boats/wagons/camps/signage, water/terrain material detail, atmosphere/lighting, confidence

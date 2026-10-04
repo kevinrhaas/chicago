@@ -68,9 +68,14 @@ export function createJauntPanel({ destinations, actions }) {
   };
   const overlayOpen = () => ['popup', 'panel', 'jaunt-context-card'].some(id => { const el = document.getElementById(id); return el && !el.hidden; });
   const syncOverlay = () => {
-    const open = overlayOpen();
+    const open = overlayOpen(), was = document.activeElement;
+    const lost = open && (!was || was === document.body || body.contains(was));
     if (open && state?.jaunt) { saveView(); setCollapsed(true, { focus: false }); }
     root.classList.toggle('jaunt-detail', open); body.hidden = open; barNext.hidden = open; barReturn.hidden = !open;
+    // T-2046: the link that opened a card or source is now hidden with the story (and a
+    // tap never focused it): keep focus on the outing — Return, which undoes the detour —
+    // rather than leave it on the page.
+    if (lost && !barReturn.hidden) barReturn.focus({ preventScroll: true });
     if (!open) {
       if (state?.phase === 'detail') actions.returnFromDetail();
       restoreView();

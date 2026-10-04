@@ -1759,10 +1759,12 @@ def test_declared_terrain_reads_are_real_reads() -> None:
     import re  # noqa: PLC0415
     root = Path(__file__).resolve().parent.parent
     T, _ = _terrain_inputs()
-    # The 1835 generator and the graded one (T-1738) between them read every key
-    # CONSUMED declares; each block is read by the generator of the epoch it serves.
+    # The 1835 generator, the graded one (T-1738) and the 1812 overlay (T-2003) between
+    # them read every key CONSUMED declares; each block is read by the generator of the
+    # epoch it serves.
     src = ((root / "generators/terrain_gen.py").read_text()
-           + (root / "generators/terrain_gen_graded.py").read_text())
+           + (root / "generators/terrain_gen_graded.py").read_text()
+           + (root / "generators/terrain_gen_e1830.py").read_text())
 
     def reads(key: str) -> bool:
         return bool(re.search(rf"""\[\s*['"]{re.escape(key)}['"]\s*\]""", src)
@@ -3637,6 +3639,37 @@ def test_a_species_says_which_side_of_the_waterline_it_stands_on() -> None:
                                     "distance_m": [2, 8], "priority": 70})
     check("a water buffer that starts on the bank does not count as water either",
           any("may only be planted over water" in e for e in rep.errors), rep.errors)
+
+
+def test_a_planting_is_scoped_to_the_scene_it_states() -> None:
+    """T-0471: the flora manifest is read by every scene that draws flora, so an
+    1835 planting left unscoped would stand its dooryards on the 1812 shore."""
+    real = json.loads((V.FLORA / "index.json").read_text())
+
+    rep = V.Report()
+    V.check_flora_scenes(real, rep)
+    check("the committed manifest's scopes are legal", not rep.errors, rep.errors)
+
+    idx = json.loads(json.dumps(real))
+    idx["plantings"][0].pop("scenes")
+    rep = V.Report()
+    V.check_flora_scenes(idx, rep)
+    check("an 1835 planting with no scope is refused",
+          any("must be [\"1835\"]" in e for e in rep.errors), rep.errors)
+
+    idx = json.loads(json.dumps(real))
+    idx["zones"][0]["scenes"] = ["1799"]
+    rep = V.Report()
+    V.check_flora_scenes(idx, rep)
+    check("a zone scoped to a scene that does not exist is refused",
+          any("data/scenes/1799.json does not exist" in e for e in rep.errors), rep.errors)
+
+    idx = json.loads(json.dumps(real))
+    idx["zones"][0]["scenes"] = []
+    rep = V.Report()
+    V.check_flora_scenes(idx, rep)
+    check("an empty scope is refused rather than read as everywhere",
+          any("non-empty" in e for e in rep.errors), rep.errors)
 
 
 def test_real_dataset_passes() -> None:

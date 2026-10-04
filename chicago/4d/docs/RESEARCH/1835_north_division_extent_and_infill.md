@@ -195,3 +195,24 @@ read as visibly speculative. A fringe with zero roofs apportioned to it is that 
 into arithmetic. If a later source puts a house east of Cass Street, the route is a source
 record and a programme re-derivation, not a recipe entry against a cell the schedule leaves at
 zero.
+
+## The trade roofs go back to Kinzie Street (T-1205, 2026-10-03)
+
+The order book owes the North three stores, one inn or tavern and two workshops, and it owes
+them because T-1480 refamilied seven of this recipe's trade roofs as dwellings when T-1445
+found them standing 9 to 48 m back from any street line. The 665-roof schedule then dealt their
+families to `blk_indiana_north_wolcott` and `blk_indiana_north_cass`, where the block generator
+refuses them: Wolcott is graded `light` and the Addition's other streets `none`, and no store,
+warehouse or workshop is built on either grade. Those two blocks also stand at the ceiling this
+memo's alternation puts on them.
+
+Kinzie Street is graded `ordinary`, and its north face had nothing on the street line from Clark
+to east of Wolcott. That is the Wolcott–Kinzie core this memo names as the strongest anonymous
+cluster. So recipe rows 61–66 of `1835_north_division_initial_parcel.json` stand there, on the
+street line with open ground between every pair: a T1 tavern nearest the Dearborn drawbridge
+approach, a W3 wagon or cooper's shop, a C4 and a C3 on the two Kinzie corners of Wolcott, a W2
+joiner's shop and a second C3. All six are reconstructed (L368).
+
+**The warehouse is still owed.** The F3 belongs on the North Water bank, the one north street
+graded `light`, and no committed clause seats a warehouse on a light street. Seating it needs a
+bank-landing clause or a regrade of North Water argued on its own evidence.

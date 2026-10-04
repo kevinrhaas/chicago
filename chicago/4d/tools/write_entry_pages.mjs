@@ -84,7 +84,8 @@ if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(new URL(im
         if (!menu.includes(`href="${year}/"`)) fail(`${year} is missing its relative destination link`);
         if (readFileSync(path.join(fixture, year, 'index.html'), 'utf8') !== door(html, '../walk/')) fail(`${year} lost the renderer door`);
       }
-      if (!existsSync(path.join(ROOT4D, 'data/scenes/1812.json')) && !readFileSync(path.join(fixture, '1812/index.html'), 'utf8').includes('Reconstruction pending')) fail('1812 must state its missing scene');
+      if (existsSync(path.join(ROOT4D, 'data/scenes/1812.json')) && readFileSync(path.join(fixture, '1812/index.html'), 'utf8') !== door(html, '../walk/')) fail('1812 has its scene (T-2050) and did not get the renderer door');
+      if (!existsSync(path.join(ROOT4D, 'data/scenes/1812.json')) && !/reconstruction pending/i.test(readFileSync(path.join(fixture, '1812/index.html'), 'utf8'))) fail('1812 must state its missing scene');
     } finally { rmSync(fixture, { recursive: true, force: true }); }
     if (!process.exitCode) console.log(`write_entry_pages: self-test ok (doors: ${years.join(', ')})`);
   } else {

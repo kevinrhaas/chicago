@@ -146,6 +146,20 @@ if (m) {
   const pr = Object.values(cfg.prs).find(p => p.sha === m[1]);
   out(pr ? (pr.checks == null ? 0 : pr.checks) : 0);
 }
+// ...every check run on a head that did not pass, which the unstable branch asks
+// for (T-1520). Answered from the PR whose CURRENT head is this sha, and from no
+// other: \`odd\` on an older head lives under \`olderHeads\`, and asking for it is
+// exactly the mistake case 16d exists to catch.
+m = pathArg.match(/^repos\\/[^/]+\\/[^/]+\\/commits\\/([0-9a-f]+)\\/check-runs\\?.*filter=latest/);
+if (m) {
+  appendFileSync(ACTED + '.asked', m[1] + '\\n');
+  const pr = Object.values(cfg.prs).find(p => p.sha === m[1]);
+  const odd = (pr && pr.odd) || [];
+  if (!odd.length) process.exit(0);
+  out(odd.map(c => [c.name, c.status || 'completed', c.conclusion == null ? 'none' : c.conclusion,
+                    'https://github.com/kevinrhaas/chicago/actions/runs/' + (c.run || 555) + '/job/9'].join('\\t'))
+         .join('\\n'));
+}
 // ...and the newest \`gate\` verdict the red-gate branch asks for (T-1510). A head
 // with no gate answers NOTHING, not a null string, because the script decides the
 // shape on whether this call produced anything at all.
@@ -189,8 +203,9 @@ process.exit(0);
            GITHUB_REPOSITORY: 'kevinrhaas/polecat-platform' },
   });
   const did = existsSync(acted) ? readFileSync(acted, 'utf8') : '';
+  const asked = existsSync(`${acted}.asked`) ? readFileSync(`${acted}.asked`, 'utf8') : '';
   rmSync(box, { recursive: true, force: true });
-  return { code: r.status, out: `${r.stdout || ''}${r.stderr || ''}`, acted: did };
+  return { code: r.status, out: `${r.stdout || ''}${r.stderr || ''}`, acted: did, asked };
 }
 
 const SHA = 'aaaaaaaabbbbbbbbccccccccddddddddeeeeeeee';
@@ -480,6 +495,104 @@ const redGated = (over = {}) => ({
 {
   const r = run({ prs: [redGated({ gate: null })] });
   check('a head carrying no gate is not called red', !/STUCK/.test(r.out));
+}
+
+/* 16. T-1520 — THE THIRD SHAPE. #1617 on 2026-09-21: gate success, generate success,
+ *     `report` CANCELLED by the next push's sweep, mergeable_state `unstable`. Nothing
+ *     re-runs a completed check and merge-ready merges only `clean`, so a PR whose gate
+ *     had PASSED sat until a person re-ran one check. Before this the reporter called
+ *     it `something can move this`, the same wrong answer T-1510 removed for a red gate. */
+const SHA2 = '1111111122222222333333334444444455555555';
+const unstable = (over = {}) => ({
+  n: 1617, branch: 'steward/t-1400-whatever', sha: SHA2, labels: [],
+  state: 'unstable', headAgeMin: 600,
+  gate: { status: 'completed', conclusion: 'success' },
+  odd: [{ name: 'report', status: 'completed', conclusion: 'cancelled', run: 37095687592 }],
+  ...over,
+});
+
+/* 16a. The shape itself, under a finished run and on an old head. */
+{
+  const r = run({ prs: [unstable()], claims: { 't-1400': { runStatus: 'completed', ageHours: 5 } } });
+  check('an unstable PR with a cancelled check, a green gate and a finished run is reported',
+        /#1617 {2}STUCK — unstable on report cancelled/.test(r.out),
+        (r.out.match(/^#1617.*$/m) || ['nothing said'])[0]);
+  check('…labelled `stuck`', /^label 1617 stuck$/m.test(r.acted), r.acted.trim() || 'no label');
+  check('…and counted as its own shape', /unstable=1/.test(r.out) && /red-gate=0/.test(r.out)
+        && /deadlocked=0/.test(r.out));
+  check('…the comment NAMES the check that did not pass, and how it ended',
+        /`report` — \*\*cancelled\*\*/.test(r.acted), 'the check name is the whole remedy');
+  check('…and says plainly the gate may be green and the PR still cannot merge',
+        /gate may well be green/.test(r.acted) && /merges only what GitHub calls `clean`/.test(r.acted));
+  check('…naming the remedy: re-run THAT run, by its id',
+        /gh api -X POST repos\/kevinrhaas\/chicago\/actions\/runs\/37095687592\/rerun/.test(r.acted));
+  check('…and NOT an empty commit, which is refused everywhere else here',
+        !/commit --allow-empty/.test(r.acted) && /Do NOT push an empty commit/.test(r.acted));
+  check('…and it still merges, pushes and resolves nothing',
+        r.acted.split('\n').filter(Boolean)
+          .every((l) => /^(ensure-label|label \d+ |comment \d+ |unlabel \d+ )/.test(l)));
+}
+
+/* 16b. NEAR-MISS: the same PR under a LIVE run. A run that pushes again clears it
+ *      itself — the push re-gates and the reporter's own fresh sweep passes. */
+{
+  const r = run({ prs: [unstable()], claims: { 't-1400': { runStatus: 'in_progress', ageHours: 1 } } });
+  check('unstable under a live run is left alone',
+        !/STUCK/.test(r.out) && /still in_progress/.test(r.out), (r.out.match(/^#1617.*$/m) || [''])[0]);
+  check('…and nothing was written to it', r.acted.replace(/ensure-label\n/g, '') === '', r.acted.trim());
+}
+
+/* 16c. NEAR-MISS: a head too young. Clearing a PR is normally two pushes a minute
+ *      apart, and the sweep of the second has not had its turn. */
+{
+  const r = run({ prs: [unstable({ headAgeMin: 5 })] });
+  check('unstable on a head younger than MIN_AGE is left alone',
+        !/STUCK/.test(r.out) && /too-young=1/.test(r.out), (r.out.match(/^#1617.*$/m) || [''])[0]);
+}
+
+/* 16d. NEAR-MISS: `clean` now, with a cancelled check on an OLDER head of the same
+ *      branch. The check that matters is the one on the current head — and the
+ *      reporter must not go asking about the older one at all. */
+{
+  const OLD = '9999999988888888777777776666666655555555';
+  const r = run({ prs: [unstable({ state: 'clean', odd: [], olderHeads: { [OLD]: [
+    { name: 'report', status: 'completed', conclusion: 'cancelled' }] } })] });
+  check('a clean PR with a cancelled check on an older head is not reported',
+        !/STUCK/.test(r.out) && /clean — something can move this/.test(r.out),
+        (r.out.match(/^#1617.*$/m) || [''])[0]);
+  check('…and the older head is never asked about', !r.asked.includes(OLD), r.asked.trim());
+}
+
+/* 16e. NEAR-MISS: unstable while a check is STILL RUNNING. That is a moving PR. */
+{
+  const r = run({ prs: [unstable({ odd: [
+    { name: 'report', status: 'completed', conclusion: 'cancelled' },
+    { name: 'report', status: 'in_progress', conclusion: null }] })] });
+  check('unstable with a check still running is not called stuck',
+        !/STUCK/.test(r.out) && /unstable — something can move this/.test(r.out),
+        (r.out.match(/^#1617.*$/m) || [''])[0]);
+}
+
+/* 16f. NEAR-MISS: unstable with every check on the head passed — GitHub's state
+ *      catching up, not a check anybody has to re-run. Nothing to name, nothing said. */
+{
+  const r = run({ prs: [unstable({ odd: [] })] });
+  check('unstable with no failing check on the head is not reported', !/STUCK/.test(r.out));
+}
+
+/* 16g. A RED GATE IS STILL SHAPE B, not C, even on an `unstable` PR: its remedy is
+ *      a fix, not a re-run, and re-running a red gate is the wrong advice. */
+{
+  const r = run({ prs: [unstable({ gate: { status: 'completed', conclusion: 'failure', steps: ['Run the gate'] } })] });
+  check('a red gate on an unstable PR is reported as a red gate',
+        /red-gate=1/.test(r.out) && /unstable=0/.test(r.out), (r.out.match(/^#1617.*$/m) || [''])[0]);
+}
+
+/* 16h. AND THE LABEL COMES BACK OFF once the check is re-run and the PR is clean. */
+{
+  const r = run({ prs: [unstable({ state: 'clean', odd: [], labels: ['stuck'] })] });
+  check('a re-run that turns the PR clean takes the label off',
+        /^unlabel 1617 stuck$/m.test(r.acted), r.acted.trim() || 'nothing');
 }
 
 /* 13. DRIFT GUARDS on the lines that carry the judgement. */

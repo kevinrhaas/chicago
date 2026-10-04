@@ -1,0 +1,99 @@
+{
+  "scope": "Published 1904 Glessner full/light viewer; snapshot runtime 81e41588, exact final model bytes. This is bounded browser verification, not the full thirteen-stage renderer gate.",
+  "browser": "Chromium 141.0.7390.37",
+  "capture_method": "After normal app readiness, pause its animation loop and use the existing api.step() per camera so continuous SwiftShader draws do not starve screenshots. Geometry, materials, lighting, shadows and pixels are unchanged. The mobile entry overlay was explicitly dismissed and asserted hidden.",
+  "observations": [
+    {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "label": "desktop",
+      "initial_detail": "full",
+      "ready": true,
+      "scene": "1904",
+      "views": [
+        {
+          "view": "west",
+          "requested": "full",
+          "actual_asset_detail": "full",
+          "loader_problems": []
+        },
+        {
+          "view": "northwest",
+          "requested": "full",
+          "actual_asset_detail": "full",
+          "loader_problems": []
+        },
+        {
+          "view": "north",
+          "requested": "full",
+          "actual_asset_detail": "full",
+          "loader_problems": []
+        },
+        {
+          "view": "courtyard",
+          "requested": "full",
+          "actual_asset_detail": "full",
+          "loader_problems": []
+        }
+      ],
+      "after_switch": {
+        "requested": "light",
+        "actual_asset_detail": "light"
+      },
+      "page_errors": [],
+      "failed_requests": [],
+      "glessner_responses": [
+        {
+          "asset": "glessner_house__as_built_1887.glb",
+          "status": 200
+        },
+        {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ]
+    },
+    {
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "label": "mobile",
+      "initial_detail": "light",
+      "ready": true,
+      "scene": "1904",
+      "views": [
+        {
+          "view": "west",
+          "requested": "light",
+          "actual_asset_detail": "light",
+          "loader_problems": []
+        },
+        {
+          "view": "north",
+          "requested": "light",
+          "actual_asset_detail": "light",
+          "loader_problems": []
+        }
+      ],
+      "after_switch": {
+        "requested": "full",
+        "actual_asset_detail": "full"
+      },
+      "page_errors": [],
+      "failed_requests": [],
+      "glessner_responses": [
+        {
+          "asset": "glessner_house__as_built_1887.light.glb",
+          "status": 200
+        },
+        {
+          "asset": "glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ]
+    }
+  ]
+}

@@ -3,6 +3,23 @@
  "tool": "tools/measure_corridor_strip.py",
  "reading": {
   "streets": {
+   "fulton": {
+    "offset_m": 0.35,
+    "bands": {
+     "abandoned": {
+      "area_m2": 149.3,
+      "dry_pct": 100.0,
+      "lots": 0,
+      "structures": []
+     },
+     "claimed": {
+      "area_m2": 149.3,
+      "dry_pct": 100.0,
+      "lots": 0,
+      "structures": []
+     }
+    }
+   },
    "kinzie": {
     "offset_m": 2.91,
     "bands": {
@@ -24,18 +41,19 @@
     "offset_m": 8.58,
     "bands": {
      "abandoned": {
-      "area_m2": 6132.2,
-      "dry_pct": 99.1,
+      "area_m2": 6320.9,
+      "dry_pct": 99.0,
       "lots": 0,
       "structures": [
        "hogan_store",
        "lasalle_slough_crossing",
-       "newberry_dole_warehouse"
+       "slough_log_bridge",
+       "south_bank_shed_dearborn_e2"
       ]
      },
      "claimed": {
-      "area_m2": 6132.2,
-      "dry_pct": 45.0,
+      "area_m2": 6320.9,
+      "dry_pct": 46.6,
       "lots": 0,
       "structures": [
        "dearborn_street_drawbridge",

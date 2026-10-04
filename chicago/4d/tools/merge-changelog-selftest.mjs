@@ -36,7 +36,8 @@ const entry = (v, title, close = '\n    ] },') =>
   `  { v: ${v}, title: '${title}', kind: 'fix', ts: '2026-01-0${v % 9}T00:00:00.000Z', date: 'Jan ${v}, 2026',\n`
   + `    items: [\n      'item for ${title}.',${close}`;
 const file = (...es) => HEAD + es.join('\n') + '\n' + TAIL;
-const titles = (t) => [...t.matchAll(/title:\s*'((?:[^'\\]|\\.)*)'/g)].map((m) => m[1]);
+const titles = (t) => [...t.matchAll(/title:\s*(?:'((?:[^'\\]|\\.)*)'|"((?:[^"\\]|\\.)*)")/g)]
+  .map((m) => m[1] ?? m[2]);
 const vs = (t) => [...t.matchAll(/^  \{ v: ([^,]+),/gm)].map((m) => m[1]);
 
 console.log('\n\x1b[1m== the changelog merge driver\x1b[0m');
@@ -98,9 +99,27 @@ console.log('\n\x1b[1m== the changelog merge driver\x1b[0m');
   ok(titles(r.text).filter((t) => t === 'same entry').length === 1, '...it appears exactly once');
 }
 
+// 6. A title in DOUBLE quotes, because it carries an apostrophe (T-2083). The
+//    driver read only '…' titles and keyed this entry by its line number, which
+//    differs across base, ours and theirs whenever either side prepends — so it
+//    read as new on every lap and went back on top as an unstamped copy. Dev
+//    reached six copies of v1397 that way, four of them from one merge.
+{
+  const dq = `  { v: 9, title: "Kelsey's house is yellow", kind: 'feature', ts: '2026-01-01T00:00:00.000Z', date: 'Jan 9, 2026',\n    items: [\n      'yellow.',\n    ] },`;
+  const base = file(dq, entry(8, 'older'));
+  const ours = file(entry(11, 'ours new'), dq, entry(8, 'older'));
+  const theirs = file(entry(11, 'theirs new'), entry(10, 'theirs newer'), dq, entry(8, 'older'));
+  const r = run(base, ours, theirs);
+  ok(r.code === 0, 'a double-quoted title on both sides merges');
+  ok(titles(r.text).filter((t) => t === "Kelsey's house is yellow").length === 1,
+    '...and appears exactly once, not copied back on top');
+  ok(titles(r.text).join('|') === "ours new|theirs new|theirs newer|Kelsey's house is yellow|older",
+    '...in theirs\' place, with only ours\' new entry above it');
+}
+
 console.log('\n\x1b[1m== …and the refusals still fire\x1b[0m');
 
-// 6. Both sides edited ONE EXISTING entry differently — union's silent case.
+// 7. Both sides edited ONE EXISTING entry differently — union's silent case.
 {
   const base = file(entry(10, 'older'));
   const ours = file(entry(10, 'older').replace('item for older.', 'OURS rewrote this.'));
@@ -109,10 +128,19 @@ console.log('\n\x1b[1m== …and the refusals still fire\x1b[0m');
   ok(r.code !== 0, 'both sides editing one shipped entry differently is REFUSED');
 }
 
-// 7. Garbage in is refused, not written through.
+// 8. Garbage in is refused, not written through.
 {
   const r = run('not a changelog', 'nor is this', 'nor this');
   ok(r.code !== 0, 'an unparseable file is REFUSED rather than merged');
+}
+
+// 9. An entry whose title cannot be read has no identity across the three
+//    versions. Keying it by line number is what copied v1397 (T-2083); refuse.
+{
+  const blind = `  { v: 9, title: undefined, kind: 'fix', ts: '2026-01-01T00:00:00.000Z', date: 'Jan 9, 2026',\n    items: [\n      'no title.',\n    ] },`;
+  const base = file(blind);
+  const r = run(base, file(entry(10, 'ours new'), blind), file(entry(10, 'theirs new'), blind));
+  ok(r.code !== 0, 'an entry with no readable title is REFUSED rather than keyed by its line');
 }
 
 console.log(`\n${pass} passed, ${fail} failed`);

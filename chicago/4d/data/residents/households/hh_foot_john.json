@@ -119,6 +119,21 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap. AND THE BRACKET THIS CARD ONCE HAD IS WITHDRAWN, NOT LOST: its at-or-before leg was tax_1833 alone. THE 1833 TAX LIST IS A PROPERTY ROLL, NOT A RESIDENCE CHECK (T-1117): it names the owner of ground inside the town, resident or not, and its own entry 110 is a man three years dead. It bounds the town's RECORD of this name and not the day this person reached Chicago, so it cannot say this person was here to be followed across the day. Withdrawn to `uncertain` and not to `absent` — no source places this person anywhere else on 1 July 1835 either, and a man who was taxed for ground in the town may perfectly well have been standing on it."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "married_couple",
+  "size_drawn": 3,
+  "kin_seated": 2,
+  "seed": "hh_foot_john:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
+  "married": {
+   "ticket": "T-2020",
+   "wife": "rc_ingalls_abigail",
+   "from_household": "hh_rc_ingalls_abigail",
+   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Abigail Ingalls headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 0 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says John Foot married anybody."
+  }
+ },
  "persons": [
   {
    "id": "foot_john",
@@ -325,6 +340,86 @@
     "value": "male",
     "confidence": "inferred",
     "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'John' is read as male because 14 persons in this layer whose sex a source records bear it (bates_john_jr, calhoun_john, caton_john_dean, davis_john, greene_john, hogan_john_s_c, and others), and it stands in the irish and yankee male forename pool of this town's own attested naming. Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
+   }
+  },
+  {
+   "id": "rc_ingalls_abigail",
+   "name": "Abigail Ingalls",
+   "relationship": "wife",
+   "grade": "reconstructed",
+   "sex": "female",
+   "age_band": {
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
+    },
+    "seed": "rc_wc_west_033:head_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "milliner",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "women_children_fill.female_trades",
+     "note": "The finer half of the same trade, and rarer: it wants a stock and a front."
+    },
+    "seed": "rc_wc_west_033:female_trades",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a woman of this household and what she did"
+    },
+    "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
+   },
+   "name_basis": {
+    "value": "Abigail Ingalls",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename and the surname are both drawn from the New England and New York pool: nothing about this house is read, so no part of the name is inherited from a real person."
+    },
+    "seed": "rc_wc_west_033:head_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this west-division household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "sex_ratio",
+    "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the west division."
+   },
+   "seed": "rc_wc_west_033:head_age_bands_1840",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_ingalls_abigail",
+    "relationship_as_dealt": "head"
    }
   }
  ],

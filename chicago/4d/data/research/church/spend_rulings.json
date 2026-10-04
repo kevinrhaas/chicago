@@ -98,134 +98,134 @@
       "note": "st_marys_baptisms_town_findings st_marys_town_08: a person reading of the register prose, dated 1833-10-10, which reads: “A mother of a child baptised at Chicago on 10 October 1833 is recorded as coming from Green Bay.”. st_marys_baptisms_crosswalk.json rules it 'not_a_person': A TOWN FINDING, not a reading of a person: it says something about the place, the date or the clothing and there is nobody in it to crosswalk. Ruled on so it is not counted as a name nobody has looked at."
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0020",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0021",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0020: Johnson, Clara Ann, read from the roll of the Second Presbyterian Church. The entry as printed: “Johnson, Miss Clara Ann | Profession. | June 22, 1S59.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0021: Johnson, Clara Ann, read from the roll of the Second Presbyterian Church. The entry as printed: “Johnson, Miss Clara Ann | Profession. | June 22, 1S59.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0086",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0089",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0086: Brown, A. F., read from the roll of the Second Presbyterian Church. The entry as printed: “Brown, Mrs. A. F. | Profession. | August 29, 1 866.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0089: Brown, A. F., read from the roll of the Second Presbyterian Church. The entry as printed: “Brown, Mrs. A. F. | Profession. | August 29, 1 866.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0138",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0141",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0138: Day, Clara E., read from the roll of the Second Presbyterian Church. The entry as printed: “Day, Miss Clara E. | Profession. | March 31, 18S6,”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0141: Day, Clara E., read from the roll of the Second Presbyterian Church. The entry as printed: “Day, Miss Clara E. | Profession. | March 31, 18S6,”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0146",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0150",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0146: Foote, Sarah P., read from the roll of the Second Presbyterian Church. The entry as printed: “Foote, Mrs. Sarah P. | Letter. | November 2, 1S69.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0150: Foote, Sarah P., read from the roll of the Second Presbyterian Church. The entry as printed: “Foote, Mrs. Sarah P. | Letter. | November 2, 1S69.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0169",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0173",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0169: Grant, Anna F., read from the roll of the Second Presbyterian Church. The entry as printed: “Grant, Mrs. Anna F. | Profession. | May 3, 187S.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0173: Grant, Anna F., read from the roll of the Second Presbyterian Church. The entry as printed: “Grant, Mrs. Anna F. | Profession. | May 3, 187S.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0179",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0183",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0179: Hall, Mary E., read from the roll of the Second Presbyterian Church. The entry as printed: “Hall, Mrs. Mary E. | Letter. | December 2, 18S5.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0183: Hall, Mary E., read from the roll of the Second Presbyterian Church. The entry as printed: “Hall, Mrs. Mary E. | Letter. | December 2, 18S5.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0197",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0201",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0197: Johnson, Mattie H., read from the roll of the Second Presbyterian Church. The entry as printed: “Johnson, Mrs. Mattie H. | Profession. | June 28, 18S2.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0201: Johnson, Mattie H., read from the roll of the Second Presbyterian Church. The entry as printed: “Johnson, Mrs. Mattie H. | Profession. | June 28, 18S2.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0209",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0213",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0209: Kent, Eliza, read from the roll of the Second Presbyterian Church. The entry as printed: “Kent, Miss Eliza | Letter. | May 2, 1S79.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0213: Kent, Eliza, read from the roll of the Second Presbyterian Church. The entry as printed: “Kent, Miss Eliza | Letter. | May 2, 1S79.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0234",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0238",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0234: Mason, Amelia R., read from the roll of the Second Presbyterian Church. The entry as printed: “Mason, Mrs. Amelia R. | Letter. | April 29, 1S58.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0238: Mason, Amelia R., read from the roll of the Second Presbyterian Church. The entry as printed: “Mason, Mrs. Amelia R. | Letter. | April 29, 1S58.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0282",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0286",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0282: Perry, Sophia H., read from the roll of the Second Presbyterian Church. The entry as printed: “Perry, Mrs. Sophia H. | Letter. | October 15, 1S43.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0286: Perry, Sophia H., read from the roll of the Second Presbyterian Church. The entry as printed: “Perry, Mrs. Sophia H. | Letter. | October 15, 1S43.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0302",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0309",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0302: Sherman, William W., read from the roll of the Second Presbyterian Church. The entry as printed: “Sherman, Mrs. William W. | Letter. | February 2, 18S7.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0309: Sherman, William W., read from the roll of the Second Presbyterian Church. The entry as printed: “Sherman, Mrs. William W. | Letter. | February 2, 18S7.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0304",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0311",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0304: Skinner, John B., read from the roll of the Second Presbyterian Church. The entry as printed: “Skinner, John B. | Profession. | January 12, 1S77.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0311: Skinner, John B., read from the roll of the Second Presbyterian Church. The entry as printed: “Skinner, John B. | Profession. | January 12, 1S77.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0334",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0341",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0334: Thomas, Florence M., read from the roll of the Second Presbyterian Church. The entry as printed: “Thomas, Miss Florence M. | Profession. | February 3, 18S6.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0341: Thomas, Florence M., read from the roll of the Second Presbyterian Church. The entry as printed: “Thomas, Miss Florence M. | Profession. | February 3, 18S6.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0397",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0404",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0397: Arnold, Philip, read from the roll of the Second Presbyterian Church. The entry as printed: “Arnold, Philip | Letter. | September 26, 188^ | >. Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0404: Arnold, Philip, read from the roll of the Second Presbyterian Church. The entry as printed: “Arnold, Philip | Letter. | September 26, 188^ | >. Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0426",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0435",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0426: Blake, E. A., read from the roll of the Second Presbyterian Church. The entry as printed: “Blake, Mrs. E. A. | Letter. | February 28, 185 1, | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0435: Blake, E. A., read from the roll of the Second Presbyterian Church. The entry as printed: “Blake, Mrs. E. A. | Letter. | February 28, 185 1, | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0447",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0456",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0447: Brown, Cornelia C., read from the roll of the Second Presbyterian Church. The entry as printed: “Brown, Mrs. Cornelia C. | Letter. | February 28, 185 1. | Deceased.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0456: Brown, Cornelia C., read from the roll of the Second Presbyterian Church. The entry as printed: “Brown, Mrs. Cornelia C. | Letter. | February 28, 185 1. | Deceased.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0465",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0474",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0465: Burton, John, read from the roll of the Second Presbyterian Church. The entry as printed: “Burton, John | Profession, | July 3, 1 861. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0474: Burton, John, read from the roll of the Second Presbyterian Church. The entry as printed: “Burton, John | Profession, | July 3, 1 861. | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0524",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0533",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0524: Cook, J. L., read from the roll of the Second Presbyterian Church. The entry as printed: “Cook, Mrs. J. L. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0533: Cook, J. L., read from the roll of the Second Presbyterian Church. The entry as printed: “Cook, Mrs. J. L. | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0550",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0562",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0550: Forsyth, Minnie L., read from the roll of the Second Presbyterian Church. The entry as printed: “Forsyth, Miss Minnie L. | Profession. | August 4, 1 89 1. | Deceased.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0562: Forsyth, Minnie L., read from the roll of the Second Presbyterian Church. The entry as printed: “Forsyth, Miss Minnie L. | Profession. | August 4, 1 89 1. | Deceased.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0564",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0576",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0564: Godfrey, Horton C., read from the roll of the Second Presbyterian Church. The entry as printed: “Godfrey, Horton C. | Letter. | August 30, 1 87 1. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0576: Godfrey, Horton C., read from the roll of the Second Presbyterian Church. The entry as printed: “Godfrey, Horton C. | Letter. | August 30, 1 87 1. | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0594",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0607",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0594: Hawley, John Woodbridge, read from the roll of the Second Presbyterian Church. The entry as printed: “Hawley, John Woodbridge | Profession. | January 12, 1S77. | Deceased.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0607: Hawley, John Woodbridge, read from the roll of the Second Presbyterian Church. The entry as printed: “Hawley, John Woodbridge | Profession. | January 12, 1S77. | Deceased.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0844",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0860",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0844: Smith, Joseph Means, read from the roll of the Second Presbyterian Church. The entry as printed: “Smith, Joseph Means | Profession. | June 24, 1 89 1. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0860: Smith, Joseph Means, read from the roll of the Second Presbyterian Church. The entry as printed: “Smith, Joseph Means | Profession. | June 24, 1 89 1. | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0878",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0894",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0878: Strong, Adaline S., read from the roll of the Second Presbyterian Church. The entry as printed: “Strong, Mrs. Adaline S. | Letter. | October 20, 185 1. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0894: Strong, Adaline S., read from the roll of the Second Presbyterian Church. The entry as printed: “Strong, Mrs. Adaline S. | Letter. | October 20, 185 1. | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0904",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0920",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0904: Walker, Sarah P. H., read from the roll of the Second Presbyterian Church. The entry as printed: “Walker, Mrs. Sarah P. H. | Letter. | February 28, 185 1. | Deceased.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0920: Walker, Sarah P. H., read from the roll of the Second Presbyterian Church. The entry as printed: “Walker, Mrs. Sarah P. H. | Letter. | February 28, 185 1. | Deceased.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0912",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0930",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0912: Wentworth, John T., read from the roll of the Second Presbyterian Church. The entry as printed: “Wentworth, Mrs. John T. | Letter. | March 4, 1S53. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0930: Wentworth, John T., read from the roll of the Second Presbyterian Church. The entry as printed: “Wentworth, Mrs. John T. | Letter. | March 4, 1S53. | Dismissed.”"
     },
     {
-      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0935",
+      "unit": "church:data/research/church/records/second_presbyterian_members_1842_1892.json#records/second_presb_0954",
       "rule": "the_roll_is_beyond_the_reading_window",
-      "note": "second_presbyterian_members_1842_1892 second_presb_0935: Wright, Henry, read from the roll of the Second Presbyterian Church. The entry as printed: “Wright, Henry | Profession. | May 3, 187S. | Dismissed.”"
+      "note": "second_presbyterian_members_1842_1892 second_presb_0954: Wright, Henry, read from the roll of the Second Presbyterian Church. The entry as printed: “Wright, Henry | Profession. | May 3, 187S. | Dismissed.”"
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_1",

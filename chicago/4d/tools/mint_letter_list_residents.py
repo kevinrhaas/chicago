@@ -1,7 +1,8 @@
 """Every name the post office held a letter for becomes a resident (T-0378, T-0379).
 
     python3 tools/mint_letter_list_residents.py             write
-    python3 tools/mint_letter_list_residents.py --check     re-derive and diff
+    python3 tools/mint_letter_list_residents.py --check     re-derive and compare what the mint OWNS
+    python3 tools/mint_letter_list_residents.py --retire-ledger   drop ledger rows that no longer stand
     python3 tools/mint_letter_list_residents.py --report    the mint and every refusal
     python3 tools/mint_letter_list_residents.py --scale     what this pass did to the town
     python3 tools/mint_letter_list_residents.py --gate      the invariants the ruling owes
@@ -339,6 +340,15 @@ FEMALE_TITLES = {"mrs", "miss"}
 MALE_TITLES = {"mr"}
 FIRM = re.compile(r"&| and |\bco\b|\bcompany\b", re.I)
 UNCERTAIN = re.compile(r"\[|uncertain", re.I)
+# T-2072. The office set the NUMBER of letters it held after a name — `Peter Temple
+# 3`, `Mr. Roult 2` — and the roster of 1 January 1834 carries that count into the
+# register's name, where `words()` counts it as a word and `surname()` steps past it.
+# So `Peter Temple 3` was tested as family name `peter` and walked past refusal 7 and
+# the identity master to a duplicate of the Peter Temple the town already holds, and
+# `Mr. Roult 2` passed refusal 5 on a forename that is a tally. A bare count after a
+# name with no comma in it is that tally; `8.` and `1.` (an unread initial, T-0721)
+# carry the stop an initial carries and are not touched.
+LETTER_COUNT = re.compile(r"^(?P<name>[^,]*\S)\s+\d+$")
 BARE_TOWN = {"chicago", "the town of chicago"}
 STREETS = DATA / "streets" / "1835.json"
 STRUCTURES = DATA / "structures"
@@ -403,8 +413,34 @@ def surname_is_first_token(name: str) -> bool:
     return not full_word(picked) and any(full_word(w) for w in parts)
 
 
+def comma_is_a_misset_stop(name: str) -> bool:
+    """Is the only comma in this printing the stop after a middle initial, mis-set? (T-2076)
+
+    `Augustus H, Conant` (Democrat, 9 July 1834) is printed `Augustus H. Conant` the
+    next week. Read as the office's surname-first mark, the comma makes `Augustus H`
+    the family name and the card `Conant Augustus H` — a surname-first card, which
+    `--gate` refuses (T-1217) under an id it also refuses (T-1218). A family name
+    cannot END in an initial, and a forename side cannot be one bare word that is
+    the family name the other printing gives: when the head of the comma ends in an
+    initial while a full word stands before it, and the tail is ONE full word, the
+    comma is a stop the scan misread and the printing is forename-first.
+
+    MEASURED over the letter-list pool on 2026-10-04: 1,952 distinct printings, and
+    this is true of exactly one, the line above. `surname()` and `display()` read the
+    comma as a space where it fires, and nothing else is moved, supplied or respelled.
+    """
+    if name.count(",") != 1 or "[" in name:
+        return False
+    head, _, tail = name.partition(",")
+    hw, tw = words(head), words(tail)
+    return (bool(hw) and not full_word(hw[-1]) and any(full_word(w) for w in hw)
+            and len(tw) == 1 and full_word(tw[0]))
+
+
 def surname(name: str) -> str:
     """The family name, lowercased, from either order the papers print it in."""
+    if comma_is_a_misset_stop(name):
+        name = name.replace(",", " ")
     parts = words(name)
     if not parts:
         return ""
@@ -474,7 +510,7 @@ def comma_is_not_the_divider(name: str) -> bool:
     T-1121 measured and refused — put the token `surname()` picked last, wherever it
     fell — moved 84.
     """
-    if "," not in name or "[" in name:
+    if "," not in name or "[" in name or comma_is_a_misset_stop(name):
         return False
     fam = surname(name)
     if not fam:
@@ -516,6 +552,10 @@ def display(name: str) -> str:
     column and in the gazetteer's `as_printed`, both of which this pass leaves
     alone. What changes is that the card stops asserting `8.` is a name.
     """
+    if comma_is_a_misset_stop(name):
+        # T-2076: not a divider and not an order mark; the card drops it, as T-1121
+        # drops a comma the reordering made untrue, and supplies no stop in its place.
+        return mark_unread(re.sub(r"\s+", " ", name.replace(",", " ")).strip(), name)
     if "," in name:
         if comma_is_not_the_divider(name):
             # T-1217. REORDER AROUND THE COMMA THE FAMILY NAME STANDS BEFORE,
@@ -889,9 +929,23 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
     # both printings resolve to the same card, and the second is a mint.
     minted: set[str] = set()
     accepted, refusals = [], []
+    standing_fams = {surname(c["name"]) for c in candidates
+                     if display(c["name"]) in standing}
     for cand in candidates:
         gaz = gazetteer[cand["id"]]
         name = cand["name"]
+        # T-2072. A MINT is tested on the name without the office's letter count
+        # (LETTER_COUNT, above). A STANDING card keeps the reading it was minted under,
+        # on the footing T-0660 set for refusals 7 and 8: correcting the reading must
+        # not un-mint a committed record in passing. Its card shows the same tally,
+        # and re-reading those cards is a ticket of its own, not a side effect here.
+        # And a mint read that way gives way to a standing card of this pass on the
+        # same family name, whatever the ranking says (refusal 8, at its foot below): `John Wilson 4` is printed
+        # beside the `Wilson, John` the town already holds, and letting it take the
+        # surname first would hang a collision on the committed card for a tally.
+        counted = LETTER_COUNT.match(name)
+        if counted and display(name) not in standing:
+            name = counted.group("name")
         fam = surname(name)
         outside = [p for p in (gaz.get("associated_places") or [])
                    if norm_place(p) not in in_town]
@@ -917,10 +971,12 @@ def apply_refusals(candidates: list[dict], gazetteer: dict, known: set[str],
             reason = guard_refusal(hit)
         elif fam in taken:
             reason = "surname already minted"
+        elif name != cand["name"] and fam in standing_fams:
+            reason = "surname already minted"
         # T-0660 (c). A mint-time refusal does not un-mint a standing record: it is
         # SAID on the card instead. The surname is NOT claimed here — the holder keeps
         # it — so nothing below this candidate sees a different refusal because of it.
-        shown = display(name)
+        shown = display(cand["name"])
         if (reason is not None and is_mint_time(reason)
                 and shown in standing and shown not in minted):
             cand["surname_collision"] = {
@@ -1093,7 +1149,8 @@ def collision_block(collision: dict, fam: str) -> dict:
     }
 
 
-def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
+def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
+           standing: tuple[str, str] | None = None) -> dict:
     name = display(cand["name"])
     fam = surname(cand["name"]).title()
     sources = paper_for(gaz["mentions"])
@@ -1105,8 +1162,13 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
     titles = titles_in(cand["name"])
 
     legacy_id = PREFIX + slug(cand["name"])
-    hid = household_id(cand["name"], PREFIX, "letter_list", docs, taken_ids)
-    pid = (PERSON_PREFIX + slug(cand["name"])) if hid == legacy_id else hid.removeprefix("hh_")
+    if standing:
+        # T-2071. The candidate IS a person a committed card of this pass holds: the
+        # card keeps its handle whatever the name splitter now makes of the letters.
+        hid, pid = standing
+    else:
+        hid = household_id(cand["name"], PREFIX, "letter_list", docs, taken_ids)
+        pid = (PERSON_PREFIX + slug(cand["name"])) if hid == legacy_id else hid.removeprefix("hh_")
     span = (f"{cand['first_seen']} to {cand['last_seen']}"
             if cand["first_seen"] != cand["last_seen"] else cand["first_seen"])
 
@@ -1181,9 +1243,15 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
     )
 
     present = "present" if cand["last_seen"] >= SCENE_DATE else "uncertain"
+    # The printing that puts the letter on or after the scene date. A return's first
+    # printing usually is that one; where a later printing was read onto the same return
+    # (T-2076: 20 May and 1 July 1835 fall inside RETURN_GAP_DAYS) it is not, and citing
+    # the first would date a May issue "on or after the scene date".
+    waiting = next((c for c in groups[-1] if str(issue_date(c) or "") >= SCENE_DATE),
+                   groups[-1][0])
     doc = {
         "id": hid,
-        "name": f"The {fam} household — a name from the post office's letter lists",
+        "name": f"The {fam} household — {LETTER_LIST_NAME}",
         "division": DIVISION,
         "head": pid,
     }
@@ -1222,7 +1290,7 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
             "confidence": "inferred",
             "sources": list(sources),
             "note": ((f"A letter was still waiting for this name at "
-                      f"{issue_of(groups[-1][0])}, on or after the scene date, so the "
+                      f"{issue_of(waiting)}, on or after the scene date, so the "
                       f"corpus puts somebody expecting them at Chicago at "
                       f"{cand['last_seen']}.")
                      if present == "present" else
@@ -1251,11 +1319,195 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str]) -> dict:
     return doc
 
 
+# T-1689. THE HOUSEHOLD'S NAME SAYS WHICH EVIDENCE IT RESTS ON, SO IT FOLLOWS THE FLAG.
+# A card is minted when a letter list is all there is, so it is named for the list. When
+# a later pass carries an ordinary reading of the papers onto it, `press_contradicting`
+# refuses the flag — and until T-1689 nothing revised the name, so seven cards (and every
+# building card, scene sidecar and roof ledger that read them) went on saying "a name from
+# the post office's letter lists" about a person the same record says the papers name
+# elsewhere. `tools/name_the_keepers_1835.py` refused two roofs on that disagreement.
+# The second form says what is true of those seven and no more: the papers print the name
+# outside the lists. It claims no address, no trade and no presence on the scene date.
+LETTER_LIST_NAME = "a name from the post office's letter lists"
+PRINTED_ELSEWHERE_NAME = "a name the papers print beyond the letter lists"
+
+
+def settle_the_flag(doc: dict) -> dict:
+    """Refuse the flag where the card's own press evidence contradicts it, and rename to match.
+
+    One-directional, like `press_contradicting`: it never SETS the flag. It runs after
+    `carry_over`, because the press evidence that refuses the flag is a later pass's, carried.
+    """
+    for person in doc.get("persons") or []:
+        if press_contradicting(person):
+            person.pop("letter_list_only", None)
+    if not any(p.get("letter_list_only") for p in doc.get("persons") or []):
+        doc["name"] = doc["name"].replace(LETTER_LIST_NAME, PRINTED_ELSEWHERE_NAME)
+    return doc
+
+
 def carry_over(doc: dict, existing: dict) -> dict:
     """Keep later passes' findings when this letter-list mint rebuilds its card."""
     # A printed title is this pass's evidence for ``sex``; its absence after a new
     # reading is owned by this mint and must not be resurrected from the old card.
     return carry_resident_mint(doc, existing, owned_person_keys=("sex",))
+
+
+# T-2071. FOUR LINES OF THE 1 JANUARY 1834 RETURN THAT THE REGISTER RE-READ AND LOST HOLD
+# OF. Each was minted as a card from a transcription; the page image (T-0424, tied line by
+# line by T-1010's concordance) then read the same printed line more fully, and the
+# register, matching on the new letters, took the better reading for a NEW person instead
+# of an `enrich` of the standing one. A re-reading is not a second resident, so the
+# candidate is minted onto the standing card and the card takes the better letters; the
+# handle stays, under T-1139's rule N5 — an id is a handle, not a claim — and because the
+# identity master, the research passes and the sidecars all know the person by it.
+# register person -> (standing person id, the reading that ties them)
+READ_ONTO: dict[str, tuple[str, str]] = {
+    "person_c_h_pease": ("pease_h",
+        "concordance line 121: the 4 March 1834 impression, column 27, which hh_pease_h "
+        "was minted from as `H. Pease`; the page image sets `C. H. Pease`"),
+    "person_s_f_plumer": ("plumer_f",
+        "concordance line 119: the same line in the 28 January (`8. F. Plumer`) and 4 March "
+        "(`Plumer`, column 27, where hh_plumer_f read `F. Plumer`) impressions"),
+    "person_william_crissy": ("crisey_william",
+        "concordance line 42: the 28 January impression's line hh_crisey_william was minted "
+        "from, tied by the image to the 4 March impression's `Willism Crisey`"),
+    "person_salmon_rutherford_3": ("rutherford_salmon",
+        "concordance line 126 resolves it to person_salmon_rutherford: the 4 March "
+        "impression's `on Rutherford 3` is the cut head of the same line, not a third man"),
+}
+
+
+def standing_person(cand: dict, held: dict[str, pathlib.Path]) -> str | None:
+    """The person id on a committed card of this pass that this candidate IS, if any.
+
+    The register says so itself for most of them — an `enrich` aimed at the card's
+    person — and READ_ONTO says it for the four lines it re-read and lost hold of."""
+    target = (cand.get("action_target") if cand.get("action") == "enrich"
+              else (READ_ONTO.get(cand["id"]) or (None,))[0])
+    return target if target in held else None
+
+
+def onto_standing(accepted: list, docs: dict) -> list:
+    """T-2071: (cand, gaz, standing) per household, folding the candidates that are one card.
+
+    `standing` is (household id, person id) for a candidate that IS a person a committed
+    card of this pass holds, else None and record() derives the id from the name. Two
+    candidates that reach one card are one person read twice — T-1133 folded each such
+    pair under card_merge_rulings.json, and the register aims both at the survivor — so
+    their printings are read together: the first-ranked candidate leads, the mentions are
+    the union, and the displayed name is the one T-1139's ruling file gives the card."""
+    held = {person["id"]: path
+            for path, doc in docs.items() if minted_by(path, doc, "letter_list", PREFIX)
+            for person in (doc.get("persons") or []) if person.get("id")}
+    for reg_id, (pid, _why) in READ_ONTO.items():
+        if pid not in held:
+            raise SystemExit(f"READ_ONTO {reg_id} -> {pid}: no committed letter-list card "
+                             f"holds {pid}; the reading is stale, re-read it")
+    renamed = ruled_renamings()
+    out: list = []
+    groups: dict[str, list] = {}
+    resolved: dict[str, str | None] = {}
+    for cand, gaz in accepted:
+        # T-2076: a second printing is read onto whatever its accepted candidate reached.
+        pid = (resolved.get(cand["printing_of"]) if cand.get("printing_of")
+               else standing_person(cand, held))
+        resolved[cand["id"]] = pid
+        if pid is None:
+            out.append((cand, gaz, None))
+        elif pid not in groups:
+            groups[pid] = [(cand, gaz)]
+            out.append(pid)
+        else:
+            groups[pid].append((cand, gaz))
+    for i, pid in enumerate(out):
+        if not isinstance(pid, str):
+            continue
+        group = groups[pid]
+        # The card's own reading leads where a candidate still reads it so: a fold adds
+        # printings to a card, and the cut head of a line (`on Rutherford 3`) must not
+        # rename the man its whole line names. Otherwise the first-ranked leads.
+        shown = (docs[held[pid]].get("persons") or [{}])[0].get("name")
+        lead_cand, lead_gaz = next((cg for cg in group if display(cg[0]["name"]) == shown),
+                                   group[0])
+        cand, gaz = dict(lead_cand), dict(lead_gaz)
+        for other, other_gaz in group:
+            if other is lead_cand:
+                continue
+            cand["first_seen"] = min(cand["first_seen"], other["first_seen"])
+            cand["last_seen"] = max(cand["last_seen"], other["last_seen"])
+            gaz["mentions"] = sorted(set(gaz["mentions"]) | set(other_gaz["mentions"]))
+            gaz["variants"] = (list(gaz.get("variants") or [])
+                               + list(other_gaz.get("variants") or []))
+        if pid in renamed:
+            cand["name"] = renamed[pid]["card"]["displayed_name_is"]
+        elif not id_family_name(pid, display(cand["name"])):
+            # A re-reading may give a standing card fuller letters (`H. Pease` is
+            # `C. H. Pease`); it may not respell the surname its handle was minted off.
+            # That is an adjudication, and T-1218 gives it to the ruling file alone:
+            # line 42's image sets `Crissy` where hh_crisey_william's impression set
+            # `Crisey`, and until a ruling awards one the card keeps the one it wears.
+            cand["name"] = shown
+        out[i] = (cand, gaz, (held[pid].stem, pid))
+    return out
+
+
+def second_printings(accepted: list, refusals: list, register: dict | None = None,
+                     gazetteer: dict | None = None) -> tuple[list, list]:
+    """T-2076: hand back to the accepted list the refusals that are a PRINTING, not a person.
+
+    Refusals 7 and 8 keep one household to a family name, and `apply_refusals` keeps one
+    candidate to a card. Both are right about a second PERSON and wrong about a second
+    PRINTING. The papers print one man twice in a way the register cannot always join:
+    in both orders (`N. H. Palmer` in May, `Palmer N. H.` in July), or with the office's
+    count of letters waiting (`Elliot 3` in the 4 March 1834 reprint of the return that
+    printed `William Elliot`). The second printing then reached refusal 8 and was dropped,
+    and the card was derived from whichever printing ranked first and lost the other.
+
+    THE RULE IS NARROW ON PURPOSE. A refusal is a printing of an accepted candidate when
+    all three hold:
+      * the refusal is one of the two mint-time refusals (7, 8) — nothing else; a garbled
+        or out-of-town reading stays refused;
+      * the name it shows, the letter count stripped, is IDENTICAL to the accepted one's;
+      * the register does not aim it at a different person: either it is `enrich` of the
+        same target, or a `new_resident` the register never joined to anyone.
+    A trial that united every row the register aims at one card moved 85 cards, and a
+    reading of them found the compiler had grouped different people under one surname
+    (`Amanda Miner` and `Miner, Aaron`, five Smiths); this rule takes none of those, and
+    unites no two spellings either — that is a reading, and T-1218 gives it to the
+    ruling file. Everything else stays refused and `--report` names it with its reason.
+
+    The printing is not minted on its own: it rides beside the accepted candidate
+    (`printing_of`), and `onto_standing` reads the two as one card, mentions unioned.
+    `mint()` is left as it was, because report_letter_list_collisions.py and the 1834
+    concordance read its refusals as the refusal rules alone.
+    """
+    if register is None:
+        register = {p["id"]: p for p in load(REGISTER)["persons"]}
+    if gazetteer is None:
+        gazetteer = {p["id"]: p for p in load(GAZETTEER)["persons"]}
+
+    def shown(cand_or_name) -> str:
+        name = cand_or_name if isinstance(cand_or_name, str) else cand_or_name["name"]
+        counted = LETTER_COUNT.match(name)
+        return display(counted.group("name") if counted else name)
+
+    def target(cand: dict) -> str | None:
+        return cand.get("action_target") if cand.get("action") == "enrich" else None
+
+    leads: dict[str, dict] = {}
+    for cand, _gaz in accepted:
+        leads.setdefault(shown(cand), cand)
+    folded, kept = [], []
+    for row in refusals:
+        cid, name, _n, reason = row
+        cand = register.get(cid)
+        lead = leads.get(shown(name)) if cand and is_mint_time(reason) else None
+        if lead is None or target(cand) not in (None, target(lead)):
+            kept.append(row)
+            continue
+        folded.append((dict(cand, printing_of=lead["id"]), gazetteer[cid]))
+    return accepted + folded, kept
 
 
 def build(preload: dict | None = None):
@@ -1266,14 +1518,15 @@ def build(preload: dict | None = None):
              else load(INDEX))
 
     mine_paths = {p for p, doc in docs.items() if minted_by(p, doc, "letter_list", PREFIX)}
-    accepted, refusals = mint(docs, index)
+    accepted, refusals = second_printings(*mint(docs, index))
 
     files = {}
     seen: set[str] = set()
-    for cand, gaz in accepted:
-        doc = record(cand, gaz, docs, seen)
+    for cand, gaz, standing in onto_standing(accepted, docs):
+        doc = record(cand, gaz, docs, seen, standing)
         existing = docs.get(HOUSEHOLDS / f"{doc['id']}.json") or {}
         carry_over(doc, existing)
+        settle_the_flag(doc)
         if doc["id"] in seen:
             raise SystemExit(f"two candidates mint the same household id {doc['id']}")
         seen.add(doc["id"])
@@ -1539,6 +1792,18 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
         if len(persons) != 1:
             problems.append(f"{hid}: {len(persons)} persons — a letter list names one "
                             f"person and this pass may not invent a household around them")
+        # T-1689. The household's name is the flag said in words, so the two agree on
+        # every card this pass minted: the letter-list name where a person carries the
+        # flag, and never where none does. Seven cards stood on the second half.
+        flagged = any(p.get("letter_list_only") for p in persons)
+        says = LETTER_LIST_NAME in (doc.get("name") or "")
+        if flagged != says:
+            problems.append(
+                f"{hid}: the household is named {doc.get('name')!r} and "
+                + ("a person on it carries letter_list_only — a name known only from the "
+                   "post office is named for the post office" if flagged else
+                   "no person on it carries letter_list_only — the name still says the "
+                   "post office is all there is, and the record beside it says otherwise"))
         for person in persons:
             pid = person.get("id")
             # T-1005. The flag's own justification is the test: it is what keeps a
@@ -1822,6 +2087,8 @@ NAME_READING_CASES = (
     ("Mason Sabrina A.", "mason", "Sabrina A. Mason"),
     ("merrich J. B.", "merrich", "J. B. merrich"),
     ("Mills Joel C.", "mills", "Joel C. Mills"),
+    # --- a mis-set stop read as a comma after the middle initial (T-2076) ------
+    ("Augustus H, Conant", "conant", "Augustus H Conant"),
     ("Hhelps Theodore E.", "hhelps", "Theodore E. Hhelps"),
     ("Mabbet Benjamin F.", "mabbet", "Benjamin F. Mabbet"),
     ("Norton Wm. H.", "norton", "Wm. H. Norton"),
@@ -1948,6 +2215,32 @@ def name_reading_self_test() -> int:
             failed += 1
             print(f"   FAIL plain_fragment({printed!r}) -> {got_fragment!r}, "
                   f"expected {want_fragment!r}")
+    # T-2072. A MINT is refused on its name without the office's letter count; a
+    # STANDING card keeps the reading it was minted under; and a counted mint gives
+    # way to a standing card of this pass on the same family name.
+    claim = "chicago_democrat_1834_03_04#c027"
+    def verdicts(names, known=(), standing=()):
+        cands = [{"id": f"c{i}", "name": n, "first_seen": "1834-03-04"}
+                 for i, n in enumerate(names)]
+        gaz = {c["id"]: {"mentions": [claim], "associated_places": []} for c in cands}
+        accepted, refused = apply_refusals(cands, gaz, set(known), set(),
+                                           standing=frozenset(standing))
+        why = {cid: reason for cid, _n, _k, reason in refused}
+        return [why.get(c["id"]) for c in cands], accepted
+    for names, known, standing, want in (
+        (["Mr. Roult 2"], (), (), ["a surname and nothing else"]),
+        (["Peter Temple 3"], ("temple",), (), ["the town already names a Temple"]),
+        (["Eliphalet Atkins 2"], (), (), [None]),
+        (["Mr. Roult 2"], (), (display("Mr. Roult 2"),), [None]),
+        (["John Wilson 4", "Wilson, John"], (), (display("Wilson, John"),),
+         ["surname already minted", None]),
+    ):
+        got, accepted = verdicts(names, known, standing)
+        collided = [c["name"] for c, _g in accepted if c.get("surname_collision")]
+        if got != want or collided:
+            failed += 1
+            print(f"   FAIL letter count: {names} (known {list(known)}, standing "
+                  f"{list(standing)}) -> {got}, expected {want}; collisions {collided}")
     if failed:
         print(f"   {failed} name-reading assertion(s) failed")
         return 1
@@ -2011,6 +2304,10 @@ def return_bound_self_test() -> int:
 
 def self_test() -> int:
     """Break each invariant on a copy of the tree and require the gate to name it."""
+    if standing_self_test():
+        return 1
+    if ownership_self_test():
+        return 1
     if name_reading_self_test():
         return 1
     if return_bound_self_test():
@@ -2046,6 +2343,24 @@ def self_test() -> int:
     def drop_flag(d, i, s):
         d[victim]["persons"][0].pop("letter_list_only")
         i["counts"]["letter_list_only"] -= 1
+
+    # T-1689. Both halves of the name rule: a cleared flag that leaves the old name
+    # behind (how the seven stood), and a flagged card renamed as if it were cleared.
+    unflagged = next((p for p, doc in sorted(docs.items())
+                      if minted_by(p, doc, "letter_list", PREFIX)
+                      and not any(q.get("letter_list_only")
+                                  for q in doc.get("persons") or [])), None)
+    if unflagged is None:
+        print("   no letter-list card has had its flag refused — T-1689's rule is untested")
+        return 1
+
+    def keep_the_old_name(d, i, s):
+        d[unflagged]["name"] = d[unflagged]["name"].replace(PRINTED_ELSEWHERE_NAME,
+                                                            LETTER_LIST_NAME)
+
+    def rename_a_flagged_card(d, i, s):
+        d[victim]["name"] = d[victim]["name"].replace(LETTER_LIST_NAME,
+                                                      PRINTED_ELSEWHERE_NAME)
 
     def drop_dates(d, i, s):
         d[victim]["persons"][0]["letter_list_returns"] = []
@@ -2194,6 +2509,10 @@ def self_test() -> int:
         ("a bound stops being not_later_than", blur_the_precision, "precision"),
         ("a flagged person gains an ordinary press reading", advertise_a_shop,
          "not letter lists"),
+        ("a refused flag leaves the post office's name behind", keep_the_old_name,
+         "the name still says"),
+        ("a flagged card is named as if the papers printed it", rename_a_flagged_card,
+         "named for the post office"),
     ]
     failed = 0
     for label, mutate, expect in cases:
@@ -2211,6 +2530,428 @@ def self_test() -> int:
     return 0
 
 
+# WHAT THIS PASS OWNS, AND THE CHECK THAT COMPARES ONLY THAT (T-2070, out of T-1222).
+#
+# A byte-for-byte `--check` is the wrong contract for this pass, and T-0662 found out
+# why: it is NOT the last writer of the files it derives. The synthesis and the
+# ladder (`synthesize_resident_research.py`, `spend_ladder_rungs.py`) run after it and
+# rewrite the cohort's grade and note — the PROJECTED RESIDENT downgrade — and the
+# resident-research passes and the arrival and origin fill stage append their findings
+# to the same cards. Re-derived over the committed tree, the mint differs from it on
+# some 800 files, nearly all of them that later work, and a re-run would REVERT it:
+# grades back from `inferred` to `attested`, which is a confidence upgrade this
+# project forbids. So the gate cannot ask whether the mint would write these bytes. It
+# asks whether the mint would write THESE PEOPLE, under these ids, with what it
+# derives for them — and leaves every other key to the pass that owns it.
+#
+# THE TABLE IS THE RULING, KEY BY KEY. `MINT` rows are what this pass derives and
+# nothing after it writes, so a difference is the mint's own derivation having moved.
+# Every other row names the later pass that writes over the mint and the evidence for
+# saying so, and a difference there is that pass's work, held by that pass's gate. A
+# key on NEITHER kind of row is UNATTRIBUTED and counts as drift: an unowned key is a
+# finding, and defaulting it to "somebody else's" is how a pass drifts ungated.
+# `tools/letter_list_mint_drift.py` reads this same table for its report.
+MINT = "mint"
+UNATTRIBUTED = "UNATTRIBUTED"
+KEY_OWNERS: list[tuple[str, str, str]] = [
+    ("name", MINT,
+     "the household label the mint builds out of the read name"),
+    ("persons[].name", MINT,
+     "the person name as the register prints it, which is the mint's to read"),
+    ("persons[].id", MINT,
+     "the person id the mint derives from the name it reads"),
+    ("persons[].sex", MINT,
+     "a printed title is the mint's evidence for sex; carry_over() refuses to carry it"),
+    ("persons[].letter_list_only", MINT,
+     "the mint's own cohort flag"),
+    ("persons[].letter_list_returns", MINT,
+     "the dated returns of uncalled-for letters the mint counts the name in"),
+    ("arrival", MINT,
+     "the bound the mint derives from the earliest return; a ruled reading that "
+     "supersedes it is applied inside build() (supersede_arrival.py), so the derived "
+     "side already carries it"),
+    ("present_on_scene_date", MINT,
+     "the mint states the corpus's last dated appearance here; it moves with the returns"),
+    ("surname_collision", MINT,
+     "refusals 7 and 8 at mint time, said on the card instead of dropping it (T-0660)"),
+    ("persons[].grade", "synthesize_resident_research.py / spend_ladder_rungs.py",
+     "the PROJECTED RESIDENT downgrade and the ratified ladder's rungs, both after the mint"),
+    ("persons[].note", "synthesize_resident_research.py / spend_ladder_rungs.py",
+     "the same two passes prepend their prose to the note the mint wrote"),
+    ("persons[].sources", "the resident-research passes",
+     "a corroborating source appended to the card after the mint set the list"),
+    ("persons[].occupation", "the resident-research passes",
+     "the mint writes none_recorded; a later reading fills the trade it found"),
+    ("origin", "the arrival and origin fill stage (T-1169)",
+     "written_by_stage: attribute_fill_arrival; the mint writes Not attested."),
+    ("reason_for_coming", "the arrival and origin fill stage (T-1169)",
+     "written_by_stage: attribute_fill_arrival"),
+]
+
+# A key the mint owns on most cards and a later pass owns on some, told apart by the
+# mark that pass leaves on the card it wrote (T-2073). synthesize_resident_research.py
+# replaces the mint's `inferred` bound with the year an independently corroborated
+# source states (T-0482 on hh_orsemus_morrison, T-0486 on hh_woodworth_james_h) and
+# opens the note it writes on SYNTH_ARRIVAL; it runs after the mint, so a re-derivation
+# that puts the bound back is the pipeline working, not drift. `--gate`'s T-0425 rule
+# already leaves such a card alone by its note, and this reads the same mark.
+SYNTH_ARRIVAL = "YEAR PRECISION ONLY."
+CARD_OWNERS: list[tuple[str, str, object, str]] = [
+    ("arrival", "synthesize_resident_research.py",
+     lambda card: str((card.get("arrival") or {}).get("note") or "").startswith(SYNTH_ARRIVAL),
+     "a year a corroborated source states, written over the mint's bound after it"),
+]
+
+# The drift that stood when this check was first gated, row by row, each with the
+# ticket that reads it. A SHRINK-ONLY LEDGER: the check is red on drift that is not
+# here and red on a row whose drift no longer stands, and the one mode that writes it,
+# `--retire-ledger`, only ever takes rows away. Nothing in this file adds one.
+LEDGER = DATA / "research" / "letter_list_mint_ledger.json"
+READERS = {"lost": "T-2071", "re-minted": "T-2071", "gained": "T-2076",
+           "rewritten": "T-2073"}
+
+
+def normalise(path: str) -> str:
+    """A leaf path with list indices flattened: persons.[0].note becomes persons[].note."""
+    return re.sub(r"\.?\[\d+\]", "[]", path)
+
+
+def owner_of(key: str, card: dict | None = None) -> tuple[str, str]:
+    """Who owns `key`; `card`, the committed side, lets a CARD_OWNERS mark decide first."""
+    for prefix, owner, marks, why in CARD_OWNERS:
+        if card is not None and marks(card) and (
+                key == prefix or key.startswith(prefix + ".") or key.startswith(prefix + "[")):
+            return owner, why
+    for prefix, owner, why in KEY_OWNERS:
+        if key == prefix or key.startswith(prefix + ".") or key.startswith(prefix + "["):
+            return owner, why
+    return UNATTRIBUTED, "no row of KEY_OWNERS claims this key"
+
+
+def leaves(a, b, prefix: str = "") -> list[str]:
+    """Every leaf path at which two documents differ."""
+    out: list[str] = []
+    if isinstance(a, dict) and isinstance(b, dict):
+        for key in sorted(set(a) | set(b)):
+            if key not in a or key not in b:
+                out.append(prefix + key)
+            elif a[key] != b[key]:
+                out += leaves(a[key], b[key], prefix + key + ".")
+        return out
+    if isinstance(a, list) and isinstance(b, list) and len(a) == len(b):
+        for index, (x, y) in enumerate(zip(a, b)):
+            if x != y:
+                out += leaves(x, y, f"{prefix}[{index}].")
+        return out
+    return [prefix.rstrip(".")]
+
+
+def fold(name) -> str:
+    """A name reduced to its bare word set, so 'Joseph Pothier' and 'Pothier, Joseph' meet."""
+    found = re.sub(r"[^a-z ]", " ", str(name or "").lower()).split()
+    return " ".join(sorted(w for w in found if len(w) > 1))
+
+
+def owned_drift(files: dict, docs: dict) -> list[dict]:
+    """Where the mint's derivation and the committed layer disagree on what the mint OWNS.
+
+    `files` is build()'s output and `docs` the committed households it was built over.
+    The manifest is not compared: rebuild_resident_index.py is its one owner (T-0715)
+    and gates it. Four classes: a household the mint would add under a name the layer
+    holds nowhere (`gained`), or under a name the layer already holds under another id
+    (`re-minted`); a committed card of this pass the mint no longer derives (`lost`);
+    and a card both hold whose mint-owned or unattributed keys moved (`rewritten`)."""
+    held: dict[str, list[str]] = {}
+    for path, doc in docs.items():
+        for person in doc.get("persons") or []:
+            held.setdefault(fold(person.get("name")), []).append(path.stem)
+    rows: list[dict] = []
+    for path, text in files.items():
+        if path == INDEX:
+            continue
+        new = json.loads(text)
+        old = docs.get(path)
+        if old is None:
+            name = (new.get("persons") or [{}])[0].get("name")
+            row = {"id": path.stem, "class": "gained", "name": name}
+            if fold(name) in held:
+                row["class"] = "re-minted"
+                row["already_in_the_layer_as"] = sorted(held[fold(name)])
+            rows.append(row)
+            continue
+        if old == new:
+            continue
+        keys = sorted({normalise(k) for k in leaves(old, new)})
+        owned = [k for k in keys if owner_of(k, old)[0] in (MINT, UNATTRIBUTED)]
+        if owned:
+            rows.append({"id": path.stem, "class": "rewritten", "keys": owned})
+    for path in sorted(docs):
+        if path not in files and minted_by(path, docs[path], "letter_list", PREFIX):
+            rows.append({"id": path.stem, "class": "lost",
+                         "name": (docs[path].get("persons") or [{}])[0].get("name")})
+    for row in rows:
+        row["reader"] = READERS[row["class"]]
+    return sorted(rows, key=lambda r: (r["class"], r["id"]))
+
+
+def ledger_problems(current: list[dict], ledger: dict) -> tuple[list[str], list[dict]]:
+    """Compare the drift that stands with the ledger: (problems, rows still standing).
+
+    A row matches on id and class, and a `rewritten` row on the exact set of keys too —
+    a card whose ledgered drift GREW has drifted again, and that is new drift."""
+    problems: list[str] = []
+    rows = ledger.get("rows") or []
+    def key(r):
+        return (r.get("class"), r.get("id"), tuple(r.get("keys") or ()))
+    known = {key(r) for r in rows}
+    standing = {key(r) for r in current}
+    for r in rows:
+        # T-2073. A class's reader may hand a row on to the ticket that can actually
+        # settle it, and says so on the row: whom from, and why. A row carrying another
+        # reader with no such record is still a wrong reader.
+        handed = r.get("handed_on") or {}
+        if (handed.get("from") == READERS.get(r.get("class")) and str(handed.get("why") or "").strip()
+                and re.fullmatch(r"T-\d{4}", str(r.get("reader") or ""))
+                and r.get("reader") != handed.get("from")):
+            continue
+        if READERS.get(r.get("class")) != r.get("reader"):
+            problems.append(f"ledger row {r.get('id')} ({r.get('class')}) names reader "
+                            f"{r.get('reader')!r}; the class is {READERS.get(r.get('class'))!r}'s")
+    for r in current:
+        if key(r) not in known:
+            what = ", ".join(r.get("keys") or ()) or r.get("name") or ""
+            problems.append(f"DRIFT: {r['class']} {r['id']} — {what} — on no ledger row; "
+                            f"the mint's derivation moved and nobody has read it")
+    stale = [r for r in rows if key(r) not in standing]
+    for r in stale:
+        problems.append(f"STALE: ledger row {r.get('class')} {r.get('id')} no longer "
+                        f"stands; run --retire-ledger and say in the PR what took it")
+    return problems, [r for r in rows if key(r) in standing]
+
+
+def load_ledger() -> dict:
+    return load(LEDGER) if LEDGER.exists() else {"rows": []}
+
+
+def owned_check(files: dict, docs: dict, ledger: dict, quiet: bool = False) -> int:
+    current = owned_drift(files, docs)
+    problems, standing = ledger_problems(current, ledger)
+    if problems:
+        if not quiet:
+            for p in problems:
+                print(f"   {p}")
+            print(f"   {len(problems)} problem(s): the mint-owned comparison is red")
+        return 1
+    if not quiet:
+        rewritten = {r["id"] for r in current if r["class"] == "rewritten"}
+        foreign = sum(1 for p, t in files.items()
+                      if p != INDEX and p in docs and p.stem not in rewritten
+                      and docs[p] != json.loads(t))
+        by_reader: dict[str, int] = {}
+        for r in standing:
+            by_reader[r["reader"]] = by_reader.get(r["reader"], 0) + 1
+        owed = ", ".join(f"{t} {n}" for t, n in sorted(by_reader.items())) or "none"
+        print(f"   OK: {len(files) - 1} letter-list household(s) derived; mint-owned keys "
+              f"agree wherever no ledger row says otherwise; {len(standing)} ledgered row(s) "
+              f"still to be read ({owed}); {foreign} more card(s) differ only in keys a later "
+              f"pass owns")
+    return 0
+
+
+def retire_ledger(files: dict, docs: dict) -> int:
+    """Take the rows whose drift no longer stands off the ledger. Never adds one."""
+    ledger = load_ledger()
+    _, standing = ledger_problems(owned_drift(files, docs), ledger)
+    gone = len(ledger.get("rows") or []) - len(standing)
+    ledger["rows"] = standing
+    LEDGER.write_text(dumps(ledger, 1), encoding="utf-8")
+    print(f"retired {gone} ledger row(s); {len(standing)} still stand")
+    return 0
+
+
+def ownership_self_test() -> int:
+    """Break the comparison on purpose, and require each break to fire — or not."""
+    docs = {p: load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}
+    files, *_ = build()
+    ledger = load_ledger()
+    if owned_check(files, docs, ledger, quiet=True):
+        print("   the committed tree does not pass the mint-owned check; fix that first")
+        return 1
+    ledgered = {r["id"] for r in ledger.get("rows") or []}
+    victim = next(p for p, t in sorted(files.items())
+                  if p != INDEX and p in docs and p.stem not in ledgered
+                  and docs[p].get("arrival") and (docs[p].get("persons") or [{}])[0].get("grade"))
+
+    def with_card(mutate):
+        copy = dict(docs)
+        card = json.loads(json.dumps(docs[victim]))
+        mutate(card)
+        copy[victim] = card
+        return copy
+
+    def setp(field, value):
+        def go(card):
+            card["persons"][0][field] = value
+        return go
+
+    def move_arrival(card):
+        card["arrival"]["value"] = "1799"
+
+    def unowned(card):
+        card["a_key_nobody_owns"] = True
+
+    def drop(_card):
+        pass
+
+    gone = dict(docs)
+    del gone[victim]
+    stray = dict(docs)
+    stray[HOUSEHOLDS / f"{PREFIX}nobody_derives_this.json"] = {
+        "id": f"{PREFIX}nobody_derives_this", "persons": [{"name": "Nobody Derives"}]}
+    stale = {**ledger, "rows": list(ledger.get("rows") or []) + [
+        {"id": victim.stem, "class": "rewritten", "keys": ["arrival.value"],
+         "reader": READERS["rewritten"]}]}
+    wrong_reader = {**ledger, "rows": [dict(r, reader="T-0000")
+                                       for r in (ledger.get("rows") or [])[:1]]
+                    + list(ledger.get("rows") or [])[1:]}
+    cases = [
+        ("a mint-owned key moves", with_card(move_arrival), ledger, True),
+        ("an unattributed key moves", with_card(unowned), ledger, True),
+        ("a card the mint derives is not committed", gone, ledger, True),
+        ("a committed card of this pass is no longer derived", stray, ledger, True),
+        ("a ledger row whose drift no longer stands", docs, stale, True),
+        ("a key a later pass owns moves (grade)", with_card(setp("grade", "inferred")),
+         ledger, False),
+        ("a key a later pass owns moves (note)", with_card(setp("note", "PROJECTED RESIDENT.")),
+         ledger, False),
+    ]
+    def synth_dated(card):
+        card["arrival"] = {"value": "1833", "confidence": "attested", "precision": "year",
+                           "sources": ["a_corroborating_source"],
+                           "note": f"{SYNTH_ARRIVAL} A source states arrival in 1833."}
+
+    cases.append(("an arrival a later pass dated from its own source (T-2073)",
+                  with_card(synth_dated), ledger, False))
+    if ledger.get("rows"):
+        cases.append(("a ledger row names the wrong reader", docs, wrong_reader, True))
+        first = (ledger.get("rows") or [])[0]
+        handed = {"from": READERS.get(first.get("class")), "why": "it settles there"}
+        for label, row, fires in (
+                ("a ledger row handed on, with whom from and why", dict(
+                    first, reader="T-9999", handed_on=handed), False),
+                ("a ledger row handed on with no reason", dict(
+                    first, reader="T-9999", handed_on=dict(handed, why="")), True)):
+            cases.append((label, docs, {**ledger, "rows": [row] + list(
+                ledger.get("rows") or [])[1:]}, fires))
+    failed = 0
+    for label, tree, led, should_fire in cases:
+        fired = bool(owned_check(files, tree, led, quiet=True))
+        if fired == should_fire:
+            print(f"   {'caught' if should_fire else 'let through'}: {label}")
+        else:
+            failed += 1
+            print(f"   {'NOT CAUGHT' if should_fire else 'WRONGLY FIRED'}: {label}")
+    if failed:
+        print(f"   {failed} of the mint-owned comparison's cases misbehave")
+        return 1
+    print(f"   OK: all {len(cases)} of the mint-owned comparison's cases behave")
+    return 0
+
+
+def standing_self_test() -> int:
+    """T-2071: a candidate that IS a standing card's person keeps the card, and no more."""
+    def card(hid, pid, name):
+        return HOUSEHOLDS / f"{hid}.json", {"id": hid, "source_pass": "letter_list",
+                                            "persons": [{"id": pid, "name": name}]}
+    docs = dict([card("hh_adains_will_si", "adains_will_si", "Willisi Adains"),
+                 card("hh_fraser_wm_h", "fraser_wm_h", "Wm. H. Frazer"),
+                 card("hh_pease_h", "pease_h", "H. Pease"),
+                 card("hh_plumer_f", "plumer_f", "F. Plumer"),
+                 card("hh_crisey_william", "crisey_william", "William Crisey"),
+                 card("hh_rutherford_salmon", "rutherford_salmon", "Salmon Rutherford")])
+
+    def cand(rid, name, seen, claim, target=None):
+        return ({"id": rid, "name": name, "first_seen": seen, "last_seen": seen,
+                 "action": "enrich" if target else "new_resident", "action_target": target},
+                {"mentions": [claim], "variants": []})
+    jan, mar = "chicago_democrat_1834_01_28#c001", "chicago_democrat_1834_03_04#c027"
+    accepted = [cand("person_wm_h_frazer", "Wm. H. Frazer", "1834-03-04", mar, "fraser_wm_h"),
+                cand("person_salmon_rutherford_3", "Salmon Rutherford 3", "1834-03-04", mar),
+                cand("person_c_h_pease", "C. H. Pease", "1834-03-04", mar),
+                cand("person_william_crissy", "William Crissy", "1834-01-28", jan),
+                cand("person_adains_willisi", "Adains, Willisi", "1835-07-01",
+                     "chicago_democrat_1835_07_01#c002", "adains_will_si"),
+                cand("person_wm_h_fraser", "Wm. H. Fraser", "1834-01-28", jan, "fraser_wm_h"),
+                cand("person_salmon_rutherford", "Salmon Rutherford", "1834-01-28", jan,
+                     "rutherford_salmon"),
+                cand("person_nobody_held", "Nobody Held", "1834-01-28", jan)]
+    out = {pin[0] if pin else c["id"]: (c, g) for c, g, pin in onto_standing(accepted, docs)}
+    failed = []
+
+    def expect(label, ok):
+        print(f"   {'held' if ok else 'BROKEN'}: {label}")
+        if not ok:
+            failed.append(label)
+    expect("an enrich of a standing person keeps the card's handle",
+           "hh_adains_will_si" in out and "person_adains_willisi" not in out)
+    expect("two readings of one line fold onto one card, with both printings",
+           sorted(out["hh_fraser_wm_h"][1]["mentions"]) == [jan, mar]
+           and out["hh_fraser_wm_h"][0]["last_seen"] == "1834-03-04")
+    expect("a fold wears the name the ruling file awards the card",
+           out["hh_fraser_wm_h"][0]["name"] == "Wm. H. Frazer")
+    expect("a cut head of a line does not rename the man its line names",
+           out["hh_rutherford_salmon"][0]["name"] == "Salmon Rutherford")
+    expect("a re-reading gives a standing card fuller letters",
+           out["hh_pease_h"][0]["name"] == "C. H. Pease")
+    expect("a re-reading does not respell a handle's surname without a ruling",
+           out["hh_crisey_william"][0]["name"] == "William Crisey")
+    expect("a candidate nothing ties to a card still mints from its name",
+           "person_nobody_held" in out and len(out) == 6)
+    # T-2076. A refusal that is a second PRINTING of an accepted candidate is read onto
+    # its card; a second PERSON, a second spelling or a non-mint-time refusal is not.
+    docs.update([card("hh_elliot_william", "elliot_william", "William Elliot")])
+    may = "chicago_democrat_1835_05_20#c013"
+    lead = cand("person_william_elliot", "William Elliot", "1834-01-28", jan, "elliot_william")
+    rows = {"person_william_elliot_3": cand("person_william_elliot_3", "William Elliot 3",
+                                            "1834-03-04", mar),
+            "person_elliot_w_other": cand("person_elliot_w_other", "William Elliot",
+                                          "1835-05-20", may, "elliot_other"),
+            "person_wm_elliott": cand("person_wm_elliott", "William Elliott",
+                                      "1834-03-04", mar),
+            "person_william_elliot_g": cand("person_william_elliot_g", "William Elliot",
+                                            "1834-03-04", mar)}
+    refused = [("person_william_elliot_3", "William Elliot", 1, "surname already minted"),
+               ("person_elliot_w_other", "William Elliot", 1, "surname already minted"),
+               ("person_wm_elliott", "William Elliott", 1, "surname already minted"),
+               ("person_william_elliot_g", "William Elliot", 1, "garbled")]
+    united, still = second_printings([lead], refused, {k: c for k, (c, _g) in rows.items()},
+                                     {k: g for k, (_c, g) in rows.items()})
+    expect("a counted reprint of an accepted name is read as its printing, not refused",
+           [c["id"] for c, _g in united] == ["person_william_elliot", "person_william_elliot_3"]
+           and united[1][0].get("printing_of") == "person_william_elliot")
+    expect("a same-name row the register aims at ANOTHER person stays refused",
+           "person_elliot_w_other" in [r[0] for r in still])
+    expect("a second spelling is a reading, not a printing, and stays refused",
+           "person_wm_elliott" in [r[0] for r in still])
+    expect("only refusals 7 and 8 give way; a garbled reading stays refused",
+           "person_william_elliot_g" in [r[0] for r in still] and len(still) == 3)
+    folded = {pin[0] if pin else c["id"]: (c, g) for c, g, pin in onto_standing(united, docs)}
+    expect("the card reads both printings of the name",
+           sorted(folded["hh_elliot_william"][1]["mentions"]) == [jan, mar]
+           and folded["hh_elliot_william"][0]["name"] == "William Elliot")
+    del docs[HOUSEHOLDS / "hh_plumer_f.json"]
+    try:
+        onto_standing(accepted, docs)
+        expect("a READ_ONTO row whose card is gone stops the mint", False)
+    except SystemExit:
+        expect("a READ_ONTO row whose card is gone stops the mint", True)
+    if failed:
+        print(f"   {len(failed)} of the standing-card cases misbehave")
+        return 1
+    print("   OK: all 13 standing-card cases behave")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true",
@@ -2221,6 +2962,8 @@ def main() -> int:
                     help="what the owner's ruling did to the town, counted here (T-0379)")
     ap.add_argument("--gate", action="store_true",
                     help="prove the minted cohort is what the ruling permits")
+    ap.add_argument("--retire-ledger", action="store_true",
+                    help="take the ledger rows whose drift no longer stands off it (T-2070)")
     ap.add_argument("--self-test", action="store_true",
                     help="break each of the gate's assertions and require it to fire")
     args = ap.parse_args()
@@ -2238,20 +2981,13 @@ def main() -> int:
         docs = {p: load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}
         report(accepted, refusals, docs)
         return 0
-    if args.check:
-        drift = [p for p, text in files.items()
-                 if not p.exists() or p.read_text(encoding="utf-8") != text]
-        stale = [p for p in sorted(mine_paths)
-                 if p not in files]
-        for p in drift + stale:
-            print(f"   DRIFT: {p.relative_to(ROOT)}")
-        if drift or stale:
-            print(f"   {len(drift) + len(stale)} file(s) differ from what this pass "
-                  f"derives")
-            return 1
-        print(f"   OK: {len(accepted)} letter-list resident(s) minted from the register, "
-              f"{len(refusals)} candidate(s) refused")
-        return 0
+    if args.check or args.retire_ledger:
+        # Compared against the households build() itself read, so the two sides are
+        # one snapshot of the tree.
+        docs = {p: load(p) for p in sorted(HOUSEHOLDS.glob("*.json"))}
+        if args.retire_ledger:
+            return retire_ledger(files, docs)
+        return owned_check(files, docs, load_ledger())
 
     for p in sorted(mine_paths):
         if p not in files:

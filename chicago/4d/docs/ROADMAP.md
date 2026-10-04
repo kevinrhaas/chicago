@@ -1,3 +1,24 @@
+## T-2035 / T-2037 / T-2038 - continuity while moving (2026-10-03)
+
+Held frames did not establish continuity: the owner still sees whole clumps appear
+on walks and flights after T-2015. Carry exact close-slot identities farther out,
+evaluate distant transitions per frame and include pitch in culling. Preserve
+the solid close verge, support and July records. Decouple sparse shrub ranks from
+quarter-cell planting positions. Diagnose South Water deck gaps independently.
+Motion, both viewports, all tiers and measured costs are required; STATUS records
+what has actually been verified.
+
+## T-2016 — Glessner connected roof plan
+
+Owner-directed roof continuity repair follows T-1999 while retaining its façade
+openings and stonework. The research note records the aerial interpretation and
+unresolved dating of two service stacks. Final validation and integration are
+tracked in STATUS and ticket T-2016.
+
+## T-2015 — Leaf-scale vegetation quality
+
+Replace closed tree crowns and shrub plates with species-shaped foliage, bark relief and connected twigs. Preserve researched placement and July appearance. T-2014 owns the distant shrub band; the shared geometry interface remains compatible. Validation and measured budgets are recorded in `RESEARCH/procedural-vegetation-quality.md`; ticket closure follows the dev merge.
+
 ## T-1460 — west-prairie swales retired
 
 Owner answer (a) is implemented on the recovery branch. The dossier keeps zone 18’s swales while the terrain no longer invents their alignments; the eight roofs stay fixed. Recovered terrain assets and regenerated ground readings accompany the change. Validation and integration status are recorded in STATUS; ticket settlement follows the dev PR.
@@ -82,7 +103,9 @@ garden fence: upright ground bearing, bounded world height, and a rebuilt packag
 
 T-1356 and [the Unreal runbook](unreal/README.md) hold the programme. Follow the new
 QUEUE band after South Through Time and before Loop Improvements. Reuse T-0252 for
-shared layer exports. Keep local Unreal/GPU and deployment work blocked until both
+shared layer exports. Decided 2026-10-03 in `GLB-CONTRACT.md` § Layers drawn at load:
+the baked town carries none of them, and each is exported by the module that draws it.
+That also answers the legacy K5 "generator half" clauses and the withdrawn T-0059. Keep local Unreal/GPU and deployment work blocked until both
 dependencies and executor capability are evidenced; the remote web worker is ineligible.
 Source bundles, engine imports, cooked target builds and deployed streams are distinct.
 
@@ -5074,3 +5097,10 @@ Owner follow-up after T-1805; reasoning and recovery instructions in RESEARCH/gl
 
 Replace T-1830 rear hip with a level ridge and balanced south gable, matching the
 north courtyard eave. See RESEARCH/glessner-south-gable/work.md for evidence and progress.
+
+
+### T-1999 — Glessner north/west elevation correction
+
+Owner repair, 2026-10-02. Implementation and comparisons are recorded in
+[the elevation dossier](RESEARCH/glessner-elevation-rebuild/work.md).
+Operational state is in chicago-tickets/T-1999.

@@ -1,0 +1,139 @@
+{
+  "id": "first_fort_dearborn_blockhouse_nw",
+  "name": "First Fort Dearborn — north-west blockhouse",
+  "aka": [
+    "the north-west blockhouse of the fort of 1803",
+    "Whistler's index no. 1, 'Block Houses'"
+  ],
+  "archetype": "fort_structure",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1803-08-17",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "quaife_1913_swearingen",
+          "quaife_1913",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+      },
+      "position": {
+        "utm_e": 448207.69,
+        "utm_n": 4637629.08,
+        "rotation_deg": 0.0,
+        "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'north-west blockhouse'): E -55.8..-38.5 ft, N +40.3..+59.3 ft of the flagstaff's foot, square to the curtains, straddling the angle of both picket rows. SEATED (T-2050) with the whole frame: the staff's foot at local E +1152.0, N +221.0, the frame's north on grid north; this record's origin is the box's SW corner.",
+        "confidence": "inferred",
+        "sources": [
+          "chicagology_prefire052",
+          "whistler_1808_fort_dearborn_draught",
+          "wright_1834"
+        ],
+        "note": "SEATED WITH ONE ORIGIN AND ONE BEARING FOR ALL FOURTEEN (T-2050), so no building moves against another. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. THE ORIGIN: the staff's foot, which the register finds at the centre of the parade and within about a foot of the centre of both picket rows, is set on the fort site at local E +1152, N +221 - the Wright 1834 reading of the fort's place that docs/ROADMAP.md S5a cross-checks to 35 m against the modern landmark. That is the SITE, not the second fort's plan: John H. Kinzie (quoted on chicagology_prefire052) says the first fort 'stood upon the same ground as the last Fort' and 'was differently constructed', so the place carries over and nothing of the 1816 geometry does. THE BEARING: the frame's north is set on grid north, which is the register's own inference that the sheet's right is east, from the lake lettered down that margin; the sheet has no north arrow, so the bearing is inferred and adds nothing to it. The second fort's 8 degrees, read off Harrison 1830, is that fort's and is not borrowed. Grid and true north differ here by under half a degree. A CHECK, NOT A FIT: seated so, the outward row's west side stands about 124 ft from the 1812 river (data/terrain/epochs/e1830_natural/river.geojson) and the north-west blockhouse about 65 ft from it; the draught's red-ink '122 feet to River' from the west side and Wilson's '80 feet' from the north-west corner are figures of that size. Carry the datum's +/-20 m on the whole frame.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage): this is a fort-frame seat. It IS recomputed, by tools/read_whistler_1808.py --check (run by check.sh), which refuses this utm point and rotation unless they are what SEAT_LOCAL (local E +1152, N +221), SEAT_BEARING_DEG (0) and this record's FACING give the register box in symbolic_location, to 0.01 m (T-2050)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.27,
+            0
+          ],
+          [
+            5.27,
+            5.79
+          ],
+          [
+            0,
+            5.79
+          ]
+        ],
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "MEASURED: 17.3 x 19.0 ft, the plan box the register reads at the north-west angle, east-west by north-south. The draught draws it with a notched outline astride both picket rows, which is what Quaife describes: the blockhouses 'commanded not only the space without the four walls, but also that inclosed between the two rows of palisades'."
+      },
+      "form": {
+        "kind": {
+          "value": "blockhouse",
+          "confidence": "attested",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Whistler's index no. 1, 'Block Houses', drawn at the north-west and south-east angles; Quaife: 'Two blockhouses ... stood at the northwestern and southeastern corners of the quadrangle'."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "quaife_1913"
+          ],
+          "note": "Not stated. Timber, like every building of the post except the magazine, which Quaife singles out as brick."
+        },
+        "stories": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "Not stated on the sheet. The folded elevation draws a building of more than one storey, and a blockhouse that commands the space between two picket rows fires from above them."
+        },
+        "wall_height_m": {
+          "value": 5.2,
+          "confidence": "reconstructed",
+          "note": "Unattested. Two storeys of log, the second fort's blockhouse figure; the folded elevations are not to scale."
+        },
+        "upper_overhang_m": {
+          "value": 0.45,
+          "confidence": "reconstructed",
+          "note": "Unattested. The jettied upper storey is what the type is; its size is a typical one."
+        },
+        "loopholes": {
+          "value": true,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught",
+            "quaife_1913"
+          ],
+          "note": "Whistler's index lists '2 Port Holes for Cannon' and '3 Loop Holes for small arms' among the fort's features, and Quaife (after Wilson) puts the fort's cannon in the blockhouses. The register could not locate either numeral, so the slits' pattern and height are the archetype's."
+        },
+        "roof_type": {
+          "value": "pyramid",
+          "confidence": "reconstructed",
+          "note": "Unattested. The index adds 'the Cupolas are not yet built on the Block Houses as laid down', so the draught drew cupolas that did not yet stand in February 1808; no source says they were ever built, and none is built here. The cap under where one would sit is the surviving type."
+        },
+        "roof_pitch_deg": {
+          "value": 30.0,
+          "confidence": "reconstructed",
+          "note": "Unattested, as the second fort's."
+        },
+        "chimneys": {
+          "value": 1,
+          "confidence": "reconstructed",
+          "note": "Unattested. A manned blockhouse in a Chicago winter is heated; the stack is ours."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "block_house",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "note": "The north-west of the first fort's two blockhouses. Quaife (after Wilson): one held two small cannon and the other one; which is which is not said, and no gun is built."
+  },
+  "research_note": "THE FIRST FORT'S BLOCKHOUSE, NOT THE SECOND'S. The fort of 1816 had one blockhouse, at the south-west angle (fort_dearborn_blockhouse); this one stood from 1803 until the fort was burned on 16 August 1812. Its plan and corner are the commandant's own measured draught; its height, jetty, roof and stack are ours, and its cupola is left off because the drafter says it was not yet built.",
+  "review_required": false
+}

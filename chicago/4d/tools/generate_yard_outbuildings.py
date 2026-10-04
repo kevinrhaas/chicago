@@ -35,6 +35,12 @@ WHAT IT REFUSES, and says so on the record:
   * a lot whose buildings leave no yard behind them (`yard_for`'s own reason);
   * a corner where the outbuilding would come within `CLEAR_M` of a committed footprint or
     a wagon already standing in the yard — the other corner is tried first;
+  * a corner where the outbuilding would stand in a doorway (T-1691): the door's clear
+    zone is `generate_entrances.doorway_zones()`, the same rectangle
+    `tools/measure_doorways.py --gate` holds every placed object out of. A rear corner can
+    face a NEIGHBOUR's front door where a lot runs behind a cross-street roof, and that
+    door moves when the house's own fabric does — so the dealer asks, rather than the
+    gate finding a privy on somebody's step after the fact. The other corner is tried first;
   * the dwellings standing off the platted lots. They have no lot line to put an alley
     behind, and inventing one is a different claim; they are counted, not drawn.
 
@@ -58,6 +64,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import generate_lot_line_fences as fences  # noqa: E402
 from generate_dooryard_pickets import convex_overlap, footprint_world, poly_contains  # noqa: E402
+import generate_entrances  # noqa: E402  (T-1691: no outbuilding in a doorway)
 import enclosure_owners  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -183,7 +190,8 @@ def bearing_deg(out_enu) -> float:
     return round(math.degrees(math.atan2(ox, oy)), 2)
 
 
-def place(entry, yard, which: int, along: float, depth: float, blockers, wagons):
+def place(entry, yard, which: int, along: float, depth: float, blockers, wagons,
+          doors=()):
     """Centre of an outbuilding in rear corner `which` (0 or 1), or None and why."""
     poly = yard["poly"]
     ra, rb = yard["rear"]
@@ -214,6 +222,11 @@ def place(entry, yard, which: int, along: float, depth: float, blockers, wagons)
     for w in wagons:
         if math.hypot(w[0] - c[0], w[1] - c[1]) < WAGON_CLEAR_M + max(along, depth) / 2:
             return None, "a wagon already stands in that corner"
+    for ring, bb in doors:
+        if fences.bbox_apart(fences.bbox(shape), bb, 0.0):
+            continue
+        if convex_overlap(shape, ring):
+            return None, "a door opens onto that corner"
     return {"at": c, "out": vd, "shape": shape}, None
 
 
@@ -231,6 +244,7 @@ def build():
         if len(fp) >= 3:
             footprints.append((fp, fences.bbox(fp)))
     wagons = yard_wagons()
+    doors = [(ring, fences.bbox(ring)) for _, ring in generate_entrances.doorway_zones()]
 
     out, refused, stats = [], [], {"dwelling_lots": 0, "privies": 0, "stables": 0,
                                    "privy_standing": 0, "stable_standing": 0,
@@ -283,7 +297,8 @@ def build():
             for which in corner_order(lot_id):
                 if which in taken:
                     continue
-                spot, w = place(e, yard, which, size[0], size[1], footprints, wagons)
+                spot, w = place(e, yard, which, size[0], size[1], footprints, wagons,
+                                doors)
                 if spot:
                     taken.append(which)
                     break

@@ -22,7 +22,7 @@
   "why_not_the_other": "A measured comparandum with one invented step is preferred to a rhetorical band read at its middle. Both sit inside T-1352's 192-900 bracket; this is the lower."
  },
  "the_capacity_argument_this_file_refuses": {
-  "built_surge_beds": 426,
+  "built_surge_beds": 452,
   "programme_surge_beds": 764,
   "persons_minted": 307,
   "why_it_is_refused": "The BUILT lodging places carry a surge close to the minted cohort, which reads as a confirmation of the point adopted. It is not one. The town had 42 boarding houses and this reconstruction has built five; the programme's full surge is the figure above it, and the fit measures how far the structure band has got rather than anything the crowd did. Letting it choose a population would be reading this project's own incompleteness as evidence."
@@ -232,8 +232,8 @@
    "persons": 5
   },
   {
-   "id": "hh_rc_leland_samuel",
-   "file": "transients/hh_rc_leland_samuel.json",
+   "id": "hh_rc_leland_willard",
+   "file": "transients/hh_rc_leland_willard.json",
    "household_kind": "party",
    "sleeping_class": "a_room_in_a_public_house",
    "slot": "transients:a_room_in_a_public_house:012",
@@ -544,8 +544,8 @@
    "persons": 4
   },
   {
-   "id": "hh_rc_sawyer_nancy",
-   "file": "transients/hh_rc_sawyer_nancy.json",
+   "id": "hh_rc_sawyer_harriet",
+   "file": "transients/hh_rc_sawyer_harriet.json",
    "household_kind": "party",
    "sleeping_class": "a_store_house_thrown_open",
    "slot": "transients:a_store_house_thrown_open:010",
@@ -592,8 +592,8 @@
    "persons": 4
   },
   {
-   "id": "hh_rc_kellogg_willard",
-   "file": "transients/hh_rc_kellogg_willard.json",
+   "id": "hh_rc_kellogg_jared",
+   "file": "transients/hh_rc_kellogg_jared.json",
    "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:002",
@@ -632,8 +632,8 @@
    "persons": 4
   },
   {
-   "id": "hh_rc_leland_henry",
-   "file": "transients/hh_rc_leland_henry.json",
+   "id": "hh_rc_leland_samuel",
+   "file": "transients/hh_rc_leland_samuel.json",
    "household_kind": "party",
    "sleeping_class": "the_open_sky_upon_the_wharves",
    "slot": "transients:the_open_sky_upon_the_wharves:007",

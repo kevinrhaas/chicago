@@ -1,0 +1,234 @@
+{
+  "id": "first_fort_dearborn_small_house_sw",
+  "phase": "first_fort_1803",
+  "name": "First Fort Dearborn — small house, south-west corner",
+  "aka": [
+    "Whistler's index no. 16, 'Small Houses in the garrison'"
+  ],
+  "archetype": "outbuilding",
+  "asset": "gltf/first_fort_dearborn_small_house_sw__first_fort_1803.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1803-08-17",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "quaife_1913_swearingen",
+      "quaife_1913",
+      "andreas_1884_v1"
+    ],
+    "note": "THE RANGE IS THE FIRST FORT'S, NOT THIS COMPONENT'S. It opens on 17 August 1803, the day Swearingen's detachment reached the river at the bend where the fort was to be built (his journal, printed by Quaife), and closes on 16 August 1812, the day after the evacuation, when the fort was burned (data/exclusions.json fort_dearborn_first_1803). No source dates any single building inside it: the fort was built over the months after the arrival, and Whistler's draught of 25 January 1808 is the one day on which every component here is shown standing. It ends before the second fort's 1816 phases begin, so no scene date can resolve the two forts together."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1139.72,
+    "local_n": 208.44,
+    "rotation_deg": 0.0,
+    "position_confidence": "inferred",
+    "position_sources": [
+      "chicagology_prefire052",
+      "whistler_1808_fort_dearborn_draught",
+      "wright_1834"
+    ],
+    "position_note": "SEATED WITH ONE ORIGIN AND ONE BEARING FOR ALL FOURTEEN (T-2050), so no building moves against another. The box is the register's (data/traces/whistler_1808_fort_dearborn.json), read off the commandant's own measured draught at 4.52 px per foot from the 75 ft staff, good to about +/-1.1 ft an edge. THE ORIGIN: the staff's foot, which the register finds at the centre of the parade and within about a foot of the centre of both picket rows, is set on the fort site at local E +1152, N +221 - the Wright 1834 reading of the fort's place that docs/ROADMAP.md S5a cross-checks to 35 m against the modern landmark. That is the SITE, not the second fort's plan: John H. Kinzie (quoted on chicagology_prefire052) says the first fort 'stood upon the same ground as the last Fort' and 'was differently constructed', so the place carries over and nothing of the 1816 geometry does. THE BEARING: the frame's north is set on grid north, which is the register's own inference that the sheet's right is east, from the lake lettered down that margin; the sheet has no north arrow, so the bearing is inferred and adds nothing to it. The second fort's 8 degrees, read off Harrison 1830, is that fort's and is not borrowed. Grid and true north differ here by under half a degree. A CHECK, NOT A FIT: seated so, the outward row's west side stands about 124 ft from the 1812 river (data/terrain/epochs/e1830_natural/river.geojson) and the north-west blockhouse about 65 ft from it; the draught's red-ink '122 feet to River' from the west side and Wilson's '80 feet' from the north-west corner are figures of that size. Carry the datum's +/-20 m on the whole frame.",
+    "symbolic_location": "First Fort Dearborn, in the frame of Whistler's 1808 draught (register part 'small house, south-west'): E -40.3..-34.7 ft, N -41.2..-33.4 ft of the flagstaff's foot, facade not drawn. SEATED (T-2050) with the whole frame: the staff's foot at local E +1152.0, N +221.0, the frame's north on grid north; this record's origin is the box's SW corner.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        1.68,
+        0
+      ],
+      [
+        1.68,
+        2.35
+      ],
+      [
+        0,
+        2.35
+      ]
+    ],
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "MEASURED: 5.5 x 7.7 ft, east-west by north-south, the plan box the register reads with numeral 16 upside-down inside it."
+  },
+  "attributes": {
+    "construction": {
+      "value": "plank",
+      "confidence": "inferred",
+      "sources": [
+        "quaife_1913"
+      ],
+      "note": "Not stated; timber like the rest of the post. Boarded rather than log (T-2050, at the first bake): at 1.7 x 2.4 m a notched log pen's corners would meet near the middle of its walls, so a house this small is the post's boarded kind, and timber is all Quaife's reading gives either way."
+    },
+    "wall_height_m": {
+      "value": 2.4,
+      "confidence": "reconstructed",
+      "note": "Unattested; a one-storey small house."
+    },
+    "roof_type": {
+      "value": "gable",
+      "confidence": "reconstructed",
+      "note": "Unattested at this scale of drawing."
+    },
+    "roof_pitch_deg": {
+      "value": 34.0,
+      "confidence": "reconstructed",
+      "note": "Unattested."
+    },
+    "function": {
+      "value": "outbuilding",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "note": "The other of the two 'Small Houses in the garrison' (index no. 16), its use unstated."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire052",
+      "citation": "\"Fort Dearborn History.\" Chicagology. Reprinting the address delivered by Hon. John Wentworth at the Fort Dearborn Memorial Tablet ceremonies, 21 May 1881, as printed in the Chicago Tribune, 22 May 1881; with the caption to a woodcut of Alexander Hesler's 1855 photograph, an addendum on the fort in 1850 signed Robert Fergus, and an extract from Chicago Magazine, Vol. 1, No. 1, March 1857.",
+      "url": "https://chicagology.com/prefire/prefire052/",
+      "archived_url": "https://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "NOTHING THAT wentworth_1881_fort_dearborn DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
+        "commandant's quarters, brick, about 25 x 50 ft, at the north-west corner of the enclosure (1855 caption)",
+        "officers' quarters, wood, about 30 x 60 ft, at the north-west corner (1855 caption)",
+        "parade ground 80 x 200 ft (1855 caption) AND about 80 x 400 ft (Fergus, 1850) - a disagreement, not a figure",
+        "the sutler's building (key D) and the north gate (key E)",
+        "the 1850 arrangement: quarters west of the parade ground, artillery house, barracks and storehouse east",
+        "the sun-dial on an 8-inch square timber post about 2 ft high, near the parade ground's south end (1850)",
+        "the whitewashed rough-board fence about 6 ft high, pickets already removed (1850)",
+        "the kitchen garden in the south-west corner of the enclosure (1850)",
+        "the fort's use as a general hospital from 11 July during the 1832 cholera",
+        "Bvt. Maj. Joseph Plympton arriving 1 August 1836; the soldiers withdrawn 29 December 1836",
+        "J. B. Beaubien's purchase of the reservation, 28 May 1835, for $94.61",
+        "Beaubien's later residence at the north-east corner of South Water Street and Michigan Avenue, expressly after he left the John Dean house",
+        "the 1831 lighthouse authorised 3 March 1831, fallen in October 1831, soon rebuilt; Samuel C. Lasby first keeper"
+      ],
+      "what_it_does_not_supply": [
+        "a single consistent parade-ground dimension",
+        "any hospital BUILDING inside the fort",
+        "any description of the 1816 fort's walls, blockhouses, palisade or sally-port that is unambiguously about the 1816 fort",
+        "the fort as it stood in 1835 (its two extended physical descriptions are of the pre-1812 fort and of the fort in 1850)",
+        "any plan, footprint, orientation or measured survey",
+        "the height, roof form or fenestration of any fort building",
+        "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+      ]
+    },
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "quaife_1913_swearingen",
+      "citation": "\"Journal of Lieutenant James Strode Swearingen\", printed as Appendix I in Milo Milton Quaife, Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn (Chicago: University of Chicago Press, 1913), pp. 373-377. The Chicago entry, Wednesday 17 August 1803, runs across pp. 376-377.",
+      "url": "https://archive.org/details/chicagooldnorthw00quaiuoft",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "Journal of Lieutenant James Strode Swearingen, kept on the march from Detroit to Chicago in temporary command of the company sent to establish the first Fort Dearborn; entry for Wednesday 17 August 1803, the day of arrival",
+          "date": "1803-08-17",
+          "tier": 1,
+          "note": "Carries the only period measurement of the Chicago river this project has: about 30 yards wide and upwards of 18 feet deep at the fort site, a south bank about 8 feet high half a mile above the mouth, the opposite bank lower by not more than two feet BY APPEARANCES, and the banks above quite low. The last of those is the only sentence in it that reaches the modelled quadrant, and it is the one the encyclopedia paraphrase dropped. Also the pre-cut hydraulic regime in the witness's own words — 'dead water, owing to its being stopped up at the mouth, by the washing of sand' — which is why it does not license the flat surface of the 1835 scene: see docs/RESEARCH/swearingen_1803.md."
+        }
+      ],
+      "what_it_supplies": [
+        "channel width and depth at the Fort Dearborn site in August 1803, from a witness standing there",
+        "the height of the south (fort) bank at that point, about 8 feet",
+        "that the north bank was lower, by an estimate made by eye and stated as a maximum of two feet",
+        "that the river above the fort had quite low banks — the only statement here about the reach this project models",
+        "that the pre-cut river was dead water, and the witness's reason for it: the mouth was stopped up by sand washing in from the lake",
+        "the distance from the fort site down to the natural mouth in 1803: half a mile"
+      ],
+      "what_it_does_not_supply": [
+        "any surface gradient, and therefore no evidence for or against a level water surface as a measurement",
+        "any measurement at the forks — every figure here is taken 1.2 miles downstream at the fort site",
+        "any measurement after 1803, and the 1833-34 harbour cut removed the condition the witness gives for the river standing dead",
+        "a bank height for the modelled quadrant: 'quite low' is qualitative and cannot promote a confidence",
+        "the north bank's height as a number — the 6 ft widely quoted from this passage is arithmetic performed on a hedged estimate by later writers, not a figure Swearingen wrote",
+        "any planform: the journal draws nothing and no geometry is traced from it"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    },
+    {
+      "source_id": "wright_1834",
+      "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+      "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "street geometry",
+        "block and lot subdivision",
+        "shoreline",
+        "river channel and the 1834 cut",
+        "survey-date colouring"
+      ],
+      "what_it_does_not_supply": [
+        "building footprints",
+        "building locations"
+      ]
+    }
+  ],
+  "research_note": "A SMALL HOUSE OF UNSTATED USE, in the corner diagonally opposite the north-east one, as Quaife says and the draught draws it.",
+  "research_doc": "",
+  "review_required": false
+}

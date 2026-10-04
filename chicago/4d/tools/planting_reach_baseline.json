@@ -85,13 +85,23 @@
       }
     },
     "z10_settled_town": {
-      "verdict": "no-box",
-      "box": null
+      "verdict": "meets-the-planter",
+      "box": {
+        "e": [
+          -768,
+          1364
+        ],
+        "n": [
+          -736,
+          1128
+        ]
+      }
     }
   },
   "unselectable": {},
   "placed": {
     "populus_deltoides": [
+      "z08_lakeshore",
       "z10_settled_town"
     ],
     "populus_nigra_italica": [

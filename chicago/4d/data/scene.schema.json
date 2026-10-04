@@ -124,12 +124,13 @@
           "boats",
           "wells",
           "residents",
+          "businesses",
           "exclusions",
           "street_grid"
         ]
       },
       "minItems": 1,
-      "description": "What the renderer mounts for this scene (T-1739), and nothing it does not list. `terrain` and `water` are the epoch's own ground and water. `structures` is the structure records that resolve at target_date. The rest are the town's derived and authored layers, every one of them written for 1 July 1835 in a directory that carries no date: `flora` (the sward, the timber and the ground's substrate colours), `fauna`, `streets`, `enclosures` (with the ground inside them), `signage`, `yard_goods`, `frontage`, `wharves`, `boats`, `wells`, `residents` (the people directory) and `exclusions` (the research record of buildings left out, and the watch list); tools/compile_scene.py compiles those two only for a scene that lists them. `street_grid` is a dated layer, data/street_grid/<scene>.json (T-0474, the 1904 Prairie Avenue carriageways, block faces, alleys and parcels). A scene of another date lists only what is true of it."
+      "description": "What the renderer mounts for this scene (T-1739), and nothing it does not list. `terrain` and `water` are the epoch's own ground and water. `structures` is the structure records that resolve at target_date. The rest are the town's derived and authored layers, every one of them written for 1 July 1835 in a directory that carries no date: `flora` (the sward, the timber and the ground's substrate colours), `fauna`, `streets`, `enclosures` (with the ground inside them), `signage`, `yard_goods`, `frontage`, `wharves`, `boats`, `wells`, `residents` (the people directory), `businesses` (the firms register) and `exclusions` (the research record of buildings left out, and the watch list); tools/compile_scene.py compiles the people directory and the exclusions record only for a scene that lists them. The drawer follows the same list (T-1740): `residents` offers the People section and the City, Population and Order book topics, `businesses` the Firms section, `fauna` the wildlife topic, `flora` the plants topic and `exclusions` the not-here and open-questions topics, and a scene that does not list one offers none of what it carries. `street_grid` is a dated layer, data/street_grid/<scene>.json (T-0474, the 1904 Prairie Avenue carriageways, block faces, alleys and parcels). A scene of another date lists only what is true of it."
     },
     "released": {
       "type": "boolean",
@@ -138,6 +139,100 @@
     },
     "note": {
       "type": "string"
+    },
+    "cards": {
+      "type": "array",
+      "description": "Interpretive cards the welcome panel opens for this scene (T-0472): what an event is called, what the evidence for it is and whose it is, where the accounts disagree, and what the scene deliberately does not show. The card's `text` is this project's own prose; every `quotes` entry is a source's words, verbatim, with the locator it was read at, and its source_id must resolve in data/sources. A card that quotes carries a confidence (documented needs a quote; inferred and conjectural need a confidence_note). A card with no quote is `kind: project` - a statement of what this reconstruction does, which claims nothing about the past. `review_required` here blocks the scene from release exactly as it does on a structure, and the card must say why in its own `review_note` (tools/validate.py, the AGENTS.md standing constraint).",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "kind",
+          "title",
+          "text"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "evidence",
+              "terminology",
+              "conflict",
+              "project"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 80
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 900
+          },
+          "quotes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "required": [
+                "source_id",
+                "locator",
+                "cite",
+                "text"
+              ],
+              "additionalProperties": false,
+              "properties": {
+                "source_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "locator": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "cite": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 120,
+                  "description": "The attribution the visitor reads under the quote: whose words, and where printed. The locator is for the next reader of the data; this is for the person on the card."
+                },
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 400
+                }
+              }
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "documented",
+              "inferred",
+              "conjectural"
+            ]
+          },
+          "confidence_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "review_required": {
+            "type": "boolean",
+            "default": false
+          },
+          "review_note": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
     }
   }
 }

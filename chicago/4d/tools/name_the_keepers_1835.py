@@ -2,8 +2,10 @@
 """THE KEEPER ON THE ROOF, NOT ONLY ON THE CARD.
 
 T-1638, piece 1 of 4 of T-1200 — the South Water Street river front.
-T-1685, piece 1 of 4 of T-1202 — the Randolph–Washington tier. One pass, one ledger, a
-district added to `DISTRICTS` and `RUN_FOR` each time a build ticket reaches one.
+T-1685, piece 1 of 4 of T-1202 — the Randolph–Washington tier.
+T-1691, of T-1201 — the Lake Street core, and the roofs no pass before it could reach.
+One pass, one ledger, a district added to `DISTRICTS` and `RUN_FOR` each time a build
+ticket reaches one.
 
     tools/name_the_keepers_1835.py --build      write the keepers and the ledger
     tools/name_the_keepers_1835.py --report --districts randolph    one district's rows
@@ -121,15 +123,50 @@ DISTRICTS = {
                     "parent": "T-1200", "says_why": "T-1675"},
     "randolph": {"prefix": "blk_randolph_", "ticket": "T-1685",
                  "parent": "T-1202", "says_why": "T-1685"},
+    "lake": {"prefix": "blk_lake_", "ticket": "T-1691",
+             "parent": "T-1201", "says_why": "T-1691"},
 }
 
 # The order the passes have been run in, which is the order the ledger states them in.
-RUN_FOR = ("south_water", "randolph")
+RUN_FOR = ("south_water", "randolph", "lake")
 
-# The one generator this pass is wired through, by way of tools/inferred_occupancy.py. A
-# seat on any other layer's roof is OWED rather than written, because a keeper the owning
-# generator does not know about is drift on its next re-derivation and not a keeper at all.
-BLOCK_INFILL_PREFIX = "recon_1835_blk_"
+# THE GENERATORS THIS PASS IS WIRED THROUGH, by way of tools/inferred_occupancy.py, keyed
+# on the roof-id prefix each one writes. A seat on any other layer's roof is OWED rather
+# than written, because a keeper the owning generator does not know about is drift on its
+# next re-derivation and not a keeper at all.
+#
+# T-1691 (and T-1697, folded into it). THE DISTRICT IS A MATTER OF POSITION AND THE OWNER
+# IS A MATTER OF ID, and until T-1691 this pass knew one owner. The platted deal seats by
+# LOT, so a seat's block is where the roof stands; but a roof's id says which generator
+# wrote it, and the Lake Street blocks are almost all `recon_1835_south_*` — the South
+# Division's aggregate infill, raised before any block recipe reached them — while three
+# Randolph seats stand on `recon_1835_west_*` roofs on blk_randolph_clinton. Every one of
+# them was owed by construction. Both generators now hand over `resident_assignment`
+# exactly as the block-infill one does, so all three are owners here.
+#
+# `since` is the ticket that wired the layer. A roof on a later-wired layer names THAT
+# ticket as the one that carried its keeper, even in a district an earlier pass ran — the
+# three Randolph roofs were carried by T-1691, and saying T-1685 on them would be false.
+ROOF_LAYERS = {
+    "recon_1835_blk_": {"generator": "tools/generate_block_infill.py", "since": None},
+    "recon_1835_south_": {"generator": "tools/generate_inferred_infill.py",
+                          "since": "T-1691"},
+    "recon_1835_west_": {"generator": "tools/generate_west_infill.py", "since": "T-1691"},
+}
+
+
+def roof_layer(structure_id: str) -> dict | None:
+    """The generator-owned layer a roof belongs to, or None if this pass owns no writer."""
+    for prefix, layer in ROOF_LAYERS.items():
+        if structure_id.startswith(prefix):
+            return layer
+    return None
+
+
+def carrier(seat: dict, scope: str, key: str = "ticket") -> str:
+    """The ticket a roof's prose names: its layer's wiring ticket, else its district's."""
+    layer = roof_layer(seat["structure_id"]) or {}
+    return layer.get("since") or DISTRICTS[scope][key]
 
 LETTER_LIST_REFUSAL = (
     "a household minted from the post office's letter lists, which the owner's ruling of "
@@ -158,6 +195,12 @@ NO_SOURCE_REFUSAL = (
 # named on it, and the stale naming is filed as its own ticket rather than fixed in
 # passing — it reaches 7 cards town-wide and every reader of their names, which is not
 # one district's pass to make.
+#
+# T-1689 made that revision at its source: the mint now renames a card in the same step
+# that refuses its flag, and its `--gate` holds the name and the flag together on every
+# card it minted. So this refusal class is EMPTY by construction, and the two roofs it
+# held are written like any other keeper. The test stays as a defence in case the gate
+# is ever bypassed; its self-test case went with the last row it could exercise.
 LETTER_LIST_NAME = "a name from the post office's letter lists"
 
 NAME_DISAGREES_REFUSAL = (
@@ -332,11 +375,11 @@ def derive(scopes: tuple[str, ...]) -> dict:
     owed: list[dict] = []
     # T-1675. A refusal is written onto the roof only where this pass OWNS the roof — the
     # same two tests a written keeper passes, because the record is re-derived by the
-    # block-infill generator and a note on a roof that generator does not own is drift.
+    # generator that owns it (ROOF_LAYERS) and a note on a roof none of them owns is drift.
     # A refusal outside them is still filed here, and still says nothing on a card.
     def ours(seat: dict) -> bool:
         return (district_of(seat, scopes) is not None
-                and seat["structure_id"].startswith(BLOCK_INFILL_PREFIX))
+                and roof_layer(seat["structure_id"]) is not None)
 
     for seat in sorted(seats, key=lambda s: s["structure_id"]):
         row = {"household_id": seat["id"], "structure_id": seat["structure_id"],
@@ -365,12 +408,11 @@ def derive(scopes: tuple[str, ...]) -> dict:
                                        f"({', '.join(scopes)}); T-1200's successors carry "
                                        f"their own"})
             continue
-        if not seat["structure_id"].startswith(BLOCK_INFILL_PREFIX):
-            owed.append({**row, "why": "its roof is not one the platted block-infill "
-                                       "generator owns, and this pass is only wired "
-                                       "through that one"})
+        if roof_layer(seat["structure_id"]) is None:
+            owed.append({**row, "why": "its roof is not one a generator this pass is "
+                                       "wired through owns (ROOF_LAYERS)"})
             continue
-        ticket = DISTRICTS[scope]["ticket"]
+        ticket = carrier(seat, scope)
         written.append({
             **row, "name": doc["name"], "sources": sources,
             "occupants": {"value": doc["name"], "confidence": "reconstructed",
@@ -394,8 +436,8 @@ def derive(scopes: tuple[str, ...]) -> dict:
             "status": "unassigned", "confidence": "reconstructed",
             "note": refusal_note(seat, row["why"],
                                  left_by_band[(row["clause"], row["district"])],
-                                 DISTRICTS[scope]["ticket"],
-                                 DISTRICTS[scope]["says_why"]),
+                                 carrier(seat, scope),
+                                 carrier(seat, scope, "says_why")),
         }
     return {
         "$schema_note": "Derived. tools/name_the_keepers_1835.py --build writes it and "
@@ -413,6 +455,8 @@ def derive(scopes: tuple[str, ...]) -> dict:
         "raises_no_roof": "Every row here is an ADOPTION the deal already made. The "
                           "reconstruction order book is untouched and no GLB goes stale: "
                           "generators/mesh_inputs.py hashes archetype parameters, not prose.",
+        "roof_layers": {prefix: layer["generator"]
+                        for prefix, layer in ROOF_LAYERS.items()},
         "scope": {"districts": list(scopes),
                   "block_prefixes": [DISTRICTS[scope]["prefix"] for scope in scopes],
                   "districts_available": sorted(DISTRICTS)},
@@ -471,7 +515,7 @@ def build(scopes: tuple[str, ...]) -> int:
     data, the arrangement the household programme and the street-face adoptions already
     use: this writes the ledger, `tools/inferred_occupancy.py` hands the two blocks to
     whichever generator owns the roof, and the record stays re-derivable. So after this,
-    run `python3 tools/generate_block_infill.py`.
+    run the generators in ROOF_LAYERS (block, inferred and west infill).
     """
     ledger = derive(scopes)
     dump(LEDGER, ledger)
@@ -481,7 +525,7 @@ def build(scopes: tuple[str, ...]) -> int:
           f"{c['refused_with_a_household_left']} with a household still left for it), "
           f"{c['owed']} owed")
     print("   now re-derive the roofs that carry them: "
-          "python3 tools/generate_block_infill.py")
+          + " && ".join(f"python3 {layer['generator']}" for layer in ROOF_LAYERS.values()))
     return 0
 
 
@@ -516,7 +560,7 @@ def problems(ledger_on_disk: dict, scopes: tuple[str, ...]) -> list[str]:
         if not block:
             found.append(f"{structure_id}: the deal seated a household here and this pass "
                          f"refused it, and the record says nothing — run --build, then "
-                         f"python3 tools/generate_block_infill.py")
+                         f"the generators in ROOF_LAYERS")
         elif block != want["resident_assignment"]:
             found.append(f"{structure_id}: resident_assignment is not the refusal the "
                          f"ledger states")
@@ -619,11 +663,6 @@ def self_test(scopes: tuple[str, ...]) -> int:
         doc["refused"] = [r for r in doc["refused"] if r["why"] != LETTER_LIST_REFUSAL]
         return doc
 
-    def unrefuse_the_name_disagreements(doc: dict) -> dict:
-        doc["refused"] = [r for r in doc["refused"]
-                          if r["why"] != NAME_DISAGREES_REFUSAL]
-        return doc
-
     def silence_a_refusal(doc: dict) -> dict:
         for row in doc["refused"]:
             if row.get("on_the_card"):
@@ -659,9 +698,7 @@ def self_test(scopes: tuple[str, ...]) -> int:
              ("a keeper's name is changed", rename_a_keeper),
              ("a keeper's household is changed", move_a_keeper),
              ("the counts stop counting", miscount),
-             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists),
-             ("the name-disagreement refusals are quietly dropped",
-              unrefuse_the_name_disagreements)]
+             ("the letter-list refusals are quietly dropped", unrefuse_the_letter_lists)]
     failures = 0
     for label, break_it in cases:
         broken = break_it(json.loads(json.dumps(ledger)))

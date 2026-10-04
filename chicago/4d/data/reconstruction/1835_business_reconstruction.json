@@ -7,7 +7,7 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 45,
+  "records": 47,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
@@ -101,6 +101,27 @@
         "rc_quinn_martin"
       ]
     },
+    "physicians": {
+      "ticket": "T-1529",
+      "title": "the physicians the re-cut ordered",
+      "records": 2,
+      "by_class": {
+        "physician": 2
+      },
+      "by_street": {
+        "Dearborn Street": 1,
+        "Lake Street": 1
+      },
+      "by_roof": {},
+      "ids": [
+        "rcb_mcguire_physician",
+        "rcb_tuttle_physician"
+      ],
+      "proprietors_adopted": [
+        "rc_mcguire_john",
+        "rc_tuttle_john"
+      ]
+    },
     "professions_and_services": {
       "ticket": "T-1418",
       "title": "the professions and the services",
@@ -173,7 +194,7 @@
       ],
       "proprietors_adopted": [
         "rc_crandall_benjamin",
-        "rc_metcalf_nathaniel"
+        "rc_metcalf_george"
       ]
     },
     "uncounted_trades": {
@@ -213,8 +234,8 @@
   },
   "lodging": {
     "_doc": "BEDS AGAINST KEEPERS. Every place data/reconstruction/1835_lodging_model.json stands, and the house of trade behind it. `kept_by` is null where there is none, and `why_not` says which kind of absence it is.",
-    "places": 25,
-    "reconstructed_roofs_this_programme_owes_a_firm": 0,
+    "places": 26,
+    "reconstructed_roofs_this_programme_owes_a_firm": 1,
     "rows": [
       {
         "place": "brown_boarding_house",
@@ -486,6 +507,19 @@
         ],
         "kept_by": "the register",
         "why_not": null
+      },
+      {
+        "place": "recon_1835_north_t1_061",
+        "name": "Reconstructed T1 small inn or tavern #061",
+        "class": "inn_tavern",
+        "standing": "reconstructed",
+        "beds_ordinary": 9,
+        "beds_crowded": 35,
+        "keeper_person": null,
+        "firm": null,
+        "businesses_in_the_register_at_this_roof": [],
+        "kept_by": null,
+        "why_not": "NO FIRM. The lodgers stage named no keeper for this roof, so there is nobody to adopt and this programme mints none."
       },
       {
         "place": "sauganash_hotel",
@@ -805,7 +839,7 @@
     "_doc": "EVERY RECONSTRUCTED HEAD AT A PROFESSIONAL OR SERVICE TRADE, and the house of trade behind it or the reason there is none. `kind` says which sort of absence a headless trade is: `house_of_trade` this programme builds, `census_bucket` the order book counts and another ticket fills, `count_already_held` the register already over-holds, `employment` has no premises to keep, `commands_a_vessel` keeps a hull and not a house, `contract_not_premises` holds a route and not a stand, `deferred` waits on the ticket named. No head is passed over in silence — that is what this table is for.",
     "ticket": "T-1419",
     "trades": 12,
-    "heads": 83,
+    "heads": 84,
     "heads_this_programme_owes_a_house": 0,
     "heads_still_deferred": 0,
     "rows": [
@@ -1188,14 +1222,14 @@
           {
             "person_id": "rc_goodrich_lydia",
             "name": "Lydia Goodrich",
-            "division": "west",
+            "division": "south",
             "head_slot": "trade_households:persons/female/30_39/west/family/trade:domestic:003",
             "firm": null
           },
           {
             "person_id": "rc_quinn_alice",
             "name": "Alice Quinn",
-            "division": "west",
+            "division": "south",
             "head_slot": "trade_households:persons/female/30_39/west/family/trade:domestic:004",
             "firm": null
           },
@@ -1453,15 +1487,22 @@
         "trade": "physician",
         "kind": "census_bucket",
         "deferred_to": null,
-        "heads": 1,
-        "why": "THE COUNT IS PRINTED, SO THE COUNT ORDERS. The census counts fourteen physicians, the same rule as the lawyers, for the same reason. T-1418 filled the bucket; then T-1525's re-cut (2026-09-24) raised its order to two and moved the row to T-1529, and the office the one drawn head kept went with it, because no group spends a T-1529 row. The book now orders 2 and the resident band has drawn 1 head at the trade, and this tool half-fills no count (`build_group`), so the head waits on T-1529 by name (T-2001).",
+        "heads": 2,
+        "why": "THE COUNT IS PRINTED, SO THE COUNT ORDERS. The census counts fourteen physicians, the same rule as the lawyers, for the same reason. T-1418 filled the bucket; then T-1525's re-cut (2026-09-24) raised its order to two and moved the row to T-1529. T-1529 spends it: the `physicians` group builds the two offices the book orders, and the resident band draws the second head the order needs by the business order's floor, out of one labourer's slot, so neither head is left over.",
         "people": [
+          {
+            "person_id": "rc_tuttle_john",
+            "name": "John Tuttle",
+            "division": "south",
+            "head_slot": "trade_households:persons/male/20_29/south/family/trade:physician:044",
+            "firm": "rcb_tuttle_physician"
+          },
           {
             "person_id": "rc_mcguire_john",
             "name": "John McGuire",
             "division": "south",
             "head_slot": "trade_households:persons/male/30_39/south/family/trade:physician:032",
-            "firm": null
+            "firm": "rcb_mcguire_physician"
           }
         ]
       },

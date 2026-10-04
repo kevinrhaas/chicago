@@ -7,8 +7,8 @@
   "counts": {
     "matched": 16,
     "surname_variant_candidates": 1,
-    "no_surname_in_town": 118,
-    "surname_only_refused": 64,
+    "no_surname_in_town": 115,
+    "surname_only_refused": 67,
     "not_a_person": 1
   },
   "calibration": {
@@ -287,15 +287,6 @@
       "source_id": "census_1830_peoria_county_chicago_precinct",
       "as_read": "Levi McCormick",
       "normalized": "LEVI MCCORMICK",
-      "household": null,
-      "note": "No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
-    },
-    {
-      "record_id": "census1830_n576_010",
-      "outcome": "no_surname_in_town",
-      "source_id": "census_1830_peoria_county_chicago_precinct",
-      "as_read": "John Nicholson",
-      "normalized": "JOHN NICHOLSON",
       "household": null,
       "note": "No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
     },
@@ -678,15 +669,6 @@
       "note": "No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
     },
     {
-      "record_id": "census1830_n578_029",
-      "outcome": "no_surname_in_town",
-      "source_id": "census_1830_peoria_county_chicago_precinct",
-      "as_read": "Jeriab Root",
-      "normalized": "JERIAB ROOT",
-      "household": null,
-      "note": "No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
-    },
-    {
       "record_id": "census1830_n578_030",
       "outcome": "no_surname_in_town",
       "source_id": "census_1830_peoria_county_chicago_precinct",
@@ -845,15 +827,6 @@
       "source_id": "census_1830_peoria_county_chicago_precinct",
       "as_read": "Roger Selcolt",
       "normalized": "ROGER SELCOLT",
-      "household": null,
-      "note": "No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
-    },
-    {
-      "record_id": "census1830_n580_002",
-      "outcome": "no_surname_in_town",
-      "source_id": "census_1830_peoria_county_chicago_precinct",
-      "as_read": "Edmond Weed",
-      "normalized": "EDMOND WEED",
       "household": null,
       "note": "No person in the town's 825 households carries this surname. Either the man had gone by 1835, or he lived in the part of the district that was never Chicago — the Fox River and Du Page settlements are in it too — or he is somebody the reconstruction has not found. All three are findings and none of them is settled here."
     },
@@ -1295,6 +1268,18 @@
       ]
     },
     {
+      "record_id": "census1830_n576_010",
+      "outcome": "refused_surname_only",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "a": "John Nicholson",
+      "b": "Joshua F. Nicholson (hh_nicholson_joshua_f)",
+      "rule": "The 1830 reading 'John Nicholson' shares only a surname with the town person(s) Joshua F. Nicholson (hh_nicholson_joshua_f). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again.",
+      "evidence": [
+        "census_1830 record census1830_n576_010",
+        "data/residents/households/"
+      ]
+    },
+    {
       "record_id": "census1830_n576_011",
       "outcome": "refused_surname_only",
       "source_id": "census_1830_peoria_county_chicago_precinct",
@@ -1655,6 +1640,18 @@
       ]
     },
     {
+      "record_id": "census1830_n578_029",
+      "outcome": "refused_surname_only",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "a": "Jeriab Root",
+      "b": "Ez c. Root (hh_root_ez_c)",
+      "rule": "The 1830 reading 'Jeriab Root' shares only a surname with the town person(s) Ez c. Root (hh_root_ez_c). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again.",
+      "evidence": [
+        "census_1830 record census1830_n578_029",
+        "data/residents/households/"
+      ]
+    },
+    {
       "record_id": "census1830_n578_031",
       "outcome": "refused_surname_only",
       "source_id": "census_1830_peoria_county_chicago_precinct",
@@ -1759,6 +1756,18 @@
       "rule": "The 1830 reading 'John Green' shares only a surname with the town person(s) Damel M. Green (hh_green_damel_m); J Green (hh_green_j); Mary Green (hh_green_mary). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again.",
       "evidence": [
         "census_1830 record census1830_n580_001",
+        "data/residents/households/"
+      ]
+    },
+    {
+      "record_id": "census1830_n580_002",
+      "outcome": "refused_surname_only",
+      "source_id": "census_1830_peoria_county_chicago_precinct",
+      "a": "Edmond Weed",
+      "b": "Sally Weed (hh_weed_sally)",
+      "rule": "The 1830 reading 'Edmond Weed' shares only a surname with the town person(s) Sally Weed (hh_weed_sally). A surname match is a clue and not an identity, so it is REFUSED rather than merged, and the refusal is written down so the next sweep does not make the same match again.",
+      "evidence": [
+        "census_1830 record census1830_n580_002",
         "data/residents/households/"
       ]
     },

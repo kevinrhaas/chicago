@@ -7,10 +7,10 @@
   "target_date": "1835-07-01",
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/, data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
-    "yards": 29,
-    "objects": 75,
+    "yards": 30,
+    "objects": 76,
     "by_trade": {
-      "carpenter_or_joiner_shop": 2,
+      "carpenter_or_joiner_shop": 3,
       "cooperage": 2,
       "packing_house": 2,
       "slaughterhouse_packing": 2,
@@ -21,12 +21,12 @@
     },
     "by_kind": {
       "barrel": 52,
-      "boards": 2,
+      "boards": 3,
       "hay": 19,
       "hides": 2
     },
-    "wagons": 4,
-    "refused": 23,
+    "wagons": 5,
+    "refused": 22,
     "hay_refused_inside_the_limits": 22
   },
   "existence": {
@@ -1608,6 +1608,47 @@
       ]
     },
     {
+      "structure_id": "recon_1835_north_w2_065",
+      "name": "Reconstructed W2 carpenter or joiner shop #065",
+      "belongs_to": "recon_1835_north_w2_065",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a joiner's boards are stacked and stickered in the yard to season",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          883.25,
+          279.39
+        ],
+        [
+          876.75,
+          279.39
+        ],
+        [
+          876.75,
+          269.41
+        ],
+        [
+          883.25,
+          269.41
+        ]
+      ],
+      "items": [
+        {
+          "kind": "boards",
+          "at_local_enu_m": [
+            880.0,
+            281.08
+          ],
+          "bearing_deg": 0.0,
+          "courses": 6
+        }
+      ]
+    },
+    {
       "structure_id": "recon_1835_west_022",
       "name": "Reconstructed A1 stable #018",
       "belongs_to": "recon_1835_west_022",
@@ -1680,8 +1721,8 @@
         {
           "kind": "hay",
           "at_local_enu_m": [
-            -224.72,
-            -240.59
+            -224.78,
+            -243.59
           ],
           "bearing_deg": 181.0
         }
@@ -1832,6 +1873,22 @@
       "bearing_deg": 90.0,
       "face": "rear",
       "note": "A farm wagon standing unhitched in the yard of Kinzie & Hunter's Warehouse, off its rear, nose along the wall: a forwarder's goods came and went by wagon, and one stands in the yard. The owner's T-1212 asks for wagons at the forwarders and the teamsters; the stand is the first clear one a fixed search of the building's rear and side yards finds. Reconstructed: docs/LIBERTIES.md L351."
+    },
+    {
+      "id": "newberry_dole_warehouse_yard_wagon_1",
+      "kind": "farm_box",
+      "belongs_to": "newberry_dole_warehouse",
+      "in_yard_of": "newberry_dole_warehouse",
+      "tilt": false,
+      "yoke": false,
+      "confidence": "reconstructed",
+      "at_local_enu_m": [
+        191.15,
+        -31.4
+      ],
+      "bearing_deg": 255.0,
+      "face": "rear",
+      "note": "A farm wagon standing unhitched in the yard of Newberry & Dole's Forwarding and Commission Warehouse, off its rear, nose along the wall: a forwarder's goods came and went by wagon, and one stands in the yard. The owner's T-1212 asks for wagons at the forwarders and the teamsters; the stand is the first clear one a fixed search of the building's rear and side yards finds. Reconstructed: docs/LIBERTIES.md L351."
     }
   ],
   "refused": [
@@ -1858,12 +1915,6 @@
       "trade": "stable",
       "goods": "hay",
       "why": "it stands INSIDE the hay limits — the ring Sec. 22 of the ordinance of 5 August 1835 walks, inside which stacking hay is forbidden (data/reconstruction/1835_hay_limits.json). The ordinance is five weeks after the scene date; the owner asked that it be honoured, so this stable keeps its hay in the mow and no rick is drawn."
-    },
-    {
-      "structure_id": "newberry_dole_warehouse",
-      "trade": "forwarding_commission_warehouse",
-      "goods": "farm_box",
-      "why": "no clear ground for a wagon on any face; the last stand tried was refused because right side: its ground is in the water or within 0.60 m of it."
     },
     {
       "structure_id": "recon_1835_blk_lake_franklin_a1_03",

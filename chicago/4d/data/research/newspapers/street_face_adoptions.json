@@ -37,7 +37,7 @@
     "deals_a_roof_twice": {},
     "per_face_ledger_would_seat": 30,
     "per_face_ledger_would_deal_twice": {},
-    "against_the_reading_in_force": -9,
+    "against_the_reading_in_force": -10,
     "seats_that_the_reading_in_force_does_not": [
      "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
     ],
@@ -46,6 +46,7 @@
     },
     "loses_against_the_reading_in_force": [
      "business_cooley_and_halsman",
+     "business_elmira_fowler",
      "business_fullerton_botsford",
      "business_hubbard_co",
      "business_j_b_brown_dearborn_street_grocery",
@@ -56,11 +57,11 @@
      "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store",
      "business_unnamed_new_store_la_salle_street"
     ],
-    "would_still_refuse": 29,
+    "would_still_refuse": 26,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
      "the face holds no roof standing on it": 23,
-     "this face already holds this proprietor": 5,
+     "this face already holds this proprietor": 2,
      "every roof on the face is spoken for": 1
     }
    },
@@ -70,10 +71,10 @@
      "corner side"
     ],
     "in_force": true,
-    "would_seat": 39,
-    "would_seat_on_distinct_roofs": 39,
+    "would_seat": 40,
+    "would_seat_on_distinct_roofs": 40,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 40,
+    "per_face_ledger_would_seat": 41,
     "per_face_ledger_would_deal_twice": {
      "recon_1835_blk_randolph_clark_c2_01": [
       "business_j_l_wilson_co",
@@ -92,12 +93,12 @@
     "seats_that_the_reading_in_force_does_not": [],
     "seats_that_the_reading_in_force_does_not_by_street": {},
     "loses_against_the_reading_in_force": [],
-    "would_still_refuse": 20,
+    "would_still_refuse": 16,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
      "the face holds no roof standing on it": 3,
-     "this face already holds this proprietor": 8,
-     "every roof on the face is spoken for": 9
+     "this face already holds this proprietor": 5,
+     "every roof on the face is spoken for": 8
     }
    },
    "a corner side or the band is a face": {
@@ -107,10 +108,10 @@
      "centreline band"
     ],
     "in_force": false,
-    "would_seat": 39,
-    "would_seat_on_distinct_roofs": 39,
+    "would_seat": 40,
+    "would_seat_on_distinct_roofs": 40,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 40,
+    "per_face_ledger_would_seat": 41,
     "per_face_ledger_would_deal_twice": {
      "recon_1835_blk_randolph_clark_c2_01": [
       "business_j_l_wilson_co",
@@ -129,12 +130,12 @@
     "seats_that_the_reading_in_force_does_not": [],
     "seats_that_the_reading_in_force_does_not_by_street": {},
     "loses_against_the_reading_in_force": [],
-    "would_still_refuse": 20,
+    "would_still_refuse": 16,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
      "the face holds no roof standing on it": 1,
-     "this face already holds this proprietor": 8,
-     "every roof on the face is spoken for": 11
+     "this face already holds this proprietor": 5,
+     "every roof on the face is spoken for": 10
     }
    }
   },
@@ -148,34 +149,34 @@
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
     "faces_with_two_or_more_free_roofs": 18,
-    "free_roof_places": 134,
+    "free_roof_places": 135,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2445,
+      "re_families_tried": 2466,
       "places_changed": 2773,
       "worst_single_re_family": 8,
-      "changed_nothing": 1456
+      "changed_nothing": 1477
      },
      "deal_order": {
-      "re_families_tried": 2445,
+      "re_families_tried": 2466,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2445
+      "changed_nothing": 2466
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 2111,
+      "re_families_tried": 2124,
       "places_changed": 2641,
       "worst_single_re_family": 8,
-      "changed_nothing": 1205
+      "changed_nothing": 1218
      },
      "deal_order": {
-      "re_families_tried": 2111,
-      "places_changed": 13203,
+      "re_families_tried": 2124,
+      "places_changed": 13303,
       "worst_single_re_family": 19,
       "changed_nothing": 205
      }
@@ -184,18 +185,18 @@
   }
  },
  "counts": {
-  "street_only_in_register": 59,
-  "adopted": 39,
-  "refused": 20,
+  "street_only_in_register": 56,
+  "adopted": 40,
+  "refused": 16,
   "refused_by_reason": {
    "not present at the scene date": 0,
    "the face holds no roof standing on it": 3,
-   "this face already holds this proprietor": 8,
-   "every roof on the face is spoken for": 9
+   "this face already holds this proprietor": 5,
+   "every roof on the face is spoken for": 8
   },
   "unplaceable_present_at_scene_date": 62,
   "adopted_into_a_house_of_trade": 26,
-  "adopted_into_a_roof_of_no_trade": 13,
+  "adopted_into_a_roof_of_no_trade": 14,
   "roofs_free_and_a_house_of_trade": 29,
   "houses_of_trade_left_free": 3,
   "roofs_reserved_for_a_slot_request": 43,
@@ -222,11 +223,11 @@
    "dearborn": {
     "street_name": "Dearborn Street",
     "businesses_naming_it": 16,
-    "adopted": 6,
+    "adopted": 7,
     "roofs_lot_front": 0,
-    "roofs_corner_side": 23,
-    "roofs_on_the_adopted_face": 23,
-    "roofs_free": 6,
+    "roofs_corner_side": 24,
+    "roofs_on_the_adopted_face": 24,
+    "roofs_free": 7,
     "roofs_home": 7,
     "roofs_home_named": 0,
     "roofs_home_inferred": 7,
@@ -323,7 +324,7 @@
    },
    "south_water": {
     "street_name": "South Water Street",
-    "businesses_naming_it": 27,
+    "businesses_naming_it": 24,
     "adopted": 20,
     "roofs_lot_front": 38,
     "roofs_corner_side": 0,
@@ -900,46 +901,6 @@
    "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
-   "business_id": "business_a_new_auction_and_commission_room_south_water_street",
-   "business_name": "a new auction and commission room, South Water Street",
-   "trade": "auction and commission",
-   "proprietors": [
-    "W. Montgomery"
-   ],
-   "partners": [
-    "W. Montgomery"
-   ],
-   "firm_styles": [],
-   "surnames": [
-    "montgomery"
-   ],
-   "street_id": "south_water",
-   "street_name": "South Water Street",
-   "street_text": "South Water Street",
-   "placement_class": "relative",
-   "cites": [
-    "chicago_american_1835_06_27#c008",
-    "chicago_american_1835_07_04#c012",
-    "chicago_american_1835_07_11#c003",
-    "chicago_american_1835_07_18#c003",
-    "chicago_american_1835_07_25#c003"
-   ],
-   "first_issue": "1835-06-27",
-   "last_issue": "1835-07-25",
-   "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
-   "face": "lot front",
-   "roof_confidence": "reconstructed",
-   "roof_family": "C2",
-   "roof_function": "store_residence",
-   "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
-   "lot": null,
-   "claims_lot": false,
-   "order_is_a_claim": false,
-   "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
-  },
-  {
    "business_id": "business_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered",
    "business_name": "[boot, shoe and leather store, Lake street, proprietor not recovered]",
    "trade": "boot and shoe manufacturing and leather dealing",
@@ -1003,13 +964,13 @@
    "first_issue": "1834-06-04",
    "last_issue": "1835-05-20",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C4",
-   "roof_function": "wide_two_story_store_or_mixed_block",
+   "roof_family": "C2",
+   "roof_function": "store_residence",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a wide two story store or mixed block — family C4, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1081,13 +1042,13 @@
    "first_issue": "1834-05-28",
    "last_issue": "1834-12-10",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+   "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C1",
-   "roof_function": "small_shop_or_office",
+   "roof_family": "C4",
+   "roof_function": "wide_two_story_store_or_mixed_block",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a wide two story store or mixed block — family C4, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1159,13 +1120,13 @@
    "first_issue": "1834-03-25",
    "last_issue": "1834-12-10",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+   "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C2",
-   "roof_function": "store_residence",
+   "roof_family": "C1",
+   "roof_function": "small_shop_or_office",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1293,6 +1254,42 @@
    "claims_lot": false,
    "order_is_a_claim": false,
    "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
+  },
+  {
+   "business_id": "business_elmira_fowler",
+   "business_name": "Elmira Fowler",
+   "trade": "millinery and dress making",
+   "proprietors": [
+    "Elmira Fowler"
+   ],
+   "partners": [
+    "Elmira Fowler"
+   ],
+   "firm_styles": [],
+   "surnames": [
+    "fowler"
+   ],
+   "street_id": "dearborn",
+   "street_name": "Dearborn Street",
+   "street_text": "Dearborn Street",
+   "placement_class": "relative",
+   "cites": [
+    "chicago_democrat_1834_11_05#c004"
+   ],
+   "first_issue": "1834-11-05",
+   "last_issue": "1834-11-05",
+   "mentions": 1,
+   "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+   "face": "corner side",
+   "roof_confidence": "reconstructed",
+   "roof_family": "D2",
+   "roof_function": "rough_plank_dwelling_or_shanty",
+   "roof_is_a_house_of_trade": false,
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a rough plank dwelling or shanty — family D2, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "lot": null,
+   "claims_lot": false,
+   "order_is_a_claim": false,
+   "note": "The advertisement names Dearborn Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit standing at the end of its platted tier, where the tier meets Dearborn Street: a corner building, which the owner ruled on 2026-08-30 stands on both its faces; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
    "business_id": "business_fullerton_botsford",
@@ -1446,13 +1443,13 @@
    "first_issue": "1834-07-02",
    "last_issue": "1835-07-25",
    "mentions": 7,
-   "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
+   "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C3",
-   "roof_function": "narrow_two_story_store",
+   "roof_family": "C2",
+   "roof_function": "store_residence",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a narrow two story store — family C3, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1621,7 +1618,7 @@
    "first_issue": "1834-06-04",
    "last_issue": "1835-08-12",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "C2",
@@ -1762,7 +1759,7 @@
    "first_issue": "1835-05-27",
    "last_issue": "1835-08-05",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "C2",
@@ -1806,13 +1803,13 @@
    "first_issue": "1833-12-17",
    "last_issue": "1835-05-20",
    "mentions": 9,
-   "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+   "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C2",
-   "roof_function": "store_residence",
+   "roof_family": "C3",
+   "roof_function": "narrow_two_story_store",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a narrow two story store — family C3, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1929,7 +1926,7 @@
    "first_issue": "1833-11-26",
    "last_issue": "1835-07-08",
    "mentions": 8,
-   "structure_id": "recon_1835_blk_south_water_dearborn_c3_01",
+   "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "C3",
@@ -2363,6 +2360,57 @@
    "note": "The advertisement names Lake Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces Lake Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
+   "business_id": "business_w_montgomery",
+   "business_name": "W. Montgomery",
+   "trade": "auction and commission",
+   "proprietors": [
+    "W. Montgomery",
+    "Montgomery",
+    "Montgomery, W."
+   ],
+   "partners": [
+    "W. Montgomery",
+    "Montgomery",
+    "Montgomery, W."
+   ],
+   "firm_styles": [],
+   "surnames": [
+    "montgomery"
+   ],
+   "street_id": "south_water",
+   "street_name": "South Water Street",
+   "street_text": "South Water Street",
+   "placement_class": "relative",
+   "cites": [
+    "chicago_american_1835_06_27#c008",
+    "chicago_american_1835_07_04#c012",
+    "chicago_american_1835_07_11#c003",
+    "chicago_american_1835_07_18#c003",
+    "chicago_american_1835_07_25#c003",
+    "chicago_democrat_1835_06_24#c008",
+    "chicago_democrat_1835_07_08#c001",
+    "chicago_democrat_1835_07_15#c005",
+    "chicago_democrat_1835_07_22#c011",
+    "chicago_democrat_1835_07_29#c013",
+    "chicago_democrat_1835_08_05#c009",
+    "chicago_democrat_1835_08_05#c016"
+   ],
+   "first_issue": "1835-06-24",
+   "last_issue": "1835-08-05",
+   "mentions": 12,
+   "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+   "face": "lot front",
+   "roof_confidence": "reconstructed",
+   "roof_family": "C2",
+   "roof_function": "store_residence",
+   "roof_is_a_house_of_trade": true,
+   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "lot": null,
+   "claims_lot": false,
+   "order_is_a_claim": false,
+   "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
+  },
+  {
    "business_id": "business_william_clay",
    "business_name": "William Clay",
    "trade": "hat manufacturing and dealing",
@@ -2406,7 +2454,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "24 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street",
@@ -2414,7 +2462,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "24 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_cooley_and_hol_b_man",
@@ -2422,15 +2470,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
-  },
-  {
-   "business_id": "business_elmira_fowler",
-   "business_name": "Elmira Fowler",
-   "street_id": "dearborn",
-   "street_name": "Dearborn Street",
-   "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "24 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_george_holsman",
@@ -2438,7 +2478,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "24 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_j_curtiss_attorney_and_counsellor_at_law",
@@ -2454,7 +2494,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "24 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
@@ -2462,7 +2502,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "23 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 6 are already adopted by a better-evidenced business."
+   "detail": "24 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",
@@ -2505,14 +2545,6 @@
    "detail": "'D. Graves' already stands on this face under the same proprietor surname(s) graves, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
   },
   {
-   "business_id": "business_montgomery_auction_and_commission_house",
-   "business_name": "Montgomery, auction and commission house",
-   "street_id": "south_water",
-   "street_name": "South Water Street",
-   "refusal": "this face already holds this proprietor",
-   "detail": "'a new auction and commission room, South Water Street' already stands on this face under the same proprietor surname(s) montgomery in the same trade (auctioneer), which identity.json's two_houses ruling on this surname does not separate, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
-  },
-  {
    "business_id": "business_peter_cohen_s_store",
    "business_name": "Peter Cohen's store",
    "street_id": "south_water",
@@ -2527,22 +2559,6 @@
    "street_name": "Dearborn Street",
    "refusal": "this face already holds this proprietor",
    "detail": "'S. Abell, attorney and counsellor' already stands on this face under the same proprietor surname(s) abell, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
-  },
-  {
-   "business_id": "business_w_montgomery",
-   "business_name": "W. Montgomery",
-   "street_id": "south_water",
-   "street_name": "South Water Street",
-   "refusal": "this face already holds this proprietor",
-   "detail": "'a new auction and commission room, South Water Street' already stands on this face under the same proprietor surname(s) montgomery in the same trade (auctioneer), which identity.json's two_houses ruling on this surname does not separate, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
-  },
-  {
-   "business_id": "business_w_montgomery_auction_and_commission_house",
-   "business_name": "W. Montgomery, Auction and Commission House",
-   "street_id": "south_water",
-   "street_name": "South Water Street",
-   "refusal": "this face already holds this proprietor",
-   "detail": "'a new auction and commission room, South Water Street' already stands on this face under the same proprietor surname(s) montgomery in the same trade (auctioneer), which identity.json's two_houses ruling on this surname does not separate, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
   },
   {
    "business_id": "business_wm_h_taylor",

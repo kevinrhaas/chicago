@@ -644,7 +644,7 @@ class FrameDwellingParams:
                 f"porch '{self.porch}' not in {PORCHES}. A full-width two-tier gallery "
                 f"is a public-house feature and frame_tavern builds it; a record that "
                 f"needs one is a tavern record")
-        if self.paint not in ("unpainted", "white", "whitewash", "red"):
+        if self.paint not in ("unpainted", "white", "whitewash", "red", "yellow"):
             raise ParamError(f"paint '{self.paint}' is not a finish this archetype has "
                              f"a colour for")
         if self.glazing not in GLAZINGS:

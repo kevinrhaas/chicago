@@ -14,28 +14,28 @@
   "data/structures/"
  ],
  "counts": {
-  "businesses": 179,
+  "businesses": 176,
   "published_limits": {
    "structure": 58,
-   "street_only": 59,
+   "street_only": 56,
    "unplaceable": 62
   },
   "adjudicated_grades": {
    "structure_committed": 47,
    "structure_pending": 11,
-   "street_only_adopted": 39,
-   "street_only_unseated": 20,
+   "street_only_adopted": 40,
+   "street_only_unseated": 16,
    "unplaceable": 62
   },
   "households_by_seating_class": {
    "structure": 33,
    "lot": 0,
    "face": 0,
-   "division": 174,
-   "none": 1305
+   "division": 83,
+   "none": 1342
   },
   "moved_between_published_limits": 0,
-  "seats_that_are_substitutable": 39
+  "seats_that_are_substitutable": 40
  },
  "placements": [
   {
@@ -115,19 +115,6 @@
    "register_action_target": null,
    "printed_place": "The paper gives no anchor.",
    "clause": "The paper reaches no street the model holds: the paper gives no anchor."
-  },
-  {
-   "business_id": "business_a_new_auction_and_commission_room_south_water_street",
-   "published_limit": "street_only",
-   "grade": "street_only_adopted",
-   "evidence_reach": "street",
-   "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_franklin_c2_10",
-   "seat_is_substitutable": true,
-   "register_action": "street_only",
-   "register_action_target": "south_water",
-   "printed_place": "woet of J. Wrights, for the purpose",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_10', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_a_new_tailoring_establishment_chicago_june_1835",
@@ -252,12 +239,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_franklin_c4_01",
+   "model_seat": "recon_1835_blk_south_water_franklin_c2_08",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "South Water Street",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c4_01', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_08', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_brown_painter",
@@ -382,12 +369,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_dearborn_c1_08",
+   "model_seat": "recon_1835_blk_south_water_franklin_c4_01",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "their ware house on \\\nSouth water St. five\nof the corner",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c1_08', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c4_01', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_collins_caton",
@@ -447,12 +434,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_dearborn_c2_07",
+   "model_seat": "recon_1835_blk_south_water_dearborn_c1_08",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "town, on South Water-street, a few doors nort\nof Mesars. Newbory & Dole's store, where |",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c2_07', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c1_08', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_d_o_robinson_and_r_a_neff",
@@ -678,15 +665,15 @@
   {
    "business_id": "business_elmira_fowler",
    "published_limit": "street_only",
-   "grade": "street_only_unseated",
+   "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "Dearborn Street",
-   "model_seat": null,
-   "seat_is_substitutable": false,
+   "model_seat": "recon_1835_blk_south_water_dearborn_d2_04",
+   "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "dearborn",
    "printed_place": "street, nearly opposite the new bridge, and",
-   "clause": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: every roof on the face is spoken for."
+   "clause": "The paper reaches 'Dearborn Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_d2_04', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_everson_co",
@@ -824,12 +811,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_dearborn_c3_02",
+   "model_seat": "recon_1835_blk_south_water_dearborn_c2_07",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "Mme sete Sayth Water Street,",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_02', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c2_07', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_henry_moore",
@@ -1006,12 +993,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_franklin_c2_08",
+   "model_seat": "recon_1835_blk_south_water_franklin_c2_09",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "cheap Store, one door West of the Printing Office.",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_08', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_09', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_j_k_botsford",
@@ -1227,12 +1214,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_franklin_c2_09",
+   "model_seat": "recon_1835_blk_south_water_franklin_c2_10",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "South Water Street",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_09', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_franklin_c2_10', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_kercheval_hamilton",
@@ -1305,12 +1292,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_clark_c2_06",
+   "model_seat": "recon_1835_blk_south_water_dearborn_c3_01",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "shove business, next door to’ P. 'Coa en's Btore, will be kept on hand @ good assortment of",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_c2_06', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_01', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_m_cormick_moon",
@@ -1363,19 +1350,6 @@
    "register_action_target": "randolph",
    "printed_place": "es in Crag; in abuild-| Chicago, Fume\ncet, nearly in rear of th :\nbetween clark aad ‘Deer: gcabinp sa",
    "clause": "The paper reaches 'Randolph Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_lake_market_d2_04', which is housing and not a reading: substitutable, no lot, no anchor."
-  },
-  {
-   "business_id": "business_montgomery_auction_and_commission_house",
-   "published_limit": "street_only",
-   "grade": "street_only_unseated",
-   "evidence_reach": "street",
-   "evidence_street": "South Water Street",
-   "model_seat": null,
-   "seat_is_substitutable": false,
-   "register_action": "street_only",
-   "register_action_target": "south_water",
-   "printed_place": "er having taken the Store of\nrer. South Water street, next",
-   "clause": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: this face already holds this proprietor."
   },
   {
    "business_id": "business_mrs_h_sherman",
@@ -1500,12 +1474,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_dearborn_c3_01",
+   "model_seat": "recon_1835_blk_south_water_dearborn_c3_02",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "[uncertain: BAST EXD OF SOETE WATER-STARET,]",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_01', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_dearborn_c3_02', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_peter_cohen_s_store",
@@ -2225,28 +2199,15 @@
   {
    "business_id": "business_w_montgomery",
    "published_limit": "street_only",
-   "grade": "street_only_unseated",
+   "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": null,
-   "seat_is_substitutable": false,
+   "model_seat": "recon_1835_blk_south_water_clark_c2_06",
+   "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
-   "printed_place": "taken David Car-\nver'» Old Stand, Sonth\nWater-Street",
-   "clause": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: this face already holds this proprietor."
-  },
-  {
-   "business_id": "business_w_montgomery_auction_and_commission_house",
-   "published_limit": "street_only",
-   "grade": "street_only_unseated",
-   "evidence_reach": "street",
-   "evidence_street": "South Water Street",
-   "model_seat": null,
-   "seat_is_substitutable": false,
-   "register_action": "street_only",
-   "register_action_target": "south_water",
-   "printed_place": "(hire, SM Re ver’s Ou Stand, Hout",
-   "clause": "The paper reaches a platted street and nothing narrower, and the face could not be adopted: this face already holds this proprietor."
+   "printed_place": "dook westal J. Wrights, for thu purpous of trénete",
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_clark_c2_06', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_w_reed",
@@ -2408,32 +2369,32 @@
   },
   {
    "ticket": "T-0386",
-   "state": "blocked-tech",
-   "owner": "T-0414, which waits on T-0009",
+   "state": "resolved",
+   "owner": "the loop — T-0414 and T-0009 landed, and the rest was a reading",
    "question": "W. Montgomery's auction room takes David Carver's old stand on South Water Street — and both of the paper's anchors are exhausted.",
-   "what_it_costs_today": "The Montgomery entries stay street_only on South Water Street; no storefront stands.",
-   "what_would_resolve_it": "T-0414's identity fix to the street-face adoption, which needs T-0009's roofs because South Water Street is out of supply — or a source that gives Carver's stand an address.",
+   "what_it_costs_today": "Nothing the papers can pay. The auction house was four register headings — the American's description and three Democrat styles of one card — and the adoption could seat only one of them; they are one house now, 'W. Montgomery', keyed by the signature both papers set, and the street-face adoption seats it under its own board. Carver's stand is still no address: the American of 1835-07-04 c012 puts it '[…] doors west of J. Wright's', and Wright's two positions are invented, so the house stays street_only and its roof stays an allocation.",
+   "what_would_resolve_it": "Resolved on 2026-10-03 by firm_merges in data/research/newspapers/identity.json. The guard below holds the RESOLUTION: split the house again, unseat it, or commit a Carver building — the one thing that would let the anchor resolve — and this build fails.",
    "guard": {
-    "reads": "data/research/newspapers/register_1835.json and data/structures/",
-    "expects": "every Montgomery entry is still street_only on south_water, and the town still holds no Carver building",
+    "reads": "data/research/newspapers/register_1835.json, data/research/newspapers/street_face_adoptions.json and data/structures/",
+    "expects": "two Montgomery entries — the bootmaker and the auctioneer — both street_only on south_water, the auctioneer seated on a South Water roof, and still no Carver building",
     "measured": {
      "montgomery_entries": [
       "business_l_w_montgomery_boot_and_shoe_maker",
-      "business_montgomery_auction_and_commission_house",
-      "business_w_montgomery",
-      "business_w_montgomery_auction_and_commission_house"
+      "business_w_montgomery"
      ],
      "still_street_only_on_south_water": [
       "business_l_w_montgomery_boot_and_shoe_maker",
-      "business_montgomery_auction_and_commission_house",
-      "business_w_montgomery",
-      "business_w_montgomery_auction_and_commission_house"
+      "business_w_montgomery"
+     ],
+     "auctioneer_seated": [
+      "business_w_montgomery"
      ],
      "carver_structures": []
     }
    },
    "holds": true,
-   "disposition": "retained"
+   "disposition": "resolved",
+   "resolved_on": "2026-10-03"
   },
   {
    "ticket": "T-1087",

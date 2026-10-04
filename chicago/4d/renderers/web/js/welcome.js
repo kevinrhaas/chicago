@@ -1,6 +1,6 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
 import { scenePresentation } from './scene-presentation.js';
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, onSources = () => {}, isTouch = false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
@@ -49,7 +49,39 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     $('welcome-explore').setAttribute('aria-expanded', String(explore));
     $('welcome-jaunts').setAttribute('aria-expanded', String(!explore));
     if (explore) { onExplore(); render(); search.focus(); }
-    else onJaunts();
+    else {
+      onJaunts();
+      // T-2046: held sideways the compact welcome hides the button that was just
+      // pressed, so focus would fall to the page; give it to the region it opened.
+      if (!$('welcome-jaunts').getClientRects().length) { jaunts.tabIndex = -1; jaunts.focus({ preventScroll: true }); }
+    }
+  }
+  // T-0472. A scene's own interpretive cards: what an event is called, whose accounts
+  // it rests on, where they disagree. The text is the project's; each quote is a
+  // source's words with its attribution, and a held card says so on its face.
+  function about(year) {
+    const cards = (scene.cards || []).filter(card => card && card.title && card.text);
+    const box = $('welcome-about'), list = $('welcome-about-cards');
+    box.hidden = !cards.length; list.replaceChildren();
+    if (!cards.length) return;
+    box.querySelector('summary').textContent = `About ${year}: names, evidence and what is not shown`;
+    for (const card of cards) {
+      const article = document.createElement('article'), h = document.createElement('h3'), p = document.createElement('p');
+      article.className = 'welcome-about-card'; article.dataset.card = card.id;
+      h.textContent = card.title; p.textContent = card.text;
+      article.append(h, p);
+      for (const q of card.quotes || []) {
+        const figure = document.createElement('figure'), quote = document.createElement('blockquote'), cite = document.createElement('figcaption');
+        quote.textContent = `“${q.text}”`; cite.textContent = q.cite;
+        figure.append(quote, cite); article.appendChild(figure);
+      }
+      if (card.review_required) {
+        const held = document.createElement('p');
+        held.className = 'welcome-about-held'; held.textContent = card.review_note;
+        article.appendChild(held);
+      }
+      list.appendChild(article);
+    }
   }
   function show({ focus = true } = {}) {
     pause(); state = 'welcome'; gate.hidden = false; gate.dataset.state = state;
@@ -61,6 +93,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     title.textContent = presentation.welcomeTitle;
     gate.querySelector('.gate-eyebrow').textContent = presentation.eyebrow;
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
+    about(presentation.year);
     $('welcome-jaunts').querySelector('span').textContent = `Short outings in Chicago, ${presentation.year}`;
     $('gate-btn').textContent = isTouch ? 'Tap to enter Chicago' : 'Enter Chicago';
     $('gate-btn').disabled = false;
@@ -86,6 +119,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     if (state !== 'welcome' || !hasEntered() || !resume()) return false;
     state = 'world'; gate.dataset.state = state; $('btn-start').focus(); return true;
   }
+  $('welcome-sources').addEventListener('click', onSources);
   $('welcome-jaunts').addEventListener('click', () => region('jaunts'));
   $('welcome-explore').addEventListener('click', () => region('explore'));
   $('welcome-jaunts-explore').addEventListener('click', () => region('explore'));
@@ -99,8 +133,8 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     event.stopImmediatePropagation();
     if (event.key === 'Escape') { event.preventDefault(); returnToWorld(); }
     if (event.key !== 'Tab') return;
-    const controls = [...gate.querySelectorAll('button:not(:disabled), input')]
-      .filter(el => el.getClientRects().length);
+    const controls = [...gate.querySelectorAll('button:not(:disabled), input, select:not(:disabled), a[href]')]
+      .filter(el => el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
     const first = controls[0], last = controls.at(-1);
     if (event.shiftKey && (document.activeElement === first || document.activeElement === title)) {
       event.preventDefault(); last?.focus();

@@ -34,7 +34,7 @@
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1833,
+  "value": 1834,
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-10-22 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
@@ -127,15 +127,6 @@
    "occupation": {
     "value": "shoemaker",
     "confidence": "inferred",
-    "later_occupation": {
-     "value": "(Dan. Taylor)",
-     "describes_date": 1839,
-     "confidence": "attested",
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ],
-     "note": "A TRADE RECORDED FOR 1839, BESIDE A TRADE READ FOR 1835. This is a POINTER at `directories.people[].occupation_later` on this same record, derived by `tools/qualify_later_trades.py` and holding nothing that block does not already say. The 1835 field above no longer reads `none_recorded`: T-1299 admitted the press roles whose bound contains the scene date into it, and that field is a GENERATED VIEW of `roles[]` rather than a second assertion. The pointer stays anyway, and this is the second clause of rule 2. IT IS NO LONGER WHAT PUTS THE 1839 ROW ON THE CARD: T-1515 reads the 1839 directory off its own crosswalk whatever the 1835 field holds, so the printing reaches `roles[]` with or without this pointer, and what the pointer adds is the wording as the CARD received it rather than the row itself. When this note said the opposite it was describing the fault T-1299 filed, not a rule. It is still not a claim about the scene date: a directory of 1839 is evidence about 1839 (T-0693, second clause by T-1299, demoted to a convenience by T-1515)."
-    },
     "note": "A TRADE READ FOR 1835-07-01 OUT OF THIS CARD'S OWN ROLES. `shoemaker` is the strongest claiming role in `roles[]` whose bound contains the scene date, and the grade above is that row's: `inferred` where the evidence is a trade printed against this name in the 1833-1835 press, because the paper printed the trade and the resident programme's identity rule tied the printing to this card. The field used to read `none_recorded` while the row beneath it said the evidence reached the day — the four tools that derive this field disagreed, and T-1299 is where they were made to agree (written by tools/derive_resident_roles.py).",
     "derived_from": "roles",
     "roles_at_scene_date": [
@@ -362,7 +353,7 @@
      "claim": "f1839_e1479",
      "place": "not_stated",
      "employer_or_body": "not_stated",
-     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream. SYNONYM-FOLDED (T-1254): the same source prints this role as (Dan. Taylor) as well, and one source asserting one role over one bound is one row.",
+     "note": "A TRADE PRINTED IN THE 1839 DIRECTORY, 4 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on. An address NUMBER in the 1839 directory is 1876's and not 1839's, on the compiler's own statement on printed page 3, so `place` carries the street NAME the entry names and the number is dropped — the crosswalk's own `address_rule`, applied here rather than tripped over downstream.",
      "premises": null
     },
     {
@@ -616,16 +607,7 @@
   ],
   "people": [
    {
-    "person_id": "taylor_william_h",
-    "occupation_later": {
-     "value": "(Dan. Taylor)",
-     "confidence": "attested",
-     "describes_date": 1839,
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ],
-     "note": "Fergus's Chicago directory of 1839 prints this trade against this person, in the entry quoted on the card: 'Taylor, William H., (Dan. Taylor)'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
-    }
+    "person_id": "taylor_william_h"
    }
   ]
  }

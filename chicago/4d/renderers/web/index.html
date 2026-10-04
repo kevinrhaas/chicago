@@ -71,10 +71,15 @@
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div id="welcome" hidden>
       <p class="welcome-intro">You are entering a digital reconstruction of the town as it stood on 1 July 1835, built from the sources listed under Evidence.</p>
+      <details id="welcome-about" class="welcome-about" hidden>
+        <summary></summary>
+        <div id="welcome-about-cards"></div>
+      </details>
       <div class="welcome-actions">
         <button id="welcome-jaunts" class="welcome-action primary" aria-expanded="false" aria-controls="welcome-jaunts-region"><strong>Jaunts</strong><span>Short stories through the town</span></button>
-        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>Explore on my own</strong><span>Choose where to begin…</span></button>
+        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>I’ll Explore Myself</strong><span>Starting At…</span></button>
       </div>
+      <button id="welcome-sources" class="welcome-link">Sources &amp; City</button>
       <section id="welcome-jaunts-region" class="welcome-region" aria-label="Jaunts" hidden>
         <div id="welcome-jaunts-content"><p>Choose Jaunts to see the first route preview.</p></div>
         <button id="welcome-jaunts-explore" class="welcome-link">Explore on my own instead</button>

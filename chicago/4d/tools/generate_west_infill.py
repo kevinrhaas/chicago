@@ -91,7 +91,8 @@ from family_bands import (eave_floor, eave_for_ridge,  # noqa: E402
 from ridge_model import ridge_run_m  # noqa: E402
 from roof_form import note_refusal, roof_kind  # noqa: E402
 from house_front import bays_for, plan_for  # noqa: E402
-from inferred_occupancy import occupancy  # noqa: E402
+from inferred_occupancy import (keeper_assignments, keeper_refusals,  # noqa: E402
+                                occupancy)
 # T-1806. The H2 house here is a boarding house in the lodging model, so its upper
 # windows and stovepipes are sized from its beds by the H3's rule (L318, L324).
 from boarding_house_beds import (  # noqa: E402
@@ -112,6 +113,19 @@ CORRIDOR_LINE_WHY = (
 )
 
 OCCUPANCY = occupancy()
+# T-1691. The platted deal's keepers hand over a second block, `resident_assignment` —
+# `assigned` with the household id where tools/name_the_keepers_1835.py wrote a keeper,
+# `unassigned` with the reason where it refused one — exactly as generate_block_infill.py
+# has spent it since T-1638 and T-1675. Without it a keeper's prose would reach this
+# layer's roof and its id would not, and the deal's own adoptable() would read the roof as
+# held by a rival claim and seat the household elsewhere on its next re-derivation.
+ASSIGNMENTS = keeper_assignments()
+REFUSALS = keeper_refusals()
+if set(ASSIGNMENTS) & set(REFUSALS):
+    raise SystemExit("data/reconstruction/1835_roof_keepers.json writes and refuses the "
+                     "same roof(s): %s — re-run tools/name_the_keepers_1835.py --build"
+                     % ", ".join(sorted(set(ASSIGNMENTS) & set(REFUSALS))))
+ASSIGNMENTS = {**ASSIGNMENTS, **REFUSALS}
 FAMILIES = families()
 
 # T-1827. A WEST H2 IS A BOARDING HOUSE BY `FUNCTIONS` BELOW, EXCEPT WHERE THE PLATTED DEAL
@@ -589,7 +603,13 @@ STREET_ADJUSTMENTS = {
     # layout coordinates, the largest is 13.25 m, and no roof leaves the cluster it was
     # dealt into. Nothing is re-dealt into a different family, rectangle, finish or age:
     # `seq` is untouched, so only the seat moves.
-    "west_rec_005": (0.00, 4.00),    # Fulton Street, 3.72 m in; clears by 0.28 m
+    # west_rec_005 was 4.00 here and cleared Fulton's DRAWN corridor by 0.28 m. T-1414
+    # put Fulton into the platted corridor layer (street_control.json § west_bank), and
+    # the layer's intrusion gate measures against the CONTROL line, which `fulton_canal`
+    # sets 0.35 m north of the drawn one: the roof lapped it by 0.07 m. Half a metre
+    # further, on the same perpendicular, clears the drawn corridor by 0.78 m and the
+    # control corridor by 0.43 m, both past this table's quarter-metre margin.
+    "west_rec_005": (0.00, 4.50),    # Fulton Street, 3.72 m in; clears by 0.43 m
     "west_rec_006": (0.00, 5.00),    # Fulton Street, 4.61 m in; clears by 0.39 m
     "west_rec_030": (-3.75, 0.00),   # Jefferson Street, 3.28 m in; clears by 0.47 m
     "west_rec_033": (-4.25, 0.00),   # Jefferson Street, 3.80 m in; clears by 0.45 m
@@ -688,9 +708,11 @@ HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
 # leaving is itself recorded here as the release T-1545 asked the set to record.
 #
 # WHAT THIS DOES NOT DO — and it is the larger question, filed as its own ticket rather
-# than answered here: the corridor LAYER still omits 46 of the 79 streets this project
-# draws, so this parcel is the only one measured against them. Turning that gate on
-# town-wide would go red on records nobody has adjudicated.
+# than answered here: the corridor LAYER still omits 35 of the 79 streets this project
+# draws (46 until T-1414 took in Carroll, Fulton, Des Plaines and Wabansia's seven), so
+# this parcel is the only one measured against them. Jefferson and West Water are two of
+# the 35, held out of the layer in street_control.json § west_bank with the reason for
+# each. Turning that gate on town-wide would go red on records nobody has adjudicated.
 WEST_DIVISION_CORRIDOR_OCCUPANTS: set[tuple[str, str]] = set()
 
 
@@ -828,6 +850,7 @@ def make_record(row: dict, seq: int, datum: dict) -> dict:
         "function": inferred(function, function_why),
         **({"occupants": OCCUPANCY[sid]} if sid in OCCUPANCY else {}),
         "reconstruction": reconstruction,
+        **({"resident_assignment": ASSIGNMENTS[sid]} if sid in ASSIGNMENTS else {}),
         "research_note": ("RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. "
                           "Aggregate mix follows the supplied specification; exact presence, "
                           "position, footprint, finish and instance-level form are interpretive."

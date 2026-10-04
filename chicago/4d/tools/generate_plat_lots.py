@@ -149,6 +149,30 @@ def _north_bank_axes() -> tuple[list[str], list[str]]:
 NORTH_EW_STREETS, NORTH_NS_STREETS = _north_bank_axes()
 
 
+def _west_bank_axes() -> tuple[list[str], list[str]]:
+    """The West Division's and Wabansia's corridor streets, READ OUT OF THE CONTROL FILE.
+
+    T-1414, the sibling of `_north_bank_axes` and built on the same principle: no street
+    id is written here. The tiers, their sheets and widths, and the two streets held out
+    of the layer with the measurement that holds them (West Water, cut from the waterline;
+    Jefferson, whose line north of Kinzie crosses a Wabansia block the survey draws whole)
+    are in `data/traces/street_control.json` § `west_bank`. The Original Town streets
+    that cross the river — Lake, Randolph, Washington, Canal, Clinton — are already in
+    `EW_STREETS`/`NS_STREETS` and the block does not repeat them.
+    """
+    control = json.loads((DATA / "traces" / "street_control.json").read_text(
+        encoding="utf-8"))
+    ew: list[str] = []
+    ns: list[str] = []
+    for tier in (control.get("west_bank") or {}).get("tiers", {}).values():
+        ew += list(tier.get("axis", {}).get("ew") or [])
+        ns += list(tier.get("axis", {}).get("ns") or [])
+    return ew, ns
+
+
+WEST_EW_STREETS, WEST_NS_STREETS = _west_bank_axes()
+
+
 def _addition_axes() -> tuple[list[str], list[str]]:
     """Kinzie's Addition's BLOCK grid, by axis, READ OUT OF THE COMMITTED FILES.
 
@@ -289,8 +313,8 @@ def grids() -> list[dict]:
 
 # What `corridor_rings` covers, and therefore what `plat_corridors.intrusion` can
 # report. A superset of the block lists above, never a substitute for them.
-CORRIDOR_EW = EW_STREETS + NORTH_EW_STREETS
-CORRIDOR_NS = NS_STREETS + NORTH_NS_STREETS
+CORRIDOR_EW = EW_STREETS + NORTH_EW_STREETS + WEST_EW_STREETS
+CORRIDOR_NS = NS_STREETS + NORTH_NS_STREETS + WEST_NS_STREETS
 
 SOURCE_IDS = ["thompson_plat_1830", "hathaway_1834", "wright_1834", "osm_streets_2026"]
 
@@ -2740,8 +2764,9 @@ def corridor_rings(lines: dict, half_width: float) -> dict:
     building beyond a street's drawn end is not reported as standing in it.
 
     Since T-1191 the layer is `CORRIDOR_EW`/`CORRIDOR_NS` — the block grid plus the
-    north bank — and each ring is cut at the street's OWN corridor width, so Kinzie's
-    Addition's 22.17 m corridors are not drawn as the Original Town's 24.384 m ones.
+    north bank, and since T-1414 the West Division's tiers and Wabansia — and each ring
+    is cut at the street's OWN corridor width, so Kinzie's Addition's 22.17 m corridors
+    are not drawn as the Original Town's 24.384 m ones.
     `half_width` remains the fallback for records that declare no width of their own.
     """
     rings = {}

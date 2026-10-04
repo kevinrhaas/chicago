@@ -50,6 +50,7 @@ import { loadAgencies } from './agencies.js';
 import { createFencedGround } from './yards.js';
 import { createSignage } from './signage.js';
 import { createYardGoods } from './yard.js';
+import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
 import { createWharves } from './wharves.js';
@@ -622,7 +623,57 @@ const DETAIL_DECLARED = {
   // 2026-09-15. Re-reading it against 1,725,000 / 1,490,000 / 825,000 would
   // change the wood a visitor sees at `balanced` and `light`, which is not a
   // budget's job; it stays as stated there.
-  full:     { triangles: 1845000, shadowReachM: 240, furnitureCastsShadow: true,
+  //
+  // T-0192, 2026-10-03 — THE CROSS STREETS' OWN RAISE. The seven north-south
+  // streets (Market to State) take the plank walk the four east-west streets
+  // carry, by the same rule: 46 platted faces, +4,764.9 m of walk and +47 board
+  // crossings, the record going 47 faces / 3,865.7 m to 93 / 8,630.6 m. It was
+  // refused on 2026-08-29 for want of headroom; T-1969/T-1975 re-set the
+  // budget, and the owner's queue note of 2026-10-03 asked for the seven to be
+  // priced and argued HERE, with `light` the floor. Read with
+  // `tools/measure_detail_ceilings.mjs`, published mirrors of dev @ d8b7748d
+  // and of this branch, T-0135's five stands, desktop 1280x800, same run:
+  //
+  //   tier      dev worst                 with the seven            delta there
+  //   full      1,857,267 Lake at Canal   2,120,153 Lake at Canal   +262,886
+  //   balanced  1,626,744 Lake at Canal   1,801,124 Lake at Canal   +174,380
+  //   light       851,431 the forks         856,275 the forks          +4,844
+  //   calls       224 at `full`             259 at `full`                 +35
+  //
+  // dev was ALREADY over `full` and `balanced` (by 12,267 and 11,744) before a
+  // board was laid — parcels merged since T-1987 — so the rule below carries
+  // that too; it is the rule of T-1975 and T-1987, unchanged: worst stand plus
+  // T-0672's recorded headroom, rounded up to 5,000.
+  //
+  //   full      2,120,153 + 18,059 = 2,138,212 -> 2,140,000
+  //   balanced  1,801,124 + 16,806 = 1,817,930 -> 1,820,000
+  //   calls     259 + 15 = 274 -> 275 (`BUDGET` below)
+  //
+  // Mobile reads lower at every tier, so desktop sets it. `light` IS NOT
+  // SPENT: it does not draw the cross streets' walks (`light.crossStreetWalks`),
+  // which takes Lake and Market from 798,916 back to 738,536 and the open aerial
+  // from 838,167 to 822,297 — inside 825,000. What is left at `light` (+4,844 at
+  // the forks, +9,204 at the aerial) is not the boards, which are hidden there;
+  // the walks still keep the sward and the planting off their own strips at
+  // every tier, and that redistribution is the inferred remainder — it was not
+  // attributed layer by layer on dev. The forks were over on dev already;
+  // that rung is T-1976's to win back by a trim, not this ticket's to spend.
+  // T-2015, 2026-10-03: final integration with dev b06a063a includes the
+  // T-0192 cross-street walks and T-2014 distant shrubs. Six published stands,
+  // desktop 1280x800 and narrow 390x780, two production steps per settled view:
+  // full worst 2,456,812 at west prairie; balanced worst 1,860,932 there.
+  // Preserve the defended margins, rounding UP to 5,000:
+  // full +18,059 -> 2,475,000; balanced +16,806 -> 1,880,000.
+  // These price the combined scene; they do not attribute other PRs' geometry
+  // to the foliage upgrade. The owner explicitly authorized measured raises.
+  // Receipt: docs/RESEARCH/vegetation-quality/integrated-ceilings.json.
+  // The ordinary animation-loop smoke remains the release gate.
+  // T-2035/T-2037: persistent same-root clumps retain visible plants during
+  // motion. Integrated desktop six-stand maxima after zero-area tip removal:
+  // full 2,820,988 +18,059 ->2,840,000; balanced 2,127,277 +16,806 ->2,145,000.
+  // The owner authorized measured increases at 16:35 CDT, 2026-10-03.
+  // Draw-call limits remain unchanged; these costs are not an FPS benchmark.
+  full:     { triangles: 2840000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -631,7 +682,19 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '2,840,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
+                + 'at 16:35 CDT. Integrated dev a9c98af7, six published desktop '
+                + 'stands after zero-area tuft-tip removal: worst 2,820,988 and '
+                + '282 calls at west prairie; +18,059 rounded up to 5,000. '
+                + 'Same-root vegetation carries remain visible during motion. '
+                + 'Previously 2,475,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+                + 'six published stands, worst 2,456,812 at west prairie, 1280x800; '
+                + 'the defended 18,059 rounded up to 5,000. Before it: '
+                + '2,140,000 set 2026-10-03 (T-0192) for the seven cross '
+                + "streets' plank walks: worst 2,120,153 at Lake Street at Canal at "
+                + '1280x800 with them, +262,886 there on dev @ d8b7748d, plus '
+                + "T-0672's 18,059 rounded up to 5,000. Before it: "
+                + '1,845,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,778,094 (the block above "
                 + "`full`), plus T-0672's 18,059 rounded up to 5,000. Before it: "
                 + '1,800,000 set 2026-10-02 (T-1959), the woodpiles\u2019 own '
@@ -733,11 +796,23 @@ const DETAIL_DECLARED = {
   // reading and the rule are in the block above `full`.
   // T-1987, 2026-10-02: 1,565,000 -> 1,615,000 for the road's ridge, by the
   // same rule — the reading is in the block above `full`.
-  balanced: { triangles: 1615000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2145000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
+              measured: '2,145,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
+                + 'at 16:35 CDT. Integrated dev a9c98af7, six published desktop '
+                + 'stands after zero-area tuft-tip removal: worst 2,127,277 and '
+                + '248 calls at west prairie; +16,806 rounded up to 5,000. '
+                + 'Same-root carries and exact distant walk tops remain visible. '
+                + 'Previously 1,880,000 set 2026-10-03 (T-2015), including dev b06a063a: '
+                + 'six published stands, worst 1,860,932 at west prairie, 1280x800; '
+                + 'the defended 16,806 rounded up to 5,000. Before it: '
+                + '1,820,000 set 2026-10-03 (T-0192) for the seven cross '
+                + "streets' plank walks: worst 1,801,124 at Lake Street at Canal at "
+                + "1280x800 with them, +174,380 there, plus T-0672's 16,806 rounded "
+                + 'up to 5,000. Before it: '
+                + '1,615,000 set 2026-10-02 (T-1987) for the road laid on the '
                 + "cells' ridge, +48,628 at every stand on 1,545,215, plus T-0672's "
                 + '16,806 rounded up to 5,000. Before it: '
                 + '1,565,000 set 2026-10-02 (T-1959) for the woodpiles by the '
@@ -800,7 +875,23 @@ const DETAIL_DECLARED = {
   // moves -- no geometry, no reach, no shadow tier, no cull. This is only the
   // ceiling following a trim DOWN, which T-0149 named as the strongest evidence
   // that a trim worked.
-  light:    { triangles: 825000, shadowReachM: 120, furnitureCastsShadow: false,
+  // T-2015, 2026-10-03: the owner explicitly authorized budget increases in
+  // this session. The expanded six-stand sweep finds 887,259 at west prairie
+  // after full -> light, despite every original stand being 2,720-20,480
+  // triangles cheaper than before. 887,259 + the prior 21,933 margin, rounded
+  // up to 5,000, gives 910,000. This changes the declared ceiling, not geometry,
+  // plant density, visibility reach or the separate 90-call light cap. It is
+  // an explicit owner-authorized exception to the repository's standing
+  // keep-825,000 guidance; light remains the least expensive rung.
+  // Final b06a063a integration reads 885,447 at desktop prairie and 790,681
+  // at narrow prairie; the initial 910,000 ceiling still carries both.
+  // T-2035/T-2037, 2026-10-03: the owner again authorized a measured increase
+  // at 16:35 CDT. Same-root grass carries and exact distant walk tops cost
+  // 1,015,035 at desktop prairie and 920,708 at mobile prairie after deleting
+  // zero-area tuft-tip triangles. Retain the prior 21,933 margin, rounded up
+  // to 5,000: 1,040,000. This knowingly raises the weak-device triangle budget;
+  // it does not establish consumer FPS. The separate 90-call cap is unchanged.
+  light:    { triangles: 1040000, shadowReachM: 120, furnitureCastsShadow: false,
               furnitureReachM: FURNITURE_REACH_LIGHT_M,
               groundDetailReachM: GROUND_DETAIL_REACH_LIGHT_M,
               // T-1959: NO WOODPILES AT `light`. They are one mesh for the whole
@@ -810,10 +901,29 @@ const DETAIL_DECLARED = {
               // trimmed back inside 825,000, which is won back, never spent. `full`
               // and `balanced` draw them, and `applyFurnitureReach` hides them here.
               woodpiles: false,
+              // T-0192: NO CROSS-STREET WALKS AT `light` either. The seven
+              // north-south streets' plank walks (4,765 m, 46 faces) cost this
+              // rung +25,074 at the open aerial and +56,584 at Lake and Market,
+              // desktop 1280x800 (the reading is in the block above `full`), on
+              // a rung that is already over at the forks on dev. The floor is
+              // won back, never spent: `full` and `balanced` draw them.
+              crossStreetWalks: false,
               protects: 'the weak-machine floor \u2014 the tier a touch device and a '
                 + 'machine without a GPU boot into, and the only rung that is a '
                 + 'promise to a person rather than a budget for a parcel',
-              measured: '825,000 set 2026-09-03, the one raise of this rung ever '
+              measured: '1,040,000 set 2026-10-03 (T-2035/T-2037), explicitly authorized '
+                + 'by the owner at 16:35 CDT. Published six-stand worst after dev '
+                + 'a9c98af7 and zero-area tuft-tip removal: desktop 1,015,035 and '
+                + 'mobile 920,708, both at west prairie; maximum calls 77/75. '
+                + 'Preserves a 21,933 triangle margin rounded up to 5,000; '
+                + '90 calls unchanged. Same-root carries and exact far walk tops '
+                + 'remain visible; this is not a consumer frame-rate claim. '
+                + 'Previously 910,000 set 2026-10-03 (T-2015), explicitly authorized by '
+                + 'the owner. Published six-stand worst 887,259 at west prairie after '
+                + 'full -> light; +21,933 rounded up to 5,000. Existing-view geometry '
+                + 'decreases versus baseline; density, reach and 90 calls are unchanged. '
+                + 'Final integration with dev b06a063a reads 885,447 at desktop prairie. '
+                + 'Before this exception: 825,000 set 2026-09-03, the one raise of this rung ever '
                 + 'taken and taken only on a second explicit ruling. BACK INSIDE BY A '
                 + 'TRIM, T-1976, 2026-10-02: furniture reach 350 -> 250 m, detailed '
                 + 'ground 600 -> 240 m, tree keep 0.225 -> 0.191, all at this rung '
@@ -989,7 +1099,16 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // that stand and fit, and the parcel after them argues its own. `light`'s own
 // 90-call floor in `tools/smoke_renderer.mjs` is a separate promise and does
 // NOT move — it reads 102 and is T-1976's to win back by a trim.
-const BUDGET = { drawCalls: 240, triangles: DETAIL.full.triangles };
+//
+// T-0192, 2026-10-03: 240 -> 275 for the cross streets' walks. A chunk is one
+// block face and the seven add 46 of them, so the worst frame went 224 -> 259
+// calls at `full` down Lake Street from Canal at 1280x800 (dev @ d8b7748d and
+// this branch, same run); 259 + 15 = 274, rounded up to 5. `light` draws none
+// of them and its 90-call floor does not move (72 at Lake and Market).
+// T-2015: the six-stand integration sweep includes west prairie, where the
+// narrow viewport reaches 277 calls (desktop 276). The defended 15-call margin,
+// rounded up to five, gives 295. Light peaks at 74 and keeps its 90-call cap.
+const BUDGET = { drawCalls: 295, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
@@ -1118,6 +1237,10 @@ const api = {
   structureVersion: null,
 };
 window.__chicago4d = api;
+// The gate is up exactly when no control backend is live, so its hint row cannot wait
+// for one: it follows the device's best guess (T-2045). A phone was shown W A S D and
+// Esc through the whole arrival, on a failed boot, and back on the welcome.
+document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
 const bootController = createBoot({
@@ -1281,6 +1404,22 @@ async function boot() {
   const layerBase = (layer) => (draws(layer) ? bases.dataBase : null);
   const layerProblems = (layer) => (draws(layer) ? problems : []);
   api.sceneLayers = [...sceneLayers];
+  /**
+   * T-1740 — AND THE DRAWER FOLLOWS THE SAME LIST. The sections and Evidence topics
+   * below read the 1835 town's records just as the drawn layers do — its residents,
+   * its firms, its animals and plants, its census, its research record of buildings
+   * left out — so the 1904 scene was offering 1,421 households of 1835, 286 of its
+   * firms and its order book under a 1904 badge. Each one is now offered only by a
+   * scene that lists the layer it reads; one that does not gets no tab, no tile and
+   * no fetch, rather than a panel saying it failed to load.
+   */
+  const DRAWER_TABS = { people: 'residents', businesses: 'businesses' };
+  const DRAWER_TOPICS = {
+    city: 'residents', population: 'residents', orderbook: 'residents',
+    fauna: 'fauna', plants: 'flora', exclusions: 'exclusions', uncertain: 'exclusions',
+  };
+  const notListed = (map) => Object.keys(map).filter((id) => !draws(map[id]));
+  api.drawerOmitted = { tabs: notListed(DRAWER_TABS), topics: notListed(DRAWER_TOPICS) };
   api.registry = loaded.registry;
   // The survey junctions the Go-to menu offers, from the same list the menu is
   // built from. Exposed because the smoke asserted the menu's junction count
@@ -1306,6 +1445,7 @@ async function boot() {
     epochId: loaded.scene.terrain_epoch,
     // The sand belt and the marsh are painted from the 1835 plant zones' extents.
     substrateBase: layerBase('flora'),
+    sceneId: loaded.scene.id ?? YEAR,
     confidence,
     problems,
   });
@@ -1724,10 +1864,13 @@ async function boot() {
         // A woodpile mesh its tier does not draw (T-1959) is neither the reach's
         // nor the far merge's to show again.
         if (o.parent?.userData.woodpiles && !o.parent.visible) return;
+        // …and the same for a cross street's walk at a tier that leaves the
+        // cross streets out (T-0192, `light.crossStreetWalks`).
+        if (o.userData.crossStreet && !o.visible) return;
         // The merged far batches (T-0146) are drawn FROM these chunks, not
         // alongside them: banking one would have the reach culling a batch and
         // the batch drawing the chunks the reach had just culled.
-        if (o.userData.farMerged) return;
+        if (o.userData.farMerged || o.userData.farWalkTops) return;
         if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
         const sph = o.geometry.boundingSphere?.clone();
         if (!sph) return;
@@ -1757,6 +1900,12 @@ async function boot() {
     // furniture is banked, so a hidden one is never banked (see `light.woodpiles`).
     scene3d.getObjectByName('yard')?.traverse((o) => {
       if (o.userData.woodpiles) o.visible = want.woodpiles !== false;
+    });
+    // T-0192: the cross streets' plank walks, by the same mechanism and for the
+    // same reason — hidden BEFORE the furniture is banked, so the reach and the
+    // far merge never show one again.
+    scene3d.getObjectByName('frontage')?.traverse((o) => {
+      if (o.userData.crossStreet) o.visible = want.crossStreetWalks !== false;
     });
     collectFurniture();
     farMerge.rebuild(furniture.spheres);
@@ -1802,6 +1951,11 @@ async function boot() {
     // After the reach and never before it: a cluster with a member the reach is
     // holding back is left chunked, which is read off the flag just written.
     farMerge.update();
+    // Ground-hugging walk tops survive only their source chunk's reach cull.
+    // The tier exclusion is explicit: a stale cull flag must not resurrect a
+    // cross-street walk after switching to light.
+    frontage.updateFarWalks?.(camera,
+      (DETAIL[detailLevel] ?? DETAIL.full).crossStreetWalks !== false);
   }
   applyFurnitureReach(detailLevel);
   /** T-1976 — the ground's half of the tier: how far the detailed tiles reach
@@ -1832,6 +1986,16 @@ async function boot() {
   // the worked river bank: no willow on a dock approach. The fences above still
   // do not reach them, for the reason given there.
   const treesBlocked = (e, n) => streets.blocksGrowth(e, n) || workingBank.blocksTrees(e, n);
+  // T-2094. Past the cleared track the rest of an opened street's corridor is
+  // trodden: flora.js crops a turf community's tall plants there to the turf's
+  // own height (`streets.verge` says where; the zone record says how tall).
+  // T-2086 — THE KEPT YARDS. The forb layer alone stands back inside a lot's
+  // kept ring (the yard layer carries the record), and a stated share of its
+  // weeds is re-seated in the strip along the lot lines; the back corners and
+  // the foot of an outbuilding keep theirs where they stood.
+  const kept = keptGround((yard.records ?? []).find((r) => r.id === 'town_kept_ground') ?? null);
+  api.keptGround = kept;
+  const forbSeat = kept.forbSeat;
 
   let floraUnits = 0, floraDone = 0, treeDone = 0;
   const plantingProgress = (done, total) => {
@@ -1841,8 +2005,8 @@ async function boot() {
   };
   let flora = await createFlora({
     checkpoint: bootCheckpoint,
-    dataBase: layerBase('flora'), terrain, footprints: planting,
-    growthBlocked: swardBlocked,
+    dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
+    growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
     confidence, problems: layerProblems('flora'), ...detailOpts(),
   });
   scene3d.add(flora.group);
@@ -1853,7 +2017,7 @@ async function boot() {
       floraDone += done - treeDone; treeDone = done;
       bootController.progress('flora', floraDone, floraUnits);
     },
-    dataBase: layerBase('flora'), terrain, footprints: planting,
+    dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
     growthBlocked: treesBlocked,
     confidence, problems: layerProblems('flora'), pixelsPerRadian,
     streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
@@ -1906,12 +2070,12 @@ async function boot() {
           next.buildings.group.visible = buildings.group.visible;
         }
         next.flora = await createFlora({
-          dataBase: layerBase('flora'), terrain, footprints: planting,
-          growthBlocked: swardBlocked,
+          dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
+          growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
           confidence, problems: layerProblems('flora'), detail: level,
         });
         next.trees = await createTrees({
-          dataBase: layerBase('flora'), terrain, footprints: planting,
+          dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
           growthBlocked: treesBlocked,
           confidence, problems: layerProblems('flora'), pixelsPerRadian,
           streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
@@ -2007,8 +2171,8 @@ async function boot() {
       scene3d.remove(flora.group);
       flora.dispose?.();
       flora = await createFlora({
-        dataBase: layerBase('flora'), terrain, footprints: planting,
-        growthBlocked: swardBlocked,
+        dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
+        growthBlocked: swardBlocked, verge: streets.verge, forbSeat,
         confidence, problems: layerProblems('flora'), ...detailOpts(),
       });
       scene3d.add(flora.group);
@@ -2016,7 +2180,7 @@ async function boot() {
       scene3d.remove(trees.group);
       trees.dispose?.();
       trees = await createTrees({
-        dataBase: layerBase('flora'), terrain, footprints: planting,
+        dataBase: layerBase('flora'), terrain, footprints: planting, sceneId: loaded.scene.id ?? YEAR,
         growthBlocked: treesBlocked,
         confidence, problems: layerProblems('flora'), pixelsPerRadian,
         streetRecords: draws('streets') ? (loaded.index?.streets ?? []) : [],
@@ -2119,7 +2283,7 @@ async function boot() {
   // them (T-1325). The index is one file and the crosswalk is one fold of it; a
   // person's card and a building's card both ask it the same two questions, so
   // neither is allowed to fold 196 rows for itself.
-  api.businessIndex = await (async () => {
+  api.businessIndex = !draws('businesses') ? null : await (async () => {
     try {
       const res = await fetch(new URL('businesses/index.json', bases.dataBase), { cache: 'no-cache' });
       if (res.ok) return res.json();
@@ -2209,8 +2373,10 @@ async function boot() {
     });
     void sourcesPromise.then(view => { if (api.evidenceHub.topic === 'sources') view?.show(); });
   };
+  hud.omitTabs(api.drawerOmitted.tabs);
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
+    omit: api.drawerOmitted.topics,
     onTopic: id => { if (id === 'sources') openSources(); },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
@@ -2219,7 +2385,7 @@ async function boot() {
   // MutationObserver replaces the City tile's ellipsis when both files paint.
   let cityCensusPromise = null;
   const ensureCityCensus = () => {
-    if (!cityCensusPromise) {
+    if (!cityCensusPromise && draws('residents')) {
       cityCensusPromise = mountCityCensus({
         dataBase: bases.dataBase,
         root: document.getElementById('city'),
@@ -2283,7 +2449,7 @@ async function boot() {
   // is exactly why nobody noticed that a household with no attested residence
   // and no attested workplace attaches to no building and so reached no card
   // anywhere: ROADMAP K52. Nothing of it is drawn; this is the record, on a card.
-  api.residents = await mountResidents({
+  api.residents = !draws('residents') ? null : await mountResidents({
     mount: document.getElementById('residents'),
     noteMount: document.getElementById('residents-note'),
     dataBase: bases.dataBase,
@@ -2303,7 +2469,7 @@ async function boot() {
 
   // …and the same people as a DIRECTORY: one row a person, searchable and
   // filterable, with the way to the building they lived or worked at.
-  try { api.people = await mountPeople({
+  if (draws('residents')) try { api.people = await mountPeople({
     mount: document.getElementById('people-directory'),
     people,
     registry: loaded.registry,
@@ -2320,6 +2486,7 @@ async function boot() {
   });
   bootController.end('people');
   } catch (err) { bootController.fail('people', err); }
+  else bootController.end('people');
 
   // …and the town's FIRMS, which until now reached a visitor only through the
   // roof they stood in. 166 of the 196 the register knows have no roof here — 26
@@ -2328,7 +2495,7 @@ async function boot() {
   // thing this project will not do to make them visible is invent a building for
   // them. So they get a directory and a card: every firm findable by trade,
   // street, grade and how far the record could place it, and every limit printed.
-  api.businesses = await mountBusinesses({
+  api.businesses = !draws('businesses') ? null : await mountBusinesses({
     mount: document.getElementById('businesses-directory'),
     index: api.businessIndex,
     registry: loaded.registry,
@@ -2353,7 +2520,7 @@ async function boot() {
   // nothing: ROADMAP K42 measured that no renderer source opened the directory
   // and the publish step did not copy it, so the layer stopped at the
   // repository. Nothing of it is drawn; this is the record, on a card.
-  api.fauna = await mountFauna({
+  api.fauna = !draws('fauna') ? null : await mountFauna({
     mount: document.getElementById('fauna'),
     noteMount: document.getElementById('fauna-note'),
     dataBase: bases.dataBase,
@@ -2367,7 +2534,7 @@ async function boot() {
   // the ten communities ask for more small plants than the sward lattice can
   // hold, and until this section the share a visitor actually stands in was
   // declared in docs/STATUS.md and nowhere a visitor reads.
-  api.plants = await mountPlants({
+  api.plants = !draws('flora') ? null : await mountPlants({
     mount: document.getElementById('plants'),
     noteMount: document.getElementById('plants-note'),
     dataBase: bases.dataBase,
@@ -2380,7 +2547,7 @@ async function boot() {
   // …and the third category, which neither of those can hold: researched, and
   // still open. One of the four is standing in the scene, so it cannot go on the
   // not-here list without that list becoming false.
-  api.exclusions = await mountExclusions({
+  api.exclusions = !draws('exclusions') ? null : await mountExclusions({
     mount: document.getElementById('exclusions'),
     uncertainMount: document.getElementById('uncertain'),
     // …and what each of the two lists says it is, in the compiled document's own
@@ -2396,14 +2563,14 @@ async function boot() {
   // standing in the scene, and the panel's entry for it promises that the
   // provenance card shows the claim carrying the doubt; the card is where a
   // visitor who walked up to that building would think to ask.
-  popup.setOpenQuestions(api.exclusions.uncertain);
+  if (api.exclusions) popup.setOpenQuestions(api.exclusions.uncertain);
 
   // …and the shape of what is known about the people themselves (T-1160). The
   // walkthrough can stand a visitor next to a named resident; only this says how
   // few of them there are, how thin each attribute is, and what the reconstruction
   // bands below still have to supply. Rendered from the generated profile, so a
   // resident pass that moves the layer moves this panel too.
-  api.population = await mountPopulation({
+  api.population = !draws('residents') ? null : await mountPopulation({
     mount: document.getElementById('population'),
     noteMount: document.getElementById('population-note'),
     dataBase: bases.dataBase,
@@ -2415,7 +2582,7 @@ async function boot() {
   // roofs the models say were here and the sources cannot, which ticket owes each
   // bucket, and how much of it has been built. It is the progress view of the three
   // reconstruction bands, filled by their own builds rather than by hand.
-  api.orderBook = await mountOrderBook({
+  api.orderBook = !draws('residents') ? null : await mountOrderBook({
     mount: document.getElementById('order-book'),
     noteMount: document.getElementById('order-book-note'),
     dataBase: bases.dataBase,
@@ -2922,6 +3089,20 @@ async function boot() {
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
+    onSources: () => {
+      // Browse the existing Evidence hub without entering or cancelling a paused outing.
+      const hudWasHidden = hudRoot.hidden;
+      gate.hidden = true; hudRoot.hidden = false; hudRoot.inert = false;
+      hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showHub();
+      const panel = document.getElementById('panel');
+      document.getElementById('panel-close').focus();
+      const back = new MutationObserver(() => {
+        if (!panel.hidden) return;
+        back.disconnect(); gate.hidden = false; hudRoot.hidden = hudWasHidden; hudRoot.inert = true;
+        document.getElementById('welcome-sources').focus();
+      });
+      back.observe(panel, { attributes: true, attributeFilter: ['hidden'] });
+    },
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');
@@ -3295,6 +3476,8 @@ async function boot() {
   // be written: anything on the harness whose answer changes after boot is
   // defined HERE. A getter in the literal above is a frozen snapshot.
   Object.defineProperties(api, {
+    /** T-2037, harness-only: exact deck tops currently replacing reach-culled chunks. */
+    farWalkTops: { get: () => frontage.farWalkTops ?? null, enumerable: true },
     /** The level the visitor is actually on, now rather than at boot (T-0115). */
     detail: { get: () => detailLevel, enumerable: true },
     /** The ride in progress — phase, destination, distance left — live. */
@@ -3330,7 +3513,7 @@ async function boot() {
             // furniture of their own, and they never cast (T-0146). Counting
             // them would put a non-caster into both sides of the bar
             // `casting === meshes - groundHugging` and quietly weaken it.
-            if (o.userData.farMerged) return;
+            if (o.userData.farMerged || o.userData.farWalkTops) return;
             meshes += 1;
             if (o.userData.groundHugging) groundHugging += 1;
             if (o.castShadow) casting += 1;
@@ -3358,7 +3541,7 @@ async function boot() {
           if (!group) continue;
           group.traverse((o) => {
             if (!o.isMesh) return;
-            if (o.userData.farMerged) return;
+            if (o.userData.farMerged || o.userData.farWalkTops) return;
             meshes += 1;
             // `reachCulled` and not `!visible`: since T-0146 a chunk can also be
             // invisible because its cluster is being drawn as one mesh, and

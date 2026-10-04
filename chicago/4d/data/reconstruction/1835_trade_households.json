@@ -53,7 +53,7 @@
     "harness_maker": 1,
     "hatter": 1,
     "justice_of_the_peace": 1,
-    "labourer": 26,
+    "labourer": 25,
     "land_agent": 4,
     "liquor_dealer": 1,
     "livery_stable_keeper": 2,
@@ -66,7 +66,7 @@
     "milliner": 1,
     "music_teacher": 2,
     "painter": 2,
-    "physician": 1,
+    "physician": 2,
     "plasterer": 1,
     "sawyer": 1,
     "seaman": 1,
@@ -90,6 +90,8 @@
      "tavern_keeper": 32
     },
     "moved_to_the_residual": 50,
+    "raised_to_a_business_order": {},
+    "taken_from_the_residual": 0,
     "residual_total": 57
    },
    "male": {
@@ -105,7 +107,11 @@
      "tavern_keeper": 4
     },
     "moved_to_the_residual": 14,
-    "residual_total": 26
+    "raised_to_a_business_order": {
+     "physician": 1
+    },
+    "taken_from_the_residual": 1,
+    "residual_total": 25
    }
   },
   "ceilings": {
@@ -120,12 +126,18 @@
    "schoolteacher": 0,
    "silversmith": 1,
    "tavern_keeper": 0
+  },
+  "business_floors": {
+   "attorney": 1,
+   "brewer": 1,
+   "druggist": 2,
+   "physician": 2
   }
  },
  "by_trade": {
   "domestic": 58,
   "boarding_house_keeper": 38,
-  "labourer": 26,
+  "labourer": 25,
   "clerk": 24,
   "carpenter": 21,
   "grocer": 10,
@@ -154,6 +166,7 @@
   "mason": 2,
   "music_teacher": 2,
   "painter": 2,
+  "physician": 2,
   "surveyor": 2,
   "auctioneer": 1,
   "barber_surgeon": 1,
@@ -169,7 +182,6 @@
   "mail_contractor": 1,
   "master_mariner": 1,
   "miller": 1,
-  "physician": 1,
   "plasterer": 1,
   "sawyer": 1,
   "seaman": 1,
@@ -191,8 +203,8 @@
  },
  "by_community": {
   "french_colonial": 39,
-  "irish": 92,
-  "yankee": 177
+  "irish": 91,
+  "yankee": 178
  },
  "household_size_owed": {
   "1": 14,
@@ -964,7 +976,7 @@
    "file": "reconstructed_trades/hh_rc_goodrich_lydia.json",
    "bucket": "persons/female/30_39/west/family/trade",
    "trade": "domestic",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_goodrich_ruth",
@@ -1023,6 +1035,13 @@
    "division": "south"
   },
   {
+   "id": "hh_rc_hastings_lemuel",
+   "file": "reconstructed_trades/hh_rc_hastings_lemuel.json",
+   "bucket": "persons/male/50_plus/west/family/trade",
+   "trade": "liquor_dealer",
+   "division": "west"
+  },
+  {
    "id": "hh_rc_hastings_lydia",
    "file": "reconstructed_trades/hh_rc_hastings_lydia.json",
    "bucket": "persons/female/30_39/north/family/trade",
@@ -1035,13 +1054,6 @@
    "bucket": "persons/female/30_39/north/family/trade",
    "trade": "boarding_house_keeper",
    "division": "north"
-  },
-  {
-   "id": "hh_rc_hastings_silas",
-   "file": "reconstructed_trades/hh_rc_hastings_silas.json",
-   "bucket": "persons/male/50_plus/west/family/trade",
-   "trade": "liquor_dealer",
-   "division": "west"
   },
   {
    "id": "hh_rc_hastings_willard",
@@ -1126,13 +1138,6 @@
    "bucket": "persons/female/20_29/north/family/trade",
    "trade": "boarding_house_keeper",
    "division": "north"
-  },
-  {
-   "id": "hh_rc_keegan_bryan",
-   "file": "reconstructed_trades/hh_rc_keegan_bryan.json",
-   "bucket": "persons/male/20_29/south/family/trade",
-   "trade": "labourer",
-   "division": "south"
   },
   {
    "id": "hh_rc_keegan_daniel",
@@ -1450,6 +1455,13 @@
    "division": "south"
   },
   {
+   "id": "hh_rc_metcalf_george",
+   "file": "reconstructed_trades/hh_rc_metcalf_george.json",
+   "bucket": "persons/male/20_29/north/family/trade",
+   "trade": "druggist",
+   "division": "north"
+  },
+  {
    "id": "hh_rc_metcalf_hiram",
    "file": "reconstructed_trades/hh_rc_metcalf_hiram.json",
    "bucket": "persons/male/30_39/south/family/trade",
@@ -1462,13 +1474,6 @@
    "bucket": "persons/female/20_29/west/family/trade",
    "trade": "boarding_house_keeper",
    "division": "west"
-  },
-  {
-   "id": "hh_rc_metcalf_nathaniel",
-   "file": "reconstructed_trades/hh_rc_metcalf_nathaniel.json",
-   "bucket": "persons/male/20_29/north/family/trade",
-   "trade": "druggist",
-   "division": "north"
   },
   {
    "id": "hh_rc_murphy_bryan",
@@ -1762,7 +1767,7 @@
    "file": "reconstructed_trades/hh_rc_quinn_alice.json",
    "bucket": "persons/female/30_39/west/family/trade",
    "trade": "domestic",
-   "division": "west"
+   "division": "south"
   },
   {
    "id": "hh_rc_quinn_honora",
@@ -1912,8 +1917,8 @@
    "division": "south"
   },
   {
-   "id": "hh_rc_sawyer_harriet",
-   "file": "reconstructed_trades/hh_rc_sawyer_harriet.json",
+   "id": "hh_rc_sawyer_eliza",
+   "file": "reconstructed_trades/hh_rc_sawyer_eliza.json",
    "bucket": "persons/female/30_39/south/family/trade",
    "trade": "hardware_merchant",
    "division": "south"
@@ -2192,6 +2197,13 @@
    "division": "north"
   },
   {
+   "id": "hh_rc_tuttle_john",
+   "file": "reconstructed_trades/hh_rc_tuttle_john.json",
+   "bucket": "persons/male/20_29/south/family/trade",
+   "trade": "physician",
+   "division": "south"
+  },
+  {
    "id": "hh_rc_tuttle_joseph",
    "file": "reconstructed_trades/hh_rc_tuttle_joseph.json",
    "bucket": "persons/male/30_39/north/family/trade",
@@ -2426,11 +2438,12 @@
   "parent_ticket": "T-1559",
   "ruling": "the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the re-cut holds is RE-FAMILIED rather than retired",
   "read_from": "data/reconstruction/1835_refamily_rule.json#the_moves_the_rule_yields",
-  "heads_moved": 49,
+  "heads_moved": 52,
   "out_of": {
    "persons/female/20_29/south/family/trade": 5,
    "persons/female/20_29/west/family/trade": 4,
-   "persons/female/30_39/west/family/trade": 1,
+   "persons/female/30_39/south/family/trade": 1,
+   "persons/female/30_39/west/family/trade": 3,
    "persons/female/40_49/south/family/trade": 1,
    "persons/female/40_49/west/family/trade": 1,
    "persons/female/50_plus/south/family/trade": 2,
@@ -2451,6 +2464,7 @@
    "persons/female/20_29/south/lodging/trade": 6,
    "persons/female/20_29/west/lodging/trade": 2,
    "persons/female/30_39/north/lodging/trade": 1,
+   "persons/female/30_39/south/lodging/trade": 3,
    "persons/female/40_49/north/lodging/trade": 1,
    "persons/female/40_49/west/lodging/trade": 1,
    "persons/female/50_plus/north/lodging/trade": 1,
@@ -2615,8 +2629,8 @@
     "share_1839": 0.0024
    },
    "labourer": {
-    "drawn": 26,
-    "drawn_share": 0.0844,
+    "drawn": 25,
+    "drawn_share": 0.0812,
     "share_1839": 0.0593
    },
    "land_agent": {
@@ -2685,8 +2699,8 @@
     "share_1839": 0.0114
    },
    "physician": {
-    "drawn": 1,
-    "drawn_share": 0.0032,
+    "drawn": 2,
+    "drawn_share": 0.0065,
     "share_1839": 0.0041
    },
    "plasterer": {
@@ -2752,7 +2766,7 @@
   },
   "the_residual": {
    "female": 57,
-   "male": 26
+   "male": 25
   },
   "kin_owed_and_not_seated": 1241
  }

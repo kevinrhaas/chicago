@@ -122,6 +122,20 @@
   },
   "note": "THE CORPUS STOPS BEFORE THE SCENE DATE. Last printed 1835-06-13, at the Democrat of 16 July 1834, column 7, and nothing reached either follows this person to 1 July 1835 or says they left. A documented resident whose whereabouts on one day are unknown is `uncertain` here rather than dropped: that is the same distinction index.json draws for Jeremiah Porter, and it is a finding rather than a gap."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-2021",
+  "household_type": "family_with_children",
+  "size_drawn": 4,
+  "kin_seated": 1,
+  "seed": "hh_stewart_r:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
+  "ruling": {
+   "ticket": "T-2021",
+   "verdict": "stands_alone",
+   "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 4 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 170, so none of its 3 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
+  }
+ },
  "persons": [
   {
    "id": "stewart_r",

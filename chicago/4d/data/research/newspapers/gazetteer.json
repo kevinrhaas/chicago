@@ -21,19 +21,19 @@
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_american_1835_07_04.json",
-      "sha256": "69333016af81f2331a6e8a3e4ead8cdf41d9c8b9c169956c97a37138b7c386b7"
+      "sha256": "2d7644156d7e97bebc48e1fb6346229e8f713a363335ba87bd8ac9546c77c660"
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_american_1835_07_11.json",
-      "sha256": "5e20c14d8809a48d1efe05f35ca3d53506bd3223d81da885ae4cab8ae6780cb6"
+      "sha256": "e5d20fcd83fee4a78245e88bf57259b422f4c960224d2c8c3c9264f82b7fb490"
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_american_1835_07_18.json",
-      "sha256": "632104ddd0836a68ac5d230a9cf9aa10fbf9ab9c29975beac8ae3deeeaf06d3a"
+      "sha256": "4ea8a3b71dd961b3af747b448a831b27ea0bca53012449958cf6afc85cf9af64"
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_american_1835_07_25.json",
-      "sha256": "e62970190357b552d456ded7c4113774965aea885f43ecabb417d54a5d89adfa"
+      "sha256": "2951dfbcd32dfefe095674416c2d8079a0865451b7a3c92148b320cee6035070"
     },
     {
       "file": "chicago/4d/data/research/newspapers/extracted/chicago_american_1835_08_01.json",
@@ -352,7 +352,7 @@
     "claims": 1189,
     "persons": 2667,
     "places": 3,
-    "businesses": 196,
+    "businesses": 193,
     "agencies": 1
   },
   "persons": [
@@ -59314,10 +59314,10 @@
           "witnesses": [
             "chicago_democrat_1834_12_17#c001",
             "chicago_democrat_1834_12_24#c001",
-            "chicago_democrat_1835_07_08#c001",
+            "chicago_american_1835_07_25#c003",
             "chicago_american_1835_08_22#c004"
           ],
-          "refused_because": "'A. Garrett' and 'A. Garrett, auctioneer' are almost certainly one auctioneer and they are NOT one standing house, because the papers put the two styles on different ground and the move between them is a claim rather than a spelling. 'A. Garrett' takes a store in South-Water street near the bridge in December 1834 (1834-12-17 c001, 1834-12-24 c001); that stand is David Carver's old stand and W. Montgomery announces he has taken it in July 1835 (1835-07-08 c001); 'A. Garrett, auctioneer' is then selling Kankakee lots from Dearborn street in August 1835 (1835-08-22 c004). A firm that moved is documented by a removal notice, and this corpus does not yet hold one for Garrett — so the two frontages stay two records and the succession is read off the claims, not asserted by a merge."
+          "refused_because": "'A. Garrett' and 'A. Garrett, auctioneer' are almost certainly one auctioneer and they are NOT one standing house, because the papers put the two styles on different ground and the move between them is a claim rather than a spelling. 'A. Garrett' takes a store in South-Water street near the bridge in December 1834 (1834-12-17 c001, 1834-12-24 c001); W. Montgomery announces he has taken 'the store lately occupied by A. Garrett, South Water street' on 17 July 1835 and will sell 'at both the above and D. Carver's old stand' (American 1835-07-25 c003) — so Garrett's store and Carver's old stand are two houses, and Garrett had left South Water street by then; 'A. Garrett, auctioneer' is then selling Kankakee lots from Dearborn street in August 1835 (1835-08-22 c004). A firm that moved is documented by a removal notice, and this corpus does not yet hold one for Garrett — so the two frontages stay two records and the succession is read off the claims, not asserted by a merge."
         }
       ],
       "built_at_scene_date": true,
@@ -59382,10 +59382,10 @@
           "witnesses": [
             "chicago_democrat_1834_12_17#c001",
             "chicago_democrat_1834_12_24#c001",
-            "chicago_democrat_1835_07_08#c001",
+            "chicago_american_1835_07_25#c003",
             "chicago_american_1835_08_22#c004"
           ],
-          "refused_because": "'A. Garrett' and 'A. Garrett, auctioneer' are almost certainly one auctioneer and they are NOT one standing house, because the papers put the two styles on different ground and the move between them is a claim rather than a spelling. 'A. Garrett' takes a store in South-Water street near the bridge in December 1834 (1834-12-17 c001, 1834-12-24 c001); that stand is David Carver's old stand and W. Montgomery announces he has taken it in July 1835 (1835-07-08 c001); 'A. Garrett, auctioneer' is then selling Kankakee lots from Dearborn street in August 1835 (1835-08-22 c004). A firm that moved is documented by a removal notice, and this corpus does not yet hold one for Garrett — so the two frontages stay two records and the succession is read off the claims, not asserted by a merge."
+          "refused_because": "'A. Garrett' and 'A. Garrett, auctioneer' are almost certainly one auctioneer and they are NOT one standing house, because the papers put the two styles on different ground and the move between them is a claim rather than a spelling. 'A. Garrett' takes a store in South-Water street near the bridge in December 1834 (1834-12-17 c001, 1834-12-24 c001); W. Montgomery announces he has taken 'the store lately occupied by A. Garrett, South Water street' on 17 July 1835 and will sell 'at both the above and D. Carver's old stand' (American 1835-07-25 c003) — so Garrett's store and Carver's old stand are two houses, and Garrett had left South Water street by then; 'A. Garrett, auctioneer' is then selling Kankakee lots from Dearborn street in August 1835 (1835-08-22 c004). A firm that moved is documented by a removal notice, and this corpus does not yet hold one for Garrett — so the two frontages stay two records and the succession is read off the claims, not asserted by a merge."
         }
       ],
       "built_at_scene_date": true,
@@ -59449,109 +59449,6 @@
       "built_at_scene_date": true,
       "trade_classes": [
         "store"
-      ],
-      "trade_class_scope": "in_town",
-      "survival_liberty_required": false
-    },
-    {
-      "id": "business_a_new_auction_and_commission_room_south_water_street",
-      "name": "a new auction and commission room, South Water Street",
-      "proprietors": [
-        "W. Montgomery"
-      ],
-      "partners": [
-        "W. Montgomery"
-      ],
-      "firm_styles": [],
-      "trade": "auction and commission",
-      "goods": [
-        "Crockery",
-        "Dry Goods",
-        "Groceries",
-        "Hardware"
-      ],
-      "street": "South Water Street",
-      "placement": {
-        "class": "relative",
-        "anchor": "J. Wright's",
-        "offset_text": "woet of J. Wrights, for the purpose",
-        "offset_normalized": "w[e]st of J. Wright's",
-        "street": "South Water Street"
-      },
-      "evidence": {
-        "first_issue": "1835-06-27",
-        "last_issue": "1835-07-25",
-        "copy_dates": [
-          "1835-06-24",
-          "1835-06-27",
-          "1835-07-17",
-          "1835-07-18"
-        ]
-      },
-      "contradicted_by": [],
-      "opening_announced": [],
-      "mentions": [
-        "chicago_american_1835_06_27#c008",
-        "chicago_american_1835_07_04#c012",
-        "chicago_american_1835_07_11#c003",
-        "chicago_american_1835_07_18#c003",
-        "chicago_american_1835_07_25#c003"
-      ],
-      "placement_readings": [
-        {
-          "anchor": "J. Wright's",
-          "class": "relative",
-          "first_issue": "1835-06-27",
-          "last_issue": "1835-07-04",
-          "claims": [
-            "chicago_american_1835_06_27#c008",
-            "chicago_american_1835_07_04#c012"
-          ],
-          "placement": {
-            "class": "relative",
-            "anchor": "J. Wright's",
-            "offset_text": "woet of J. Wrights, for the purpose",
-            "offset_normalized": "w[e]st of J. Wright's",
-            "street": "South Water Street"
-          }
-        },
-        {
-          "anchor": "David Carver's old stand",
-          "class": "relative",
-          "first_issue": "1835-07-11",
-          "last_issue": "1835-07-18",
-          "claims": [
-            "chicago_american_1835_07_11#c003",
-            "chicago_american_1835_07_18#c003"
-          ],
-          "placement": {
-            "class": "relative",
-            "anchor": "David Carver's old stand",
-            "offset_text": "en Darid Carver's old tar she parpors of",
-            "offset_normalized": "in David Carver's old [s]tand",
-            "street": "South Water Street"
-          }
-        },
-        {
-          "anchor": "the store lately occupied by A. Garrett",
-          "class": "relative",
-          "first_issue": "1835-07-25",
-          "last_issue": "1835-07-25",
-          "claims": [
-            "chicago_american_1835_07_25#c003"
-          ],
-          "placement": {
-            "class": "relative",
-            "anchor": "the store lately occupied by A. Garrett",
-            "offset_text": "gated by A. Gatren) South Water s",
-            "offset_normalized": "[occu]p[i]ed by A. Ga[rr]e[tt], South Water s[treet]",
-            "street": "South Water Street"
-          }
-        }
-      ],
-      "built_at_scene_date": true,
-      "trade_classes": [
-        "other"
       ],
       "trade_class_scope": "in_town",
       "survival_liberty_required": false
@@ -69139,65 +69036,6 @@
       "survival_liberty_required": true
     },
     {
-      "id": "business_montgomery_auction_and_commission_house",
-      "name": "Montgomery, auction and commission house",
-      "proprietors": [
-        "Montgomery"
-      ],
-      "partners": [
-        "Montgomery"
-      ],
-      "firm_styles": [],
-      "trade": "auction and commission house, selling merchandize and real estate",
-      "goods": [
-        "goods on commission",
-        "merchandize at auction",
-        "real estate at auction"
-      ],
-      "street": "South Water Street",
-      "placement": {
-        "class": "relative",
-        "anchor": "[the store taken of a person the interleave has destroyed], South Water street",
-        "offset_text": "er having taken the Store of\nrer. South Water street, next",
-        "offset_normalized": "having taken the Store of [—], South Water street, next [door to —]",
-        "street": "South Water Street"
-      },
-      "evidence": {
-        "first_issue": "1835-06-24",
-        "last_issue": "1835-06-24",
-        "copy_dates": []
-      },
-      "contradicted_by": [],
-      "opening_announced": [],
-      "mentions": [
-        "chicago_democrat_1835_06_24#c008"
-      ],
-      "placement_readings": [
-        {
-          "anchor": "[the store taken of a person the interleave has destroyed], South Water street",
-          "class": "relative",
-          "first_issue": "1835-06-24",
-          "last_issue": "1835-06-24",
-          "claims": [
-            "chicago_democrat_1835_06_24#c008"
-          ],
-          "placement": {
-            "class": "relative",
-            "anchor": "[the store taken of a person the interleave has destroyed], South Water street",
-            "offset_text": "er having taken the Store of\nrer. South Water street, next",
-            "offset_normalized": "having taken the Store of [—], South Water street, next [door to —]",
-            "street": "South Water Street"
-          }
-        }
-      ],
-      "built_at_scene_date": true,
-      "trade_classes": [
-        "other"
-      ],
-      "trade_class_scope": "in_town",
-      "survival_liberty_required": false
-    },
-    {
       "id": "business_mrs_h_sherman",
       "name": "Mrs. H. Sherman",
       "proprietors": [
@@ -74656,27 +74494,43 @@
       "id": "business_w_montgomery",
       "name": "W. Montgomery",
       "proprietors": [
-        "W. Montgomery"
+        "W. Montgomery",
+        "Montgomery",
+        "Montgomery, W."
       ],
       "partners": [
-        "W. Montgomery"
+        "W. Montgomery",
+        "Montgomery",
+        "Montgomery, W."
       ],
       "firm_styles": [],
-      "trade": "auction and commission house",
-      "goods": [],
+      "trade": "auction and commission",
+      "goods": [
+        "Crockery",
+        "Dry Goods",
+        "Groceries",
+        "Hardware",
+        "goods on commission",
+        "merchandize at auction",
+        "real estate at auction"
+      ],
       "street": "South Water Street",
       "placement": {
         "class": "relative",
-        "anchor": "David Carver's Old Stand",
-        "offset_text": "taken David Car-\nver'» Old Stand, Sonth\nWater-Street",
-        "offset_normalized": "taken David Carver's Old Stand, South Water-Street",
+        "anchor": "J. Wright's",
+        "offset_text": "dook westal J. Wrights, for thu purpous of trénete",
+        "offset_normalized": "[…] doo[r]s west [of] J. Wright's",
         "street": "South Water Street"
       },
       "evidence": {
-        "first_issue": "1835-07-08",
-        "last_issue": "1835-07-29",
+        "first_issue": "1835-06-24",
+        "last_issue": "1835-08-05",
         "copy_dates": [
-          "1835-07-06"
+          "1835-06-24",
+          "1835-06-27",
+          "1835-07-06",
+          "1835-07-17",
+          "1835-07-18"
         ]
       },
       "contradicted_by": [],
@@ -74688,15 +74542,64 @@
           "iso": "1835-07-06",
           "verbatim": "has taken David Carver's Old Stand, South Water-Street, for the purpose of transacting the above business",
           "note": "'Has taken' over a dateline of 6 July 1835: the stand was taken on or before that day, never after it. The fuller printing of the same copy in this issue ('New Establishment', page 3 columns 5-6) says his first public sale falls on 'the 1st day of July', which is the scene date."
+        },
+        {
+          "claim": "chicago_democrat_1835_08_05#c009",
+          "issue": "1835-08-05",
+          "dating": "effected",
+          "iso": "1835-07-06",
+          "verbatim": "ha[s] taken David Car[ver]'s O[l]d Stand, [S]out[h] Water Street",
+          "note": "The reprint of the 8 July notice under the fuller firm style, carrying the same 6 July 1835 dateline."
         }
       ],
       "mentions": [
+        "chicago_american_1835_06_27#c008",
+        "chicago_american_1835_07_04#c012",
+        "chicago_american_1835_07_11#c003",
+        "chicago_american_1835_07_18#c003",
+        "chicago_american_1835_07_25#c003",
+        "chicago_democrat_1835_06_24#c008",
         "chicago_democrat_1835_07_08#c001",
         "chicago_democrat_1835_07_15#c005",
         "chicago_democrat_1835_07_22#c011",
-        "chicago_democrat_1835_07_29#c013"
+        "chicago_democrat_1835_07_29#c013",
+        "chicago_democrat_1835_08_05#c009",
+        "chicago_democrat_1835_08_05#c016"
       ],
       "placement_readings": [
+        {
+          "anchor": "[the store taken of a person the interleave has destroyed], South Water street",
+          "class": "relative",
+          "first_issue": "1835-06-24",
+          "last_issue": "1835-06-24",
+          "claims": [
+            "chicago_democrat_1835_06_24#c008"
+          ],
+          "placement": {
+            "class": "relative",
+            "anchor": "[the store taken of a person the interleave has destroyed], South Water street",
+            "offset_text": "er having taken the Store of\nrer. South Water street, next",
+            "offset_normalized": "having taken the Store of [—], South Water street, next [door to —]",
+            "street": "South Water Street"
+          }
+        },
+        {
+          "anchor": "J. Wright's",
+          "class": "relative",
+          "first_issue": "1835-06-27",
+          "last_issue": "1835-07-04",
+          "claims": [
+            "chicago_american_1835_06_27#c008",
+            "chicago_american_1835_07_04#c012"
+          ],
+          "placement": {
+            "class": "relative",
+            "anchor": "J. Wright's",
+            "offset_text": "woet of J. Wrights, for the purpose",
+            "offset_normalized": "w[e]st of J. Wright's",
+            "street": "South Water Street"
+          }
+        },
         {
           "anchor": "David Carver's Old Stand",
           "class": "relative",
@@ -74716,17 +74619,70 @@
           }
         },
         {
+          "anchor": "David Carver's old stand",
+          "class": "relative",
+          "first_issue": "1835-07-11",
+          "last_issue": "1835-08-05",
+          "claims": [
+            "chicago_american_1835_07_11#c003",
+            "chicago_american_1835_07_18#c003",
+            "chicago_democrat_1835_08_05#c009"
+          ],
+          "placement": {
+            "class": "relative",
+            "anchor": "David Carver's old stand",
+            "offset_text": "en Darid Carver's old tar she parpors of",
+            "offset_normalized": "in David Carver's old [s]tand",
+            "street": "South Water Street"
+          }
+        },
+        {
           "anchor": null,
           "class": "street_only",
           "first_issue": "1835-07-22",
-          "last_issue": "1835-07-22",
+          "last_issue": "1835-08-05",
           "claims": [
-            "chicago_democrat_1835_07_22#c011"
+            "chicago_democrat_1835_07_22#c011",
+            "chicago_democrat_1835_08_05#c016"
           ],
           "placement": {
             "class": "street_only",
             "street": "South Water Street"
           }
+        },
+        {
+          "anchor": "the store lately occupied by A. Garrett",
+          "class": "relative",
+          "first_issue": "1835-07-25",
+          "last_issue": "1835-07-25",
+          "claims": [
+            "chicago_american_1835_07_25#c003"
+          ],
+          "placement": {
+            "class": "relative",
+            "anchor": "the store lately occupied by A. Garrett",
+            "offset_text": "gated by A. Gatren) South Water s",
+            "offset_normalized": "[occu]p[i]ed by A. Ga[rr]e[tt], South Water s[treet]",
+            "street": "South Water Street"
+          }
+        }
+      ],
+      "trade_variants": [
+        "auction and commission",
+        "auction and commission house, selling merchandize and real estate"
+      ],
+      "merged": [
+        {
+          "from": "Montgomery, auction and commission house",
+          "merge_rule": "'Montgomery, auction and commission house' is 'W. Montgomery' a fortnight earlier, the Democrat's first setting of the notice its 8 July setting reprints (T-0386). 1835-06-24 c008: '[Auction an]d Commission House. [The subscrib]er having taken the Store of [Mr. …], South Water street … for the purpose of transa[cting a general] COMMISSION and Auc[tion business]. His first public [s]ale will take [place on Wednes]day next, the 1st day of July' — the same heading, the same 'having taken the Store of' a named predecessor on South Water street, and the same first sale the American's 'NEW ESTABLISHMENT' announces (1835-06-27 c008). The forename went with the column; the surname, the trade, the street and the sale are the house's. The predecessor's name is destroyed here and is read whole in the reprints: David Carver (1835-07-08 c001)."
+        },
+        {
+          "from": "W. Montgomery, Auction and Commission House",
+          "merge_rule": "'W. Montgomery, Auction and Commission House' is 'W. Montgomery' with the notice's heading carried into the style, and it is the same standing card (T-0386): 1835-08-05 c009 reads 'Auction and Commission House. The subscriber has taken David Carver's Old Stand, South Water Street, for the purpose of transacting the above business … W. MONTGOMERY. Chicago, July 6, 1835' — the 8 July notice word for word under its own copy date — and 1835-08-05 c016 takes subscriptions 'at Montgomery's Auction Room, South Water Street. W. MONTGOMERY, Agent.' One man, one trade, one street, one stand, one copy date."
+        },
+        {
+          "from": "a new auction and commission room, South Water Street",
+          "merge_rule": "'a new auction and commission room, South Water Street' is 'W. Montgomery' under a heading the reading pass had to write itself, and the two are ONE auction house (T-0386). The heading is a description because this impression's signature went with the interleave — American 1835-06-27 c008 ends 'June 27, W. MONT…' — so it names no partner; it is declared that way in `firm_sign_names`. Everything else in it is the card the next week's American sets whole and signs 'W. MONTGOMERY, Auctioneer' (1835-07-04 c012): 'NEW ESTABLISHMENT … The subscriber has taken the [House/store] … South Water street, […] west of J. Wright's, for the purpose of [carrying on] a General Commission and Auction [business]. His first Public Sale will take place …', and the 07-04 setting names the house it was: 'the store of D[avid] Carver'. One trade, one street, one stand, one sale, one week."
         }
       ],
       "refused_merges": [
@@ -74741,85 +74697,6 @@
             "chicago_democrat_1835_07_22#c011"
           ],
           "refused_because": "'W. Montgomery' and 'L. W. Montgomery, boot and shoe maker' are two houses and two men, and this is the trap the surname grouping was always going to set. The bootmaker is Loton W. Montgomery. His advertisement is copy-dated Dec. 15/18/19, 1833, places him next door to P. Cohen's store, and runs from 1833-12-17 c003 to 1834-04-08 c007 and beyond; it signs 'L. W. MONTGOMERY' wherever the type survives whole, and the damaged 1834-03-04 c028 column preserves the initial itself. 'W. Montgomery' is the auctioneer who takes David Carver's old stand in South Water street in July 1835 (1835-07-08 c001) and signs 'W. MONTGOMERY, Auc'r' (1835-07-22 c011) — a different trade, a different stand and eighteen months later. UNTIL T-1046 this row read `from: 'W. Montgomery, boot and shoe maker'` and gave as its ground that the bootmaker's L was lost in the setting; that was right, and the readings have now been repaired to say so, so the heading this row refuses has moved with them. The refusal itself stands unchanged in substance and is load-bearing: tools/adopt_street_faces.py reads a `two_houses` ruling to key refusal 3 on the trade rather than the surname alone, which is what stops these two Montgomerys taking each other's street face."
-        }
-      ],
-      "built_at_scene_date": true,
-      "trade_classes": [
-        "other"
-      ],
-      "trade_class_scope": "in_town",
-      "survival_liberty_required": false
-    },
-    {
-      "id": "business_w_montgomery_auction_and_commission_house",
-      "name": "W. Montgomery, Auction and Commission House",
-      "proprietors": [
-        "Montgomery, W."
-      ],
-      "partners": [
-        "Montgomery, W."
-      ],
-      "firm_styles": [],
-      "trade": "auction and commission",
-      "goods": [],
-      "street": "South Water Street",
-      "placement": {
-        "class": "relative",
-        "anchor": "David Carver's old stand",
-        "offset_text": "(hire, SM Re ver’s Ou Stand, Hout"
-      },
-      "evidence": {
-        "first_issue": "1835-08-05",
-        "last_issue": "1835-08-05",
-        "copy_dates": [
-          "1835-07-06"
-        ]
-      },
-      "contradicted_by": [],
-      "opening_announced": [
-        {
-          "claim": "chicago_democrat_1835_08_05#c009",
-          "issue": "1835-08-05",
-          "dating": "effected",
-          "iso": "1835-07-06",
-          "verbatim": "ha[s] taken David Car[ver]'s O[l]d Stand, [S]out[h] Water Street",
-          "note": "The reprint of the 8 July notice under the fuller firm style, carrying the same 6 July 1835 dateline."
-        }
-      ],
-      "mentions": [
-        "chicago_democrat_1835_08_05#c009",
-        "chicago_democrat_1835_08_05#c016"
-      ],
-      "placement_readings": [
-        {
-          "anchor": null,
-          "class": "street_only",
-          "first_issue": "1835-08-05",
-          "last_issue": "1835-08-05",
-          "claims": [
-            "chicago_democrat_1835_08_05#c016"
-          ],
-          "placement": {
-            "class": "street_only",
-            "anchor": null,
-            "offset_text": "Montgomery's Auction. Roum, South\ny | Water Street",
-            "offset_normalized": "re[c]eived a[t] Montgomery's Auction Room, South Water Street",
-            "street": "South Water Street"
-          }
-        },
-        {
-          "anchor": "David Carver's old stand",
-          "class": "relative",
-          "first_issue": "1835-08-05",
-          "last_issue": "1835-08-05",
-          "claims": [
-            "chicago_democrat_1835_08_05#c009"
-          ],
-          "placement": {
-            "class": "relative",
-            "anchor": "David Carver's old stand",
-            "offset_text": "(hire, SM Re ver’s Ou Stand, Hout"
-          }
         }
       ],
       "built_at_scene_date": true,

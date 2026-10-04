@@ -395,6 +395,10 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     # card says so rather than listing them as though a visitor could walk to
     # them. Still gated by validate.py; it is now also read.
     "plantable_in_scene": ("shown", "zone.plantable_in_scene ?? entry.plantable_in_scene"),
+    # T-0471 — which scenes the community stands in. The renderer reads the
+    # manifest's denormalised copy (flora.js `floraInScene`, which validate.py
+    # holds equal to this one) and a zone scoped out of the scene draws nothing.
+    "scenes": ("mesh", "entry.scenes"),
 }
 
 FLORA_MANIFEST_READS: dict[str, tuple[str, str]] = {
@@ -438,11 +442,18 @@ FLORA_MANIFEST_READS: dict[str, tuple[str, str]] = {
     "vocabulary.forms_trees": ("shown", "vocab.forms_trees"),
     # The community's own claim about whether it stands anywhere in this scene.
     "zones[].plantable_in_scene": ("shown", "zone.plantable_in_scene ?? entry.plantable_in_scene"),
+    # T-0471 — the scene scope: a zone or planting whose list does not name the
+    # scene being drawn is dropped before anything is dealt or painted.
+    "zones[].scenes": ("mesh", "entry.scenes"),
+    "plantings[].scenes": ("mesh", "entry.scenes"),
 }
 
 FLORA_PALETTE_READS: dict[str, tuple[str, str]] = {
     "greens": ("mesh", "palette?.greens"),
     "dry_accent": ("mesh", "rgb(palette?.dry_accent)"),
+    # T-2085 — the dust glaze on the town's bare turf: the palette's dry ground
+    # tone, mixed into the bare share the ground paints on a turf community.
+    "ground.dry_rgb": ("mesh", "palette?.ground?.dry_rgb"),
 }
 
 # data/fauna HAS a reader as of ROADMAP K51, and every figure in it is `shown`.
@@ -869,6 +880,17 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.kin_seated": ("shown", "escapeHtml(String(block.kin_seated))"),
     "modelled_family.seed": ("shown", "escapeHtml(String(block.seed))"),
     "modelled_family.note": ("shown", "escapeHtml(String(block.note || ''))"),
+    # T-2020. A married house given the wife and children of a woman-headed house the town
+    # already held: `marriedHtml` prints the whole sub-block under the family the model drew.
+    "modelled_family.married.ticket": ("shown", "escapeHtml(String(married.ticket))"),
+    "modelled_family.married.wife": ("shown", "escapeHtml(String(married.wife))"),
+    "modelled_family.married.from_household": ("shown", "escapeHtml(String(married.from_household))"),
+    "modelled_family.married.what_happened": ("shown", "escapeHtml(String(married.what_happened || ''))"),
+    # T-2021. The ruling on a married house no woman in the town fits: `rulingHtml` prints
+    # whether the house was given its drawn family or stands alone, and why.
+    "modelled_family.ruling.ticket": ("shown", "escapeHtml(String(ruling.ticket))"),
+    "modelled_family.ruling.verdict": ("shown", "escapeHtml(words(ruling.verdict))"),
+    "modelled_family.ruling.what_happened": ("shown", "escapeHtml(String(ruling.what_happened || ''))"),
     # T-1564. THE ONE FIGURE OF THE RE-FAMILY BLOCK A RENDERER ALREADY REACHES. The
     # household card's `refamilied` block records the move a held head was counted into,
     # and `businessBlockHtml` prints the `withdrawn_if` of any block it is handed — so
@@ -882,6 +904,10 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     # `basis`, `seed` and `replaceable_by` read through the same expressions the blocks do.
     "persons[].reconstruction.stage": ("shown", "escapeHtml(String(rc.stage || ''))"),
     "persons[].reconstruction.ticket": ("shown", "escapeHtml(String(rc.ticket))"),
+    # T-2020. Where a person moved by a fold was dealt, printed under why they are here.
+    "persons[].folded_in.ticket": ("shown", "escapeHtml(String(folded.ticket))"),
+    "persons[].folded_in.from_household": ("shown", "escapeHtml(String(folded.from_household))"),
+    "persons[].folded_in.relationship_as_dealt": ("shown", "escapeHtml(words(folded.relationship_as_dealt))"),
     "persons[].reconstruction.community": ("shown", "escapeHtml(words(rc.community))"),
     "persons[].reconstruction.review_required": (
         "shown", "rc.review_required ? ' This reconstruction carries a standing review.'"),

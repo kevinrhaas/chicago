@@ -425,6 +425,56 @@ def check_range(where: str, rng: dict, source_ids: set, rep: Report) -> tuple:
 # semantic: scenes resolve against phases
 # --------------------------------------------------------------------------
 
+def check_scene_cards(scene: dict, source_ids: set, rep: Report) -> None:
+    """A scene's interpretive cards keep the confidence contract (T-0472).
+
+    The card's `text` is this project's prose; its `quotes` are a source's words, and
+    each must name a source record that resolves. `documented` needs a quote,
+    `inferred` and `conjectural` need their reasoning, and a card that quotes nothing
+    is `kind: project` - what the reconstruction does, never a claim about the past.
+    A flagged card must give its reason in its own `review_note`, in one sentence that
+    both refers to the flag and names the subject the standing constraint is about:
+    the same reading tools/measure_review_constraint.py holds a structure's card to.
+    """
+    from review_constraint import CONSTRAINT_SUBJECT, reason_sentence  # noqa: PLC0415
+
+    where = f"scene {scene.get('id', '?')}"
+    seen: set[str] = set()
+    for card in scene.get("cards", []) or []:
+        if not isinstance(card, dict):
+            continue
+        cid = card.get("id", "?")
+        at = f"{where} card {cid}"
+        if cid in seen:
+            rep.error(at, "duplicate card id")
+        seen.add(cid)
+        quotes = card.get("quotes") or []
+        for q in quotes:
+            if q.get("source_id") not in source_ids:
+                rep.error(at, f"quotes source '{q.get('source_id')}', which does not "
+                              f"resolve in data/sources/")
+        conf = card.get("confidence")
+        if card.get("kind") == "project":
+            if quotes or conf:
+                rep.error(at, "a `project` card states what this reconstruction does and "
+                              "quotes nothing; a card with evidence is evidence, "
+                              "terminology or conflict, and carries a confidence")
+        elif not quotes or not conf:
+            rep.error(at, f"a card of kind `{card.get('kind')}` makes a claim about the past and "
+                          f"needs both quotes and a confidence")
+        elif conf in ("inferred", "conjectural") and not card.get("confidence_note"):
+            rep.error(at, f"confidence '{conf}' needs a confidence_note stating the reasoning")
+        if card.get("review_required"):
+            sentence = reason_sentence(card.get("review_note") or "")
+            if not sentence or not CONSTRAINT_SUBJECT.search(sentence):
+                rep.error(at, "carries review_required and its review_note does not say "
+                              "why in one sentence that refers to the flag and names the "
+                              "subject AGENTS.md's standing constraint is about")
+        elif card.get("review_note"):
+            rep.error(at, "has a review_note and no review_required: a reason for a flag "
+                          "that is not set")
+
+
 def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict, rep: Report,
                    households: dict | None = None) -> None:
     sid = scene.get("id", "?")
@@ -481,6 +531,13 @@ def validate_scene(scene: dict, structures: dict, epochs: dict, exclusions: dict
             if p.get("review_required"):
                 blocked.append(hid)
                 break
+
+    # A scene's own interpretive cards (T-0472) carry the same flag: a card naming an
+    # event the standing constraint covers holds the scene back exactly as a building
+    # would, and a card is never made safe to release by being prose rather than mesh.
+    for card in scene.get("cards", []) or []:
+        if isinstance(card, dict) and card.get("review_required"):
+            blocked.append(f"card {card.get('id')}")
 
     if scene.get("released") and blocked:
         rep.error(where, f"released is true but these records carry review_required: "
@@ -1701,8 +1758,13 @@ def _contact_outline(poly: list, mode: str) -> list[tuple]:
 def unlanded_values(structures: dict, scenes: dict, rep: Report,
                     field=None, origin: tuple | None = None,
                     contacts: dict | None = None,
-                    resolvers: dict | None = None) -> list[tuple]:
+                    resolvers: dict | None = None,
+                    fields: dict | None = None) -> list[tuple]:
     """Every structure whose ground contact does not reach the ground.
+
+    `fields` maps a terrain epoch to its heightfield; a phase is measured on the ground
+    of the first scene (by date) that resolves it, and on `field` when that epoch is not
+    in the map.
 
     Returns `(structure_id, phase_id, "ground_contact", where, gap_m)`.
 
@@ -1732,7 +1794,9 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             except Exception:  # noqa: BLE001 — reported by the param check
                 continue
 
-    targets = [d for d in (parse_date(sc.get("target_date", "")) for sc in scenes.values()) if d]
+    targets = sorted((d, sc.get("terrain_epoch")) for d, sc in
+                     ((parse_date(sc.get("target_date", "")), sc) for sc in scenes.values()) if d)
+    town_field = field
     for name, st in sorted(structures.items()):
         sid = st.get("id", name)
         arch = st.get("archetype")
@@ -1743,8 +1807,10 @@ def unlanded_values(structures: dict, scenes: dict, rep: Report,
             pid = ph.get("id", "?")
             r = ph.get("documented_range", {})
             frm, to = parse_date(r.get("from", "")), parse_date(r.get("to", ""))
-            if not (frm and to and any(frm <= t <= to for t in targets)):
+            hits = [ep for t, ep in targets if frm and to and frm <= t <= to]
+            if not hits:
                 continue
+            field = (fields or {}).get(hits[0]) or town_field
             # No mesh, no ground contact to measure: this phase's geometry is
             # drawn by another layer, which drapes on the heightfield at every
             # post rather than standing a footprint on it.
@@ -4066,6 +4132,51 @@ def check_flora_species(zid: str, sp: dict, source_ids: set, vocab: dict,
         tally[conf] = tally.get(conf, 0) + 1
 
 
+def check_flora_scenes(index: dict, rep: Report) -> None:
+    """T-0471 — the `scenes` scope on a flora manifest entry.
+
+    A zone or planting with no `scenes` list stands in every scene that draws the
+    flora layer; one with a list stands in those scenes only, and the renderer
+    (flora.js `floraInScene`) filters on it. So a list must name scenes that
+    exist, and a planting — which states stems for ONE scene in its own `scene`
+    field — must be scoped to exactly that scene: an unscoped planting is how
+    1835's dooryards would stand on the 1812 shore."""
+    scenes_dir = DATA / "scenes"
+    known = {p.stem for p in scenes_dir.glob("*.json")}
+    for kind in ("zones", "plantings"):
+        for entry in index.get(kind, []):
+            eid, sc = entry.get("id"), entry.get("scenes")
+            if sc is None:
+                continue
+            if (not isinstance(sc, list) or not sc
+                    or not all(isinstance(x, str) for x in sc) or len(set(sc)) != len(sc)):
+                rep.error("flora index", f"{kind[:-1]} '{eid}' scenes must be a non-empty "
+                                         f"list of distinct scene ids, not {sc!r}")
+                continue
+            for x in sc:
+                if x not in known:
+                    rep.error("flora index", f"{kind[:-1]} '{eid}' is scoped to scene "
+                                             f"'{x}', and data/scenes/{x}.json does not exist")
+    for entry in index.get("plantings", []):
+        pid, pfile = entry.get("id"), entry.get("file")
+        path = FLORA / (pfile or "")
+        if not pfile or not path.exists():
+            rep.error("flora index", f"planting '{pid}' names {pfile}, which does not exist")
+            continue
+        rec = load_json(path, rep)
+        if not isinstance(rec, dict):
+            continue
+        scene = rec.get("scene")
+        if scene is None:
+            rep.error(f"flora planting {pid}", "states no `scene`: a planting is a claim "
+                                               "about the stems one scene carries")
+        elif entry.get("scenes") != [str(scene)]:
+            rep.error("flora index", f"planting '{pid}' states its stems for scene {scene} "
+                                     f"and its manifest entry is scoped to "
+                                     f"{entry.get('scenes')!r}; it must be [\"{scene}\"], or "
+                                     f"every other scene that draws flora plants these stems too")
+
+
 def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
     """Schema, provenance and phenology gate for data/flora/**."""
     index_path = FLORA / "index.json"
@@ -4094,6 +4205,8 @@ def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
                                      f"K42 measured that it does not: of the seven "
                                      f"published vocabularies the renderer reads one, "
                                      f"inflorescence_shapes, which is not one of these five")
+
+    check_flora_scenes(index, rep)
 
     palettes = {}
     for entry in index.get("palettes", []):
@@ -4148,6 +4261,7 @@ def check_flora(source_ids: set, field, rep: Report, tally: dict) -> dict:
         # a copy that has drifted is worse than no copy at all
         for key, actual in (("extent", z.get("extent")),
                             ("plantable_in_scene", z.get("plantable_in_scene")),
+                            ("scenes", z.get("scenes")),
                             ("ground_rgb", (z.get("ground") or {}).get("rgb")),
                             ("ground_wet_rgb", (z.get("ground") or {}).get("wet_rgb")),
                             ("bare_soil_fraction",
@@ -6302,6 +6416,7 @@ def main() -> int:
     # scenes
     for name, sc in scenes.items():
         validate_scene(sc, structures, epochs, exclusions, rep, households=households)
+        check_scene_cards(sc, source_ids, rep)
 
     # what we invented has to be written down, not merely tagged — and so does
     # what we recorded and never built, which is the same standard read backwards
@@ -6316,15 +6431,20 @@ def main() -> int:
     # asked, and a gate that silently answers "yes" when it cannot see is worse
     # than one that says it did not run.
     contacts = archetype_ground_contact(rep)
+    # Every scene's ground is loaded, and each phase is measured against the ground of the
+    # scene that resolves it (T-2050): before the 1812 scene, "the first epoch in sorted
+    # order" was the town's, and e1830_natural sorting first would have stood every 1835
+    # record on the pre-cut ground. `field` stays the town's for the undated questions
+    # (versions, flora), which are all written for 1835.
     epoch_ids = {sc.get("terrain_epoch") for sc in scenes.values() if sc.get("terrain_epoch")}
-    field = None
+    fields: dict = {}
     for ep in sorted(i for i in epoch_ids if i):
         try:
-            field = Heightfield.load(DATA / "terrain" / "epochs" / ep)
+            fields[ep] = Heightfield.load(DATA / "terrain" / "epochs" / ep)
         except Exception as e:  # noqa: BLE001
             rep.error("ground contact", f"cannot read the {ep} heightfield: {e}")
-        if field is not None:
-            break
+    town = next((sc.get("terrain_epoch") for sc in scenes.values() if sc.get("id") == "1835"), None)
+    field = fields.get(town) or next(iter(fields.values()), None)
     datum_origin = None
     if datum.get("origin_utm_e") is not None and datum.get("origin_utm_n") is not None:
         datum_origin = (float(datum["origin_utm_e"]), float(datum["origin_utm_n"]))
@@ -6333,7 +6453,8 @@ def main() -> int:
         rep.note("ground contact: skipped — needs a committed heightfield, a datum origin "
                  "and at least one archetype declaring GROUND_CONTACT")
     else:
-        unlanded = unlanded_values(structures, scenes, rep, field, datum_origin, contacts)
+        unlanded = unlanded_values(structures, scenes, rep, field, datum_origin, contacts,
+                                   fields=fields)
         check_ground_contact(structures, unlanded, rep)
 
     # and the structure VERSIONS, each held to the rules above as a structure (T-1727)

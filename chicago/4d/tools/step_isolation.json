@@ -1,26 +1,18 @@
 {
-  "schema": 1,
-  "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it — ticket.mjs check writes nothing on a consistent tree and REPAIRS tickets.json on a stale one, and measures clean here purely because the mirror was current when this ran (T-1341). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-02",
+  "schema": 2,
+  "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
+  "measured": "2026-10-04",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 743,
-  "exempt": {
-    "site/": {
-      "reason": "THE PUBLISHED MIRROR, AND THE GATE'S OWN FIRST STEP REGENERATES IT WHOLESALE. site/4d/ is generated (T-0938) and check.sh opens by running publish.sh over it; the single check_flush barrier T-1289 added sits directly after that step, with the comment 'everything below reads the mirror the step above writes'. So these writes are ordered rather than racing, and they are the one mutation this gate is built around instead of against. A write anywhere OUTSIDE site/ is not covered by this."
-    },
-    "chicago/4d/tickets/BOARD.md": {
-      "reason": "GITIGNORED GENERATED ARTIFACT, not committed state. T-0937 made BOARD.md, tickets.json and the site mirror untracked precisely because they were the most-conflicting files in the repository — a run's first act is `ticket.mjs claim`, which rewrites all three before any work is done. A gate step regenerating them is rebuilding a build product, the same category as the site/ mirror. RESIDUAL CAVEAT, stated rather than glossed: they are still shared state a concurrent step can read mid-write, and `ticket.mjs check` writes them only when the mirror is STALE (T-1341) — so this row appears or vanishes with the tree the measurement was taken on, which is the conditional-writer limit T-1339 records. Classifying ignored paths by `git check-ignore` instead of this hand-kept list is T-1345."
-    },
-    "chicago/4d/tickets/tickets.json": {
-      "reason": "GITIGNORED GENERATED ARTIFACT, not committed state. T-0937 made BOARD.md, tickets.json and the site mirror untracked precisely because they were the most-conflicting files in the repository — a run's first act is `ticket.mjs claim`, which rewrites all three before any work is done. A gate step regenerating them is rebuilding a build product, the same category as the site/ mirror. RESIDUAL CAVEAT, stated rather than glossed: they are still shared state a concurrent step can read mid-write, and `ticket.mjs check` writes them only when the mirror is STALE (T-1341) — so this row appears or vanishes with the tree the measurement was taken on, which is the conditional-writer limit T-1339 records. Classifying ignored paths by `git check-ignore` instead of this hand-kept list is T-1345."
-    }
-  },
+  "classified": "2026-10-04",
   "tools": {
     "": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "-": {
-      "wrote": [
+      "wrote": [],
+      "wrote_ignored": [
         "site/4d/data/residents/card_conflation_rulings.json",
         "site/4d/data/residents/card_merge_rulings.json",
         "site/4d/data/residents/community.json",
@@ -2255,901 +2247,1248 @@
       ]
     },
     "-c": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/home/claude/chicago/.github/chicago-4d-dev-preview.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/home/claude/chicago/.github/chicago-4d-url-check.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/c4d-repomode-scJVxy/bin/gh": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-5xs7zv/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-7jaRQ5/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-CckYsB/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-FognJi/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-GS80eK/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-K9HwD1/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-L90noi/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-LmdDMh/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-NJwFeh/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-QdfuA7/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-XjdB0J/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-cEmtle/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-drtldW/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-e4orpP/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-gf3YSr/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-jR2yl7/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-jc0ZmR/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-mdVqys/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-mx6TnD/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-nJtkXN/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-pGQRYd/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-pQecpv/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-qP7Pgo/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-qzVWup/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-smDhan/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-uaxfJc/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-vv68YR/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/prstuck-wm2qO9/gh.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmp1aftk60c/bin/npx": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmp1aftk60c/bin/python3": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmpfvi5u9da/bin/npx": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmpfvi5u9da/bin/python3": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmpntt11qn2/bin/npx": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmpntt11qn2/bin/python3": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmpxmuevg1e/bin/npx": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "/tmp/tmpxmuevg1e/bin/python3": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "generators/ao_export.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "generators/common/selection.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "generators/inferred_placeholder.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "generators/placeholder.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "generators/terrain_gen_graded.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/adjudicate_wright_na_fit.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/adopt_street_faces.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/apply_census_1840_bridges.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/assert_tax_roll_ruling.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/associations.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_businesses.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_check_gates.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_confidence.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/audit_jaunt_refusals.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/audit_jaunts.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_manifest_coverage.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_scene_window_trades.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_step_isolation.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_town_completion_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/audit_wright_watercourses.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/back_project_addresses.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/back_project_residences.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/bake_content_changed.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/bake_ref.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/bake_warranted.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/build_book_page_index.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/build_lodging_model_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/build_order_book_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/build_staffing_model_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/build_survey_tracts.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/build_trade_table_1839.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/canal_approach_occupancy.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/carry_kinzie_west.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/carry_policy_only_division.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/carry_stage_blocks.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/carry_west_tiers_west.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/census_1840_composition.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/census_1840_fingerprint.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/changelog-history.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check-changelog-entry.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check-changelog.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_1880s_scene_date.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_attribute_tiers.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_bank_decal_depth.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_corridor_line.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_detail_ladder.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_dossier_links.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_enclosure_owners.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_exact_sums.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_far_plank_tops.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_gate_readers.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_gh_rest.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_haze_reach.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_household_derivations.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_loading_content.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_only_selection.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_plank_gap_filter.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_plank_ground.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_published.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_published_residents.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_queue_order-selftest.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_queue_order.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_rulings_not_lost.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_shoreline_states.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_street_section.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_street_surfaces.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_structure_corridors.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_terrain_e1830.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_terrain_e1871.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_tool_browser.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_unique_ids.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_wall_relief.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/check_wright_nara_registration.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compare_norris_1844_readings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_agencies.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_businesses.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_gazetteer.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_jaunts.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_liberties.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_register.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_resident_research_pilot.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_scene.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/compile_source_use.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/complete_inwindow_trades.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/complete_resident_research_pass_14.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/concord_letter_list_1834_01_01.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/concord_letter_list_1834_04_01.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/consolidate_resident_evidence.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/consolidate_town_cards.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/converge_resident_layer.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_census_1840_heads.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_fergus_1839.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_fergus_1839_election.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_fergus_1839_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_fergus_1839_register.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_fergus_1843.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_norris_1844.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/crosswalk_norris_1844_advertiser.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/cut_north_division_tier.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/cut_school_section_tier.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/date_norris_1844_businesses.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/dated_bounds_block.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/deal_siding_stock.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/derive_evacuation_1812.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_hay_limits.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_north_water.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_person_community.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_presence_evidence_leg.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_resident_roles.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/derive_settled_town_extent.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_shore_1812.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/derive_timber_belt.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/docx_text.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/drain-selftest.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/employment_coverage_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/execute_roof_redeal.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/exhaust_tax_1833.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/export_borderline_roster.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/export_resident_audit.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/export_resident_research_package.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/fabric_rule_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/fergus_1839_street_faces.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_alley_lanes.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_block_infill.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_business_signboards.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_canal_approach_trade.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_dooryard_pickets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_dooryard_plantings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_entrances.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_fort_apron.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_fort_trees.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_frontage_works.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_inferred_households.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_inferred_infill.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_inferred_names.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_kept_ground.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_lot_building_material.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_lot_line_fences.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_north_infill.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_planted_rows.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_plat_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_river_wharves.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_school_section_grid.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_trade_yards.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_west_freight.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_west_infill.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_woodpiles.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_yard_goods.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/generate_yard_outbuildings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/georef_prairie_1904.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/house_the_present_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/identity_master_guard.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/inferred_household_ownership.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/inferred_occupancy.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/letter_list_bucket.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/lift_letter_list_1834_unread.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/location_reconciliation.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/location_spend.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/lot_addresses.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_american_contradictions.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_anchors.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_band_claims.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_block_gating.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_block_redeal_remedies.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_bridge_head_timber.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_canal_control_spread.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_card_fuzzy_candidates.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_chappel_shore_lighthouse.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_corner_ordinals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_corporation_limits.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_corridor_intrusion.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_corridor_strip.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_doorways.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_face_rule.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_family_deal.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_far_timber.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_flora_reach.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_fort_gates.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_fort_road_way.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_fort_ways_plate.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_fort_works_plate.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_frontage_declaration.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_frontage_entitlement.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_frontage_fabric.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_generator_half.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_ground_albedo.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_ground_tiling.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_group_district_rows.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_institutional_claims.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_intown_water.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_jefferson_continuation.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_layer_reads.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_market_line.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_massing_variety.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_name_churn.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_no_build_ground.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_north_bank_frontage.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_north_branch_banks.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_north_division_streets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_north_division_tier_depth.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_north_of_box.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_northern_ground.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_picket_plate.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_placement_silence.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_planting_reach.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_plate_join.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_public_square.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_rank_bias.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_research_spend.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_reserved_ground.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_review_constraint.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_ridge_band.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_ridge_reach.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_rights_derivation.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_roof_id_migration.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_sauganash_plate.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_shore_1812_harrison.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_slough_crossing.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_south_bank_ground.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_southern_ground.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_spray_grain.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_stack_fabric.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_stack_ordinance.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_step_isolation.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_street_line.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_surname_fold.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_terrain_fit.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_terrain_horizontal.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_watering_place.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_web_derivatives.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_division_module.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_division_spacing.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_division_streets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_division_tiers.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_farm_ground_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_grid_migration.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_west_of_box.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/measure_wright_lighthouse.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-changelog-selftest.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-changelog.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-generated-selftest.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-generated.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-queue-selftest.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-queue.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/merge-smoke-state.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/migrate_attribute_tiers.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/migrate_roof_ids.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/mint_civic_residents.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/mint_documented_residents.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/mint_letter_list_residents.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/mint_placed_residents.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/model_refamily_rule.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/model_town_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/model_transients_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/name_agreement.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/name_the_keepers_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/named_by_the_page.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/namesake.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/newspaper_corpus.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/normalise_structure_function.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/old_settlers.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/person_associations.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/pinned_sources.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/place_camp_grounds_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/place_landing_camps_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/placement_policy_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/play_jaunt.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/printed_twice.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/profile_population_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/promote_version.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/publish.py": {
-      "wrote": [
+      "wrote": [],
+      "wrote_ignored": [
         "site/4d/prairie-1904/data/address_crosswalk.csv",
         "site/4d/prairie-1904/data/assertions.csv",
         "site/4d/prairie-1904/data/building_events.csv",
@@ -3551,316 +3890,428 @@
       ]
     },
     "tools/qualify_later_trades.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_blackhawk_war.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_census_1830.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_1839.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_1839_election.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_1839_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_1839_register.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_1843.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_1843_civic.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_fergus_obits.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_genealogytrails.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_kinzie_addition_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_kinzie_addition_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_kinzie_addition_streets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_kinzie_addition_water_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_kinzie_block_name.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_land_sales.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_letter_list_1834_04_01_image.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_letter_list_1834_image.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_michigan_st_tract.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_newberry_index.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_norris_1844.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_norris_1844_advertiser.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_north_branch_bank_wash.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_north_division_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_north_side_slough_na.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_school_section_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_second_presbyterian.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_south_bank_swell_1834.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_st_cyr_register.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_st_marys_baptisms.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_voter_lists.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_wabansia_block_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_wabansia_streets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_wabansia_water_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_washington_madison_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_west_division_lots.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_west_division_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/read_whistler_1808.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_wolf_point_numerals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/read_wright_legend_swatches.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/readmit_borderline_roster.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rebuild_closing_set.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rebuild_resident_index.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconcile_665.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_businesses_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_church_register.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_free_black.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_garrison_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_institutional_households.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_modelled_families.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_residents_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_sex_age.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_trade_households.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_transients_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_underdocumented.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reconstruct_women_children.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/record_lot_seating.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/recover_glessner_v4.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/redeal_anonymous_roofs.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rederive.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rederive_datum.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/refamily_moves_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/refuse_reconstructed_grade.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/register_letter_list_suspicions.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/repair_ocr_turkish_alphabet.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/replace_invented_residents.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/report_census_1840_residue.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/report_convergence_coverage.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/report_letter_list_collisions.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/report_refamily_programme.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/report_research_closing_audit.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/report_research_signoff.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/reprogramme_roofs_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/research_domains.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/resident_cohort_freeze.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/resident_mint_carry.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/resolve_id_collisions.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/resolve_land_tracts.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/resolve_place_vocabulary.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/road_band_movement.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/roof_id_pins.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rule_fuzzy_card_pairs.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rule_newberry_leads.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/rule_presence_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/sauganash_apex_lines.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/scene_bundle.py": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/school_section_sale.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_kinzie_addition_streets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_known_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_lodgers_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_michigan_st_tract.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_off_plat_ground_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_platted_ground_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_reconstructed_trades_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_trade_roofs_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/seat_wabansia_streets.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_13.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_14.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_15.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_2.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_3.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_4.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pass_5.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/select_resident_research_pilot.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/serve_from_root.py": {
-      "wrote": [
+      "wrote": [],
+      "wrote_ignored": [
         "site/4d/prairie-1904/viewer/root-served.js",
         "site/4d/pre-fire/viewer/root-served.js"
       ],
@@ -3869,94 +4320,124 @@
       ]
     },
     "tools/smoke_budget.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/sort_land_sales_onto_tracts.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_appearance_bounds.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_book_kin.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_census_1840_heads.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_civic_roll_bounds.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_civic_voter_lists.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_departure_rulings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_directories.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_enrichment_arrivals.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_fergus_1839_later_lists.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_fergus_1839_lot_sale.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_ladder_rungs.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_land_sale_bounds.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_land_sales.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_land_sales_rulings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_name_on_a_roll_rulings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_old_settlers.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_person_facts.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_person_sex_age.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_press_bounds.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_remainder_rulings.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_second_presbyterian_roll.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_stated_families.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_trade_premises.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/spend_write_once.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/staff_businesses_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/staff_the_houses_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/staffing_mint_order_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/stamp-changelog.mjs": {
-      "wrote": [
+      "wrote": [],
+      "wrote_ignored": [
         "site/4d/js/changelog.js",
         "site/4d/walk/js/changelog.js"
       ],
@@ -3965,238 +4446,324 @@
       ]
     },
     "tools/structure_versions.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/substitute_reconstruction.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/supersede_arrival.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/surname_one_letter_away.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/survey_stated_kin.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/synthesize_resident_research.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_arrival.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_boot_phases.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_build_cli_has_no_geometry.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_changelog_entry_gate.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_changelog_mirror.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_compile_jaunts.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_compile_source_use.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_daybook.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_destinations.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_dev_preview.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_drawn_placement_census.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_frontage_faces.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_glessner_block_clipping.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_glessner_roof_envelope.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_glessner_v4_package.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_glessner_v4_package_producer.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_house_front.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_jaunt_mechanics.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_jaunts_reducer.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_leg_notes.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_loading_content.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_loading_content.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_merge_ready.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_no_conflict_markers.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_outbuilding_cargo.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_outbuilding_forge.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_pr_lap_checkout.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_pr_lap_current.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_pr_lap_list.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_pr_lap_publish.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_pr_reconciliation.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_pr_resume.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_pr_stuck.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_restamp_inputs.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_selected_year.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_shopfront_bay_count.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_sources_view.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_store_variants.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_storefront_cargo_rhythm.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_street_confidence.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_structure_versions.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_structure_versions.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_after.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_ticket_blocked_band.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_claim_lock.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_claim_split.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_filing_effort.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_inflight.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_landed.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_mirror.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_parked.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_repo_mode.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_restamp.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_ticket_stale_block.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_travel_estimate.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/test_validate.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/ticket.mjs": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/ticket_liveness.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/tiebreak.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/town_census.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_ic_edge_1904.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_lake_shore_rees_1849.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_north_branch.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_prairie_1904_grid.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_river.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_south_branch.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trace_south_branch_rees_1849.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trade_census_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trade_census_spend_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/trade_recorded.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/validate.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/verify_fergus_1839_first_ward.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/web_textures.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "tools/write_entry_pages.mjs": {
-      "wrote": [
+      "wrote": [],
+      "wrote_ignored": [
         "site/4d/1812",
         "site/4d/1812/index.html",
         "site/4d/1835",
@@ -4212,22 +4779,28 @@
       ]
     },
     "tools/yard_rule_1835.py": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "{\"1242\":\"dirty\",\"1315\":\"blocked\",\"1316\":\"blocked\",\"1319\":\"clean\"}": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "{\"1268\":\"dirty\"}": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "{\"1315\":\"blocked\"}": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "{\"1319\":\"clean\"}": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     },
     "{}": {
-      "wrote": []
+      "wrote": [],
+      "wrote_ignored": []
     }
   }
 }
