@@ -692,9 +692,14 @@
      "the_book_orders_now": 6
     },
     {
+     "bucket": "persons/female/30_39/south/lodging/trade",
+     "the_deal_was_dealt_against": 0,
+     "the_book_orders_now": 3
+    },
+    {
      "bucket": "persons/male/10_19/south/lodging/none",
      "the_deal_was_dealt_against": 4,
-     "the_book_orders_now": 6
+     "the_book_orders_now": 9
     },
     {
      "bucket": "persons/male/10_19/south/lodging/trade",

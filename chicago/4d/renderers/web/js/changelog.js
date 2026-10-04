@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1445, ts: '2026-10-04T20:15:35.627Z', date: 'Oct 4, 2026, 3:15 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+  { v: 1446, ts: '2026-10-04T21:21:39.361Z', date: 'Oct 4, 2026, 4:21 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
     items: [
       'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
       'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
       'Because a building\u2019s weathering follows how long its family has been here, 23 houses and shops look a season newer or older. Campbell\u2019s on the south side, for one, now has fresh clapboard and a new roof.',
+    ] },
+  { v: 1445, ts: '2026-10-04T20:41:19.184Z', date: 'Oct 4, 2026, 3:41 PM CT', title: 'Letter-list cards read every printing of their own name', kind: 'change',
+    items: [
+      'When the paper printed one name twice, once surname first or with the count of letters waiting, a resident\u2019s card read only one of the two printings.',
+      'Eleven cards now read both. Jonathan Burbee, E. M. Fish and Henry Hopkins had letters waiting at Chicago by July 1834, a year earlier than their cards said; five more cards move to an earlier return too.',
+      'N. H. Palmer\u2019s card now counts the letter still waiting for him on 1 July 1835, so he stands present on the scene date instead of uncertain.',
+      'Augustus H. Conant\u2019s line is read in the right order. He joins no new household, because Reuben Conant already holds the name.',
     ] },
   { v: 1444, ts: '2026-10-04T19:53:18.172Z', date: 'Oct 4, 2026, 2:53 PM CT', title: 'Six dates that would not stick', kind: 'fix',
     items: [
