@@ -127,8 +127,25 @@ DISTRICTS = {
              "parent": "T-1201", "says_why": "T-1691"},
 }
 
+# `parent` IS PROVENANCE, NOT A WORK ORDER (T-1705). It says which programme ticket a
+# district's pass was a piece of — T-1685 was piece 1 of 4 of T-1202, and that stays true
+# after T-1202 closed with T-1688 — so it is published as the ledger's `parent_ticket` and
+# must never move to keep a gate quiet. Nothing here hands work to it. The one forward-
+# looking ticket id this pass writes is `OWED_TO`, below, and that one is gated.
+
 # The order the passes have been run in, which is the order the ledger states them in.
 RUN_FOR = ("south_water", "randolph", "lake")
+
+# WHO CARRIES THE OWED SEATS (T-1705). A seat outside the districts above is held owed BY
+# NAME, and until T-1705 the ledger handed every one of them to "T-1200's successors
+# T-1201 … T-1208" — a range in which every ticket was split or done by 2026-09-27, so 24
+# seats (18 of them on the Washington tier, T-1202's own ground, which the `randolph`
+# district's `blk_randolph_` prefix never reached) were ordered from nobody. T-2136 was
+# filed for exactly this remainder. It is a WORK ORDER, so `--check` holds it against the
+# queue the way the order book holds its owners (T-1420): while anything is owed, it must
+# name a ticket a run can still claim. When T-2136 adds a district, whatever is still owed
+# moves to the ticket that carries it next, in the same pull request.
+OWED_TO = "T-2136"
 
 # THE GENERATORS THIS PASS IS WIRED THROUGH, by way of tools/inferred_occupancy.py, keyed
 # on the roof-id prefix each one writes. A seat on any other layer's roof is OWED rather
@@ -405,12 +422,12 @@ def derive(scopes: tuple[str, ...]) -> dict:
         scope = district_of(seat, scopes)
         if scope is None:
             owed.append({**row, "why": f"outside the districts this pass has been run for "
-                                       f"({', '.join(scopes)}); T-1200's successors carry "
-                                       f"their own"})
+                                       f"({', '.join(scopes)}); {OWED_TO} carries it"})
             continue
         if roof_layer(seat["structure_id"]) is None:
             owed.append({**row, "why": "its roof is not one a generator this pass is "
-                                       "wired through owns (ROOF_LAYERS)"})
+                                       f"wired through owns (ROOF_LAYERS); {OWED_TO} "
+                                       "carries it"})
             continue
         ticket = carrier(seat, scope)
         written.append({
@@ -477,8 +494,44 @@ def derive(scopes: tuple[str, ...]) -> dict:
         "written": written,
         "refused": refused,
         "households_left": left,
+        "owed_to": OWED_TO if owed else None,
         "owed": owed,
     }
+
+
+def owed_order_problems(ledger: dict, states: dict[str, str] | None = None,
+                        children: dict[str, list[str]] | None = None) -> list[str]:
+    """THE OWED SEATS NAME A TICKET A RUN CAN STILL CLAIM (T-1705).
+
+    The order book's work-order gate (T-1420), asked of the one forward-looking id this
+    ledger carries. A CHECK INPUT ONLY: the queue decides whether this passes, never what
+    `derive` writes, so two builds of the same data agree whatever the queue holds. The
+    liveness walk is `tools/ticket_liveness.py`'s, on the order book's leaf set — a
+    blocked ticket is live, a split one is live through its pieces — so the two gates
+    cannot disagree about one ticket. Nothing owed, nothing ordered, nothing to check.
+    """
+    if not ledger.get("owed"):
+        return []
+    ticket = ledger.get("owed_to")
+    if not ticket:
+        return [f"{len(ledger['owed'])} seat(s) are owed and the ledger names nobody to "
+                f"carry them"]
+    sys.path.insert(0, str(ROOT / "tools"))
+    import ticket_liveness
+    if states is None:
+        states, parents = ticket_liveness.read_tree()
+        children = ticket_liveness.children_of(parents)
+    if not states:
+        return []          # no queue in this checkout; `check` says it was not asked
+    state = states.get(ticket)
+    if state is None:
+        return [f"{len(ledger['owed'])} owed seat(s) are carried by {ticket}, which is "
+                f"not a ticket"]
+    if not ticket_liveness.is_live(ticket, states, children or {},
+                                   ticket_liveness.ORDER_BOOK_ALIVE):
+        return [f"{len(ledger['owed'])} owed seat(s) are carried by {ticket}, which is "
+                f"{state} — move OWED_TO to the live ticket that carries them (T-1705)"]
+    return []
 
 
 def keeper_fields(ledger: dict) -> dict[str, dict]:
@@ -536,6 +589,7 @@ def problems(ledger_on_disk: dict, scopes: tuple[str, ...]) -> list[str]:
     if ledger_on_disk != want_ledger:
         found.append(f"{LEDGER.name} does not re-derive from the platted deal and the "
                      f"household cards — run --build")
+    found += owed_order_problems(want_ledger)
     fields = keeper_fields(want_ledger)
     for structure_id, want in sorted(fields.items()):
         path = STRUCTURES / f"{structure_id}.json"
@@ -602,7 +656,9 @@ def check(scopes: tuple[str, ...]) -> int:
     c = ledger["counts"]
     print(f"OK: {c['written']} roof(s) across {', '.join(ledger['scope']['districts'])} "
           f"name the keeper the platted deal seated there, {c['refused']} refused in "
-          f"writing and {c['owed']} owed to T-1200's successors")
+          f"writing and {c['owed']} owed to {ledger.get('owed_to') or 'nobody'}"
+          + ("" if ticket_liveness_readable() else
+             " (no ticket queue in this checkout, so its owner was not asked)"))
     return 0
 
 
@@ -631,8 +687,14 @@ def report(scopes: tuple[str, ...]) -> int:
         print(f"   {row['clause']:<38} {row['district']:<6} "
               f"{row['households_left']:>5} left   {verdict}")
     print(f"\nOWED ({len(ledger['owed'])}): seats outside {', '.join(scopes)}, carried by "
-          f"T-1200's successors T-1201 … T-1208")
+          f"{ledger['owed_to']}")
     return 0
+
+
+def ticket_liveness_readable() -> bool:
+    sys.path.insert(0, str(ROOT / "tools"))
+    import ticket_liveness
+    return bool(ticket_liveness.read_tree()[0])
 
 
 def self_test(scopes: tuple[str, ...]) -> int:
@@ -715,9 +777,29 @@ def self_test(scopes: tuple[str, ...]) -> int:
         if not problems(broken, scopes):
             print(f"   NOT CAUGHT: {label}")
             failures += 1
+    # T-1705. THE OWED SEATS' OWNER, asked against made-up queues rather than a broken
+    # ledger, because what goes dead is the ticket and not the file. A fixture in which
+    # the owner is live must pass, or the three that must fail prove nothing.
+    owner = ledger.get("owed_to")
+    queues = [("the owed seats' owner is done", {owner: "done"}, {}, True),
+              ("the owed seats' owner is split with no live piece",
+               {owner: "split", "T-9001": "done"}, {owner: ["T-9001"]}, True),
+              ("the owed seats' owner is not a ticket", {"T-9002": "open"}, {}, True),
+              ("the owed seats' owner is split with a live piece",
+               {owner: "split", "T-9001": "open"}, {owner: ["T-9001"]}, False)]
+    if not ledger.get("owed"):
+        print("   NOT EXERCISED: the owed seats' owner — the committed ledger owes nothing")
+        failures += 1
+    else:
+        for label, states, children, should_fire in queues:
+            fired = bool(owed_order_problems(ledger, states, children))
+            if fired != should_fire:
+                print(f"   {'NOT CAUGHT' if should_fire else 'FALSE ALARM'}: {label}")
+                failures += 1
     if failures:
         return 1
-    print(f"   OK: all {len(cases)} of the check's assertions fire when broken")
+    print(f"   OK: all {len(cases) + len(queues)} of the check's assertions fire when "
+          f"broken, and stay quiet when they should")
     return 0
 
 
