@@ -1,11 +1,36 @@
 /** Welcome presentation; destinations and safe spawn belong to the shared model. */
 import { scenePresentation } from './scene-presentation.js';
-export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, onSources = () => {}, isTouch = false }) {
+import { iconSvg } from './menu-icons.js';
+// T-2120: five one-tap starting points per scene, picked for what they show of the
+// town; any anchor the scene does not carry is skipped, and a scene with no list
+// offers its own first viewpoints instead.
+export const QUICK_STARTS = {
+  1835: [['from_above', 'Town from above', 'aerial'], ['fort_dearborn', 'Fort Dearborn', 'fort'],
+    ['forks', 'The forks', 'forks'], ['south_water', 'South Water St.', 'street'],
+    ['newberry_dole_wharf', 'The wharf', 'wharf']],
+};
+export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-07-01' }, destinations, enter, resume, pause, hasEntered, onJaunts = () => {}, onExplore = () => {}, isTouch = false }) {
   const $ = id => document.getElementById(id);
   const title = $('gate-title'), body = $('welcome'), close = $('welcome-close');
   const picker = $('welcome-picker'), jaunts = $('welcome-jaunts-region');
   const search = $('welcome-search'), list = $('welcome-results'), message = $('welcome-message');
+  const spawn = $('gate-btn'), back = $('welcome-back');
   let state = 'arrival', kind = 'all', limit = 40;
+  $('welcome-jaunts').insertAdjacentHTML('afterbegin', iconSvg('jaunts', 22));
+  $('welcome-explore').insertAdjacentHTML('afterbegin', iconSvg('start', 22));
+  back.innerHTML = iconSvg('back', 20);
+  search.insertAdjacentHTML('beforebegin', iconSvg('search', 16));
+  const listed = QUICK_STARTS[scene.id] || (scene.anchors || []).slice(0, 5).map(a => [a.id, a.label || a.id, 'view']);
+  for (const [id, label, glyph] of listed) {
+    if (!destinations.byId('anchor', id)) continue;
+    const button = document.createElement('button');
+    button.type = 'button'; button.className = 'welcome-quick-start'; button.dataset.id = id;
+    button.innerHTML = iconSvg(glyph, 24);
+    const name = document.createElement('span'); name.textContent = label; button.appendChild(name);
+    button.title = destinations.byId('anchor', id).label;
+    button.addEventListener('click', () => choose('anchor', id));
+    $('welcome-quick').appendChild(button);
+  }
   const kinds = [['all', 'All'], ['structure', 'Places'], ['business', 'Businesses'],
     ['person', 'People'], ['intersection', 'Corners'], ['anchor', 'Views']];
   for (const [id, label] of kinds) {
@@ -42,13 +67,22 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
       more.addEventListener('click', () => { limit += 40; render(); }); list.appendChild(more);
     }
   }
+  // T-2120: every sub-view has a way back to the three choices — the back arrow, or Escape.
+  function top() {
+    const was = gate.dataset.region;
+    picker.hidden = jaunts.hidden = true; delete gate.dataset.region;
+    $('welcome-explore').setAttribute('aria-expanded', 'false');
+    $('welcome-jaunts').setAttribute('aria-expanded', 'false');
+    $(was === 'explore' ? 'welcome-explore' : 'welcome-jaunts').focus({ preventScroll: true });
+  }
   function region(which) {
     const explore = which === 'explore';
     picker.hidden = !explore; jaunts.hidden = explore;
     gate.dataset.region = which;
     $('welcome-explore').setAttribute('aria-expanded', String(explore));
     $('welcome-jaunts').setAttribute('aria-expanded', String(!explore));
-    if (explore) { onExplore(); render(); search.focus(); }
+    // A phone would raise its keyboard over the quick starts; focus the region instead.
+    if (explore) { onExplore(); render(); if (isTouch) { picker.tabIndex = -1; picker.focus({ preventScroll: true }); } else search.focus(); }
     else {
       onJaunts();
       // T-2046: held sideways the compact welcome hides the button that was just
@@ -94,9 +128,12 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     gate.querySelector('.gate-eyebrow').textContent = presentation.eyebrow;
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
     about(presentation.year);
-    $('welcome-jaunts').querySelector('span').textContent = `Short outings in Chicago, ${presentation.year}`;
-    $('gate-btn').textContent = isTouch ? 'Tap to enter Chicago' : 'Enter Chicago';
-    $('gate-btn').disabled = false;
+    // The arrival's own button becomes the third choice: straight into the town.
+    if (spawn.parentElement !== back.parentElement) back.parentElement.appendChild(spawn);
+    spawn.classList.add('welcome-action');
+    spawn.innerHTML = `${iconSvg('explore', 22)}<strong>Explore<span class="welcome-long"> by myself</span></strong><span>Free roam</span>`;
+    spawn.setAttribute('aria-label', isTouch ? 'Explore by myself: tap to enter Chicago' : 'Explore by myself: enter Chicago');
+    spawn.disabled = false;
     close.hidden = !hasEntered();
     if (focus) title.focus({ preventScroll: true });
   }
@@ -119,10 +156,9 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     if (state !== 'welcome' || !hasEntered() || !resume()) return false;
     state = 'world'; gate.dataset.state = state; $('btn-start').focus(); return true;
   }
-  $('welcome-sources').addEventListener('click', onSources);
   $('welcome-jaunts').addEventListener('click', () => region('jaunts'));
   $('welcome-explore').addEventListener('click', () => region('explore'));
-  $('welcome-jaunts-explore').addEventListener('click', () => region('explore'));
+  back.addEventListener('click', top);
   $('gate-btn').addEventListener('click', () => choose('spawn'));
   $('btn-start').addEventListener('click', show);
   close.addEventListener('click', returnToWorld);
@@ -131,7 +167,7 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     if (gate.hidden) return;
     // Menu typing and navigation must never reach the world's keyboard handlers.
     event.stopImmediatePropagation();
-    if (event.key === 'Escape') { event.preventDefault(); returnToWorld(); }
+    if (event.key === 'Escape') { event.preventDefault(); if (gate.dataset.region) top(); else returnToWorld(); }
     if (event.key !== 'Tab') return;
     const controls = [...gate.querySelectorAll('button:not(:disabled), input, select:not(:disabled), a[href]')]
       .filter(el => el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');

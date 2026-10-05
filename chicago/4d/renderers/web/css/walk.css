@@ -1525,7 +1525,9 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
   .arrival-digit-half span { height: 62px; line-height: 62px; }
 }
 
-/* T-1278: the same arrival dialog becomes a quiet, bounded welcome. */
+/* T-1278: the same arrival dialog becomes a quiet, bounded welcome.
+   T-2120: three equal choices at the top level; inside a choice the three shrink to one
+   row of tabs led by a back arrow, and the choice's own list scrolls inside the card. */
 .gate[data-state="welcome"] {
   height: var(--vh, 100dvh); bottom: auto;
   padding: max(12px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right))
@@ -1541,42 +1543,72 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .gate[data-state="welcome"] .gate-bar,
 .gate[data-state="welcome"] .gate-keys { display: none; }
 .gate[data-state="welcome"] h1 { font-size: clamp(22px, 5vw, 30px); line-height: 1.12; }
-#welcome { display: flex; flex-direction: column; min-height: 0; }
+#welcome { display: flex; flex-direction: column; min-height: 0; flex: 1 1 auto; }
 #welcome[hidden], .welcome-region[hidden], #welcome-close[hidden] { display: none; }
-.welcome-intro { font-size: 14px; line-height: 1.5; color: var(--ink-dim); margin: 10px 0 18px; }
-.welcome-actions { display: grid; gap: 10px; flex-shrink: 0; }
-.welcome-action, .welcome-link, .welcome-kinds button, .welcome-destination {
+.welcome-intro { font-size: 14px; line-height: 1.5; color: var(--ink-dim); margin: 8px 0 16px; }
+.welcome-actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; flex-shrink: 0; }
+.welcome-action, .welcome-link, .welcome-kinds button, .welcome-destination, .welcome-back, .welcome-quick-start {
   font: inherit; color: var(--ink); cursor: pointer; min-height: 44px;
   border: 1px solid var(--edge); border-radius: 10px; background: var(--panel);
 }
-.welcome-action { padding: 15px 16px; text-align: left; }
-.welcome-action strong, .welcome-action span, .welcome-destination strong, .welcome-destination span { display: block; }
-.welcome-action strong { font-size: 17px; }
-.welcome-action span { font-size: 13px; margin-top: 4px; color: var(--ink-dim); }
-.welcome-action.primary { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
-.gate[data-state="welcome"] .gate-btn { background: none; color: var(--ink-dim); border: 0; margin-top: 10px; min-height: 44px; flex-shrink: 0; }
+.welcome-action, .gate[data-state="welcome"] .gate-btn.welcome-action {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 3px;
+  width: auto; min-height: 98px; margin: 0; padding: 14px 6px 12px; text-align: center;
+  color: var(--ink); background: var(--panel); border: 1px solid var(--edge); border-radius: 10px;
+  font: inherit; letter-spacing: normal; text-transform: none; box-shadow: none; filter: none;
+  transition: border-color .15s ease, background-color .15s ease;
+}
+.welcome-action .menu-icon { color: var(--accent); margin-bottom: 4px; flex: none; }
+.welcome-action strong { display: block; font-size: 15px; line-height: 1.15; font-weight: 650; }
+.welcome-action > span { display: block; font-size: 11.5px; line-height: 1.25; color: var(--ink-dim); }
+.welcome-action:not(:disabled):hover, .welcome-quick-start:hover { border-color: var(--accent); }
+.welcome-action[aria-expanded="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
+.welcome-back { display: none; }
 .welcome-link { padding: 9px 12px; background: none; }
-.welcome-region { margin-top: 14px; min-height: 0; }
+.welcome-region { margin-top: 10px; min-height: 0; flex: 1 1 auto; }
+/* Inside a choice: eyebrow and intro step aside, the title shrinks, the choices become tabs. */
+.gate[data-region] .gate-eyebrow, .gate[data-region] .welcome-intro { display: none; }
+.gate[data-state="welcome"][data-region] h1 { font-size: 17px; margin: 0 0 10px; }
+.gate[data-region] .welcome-actions { grid-template-columns: 44px repeat(3, minmax(0, 1fr)); gap: 5px; }
+.gate[data-region] .welcome-back { display: grid; place-items: center; padding: 0; background: none; }
+.gate[data-region] .welcome-action, .gate[data-state="welcome"][data-region] .gate-btn.welcome-action {
+  flex-direction: row; justify-content: center; gap: 6px; min-height: 44px; padding: 0 6px; }
+.gate[data-region] .welcome-action .menu-icon { width: 16px; height: 16px; margin: 0; }
+.gate[data-region] .welcome-action strong { font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.gate[data-region] .welcome-action > span, .gate[data-region] .welcome-long { display: none; }
+@media (max-width: 520px) { .gate[data-region] .welcome-action .menu-icon { display: none; } }
+/* Starting at…: five one-tap places, then search, kinds and the full list. */
 #welcome-picker { display: flex; flex-direction: column; gap: 8px; }
 #welcome-picker[hidden] { display: none; }
-#welcome-search { font: inherit; font-size: 16px; padding: 11px; width: 100%; min-height: 44px; color: var(--ink); background: var(--panel); border: 1px solid var(--edge); border-radius: 8px; }
-.welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; }
-.welcome-kinds button { padding: 6px 10px; font-size: 12px; min-width: 44px; flex: none; }
-.welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
-.welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 55px; max-height: 240px; flex: 1; }
-.welcome-destination { width: 100%; text-align: left; padding: 10px; margin-bottom: 5px; }
-.welcome-destination span { font-size: 12px; color: var(--ink-dim); margin-top: 3px; }
+.welcome-quick { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; flex-shrink: 0; }
+.welcome-quick:empty { display: none; }
+.welcome-quick-start {
+  display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 5px;
+  min-width: 0; min-height: 74px; padding: 10px 3px 8px; font-size: 11.5px; line-height: 1.15; text-align: center;
+  background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 13%, var(--panel)), var(--panel));
+}
+.welcome-quick-start .menu-icon { color: var(--accent); flex: none; }
+.welcome-find, .jaunt-find { position: relative; flex: 1 1 auto; min-width: 0; }
+.welcome-find .menu-icon, .jaunt-find .menu-icon { position: absolute; left: 11px; top: 50%; transform: translateY(-50%); color: var(--ink-faint, var(--ink-dim)); pointer-events: none; }
+#welcome-search, .jaunt-filters input {
+  box-sizing: border-box; width: 100%; min-width: 0; min-height: 42px; padding: 8px 12px 8px 33px;
+  font: inherit; font-size: 16px; color: var(--ink); background: var(--panel-solid);
+  border: 1px solid var(--edge); border-radius: 999px;
+}
+.welcome-kinds { display: flex; flex-shrink: 0; overflow-x: auto; gap: 5px; scrollbar-width: none; }
+.welcome-kinds button { min-height: 34px; padding: 0 11px; font-size: 12px; min-width: 44px; flex: none; border-radius: 999px; color: var(--ink-dim); background: none; }
+.welcome-kinds button[aria-pressed="true"] { border-color: var(--accent); color: var(--ink); background: color-mix(in srgb, var(--accent) 16%, transparent); }
+.welcome-results { overflow-y: auto; overscroll-behavior: contain; min-height: 96px; flex: 1 1 auto; }
+.welcome-destination { width: 100%; text-align: left; padding: 8px 10px; margin-bottom: 5px; min-height: 44px; }
+.welcome-destination strong, .welcome-destination span { display: block; }
+.welcome-destination strong { font-size: 14px; }
+.welcome-destination span { font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
 .welcome-destination:disabled { opacity: .6; cursor: default; }
 #welcome-message { font-size: 13px; margin: 0; }
 #welcome-message:empty { display: none; }
-/* T-2046: held sideways the picker's search, kinds and first result need more height than
-   the card has; the welcome keeps its natural height and the card scrolls, instead of the
-   picker spilling out of its box under 'Tap to enter Chicago'. */
-.gate[data-region="explore"] #welcome { flex-shrink: 0; }
-#welcome-jaunts-region:focus { outline: none; }
-.gate[data-region="explore"] .welcome-intro { display: none; }
+#welcome-jaunts-region:focus, #welcome-picker:focus { outline: none; }
 /* T-0472: a scene's interpretive cards, folded under the intro until asked for. */
-.welcome-about { margin: -8px 0 16px; flex: 0 0 auto; }
+.welcome-about { margin: -8px 0 14px; flex: 0 0 auto; }
 .welcome-about[hidden], .gate[data-region] .welcome-about { display: none; }
 .welcome-about summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-size: 14px; color: var(--accent); }
 /* Open, the fold gives up height before the actions do and scrolls inside itself, so
@@ -1590,48 +1622,103 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .welcome-about-card blockquote { margin: 0; font-size: 13px; line-height: 1.45; font-style: italic; color: var(--ink); }
 .welcome-about-card figcaption { font-size: 12px; color: var(--ink-dim); margin-top: 2px; }
 .welcome-about-card .welcome-about-held { font-size: 12px; border: 1px dashed var(--edge); border-radius: 6px; padding: 6px 8px; }
-.gate[data-region="explore"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
-.gate[data-region="explore"] .welcome-action { padding: 8px; }
-.gate[data-region="explore"] .welcome-action strong { font-size: 14px; }
-.gate[data-region="explore"] .welcome-action span { display: none; }
 @keyframes welcome-in { from { opacity: 0; } to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .gate[data-state="welcome"] .gate-card { animation: none; } }
-  .gate.welcome-compact[data-state="welcome"] .gate-card { padding: 12px 16px; }
-  .gate.welcome-compact[data-state="welcome"] h1 { font-size: 21px; }
-  .gate.welcome-compact[data-state="welcome"] .welcome-intro { font-size: 12px; margin: 5px 0 8px; }
-  .gate.welcome-compact[data-state="welcome"] .welcome-actions { grid-template-columns: 1fr 1fr; gap: 6px; }
-  .gate.welcome-compact[data-state="welcome"] .welcome-action { padding: 8px; }
-  .gate.welcome-compact[data-state="welcome"] .welcome-action strong { font-size: 14px; }
-  .gate.welcome-compact[data-region="explore"] .gate-eyebrow,
-  .gate.welcome-compact[data-region="explore"] h1,
-  .gate.welcome-compact[data-region="explore"] .welcome-actions { display: none; }
-  .gate.welcome-compact[data-region="explore"] .welcome-region { margin-top: 0; }
-  /* T-2046: the Jaunts region's compact form lives beside the picker's, not in the
-     lazily loaded jaunt.css — loaded late, it hid the button just pressed a beat after
-     the press, the welcome jumped, and focus fell to the page. */
-  .gate.welcome-compact[data-region="jaunts"] .gate-eyebrow,
-  .gate.welcome-compact[data-region="jaunts"] h1,
-  .gate.welcome-compact[data-region="jaunts"] .welcome-actions { display: none; }
-  .gate.welcome-compact[data-region="jaunts"] .welcome-region { margin-top: 0; }
+/* Held sideways (T-2046) the top level keeps its three choices on one short row. */
+.gate.welcome-compact[data-state="welcome"] .gate-card { padding: 12px 16px; }
+.gate.welcome-compact[data-state="welcome"] h1 { font-size: 21px; }
+.gate.welcome-compact[data-state="welcome"] .welcome-intro { font-size: 12px; margin: 5px 0 8px; }
+.gate.welcome-compact[data-state="welcome"] .welcome-action { min-height: 44px; flex-direction: row; justify-content: center; padding: 0 6px; gap: 6px; }
+.gate.welcome-compact[data-state="welcome"] .welcome-action > span { display: none; }
+.gate.welcome-compact[data-state="welcome"] .welcome-action .menu-icon { margin: 0; }
+.gate.welcome-compact[data-region] h1 { display: none; }
+.gate.welcome-compact .welcome-quick-start { min-height: 44px; padding: 6px 3px; }
+.gate.welcome-compact .welcome-quick-start .menu-icon { display: none; }
 /* First entry must not shrink the menu on return and hide its restored focus. */
 .gate[data-region="jaunts"] #welcome-close[hidden] { display: block; visibility: hidden; }
 
 .gate[data-state="welcome"] #gate-build { display: none; }
 .gate[data-state="welcome"] #gate-title:focus { outline: none; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-/* T-1253: a readable, internally scrolling preview inside the existing welcome. */
-.jaunt-card { padding: 12px; margin: 10px 0; border: 1px solid var(--edge); border-radius: 8px; text-align: left; }
-.jaunt-card h3, .jaunt-stops h4 { margin: 0 0 6px; }
-.jaunt-card select { min-height: 44px; max-width: 100%; color: var(--ink); background: var(--panel-solid); border: 1px solid var(--edge); border-radius: 7px; padding: 8px; font: inherit; }
-.jaunt-card p, .jaunt-stops p { line-height: 1.5; }
+/* T-2120: Jaunts as a list — one compact row per outing, its type an engraved icon and a
+   colour, its length a small gauge; travel mode and the route fold out under the row. */
+:root {
+  --fam-way: #6FB8CB; --fam-prov: #DDAA5C; --fam-neigh: #E2907A; --fam-live: #A2C47E; --fam-news: #B7A8EC;
+}
+:root[data-theme="light"] {
+  --fam-way: #1C687C; --fam-prov: #87570E; --fam-neigh: #9A3D27; --fam-live: #476725; --fam-news: #58459A;
+}
+#welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
+#welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+.jaunt-filters { display: grid; gap: 7px; margin: 0 0 8px; padding-bottom: 6px; position: sticky; top: 0; z-index: 1; background: var(--panel-solid); }
+.jaunt-find-row { display: flex; gap: 6px; align-items: center; }
+.jaunt-daybook-chip { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 42px; padding: 0 11px; font-size: 12px; border-radius: 999px; white-space: nowrap; color: var(--ink-dim); }
+.jaunt-daybook-chip .menu-icon { color: var(--accent); }
+.jaunt-categories { display: flex; gap: 5px; overflow-x: auto; scrollbar-width: none; }
+.jaunt-pill { flex: none; display: inline-flex; align-items: center; gap: 5px; min-height: 34px; min-width: 40px; padding: 0 10px; justify-content: center;
+  border: 1px solid var(--edge); border-radius: 999px; background: none; color: var(--ink-dim); font: inherit; font-size: 12px; cursor: pointer; }
+.jaunt-pill .menu-icon { color: var(--fam, var(--accent)); }
+.jaunt-pill[aria-pressed="true"] { color: var(--ink); border-color: var(--fam, var(--accent)); background: color-mix(in srgb, var(--fam, var(--accent)) 18%, transparent); }
+.jaunt-clear { flex: none; min-height: 34px; padding: 0 8px; font-size: 12px; border: 0; color: var(--accent); }
+.jaunt-clear[hidden], .jaunt-window-nav [hidden] { display: none; }
+/* The types are icons; the one chosen also shows its name. */
+.jaunt-pill:not([aria-pressed="true"]) span:not(:only-child) { display: none; }
+#welcome-search:focus, .jaunt-filters input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 30%, transparent); }
+.jaunt-list { display: flex; flex-direction: column; gap: 6px; }
+.jaunt-card {
+  --fam: var(--accent);
+  display: grid; grid-template-columns: 38px minmax(0, 1fr) auto; align-items: center; gap: 0 10px;
+  margin: 0; padding: 8px 6px 8px 9px; text-align: left;
+  border: 1px solid var(--edge); border-left: 3px solid var(--fam); border-radius: 10px;
+  background: color-mix(in srgb, var(--fam) 6%, transparent);
+}
+.jaunt-type-way { --fam: var(--fam-way); } .jaunt-type-prov { --fam: var(--fam-prov); }
+.jaunt-type-neigh { --fam: var(--fam-neigh); } .jaunt-type-live { --fam: var(--fam-live); }
+.jaunt-type-news { --fam: var(--fam-news); }
+.jaunt-type { width: 38px; height: 38px; display: grid; place-items: center; border-radius: 9px; color: var(--fam);
+  background: color-mix(in srgb, var(--fam) 15%, transparent); border: 1px solid color-mix(in srgb, var(--fam) 40%, transparent); }
+.jaunt-row-body { min-width: 0; }
+.jaunt-card h3 { margin: 0; font-size: 15px; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jaunt-star { margin-left: 6px; font-size: 11px; color: var(--accent); vertical-align: 2px; }
+.jaunt-premise { margin: 2px 0 0; font-size: 12.5px; line-height: 1.35; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.jaunt-card.open .jaunt-premise { display: none; }
+.jaunt-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; margin: 4px 0 0; font-size: 11px; color: var(--ink-dim); }
+.jaunt-family { color: var(--fam); font-weight: 650; font-size: 10px; letter-spacing: .09em; text-transform: uppercase; }
+.jaunt-length { --g2: color-mix(in srgb, currentColor 28%, transparent); --g3: var(--g2); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.jaunt-length::before { content: ''; display: inline-block; width: 15px; height: 6px; margin-right: 4px; vertical-align: 1px;
+  background: linear-gradient(90deg, currentColor 0 4px, transparent 4px 5.5px, var(--g2) 5.5px 9.5px, transparent 9.5px 11px, var(--g3) 11px 15px); }
+.jaunt-length[data-size="m"] { --g2: currentColor; }
+.jaunt-length[data-size="l"] { --g2: currentColor; --g3: currentColor; }
+.jaunt-length:empty { display: none; }
+.jaunt-held { color: var(--ink-dim); border: 1px dashed var(--edge); border-radius: 999px; padding: 0 6px; }
+.jaunt-actions { display: flex; align-items: center; gap: 4px; }
+.jaunt-start { width: 40px; height: 40px; display: grid; place-items: center; padding: 0 0 0 2px; cursor: pointer;
+  color: var(--accent-ink, var(--panel-solid)); border: 0; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 18%, transparent); }
+.jaunt-start .menu-icon { fill: currentColor; }
+.jaunt-start:not(:disabled):hover { filter: brightness(1.1); }
+.jaunt-start:disabled { opacity: .55; cursor: progress; }
+.jaunt-more { width: 30px; height: 44px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 8px; background: none; color: var(--ink-dim); cursor: pointer; }
+.jaunt-more .menu-icon { transition: transform .15s ease; }
+.jaunt-card.open .jaunt-more .menu-icon { transform: rotate(180deg); }
+.jaunt-details { grid-column: 1 / -1; display: none; margin-top: 8px; padding: 8px 2px 0; border-top: 1px dashed color-mix(in srgb, var(--fam) 40%, var(--edge)); }
+.jaunt-card.open .jaunt-details { display: block; }
+.jaunt-details p { margin: 0 0 6px; }
+.jaunt-premise-full { font-size: 13px; line-height: 1.45; }
+.jaunt-pace { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 2px 0 6px; }
+.jaunt-pace .jaunt-meta { margin: 0; }
+.jaunt-modes { display: inline-flex; gap: 2px; padding: 2px; border: 1px solid var(--edge); border-radius: 999px; }
+.jaunt-mode-pick { width: 36px; height: 32px; display: grid; place-items: center; padding: 0; border: 0; border-radius: 999px; background: none; color: var(--ink-dim); cursor: pointer; }
+.jaunt-mode-pick[aria-checked="true"] { background: var(--fam); color: var(--panel-solid); }
+.jaunt-mode-pick:disabled { opacity: .4; cursor: default; }
+.jaunt-details .welcome-link { min-height: 40px; padding: 6px 12px; font-size: 13px; }
+.jaunt-back { display: inline-flex; align-items: center; gap: 4px; padding: 6px 12px 6px 8px; font-size: 13px; margin-bottom: 8px; }
+.jaunt-empty { font-size: 13px; color: var(--ink-dim); }
 .jaunt-meta { font-size: 12px; opacity: .8; overflow-wrap: anywhere; }
+.jaunt-stops, .jaunt-stops h4 { margin: 0 0 6px; }
+.jaunt-stops p { line-height: 1.5; }
 .jaunt-stops { padding-left: 24px; text-align: left; }
 .jaunt-stops li { padding: 10px 0; }
 .jaunt-evidence { border-left: 2px solid var(--brass); padding-left: 10px; }
-#welcome-jaunts-content { text-align: left; overflow-wrap: anywhere; }
-.gate[data-region="jaunts"] .welcome-intro { display: none; }
-.gate[data-region="jaunts"] .welcome-actions { grid-template-columns: 1fr 1fr; margin-top: 10px; }
-.gate[data-region="jaunts"] .welcome-action { padding: 8px; }
-.gate[data-region="jaunts"] .welcome-action strong { font-size: 14px; }
-.gate[data-region="jaunts"] .welcome-action span { display: none; }
-#welcome-jaunts-region { overflow-y: auto; overscroll-behavior: contain; padding-right: 4px; }
+.jaunt-window-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }

@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1462, ts: '2026-10-05T03:14:05.021Z', date: 'Oct 4, 2026, 10:14 PM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+    items: [
+      'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
+      'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
+      'Starting at\u2026 opens with five one-tap places: the town from above, Fort Dearborn, the forks, South Water Street and the Newberry & Dole wharf.',
+      'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
+      'The wall of category buttons is now one row of five type icons beside the search.',
+    ] },
   { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
