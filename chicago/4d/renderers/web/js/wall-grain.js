@@ -60,6 +60,14 @@ const CLAPBOARD_ARCHETYPES = new Set(['frame_dwelling', 'frame_storefront', 'fra
 const UPRIGHT_CLADDING = new Set(['vertical_board', 'board_and_batten']);
 /** Archetypes whose `log` primitives are laid horizontally, course on course. */
 const LAID_LOG_ARCHETYPES = new Set(['log_dwelling', 'outbuilding', 'fort_structure']);
+/**
+ * Archetypes whose `log` primitives STAND UP: the stockade's pickets (T-2123).
+ * They were left flat because the face frame grains every upright face along
+ * the horizontal, and an upright timber grained across reads as broken (the
+ * fabric proof's defect 4). `upright` turns the frame a quarter, so the grain
+ * runs up the post — the same map, the same program, one sign on the vertex.
+ */
+const STANDING_LOG_ARCHETYPES = new Set(['palisade']);
 
 /** A stated attribute's value, whether the record writes it bare or as `{ value, confidence }`. */
 function valueOf(a) {
@@ -89,8 +97,11 @@ export function wallRelief(sidecar) {
       wall = { substrate: 'clapboard', finish, grain: COATINGS.has(finish) ? GRAIN_COATED : GRAIN_BARE };
     }
   }
-  const log = LAID_LOG_ARCHETYPES.has(archetype)
-    ? { substrate: 'hewn_log', finish: null, grain: GRAIN_BARE }
-    : null;
+  let log = null;
+  if (LAID_LOG_ARCHETYPES.has(archetype)) {
+    log = { substrate: 'hewn_log', finish: null, grain: GRAIN_BARE };
+  } else if (STANDING_LOG_ARCHETYPES.has(archetype)) {
+    log = { substrate: 'hewn_log', finish: null, grain: GRAIN_BARE, upright: true };
+  }
   return { wall, log };
 }
