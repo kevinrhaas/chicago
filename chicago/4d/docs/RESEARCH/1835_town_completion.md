@@ -69,11 +69,11 @@ Of the **2,679** people housed in a standing building: **10.8 % attested** (288)
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
 | occupied | 50 | 9 | 242 | 301 |
-| occupants named in prose only | 9 | 10 | 86 | 105 |
+| occupants named in prose only | 9 | 10 | 87 | 106 |
 | a use that needs nobody | 25 | 6 | 138 | 169 |
 | empty, owing somebody | 0 | 0 | 0 | 0 |
-| **all** | **84** | **25** | **466** | **575** |
-| share | 14.6 % | 4.3 % | 81.0 % | |
+| **all** | **84** | **25** | **467** | **576** |
+| share | 14.6 % | 4.3 % | 81.1 % | |
 
 ### Streets (two questions of each street — not summed)
 

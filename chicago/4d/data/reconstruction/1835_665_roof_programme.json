@@ -97,7 +97,7 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 576,
+  "structure_records": 577,
   "physical_roofs": {
    "min": 558,
    "max": 559,
@@ -184,7 +184,8 @@
    "slough_log_bridge",
    "south_branch_raft_bridge",
    "south_pier",
-   "west_approach_wagon_camp"
+   "west_approach_wagon_camp",
+   "wolf_point_trading_camp"
   ]
  },
  "remaining": {
