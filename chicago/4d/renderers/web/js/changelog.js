@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1469, ts: '2026-10-05T04:32:37.067Z', date: 'Oct 4, 2026, 11:32 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+  { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
       'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
       'At Full detail the windows still reflect and see through as before.',
       'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
+    ] },
+  { v: 1469, ts: '2026-10-05T04:20:56.828Z', date: 'Oct 4, 2026, 11:20 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+    items: [
+      'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
+      'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
+      '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
+      'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
+      'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
     ] },
   { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
     items: [
