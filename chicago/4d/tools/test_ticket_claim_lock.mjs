@@ -344,6 +344,82 @@ const boxes = [];
     (r.stdout || '').trim().split('\n').pop());
 }
 
+/* 10-13. THE LAP LOCK (T-1721) — the same lock, held on a `resume` PULL REQUEST.
+ *
+ * A run that laps a `resume` PR claims no ticket (its ticket is already `review`), so
+ * the claim lock above never saw it, and twice two slices relapped one PR and found out
+ * at `git push` (#154 on 2026-09-28, #442 on 2026-10-05). `lap N` takes `lap/pr-N` by
+ * the same server-side compare-and-swap, and every property asserted for a claim is
+ * asserted again here, because a lock that refuses a claim and waves through a lap is
+ * the fault this ticket was filed on. */
+const lap = (repo, n, extra = []) => {
+  const r = spawnSync('node', [path.join(repo, 'chicago', '4d', 'tools', 'ticket.mjs'),
+    'lap', String(n), ...extra], { cwd: repo, encoding: 'utf8' });
+  return { code: r.status, out: `${r.stdout ?? ''}${r.stderr ?? ''}` };
+};
+const lapSha = (repo, origin, n) =>
+  (git(repo, ['ls-remote', origin, `refs/heads/lap/pr-${n}`]).stdout || '').split('\t')[0].trim();
+function ageLap(repo, origin, n, hoursAgo) {
+  const when = new Date(Date.now() - hoursAgo * 3600 * 1000).toISOString();
+  const tree = git(repo, ['hash-object', '-w', '-t', 'tree', '/dev/null']).stdout.trim();
+  const c = git(repo, ['commit-tree', tree, '-m', `lap PR #${n} — an older run`], {
+    GIT_AUTHOR_DATE: when, GIT_COMMITTER_DATE: when,
+    GIT_AUTHOR_NAME: 'old', GIT_AUTHOR_EMAIL: 'old@test',
+    GIT_COMMITTER_NAME: 'old', GIT_COMMITTER_EMAIL: 'old@test',
+  }).stdout.trim();
+  git(repo, ['push', '--force', origin, `${c}:refs/heads/lap/pr-${n}`]);
+}
+
+/* 10. the second run to lap one PR is REFUSED, by exit status, and told who holds it. */
+{
+  const s = sandbox(); boxes.push(s.root);
+  const a = lap(s.clones[0], 466, ['--by', 'run']);
+  const b = lap(s.clones[1], 466, ['--by', 'run']);
+  check('10. the first run to lap a resume PR takes lap/pr-466', a.code === 0 && lapSha(s.clones[0], s.origin, 466) !== '',
+    a.out.trim().split('\n').pop());
+  check('    the second, in the same second with identical text, is REFUSED', b.code === 1, `exit ${b.code}`);
+  check('    …told the PR is being lapped and pointed at its own row',
+    /IS BEING LAPPED/.test(b.out) && /list --workable/.test(b.out));
+  check('    …and a different PR is still free to the second run', lap(s.clones[1], 467).code === 0);
+}
+
+/* 11. a dead lap is stolen; a live one is not, without --force. */
+{
+  const s = sandbox(); boxes.push(s.root);
+  ageLap(s.clones[0], s.origin, 466, RUN_HOURS + 1);
+  const r = lap(s.clones[1], 466);
+  check('11. a lap older than a run is stolen, and says so', r.code === 0 && /stole a dead lap/.test(r.out), `exit ${r.code}`);
+  const again = lap(s.clones[0], 466);
+  check('    the fresh lap that stole it is not stolen back', again.code === 1, `exit ${again.code}`);
+  check('    …unless the run says so with --force', lap(s.clones[0], 466, ['--force']).code === 0);
+}
+
+/* 12. --release gives it back, and an unreachable remote never stops a run. */
+{
+  const s = sandbox(); boxes.push(s.root);
+  lap(s.clones[0], 466);
+  const r = lap(s.clones[0], 466, ['--release']);
+  check('12. `lap N --release` deletes the marker', r.code === 0 && lapSha(s.clones[0], s.origin, 466) === '', r.out.trim());
+  check('    …after which another run takes it', lap(s.clones[1], 466).code === 0);
+  git(s.clones[0], ['remote', 'set-url', 'origin', path.join(s.root, 'nope.git')]);
+  const off = lap(s.clones[0], 468);
+  check('    no reachable remote ⇒ the lap proceeds and says it took no lock',
+    off.code === 0 && /lap lock not taken/.test(off.out), `exit ${off.code}`);
+  check('    a PR number that is not one is a usage error, not a lock', lap(s.clones[1], 'T-0001').code === 2);
+}
+
+/* 13. a dead lap is litter, and the sweep the PR lap already runs collects it. */
+{
+  const s = sandbox(); boxes.push(s.root);
+  ageLap(s.clones[0], s.origin, 466, RUN_HOURS + 2);
+  lap(s.clones[0], 470);
+  const r = spawnSync('node', [path.join(s.clones[0], 'chicago', '4d', 'tools', 'ticket.mjs'),
+    'claims', '--sweep'], { cwd: s.clones[0], encoding: 'utf8' });
+  check('13. `claims --sweep` collects a dead lap marker',
+    r.status === 0 && lapSha(s.clones[0], s.origin, 466) === '', (r.stdout || '').trim().split('\n').pop());
+  check('    …and leaves a live one standing', lapSha(s.clones[0], s.origin, 470) !== '');
+}
+
 for (const b of boxes) rmSync(b, { recursive: true, force: true });
 
 console.log(failures ? `\n${failures} FAILED` : '\nall passed');
