@@ -143,7 +143,11 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # 2 -> 1 on 2026-10-05 (T-2129): the Market block's five houses take five of the deal's
 # slot requests as roofs, and the slot room that frees seats hh_bennet_lyman on a slot
 # (blk_washington_dearborn#04) in the deal itself, so a release no longer gains him.
-BUSINESS_DEAL_HOLDS = 40
+# 40 -> 44 on 2026-10-05 (T-2141): the business deal no longer reads T-2134's four Dearborn
+# workshops as yard buildings, since each stands on the street line, and seats firms in all
+# four. They are workshops this deal never seats a household in, so no seat moved and the
+# cost below is unchanged (L270).
+BUSINESS_DEAL_HOLDS = 44
 # 1 -> 2 on 2026-10-05 (T-2130): the nine roofs it raised on blk_washington_dearborn and
 # blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
 # standing beside T-2129's Market block the deal hands hh_bennet_lyman on, and a release would

@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1502, ts: '2026-10-05T18:39:18.066Z', date: 'Oct 5, 2026, 1:39 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+  { v: 1503, ts: '2026-10-05T19:16:32.561Z', date: 'Oct 5, 2026, 2:16 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
       'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
       'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
       'The doctor\u2019s card now says he came from Vermont, as an 1895 history of Chicago records. Pruyne\u2019s card keeps the store, and his own arrival year: early 1833, when the shop opened.',
       'Pruyne no longer gets an invented wife and children. The record has him marrying Rebecca Sherman on 20 August 1835, seven weeks after the day the town shows.',
+    ] },
+  { v: 1502, ts: '2026-10-05T18:41:21.129Z', date: 'Oct 5, 2026, 1:41 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
+    items: [
+      'The four workshops that opened onto Dearborn Street behind corner houses now hold businesses. Cooley and Halsman, tailors, and S. Abell, attorney and counsellor, hang their boards there. Elmira Fowler and W. H. Taylor\u2019s boot and shoe store take the other two.',
+      'These are firms the 1834\u201335 papers place on Dearborn Street and nowhere narrower. Until now the town treated the new shops as back-yard buildings and would not put a business in them. They stand on the street, so they are on Dearborn\u2019s face like any other roof there.',
+      'Four more Dearborn businesses now have a roof: the wholesale wine and liquor store, the Dearborn Street auction and commission rooms, George Holsman, and a second Cooley partnership. 44 of the 52 businesses the papers give only a street for now stand on it.',
+      'Which roof on the street each firm gets is our choice, not evidence, and its card says so.',
     ] },
   { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
     items: [

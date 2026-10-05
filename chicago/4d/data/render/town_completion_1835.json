@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 4,
+    "structures_empty_owing_somebody": 0,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -123,7 +123,7 @@
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 81
+      "reconstructed": 85
     },
     "use_stated": {
       "camp_ground": 3,
@@ -139,15 +139,8 @@
       "the_printed_count_is_held": 5,
       "vacant_to_let": 1
     },
-    "empty_owing_somebody": {
-      "house_of_trade": 4
-    },
-    "empty": [
-      "recon_1835_blk_randolph_clark_w1_10",
-      "recon_1835_blk_randolph_clark_w2_09",
-      "recon_1835_blk_randolph_dearborn_w2_18",
-      "recon_1835_blk_washington_dearborn_w2_10"
-    ]
+    "empty_owing_somebody": {},
+    "empty": []
   },
   "tiers": {
     "persons": {
@@ -220,7 +213,7 @@
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 81
+        "reconstructed": 85
       },
       "use_stated": {
         "attested": 25,
@@ -230,7 +223,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 4
+        "reconstructed": 0
       }
     },
     "streets": {
@@ -269,7 +262,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 4,
+      "open": 0,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]
