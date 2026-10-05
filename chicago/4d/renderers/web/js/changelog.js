@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+  { v: 1477, ts: '2026-10-05T09:32:22.719Z', date: 'Oct 5, 2026, 4:32 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
     items: [
       'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
       'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
