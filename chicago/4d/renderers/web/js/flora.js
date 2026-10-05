@@ -737,6 +737,14 @@ const CONE_KEEP_M = 3.5;
 /** Cosine of the cone half-angle, and the yaw change that forces a rebuild. */
 const CONE_COS = Math.cos(62 * Math.PI / 180);
 const CONE_YAW_STEP = 0.20;
+/**
+ * T-2106. The longest a spread near rebuild may stay in flight, in wall-clock
+ * milliseconds, before it is finished in one frame. At 60 Hz that is fifteen
+ * frames, more than any pass is paced over; it is there for a slow renderer —
+ * SwiftShader at five frames a second — where a reader waiting a couple of
+ * frames after a move has to find one whole lattice, as it always did.
+ */
+const SPREAD_MAX_MS = 250;
 
 /** Conservative camera azimuth, quantized outward in five-degree buckets.
  * A level-camera cone misses ground exposed by a downward flight view; using
@@ -1310,7 +1318,8 @@ export async function createFlora({
   // ---- placement --------------------------------------------------------- //
 
   const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null,
-    last: null };
+    last: null, lastYaw: null };
+
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
 
   // The lattice each layer is scattered on, and the ring the shader fades it
@@ -1955,6 +1964,116 @@ export async function createFlora({
 
   const tmpV = new THREE.Vector3();
   const tmpF = new THREE.Vector3();
+  const tmpQ = new THREE.Quaternion();
+
+  /**
+   * T-2106. THE REBUILDS, SPREAD OVER FRAMES. Each of the two passes the walker
+   * triggers — the near lattice (`rebuildAll`) and the far shrubs with their
+   * carries (`rebuildFarShrubs`) — is a generator already, which the boot path
+   * iterates between paints. While the visitor moves smoothly the animation
+   * loop now does the same: a pass is started EARLY, advanced a slice of each
+   * frame, and its sets are committed only when it lands, so the GPU goes on
+   * drawing the last whole lattice and never a half-dealt one. The deal itself
+   * is untouched — a pass dealt over ten frames lands the plants a pass dealt
+   * in one would, which `tools/measure_walk_frames.mjs --verify` checks.
+   *
+   * `reach` is how far the walker may stand from the pass's centre before the
+   * lattice on screen runs out of margin (`step` for the near rings, the far
+   * shrubs' own step for theirs); `CONE_YAW_STEP` is the same for a turn.
+   * `cost` is what the last whole pass spent: the next one is paced on it.
+   */
+  const nearPass = { name: 'near', make: rebuildAll, at: 'near', yawAt: 'yaw',
+    reach: step, pending: null, cost: null };
+  const farPass = { name: 'far', make: rebuildFarShrubs, at: 'farShrub', yawAt: 'farShrubYaw',
+    reach: tune.farShrub.step, pending: null, cost: null };
+  stats.spread = { landings: 0, drained: 0, abandoned: 0, frames: 0, ms: 0,
+    passes: { near: 0, far: 0 }, last: { near: null, far: null } };
+
+  /** Run, start or advance one pass this frame. True if its sets changed. */
+  function runPass(p, f, due) {
+    const { e, n, yaw } = f;
+    // Worth spreading: the last pass cost more than the slice, and half this
+    // pass's margin — the most a spread pass can use — holds at least four
+    // frames of the walker's pace and turn (two to spread over, two in hand).
+    // A pass that fits in the slice, a teleport, a snap turn, a horse at the
+    // near rings' 0.6 m step: each takes the one-frame pass it always did,
+    // started on time and not early, because starting a pass early that
+    // cannot then be spread only adds passes (measured on a ride: 367 against
+    // 221).
+    const spread = f.spread && (p.cost ?? 0) > f.budgetMs
+      && f.pace * 4 <= p.reach / 2 && f.turnRate * 4 <= CONE_YAW_STEP / 2;
+    if (p.pending && !spread) {
+      // Dealt for a pose the camera has jumped from: dropped uncommitted. The
+      // sets still hold the last whole lattice on the GPU, and `due` decides
+      // afresh whether that one still serves.
+      p.pending = null;
+      stats.spread.abandoned++;
+    }
+    const c = centres[p.at];
+    const d = c ? Math.hypot(e - c.e, n - c.n) : Infinity;
+    const dy = centres[p.yawAt] === null ? Infinity : yawGap(yaw, centres[p.yawAt]);
+    if (!p.pending) {
+      if (!spread) {
+        if (!due) return false;
+        const t0 = performance.now();
+        for (const _ of p.make(e, n, f.cone)) { /* runtime synchronous path */ }
+        p.cost = performance.now() - t0;
+        stats.spread.passes[p.name]++;
+        centres[p.at] = { e, n };
+        centres[p.yawAt] = yaw;
+        return true;
+      }
+      // Start EARLY by as far as the walker will go while the pass is spread:
+      // its pace (and turn) per frame, for the frames the last pass's cost
+      // needs at this budget, and two in hand. Never earlier than half the
+      // reach — spreading every pass over half the margin is the least any
+      // frame can be asked to pay, because the pass after it needs the rest.
+      const frames = Math.ceil((p.cost ?? 0) / Math.max(f.budgetMs, 0.5)) + 3;
+      const lead = Math.min(p.reach / 2, Math.max(f.pace, frames * f.pace));
+      const leadYaw = Math.min(CONE_YAW_STEP / 2, frames * f.turnRate);
+      if (d + lead <= p.reach && dy + leadYaw <= CONE_YAW_STEP) return false;
+      f.camera.getWorldQuaternion(tmpQ);
+      p.pending = { gen: p.make(e, n, f.cone), e, n, yaw, spent: 0, frames: 0,
+        t0: performance.now(),
+        // Where the camera stood, so a gate can deal the same pass in one frame
+        // and compare the two plant for plant.
+        camera: [tmpV.x, tmpV.y, tmpV.z, ...tmpQ.toArray()] };
+    }
+    // The frames left before the camera reaches the edge of the lattice on
+    // screen, at this frame's pace and turn, less one for the frame this one
+    // renders and one in hand. A pass not landed by then is finished in this
+    // frame: the margin is never spent, only the time.
+    const left = Math.min(
+      f.pace > 0 ? (p.reach - d) / f.pace : Infinity,
+      f.turnRate > 0 ? (CONE_YAW_STEP - dy) / f.turnRate : Infinity) - 2;
+    const late = left < 1 || performance.now() - p.pending.t0 > SPREAD_MAX_MS;
+    const owed = Math.max(0, (p.cost ?? f.budgetMs) - p.pending.spent);
+    const slice = late ? Infinity : Math.max(f.budgetMs, owed / Math.max(1, left));
+    const t0 = performance.now();
+    let done = false;
+    do { done = p.pending.gen.next().done; } while (!done && performance.now() - t0 < slice);
+    p.pending.spent += performance.now() - t0;
+    p.pending.frames++;
+    if (!done) return false;
+    land(p, late);
+    return true;
+  }
+
+  /** A spread pass has run to its end: its lattice is the one shown. */
+  function land(p, drained) {
+    const q = p.pending;
+    centres[p.at] = { e: q.e, n: q.n };
+    centres[p.yawAt] = q.yaw;
+    p.cost = q.spent;
+    const sp = stats.spread;
+    sp.landings++;
+    if (drained) sp.drained++;
+    sp.frames += q.frames;
+    sp.ms += q.spent;
+    sp.last[p.name] = { e: q.e, n: q.n, yaw: q.yaw, frames: q.frames, ms: q.spent,
+      camera: q.camera, pass: ++sp.passes[p.name] };
+    p.pending = null;
+  }
 
   return {
     group,
@@ -2199,7 +2318,14 @@ export async function createFlora({
       centres.pitch = Math.asin(tmpF.y); centres.eyeY = tmpV.y;
     },
 
-    update(dt, camera) {
+    /**
+     * @param {number} [budgetMs] T-2106: the milliseconds of this frame the
+     *   near rebuild may spend. Unset (or Infinity), a rebuild runs to
+     *   completion in the frame that needs it, which is what every caller that
+     *   reads the buffers straight after must get; the animation loop passes a
+     *   slice and the pass is spread over the frames the margin allows.
+     */
+    update(dt, camera, budgetMs = Infinity) {
       uniforms.uChiTime.value += dt * TUNE.wind.speedNear;
       if (!sunFound) {
         sunFound = sunFromScene(group, uniforms, problems);
@@ -2232,24 +2358,46 @@ export async function createFlora({
       // than a frame late. See `moved`.
       const pace = centres.last ? Math.hypot(e - centres.last.e, n - centres.last.n) : 0;
       centres.last = { e, n };
-      let rebuilt = false;
-      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step, pace)) {
-        for (const _ of rebuildFarShrubs(e, n, cone)) { /* synchronous */ }
-        centres.farShrub = { e, n };
-        centres.farShrubYaw = yaw;
-        rebuilt = true;
-      }
-      if (coneChanged || turned || moved(centres.near, e, n, step, pace)) {
-        for (const _ of rebuildAll(e, n, cone)) { /* runtime synchronous path */ }
-        centres.near = { e, n };
-        centres.yaw = yaw;
-        rebuilt = false;
-      }
+      // T-2106. How far the last frame turned the view, as `pace` is how far it
+      // carried the walker.
+      const turnRate = centres.lastYaw === null ? 0 : yawGap(yaw, centres.lastYaw);
+      centres.lastYaw = yaw;
+      // A rebuild may be spread only over SMOOTH motion (see `runPass`): a new
+      // cone needs the lattice where the camera now is, in this frame, exactly
+      // as before. So does a caller that set no budget — every tool that drives
+      // `step()` and reads the buffers straight after.
+      const frame = { e, n, yaw, cone, pace, turnRate, budgetMs, camera,
+        spread: Number.isFinite(budgetMs) && !coneChanged
+          && centres.near !== null && centres.farShrub !== null };
+      // The far shrubs and the carries first, on their own step, as before.
+      const farLanded = runPass(farPass, frame, coneChanged || turnedFar
+        || moved(centres.farShrub, e, n, tune.farShrub.step, pace));
+      const nearLanded = runPass(nearPass, frame, coneChanged || turned
+        || moved(centres.near, e, n, step, pace));
       if (coneChanged) {
         centres.coneCos = coneCos; centres.pitch = pitch; centres.eyeY = tmpV.y;
       }
-      if (rebuilt) tally();
+      // `rebuildAll` tallies itself; a far pass alone has to be counted.
+      if (farLanded && !nearLanded) tally();
     },
+
+    /** T-2106. Land a spread rebuild now, if one is under way — for a reader
+     *  of the buffers that must see one whole lattice. True if one landed. */
+    settle() {
+      let landed = false;
+      for (const p of [farPass, nearPass]) {
+        if (!p.pending) continue;
+        const t0 = performance.now();
+        for (const _ of p.pending.gen) { /* drained */ }
+        p.pending.spent += performance.now() - t0;
+        land(p, true);
+        landed = true;
+      }
+      if (landed) tally();
+      return landed;
+    },
+    /** T-2106. Whether a spread rebuild is under way, its sets uncommitted. */
+    inFlight() { return nearPass.pending !== null || farPass.pending !== null; },
 
     dispose() {
       for (const d of disposables) d?.dispose?.();
@@ -2284,6 +2432,11 @@ function inertRig(group, stats) {
  * early. A move longer than the step is a jump, not a pace: it rebuilds on its
  * own distance, and is not carried into the frame after it.
  */
+/** The unsigned angle between two yaws, in radians, across the wrap. */
+function yawGap(a, b) {
+  return Math.abs(((a - b + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
+}
+
 function moved(centre, e, n, step, pace = 0) {
   if (!centre) return true;
   return Math.hypot(e - centre.e, n - centre.n) + (pace <= step ? pace : 0) > step;

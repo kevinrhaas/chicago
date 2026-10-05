@@ -1,9 +1,35 @@
 export const CHANGELOG = [ // newest first
-  { v: 1456, ts: '2026-10-05T00:50:05.085Z', date: 'Oct 4, 2026, 7:50 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+  { v: null, ts: '', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
       'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
       'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
+    ] },
+  { v: 1459, ts: '2026-10-05T01:23:30.633Z', date: 'Oct 4, 2026, 8:23 PM CT', title: 'The letter-list names load half the size', kind: 'change',
+    items: [
+      'Open People and look at the names known only from the post office\u2019s letter lists. Each one opens as before, with nothing left out.',
+      'They now come down to your browser in half the size, about 4.6 MB where it was 9.3 MB. Most of those records repeat the same paragraphs, and now each paragraph is sent once.',
+      'After the first name opens, other names with the same first letter open straight away.',
+    ] },
+  { v: 1458, ts: '2026-10-05T01:08:43.898Z', date: 'Oct 4, 2026, 8:08 PM CT', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
+    items: [
+      'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',
+      'At a stop like that the button now reads Choose an Option. Tap it and the panel scrolls to the options.',
+      'Nothing about the previous jaunt was carried over. All 26 jaunts were run start to finish, one after another, on a phone-sized window.',
+    ] },
+  { v: 1457, ts: '2026-10-05T00:54:32.111Z', date: 'Oct 4, 2026, 7:54 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+    items: [
+      'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
+      'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
+      'On a desktop at Full detail, the worst frame of a turn fell from 31 ms to 8 ms.',
+      'Turning in 1812 is as smooth as in 1835. 1904 has no wild planting to redraw, so walking there was already light on the processor.',
+    ] },
+  { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
     ] },
   { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
