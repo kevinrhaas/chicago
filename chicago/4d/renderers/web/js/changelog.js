@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Our records no longer hand work to a finished task', kind: 'fix',
+  { v: 1485, ts: '2026-10-05T11:53:15.787Z', date: 'Oct 5, 2026, 6:53 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
     items: [
       'Nothing you can see changes in this update. 24 reconstructed houses still wait for us to say which household lives in each, or why we can\u2019t. 18 of them are on the Washington Street blocks.',
       'Our records handed those houses to planning tasks that had all finished, so nothing would ever have picked them up. They now point to a new open task, and our checks fail if that task closes while any of the houses are still waiting.',
