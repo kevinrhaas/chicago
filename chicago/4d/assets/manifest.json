@@ -3196,6 +3196,33 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_wells_h2_07"
     },
+    "recon_1835_blk_west_lake_canal_d2_03__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 73240,
+      "inputs_sha256": "a8a42f1debbca068fe7cf99273e72c67dad3b3c6afbedc2d0b5354aafbdab2a9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_lake_canal_d2_03"
+    },
+    "recon_1835_blk_west_lake_canal_d4_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 33792,
+      "inputs_sha256": "585cfb41c425aa6fd79b289b6e386fa275df7e9cb9c4dd862b62203ca2d78d89",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_lake_canal_d4_02"
+    },
+    "recon_1835_blk_west_lake_canal_d5_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 37676,
+      "inputs_sha256": "6a8b44c13082b2efc40ffcde7616701a7f846c62429753cddf298b90dd8448dc",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_lake_canal_d5_01"
+    },
     "recon_1835_blk_west_randolph_des_plaines_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
