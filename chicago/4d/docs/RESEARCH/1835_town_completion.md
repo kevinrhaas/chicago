@@ -79,7 +79,7 @@ Of the **2,519** people housed in a standing building: **10.4 % attested** (262)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| where it ran | 23 | 53 | 3 | 79 |
-| what it was surfaced with | 1 | 78 | 0 | 79 |
+| where it ran | 23 | 53 | 4 | 80 |
+| what it was surfaced with | 1 | 79 | 0 | 80 |
 
 Visitors of the season (T-1353) are counted apart and are in none of these tables: 307 persons, 307 of them with a stated lodging.
