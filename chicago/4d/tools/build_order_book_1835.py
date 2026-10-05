@@ -5027,8 +5027,12 @@ def cmd_self_test() -> int:
     # 251 -> 255 on 2026-10-05 (T-2132): plat block 44 is cut on its own two printed depths
     # and its four houses raised; the four households that asked for them are seated on
     # standing West roofs and nobody is handed on (178 -> 182 platted seats, L270, L313).
+    # 255 -> 261 on 2026-10-05 (T-2143): Canal and West Water are carried to Madison, plat
+    # block 51 comes onto the layer and its six houses are raised; the six households that
+    # asked for them are seated on standing West roofs and nobody is handed on (182 -> 188
+    # platted seats, L270, L313).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 255
+        data["inventory"], data["programme"], occ))["seated"] == 261
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
