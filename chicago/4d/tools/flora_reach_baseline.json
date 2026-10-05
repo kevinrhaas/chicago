@@ -14,8 +14,8 @@
   },
   "figures": {
     "species[].abundance.cover_fraction": {
-      "carriers": 60,
-      "reached": 58,
+      "carriers": 65,
+      "reached": 63,
       "unreached": 2,
       "readers": [
         "flora.js"
@@ -32,17 +32,17 @@
       "state": "mesh"
     },
     "species[].common": {
-      "carriers": 155,
+      "carriers": 166,
       "reached": 35,
-      "unreached": 120,
+      "unreached": 131,
       "readers": [
         "trees.js"
       ],
       "state": "shown"
     },
     "species[].confidence": {
-      "carriers": 155,
-      "reached": 153,
+      "carriers": 166,
+      "reached": 164,
       "unreached": 2,
       "readers": [
         "flora.js",
@@ -51,8 +51,8 @@
       "state": "mesh"
     },
     "species[].form": {
-      "carriers": 155,
-      "reached": 153,
+      "carriers": 166,
+      "reached": 164,
       "unreached": 2,
       "readers": [
         "flora.js",
@@ -61,8 +61,8 @@
       "state": "mesh"
     },
     "species[].height_m": {
-      "carriers": 155,
-      "reached": 153,
+      "carriers": 166,
+      "reached": 164,
       "unreached": 2,
       "readers": [
         "flora.js",
@@ -71,17 +71,17 @@
       "state": "mesh"
     },
     "species[].july.appearance": {
-      "carriers": 155,
+      "carriers": 166,
       "reached": 35,
-      "unreached": 120,
+      "unreached": 131,
       "readers": [
         "trees.js"
       ],
       "state": "shown"
     },
     "species[].july.foliage_rgb": {
-      "carriers": 155,
-      "reached": 153,
+      "carriers": 166,
+      "reached": 164,
       "unreached": 2,
       "readers": [
         "flora.js",
@@ -90,8 +90,8 @@
       "state": "mesh"
     },
     "species[].july.inflorescence.height_frac": {
-      "carriers": 97,
-      "reached": 96,
+      "carriers": 104,
+      "reached": 103,
       "unreached": 1,
       "readers": [
         "flora.js",
@@ -100,8 +100,8 @@
       "state": "mesh"
     },
     "species[].july.inflorescence.rgb": {
-      "carriers": 97,
-      "reached": 96,
+      "carriers": 104,
+      "reached": 103,
       "unreached": 1,
       "readers": [
         "flora.js",
@@ -110,8 +110,8 @@
       "state": "mesh"
     },
     "species[].july.inflorescence.shape": {
-      "carriers": 97,
-      "reached": 96,
+      "carriers": 104,
+      "reached": 103,
       "unreached": 1,
       "readers": [
         "flora.js",
@@ -120,8 +120,8 @@
       "state": "mesh"
     },
     "species[].july.inflorescence.size_m": {
-      "carriers": 97,
-      "reached": 96,
+      "carriers": 104,
+      "reached": 103,
       "unreached": 1,
       "readers": [
         "flora.js",
@@ -130,8 +130,8 @@
       "state": "mesh"
     },
     "species[].july.phenology": {
-      "carriers": 155,
-      "reached": 153,
+      "carriers": 166,
+      "reached": 164,
       "unreached": 2,
       "readers": [
         "flora.js",
@@ -140,8 +140,8 @@
       "state": "mesh"
     },
     "species[].role": {
-      "carriers": 155,
-      "reached": 153,
+      "carriers": 166,
+      "reached": 164,
       "unreached": 2,
       "readers": [
         "flora.js",

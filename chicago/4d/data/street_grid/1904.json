@@ -15867,6 +15867,3773 @@
    "library_frontage_ids": [
     "frontage-35-091"
    ]
+  },
+  {
+   "id": "indiana_1601",
+   "addresses_1911": [
+    "1601",
+    "1603"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1271.93,
+     -2954.97
+    ],
+    [
+     1272.05,
+     -2967.3
+    ],
+    [
+     1298.82,
+     -2967.09
+    ],
+    [
+     1298.67,
+     -2954.73
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1271.93,
+     -2954.97
+    ],
+    "SW_street": [
+     1272.05,
+     -2967.3
+    ],
+    "SE_rear": [
+     1298.82,
+     -2967.09
+    ],
+    "NE_rear": [
+     1298.67,
+     -2954.73
+    ]
+   },
+   "frontage_ft": 40.5,
+   "depth_ft": 87.8,
+   "area_m2": 330.39,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20"
+   ],
+   "read": "lot lines at sheet 20 rows [None, None] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line ind_16_corner_rear",
+   "library_frontage_ids": [],
+   "cross_street_addresses_1911": [
+    "201 E. 16th St."
+   ],
+   "note": "One five-storey building (office and tin shop) carries both numbers; the sheet draws no lot line between them. The sheet prints 201 E. 16th St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
+  },
+  {
+   "id": "e16th_209",
+   "addresses_1911": [
+    "209",
+    "211",
+    "213",
+    "215",
+    "217"
+   ],
+   "street": "e16th",
+   "side": "south",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "e16th__indiana_prairie_16_18",
+   "where": "the south side of East Sixteenth Street, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1298.82,
+     -2967.09
+    ],
+    [
+     1326.16,
+     -2966.88
+    ],
+    [
+     1326.02,
+     -2954.49
+    ],
+    [
+     1298.67,
+     -2954.73
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1298.67,
+     -2954.73
+    ],
+    "NE_street": [
+     1326.02,
+     -2954.49
+    ],
+    "SE_rear": [
+     1326.16,
+     -2966.88
+    ],
+    "SW_rear": [
+     1298.82,
+     -2967.09
+    ]
+   },
+   "frontage_ft": 89.7,
+   "depth_ft": 40.6,
+   "area_m2": 338.36,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20"
+   ],
+   "read": "lot lines at sheet 20 columns [None, None] (profile peaks at row 1380); front sheet 20 line s16_s, rear sheet 20 line ind_16_l1494",
+   "library_frontage_ids": [],
+   "note": "A row of five 3 1/2-storey dwellings. Its four party walls stop at the row's rear wall (column peaks at 1674, 1775, 1878 and 1986 across rows 1300-1420, none across 1445-1485), so the sheet draws no lot line between them and the row is one lot here. The numbers in parentheses above them, (41) to (33), are the pre-1909 ones and are not carried."
+  },
+  {
+   "id": "indiana_1605",
+   "addresses_1911": [
+    "1605",
+    "1613"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.05,
+     -2967.3
+    ],
+    [
+     1272.37,
+     -2998.55
+    ],
+    [
+     1326.54,
+     -2998.03
+    ],
+    [
+     1326.16,
+     -2966.88
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.05,
+     -2967.3
+    ],
+    "SW_street": [
+     1272.37,
+     -2998.55
+    ],
+    "SE_rear": [
+     1326.54,
+     -2998.03
+    ],
+    "NE_rear": [
+     1326.16,
+     -2966.88
+    ]
+   },
+   "frontage_ft": 102.5,
+   "depth_ft": 177.6,
+   "area_m2": 1689.23,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [None, 2108.0] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1615",
+   "addresses_1911": [
+    "1615",
+    "1617"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.37,
+     -2998.55
+    ],
+    [
+     1272.47,
+     -3008.94
+    ],
+    [
+     1326.66,
+     -3008.42
+    ],
+    [
+     1326.54,
+     -2998.03
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.37,
+     -2998.55
+    ],
+    "SW_street": [
+     1272.47,
+     -3008.94
+    ],
+    "SE_rear": [
+     1326.66,
+     -3008.42
+    ],
+    "NE_rear": [
+     1326.54,
+     -2998.03
+    ]
+   },
+   "frontage_ft": 34.1,
+   "depth_ft": 177.8,
+   "area_m2": 562.94,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [2108.0, 2312.6] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1619",
+   "addresses_1911": [
+    "1619"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.47,
+     -3008.94
+    ],
+    [
+     1272.63,
+     -3025.02
+    ],
+    [
+     1326.85,
+     -3024.5
+    ],
+    [
+     1326.66,
+     -3008.42
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.47,
+     -3008.94
+    ],
+    "SW_street": [
+     1272.63,
+     -3025.02
+    ],
+    "SE_rear": [
+     1326.85,
+     -3024.5
+    ],
+    "NE_rear": [
+     1326.66,
+     -3008.42
+    ]
+   },
+   "frontage_ft": 52.8,
+   "depth_ft": 177.9,
+   "area_m2": 871.81,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [2312.6, 2629.3] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1623",
+   "addresses_1911": [
+    "1623"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.63,
+     -3025.02
+    ],
+    [
+     1272.79,
+     -3040.9
+    ],
+    [
+     1327.05,
+     -3040.38
+    ],
+    [
+     1326.85,
+     -3024.5
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.63,
+     -3025.02
+    ],
+    "SW_street": [
+     1272.79,
+     -3040.9
+    ],
+    "SE_rear": [
+     1327.05,
+     -3040.38
+    ],
+    "NE_rear": [
+     1326.85,
+     -3024.5
+    ]
+   },
+   "frontage_ft": 52.1,
+   "depth_ft": 178.0,
+   "area_m2": 861.86,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [2629.3, 2942.2] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1623_1637_a",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.79,
+     -3040.9
+    ],
+    [
+     1272.86,
+     -3047.91
+    ],
+    [
+     1327.13,
+     -3047.39
+    ],
+    [
+     1327.05,
+     -3040.38
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.79,
+     -3040.9
+    ],
+    "SW_street": [
+     1272.86,
+     -3047.91
+    ],
+    "SE_rear": [
+     1327.13,
+     -3047.39
+    ],
+    "NE_rear": [
+     1327.05,
+     -3040.38
+    ]
+   },
+   "frontage_ft": 23.0,
+   "depth_ft": 178.0,
+   "area_m2": 380.27,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [2942.2, 3080.2] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1623_1637_b",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.86,
+     -3047.91
+    ],
+    [
+     1272.94,
+     -3056.07
+    ],
+    [
+     1327.23,
+     -3055.54
+    ],
+    [
+     1327.13,
+     -3047.39
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.86,
+     -3047.91
+    ],
+    "SW_street": [
+     1272.94,
+     -3056.07
+    ],
+    "SE_rear": [
+     1327.23,
+     -3055.54
+    ],
+    "NE_rear": [
+     1327.13,
+     -3047.39
+    ]
+   },
+   "frontage_ft": 26.8,
+   "depth_ft": 178.1,
+   "area_m2": 442.68,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [3080.2, 3240.8] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1623_1637_c",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1272.94,
+     -3056.07
+    ],
+    [
+     1273.01,
+     -3063.72
+    ],
+    [
+     1327.32,
+     -3063.2
+    ],
+    [
+     1327.23,
+     -3055.54
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1272.94,
+     -3056.07
+    ],
+    "SW_street": [
+     1273.01,
+     -3063.72
+    ],
+    "SE_rear": [
+     1327.32,
+     -3063.2
+    ],
+    "NE_rear": [
+     1327.23,
+     -3055.54
+    ]
+   },
+   "frontage_ft": 25.1,
+   "depth_ft": 178.1,
+   "area_m2": 415.51,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [3240.8, 3391.5] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1637",
+   "addresses_1911": [
+    "1637"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.01,
+     -3063.72
+    ],
+    [
+     1273.09,
+     -3071.49
+    ],
+    [
+     1327.41,
+     -3070.97
+    ],
+    [
+     1327.32,
+     -3063.2
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.01,
+     -3063.72
+    ],
+    "SW_street": [
+     1273.09,
+     -3071.49
+    ],
+    "SE_rear": [
+     1327.41,
+     -3070.97
+    ],
+    "NE_rear": [
+     1327.32,
+     -3063.2
+    ]
+   },
+   "frontage_ft": 25.5,
+   "depth_ft": 178.2,
+   "area_m2": 422.25,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [3391.5, 3544.6] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1641",
+   "addresses_1911": [
+    "1641"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.09,
+     -3071.49
+    ],
+    [
+     1273.27,
+     -3089.65
+    ],
+    [
+     1327.63,
+     -3089.13
+    ],
+    [
+     1327.41,
+     -3070.97
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.09,
+     -3071.49
+    ],
+    "SW_street": [
+     1273.27,
+     -3089.65
+    ],
+    "SE_rear": [
+     1327.63,
+     -3089.13
+    ],
+    "NE_rear": [
+     1327.41,
+     -3070.97
+    ]
+   },
+   "frontage_ft": 59.6,
+   "depth_ft": 178.3,
+   "area_m2": 986.73,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [3544.6, 3902.2] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1703",
+   "addresses_1911": [
+    "1703"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.27,
+     -3089.65
+    ],
+    [
+     1273.55,
+     -3117.41
+    ],
+    [
+     1327.96,
+     -3116.89
+    ],
+    [
+     1327.63,
+     -3089.13
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.27,
+     -3089.65
+    ],
+    "SW_street": [
+     1273.55,
+     -3117.41
+    ],
+    "SE_rear": [
+     1327.96,
+     -3116.89
+    ],
+    "NE_rear": [
+     1327.63,
+     -3089.13
+    ]
+   },
+   "frontage_ft": 91.1,
+   "depth_ft": 178.4,
+   "area_m2": 1510.09,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [3902.2, 4449.0] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1713",
+   "addresses_1911": [
+    "1713"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.55,
+     -3117.41
+    ],
+    [
+     1273.7,
+     -3132.78
+    ],
+    [
+     1328.15,
+     -3132.25
+    ],
+    [
+     1327.96,
+     -3116.89
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.55,
+     -3117.41
+    ],
+    "SW_street": [
+     1273.7,
+     -3132.78
+    ],
+    "SE_rear": [
+     1328.15,
+     -3132.25
+    ],
+    "NE_rear": [
+     1327.96,
+     -3116.89
+    ]
+   },
+   "frontage_ft": 50.4,
+   "depth_ft": 178.6,
+   "area_m2": 836.35,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [4449.0, 4751.6] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_1713_1727_a",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.7,
+     -3132.78
+    ],
+    [
+     1273.78,
+     -3140.24
+    ],
+    [
+     1328.23,
+     -3139.71
+    ],
+    [
+     1328.15,
+     -3132.25
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.7,
+     -3132.78
+    ],
+    "SW_street": [
+     1273.78,
+     -3140.24
+    ],
+    "SE_rear": [
+     1328.23,
+     -3139.71
+    ],
+    "NE_rear": [
+     1328.15,
+     -3132.25
+    ]
+   },
+   "frontage_ft": 24.5,
+   "depth_ft": 178.7,
+   "area_m2": 406.19,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [4751.6, 4898.5] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1713_1727_b",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.78,
+     -3140.24
+    ],
+    [
+     1273.86,
+     -3148.25
+    ],
+    [
+     1328.33,
+     -3147.73
+    ],
+    [
+     1328.23,
+     -3139.71
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.78,
+     -3140.24
+    ],
+    "SW_street": [
+     1273.86,
+     -3148.25
+    ],
+    "SE_rear": [
+     1328.33,
+     -3147.73
+    ],
+    "NE_rear": [
+     1328.23,
+     -3139.71
+    ]
+   },
+   "frontage_ft": 26.3,
+   "depth_ft": 178.7,
+   "area_m2": 436.45,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [4898.5, 5056.3] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1713_1727_c",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.86,
+     -3148.25
+    ],
+    [
+     1273.93,
+     -3155.83
+    ],
+    [
+     1328.42,
+     -3155.31
+    ],
+    [
+     1328.33,
+     -3147.73
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.86,
+     -3148.25
+    ],
+    "SW_street": [
+     1273.93,
+     -3155.83
+    ],
+    "SE_rear": [
+     1328.42,
+     -3155.31
+    ],
+    "NE_rear": [
+     1328.33,
+     -3147.73
+    ]
+   },
+   "frontage_ft": 24.9,
+   "depth_ft": 178.8,
+   "area_m2": 413.06,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [5056.3, 5205.6] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1713_1727_d",
+   "addresses_1911": [],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.93,
+     -3155.83
+    ],
+    [
+     1273.99,
+     -3161.87
+    ],
+    [
+     1328.49,
+     -3161.34
+    ],
+    [
+     1328.42,
+     -3155.31
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.93,
+     -3155.83
+    ],
+    "SW_street": [
+     1273.99,
+     -3161.87
+    ],
+    "SE_rear": [
+     1328.49,
+     -3161.34
+    ],
+    "NE_rear": [
+     1328.42,
+     -3155.31
+    ]
+   },
+   "frontage_ft": 19.8,
+   "depth_ft": 178.8,
+   "area_m2": 329.04,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [5205.6, 5324.5] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "indiana_1727",
+   "addresses_1911": [
+    "1727",
+    "1737"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_16_18",
+   "street_face": "indiana__indiana_prairie_16_18",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 16th to 18th Street",
+   "polygon_local_m": [
+    [
+     1273.99,
+     -3161.87
+    ],
+    [
+     1274.35,
+     -3198.18
+    ],
+    [
+     1328.93,
+     -3197.56
+    ],
+    [
+     1328.49,
+     -3161.34
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1273.99,
+     -3161.87
+    ],
+    "SW_street": [
+     1274.35,
+     -3198.18
+    ],
+    "SE_rear": [
+     1328.93,
+     -3197.56
+    ],
+    "NE_rear": [
+     1328.49,
+     -3161.34
+    ]
+   },
+   "frontage_ft": 119.1,
+   "depth_ft": 178.9,
+   "area_m2": 1977.93,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_20",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 20 rows [5324.5, None] (profile peaks at column 1092); front sheet 20 line indiana_e, rear sheet 20 line alley_w_w",
+   "library_frontage_ids": [],
+   "cross_street_addresses_1911": [
+    "200 E. 18th St.",
+    "216 E. 18th St."
+   ],
+   "note": "The sheet prints 200 E. 18th St., 216 E. 18th St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
+  },
+  {
+   "id": "indiana_2001",
+   "addresses_1911": [
+    "2001",
+    "2003"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1278.72,
+     -3483.46
+    ],
+    [
+     1278.85,
+     -3498.69
+    ],
+    [
+     1309.51,
+     -3498.26
+    ],
+    [
+     1309.36,
+     -3483.16
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.72,
+     -3483.46
+    ],
+    "SW_street": [
+     1278.85,
+     -3498.69
+    ],
+    "SE_rear": [
+     1309.51,
+     -3498.26
+    ],
+    "NE_rear": [
+     1309.36,
+     -3483.16
+    ]
+   },
+   "frontage_ft": 50.0,
+   "depth_ft": 100.6,
+   "area_m2": 464.83,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [None, 355.0] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line ind_20_corner_rear",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2007",
+   "addresses_1911": [
+    "2007"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1278.85,
+     -3498.69
+    ],
+    [
+     1278.92,
+     -3506.55
+    ],
+    [
+     1309.59,
+     -3506.12
+    ],
+    [
+     1309.51,
+     -3498.26
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.85,
+     -3498.69
+    ],
+    "SW_street": [
+     1278.92,
+     -3506.55
+    ],
+    "SE_rear": [
+     1309.59,
+     -3506.12
+    ],
+    "NE_rear": [
+     1309.51,
+     -3498.26
+    ]
+   },
+   "frontage_ft": 25.8,
+   "depth_ft": 100.6,
+   "area_m2": 241.09,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [355.0, 397.3] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line ind_20_corner_rear",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2009",
+   "addresses_1911": [
+    "2009"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1278.92,
+     -3506.55
+    ],
+    [
+     1278.98,
+     -3514.04
+    ],
+    [
+     1309.66,
+     -3513.48
+    ],
+    [
+     1309.59,
+     -3506.12
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.92,
+     -3506.55
+    ],
+    "SW_street": [
+     1278.98,
+     -3514.04
+    ],
+    "SE_rear": [
+     1309.66,
+     -3513.48
+    ],
+    "NE_rear": [
+     1309.59,
+     -3506.12
+    ]
+   },
+   "frontage_ft": 24.6,
+   "depth_ft": 100.6,
+   "area_m2": 227.78,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [397.3, None] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line ind_20_corner_rear",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "e20th_213",
+   "addresses_1911": [
+    "213"
+   ],
+   "street": "e20th",
+   "side": "south",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "e20th__indiana_prairie_20_21",
+   "where": "the south side of East Twentieth Street, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1309.66,
+     -3513.48
+    ],
+    [
+     1319.32,
+     -3513.3
+    ],
+    [
+     1319.0,
+     -3483.06
+    ],
+    [
+     1309.36,
+     -3483.16
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1309.36,
+     -3483.16
+    ],
+    "NE_street": [
+     1319.0,
+     -3483.06
+    ],
+    "SE_rear": [
+     1319.32,
+     -3513.3
+    ],
+    "SW_rear": [
+     1309.66,
+     -3513.48
+    ]
+   },
+   "frontage_ft": 31.6,
+   "depth_ft": 99.4,
+   "area_m2": 292.22,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 columns [None, 360.7] (profile peaks at row 320); front sheet 28 line s20_s, rear sheet 35 line ind_20_l437",
+   "library_frontage_ids": [],
+   "note": "The first lot runs from the line the Indiana lots end on, so it holds the 10-ft passage the sheet prints between them and 213's own west line (column 326); the sheet does not say whose it is."
+  },
+  {
+   "id": "e20th_215",
+   "addresses_1911": [
+    "215"
+   ],
+   "street": "e20th",
+   "side": "south",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "e20th__indiana_prairie_20_21",
+   "where": "the south side of East Twentieth Street, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1319.32,
+     -3513.3
+    ],
+    [
+     1326.47,
+     -3513.17
+    ],
+    [
+     1326.16,
+     -3482.99
+    ],
+    [
+     1319.0,
+     -3483.06
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1319.0,
+     -3483.06
+    ],
+    "NE_street": [
+     1326.16,
+     -3482.99
+    ],
+    "SE_rear": [
+     1326.47,
+     -3513.17
+    ],
+    "SW_rear": [
+     1319.32,
+     -3513.3
+    ]
+   },
+   "frontage_ft": 23.5,
+   "depth_ft": 99.1,
+   "area_m2": 216.21,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 columns [360.7, 399.2] (profile peaks at row 320); front sheet 28 line s20_s, rear sheet 35 line ind_20_l437",
+   "library_frontage_ids": [],
+   "note": "The first lot runs from the line the Indiana lots end on, so it holds the 10-ft passage the sheet prints between them and 213's own west line (column 326); the sheet does not say whose it is."
+  },
+  {
+   "id": "e20th_217",
+   "addresses_1911": [
+    "217"
+   ],
+   "street": "e20th",
+   "side": "south",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "e20th__indiana_prairie_20_21",
+   "where": "the south side of East Twentieth Street, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1326.47,
+     -3513.17
+    ],
+    [
+     1333.62,
+     -3513.04
+    ],
+    [
+     1333.3,
+     -3482.92
+    ],
+    [
+     1326.16,
+     -3482.99
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1326.16,
+     -3482.99
+    ],
+    "NE_street": [
+     1333.3,
+     -3482.92
+    ],
+    "SE_rear": [
+     1333.62,
+     -3513.04
+    ],
+    "SW_rear": [
+     1326.47,
+     -3513.17
+    ]
+   },
+   "frontage_ft": 23.4,
+   "depth_ft": 98.9,
+   "area_m2": 215.59,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 columns [399.2, None] (profile peaks at row 320); front sheet 28 line s20_s, rear sheet 35 line ind_20_l437",
+   "library_frontage_ids": [],
+   "note": "The first lot runs from the line the Indiana lots end on, so it holds the 10-ft passage the sheet prints between them and 213's own west line (column 326); the sheet does not say whose it is."
+  },
+  {
+   "id": "indiana_2011",
+   "addresses_1911": [
+    "2011"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1278.98,
+     -3514.04
+    ],
+    [
+     1279.05,
+     -3521.29
+    ],
+    [
+     1333.71,
+     -3520.48
+    ],
+    [
+     1333.62,
+     -3513.04
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1278.98,
+     -3514.04
+    ],
+    "SW_street": [
+     1279.05,
+     -3521.29
+    ],
+    "SE_rear": [
+     1333.71,
+     -3520.48
+    ],
+    "NE_rear": [
+     1333.62,
+     -3513.04
+    ]
+   },
+   "frontage_ft": 23.8,
+   "depth_ft": 179.3,
+   "area_m2": 401.46,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [None, 476.6] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2013",
+   "addresses_1911": [
+    "2013"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.05,
+     -3521.29
+    ],
+    [
+     1279.12,
+     -3529.1
+    ],
+    [
+     1333.79,
+     -3528.29
+    ],
+    [
+     1333.71,
+     -3520.48
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.05,
+     -3521.29
+    ],
+    "SW_street": [
+     1279.12,
+     -3529.1
+    ],
+    "SE_rear": [
+     1333.79,
+     -3528.29
+    ],
+    "NE_rear": [
+     1333.71,
+     -3520.48
+    ]
+   },
+   "frontage_ft": 25.6,
+   "depth_ft": 179.4,
+   "area_m2": 426.74,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [476.6, 518.6] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2017",
+   "addresses_1911": [
+    "2017"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.12,
+     -3529.1
+    ],
+    [
+     1279.18,
+     -3536.79
+    ],
+    [
+     1333.87,
+     -3535.98
+    ],
+    [
+     1333.79,
+     -3528.29
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.12,
+     -3529.1
+    ],
+    "SW_street": [
+     1279.18,
+     -3536.79
+    ],
+    "SE_rear": [
+     1333.87,
+     -3535.98
+    ],
+    "NE_rear": [
+     1333.79,
+     -3528.29
+    ]
+   },
+   "frontage_ft": 25.2,
+   "depth_ft": 179.4,
+   "area_m2": 420.77,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [518.6, 560.0] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2019",
+   "addresses_1911": [
+    "2019"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.18,
+     -3536.79
+    ],
+    [
+     1279.25,
+     -3544.63
+    ],
+    [
+     1333.96,
+     -3543.82
+    ],
+    [
+     1333.87,
+     -3535.98
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.18,
+     -3536.79
+    ],
+    "SW_street": [
+     1279.25,
+     -3544.63
+    ],
+    "SE_rear": [
+     1333.96,
+     -3543.82
+    ],
+    "NE_rear": [
+     1333.87,
+     -3535.98
+    ]
+   },
+   "frontage_ft": 25.7,
+   "depth_ft": 179.5,
+   "area_m2": 429.03,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [560.0, 602.2] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2021",
+   "addresses_1911": [
+    "2021"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.25,
+     -3544.63
+    ],
+    [
+     1279.32,
+     -3552.09
+    ],
+    [
+     1334.04,
+     -3551.28
+    ],
+    [
+     1333.96,
+     -3543.82
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.25,
+     -3544.63
+    ],
+    "SW_street": [
+     1279.32,
+     -3552.09
+    ],
+    "SE_rear": [
+     1334.04,
+     -3551.28
+    ],
+    "NE_rear": [
+     1333.96,
+     -3543.82
+    ]
+   },
+   "frontage_ft": 24.5,
+   "depth_ft": 179.5,
+   "area_m2": 407.8,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [602.2, 642.3] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2023",
+   "addresses_1911": [
+    "2023"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.32,
+     -3552.09
+    ],
+    [
+     1279.39,
+     -3559.95
+    ],
+    [
+     1334.13,
+     -3559.14
+    ],
+    [
+     1334.04,
+     -3551.28
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.32,
+     -3552.09
+    ],
+    "SW_street": [
+     1279.39,
+     -3559.95
+    ],
+    "SE_rear": [
+     1334.13,
+     -3559.14
+    ],
+    "NE_rear": [
+     1334.04,
+     -3551.28
+    ]
+   },
+   "frontage_ft": 25.8,
+   "depth_ft": 179.6,
+   "area_m2": 430.3,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [642.3, 684.6] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2027",
+   "addresses_1911": [
+    "2027"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.39,
+     -3559.95
+    ],
+    [
+     1279.46,
+     -3567.64
+    ],
+    [
+     1334.21,
+     -3566.83
+    ],
+    [
+     1334.13,
+     -3559.14
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.39,
+     -3559.95
+    ],
+    "SW_street": [
+     1279.46,
+     -3567.64
+    ],
+    "SE_rear": [
+     1334.21,
+     -3566.83
+    ],
+    "NE_rear": [
+     1334.13,
+     -3559.14
+    ]
+   },
+   "frontage_ft": 25.2,
+   "depth_ft": 179.6,
+   "area_m2": 421.27,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [684.6, 726.0] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2029",
+   "addresses_1911": [
+    "2029",
+    "2035"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_20_21",
+   "street_face": "indiana__indiana_prairie_20_21",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1279.46,
+     -3567.64
+    ],
+    [
+     1279.73,
+     -3598.45
+    ],
+    [
+     1334.55,
+     -3597.82
+    ],
+    [
+     1334.21,
+     -3566.83
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.46,
+     -3567.64
+    ],
+    "SW_street": [
+     1279.73,
+     -3598.45
+    ],
+    "SE_rear": [
+     1334.55,
+     -3597.82
+    ],
+    "NE_rear": [
+     1334.21,
+     -3566.83
+    ]
+   },
+   "frontage_ft": 101.1,
+   "depth_ft": 179.8,
+   "area_m2": 1693.01,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [726.0, None] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": [],
+   "cross_street_addresses_1911": [
+    "216 E. 21st St."
+   ],
+   "note": "The sheet prints 216 E. 21st St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
+  },
+  {
+   "id": "indiana_2101",
+   "addresses_1911": [
+    "2101",
+    "2105"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1279.9,
+     -3618.17
+    ],
+    [
+     1280.04,
+     -3634.14
+    ],
+    [
+     1313.45,
+     -3633.6
+    ],
+    [
+     1313.35,
+     -3617.85
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1279.9,
+     -3618.17
+    ],
+    "SW_street": [
+     1280.04,
+     -3634.14
+    ],
+    "SE_rear": [
+     1313.45,
+     -3633.6
+    ],
+    "NE_rear": [
+     1313.35,
+     -3617.85
+    ]
+   },
+   "frontage_ft": 52.4,
+   "depth_ft": 109.7,
+   "area_m2": 530.1,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [None, None] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line ind_21_corner_rear",
+   "library_frontage_ids": [],
+   "note": "One building (office and garage) carries both numbers; the sheet draws no lot line between them."
+  },
+  {
+   "id": "e21st_w_215",
+   "addresses_1911": [],
+   "street": "e21st",
+   "side": "south",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "e21st__indiana_prairie_21_22",
+   "where": "the south side of East Twenty-first Street, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1313.45,
+     -3633.6
+    ],
+    [
+     1322.73,
+     -3633.44
+    ],
+    [
+     1322.59,
+     -3617.77
+    ],
+    [
+     1313.35,
+     -3617.85
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1313.35,
+     -3617.85
+    ],
+    "NE_street": [
+     1322.59,
+     -3617.77
+    ],
+    "SE_rear": [
+     1322.73,
+     -3633.44
+    ],
+    "SW_rear": [
+     1313.45,
+     -3633.6
+    ]
+   },
+   "frontage_ft": 30.3,
+   "depth_ft": 51.5,
+   "area_m2": 145.4,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 columns [None, 375.2] (profile peaks at row 1040); front sheet 35 line s21_s, rear sheet 35 line ind_21_l1084",
+   "library_frontage_ids": [],
+   "note": "No address is printed beside this lot on the 1911 sheet."
+  },
+  {
+   "id": "e21st_215",
+   "addresses_1911": [
+    "215",
+    "217"
+   ],
+   "street": "e21st",
+   "side": "south",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "e21st__indiana_prairie_21_22",
+   "where": "the south side of East Twenty-first Street, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1322.73,
+     -3633.44
+    ],
+    [
+     1334.94,
+     -3633.25
+    ],
+    [
+     1334.77,
+     -3617.65
+    ],
+    [
+     1322.59,
+     -3617.77
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1322.59,
+     -3617.77
+    ],
+    "NE_street": [
+     1334.77,
+     -3617.65
+    ],
+    "SE_rear": [
+     1334.94,
+     -3633.25
+    ],
+    "SW_rear": [
+     1322.73,
+     -3633.44
+    ]
+   },
+   "frontage_ft": 39.9,
+   "depth_ft": 51.3,
+   "area_m2": 190.66,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 columns [375.2, None] (profile peaks at row 1040); front sheet 35 line s21_s, rear sheet 35 line ind_21_l1084",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2107",
+   "addresses_1911": [
+    "2107"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.04,
+     -3634.14
+    ],
+    [
+     1280.15,
+     -3646.37
+    ],
+    [
+     1335.07,
+     -3645.52
+    ],
+    [
+     1334.94,
+     -3633.25
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.04,
+     -3634.14
+    ],
+    "SW_street": [
+     1280.15,
+     -3646.37
+    ],
+    "SE_rear": [
+     1335.07,
+     -3645.52
+    ],
+    "NE_rear": [
+     1334.94,
+     -3633.25
+    ]
+   },
+   "frontage_ft": 40.1,
+   "depth_ft": 180.2,
+   "area_m2": 672.81,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [None, 1149.6] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2111",
+   "addresses_1911": [
+    "2111"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.15,
+     -3646.37
+    ],
+    [
+     1280.25,
+     -3657.37
+    ],
+    [
+     1335.19,
+     -3656.53
+    ],
+    [
+     1335.07,
+     -3645.52
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.15,
+     -3646.37
+    ],
+    "SW_street": [
+     1280.25,
+     -3657.37
+    ],
+    "SE_rear": [
+     1335.19,
+     -3656.53
+    ],
+    "NE_rear": [
+     1335.07,
+     -3645.52
+    ]
+   },
+   "frontage_ft": 36.1,
+   "depth_ft": 180.2,
+   "area_m2": 604.44,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1149.6, 1208.8] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2115",
+   "addresses_1911": [
+    "2115",
+    "2117"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.25,
+     -3657.37
+    ],
+    [
+     1280.38,
+     -3672.37
+    ],
+    [
+     1335.35,
+     -3671.52
+    ],
+    [
+     1335.19,
+     -3656.53
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.25,
+     -3657.37
+    ],
+    "SW_street": [
+     1280.38,
+     -3672.37
+    ],
+    "SE_rear": [
+     1335.35,
+     -3671.52
+    ],
+    "NE_rear": [
+     1335.19,
+     -3656.53
+    ]
+   },
+   "frontage_ft": 49.2,
+   "depth_ft": 180.3,
+   "area_m2": 824.36,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1208.8, 1289.5] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2119",
+   "addresses_1911": [
+    "2119"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.38,
+     -3672.37
+    ],
+    [
+     1280.51,
+     -3687.66
+    ],
+    [
+     1335.52,
+     -3686.82
+    ],
+    [
+     1335.35,
+     -3671.52
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.38,
+     -3672.37
+    ],
+    "SW_street": [
+     1280.51,
+     -3687.66
+    ],
+    "SE_rear": [
+     1335.52,
+     -3686.82
+    ],
+    "NE_rear": [
+     1335.35,
+     -3671.52
+    ]
+   },
+   "frontage_ft": 50.2,
+   "depth_ft": 180.4,
+   "area_m2": 841.19,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1289.5, 1371.8] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2123",
+   "addresses_1911": [
+    "2123",
+    "2125"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.51,
+     -3687.66
+    ],
+    [
+     1280.65,
+     -3702.9
+    ],
+    [
+     1335.69,
+     -3702.06
+    ],
+    [
+     1335.52,
+     -3686.82
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.51,
+     -3687.66
+    ],
+    "SW_street": [
+     1280.65,
+     -3702.9
+    ],
+    "SE_rear": [
+     1335.69,
+     -3702.06
+    ],
+    "NE_rear": [
+     1335.52,
+     -3686.82
+    ]
+   },
+   "frontage_ft": 50.0,
+   "depth_ft": 180.5,
+   "area_m2": 838.62,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1371.8, 1453.8] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2129",
+   "addresses_1911": [
+    "2129",
+    "2131"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.65,
+     -3702.9
+    ],
+    [
+     1280.78,
+     -3718.55
+    ],
+    [
+     1335.86,
+     -3717.7
+    ],
+    [
+     1335.69,
+     -3702.06
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.65,
+     -3702.9
+    ],
+    "SW_street": [
+     1280.78,
+     -3718.55
+    ],
+    "SE_rear": [
+     1335.86,
+     -3717.7
+    ],
+    "NE_rear": [
+     1335.69,
+     -3702.06
+    ]
+   },
+   "frontage_ft": 51.3,
+   "depth_ft": 180.6,
+   "area_m2": 861.63,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1453.8, 1538.0] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "indiana_2133",
+   "addresses_1911": [
+    "2133"
+   ],
+   "street": "indiana",
+   "side": "east",
+   "block": "blk_indiana_prairie_21_22",
+   "street_face": "indiana__indiana_prairie_21_22",
+   "where": "the east side of Indiana Avenue, in the block Indiana to Prairie, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1280.78,
+     -3718.55
+    ],
+    [
+     1281.06,
+     -3749.46
+    ],
+    [
+     1336.19,
+     -3748.67
+    ],
+    [
+     1335.86,
+     -3717.7
+    ]
+   ],
+   "corners_local_m": {
+    "NW_street": [
+     1280.78,
+     -3718.55
+    ],
+    "SW_street": [
+     1281.06,
+     -3749.46
+    ],
+    "SE_rear": [
+     1336.19,
+     -3748.67
+    ],
+    "NE_rear": [
+     1335.86,
+     -3717.7
+    ]
+   },
+   "frontage_ft": 101.4,
+   "depth_ft": 180.8,
+   "area_m2": 1705.11,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1538.0, None] (profile peaks at column 166); front sheet 35 line indiana_e, rear sheet 35 line alley_w_w",
+   "library_frontage_ids": [],
+   "cross_street_addresses_1911": [
+    "202 E. 22nd St.",
+    "204 E. 22nd St.",
+    "206 E. 22nd St.",
+    "210 E. 22nd St.",
+    "212 E. 22nd St."
+   ],
+   "note": "The sheet prints 202 E. 22nd St., 204 E. 22nd St., 206 E. 22nd St., 210 E. 22nd St., 212 E. 22nd St. on this lot as well, on its cross-street side, and draws no lot line that would part them from it."
+  },
+  {
+   "id": "calumet_1800",
+   "addresses_1911": [
+    "1800"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1458.1,
+     -3215.98
+    ],
+    [
+     1458.39,
+     -3255.55
+    ],
+    [
+     1461.24,
+     -3255.48
+    ],
+    [
+     1461.36,
+     -3261.75
+    ],
+    [
+     1462.03,
+     -3289.55
+    ],
+    [
+     1462.18,
+     -3290.16
+    ],
+    [
+     1514.06,
+     -3289.66
+    ],
+    [
+     1512.94,
+     -3286.12
+    ],
+    [
+     1509.77,
+     -3276.06
+    ],
+    [
+     1506.62,
+     -3266.01
+    ],
+    [
+     1503.45,
+     -3255.95
+    ],
+    [
+     1500.32,
+     -3245.89
+    ],
+    [
+     1497.17,
+     -3235.83
+    ],
+    [
+     1493.62,
+     -3225.01
+    ],
+    [
+     1490.52,
+     -3221.0
+    ],
+    [
+     1487.44,
+     -3218.71
+    ],
+    [
+     1484.39,
+     -3217.35
+    ],
+    [
+     1481.34,
+     -3216.4
+    ],
+    [
+     1475.26,
+     -3215.81
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1475.26,
+     -3215.81
+    ],
+    "SE_street": [
+     1514.06,
+     -3289.66
+    ],
+    "SW_rear": [
+     1462.18,
+     -3290.16
+    ],
+    "NW_rear": [
+     1458.1,
+     -3215.98
+    ]
+   },
+   "frontage_ft": 293.2,
+   "depth_ft": 113.2,
+   "area_m2": 3126.19,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [None, 2664.4] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1830",
+   "addresses_1911": [
+    "1830"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1462.18,
+     -3290.16
+    ],
+    [
+     1464.57,
+     -3299.62
+    ],
+    [
+     1465.96,
+     -3302.76
+    ],
+    [
+     1518.02,
+     -3302.26
+    ],
+    [
+     1516.11,
+     -3296.18
+    ],
+    [
+     1514.06,
+     -3289.66
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1514.06,
+     -3289.66
+    ],
+    "SE_street": [
+     1518.02,
+     -3302.26
+    ],
+    "SW_rear": [
+     1465.96,
+     -3302.76
+    ],
+    "NW_rear": [
+     1462.18,
+     -3290.16
+    ]
+   },
+   "frontage_ft": 43.3,
+   "depth_ft": 170.5,
+   "area_m2": 659.4,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [2664.4, 2914.3] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1832",
+   "addresses_1911": [
+    "1832"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1465.96,
+     -3302.76
+    ],
+    [
+     1466.79,
+     -3304.64
+    ],
+    [
+     1469.58,
+     -3309.64
+    ],
+    [
+     1472.94,
+     -3314.64
+    ],
+    [
+     1472.99,
+     -3315.31
+    ],
+    [
+     1521.99,
+     -3314.84
+    ],
+    [
+     1518.02,
+     -3302.26
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1518.02,
+     -3302.26
+    ],
+    "SE_street": [
+     1521.99,
+     -3314.84
+    ],
+    "SW_rear": [
+     1472.99,
+     -3315.31
+    ],
+    "NW_rear": [
+     1465.96,
+     -3302.76
+    ]
+   },
+   "frontage_ft": 43.3,
+   "depth_ft": 165.8,
+   "area_m2": 638.68,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [2914.3, 3163.9] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1836",
+   "addresses_1911": [
+    "1836"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1472.99,
+     -3315.31
+    ],
+    [
+     1473.54,
+     -3322.21
+    ],
+    [
+     1473.61,
+     -3333.31
+    ],
+    [
+     1527.64,
+     -3332.78
+    ],
+    [
+     1525.61,
+     -3326.35
+    ],
+    [
+     1521.99,
+     -3314.84
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1521.99,
+     -3314.84
+    ],
+    "SE_street": [
+     1527.64,
+     -3332.78
+    ],
+    "SW_rear": [
+     1473.61,
+     -3333.31
+    ],
+    "NW_rear": [
+     1472.99,
+     -3315.31
+    ]
+   },
+   "frontage_ft": 61.7,
+   "depth_ft": 169.0,
+   "area_m2": 924.31,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [3163.9, 3519.9] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1840",
+   "addresses_1911": [
+    "1840"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1473.61,
+     -3333.31
+    ],
+    [
+     1473.74,
+     -3351.7
+    ],
+    [
+     1528.67,
+     -3351.17
+    ],
+    [
+     1528.66,
+     -3346.52
+    ],
+    [
+     1528.56,
+     -3335.7
+    ],
+    [
+     1527.64,
+     -3332.78
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1527.64,
+     -3332.78
+    ],
+    "SE_street": [
+     1528.67,
+     -3351.17
+    ],
+    "SW_rear": [
+     1473.74,
+     -3351.7
+    ],
+    "NW_rear": [
+     1473.61,
+     -3333.31
+    ]
+   },
+   "frontage_ft": 60.8,
+   "depth_ft": 178.7,
+   "area_m2": 1009.45,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [3519.9, 3883.8] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1900",
+   "addresses_1911": [
+    "1900"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1473.74,
+     -3351.7
+    ],
+    [
+     1473.78,
+     -3357.61
+    ],
+    [
+     1473.91,
+     -3368.63
+    ],
+    [
+     1528.77,
+     -3368.1
+    ],
+    [
+     1528.68,
+     -3356.63
+    ],
+    [
+     1528.67,
+     -3351.17
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1528.67,
+     -3351.17
+    ],
+    "SE_street": [
+     1528.77,
+     -3368.1
+    ],
+    "SW_rear": [
+     1473.91,
+     -3368.63
+    ],
+    "NW_rear": [
+     1473.74,
+     -3351.7
+    ]
+   },
+   "frontage_ft": 55.5,
+   "depth_ft": 180.1,
+   "area_m2": 929.54,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [3883.8, 4218.7] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1910",
+   "addresses_1911": [
+    "1910"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1473.91,
+     -3368.63
+    ],
+    [
+     1474.3,
+     -3402.48
+    ],
+    [
+     1529.01,
+     -3401.96
+    ],
+    [
+     1528.77,
+     -3368.1
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1528.77,
+     -3368.1
+    ],
+    "SE_street": [
+     1529.01,
+     -3401.96
+    ],
+    "SW_rear": [
+     1474.3,
+     -3402.48
+    ],
+    "NW_rear": [
+     1473.91,
+     -3368.63
+    ]
+   },
+   "frontage_ft": 111.1,
+   "depth_ft": 179.7,
+   "area_m2": 1854.68,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [4218.7, 4888.3] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1922",
+   "addresses_1911": [
+    "1922"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1474.3,
+     -3402.48
+    ],
+    [
+     1474.37,
+     -3408.16
+    ],
+    [
+     1474.68,
+     -3432.64
+    ],
+    [
+     1529.2,
+     -3432.12
+    ],
+    [
+     1529.05,
+     -3407.19
+    ],
+    [
+     1529.01,
+     -3401.96
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1529.01,
+     -3401.96
+    ],
+    "SE_street": [
+     1529.2,
+     -3432.12
+    ],
+    "SW_rear": [
+     1474.68,
+     -3432.64
+    ],
+    "NW_rear": [
+     1474.3,
+     -3402.48
+    ]
+   },
+   "frontage_ft": 99.0,
+   "depth_ft": 179.2,
+   "area_m2": 1647.49,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [4888.3, 5484.9] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1928",
+   "addresses_1911": [
+    "1928"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1474.68,
+     -3432.64
+    ],
+    [
+     1474.84,
+     -3445.24
+    ],
+    [
+     1529.28,
+     -3444.71
+    ],
+    [
+     1529.2,
+     -3432.12
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1529.2,
+     -3432.12
+    ],
+    "SE_street": [
+     1529.28,
+     -3444.71
+    ],
+    "SW_rear": [
+     1474.84,
+     -3445.24
+    ],
+    "NW_rear": [
+     1474.68,
+     -3432.64
+    ]
+   },
+   "frontage_ft": 41.3,
+   "depth_ft": 178.7,
+   "area_m2": 686.11,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [5484.9, 5734.0] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_1932",
+   "addresses_1911": [
+    "1932"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_18_20",
+   "street_face": "calumet__prairie_calumet_18_20",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 18th to 20th Street",
+   "polygon_local_m": [
+    [
+     1474.84,
+     -3445.24
+    ],
+    [
+     1474.89,
+     -3448.6
+    ],
+    [
+     1475.07,
+     -3461.18
+    ],
+    [
+     1529.44,
+     -3460.64
+    ],
+    [
+     1529.3,
+     -3447.64
+    ],
+    [
+     1529.28,
+     -3444.71
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1529.28,
+     -3444.71
+    ],
+    "SE_street": [
+     1529.44,
+     -3460.64
+    ],
+    "SW_rear": [
+     1475.07,
+     -3461.18
+    ],
+    "NW_rear": [
+     1474.84,
+     -3445.24
+    ]
+   },
+   "frontage_ft": 52.3,
+   "depth_ft": 178.5,
+   "area_m2": 867.05,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 28 rows [5734.0, None] (profile peaks at column 3290); front sheet 28 poly calumet_w, rear sheet 28 rear_1801_1811 + alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2000",
+   "addresses_1911": [
+    "2000"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_20_21",
+   "street_face": "calumet__prairie_calumet_20_21",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1475.54,
+     -3481.49
+    ],
+    [
+     1475.61,
+     -3493.44
+    ],
+    [
+     1530.02,
+     -3492.86
+    ],
+    [
+     1529.93,
+     -3480.94
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1529.93,
+     -3480.94
+    ],
+    "SE_street": [
+     1530.02,
+     -3492.86
+    ],
+    "SW_rear": [
+     1475.61,
+     -3493.44
+    ],
+    "NW_rear": [
+     1475.54,
+     -3481.49
+    ]
+   },
+   "frontage_ft": 39.1,
+   "depth_ft": 178.5,
+   "area_m2": 649.1,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [None, 332.7] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2004",
+   "addresses_1911": [
+    "2004"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_20_21",
+   "street_face": "calumet__prairie_calumet_20_21",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1475.61,
+     -3493.44
+    ],
+    [
+     1475.68,
+     -3504.68
+    ],
+    [
+     1530.11,
+     -3504.1
+    ],
+    [
+     1530.02,
+     -3492.86
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1530.02,
+     -3492.86
+    ],
+    "SE_street": [
+     1530.11,
+     -3504.1
+    ],
+    "SW_rear": [
+     1475.68,
+     -3504.68
+    ],
+    "NW_rear": [
+     1475.61,
+     -3493.44
+    ]
+   },
+   "frontage_ft": 36.9,
+   "depth_ft": 178.6,
+   "area_m2": 611.94,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [332.7, 393.2] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2008",
+   "addresses_1911": [
+    "2008",
+    "2010",
+    "2012"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_20_21",
+   "street_face": "calumet__prairie_calumet_20_21",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1475.68,
+     -3504.68
+    ],
+    [
+     1475.83,
+     -3527.88
+    ],
+    [
+     1530.29,
+     -3527.29
+    ],
+    [
+     1530.11,
+     -3504.1
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1530.11,
+     -3504.1
+    ],
+    "SE_street": [
+     1530.29,
+     -3527.29
+    ],
+    "SW_rear": [
+     1475.83,
+     -3527.88
+    ],
+    "NW_rear": [
+     1475.68,
+     -3504.68
+    ]
+   },
+   "frontage_ft": 76.1,
+   "depth_ft": 178.6,
+   "area_m2": 1262.9,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [393.2, 518.0] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2016",
+   "addresses_1911": [
+    "2016"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_20_21",
+   "street_face": "calumet__prairie_calumet_20_21",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1475.83,
+     -3527.88
+    ],
+    [
+     1475.88,
+     -3535.13
+    ],
+    [
+     1530.35,
+     -3534.54
+    ],
+    [
+     1530.29,
+     -3527.29
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1530.29,
+     -3527.29
+    ],
+    "SE_street": [
+     1530.35,
+     -3534.54
+    ],
+    "SW_rear": [
+     1475.88,
+     -3535.13
+    ],
+    "NW_rear": [
+     1475.83,
+     -3527.88
+    ]
+   },
+   "frontage_ft": 23.8,
+   "depth_ft": 178.7,
+   "area_m2": 394.82,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [518.0, 557.0] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2018",
+   "addresses_1911": [
+    "2018"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_20_21",
+   "street_face": "calumet__prairie_calumet_20_21",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1475.88,
+     -3535.13
+    ],
+    [
+     1476.02,
+     -3558.32
+    ],
+    [
+     1530.53,
+     -3557.73
+    ],
+    [
+     1530.35,
+     -3534.54
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1530.35,
+     -3534.54
+    ],
+    "SE_street": [
+     1530.53,
+     -3557.73
+    ],
+    "SW_rear": [
+     1476.02,
+     -3558.32
+    ],
+    "NW_rear": [
+     1475.88,
+     -3535.13
+    ]
+   },
+   "frontage_ft": 76.1,
+   "depth_ft": 178.8,
+   "area_m2": 1263.93,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [557.0, 681.8] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2032",
+   "addresses_1911": [
+    "2032"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_20_21",
+   "street_face": "calumet__prairie_calumet_20_21",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 20th to 21st Street",
+   "polygon_local_m": [
+    [
+     1476.02,
+     -3558.32
+    ],
+    [
+     1476.26,
+     -3596.2
+    ],
+    [
+     1530.83,
+     -3595.58
+    ],
+    [
+     1530.53,
+     -3557.73
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1530.53,
+     -3557.73
+    ],
+    "SE_street": [
+     1530.83,
+     -3595.58
+    ],
+    "SW_rear": [
+     1476.26,
+     -3596.2
+    ],
+    "NW_rear": [
+     1476.02,
+     -3558.32
+    ]
+   },
+   "frontage_ft": 124.2,
+   "depth_ft": 178.9,
+   "area_m2": 2064.88,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35",
+    "sanborn_1911_chicago_v3_sheet_28"
+   ],
+   "read": "lot lines at sheet 35 rows [681.8, None] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2100",
+   "addresses_1911": [
+    "2100"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_21_22",
+   "street_face": "calumet__prairie_calumet_21_22",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1476.39,
+     -3616.3
+    ],
+    [
+     1476.49,
+     -3631.49
+    ],
+    [
+     1531.1,
+     -3630.84
+    ],
+    [
+     1530.98,
+     -3615.79
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1530.98,
+     -3615.79
+    ],
+    "SE_street": [
+     1531.1,
+     -3630.84
+    ],
+    "SW_rear": [
+     1476.49,
+     -3631.49
+    ],
+    "NW_rear": [
+     1476.39,
+     -3616.3
+    ]
+   },
+   "frontage_ft": 49.4,
+   "depth_ft": 179.2,
+   "area_m2": 825.68,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [None, 1075.2] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2106",
+   "addresses_1911": [
+    "2106"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_21_22",
+   "street_face": "calumet__prairie_calumet_21_22",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1476.49,
+     -3631.49
+    ],
+    [
+     1476.63,
+     -3654.57
+    ],
+    [
+     1531.28,
+     -3653.92
+    ],
+    [
+     1531.1,
+     -3630.84
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1531.1,
+     -3630.84
+    ],
+    "SE_street": [
+     1531.28,
+     -3653.92
+    ],
+    "SW_rear": [
+     1476.63,
+     -3654.57
+    ],
+    "NW_rear": [
+     1476.49,
+     -3631.49
+    ]
+   },
+   "frontage_ft": 75.7,
+   "depth_ft": 179.2,
+   "area_m2": 1261.12,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1075.2, 1199.4] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2114",
+   "addresses_1911": [
+    "2114"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_21_22",
+   "street_face": "calumet__prairie_calumet_21_22",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1476.63,
+     -3654.57
+    ],
+    [
+     1476.83,
+     -3685.16
+    ],
+    [
+     1531.52,
+     -3684.51
+    ],
+    [
+     1531.28,
+     -3653.92
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1531.28,
+     -3653.92
+    ],
+    "SE_street": [
+     1531.52,
+     -3684.51
+    ],
+    "SW_rear": [
+     1476.83,
+     -3685.16
+    ],
+    "NW_rear": [
+     1476.63,
+     -3654.57
+    ]
+   },
+   "frontage_ft": 100.4,
+   "depth_ft": 179.4,
+   "area_m2": 1672.54,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1199.4, 1364.0] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2124",
+   "addresses_1911": [
+    "2124"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_21_22",
+   "street_face": "calumet__prairie_calumet_21_22",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1476.83,
+     -3685.16
+    ],
+    [
+     1476.92,
+     -3700.48
+    ],
+    [
+     1531.64,
+     -3699.83
+    ],
+    [
+     1531.52,
+     -3684.51
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1531.52,
+     -3684.51
+    ],
+    "SE_street": [
+     1531.64,
+     -3699.83
+    ],
+    "SW_rear": [
+     1476.92,
+     -3700.48
+    ],
+    "NW_rear": [
+     1476.83,
+     -3685.16
+    ]
+   },
+   "frontage_ft": 50.2,
+   "depth_ft": 179.5,
+   "area_m2": 837.8,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1364.0, 1446.4] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2128",
+   "addresses_1911": [
+    "2128"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_21_22",
+   "street_face": "calumet__prairie_calumet_21_22",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1476.92,
+     -3700.48
+    ],
+    [
+     1477.02,
+     -3715.79
+    ],
+    [
+     1531.76,
+     -3715.14
+    ],
+    [
+     1531.64,
+     -3699.83
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1531.64,
+     -3699.83
+    ],
+    "SE_street": [
+     1531.76,
+     -3715.14
+    ],
+    "SW_rear": [
+     1477.02,
+     -3715.79
+    ],
+    "NW_rear": [
+     1476.92,
+     -3700.48
+    ]
+   },
+   "frontage_ft": 50.2,
+   "depth_ft": 179.6,
+   "area_m2": 838.15,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1446.4, 1528.8] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
+  },
+  {
+   "id": "calumet_2140",
+   "addresses_1911": [
+    "2140"
+   ],
+   "street": "calumet",
+   "side": "west",
+   "block": "blk_prairie_calumet_21_22",
+   "street_face": "calumet__prairie_calumet_21_22",
+   "where": "the west side of Calumet Avenue, in the block Prairie to Calumet, 21st to 22nd Street",
+   "polygon_local_m": [
+    [
+     1477.02,
+     -3715.79
+    ],
+    [
+     1477.22,
+     -3746.65
+    ],
+    [
+     1532.0,
+     -3745.86
+    ],
+    [
+     1531.76,
+     -3715.14
+    ]
+   ],
+   "corners_local_m": {
+    "NE_street": [
+     1531.76,
+     -3715.14
+    ],
+    "SE_street": [
+     1532.0,
+     -3745.86
+    ],
+    "SW_rear": [
+     1477.22,
+     -3746.65
+    ],
+    "NW_rear": [
+     1477.02,
+     -3715.79
+    ]
+   },
+   "frontage_ft": 100.8,
+   "depth_ft": 179.7,
+   "area_m2": 1686.02,
+   "geometry_tier": "inferred",
+   "sources": [
+    "sanborn_1911_chicago_v3_sheet_35"
+   ],
+   "read": "lot lines at sheet 35 rows [1528.8, None] (profile peaks at column 1465); front sheet 35 line calumet_w, rear sheet 35 line alley_e_e",
+   "library_frontage_ids": []
   }
  ]
 }
