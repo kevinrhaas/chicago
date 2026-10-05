@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+  { v: 1475, ts: '2026-10-05T06:14:34.194Z', date: 'Oct 5, 2026, 1:14 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
     items: [
       'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
       'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
