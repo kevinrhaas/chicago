@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+  { v: 1476, ts: '2026-10-05T08:18:01.491Z', date: 'Oct 5, 2026, 3:18 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [
       'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
       'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
