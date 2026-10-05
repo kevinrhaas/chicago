@@ -1,0 +1,358 @@
+{
+  "schema": "chicago-4d/trade-premises/1",
+  "ticket": "T-1670",
+  "read_by": [
+    "tools/adopt_street_faces.py"
+  ],
+  "_doc": "WHAT KIND OF PREMISES EACH TRADE IN THE 1835 REGISTER WANTED: a counter, a works, both, a freight store, a room. T-1651 taught the street-face deal to put a business in a house of trade — the C, W or F bands — before a dwelling, but those three bands were the only division it held, so a cabinet manufactory could be seated in a store-residence while a joiner's shop stood free. This is the reading that tells them apart. It is keyed on the register's own `occupation`, its normalised reading of the notice, and a `by_trade` row overrides it where the notice's printed trade says otherwise — a merchant whose notice prints storage and commission is a freight concern, a shoemaker whose notice prints only a store is a counter. EVERY ROW IS INFERRED: no notice says what roof its trade stood in, and the reasoning is the trade's own word. It is a reading of trades, not of any building, and it moves no evidence: which roof on a face a business takes is still an allocation (limit 3).",
+  "confidence": "inferred",
+  "kinds": {
+    "counter": {
+      "bands": [
+        "C"
+      ],
+      "means": "goods sold over a counter: the customer came in off the street to buy what was already made. A shop or store roof — the C bands."
+    },
+    "works": {
+      "bands": [
+        "W"
+      ],
+      "means": "a trade that made or repaired things on the premises — a forge, a bench, a press, a vat. A works roof — the W bands."
+    },
+    "maker_and_dealer": {
+      "bands": [
+        "C",
+        "W"
+      ],
+      "means": "a trade that both made on the premises and sold over its own counter — the bootmaker, the hatter, the baker. Either a shop or a works roof fits it, and the reading does not choose between them."
+    },
+    "freight": {
+      "bands": [
+        "F"
+      ],
+      "means": "goods held, forwarded or sold in bulk rather than over a counter — storage, forwarding and commission, the lumber yard, the packet. A freight roof — the F bands."
+    },
+    "office": {
+      "bands": [
+        "C"
+      ],
+      "means": "a room let to a profession, an agency or a school: no stock and no bench. It fits a shop roof — C1 is the crosswalk's own land office — and not a works or a warehouse."
+    },
+    "public_house": {
+      "bands": [],
+      "means": "a tavern or a hotel. Its roof is the T band, which is not a house of trade (T-1657), so no house of trade fits it better than another and the deal reads no preference."
+    },
+    "stable": {
+      "bands": [],
+      "means": "a livery stable. Its roof is a stable, which no trade band raises, so the deal reads no preference."
+    },
+    "unstated": {
+      "bands": [
+        "C",
+        "W",
+        "F"
+      ],
+      "means": "the notice names no trade, so every house of trade fits it equally and the deal reads no preference."
+    }
+  },
+  "by_occupation": {
+    "attorney": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A lawyer's office is a room; the notices sell no goods and make nothing."
+    },
+    "auctioneer": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "An auction room takes goods in and sells them on the premises; its notices print 'auction store' and 'auction and commission rooms'."
+    },
+    "baker": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "A bakery bakes on the premises and sells its bread over its own counter."
+    },
+    "blacksmith": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "A forge: the crosswalk's own W1 is the blacksmith shop."
+    },
+    "bookseller": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Books sold over a counter."
+    },
+    "brewer": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "A brewery makes on the premises."
+    },
+    "butcher": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "A butcher slaughters and dresses meat and sells it from his own block."
+    },
+    "carriage_maker": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "Carriages and sleighs are built on the premises: the crosswalk's W3 is the wagon and wheelwright shop."
+    },
+    "clothier": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "A clothier sells ready-made clothing; where a notice adds tailoring the trade override reads it as maker and dealer."
+    },
+    "confectioner": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "A confectioner makes and sells on the premises."
+    },
+    "dentist": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A dentist's room; no goods and no bench a customer would call a works."
+    },
+    "dressmaker": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "Made to order and sold in the same room."
+    },
+    "druggist": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Drugs and medicines sold over a counter."
+    },
+    "dry_goods_merchant": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Dry goods, groceries and hardware sold over a counter."
+    },
+    "forwarding_and_commission": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "Storage, forwarding and commission: goods held and moved, not sold over a counter."
+    },
+    "founder": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "A foundry casts on the premises."
+    },
+    "grocer": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Groceries sold over a counter."
+    },
+    "hardware_merchant": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Hardware sold over a counter."
+    },
+    "harness_maker": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "A saddler makes harness and sells it from the same shop."
+    },
+    "hatter": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "Hats made and sold on the premises — the notice prints 'hat manufacturing and dealing'."
+    },
+    "hotel_keeper": {
+      "kind": "public_house",
+      "confidence": "inferred",
+      "note": "A hotel."
+    },
+    "insurance_agent": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "An agency's room."
+    },
+    "jeweller": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Watches, jewelry and fancy goods sold over a counter."
+    },
+    "joiner": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "Cabinet making and joinery are bench trades: the crosswalk's W2 is the carpenter or joiner shop. This is the cabinet manufactory T-1670 was opened on."
+    },
+    "land_agent": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A land agency's room; the crosswalk's C1 names the land office."
+    },
+    "liquor_dealer": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Wine and liquor sold over a counter."
+    },
+    "livery_stable_keeper": {
+      "kind": "stable",
+      "confidence": "inferred",
+      "note": "A livery stable."
+    },
+    "lumber_merchant": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "A lumber yard and store house: the crosswalk's F4 is the lumber shed."
+    },
+    "merchant": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "General merchandise sold over a counter; where a notice prints storage or forwarding the trade override reads it as freight."
+    },
+    "miller": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "A mill grinds on the premises."
+    },
+    "milliner": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "Millinery made and sold in the same room."
+    },
+    "painter": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "Carriage, sign and ornamental painting is done on the premises."
+    },
+    "physician": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A physician's room."
+    },
+    "postmaster": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A post office is a room; where the notice is a general store the trade override reads it as a counter."
+    },
+    "printer": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "A printing office runs a press: it makes on the premises."
+    },
+    "provision_dealer": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Provisions sold over a counter or a market stall."
+    },
+    "schoolteacher": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A school is a room let to a teacher; it sells and makes nothing."
+    },
+    "shoemaker": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "Boots and shoes made to order and sold in the same shop; where a notice prints only a store, or only the making, the trade override reads it."
+    },
+    "soap_and_candle_maker": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "A soap and candle manufactory boils on the premises."
+    },
+    "stove_dealer": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "Stoves and hollow ware sold over a counter."
+    },
+    "surveyor": {
+      "kind": "office",
+      "confidence": "inferred",
+      "note": "A surveyor's room."
+    },
+    "tailor": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "Made to order and sold in the same shop."
+    },
+    "tavern_keeper": {
+      "kind": "public_house",
+      "confidence": "inferred",
+      "note": "A tavern."
+    },
+    "tinsmith": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "Tin, sheet iron and copper ware made and sold on the premises; where the notice prints a factory the trade override reads it as a works."
+    }
+  },
+  "by_trade": {
+    "commission and forwarding merchants": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "The notice prints forwarding and commission, not a counter."
+    },
+    "storage and commission merchant": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "The notice prints storage and commission, not a counter."
+    },
+    "boot, shoe and leather store": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "The notice prints a store and nothing made on the premises."
+    },
+    "boot and shoe making": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "The notice prints the making and no store."
+    },
+    "saddle, harness and trunk manufactory": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "The notice prints a manufactory."
+    },
+    "tavern keeper, and dealer in chairs, harnesses and saddles": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "The notice prints a dealer, not a maker; the tavern is its keeper's other trade."
+    },
+    "tin, sheet iron and copper factory": {
+      "kind": "works",
+      "confidence": "inferred",
+      "note": "The notice prints a factory."
+    },
+    "grocer and tinner": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "The notice prints a grocery and a tinner's bench together."
+    },
+    "clothing and tailoring": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "The notice prints tailoring beside the clothing it sells."
+    },
+    "tailoring and ready made clothing": {
+      "kind": "maker_and_dealer",
+      "confidence": "inferred",
+      "note": "The notice prints tailoring beside the clothing it sells."
+    },
+    "general store and post office": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "The notice prints a general store; the post office is kept in it."
+    },
+    "hat manufacturers and wholesale dealers, Detroit": {
+      "kind": "counter",
+      "confidence": "inferred",
+      "note": "The hats are made in Detroit; what the notice offers in Chicago is the selling."
+    },
+    "corn, sold from a barn": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "Grain sold in bulk from a barn, not over a counter."
+    },
+    "lake packet": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "A packet carries freight and passengers; ashore it is a forwarding concern."
+    },
+    "packet service for freight and passengers between Chicago and the mouth of the St. Joseph": {
+      "kind": "freight",
+      "confidence": "inferred",
+      "note": "A packet carries freight and passengers; ashore it is a forwarding concern."
+    }
+  },
+  "unstated_kind": "unstated"
+}
