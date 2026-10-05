@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. Kelsey\u2019s small yellow boarding-house on the north-side sand hills now has a corrected card.',
+      'The 1843 and 1844 directories print its keeper as \u201cPatrick\u201d and \u201cParnick\u201d Kelsey. They are now one man: the same trade on the same Wolcott Street block, with the same two Hough boarders in both books.',
+      'The card used to say an 1835 letter spells him both ways. It does not. The page reads \u201cParnick\u201d both times. The Liberties page explains it (L291).',
+    ] },
   { v: 1494, ts: '2026-10-05T15:03:31.603Z', date: 'Oct 5, 2026, 10:03 AM CT', title: 'Newberry & Dole\u2019s sign goes up on their Dearborn Street store', kind: 'change',
     items: [
       'The warehouse at Lake and Dearborn now carries a NEWBERRY & DOLE board: \u201cDry Goods, Hardware & Crockery\u201d, the firm\u2019s own words from its first advertisement in November 1833. It used to read GEO. W. DOLE.',
