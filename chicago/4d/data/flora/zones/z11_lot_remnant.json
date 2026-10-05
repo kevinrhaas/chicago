@@ -10,7 +10,6 @@
  "scenes": [
   "1835"
  ],
- "generated_by": "tools/derive_lot_remnant.py",
  "cover": {
   "matrix_fraction": 0.6,
   "bare_soil_fraction": 0.15,
@@ -1754,40 +1753,8 @@
    "note": "Copied from z02_mesic_prairie (0.7-1.0 m, {\"density_per_ha\": [100, 300]}) with its July state, colour and flower unchanged; height and abundance are this community's grazing crop, reconstructed (docs/LIBERTIES.md L386). Parent's note: Dossier [I]: regional, not named at the forks."
   }
  ],
- "left_out": [
-  {
-   "id": "sorghastrum_nutans",
-   "from": "z02_mesic_prairie",
-   "why": "Indian grass is a palatable decreaser and the first tall grass to go under steady grazing; its 0.8-1.1 m is the open prairie's height"
-  },
-  {
-   "id": "silphium_laciniatum",
-   "from": "z02_mesic_prairie",
-   "why": "compass plant is the classic grazing casualty — stock seek out its leaves — and its 2.0-2.8 m stalk is exactly the tall prairie a grazed lot is not"
-  },
-  {
-   "id": "dalea_purpurea",
-   "from": "z02_mesic_prairie",
-   "why": "purple prairie clover is a legume stock prefer, a textbook decreaser"
-  },
-  {
-   "id": "amorpha_canescens",
-   "from": "z02_mesic_prairie",
-   "why": "lead plant is browsed hard and recovers slowly, a textbook decreaser"
-  },
-  {
-   "id": "heliopsis_helianthoides",
-   "from": "z02_mesic_prairie",
-   "why": "ox-eye is a woodland-edge forb of the prairie record and palatable; it is left to the open prairie rather than guessed onto a lot"
-  },
-  {
-   "id": "parthenium_integrifolium",
-   "from": "z02_mesic_prairie",
-   "why": "wild quinine is a forb of undisturbed prairie; nothing bounds it onto grazed ground"
-  }
- ],
  "confidence": "reconstructed",
  "sources": [],
- "note": "Every value is reconstructed; docs/LIBERTIES.md L386 records the liberty. The ground colour is the mean of the mesic prairie's and the settled town's, and the bare share sits between them: grazed ground shows more earth than the prairie and far less than the trodden town.",
+ "note": "Every value is reconstructed; docs/LIBERTIES.md L386 records the liberty. The ground colour is the mean of the mesic prairie's and the settled town's, and the bare share sits between them: grazed ground shows more earth than the prairie and far less than the trodden town. Written by tools/derive_lot_remnant.py. LEFT OUT of z02_mesic_prairie's species, each for its reason: sorghastrum_nutans — Indian grass is a palatable decreaser and the first tall grass to go under steady grazing; its 0.8-1.1 m is the open prairie's height; silphium_laciniatum — compass plant is the classic grazing casualty — stock seek out its leaves — and its 2.0-2.8 m stalk is exactly the tall prairie a grazed lot is not; dalea_purpurea — purple prairie clover is a legume stock prefer, a textbook decreaser; amorpha_canescens — lead plant is browsed hard and recovers slowly, a textbook decreaser; heliopsis_helianthoides — ox-eye is a woodland-edge forb of the prairie record and palatable; it is left to the open prairie rather than guessed onto a lot; parthenium_integrifolium — wild quinine is a forb of undisturbed prairie; nothing bounds it onto grazed ground.",
  "review_required": false
 }

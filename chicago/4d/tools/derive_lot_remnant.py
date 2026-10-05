@@ -251,7 +251,7 @@ def derive():
                 "n": [math.floor(min(p[1] for p in pts)), math.ceil(max(p[1] for p in pts))]},
     }
     report = {"lots": len(lots), "why": why, "rings": len(rings),
-              "area_ha": round(sum(abs(area2(r)) / 2 for r in rings) / 1e4, 2)}
+              "area_ha": round(math.fsum(abs(area2(r)) / 2 for r in rings) / 1e4, 2)}
     return extent, report
 
 
@@ -294,18 +294,18 @@ def record(extent):
                     "black-eyed Susan, rattlesnake master's pale globes, butterfly weed's orange",
         "plantable_in_scene": True,
         "scenes": ["1835"],
-        "generated_by": "tools/derive_lot_remnant.py",
         "cover": COVER,
         "ground": {"rgb": [89, 86, 59], "wet_rgb": [66, 63, 45]},
         "extent": extent,
         "species": species(),
-        "left_out": [{"id": k, "from": "z02_mesic_prairie", "why": v} for k, v in LEFT_OUT.items()],
         "confidence": "reconstructed",
         "sources": [],
         "note": "Every value is reconstructed; " + LIBERTY + " records the liberty. The ground "
                 "colour is the mean of the mesic prairie's and the settled town's, and the bare "
                 "share sits between them: grazed ground shows more earth than the prairie and far "
-                "less than the trodden town.",
+                "less than the trodden town. Written by tools/derive_lot_remnant.py. LEFT OUT of "
+                "z02_mesic_prairie's species, each for its reason: "
+                + "; ".join(f"{k} — {v}" for k, v in LEFT_OUT.items()) + ".",
         "review_required": False,
     }
 
