@@ -30,6 +30,7 @@ const mod = await import(moduleURL(source
   .replace("from 'three'", `from '${threeURL}'`)
   .replace("import { resolveBases } from './scene-loader.js';",
     "const resolveBases = () => { throw new Error('scene loading outside this check'); };")
+  .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
   + '\nexport { timberBuf, laySegment, pushBox, plankGapAttribute, filterPlankGaps, PLANK_GAP_M };'));
 const confidenceSource = await readFile(path.join(web, 'js/confidence.js'), 'utf8');
 const { createConfidenceView } = await import(moduleURL(

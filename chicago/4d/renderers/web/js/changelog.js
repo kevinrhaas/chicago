@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1461, ts: '2026-10-05T02:18:31.986Z', date: 'Oct 4, 2026, 9:18 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+  { v: null, ts: '', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
       'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
       'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
       '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
       'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
       'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
+    ] },
+  { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
+      'We have now decided why, and written it down: on the south bank that ground lies inside South Water Street as it was laid out, and no record of the time puts a building there. We will not invent one in the street.',
+      'That bank is shown instead as what the town\u2019s records point to: worn working ground with landings out to the water, where goods came ashore for the stores across the street.',
+    ] },
+  { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+    items: [
+      'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
+      'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
+      'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
+      'Gates are a reconstruction (Liberty L382). They add a little to draw, and no extra draw calls.',
     ] },
   { v: 1460, ts: '2026-10-05T01:41:53.671Z', date: 'Oct 4, 2026, 8:41 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
     items: [
