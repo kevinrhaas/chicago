@@ -48,6 +48,14 @@ reproduces exactly** (2-4 vertices each: `optimize` dedups without the palette p
 3 non-reproducing files with no weld at all. So the cheap proxy is neither the set nor a
 bound on it, and this tool reports both so the difference cannot be rounded off again.
 Do not quote 195, and do not build a gate on the vertex count.
+
+## Re-measured 2026-10-05 (T-0776): 570 of 570 reproduce
+
+The census now covers every output the step publishes (versioned masters, v4's light file;
+see `masters()`), and on gltf-transform 4.5.0 every one comes back byte for byte, on two
+consecutive full runs. T-0776's "348 rewritten at identical byte counts" was the unpinned
+generator stamp (`v4.4.2` to `v4.5.0`, the same length), cured by T-0537's pin. See §6 of
+docs/RESEARCH/web-reproduction.md.
 """
 
 import argparse
@@ -75,7 +83,26 @@ def work_dir(arg=None):
 
 
 def masters():
-    return sorted(p.name for p in GLTF.glob("*.glb"))
+    """Every master the step turns into a published derivative, as the `--only` name the
+    step takes: the top-level GLBs AND the structure versions under `versions/<id>/<label>/`.
+
+    T-0776. Until 2026-10-05 this read `*.glb` alone, so the census never saw a versioned
+    master — the step publishes those too (`assets/web/versions/…`), and a census that skips
+    a class of output cannot say the step is reproducible."""
+    top = sorted(p.name for p in GLTF.glob("*.glb"))
+    versioned = sorted(str(p.relative_to(GLTF)) for p in GLTF.glob("versions/*/*/*.glb"))
+    return top + versioned
+
+
+def derivatives(name):
+    """The published files the step writes for one master: the derivative itself, and the
+    same-version `.light.glb` where the step makes one (Glessner v4's, T-1730). A light
+    file the shipped tree carries is compared like any other derivative."""
+    out = [name]
+    light = name[:-len(".glb")] + ".light.glb"
+    if (WEB / light).exists():
+        out.append(light)
+    return out
 
 
 def chunk_of(names, spec):
@@ -129,7 +156,7 @@ def produce(names, out, palette):
             [str(STEP), "--out", str(out), "--only", name],
             cwd=ROOT, env=env, capture_output=True, text=True,
         )
-        if r.returncode != 0 or not (out / name).exists():
+        if r.returncode != 0 or not all((out / d).exists() for d in derivatives(name)):
             print(r.stdout[-2000:], r.stderr[-2000:], file=sys.stderr)
             sys.exit(f"the step failed on {name}")
         print(f"   {i:3d}/{len(names)}  {name}")
@@ -146,8 +173,11 @@ def report(work, as_json):
                  f"{today}. Run every --chunk first (--plan prints them).")
 
     rows = []
-    for n in names:
-        m, w, c = GLTF / n, WEB / n, today / n
+    for master, n in ((m, d) for m in names for d in derivatives(m)):
+        m, w, c = GLTF / master, WEB / n, today / n
+        if not c.exists():
+            sys.exit(f"the control has {master} but not its derivative {n} — re-run its chunk")
+        light = n != master
         row = {
             "name": n,
             "master_bytes": m.stat().st_size,
@@ -155,10 +185,12 @@ def report(work, as_json):
             "control_bytes": c.stat().st_size,
             "passthrough": md5(m) == md5(w),
             "reproduces": md5(w) == md5(c),
-            "welded": vertices(w) < vertices(m),
+            # A light file is reduced geometry by design, so it would read as "welded"
+            # every time and pollute the proxy below; it is kept out of it.
+            "welded": False if light else vertices(w) < vertices(m),
             "palette_era": None,
         }
-        if not row["reproduces"] and (pal / n).exists():
+        if not row["reproduces"] and not light and (pal / n).exists():
             row["palette_era"] = md5(w) == md5(pal / n)
         rows.append(row)
 
@@ -234,7 +266,8 @@ def main():
             sys.exit("run the plain --chunk control first: the palette control only ever "
                      "runs over the files that failed it")
         failed = [n for n in masters()
-                  if (today / n).exists() and md5(WEB / n) != md5(today / n)]
+                  if (today / n).exists()
+                  and any(md5(WEB / d) != md5(today / d) for d in derivatives(n))]
         if not failed:
             print("nothing failed today's step — no palette control to take")
             return 0
