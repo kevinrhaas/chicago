@@ -162,6 +162,9 @@ UNSCHEDULED_PLATS = {
 # its own, and one has been standing on the grid since T-1444 instantiated the reviewed
 # West recipe: its placements fill lot-ruled West blocks at a density somebody reviewed.
 WEST_GRID = "west_division"
+# T-2144. The School Section's Madison-Monroe tier, joined to the grid on the owner's
+# T-1755 ruling — scheduled one roof to a lot, see `programme_document`.
+SCHOOL_SECTION_GRID = "school_section_tier"
 
 
 def west_lot_ceiling(grid: dict, rows: list[dict], recipe_id: str) -> dict:
@@ -1348,6 +1351,31 @@ def programme_document():
                 "density": (f"{west_density['reviewed_roofs']} roofs per "
                             f"{west_density['lots']} lots, the reviewed West recipe on "
                             f"{west_density['block']} (T-1783)"),
+            })
+        elif block.get("grid") == SCHOOL_SECTION_GRID:
+            # T-2144. ONE HOUSE TO A LOT, AND NO ROW. The tier's lots are as wide as the
+            # Original Town's, so `ROW_UNITS_PER_LOT` would fit on them by its own
+            # arithmetic — but that figure is a party-line density measured on the
+            # town's commercial frontage, and this is the ground the town spilled onto
+            # across its south line: sold lot by lot in October 1833 and, by every
+            # account this project holds, mostly empty in 1835. So a lot carries one
+            # principal roof, the generator's own one-roof-to-a-lot gate
+            # (`lot_ceiling_principal`), the block still keeps a lot open, and the yard
+            # buildings ride at the town's ratio. The owner's ruling of 2026-10-05
+            # (T-1755, option b) is what opens the ground at all.
+            principal = lot_ceiling_principal(free)
+            ceiling = lots + round(lots * ANCILLARY_PER_PRINCIPAL)
+            principal = max(0, min(principal, ceiling - stands))
+            ancillary = max(0, min(round(principal * ANCILLARY_PER_PRINCIPAL),
+                                   ceiling - stands - principal))
+            unit.update({
+                "capacity_roofs": ceiling,
+                "principal_room": principal, "ancillary_room": ancillary,
+                "headroom": principal + ancillary,
+                "state": "open" if principal + ancillary > 0 else "at_capacity",
+                "density": ("one principal roof per lot and no party-line row, the "
+                            "block keeping one lot open — the School Section tier "
+                            "south of Madison (T-2144, on the T-1755 ruling)"),
             })
         hold = block.get("reserved")
         if hold:

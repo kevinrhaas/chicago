@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1505, ts: '2026-10-05T21:23:55.290Z', date: 'Oct 5, 2026, 4:23 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
+  { v: 1506, ts: '2026-10-05T22:06:52.236Z', date: 'Oct 5, 2026, 5:06 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
     items: [
       'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
       'This is the ground of 15 August 1812. An 1895 history describes the bank there as ten to twenty feet above the water, with sand hills \u201cnot high and not continuous\u201d. A 1913 account puts the row of hills about a hundred yards back from the beach. The column marched on the beach, and the beach is unchanged.',
       'No source places any single hill, so where each one stands and how high it is are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1505, ts: '2026-10-05T20:26:07.594Z', date: 'Oct 5, 2026, 3:26 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
+    items: [
+      'Walk south across Madison between Market and State and the five blocks there are no longer open prairie. They are now cropped, grazed vacant lots, the same sward as the empty lots inside the town. No house stands on them yet.',
+      'These blocks were sold lot by lot in October 1833, in the School Section beyond the town\u2019s south line. The town plan still owes the South Division about forty houses, and every block inside the line is full. So those houses will be built here, one to a lot, with a lot left open on each block.',
+      'Thirty-four households who had no lot are now given one on these blocks, and their cards say so. Their houses come in the next few updates.',
     ] },
   { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
     items: [

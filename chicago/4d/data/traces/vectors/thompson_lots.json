@@ -126,6 +126,19 @@
    "numbered": 13,
    "lots": 20,
    "subdivided": true
+  },
+  "school_section_tier": {
+   "plat": "wright_1834_school_section",
+   "name": "the School Section's Madison-Monroe tier, south of the town line, Wright 1834 (its South Division blocks)",
+   "cut_from": {
+    "seating": "data/traces/vectors/school_section_blocks_1834.json",
+    "reading": "data/traces/vectors/school_section_tier_lots.json"
+   },
+   "blocks": 5,
+   "omitted": 0,
+   "numbered": 5,
+   "lots": 40,
+   "subdivided": true
   }
  },
  "kinzies_addition": {
@@ -230,14 +243,15 @@
   "rule": "a block takes the tract that covers the most of it, by clipped area, using the clipper in tools/sort_land_sales_onto_tracts.py",
   "the_precedence_clause": "EXCEPT that a residual tract — one whose ring is defined as what another tract leaves over — yields any block a non-residual tract covers at least 50% of. canal_section_9_remainder is the layer's only residual. T-1104 states this clause for parcels; a second statement of it would be a second answer, so it is the same clause and the same clipper.",
   "what_the_layer_answers_here": {
-   "blocks_sorted": 78,
+   "blocks_sorted": 83,
    "by_tract": {
     "canal_commissioners_1830": 34,
     "canal_section_9_remainder": 4,
     "kinzies_addition": 27,
+    "school_section": 5,
     "wabansia": 13
    },
-   "finding": "THE LAYER DISCRIMINATES THIS GRID SINCE T-1437, and until then it could not. The finding recorded here from T-1105 to 2026-09-20 was that all nineteen generated blocks fell in canal_commissioners_1830 and no other placed ring touched one, so the question T-1105 asked the layer was one the layer could not answer. That was a property of the GRID and not of the layer: the generator could only cut blocks between Original Town lines, so of course every block stood in the Original Town's tract. With Kinzie's Addition's own grid cut, 34 block(s) stand in canal_commissioners_1830, 4 block(s) stand in canal_section_9_remainder, 27 block(s) stand in kinzies_addition, 13 block(s) stand in wabansia — and the module each takes is now a per-tract answer rather than a single town-wide one. What varies INSIDE the Original Town's tract is still the DIVISION, because the river runs through it and the plat gives its two sides different blocks.",
+   "finding": "THE LAYER DISCRIMINATES THIS GRID SINCE T-1437, and until then it could not. The finding recorded here from T-1105 to 2026-09-20 was that all nineteen generated blocks fell in canal_commissioners_1830 and no other placed ring touched one, so the question T-1105 asked the layer was one the layer could not answer. That was a property of the GRID and not of the layer: the generator could only cut blocks between Original Town lines, so of course every block stood in the Original Town's tract. With Kinzie's Addition's own grid cut, 34 block(s) stand in canal_commissioners_1830, 4 block(s) stand in canal_section_9_remainder, 27 block(s) stand in kinzies_addition, 5 block(s) stand in school_section, 13 block(s) stand in wabansia — and the module each takes is now a per-tract answer rather than a single town-wide one. What varies INSIDE the Original Town's tract is still the DIVISION, because the river runs through it and the plat gives its two sides different blocks.",
    "the_grade_is_inherited": "canal_commissioners_1830 is `conjectural` — its four bounds are the standard account of the 1830 plat and no source record here states them. Any module chosen off that ring would be conjectural for that reason alone. None is: the module below is chosen off the street lines, and the tract is carried as a finding, not used as an input."
   },
   "the_west_division_module": {
@@ -294,24 +308,25 @@
  "confidence": "inferred",
  "confidence_note": "The blocks are arithmetic on inferred inputs — street lines whose own geometry confidence is `inferred`, offset by a module width the street control also grades `inferred` — so `inferred` is the most this grid can carry. The lots and the alleys inside those blocks are `conjectural` and are recorded separately for that reason: a visitor is entitled to know that the block face is a defensible position and the line dividing it is not.",
  "summary": {
-  "blocks": 78,
+  "blocks": 83,
   "blocks_by_grid": {
    "original_town": 25,
    "kinzies_addition": 27,
    "west_division": 9,
    "michigan_st_tract": 4,
-   "wabansia": 13
+   "wabansia": 13,
+   "school_section_tier": 5
   },
   "omitted": 55,
   "reserved": 1,
-  "numbered": 68,
+  "numbered": 73,
   "numbered_omitted": 48,
-  "lots": 348,
-  "numbered_lots": 188,
+  "lots": 388,
+  "numbered_lots": 228,
   "block_frontage_ft": {
    "min": 120.8,
-   "median": 312.0,
-   "max": 399.5
+   "median": 315.2,
+   "max": 403.2
   },
   "lot_frontage_ft": {
    "min": 24.3,
@@ -18451,6 +18466,1541 @@
     "division": "west",
     "chosen_by": "Wabansia's own read column and tier rules, seated on the one line it shares with the town it adjoins — Kinzie Street",
     "lot_subdivision": "the sheet's own column dividers and nothing else: fifteen of the twenty-one cells are two lots wide and six are one, read tier by tier off wright_1834_nara_hup, and no east-west lot rule is drawn"
+   }
+  },
+  {
+   "id": "blk_school_section_tier_81",
+   "grid": "school_section_tier",
+   "plat": "wright_1834_school_section",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "market_school_section",
+    "east": "school_section_line_8"
+   },
+   "boundary_local_enu_m": [
+    [
+     81.4,
+     -531.25
+    ],
+    [
+     198.32,
+     -531.25
+    ],
+    [
+     198.32,
+     -643.64
+    ],
+    [
+     81.4,
+     -643.64
+    ]
+   ],
+   "area_m2": 13140.6,
+   "frontage_m": 116.92,
+   "frontage_ft": 383.6,
+   "depth_m": 112.39,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     81.4,
+     -584.7
+    ],
+    [
+     198.32,
+     -584.7
+    ],
+    [
+     198.32,
+     -590.19
+    ],
+    [
+     81.4,
+     -590.19
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       81.4,
+       -531.25
+      ],
+      [
+       110.63,
+       -531.25
+      ],
+      [
+       110.63,
+       -584.7
+      ],
+      [
+       81.4,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       81.4,
+       -590.19
+      ],
+      [
+       110.63,
+       -590.19
+      ],
+      [
+       110.63,
+       -643.64
+      ],
+      [
+       81.4,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       110.63,
+       -531.25
+      ],
+      [
+       139.86,
+       -531.25
+      ],
+      [
+       139.86,
+       -584.7
+      ],
+      [
+       110.63,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       110.63,
+       -590.19
+      ],
+      [
+       139.86,
+       -590.19
+      ],
+      [
+       139.86,
+       -643.64
+      ],
+      [
+       110.63,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       139.86,
+       -531.25
+      ],
+      [
+       169.09,
+       -531.25
+      ],
+      [
+       169.09,
+       -584.7
+      ],
+      [
+       139.86,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       139.86,
+       -590.19
+      ],
+      [
+       169.09,
+       -590.19
+      ],
+      [
+       169.09,
+       -643.64
+      ],
+      [
+       139.86,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       169.09,
+       -531.25
+      ],
+      [
+       198.32,
+       -531.25
+      ],
+      [
+       198.32,
+       -584.7
+      ],
+      [
+       169.09,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 29.23,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       169.09,
+       -590.19
+      ],
+      [
+       198.32,
+       -590.19
+      ],
+      [
+       198.32,
+       -643.64
+      ],
+      [
+       169.09,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    }
+   ],
+   "lot_rule": {
+    "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+    "lot_count": "documented",
+    "lot_lines": "inferred",
+    "witnessed_by_the_sale": "The October 1833 register prints lots 1-8 in block 81 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+   },
+   "plat_block_number": {
+    "number": 81,
+    "confidence": "documented",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834_nara_hup"
+    ],
+    "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+    "note": "The numeral is written TWICE inside this block, side by side, and both readings give 81. Recorded as read; the doubling is the draughtsman's."
+   },
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 506,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.77,
+    "max_m": 0.82,
+    "mean_m": 0.79,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "school_section",
+    "share": 1.0,
+    "geometry_confidence": "inferred",
+    "on": [
+     "school_section"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "original_town_thompson_1830, carried",
+    "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+    "confidence": "inferred",
+    "division": "south",
+    "chosen_by": "Wright rules the section into blocks and letters their numbers; he does not rule lot lines inside them. So the division cannot be read off the sheet, and what is applied instead is the module this project already cuts the Original Town on — an 18 ft alley centred in the block, lots fronting the east-west streets. It is the town's own practice, half a mile away and five years earlier, and it is `inferred` for exactly that reason.",
+    "lot_subdivision": "two rows of lots either side of a mid-block east-west alley, fronting Madison on the north and Monroe on the south",
+    "joined_by": "T-2144, on the owner's T-1755 ruling of 2026-10-05: only the cells east of the forks with lots on dry ground"
+   }
+  },
+  {
+   "id": "blk_school_section_tier_94",
+   "grid": "school_section_tier",
+   "plat": "wright_1834_school_section",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "school_section_line_8",
+    "east": "wells_school_section"
+   },
+   "boundary_local_enu_m": [
+    [
+     218.44,
+     -531.25
+    ],
+    [
+     341.34,
+     -531.25
+    ],
+    [
+     341.34,
+     -643.64
+    ],
+    [
+     218.44,
+     -643.64
+    ]
+   ],
+   "area_m2": 13812.7,
+   "frontage_m": 122.9,
+   "frontage_ft": 403.2,
+   "depth_m": 112.39,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     218.44,
+     -584.7
+    ],
+    [
+     341.34,
+     -584.7
+    ],
+    [
+     341.34,
+     -590.19
+    ],
+    [
+     218.44,
+     -590.19
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 30.72,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       218.44,
+       -531.25
+      ],
+      [
+       249.16,
+       -531.25
+      ],
+      [
+       249.16,
+       -584.7
+      ],
+      [
+       218.44,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 30.72,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       218.44,
+       -590.19
+      ],
+      [
+       249.16,
+       -590.19
+      ],
+      [
+       249.16,
+       -643.64
+      ],
+      [
+       218.44,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 30.72,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       249.16,
+       -531.25
+      ],
+      [
+       279.89,
+       -531.25
+      ],
+      [
+       279.89,
+       -584.7
+      ],
+      [
+       249.16,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 30.72,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       249.16,
+       -590.19
+      ],
+      [
+       279.89,
+       -590.19
+      ],
+      [
+       279.89,
+       -643.64
+      ],
+      [
+       249.16,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 30.73,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       279.89,
+       -531.25
+      ],
+      [
+       310.62,
+       -531.25
+      ],
+      [
+       310.62,
+       -584.7
+      ],
+      [
+       279.89,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 30.73,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       279.89,
+       -590.19
+      ],
+      [
+       310.62,
+       -590.19
+      ],
+      [
+       310.62,
+       -643.64
+      ],
+      [
+       279.89,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 30.72,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       310.62,
+       -531.25
+      ],
+      [
+       341.34,
+       -531.25
+      ],
+      [
+       341.34,
+       -584.7
+      ],
+      [
+       310.62,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 30.72,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       310.62,
+       -590.19
+      ],
+      [
+       341.34,
+       -590.19
+      ],
+      [
+       341.34,
+       -643.64
+      ],
+      [
+       310.62,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    }
+   ],
+   "lot_rule": {
+    "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+    "lot_count": "documented",
+    "lot_lines": "inferred",
+    "witnessed_by_the_sale": "The October 1833 register prints lots 1-8 in block 94 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+   },
+   "plat_block_number": {
+    "number": 94,
+    "confidence": "documented",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834_nara_hup"
+    ],
+    "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+    "note": null
+   },
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 550,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.83,
+    "max_m": 0.89,
+    "mean_m": 0.86,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "school_section",
+    "share": 1.0,
+    "geometry_confidence": "inferred",
+    "on": [
+     "school_section"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "original_town_thompson_1830, carried",
+    "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+    "confidence": "inferred",
+    "division": "south",
+    "chosen_by": "Wright rules the section into blocks and letters their numbers; he does not rule lot lines inside them. So the division cannot be read off the sheet, and what is applied instead is the module this project already cuts the Original Town on — an 18 ft alley centred in the block, lots fronting the east-west streets. It is the town's own practice, half a mile away and five years earlier, and it is `inferred` for exactly that reason.",
+    "lot_subdivision": "two rows of lots either side of a mid-block east-west alley, fronting Madison on the north and Monroe on the south",
+    "joined_by": "T-2144, on the owner's T-1755 ruling of 2026-10-05: only the cells east of the forks with lots on dry ground"
+   }
+  },
+  {
+   "id": "blk_school_section_tier_95",
+   "grid": "school_section_tier",
+   "plat": "wright_1834_school_section",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "wells_school_section",
+    "east": "school_section_line_10"
+   },
+   "boundary_local_enu_m": [
+    [
+     361.46,
+     -531.25
+    ],
+    [
+     455.02,
+     -531.25
+    ],
+    [
+     455.02,
+     -643.64
+    ],
+    [
+     361.46,
+     -643.64
+    ]
+   ],
+   "area_m2": 10515.2,
+   "frontage_m": 93.56,
+   "frontage_ft": 307.0,
+   "depth_m": 112.39,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     361.46,
+     -584.7
+    ],
+    [
+     455.02,
+     -584.7
+    ],
+    [
+     455.02,
+     -590.19
+    ],
+    [
+     361.46,
+     -590.19
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       361.46,
+       -531.25
+      ],
+      [
+       384.85,
+       -531.25
+      ],
+      [
+       384.85,
+       -584.7
+      ],
+      [
+       361.46,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       361.46,
+       -590.19
+      ],
+      [
+       384.85,
+       -590.19
+      ],
+      [
+       384.85,
+       -643.64
+      ],
+      [
+       361.46,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       384.85,
+       -531.25
+      ],
+      [
+       408.24,
+       -531.25
+      ],
+      [
+       408.24,
+       -584.7
+      ],
+      [
+       384.85,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       384.85,
+       -590.19
+      ],
+      [
+       408.24,
+       -590.19
+      ],
+      [
+       408.24,
+       -643.64
+      ],
+      [
+       384.85,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       408.24,
+       -531.25
+      ],
+      [
+       431.63,
+       -531.25
+      ],
+      [
+       431.63,
+       -584.7
+      ],
+      [
+       408.24,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       408.24,
+       -590.19
+      ],
+      [
+       431.63,
+       -590.19
+      ],
+      [
+       431.63,
+       -643.64
+      ],
+      [
+       408.24,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       431.63,
+       -531.25
+      ],
+      [
+       455.02,
+       -531.25
+      ],
+      [
+       455.02,
+       -584.7
+      ],
+      [
+       431.63,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 23.39,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       431.63,
+       -590.19
+      ],
+      [
+       455.02,
+       -590.19
+      ],
+      [
+       455.02,
+       -643.64
+      ],
+      [
+       431.63,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    }
+   ],
+   "lot_rule": {
+    "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+    "lot_count": "documented",
+    "lot_lines": "inferred",
+    "witnessed_by_the_sale": "The October 1833 register prints lots 1-8 in block 95 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+   },
+   "plat_block_number": {
+    "number": 95,
+    "confidence": "documented",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834_nara_hup"
+    ],
+    "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+    "note": null
+   },
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 418,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.89,
+    "max_m": 0.89,
+    "mean_m": 0.89,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "school_section",
+    "share": 1.0,
+    "geometry_confidence": "inferred",
+    "on": [
+     "school_section"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "original_town_thompson_1830, carried",
+    "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+    "confidence": "inferred",
+    "division": "south",
+    "chosen_by": "Wright rules the section into blocks and letters their numbers; he does not rule lot lines inside them. So the division cannot be read off the sheet, and what is applied instead is the module this project already cuts the Original Town on — an 18 ft alley centred in the block, lots fronting the east-west streets. It is the town's own practice, half a mile away and five years earlier, and it is `inferred` for exactly that reason.",
+    "lot_subdivision": "two rows of lots either side of a mid-block east-west alley, fronting Madison on the north and Monroe on the south",
+    "joined_by": "T-2144, on the owner's T-1755 ruling of 2026-10-05: only the cells east of the forks with lots on dry ground"
+   }
+  },
+  {
+   "id": "blk_school_section_tier_118",
+   "grid": "school_section_tier",
+   "plat": "wright_1834_school_section",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "school_section_line_10",
+    "east": "clark_school_section"
+   },
+   "boundary_local_enu_m": [
+    [
+     475.14,
+     -531.25
+    ],
+    [
+     573.48,
+     -531.25
+    ],
+    [
+     573.48,
+     -643.64
+    ],
+    [
+     475.14,
+     -643.64
+    ]
+   ],
+   "area_m2": 11052.4,
+   "frontage_m": 98.34,
+   "frontage_ft": 322.6,
+   "depth_m": 112.39,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     475.14,
+     -584.7
+    ],
+    [
+     573.48,
+     -584.7
+    ],
+    [
+     573.48,
+     -590.19
+    ],
+    [
+     475.14,
+     -590.19
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 24.59,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       475.14,
+       -531.25
+      ],
+      [
+       499.73,
+       -531.25
+      ],
+      [
+       499.73,
+       -584.7
+      ],
+      [
+       475.14,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.59,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       475.14,
+       -590.19
+      ],
+      [
+       499.73,
+       -590.19
+      ],
+      [
+       499.73,
+       -643.64
+      ],
+      [
+       475.14,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.58,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       499.73,
+       -531.25
+      ],
+      [
+       524.31,
+       -531.25
+      ],
+      [
+       524.31,
+       -584.7
+      ],
+      [
+       499.73,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.58,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       499.73,
+       -590.19
+      ],
+      [
+       524.31,
+       -590.19
+      ],
+      [
+       524.31,
+       -643.64
+      ],
+      [
+       499.73,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.59,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       524.31,
+       -531.25
+      ],
+      [
+       548.89,
+       -531.25
+      ],
+      [
+       548.89,
+       -584.7
+      ],
+      [
+       524.31,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.59,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       524.31,
+       -590.19
+      ],
+      [
+       548.89,
+       -590.19
+      ],
+      [
+       548.89,
+       -643.64
+      ],
+      [
+       524.31,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 24.59,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       548.89,
+       -531.25
+      ],
+      [
+       573.48,
+       -531.25
+      ],
+      [
+       573.48,
+       -584.7
+      ],
+      [
+       548.89,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 24.59,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       548.89,
+       -590.19
+      ],
+      [
+       573.48,
+       -590.19
+      ],
+      [
+       573.48,
+       -643.64
+      ],
+      [
+       548.89,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    }
+   ],
+   "lot_rule": {
+    "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+    "lot_count": "documented",
+    "lot_lines": "inferred",
+    "witnessed_by_the_sale": "The October 1833 register prints lots 1-8 in block 118 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+   },
+   "plat_block_number": {
+    "number": 118,
+    "confidence": "documented",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834_nara_hup"
+    ],
+    "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+    "note": null
+   },
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 418,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.89,
+    "max_m": 0.89,
+    "mean_m": 0.89,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "school_section",
+    "share": 1.0,
+    "geometry_confidence": "inferred",
+    "on": [
+     "school_section"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "original_town_thompson_1830, carried",
+    "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+    "confidence": "inferred",
+    "division": "south",
+    "chosen_by": "Wright rules the section into blocks and letters their numbers; he does not rule lot lines inside them. So the division cannot be read off the sheet, and what is applied instead is the module this project already cuts the Original Town on — an 18 ft alley centred in the block, lots fronting the east-west streets. It is the town's own practice, half a mile away and five years earlier, and it is `inferred` for exactly that reason.",
+    "lot_subdivision": "two rows of lots either side of a mid-block east-west alley, fronting Madison on the north and Monroe on the south",
+    "joined_by": "T-2144, on the owner's T-1755 ruling of 2026-10-05: only the cells east of the forks with lots on dry ground"
+   }
+  },
+  {
+   "id": "blk_school_section_tier_119",
+   "grid": "school_section_tier",
+   "plat": "wright_1834_school_section",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "clark_school_section",
+    "east": "school_section_line_12"
+   },
+   "boundary_local_enu_m": [
+    [
+     593.59,
+     -531.25
+    ],
+    [
+     695.06,
+     -531.25
+    ],
+    [
+     695.06,
+     -643.64
+    ],
+    [
+     593.59,
+     -643.64
+    ]
+   ],
+   "area_m2": 11404.2,
+   "frontage_m": 101.47,
+   "frontage_ft": 332.9,
+   "depth_m": 112.39,
+   "lots_per_face": 4,
+   "alley_local_enu_m": [
+    [
+     593.59,
+     -584.7
+    ],
+    [
+     695.06,
+     -584.7
+    ],
+    [
+     695.06,
+     -590.19
+    ],
+    [
+     593.59,
+     -590.19
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "north",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       593.59,
+       -531.25
+      ],
+      [
+       618.96,
+       -531.25
+      ],
+      [
+       618.96,
+       -584.7
+      ],
+      [
+       593.59,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       593.59,
+       -590.19
+      ],
+      [
+       618.96,
+       -590.19
+      ],
+      [
+       618.96,
+       -643.64
+      ],
+      [
+       593.59,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       618.96,
+       -531.25
+      ],
+      [
+       644.33,
+       -531.25
+      ],
+      [
+       644.33,
+       -584.7
+      ],
+      [
+       618.96,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       618.96,
+       -590.19
+      ],
+      [
+       644.33,
+       -590.19
+      ],
+      [
+       644.33,
+       -643.64
+      ],
+      [
+       618.96,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       644.33,
+       -531.25
+      ],
+      [
+       669.69,
+       -531.25
+      ],
+      [
+       669.69,
+       -584.7
+      ],
+      [
+       644.33,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       644.33,
+       -590.19
+      ],
+      [
+       669.69,
+       -590.19
+      ],
+      [
+       669.69,
+       -643.64
+      ],
+      [
+       644.33,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    },
+    {
+     "tier": "north",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       669.69,
+       -531.25
+      ],
+      [
+       695.06,
+       -531.25
+      ],
+      [
+       695.06,
+       -584.7
+      ],
+      [
+       669.69,
+       -584.7
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "madison"
+    },
+    {
+     "tier": "south",
+     "frontage_m": 25.37,
+     "depth_m": 53.45,
+     "polygon": [
+      [
+       669.69,
+       -590.19
+      ],
+      [
+       695.06,
+       -590.19
+      ],
+      [
+       695.06,
+       -643.64
+      ],
+      [
+       669.69,
+       -643.64
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "conjectural",
+     "fronts": "monroe"
+    }
+   ],
+   "lot_rule": {
+    "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+    "lot_count": "documented",
+    "lot_lines": "inferred",
+    "witnessed_by_the_sale": "The October 1833 register prints lots 1-8 in block 119 of section 16 and never a lot 9. The count is the register's; where each number stands is not."
+   },
+   "plat_block_number": {
+    "number": 119,
+    "confidence": "documented",
+    "numeral_on_sheet": true,
+    "sources": [
+     "wright_1834_nara_hup"
+    ],
+    "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+    "note": null
+   },
+   "ground": {
+    "epoch": "e1834_harbor_cut",
+    "sampled_every_m": 5.0,
+    "samples": 462,
+    "off_the_modelled_field": 0,
+    "below_datum": 0,
+    "min_m": 0.89,
+    "max_m": 0.89,
+    "mean_m": 0.89,
+    "reading": "dry: every sample stands above datum on the modelled field"
+   },
+   "survey_tract": {
+    "tract": "school_section",
+    "share": 1.0,
+    "geometry_confidence": "inferred",
+    "on": [
+     "school_section"
+    ],
+    "precedence_clause_fired": null
+   },
+   "module": {
+    "module": "original_town_thompson_1830, carried",
+    "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+    "confidence": "inferred",
+    "division": "south",
+    "chosen_by": "Wright rules the section into blocks and letters their numbers; he does not rule lot lines inside them. So the division cannot be read off the sheet, and what is applied instead is the module this project already cuts the Original Town on — an 18 ft alley centred in the block, lots fronting the east-west streets. It is the town's own practice, half a mile away and five years earlier, and it is `inferred` for exactly that reason.",
+    "lot_subdivision": "two rows of lots either side of a mid-block east-west alley, fronting Madison on the north and Monroe on the south",
+    "joined_by": "T-2144, on the owner's T-1755 ruling of 2026-10-05: only the cells east of the forks with lots on dry ground"
    }
   }
  ],
