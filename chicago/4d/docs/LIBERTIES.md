@@ -14331,7 +14331,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 554 phases (550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 558 phases (554 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -18502,7 +18502,18 @@ Canal face, set out 5.0 and 7.5 m, and a rough plank shanty (D2) on plat lot 8 o
 face at 4.0 m — and the block's other five free lots are left open. That block is now at its
 ceiling of six, as is every lot-ruled West block, and the West's remaining 12 ordinary dwellings
 go to T-2132. What is invented on block 29 is the same as on block 47: the three roofs'
-presence, families, lots, set-outs and lateral offsets.
+presence, families, lots, set-outs and lateral offsets. **T-2132 opened a fourth block
+(2026-10-05)**: `blk_west_randolph_canal` (plat block 44, Randolph to Washington between Canal and
+West Water) had been gated with the fourteen that print no dimension, but it prints two — 180 ft
+under its west column and 150 ft under its east, where the South Branch has cut into the lots
+fronting West Water — and it is now cut on those two figures, each column sized by its own depth
+and never averaged. At the same ceiling of six, beside the Western Hotel and its stable on plat
+lots 2 and 3, the seating's four slot requests are raised: deep-plan frame cottages (D5) on plat
+lots 6 and 10 and a two-room frame cottage (D4) on plat lot 7 of the Canal face, set out 6.0,
+5.5 and 4.5 m, and a D6 on plat lot 8 of the West Water face at 3.5 m. The other four West Water
+lots are left open. What is invented on block 44 is the same again: the four roofs' presence,
+families, lots, set-outs and lateral offsets. The column split is read (the two printed depths);
+the lot lines remain the committed street lines divided.
 
 **How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
 blocks, or a period view west along Randolph; either replaces the ceiling and these placements
@@ -18512,9 +18523,11 @@ total.
 **Covers:** `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`,
 `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`,
 `recon_1835_blk_west_lake_canal_*.inferred_1835.position`,
-`recon_1835_blk_west_lake_canal_*.inferred_1835.footprint`
+`recon_1835_blk_west_lake_canal_*.inferred_1835.footprint`,
+`recon_1835_blk_west_randolph_canal_*.inferred_1835.position`,
+`recon_1835_blk_west_randolph_canal_*.inferred_1835.footprint`
 
-**Ticket:** T-1783; T-1829 (block 29's three roofs).
+**Ticket:** T-1783; T-1829 (block 29's three roofs); T-2132 (block 44's lot lines and four roofs).
 
 **Recorded:** 2026-10-01 (T-1783). **Revised:** 2026-10-01 (numbered **L313**: it was written as L311, then L312, and T-1760 and T-1761 took those numbers on `dev` first; `blk_west_lake_canal`'s room restated from four to three after T-1773's warehouse).
 

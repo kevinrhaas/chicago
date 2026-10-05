@@ -3430,6 +3430,42 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_west_lake_canal_d5_01"
     },
+    "recon_1835_blk_west_randolph_canal_d4_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 35988,
+      "inputs_sha256": "b31b584ad6f1325d9b12d87b2ebcf0d66536dfa2e8d497d3dd7385b308571c15",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_canal_d4_02"
+    },
+    "recon_1835_blk_west_randolph_canal_d5_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 36148,
+      "inputs_sha256": "b3f71fbf5d79091ed38cb4c3f065b7ba676a5e277deb948c3aabd8e5a15e77b9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_canal_d5_01"
+    },
+    "recon_1835_blk_west_randolph_canal_d5_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 38952,
+      "inputs_sha256": "efaa7e117c69b1111cd5bef884bb6e91ae772534abfb65571279faa61cc9b055",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_canal_d5_03"
+    },
+    "recon_1835_blk_west_randolph_canal_d6_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 42076,
+      "inputs_sha256": "93597433da95fd0e8251b30704c70260df212412bee7bb5ae346f990be3a5a12",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_randolph_canal_d6_04"
+    },
     "recon_1835_blk_west_randolph_des_plaines_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
