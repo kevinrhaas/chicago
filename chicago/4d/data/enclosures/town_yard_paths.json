@@ -142,6 +142,9 @@
     "recon_1835_blk_washington_wells_h1_02",
     "recon_1835_blk_washington_wells_h1_03",
     "recon_1835_blk_washington_wells_h2_07",
+    "recon_1835_blk_west_lake_canal_d2_03",
+    "recon_1835_blk_west_lake_canal_d4_02",
+    "recon_1835_blk_west_lake_canal_d5_01",
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",
@@ -4399,6 +4402,60 @@
       ],
       [
         [
+          -124.24,
+          -182.26
+        ],
+        [
+          -123.89,
+          -183.11
+        ],
+        [
+          -93.06,
+          -170.57
+        ],
+        [
+          -93.4,
+          -169.72
+        ]
+      ],
+      [
+        [
+          -123.45,
+          -209.04
+        ],
+        [
+          -123.03,
+          -209.85
+        ],
+        [
+          -92.68,
+          -194.31
+        ],
+        [
+          -93.09,
+          -193.5
+        ]
+      ],
+      [
+        [
+          -45.45,
+          -198.02
+        ],
+        [
+          -45.36,
+          -197.11
+        ],
+        [
+          -83.32,
+          -193.13
+        ],
+        [
+          -83.41,
+          -194.04
+        ]
+      ],
+      [
+        [
           -496.91,
           -305.38
         ],
@@ -5672,6 +5729,21 @@
       "lot": "blk_west_lake_des_plaines_lot8",
       "from": "recon_1835_west_033",
       "to": "privy_blk_west_lake_des_plaines_lot8"
+    },
+    {
+      "lot": "blk_west_lake_canal_lot2",
+      "from": "recon_1835_blk_west_lake_canal_d5_01",
+      "to": "privy_blk_west_lake_canal_lot2"
+    },
+    {
+      "lot": "blk_west_lake_canal_lot3",
+      "from": "recon_1835_blk_west_lake_canal_d4_02",
+      "to": "privy_blk_west_lake_canal_lot3"
+    },
+    {
+      "lot": "blk_west_lake_canal_lot8",
+      "from": "recon_1835_blk_west_lake_canal_d2_03",
+      "to": "privy_blk_west_lake_canal_lot8"
     },
     {
       "lot": "blk_west_randolph_des_plaines_lot2",

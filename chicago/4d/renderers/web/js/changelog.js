@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1476, ts: '2026-10-05T07:45:56.328Z', date: 'Oct 5, 2026, 2:45 AM CT', title: 'Businesses on the 1835 streets now get the kind of building their trade needed', kind: 'change',
+  { v: 1477, ts: '2026-10-05T08:35:46.369Z', date: 'Oct 5, 2026, 3:35 AM CT', title: 'Businesses on the 1835 streets now get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
       'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
       'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
+    ] },
+  { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
+    items: [
+      'Cross to the West Side and walk south down Canal Street from Lake Street. Past the saddler\u2019s and the blacksmith\u2019s on the corner, the block toward Randolph now has two frame cottages facing Canal: a deep-plan cottage and a two-room cottage beside it.',
+      'On the river side of the same block, facing West Water Street, a rough plank shanty stands south of the warehouse. Fences, dooryard gardens, yard paths and privies came with all three.',
+      'Each face keeps open lots at its ends, so the block does not read as a row.',
+      'Open any of them and its card lists the households the town\u2019s housing deal now boards there. All three buildings are our reconstruction: no source places a house on these lots in July 1835, and each card says so.',
     ] },
   { v: 1475, ts: '2026-10-05T06:50:00.924Z', date: 'Oct 5, 2026, 1:50 AM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
