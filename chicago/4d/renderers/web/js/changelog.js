@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1462, ts: '2026-10-05T02:29:06.851Z', date: 'Oct 4, 2026, 9:29 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+  { v: null, ts: '', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
       'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
       'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
+    ] },
+  { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
+      'We have now decided why, and written it down: on the south bank that ground lies inside South Water Street as it was laid out, and no record of the time puts a building there. We will not invent one in the street.',
+      'That bank is shown instead as what the town\u2019s records point to: worn working ground with landings out to the water, where goods came ashore for the stores across the street.',
     ] },
   { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
