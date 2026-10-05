@@ -205,8 +205,12 @@ It removes all 1,855 measured ground intersections, adds 8,704 ground triangles
 and at most one distant-walk call. All 107,532 emitted top triangles are clear.
 Footprints, walking heights, recorded species and intentional slough gaps remain.
 
-After removing zero-area grass-tip triangles, measured limits are 2,840,000 Full /
+After removing zero-area grass-tip triangles, measured limits were 2,840,000 Full /
 2,145,000 Balanced / 1,040,000 Light, under the owner's October 3 authorization.
+T-0672 re-read dev @ 7504e4fc on October 4 (worst 2,665,994 / 2,072,747 / 988,055,
+desktop) and took each back down to worst plus its recorded headroom: 2,685,000 /
+2,090,000 / 1,005,000. Light stays above the old 785,000 floor because the owner
+authorized the October 3 raises after T-0672 was written.
 Draw-call caps are unchanged. Six-stand measurements fit those limits; these
 software-rendered readings do not predict consumer frame rates.
 

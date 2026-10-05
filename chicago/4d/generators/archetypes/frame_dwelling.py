@@ -882,11 +882,14 @@ def _porch(b: MeshBuilder, p: FrameDwellingParams, openings: list, d: float,
     step = 0.19
     wide, deep = 1.55, 0.62
 
-    # landing, then one step down to the ground
+    # landing, then one step down to the ground. Each skips "front" — add_box's
+    # y0 face, the one against the wall (or the landing) — and keeps "back", the
+    # riser the street sees (T-2104: skipping "back" left both risers open and a
+    # landing face lying on the wall plane, fighting it for depth).
     b.add_box(door - wide / 2, d, 0.0, door + wide / 2, d + deep, step * 2,
-              conf, M_TRIM, skip=("bottom", "back"))
+              conf, M_TRIM, skip=("bottom", "front"))
     b.add_box(door - wide / 2 + 0.09, d + deep, 0.0, door + wide / 2 - 0.09,
-              d + deep + 0.30, step, conf, M_TRIM, skip=("bottom", "back"))
+              d + deep + 0.30, step, conf, M_TRIM, skip=("bottom", "front"))
     if p.porch != "roofed":
         return
 
