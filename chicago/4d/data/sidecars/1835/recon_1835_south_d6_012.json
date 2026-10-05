@@ -170,7 +170,182 @@
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the D6 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_coslet_godfrey",
+      "name": "The Coslet household — a name the town's own records carry",
+      "division": "unplaced",
+      "relation": "shared this roof",
+      "why": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "Godfrey Coslet",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 10 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
+        },
+        {
+          "name": "Susan Coslet",
+          "relationship": "wife",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Erastus Coslet",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Lemuel Coslet",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Martha Coslet",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Amanda Coslet",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Seth Coslet",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Eliza Coslet",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+    },
+    {
+      "household": "hh_rc_cavanagh_thomas",
+      "name": "The Cavanagh household — a trade the rosters never printed",
+      "division": "south",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Thomas Cavanagh",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "labourer",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at labourer. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    },
+    {
+      "household": "hh_rc_lynch_bridget",
+      "name": "Reconstructed household — Bridget Lynch, a woman keeping her own house in the south division",
+      "division": "south",
+      "relation": "shared this roof",
+      "why": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Bridget Lynch",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "dressmaker",
+          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
+        },
+        {
+          "name": "Patrick Lynch",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Michael Lynch",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Mary Lynch",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Hugh Lynch",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Alice Lynch",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Honora Lynch",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Daniel Lynch",
+          "relationship": "household_member",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn dressmaker, in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
+    },
+    {
+      "household": "hh_rc_wadsworth_polly",
+      "name": "The Wadsworth household — a trade the rosters never printed",
+      "division": "south",
+      "relation": "boarded here",
+      "why": "boarding in the division's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Polly Wadsworth",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "hardware_merchant",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at hardware_merchant. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+    }
+  ],
   "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",

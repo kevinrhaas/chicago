@@ -1154,21 +1154,21 @@
       "lot": "blk_lake_wells_lot2",
       "belongs_to": "recon_1835_south_d5_007",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        367.35,
-        -179.95
+        367.27,
+        -180.03
       ],
       "bearing_deg": 0.34,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
       "weather": "fresh",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_lake_wells_lot6",
@@ -1786,7 +1786,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
