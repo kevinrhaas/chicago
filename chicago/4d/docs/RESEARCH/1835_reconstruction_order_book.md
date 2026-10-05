@@ -398,14 +398,14 @@ The roster offers 1,812 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 285 — 245 by adopting a roof that already stands, 40 by asking for one
-- still on no ground at all: 1,139
-- of the 584 roofs the town already has, 245 now carry a reconstructed household
+- seated: 286 — 246 by adopting a roof that already stands, 40 by asking for one
+- still on no ground at all: 1,138
+- of the 584 roofs the town already has, 246 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 212 | 172 | 40 | 1,212 |
-| The ground the plat does not draw | T-1614 | 1,212 | 73 | 73 | 0 | 1,139 |
+| The committed plat | T-1613 | 1,424 | 213 | 173 | 40 | 1,211 |
+| The ground the plat does not draw | T-1614 | 1,211 | 73 | 73 | 0 | 1,138 |
 
 40 slot(s) on 6 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_school_section_tier_118, blk_school_section_tier_119, blk_school_section_tier_94, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -427,32 +427,32 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
 | `hh_beaubien_susan` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#02` | D4 | `tradesman_dwellings` |
 | `hh_bennett_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
-| `hh_clement_dorcinrk` | `blk_school_section_tier_118` | `blk_school_section_tier_118#05` | D4 | `tradesman_dwellings` |
-| `hh_clevinger_d_p` | `blk_school_section_tier_118` | `blk_school_section_tier_118#04` | D5 | `tradesman_dwellings` |
-| `hh_cobb_l_b` | `blk_school_section_tier_118` | `blk_school_section_tier_118#03` | D6 | `tradesman_dwellings` |
-| `hh_coleman_edward_b` | `blk_school_section_tier_119` | `blk_school_section_tier_119#05` | D3 | `tradesman_dwellings` |
-| `hh_colewell_m` | `blk_school_section_tier_119` | `blk_school_section_tier_119#04` | D4 | `tradesman_dwellings` |
-| `hh_collett_j_a` | `blk_school_section_tier_119` | `blk_school_section_tier_119#03` | D4 | `tradesman_dwellings` |
-| `hh_comstock_h_h` | `blk_school_section_tier_119` | `blk_school_section_tier_119#02` | D5 | `tradesman_dwellings` |
-| `hh_cone_joseph_c` | `blk_school_section_tier_119` | `blk_school_section_tier_119#06` | D5 | `tradesman_dwellings` |
-| `hh_conter_willard` | `blk_school_section_tier_119` | `blk_school_section_tier_119#01` | D6 | `tradesman_dwellings` |
-| `hh_coslet_elisabeth` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D3 | `tradesman_dwellings` |
-| `hh_coslet_godfrey` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D4 | `tradesman_dwellings` |
-| `hh_cross_oliver` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D4 | `tradesman_dwellings` |
-| `hh_crull_david` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D5 | `tradesman_dwellings` |
-| `hh_curtin_david` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | D5 | `tradesman_dwellings` |
-| `hh_curtin_l_g` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D3 | `tradesman_dwellings` |
-| `hh_cutler_morris` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D4 | `tradesman_dwellings` |
-| `hh_dailey_thomas` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D4 | `tradesman_dwellings` |
-| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_95` | `blk_school_section_tier_95#02` | D5 | `tradesman_dwellings` |
-| `hh_darling_daniel` | `blk_school_section_tier_95` | `blk_school_section_tier_95#07` | D5 | `tradesman_dwellings` |
-| `hh_darling_enoch` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | D6 | `tradesman_dwellings` |
+| `hh_clevinger_d_p` | `blk_school_section_tier_118` | `blk_school_section_tier_118#05` | D4 | `tradesman_dwellings` |
+| `hh_cobb_l_b` | `blk_school_section_tier_118` | `blk_school_section_tier_118#04` | D5 | `tradesman_dwellings` |
+| `hh_coleman_edward_b` | `blk_school_section_tier_118` | `blk_school_section_tier_118#03` | D6 | `tradesman_dwellings` |
+| `hh_colewell_m` | `blk_school_section_tier_119` | `blk_school_section_tier_119#05` | D3 | `tradesman_dwellings` |
+| `hh_collett_j_a` | `blk_school_section_tier_119` | `blk_school_section_tier_119#04` | D4 | `tradesman_dwellings` |
+| `hh_comstock_h_h` | `blk_school_section_tier_119` | `blk_school_section_tier_119#03` | D4 | `tradesman_dwellings` |
+| `hh_cone_joseph_c` | `blk_school_section_tier_119` | `blk_school_section_tier_119#02` | D5 | `tradesman_dwellings` |
+| `hh_conter_willard` | `blk_school_section_tier_119` | `blk_school_section_tier_119#06` | D5 | `tradesman_dwellings` |
+| `hh_coslet_elisabeth` | `blk_school_section_tier_119` | `blk_school_section_tier_119#01` | D6 | `tradesman_dwellings` |
+| `hh_coslet_godfrey` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D3 | `tradesman_dwellings` |
+| `hh_cross_oliver` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D4 | `tradesman_dwellings` |
+| `hh_crull_david` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D4 | `tradesman_dwellings` |
+| `hh_curtin_david` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D5 | `tradesman_dwellings` |
+| `hh_curtin_l_g` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | D5 | `tradesman_dwellings` |
+| `hh_cutler_morris` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D3 | `tradesman_dwellings` |
+| `hh_dailey_thomas` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D4 | `tradesman_dwellings` |
+| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D4 | `tradesman_dwellings` |
+| `hh_darling_daniel` | `blk_school_section_tier_95` | `blk_school_section_tier_95#02` | D5 | `tradesman_dwellings` |
+| `hh_darling_enoch` | `blk_school_section_tier_95` | `blk_school_section_tier_95#07` | D5 | `tradesman_dwellings` |
+| `hh_dave_john` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | D6 | `tradesman_dwellings` |
 | `hh_barre_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D2 | `labourer_dwellings` |
 | `hh_humphrey_fre_lemuel` | `blk_school_section_tier_118` | `blk_school_section_tier_118#02` | D2 | `labourer_dwellings` |
 | `hh_hunt_charles_cotesworth_pinckney` | `blk_school_section_tier_94` | `blk_school_section_tier_94#01` | D2 | `labourer_dwellings` |
 | `hh_ira_paddock` | `blk_school_section_tier_95` | `blk_school_section_tier_95#01` | D2 | `labourer_dwellings` |
 
-1,139 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,138 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -662,10 +662,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
 - `standing_records`: 584
-- `standing_with_an_occupant`: 239
-- `standing_without_an_occupant`: 345
+- `standing_with_an_occupant`: 240
+- `standing_without_an_occupant`: 344
 - `to_build_total`: 102
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 345 of the 584 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 344 of the 584 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -755,7 +755,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 21 of 1412 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 49 of 1412 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 345 of 584 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 344 of 584 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,548 people into 644 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.
