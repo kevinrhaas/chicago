@@ -679,7 +679,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/warehouses_freight/south/river_bank` | 1 | 1 | 0 | 0 | T-1640 |
 | `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-2132 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-2022 |
-| `structures/workshops/south` | 15 | 11 | 4 | 0 | T-1684 |
+| `structures/workshops/south` | 15 | 11 | 4 | 0 | T-2134 |
 | `structures/workshops/west` | 8 | 8 | 0 | 0 | T-2132 |
 | `structures/workshops/north` | 7 | 7 | 0 | 0 | T-1205 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | T-1204 |

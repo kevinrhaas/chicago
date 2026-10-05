@@ -1056,6 +1056,14 @@ step "…and the strip still reads the same off the sheet" \
 step "platted block parcels match their recipe and the committed lots" \
   python3 tools/generate_block_infill.py --check
 
+# T-2133 (of T-1684). The cross-street term — a roof fronting its corner lot's SIDE
+# street — is dealt by no recipe slot yet, so `--check` above never reaches it. This
+# stands synthetic roofs on Dearborn and State and holds them to the lot, corridor and
+# bearing gates, then breaks it five ways: an interior lot, a workshop on light State,
+# a workshop where Lake outranks Dearborn, a yard building, a street that bounds no face.
+selftest "…and a roof can front its corner lot's side street, and every refusal fires" \
+  python3 tools/generate_block_infill.py --self-test
+
 # A frontage entry declares the lots its party-line run stands across, and until T-0429
 # nothing measured whether it did. That entry's run was anchored on the east end of its
 # own strip and packed back west until the roofs ran out, which happened two lots short
