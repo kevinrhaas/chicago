@@ -3061,6 +3061,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_a1_05"
     },
+    "recon_1835_blk_washington_market_a2_13__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 177108,
+      "inputs_sha256": "29c24050706ad97813786e7c5162a2a069161b93283493345a9ab49847adef3a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a2_13"
+    },
     "recon_1835_blk_washington_market_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -3079,6 +3088,87 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_a3_06"
     },
+    "recon_1835_blk_washington_market_a3_15__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 31096,
+      "inputs_sha256": "cc15671202bccb7efc136cf30ffcd9a90a8a7e2c7f3620d54d0fa9c4fa64bbc6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a3_15"
+    },
+    "recon_1835_blk_washington_market_a4_12__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 52028,
+      "inputs_sha256": "9b4db8f44df1e59ddc2c16b75869d96e71812ea300b1c08fbc4d9cc560492320",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a4_12"
+    },
+    "recon_1835_blk_washington_market_a4_16__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 47348,
+      "inputs_sha256": "097c2055589f86b18286d751d0b8a89c325a2324bdaf9a3d994a208517d4e506",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a4_16"
+    },
+    "recon_1835_blk_washington_market_a5_14__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 41712,
+      "inputs_sha256": "fb08c9be48fa0fda02062110417fa4c4838edf2a84fcb0144d58fc966cc0633f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a5_14"
+    },
+    "recon_1835_blk_washington_market_d3_10__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32236,
+      "inputs_sha256": "c848ce1bbbdc7d9f0cd31f8b2a388d5c5d4b93f957aa40ee33cb1a56cb4a6f50",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d3_10"
+    },
+    "recon_1835_blk_washington_market_d4_08__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 39264,
+      "inputs_sha256": "123b691aa232e5f3c8a7fa867ef685611f9dbdfece5b41d418a211390babefd3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d4_08"
+    },
+    "recon_1835_blk_washington_market_d4_11__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 38308,
+      "inputs_sha256": "aaf77c938d87fa1fc0bd28732e8aaed9c70c001d4b9c4936c91b259437cd55e6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d4_11"
+    },
+    "recon_1835_blk_washington_market_d7_09__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 74832,
+      "inputs_sha256": "f48a5c60cac92dd78164d715d735a87d3d0f8d493002dd7bc9cebb5a66847042",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d7_09"
+    },
+    "recon_1835_blk_washington_market_h1_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 60632,
+      "inputs_sha256": "d9a49d683bf2c82ca36631acc2a9cef25a657759f428c43d1bdf6af132ae4196",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_h1_07"
+    },
     "recon_1835_blk_washington_market_h3_01__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
@@ -3091,8 +3181,8 @@
     "recon_1835_blk_washington_market_h3_04__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 37728,
-      "inputs_sha256": "9018e6c2f0f442e0ad2fe77ddf5b5426df606eb09b7e3d3a436e2381a23320b7",
+      "bytes": 39912,
+      "inputs_sha256": "25da45d892c630dade129fda9dd0ad26e8e1ef6e50b4b2589de4a86fc11b7fb4",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_h3_04"
