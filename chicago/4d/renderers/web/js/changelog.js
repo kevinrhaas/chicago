@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
+      'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
+      'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
   { v: 1457, ts: '2026-10-05T00:54:32.111Z', date: 'Oct 4, 2026, 7:54 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
     items: [
       'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
