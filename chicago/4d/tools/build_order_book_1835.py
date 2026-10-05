@@ -392,7 +392,13 @@ STRUCTURE_TICKETS = {
     # Division's remaining ordinary dwellings ... after the plat's last tier" in as many words,
     # `open` and claimable, so the row stops moving with every block of this tier and waits
     # where the remainder is owned.
-    ("south", "ordinary_dwellings"): "T-1755",
+    #
+    # AND ON TO T-2145 WITH T-2144's OWN PR (2026-10-05). The owner answered T-1755's
+    # question (b) — cross Madison onto the School Section's Madison-Monroe tier — and the
+    # run that took it split it four ways: T-2144 joins the tier to the grid and the
+    # schedule, and T-2145/T-2146/T-2147 build its Clark, Wells and Market blocks. The row
+    # waits on the first build piece, the one the tier's dwellings are dealt to next.
+    ("south", "ordinary_dwellings"): "T-2145",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
