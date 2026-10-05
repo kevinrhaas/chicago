@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
+    items: [
+      'On the north bank, east of Franklin Street, a small boatman\u2019s cabin stood in the middle of North Water Street. It now stands 20 m north, on the block behind the street, still facing the river.',
+      'The cabin is invented: the town needed one for a boatman\u2019s household, and no source places it. Its card says so, and now also says how far it moved and why.',
+      'The checks that keep invented buildings out of roads now look at all 80 streets the town draws, not just the 44 on the original plats. This cabin was the only invented building they found standing in a road.',
+    ] },
   { v: 1503, ts: '2026-10-05T19:18:23.183Z', date: 'Oct 5, 2026, 2:18 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
     items: [
       'Walk south on Canal Street past the Western Hotel and the block toward Washington Street is no longer empty. Three frame cottages now face Canal Street, one on the Washington corner, and a storey-and-a-half cottage faces West Water Street on the river side.',

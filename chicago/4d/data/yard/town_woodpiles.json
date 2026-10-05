@@ -791,15 +791,15 @@
    "row": "cabin",
    "rule": "Y-W2",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "log_heap",
      "at_local_enu_m": [
-      246.24,
-      128.55
+      250.84,
+      154.41
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "logs": 4,
      "log_length_m": 2.49,
      "depth_m": 1.74,
@@ -808,10 +808,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      244.27,
-      129.34
+      251.64,
+      156.38
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "billets": 1,
      "seed": 1633464121
     }
