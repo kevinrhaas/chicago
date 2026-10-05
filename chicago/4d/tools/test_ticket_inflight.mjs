@@ -380,6 +380,72 @@ const PULLS = [
   }
 }
 
+/* ---------------------------------- 24-29: who is lapping a `resume` PR (T-1721) */
+
+/**
+ * A `resume` PULL REQUEST IS A ROW A LIVE RUN CAN HOLD. `inflight` printed "PR #442 OPEN ·
+ * resume" to slice 5 two minutes after another run had pushed its lap, and had no way to
+ * say more; slice 5 relapped it and found out at `git push`. The run that laps now takes
+ * `lap/pr-N` (`ticket.mjs lap N`), and this reads it — and, for a lap by a run that never
+ * took one, the branch's own push age. Four readings, one constructed list.
+ */
+const LAP_PULLS = [
+  { number: 2001, title: 'T-0662: mint labels', state: 'open', merged_at: null,
+    labels: [{ name: 'resume' }], head: { ref: 'steward/t-0662-mint-labels' } },
+  { number: 2002, title: 'T-1105: tract-aware generators', state: 'open', merged_at: null,
+    labels: [{ name: 'resume' }], head: { ref: 'steward/t-1105-tract-aware-generators' } },
+  { number: 2003, title: 'T-0055: the Kinzie view plate', state: 'open', merged_at: null,
+    labels: [{ name: 'resume' }], head: { ref: 'steward/t-0055-kinzie-view-plate-source' } },
+  { number: 2004, title: 'T-0900: the corridor layer', state: 'open', merged_at: null,
+    labels: [{ name: 'resume' }, { name: 'hold' }], head: { ref: 'steward/t-0900-north-corridors' } },
+  { number: 2005, title: 'an interactive thread', state: 'open', merged_at: null,
+    labels: [{ name: 'resume' }], head: { ref: 'claude/project-thread-abc' } },
+];
+const LAP_BRANCHES = [
+  ...BRANCHES,
+  { name: 'lap/pr-2001', age_hours: 0.5 },          // a run took it half an hour ago
+  { name: 'lap/pr-2003', age_hours: 5 },            // a dead run's lap
+  { name: 'claude/project-thread-abc', age_hours: 10 },
+];
+{
+  const { tmp, APP } = sandbox();
+  try {
+    console.log('\n  resume pull requests, and the lap locks beside them');
+    writeFileSync(path.join(APP, 'laps.json'), JSON.stringify(LAP_BRANCHES, null, 2));
+    writeFileSync(path.join(APP, 'lap-pulls.json'), JSON.stringify(LAP_PULLS, null, 2));
+    const { status, out } = inflight(APP, 'laps.json', '--pr-json', path.join(APP, 'lap-pulls.json'));
+    const json = inflight(APP, 'laps.json', '--pr-json', path.join(APP, 'lap-pulls.json'), '--json');
+    const rows = JSON.parse(/\[[\s\S]*\]\s*$/.exec(json.out)?.[0] ?? 'null') ?? [];
+    const lapOf = (branch) => rows.find((r) => r.branch === branch)?.lap;
+    const block = (n) => {
+      const ls = out.split('\n');
+      const i = ls.findIndex((l) => l.startsWith(`  PR #${n} `));
+      return i < 0 ? '' : ls.slice(i, i + 4).join('\n');
+    };
+    check('24. a resume PR whose lap lock is younger than a run is BEING LAPPED',
+      lapOf('steward/t-0662-mint-labels') === 'held' && /BEING LAPPED — lap\/pr-2001/.test(block(2001))
+      && /do not take it/.test(block(2001)), lapOf('steward/t-0662-mint-labels'));
+    check('    …and says so on its in-flight line too, where a run reads it',
+      /steward\/t-0662-mint-labels.*PR #2001 OPEN · resume · BEING LAPPED/.test(out));
+    check('25. #442\'s shape: no lock, but a branch pushed minutes ago, is a caution — not free',
+      lapOf('steward/t-1105-tract-aware-generators') === 'recent'
+      && /pushed 8m ago and nobody holds lap\/pr-2002/.test(block(2002)),
+      lapOf('steward/t-1105-tract-aware-generators'));
+    check('26. a dead run\'s lap does not hold the PR: it is FREE, and the marker named as dead',
+      lapOf('steward/t-0055-kinzie-view-plate-source') === 'free'
+      && /FREE — lap\/pr-2003 taken 5\.0h ago, a dead run's/.test(block(2003))
+      && /ticket\.mjs lap 2003/.test(block(2003)));
+    check('27. a PR the owner holds is not offered for lapping at all',
+      !/PR #2004 /.test(out.split('RESUME PULL REQUESTS')[1] ?? '') && lapOf('steward/t-0900-north-corridors') === null);
+    check('28. a resume PR on a branch that names no ticket is still listed, and free',
+      /FREE\. Take it/.test(block(2005)) && /RESUME PULL REQUESTS — 4,/.test(out), block(2005).split('\n')[1]);
+    check('29. a lap marker is never read as a work branch',
+      rows.every((r) => !r.branch.startsWith('lap/')) && status === 0, `status ${status}`);
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
 /* ------------------------------- 23: the one assertion no fixture can carry */
 
 /**
