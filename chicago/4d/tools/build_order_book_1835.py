@@ -379,7 +379,15 @@ STRUCTURE_TICKETS = {
     # THAN A FIX: 55 roofs is far more than one block, so the cell will move again when
     # T-1758 closes with it still owing, exactly as the north cell four entries below has
     # moved five times in three days.
-    ("south", "ordinary_dwellings"): "T-1758",
+    #
+    # AND SWEPT ONTO T-2130 ON 2026-10-05, WHEN T-1758 WAS SPLIT. T-1758 had folded in
+    # T-1759's Dearborn and Clark blocks, so it was split into its Market block (T-2129,
+    # which raises the five houses and five yard buildings the platted deal requests on
+    # `blk_washington_market`) and the Dearborn and Clark blocks' requested slots (T-2130).
+    # A `split` parent orders work nobody can claim (T-1420), and T-2129 closes with this
+    # cell still owing, so the row goes to the piece that raises the dwellings LEFT on this
+    # very tier — the same chain the sweeps above describe.
+    ("south", "ordinary_dwellings"): "T-2130",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,

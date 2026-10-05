@@ -21229,3 +21229,62 @@ loses the sky-lit sheen the refracting glass shows and nothing is seen through i
 **How to resolve:** a cheaper glass that keeps the sheen, or a frame budget that carries
 transmission at the lower settings, replaces the plate there.
 **Recorded:** 2026-10-05 (T-2109).
+
+### L384 — Five invented dwellings around the Market block's boarding houses, and their five yard buildings
+
+**Decision:** `blk_washington_market` — bounded by Washington, Franklin, Madison and Market, where
+T-1951 raised two boarding houses back to back on lots 4 and 5 (**L347**) and left the other six
+lots open — now carries **ten more anonymous roofs**: five dwellings, one to a lot, and five yard
+buildings behind four of them. On the Washington face a one-and-a-half-story house (H1) on the
+Market corner (lot 0), a tradesman's frame house (D4) beside it (lot 2) and a small two-story frame
+house (D7) on the Franklin corner (lot 6); on the Madison face a one-room cottage (D3, lot 3) and a
+second D4 on the Franklin corner (lot 7). Behind them a carriage shed and a smokehouse (the D7),
+a woodshed apiece (both D4s) and a privy (the cottage). Lot 1, the Madison-and-Market corner,
+stays the block's reserved open lot. **Everything below the count is invented** — that any of
+these buildings stood on this block in July 1835, which buildings they were, and where on its lot
+each sits. No coordinate is authored: every metre is read off the committed lot polygon by
+`tools/generate_block_infill.py` from the recipe entry
+`phase3_platted_block_washington_market_second_deal` in
+`data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why five, which is the whole of the block's lot ceiling.** The 665-roof schedule gives this
+block `lot_ceiling_principal` 5 over its six free lots, the sixth being the open one its own
+sizing rule keeps, and `1835_platted_seats.json` held exactly five `slot` requests here with no
+roof under them — an H1, a D7, a D3 and two D4s, every one a family the schedule's plan for the
+block holds. So the count, the families and the lots are the seating's and the schedule's. The
+other principal roofs the schedule still apportions this block would have to stand two to a lot
+along a frontage run, and a party-wall row on the town's outermost platted tier in July 1835 is a
+claim nothing supports.
+
+**Why these yard buildings, and why the corner house has none.** The plan holds five ancillary
+roofs (a carriage shed, a privy, two woodsheds, a small utility building) and all five are built,
+dealt UP the household scale as **L304** dealt the Franklin block's. **The Market-corner house
+stands in an open yard, and that is measured rather than chosen:** T-1951 tried a stable and a
+privy on lot 0 first and `ancillary_behind_its_own_roof` refused both, because Market Street is
+graded `principal` and a yard building may not have a principal street as its nearest. So the D7
+takes two yard buildings and the H1 none.
+
+**Which household stands under which roof is the placement policy's** (**L270** carries the
+seating arithmetic); nothing in this entry depends on it, and the roofs would be exactly as
+invented if nobody stood under them.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Washington and Madison, Market and Franklin, and a reading of Thompson's lot
+numbering from the sheets themselves. A named discovery substitutes for a compatible anonymous
+roof and never increases the total. Evidence that the tier south of Washington was still wholly
+unbuilt in July 1835 would retire all ten rather than re-place them.
+
+**Covers:** `recon_1835_blk_washington_market_h1_07.inferred_1835.position`, `recon_1835_blk_washington_market_h1_07.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d4_08.inferred_1835.position`, `recon_1835_blk_washington_market_d4_08.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d7_09.inferred_1835.position`, `recon_1835_blk_washington_market_d7_09.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d3_10.inferred_1835.position`, `recon_1835_blk_washington_market_d3_10.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d4_11.inferred_1835.position`, `recon_1835_blk_washington_market_d4_11.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a4_12.inferred_1835.position`, `recon_1835_blk_washington_market_a4_12.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a2_13.inferred_1835.position`, `recon_1835_blk_washington_market_a2_13.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a5_14.inferred_1835.position`, `recon_1835_blk_washington_market_a5_14.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a3_15.inferred_1835.position`, `recon_1835_blk_washington_market_a3_15.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a4_16.inferred_1835.position`, `recon_1835_blk_washington_market_a4_16.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L304** (the
+Franklin block, whose yard-building argument this follows), **L347** (the two boarding houses on
+this block), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1758**.
+**Recorded:** 2026-10-05 (T-1758).
