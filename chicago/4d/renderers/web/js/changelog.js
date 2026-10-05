@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1461, ts: '2026-10-05T02:00:47.747Z', date: 'Oct 4, 2026, 9:00 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+  { v: null, ts: '', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
       'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
       'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
+    ] },
+  { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+    items: [
+      'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
+      'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
+      'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
+      'Gates are a reconstruction (Liberty L382). They add a little to draw, and no extra draw calls.',
     ] },
   { v: 1460, ts: '2026-10-05T01:41:53.671Z', date: 'Oct 4, 2026, 8:41 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
     items: [
