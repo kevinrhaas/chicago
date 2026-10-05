@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1474, ts: '2026-10-05T06:55:12.799Z', date: 'Oct 5, 2026, 1:55 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
+  { v: 1475, ts: '2026-10-05T06:55:39.084Z', date: 'Oct 5, 2026, 1:55 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
     items: [
       'Cross to the West Side and walk south down Canal Street from Lake Street. Past the saddler\u2019s and the blacksmith\u2019s on the corner, the block toward Randolph now has two frame cottages facing Canal: a deep-plan cottage and a two-room cottage beside it.',
       'On the river side of the same block, facing West Water Street, a rough plank shanty stands south of the warehouse. Fences, dooryard gardens, yard paths and privies came with all three.',
       'Each face keeps open lots at its ends, so the block does not read as a row.',
       'Open any of them and its card lists the households the town\u2019s housing deal now boards there. All three buildings are our reconstruction: no source places a house on these lots in July 1835, and each card says so.',
+    ] },
+  { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
+      'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
     ] },
   { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
     items: [
