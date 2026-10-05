@@ -2013,7 +2013,13 @@
       "anchor_shift_steps": 0,
       "function": "dwelling",
       "occupation": "boatman",
-      "role": "A boatman's cabin set back from the north bank, facing the water it works."
+      "role": "A boatman's cabin set back from the north bank, facing the water it works.",
+      "corridor_clearance": {
+        "street": "north_water",
+        "clear_m": 0.5,
+        "toward": "north",
+        "why": "The building's own placement is a band assignment with no evidence in it, so it has nothing to encroach with and the street wins. It gives way NORTH, onto the block behind the street, because south of North Water is the river bank. 0.5 m is T-0827's margin, kept."
+      }
     },
     {
       "id": "inf_brickmaker_dwelling_north",

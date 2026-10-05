@@ -579,12 +579,14 @@ def validate(records: list[dict], inventory: dict, recipe: dict, datum: dict) ->
     # because the North's street control is what ROADMAP S9 still records as owed. The
     # day that control arrives, this parcel is already inside the rule rather than
     # waiting to be found in the road by a report.
-    from plat_corridors import corridors, intrusion  # noqa: PLC0415
-    lanes = corridors()
+    # T-1726: every drawn street, North Water and the Michigan Street tract included —
+    # both are north of the river and neither is in the platted layer.
+    from plat_corridors import every_corridor, intrusion  # noqa: PLC0415
+    lanes = every_corridor()
     for sid, poly in polygons:
         street, depth = intrusion(poly, lanes)
         if street:
-            raise SystemExit(f"{sid} reaches {depth:.1f} m inside the platted "
+            raise SystemExit(f"{sid} reaches {depth:.1f} m inside the "
                              f"{lanes[street]['name']} corridor")
 
     # Use the same committed surface the walker uses: every perimeter must be on

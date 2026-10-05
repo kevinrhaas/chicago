@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1504, ts: '2026-10-05T19:56:36.756Z', date: 'Oct 5, 2026, 2:56 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
+  { v: 1505, ts: '2026-10-05T21:23:55.290Z', date: 'Oct 5, 2026, 4:23 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
     items: [
       'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
       'This is the ground of 15 August 1812. An 1895 history describes the bank there as ten to twenty feet above the water, with sand hills \u201cnot high and not continuous\u201d. A 1913 account puts the row of hills about a hundred yards back from the beach. The column marched on the beach, and the beach is unchanged.',
       'No source places any single hill, so where each one stands and how high it is are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
+    items: [
+      'On the north bank, east of Franklin Street, a small boatman\u2019s cabin stood in the middle of North Water Street. It now stands 20 m north, on the block behind the street, still facing the river.',
+      'The cabin is invented: the town needed one for a boatman\u2019s household, and no source places it. Its card says so, and now also says how far it moved and why.',
+      'The checks that keep invented buildings out of roads now look at all 80 streets the town draws, not just the 44 on the original plats. This cabin was the only invented building they found standing in a road.',
     ] },
   { v: 1503, ts: '2026-10-05T19:18:23.183Z', date: 'Oct 5, 2026, 2:18 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
     items: [

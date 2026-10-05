@@ -707,35 +707,23 @@ HELD_IDS = {f"{PREFIX}{rid.split('_')[-1]}" for rid in CORRIDOR_HOLDS}
 # re-derives into a drawn roadway is now an ARRIVAL and stops the generator, and the six
 # leaving is itself recorded here as the release T-1545 asked the set to record.
 #
-# WHAT THIS DOES NOT DO — and it is the larger question, filed as its own ticket rather
-# than answered here: the corridor LAYER still omits 35 of the 79 streets this project
-# draws (46 until T-1414 took in Carroll, Fulton, Des Plaines and Wabansia's seven), so
-# this parcel is the only one measured against them. Jefferson and West Water are two of
-# the 35, held out of the layer in street_control.json § west_bank with the reason for
-# each. Turning that gate on town-wide would go red on records nobody has adjudicated.
+# WHAT THIS DID NOT DO was answered by T-1726 (2026-10-05): the platted layer still omits
+# 36 of the 80 streets this project draws, and it should — each is out for a stated reason
+# (street_control.json § north_bank and § west_bank) and a module-width rectangle on any
+# of them would assert a plat nobody drew. But every generator now asks the omitted ones
+# too, through `plat_corridors.every_corridor()`, so this parcel is no longer the only one
+# measured against them.
 WEST_DIVISION_CORRIDOR_OCCUPANTS: set[tuple[str, str]] = set()
 
 
 def omitted_street_corridors() -> dict:
-    """The platted corridor of every street the corridor layer leaves out, by street id.
+    """The corridor of every street the platted layer leaves out, by street id.
 
-    Read from `data/streets/1835.json` through `generate_plat_lots`, at each record's own
-    declared width, and never authored here: a street joins or leaves this set by what the
-    layer draws and what `CORRIDOR_EW`/`CORRIDOR_NS` cover, not by a list in this file.
+    Since T-1726 this is `plat_corridors.omitted_corridors()`, which every generator now
+    reads; the name stays because two sibling parcels import it from here.
     """
-    from generate_plat_lots import (  # noqa: PLC0415
-        CORRIDOR_EW, CORRIDOR_NS, offset_polyline, street_lines,
-    )
-    lines = street_lines(load(DATA / "streets" / "1835.json"))
-    out = {}
-    for sid, street in lines.items():
-        if sid in CORRIDOR_EW or sid in CORRIDOR_NS:
-            continue
-        half = float(street["half_width_m"])
-        left = offset_polyline(street["points"], half, (-1.0, 0.0))
-        right = offset_polyline(street["points"], half, (1.0, 0.0))
-        out[sid] = {"name": street["name"], "ring": left + list(reversed(right))}
-    return out
+    from plat_corridors import omitted_corridors  # noqa: PLC0415
+    return omitted_corridors()
 
 
 # THE RECIPE'S FOURTH TERRAIN RULE IS SETTLED, AND WHAT IS FROZEN HERE IS THE SETTLEMENT.
