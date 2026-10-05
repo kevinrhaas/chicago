@@ -1,10 +1,27 @@
 export const CHANGELOG = [ // newest first
-  { v: 1472, ts: '2026-10-05T05:25:35.370Z', date: 'Oct 5, 2026, 12:25 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+  { v: null, ts: '', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
     items: [
       'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
       'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
       'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
       'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
+    ] },
+  { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
+      'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
+    ] },
+  { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
+      'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
+      'If a later change moves that number, the checks stop it until someone decides it on purpose.',
+    ] },
+  { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tested giving every building baked shadows in its corners and under its eaves, the shading called ambient occlusion.',
+      'Done the usual way, with a shadow picture per building, the town took 547 separate drawing steps instead of 5. That roughly doubled the work per frame on a phone, so it is not shipping.',
+      'Those shadow pictures would also never reach the walls or roofs, which already carry their own texture. The plan is now to store the shadows in the buildings’ corners themselves, which adds no drawing steps.',
     ] },
   { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
     items: [
