@@ -10,7 +10,7 @@
   face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
   school house were rebaked for the siding re-deal their new neighbours caused.
 - **Seated**: the order book's `structures/ordinary_dwellings/north` reads 84 standing, 0 to
-  build. The platted deal now requests no slot anywhere (it had 13, all on those two blocks);
+  build. The platted deal requests no slot on the Addition (it had 13, all on those two blocks);
   those 13 households and 13 more owed North households are seated by the off-plat deal, and
   all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
 - **Laid onto dev's T-2062/T-2132/T-1726/T-2144**: a salvage of a cancelled run, finished by
@@ -22,6 +22,29 @@
   66.06-85.10 m again, midpoint 75.58 m, 36 streetless rows.
 - **Not measured**: no source places any of these houses; every position is a search result
   against the placement predicates, stated as such.
+
+## T-2144 — the School Section tier joins the grid and the roof schedule (2026-10-05)
+
+The owner answered T-1755 (b): the South's owed dwellings cross Madison onto the School
+Section's Madison–Monroe tier. The run that took T-1755 found it was more than one run — the
+tier's lots lived only in `school_section_tier_lots.json`, which neither `reconcile_665.py` nor
+`generate_block_infill.py` reads — and split it: **T-2144** (this) opens the ground, and
+**T-2145** (Clark blocks 118, 119), **T-2146** (Wells blocks 94, 95) and **T-2147** (Market
+block 81) build on it.
+
+- `generate_plat_lots.py` quotes the tier as a third seated tract, the way Michigan St tract and
+  Wabansia join: only the cells east of the forks with lots on dry ground — **81, 94, 95, 118,
+  119, forty lots**. Blocks 24–72 (West), 80 (under datum at its river corners) and 1/142 (never
+  cut) stay on the off-plat ledger, which now skips any tier block the grid carries.
+- `reconcile_665.py` schedules the tier **one principal roof to a lot, no party-line row**, each
+  block keeping a lot open: 7 principal + 2 yard roofs of room per block. The South balance
+  (`south_plat_beyond_committed_control`, 20 roofs) empties; the tier is dealt **36 roofs —
+  32 dwellings (D2–D7), three boarding houses (H1–H3) on block 95, one yard building** — and the
+  Market wedge (`blk_south_water_market`, still the owner's) keeps 6 of its 22.
+- The seating walked to a fixpoint: **216 seated** after the T-2132 merge (182 on dev), the 34 new ones
+  slot requests on the tier that T-2145..T-2147 raise. 56 keeper rows moved; no mesh went stale.
+- The order book's `ordinary_dwellings/south` row moves to **T-2145** (T-1755 is split).
+- Corridor-strip baseline re-written: only `blocks_after` and `lots_after` moved, by the tier's 5 blocks and 40 lots (77→82, 340→380 on the merged tree).
 
 ## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
 

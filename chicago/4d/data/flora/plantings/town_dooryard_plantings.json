@@ -2237,8 +2237,8 @@
       "id": "recon_1835_north_d4_090_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        1088.8,
-        313.62
+        1043.8,
+        325.62
       ],
       "height_m": 1.32,
       "confidence": "reconstructed",
@@ -2655,8 +2655,8 @@
       "id": "recon_1835_north_d6_093_tree_1",
       "species": "populus_deltoides",
       "at_local_enu_m": [
-        1044.0,
-        303.34
+        1029.0,
+        321.66
       ],
       "height_m": 18.0,
       "confidence": "reconstructed",
@@ -2666,8 +2666,8 @@
       "id": "recon_1835_north_d6_093_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        1038.83,
-        285.05
+        1029.0,
+        326.66
       ],
       "height_m": 1.0,
       "confidence": "reconstructed",
@@ -2710,7 +2710,7 @@
       "id": "recon_1835_north_d7_076_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        994.69,
+        988.69,
         272.8
       ],
       "height_m": 1.42,
@@ -2721,7 +2721,7 @@
       "id": "recon_1835_north_d7_076_bush_2",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        994.69,
+        988.69,
         291.2
       ],
       "height_m": 1.0,

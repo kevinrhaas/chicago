@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1505, ts: '2026-10-05T22:12:52.655Z', date: 'Oct 5, 2026, 5:12 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
+  { v: 1506, ts: '2026-10-05T23:02:58.007Z', date: 'Oct 5, 2026, 6:02 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
     items: [
       'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
       'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
       'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
       'Every one of these houses is invented: nothing records them. The Liberties page explains it (L392).',
+    ] },
+  { v: 1505, ts: '2026-10-05T20:26:07.594Z', date: 'Oct 5, 2026, 3:26 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
+    items: [
+      'Walk south across Madison between Market and State and the five blocks there are no longer open prairie. They are now cropped, grazed vacant lots, the same sward as the empty lots inside the town. No house stands on them yet.',
+      'These blocks were sold lot by lot in October 1833, in the School Section beyond the town\u2019s south line. The town plan still owes the South Division about forty houses, and every block inside the line is full. So those houses will be built here, one to a lot, with a lot left open on each block.',
+      'Thirty-four households who had no lot are now given one on these blocks, and their cards say so. Their houses come in the next few updates.',
     ] },
   { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
     items: [

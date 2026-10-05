@@ -392,10 +392,17 @@ STRUCTURE_TICKETS = {
     # Division's remaining ordinary dwellings ... after the plat's last tier" in as many words,
     # `open` and claimable, so the row stops moving with every block of this tier and waits
     # where the remainder is owned.
-    # T-1755 WAS SPLIT on 2026-10-05 (T-2144 … T-2147), and the row moves to T-2144, the child
-    # that brings the School Section tier onto the grid and "takes the South's 40 owed
-    # dwellings off the district balance"; T-2145 … T-2147 build on the blocks it opens.
-    ("south", "ordinary_dwellings"): "T-2144",
+    #
+    # DEV MOVED IT TO T-2144 FIRST, the moment the split landed, so the row would name a
+    # claimable child; T-2144 is this PR and goes `done` when it merges, so the row moves
+    # one piece on, to T-2145, in the same commit.
+    #
+    # AND ON TO T-2145 WITH T-2144's OWN PR (2026-10-05). The owner answered T-1755's
+    # question (b) — cross Madison onto the School Section's Madison-Monroe tier — and the
+    # run that took it split it four ways: T-2144 joins the tier to the grid and the
+    # schedule, and T-2145/T-2146/T-2147 build its Clark, Wells and Market blocks. The row
+    # waits on the first build piece, the one the tier's dwellings are dealt to next.
+    ("south", "ordinary_dwellings"): "T-2145",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -5029,8 +5036,12 @@ def cmd_self_test() -> int:
     # 251 -> 255 on 2026-10-05 (T-2132): plat block 44 is cut on its own two printed depths
     # and its four houses raised; the four households that asked for them are seated on
     # standing West roofs and nobody is handed on (178 -> 182 platted seats, L270, L313).
+    # 255 -> 289 on 2026-10-05 (T-2144): the School Section tier's five South blocks join
+    # the plat on the owner's T-1755 ruling and the schedule gives them room, so 34
+    # households the platted pass had handed on are dealt a slot there (182 -> 216 platted
+    # seats, L270) — requests T-2145..T-2147 raise.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 255
+        data["inventory"], data["programme"], occ))["seated"] == 289
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

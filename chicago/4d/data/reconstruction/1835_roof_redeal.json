@@ -25,14 +25,14 @@
   },
   "counts": {
     "audited": 476,
-    "keep": 466,
-    "refamily": 10,
+    "keep": 468,
+    "refamily": 8,
     "retire": 0,
     "kept_occupied": 4,
     "breach_owed_out": 0,
     "seated": 172,
     "raised_for_a_trade": 31,
-    "band_already_fits": 7,
+    "band_already_fits": 5,
     "roof_target": 668,
     "standing_before": 584,
     "standing_after": 584,
@@ -6605,7 +6605,7 @@
       "footprint_ft2": 486.4,
       "street": "michigan_north",
       "street_class": "light",
-      "setback_m": 68.93,
+      "setback_m": 57.3,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",
@@ -6963,27 +6963,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 587.0,
-      "street": null,
-      "street_class": null,
-      "setback_m": 79.62,
+      "street": "michigan_north",
+      "street_class": "light",
+      "setback_m": 37.74,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/north",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 79.62 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "to_bucket": "structures/barns_stables/north",
-      "to_band_ft": [
-        18,
-        26,
-        28,
-        44
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "A2"
-      ]
+      "reason": "the order book has an occupant class for a D6 roof in the north division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_north_d7_031",
@@ -7012,28 +6999,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 656.6,
-      "street": null,
-      "street_class": null,
-      "setback_m": 91.79,
+      "street": "kinzie",
+      "street_class": "ordinary",
+      "setback_m": 12.67,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/north",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 91.79 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "to_bucket": "structures/barns_stables/north",
-      "to_band_ft": [
-        18,
-        26,
-        28,
-        44
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "A2",
-        "D1"
-      ]
+      "reason": "the order book has an occupant class for a D7 roof in the north division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_north_d7_088",
@@ -7172,10 +7145,6 @@
       "band_already_fits": true,
       "families_offered": [
         "A2",
-        "D6",
-        "D7",
-        "D5",
-        "D4",
         "A1"
       ]
     },
@@ -7196,23 +7165,19 @@
       "verdict": "refamily",
       "bucket": "structures/workshops/north",
       "reason": "the placement policy refuses this family here — stands 3.64 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands",
-      "to_family": "D6",
-      "to_group": "ordinary_dwellings",
-      "to_bucket": "structures/ordinary_dwellings/north",
+      "to_family": "A2",
+      "to_group": "barns_stables",
+      "to_bucket": "structures/barns_stables/north",
       "to_band_ft": [
-        20,
+        18,
         26,
-        24,
-        34
+        28,
+        44
       ],
       "band_already_fits": true,
       "families_offered": [
-        "D6",
-        "D7",
-        "D5",
-        "D4",
-        "D1",
-        "D3"
+        "A2",
+        "A1"
       ]
     },
     {
@@ -7232,23 +7197,20 @@
       "verdict": "refamily",
       "bucket": "structures/workshops/north",
       "reason": "the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands",
-      "to_family": "D6",
-      "to_group": "ordinary_dwellings",
-      "to_bucket": "structures/ordinary_dwellings/north",
+      "to_family": "A2",
+      "to_group": "barns_stables",
+      "to_bucket": "structures/barns_stables/north",
       "to_band_ft": [
-        20,
+        18,
         26,
-        24,
-        34
+        28,
+        44
       ],
       "band_already_fits": true,
       "families_offered": [
-        "D6",
-        "D7",
-        "D5",
-        "D4",
-        "D1",
-        "D3"
+        "A2",
+        "A1",
+        "W5"
       ]
     },
     {

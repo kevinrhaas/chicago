@@ -1982,9 +1982,99 @@ def wabansia() -> dict:
     }
 
 
+# T-2144. THE SCHOOL SECTION'S MADISON-MONROE TIER, on the owner's ruling of 2026-10-05
+# on T-1755: "Cross Madison: build them on the School Section's Madison-Monroe tier (80
+# lots sold in October 1833, cut by T-1477), so the town spills over its south line." The
+# tier is already cut, lot by lot, by tools/cut_school_section_tier.py — this module does
+# not cut it again, it QUOTES it, the way the two tracts above quote their seatings. And
+# it quotes only the cells the ruling builds on: the South Division's (east of the forks,
+# which is local easting 0), with the register's lots on them, and on dry ground at every
+# corner. That is five blocks and forty lots — 81, 94, 95, 118 and 119. The West blocks of
+# the tier (24-72), the river block (80, under datum at its west corners) and the two the
+# register never cuts (1, 142) stay on the off-plat ledger, where
+# tools/seat_off_plat_ground_1835.py reads the tier file itself.
+SCHOOL_SECTION_TIER_PATH = DATA / "traces" / "vectors" / "school_section_tier_lots.json"
+
+
+def school_section_tier_joins(block: dict) -> bool:
+    """Whether a block of the tier file is one the T-1755 ruling builds on (T-2144)."""
+    ring = block["boundary_local_enu_m"]
+    ground = block.get("ground") or {}
+    return (bool(block.get("lots")) and min(p[0] for p in ring) > 0.0
+            and not ground.get("below_datum") and not ground.get("off_the_modelled_field"))
+
+
+def school_section_tier() -> dict:
+    """The tier's South Division blocks, quoted cell for cell from the committed cut."""
+    doc = load(SCHOOL_SECTION_TIER_PATH)
+    numerals = {b["block_number"]: b["numeral"]
+                for b in load(DATA / "traces" / "vectors" / "school_section_blocks_1834.json")["blocks"]}
+    cells = []
+    for block in doc["blocks"]:
+        if not school_section_tier_joins(block):
+            continue
+        conf = block["confidence"]
+        lots = [{
+            "tier": lot["face"],
+            "frontage_m": lot["frontage_m"],
+            "depth_m": lot["depth_m"],
+            "polygon": lot["polygon"],
+            "plat_lot_number": lot["lot"],
+            "plat_lot_confidence": conf["lot_numbers"],
+            "fronts": lot["fronts"],
+        } for lot in block["lots"]]
+        cells.append({
+            "id": block["id"],
+            "grid": "school_section_tier",
+            "plat": block["plat"],
+            "bounded_by": dict(block["bounded_by"]),
+            "boundary_local_enu_m": block["boundary_local_enu_m"],
+            "area_m2": block["area_m2"],
+            "frontage_m": block["frontage_m"],
+            "frontage_ft": block["frontage_ft"],
+            "depth_m": block["depth_m"],
+            "lots_per_face": block["lots_per_face"],
+            "alley_local_enu_m": block["alley_local_enu_m"],
+            "lots": lots,
+            "lot_rule": {
+                "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+                "lot_count": conf["lot_count"],
+                "lot_lines": conf["lot_lines"],
+                "witnessed_by_the_sale": block["witnessed_by_the_sale"]["note"],
+            },
+            "plat_block_number": {
+                "number": block["school_section_block_number"],
+                "confidence": numerals[block["school_section_block_number"]]["confidence"],
+                "numeral_on_sheet": numerals[block["school_section_block_number"]]["on_sheet"],
+                "sources": [numerals[block["school_section_block_number"]]["source"]],
+                "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+                "note": numerals[block["school_section_block_number"]]["note"],
+            },
+        })
+    return {
+        "id": "school_section_tier",
+        "plat": "wright_1834_school_section",
+        "name": ("the School Section's Madison-Monroe tier, south of the town line, "
+                 "Wright 1834 (its South Division blocks)"),
+        "seated_in": "data/traces/vectors/school_section_blocks_1834.json",
+        "read_in": "data/traces/vectors/school_section_tier_lots.json",
+        "cells": cells,
+        "module": {
+            "module": doc["module"]["module"],
+            "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+            "confidence": "inferred",
+            "division": "south",
+            "chosen_by": doc["module"]["why_this_module"],
+            "lot_subdivision": doc["module"]["division"],
+            "joined_by": ("T-2144, on the owner's T-1755 ruling of 2026-10-05: only the "
+                          "cells east of the forks with lots on dry ground"),
+        },
+    }
+
+
 def seated_tracts() -> list[dict]:
     """The grids whose cells are cut from a committed SEATING, not from street lines."""
-    return [michigan_st_tract(), wabansia()]
+    return [michigan_st_tract(), wabansia(), school_section_tier()]
 
 
 def _seated_blocker(off: list, wet: list, ring: list, field) -> str:

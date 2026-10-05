@@ -397,6 +397,11 @@ def ledger(data: dict) -> list[dict]:
     Section chip contains the whole School Section tier.
     """
     rows: list[dict] = []
+    # T-2144. A tier block the platted grid now carries is the lot ledger's ground and not
+    # this file's: the School Section tier's five South blocks joined thompson_lots.json on
+    # the owner's T-1755 ruling, so their forty lots are drawn there, scheduled there and
+    # dealt there. Reading them here as well would be the same ground in two ledgers.
+    on_the_grid = {b["id"] for b in data["grid"]["blocks"]}
 
     for source, doc, grid_name in (
             ("data/traces/vectors/north_division_tier_lots.json", data["north_tier"],
@@ -404,6 +409,8 @@ def ledger(data: dict) -> list[dict]:
             ("data/traces/vectors/school_section_tier_lots.json", data["school_tier"],
              "school_section_tier")):
         for block in doc["blocks"]:
+            if block["id"] in on_the_grid:
+                continue
             lots = block.get("lots") or []
             reading = (block.get("ground") or {}).get("reading")
             faces = [_face_of(lot, block) for lot in lots]
