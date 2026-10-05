@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 129,
-   "free": 159,
+   "at_capacity": 134,
+   "free": 154,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 184,
-  "lots_barring_another_roof": 182,
+  "lots_with_a_roof": 189,
+  "lots_barring_another_roof": 187,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 243,
+  "principal_roofs_standing": 248,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -9497,7 +9497,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9510,14 +9510,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_h1_07"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_h1_07": "H1"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#01",
@@ -9526,7 +9530,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9555,7 +9559,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9568,14 +9572,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a4_12",
+    "recon_1835_blk_washington_market_d4_08"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a4_12": "A4",
+    "recon_1835_blk_washington_market_d4_08": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#03",
@@ -9584,7 +9594,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9597,14 +9607,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a3_15",
+    "recon_1835_blk_washington_market_d3_10"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a3_15": "A3",
+    "recon_1835_blk_washington_market_d3_10": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#04",
@@ -9613,7 +9629,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9650,7 +9666,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9687,7 +9703,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9700,14 +9716,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a2_13",
+    "recon_1835_blk_washington_market_a5_14",
+    "recon_1835_blk_washington_market_d7_09"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a2_13": "A2",
+    "recon_1835_blk_washington_market_a5_14": "A5",
+    "recon_1835_blk_washington_market_d7_09": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#07",
@@ -9716,7 +9740,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9729,14 +9753,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a4_16",
+    "recon_1835_blk_washington_market_d4_11"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a4_16": "A4",
+    "recon_1835_blk_washington_market_d4_11": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_wells#00",

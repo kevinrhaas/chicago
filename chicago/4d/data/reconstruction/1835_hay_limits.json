@@ -565,18 +565,8 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 5,
+  "scheduling_roofs_outside_the_limit": 4,
   "scheduling_roofs_outside_the_limit_rows": [
-   {
-    "id": "blk_washington_market",
-    "state": "open",
-    "roofs_scheduled": 20,
-    "centre_local_enu_m": [
-     144.82,
-     -454.01
-    ],
-    "inside_the_limit": false
-   },
    {
     "id": "blk_washington_clark",
     "state": "open",
@@ -641,8 +631,8 @@
    },
    {
     "id": "blk_washington_market",
-    "state": "open",
-    "roofs_scheduled": 20,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      144.82,
      -454.01
@@ -1123,7 +1113,7 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "complete",
-    "roofs": 0
+    "roofs": 8
    },
    {
     "id": "west_division_beyond_committed_control",

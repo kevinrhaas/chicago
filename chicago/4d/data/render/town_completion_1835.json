@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 0,
+    "structures_empty_owing_somebody": 5,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -114,16 +114,16 @@
     "open": []
   },
   "occupied": {
-    "structures": 545,
+    "structures": 555,
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 239
+      "reconstructed": 237
     },
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 65
+      "reconstructed": 67
     },
     "use_stated": {
       "camp_ground": 3,
@@ -131,7 +131,7 @@
       "no_keeper_of_its_trade": 2,
       "occupancy_unattested": 2,
       "occupant_named_seat_refused": 2,
-      "outbuilding_of_a_yard": 96,
+      "outbuilding_of_a_yard": 101,
       "part_of_an_establishment": 14,
       "stated_use_of_an_anonymous_roof": 13,
       "storage_operator_unrecorded": 5,
@@ -139,8 +139,16 @@
       "the_printed_count_is_held": 5,
       "vacant_to_let": 1
     },
-    "empty_owing_somebody": {},
-    "empty": []
+    "empty_owing_somebody": {
+      "dwelling": 5
+    },
+    "empty": [
+      "recon_1835_blk_washington_market_d3_10",
+      "recon_1835_blk_washington_market_d4_08",
+      "recon_1835_blk_washington_market_d4_11",
+      "recon_1835_blk_washington_market_d7_09",
+      "recon_1835_blk_washington_market_h1_07"
+    ]
   },
   "tiers": {
     "persons": {
@@ -208,22 +216,22 @@
       "occupied": {
         "attested": 50,
         "inferred": 9,
-        "reconstructed": 239
+        "reconstructed": 237
       },
       "occupants_in_prose_only": {
         "attested": 9,
         "inferred": 10,
-        "reconstructed": 65
+        "reconstructed": 67
       },
       "use_stated": {
         "attested": 25,
         "inferred": 6,
-        "reconstructed": 132
+        "reconstructed": 137
       },
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 0
+        "reconstructed": 5
       }
     },
     "streets": {
@@ -262,7 +270,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 0,
+      "open": 5,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]
