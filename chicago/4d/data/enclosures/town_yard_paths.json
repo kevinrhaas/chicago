@@ -172,6 +172,12 @@
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",
+    "recon_1835_blk_west_washington_canal_d2_06",
+    "recon_1835_blk_west_washington_canal_d3_04",
+    "recon_1835_blk_west_washington_canal_d4_03",
+    "recon_1835_blk_west_washington_canal_d5_02",
+    "recon_1835_blk_west_washington_canal_d6_01",
+    "recon_1835_blk_west_washington_canal_d7_05",
     "recon_1835_south_a1_046",
     "recon_1835_south_a2_037",
     "recon_1835_south_a2_047",
@@ -1008,19 +1014,19 @@
       [
         [
           -243.13,
-          -126.35
+          -126.34
         ],
         [
           -242.83,
-          -127.21
+          -127.2
         ],
         [
-          -228.3,
-          -122.1
+          -228.16,
+          -121.99
         ],
         [
-          -228.6,
-          -121.23
+          -228.46,
+          -121.13
         ]
       ],
       [
@@ -2178,37 +2184,19 @@
       [
         [
           -226.09,
-          -341.78
+          -341.83
         ],
         [
           -226.79,
-          -342.37
+          -342.42
         ],
         [
-          -220.61,
-          -349.61
+          -220.52,
+          -349.85
         ],
         [
-          -219.91,
-          -349.01
-        ]
-      ],
-      [
-        [
-          -226.56,
-          -335.44
-        ],
-        [
-          -226.06,
-          -336.2
-        ],
-        [
-          -223.12,
-          -334.29
-        ],
-        [
-          -223.62,
-          -333.52
+          -219.83,
+          -349.26
         ]
       ],
       [
@@ -4752,19 +4740,19 @@
       [
         [
           -489.22,
-          -119.92
+          -119.93
         ],
         [
           -489.18,
-          -120.84
+          -120.85
         ],
         [
-          -464.47,
-          -119.89
+          -464.62,
+          -119.97
         ],
         [
-          -464.5,
-          -118.98
+          -464.66,
+          -119.06
         ]
       ],
       [
@@ -4896,19 +4884,37 @@
       [
         [
           -480.64,
-          -340.2
+          -340.23
         ],
         [
           -480.21,
-          -341.01
+          -341.03
         ],
         [
-          -459.39,
-          -329.69
+          -459.38,
+          -329.83
         ],
         [
-          -459.82,
-          -328.88
+          -459.81,
+          -329.03
+        ]
+      ],
+      [
+        [
+          -480.32,
+          -343.1
+        ],
+        [
+          -480.45,
+          -344.01
+        ],
+        [
+          -461.7,
+          -346.67
+        ],
+        [
+          -461.57,
+          -345.77
         ]
       ],
       [
@@ -4932,19 +4938,19 @@
       [
         [
           -429.64,
-          -355.78
+          -355.76
         ],
         [
           -429.46,
-          -354.88
+          -354.87
         ],
         [
-          -449.28,
-          -350.84
+          -449.43,
+          -350.75
         ],
         [
-          -449.47,
-          -351.73
+          -449.61,
+          -351.65
         ]
       ],
       [
@@ -5053,6 +5059,114 @@
         [
           -76.29,
           -351.36
+        ]
+      ],
+      [
+        [
+          -113.37,
+          -417.29
+        ],
+        [
+          -113.41,
+          -418.2
+        ],
+        [
+          -74.58,
+          -419.95
+        ],
+        [
+          -74.54,
+          -419.04
+        ]
+      ],
+      [
+        [
+          -114.42,
+          -436.73
+        ],
+        [
+          -114.51,
+          -437.64
+        ],
+        [
+          -76.16,
+          -441.41
+        ],
+        [
+          -76.07,
+          -440.5
+        ]
+      ],
+      [
+        [
+          -113.59,
+          -457.31
+        ],
+        [
+          -113.27,
+          -458.17
+        ],
+        [
+          -76.15,
+          -444.45
+        ],
+        [
+          -76.47,
+          -443.59
+        ]
+      ],
+      [
+        [
+          -116.93,
+          -478.6
+        ],
+        [
+          -117.05,
+          -479.51
+        ],
+        [
+          -79.29,
+          -484.37
+        ],
+        [
+          -79.17,
+          -483.46
+        ]
+      ],
+      [
+        [
+          -110.17,
+          -504.17
+        ],
+        [
+          -110.2,
+          -505.08
+        ],
+        [
+          -80.79,
+          -505.93
+        ],
+        [
+          -80.77,
+          -505.02
+        ]
+      ],
+      [
+        [
+          -58.07,
+          -469.66
+        ],
+        [
+          -57.76,
+          -468.8
+        ],
+        [
+          -68.25,
+          -465.0
+        ],
+        [
+          -68.56,
+          -465.85
         ]
       ],
       [
@@ -5782,11 +5896,6 @@
       "lot": "blk_randolph_clinton_lot3",
       "from": "recon_1835_west_021",
       "to": "privy_blk_randolph_clinton_lot3"
-    },
-    {
-      "lot": "blk_randolph_clinton_lot3",
-      "from": "recon_1835_west_021",
-      "to": "stable_blk_randolph_clinton_lot3"
     },
     {
       "lot": "blk_randolph_clinton_lot4",
@@ -6539,6 +6648,11 @@
       "to": "privy_blk_west_randolph_des_plaines_lot3"
     },
     {
+      "lot": "blk_west_randolph_des_plaines_lot3",
+      "from": "recon_1835_blk_west_randolph_des_plaines_d4_02",
+      "to": "stable_blk_west_randolph_des_plaines_lot3"
+    },
+    {
       "lot": "blk_west_randolph_des_plaines_lot7",
       "from": "recon_1835_blk_west_randolph_des_plaines_d6_03",
       "to": "privy_blk_west_randolph_des_plaines_lot7"
@@ -6577,6 +6691,36 @@
       "lot": "blk_west_randolph_canal_lot8",
       "from": "recon_1835_blk_west_randolph_canal_d6_04",
       "to": "privy_blk_west_randolph_canal_lot8"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot0",
+      "from": "recon_1835_blk_west_washington_canal_d6_01",
+      "to": "privy_blk_west_washington_canal_lot0"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot1",
+      "from": "recon_1835_blk_west_washington_canal_d5_02",
+      "to": "privy_blk_west_washington_canal_lot1"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot2",
+      "from": "recon_1835_blk_west_washington_canal_d4_03",
+      "to": "privy_blk_west_washington_canal_lot2"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot3",
+      "from": "recon_1835_blk_west_washington_canal_d3_04",
+      "to": "privy_blk_west_washington_canal_lot3"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot4",
+      "from": "recon_1835_blk_west_washington_canal_d7_05",
+      "to": "privy_blk_west_washington_canal_lot4"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot8",
+      "from": "recon_1835_blk_west_washington_canal_d2_06",
+      "to": "privy_blk_west_washington_canal_lot8"
     },
     {
       "lot": "blk_wabansia_c_t7_lot1",

@@ -206,6 +206,10 @@ ADDITION_EW_STREETS, ADDITION_NS_STREETS = _addition_axes()
 # street names would quietly reconcile two streets that are genuinely different.
 WEST_TRACE_SPELLING = {"des_pleins": "des_plaines"}
 
+# The town lines the West Division's tiers are named for, where this project commits the
+# line. One entry, written down for the reason the spelling table above is (T-2143).
+WEST_TOWN_LINES = {"south town line": "madison"}
+
 
 def _west_tier_line(name: str) -> str | None:
     """The committed street id a West Division tier name stands for, or None.
@@ -216,8 +220,17 @@ def _west_tier_line(name: str) -> str | None:
     at all and this project holds no line for either, so they return None and the tiers
     that lean on them are carried in `omitted` rather than cut against a line nobody
     has drawn.
+
+    T-2143: EXCEPT THE SOUTH ONE, WHICH THIS PROJECT DOES HOLD. The Original Town's south
+    line is Madison Street, as every account of the 1830 plat gives it and as
+    tools/build_survey_tracts.py's ORIGINAL_TOWN_BOUNDS already cuts the town's tract on;
+    `madison` is committed, and the West Division's columns that reach it (Canal and West
+    Water, carried to it by T-2143 as T-1707 carried the South Division's seven) meet it.
+    The north town line is still not a committed line and still returns None.
     """
     key = name.strip().lower()
+    if key in WEST_TOWN_LINES:
+        return WEST_TOWN_LINES[key]
     if key.endswith("town line"):
         return None
     return WEST_TRACE_SPELLING.get(key.replace(" ", "_"), key.replace(" ", "_"))
@@ -1325,12 +1338,13 @@ def street_lines(streets: dict) -> dict:
     for street in streets["streets"]:
         points = [(float(e), float(n)) for e, n in street["path_local_enu_m"]]
         corridor = float(street.get("corridor_width_m", default))
+        reach = own_reach(street["id"], points)
         lines[street["id"]] = {
             "id": street["id"],
             "name": street["name_1835"],
             "points": points,
-            "mean_e": sum(p[0] for p in points) / len(points),
-            "mean_n": sum(p[1] for p in points) / len(points),
+            "mean_e": sum(p[0] for p in reach) / len(reach),
+            "mean_n": sum(p[1] for p in reach) / len(reach),
             "confidence": street.get("geometry_confidence", "reconstructed"),
             "corridor_m": corridor,
             "half_width_m": corridor / 2.0,
@@ -1365,8 +1379,65 @@ def block_edges(lines: dict, half_width: float) -> dict:
             edges[street_id] = {
                 "east": offset_polyline(street["points"], own, (1.0, 0.0)),
                 "west": offset_polyline(street["points"], own, (-1.0, 0.0)),
+                "half_m": own,
             }
     return edges
+
+
+# T-2143 — A CARRIED REACH IS CUT ON ITS OWN CHORD. A block's west and east faces are the
+# chord of the column's offset edge, end to end, which is exact for the straight lines the
+# grid was built on. Carrying a line further moves that chord, and so re-cuts every block
+# the line ALREADY bounded: carrying West Water from N -404 to Madison along the bank's
+# bend moved block 44's east face 8.2 m west, away from its own kerb, under four houses
+# T-2132 had just built there. So a line carried past its old end declares the vertex the
+# carry began at, and each reach is cut on its own chord: a block between the old rows
+# sees exactly the chord it saw before, and a block on the carried tier sees the carried
+# reach's. T-1707's seven south columns carried no such declaration, re-cut eight leaf
+# values by 0.01 m and were accepted as they stand; they are not re-opened here.
+#
+# Each line names the NORTHING of the vertex its carry began at — the old south end, kept
+# as a vertex by the carry — rather than the vertex itself, so a line moved sideways as a
+# whole (which tools/measure_canal_control_spread.py's self-test does, to prove it can see
+# it) still says where its own carry began.
+CARRIED_REACHES = {
+    "canal": -400.0,
+    "west_water": -404.02,
+}
+
+
+def carry_index(street_id: str, points: list) -> int | None:
+    """The index of the vertex a carried line's carry began at, or None if it carries none."""
+    start_n = CARRIED_REACHES.get(street_id)
+    if start_n is None:
+        return None
+    for i, p in enumerate(points):
+        if abs(p[1] - start_n) < 1e-6:
+            return i
+    raise SystemExit(f"{street_id}'s carried reach begins at north {start_n}, where its "
+                     "committed line no longer has a vertex")
+
+
+def own_reach(street_id: str, points: list) -> list:
+    """The reach of a line the grid north of its carry was cut on: the whole line, or for a
+    carried one, from the vertex its carry began at (T-2143). A line's MEAN position is
+    read off this, so carrying it south moves no measurement of the tiers it already
+    bounded — the same reason `face_chord` keeps each reach's own chord."""
+    k = carry_index(street_id, points)
+    return points if k is None else points[k:]
+
+
+def face_chord(street_id: str, lines: dict, side: tuple, own: float,
+               north_id: str, south_id: str) -> tuple:
+    """The chord a block's face on `street_id` is cut on, for the block between two rows."""
+    points = lines[street_id]["points"]
+    k = carry_index(street_id, points)
+    if not k:
+        edge = offset_polyline(points, own, side)
+        return edge[0], edge[-1]
+    mid_n = (lines[north_id]["mean_n"] + lines[south_id]["mean_n"]) / 2.0
+    reach = points[:k + 1] if mid_n < points[k][1] else points[k:]
+    edge = offset_polyline(reach, own, side)
+    return edge[0], edge[-1]
 
 
 def build_block(north_id, south_id, west_id, east_id, lines, edges, reach_m):
@@ -1375,8 +1446,10 @@ def build_block(north_id, south_id, west_id, east_id, lines, edges, reach_m):
     south_edge = edges[south_id]["north"]
     west_edge = edges[west_id]["east"]
     east_edge = edges[east_id]["west"]
-    west_line = (west_edge[0], west_edge[-1])
-    east_line = (east_edge[0], east_edge[-1])
+    west_line = face_chord(west_id, lines, (1.0, 0.0), edges[west_id]["half_m"],
+                           north_id, south_id)
+    east_line = face_chord(east_id, lines, (-1.0, 0.0), edges[east_id]["half_m"],
+                           north_id, south_id)
     north_line = (north_edge[0], north_edge[-1])
     south_line = (south_edge[0], south_edge[-1])
 

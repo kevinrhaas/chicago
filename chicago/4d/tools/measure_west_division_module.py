@@ -86,12 +86,20 @@ def streets():
     return {s["id"]: s for s in load("data/streets/1835.json")["streets"]}
 
 
+def _reach(st):
+    # T-2143: a carried line is measured on the reach the grid north of its carry was
+    # cut on, the rule tools/generate_plat_lots.py's `own_reach` states.
+    sys.path.insert(0, str(ROOT / "tools"))
+    from generate_plat_lots import own_reach  # noqa: PLC0415
+    return own_reach(st["id"], [tuple(p) for p in st["path_local_enu_m"]])
+
+
 def mean_e(st):
-    return statistics.fmean(p[0] for p in st["path_local_enu_m"])
+    return statistics.fmean(p[0] for p in _reach(st))
 
 
 def mean_n(st):
-    return statistics.fmean(p[1] for p in st["path_local_enu_m"])
+    return statistics.fmean(p[1] for p in _reach(st))
 
 
 def west_bank():

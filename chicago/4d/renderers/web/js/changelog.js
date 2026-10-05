@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: null, ts: '', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the first of the five blocks there to be built; the other four follow in the next updates.',
       'Seven households now live in these houses, two of them named on the house itself. The seven who had asked for these lots are given lots on the next blocks south instead, because households already in the town move into new houses first.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L392).',
+    ] },
+  { v: 1506, ts: '2026-10-05T22:21:46.692Z', date: 'Oct 5, 2026, 5:21 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
+    items: [
+      'Canal Street and West Water Street now run south past Washington Street to Madison Street, the south edge of the 1830 town. Before, both stopped short at Washington.',
+      'The new block between them has six houses: five face Canal Street, from a house on the Washington corner to a larger merchant\u2019s house on the Madison corner, and a small shanty faces West Water Street by the river.',
+      'The 1830 plat gives this block\u2019s two rows of lots different depths, 180 feet and 88 feet, because the river cuts deep into the row along West Water Street. Each row is cut to its own depth.',
+      'Six West Side families now have a home in the town. No source names these houses or who lived in them; each card says so, and the Liberties page explains it (L313).',
     ] },
   { v: 1505, ts: '2026-10-05T20:26:07.594Z', date: 'Oct 5, 2026, 3:26 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
     items: [
