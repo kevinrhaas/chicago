@@ -344,7 +344,7 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     # therefore a vertex. `x` is the extent object inside `matchZone`.
     "extent.kind": ("mesh", "switch (x.kind)"),
     "extent.elev_m": ("mesh", "Array.isArray(x.elev_m)"),
-    "extent.polygon": ("mesh", "pointInPolygon(x.polygon, e, n)"),
+    "extent.polygon": ("mesh", "pointInPolygon(x.polygon, qe, qn)"),
     "extent.box.e": ("mesh", "const be = x.box.e;"),
     "extent.box.n": ("mesh", "const bn = x.box.n;"),
     "extent.of": ("mesh", "if (x.of !== 'water') return false;"),
@@ -356,12 +356,12 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     "extent.wander_m": ("mesh", "x.wander_m ?? 0"),
     "extent.edge.ramp_m": ("mesh", "x.edge.ramp_m ?? 0"),
     "extent.edge.wander_m": ("mesh", "x.edge.wander_m ?? 0"),
-    "extent.exclude_polygons": ("mesh", "ringsNear(x.exclude_polygons, e, n)"),
+    "extent.exclude_polygons": ("mesh", "ringsNear(x.exclude_polygons, qe, qn)"),
     # Ground a community holds that its own extent rule cannot reach — the mirror
     # of the exclusions above. z03's evidence names the public square and its rule
     # is an elevation band that cannot find a block the terrain draws flat.
     # Both lists are read through a bin index since T-2101 (69 vacant-lot rings).
-    "extent.include_polygons": ("mesh", "ringsNear(x.include_polygons, e, n)"),
+    "extent.include_polygons": ("mesh", "ringsNear(x.include_polygons, qe, qn)"),
     "extent.priority": ("mesh", "rec.extent?.priority"),
     # Per species.
     "species[].role": ("mesh", "OUR_ROLES.has(sp.role)"),

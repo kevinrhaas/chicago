@@ -2629,6 +2629,19 @@ record; or read further issues of the *Chicago Democrat*, whose advertising colu
 forwarding house states its street.
 **Covers:** `newberry_dole_warehouse.frame_1833.position`, `newberry_dole_warehouse.frame_1833.footprint`, `newberry_dole_warehouse.frame_1833.form.dock`, `kinzie_hunter_warehouse.warehouse_1834.position`, `kinzie_hunter_warehouse.warehouse_1834.footprint`, `kinzie_hunter_warehouse.warehouse_1834.form.dock`, `kinzie_hunter_warehouse.warehouse_1834.documented_range`.
 **Recorded:** 2026-08-11.
+**Revised:** 2026-10-05 (T-1723) — the bank half of this entry is answered, by the second route its
+"How to resolve" names, and the answer keeps the south bank. Newberry & Dole's own card in the
+*Chicago Democrat* states no street, but its neighbours' cards do, and four advertisers who never
+mention one another hang off it: Peter Cohen "next door below Messrs. Newberry and Dole's store house,
+on south water street" (copy of 3 November 1834, still printed in the scene-date issue of 1 July 1835,
+`chicago_democrat_1835_07_01#c001`); W. H. Brown "on Dearborn street, one door from Newberry & Dole's
+store" (28 May 1834); W. H. Taylor "on Dearborn street, a few rods north of Messrs. Newberry & Dole's
+Store" (20 May 1835). Both streets are south-bank streets, so `chicago_democrat_1833_1835` is now cited
+on the position, and Andreas's north-side sentence (1839) and Bonnell's north-bank walk (26 August
+1835, L291) are a LATER house of the firm, not a contradiction of the July one. The c. 1835 view is
+still unidentified and is no longer what the bank rests on. What stays open, and why this entry is
+not resolved: the block (the paper points at the Dearborn end of South Water, half a kilometre east
+of where L378 stands the house — T-2137), Kinzie & Hunter's bank, and both docks.
 
 ### L67 — A trade advertised in November 1833 becomes a building standing in July 1835
 **Decision:** `elston_soap_candle_manufactory` is built from a newspaper advertisement, with both its
@@ -21156,6 +21169,13 @@ is not part of any record and stands where the town's timber rule puts it.
 or an identified c. 1835 view, places the house; T-1723 may move it to the north bank.
 **Covers:** `newberry_dole_warehouse.frame_1833.position`
 **Recorded:** 2026-10-04 (T-2097).
+**Revised:** 2026-10-05 (T-1723) — the bank is settled and it is the south bank, so this entry no
+longer stands "against Andreas and Bonnell". The firm's neighbours in the *Chicago Democrat* put its
+store house on South Water Street, with neighbours on Dearborn Street, from 1834 through the scene-date
+issue (L66's revision gives the four notices); Andreas's 1839 sentence and Bonnell's August 1835 walk
+are a later north-bank house. T-1723 does not move the building. What it adds to this entry is that the
+corner is now the weaker half: the same notices point at the Dearborn end of South Water, not at
+Franklin, and that is filed as T-2137 rather than overruling the owner's corner here.
 
 ### L379 — A fenced town lot is closed all round, open only on a street a building fronts
 **Decision:** every lot the yard-fence rule of L161 fences (`tools/generate_lot_line_fences.py`)
@@ -21350,6 +21370,41 @@ unbuilt in July 1835 would retire all ten rather than re-place them.
 Franklin block, whose yard-building argument this follows), **L347** (the two boarding houses on
 this block), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1758** (split; this is its piece **T-2129**).
 **Recorded:** 2026-10-05 (T-2129).
+
+### L385 — Where two plant communities meet, they blend across a wandering margin about 100 m wide
+**Decision:** the flora layer no longer asks a community's extent its exact question at a plant's
+own point. A polygon or a box (the settled town, the dense forest, the held-out squares) is asked
+at the point moved by a slow wander (up to about 26 m, on waves of roughly 280, 120 and 43 m) plus
+a per-plant draw of up to 50 m either way, peaked at the plant's own point
+(`renderers/web/js/zone-blend.js`). Deep in a community every plant still belongs to it; across the
+band the share of each community changes smoothly, so the town's cropped turf thins into the
+prairie over about 100 m along a ragged line. A water buffer reaching 30 m or more (the riverbank
+timber) spreads its far side by up to about 48 m; the marsh keeps its edge at the water, and the
+wet and mesic prairies' elevation bands are not blended (they already follow the swales). On the
+town's side, a prairie plant the band puts within its reach of the town's recorded edge is handed
+to the town's turf at a share falling from 60 % at the line to none at the band's far side, so the
+margin's prairie is thinner, as grazed ground is. The ground's turf texture
+grades across the same band (`flora.js` hands it the town's share per texel, not a yes or no).
+Fort Dearborn's bare apron, which states an outer ring and no fence, now carries on past that ring
+into a 22 m skirt whose cover frays out along a wandering line, and the sward thins in across it
+at the same share (`renderers/web/js/yards.js`). A fenced yard keeps its edge at its fence.
+**Why:** the owner, 2026-10-05 (T-2125): *"the edge of your areas is very sharp between the fort and
+prairie and prairie and settled lands ... the separations are linear and sharp, please make them
+less linear ... graduate the areas together ... so its barely perceptible that you cross an area
+... maybe 100 meter ... there is a cabin there with a perfectly round settled area around it and it
+would be irregular"*. The settled town's extent is the plat and every standing structure grown by
+a 50 m Euclidean halo, so a lone cabin stood in a disc, and every community changed on a line one
+plant wide.
+**What is recorded and what is not:** no survey drew any of these edges, and the zone records say
+so in their own notes; none drew a margin's width either. The communities that meet in a band, and
+their species, are the records'; the band's width, its wander, the draw's shape, the apron's 22 m
+skirt and its fray are ours, bounded by the dossier's 50-200 m grazed halo around a settlement
+(`docs/research/02-flora.md` § ZONE 10) and the owner's "maybe 100 meter". The records, their
+extents and every tool that audits them are unchanged: the renderer moves where it asks, not the
+rule it asks.
+**How to resolve:** a plat, survey note or view that shows where the town's grazed ground gave way
+to the prairie, or how far the fort's trodden ground ran, replaces the band there.
+**Recorded:** 2026-10-05 (T-2125).
 
 ### L386 — A vacant town lot is grazed prairie remnant: the flowers the stock leave, on a cropped sward
 **Decision:** T-2101 gives every platted lot with no building on it — no house placed in it, no

@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1491, ts: '2026-10-05T14:05:47.271Z', date: 'Oct 5, 2026, 9:05 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+  { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
     items: [
       'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
       'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
       '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
       '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+    ] },
+  { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+    items: [
+      'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
+      'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
+      'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
+      'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
+      'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1491, ts: '2026-10-05T13:56:54.591Z', date: 'Oct 5, 2026, 8:56 AM CT', title: 'Newberry & Dole\u2019s warehouse stays south of the river, on the paper\u2019s word', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Newberry & Dole\u2019s forwarding warehouse stays where it stood, on South Water Street across from its dock.',
+      'A letter about an August 1835 walk put the firm\u2019s warehouse on the north bank instead. We have now read the 1834\u201335 Chicago Democrat: four shopkeepers\u2019 notices place the firm\u2019s \u201cstore house, on south water street\u201d, one of them in the issue of July 1, 1835, the day the scene shows. So the south bank now rests on a source from that summer. Until now it rested on a note no one could trace.',
+      'The north-bank warehouse of that walk is likely a second building the firm had by late August. Nothing dates it to July, so it is not added.',
+      'The same notices point to the Dearborn Street end of South Water Street, four blocks east of where the warehouse stands. That is now an open question of its own. The Liberties page explains it (L66, L378).',
     ] },
   { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [
