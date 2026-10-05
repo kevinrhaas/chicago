@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1479, ts: '2026-10-05T09:03:10.863Z', date: 'Oct 5, 2026, 4:03 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+  { v: null, ts: '', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
       'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
       'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
       'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
+      'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
+    ] },
+  { v: 1479, ts: '2026-10-05T08:59:14.060Z', date: 'Oct 5, 2026, 3:59 AM CT', title: 'The shop-and-home count tells named homes from guessed ones again', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. When businesses the 1835 newspapers name are stood on their streets, our records count the houses on each street that are already homes, so no shop is put in one.',
+      'That count splits the homes into those of a family the town\u2019s records name and those of a family we infer. A slip in the code made the first half read zero on every street, whatever stood there. It is fixed, and our checks now recount both halves house by house.',
+      'Today the totals are the same either way: no named family yet lives in one of these reconstructed houses on a business street. The check makes sure the count will be right when one does.',
     ] },
   { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [
