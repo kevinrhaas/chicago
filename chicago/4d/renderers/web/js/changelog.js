@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1485, ts: '2026-10-05T11:53:33.468Z', date: 'Oct 5, 2026, 6:53 AM CT', title: 'The town\u2019s 1833 wharf law is now written on the river landings', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. The river landings\u2019 record now carries the town\u2019s own wharfing law of December 1833: a lot on the river could build a wharf on the open ground before it, leaving eighty feet for a street, for fifteen dollars a year.',
+      'The law says nothing about any one wharf, so no dock in the town moves or changes size because of it.',
+      'Our research bookkeeping can now count a newspaper reading as used when it lands on the wharves or on the street edge, not only on a person, a business or a building.',
+    ] },
   { v: 1484, ts: '2026-10-05T11:30:10.304Z', date: 'Oct 5, 2026, 6:30 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
