@@ -118,42 +118,34 @@
           ],
           "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D5 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
         },
-        "porch": {
-          "value": "stoop",
-          "confidence": "reconstructed",
-          "sources": [
-            "owner_chicago_1835_reconstruction_spec_2026"
-          ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a plank stoop at the door on most, and no shutters (rule FORM-P)."
-        },
         "glazing": {
-          "value": "12_over_12_6x8",
+          "value": "6_over_6_6x8",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve (rule FORM-G)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — the attested 6 x 8 in pane in the fewest lights, six or nine to a sash (rule FORM-G)."
         },
         "trim": {
+          "value": "scant",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — the narrowest corner boards and frieze that keep the weather out (rule FORM-T)."
+        },
+        "chimney_head": {
           "value": "plain",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the plain corner boards and frieze a sided frame needs to keep water out (rule FORM-T)."
-        },
-        "chimney_head": {
-          "value": "corbel",
-          "confidence": "reconstructed",
-          "sources": [
-            "owner_chicago_1835_reconstruction_spec_2026"
-          ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a brick stack finished in one corbelled course; the stack's brick is inferred and not dealt (rule FORM-H)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — a brick stack carried straight up, with no corbel at its head; the stack's brick is inferred and not dealt (rule FORM-H)."
         },
         "siding_exposure_m": {
           "value": 0.152,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
         }
       },
       "change_note": "Reconstructed anonymous July 1835 infill. It may later be replaced by a named, better-evidenced roof through an explicit inventory substitution."
@@ -167,6 +159,14 @@
     ],
     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the D5 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
   },
+  "occupants": {
+    "value": "The Bourrassa household — a name the town's own records carry",
+    "confidence": "reconstructed",
+    "sources": [
+      "st_cyr_register_ichr_v4"
+    ],
+    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_wells#04, fronting lake, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "D5",
@@ -179,12 +179,18 @@
     "roof_condition": "fresh",
     "age_state": "new",
     "fabric_basis": {
-      "rule": "F-T",
-      "class": "tradesman",
-      "by": "type",
-      "household": null,
-      "words": "new-sawn clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — a deep-plan frame cottage, new-built (rule F-T: a tradesman's by its type)"
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "keeper_trade",
+      "household": "hh_bourrassa_leon",
+      "words": "new-sawn clapboard on a balloon frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a new roof — The Bourrassa household's, a laundress, in Chicago since 1835 (rule F-L)"
     }
+  },
+  "resident_assignment": {
+    "status": "assigned",
+    "confidence": "reconstructed",
+    "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_wells#04 fronting lake — a standing anonymous roof of family D5 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+    "household_id": "hh_bourrassa_leon"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
   "review_required": false
