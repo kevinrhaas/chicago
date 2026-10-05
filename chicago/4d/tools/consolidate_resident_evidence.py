@@ -1484,6 +1484,105 @@ def apply_anchors(identities, refusals, anchors):
 
 
 # ---------------------------------------------------------------------------
+# THE DECLARED READING MERGES (T-2139). An anchor moves a reading onto a CARD, and that
+# is the only way a landed adjudication could join two identities until this: two
+# readings that hold no card between them had no door at all. Fergus 1843's `Kelsey,
+# Patrick, boarding-house, Wolcott, bet Kinzie and Michigan` and Norris 1844's `Kelsey,
+# Parnick, boarding house, Wolcott st. b Kinzie and Mich.` are one keeper — the same
+# trade on the same block in consecutive years, the same two Hough boarders under him in
+# both books — and R4 held them apart as "two men until something says otherwise" with
+# nothing able to say otherwise. This is the something, and it is narrow on purpose: a
+# ruling names the READINGS it joins by (domain, record_id) and the identity they join
+# into, never a name, so it can only ever join what it names. A ruling that stops
+# resolving — a reading gone, already one identity, or standing on a town card, which is
+# card_merge_rulings.json's question and not this one — is a FAILURE under --check,
+# never a silent no-op.
+READING_MERGES = RESEARCH / "directories" / "reading_merge_crosswalk.json"
+READING_MERGE_PROBLEMS: list = []        # what the last build() could not apply
+
+
+def declared_reading_merges(path=None) -> list:
+    doc = load(path or READING_MERGES)
+    if not isinstance(doc, dict):
+        return []
+    return [row for row in doc.get("merges") or []
+            if isinstance(row, dict) and row.get("outcome") == "merged"]
+
+
+def apply_reading_merges(identities, refusals, rulings):
+    """-> (identities, refusals, made, problems). Join the identities each ruling names.
+
+    The joined identity keeps `into_identity`'s id and forename, takes the others'
+    members with `_merge_rule` D1, and the surname's R2/R4 refusal stops holding apart
+    the forename it no longer stands for — dropped where one forename is left."""
+    where = {}
+    for identity in identities:
+        for member in identity["members"]:
+            where[(member["domain"], member["record_id"])] = identity
+    made, problems = [], []
+    for ruling in rulings:
+        into_id = ruling.get("into_identity")
+        readings = [(r.get("domain"), r.get("record_id"))
+                    for r in ruling.get("readings") or [] if isinstance(r, dict)]
+        label = f"reading merge into {into_id} ({', '.join(f'{d}:{r}' for d, r in readings)})"
+        missing = [f"{d}:{r}" for d, r in readings if (d, r) not in where]
+        if len(readings) < 2 or missing:
+            problems.append(f"{label}: names fewer than two readings, or readings no "
+                            f"domain holds — {missing or 'fewer than two'}")
+            continue
+        held = []
+        for key in readings:
+            if where[key] not in held:
+                held.append(where[key])
+        into = [i for i in held if i["id"] == into_id]
+        carded = [i["id"] for i in held
+                  if any(m["domain"] == "residents" for m in i["members"])]
+        if len(held) < 2:
+            problems.append(f"{label}: its readings already stand on one identity, so the "
+                            "ruling joins nothing — retire it or say what moved")
+            continue
+        if not into:
+            problems.append(f"{label}: into_identity is not one of the identities its "
+                            f"readings stand on ({', '.join(i['id'] for i in held)})")
+            continue
+        if carded:
+            problems.append(f"{label}: {', '.join(carded)} stands on a town card; joining "
+                            "a card is card_merge_rulings.json's ruling, not this file's")
+            continue
+        target = into[0]
+        for identity in held:
+            if identity is target:
+                continue
+            for member in identity["members"]:
+                member["_merge_rule"] = "D1"
+                where[(member["domain"], member["record_id"])] = target
+            target["members"].extend(identity["members"])
+            made.append({
+                "a": identity["forename"].title() + " " + identity["surname"].title(),
+                "b": target["forename"].title() + " " + target["surname"].title(),
+                "rule": "D1",
+                "declared_in": f"{READING_MERGES.relative_to(RESEARCH)}#merges",
+                "evidence": ruling.get("rule"),
+            })
+            gone = made[-1]["a"]
+            identity["members"] = []
+            for refusal in refusals:
+                if (refusal.get("rule") in ("R2", "R4")
+                        and refusal.get("surname") == target["surname"]
+                        and gone in (refusal.get("held_apart") or [])):
+                    refusal["held_apart"] = [h for h in refusal["held_apart"] if h != gone]
+                    initials = {h[0].lower() for h in refusal["held_apart"]}
+                    refusal["distinct_initials"] = len(initials)
+                    refusal["rule"] = "R2" if len(initials) > 1 else "R4"
+        target["merge_rules"] = sorted(set(target["merge_rules"]) | {"D1"})
+    kept = [i for i in identities if i["members"]]
+    survived = [r for r in refusals
+                if not (r.get("rule") in ("R2", "R4") and "held_apart" in r
+                        and len(r["held_apart"]) < 2)]
+    return kept, survived, made, problems
+
+
+# ---------------------------------------------------------------------------
 # THE LADDER, applied as a proposal.
 
 
@@ -1655,8 +1754,11 @@ def build():
         for key, anchor in sorted(anchors.items()) if key in splits]
     anchors = {k: v for k, v in anchors.items() if k not in splits}
     identities, refusals, anchored = apply_anchors(identities, refusals, anchors)
+    identities, refusals, joined, problems = apply_reading_merges(
+        identities, refusals, declared_reading_merges())
+    READING_MERGE_PROBLEMS[:] = problems
     declared_merges, declared_refusals = declared_rulings()
-    declared_merges = anchored + declared_merges
+    declared_merges = anchored + joined + declared_merges
     declared_refusals = overruled_anchors + declared_refusals
     links = person_links()
 
@@ -1724,6 +1826,7 @@ def build():
             "derived_refusals": len(refusals),
             "declared_merges": len(declared_merges),
             "appearances_moved_by_a_landed_adjudication": len(anchored),
+            "identities_joined_by_a_declared_reading_merge": len(joined),
             "declared_refusals": len(declared_refusals),
             "appearances_taken_off_a_card_by_a_conflation_ruling": len(declared_splits()),
             "appearances_refused_as_out_of_town": sum(
@@ -2405,6 +2508,14 @@ def cmd_check() -> int:
         print(f"  ok    {len(cards)} card(s) ruled on for gathering two men — {split} "
               f"reading(s) held off the card they were folded onto, and every ruling "
               f"still says what the master says")
+    for problem in READING_MERGE_PROBLEMS:
+        print(f"  FAIL {problem}")
+    failures += 1 if READING_MERGE_PROBLEMS else 0
+    if not READING_MERGE_PROBLEMS:
+        joined = master["counts"]["identities_joined_by_a_declared_reading_merge"]
+        print(f"  ok    {len(declared_reading_merges())} declared reading merge(s) in "
+              f"{READING_MERGES.relative_to(ROOT)} join {joined} identit(ies) and every "
+              f"one still resolves")
     for problem in problems[:10]:
         print(f"  FAIL {problem}")
     failures += 1 if problems else 0
@@ -3140,6 +3251,70 @@ def cmd_self_test() -> int:
         failures += 1
     else:
         print("  ok    a bare compound surname is a refusal, not a man called 'De'")
+
+    # ---- T-2139: a declared reading merge joins what it names, and only that --------
+    def keepers(*extra):
+        rows = [{"domain": "directories", "record_id": "f1843_e1462",
+                 "normalized": "Kelsey, Patrick", "evidence_class": "directory_1843",
+                 "source_id": "s43", "describes_date": "1843"},
+                {"domain": "directories", "record_id": "n1844_e1003",
+                 "normalized": "Kelsey, Parnick", "evidence_class": "directory_1844",
+                 "source_id": "s44", "describes_date": "1844"}]
+        return cluster(rows + list(extra))
+
+    ruling = {"outcome": "merged", "into_identity": "id_kelsey_parnick",
+              "readings": [{"domain": "directories", "record_id": "f1843_e1462"},
+                           {"domain": "directories", "record_id": "n1844_e1003"}]}
+    ids, refs = keepers()
+    if len(ids) != 2 or not any(r["rule"] == "R4" and r.get("surname") == "kelsey"
+                                for r in refs):
+        print(f"  FAIL the fixture did not start as two Kelseys under R4 -> "
+              f"{sorted(i['id'] for i in ids)}")
+        failures += 1
+    ids, refs, made, probs = apply_reading_merges(ids, refs, [ruling])
+    if ([i["id"] for i in ids] != ["id_kelsey_parnick"] or probs or len(made) != 1
+            or len(ids[0]["members"]) != 2 or "D1" not in ids[0]["merge_rules"]
+            or any(r.get("surname") == "kelsey" for r in refs)):
+        print(f"  FAIL a declared reading merge did not join the two Kelseys into one D1 "
+              f"identity and retire R4 -> {[i['id'] for i in ids]}, {probs}")
+        failures += 1
+    else:
+        print("  ok    a declared reading merge joins Patrick and Parnick Kelsey under D1 "
+              "and the R4 that held them apart stands down")
+
+    for name, broken, want in (
+            ("a reading no domain holds",
+             dict(ruling, readings=ruling["readings"][:1]
+                  + [{"domain": "directories", "record_id": "n1844_e9999"}]),
+             "readings no domain holds"),
+            ("an into_identity its readings do not stand on",
+             dict(ruling, into_identity="id_kelsey_eve"), "is not one of the identities"),
+            ("a reading on a town card",
+             dict(ruling, readings=ruling["readings"][:1]
+                  + [{"domain": "residents", "record_id": "kelsey_parnick"}]),
+             "stands on a town card")):
+        extra = ([{"domain": "residents", "record_id": "kelsey_parnick",
+                   "normalized": "Parnick Kelsey", "evidence_class": "town",
+                   "source_id": "s", "describes_date": "1835"}]
+                 if "card" in name else [])
+        ids, refs = keepers(*extra)
+        before = sorted(i["id"] for i in ids)
+        ids, refs, made, probs = apply_reading_merges(ids, refs, [broken])
+        if made or not any(want in p for p in probs) or sorted(i["id"] for i in ids) != before:
+            print(f"  FAIL a reading merge naming {name} was applied or passed silently "
+                  f"-> made {len(made)}, problems {probs}")
+            failures += 1
+        else:
+            print(f"  ok    a reading merge naming {name} joins nothing and is a FAILURE")
+
+    ids, refs = keepers()
+    ids, refs, made, _ = apply_reading_merges(ids, refs, [ruling])
+    _, _, again, probs = apply_reading_merges(ids, refs, [ruling])
+    if again or not any("already stand on one identity" in p for p in probs):
+        print("  FAIL a reading merge whose readings are already one identity passed silently")
+        failures += 1
+    else:
+        print("  ok    a reading merge that joins nothing any more is a FAILURE, not a no-op")
     return failures
 
 

@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "_doc": "HAND-AUTHORED, T-2139. Declared merges between directory READINGS that hold no town card between them, read by tools/consolidate_resident_evidence.py (`apply_reading_merges`) after the landed anchors. A ruling names the readings it joins by (domain, record_id) and the identity they join into, never a name, so it joins only what it names; a ruling that stops resolving fails --check. Joining a reading to a CARD is data/residents/card_merge_rulings.json's question and is refused here.",
+  "source_ids": [
+    "fergus_chicago_directory_1843",
+    "norris_directory_1844"
+  ],
+  "merges": [
+    {
+      "outcome": "merged",
+      "ticket": "T-2139",
+      "into_identity": "id_kelsey_parnick",
+      "readings": [
+        {"domain": "directories", "record_id": "f1843_e1462"},
+        {"domain": "directories", "record_id": "n1844_e1003"}
+      ],
+      "record_ids": ["f1843_e1462", "n1844_e1003"],
+      "source_ids": [
+        "fergus_chicago_directory_1843",
+        "norris_directory_1844",
+        "andreas_1884_v1"
+      ],
+      "rule": "ONE KEEPER, PRINTED TWO WAYS BY TWO DIRECTORIES. Fergus 1843 sets 'Kelsey, Patrick, boarding-house, Wolcott, bet Kinzie and Michigan' (f1843_e1462) and Norris 1844 sets 'Kelsey, Parnick, boarding house, Wolcott st. b Kinzie and Mich.' (n1844_e1003): the same surname, the same trade, the same street between the same two cross streets, a year apart. Kelsey is the only one of that surname either book prints, so there is no rival to choose between. WHAT TIES THEM IS THE HOUSE AND NOT THE NAME. The same two boarders are under him in both books: Fergus 1843 prints 'Hough, Oramel Smith, laborer, bds Pat. Kelsey' and 'Hough, Roselle Marvin, laborer, bds Pat. Kelsey' (f1843_e1328, f1843_e1329), and Norris 1844 prints 'Hough, O. laborer, res P. Kelsey's' and 'Hough, R. M.' with ditto marks under it (n1844_e0898, n1844_e0899). Two directories do not independently invent the same pair of lodgers in the same keeper's house. THE FORENAME IS THE ONLY DISAGREEMENT, AND THE IDENTITY KEEPS 'PARNICK'. J. D. Bonnell's letter (Andreas vol. 1, printed page 137, read off the page image on 2026-10-05) prints 'occupied by Parnick Kelsey as a boarding-house' and 'Eve, Parnick's wife' - Parnick BOTH times, and that is the 1835 witness to the same man at the same trade. So the four printings that name him in full split two and two: Bonnell and Norris 1844 print Parnick, and Fergus prints Patrick in 1843 and in 1839 ('Kelsey, Patrick, laborer, Chicago ave near North Dearborn st', f1839_e0831, a directory this consolidation does not read). WHICH WAS HIS OWN SPELLING IS NOT RULED: the identity is named for the 1835 witness and for the boarding-house record the town already carries (kelsey_boarding_house, 'Parnick Kelsey's boarding-house'), and both printings stay on its appearances as read.",
+      "evidence": [
+        {"source_id": "fergus_chicago_directory_1843", "locator": "fergus_1843_page_003.txt line 357 (f1843_e1462); lines 209-210 (f1843_e1328, f1843_e1329)"},
+        {"source_id": "norris_directory_1844", "locator": "printed page 43, norris_1844_leaf_053.txt line 13 (n1844_e1003); printed page 40, norris_1844_leaf_050.txt lines 54-55 (n1844_e0898, n1844_e0899)"},
+        {"source_id": "andreas_1884_v1", "locator": "vol. 1, printed page 137, left column, first lines: Bonnell's letter to the Chicago Times, 15 March 1876"}
+      ]
+    }
+  ]
+}
