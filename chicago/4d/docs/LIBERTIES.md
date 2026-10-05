@@ -2629,6 +2629,19 @@ record; or read further issues of the *Chicago Democrat*, whose advertising colu
 forwarding house states its street.
 **Covers:** `newberry_dole_warehouse.frame_1833.position`, `newberry_dole_warehouse.frame_1833.footprint`, `newberry_dole_warehouse.frame_1833.form.dock`, `kinzie_hunter_warehouse.warehouse_1834.position`, `kinzie_hunter_warehouse.warehouse_1834.footprint`, `kinzie_hunter_warehouse.warehouse_1834.form.dock`, `kinzie_hunter_warehouse.warehouse_1834.documented_range`.
 **Recorded:** 2026-08-11.
+**Revised:** 2026-10-05 (T-1723) — the bank half of this entry is answered, by the second route its
+"How to resolve" names, and the answer keeps the south bank. Newberry & Dole's own card in the
+*Chicago Democrat* states no street, but its neighbours' cards do, and four advertisers who never
+mention one another hang off it: Peter Cohen "next door below Messrs. Newberry and Dole's store house,
+on south water street" (copy of 3 November 1834, still printed in the scene-date issue of 1 July 1835,
+`chicago_democrat_1835_07_01#c001`); W. H. Brown "on Dearborn street, one door from Newberry & Dole's
+store" (28 May 1834); W. H. Taylor "on Dearborn street, a few rods north of Messrs. Newberry & Dole's
+Store" (20 May 1835). Both streets are south-bank streets, so `chicago_democrat_1833_1835` is now cited
+on the position, and Andreas's north-side sentence (1839) and Bonnell's north-bank walk (26 August
+1835, L291) are a LATER house of the firm, not a contradiction of the July one. The c. 1835 view is
+still unidentified and is no longer what the bank rests on. What stays open, and why this entry is
+not resolved: the block (the paper points at the Dearborn end of South Water, half a kilometre east
+of where L378 stands the house — T-2137), Kinzie & Hunter's bank, and both docks.
 
 ### L67 — A trade advertised in November 1833 becomes a building standing in July 1835
 **Decision:** `elston_soap_candle_manufactory` is built from a newspaper advertisement, with both its
@@ -21134,6 +21147,13 @@ is not part of any record and stands where the town's timber rule puts it.
 or an identified c. 1835 view, places the house; T-1723 may move it to the north bank.
 **Covers:** `newberry_dole_warehouse.frame_1833.position`
 **Recorded:** 2026-10-04 (T-2097).
+**Revised:** 2026-10-05 (T-1723) — the bank is settled and it is the south bank, so this entry no
+longer stands "against Andreas and Bonnell". The firm's neighbours in the *Chicago Democrat* put its
+store house on South Water Street, with neighbours on Dearborn Street, from 1834 through the scene-date
+issue (L66's revision gives the four notices); Andreas's 1839 sentence and Bonnell's August 1835 walk
+are a later north-bank house. T-1723 does not move the building. What it adds to this entry is that the
+corner is now the weaker half: the same notices point at the Dearborn end of South Water, not at
+Franklin, and that is filed as T-2137 rather than overruling the owner's corner here.
 
 ### L379 — A fenced town lot is closed all round, open only on a street a building fronts
 **Decision:** every lot the yard-fence rule of L161 fences (`tools/generate_lot_line_fences.py`)
