@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1454, ts: '2026-10-05T00:10:45.598Z', date: 'Oct 4, 2026, 7:10 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+  { v: null, ts: '', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
       'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
       'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
       'Gates are a reconstruction (Liberty L381). They add a little to draw, and no extra draw calls.',
+    ] },
+  { v: 1454, ts: '2026-10-05T00:06:56.248Z', date: 'Oct 4, 2026, 7:06 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+    items: [
+      'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
+      'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
+      'The front steps of 108 houses had the same fault at their base and are fixed too.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
   { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
     items: [
