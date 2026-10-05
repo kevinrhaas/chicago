@@ -2,6 +2,101 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 48,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-05T07:35:45.190Z",
+      "ref": "steward/t1829-west-lake-canal-cottages",
+      "commit": "e3909ed34a75",
+      "devCommit": "2c630394f222",
+      "treeHash": "sha256:41cdfd162f86ebc9",
+      "treeDirty": true,
+      "changelogHash": "sha256:8144d40c3009de0e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          0.8,
+          0.9,
+          1.5
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 23,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 233,
+      "takenAt": "2026-10-05T04:53:29.080Z",
+      "ref": "claude/project-thread-11f45r",
+      "commit": "cd84c8cad78e",
+      "devCommit": "304ef7950806",
+      "treeHash": "sha256:50a3805df9de0433",
+      "treeDirty": true,
+      "changelogHash": "sha256:63d4817ecd2b95b0",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          2.9,
+          3.3,
+          3.2
+        ]
+      },
+      "source": "/tmp/claude-0/smoke14m2.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 23,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 306,
+      "takenAt": "2026-10-05T04:34:28.236Z",
+      "ref": "claude/project-thread-11f45r",
+      "commit": "56b6958f6bbe",
+      "devCommit": "74f7134c3d0a",
+      "treeHash": "sha256:c95b9c169bda4b80",
+      "treeDirty": true,
+      "changelogHash": "sha256:a69e542cd80fd095",
+      "host": {
+        "kind": "local",
+        "cpus": 4,
+        "memGB": 15.7,
+        "loadavg": [
+          2.4,
+          3.3,
+          3.5
+        ]
+      },
+      "source": "/tmp/claude-0/smoke14m.log"
+    },
+    {
       "viewport": "mobile",
       "stage": "12",
       "parts": [
@@ -1736,94 +1831,6 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "3-6",
-      "parts": [
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 143,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:03:14.9620204Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:02:49.3371224Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 159,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the yard layer chunks for culling on a single material — 68 chunk mesh(es), 1 material(s), bounding spheres on every chunk"
-      ],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:02:49.3371224Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
     }
   ]
 }

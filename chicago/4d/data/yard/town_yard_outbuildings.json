@@ -131,8 +131,8 @@
   },
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
-    "dwelling_lots": 164,
-    "privies": 122,
+    "dwelling_lots": 167,
+    "privies": 125,
     "stables": 16,
     "privy_standing": 34,
     "stable_standing": 15,
@@ -746,7 +746,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -834,7 +834,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1610,7 +1610,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3131,6 +3131,72 @@
       "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
+    },
+    {
+      "id": "privy_blk_west_lake_canal_lot2",
+      "kind": "privy",
+      "lot": "blk_west_lake_canal_lot2",
+      "belongs_to": "recon_1835_blk_west_lake_canal_d5_01",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        -92.48,
+        -169.84
+      ],
+      "bearing_deg": -89.54,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "fresh",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
+      "id": "privy_blk_west_lake_canal_lot3",
+      "kind": "privy",
+      "lot": "blk_west_lake_canal_lot3",
+      "belongs_to": "recon_1835_blk_west_lake_canal_d4_02",
+      "households": [],
+      "household_class": "tradesman",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        -92.14,
+        -193.52
+      ],
+      "bearing_deg": -89.54,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
+      "roof": "shed",
+      "weather": "fresh",
+      "confidence": "reconstructed",
+      "finish": "board"
+    },
+    {
+      "id": "privy_blk_west_lake_canal_lot8",
+      "kind": "privy",
+      "lot": "blk_west_lake_canal_lot8",
+      "belongs_to": "recon_1835_blk_west_lake_canal_d2_03",
+      "households": [],
+      "household_class": "labourer",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        -84.05,
+        -193.51
+      ],
+      "bearing_deg": 90.47,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
+      "roof": "shed",
+      "weather": "seasoned",
+      "confidence": "reconstructed",
+      "finish": "slab"
     },
     {
       "id": "privy_blk_west_randolph_des_plaines_lot2",
