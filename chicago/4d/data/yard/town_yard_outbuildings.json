@@ -204,7 +204,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -394,7 +394,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "grey",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -504,7 +504,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -526,7 +526,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "grey",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -536,21 +536,21 @@
       "lot": "blk_south_water_clark_lot5",
       "belongs_to": "recon_1835_blk_south_water_clark_d3_03",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        638.34,
-        -57.47
+        638.41,
+        -57.55
       ],
       "bearing_deg": -179.64,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_south_water_clark_lot6",
@@ -700,7 +700,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -722,7 +722,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -1786,7 +1786,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
