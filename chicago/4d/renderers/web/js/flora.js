@@ -345,17 +345,14 @@ const TUNE = {
    * and that only ever adds margin.)
    */
   step: { near: 0.6, mid: 3.0, forb: 3.0 },
-  /**
-   * T-2085 — SHORT TURF IS DRAWN BY THE GROUND, NOT BY CARDS. On a community
-   * `isTurfCommunity` selects (the settled town: a 0.05-0.20 m sward) the mid
-   * and far clump cards and their carries draw nothing — the terrain paints
-   * the turf's texture there — and the near tufts and the weeds stand only to
-   * `radius`, ragged by `fringe` so the edge is no circle. At `full` that is
-   * the near ring's own radius, so the walker's own ground is unchanged; the
-   * lower tiers take it in (MID, LOW). Which species grow, in what share, is
-   * untouched: this decides how far the turf is DRAWN as plants, nothing else.
-   */
-  turf: { radius: 7.6, fringe: 0.8 },
+  // T-2085 / T-2122 — SHORT TURF IS DRAWN BY THE GROUND, NOT BY PLANTS. On a
+  // community `isTurfCommunity` selects (the settled town: a 0.05-0.20 m
+  // sward) no near tuft, mid card, far card or carry is drawn — the terrain
+  // paints the turf's texture there. T-2085 kept the near tufts and the weeds on
+  // a ring of their own to 7.6 m; the owner, 2026-10-05, found them popping up
+  // around the walker in town, so T-2122 drops the tufts and stands the weeds
+  // only along kept lot lines, on the ordinary forb ring (see the passes).
+  // Which species grow, in what share, is untouched.
 };
 
 /**
@@ -822,9 +819,6 @@ const LOW = {
   // T-2014. Shallower on the phone, as its far band is: the sward's own far
   // band stops at 120 m here and the shrubs stop well inside it.
   farShrub: { radius: 70.0, ramp: 24.0 },
-  // T-2085: a slow phone in the town spends almost nothing on ground cover —
-  // the tufts at its feet and the texture beyond.
-  turf: { radius: 3.4, fringe: 0.5 },
   cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
 };
 
@@ -857,7 +851,6 @@ const MID = {
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
-  turf: { radius: 4.8, fringe: 0.6 },
   cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
 };
 
@@ -1333,19 +1326,6 @@ export async function createFlora({
     rings[layer] = ringsFor(tune[layer], step);
     rings[layer].head = headRingOf(rings[layer].fade);
   }
-  // T-2085. The near tufts and the weeds on short turf stand on rings of their
-  // own, built by `ringsFor` like every layer's, so a turf plant is placed at
-  // coverage zero past its edge and arrives through the same handover as any
-  // other — a cut instead of a ring would pop them in whole. Kept out of
-  // `rings` because the gate holds that to the three layers it names.
-  const turfBand = (band) => Math.min(band, tune.turf.radius * 0.3);
-  const turfRings = {
-    near: ringsFor({ ...tune.near, radius: Math.min(tune.turf.radius, tune.near.radius),
-      band: turfBand(tune.near.band) }, step),
-    forb: ringsFor({ ...tune.forb, radius: Math.min(tune.turf.radius, tune.forb.radius),
-      band: turfBand(tune.forb.band), fringe: tune.turf.fringe }, step),
-  };
-  turfRings.forb.head = headRingOf(turfRings.forb.fade);
   /** Which ring each rooted set is drawn on. A rosette is a forb. */
   const ringOfSet = {
     'flora-near': rings.near, 'flora-mid': rings.mid,
@@ -1503,9 +1483,14 @@ export async function createFlora({
         // lattice, so the frame pays nothing for them either.
         const zone = finder(e, n);
         if (!zone || !zone.graminoids.length) return;
-        // T-2085: past the turf's own lattice nothing is dealt at all.
-        if (zone.turf && r > turfRings.near.lattice.outer) return;
-        const ring = slotRing(zone.turf ? turfRings.near : near, e, n, 0, _ring);
+        // T-2122: no near tufts on short turf. The turf's texture is the
+        // ground there, and a 0.05-0.20 m sward drawn as blades only to the
+        // near ring was a band of plants growing up out of bare ground a few
+        // metres ahead on every step — the owner, 2026-10-05: "things
+        // constantly pop up". Returned before the deal, as the mid and far
+        // bands already do here, so no turf slot is counted as drawn.
+        if (zone.turf) return;
+        const ring = slotRing(near, e, n, 0, _ring);
         // The community's own recorded matrix cover decides whether this slot
         // carries a plant — the same rule the forb layer has always applied to
         // its own recorded densities, on the field the matrix layer ignored.
@@ -1600,10 +1585,13 @@ export async function createFlora({
         if (r > f.fade[0] + off + step) return;
         const zone = finder(e, n);
         if (!zone || !zone.forbs.length) return;
-        // T-2085: the weeds on turf stand on the turf's forb ring.
-        const fr = zone.turf ? turfRings.forb : f;
-        const fo = zone.turf ? fringeOf(e, n, fr.fringe) : off;
-        if (zone.turf && r > fr.fade[0] + fo + step) return;
+        // T-2122: the weeds on turf stand on the forb ring like every other
+        // community's, so they arrive at its ragged outer edge twenty-odd
+        // metres out and not a few paces in front of the walker (T-2085 had
+        // them on a ring of their own the size of the near one). Only the ones
+        // a kept lot re-seats along its line survive — see below.
+        const fr = f;
+        const fo = off;
         // The forb layer's density is the zone's OWN summed density_per_ha, so a
         // sparse community stays sparse. `share` is the chance this lattice slot
         // is used at all — of the half of the community that may stand on this
@@ -1623,6 +1611,12 @@ export async function createFlora({
         // everything again at its new foot, and must still be inside the ring.
         const seat = forbSeat(e, n);
         if (seat === false) { if (c) c.row.rejStation++; return; }
+        // T-2122: on short turf a weed stands only where a kept lot re-seats it
+        // against its fence line. Loose on open turf, out to the forb ring,
+        // they read as a sprinkle of spikes over the town's bare and trodden
+        // ground — and on the near ring T-2085 gave them they popped up a few
+        // paces ahead. Counted as a station refusal, which is what it is.
+        if (zone.turf && !seat) { if (c) c.row.rejStation++; return; }
         if (seat) {
           e = seat[0]; n = seat[1];
           r = Math.hypot(e - camE, n - camN);
@@ -2118,6 +2112,9 @@ export async function createFlora({
     communities() {
       return zones.map((z) => ({
         id: z.id, matrixShare: z.matrixShare, bareSoil: z.bareSoil,
+        /** T-2122. Short turf: drawn by the ground's texture, not as plants,
+         *  so a census of drawn plants has to stand somewhere else. */
+        turf: !!z.turf,
         /** T-1056. The recorded woody band, so a reader of this report can see
          *  WHY a sand zone's shrub count stands below its recorded density. */
         woodyBand: z.woody?.establishes ?? null,
@@ -2520,7 +2517,7 @@ function mergeTune(level) {
   const t = {
     near: { ...TUNE.near }, mid: { ...TUNE.mid }, forb: { ...TUNE.forb },
     far: { ...TUNE.far }, farShrub: { ...TUNE.farShrub },
-    cap: { ...TUNE.cap }, step: { ...TUNE.step }, turf: { ...TUNE.turf },
+    cap: { ...TUNE.cap }, step: { ...TUNE.step },
   };
   const preset = level === 'light' ? LOW : level === 'balanced' ? MID : null;
   if (preset) {
@@ -2530,7 +2527,6 @@ function mergeTune(level) {
     Object.assign(t.far, preset.far);
     Object.assign(t.farShrub, preset.farShrub);
     Object.assign(t.cap, preset.cap);
-    Object.assign(t.turf, preset.turf);
   }
   return t;
 }
@@ -2918,7 +2914,7 @@ function compileZones({ index, files }, terrain, problems, stats) {
     out.push({
       id: entry.id,
       zone: entry.zone,
-      /** T-2085. Short turf: drawn as near tufts and the ground's texture. */
+      /** T-2085 / T-2122. Short turf: drawn by the ground's texture. */
       turf: isTurfCommunity(rec),
       /** ...and the recorded tones that texture is painted in (handTurfToGround). */
       turfTones: isTurfCommunity(rec) ? {

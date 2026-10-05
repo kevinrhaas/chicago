@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1487, ts: '2026-10-05T12:24:14.320Z', date: 'Oct 5, 2026, 7:24 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Two more blocks south of Washington get their houses', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and both blocks beside you now have houses. On the Dearborn-to-State block six stand around the boarding house that was already there: a two-storey frame house on each Washington corner, a merchant\u2019s house between them, two one-room cottages and a tradesman\u2019s house along Madison. One lot is left open.',
       'Across Dearborn, on the Clark block, the last two empty lots are built: a tradesman\u2019s house on Washington with a smokehouse behind it, and a cottage behind that on Madison. That block now carries sixteen roofs on seven of its eight lots.',
       'Eight families had asked for these houses, but households take a standing roof before they ask for one to be built, so the new houses went to families moving up from older roofs nearby. Fifty-three households changed house behind them, and the plat still houses 178 families.',
       'Nothing here is claimed as evidence. No source says these buildings stood on these blocks in 1835 or where on their lots they sat. The lot grid, the street lines and the ground are committed; the houses are the building programme filling a town it can count but cannot name, and all nine carry that disclosure on their own cards.',
+    ] },
+  { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+    items: [
+      'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
+      'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
+      'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
+      'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
     ] },
   { v: 1486, ts: '2026-10-05T12:08:26.457Z', date: 'Oct 5, 2026, 7:08 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
     items: [
