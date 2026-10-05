@@ -399,7 +399,7 @@
     },
     {
       "structure_id": "wolf_point_trading_camp",
-      "name": "A trading family's camp at Wolf Point",
+      "name": "The trading camp at Wolf Point",
       "function": "trading_camp",
       "documented_range_from": "1835-06-01",
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."

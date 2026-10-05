@@ -157,7 +157,7 @@ CAMPS = (
     },
     {
         "id": "wolf_point_trading_camp",
-        "name": "A trading family's camp at Wolf Point",
+        "name": "The trading camp at Wolf Point",
         "aka": ["the canvas at the forks"],
         # No candidate in 1835_camp_grounds.json: that file lists the grounds of the
         # transient crowd, and this camp is not theirs (T-1977, the owner's ruling).
