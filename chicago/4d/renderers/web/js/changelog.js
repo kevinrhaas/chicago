@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+  { v: 1507, ts: '2026-10-05T23:51:30.219Z', date: 'Oct 5, 2026, 6:51 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
       'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
       'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
