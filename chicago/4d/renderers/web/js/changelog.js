@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Houses on Washington Street and west of the river name who lives there', kind: 'change',
+  { v: 1489, ts: '2026-10-05T14:00:52.546Z', date: 'Oct 5, 2026, 9:00 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
     items: [
       'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 24 more of them now name the household living there, 74 across the town.',
       'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
