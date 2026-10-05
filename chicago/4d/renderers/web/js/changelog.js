@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1502, ts: '2026-10-05T19:30:26.486Z', date: 'Oct 5, 2026, 2:30 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
+    items: [
+      'Walk south across Madison between Market and State and the five blocks there are no longer open prairie. They are now cropped, grazed vacant lots, the same sward as the empty lots inside the town. No house stands on them yet.',
+      'These blocks were sold lot by lot in October 1833, in the School Section beyond the town\u2019s south line. The town plan still owes the South Division about forty houses, and every block inside the line is full. So those houses will be built here, one to a lot, with a lot left open on each block.',
+      'Thirty-four households who had no lot are now given one on these blocks, and their cards say so. Their houses come in the next few updates.',
+    ] },
   { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
     items: [
       'Open the 1812 scene and the first Fort Dearborn no longer stands alone. West of it, by the river, is the two-storey log factory, the government trading house. South of that are the Indian agent\u2019s house and a column of three stables. South of the fort is the commanding officer\u2019s fenced garden, with the sutler\u2019s smaller garden toward the beach.',

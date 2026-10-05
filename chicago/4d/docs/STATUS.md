@@ -1,3 +1,26 @@
+## T-2144 — the School Section tier joins the grid and the roof schedule (2026-10-05)
+
+The owner answered T-1755 (b): the South's owed dwellings cross Madison onto the School
+Section's Madison–Monroe tier. The run that took T-1755 found it was more than one run — the
+tier's lots lived only in `school_section_tier_lots.json`, which neither `reconcile_665.py` nor
+`generate_block_infill.py` reads — and split it: **T-2144** (this) opens the ground, and
+**T-2145** (Clark blocks 118, 119), **T-2146** (Wells blocks 94, 95) and **T-2147** (Market
+block 81) build on it.
+
+- `generate_plat_lots.py` quotes the tier as a third seated tract, the way Michigan St tract and
+  Wabansia join: only the cells east of the forks with lots on dry ground — **81, 94, 95, 118,
+  119, forty lots**. Blocks 24–72 (West), 80 (under datum at its river corners) and 1/142 (never
+  cut) stay on the off-plat ledger, which now skips any tier block the grid carries.
+- `reconcile_665.py` schedules the tier **one principal roof to a lot, no party-line row**, each
+  block keeping a lot open: 7 principal + 2 yard roofs of room per block. The South balance
+  (`south_plat_beyond_committed_control`, 20 roofs) empties; the tier is dealt **36 roofs —
+  32 dwellings (D2–D7), three boarding houses (H1–H3) on block 95, one yard building** — and the
+  Market wedge (`blk_south_water_market`, still the owner's) keeps 6 of its 22.
+- The seating walked to a fixpoint in two laps: **212 seated** (was 178), the 34 new ones
+  slot requests on the tier that T-2145..T-2147 raise. 56 keeper rows moved; no mesh went stale.
+- The order book's `ordinary_dwellings/south` row moves to **T-2145** (T-1755 is split).
+- Corridor-strip baseline re-written: only `blocks_after` 77→82 and `lots_after` 330→370 moved.
+
 ## T-2062 — the first fort's factory, agency, stables and gardens, by the draught's own figures (2026-10-05)
 
 **Visible:** seven structures now stand outside the first Fort Dearborn in the 1812 scene. They
