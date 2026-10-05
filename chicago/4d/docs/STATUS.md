@@ -77,18 +77,18 @@ districts join `DISTRICTS` with T-2136 as their ticket — `washington` (`blk_wa
 `west` (`blk_west_`) and `indiana_north` (`blk_indiana_north_`) — and carry no `parent`,
 because T-2136 was a piece of no programme ticket.
 
-- **51 seats, 24 keepers written, 27 refusals said on the roof** (every one the letter-list
-  ruling of 2026-08-30). Town-wide: written 50 → **74**, refused 83 (all on the roof), owed
-  24 → **0**; the ledger's `owed_to` is null. L276 restated.
+- **59 seats, 27 keepers written, 32 refusals said on the roof** (every one the letter-list
+  ruling of 2026-08-30). Town-wide: written 50 → **77**, refused 88 (all on the roof), owed
+  27 → **0** (24 when filed; T-2130's new Washington-tier roofs added three); the ledger's `owed_to` is null. L276 restated.
 - **The self-test no longer needs something owed.** Its owner-liveness cases asked the
   committed ledger's owed rows, so a ledger owing nothing failed as NOT EXERCISED. With nothing
   owed it now asks a copy with one written row moved to owed and `OWED_TO` as its owner.
-- **16 roofs re-baked** (`bake.sh --only` those ids): the T-1816 finish rule (L330) reads the
-  keeper's arrival year, so roof condition and finish moved. The other eight named roofs and
-  the 27 refused ones carry prose only.
-- Downstream re-derived: platted seats (`households_that_would_change_roof` 33 → 27 in the
-  business-deal tripwire, because more adopted roofs now read occupied), the roof redeal
-  audit (seated 138 → 162), entrance aprons, woodpiles, 1835 sidecars, source-use backlinks.
+- **21 roofs re-baked** (`generators/build.py --only` those ids, then `web_derivatives.sh --only`): the T-1816 finish rule (L330) reads the
+  keeper's arrival year, so roof condition and finish moved. The other named roofs and the
+  refused ones carry prose only.
+- Downstream re-derived: platted seats (the business deal's counterfactual now moves fewer
+  households, because a roof carrying its keeper's id is offered to that household alone; the
+  seat cost it pins is unchanged), the roof redeal audit, entrance aprons, woodpiles, 1835 sidecars, source-use backlinks.
 
 **Unverified:** no source places any of these households on these lots; the seat is L270's
 invention and the card says so.

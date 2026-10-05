@@ -1,10 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1489, ts: '2026-10-05T14:00:52.546Z', date: 'Oct 5, 2026, 9:00 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+  { v: 1491, ts: '2026-10-05T14:05:47.271Z', date: 'Oct 5, 2026, 9:05 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
     items: [
-      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 24 more of them now name the household living there, 74 across the town.',
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
       'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
-      '27 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
-      '16 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+      '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+    ] },
+  { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+    items: [
+      'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
+      'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
+      'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
+      'The woods, hoops and paint are a reconstruction (Liberty L388). No extra draw calls.',
+    ] },
+  { v: 1489, ts: '2026-10-05T13:16:51.492Z', date: 'Oct 5, 2026, 8:16 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street past Washington and both blocks beside you now have houses. On the Dearborn-to-State block six stand around the boarding house that was already there: a two-storey frame house on each Washington corner, a merchant\u2019s house between them, two one-room cottages and a tradesman\u2019s house along Madison. One lot is left open.',
+      'Across Dearborn, on the Clark block, the last two empty lots are built: a tradesman\u2019s house on Washington with a smokehouse behind it, and a cottage behind that on Madison. That block now carries sixteen roofs on seven of its eight lots.',
+      'Eight families had asked for these houses, but households take a standing roof before they ask for one to be built, so the new houses went to families moving up from older roofs nearby. Fifty-three households changed house behind them, and the plat still houses 178 families.',
+      'Nothing here is claimed as evidence. No source says these buildings stood on these blocks in 1835 or where on their lots they sat. The lot grid, the street lines and the ground are committed; the houses are the building programme filling a town it can count but cannot name, and all nine carry that disclosure on their own cards.',
     ] },
   { v: 1488, ts: '2026-10-05T12:57:24.109Z', date: 'Oct 5, 2026, 7:57 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
     items: [
