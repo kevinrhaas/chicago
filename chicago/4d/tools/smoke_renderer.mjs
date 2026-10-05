@@ -11906,10 +11906,10 @@ for (const [label, viewport, touch] of [
       const dense = new Set(a.flora.communities()
         .filter((c) => c.graminoids && c.matrixShare >= 0.7).map((c) => c.id));
       const R = a.flora.rings.layers.mid.lattice.outer;
-      const clear = (e, n) => {
+      const clear = (e, n, margin = []) => {
         for (let k = 0; k < 12; k++) {
           const t = (k / 12) * Math.PI * 2;
-          for (const rr of [R * 0.45, R * 0.75, R]) {
+          for (const rr of [R * 0.45, R * 0.75, R, ...margin]) {
             const pe = e + Math.cos(t) * rr;
             const pn = n + Math.sin(t) * rr;
             if (!dense.has(a.flora.zoneAt(pe, pn))) return false;
@@ -11918,11 +11918,22 @@ for (const [label, viewport, touch] of [
         }
         return dense.has(a.flora.zoneAt(e, n)) && a.flora.plantableAt(e, n);
       };
+      // The town's box first; then a wider one. Since T-2125 the town's edge
+      // thins into the prairie over about 100 m instead of stopping on a line,
+      // so the one clear disc the town's box held (at its very corner) is now
+      // speckled with town ground, and the next one lies out on the open
+      // plain. Out there the disc is also asked to stand clear of any other
+      // community's blend band (`ZONE_BLEND_MAX_M`, 76 m), because the twelve
+      // bearings would miss a speckle of it falling between them.
       let station = null;
-      for (let e = -300; e <= 900 && !station; e += 8) {
-        for (let n = -300; n <= 500 && !station; n += 8) {
-          if (clear(e, n)) station = { e, n };
+      for (const [e0, e1, n0, n1, margin] of [[-300, 900, -300, 500, []],
+        [-900, 1500, -900, 1100, [R + 40, R + 80]]]) {
+        for (let e = e0; e <= e1 && !station; e += 8) {
+          for (let n = n0; n <= n1 && !station; n += 8) {
+            if (clear(e, n, margin)) station = { e, n };
+          }
         }
+        if (station) break;
       }
       if (!station) return { station: null };
       a.walker.teleport({ local_e: station.e, local_n: station.n, yaw_deg: 0 });
@@ -12173,11 +12184,18 @@ for (const [label, viewport, touch] of [
       const rows = [];
       for (const c of compiled) {
         if (!c.graminoids || !(c.matrixShare > 0)) continue;
+        // The town's box first, then a wider one: since T-2125 a community's
+        // edge is a ~100 m band of mixed ground, and a small community the
+        // town's box held only in its margins can no longer give a clean disc
+        // there.
         let station = null;
-        for (let e = -300; e <= 900 && !station; e += 6) {
-          for (let n = -300; n <= 500 && !station; n += 6) {
-            if (a.flora.zoneAt(e, n) === c.id && clean(c.id, e, n)) station = { e, n };
+        for (const [e0, e1, n0, n1] of [[-300, 900, -300, 500], [-900, 1500, -900, 1100]]) {
+          for (let e = e0; e <= e1 && !station; e += 6) {
+            for (let n = n0; n <= n1 && !station; n += 6) {
+              if (a.flora.zoneAt(e, n) === c.id && clean(c.id, e, n)) station = { e, n };
+            }
           }
+          if (station) break;
         }
         if (!station) continue;
         a.walker.teleport({ local_e: station.e, local_n: station.n, yaw_deg: 0 });
