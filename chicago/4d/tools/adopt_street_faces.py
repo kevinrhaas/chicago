@@ -299,6 +299,9 @@ REGISTER = DATA / "research" / "newspapers" / "register_1835.json"
 GAZETTEER = DATA / "research" / "newspapers" / "gazetteer.json"
 IDENTITY = DATA / "research" / "newspapers" / "identity.json"
 OUT = DATA / "research" / "newspapers" / "street_face_adoptions.json"
+# T-1670. What kind of premises each of the register's trades wanted — a counter, a works,
+# both, a freight store, a room — read off its own word. Every row is inferred.
+TRADE_PREMISES = DATA / "research" / "newspapers" / "trade_premises.json"
 STRUCTURES = DATA / "structures"
 HOUSEHOLDS = DATA / "residents" / "households"
 PROGRAMME = DATA / "reconstruction" / "1835_inferred_household_programme.json"
@@ -323,6 +326,10 @@ ADOPTION_KEYS = {
     # store came to stand in a log cabin while a shop roof stood free on the same face;
     # carrying the reading on the record is what stops that being invisible again.
     "roof_family", "roof_function", "roof_is_a_house_of_trade", "family_note",
+    # T-1670. What kind of premises the business's own trade wanted, and whether the roof
+    # it was dealt is of that kind. The C/W/F test above cannot tell a counter from a
+    # works; this can, so a cabinet manufactory in a store-residence is stated, not hidden.
+    "trade_kind", "roof_fits_the_trade", "kind_note",
     "lot", "claims_lot", "order_is_a_claim", "note",
 }
 
@@ -444,6 +451,48 @@ def is_house_of_trade(family: str | None) -> bool:
 
 
 _ORDINAL = re.compile(r"^(?P<stem>.+)_(?P<ordinal>\d+)$")
+
+
+_PREMISES: dict | None = None
+
+
+def trade_premises() -> dict:
+    """`data/research/newspapers/trade_premises.json`, read once (T-1670)."""
+    global _PREMISES
+    if _PREMISES is None:
+        _PREMISES = load(TRADE_PREMISES)
+    return _PREMISES
+
+
+def trade_kind(entry: dict, reading: dict | None = None) -> tuple[str, str]:
+    """`(kind, read_off)` for one register entry — T-1670.
+
+    The printed trade's own row wins over the occupation's, because the occupation is the
+    register's normalisation of that same notice and the notice is the nearer witness: a
+    `merchant` whose notice prints "storage and commission merchant" kept a warehouse and
+    not a counter. A notice that names no trade is `unstated`, which every house of trade
+    fits equally, so the deal reads no preference for it.
+    """
+    reading = reading or trade_premises()
+    trade = entry.get("trade")
+    if trade and trade in reading["by_trade"]:
+        return reading["by_trade"][trade]["kind"], "trade"
+    occupation = entry.get("occupation")
+    if occupation and occupation in reading["by_occupation"]:
+        return reading["by_occupation"][occupation]["kind"], "occupation"
+    return reading["unstated_kind"], "unstated"
+
+
+def kind_bands(kind: str, reading: dict | None = None) -> tuple[str, ...]:
+    """The trade bands a kind of premises fits; empty where no house of trade does."""
+    reading = reading or trade_premises()
+    return tuple(reading["kinds"][kind]["bands"])
+
+
+def fits_the_trade(family: str | None, bands: tuple[str, ...]) -> bool:
+    """Whether a roof raised as `family` is a house of trade of one of `bands` (T-1670)."""
+    return is_house_of_trade(family) and str(family).upper().startswith(bands) \
+        if bands else False
 
 
 def roof_key(structure_id: str, family: str | None) -> tuple[str, int]:
@@ -664,7 +713,8 @@ EMPTY_FACE = {FRONT: [], SIDE: [], BAND: [], "free": [], "homes": [], "yards": [
 READING_ORDER = (FRONT, SIDE, BAND)
 
 
-def deal_order(structure_id: str, families: dict[str, str]) -> tuple:
+def deal_order(structure_id: str, families: dict[str, str],
+               bands: tuple[str, ...] = ()) -> tuple:
     """The key the deal takes a face's free roofs in — T-1651, and it replaced the id.
 
     Two things it does that sorting by the roof's id did not:
@@ -682,14 +732,24 @@ def deal_order(structure_id: str, families: dict[str, str]) -> tuple:
         carries the family. The tier above it moves only if the re-family crosses the
         trade bands, so one roof's change now re-deals what that roof's change reaches
         and not the whole street.
+      * **It reads the business's TRADE (T-1670).** Of the houses of trade, one of the
+        bands the trade's kind of premises fits — `bands`, off `trade_premises.json` —
+        comes before the rest, so a works trade takes a W roof before a store and a
+        counter trade a store before a warehouse. The C/W/F test alone could not tell a
+        cabinet manufactory from a dry-goods store. With no `bands` the tier is the
+        house-of-trade test and nothing else, which is T-1651's order exactly.
     """
     family = families.get(structure_id)
-    return (0 if is_house_of_trade(family) else 1, roof_key(structure_id, family))
+    if not is_house_of_trade(family):
+        return (2, roof_key(structure_id, family))
+    return (0 if not bands or fits_the_trade(family, bands) else 1,
+            roof_key(structure_id, family))
 
 
 def free_under(face: dict, readings: tuple[str, ...], homes: dict,
                yards: set[str], requested: dict | None = None,
-               families: dict[str, str] | None = None) -> list[str]:
+               families: dict[str, str] | None = None,
+               bands: tuple[str, ...] = ()) -> list[str]:
     """The roofs a pass adopting `readings` could take, in READING_ORDER then `deal_order`.
 
     Refusals 4, 5 and 7 are applied here rather than by the caller, because they are
@@ -708,7 +768,7 @@ def free_under(face: dict, readings: tuple[str, ...], homes: dict,
             continue
         here = [sid for sid in face[how]
                 if sid not in homes and sid not in yards and sid not in requested]
-        here.sort(key=lambda sid: deal_order(sid, families))
+        here.sort(key=lambda sid: deal_order(sid, families, bands))
         out += here
     return out
 
@@ -1036,6 +1096,50 @@ def family_reading(structure_id: str, how: str, families: dict[str, str],
                len([sid for sid in trade_of_this_reading if sid in spoken_for])))
 
 
+def kind_reading(entry: dict, structure_id: str, how: str, face: dict, kind: str,
+                 read_off: str, preference: tuple[str, ...], families: dict[str, str],
+                 homes: dict, yards: set[str], requested: dict,
+                 spoken_for: set[str]) -> str:
+    """What the trade wanted and whether it got it, said on the record (T-1670).
+
+    Written while the deal still knows what was free, like `family_reading`. Where the
+    roof is not of the trade's kind, the note says whether a roof of that kind stood on
+    the face under the same reading at all, and if it did, what held it — so a works trade
+    in a store is a stated compromise with its cause, not a thing a reader has to notice.
+    """
+    family = families.get(structure_id)
+    source = ("its printed trade, %r" % entry.get("trade") if read_off == "trade"
+              else "its occupation, %r" % entry.get("occupation") if read_off == "occupation"
+              else "nothing: the notice names no trade")
+    if not preference:
+        return ("The trade's kind of premises is %s, read off %s, and %s, so the deal read "
+                "no preference among the C, W and F bands for it."
+                % (kind, source, "every house of trade fits it equally" if kind_bands(kind)
+                   else "no house of trade is the roof it wanted"))
+    if fits_the_trade(family, preference):
+        return ("The trade's kind of premises is %s, read off %s (inferred, "
+                "data/research/newspapers/trade_premises.json), and the roof is of the %s "
+                "band(s) that kind fits. That is the deal preferring a fitting roof and not "
+                "a reading of any source." % (kind, source, "/".join(preference)))
+    fitting = [sid for sid in face[how] if fits_the_trade(families.get(sid), preference)]
+    assert not [sid for sid in fitting if sid not in homes and sid not in yards
+                and sid not in requested and sid not in spoken_for], (
+        "%s took %s while a roof of its kind stood free on the same %s"
+        % (entry["id"], structure_id, how))
+    return ("The trade's kind of premises is %s, read off %s (inferred, "
+            "data/research/newspapers/trade_premises.json), and it fits the %s band(s); "
+            "this roof is a %s. Under the %s reading the face holds %d roof(s) of those "
+            "bands: %d a household's dwelling, %d yard buildings, %d raised for a slot "
+            "request, and %d already dealt to a better-evidenced business. So what this "
+            "business wanted is a roof the face does not hold free, and the mismatch is "
+            "the reconstruction's, stated rather than hidden."
+            % (kind, source, "/".join(preference), family, how, len(fitting),
+               len([sid for sid in fitting if sid in homes]),
+               len([sid for sid in fitting if sid in yards]),
+               len([sid for sid in fitting if sid in requested]),
+               len([sid for sid in fitting if sid in spoken_for])))
+
+
 def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
              yards: set[str], readings: tuple[str, ...],
              ruled_two_houses: set[tuple[str, ...]],
@@ -1060,6 +1164,7 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
     requested = requested or {}
     families = roof_families()
     functions = roof_functions()
+    premises = trade_premises()
     taken: set[str] = set()
     spent_on_face: dict[str, set[str]] = {}
 
@@ -1088,8 +1193,13 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
             continue
         face = faces.get(street_id) or {key: list(value)
                                         for key, value in EMPTY_FACE.items()}
+        # T-1670. What kind of premises this trade wanted. A kind whose bands are all of
+        # the trade bands, or none of them, reads no preference among houses of trade.
+        kind, read_off = trade_kind(entry, premises)
+        bands = kind_bands(kind, premises)
+        preference = bands if bands and set(bands) != set(TRADE_BANDS) else ()
         free = [sid for sid in free_under(face, readings, homes, yards, requested,
-                                          families)
+                                          families, preference)
                 if sid not in spoken_for(street_id)]
         if not any(face[how] for how in readings):
             refusals.append(dict(
@@ -1147,6 +1257,9 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
         family_note = family_reading(structure_id, how, families, functions,
                                      trade_of_this_reading, homes, yards, requested,
                                      spoken_for(street_id))
+        kind_note = kind_reading(entry, structure_id, how, face, kind, read_off,
+                                 preference, families, homes, yards, requested,
+                                 spoken_for(street_id))
         taken.add(structure_id)
         spent_on_face.setdefault(street_id, set()).add(structure_id)
         if house:
@@ -1187,6 +1300,12 @@ def allocate(pool: list, gaz: dict, faces: dict, roofs: dict, homes: dict,
             "roof_function": functions.get(structure_id),
             "roof_is_a_house_of_trade": is_house_of_trade(families.get(structure_id)),
             "family_note": family_note,
+            "trade_kind": kind,
+            # None where the trade's kind is a roof no trade band raises (a tavern, a
+            # livery stable): there is no house of trade it fits, so none can fail it.
+            "roof_fits_the_trade": fits_the_trade(families.get(structure_id), bands)
+            if bands else None,
+            "kind_note": kind_note,
             "lot": None,
             "claims_lot": False,
             "order_is_a_claim": False,
