@@ -4278,8 +4278,8 @@
         "A5": 1
       },
       "dealt_against_a_request": {
-        "ticket": "T-1758",
-        "parent": null,
+        "ticket": "T-2129",
+        "parent": "T-1758",
         "from": "data/reconstruction/1835_platted_seats.json",
         "requests": [
           {

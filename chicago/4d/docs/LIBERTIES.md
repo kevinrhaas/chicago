@@ -21286,5 +21286,5 @@ unbuilt in July 1835 would retire all ten rather than re-place them.
 `recon_1835_blk_washington_market_a4_16.inferred_1835.position`, `recon_1835_blk_washington_market_a4_16.inferred_1835.footprint`
 **Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L304** (the
 Franklin block, whose yard-building argument this follows), **L347** (the two boarding houses on
-this block), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1758**.
-**Recorded:** 2026-10-05 (T-1758).
+this block), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1758** (split; this is its piece **T-2129**).
+**Recorded:** 2026-10-05 (T-2129).
