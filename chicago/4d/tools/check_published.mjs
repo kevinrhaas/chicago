@@ -118,6 +118,14 @@ const TRANSFORMED = [
   { re: /^walk\/index\.html$/,
     what: 'publish.sh stamps the build commit and its Central-time date into the gate overlay',
     gate: 'tools/test_dev_preview.mjs asserts the stamp on the PUBLISHED form' },
+  { re: /^data\/residents\/letter_list\/[^/]+\.json$/,
+    what: 'tools/pack_letter_list.py packs the letter-list cohort into a roster of the strings it '
+        + 'repeats and a shard per initial, and takes those households\' own files out (T-0438)',
+    gate: 'tools/check_published_residents.mjs unpacks every shipped record with the renderer\'s own '
+        + 'unpackRecord and asserts it deep-equal to its source, the cohort exactly the index\'s '
+        + 'letter_list_only households and none shipped twice; pack_letter_list.py --self-test '
+        + '(check.sh) proves the round trip and refuses a record the packing would make ambiguous. '
+        + 'The cohort had reached 9.30 MiB as one file per name, most of it the same paragraphs.' },
   { re: /^data\/residents\/.*\.json$/,
     what: 'publish.sh writes the residents layer minified — the same JSON value on one line',
     gate: 'tools/check_published_residents.mjs asserts the SHIPPED file parses to a value '

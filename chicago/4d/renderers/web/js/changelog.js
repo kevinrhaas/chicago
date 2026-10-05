@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1459, ts: '2026-10-05T01:23:30.633Z', date: 'Oct 4, 2026, 8:23 PM CT', title: 'The letter-list names load half the size', kind: 'change',
+    items: [
+      'Open People and look at the names known only from the post office\u2019s letter lists. Each one opens as before, with nothing left out.',
+      'They now come down to your browser in half the size, about 4.6 MB where it was 9.3 MB. Most of those records repeat the same paragraphs, and now each paragraph is sent once.',
+      'After the first name opens, other names with the same first letter open straight away.',
+    ] },
   { v: 1458, ts: '2026-10-05T01:08:43.898Z', date: 'Oct 4, 2026, 8:08 PM CT', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
     items: [
       'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',

@@ -3147,6 +3147,9 @@ selftest "reference browsers: only what the root already ships is served from it
 # `apply_census_1840_bridges.py --check` asserted its own copy was fresh, which is how
 # two owners came to disagree about whitespace and turn this gate red on any run that
 # published (T-0933).
+selftest "letter-list roster: the cohort packs and reads back exactly (T-0438)" \
+  python3 tools/pack_letter_list.py --self-test
+
 step "the published residents layer carries its source's value" \
   node tools/check_published_residents.mjs
 

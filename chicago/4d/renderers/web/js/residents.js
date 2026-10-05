@@ -69,6 +69,7 @@ import { tierOf, isNotAsserted, TIER_LABEL, TIER_TITLE } from './attribute-tiers
 // The agency relation, rendered by the module that owns it — one rendering of a
 // holding for the building card and the person card both (T-1041).
 import { agencySectionHtml, loadAgencies } from './agencies.js';
+import { readHouseholdRecord } from './letter-list-roster.js';
 
 /** A closed-set token as a reader should see it: `tavern_keeper`. */
 export function words(token) {
@@ -2292,6 +2293,7 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
       + evidenced.map((entry) => householdSummary(entry)).join('')
       + letterListGroupHtml(letterList, persons);
     mount.removeAttribute('aria-busy');
+    const cohortFiles = new Set(letterList.map((e) => e.file));
 
     // The lazy read. A row's body arrives the first time it is opened, from the
     // household record rather than from the manifest's summary of it — the
@@ -2304,7 +2306,10 @@ export async function mountResidents({ mount, noteMount = null, sceneId, dataBas
       el.dataset.loaded = '1';
       const body = el.querySelector('.res-hh-body');
       try {
-        const hh = await getJson(`residents/${el.dataset.file}`);
+        // T-0438: the letter-list cohort is published packed, so its rows read
+        // through the roster; every other row reads its own file as before.
+        const hh = await readHouseholdRecord(dataBase, el.dataset.file,
+          { cohort: cohortFiles.has(el.dataset.file) });
         if (body) body.innerHTML = householdHtml(hh, citationsById, researchByPerson, directoryByPerson,
           vocab.ladder_rules, agencies, withheldByPerson, seatingByPerson, coverage);
       } catch (err) {
