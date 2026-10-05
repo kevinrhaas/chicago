@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+  { v: 1472, ts: '2026-10-05T05:17:04.262Z', date: 'Oct 5, 2026, 12:17 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
     items: [
       'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
       'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
