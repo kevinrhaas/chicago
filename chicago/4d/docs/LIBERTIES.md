@@ -15827,7 +15827,7 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Forty-nine roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 48 roofs (49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 49 roofs (49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the

@@ -504,7 +504,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -526,7 +526,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -548,7 +548,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -700,7 +700,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -722,7 +722,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -1774,21 +1774,21 @@
       "lot": "blk_randolph_market_lot3",
       "belongs_to": "recon_1835_blk_randolph_market_d4_03",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        144.22,
-        -325.4
+        144.3,
+        -325.32
       ],
       "bearing_deg": -179.66,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_randolph_market_lot4",
@@ -2034,7 +2034,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
