@@ -10,17 +10,17 @@ Clause 4 says the 61 street-only and 62 unplaceable counts may fall only when a 
 
 | published limit | before | adjudicated grade | after | what the grade means |
 |---|---:|---|---:|---|
-| structure | 58 | `structure_committed` | 47 | the anchor resolves to a roof the dataset holds |
-| structure | 58 | `structure_pending` | 11 | the anchor reaches a roof the town has not built |
-| street_only | 56 | `street_only_adopted` | 40 | seated on an existing roof by the 2026-08-29 ruling; substitutable |
-| street_only | 56 | `street_only_unseated` | 16 | the face could not be adopted |
-| unplaceable | 62 | `unplaceable` | 62 | no street the model holds |
+| structure | 64 | `structure_committed` | 53 | the anchor resolves to a roof the dataset holds |
+| structure | 64 | `structure_pending` | 11 | the anchor reaches a roof the town has not built |
+| street_only | 52 | `street_only_adopted` | 40 | seated on an existing roof by the 2026-08-29 ruling; substitutable |
+| street_only | 52 | `street_only_unseated` | 12 | the face could not be adopted |
+| unplaceable | 60 | `unplaceable` | 60 | no street the model holds |
 
-**0 businesses moved between the published limits.** The three counts T-1157 reads as the sign-off's location axis are unchanged at 58 / 56 / 62.
+**0 businesses moved between the published limits.** The three counts T-1157 reads as the sign-off's location axis are unchanged at 64 / 52 / 60.
 
 ### Why `structure` needed splitting
 
-The register's `new_building` action means the advertisement's anchor is good enough for a roof and the roof does not exist yet, so its `action_target` is another business or a corner rather than a structure id. 11 of the 58 are in that state. Read as an evidence metric, 56 is right: the paper did reach a roof. Read as a completion metric it rewards eleven placements the model cannot make. Both numbers are wanted, so both are published — and no row in `structure_pending` names a structure.
+The register's `new_building` action means the advertisement's anchor is good enough for a roof and the roof does not exist yet, so its `action_target` is another business or a corner rather than a structure id. 11 of the 64 are in that state. Read as an evidence metric, 56 is right: the paper did reach a roof. Read as a completion metric it rewards eleven placements the model cannot make. Both numbers are wanted, so both are published — and no row in `structure_pending` names a structure.
 
 ### Why an adopted roof is not a claim
 

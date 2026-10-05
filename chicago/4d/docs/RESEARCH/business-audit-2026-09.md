@@ -117,10 +117,10 @@ once as its own predecessor — and the move to Jones & King's appeared nowhere 
 
 | kind | rows | what it means |
 |---|---:|---|
-| `unplaceable` | 82 | no anchor the town holds, or a prose anchor never resolved to an id |
-| `street_only` | 57 | the paper names a street and no house on it |
+| `unplaceable` | 80 | no anchor the town holds, or a prose anchor never resolved to an id |
+| `street_only` | 53 | the paper names a street and no house on it |
+| `anchored` | 33 | placed against a landmark the town holds; no roof of its own (T-1401) |
 | `premises` | 31 | matched onto a committed structure — a roof of its own |
-| `anchored` | 27 | placed against a landmark the town holds; no roof of its own (T-1401) |
 
 166 of the 197 location rows carry a `limit_reason`; every row that is not a `premises`
 does. 4 records carry a plural `locations[]`: `biz_chicago_democrat_printing_office`, `biz_g_spring`, `biz_matthias_mason_co`, `biz_the_chicago_democrat` — the four of § 5.

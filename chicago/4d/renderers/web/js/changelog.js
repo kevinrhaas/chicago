@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1497, ts: '2026-10-05T16:26:38.278Z', date: 'Oct 5, 2026, 11:26 AM CT', title: 'Shops placed by Newberry & Dole\u2019s store now stand at Lake and Dearborn', kind: 'change',
+    items: [
+      'Six businesses in the 1834\u201335 Chicago Democrat give their address only as being near Newberry & Dole\u2019s store: a baker, two Dearborn Street shoe and grocery shops, W. H. Brown, and the agent for the Chicago and St. Joseph packet. They are now placed at that store, the warehouse at Lake and Dearborn, instead of somewhere on the street.',
+      'Their seat is the nearest building we have, not a claim that they shared it. \u201cOne door south\u201d and \u201ca few rods north\u201d mean they stood beside it.',
+      'Three shop signs on reconstructed buildings along Dearborn and South Water come down. Those buildings were housing these firms until a better address was found, and other firms now fill some of them.',
+    ] },
   { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',
