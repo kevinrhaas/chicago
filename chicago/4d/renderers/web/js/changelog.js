@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Newberry & Dole\u2019s warehouse stays on the south bank, now on the town\u2019s own paper', kind: 'change',
+  { v: 1488, ts: '2026-10-05T13:11:27.026Z', date: 'Oct 5, 2026, 8:11 AM CT', title: 'Newberry & Dole\u2019s warehouse stays south of the river, on the paper\u2019s word', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Newberry & Dole\u2019s forwarding warehouse stays where it stood, on South Water Street across from its dock.',
       'A letter about an August 1835 walk put the firm\u2019s warehouse on the north bank instead. We have now read the 1834\u201335 Chicago Democrat: four shopkeepers\u2019 notices place the firm\u2019s \u201cstore house, on south water street\u201d, one of them in the issue of July 1, 1835, the day the scene shows. So the south bank now rests on a source from that summer. Until now it rested on a note no one could trace.',
