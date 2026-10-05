@@ -1616,13 +1616,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 247,
-    "still_owed": 1177,
-    "roofs_adopted": 223,
+    "seated": 248,
+    "still_owed": 1176,
+    "roofs_adopted": 224,
     "slots_requested": 24,
     "roofs_standing": 556,
-    "roofs_standing_unseated": 333,
-    "share_of_standing_roofs_seated": 0.4011,
+    "roofs_standing_unseated": 332,
+    "share_of_standing_roofs_seated": 0.4029,
     "passes": [
       {
         "key": "platted",
@@ -1631,23 +1631,23 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 174,
-        "handed_on": 1250,
-        "roofs_adopted": 150,
+        "seated": 175,
+        "handed_on": 1249,
+        "roofs_adopted": 151,
         "slots_requested": 24,
         "roofs_offered_for_adoption": 162,
         "roofs_held_back": 56,
-        "ground_taken": 157,
+        "ground_taken": 158,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 21,
-          "south": 125,
+          "south": 126,
           "west": 28
         },
         "by_clause": {
           "labourer_dwellings": 35,
           "lodging_near_the_landings": 2,
-          "merchant_and_professional_dwellings": 32,
+          "merchant_and_professional_dwellings": 33,
           "tradesman_dwellings": 105
         }
       },
@@ -1657,9 +1657,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1250,
+        "rows_offered": 1249,
         "seated": 73,
-        "handed_on": 1177,
+        "handed_on": 1176,
         "roofs_adopted": 73,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 79,
@@ -1701,22 +1701,12 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_beaubien_monique",
-        "name": "The Beaubien household — a name the town's own records carry",
-        "district": "south",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_washington_clark",
-        "lot_id": "blk_washington_clark#02",
-        "family": "D7",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_beddlecome_ash",
         "name": "The Beddlecome household — a name from the post office's letter lists",
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_washington_dearborn",
-        "lot_id": "blk_washington_dearborn#06",
+        "block_id": "blk_washington_clark",
+        "lot_id": "blk_washington_clark#02",
         "family": "D7",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
@@ -1726,13 +1716,23 @@
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
+        "lot_id": "blk_washington_dearborn#06",
+        "family": "D7",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_benediet_loma",
+        "name": "The Benediet household — a name from the post office's letter lists",
+        "district": "south",
+        "clause": "merchant_and_professional_dwellings",
+        "block_id": "blk_washington_dearborn",
         "lot_id": "blk_washington_dearborn#00",
         "family": "H1",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_benediet_loma",
-        "name": "The Benediet household — a name from the post office's letter lists",
+        "household_id": "hh_bennet_lyman",
+        "name": "The Bennet household — a name from the post office's letter lists",
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
         "block_id": "blk_washington_dearborn",
@@ -1929,7 +1929,7 @@
       "blk_west_lake_canal"
     ],
     "what_the_slots_wait_on": "24 slot(s) on 5 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_washington_clark, blk_washington_dearborn, blk_west_lake_canal. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,177 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,176 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5179,10 +5179,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 556,
-        "standing_with_an_occupant": 207,
-        "standing_without_an_occupant": 349,
+        "standing_with_an_occupant": 206,
+        "standing_without_an_occupant": 350,
         "to_build_total": 130,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 349 of the 556 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 350 of the 556 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -6040,7 +6040,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "349 of 556 standing records carry no occupants block."
+      "measured_now": "350 of 556 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
