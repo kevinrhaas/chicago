@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1493, ts: '2026-10-05T14:46:11.224Z', date: 'Oct 5, 2026, 9:46 AM CT', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
+  { v: 1495, ts: '2026-10-05T15:25:36.630Z', date: 'Oct 5, 2026, 10:25 AM CT', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
     items: [
       'Nothing you can see changes in the town. Kelsey\u2019s small yellow boarding-house on the north-side sand hills now has a corrected card.',
       'The 1843 and 1844 directories print its keeper as \u201cPatrick\u201d and \u201cParnick\u201d Kelsey. They are now one man: the same trade on the same Wolcott Street block, with the same two Hough boarders in both books.',
