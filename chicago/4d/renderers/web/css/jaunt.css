@@ -13,6 +13,7 @@
 .jaunt-panel button, .jaunt-body summary { min-height: 44px; cursor: pointer; }
 .jaunt-panel button { color: inherit; background: #ffffff12; border: 1px solid #88968c; border-radius: 7px; padding: 8px; font: inherit; }
 .jaunt-panel button:disabled { opacity: .45; cursor: default; }
+.jaunt-panel button.jaunt-needs-choice { border-color: #ead09e99; color: #ead09e; }
 .jaunt-panel button:focus-visible, .jaunt-body summary:focus-visible { outline: 3px solid #ead09e; outline-offset: -3px; }
 .jaunt-controls { flex: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 8px; border-top: 1px solid #64716e; }
 .jaunt-resources { display: flex; flex-wrap: wrap; gap: 5px; list-style: none; padding: 0; margin: 8px 0 10px; }
