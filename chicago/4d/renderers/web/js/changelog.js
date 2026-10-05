@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1458, ts: '2026-10-05T01:08:43.898Z', date: 'Oct 4, 2026, 8:08 PM CT', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
+    items: [
+      'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',
+      'At a stop like that the button now reads Choose an Option. Tap it and the panel scrolls to the options.',
+      'Nothing about the previous jaunt was carried over. All 26 jaunts were run start to finish, one after another, on a phone-sized window.',
+    ] },
   { v: 1457, ts: '2026-10-05T00:54:32.111Z', date: 'Oct 4, 2026, 7:54 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
     items: [
       'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
