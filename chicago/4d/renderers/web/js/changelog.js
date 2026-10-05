@@ -4,7 +4,19 @@ export const CHANGELOG = [ // newest first
       'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
       'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
       'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
-      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L389).',
+      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L390).',
+    ] },
+  { v: 1498, ts: '2026-10-05T17:06:41.763Z', date: 'Oct 5, 2026, 12:06 PM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+    items: [
+      'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
+      'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
+      'Nothing here is claimed as evidence. No source puts a workshop on these lots in 1835 or says which trade worked there. The shops are the programme filling a town it can count but cannot name, and each carries that disclosure on its own card.',
+    ] },
+  { v: 1497, ts: '2026-10-05T16:26:38.278Z', date: 'Oct 5, 2026, 11:26 AM CT', title: 'Shops placed by Newberry & Dole\u2019s store now stand at Lake and Dearborn', kind: 'change',
+    items: [
+      'Six businesses in the 1834\u201335 Chicago Democrat give their address only as being near Newberry & Dole\u2019s store: a baker, two Dearborn Street shoe and grocery shops, W. H. Brown, and the agent for the Chicago and St. Joseph packet. They are now placed at that store, the warehouse at Lake and Dearborn, instead of somewhere on the street.',
+      'Their seat is the nearest building we have, not a claim that they shared it. \u201cOne door south\u201d and \u201ca few rods north\u201d mean they stood beside it.',
+      'Three shop signs on reconstructed buildings along Dearborn and South Water come down. Those buildings were housing these firms until a better address was found, and other firms now fill some of them.',
     ] },
   { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [

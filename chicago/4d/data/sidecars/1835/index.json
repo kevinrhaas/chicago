@@ -11524,6 +11524,18 @@
       "asset": "gltf/recon_1835_blk_randolph_clark_h2_02__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_randolph_clark_w1_10",
+      "name": "Reconstructed W1 blacksmith shop #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_randolph_clark_w1_10.json",
+      "asset": "gltf/recon_1835_blk_randolph_clark_w1_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_w2_09",
+      "name": "Reconstructed W2 carpenter or joiner shop #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_randolph_clark_w2_09.json",
+      "asset": "gltf/recon_1835_blk_randolph_clark_w2_09__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_randolph_clinton_a1_06",
       "name": "Reconstructed A1 stable #06",
       "sidecar": "sidecars/1835/recon_1835_blk_randolph_clinton_a1_06.json",
@@ -11690,6 +11702,12 @@
       "name": "Reconstructed H1 larger one-and-a-half-story house #14",
       "sidecar": "sidecars/1835/recon_1835_blk_randolph_dearborn_h1_14.json",
       "asset": "gltf/recon_1835_blk_randolph_dearborn_h1_14__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_w2_18",
+      "name": "Reconstructed W2 carpenter or joiner shop #18",
+      "sidecar": "sidecars/1835/recon_1835_blk_randolph_dearborn_w2_18.json",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_w2_18__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_randolph_franklin_a1_07",
@@ -12332,6 +12350,12 @@
       "name": "Reconstructed H3 boarding house #01",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_h3_01.json",
       "asset": "gltf/recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_w2_10",
+      "name": "Reconstructed W2 carpenter or joiner shop #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_w2_10.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_w2_10__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_franklin_a1_10",

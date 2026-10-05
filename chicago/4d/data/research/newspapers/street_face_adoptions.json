@@ -49,19 +49,19 @@
      "business_elmira_fowler",
      "business_fullerton_botsford",
      "business_hubbard_co",
-     "business_j_b_brown_dearborn_street_grocery",
      "business_j_l_wilson_co",
      "business_james_grant",
      "business_magie_wilkinson",
      "business_s_abell_attorney_and_counsellor",
+     "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
      "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store",
      "business_unnamed_new_store_la_salle_street"
     ],
-    "would_still_refuse": 26,
+    "would_still_refuse": 22,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
-     "the face holds no roof standing on it": 23,
-     "this face already holds this proprietor": 2,
+     "the face holds no roof standing on it": 20,
+     "this face already holds this proprietor": 1,
      "every roof on the face is spoken for": 1
     }
    },
@@ -81,24 +81,24 @@
       "business_miss_bayne_s_boarding_and_day_school"
      ],
      "recon_1835_blk_south_water_lasalle_c1_08": [
-      "business_h_doty_co",
-      "business_magie_wilkinson"
+      "business_magie_wilkinson",
+      "business_rockwell_cabinet_furniture_warehouse"
      ],
      "recon_1835_blk_south_water_lasalle_f2_10": [
-      "business_hubbard_co",
-      "business_rockwell_cabinet_furniture_warehouse"
+      "business_hiram_pearsons",
+      "business_hubbard_co"
      ]
     },
     "against_the_reading_in_force": 0,
     "seats_that_the_reading_in_force_does_not": [],
     "seats_that_the_reading_in_force_does_not_by_street": {},
     "loses_against_the_reading_in_force": [],
-    "would_still_refuse": 16,
+    "would_still_refuse": 12,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
      "the face holds no roof standing on it": 3,
-     "this face already holds this proprietor": 5,
-     "every roof on the face is spoken for": 8
+     "this face already holds this proprietor": 2,
+     "every roof on the face is spoken for": 7
     }
    },
    "a corner side or the band is a face": {
@@ -118,24 +118,24 @@
       "business_miss_bayne_s_boarding_and_day_school"
      ],
      "recon_1835_blk_south_water_lasalle_c1_08": [
-      "business_h_doty_co",
-      "business_magie_wilkinson"
+      "business_magie_wilkinson",
+      "business_rockwell_cabinet_furniture_warehouse"
      ],
      "recon_1835_blk_south_water_lasalle_f2_10": [
-      "business_hubbard_co",
-      "business_rockwell_cabinet_furniture_warehouse"
+      "business_hiram_pearsons",
+      "business_hubbard_co"
      ]
     },
     "against_the_reading_in_force": 0,
     "seats_that_the_reading_in_force_does_not": [],
     "seats_that_the_reading_in_force_does_not_by_street": {},
     "loses_against_the_reading_in_force": [],
-    "would_still_refuse": 16,
+    "would_still_refuse": 12,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
      "the face holds no roof standing on it": 1,
-     "this face already holds this proprietor": 5,
-     "every roof on the face is spoken for": 10
+     "this face already holds this proprietor": 2,
+     "every roof on the face is spoken for": 9
     }
    }
   },
@@ -203,16 +203,16 @@
   }
  },
  "counts": {
-  "street_only_in_register": 56,
+  "street_only_in_register": 52,
   "adopted": 40,
-  "refused": 16,
+  "refused": 12,
   "refused_by_reason": {
    "not present at the scene date": 0,
    "the face holds no roof standing on it": 3,
-   "this face already holds this proprietor": 5,
-   "every roof on the face is spoken for": 8
+   "this face already holds this proprietor": 2,
+   "every roof on the face is spoken for": 7
   },
-  "unplaceable_present_at_scene_date": 62,
+  "unplaceable_present_at_scene_date": 60,
   "adopted_into_a_house_of_trade": 26,
   "adopted_into_a_roof_of_no_trade": 14,
   "roofs_free_and_a_house_of_trade": 29,
@@ -240,16 +240,16 @@
    },
    "dearborn": {
     "street_name": "Dearborn Street",
-    "businesses_naming_it": 16,
+    "businesses_naming_it": 13,
     "adopted": 7,
     "roofs_lot_front": 0,
-    "roofs_corner_side": 25,
-    "roofs_on_the_adopted_face": 25,
+    "roofs_corner_side": 29,
+    "roofs_on_the_adopted_face": 29,
     "roofs_free": 7,
     "roofs_home": 7,
     "roofs_home_named": 0,
     "roofs_home_inferred": 7,
-    "roofs_yard": 8,
+    "roofs_yard": 12,
     "roofs_requested_by_a_seat": 3,
     "roofs_in_centreline_band_declined": 0,
     "roofs_free_and_a_house_of_trade": 2,
@@ -327,14 +327,14 @@
     "street_name": "Randolph Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 54,
+    "roofs_lot_front": 56,
     "roofs_corner_side": 0,
-    "roofs_on_the_adopted_face": 54,
+    "roofs_on_the_adopted_face": 56,
     "roofs_free": 20,
     "roofs_home": 21,
     "roofs_home_named": 0,
     "roofs_home_inferred": 21,
-    "roofs_yard": 13,
+    "roofs_yard": 15,
     "roofs_requested_by_a_seat": 0,
     "roofs_in_centreline_band_declined": 3,
     "roofs_free_and_a_house_of_trade": 3,
@@ -342,7 +342,7 @@
    },
    "south_water": {
     "street_name": "South Water Street",
-    "businesses_naming_it": 24,
+    "businesses_naming_it": 23,
     "adopted": 20,
     "roofs_lot_front": 38,
     "roofs_corner_side": 0,
@@ -1045,16 +1045,16 @@
    "first_issue": "1834-03-04",
    "last_issue": "1834-05-21",
    "mentions": 2,
-   "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+   "structure_id": "recon_1835_blk_south_water_wells_c2_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C3",
-   "roof_function": "narrow_two_story_store",
+   "roof_family": "C2",
+   "roof_function": "store_residence",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a narrow two story store — family C3, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "works",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is works, read off its occupation, 'joiner' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C3. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is works, read off its occupation, 'joiner' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C2. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1167,16 +1167,56 @@
    "first_issue": "1834-06-04",
    "last_issue": "1835-05-20",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+   "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C2",
-   "roof_function": "store_residence",
+   "roof_family": "C4",
+   "roof_function": "wide_two_story_store_or_mixed_block",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a wide two story store or mixed block — family C4, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "works",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is works, read off its occupation, 'carriage_maker' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C2. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is works, read off its occupation, 'carriage_maker' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C4. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "lot": null,
+   "claims_lot": false,
+   "order_is_a_claim": false,
+   "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
+  },
+  {
+   "business_id": "business_chicago_bakery",
+   "business_name": "Chicago Bakery",
+   "trade": "baker",
+   "proprietors": [
+    "D. Graves"
+   ],
+   "partners": [
+    "D. Graves"
+   ],
+   "firm_styles": [],
+   "surnames": [
+    "graves"
+   ],
+   "street_id": "south_water",
+   "street_name": "South Water Street",
+   "street_text": "South Water Street",
+   "placement_class": "relative",
+   "cites": [
+    "chicago_democrat_1834_04_01#c008",
+    "chicago_democrat_1834_09_10#c016"
+   ],
+   "first_issue": "1834-04-01",
+   "last_issue": "1834-09-10",
+   "mentions": 2,
+   "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+   "face": "lot front",
+   "roof_confidence": "reconstructed",
+   "roof_family": "C3",
+   "roof_function": "narrow_two_story_store",
+   "roof_is_a_house_of_trade": true,
+   "family_note": "The reconstruction raised this roof as a narrow two story store — family C3, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "trade_kind": "maker_and_dealer",
+   "roof_fits_the_trade": true,
+   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'baker' (inferred, data/research/newspapers/trade_premises.json), and the roof is of the C/W band(s) that kind fits. That is the deal preferring a fitting roof and not a reading of any source.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1207,16 +1247,16 @@
    "first_issue": "1834-01-07",
    "last_issue": "1835-05-20",
    "mentions": 2,
-   "structure_id": "recon_1835_blk_south_water_wells_c2_01",
+   "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C2",
-   "roof_function": "store_residence",
+   "roof_family": "C3",
+   "roof_function": "narrow_two_story_store",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a narrow two story store — family C3, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "works",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is works, read off its occupation, 'printer' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C2. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is works, read off its occupation, 'printer' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C3. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1251,16 +1291,16 @@
    "first_issue": "1834-05-28",
    "last_issue": "1834-12-10",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+   "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C4",
-   "roof_function": "wide_two_story_store_or_mixed_block",
+   "roof_family": "C1",
+   "roof_function": "small_shop_or_office",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a wide two story store or mixed block — family C4, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "works",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is works, read off its occupation, 'joiner' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C4. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is works, read off its occupation, 'joiner' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C1. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1298,57 +1338,14 @@
    "roof_family": "H1",
    "roof_function": "larger_one_and_a_half_story_house",
    "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a larger one and a half story house — family H1, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a larger one and a half story house — family H1, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 7 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 4 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "trade_kind": "maker_and_dealer",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'tailor' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a H1. Under the corner side reading the face holds 3 roof(s) of those bands: 1 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'tailor' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a H1. Under the corner side reading the face holds 7 roof(s) of those bands: 1 a household's dwelling, 4 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
    "note": "The advertisement names Dearborn Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit standing at the end of its platted tier, where the tier meets Dearborn Street: a corner building, which the owner ruled on 2026-08-30 stands on both its faces; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
-  },
-  {
-   "business_id": "business_d_graves",
-   "business_name": "D. Graves",
-   "trade": "bakery",
-   "proprietors": [
-    "D. Graves"
-   ],
-   "partners": [
-    "D. Graves"
-   ],
-   "firm_styles": [],
-   "surnames": [
-    "graves"
-   ],
-   "street_id": "south_water",
-   "street_name": "South Water Street",
-   "street_text": "South Water Street",
-   "placement_class": "relative",
-   "cites": [
-    "chicago_democrat_1834_03_25#c003",
-    "chicago_democrat_1834_07_09#c022",
-    "chicago_democrat_1834_10_15#c008",
-    "chicago_democrat_1834_11_05#c012",
-    "chicago_democrat_1834_12_10#c010"
-   ],
-   "first_issue": "1834-03-25",
-   "last_issue": "1834-12-10",
-   "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
-   "face": "lot front",
-   "roof_confidence": "reconstructed",
-   "roof_family": "C1",
-   "roof_function": "small_shop_or_office",
-   "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
-   "trade_kind": "maker_and_dealer",
-   "roof_fits_the_trade": true,
-   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'baker' (inferred, data/research/newspapers/trade_premises.json), and the roof is of the C/W band(s) that kind fits. That is the deal preferring a fitting roof and not a reading of any source.",
-   "lot": null,
-   "claims_lot": false,
-   "order_is_a_claim": false,
-   "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
    "business_id": "business_david_carver",
@@ -1506,16 +1503,16 @@
    "first_issue": "1834-11-05",
    "last_issue": "1834-11-05",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+   "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
    "face": "corner side",
    "roof_confidence": "reconstructed",
-   "roof_family": "D2",
-   "roof_function": "rough_plank_dwelling_or_shanty",
+   "roof_family": "D1",
+   "roof_function": "older_log_dwelling",
    "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a rough plank dwelling or shanty — family D2, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a older log dwelling — family D1, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 7 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 4 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "trade_kind": "maker_and_dealer",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'milliner' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a D2. Under the corner side reading the face holds 3 roof(s) of those bands: 1 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'milliner' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a D1. Under the corner side reading the face holds 7 roof(s) of those bands: 1 a household's dwelling, 4 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -1629,13 +1626,13 @@
    "first_issue": "1834-05-28",
    "last_issue": "1834-07-02",
    "mentions": 4,
-   "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C1",
-   "roof_function": "small_shop_or_office",
+   "roof_family": "C2",
+   "roof_function": "store_residence",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "counter",
    "roof_fits_the_trade": true,
    "kind_note": "The trade's kind of premises is counter, read off its occupation, 'dry_goods_merchant' (inferred, data/research/newspapers/trade_premises.json), and the roof is of the C band(s) that kind fits. That is the deal preferring a fitting roof and not a reading of any source.",
@@ -1723,7 +1720,7 @@
    "first_issue": "1834-02-25",
    "last_issue": "1834-05-14",
    "mentions": 3,
-   "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
+   "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "C3",
@@ -1798,48 +1795,6 @@
    "note": "The advertisement names La Salle Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit standing at the end of its platted tier, where the tier meets La Salle Street: a corner building, which the owner ruled on 2026-08-30 stands on both its faces; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
-   "business_id": "business_j_b_brown_dearborn_street_grocery",
-   "business_name": "J. B. Brown, Dearborn Street grocery",
-   "trade": "groceries",
-   "proprietors": [
-    "J. B. Brown",
-    "J. B. Tuttle"
-   ],
-   "partners": [
-    "J. B. Brown",
-    "J. B. Tuttle"
-   ],
-   "firm_styles": [],
-   "surnames": [
-    "brown",
-    "tuttle"
-   ],
-   "street_id": "dearborn",
-   "street_name": "Dearborn Street",
-   "street_text": "Dearborn Street",
-   "placement_class": "relative",
-   "cites": [
-    "chicago_democrat_1834_07_02#c021"
-   ],
-   "first_issue": "1834-07-02",
-   "last_issue": "1834-07-02",
-   "mentions": 1,
-   "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
-   "face": "corner side",
-   "roof_confidence": "reconstructed",
-   "roof_family": "D3",
-   "roof_function": "one_room_frame_cottage",
-   "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a one room frame cottage — family D3, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
-   "trade_kind": "counter",
-   "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is counter, read off its occupation, 'grocer' (inferred, data/research/newspapers/trade_premises.json), and it fits the C band(s); this roof is a D3. Under the corner side reading the face holds 3 roof(s) of those bands: 1 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
-   "lot": null,
-   "claims_lot": false,
-   "order_is_a_claim": false,
-   "note": "The advertisement names Dearborn Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit standing at the end of its platted tier, where the tier meets Dearborn Street: a corner building, which the owner ruled on 2026-08-30 stands on both its faces; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
-  },
-  {
    "business_id": "business_j_h_mulford",
    "business_name": "J. H. Mulford",
    "trade": "watches, jewelry, engravings and fancy goods",
@@ -1869,7 +1824,7 @@
    "first_issue": "1834-06-04",
    "last_issue": "1835-08-12",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "C2",
@@ -2019,7 +1974,7 @@
    "first_issue": "1835-05-27",
    "last_issue": "1835-08-05",
    "mentions": 5,
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
    "face": "lot front",
    "roof_confidence": "reconstructed",
    "roof_family": "C2",
@@ -2158,7 +2113,7 @@
    "roof_family": "D2",
    "roof_function": "rough_plank_dwelling_or_shanty",
    "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a rough plank dwelling or shanty — family D2, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its lot front: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 0 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 3 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a rough plank dwelling or shanty — family D2, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its lot front: 5 roof(s) reach this street that way and are of the C, W or F bands, and of those 0 are a household's dwelling, 2 are yard buildings, 0 were raised to answer a slot request and 3 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "trade_kind": "office",
    "roof_fits_the_trade": false,
    "kind_note": "The trade's kind of premises is office, read off its occupation, 'schoolteacher' (inferred, data/research/newspapers/trade_premises.json), and it fits the C band(s); this roof is a D2. Under the lot front reading the face holds 2 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
@@ -2289,16 +2244,16 @@
    "first_issue": "1835-06-13",
    "last_issue": "1835-07-04",
    "mentions": 4,
-   "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+   "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C2",
-   "roof_function": "store_residence",
+   "roof_family": "C1",
+   "roof_function": "small_shop_or_office",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a small shop or office — family C1, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "works",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is works, read off its occupation, 'joiner' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C2. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is works, read off its occupation, 'joiner' (inferred, data/research/newspapers/trade_premises.json), and it fits the W band(s); this roof is a C1. Under the lot front reading the face holds 0 roof(s) of those bands: 0 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 0 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -2337,7 +2292,7 @@
    "roof_family": "D6",
    "roof_function": "one_and_a_half_story_frame_cottage",
    "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a one and a half story frame cottage — family D6, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a one and a half story frame cottage — family D6, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 7 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 4 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "trade_kind": "office",
    "roof_fits_the_trade": false,
    "kind_note": "The trade's kind of premises is office, read off its occupation, 'attorney' (inferred, data/research/newspapers/trade_premises.json), and it fits the C band(s); this roof is a D6. Under the corner side reading the face holds 3 roof(s) of those bands: 1 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
@@ -2375,13 +2330,13 @@
    "first_issue": "1835-07-22",
    "last_issue": "1835-08-12",
    "mentions": 4,
-   "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
+   "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
    "face": "lot front",
    "roof_confidence": "reconstructed",
-   "roof_family": "C3",
-   "roof_function": "narrow_two_story_store",
+   "roof_family": "C2",
+   "roof_function": "store_residence",
    "roof_is_a_house_of_trade": true,
-   "family_note": "The reconstruction raised this roof as a narrow two story store — family C3, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
+   "family_note": "The reconstruction raised this roof as a store residence — family C2, of the C, W and F bands T-1657 rules a house of trade — so a documented business stands in a roof built to be one. That is the deal preferring a fitting roof and not a reading of any source: which roof on the face is still an allocation, and the paper says only the street.",
    "trade_kind": "office",
    "roof_fits_the_trade": true,
    "kind_note": "The trade's kind of premises is office, read off its occupation, 'schoolteacher' (inferred, data/research/newspapers/trade_premises.json), and the roof is of the C band(s) that kind fits. That is the deal preferring a fitting roof and not a reading of any source.",
@@ -2464,6 +2419,39 @@
    "claims_lot": false,
    "order_is_a_claim": false,
    "note": "The advertisement names South Water Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit whose platted lot faces South Water Street; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
+  },
+  {
+   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
+   "business_name": "[tin, sheet iron and stove manufactory, proprietor not recovered]",
+   "trade": "tin, sheet iron and stove work",
+   "proprietors": [],
+   "partners": [],
+   "firm_styles": [],
+   "surnames": [],
+   "street_id": "dearborn",
+   "street_name": "Dearborn Street",
+   "street_text": "Dearborn Street",
+   "placement_class": "corner",
+   "cites": [
+    "chicago_democrat_1835_05_20#c019"
+   ],
+   "first_issue": "1835-05-20",
+   "last_issue": "1835-05-20",
+   "mentions": 1,
+   "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+   "face": "corner side",
+   "roof_confidence": "reconstructed",
+   "roof_family": "D2",
+   "roof_function": "rough_plank_dwelling_or_shanty",
+   "roof_is_a_house_of_trade": false,
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a rough plank dwelling or shanty — family D2, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 7 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 4 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "trade_kind": "maker_and_dealer",
+   "roof_fits_the_trade": false,
+   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'tinsmith' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a D2. Under the corner side reading the face holds 7 roof(s) of those bands: 1 a household's dwelling, 4 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "lot": null,
+   "claims_lot": false,
+   "order_is_a_claim": false,
+   "note": "The advertisement names Dearborn Street and nothing narrower, so this business takes the street face and not a lot. The roof it is attached to is an anonymous reconstructed count-unit standing at the end of its platted tier, where the tier meets Dearborn Street: a corner building, which the owner ruled on 2026-08-30 stands on both its faces; it stays reconstructed, and WHICH roof on the face is an allocation by tools/adopt_street_faces.py rather than a reading of any source. Nothing here says this business stood nearer the corner than any other on the same face."
   },
   {
    "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street",
@@ -2561,16 +2549,16 @@
    "first_issue": "1834-07-16",
    "last_issue": "1834-07-16",
    "mentions": 1,
-   "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+   "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
    "face": "corner side",
    "roof_confidence": "reconstructed",
-   "roof_family": "D1",
-   "roof_function": "older_log_dwelling",
+   "roof_family": "D3",
+   "roof_function": "one_room_frame_cottage",
    "roof_is_a_house_of_trade": false,
-   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a older log dwelling — family D1, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 3 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 0 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
+   "family_note": "A COMPROMISE, AND STATED AS ONE. This roof is a one room frame cottage — family D3, which the reconstruction raised as a dwelling and not as a house of trade — so a documented business stands in a building with no shop front. It is what the face had by its corner side: 7 roof(s) reach this street that way and are of the C, W or F bands, and of those 1 are a household's dwelling, 4 are yard buildings, 0 were raised to answer a slot request and 2 are already adopted by a better-evidenced business, so none was free to this one. Raising a shop for it would be a building nothing records; re-familying one of these roofs is the roof programme's to do and not this pass's.",
    "trade_kind": "maker_and_dealer",
    "roof_fits_the_trade": false,
-   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'shoemaker' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a D1. Under the corner side reading the face holds 3 roof(s) of those bands: 1 a household's dwelling, 0 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
+   "kind_note": "The trade's kind of premises is maker_and_dealer, read off its occupation, 'shoemaker' (inferred, data/research/newspapers/trade_premises.json), and it fits the C/W band(s); this roof is a D3. Under the corner side reading the face holds 7 roof(s) of those bands: 1 a household's dwelling, 4 yard buildings, 0 raised for a slot request, and 2 already dealt to a better-evidenced business. So what this business wanted is a roof the face does not hold free, and the mismatch is the reconstruction's, stated rather than hidden.",
    "lot": null,
    "claims_lot": false,
    "order_is_a_claim": false,
@@ -2768,7 +2756,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "25 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
+   "detail": "29 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 12 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street",
@@ -2776,7 +2764,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "25 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
+   "detail": "29 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 12 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_cooley_and_hol_b_man",
@@ -2784,7 +2772,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "25 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
+   "detail": "29 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 12 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_george_holsman",
@@ -2792,7 +2780,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "25 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
+   "detail": "29 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 12 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_j_curtiss_attorney_and_counsellor_at_law",
@@ -2808,15 +2796,7 @@
    "street_id": "dearborn",
    "street_name": "Dearborn Street",
    "refusal": "every roof on the face is spoken for",
-   "detail": "25 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
-  },
-  {
-   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered",
-   "business_name": "[tin, sheet iron and stove manufactory, proprietor not recovered]",
-   "street_id": "dearborn",
-   "street_name": "Dearborn Street",
-   "refusal": "every roof on the face is spoken for",
-   "detail": "25 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
+   "detail": "29 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 12 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 7 are already adopted by a better-evidenced business."
   },
   {
    "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker",
@@ -2851,14 +2831,6 @@
    "detail": "no roof stands on this street under an adopted reading: 0 has its platted lot on it, 0 end a tier against it, and 1 lie within the centreline band, which the owner declined as a face on 2026-08-30."
   },
   {
-   "business_id": "business_chicago_bakery",
-   "business_name": "Chicago Bakery",
-   "street_id": "south_water",
-   "street_name": "South Water Street",
-   "refusal": "this face already holds this proprietor",
-   "detail": "'D. Graves' already stands on this face under the same proprietor surname(s) graves, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
-  },
-  {
    "business_id": "business_peter_cohen_s_store",
    "business_name": "Peter Cohen's store",
    "street_id": "south_water",
@@ -2873,22 +2845,6 @@
    "street_name": "Dearborn Street",
    "refusal": "this face already holds this proprietor",
    "detail": "'S. Abell, attorney and counsellor' already stands on this face under the same proprietor surname(s) abell, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
-  },
-  {
-   "business_id": "business_wm_h_taylor",
-   "business_name": "Wm. H. Taylor",
-   "street_id": "dearborn",
-   "street_name": "Dearborn Street",
-   "refusal": "this face already holds this proprietor",
-   "detail": "'[uncertain: W. H. Taylor], Dearborn Street boot and shoe store' already stands on this face under the same proprietor surname(s) taylor in the same trade (shoemaker), which identity.json's two_houses ruling on this surname does not separate, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
-  },
-  {
-   "business_id": "business_wm_h_taylor_boot_shoe_leather_store",
-   "business_name": "Wm. H. Taylor, Boot, Shoe & Leather Store",
-   "street_id": "dearborn",
-   "street_name": "Dearborn Street",
-   "refusal": "this face already holds this proprietor",
-   "detail": "'[uncertain: W. H. Taylor], Dearborn Street boot and shoe store' already stands on this face under the same proprietor surname(s) taylor in the same trade (shoemaker), which identity.json's two_houses ruling on this surname does not separate, on better evidence. One house, one roof per face; whether these are two headings of one business is the gazetteer's to judge (T-0338, T-0340), not this pass's."
   }
  ]
 }

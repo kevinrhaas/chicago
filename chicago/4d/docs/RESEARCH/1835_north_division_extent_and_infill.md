@@ -246,7 +246,7 @@ its trade roofs, and Michigan Street stays a sparse outer edge. Each centre was 
 deterministic search against the generator's own tests and three more, measured at the deal:
 at least 14 m from every committed roof (an open yard between every pair, no street wall), at
 least 25 m from every named structure, and inside the initial occupied envelope. None is a
-reading of a source (L389).
+reading of a source (L390).
 
 With no roof left to plan on the two cells, the schedule plans none, the platted deal requests
 no slot there, and the thirteen households whose slots stood on them are seated by the

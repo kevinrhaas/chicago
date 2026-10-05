@@ -158,6 +158,8 @@
   "recon_1835_blk_randolph_clark_d6_04",
   "recon_1835_blk_randolph_clark_h1_03",
   "recon_1835_blk_randolph_clark_h2_02",
+  "recon_1835_blk_randolph_clark_w1_10",
+  "recon_1835_blk_randolph_clark_w2_09",
   "recon_1835_blk_randolph_clinton_a1_06",
   "recon_1835_blk_randolph_clinton_a2_05",
   "recon_1835_blk_randolph_clinton_a3_07",
@@ -186,6 +188,7 @@
   "recon_1835_blk_randolph_dearborn_d5_02",
   "recon_1835_blk_randolph_dearborn_d6_10",
   "recon_1835_blk_randolph_dearborn_h1_14",
+  "recon_1835_blk_randolph_dearborn_w2_18",
   "recon_1835_blk_randolph_franklin_a1_07",
   "recon_1835_blk_randolph_franklin_a3_08",
   "recon_1835_blk_randolph_franklin_d1_06",
@@ -293,6 +296,7 @@
   "recon_1835_blk_washington_dearborn_d7_06",
   "recon_1835_blk_washington_dearborn_h2_05",
   "recon_1835_blk_washington_dearborn_h3_01",
+  "recon_1835_blk_washington_dearborn_w2_10",
   "recon_1835_blk_washington_franklin_a1_10",
   "recon_1835_blk_washington_franklin_a2_09",
   "recon_1835_blk_washington_franklin_a3_13",
@@ -2588,6 +2592,34 @@
     [643.6, -273.51]
    ],
    [
+    [683.05, -336.9],
+    [683.0, -344.68],
+    [684.4, -344.69],
+    [684.41, -343.45],
+    [693.36, -343.01],
+    [693.6, -342.9],
+    [693.71, -342.66],
+    [693.73, -339.06],
+    [693.63, -338.81],
+    [693.39, -338.71],
+    [684.44, -338.15],
+    [684.45, -336.91]
+   ],
+   [
+    [683.23, -307.1],
+    [683.19, -314.07],
+    [684.59, -314.08],
+    [684.6, -312.47],
+    [693.55, -312.03],
+    [693.8, -311.92],
+    [693.91, -311.68],
+    [693.92, -309.63],
+    [693.82, -309.38],
+    [693.57, -309.28],
+    [684.62, -308.72],
+    [684.63, -307.11]
+   ],
+   [
     [-210.13, -293.87],
     [-210.08, -287.6],
     [-211.48, -287.59],
@@ -2970,6 +3002,20 @@
     [715.29, -390.76],
     [715.87, -381.32],
     [718.88, -381.34]
+   ],
+   [
+    [710.68, -314.23],
+    [710.72, -307.38],
+    [709.32, -307.37],
+    [709.31, -308.92],
+    [700.36, -309.36],
+    [700.11, -309.47],
+    [700.0, -309.71],
+    [699.99, -311.76],
+    [700.1, -312.01],
+    [700.34, -312.11],
+    [709.29, -312.67],
+    [709.28, -314.22]
    ],
    [
     [302.5, -314.85],
@@ -4436,6 +4482,20 @@
     [746.17, -396.75],
     [745.61, -406.19],
     [742.25, -406.17]
+   ],
+   [
+    [709.85, -447.2],
+    [709.9, -440.12],
+    [708.5, -440.11],
+    [708.48, -441.78],
+    [699.53, -442.22],
+    [699.29, -442.32],
+    [699.18, -442.57],
+    [699.17, -444.62],
+    [699.27, -444.86],
+    [699.51, -444.97],
+    [708.46, -445.53],
+    [708.45, -447.19]
    ],
    [
     [276.14, -447.79],
@@ -9778,6 +9838,26 @@
    "width_m": 0.92
   },
   {
+   "id": "recon_1835_blk_randolph_clark_w1_10__door_1",
+   "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [683.02, -340.79],
+   "bearing_deg": 90.36,
+   "width_m": 2.9
+  },
+  {
+   "id": "recon_1835_blk_randolph_clark_w2_09__door_1",
+   "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [683.21, -310.59],
+   "bearing_deg": 90.36,
+   "width_m": 1.35
+  },
+  {
    "id": "recon_1835_blk_randolph_clinton_a1_06__door_1",
    "structure_id": "recon_1835_blk_randolph_clinton_a1_06",
    "archetype": "outbuilding",
@@ -10056,6 +10136,16 @@
    "at_local_enu_m": [714.22, -379.9],
    "bearing_deg": 180.47,
    "width_m": 0.92
+  },
+  {
+   "id": "recon_1835_blk_randolph_dearborn_w2_18__door_1",
+   "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [710.7, -310.8],
+   "bearing_deg": 270.36,
+   "width_m": 1.35
   },
   {
    "id": "recon_1835_blk_randolph_franklin_a1_07__door_1",
@@ -11126,6 +11216,16 @@
    "at_local_enu_m": [747.4, -407.61],
    "bearing_deg": 0.36,
    "width_m": 1.2
+  },
+  {
+   "id": "recon_1835_blk_washington_dearborn_w2_10__door_1",
+   "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [709.87, -443.66],
+   "bearing_deg": 270.36,
+   "width_m": 1.35
   },
   {
    "id": "recon_1835_blk_washington_franklin_a1_10__door_1",

@@ -439,18 +439,22 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # requests on blk_washington_dearborn and blk_washington_clark, all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 587 -> 613 and 581 -> 607 on 2026-10-05 (T-1746): the North Division's 26 ordinary
+# 587 -> 591 and 581 -> 585 on 2026-10-05 (T-2134): the four side-street workshops on
+# Dearborn Street corner lots, three W2 and a W1, all `outbuilding` through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 591 -> 617 and 585 -> 611 on 2026-10-05 (T-1746): the North Division's 26 ordinary
 # dwellings carried off Kinzie's Addition into the clusters south of Michigan Street
 # (generate_north_infill rows 68-93), all through emit.py and the common modules.
 # Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 613,
+    "assets": 617,
     "restales": {
-        "generators/common/*.py": 613,
+        "generators/common/*.py": 617,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 607,
+        "generators/emit.py": 611,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

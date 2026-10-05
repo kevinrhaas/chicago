@@ -5,7 +5,7 @@
   `blk_indiana_north_cass` (6), both already at the memo's four-roof ceiling, stand instead
   in the memo's three inner clusters south of Michigan Street: recipe rows 68-93 of
   `1835_north_division_initial_parcel.json` (`addition_surplus`), family for family.
-  Recorded in the memo's new section and **L389**.
+  Recorded in the memo's new section and **L390**.
 - **Visible**: 26 new houses north of the river (9 on Kinzie's north face, 5 on its south
   face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
   school house were rebaked for the siding re-deal their new neighbours caused.

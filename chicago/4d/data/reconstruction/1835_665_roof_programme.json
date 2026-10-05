@@ -48,11 +48,11 @@
     {
      "district": "south",
      "blocks": 3,
-     "trade_roofs": 4,
+     "trade_roofs": 3,
      "blocks_redealt": 2,
      "quota": {
       "blk_south_water_wells": 0,
-      "blk_south_water_dearborn": 1,
+      "blk_south_water_dearborn": 0,
       "blk_south_water_market": 3
      }
     }
@@ -71,8 +71,8 @@
      "family": "F3",
      "from": "blk_south_water_market",
      "to": "south_plat_beyond_committed_control",
-     "for": "W1",
-     "same_trade": true
+     "for": "D2",
+     "same_trade": false
     }
    ],
    "held": [
@@ -87,20 +87,20 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 594,
+  "structure_records": 598,
   "physical_roofs": {
-   "min": 576,
-   "max": 577,
+   "min": 580,
+   "max": 581,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 437,
+   "generated": 441,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 311,
+   "south": 315,
    "west": 104,
    "north": 145,
    "fort": 16
@@ -110,7 +110,7 @@
    "larger_boarding_houses": 36,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
-   "workshops": 27,
+   "workshops": 31,
    "warehouses_freight": 14,
    "institutional_public": 9,
    "fort_principal": 10,
@@ -148,8 +148,8 @@
    "T1": 3,
    "T2": 6,
    "T3": 1,
-   "W1": 5,
-   "W2": 3,
+   "W1": 6,
+   "W2": 6,
    "W3": 5,
    "W4": 7,
    "W5": 7
@@ -178,10 +178,10 @@
   ]
  },
  "remaining": {
-  "roofs": 92,
+  "roofs": 88,
   "of_target": 668,
   "by_district": {
-   "south": 54,
+   "south": 50,
    "west": 31,
    "north": 7,
    "fort": 0
@@ -192,8 +192,7 @@
     "larger_boarding_houses": 3,
     "ordinary_dwellings": 40,
     "small_outbuildings": 1,
-    "warehouses_freight": 4,
-    "workshops": 4
+    "warehouses_freight": 4
    },
    "west": {
     "barns_stables": 6,
@@ -239,8 +238,8 @@
    "T1": 3,
    "T2": 0,
    "T3": 0,
-   "W1": 1,
-   "W2": 5,
+   "W1": 0,
+   "W2": 2,
    "W3": 1,
    "W4": 0,
    "W5": 0
@@ -260,9 +259,7 @@
     "A5": 1,
     "F2": 1,
     "F3": 2,
-    "F4": 1,
-    "W1": 1,
-    "W2": 3
+    "F4": 1
    },
    "west": {
     "A1": 1,
@@ -304,8 +301,8 @@
  },
  "coverage": {
   "schedulable_on_committed_ground": 15,
-  "gated_on_coverage": 77,
-  "statement": "15 of the 92 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 77 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "gated_on_coverage": 73,
+  "statement": "15 of the 88 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 73 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 338,
   "blocks_named": 80,
   "southern_ground": {
@@ -463,12 +460,12 @@
     "A5": 1,
     "D2": 1,
     "D3": 1,
-    "F2": 1
+    "D4": 1
    },
    "principal": 3,
    "ancillary": 1,
    "frontage_weight": 0.4805,
-   "trade_roofs": 1,
+   "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
   },
@@ -796,7 +793,7 @@
    },
    "lots": 8,
    "capacity_roofs": 31,
-   "standing_roofs": 9,
+   "standing_roofs": 11,
    "free_lots": 1,
    "principal_room": 0,
    "ancillary_room": 0,
@@ -821,7 +818,7 @@
    },
    "lots": 8,
    "capacity_roofs": 31,
-   "standing_roofs": 17,
+   "standing_roofs": 18,
    "free_lots": 1,
    "principal_room": 0,
    "ancillary_room": 0,
@@ -971,7 +968,7 @@
    },
    "lots": 8,
    "capacity_roofs": 31,
-   "standing_roofs": 9,
+   "standing_roofs": 10,
    "free_lots": 1,
    "principal_room": 0,
    "ancillary_room": 0,
@@ -2350,22 +2347,22 @@
    "roofs": 22,
    "families": {
     "A2": 1,
-    "D2": 1,
+    "D2": 2,
     "D3": 1,
-    "D4": 5,
+    "D4": 4,
     "D5": 5,
     "D6": 2,
     "D7": 2,
+    "F2": 1,
     "F4": 1,
     "H1": 1,
     "H2": 1,
-    "W1": 1,
-    "W2": 1
+    "H3": 1
    },
    "principal": 21,
    "ancillary": 1,
    "frontage_weight": 0.5182,
-   "trade_roofs": 3,
+   "trade_roofs": 2,
    "lot_ceiling_principal": 7,
    "row_lots_required": 7
   },
@@ -2414,24 +2411,22 @@
    "id": "south_plat_beyond_committed_control",
    "kind": "district_balance",
    "district": "south",
-   "capacity_roofs": 24,
+   "capacity_roofs": 20,
    "standing_roofs": 0,
-   "headroom": 24,
+   "headroom": 20,
    "state": "gated",
    "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
-   "roofs": 24,
+   "roofs": 20,
    "families": {
-    "D2": 2,
+    "D2": 1,
     "D3": 2,
     "D4": 5,
     "D5": 6,
     "D6": 3,
     "D7": 1,
-    "F3": 2,
-    "H3": 1,
-    "W2": 2
+    "F3": 2
    },
-   "principal": 24,
+   "principal": 20,
    "ancillary": 0
   },
   {
