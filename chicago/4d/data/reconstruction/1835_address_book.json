@@ -286,16 +286,16 @@
    "west/tradesman_dwellings": 127
   },
   "reconstructed_seats": 1451,
-  "dealt_a_roof": 253,
+  "dealt_a_roof": 251,
   "dealt_a_standing_roof": 238,
-  "dealt_a_slot_not_yet_built": 15,
+  "dealt_a_slot_not_yet_built": 13,
   "dealt_by_ticket": {
-   "T-1613": 180,
+   "T-1613": 178,
    "T-1614": 73
   },
   "dealt_by_ground": {
    "off_plat_parcel": 73,
-   "platted_lot": 180
+   "platted_lot": 178
   }
  },
  "rows": [
@@ -7355,24 +7355,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_bennet_lyman|T-1522|division:86d970880a9e|class:802114e8bfa6",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_washington_clark#01",
-    "block_id": "blk_washington_clark",
-    "fronts": "madison",
-    "family": "D7",
-    "clause": "merchant_and_professional_dwellings",
-    "district": "south",
-    "stands_on": "lot",
-    "deal_seed": "hh_bennet_lyman|T-1522|division:86d970880a9e|class:802114e8bfa6",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_washington_clark#01 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_bennett_c_h",
@@ -7585,24 +7568,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_bently_wm_t|T-1522|division:6dacb0659e04|class:6599c22f5f98",
-   "dealt_roof": {
-    "structure_id": null,
-    "how": "slot",
-    "dealt_by": "T-1613",
-    "ground": "platted_lot",
-    "on": "blk_washington_dearborn#01",
-    "block_id": "blk_washington_dearborn",
-    "fronts": "madison",
-    "family": "D7",
-    "clause": "merchant_and_professional_dwellings",
-    "district": "south",
-    "stands_on": "lot",
-    "deal_seed": "hh_bently_wm_t|T-1522|division:6dacb0659e04|class:6599c22f5f98",
-    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
-    "owed_to": "T-1200..T-1214",
-    "substitutable": true,
-    "words": "The placement policy deals this household a place on blk_washington_dearborn#01 under its merchant_and_professional_dwellings clause, and the roof is not built: the deal REQUESTED a family D7 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_benton_datas_e",
