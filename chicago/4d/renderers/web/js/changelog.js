@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1461, ts: '2026-10-05T02:18:31.986Z', date: 'Oct 4, 2026, 9:18 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+    items: [
+      'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
+      'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
+      '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
+      'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
+      'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
+    ] },
   { v: 1460, ts: '2026-10-05T01:41:53.671Z', date: 'Oct 4, 2026, 8:41 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
     items: [
       'Walk south down State Street past Washington Street. A worn wagon road now leads on, out across the open ground and along the sandy belt behind the lake shore dunes, to the edge of the map.',
