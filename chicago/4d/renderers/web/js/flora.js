@@ -3623,16 +3623,54 @@ function matches(x, e, n, terrain, water) {
       return false;
   }
   if (!ok) {
-    for (const patch of x.include_polygons ?? []) {
+    for (const patch of ringsNear(x.include_polygons, e, n)) {
       if (pointInPolygon(patch, e, n)) { ok = true; break; }
     }
   }
   if (!ok) return false;
-  for (const hole of x.exclude_polygons ?? []) {
+  for (const hole of ringsNear(x.exclude_polygons, e, n)) {
     if (pointInPolygon(hole, e, n)) return false;
   }
   return true;
 }
+
+/**
+ * The rings of an extent's `include_polygons` / `exclude_polygons` list that can
+ * hold (e, n), read from a bin index built once per list (T-2101). The vacant-lot
+ * remnant holds 69 lot rings spread over the whole town, so walking the list ring
+ * by ring put 69 box tests on every sward slot in town; a point now reads the one
+ * bin it falls in. Same answer as the full walk: a ring is filed under every bin
+ * its box touches. Keyed by the list's own array, which the records never mutate.
+ */
+const RINGS_BIN_M = 32;
+const RINGS_INDEX = new WeakMap();
+const NO_RINGS = [];
+function ringsNear(list, e, n) {
+  if (!list?.length) return NO_RINGS;
+  if (list.length < 4) return list;
+  let ix = RINGS_INDEX.get(list);
+  if (!ix) {
+    ix = new Map();
+    for (const ring of list) {
+      let e0 = Infinity; let e1 = -Infinity; let n0 = Infinity; let n1 = -Infinity;
+      for (const [pe, pn] of ring) {
+        if (pe < e0) e0 = pe; if (pe > e1) e1 = pe;
+        if (pn < n0) n0 = pn; if (pn > n1) n1 = pn;
+      }
+      for (let i = Math.floor(e0 / RINGS_BIN_M); i <= Math.floor(e1 / RINGS_BIN_M); i++) {
+        for (let j = Math.floor(n0 / RINGS_BIN_M); j <= Math.floor(n1 / RINGS_BIN_M); j++) {
+          const k = ringsBin(i, j);
+          if (!ix.has(k)) ix.set(k, []);
+          ix.get(k).push(ring);
+        }
+      }
+    }
+    RINGS_INDEX.set(list, ix);
+  }
+  return ix.get(ringsBin(Math.floor(e / RINGS_BIN_M), Math.floor(n / RINGS_BIN_M))) ?? NO_RINGS;
+}
+/** A numeric bin key, so a lookup allocates no string. 65,536 bins a side at 32 m. */
+function ringsBin(i, j) { return (i + 32768) * 65536 + (j + 32768); }
 
 /**
  * The same even-odd test over an EDGE INDEX built once per ring (T-2091). Only an
