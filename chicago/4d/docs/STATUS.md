@@ -12,7 +12,7 @@ house, the factory and the stables, and the garden's own "5o feete to the Inch" 
 gardens. The "5o" was read at T-2062 off a 4x crop and is inferred. Footprints are the drawn boxes at
 the index's forty feet to the inch, an upper bound because the drawings are pictorial.
 `read_whistler_1808.py --check` re-derives all seven from the register's pixel boxes (to 0.01 m) and
-refuses one that moves. L390 records the whole of it as reconstructed.
+refuses one that moves. L391 records the whole of it as reconstructed.
 
 **What is not settled.** The factory's numeral 18 is not read. It is identified as the paled house due
 west, which agrees with Quaife and with the 1857 Chicago Magazine passage on chicagology_prefire052.
