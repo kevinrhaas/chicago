@@ -1467,6 +1467,11 @@ step "the yard outbuildings re-derive from the rule that dealt them by household
 # them — which ground is kept is a rule, so it is re-derived here.
 step "the kept yards, their refuges and their worn paths re-derive from the lot survey (T-2086)" \
   python3 tools/generate_kept_ground.py --check
+# And the lots with no building on them (T-2101): grazed prairie remnant, a flora community
+# whose extent is every vacant platted lot and whose species are the prairie's and the town's
+# own under a stated crop — derived, so a district built later takes its lots out by re-running.
+step "the vacant lots' grazed prairie remnant re-derives from the plat and the lot survey (T-2101)" \
+  python3 tools/derive_lot_remnant.py --check
 
 # And the OTHER HALF of that ordinance, which the goods record refused in writing:
 # timber, stone and brick are building material on a lot that is going up, not a
