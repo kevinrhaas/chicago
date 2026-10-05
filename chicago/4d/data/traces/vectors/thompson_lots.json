@@ -96,10 +96,10 @@
    "blocks": 9,
    "omitted": 15,
    "numbered": 9,
-   "lots": 30,
+   "lots": 40,
    "subdivided": true,
    "divides_on": "each block's OWN printed frontage or depth, with the arrangement and the lot numerals read off the sheet block by block — and no lots at all where the block prints neither figure",
-   "built_and_not_divided": 6
+   "built_and_not_divided": 5
   },
   "michigan_st_tract": {
    "plat": "michigan_st_tract",
@@ -306,8 +306,8 @@
   "reserved": 1,
   "numbered": 68,
   "numbered_omitted": 48,
-  "lots": 338,
-  "numbered_lots": 178,
+  "lots": 348,
+  "numbered_lots": 188,
   "block_frontage_ft": {
    "min": 120.8,
    "median": 312.0,
@@ -14442,10 +14442,307 @@
    "frontage_m": 111.99,
    "frontage_ft": 367.4,
    "depth_m": 110.96,
-   "lots_read_on_the_sheet": 10,
-   "subdivision_withheld": "this block prints no dimension that resolves, and a tier-mate's figure is not this block's — see `module.lot_subdivision_withheld`",
-   "alley_local_enu_m": null,
-   "lots": [],
+   "lots_per_column": 5,
+   "alley_local_enu_m": [
+    [
+     -85.0,
+     -263.96
+    ],
+    [
+     -79.32,
+     -264.0
+    ],
+    [
+     -78.45,
+     -374.97
+    ],
+    [
+     -83.74,
+     -374.92
+    ]
+   ],
+   "lots": [
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 1,
+     "frontage_m": 22.21,
+     "depth_m": 59.71,
+     "polygon": [
+      [
+       -145.12,
+       -263.47
+      ],
+      [
+       -85.0,
+       -263.96
+      ],
+      [
+       -84.75,
+       -286.15
+      ],
+      [
+       -144.06,
+       -285.67
+      ]
+     ],
+     "plat_lot_number": 2,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 2,
+     "frontage_m": 22.21,
+     "depth_m": 58.9,
+     "polygon": [
+      [
+       -144.06,
+       -285.67
+      ],
+      [
+       -84.75,
+       -286.15
+      ],
+      [
+       -84.5,
+       -308.34
+      ],
+      [
+       -143.0,
+       -307.87
+      ]
+     ],
+     "plat_lot_number": 3,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 3,
+     "frontage_m": 22.21,
+     "depth_m": 58.1,
+     "polygon": [
+      [
+       -143.0,
+       -307.87
+      ],
+      [
+       -84.5,
+       -308.34
+      ],
+      [
+       -84.25,
+       -330.54
+      ],
+      [
+       -141.94,
+       -330.07
+      ]
+     ],
+     "plat_lot_number": 6,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 4,
+     "frontage_m": 22.21,
+     "depth_m": 57.29,
+     "polygon": [
+      [
+       -141.94,
+       -330.07
+      ],
+      [
+       -84.25,
+       -330.54
+      ],
+      [
+       -83.99,
+       -352.73
+      ],
+      [
+       -140.88,
+       -352.27
+      ]
+     ],
+     "plat_lot_number": 7,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "west",
+     "column": "west",
+     "row": 5,
+     "frontage_m": 22.21,
+     "depth_m": 56.48,
+     "polygon": [
+      [
+       -140.88,
+       -352.27
+      ],
+      [
+       -83.99,
+       -352.73
+      ],
+      [
+       -83.74,
+       -374.92
+      ],
+      [
+       -139.81,
+       -374.47
+      ]
+     ],
+     "plat_lot_number": 10,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 1,
+     "frontage_m": 22.19,
+     "depth_m": 49.76,
+     "polygon": [
+      [
+       -79.32,
+       -264.0
+      ],
+      [
+       -29.23,
+       -264.41
+      ],
+      [
+       -29.73,
+       -286.6
+      ],
+      [
+       -79.15,
+       -286.2
+      ]
+     ],
+     "plat_lot_number": 1,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 2,
+     "frontage_m": 22.19,
+     "depth_m": 49.09,
+     "polygon": [
+      [
+       -79.15,
+       -286.2
+      ],
+      [
+       -29.73,
+       -286.6
+      ],
+      [
+       -30.22,
+       -308.79
+      ],
+      [
+       -78.97,
+       -308.39
+      ]
+     ],
+     "plat_lot_number": 4,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 3,
+     "frontage_m": 22.19,
+     "depth_m": 48.41,
+     "polygon": [
+      [
+       -78.97,
+       -308.39
+      ],
+      [
+       -30.22,
+       -308.79
+      ],
+      [
+       -30.72,
+       -330.97
+      ],
+      [
+       -78.8,
+       -330.58
+      ]
+     ],
+     "plat_lot_number": 5,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 4,
+     "frontage_m": 22.19,
+     "depth_m": 47.74,
+     "polygon": [
+      [
+       -78.8,
+       -330.58
+      ],
+      [
+       -30.72,
+       -330.97
+      ],
+      [
+       -31.22,
+       -353.16
+      ],
+      [
+       -78.62,
+       -352.77
+      ]
+     ],
+     "plat_lot_number": 8,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    },
+    {
+     "tier": "east",
+     "column": "east",
+     "row": 5,
+     "frontage_m": 22.19,
+     "depth_m": 47.06,
+     "polygon": [
+      [
+       -78.62,
+       -352.77
+      ],
+      [
+       -31.22,
+       -353.16
+      ],
+      [
+       -31.72,
+       -375.35
+      ],
+      [
+       -78.45,
+       -374.97
+      ]
+     ],
+     "plat_lot_number": 9,
+     "plat_lot_confidence": "documented",
+     "plat_lot_numeral_read_in": "data/traces/thompson_west_division_lots.json"
+    }
+   ],
    "ground": {
     "epoch": "e1834_harbor_cut",
     "sampled_every_m": 5.0,
@@ -14475,11 +14772,25 @@
     "rows_read": 5,
     "lots_read": 10,
     "chosen_by": "this block's own entry on the sheet reading — its numerals, its row count and its own dimension figure",
-    "lot_subdivision_withheld": {
-     "why": "THIS BLOCK PRINTS NO DIMENSION THAT RESOLVES. The sheet dimensions the first block of a tier and lets the rest of the tier inherit, so fourteen of the twenty-two carry no figure at all and five more carry one the committed scan cannot resolve to a digit. Inheriting a tier-mate's figure is the one move `what_this_refutes` in the authored file exists to refuse — carrying the South Division's 80 ft west would have mis-sized every lot line, and carrying a neighbour's 75 3/5 along a tier is the same mistake one street shorter.",
-     "this_block_refused": "A frontage figure, for the same reason as block 29. Its two DIFFERENT depths, 180 and 150, are why `lot_depth_ft` is null here as well: the block has two and the file will not average them.",
-     "what_would_settle_it": "a scan of the same sheet that resolves this block's own marginal figures; the authored file names the crop region and the enlargements already tried",
-     "meanwhile": "the block stands with its boundary, its numeral, its lot COUNT and its ground, which is what a placement ticket needs to name it — it is the lot LINES that are withheld, not the block"
+    "figure_read_on_this_block": {
+     "figure": "lot_depth_ft_per_column",
+     "ft": {
+      "west": 180.0,
+      "east": 150.0
+     },
+     "printed": {
+      "west_column_ft": 180,
+      "east_column_ft": 150
+     },
+     "region": "820,1360,190,65",
+     "governs": "the east-west depth of each column's lots, so the two columns, their share of the block and the alley between them; the two figures are NOT averaged (T-2132)"
+    },
+    "closure_against_the_committed_lines": {
+     "axis": "east to west",
+     "the_sheet_asks_ft": 348.0,
+     "the_committed_lines_give_ft": 367.4,
+     "short_by_ft": -19.4,
+     "so": "the lot lines below divide the block the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size. What is short is this project's West Division street spacing and not the module — T-1540 is the ticket that owns those centrelines, and T-0444 and tools/measure_west_division_module.py report the same gap."
     }
    },
    "plat_block_number": {

@@ -12682,6 +12682,30 @@
       "asset": "gltf/recon_1835_blk_west_lake_canal_d5_01__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_west_randolph_canal_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d4_02.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d5_01.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d5_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d5_03",
+      "name": "Reconstructed D5 deep-plan frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d5_03.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d5_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d6_04",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d6_04.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d6_04__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d4_02.json",
@@ -14084,6 +14108,13 @@
     "first_fort_dearborn_small_house_sw",
     "first_fort_dearborn_soldiers_barracks_se",
     "first_fort_dearborn_soldiers_barracks_sw",
+    "first_fort_outer_agents_house",
+    "first_fort_outer_factory",
+    "first_fort_outer_officers_garden",
+    "first_fort_outer_stable_middle",
+    "first_fort_outer_stable_north",
+    "first_fort_outer_stable_south",
+    "first_fort_outer_sutlers_garden",
     "glessner_house"
   ]
 }

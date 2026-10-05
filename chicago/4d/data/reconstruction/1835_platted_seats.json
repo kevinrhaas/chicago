@@ -32,36 +32,36 @@
  ],
  "counts": {
   "rows_in_scope": 1424,
-  "seated": 165,
-  "owed": 1259,
+  "seated": 169,
+  "owed": 1255,
   "by_how": {
-   "adopted": 165
+   "adopted": 169
   },
   "by_clause": {
    "labourer_dwellings": 34,
    "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 30,
-   "tradesman_dwellings": 99
+   "tradesman_dwellings": 103
   },
   "by_district": {
    "north": 8,
    "south": 129,
-   "west": 28
+   "west": 32
   },
   "by_family": {
    "D1": 21,
    "D2": 13,
    "D3": 40,
-   "D4": 31,
-   "D5": 18,
-   "D6": 10,
+   "D4": 32,
+   "D5": 20,
+   "D6": 11,
    "D7": 12,
    "H1": 10,
    "H2": 8,
    "H3": 2
   },
-  "lots_taken": 147,
-  "roofs_adopted": 165,
+  "lots_taken": 151,
+  "roofs_adopted": 169,
   "slots_requested": 0,
   "owed_by_band_clause": {
    "division_ground": 24,
@@ -69,22 +69,22 @@
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 94,
    "merchant_and_professional_dwellings": 387,
-   "tradesman_dwellings": 542
+   "tradesman_dwellings": 538
   },
   "roofs_offered_for_adoption": 177,
-  "roofs_held_back": 56,
-  "roofs_held_by_the_business_deal": 40,
+  "roofs_held_back": 60,
+  "roofs_held_by_the_business_deal": 44,
   "seats_the_business_deal_costs": 1
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1259,
+  "rows": 1255,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 165 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 169 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
-  "roofs_held": 40,
-  "roofs_held_that_are_houses_of_trade": 26,
+  "roofs_held": 44,
+  "roofs_held_that_are_houses_of_trade": 30,
   "roofs_a_release_would_fill": [
    "recon_1835_blk_lake_franklin_d1_02",
    "recon_1835_blk_lake_market_d2_04",
@@ -112,7 +112,7 @@
    }
   ],
   "households_that_would_change_roof": 32,
-  "reading": "the business deal holds 40 roofs on the plat, 26 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 32 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "reading": "the business deal holds 44 roofs on the plat, 30 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 32 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -322,6 +322,24 @@
    "family": "D6",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
+   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+   "lot_id": "blk_randolph_clark#07",
+   "family": "W1",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Cooley and Halsman — tailors",
+   "business_id": "business_cooley_and_halsman"
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+   "lot_id": "blk_randolph_clark#06",
+   "family": "W2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
    "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
    "business_id": "business_s_abell_attorney_and_counsellor"
   },
@@ -331,8 +349,8 @@
    "family": "D1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Elmira Fowler — millinery and dress making",
-   "business_id": "business_elmira_fowler"
+   "occupants": "Cooley and Hol[b]man — tailoring",
+   "business_id": "business_cooley_and_hol_b_man"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
@@ -340,8 +358,8 @@
    "family": "D3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
-   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
+   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
+   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
@@ -349,8 +367,17 @@
    "family": "H1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Cooley and Halsman — tailors",
-   "business_id": "business_cooley_and_halsman"
+   "occupants": "a wholesale wine and liquor store, Dearborn Street — wholesale wine and liquors",
+   "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street"
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+   "lot_id": "blk_randolph_dearborn#00",
+   "family": "W2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
+   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
   },
   {
    "structure_id": "recon_1835_blk_randolph_wells_d2_07",
@@ -430,8 +457,8 @@
    "family": "D2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
-   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
+   "occupants": "George Holsman — tailoring",
+   "business_id": "business_george_holsman"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
@@ -569,6 +596,15 @@
    "business_id": "business_chicago_bakery"
   },
   {
+   "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+   "lot_id": "blk_washington_dearborn#00",
+   "family": "W2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Elmira Fowler — millinery and dress making",
+   "business_id": "business_elmira_fowler"
+  },
+  {
    "structure_id": "recon_1835_south_c3_040",
    "lot_id": "blk_lake_dearborn#01",
    "family": "C3",
@@ -614,13 +650,6 @@
   },
   {
    "block_id": "blk_south_water_dearborn",
-   "family": "D2",
-   "roofs": 1,
-   "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_dearborn#07, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_south_water_dearborn",
    "family": "D3",
    "roofs": 1,
    "district": "south",
@@ -634,6 +663,20 @@
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_dearborn#07, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
   },
   {
+   "block_id": "blk_south_water_dearborn",
+   "family": "D6",
+   "roofs": 1,
+   "district": "south",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_dearborn#07, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_south_water_wells",
+   "family": "D2",
+   "roofs": 1,
+   "district": "south",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
    "block_id": "blk_south_water_wells",
    "family": "D4",
    "roofs": 1,
@@ -643,13 +686,6 @@
   {
    "block_id": "blk_south_water_wells",
    "family": "D5",
-   "roofs": 1,
-   "district": "south",
-   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
-  },
-  {
-   "block_id": "blk_south_water_wells",
-   "family": "D6",
    "roofs": 1,
    "district": "south",
    "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_south_water_wells#01, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
@@ -1431,14 +1467,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_canal#03",
-   "block_id": "blk_west_lake_canal",
+   "lot_id": "blk_west_randolph_canal#03",
+   "block_id": "blk_west_randolph_canal",
    "lot_index": 3,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_lake_canal_d4_02",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d4_02",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -1455,14 +1491,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_canal#02",
-   "block_id": "blk_west_lake_canal",
+   "lot_id": "blk_west_randolph_canal#02",
+   "block_id": "blk_west_randolph_canal",
    "lot_index": 2,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_lake_canal_d5_01",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d5_01",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -1551,14 +1587,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#08",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 8,
+   "lot_id": "blk_west_lake_canal#03",
+   "block_id": "blk_west_lake_canal",
+   "lot_index": 3,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d4_02",
+   "structure_id": "recon_1835_blk_west_lake_canal_d4_02",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -1575,15 +1611,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#07",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 7,
+   "lot_id": "blk_west_lake_canal#02",
+   "block_id": "blk_west_lake_canal",
+   "lot_index": 2,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d4_09",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_west_lake_canal_d5_01",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -1767,15 +1803,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#06",
+   "lot_id": "blk_randolph_clinton#08",
    "block_id": "blk_randolph_clinton",
-   "lot_index": 6,
+   "lot_index": 8,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d5_01",
-   "family": "D5",
+   "structure_id": "recon_1835_blk_randolph_clinton_d4_02",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2007,14 +2043,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#07",
-   "block_id": "blk_lake_clinton",
+   "lot_id": "blk_randolph_clinton#07",
+   "block_id": "blk_randolph_clinton",
    "lot_index": 7,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+   "structure_id": "recon_1835_blk_randolph_clinton_d4_09",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2055,14 +2091,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#05",
+   "lot_id": "blk_randolph_clinton#06",
    "block_id": "blk_randolph_clinton",
-   "lot_index": 5,
+   "lot_index": 6,
    "fronts": "canal",
    "street_class": "ordinary",
-   "corner": true,
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_018",
+   "structure_id": "recon_1835_blk_randolph_clinton_d5_01",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2127,15 +2163,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#07",
-   "block_id": "blk_west_randolph_des_plaines",
+   "lot_id": "blk_lake_clinton#07",
+   "block_id": "blk_lake_clinton",
    "lot_index": 7,
-   "fronts": "jefferson",
-   "street_class": "none",
+   "fronts": "canal",
+   "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
-   "family": "D6",
+   "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2175,15 +2211,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#03",
-   "block_id": "blk_west_randolph_des_plaines",
-   "lot_index": 3,
-   "fronts": "des_plaines",
-   "street_class": "none",
-   "corner": false,
+   "lot_id": "blk_west_randolph_canal#04",
+   "block_id": "blk_west_randolph_canal",
+   "lot_index": 4,
+   "fronts": "canal",
+   "street_class": "ordinary",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d5_03",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2295,14 +2331,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#08",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 8,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": false,
+   "lot_id": "blk_randolph_clinton#05",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 5,
+   "fronts": "canal",
+   "street_class": "ordinary",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_033",
+   "structure_id": "recon_1835_west_018",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2319,14 +2355,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#08",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 8,
+   "lot_id": "blk_west_randolph_des_plaines#07",
+   "block_id": "blk_west_randolph_des_plaines",
+   "lot_index": 7,
    "fronts": "jefferson",
    "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_034",
+   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
    "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2343,15 +2379,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#03",
-   "block_id": "blk_randolph_clinton",
+   "lot_id": "blk_west_randolph_des_plaines#03",
+   "block_id": "blk_west_randolph_des_plaines",
    "lot_index": 3,
-   "fronts": "clinton",
-   "street_class": "light",
+   "fronts": "des_plaines",
+   "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_021",
-   "family": "D6",
+   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2367,15 +2403,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#02",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 2,
-   "fronts": "clinton",
+   "lot_id": "blk_west_randolph_canal#08",
+   "block_id": "blk_west_randolph_canal",
+   "lot_index": 8,
+   "fronts": "west_water",
    "street_class": "light",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d3_04",
-   "family": "D3",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d6_04",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2415,15 +2451,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#03",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 3,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_id": "blk_west_lake_des_plaines#08",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 8,
+   "fronts": "jefferson",
+   "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_016",
-   "family": "D3",
+   "structure_id": "recon_1835_west_033",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2511,15 +2547,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#02",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 2,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_id": "blk_west_lake_des_plaines#08",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 8,
+   "fronts": "jefferson",
+   "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_lake_clinton_d3_02",
-   "family": "D3",
+   "structure_id": "recon_1835_west_034",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2631,15 +2667,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#09",
-   "block_id": "blk_west_randolph_des_plaines",
-   "lot_index": 9,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_randolph_clinton#03",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 3,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
-   "family": "D5",
+   "structure_id": "recon_1835_west_021",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2775,14 +2811,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#05",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 5,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_randolph_clinton#02",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 2,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_030",
+   "structure_id": "recon_1835_blk_randolph_clinton_d3_04",
    "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2799,15 +2835,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#05",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 5,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_lake_clinton#03",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 3,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_031",
-   "family": "D4",
+   "structure_id": "recon_1835_west_016",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2823,15 +2859,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#04",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 4,
-   "fronts": "des_plaines",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_lake_clinton#02",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 2,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_044",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_lake_clinton_d3_02",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2895,15 +2931,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#00",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 0,
-   "fronts": "des_plaines",
+   "lot_id": "blk_west_randolph_des_plaines#09",
+   "block_id": "blk_west_randolph_des_plaines",
+   "lot_index": 9,
+   "fronts": "jefferson",
    "street_class": "none",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_042",
-   "family": "D3",
+   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2991,21 +3027,45 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#00",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 0,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_id": "blk_west_lake_des_plaines#05",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 5,
+   "fronts": "jefferson",
+   "street_class": "none",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_008",
-   "family": "D4",
+   "structure_id": "recon_1835_west_030",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
    "seed": "hh_bourassa_jean_baptiste|T-1522|division:daa966a0443a|class:bb28d18611c1",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_bourassa_mark",
+   "kind": "household",
+   "name": "The Bourassa household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_west_lake_des_plaines#05",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 5,
+   "fronts": "jefferson",
+   "street_class": "none",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_031",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_bourassa_mark|T-1522|division:df004b5d1005|class:b15c316729e5",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -3201,6 +3261,30 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_bronson_arthur",
+   "kind": "household",
+   "name": "The Bronson household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_west_lake_des_plaines#04",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 4,
+   "fronts": "des_plaines",
+   "street_class": "none",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_044",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_bronson_arthur|T-1522|division:eb47bcf0d821|class:e87d7919ec9e",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
    "id": "hh_brookes_samuel",
    "kind": "household",
    "name": "The Brookes household — a name from the post office's letter lists",
@@ -3249,6 +3333,30 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_brown_hanna_e",
+   "kind": "household",
+   "name": "The Brown household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_west_lake_des_plaines#00",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 0,
+   "fronts": "des_plaines",
+   "street_class": "none",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_042",
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_brown_hanna_e|T-1522|division:cf8a85eddd26|class:a0498e676aad",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
    "id": "hh_brown_jesse_b",
    "kind": "household",
    "name": "The Brown household — a name the town's own records carry",
@@ -3294,6 +3402,30 @@
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
    "seed": "hh_brown_lemuel|south|blacksmith|T-1512",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_brownson_myron_k",
+   "kind": "household",
+   "name": "The Brownson household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_lake_clinton#00",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 0,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_008",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_brownson_myron_k|T-1522|division:d19c36838cb0|class:b7c2bac154be",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -8228,15 +8360,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_bourassa_mark",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_bourassa_noel",
    "kind": "household",
    "band": "north/tradesman_dwellings",
@@ -8278,33 +8401,6 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_bronson_arthur",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_brown_hanna_e",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_brownson_myron_k",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
@@ -13120,7 +13216,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13129,7 +13225,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13138,7 +13234,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13165,7 +13261,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13174,7 +13270,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13201,7 +13297,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13219,7 +13315,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13237,7 +13333,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13246,7 +13342,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13255,7 +13351,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13264,7 +13360,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13282,7 +13378,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13300,7 +13396,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13309,7 +13405,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13336,7 +13432,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13354,7 +13450,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13363,7 +13459,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13372,7 +13468,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13381,7 +13477,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13390,7 +13486,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13408,7 +13504,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13417,7 +13513,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13426,7 +13522,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13444,7 +13540,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13453,7 +13549,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13507,7 +13603,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13516,7 +13612,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13525,7 +13621,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13543,7 +13639,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13552,7 +13648,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13570,7 +13666,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13579,7 +13675,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13588,7 +13684,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13597,7 +13693,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13606,7 +13702,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13615,7 +13711,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13624,7 +13720,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13633,7 +13729,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13669,7 +13765,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13678,7 +13774,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13687,7 +13783,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13723,7 +13819,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13732,7 +13828,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13741,7 +13837,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13750,7 +13846,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13768,7 +13864,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13777,7 +13873,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13786,7 +13882,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13804,7 +13900,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13822,7 +13918,7 @@
    "band": "south/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {

@@ -87,26 +87,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 598,
+  "structure_records": 602,
   "physical_roofs": {
-   "min": 580,
-   "max": 581,
+   "min": 584,
+   "max": 585,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 441,
+   "generated": 445,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 315,
-   "west": 104,
+   "west": 108,
    "north": 145,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 283,
+   "ordinary_dwellings": 287,
    "larger_boarding_houses": 36,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
@@ -130,9 +130,9 @@
    "D1": 56,
    "D2": 33,
    "D3": 61,
-   "D4": 61,
-   "D5": 35,
-   "D6": 22,
+   "D4": 62,
+   "D5": 37,
+   "D6": 23,
    "D7": 15,
    "F1": 8,
    "F2": 5,
@@ -178,11 +178,11 @@
   ]
  },
  "remaining": {
-  "roofs": 88,
+  "roofs": 84,
   "of_target": 668,
   "by_district": {
    "south": 50,
-   "west": 31,
+   "west": 27,
    "north": 7,
    "fort": 0
   },
@@ -197,7 +197,7 @@
    "west": {
     "barns_stables": 6,
     "larger_boarding_houses": 3,
-    "ordinary_dwellings": 12,
+    "ordinary_dwellings": 8,
     "small_outbuildings": 9,
     "warehouses_freight": 1
    },
@@ -209,7 +209,7 @@
   },
   "by_family": {
    "A1": 2,
-   "A2": 12,
+   "A2": 11,
    "A3": 1,
    "A4": 4,
    "A5": 5,
@@ -220,9 +220,9 @@
    "D1": 0,
    "D2": 5,
    "D3": 4,
-   "D4": 12,
-   "D5": 13,
-   "D6": 7,
+   "D4": 11,
+   "D5": 12,
+   "D6": 6,
    "D7": 3,
    "F1": 0,
    "F2": 2,
@@ -250,10 +250,10 @@
     "H1": 1,
     "H2": 1,
     "H3": 1,
-    "D2": 4,
+    "D2": 5,
     "D3": 4,
     "D4": 11,
-    "D5": 12,
+    "D5": 11,
     "D6": 6,
     "D7": 3,
     "A5": 1,
@@ -269,9 +269,9 @@
     "H3": 1,
     "D2": 1,
     "D3": 1,
-    "D4": 3,
-    "D5": 4,
-    "D6": 2,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
     "D7": 1,
     "A3": 1,
     "A4": 4,
@@ -293,17 +293,18 @@
    "W5": 3
   },
   "absorbed_from": {
-   "D5": 10,
-   "D4": 2
+   "D5": 9,
+   "D4": 2,
+   "A2": 1
   },
   "district_group_rows_overshot": {},
   "district_group_slots_shed": {}
  },
  "coverage": {
   "schedulable_on_committed_ground": 15,
-  "gated_on_coverage": 73,
-  "statement": "15 of the 88 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 73 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
-  "platted_lots": 338,
+  "gated_on_coverage": 69,
+  "statement": "15 of the 84 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 69 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "platted_lots": 348,
   "blocks_named": 80,
   "southern_ground": {
    "field_south_edge_n_m": -3800.0,
@@ -376,9 +377,9 @@
    "roofs": 4,
    "families": {
     "A2": 1,
+    "D2": 1,
     "D4": 1,
-    "D5": 1,
-    "D6": 1
+    "D5": 1
    },
    "principal": 3,
    "ancillary": 1,
@@ -458,9 +459,9 @@
    "roofs": 4,
    "families": {
     "A5": 1,
-    "D2": 1,
     "D3": 1,
-    "D4": 1
+    "D4": 1,
+    "D6": 1
    },
    "principal": 3,
    "ancillary": 1,
@@ -1894,7 +1895,7 @@
   },
   {
    "id": "blk_west_randolph_canal",
-   "kind": "platted_block_unscheduled",
+   "kind": "platted_block",
    "district": "west",
    "bounded_by": {
     "north": "randolph",
@@ -1902,20 +1903,20 @@
     "west": "canal",
     "east": "west_water"
    },
-   "lots": 0,
-   "capacity_roofs": 0,
-   "standing_roofs": 2,
-   "free_lots": 0,
+   "lots": 10,
+   "capacity_roofs": 6,
+   "standing_roofs": 6,
+   "free_lots": 4,
    "principal_room": 0,
    "ancillary_room": 0,
    "headroom": 0,
-   "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+   "state": "at_capacity",
+   "density": "6 roofs per 10 lots, the reviewed West recipe on blk_west_lake_des_plaines (T-1783)",
    "roofs": 0,
    "families": {},
    "principal": 0,
    "ancillary": 0,
-   "lot_ceiling_principal": 0,
+   "lot_ceiling_principal": 3,
    "row_lots_required": 0
   },
   {
@@ -2347,7 +2348,7 @@
    "roofs": 22,
    "families": {
     "A2": 1,
-    "D2": 2,
+    "D2": 3,
     "D3": 1,
     "D4": 4,
     "D5": 5,
@@ -2356,8 +2357,7 @@
     "F2": 1,
     "F4": 1,
     "H1": 1,
-    "H2": 1,
-    "H3": 1
+    "H2": 1
    },
    "principal": 21,
    "ancillary": 1,
@@ -2421,10 +2421,11 @@
     "D2": 1,
     "D3": 2,
     "D4": 5,
-    "D5": 6,
+    "D5": 5,
     "D6": 3,
     "D7": 1,
-    "F3": 2
+    "F3": 2,
+    "H3": 1
    },
    "principal": 20,
    "ancillary": 0
@@ -2433,12 +2434,12 @@
    "id": "west_division_beyond_committed_control",
    "kind": "district_balance",
    "district": "west",
-   "capacity_roofs": 31,
+   "capacity_roofs": 27,
    "standing_roofs": 0,
-   "headroom": 31,
+   "headroom": 27,
    "state": "gated",
    "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-   "roofs": 31,
+   "roofs": 27,
    "families": {
     "A1": 1,
     "A2": 5,
@@ -2447,16 +2448,16 @@
     "A5": 4,
     "D2": 1,
     "D3": 1,
-    "D4": 3,
-    "D5": 4,
-    "D6": 2,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
     "D7": 1,
     "F3": 1,
     "H1": 1,
     "H2": 1,
     "H3": 1
    },
-   "principal": 16,
+   "principal": 12,
    "ancillary": 15
   },
   {

@@ -185,6 +185,48 @@
       "name": "First Fort Dearborn — soldiers' barracks, west of the main gate",
       "sidecar": "sidecars/1812/first_fort_dearborn_soldiers_barracks_sw.json",
       "asset": "gltf/first_fort_dearborn_soldiers_barracks_sw__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_agents_house",
+      "name": "First Fort Dearborn — the Indian agent's house",
+      "sidecar": "sidecars/1812/first_fort_outer_agents_house.json",
+      "asset": "gltf/first_fort_outer_agents_house__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_factory",
+      "name": "First Fort Dearborn — the United States factory (the factor's house)",
+      "sidecar": "sidecars/1812/first_fort_outer_factory.json",
+      "asset": "gltf/first_fort_outer_factory__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_officers_garden",
+      "name": "First Fort Dearborn — the Commanding Officer's garden",
+      "sidecar": "sidecars/1812/first_fort_outer_officers_garden.json",
+      "asset": "gltf/first_fort_outer_officers_garden__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_stable_middle",
+      "name": "First Fort Dearborn — stable, middle of three",
+      "sidecar": "sidecars/1812/first_fort_outer_stable_middle.json",
+      "asset": "gltf/first_fort_outer_stable_middle__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_stable_north",
+      "name": "First Fort Dearborn — stable, north of three",
+      "sidecar": "sidecars/1812/first_fort_outer_stable_north.json",
+      "asset": "gltf/first_fort_outer_stable_north__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_stable_south",
+      "name": "First Fort Dearborn — stable, south of three",
+      "sidecar": "sidecars/1812/first_fort_outer_stable_south.json",
+      "asset": "gltf/first_fort_outer_stable_south__first_fort_1803.glb"
+    },
+    {
+      "id": "first_fort_outer_sutlers_garden",
+      "name": "First Fort Dearborn — the sutler's garden",
+      "sidecar": "sidecars/1812/first_fort_outer_sutlers_garden.json",
+      "asset": "gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb"
     }
   ],
   "excluded_by_date": [
@@ -556,6 +598,10 @@
     "recon_1835_blk_west_lake_canal_d2_03",
     "recon_1835_blk_west_lake_canal_d4_02",
     "recon_1835_blk_west_lake_canal_d5_01",
+    "recon_1835_blk_west_randolph_canal_d4_02",
+    "recon_1835_blk_west_randolph_canal_d5_01",
+    "recon_1835_blk_west_randolph_canal_d5_03",
+    "recon_1835_blk_west_randolph_canal_d6_04",
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",

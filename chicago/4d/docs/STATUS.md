@@ -5,7 +5,7 @@
   `blk_indiana_north_cass` (6), both already at the memo's four-roof ceiling, stand instead
   in the memo's three inner clusters south of Michigan Street: recipe rows 68-93 of
   `1835_north_division_initial_parcel.json` (`addition_surplus`), family for family.
-  Recorded in the memo's new section and **L391**.
+  Recorded in the memo's new section and **L392**.
 - **Visible**: 26 new houses north of the river (9 on Kinzie's north face, 5 on its south
   face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
   school house were rebaked for the siding re-deal their new neighbours caused.
@@ -15,6 +15,67 @@
   all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
 - **Not measured**: no source places any of these houses; every position is a search result
   against the placement predicates, stated as such.
+
+## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
+
+T-1829 left the West Division 12 ordinary dwellings and a freight roof short, with every
+lot-ruled West block at capacity and the rest gated on a lot line. One of the gated cells was not
+like the others. Plat block 44 (`blk_west_randolph_canal`, Randolph to Washington between Canal
+and West Water) prints **two** depths on the sheet, 180 ft under its west column and 150 ft under
+its east (`thompson_west_division_lots.json`): the South Branch has cut into the West Water lots.
+`thompson_west_division_lots.json` leaves `lot_depth_ft` null there because it will not average
+them, and `generate_plat_lots.west_lot_figure` read that null as "prints no dimension". That is
+the wrong pile. The block prints more of itself than block 29 does, and block 29 was already
+cut on a single depth.
+
+- **The cut.** `west_lot_figure` now returns `lot_depth_ft_per_column` when both column depths
+  are read, and `subdivide_west` gives each column its printed share of what the committed face
+  leaves after the 18 ft alley (west 59.7 m, east 49.8 m deep). The figures are never averaged.
+  The closure is published as before: the sheet asks 348 ft, and the committed lines give 367.4.
+  Block 51 (180 / 88) would cut the same way, but the committed grid does not build it today.
+- **The deal.** `reconcile_665.py` opens the block at the West density (6 per 10 lots) beside
+  the Western Hotel and its stable: 4 roofs of room. The seating's four slot requests fill it
+  exactly. The recipe raises a D5 at plat lot 6, a D4 at plat lot 7 and a D5 at plat lot 10 (the
+  Washington corner) on Canal, and a D6 at plat lot 8 on West Water. The other four West Water
+  lots stay open. Baked with `generators/build.py --only` and `web_derivatives.sh --only`.
+- **The fixpoint.** As on T-1829, `rederive.mjs` alone does not settle: the keeper pass is not
+  in the manifest. Walking keepers → the three infill generators → `reconcile_665` → the seating
+  took six laps, plus one more after the tail, and lands at **182 seated** (dev 178; West 28 → 32).
+  The four requesters are seated on standing West roofs, and four older West households adopt the
+  new houses. 21 households change roof, and none is handed on. Named keepers 77 → 80. Twelve
+  meshes whose keepers moved were rebaked (26 s for the twelve).
+- Liberties: **L263** 554 → 558, **L270** 178 → 182 (who moved), **L276** 77 → 80, **L313**
+  covers block 44's lot ruling and four roofs.
+- Order book: `ordinary_dwellings/west` 67 of 75, **8 left**; `warehouses_freight/west` 1 left.
+  These rows, and the complete stores and workshops rows, move to **T-2143**, filed with this
+  finding as its acceptance.
+
+## T-2062 — the first fort's factory, agency, stables and gardens, by the draught's own figures (2026-10-05)
+
+**Visible:** seven structures now stand outside the first Fort Dearborn in the 1812 scene. They
+are the factory (a two-storey log trading house) and the agent's house west and south-west of the
+fort, three stables south of those, the Commanding Officer's paled garden south of the fort, and the
+sutler's garden toward the beach. Each is a new `first_fort_outer_*` record, baked with `bake.sh --only`.
+
+**The rule, because the draught refuses a scale out here.** Whistler states his scale for the garrison
+only. The register gains `outside_the_stockade`: every part is its sheet offset from the main gate,
+multiplied by a figure the drafter wrote. That is 297 ft over the 89 ft drawn (3.32) for the agent's
+house, the factory and the stables, and the garden's own "5o feete to the Inch" (2.5) for the two
+gardens. The "5o" was read at T-2062 off a 4x crop and is inferred. Footprints are the drawn boxes at
+the index's forty feet to the inch, an upper bound because the drawings are pictorial.
+`read_whistler_1808.py --check` re-derives all seven from the register's pixel boxes (to 0.01 m) and
+refuses one that moves. L391 records the whole of it as reconstructed.
+
+**What is not settled.** The factory's numeral 18 is not read. It is identified as the paled house due
+west, which agrees with Quaife and with the 1857 Chicago Magazine passage on chicagology_prefire052.
+That page's rights are unresolved, so it is cited in prose and stands under no built value. The
+drafter's figures disagree: the interpreter's house's 48 perches is 6.8 times the drawing, not 3.3. It
+is not built, because its figure puts it on the water's edge. The factory's low corner is 0.93 m off
+the falling bank (`approach_not_modelled`). The middle stable's numeral may be 23, not 24. That is not
+asserted. Nobody is seated in any of the seven (L1).
+
+**Gate:** the T-2062 gate run is named in the PR. `validate.py` passes with 0 errors. L263 (559) and
+L266 (93) are restated, and `measure_generator_half` is restated 591 → 598.
 
 ## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
 

@@ -7,35 +7,35 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 341,
+  "dwellings": 345,
   "by_row": {
    "cabin": 40,
-   "cottage": 153,
-   "house": 68,
+   "cottage": 154,
+   "house": 71,
    "keeper": 18,
    "merchant": 32,
    "shanty": 29
   },
   "by_class": {
    "keeper": 18,
-   "labourer": 78,
+   "labourer": 79,
    "merchant": 32,
-   "tradesman": 212
+   "tradesman": 215
   },
   "by_basis": {
    "default": 17,
-   "fabric_rule": 293,
+   "fabric_rule": 297,
    "function": 6,
    "household_trade": 10,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 311,
-   "cordwood": 348,
+   "chopping_block": 315,
+   "cordwood": 355,
    "log_heap": 40,
    "slab_heap": 29
   },
-  "piled": 340,
+  "piled": 344,
   "refused": 1
  },
  "existence": {
@@ -791,15 +791,15 @@
    "row": "cabin",
    "rule": "Y-W2",
    "confidence": "reconstructed",
-   "wall": "side",
+   "wall": "back",
    "items": [
     {
      "kind": "log_heap",
      "at_local_enu_m": [
-      246.24,
-      128.55
+      250.84,
+      154.41
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "logs": 4,
      "log_length_m": 2.49,
      "depth_m": 1.74,
@@ -808,10 +808,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      244.27,
-      129.34
+      251.64,
+      156.38
      ],
-     "bearing_deg": 90.0,
+     "bearing_deg": 180.0,
      "billets": 1,
      "seed": 1633464121
     }
@@ -7179,6 +7179,193 @@
    ]
   },
   {
+   "structure_id": "recon_1835_blk_west_randolph_canal_d4_02",
+   "name": "Reconstructed D4 two-room frame cottage #02",
+   "function": "two_room_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -127.35,
+      -341.47
+     ],
+     "bearing_deg": 270.47,
+     "length_m": 2.14,
+     "depth_m": 0.61,
+     "height_m": 1.01,
+     "stick": "stove",
+     "seed": 549127162
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      -125.95,
+      -342.1
+     ],
+     "bearing_deg": 270.47,
+     "billets": 1,
+     "seed": 333498387
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_west_randolph_canal_d5_01",
+   "name": "Reconstructed D5 deep-plan frame cottage #01",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -125.65,
+      -321.95
+     ],
+     "bearing_deg": 270.46,
+     "length_m": 2.52,
+     "depth_m": 0.61,
+     "height_m": 1.14,
+     "stick": "stove",
+     "seed": 1159589876
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -125.63,
+      -319.08
+     ],
+     "bearing_deg": 270.46,
+     "length_m": 2.52,
+     "depth_m": 0.61,
+     "height_m": 1.0,
+     "stick": "stove",
+     "seed": 1021243168
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      -124.25,
+      -322.77
+     ],
+     "bearing_deg": 270.46,
+     "billets": 1,
+     "seed": 1160564720
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_west_randolph_canal_d5_03",
+   "name": "Reconstructed D5 deep-plan frame cottage #03",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -129.29,
+      -358.36
+     ],
+     "bearing_deg": 180.46,
+     "length_m": 3.21,
+     "depth_m": 0.61,
+     "height_m": 0.99,
+     "stick": "stove",
+     "seed": 530808288
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -132.85,
+      -358.34
+     ],
+     "bearing_deg": 180.46,
+     "length_m": 3.21,
+     "depth_m": 0.61,
+     "height_m": 0.75,
+     "stick": "stove",
+     "seed": 1680121497
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      -128.12,
+      -356.97
+     ],
+     "bearing_deg": 180.46,
+     "billets": 3,
+     "seed": 769682289
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_west_randolph_canal_d6_04",
+   "name": "Reconstructed D6 one-and-a-half-story frame cottage #04",
+   "function": "one_and_a_half_story_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -44.61,
+      -338.89
+     ],
+     "bearing_deg": 90.47,
+     "length_m": 2.78,
+     "depth_m": 0.61,
+     "height_m": 1.09,
+     "stick": "stove",
+     "seed": 1603852395
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -44.63,
+      -342.02
+     ],
+     "bearing_deg": 90.47,
+     "length_m": 2.78,
+     "depth_m": 0.61,
+     "height_m": 0.88,
+     "stick": "stove",
+     "seed": 687657323
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      -46.0,
+      -337.94
+     ],
+     "bearing_deg": 90.47,
+     "billets": 3,
+     "seed": 2081649081
+    }
+   ]
+  },
+  {
    "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
    "name": "Reconstructed D4 two-room frame cottage #02",
    "function": "two_room_frame_cottage",
@@ -7219,32 +7406,32 @@
    "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
    "name": "Reconstructed D5 deep-plan frame cottage #04",
    "function": "deep_plan_frame_cottage",
-   "household_class": "merchant",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "larger",
-   "row": "merchant",
-   "rule": "Y-W5",
+   "row": "house",
+   "rule": "Y-W4",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      -412.31,
-      -358.69
+      -412.62,
+      -358.99
      ],
      "bearing_deg": 180.47,
-     "length_m": 2.44,
-     "depth_m": 1.22,
-     "height_m": 0.78,
-     "stick": "cord",
+     "length_m": 3.04,
+     "depth_m": 0.61,
+     "height_m": 0.74,
+     "stick": "stove",
      "seed": 1864282567
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      -413.07,
-      -356.98
+      -413.68,
+      -357.58
      ],
      "bearing_deg": 180.47,
      "billets": 1,
@@ -11948,32 +12135,32 @@
    "structure_id": "recon_1835_west_021",
    "name": "Reconstructed D6 one-and-a-half-story frame cottage #017",
    "function": "one_and_a_half_story_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "merchant",
    "household_by": "fabric_rule",
    "house": "larger",
-   "row": "house",
-   "rule": "Y-W4",
+   "row": "merchant",
+   "rule": "Y-W5",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      -225.84,
-      -340.95
+      -225.53,
+      -341.38
      ],
      "bearing_deg": 269.0,
-     "length_m": 3.32,
-     "depth_m": 0.61,
-     "height_m": 1.13,
-     "stick": "stove",
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.15,
+     "stick": "cord",
      "seed": 931742352
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      -224.46,
-      -339.71
+      -223.83,
+      -340.58
      ],
      "bearing_deg": 269.0,
      "billets": 3,
@@ -12498,7 +12685,7 @@
    "structure_id": "recon_1835_west_042",
    "name": "Reconstructed D3 one-room frame cottage #042",
    "function": "one_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
