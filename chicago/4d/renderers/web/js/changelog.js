@@ -1,28 +1,28 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
+  { v: 1456, ts: '2026-10-05T00:46:01.014Z', date: 'Oct 4, 2026, 7:46 PM CT', title: 'The letter-list names load half the size', kind: 'change',
+    items: [
+      'Open People and look at the names known only from the post office\u2019s letter lists. Each one opens as before, with nothing left out.',
+      'They now come down to your browser in half the size, about 4.6 MB where it was 9.3 MB. Most of those records repeat the same paragraphs, and now each paragraph is sent once.',
+      'After the first name opens, other names with the same first letter open straight away.',
+    ] },
+  { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
       'Each setting\u2019s limit came down to that count plus a small fixed margin, so a change that makes the town heavier is caught sooner.',
     ] },
-  { v: null, ts: '', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+  { v: 1454, ts: '2026-10-05T00:06:56.248Z', date: 'Oct 4, 2026, 7:06 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
       'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
       'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
       'The front steps of 108 houses had the same fault at their base and are fixed too.',
       'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
-  { v: null, ts: '', title: 'Trees cost less to draw, and look the same', kind: 'fix',
+  { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
     items: [
       'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
       'Each leaf used to work out a tiny surface texture that it then nearly threw away. It now skips that step. Bark keeps its texture.',
       'On a desktop at Full detail, a frame at the river forks is about 5% faster. On a phone at Light detail, the busiest views are about 3% faster.',
       'On a phone, Image sharpness Low draws a frame 26 to 29% faster than Medium, but softer. Whether a phone should start at Low is for the owner to decide. You can choose it now in Settings.',
-    ] },
-  { v: null, ts: '', date: '', title: 'The letter-list names load half the size', kind: 'change',
-    items: [
-      'Open People and look at the names known only from the post office\u2019s letter lists. Each one opens as before, with nothing left out.',
-      'They now come down to your browser in half the size, about 4.6 MB where it was 9.3 MB. Most of those records repeat the same paragraphs, and now each paragraph is sent once.',
-      'After the first name opens, other names with the same first letter open straight away.',
     ] },
   { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
