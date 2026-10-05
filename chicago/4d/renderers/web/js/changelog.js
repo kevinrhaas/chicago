@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+  { v: 1454, ts: '2026-10-05T00:27:50.068Z', date: 'Oct 4, 2026, 7:27 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
     items: [
       'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
       'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
