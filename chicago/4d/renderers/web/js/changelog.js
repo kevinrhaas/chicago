@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1463, ts: '2026-10-05T02:32:54.088Z', date: 'Oct 4, 2026, 9:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
+      'Twice before, that card named the wrong wall or the wrong street. Each time a person reading the files caught it.',
+      'Now every such card, 43 in all, is checked against the building\u2019s actual position whenever the town is rebuilt. All 43 are correct today.',
+    ] },
   { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
     items: [
       'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
