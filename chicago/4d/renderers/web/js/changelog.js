@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+  { v: 1493, ts: '2026-10-05T14:57:03.145Z', date: 'Oct 5, 2026, 9:57 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
       'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
