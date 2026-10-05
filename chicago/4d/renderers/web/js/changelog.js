@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1464, ts: '2026-10-05T03:03:44.060Z', date: 'Oct 4, 2026, 10:03 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+  { v: null, ts: '', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
       'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
       'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
       '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
       'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
       'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
+    ] },
+  { v: 1464, ts: '2026-10-05T02:58:07.931Z', date: 'Oct 4, 2026, 9:58 PM CT', title: 'A phone starts at Low image sharpness, for smoother frames', kind: 'change',
+    items: [
+      'On a phone, the town now opens at Image sharpness Low, not Medium. At Light detail, where a phone starts, each frame draws about a quarter faster. Edges are a little softer, most of all on log walls and roofs seen from the air.',
+      'A desktop still starts at Medium.',
+      'If you have ever picked a sharpness in Settings, you keep it.',
     ] },
   { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [

@@ -26,7 +26,12 @@ const DEFAULT_SETTINGS = {
   // eyeHeight defaults to WALK.eyeHeight — the researched figure, not a taste.
   // It lives here so a visitor can raise it for comfort without the project
   // quietly restating the average height of an 1830s adult as something else.
-  speed: 1.45, eyeHeight: 1.68, fov: 72, quality: 1.5,
+  speed: 1.45, eyeHeight: 1.68, fov: 72,
+  // Image sharpness, the pixel-ratio cap. '' = never chosen, so main.js's device
+  // guess stands: a phone starts at Low (1), a desktop at Medium (1.5) — the
+  // owner's pick on T-2110, where Low drew a phone's frame 26-29 % faster. A
+  // stored number is the visitor's own choice and is never overridden.
+  quality: '',
   // R-A1. The road-legibility aid is OFF by default and off is the frame that
   // shipped before it existed. It is a viewing accommodation, not an
   // alternative reconstruction — see streets.js § R-A1 and ROADMAP R-A1.
@@ -66,7 +71,7 @@ function store(key, value) {
 export function createHud({
   root, destinations, scene, registry, intersections = [], people = null, positionOf = null, visitor = null,
   onConfidence, onFly, onHelp, onSetting, onGoTo, onHideLevel, onTravelStop,
-  isTouch, resolvedDetail = 'full', structureVersion = null,
+  isTouch, resolvedDetail = 'full', resolvedQuality = 1.5, structureVersion = null,
 }) {
   const $ = (id) => root.querySelector(`#${id}`);
   const badgeYear = root.querySelector('.badge-year');
@@ -528,7 +533,9 @@ export function createHud({
 
   const qual = $('s-quality');
   if (qual) {
-    qual.value = String(settings.quality);
+    // Like Scene detail: show the ratio in force, which for a visitor who never
+    // chose is main.js's device guess — a phone at Low must not display Medium.
+    qual.value = String(settings.quality || resolvedQuality);
     qual.addEventListener('change', () => {
       settings.quality = Number(qual.value);
       onSetting?.('quality', settings.quality);
