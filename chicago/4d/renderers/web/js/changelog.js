@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1485, ts: '2026-10-05T11:59:57.820Z', date: 'Oct 5, 2026, 6:59 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
+  { v: 1487, ts: '2026-10-05T12:35:45.781Z', date: 'Oct 5, 2026, 7:35 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
     items: [
       'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
       'The court had no building of its own yet. In 1834 it met in the Mansion House’s unfinished loft, then in an unfinished store on Dearborn Street. For the spring 1835 term, held 25 May to 9 June, no source we have read names a room.',
       'So no building in the town is marked as that court room.',
+    ] },
+  { v: 1486, ts: '2026-10-05T12:08:26.457Z', date: 'Oct 5, 2026, 7:08 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. 24 reconstructed houses still wait for us to say which household lives in each, or why we can\u2019t. 18 of them are on the Washington Street blocks.',
+      'Our records handed those houses to planning tasks that had all finished, so nothing would ever have picked them up. They now point to a new open task, and our checks fail if that task closes while any of the houses are still waiting.',
+      'The town\u2019s list of what is left to build had a row like that too: the South\u2019s public buildings, all five of which already stand. It now points to the task that keeps the building list balanced.',
+    ] },
+  { v: 1485, ts: '2026-10-05T11:53:33.468Z', date: 'Oct 5, 2026, 6:53 AM CT', title: 'The town\u2019s 1833 wharf law is now written on the river landings', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. The river landings\u2019 record now carries the town\u2019s own wharfing law of December 1833: a lot on the river could build a wharf on the open ground before it, leaving eighty feet for a street, for fifteen dollars a year.',
+      'The law says nothing about any one wharf, so no dock in the town moves or changes size because of it.',
+      'Our research bookkeeping can now count a newspaper reading as used when it lands on the wharves or on the street edge, not only on a person, a business or a building.',
     ] },
   { v: 1484, ts: '2026-10-05T11:30:10.304Z', date: 'Oct 5, 2026, 6:30 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [

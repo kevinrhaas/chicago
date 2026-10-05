@@ -153,10 +153,6 @@
       "disposition": "aggregate_only",
       "statement": "A GARRISON ORDER IS A FACT ABOUT THE POST AND NOT ABOUT ONE OF ITS BUILDINGS. An arms call-in, a commanding officer named by rank and regiment, a supply contract taking effect on the scene date itself: each documents Fort Dearborn as garrisoned, commanded and administratively active in the weeks around 1835-07-01, which the fort's reconstruction wants and should have. The reconstruction holds the fort's ranges, its store house, its shop, its magazine and its out-buildings as separate records, and a notice that names none of them cannot choose between them; assigning one would be this project picking a door. So the reading is spent in the aggregate on the post, and the officers, dates and quantities stand on the record as read. Where such a notice DOES name a building — the store house that received the garrison's beef in quarters — it has been written onto that record instead."
     },
-    "the_river_frontage_ordinance_is_spent_on_a_layer_the_ledger_does_not_index": {
-      "disposition": "aggregate_only",
-      "statement": "THE LAYER THAT WOULD RECEIVE THIS READING IS NOT ONE THIS LEDGER INDEXES, AND SAYING SO IS THE LIMIT. The town's wharfing ordinance belongs against data/wharves/river_landings.json and its street-edge orders against data/frontage/town_street_edge.json — both real, committed layers — and this ledger reaches the residents layer, the business layer and the structure layer only. So a citation written onto the frontage or the wharves layer would not close the unit, and closing it by writing onto a STRUCTURE instead would put a river ordinance on a building, which is worse than leaving it open. The reading is therefore limited to the aggregate with the layer that would receive it named, its dimensioned clauses on the record, and making those two layers target surfaces filed as work of its own."
-    },
     "the_place_is_named_and_the_town_holds_no_record_of_it": {
       "disposition": "aggregate_only",
       "statement": "THE READING NAMES A REAL PLACE IN THE TOWN AND THE RECONSTRUCTION HAS NOT BUILT IT. A burying ground eroding on the lake bank, a school house whose district and corner the column cut away, a merchant's counting room used as the Lyceum's book drop, a private house the trustees sat in, a court house the county's own process names a year before the brick one this project holds was built: each is attested and none has a record. Under rule 2 of AGENTS.md the gap is recorded as a gap. A record built to receive the citation would be a place invented to justify it, and where the same kind of reading names a house the town HAS built it has been written onto that record instead — which is what makes the difference here a fact about the layer and not a preference. So the place stands on the record as named, the reading is spent in the aggregate, and building the record is separate work that needs evidence of WHERE."
@@ -1493,16 +1489,6 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_american_1835_06_13.json#claims/c013",
       "rule": "the_fort_s_administration_is_documented_and_reaches_no_building",
       "note": "The same notice in OCR good enough to name the signatory, Major J. Green of the 5th Infantry commanding at Fort Dearborn, which is why this printing mints him and the first issue's does not. The fort is garrisoned, commanded, and the collection point for arms held across the county. None of that reaches one of its buildings."
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_24.json#claims/c004",
-      "rule": "the_river_frontage_ordinance_is_spent_on_a_layer_the_ledger_does_not_index",
-      "note": "The most consequential single document the 1833 papers carry for the river frontage, and it says four things. Where a platted STREET runs down to the Chicago River or its branches, the ground between lot and water is VACANT and the town controls it. The fronting lot's owner or occupant may occupy that ground, but only 'leaving eighty feet for a street', so a strip of that width is reserved at every such river end from 1 January 1834. The privilege is FOR WHARFING ONLY. And it costs fifteen dollars a year in advance on a five-year lease signed by the President and Clerk. The layer that would receive it is data/wharves/river_landings.json, which this ledger does not index, so the eighty feet is put on the record and nothing is cut, leased or built from it."
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_24.json#claims/c005",
-      "rule": "the_river_frontage_ordinance_is_spent_on_a_layer_the_ledger_does_not_index",
-      "note": "The other half of the wharfing bargain, and it is evidence of a physical thing: the town expects lessees to have ERECTED WHARVES on the leased ground and undertakes to buy the structure back on a three-man appraisal if the lessee relinquishes the privilege, the appraisers valuing THE WORK and not what it cost -- a town protecting itself against a man who overbuilds. Together with section 15 this is the legal machinery under every wharf on the Chicago River from 1 January 1834. It names no lessee, no street end and no wharf, and like section 15 it is spent on a layer this ledger does not index."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_03_04.json#claims/c020",
