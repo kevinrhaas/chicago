@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1454, ts: '2026-10-05T00:15:03.899Z', date: 'Oct 4, 2026, 7:15 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
+  { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
       'Each setting\u2019s limit came down to that count plus a small fixed margin, so a change that makes the town heavier is caught sooner.',
+    ] },
+  { v: 1454, ts: '2026-10-05T00:06:56.248Z', date: 'Oct 4, 2026, 7:06 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+    items: [
+      'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
+      'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
+      'The front steps of 108 houses had the same fault at their base and are fixed too.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
   { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
     items: [
