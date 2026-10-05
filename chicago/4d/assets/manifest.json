@@ -301,7 +301,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 664728,
-      "inputs_sha256": "c86cd9e0ecc9458037caff7898b21da05ae743c7b8f9264d0434b29ced97c405",
+      "inputs_sha256": "fed9dbedd1e5e6c5761f9def46b2e147e7d3b7be31967be9e7c7207626f1aab1",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_pickets_inner"
@@ -310,7 +310,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 805980,
-      "inputs_sha256": "60680334fd5e8e1217f6eb8b872143b9d1f3f83a001b39eddbb35220d45ff91f",
+      "inputs_sha256": "64944077705d47c7b0f0ad9c7e063298842a579ccc232119981f4252e8d692bd",
       "kind": "generated",
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_pickets_outer"
@@ -472,7 +472,7 @@
       "archetype": "palisade",
       "baked_ao": false,
       "bytes": 1415824,
-      "inputs_sha256": "967254751157e232d763f80749a7d81a6ad8ba35639d9641156f28148e75a304",
+      "inputs_sha256": "116a8bf7a364dc56bb19086890e6d75423c22bc7a352c6434db627903b220597",
       "kind": "generated",
       "phase_id": "picket_1816",
       "structure_id": "fort_dearborn_palisade"

@@ -24728,8 +24728,24 @@
       "id": "L384",
       "title": "Fort Dearborn's roofs sit on their walls, its timber is piece by piece, and its staffs fly the flag in law",
       "section": "per_subject",
-      "subjects": [],
-      "covers": [],
+      "subjects": [
+        "first_fort_dearborn_flagstaff",
+        "fort_dearborn_flagstaff"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "first_fort_dearborn_flagstaff",
+          "phase": "first_fort_1803",
+          "aspect": "form.flag_flying"
+        },
+        {
+          "domain": "structure",
+          "structure": "fort_dearborn_flagstaff",
+          "phase": "staff_1833_37",
+          "aspect": "form.flag_flying"
+        }
+      ],
       "recorded": "2026-10-05",
       "revised": null,
       "fields": [
@@ -24752,6 +24768,10 @@
         {
           "label": "Related",
           "text": "L204 (the staff's position), L232 (the fort's well), T-0096 (the staff found, and the bare-staff reading this supersedes at the owner's direction)."
+        },
+        {
+          "label": "Covers",
+          "text": "`fort_dearborn_flagstaff.staff_1833_37.form.flag_flying`, `first_fort_dearborn_flagstaff.first_fort_1803.form.flag_flying`"
         },
         {
           "label": "Recorded",

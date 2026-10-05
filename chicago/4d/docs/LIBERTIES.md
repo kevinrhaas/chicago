@@ -21223,8 +21223,9 @@ a lot's own door position, where the entrance layer knows it, would place its ga
 - **Logs.** Every course of every log wall is its own piece with its own tone (±16 %), the two
   sill courses darker (×0.80, ×0.92).
 - **Pickets.** Each stockade picket is a split log, six-sided with the flat face inward, varied
-  in height, head, width, turn and lean, toned piece by piece and darker at the foot; two
-  ribbands run along the inside of each run; the timber grain runs up the picket.
+  in width, turn and the lean of its point (height and head stay the record's), toned piece by
+  piece and darker at the foot; two ribbands run along the inside of each run; the timber grain
+  runs up the picket.
 - **Flags.** The 1835 staff flies the 24-star, 13-stripe flag (stars in four rows of six); the
   1812 staff the 15-star, 15-stripe flag (five staggered rows of three). The fly is 0.30 of the
   staff (about 15 ft and 22 ft), hoist to fly 1 : 1.6, worn (the 1835 flag fully, the 1812 by
@@ -21252,4 +21253,5 @@ or storm flag, its size) replaces the cloth; a weather record for 1 July 1835 se
 was up, and from where the wind blew.
 **Related:** L204 (the staff's position), L232 (the fort's well), T-0096 (the staff found, and
 the bare-staff reading this supersedes at the owner's direction).
+**Covers:** `fort_dearborn_flagstaff.staff_1833_37.form.flag_flying`, `first_fort_dearborn_flagstaff.first_fort_1803.form.flag_flying`
 **Recorded:** 2026-10-05 (T-2123, T-2124).

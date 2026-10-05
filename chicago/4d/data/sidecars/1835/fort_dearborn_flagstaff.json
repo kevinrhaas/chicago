@@ -93,7 +93,8 @@
       "sources": [
         "andreas_1884_v1"
       ],
-      "note": "THE FLAG IS ATTESTED AND ITS PATTERN IS THE LAW'S. Andreas (vol. 1 p. 128) has this staff fly 'a weather-beaten flag'; a garrison staff of the United States flew the national flag. Its star count is not described anywhere reached and is read from the Flag Act of 4 April 1818, which adds a star on the 4th of July after a state's admission: Missouri's (admitted 10 August 1821) made 24 stars on 4 July 1822, and Arkansas's (admitted 15 June 1836) made 25 only on 4 July 1836. So the flag in law on 1 July 1835 has 24 stars and 13 stripes. The arrangement of the stars (four rows of six), the size of the cloth and its wear beyond Andreas's word are reconstructed (L384)."
+      "note": "THE FLAG IS ATTESTED AND ITS PATTERN IS THE LAW'S. Andreas (vol. 1 p. 128) has this staff fly 'a weather-beaten flag'; a garrison staff of the United States flew the national flag. Its star count is not described anywhere reached and is read from the Flag Act of 4 April 1818, which adds a star on the 4th of July after a state's admission: Missouri's (admitted 10 August 1821) made 24 stars on 4 July 1822, and Arkansas's (admitted 15 June 1836) made 25 only on 4 July 1836. So the flag in law on 1 July 1835 has 24 stars and 13 stripes. The arrangement of the stars (four rows of six), the size of the cloth and its wear beyond Andreas's word are reconstructed (L384).",
+      "geometry": "record_only"
     },
     "flag_flying": {
       "value": true,
@@ -101,7 +102,8 @@
       "sources": [
         "andreas_1884_v1"
       ],
-      "note": "FLOWN AT THE OWNER'S DIRECTION (2026-10-05), AS A RECONSTRUCTION. Andreas says the flag flew 'in pleasant weather and on holidays'; the scene date, Wednesday 1 July 1835, is not a holiday and no source reached records its weather. The scene is drawn in fair summer weather, so the flag is up under the source's own condition, and it is graded reconstructed: it is a claim about the forenoon that no source makes. The wind that holds it out (a south-westerly breeze) is reconstructed with it (L384)."
+      "note": "FLOWN AT THE OWNER'S DIRECTION (2026-10-05), AS A RECONSTRUCTION. Andreas says the flag flew 'in pleasant weather and on holidays'; the scene date, Wednesday 1 July 1835, is not a holiday and no source reached records its weather. The scene is drawn in fair summer weather, so the flag is up under the source's own condition, and it is graded reconstructed: it is a claim about the forenoon that no source makes. The wind that holds it out (a south-westerly breeze) is reconstructed with it (L384).",
+      "geometry": "record_only"
     },
     "function": {
       "value": "garrison_flagstaff",

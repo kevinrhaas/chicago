@@ -96,13 +96,11 @@ def _unit(name: str, *keys) -> float:
 # of "pickets" — "split or roughly squared timber posts set upright" (construction,
 # on fort_dearborn_palisade) — and the owner's report that the wall read as plain.
 # A split post has a flat face where the log was riven and a rounded back where
-# the bark was; set by hand, it stands a little proud of or short of its
-# neighbours and a little turned. Until this ticket all seven hundred were the
+# the bark was; set by hand, it stands a little turned. Its HEIGHT stays the
+# record's: tools/measure_picket_plate.py gates the point as cut from a picket of
+# exactly that height, and a line sawn level is what a stockade's top was. Until this ticket all seven hundred were the
 # same squared post to the millimetre, which is what made the curtain read as a
 # manufactured fence.
-#: How far a picket's top stands above or below the record's height, at most.
-#: Cut out of the head, so the line of the wall is the record's on average.
-PICKET_RISE_M = 0.07
 #: How much narrower than the record's face a picket may be (never wider, so no
 #: post can overlap its neighbour).
 PICKET_NARROW = 0.14
@@ -264,13 +262,16 @@ def _picket(b: MeshBuilder, p: PalisadeParams, cx, cy, ux, uy, nx, ny,
     the wall reads as a row of timbers rather than of boards. Height, width, turn,
     the lean of the point and the weathering are each the post's own, from a hash
     of where it stands (the constants above; L384). Eighteen triangles, up from
-    twelve.
+    twelve: six-sided shaft, six-triangle head.
     """
     def r(k):
         return 2.0 * _unit(b.name, "picket", round(cx * 100), round(cy * 100), k) - 1.0
 
-    height = p.picket_height_m + PICKET_RISE_M * r(0)
-    head = p.picket_point_m * (1.0 + 0.2 * r(1))
+    # Height and head stay the record's to the millimetre: the stockade was cut
+    # to a line, and tools/measure_picket_plate.py gates the point as CUT FROM a
+    # picket of the record's height. The variety is in the section and the wood.
+    height = p.picket_height_m
+    head = p.picket_point_m
     shaft = height - head
     hw = hw * (1.0 - PICKET_NARROW * 0.5 * (r(2) + 1.0))
     turn = math.radians(PICKET_TURN_DEG * r(3))
