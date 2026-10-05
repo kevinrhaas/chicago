@@ -138,6 +138,38 @@ Two businesses Bonnell puts inside that building — the hat store of McCormick 
 Detroit, and Jesse Butler's tailor shop in the back part of it — are unrecorded by this project
 and are filed with the move.
 
+**Ruled 2026-10-05 (T-1723): the south bank stands, on the paper, and nothing moves.** The
+paragraph above weighed a contemporaneous witness against an untraceable tag, and the tag was
+never the best evidence for the south bank. The project's own *Chicago Democrat* corpus
+(`data/research/newspapers/extracted/`) had it all along, unlinked to the record: Newberry &
+Dole's premises are the most-cited anchor in the paper's advertising columns, and the
+advertisers who hang off them say where they are.
+
+| issue · claim | the words | what it places |
+| --- | --- | --- |
+| 1834-05-28 · c004 | "on Dearborn street, one door from Newberry & Dole's store" | a Dearborn Street neighbour |
+| 1834-11-12 · c002, 1834-12-03 · c002 | "next door below Messrs. Newberry and Dole's store house, on south water street" (copy of 3 Nov 1834) | the store house on South Water Street |
+| 1835-05-20 · c020 | "on Dearborn street, a few rods north of Messrs. Newberry & Dole's Store" | a Dearborn Street neighbour, six weeks before the scene |
+| 1835-06-17 · c008 | Cohen "at his old stand", copy of 11 June 1835 | the same stand, still held |
+| 1835-07-01 · c001 | "[…]low Messrs. Newberry and Dole's" | Cohen's card still standing on the scene date |
+
+South Water and Dearborn were both south-bank streets, and four advertisers who never mention
+one another agree. So on 1 July 1835 the firm's store house is on the south bank by a source
+dated on the scene, and Bonnell — eight weeks later — walked past a north-bank warehouse of the
+same firm. Both can be true, and the firm's own card, "STORAGE, Forwarding & Commission", is the
+kind of business that held more than one house. **What the paper does not give** is a date for
+the north-bank house, so it is not added to the July scene; "opposite to Fort Dearborn", set
+over the firm's card on 14 May 1834 (c007) and over Kinzie's the week before, names a direction
+and not a bank, and is not used either way.
+
+**One thing the reading turns up against the record, and it is filed, not done.** Both Dearborn
+Street neighbours put the store house at the Dearborn end of South Water Street. The committed
+building stands in the Franklin corner the owner chose on 2026-10-04 (T-2097, L378), four blocks
+and about half a kilometre west, and `dole_warehouse_south` — Andreas's Lake-and-Dearborn
+warehouse — stands one block south of the end the paper names. Whether the store house is that
+building, a second one on South Water at Dearborn, or the Franklin house after all is a placement
+ruling with a bake, a dock and four jaunts behind it, so it is its own ticket.
+
 ## 5. What is filed rather than done, and why each is somebody else's ruling
 
 | finding | why it is not done here |
@@ -145,7 +177,7 @@ and are filed with the move.
 | `hh_pruyne_kimberly` is a PARTNERSHIP household banded to the south division on the store's evidence, and Bonnell puts one partner's residence on the north bank | seating it here would carry Peter Pruyne across the river on a sentence about Kimberly; splitting a partnership household is the resident layer's ruling under its own rules |
 | `id_kelsey_patrick` (Fergus 1843) and `id_kelsey_parnick` (Norris 1844) are one man, and Bonnell's sentence spells him **both ways in one sentence** against the same trade | an identity merge is `identity_master`'s ruling under its M-rules, not a structure record's |
 | Eve Kelsey is in no identity of this corpus; Bonnell is the only source that names her | naming her on the roof she kept is the whole of what a structure record can do for her |
-| `newberry_dole_warehouse` should probably be on the north bank east end | a committed position, a dock, a wharf layer and a signboard move with it; needs the c. 1835 views identified |
+| ~~`newberry_dole_warehouse` should probably be on the north bank east end~~ | **ruled by T-1723: it should not.** The *Chicago Democrat* places the firm's store house on South Water Street on the scene date (§4); the north-bank house is a later one. The paper points at the Dearborn end, which is filed |
 | Hunter & Hinsdale's warehouse, McCormick & Moon's hat store, Jesse Butler's tailor shop | the first has no position but "opposite" an invented one; the other two are businesses inside a building whose bank is in dispute |
 | a yellow finish for the one house a source paints | a materials-table change with its own gates, not a line in a structure file |
 
@@ -161,3 +193,5 @@ and are filed with the move.
 - **Whatever the c. 1835 views of Newberry & Dole's warehouse actually are.** Identifying them
   is the one thing that would settle §4 either way, and until it is done the south bank rests
   on a dossier tag rather than on a source.
+  *(T-1723, 2026-10-05: the bank is settled without them — the paper's advertising columns
+  place the store house, §4. They would still help with the block.)*

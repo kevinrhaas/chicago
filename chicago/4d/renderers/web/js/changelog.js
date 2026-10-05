@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Newberry & Dole\u2019s warehouse stays on the south bank, now on the town\u2019s own paper', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Newberry & Dole\u2019s forwarding warehouse stays where it stood, on South Water Street across from its dock.',
+      'A letter about an August 1835 walk put the firm\u2019s warehouse on the north bank instead. We have now read the 1834\u201335 Chicago Democrat: four shopkeepers\u2019 notices place the firm\u2019s \u201cstore house, on south water street\u201d, one of them in the issue of July 1, 1835, the day the scene shows. So the south bank now rests on a source from that summer. Until now it rested on a note no one could trace.',
+      'The north-bank warehouse of that walk is likely a second building the firm had by late August. Nothing dates it to July, so it is not added.',
+      'The same notices point to the Dearborn Street end of South Water Street, four blocks east of where the warehouse stands. That is now an open question of its own. The Liberties page explains it (L66, L378).',
+    ] },
   { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
