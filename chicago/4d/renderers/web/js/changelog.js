@@ -1,11 +1,24 @@
 export const CHANGELOG = [ // newest first
-  { v: 1488, ts: '2026-10-05T12:49:52.482Z', date: 'Oct 5, 2026, 7:49 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+  { v: null, ts: '', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
       'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
       'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
       'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
       'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1489, ts: '2026-10-05T13:16:51.492Z', date: 'Oct 5, 2026, 8:16 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
+    items: [
+      'Walk south down Dearborn Street past Washington and both blocks beside you now have houses. On the Dearborn-to-State block six stand around the boarding house that was already there: a two-storey frame house on each Washington corner, a merchant\u2019s house between them, two one-room cottages and a tradesman\u2019s house along Madison. One lot is left open.',
+      'Across Dearborn, on the Clark block, the last two empty lots are built: a tradesman\u2019s house on Washington with a smokehouse behind it, and a cottage behind that on Madison. That block now carries sixteen roofs on seven of its eight lots.',
+      'Eight families had asked for these houses, but households take a standing roof before they ask for one to be built, so the new houses went to families moving up from older roofs nearby. Fifty-three households changed house behind them, and the plat still houses 178 families.',
+      'Nothing here is claimed as evidence. No source says these buildings stood on these blocks in 1835 or where on their lots they sat. The lot grid, the street lines and the ground are committed; the houses are the building programme filling a town it can count but cannot name, and all nine carry that disclosure on their own cards.',
+    ] },
+  { v: 1488, ts: '2026-10-05T12:57:24.109Z', date: 'Oct 5, 2026, 7:57 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
+      'The court had no building of its own yet. In 1834 it met in the Mansion House’s unfinished loft, then in an unfinished store on Dearborn Street. For the spring 1835 term, held 25 May to 9 June, no source we have read names a room.',
+      'So no building in the town is marked as that court room.',
     ] },
   { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
