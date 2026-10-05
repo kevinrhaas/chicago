@@ -4,7 +4,9 @@
 #
 #   tools/web_derivatives.sh              regenerate every derivative
 #   tools/web_derivatives.sh --out DIR    write somewhere else (measuring)
-#   tools/web_derivatives.sh --only NAME  one file, by basename
+#   tools/web_derivatives.sh --only NAME  one file, by its path under assets/gltf/
+#   tools/web_derivatives.sh --only A,B   several, a comma list (T-1653) — what
+#                                         `tools/bake.sh --only` hands it
 #
 # It was lifted out of `tools/bake.sh` by K36(b) unchanged — bake.sh calls this
 # and nothing else does the work, so the bytes a nightly ships and the bytes a
@@ -118,13 +120,29 @@ cd "$(dirname "$0")/.."
 
 OUT=assets/web
 ONLY=""
+ONLY_GIVEN=""
 while [ $# -gt 0 ]; do
   case "$1" in
     --out) OUT="$2"; shift 2 ;;
-    --only) ONLY="$2"; shift 2 ;;
+    --only) ONLY="$2"; ONLY_GIVEN=1; shift 2 ;;
     *) echo "unknown argument: $1" >&2; exit 2 ;;
   esac
 done
+
+# T-1653. `--only` names one master or a comma list of them, by path under
+# assets/gltf/. It is how `tools/bake.sh --only <ids>` derives the masters its build
+# wrote and nothing else: before, a one-roof re-bake ran this step over all ~570
+# masters — two npx start-ups each, about eighteen minutes of a run's foreground
+# budget — to rewrite the one or two derivatives that could have moved. Skipping the
+# rest loses nothing: T-0776 measured all 570 reproducing byte for byte, so an
+# untouched master's derivative is already the bytes this step would write.
+# No master name holds a comma (tools/check_only_selection.py gates it), so the list
+# is unambiguous. An empty value is not "everything": `--only ""` is refused below.
+wanted() {
+  [ -z "$ONLY" ] && return 0
+  case ",$ONLY," in *",$1,"*) return 0 ;; esac
+  return 1
+}
 
 # T-1730. A fresh checkout has none of the ignored v4 GLBs. Recover that exact set
 # before the canonical producer walks its inputs. Never restore over a new master
@@ -133,10 +151,31 @@ GLESSNER_V4="versions/glessner_house/v4/glessner_house__as_built_1887.glb"
 if [ -f data/structures/glessner_house.json ] && [ ! -f data/structures/versions/glessner_house/v4.json ]; then
   GLESSNER_V4="glessner_house__as_built_1887.glb"
 fi
-if [ "$OUT" = "assets/web" ] && { [ -z "$ONLY" ] || [ "$ONLY" = "$GLESSNER_V4" ]; } \
+if [ "$OUT" = "assets/web" ] && wanted "$GLESSNER_V4" \
   && [ ! -e "assets/gltf/$GLESSNER_V4" ] && [ ! -e "assets/web/$GLESSNER_V4" ] \
   && [ ! -e "assets/web/${GLESSNER_V4%.glb}.light.glb" ]; then
   python3 tools/recover_glessner_v4.py --materialize
+fi
+
+# A selection is an instruction, and one naming a master that does not exist is a
+# mistake to report before any work — the rule generators/common/selection.py
+# states for build.py's own --only. It comes after the v4 recovery above, which is
+# what makes that one ignored master exist on a fresh checkout.
+if [ -n "$ONLY_GIVEN" ] && [ -n "$(printf '%s' "$ONLY" | tr -d ',')" ]; then
+  missing=""
+  IFS=',' read -r -a only_names <<< "$ONLY"
+  for name in "${only_names[@]}"; do
+    [ -n "$name" ] || continue
+    [ -f "assets/gltf/$name" ] || missing="$missing $name"
+  done
+  if [ -n "$missing" ]; then
+    echo "   REFUSING: --only names no master under assets/gltf/:$missing" >&2
+    exit 2
+  fi
+elif [ -n "$ONLY_GIVEN" ]; then
+  echo "   REFUSING: --only was given and names nothing. An empty selection is not" >&2
+  echo "   the whole town; drop the flag to regenerate every derivative." >&2
+  exit 2
 fi
 
 # The archive follows its producer, just like the master/derivative hash below.
@@ -500,7 +539,7 @@ if [ -n "$resolved_cli" ]; then
   for f in assets/gltf/*.glb assets/gltf/versions/*/*/*.glb; do
     [ -e "$f" ] || continue
     rel="${f#assets/gltf/}"
-    [ -z "$ONLY" ] || [ "$rel" = "$ONLY" ] || continue
+    wanted "$rel" || continue
     out="$OUT/$rel"
     mkdir -p "$(dirname "$out")"
     case "$(basename "$f")" in
@@ -584,20 +623,24 @@ else
   # budget. It warned and nothing gated it. Assertion 8 does now.
   # A full master cannot stand in for the reduced asset: doing so would silently
   # breach light's ceiling. Refuse this explicitly requested version before writes.
-  if { [ -z "$ONLY" ] && [ -e "assets/gltf/$GLESSNER_V4" ]; } || [ "$ONLY" = "$GLESSNER_V4" ]; then
+  if [ -e "assets/gltf/$GLESSNER_V4" ] && wanted "$GLESSNER_V4"; then
     echo "   FATAL: gltf-transform unavailable; v4 full/light production requires the pinned tool." >&2
     exit 1
   fi
   echo "   gltf-transform unavailable; copying masters to assets/web unoptimised"
   echo "   WARNING: every derivative is now a master copy. tools/check.sh will fail"
   echo "   assertion 8 (K38) on all of them, which is correct — do not bank it."
-  mkdir -p "$OUT" && cp -f assets/gltf/*.glb "$OUT/" 2>/dev/null || true
   # This branch is a writer too, and the record says what was written rather than what
   # was intended — a copy IS what came out of this step here. Assertion 8 is what says
-  # it should not have.
+  # it should not have. The copy is made inside the selection (T-1653): it used to be
+  # one `cp assets/gltf/*.glb` ahead of the loop, so `--only one.glb` on a runner
+  # without the tool overwrote every derivative in the tree with its master and
+  # recorded one of them.
+  mkdir -p "$OUT"
   for f in assets/gltf/*.glb; do
     [ -e "$f" ] || continue
-    [ -z "$ONLY" ] || [ "$(basename "$f")" = "$ONLY" ] || continue
+    wanted "$(basename "$f")" || continue
+    cp -f "$f" "$OUT/"
     echo "$(basename "$f")" >> "$PRODUCED"
   done
   # …and the structure versions' masters the same way (T-1727), recorded where they
@@ -605,7 +648,7 @@ else
   for f in assets/gltf/versions/*/*/*.glb; do
     [ -e "$f" ] || continue
     rel="${f#assets/gltf/}"
-    [ -z "$ONLY" ] || [ "$rel" = "$ONLY" ] || continue
+    wanted "$rel" || continue
     mkdir -p "$(dirname "$OUT/$rel")" && cp -f "$f" "$OUT/$rel"
     record_version "$rel"
   done

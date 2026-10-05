@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1473, ts: '2026-10-05T05:58:37.076Z', date: 'Oct 5, 2026, 12:58 AM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+  { v: null, ts: '', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
       'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
       'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
@@ -7,6 +7,17 @@ export const CHANGELOG = [ // newest first
       'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
       'The wall of category buttons is now one row of five type icons beside the search.',
       'During a jaunt the [DOC], [INF] and [CONJ] tags no longer sit under the story. Each passage has one small Sources button that shows them.',
+    ] },
+  { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
+      'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
+    ] },
+  { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
+      'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
+      'If a later change moves that number, the checks stop it until someone decides it on purpose.',
     ] },
   { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
     items: [

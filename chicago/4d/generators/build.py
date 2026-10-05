@@ -16,6 +16,10 @@
                     see emit.bake_ao() for why, and generators/ao_export.py for the guard
                     that refuses a GLB whose occlusion did not survive the export)
     --out <dir>     output directory (default assets/gltf)
+    --wrote <file>  write there, one per line, every master this run wrote, as a path
+                    relative to --out — the town's and the versions'. tools/bake.sh
+                    hands that list to tools/web_derivatives.sh, so `--only` derives
+                    what it built and not the whole town (T-1653)
 
 Every STRUCTURE VERSION of a selected id (T-1727; all of them when nothing is
 selected) is baked after the structures, to <out>/versions/<id>/<label>/ and recorded
@@ -101,6 +105,9 @@ def main() -> int:
     ap.add_argument("--ao", action="store_true",
                     help="bake ambient occlusion. OFF by default: see emit.bake_ao().")
     ap.add_argument("--out", default=str(ROOT / "assets" / "gltf"))
+    ap.add_argument("--wrote", default=None,
+                    help="write the masters this run wrote to this file, one per line, "
+                         "relative to --out (T-1653)")
     args = ap.parse_args(argv_after_ddash())
 
     datum = load(ROOT / "data" / "datum.json")
@@ -155,6 +162,10 @@ def main() -> int:
 
     built = 0
     built_ids: list[str] = []
+    # T-1653. Every master written, relative to --out, in the order written. It is the
+    # derivative step's selection for a `--only` bake, so it is read off the paths this
+    # run actually wrote rather than re-derived from the ids it was asked for.
+    wrote: list[str] = []
     pairs = [(st, ph) for st in records if selects(only, st["id"])
              for ph in (phases_in_scenes(st) or [None])]
     for st, phase in pairs:
@@ -211,6 +222,7 @@ def main() -> int:
                   f"{stats['texels']:,} texels, "
                   f"{abs(stats['mean'] - baked_mean) / max(baked_mean, 1e-9) * 100:.1f} % drift")
         manifest["assets"][out.name] = entry
+        wrote.append(f"{name}.glb")
         print(f"built {out.name}  {out.stat().st_size:,} bytes  ~{made.tris} tris")
         built += 1
         built_ids.append(st["id"])
@@ -271,12 +283,15 @@ def main() -> int:
         # web_master_sha256 is written by tools/web_derivatives.sh as it derives this
         # master; a fresh master has no derivative yet, so the old link is dropped.
         vmanifest["assets"][key] = entry
+        wrote.append(key)
         print(f"built version {key}  {made.path.stat().st_size:,} bytes  ~{made.tris} tris")
         vbuilt += 1
         built += 1
     if vbuilt:
         write_manifest(vmanifest)
         print(f"{vbuilt} structure version(s) built; assets/manifest.versions.json updated")
+    if args.wrote:
+        Path(args.wrote).write_text("".join(f"{one}\n" for one in wrote))
     # Every named id exists — `refusal()` proved that — so one that built nothing
     # was skipped for a reason printed above (no phase covers the scene date, the
     # phase is drawn by another layer, the archetype has no generator). Say which,
