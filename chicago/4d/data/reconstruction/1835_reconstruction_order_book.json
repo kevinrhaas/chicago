@@ -1616,13 +1616,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 251,
-    "still_owed": 1173,
-    "roofs_adopted": 238,
+    "seated": 255,
+    "still_owed": 1169,
+    "roofs_adopted": 242,
     "slots_requested": 13,
     "roofs_standing": 576,
-    "roofs_standing_unseated": 338,
-    "share_of_standing_roofs_seated": 0.4132,
+    "roofs_standing_unseated": 334,
+    "share_of_standing_roofs_seated": 0.4201,
     "passes": [
       {
         "key": "platted",
@@ -1631,24 +1631,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 178,
-        "handed_on": 1246,
-        "roofs_adopted": 165,
+        "seated": 182,
+        "handed_on": 1242,
+        "roofs_adopted": 169,
         "slots_requested": 13,
         "roofs_offered_for_adoption": 181,
         "roofs_held_back": 56,
-        "ground_taken": 161,
+        "ground_taken": 164,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 21,
           "south": 129,
-          "west": 28
+          "west": 32
         },
         "by_clause": {
           "labourer_dwellings": 35,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 32,
-          "tradesman_dwellings": 109
+          "tradesman_dwellings": 113
         }
       },
       {
@@ -1657,9 +1657,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1246,
+        "rows_offered": 1242,
         "seated": 73,
-        "handed_on": 1173,
+        "handed_on": 1169,
         "roofs_adopted": 73,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 79,
@@ -1816,7 +1816,7 @@
       "blk_indiana_north_wolcott"
     ],
     "what_the_slots_wait_on": "13 slot(s) on 2 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,173 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,169 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5066,10 +5066,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 576,
-        "standing_with_an_occupant": 235,
-        "standing_without_an_occupant": 341,
+        "standing_with_an_occupant": 238,
+        "standing_without_an_occupant": 338,
         "to_build_total": 110,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 341 of the 576 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 338 of the 576 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5927,7 +5927,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "341 of 576 standing records carry no occupants block."
+      "measured_now": "338 of 576 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
