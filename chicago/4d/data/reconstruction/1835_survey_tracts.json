@@ -3639,17 +3639,12 @@
       "by_plat": {
         "kinzies_addition": 27,
         "original_town": 25,
+        "school_section_tier": 5,
         "wabansia": 13,
         "west_division": 9
       },
       "outside": [],
-      "no_ring_for_their_plat": [
-        "blk_school_section_tier_81",
-        "blk_school_section_tier_94",
-        "blk_school_section_tier_95",
-        "blk_school_section_tier_118",
-        "blk_school_section_tier_119"
-      ],
+      "no_ring_for_their_plat": [],
       "not_testable_and_why": {
         "michigan_st_tract": {
           "blocks": [
