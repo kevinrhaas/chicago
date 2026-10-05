@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1500, ts: '2026-10-05T17:48:32.709Z', date: 'Oct 5, 2026, 12:48 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',
+      'When the lots of Kinzie\u2019s Addition were first cut, twenty households were given lots on two Indiana Street blocks. The Liberties page said all twenty were labourers\u2019 families. They were not: thirteen were tradesmen\u2019s, six were merchants\u2019 or professionals\u2019, and only one was a labourer\u2019s.',
+      'The entry now says so, and says what stands on those two blocks today: 21 households, eight of them already in cottages. The Liberties page explains it (L270).',
+    ] },
   { v: 1499, ts: '2026-10-05T17:24:41.073Z', date: 'Oct 5, 2026, 12:24 PM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
