@@ -49,6 +49,12 @@ step "The working bank never hides the timber standing on it (T-2098)" \
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
+step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
+  node tools/check_sharpness_default.mjs
+
+step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
+  node tools/test_program_cache_key.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
@@ -1062,6 +1068,17 @@ step "every frontage run stands across the lots its recipe declares" \
   python3 tools/measure_frontage_declaration.py --check
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_frontage_declaration.py --self-test
+
+# The note on every unit of a party-line row makes geometric claims — which street, how
+# far back, which wall the anchor fixes and where — and the regeneration gate above
+# cannot catch a wrong one: it re-derives each record FROM the same template, so a
+# template that names the wrong wall re-derives the wrong wall perfectly. T-0189 and
+# T-0208 were both found by a person reading the file. This reads the prose and holds
+# each claim to the committed footprint and the committed plat (T-0239).
+step "every party-line note says what its placement did" \
+  python3 tools/check_frontage_notes.py --check
+selftest "…and a note naming the wrong wall still fails" \
+  python3 tools/check_frontage_notes.py --self-test
 
 # The residents manifest is DERIVED, and now it is gated like one (T-0715). Four
 # minting passes and four rewriting passes each rebuilt the SLICE of

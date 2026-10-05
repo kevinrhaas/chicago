@@ -49,7 +49,7 @@
  *
  * The phone stand-in is 390x780 at a device pixel ratio of 3 (an iPhone's),
  * touch, so the renderer boots the way it does on the owner's phone — coarse
- * pointer, low-spec shadows, Image sharpness Medium = 1.5 — with the CPU
+ * pointer, low-spec shadows, Image sharpness Low = 1 (Medium = 1.5 until T-2110) — with the CPU
  * throttled `--throttle` times (default 4) through the DevTools protocol.
  *
  * THE ARRIVAL SCREEN AND A JAUNT VIEW (T-2111). The arrival and the welcome are

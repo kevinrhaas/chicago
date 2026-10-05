@@ -1,11 +1,51 @@
 export const CHANGELOG = [ // newest first
-  { v: 1462, ts: '2026-10-05T03:14:05.021Z', date: 'Oct 4, 2026, 10:14 PM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+  { v: 1469, ts: '2026-10-05T04:34:28.289Z', date: 'Oct 4, 2026, 11:34 PM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
       'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
       'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
       'Starting at\u2026 opens with five one-tap places: the town from above, Fort Dearborn, the forks, South Water Street and the Newberry & Dole wharf.',
       'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
       'The wall of category buttons is now one row of five type icons beside the search.',
+    ] },
+  { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. Each layer of the town can add its own steps to how a surface is shaded. Two layers with different steps could still be handed one shared shader, and then one of them drew in solid black.',
+      'That is how a fence once came out black. It was fixed for that fence alone. Now each set of shading steps gets its own shader, and anything that shades the same way still shares one, so nothing extra is compiled.',
+    ] },
+  { v: 1467, ts: '2026-10-05T03:48:41.028Z', date: 'Oct 4, 2026, 10:48 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
+    items: [
+      'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
+      'The shed is still a reconstruction: no record names it, and its card says so. Only where it stands changed.',
+    ] },
+  { v: 1466, ts: '2026-10-05T03:32:41.154Z', date: 'Oct 4, 2026, 10:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
+      'Twice before, that card named the wrong wall or the wrong street. Each time a person reading the files caught it.',
+      'Now every such card, 43 in all, is checked against the building\u2019s actual position whenever the town is rebuilt. All 43 are correct today.',
+    ] },
+  { v: 1465, ts: '2026-10-05T03:13:04.374Z', date: 'Oct 4, 2026, 10:13 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
+      'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
+      'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
+  { v: 1464, ts: '2026-10-05T02:58:07.931Z', date: 'Oct 4, 2026, 9:58 PM CT', title: 'A phone starts at Low image sharpness, for smoother frames', kind: 'change',
+    items: [
+      'On a phone, the town now opens at Image sharpness Low, not Medium. At Light detail, where a phone starts, each frame draws about a quarter faster. Edges are a little softer, most of all on log walls and roofs seen from the air.',
+      'A desktop still starts at Medium.',
+      'If you have ever picked a sharpness in Settings, you keep it.',
+    ] },
+  { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+    items: [
+      'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
+      'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
+      'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
+    ] },
+  { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
+      'We have now decided why, and written it down: on the south bank that ground lies inside South Water Street as it was laid out, and no record of the time puts a building there. We will not invent one in the street.',
+      'That bank is shown instead as what the town\u2019s records point to: worn working ground with landings out to the water, where goods came ashore for the stores across the street.',
     ] },
   { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [

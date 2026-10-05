@@ -13,24 +13,55 @@
       "failed": 0,
       "failures": [],
       "wallSeconds": 306,
-      "takenAt": "2026-10-05T04:15:14.383Z",
+      "takenAt": "2026-10-05T04:34:28.236Z",
       "ref": "claude/project-thread-11f45r",
-      "commit": "de806e5fab6f",
-      "devCommit": "6942400cc652",
-      "treeHash": "sha256:e603e3a30638ea0a",
-      "treeDirty": false,
-      "changelogHash": "sha256:55cceb731a035d29",
+      "commit": "56b6958f6bbe",
+      "devCommit": "74f7134c3d0a",
+      "treeHash": "sha256:c95b9c169bda4b80",
+      "treeDirty": true,
+      "changelogHash": "sha256:a69e542cd80fd095",
       "host": {
         "kind": "local",
         "cpus": 4,
         "memGB": 15.7,
         "loadavg": [
-          3.5,
-          3.6,
+          2.4,
+          3.3,
           3.5
         ]
       },
       "source": "/tmp/claude-0/smoke14m.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 97,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 522,
+      "takenAt": "2026-10-05T03:32:47.907Z",
+      "ref": "steward/t0239-frontage-note-gate",
+      "commit": "948c71d51571",
+      "devCommit": "5ac49c9bc5f3",
+      "treeHash": "sha256:363cc45848d448d2",
+      "treeDirty": false,
+      "changelogHash": "sha256:7f755c992abc8758",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.4,
+          3.8,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_m12.log"
     },
     {
       "viewport": "desktop",
@@ -1779,36 +1810,6 @@
       "passed": 158,
       "failed": 0,
       "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:02:49.3371224Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 159,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the yard layer chunks for culling on a single material — 68 chunk mesh(es), 1 material(s), bounding spheres on every chunk"
-      ],
       "wallSeconds": null,
       "takenAt": "2026-10-01T16:02:49.3371224Z",
       "ref": "steward/glessner-west-roof-repair",
