@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1494, ts: '2026-10-05T15:23:42.575Z', date: 'Oct 5, 2026, 10:23 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+  { v: 1495, ts: '2026-10-05T16:00:59.163Z', date: 'Oct 5, 2026, 11:00 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
       'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
       'Nothing here is claimed as evidence. No source puts a workshop on these lots in 1835 or says which trade worked there. The shops are the programme filling a town it can count but cannot name, and each carries that disclosure on its own card.',
+    ] },
+  { v: 1494, ts: '2026-10-05T15:03:31.603Z', date: 'Oct 5, 2026, 10:03 AM CT', title: 'Newberry & Dole\u2019s sign goes up on their Dearborn Street store', kind: 'change',
+    items: [
+      'The warehouse at Lake and Dearborn now carries a NEWBERRY & DOLE board: \u201cDry Goods, Hardware & Crockery\u201d, the firm\u2019s own words from its first advertisement in November 1833. It used to read GEO. W. DOLE.',
+      'Why: shopkeepers in the 1834\u201335 Chicago Democrat place themselves \u201cone door south\u201d and \u201ca few rods north\u201d of Newberry & Dole\u2019s store, both on Dearborn Street. That is a store on Dearborn, not on South Water, and this house is the one that stands there.',
+      'The firm\u2019s forwarding warehouse stays at Franklin and South Water. The one notice that names it gives South Water Street and no cross street, so nothing moves it.',
+      'The building\u2019s card now names it as the firm\u2019s store too. The Liberties page explains the ruling (L66, L378).',
     ] },
   { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
     items: [
