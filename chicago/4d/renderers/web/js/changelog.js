@@ -1,10 +1,37 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+  { v: 1453, ts: '2026-10-04T23:50:19.207Z', date: 'Oct 4, 2026, 6:50 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
       'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
       'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
-      'Gates are a reconstruction (Liberty L380). They add a little to draw, and no extra draw calls.',
+      'Gates are a reconstruction (Liberty L381). They add a little to draw, and no extra draw calls.',
+    ] },
+  { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
+    items: [
+      'Walk west along South Water Street. The tall green blob that stood at the end of the street, and rose and fell as you walked, is gone.',
+      'Fly up over the town. The flat dark slab on the far horizon is gone too. From the air the trees you see are the town\u2019s own.',
+      'Nearer woods now fade out of the far treeline smoothly instead of standing tall right up to where they stopped. Where a stretch of far woods ends, it tapers off.',
+      'How the far treeline is drawn is our reconstruction. The Liberties page explains it (L380).',
+    ] },
+  { v: 1451, ts: '2026-10-04T22:49:10.351Z', date: 'Oct 4, 2026, 5:49 PM CT', title: 'A speed limit for a still frame, and the welcome screen timed', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We timed the welcome screen and a stop on the Fort Dearborn outing at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Neither is the slowest view. That is still a back yard on Washington Street.',
+      'The welcome screen redraws the whole town again and again while you read it, even though the picture never changes. A phone spends its effort on a menu, and making it draw once is the next fix.',
+      'Each Scene detail setting now has a time limit at that back yard. A change that makes every frame slower is caught before it ships.',
+    ] },
+  { v: 1450, ts: '2026-10-04T22:20:07.096Z', date: 'Oct 4, 2026, 5:20 PM CT', title: 'A family\u2019s reconstructed arrival year now holds when other evidence changes', kind: 'change',
+    items: [
+      'Open any household\u2019s card in the directory: where no record says when a family came to Chicago, the year it shows is still a reconstruction, but it now holds steady when the evidence about some other family changes. Before, moving three known families\u2019 dates by a year redrew the year shown for 278 others.',
+      'The rule changed once to make that true, so 729 reconstructed families show a different year today, and the town as a whole still came in the same proportions: about one in six in 1833, one in three in 1834 and the rest in 1835.',
+      'Because a building\u2019s weathering follows how long its family has been here, 23 houses and shops look a season newer or older. Campbell\u2019s on the south side, for one, now has fresh clapboard and a new roof.',
+    ] },
+  { v: 1449, ts: '2026-10-04T21:51:03.440Z', date: 'Oct 4, 2026, 4:51 PM CT', title: 'A cheaper glass for the Glessner house, waiting on a choice', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. 1904\u2019s Glessner house windows draw the whole scene a second time every frame, and that is about half of each frame there.',
+      'Two cheaper kinds of glass are ready to try. Either one makes the 1904 landing about twice as fast to draw, on a phone and on a desktop.',
+      'Add &glass=clear or &glass=dark to the address of the 1904 scene to compare them. Clear looks almost the same as today. Dark makes every pane a darker plate.',
+      'The owner will choose which one ships.',
     ] },
   { v: 1448, ts: '2026-10-04T21:40:47.295Z', date: 'Oct 4, 2026, 4:40 PM CT', title: 'Turning, walking and flying stutter less', kind: 'fix',
     items: [

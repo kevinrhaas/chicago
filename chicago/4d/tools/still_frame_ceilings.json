@@ -1,0 +1,182 @@
+{
+  "ticket": "T-2111",
+  "what": "A still frame's time at the worst 1835 stand, per Scene detail tier and release viewport, held as a ceiling beside T-1975's triangle ceilings (DETAIL in renderers/web/js/main.js). Gated by `node tools/measure_still_frame.mjs --gate`; .github/workflows/chicago-4d-frame-time.yml runs it.",
+  "unit": "milliseconds of one still frame (median of 2, after 2 settle frames), on the machine named: headless Chromium rasterises in software (SwiftShader), so a millisecond is the runner's CPU's and a ceiling belongs to one machine. The gate finds this machine by CPU model and core count; a machine, or a viewport of one, with no number here is read and warned about, never failed on another machine's numbers. The frame is also printed in bare screens (over a frame with every layer hidden, timed in the same page), the first design for a machine-free unit, NOT gated: the four CPUs read on 2026-10-04 put the phone's full frame at 80 to 144 bare screens, while one CPU read its own milliseconds three times within 1 %. docs/measurements/T-2111-still-frame-ceiling.md has the table.",
+  "rule": "each machine's own reading at the worst stand plus 10 %, rounded up to 250 ms. A parcel that makes every frame slower argues its own numbers here, with its reading, in the same commit; one that makes frames cheaper brings them down to its reading by the same rule.",
+  "year": "1835",
+  "stand": "town_backyard",
+  "stand_why": "T-2084's back yard on Washington and Wells: the worst 1835 stand at every tier and both viewports in T-2099's table (docs/measurements/T-2099-still-frame.md). 1904's landing is slower still and is T-2109's to fix; this holds 1835.",
+  "tiers": [
+    "full",
+    "balanced",
+    "light"
+  ],
+  "machines": [
+    {
+      "cpu": "AMD EPYC 9V74 80-Core Processor",
+      "cores": 4,
+      "where": "the steward runner, 2026-10-04 (GitHub-hosted, polecat-platform's steward-improve)",
+      "tiers": {
+        "full": {
+          "desktop": 15500,
+          "mobile": 11250
+        },
+        "balanced": {
+          "desktop": 11750,
+          "mobile": 8000
+        },
+        "light": {
+          "desktop": 7500,
+          "mobile": 4750
+        }
+      },
+      "measured": {
+        "on": "2026-10-04, dev @ 29fa96f2, published mirror, steward runner (4 cores), ANGLE SwiftShader; desktop 1280x800 dpr 1; phone 390x780 dpr 3, Image sharpness Medium (1.5), CPU 4x throttled; medians of 2 frames, bare screen of 5",
+        "desktop": {
+          "full": {
+            "screens": 168.7,
+            "frame_ms": 13919,
+            "bare_ms": 82.5,
+            "triangles": 2980131
+          },
+          "balanced": {
+            "screens": 123.8,
+            "frame_ms": 10460,
+            "bare_ms": 84.5,
+            "triangles": 2333135
+          },
+          "light": {
+            "screens": 78.5,
+            "frame_ms": 6650,
+            "bare_ms": 84.7,
+            "triangles": 1078988
+          }
+        },
+        "mobile": {
+          "full": {
+            "screens": 144.3,
+            "frame_ms": 10028,
+            "bare_ms": 69.5,
+            "triangles": 2614331
+          },
+          "balanced": {
+            "screens": 105.1,
+            "frame_ms": 7220,
+            "bare_ms": 68.7,
+            "triangles": 2053935
+          },
+          "light": {
+            "screens": 61.8,
+            "frame_ms": 4262,
+            "bare_ms": 69.0,
+            "triangles": 942016
+          }
+        }
+      }
+    },
+    {
+      "cpu": "AMD EPYC 7763 64-Core Processor",
+      "cores": 4,
+      "where": "GitHub-hosted ubuntu-latest, .github/workflows/chicago-4d-frame-time.yml",
+      "tiers": {
+        "full": {
+          "desktop": 13750,
+          "mobile": 9500
+        },
+        "balanced": {
+          "desktop": 10500,
+          "mobile": 7000
+        },
+        "light": {
+          "desktop": 7000,
+          "mobile": 4250
+        }
+      },
+      "measured": {
+        "on": "2026-10-04, this branch on dev @ 29fa96f2, chicago-4d-frame-time.yml runs 37237661272 (both viewports) and 37239085079 (desktop); the higher of the two desktop readings",
+        "desktop": {
+          "full": {
+            "frame_ms": 12440
+          },
+          "balanced": {
+            "frame_ms": 9479
+          },
+          "light": {
+            "frame_ms": 6184
+          }
+        },
+        "mobile": {
+          "full": {
+            "frame_ms": 8433
+          },
+          "balanced": {
+            "frame_ms": 6141
+          },
+          "light": {
+            "frame_ms": 3730
+          }
+        }
+      }
+    },
+    {
+      "cpu": "INTEL(R) XEON(R) PLATINUM 8573C",
+      "cores": 4,
+      "where": "GitHub-hosted ubuntu-latest, .github/workflows/chicago-4d-frame-time.yml (phone only so far: no desktop job has landed on it)",
+      "tiers": {
+        "full": {
+          "mobile": 7250
+        },
+        "balanced": {
+          "mobile": 5500
+        },
+        "light": {
+          "mobile": 3250
+        }
+      },
+      "measured": {
+        "on": "2026-10-04, this branch on dev @ 29fa96f2, chicago-4d-frame-time.yml run 37239085079 (phone)",
+        "mobile": {
+          "full": {
+            "frame_ms": 6492
+          },
+          "balanced": {
+            "frame_ms": 4890
+          },
+          "light": {
+            "frame_ms": 2884
+          }
+        }
+      }
+    },
+    {
+      "cpu": "AMD EPYC 9V45 96-Core Processor",
+      "cores": 4,
+      "where": "GitHub-hosted ubuntu-latest, .github/workflows/chicago-4d-frame-time.yml (phone only so far)",
+      "tiers": {
+        "full": {
+          "mobile": 5250
+        },
+        "balanced": {
+          "mobile": 3750
+        },
+        "light": {
+          "mobile": 2250
+        }
+      },
+      "measured": {
+        "on": "2026-10-04, this branch, chicago-4d-frame-time.yml run 37239815303 (phone)",
+        "mobile": {
+          "full": {
+            "frame_ms": 4654
+          },
+          "balanced": {
+            "frame_ms": 3393
+          },
+          "light": {
+            "frame_ms": 1982
+          }
+        }
+      }
+    }
+  ]
+}

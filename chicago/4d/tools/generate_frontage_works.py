@@ -4055,7 +4055,7 @@ def build_street_edge() -> tuple[list, list, list, list, list, dict]:
                         "it. " + ("A house's foot gate, one leaf" if g["use"] == "dwelling"
                                   else "A trade's cart gate, a pair of leaves")
                         + ", by the rule in tools/gate_kinds.py; no source places, sizes "
-                        "or describes it (L380)."
+                        "or describes it (L381)."
                     ),
                 })
                 census["gates"] += 1

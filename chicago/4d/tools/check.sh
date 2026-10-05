@@ -46,6 +46,9 @@ step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
+step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
+  node tools/check_glass_modes.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
@@ -620,7 +623,10 @@ selftest "…and its own assertions still fire when broken" \
 # The rule is DISCOVERED, not listed — it applies wherever the shape appears (a
 # list of two or more objects that all carry an `id`), so a list added tomorrow
 # is covered without anybody remembering to register it. 2,835 files, 0.6 s.
-step "no committed list carries the same id twice" \
+# T-0829 extended it to lists of STRINGS — provenance, coverage, citations — which
+# carry no `id` for the rule above to read: every one is held as a set unless the
+# tool's MULTISETS table names it (one element per row, rows allowed to agree).
+step "no committed list carries the same id, or the same string in a set, twice" \
   python3 tools/check_unique_ids.py --check
 
 selftest "…and its own assertions still fire when broken" \
