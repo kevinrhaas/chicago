@@ -307,7 +307,7 @@ const FACE_AXIS = [0, 0, 1, 1, 2, 2];
  * street edge in its weathered tones without grain, which is the state this
  * ticket improves on, not a boot failure.
  */
-async function loadTimberRelief(assetBase) {
+async function readTimberRelief(assetBase) {
   try {
     const here = new URL(`${RELIEF_DIR}/`, assetBase);
     const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
@@ -379,6 +379,9 @@ async function loadTimberRelief(assetBase) {
     return {
       id: sheet.id,
       problem: null,
+      // The raw maps, for a layer that binds the same grain on a uv of its own
+      // (the yard goods, T-2121) instead of through `apply`.
+      normalMap, ormMap, modMap, tileM, meanRough, headroom: GRAIN_HEADROOM,
       apply(material) {
         material.normalMap = normalMap;
         // One file in two slots, as the roofs bind it: R is AO, G roughness.
@@ -400,6 +403,39 @@ async function loadTimberRelief(assetBase) {
   } catch (err) {
     return { problem: `board-face relief not bound — ${err.message}`, apply: () => null };
   }
+}
+
+/**
+ * ONE COPY OF THE GRAIN FOR EVERY LAYER THAT WEARS IT (T-2121). The yard goods carry
+ * the walks' board face too, and a second load would be a second 1024² modulation
+ * texture and a second upload on a phone that was killed for memory once already
+ * (T-2063). So the load is shared per asset base and counted: each caller's
+ * `dispose` releases its hold, and the last one out frees the maps.
+ */
+const reliefShared = new Map();
+export function loadTimberRelief(assetBase) {
+  const key = String(assetBase);
+  let entry = reliefShared.get(key);
+  if (!entry) {
+    entry = { holds: 0, p: readTimberRelief(assetBase) };
+    reliefShared.set(key, entry);
+  }
+  entry.holds += 1;
+  return entry.p.then((relief) => {
+    if (relief.problem) return relief;
+    let held = true;
+    return {
+      ...relief,
+      dispose() {
+        if (!held) return;
+        held = false;
+        entry.holds -= 1;
+        if (entry.holds > 0) return;
+        reliefShared.delete(key);
+        relief.dispose();
+      },
+    };
+  });
 }
 
 
