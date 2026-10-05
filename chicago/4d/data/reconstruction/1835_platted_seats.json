@@ -32,55 +32,55 @@
  ],
  "counts": {
   "rows_in_scope": 1424,
-  "seated": 203,
-  "owed": 1221,
+  "seated": 222,
+  "owed": 1202,
   "by_how": {
-   "adopted": 169,
-   "slot": 34
+   "adopted": 175,
+   "slot": 47
   },
   "by_clause": {
-   "labourer_dwellings": 37,
+   "labourer_dwellings": 39,
    "lodging_near_the_landings": 2,
-   "merchant_and_professional_dwellings": 35,
-   "tradesman_dwellings": 129
+   "merchant_and_professional_dwellings": 38,
+   "tradesman_dwellings": 143
   },
   "by_district": {
-   "north": 8,
+   "north": 21,
    "south": 163,
-   "west": 32
+   "west": 38
   },
   "by_family": {
    "D1": 21,
-   "D2": 16,
-   "D3": 44,
-   "D4": 41,
-   "D5": 29,
-   "D6": 15,
-   "D7": 15,
+   "D2": 18,
+   "D3": 48,
+   "D4": 46,
+   "D5": 32,
+   "D6": 17,
+   "D7": 18,
    "H1": 11,
    "H2": 9,
    "H3": 2
   },
-  "lots_taken": 185,
-  "roofs_adopted": 169,
-  "slots_requested": 34,
+  "lots_taken": 204,
+  "roofs_adopted": 175,
+  "slots_requested": 47,
   "owed_by_band_clause": {
    "division_ground": 24,
    "farms_and_country_seats": 210,
    "heavy_and_noxious_trades": 2,
-   "labourer_dwellings": 91,
-   "merchant_and_professional_dwellings": 382,
-   "tradesman_dwellings": 512
+   "labourer_dwellings": 89,
+   "merchant_and_professional_dwellings": 379,
+   "tradesman_dwellings": 498
   },
-  "roofs_offered_for_adoption": 177,
+  "roofs_offered_for_adoption": 183,
   "roofs_held_back": 60,
   "roofs_held_by_the_business_deal": 44,
   "seats_the_business_deal_costs": 1
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1221,
+  "rows": 1202,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 203 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 222 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
@@ -644,6 +644,34 @@
  "plan_left_unclaimed": [
   {
    "block_id": "blk_indiana_north_wolcott",
+   "family": "D2",
+   "roofs": 2,
+   "district": "north",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_wolcott#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_indiana_north_wolcott",
+   "family": "D4",
+   "roofs": 3,
+   "district": "north",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_wolcott#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_indiana_north_wolcott",
+   "family": "D5",
+   "roofs": 5,
+   "district": "north",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_wolcott#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_indiana_north_wolcott",
+   "family": "D6",
+   "roofs": 3,
+   "district": "north",
+   "why": "a banded row of this division IS admitted by a clause that takes this family, and the only lot left on the block is blk_indiana_north_wolcott#00, the one the schedule's own sizing keeps open: the roof is refused here (T-1623) and the household is owed"
+  },
+  {
+   "block_id": "blk_indiana_north_wolcott",
    "family": "F3",
    "roofs": 1,
    "district": "north",
@@ -755,14 +783,14 @@
    "clause": "merchant_and_professional_dwellings",
    "district": "west",
    "band": "west/merchant_and_professional_dwellings",
-   "lot_id": "blk_randolph_clinton#09",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 9,
+   "lot_id": "blk_west_washington_canal#04",
+   "block_id": "blk_west_washington_canal",
+   "lot_index": 4,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d7_08",
+   "structure_id": "recon_1835_blk_west_washington_canal_d7_05",
    "family": "D7",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -845,20 +873,48 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_adams_elizabeth",
+   "kind": "household",
+   "name": "The Adams household — a name the town's own records carry",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "north",
+   "band": "north/merchant_and_professional_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#11",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 11,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D7",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D7",
+    "district": "north"
+   },
+   "seed": "hh_adams_elizabeth|T-1522|division:3582411a9a1e|class:66711b1d0436",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
    "id": "hh_adams_james",
    "kind": "household",
    "name": "The Adams household — a name the town's own records carry",
    "clause": "merchant_and_professional_dwellings",
    "district": "west",
    "band": "west/merchant_and_professional_dwellings",
-   "lot_id": "blk_randolph_clinton#00",
+   "lot_id": "blk_randolph_clinton#09",
    "block_id": "blk_randolph_clinton",
-   "lot_index": 0,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_index": 9,
+   "fronts": "canal",
+   "street_class": "ordinary",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_019",
+   "structure_id": "recon_1835_blk_randolph_clinton_d7_08",
    "family": "D7",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -867,6 +923,34 @@
    "order_book_draw": null,
    "seed": "hh_adams_james|T-1522|division:ebd3b1fb6fdd|class:6833bb53a1bd",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_albee_clark_b",
+   "kind": "household",
+   "name": "The Albee household — a name from the post office's letter lists",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "north",
+   "band": "north/merchant_and_professional_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#10",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 10,
+   "fronts": "indiana_north",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D7",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D7",
+    "district": "north"
+   },
+   "seed": "hh_albee_clark_b|T-1522|division:34534ab6f36b|class:68a9ccf2bc72",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_albert_shepherd",
@@ -971,15 +1055,15 @@
    "clause": "merchant_and_professional_dwellings",
    "district": "west",
    "band": "west/merchant_and_professional_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#01",
-   "block_id": "blk_west_randolph_des_plaines",
-   "lot_index": 1,
-   "fronts": "des_plaines",
-   "street_class": "none",
-   "corner": false,
+   "lot_id": "blk_randolph_clinton#00",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 0,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_046",
-   "family": "H2",
+   "structure_id": "recon_1835_west_019",
+   "family": "D7",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -1106,6 +1190,30 @@
    "policy_rule": "merchant_and_professional_dwellings",
    "order_book_draw": null,
    "seed": "hh_austin_w_g|T-1522|division:5eb058963b98|class:440023c5403d",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_bailey_bennet",
+   "kind": "household",
+   "name": "The Bailey household — a name from the post office's letter lists",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "west",
+   "band": "west/merchant_and_professional_dwellings",
+   "lot_id": "blk_west_randolph_des_plaines#01",
+   "block_id": "blk_west_randolph_des_plaines",
+   "lot_index": 1,
+   "fronts": "des_plaines",
+   "street_class": "none",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_046",
+   "family": "H2",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "merchant_and_professional_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_bailey_bennet|T-1522|division:ebf8caf8fe13|class:840da5f50711",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -1615,15 +1723,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_canal#03",
-   "block_id": "blk_west_randolph_canal",
+   "lot_id": "blk_west_washington_canal#03",
+   "block_id": "blk_west_washington_canal",
    "lot_index": 3,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_canal_d4_02",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_west_washington_canal_d3_04",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -1639,15 +1747,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_canal#02",
-   "block_id": "blk_west_randolph_canal",
+   "lot_id": "blk_west_washington_canal#02",
+   "block_id": "blk_west_washington_canal",
    "lot_index": 2,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_canal_d5_01",
-   "family": "D5",
+   "structure_id": "recon_1835_blk_west_washington_canal_d4_03",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -1735,15 +1843,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_canal#03",
-   "block_id": "blk_west_lake_canal",
-   "lot_index": 3,
+   "lot_id": "blk_west_washington_canal#01",
+   "block_id": "blk_west_washington_canal",
+   "lot_index": 1,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_lake_canal_d4_02",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_west_washington_canal_d5_02",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -1759,15 +1867,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_canal#02",
-   "block_id": "blk_west_lake_canal",
-   "lot_index": 2,
+   "lot_id": "blk_west_randolph_canal#03",
+   "block_id": "blk_west_randolph_canal",
+   "lot_index": 3,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_lake_canal_d5_01",
-   "family": "D5",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d4_02",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -1951,15 +2059,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#08",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 8,
+   "lot_id": "blk_west_randolph_canal#02",
+   "block_id": "blk_west_randolph_canal",
+   "lot_index": 2,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d4_02",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d5_01",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2191,14 +2299,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#07",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 7,
+   "lot_id": "blk_west_lake_canal#03",
+   "block_id": "blk_west_lake_canal",
+   "lot_index": 3,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d4_09",
+   "structure_id": "recon_1835_blk_west_lake_canal_d4_02",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2239,14 +2347,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#06",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 6,
+   "lot_id": "blk_west_lake_canal#02",
+   "block_id": "blk_west_lake_canal",
+   "lot_index": 2,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d5_01",
+   "structure_id": "recon_1835_blk_west_lake_canal_d5_01",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2305,20 +2413,76 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_bailly_joseph",
+   "kind": "household",
+   "name": "The Bailly household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_cass#07",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 7,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_cass",
+    "family": "D3",
+    "district": "north"
+   },
+   "seed": "hh_bailly_joseph|T-1522|division:11eb873d530c|class:f7cf04f17687",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_baily_john",
+   "kind": "household",
+   "name": "The Baily household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_cass#06",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 6,
+   "fronts": "indiana_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_cass",
+    "family": "D4",
+    "district": "north"
+   },
+   "seed": "hh_baily_john|T-1522|division:0d4c0faac38d|class:ac1f848cdb4b",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
    "id": "hh_baldwin_eimer",
    "kind": "household",
    "name": "The Baldwin household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#07",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 7,
+   "lot_id": "blk_randolph_clinton#08",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 8,
    "fronts": "canal",
    "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+   "structure_id": "recon_1835_blk_randolph_clinton_d4_02",
    "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2359,15 +2523,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_canal#04",
-   "block_id": "blk_west_randolph_canal",
-   "lot_index": 4,
+   "lot_id": "blk_randolph_clinton#07",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 7,
    "fronts": "canal",
    "street_class": "ordinary",
-   "corner": true,
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_canal_d5_03",
-   "family": "D5",
+   "structure_id": "recon_1835_blk_randolph_clinton_d4_09",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2449,6 +2613,34 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_barber_beta_l",
+   "kind": "household",
+   "name": "The Barber household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_cass#03",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 3,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D5",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_cass",
+    "family": "D5",
+    "district": "north"
+   },
+   "seed": "hh_barber_beta_l|T-1522|division:056f1e5f61bb|class:ad3ecc03d740",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
    "id": "hh_barbour_timothy",
    "kind": "household",
    "name": "The Barbour household — a name from the post office's letter lists",
@@ -2479,14 +2671,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#05",
+   "lot_id": "blk_randolph_clinton#06",
    "block_id": "blk_randolph_clinton",
-   "lot_index": 5,
+   "lot_index": 6,
    "fronts": "canal",
    "street_class": "ordinary",
-   "corner": true,
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_018",
+   "structure_id": "recon_1835_blk_randolph_clinton_d5_01",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2497,21 +2689,77 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_barnard_j_h",
+   "kind": "household",
+   "name": "The Barnard household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_cass#02",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 2,
+   "fronts": "indiana_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D5",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_cass",
+    "family": "D5",
+    "district": "north"
+   },
+   "seed": "hh_barnard_j_h|T-1522|division:139bd7c55c7e|class:cc6c8937f008",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_barnes_wheeler",
+   "kind": "household",
+   "name": "The Barnes household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_cass#11",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 11,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D6",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_cass",
+    "family": "D6",
+    "district": "north"
+   },
+   "seed": "hh_barnes_wheeler|T-1522|division:21775434f042|class:b588dd8e3952",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
    "id": "hh_barney_john",
    "kind": "household",
    "name": "The Barney household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#07",
-   "block_id": "blk_west_randolph_des_plaines",
+   "lot_id": "blk_lake_clinton#07",
+   "block_id": "blk_lake_clinton",
    "lot_index": 7,
-   "fronts": "jefferson",
-   "street_class": "none",
+   "fronts": "canal",
+   "street_class": "ordinary",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
-   "family": "D6",
+   "structure_id": "recon_1835_blk_lake_clinton_d4_01",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2527,15 +2775,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#03",
-   "block_id": "blk_west_randolph_des_plaines",
-   "lot_index": 3,
-   "fronts": "des_plaines",
-   "street_class": "none",
-   "corner": false,
+   "lot_id": "blk_west_washington_canal#00",
+   "block_id": "blk_west_washington_canal",
+   "lot_index": 0,
+   "fronts": "canal",
+   "street_class": "ordinary",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_west_washington_canal_d6_01",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2551,15 +2799,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_canal#08",
+   "lot_id": "blk_west_randolph_canal#04",
    "block_id": "blk_west_randolph_canal",
-   "lot_index": 8,
-   "fronts": "west_water",
-   "street_class": "light",
-   "corner": false,
+   "lot_index": 4,
+   "fronts": "canal",
+   "street_class": "ordinary",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_canal_d6_04",
-   "family": "D6",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d5_03",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2599,14 +2847,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#08",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 8,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": false,
+   "lot_id": "blk_randolph_clinton#05",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 5,
+   "fronts": "canal",
+   "street_class": "ordinary",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_033",
+   "structure_id": "recon_1835_west_018",
    "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2639,6 +2887,62 @@
    "order_book_draw": null,
    "seed": "hh_baxley_mary|T-1522|division:740f0837c8d9|class:94e003147f2b",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_beach_william_h",
+   "kind": "household",
+   "name": "The Beach household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#07",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 7,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D3",
+    "district": "north"
+   },
+   "seed": "hh_beach_william_h|T-1522|division:0223cc8459d1|class:a40c83c02389",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_beadieston_ste",
+   "kind": "household",
+   "name": "The Beadieston household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#06",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 6,
+   "fronts": "indiana_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D3",
+    "district": "north"
+   },
+   "seed": "hh_beadieston_ste|T-1522|division:1c0e5a6b6b62|class:8c50f718a465",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_beaubien_alexander",
@@ -2695,14 +2999,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#08",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 8,
+   "lot_id": "blk_west_randolph_des_plaines#07",
+   "block_id": "blk_west_randolph_des_plaines",
+   "lot_index": 7,
    "fronts": "jefferson",
    "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_034",
+   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d6_03",
    "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2735,6 +3039,62 @@
    "order_book_draw": null,
    "seed": "hh_beaubien_charles|T-1522|division:40d5fd4d58ef|class:b35764d94a08",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_beaubien_john_s",
+   "kind": "household",
+   "name": "The Beaubien household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#03",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 3,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D4",
+    "district": "north"
+   },
+   "seed": "hh_beaubien_john_s|T-1522|division:2d447672290b|class:e63b443ebe50",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
+   "id": "hh_beaubien_susan",
+   "kind": "household",
+   "name": "The Beaubien household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#02",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 2,
+   "fronts": "indiana_north",
+   "street_class": "none",
+   "corner": false,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D4",
+    "district": "north"
+   },
+   "seed": "hh_beaubien_susan|T-1522|division:2c637fde1987|class:b48b12f8d6c0",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_beeson_william",
@@ -2815,15 +3175,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#03",
-   "block_id": "blk_randolph_clinton",
+   "lot_id": "blk_west_randolph_des_plaines#03",
+   "block_id": "blk_west_randolph_des_plaines",
    "lot_index": 3,
-   "fronts": "clinton",
-   "street_class": "light",
+   "fronts": "des_plaines",
+   "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_021",
-   "family": "D6",
+   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2831,6 +3191,34 @@
    "order_book_draw": null,
    "seed": "hh_bennett_h_c|T-1522|division:e4bc66a6f0b1|class:c3496af47f52",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_bennett_william",
+   "kind": "household",
+   "name": "The Bennett household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "band": "north/tradesman_dwellings",
+   "lot_id": "blk_indiana_north_wolcott#01",
+   "block_id": "blk_indiana_north_wolcott",
+   "lot_index": 1,
+   "fronts": "illinois_north",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_wolcott",
+    "family": "D4",
+    "district": "north"
+   },
+   "seed": "hh_bennett_william|T-1522|division:37a3da462b2f|class:f075a94b39a0",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_bertholf_marcus",
@@ -2959,15 +3347,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_randolph_clinton#02",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 2,
-   "fronts": "clinton",
+   "lot_id": "blk_west_randolph_canal#08",
+   "block_id": "blk_west_randolph_canal",
+   "lot_index": 8,
+   "fronts": "west_water",
    "street_class": "light",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d3_04",
-   "family": "D3",
+   "structure_id": "recon_1835_blk_west_randolph_canal_d6_04",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2983,15 +3371,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#03",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 3,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_id": "blk_west_lake_des_plaines#08",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 8,
+   "fronts": "jefferson",
+   "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_016",
-   "family": "D3",
+   "structure_id": "recon_1835_west_033",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -3007,15 +3395,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#02",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 2,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_id": "blk_west_lake_des_plaines#08",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 8,
+   "fronts": "jefferson",
+   "street_class": "none",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_lake_clinton_d3_02",
-   "family": "D3",
+   "structure_id": "recon_1835_west_034",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -3079,15 +3467,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_randolph_des_plaines#09",
-   "block_id": "blk_west_randolph_des_plaines",
-   "lot_index": 9,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_randolph_clinton#03",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 3,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
-   "family": "D5",
+   "structure_id": "recon_1835_west_021",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -3175,14 +3563,14 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#05",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 5,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_randolph_clinton#02",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 2,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_030",
+   "structure_id": "recon_1835_blk_randolph_clinton_d3_04",
    "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -3199,15 +3587,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#05",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 5,
-   "fronts": "jefferson",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_lake_clinton#03",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 3,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_031",
-   "family": "D4",
+   "structure_id": "recon_1835_west_016",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -3415,15 +3803,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#04",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 4,
-   "fronts": "des_plaines",
-   "street_class": "none",
-   "corner": true,
+   "lot_id": "blk_lake_clinton#02",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 2,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_044",
-   "family": "D4",
+   "structure_id": "recon_1835_blk_lake_clinton_d3_02",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -3487,15 +3875,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_west_lake_des_plaines#00",
-   "block_id": "blk_west_lake_des_plaines",
-   "lot_index": 0,
-   "fronts": "des_plaines",
+   "lot_id": "blk_west_randolph_des_plaines#09",
+   "block_id": "blk_west_randolph_des_plaines",
+   "lot_index": 9,
+   "fronts": "jefferson",
    "street_class": "none",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_042",
-   "family": "D3",
+   "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -3559,21 +3947,69 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "band": "west/tradesman_dwellings",
-   "lot_id": "blk_lake_clinton#00",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 0,
-   "fronts": "clinton",
-   "street_class": "light",
+   "lot_id": "blk_west_lake_des_plaines#05",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 5,
+   "fronts": "jefferson",
+   "street_class": "none",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_008",
-   "family": "D4",
+   "structure_id": "recon_1835_west_030",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
    "seed": "hh_brownson_myron_k|T-1522|division:d19c36838cb0|class:b7c2bac154be",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_bruen_hir",
+   "kind": "household",
+   "name": "The Bruen household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_west_lake_des_plaines#05",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 5,
+   "fronts": "jefferson",
+   "street_class": "none",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_031",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_bruen_hir|T-1522|division:e5daa9a8e714|class:b0c49e2d074c",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_brush_matthias",
+   "kind": "household",
+   "name": "The Brush household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_west_lake_des_plaines#04",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 4,
+   "fronts": "des_plaines",
+   "street_class": "none",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_044",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_brush_matthias|T-1522|division:dbb0a28791ce|class:fd55ef625529",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -3670,6 +4106,30 @@
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
    "seed": "hh_burke_james|T-1522|division:7623e9ab1b02|class:a6163847dd0a",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_butterfield_ben",
+   "kind": "household",
+   "name": "The Butterfield household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_west_lake_des_plaines#00",
+   "block_id": "blk_west_lake_des_plaines",
+   "lot_index": 0,
+   "fronts": "des_plaines",
+   "street_class": "none",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_042",
+   "family": "D3",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_butterfield_ben|T-1522|division:e6ab9fbe67e4|class:bcfc5a6b310f",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -3790,6 +4250,30 @@
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
    "seed": "hh_campbell_james_b|T-1522|division:4d919aa780a3|class:b6200740aacb",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_cappy_george",
+   "kind": "household",
+   "name": "The Cappy household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "west",
+   "band": "west/tradesman_dwellings",
+   "lot_id": "blk_lake_clinton#00",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 0,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_008",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_cappy_george|T-1522|division:e9e8f245c515|class:f06308ba235b",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -4953,20 +5437,48 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
+   "id": "hh_barre_john_s",
+   "kind": "household",
+   "name": "The Barre household — a name from the post office's letter lists",
+   "clause": "labourer_dwellings",
+   "district": "north",
+   "band": "north/labourer_dwellings",
+   "lot_id": "blk_indiana_north_cass#10",
+   "block_id": "blk_indiana_north_cass",
+   "lot_index": 10,
+   "fronts": "indiana_north",
+   "street_class": "none",
+   "corner": true,
+   "how": "slot",
+   "structure_id": null,
+   "family": "D2",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "labourer_dwellings",
+   "order_book_draw": {
+    "block_id": "blk_indiana_north_cass",
+    "family": "D2",
+    "district": "north"
+   },
+   "seed": "hh_barre_john_s|T-1522|division:3466e2dbe119|class:3293d9ba8a8e",
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+  },
+  {
    "id": "hh_barry_j_r",
    "kind": "household",
    "name": "The Barry household — a name the town's own records carry",
    "clause": "labourer_dwellings",
    "district": "west",
    "band": "west/labourer_dwellings",
-   "lot_id": "blk_west_lake_canal#08",
-   "block_id": "blk_west_lake_canal",
+   "lot_id": "blk_west_washington_canal#08",
+   "block_id": "blk_west_washington_canal",
    "lot_index": 8,
    "fronts": "west_water",
    "street_class": "light",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_west_lake_canal_d2_03",
+   "structure_id": "recon_1835_blk_west_washington_canal_d2_06",
    "family": "D2",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -4983,14 +5495,14 @@
    "clause": "labourer_dwellings",
    "district": "west",
    "band": "west/labourer_dwellings",
-   "lot_id": "blk_lake_clinton#03",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 3,
-   "fronts": "clinton",
+   "lot_id": "blk_west_lake_canal#08",
+   "block_id": "blk_west_lake_canal",
+   "lot_index": 8,
+   "fronts": "west_water",
    "street_class": "light",
    "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_west_015",
+   "structure_id": "recon_1835_blk_west_lake_canal_d2_03",
    "family": "D2",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -5127,15 +5639,15 @@
    "clause": "labourer_dwellings",
    "district": "west",
    "band": "west/labourer_dwellings",
-   "lot_id": "blk_randolph_clinton#04",
-   "block_id": "blk_randolph_clinton",
-   "lot_index": 4,
+   "lot_id": "blk_lake_clinton#03",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 3,
    "fronts": "clinton",
    "street_class": "light",
-   "corner": true,
+   "corner": false,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_randolph_clinton_d1_03",
-   "family": "D1",
+   "structure_id": "recon_1835_west_015",
+   "family": "D2",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -5151,14 +5663,14 @@
    "clause": "labourer_dwellings",
    "district": "west",
    "band": "west/labourer_dwellings",
-   "lot_id": "blk_lake_clinton#08",
-   "block_id": "blk_lake_clinton",
-   "lot_index": 8,
-   "fronts": "canal",
-   "street_class": "ordinary",
-   "corner": false,
+   "lot_id": "blk_randolph_clinton#04",
+   "block_id": "blk_randolph_clinton",
+   "lot_index": 4,
+   "fronts": "clinton",
+   "street_class": "light",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_west_014",
+   "structure_id": "recon_1835_blk_randolph_clinton_d1_03",
    "family": "D1",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -5286,6 +5798,30 @@
    "policy_rule": "labourer_dwellings",
    "order_book_draw": null,
    "seed": "hh_clark_john_k|T-1522|division:bd3ca2306679|class:3a3eac25831a",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_cooley_edward_v",
+   "kind": "household",
+   "name": "The Cooley household — a name from the post office's letter lists",
+   "clause": "labourer_dwellings",
+   "district": "west",
+   "band": "west/labourer_dwellings",
+   "lot_id": "blk_lake_clinton#08",
+   "block_id": "blk_lake_clinton",
+   "lot_index": 8,
+   "fronts": "canal",
+   "street_class": "ordinary",
+   "corner": false,
+   "how": "adopted",
+   "structure_id": "recon_1835_west_014",
+   "family": "D1",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "one_principal_roof",
+   "policy_rule": "labourer_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_cooley_edward_v|T-1522|division:dd9787dd9fa3|class:2eae6c444aae",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
@@ -5711,24 +6247,6 @@
  ],
  "owed": [
   {
-   "id": "hh_adams_elizabeth",
-   "kind": "household",
-   "band": "north/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_albee_clark_b",
-   "kind": "household",
-   "band": "north/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_allen_william",
    "kind": "household",
    "band": "north/merchant_and_professional_dwellings",
@@ -5752,15 +6270,6 @@
    "band": "north/merchant_and_professional_dwellings",
    "clause": "merchant_and_professional_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_bailey_bennet",
-   "kind": "household",
-   "band": "west/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "west",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
@@ -9149,102 +9658,12 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_bailly_joseph",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_baily_john",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_barber_beta_l",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_barnard_j_h",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_barnes_wheeler",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_beach_william_h",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_beadieston_ste",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_beaubien_john_s",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_beaubien_susan",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_bennett_william",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_bigelow_david",
    "kind": "household",
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9253,7 +9672,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9262,7 +9681,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9271,7 +9690,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9280,7 +9699,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9289,7 +9708,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9298,7 +9717,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9307,7 +9726,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9316,25 +9735,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_bruen_hir",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_brush_matthias",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9343,7 +9744,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9352,25 +9753,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_butterfield_ben",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_cappy_george",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9379,7 +9762,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9397,7 +9780,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9406,7 +9789,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9442,7 +9825,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9469,7 +9852,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9487,7 +9870,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9505,7 +9888,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9514,7 +9897,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9523,7 +9906,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9577,7 +9960,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9613,7 +9996,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9622,7 +10005,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9631,7 +10014,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9667,7 +10050,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9685,7 +10068,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9721,7 +10104,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9748,7 +10131,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9838,7 +10221,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9910,7 +10293,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9919,7 +10302,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -9991,7 +10374,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10036,7 +10419,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10063,7 +10446,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10081,7 +10464,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10135,7 +10518,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10153,7 +10536,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10180,7 +10563,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10225,7 +10608,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10234,7 +10617,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10297,7 +10680,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10342,7 +10725,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10351,7 +10734,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10387,7 +10770,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10423,7 +10806,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10459,7 +10842,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10486,7 +10869,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10657,7 +11040,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10693,7 +11076,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10720,7 +11103,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10729,7 +11112,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10765,7 +11148,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10792,7 +11175,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10837,7 +11220,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10855,7 +11238,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10873,7 +11256,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10891,7 +11274,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10927,7 +11310,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10954,7 +11337,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10963,7 +11346,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10990,7 +11373,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -10999,7 +11382,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11143,7 +11526,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11206,7 +11589,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11215,7 +11598,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11251,7 +11634,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11269,7 +11652,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11287,7 +11670,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11296,7 +11679,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11386,7 +11769,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11431,7 +11814,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11458,7 +11841,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11467,7 +11850,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11584,7 +11967,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11620,7 +12003,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11629,7 +12012,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11737,7 +12120,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11773,7 +12156,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11854,7 +12237,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11872,7 +12255,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11890,7 +12273,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11917,7 +12300,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11926,7 +12309,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11953,7 +12336,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -11980,7 +12363,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12016,7 +12399,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12070,7 +12453,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12160,7 +12543,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12205,7 +12588,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12295,7 +12678,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12304,7 +12687,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12313,7 +12696,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12466,7 +12849,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12502,7 +12885,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12556,7 +12939,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12574,7 +12957,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12592,7 +12975,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12637,7 +13020,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12673,7 +13056,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12682,7 +13065,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12691,7 +13074,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12700,7 +13083,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12727,7 +13110,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12745,7 +13128,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12871,7 +13254,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -12916,7 +13299,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13006,7 +13389,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13096,7 +13479,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13222,7 +13605,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13231,7 +13614,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13240,7 +13623,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13276,7 +13659,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13375,7 +13758,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13420,7 +13803,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13447,7 +13830,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13465,7 +13848,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13573,7 +13956,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13600,7 +13983,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13627,7 +14010,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13681,7 +14064,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13753,16 +14136,7 @@
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_barre_john_s",
-   "kind": "household",
-   "band": "north/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13771,7 +14145,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13780,7 +14154,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13789,7 +14163,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13798,7 +14172,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13807,16 +14181,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_cooley_edward_v",
-   "kind": "household",
-   "band": "west/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13843,7 +14208,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13897,7 +14262,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13906,7 +14271,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13933,7 +14298,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13960,7 +14325,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -13978,7 +14343,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14023,7 +14388,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14095,7 +14460,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14185,7 +14550,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14239,7 +14604,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14284,7 +14649,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14311,7 +14676,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14410,7 +14775,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14446,7 +14811,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -14545,7 +14910,7 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_indiana_north_wolcott (blk_indiana_north_wolcott#00). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {

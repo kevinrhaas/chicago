@@ -452,18 +452,22 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # blk_west_randolph_canal — two D5, a D4 and a D6, all `frame_dwelling` through emit.py and
 # the common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 602 -> 628 and 596 -> 622 on 2026-10-05 (T-1746): the North Division's 26 ordinary
+# 602 -> 608 and 596 -> 602 on 2026-10-05 (T-2143): the six houses on plat block 51,
+# blk_west_washington_canal — a D2 shanty and D3 to D7 dwellings, all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 608 -> 634 and 602 -> 628 on 2026-10-05 (T-1746): the North Division's 26 ordinary
 # dwellings carried off Kinzie's Addition into the clusters south of Michigan Street
 # (generate_north_infill rows 68-93), all through emit.py and the common modules.
 # Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 628,
+    "assets": 634,
     "restales": {
-        "generators/common/*.py": 628,
+        "generators/common/*.py": 634,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 622,
+        "generators/emit.py": 628,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
