@@ -885,33 +885,6 @@
       }
     },
     {
-      "household_id": "hh_carli_paul_j",
-      "structure_id": "recon_1835_south_d3_001",
-      "block_id": "blk_lake_franklin",
-      "lot_id": "blk_lake_franklin#00",
-      "clause": "tradesman_dwellings",
-      "family": "D3",
-      "district": "south",
-      "name": "The Carli household — a name the town's own records carry",
-      "sources": [
-        "chicago_democrat_1833_1835"
-      ],
-      "occupants": {
-        "value": "The Carli household — a name the town's own records carry",
-        "confidence": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_franklin#00, fronting lake, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-      },
-      "resident_assignment": {
-        "status": "assigned",
-        "confidence": "reconstructed",
-        "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_franklin#00 fronting lake — a standing anonymous roof of family D3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-        "household_id": "hh_carli_paul_j"
-      }
-    },
-    {
       "household_id": "hh_calhoun_alvin",
       "structure_id": "recon_1835_south_d3_008",
       "block_id": "blk_lake_wells",
@@ -1005,49 +978,6 @@
       }
     },
     {
-      "household_id": "hh_campbell_james_b",
-      "structure_id": "recon_1835_south_d4_009",
-      "block_id": "blk_lake_lasalle",
-      "lot_id": "blk_lake_lasalle#00",
-      "clause": "tradesman_dwellings",
-      "family": "D4",
-      "district": "south",
-      "name": "The Campbell household — a name the town's own records carry",
-      "sources": [
-        "calumet_club_early_chicago_1879",
-        "chicago_tribune_1882_05_19_fourth_reception",
-        "chicago_voter_lists_1833_1835_irad",
-        "fergus_1843_old_settler_death_notices",
-        "fergus_chicago_directory_1839",
-        "fergus_chicago_directory_1843",
-        "isa_public_domain_land_tract_sales",
-        "norris_directory_1844",
-        "second_presbyterian_chicago_1892"
-      ],
-      "occupants": {
-        "value": "The Campbell household — a name the town's own records carry",
-        "confidence": "reconstructed",
-        "sources": [
-          "calumet_club_early_chicago_1879",
-          "chicago_tribune_1882_05_19_fourth_reception",
-          "chicago_voter_lists_1833_1835_irad",
-          "fergus_1843_old_settler_death_notices",
-          "fergus_chicago_directory_1839",
-          "fergus_chicago_directory_1843",
-          "isa_public_domain_land_tract_sales",
-          "norris_directory_1844",
-          "second_presbyterian_chicago_1892"
-        ],
-        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_lasalle#00, fronting lake, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-      },
-      "resident_assignment": {
-        "status": "assigned",
-        "confidence": "reconstructed",
-        "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_lasalle#00 fronting lake — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-        "household_id": "hh_campbell_james_b"
-      }
-    },
-    {
       "household_id": "hh_andrews_julian",
       "structure_id": "recon_1835_south_d4_025",
       "block_id": "blk_lake_wells",
@@ -1126,6 +1056,33 @@
         "confidence": "reconstructed",
         "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_clark#01 fronting randolph — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
         "household_id": "hh_baxley_mary"
+      }
+    },
+    {
+      "household_id": "hh_carli_paul_j",
+      "structure_id": "recon_1835_south_d5_004",
+      "block_id": "blk_lake_franklin",
+      "lot_id": "blk_lake_franklin#06",
+      "clause": "tradesman_dwellings",
+      "family": "D5",
+      "district": "south",
+      "name": "The Carli household — a name the town's own records carry",
+      "sources": [
+        "chicago_democrat_1833_1835"
+      ],
+      "occupants": {
+        "value": "The Carli household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "chicago_democrat_1833_1835"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_franklin#06, fronting lake, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_franklin#06 fronting lake — a standing anonymous roof of family D5 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_carli_paul_j"
       }
     },
     {
@@ -1238,6 +1195,49 @@
         "confidence": "reconstructed",
         "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_lasalle#03 fronting randolph — a standing anonymous roof of family D5 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
         "household_id": "hh_andrews_thomas"
+      }
+    },
+    {
+      "household_id": "hh_campbell_james_b",
+      "structure_id": "recon_1835_south_d6_012",
+      "block_id": "blk_lake_lasalle",
+      "lot_id": "blk_lake_lasalle#06",
+      "clause": "tradesman_dwellings",
+      "family": "D6",
+      "district": "south",
+      "name": "The Campbell household — a name the town's own records carry",
+      "sources": [
+        "calumet_club_early_chicago_1879",
+        "chicago_tribune_1882_05_19_fourth_reception",
+        "chicago_voter_lists_1833_1835_irad",
+        "fergus_1843_old_settler_death_notices",
+        "fergus_chicago_directory_1839",
+        "fergus_chicago_directory_1843",
+        "isa_public_domain_land_tract_sales",
+        "norris_directory_1844",
+        "second_presbyterian_chicago_1892"
+      ],
+      "occupants": {
+        "value": "The Campbell household — a name the town's own records carry",
+        "confidence": "reconstructed",
+        "sources": [
+          "calumet_club_early_chicago_1879",
+          "chicago_tribune_1882_05_19_fourth_reception",
+          "chicago_voter_lists_1833_1835_irad",
+          "fergus_1843_old_settler_death_notices",
+          "fergus_chicago_directory_1839",
+          "fergus_chicago_directory_1843",
+          "isa_public_domain_land_tract_sales",
+          "norris_directory_1844",
+          "second_presbyterian_chicago_1892"
+        ],
+        "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_lasalle#06, fronting lake, a standing roof of family D6 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+      },
+      "resident_assignment": {
+        "status": "assigned",
+        "confidence": "reconstructed",
+        "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_lasalle#06 fronting lake — a standing anonymous roof of family D6 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+        "household_id": "hh_campbell_james_b"
       }
     },
     {
