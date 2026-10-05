@@ -141,7 +141,10 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # restates them here and says why in docs/LIBERTIES.md L270 — which is the point, since
 # before this a re-order of either deal moved the household count with nobody deciding it.
 BUSINESS_DEAL_HOLDS = 40
-BUSINESS_DEAL_COSTS = 2
+# T-2130 (2026-10-05): 2 -> 1. The nine roofs it raised on the plat's last tier are not in the
+# business deal's pool, so the hold stays 40, but with them standing the release finds one fewer
+# household to seat (L270).
+BUSINESS_DEAL_COSTS = 1
 
 TICKET = "T-1613"
 PARENT = "T-1199"
