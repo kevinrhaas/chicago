@@ -52,6 +52,9 @@ step "A cheaper glass replaces only transmissive panes, and only when asked (T-2
 step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
   node tools/check_sharpness_default.mjs
 
+step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
+  node tools/test_program_cache_key.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
