@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1486, ts: '2026-10-05T12:17:18.563Z', date: 'Oct 5, 2026, 7:17 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: null, ts: '', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+    items: [
+      'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
+      'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
+      'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
+      'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1486, ts: '2026-10-05T12:08:26.457Z', date: 'Oct 5, 2026, 7:08 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. 24 reconstructed houses still wait for us to say which household lives in each, or why we can\u2019t. 18 of them are on the Washington Street blocks.',
+      'Our records handed those houses to planning tasks that had all finished, so nothing would ever have picked them up. They now point to a new open task, and our checks fail if that task closes while any of the houses are still waiting.',
+      'The town\u2019s list of what is left to build had a row like that too: the South\u2019s public buildings, all five of which already stand. It now points to the task that keeps the building list balanced.',
     ] },
   { v: 1485, ts: '2026-10-05T11:53:33.468Z', date: 'Oct 5, 2026, 6:53 AM CT', title: 'The town\u2019s 1833 wharf law is now written on the river landings', kind: 'change',
     items: [
