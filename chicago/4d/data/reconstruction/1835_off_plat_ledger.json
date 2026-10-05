@@ -51,7 +51,7 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 30,
-  "principal_roofs_standing": 142,
+  "principal_roofs_standing": 141,
   "ground_m2": 7257850.1
  },
  "what_the_roof_programme_does_not_carry": {
@@ -5440,8 +5440,6 @@
     "robinson_caldwell_cabins",
     "south_branch_raft_bridge",
     "walker_meeting_house",
-    "western_hotel",
-    "western_hotel_stable",
     "wolf_point_tavern",
     "wolf_point_tavern_stable"
    ],
@@ -5509,12 +5507,10 @@
     "robinson_caldwell_cabins": "D1",
     "south_branch_raft_bridge": null,
     "walker_meeting_house": "I1",
-    "western_hotel": "T2",
-    "western_hotel_stable": "A1",
     "wolf_point_tavern": "T1",
     "wolf_point_tavern_stable": "A1"
    },
-   "principal_roofs_standing": 50
+   "principal_roofs_standing": 49
   },
   {
    "parcel_id": "wabansia",

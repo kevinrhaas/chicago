@@ -648,8 +648,12 @@ def west_lot_figure(record: dict) -> dict | None:
 
     Two blocks print TWO depths rather than one (44 at 180 and 150, 51 at 180 and 88 —
     the South Branch eating into the east column) and the authored file deliberately
-    leaves `lot_depth_ft` null on both rather than average them. They fall here with the
-    fourteen, which is the file's own refusal honoured rather than worked around.
+    leaves `lot_depth_ft` null on both rather than average them. Until T-2132 they fell
+    here with the fourteen, and that was the wrong pile: the refusal is of an AVERAGE,
+    not of the block's figures. Each column's depth is ink on this block, read at the
+    block's own north face, so each block prints MORE of itself than block 29 does, not
+    less. They are taken as what they are — one depth per column, never averaged — and
+    `subdivide_west` sizes each column by its own printed depth.
     """
     if record.get("lot_frontage_ft") is not None:
         return {"figure": "lot_frontage_ft", "ft": float(record["lot_frontage_ft"]),
@@ -661,10 +665,21 @@ def west_lot_figure(record: dict) -> dict | None:
                 "printed": record.get("depth_figures_read"),
                 "region": record.get("depth_region"),
                 "governs": "the east-west depth of a lot, and so the two columns and the alley"}
+    depths = record.get("depth_figures_read") or {}
+    west_ft, east_ft = depths.get("west_column_ft"), depths.get("east_column_ft")
+    if west_ft is not None and east_ft is not None:
+        return {"figure": "lot_depth_ft_per_column",
+                "ft": {"west": float(west_ft), "east": float(east_ft)},
+                "printed": depths,
+                "region": record.get("depth_region") or record.get("region"),
+                "governs": ("the east-west depth of each column's lots, so the two "
+                            "columns, their share of the block and the alley between "
+                            "them; the two figures are NOT averaged (T-2132)")}
     return None
 
 
-def subdivide_west(block: dict, alley_m: float, rows: int) -> dict:
+def subdivide_west(block: dict, alley_m: float, rows: int,
+                   column_depths_ft: dict | None = None) -> dict:
     """The West Division block: two columns of lots backing onto a NORTH-SOUTH alley.
 
     The transpose of `subdivide`, and a separate function rather than a flag on it,
@@ -687,6 +702,15 @@ def subdivide_west(block: dict, alley_m: float, rows: int) -> dict:
     # what is left of that face. In `u` — the fraction along the chains, west to east.
     half = alley_m / (2.0 * face) if face else 0.0
     edges_u = [(0.0, 0.5 - half), (0.5 + half, 1.0)]
+    if column_depths_ft and face:
+        # T-2132: a block that prints a DIFFERENT depth for each column (44 at 180 and
+        # 150) gives each column its printed share of what the committed face leaves
+        # after the alley. The proportion is read; the lengths stay the committed
+        # lines divided, which is all any lot line in this file is.
+        west_ft, east_ft = column_depths_ft["west"], column_depths_ft["east"]
+        lots_u = 1.0 - alley_m / face
+        split = lots_u * west_ft / (west_ft + east_ft)
+        edges_u = [(0.0, split), (split + alley_m / face, 1.0)]
 
     def point(u: float, v: float) -> tuple:
         top = resample(north_chain, u)
@@ -883,6 +907,9 @@ def west_module_for(entry: dict, record: dict, figure: dict | None, west: dict) 
         rows = taken["rows_read"]
         asks_ft = rows * figure["ft"]
         has_ft, axis = depth_ft, "north to south"
+    elif figure["figure"] == "lot_depth_ft_per_column":
+        asks_ft = figure["ft"]["west"] + figure["ft"]["east"] + west["alley_width_ft"]
+        has_ft, axis = face_ft, "east to west"
     else:
         asks_ft = 2 * figure["ft"] + west["alley_width_ft"]
         has_ft, axis = face_ft, "east to west"
@@ -2220,8 +2247,10 @@ def grid_from_inputs() -> dict:
             cell = (addition_cells.get(block_id)
                     if layer["id"] == "kinzies_addition" else None)
             if is_west:
-                divided = subdivide_west(built, alley_m,
-                                         len(record["lot_numerals_north_to_south"]))
+                divided = subdivide_west(
+                    built, alley_m, len(record["lot_numerals_north_to_south"]),
+                    figure["ft"] if figure and figure["figure"] == "lot_depth_ft_per_column"
+                    else None)
             elif transposed is not None:
                 divided = subdivide_west(
                     built, alley_m, len(transposed["lot_numerals_north_to_south"]))

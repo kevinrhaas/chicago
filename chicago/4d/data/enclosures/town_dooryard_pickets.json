@@ -26,9 +26,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 1,
-      "runs_bounding_structures_only": 53,
+      "runs_bounding_structures_only": 57,
       "households_that_gained_a_fence": 1,
-      "lots_named": 54,
+      "lots_named": 58,
       "households": [
         "hh_harmon_elijah_d"
       ]
@@ -2007,6 +2007,150 @@
         }
       ],
       "note": "THE HOUSE LOT: blk_west_randolph_des_plaines lot 9 of the platted grid, holding recon_1835_blk_west_randolph_des_plaines_d5_04 (deep_plan_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot2",
+      "path_local_enu_m": [
+        [
+          -112.65,
+          -329.39
+        ],
+        [
+          -113.06,
+          -320.87
+        ],
+        [
+          -106.96,
+          -320.92
+        ],
+        [
+          -106.56,
+          -329.44
+        ],
+        [
+          -112.65,
+          -329.39
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_canal_lot2",
+          "structures": [
+            "recon_1835_blk_west_randolph_canal_d5_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_west_randolph_canal lot 2 of the platted grid, holding recon_1835_blk_west_randolph_canal_d5_01 (deep_plan_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot3",
+      "path_local_enu_m": [
+        [
+          -115.68,
+          -351.26
+        ],
+        [
+          -116.09,
+          -342.74
+        ],
+        [
+          -109.99,
+          -342.79
+        ],
+        [
+          -109.59,
+          -351.31
+        ],
+        [
+          -115.68,
+          -351.26
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_canal_lot3",
+          "structures": [
+            "recon_1835_blk_west_randolph_canal_d4_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_west_randolph_canal lot 3 of the platted grid, holding recon_1835_blk_west_randolph_canal_d4_02 (two_room_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot4",
+      "path_local_enu_m": [
+        [
+          -111.7,
+          -373.78
+        ],
+        [
+          -112.11,
+          -365.26
+        ],
+        [
+          -106.01,
+          -365.31
+        ],
+        [
+          -105.6,
+          -373.83
+        ],
+        [
+          -111.7,
+          -373.78
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_canal_lot4",
+          "structures": [
+            "recon_1835_blk_west_randolph_canal_d5_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_west_randolph_canal lot 4 of the platted grid, holding recon_1835_blk_west_randolph_canal_d5_03 (deep_plan_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot8",
+      "path_local_enu_m": [
+        [
+          -56.21,
+          -331.68
+        ],
+        [
+          -56.4,
+          -340.21
+        ],
+        [
+          -62.49,
+          -340.16
+        ],
+        [
+          -62.3,
+          -331.63
+        ],
+        [
+          -56.21,
+          -331.68
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_randolph_canal_lot8",
+          "structures": [
+            "recon_1835_blk_west_randolph_canal_d6_04"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE HOUSE LOT: blk_west_randolph_canal lot 8 of the platted grid, holding recon_1835_blk_west_randolph_canal_d6_04 (one_and_a_half_story_frame_cottage) and nothing else. IT PASSES THE RULE THIS RECORD IS BUILT ON — one building on the lot, a dwelling by archetype and by function, so a house lot, and the garden follows the house (owner, T-0772) — and the rule is the answer to 'why this lot': no source puts a garden here or anywhere else in the town. THE HOUSE IS GRADED 'reconstructed' on its own record, and the garden stands at that tier or below it: a garden behind a reconstructed house is an invention resting on an invention, admitted at the house's own tier as T-1212 asked. NO HOUSEHOLD IS JOINED TO THIS HOUSE in the committed index, so the garden is drawn as the lot's ground and not as anyone's: under the ruling it passes to whoever the roof is next dealt to, or stands unworked. THE RECTANGLE IS DERIVED AND NOT PLACED: 8.53 x 6.10 m at the back of the lot, 0.914 m inside the rear and side lot lines, 3.048 m or more clear of the house's own back face, and centred on the house. Every metre of it comes from data/traces/vectors/thompson_lots.json and this building's committed footprint; the SIZE of the plot and its position at the rear are the invention, and they are the same for every lot on this record. THE CEILING ON THE PLOT — 28 x 20 ft — is invented twice over: nothing states a garden's size, and the number is additionally bounded by the renderer's own triangle budget, because a paled fence is thousands of small boxes and this layer draws in one pass. docs/LIBERTIES.md L129 claims that, on the precedent of L121."
     }
   ],
   "openings": [
@@ -2599,6 +2743,50 @@
       "at_local_enu_m": [
         -432.67,
         -355.59
+      ],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot2_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [
+        -112.86,
+        -325.13
+      ],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot3_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [
+        -115.89,
+        -347.0
+      ],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot4_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [
+        -111.9,
+        -369.52
+      ],
+      "width_m": 1.067,
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A garden that is worked daily from the house has a way in from the house, so the gap is centred in the side that faces the back door; 3 ft 6 in is a person with a hoe or a basket, not a team. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard and the pound, because a hung gate would be an invention on top of an invention."
+    },
+    {
+      "id": "blk_west_randolph_canal_lot8_gate",
+      "on": "dooryard",
+      "at_local_enu_m": [
+        -56.3,
+        -335.94
       ],
       "width_m": 1.067,
       "confidence": "reconstructed",

@@ -639,12 +639,13 @@ def check_corridors(records: list[dict], datum: dict) -> None:
     ANONYMOUS COUNT-UNIT has nothing to encroach with. Its position is a band assignment,
     so standing in the road is a defect in this generator and nothing else can see it.
     """
-    from plat_corridors import corridors, intrusion  # noqa: PLC0415
-    lanes = corridors()
+    # T-1726: every drawn street, the thirty-six off the platted layer included.
+    from plat_corridors import every_corridor, intrusion  # noqa: PLC0415
+    lanes = every_corridor()
     for record in records:
         street, depth = intrusion(world_polygon(record, datum), lanes)
         if street:
-            raise SystemExit(f"{record['id']} reaches {depth:.1f} m inside the platted "
+            raise SystemExit(f"{record['id']} reaches {depth:.1f} m inside the "
                              f"{lanes[street]['name']} corridor")
 
 

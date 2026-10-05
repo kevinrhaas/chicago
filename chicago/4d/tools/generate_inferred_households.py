@@ -376,6 +376,25 @@ CORRIDOR_CLEARANCE_NOTE = (
     "again, instead of silently disagreeing with it."
 )
 
+# T-1726: the same move, off a street the PLATTED layer does not draw. Thirty-six of the
+# town's eighty streets are outside it — cut from a riverbank, held on an open question,
+# or laid by another survey — and until 2026-10-05 a roof standing in one was in nobody's
+# road as far as this generator could tell. Such a street has no platted kerb and no
+# control, so the note says what it was actually measured against: the street as drawn,
+# at its own declared width, and the one direction the declaration allows it to give way.
+DRAWN_CLEARANCE_NOTE = (
+    " MOVED OUT OF {street_name} AS DRAWN, BY THE STREET RATHER THAN BY HAND (T-1726). "
+    "The band assignment above puts this building's centre at local ENU E {from_e:g} N "
+    "{from_n:g}, which stands {depth:.2f} m inside the corridor of {street_name}'s "
+    "committed line at its own declared width. That street is not in the platted corridor "
+    "layer, so nothing asked until T-1726 put every drawn street into this generator's "
+    "question. {why} The record therefore stands {shift:.3f} m {direction} of its band "
+    "assignment, at E {to_e:.3f} N {to_n:.3f} — the LEAST this building can move "
+    "{direction} and still leave its whole footprint {clear:.2f} m clear of the drawn "
+    "street, measured through tools/plat_corridors.py. The distance is not typed "
+    "anywhere: re-draw {street_name} and this building moves again."
+)
+
 FACE_PLACEMENT_NOTE = (
     "INTERPRETIVE PLACEMENT ON A COMMITTED BLOCK FACE, NOT A RECOVERED LOT (T-0182). "
     "{role} This building does not stand where a centre in the programme put it: it "
@@ -497,19 +516,35 @@ def resolve_corridor_clearance(programme: dict) -> None:
             raise SystemExit(f"{b['id']} stands on a block face AND asks to be pushed off a "
                              f"corridor: the face already decides where it stands")
         if lanes is None:
-            from plat_corridors import corridors  # noqa: PLC0415
-            lanes = corridors()
+            from plat_corridors import corridors, every_corridor  # noqa: PLC0415
+            lanes = every_corridor()
             control_lanes = corridors(from_control=True)
         street = spec["street"]
         if street not in lanes:
             raise SystemExit(f"{b['id']} names a corridor no committed street draws: {street}")
+        # `toward` names the one way the building may give way. A grid street has its own
+        # cross axis and may leave the side open; a street off the grid (T-1726) has
+        # neither axis nor kerb from the plat, so it MUST say which way is dry ground.
+        toward = spec.get("toward")
+        if toward not in (None, "north", "south", "east", "west"):
+            raise SystemExit(f"{b['id']}: corridor_clearance.toward must be a compass "
+                             f"direction, not {toward!r}")
         axis = 0 if street in CORRIDOR_NS else 1 if street in CORRIDOR_EW else None
-        if axis is None:
+        if axis is None and toward is None:
             raise SystemExit(f"{b['id']} names {street}, which is on neither grid axis, so the "
-                             f"corridor has no cross axis to move along")
+                             f"corridor has no cross axis to move along: say `toward`")
+        if toward is not None:
+            along = 0 if toward in ("east", "west") else 1
+            if axis is not None and along != axis:
+                raise SystemExit(f"{b['id']}: {street} runs across the {toward} axis, so the "
+                                 f"building cannot leave it by moving {toward}")
+            axis = along
+        signs = ((-1.0, 1.0) if toward is None
+                 else (1.0,) if toward in ("north", "east") else (-1.0,))
+        platted = street in control_lanes
 
         clear = float(spec["clear_m"])
-        rings = [lanes[street]["ring"], control_lanes[street]["ring"]]
+        rings = [lanes[street]["ring"]] + ([control_lanes[street]["ring"]] if platted else [])
         ring = rings[0]
         ce, cn = (float(v) for v in b["center_local_enu_m"])
         wft, dft = b["footprint_ft"]
@@ -546,7 +581,7 @@ def resolve_corridor_clearance(programme: dict) -> None:
         reach = 2.0 * (max(point_to_ring_m((ce, cn), r) for r in rings)
                        + max(w, d) + clear) + 1.0
         best = None
-        for sign in (-1.0, 1.0):
+        for sign in signs:
             hi = reach
             if signed(sign * hi) > 0.0:
                 continue
@@ -577,6 +612,7 @@ def resolve_corridor_clearance(programme: dict) -> None:
             "depth": depth,
             "clear": clear,
             "why": str(spec["why"]).strip(),
+            "platted": platted,
         }
         b["center_local_enu_m"] = [moved[0], moved[1]]
 
@@ -933,7 +969,8 @@ def structure_record(b: dict, datum: dict, prose: dict, hh_by_building: dict) ->
         # because that is the only place a reader of this building will look.
         moved = b.get("_corridor_clearance_applied")
         if moved:
-            pos_note += CORRIDOR_CLEARANCE_NOTE.format(**moved)
+            pos_note += (CORRIDOR_CLEARANCE_NOTE if moved.get("platted", True)
+                         else DRAWN_CLEARANCE_NOTE).format(**moved)
         form_over = {}
         phase_id = "inferred_1835"
         change = ("Raised by the inferred-household programme. A better-evidenced named building "
@@ -1154,12 +1191,26 @@ def validate(records: list[dict], households: list[dict], programme: dict, datum
     # reminder. But an INVENTED placement has nothing to encroach with. Where a record's
     # position is a frontage-band assignment rather than a finding, standing in the road
     # is a defect in this generator, and the grid is the only thing that can see it.
-    from plat_corridors import corridors, intrusion  # noqa: PLC0415
-    lanes = corridors()
+    # T-1726: every street the town DRAWS, not only the platted ones — a roof on North
+    # Water's centreline passed this for as long as North Water stood outside the layer.
+    # A position the ownership settlement WITHHOLDS from this pass is not this pass's
+    # placement: it derives the pre-move one, and the tree holds where a later ticket put
+    # the building (Heacock's house: T-0884 moved it off the School Section street this
+    # derivation still lands it in). That committed position is asked the same question by
+    # tools/check_structure_corridors.py; asking it of the stale one here would refuse a
+    # building for standing where it no longer stands.
+    from plat_corridors import every_corridor, intrusion  # noqa: PLC0415
+    import inferred_household_ownership as ownership  # noqa: PLC0415
+    moved_away = {sid for sid, paths in ownership.withheld_paths(
+        "tools/generate_inferred_households.py").items()
+        if "phases[].position.utm_e" in paths}
+    lanes = every_corridor()
     for sid, poly in mine:
+        if sid in moved_away:
+            continue
         street, depth = intrusion(poly, lanes)
         if street:
-            raise SystemExit(f"{sid} stands {depth:.1f} m inside the platted "
+            raise SystemExit(f"{sid} stands {depth:.1f} m inside the "
                              f"{lanes[street]['name']} corridor")
 
     # buildable ground, on the same committed surface the walker uses
