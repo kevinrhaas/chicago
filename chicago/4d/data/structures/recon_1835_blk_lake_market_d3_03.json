@@ -168,12 +168,10 @@
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
   "occupants": {
-    "value": "The Bradley household — a name the town's own records carry",
+    "value": "The Bousque household — a name the town's own records carry",
     "confidence": "reconstructed",
     "sources": [
-      "chicago_american_1835",
-      "fergus_chicago_directory_1843",
-      "norris_directory_1844"
+      "st_marys_baptismal_register_1833_1835"
     ],
     "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_market#02, fronting lake, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
   },
@@ -196,15 +194,15 @@
       "rule": "F-T",
       "class": "tradesman",
       "by": "keeper",
-      "household": "hh_bradley_joseph",
-      "words": "whitewashed clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Bradley household's, in Chicago since 1835 (rule F-T)"
+      "household": "hh_bousque_bernard",
+      "words": "whitewashed clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Bousque household's, in Chicago since 1835 (rule F-T)"
     }
   },
   "resident_assignment": {
     "status": "assigned",
     "confidence": "reconstructed",
     "note": "T-1691: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_lake_market#02 fronting lake — a standing anonymous roof of family D3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_bradley_joseph"
+    "household_id": "hh_bousque_bernard"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false
