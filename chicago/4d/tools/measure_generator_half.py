@@ -452,17 +452,20 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # blk_west_randolph_canal — two D5, a D4 and a D6, all `frame_dwelling` through emit.py and
 # the common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 602 -> 603 and 596 -> 597 on 2026-10-05 (T-1977): a trading family's camp at Wolf
-# Point, one `camp` through emit.py and the common modules. Terrain reach still 6 and
-# pier_crib still 2.
+# 602 -> 608 and 596 -> 602 on 2026-10-05 (T-2143): the six houses on plat block 51,
+# blk_west_washington_canal — a D2 shanty and D3 to D7 dwellings, all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 608 -> 609 and 602 -> 603 on 2026-10-05 (T-1977): the trading camp at Wolf Point, one
+# `camp` through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 603,
+    "assets": 609,
     "restales": {
-        "generators/common/*.py": 603,
+        "generators/common/*.py": 609,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 597,
+        "generators/emit.py": 603,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
