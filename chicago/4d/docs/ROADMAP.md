@@ -3322,6 +3322,21 @@ changes the parcel's target.**
      contact the cage was for — which the relief maps' own AO channels now carry. **So R-W3a's
      cage parcel starts here: bake occlusion to a vertex attribute, not a texture.**
 
+   5. **AND THE EMPTY TWO THIRDS, T-2127 (T-0285's second half, T-0286's ask), 2026-10-05: it
+   was never the bytes.** `tools/measure_ao_atlas.py` reads 30 masters (first, middle and last
+   of every archetype, plus the Sauganash; `glessner_house` skipped at 731,781 faces) through
+   the bake's own `emit.unwrap` / `bake_ao` / `export_glb`. Every master is one UV island per
+   face — boxes meet at 90°, past `smart_project`'s 66° — so `island_margin` changes nothing
+   and occupancy is island count × gap. The one change, `uv.lightmap_pack(PREF_MARGIN_DIV=0.4)`
+   after the unwrap, takes occupancy **20.5 % → 56.0 %** of a 512² atlas and the occlusion PNGs
+   **3.14 MB → 6.12 MB (+95 %)**: texels no island owns are one constant value that PNG stores
+   for almost nothing, so filling them spends bytes on more baked surface. Baked at the
+   smallest side that holds wall density it needs 45.6 % fewer texels and still costs **+7.3 %**;
+   the narrowest gap goes 5 px → 2, and on **5 of 30** masters the named wall loses texels per
+   metre. **Not adopted** (`emit.py` unchanged, so no master staled); the byte cost of an atlas
+   is its baked surface, which no packing recovers — one more reason the cage parcel bakes to
+   a vertex attribute. Tables: `docs/measurements/T-2127-ao-atlas-packing.md`.
+
 **And a cost figure the bake half has to answer first.** With the export working, one asset's
 master goes **94,420 → 202,292 bytes (+114 %)**: a 512×512 occlusion PNG carrying real variation
 costs ~107 KB, where the uniformly black one compressed to 3,620 — which is why T-0015 measured

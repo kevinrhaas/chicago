@@ -503,7 +503,7 @@ is the same one § 2 makes about the gates: a shut gate claims a garrison, not a
 **Superseded at the owner's direction, 2026-10-05 (T-2124).** The flag is now drawn, and the
 reading above is why it is graded as it is: the pattern (24 stars, 13 stripes, from the Flag Act
 of 1818) is `inferred`, and its being up on the scene's forenoon is `reconstructed` under
-Andreas's own condition, fair weather (`form.flag`, `form.flag_flying`; **L384**). The first
+Andreas's own condition, fair weather (`form.flag`, `form.flag_flying`; **L389**). The first
 fort's staff flies the 1794 Act's fifteen stars and fifteen stripes on the same terms.
 
 ### What would still move it

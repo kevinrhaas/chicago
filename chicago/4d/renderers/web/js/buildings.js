@@ -213,7 +213,7 @@ function albedoAttribute(base, factors, count) {
  * attribute, so a batch's attribute set does not depend on which mesh came
  * first, and `setWeathering` keeps it because it rescales by ratio.
  * A mesh without the attribute is untouched; the bounds are the generator's
- * (fort_structure.py LOG_SPAN, palisade.py PICKET_SPAN; L384).
+ * (fort_structure.py LOG_SPAN, palisade.py PICKET_SPAN; L389).
  */
 function applyPieceTone(color, tone) {
   if (!tone) return;

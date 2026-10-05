@@ -571,6 +571,31 @@ def entries_are_blinded_faults(root: Path = ROOT) -> list[str]:
     return faults
 
 
+# T-1699. THE WHARF LAYER AND THE FRONTAGE LAYER ARE THE FOURTH AND FIFTH TARGET
+# SURFACES. The town's wharfing ordinance -- section 15 of the by-laws of 4 December 1833,
+# which lets a river-fronting lot take the vacant ground before it "leaving eighty feet for
+# a street", and section 16, which buys back the wharf a lessee built on it -- belongs on
+# data/wharves/river_landings.json, and the street-edge orders on
+# data/frontage/town_street_edge.json, the layer that lays the South Water footway. Both
+# are committed, and until this the ledger read neither, so the ordinance stood
+# `aggregate_only` under a rule whose whole statement was that the receiving layer was not
+# indexed, and writing it onto a structure instead would have put a river law on a
+# building.
+#
+# They are read on the RESIDENTS walk, for T-1600's reason: neither layer carries a
+# `claim_ids` list, and the citation style the corpus already uses -- a claim key in the
+# `note` of the confident block beside the source in its `sources` -- is what the street
+# layer carries for the reprint of the same section (T-1587). Each file is one record
+# under a top-level `id`, which is the shape the walk takes; `index.json` is a manifest
+# with no `id` and is passed over by the walk itself. MEASURED BEFORE IT WAS ADOPTED:
+# on the tree this landed on, the two layers reached no claim key at all until the wharf
+# generator wrote `legal_basis`, and with it exactly the two units of the ordinance, so the
+# loose reading flipped nothing this ticket did not write.
+WHARF_LAYER = ("data", "wharves")
+FRONTAGE_LAYER = ("data", "frontage")
+LAYER_SURFACES = ((WHARF_LAYER, "wharf_record"), (FRONTAGE_LAYER, "frontage_record"))
+
+
 def prose_target_index(paths, root: Path, keys: set[str], kind: str,
                        blind: frozenset = frozenset()) -> dict[str, list[dict]]:
     """Index source-bearing confident blocks by the unit keys their prose names."""
@@ -618,7 +643,9 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
     The residents layer first, then the business layer, then the structure layer, so a
     reading a resident card already carries keeps the target it had, a reading only the
     business layer carries reaches the block that carries it (T-1508), and a reading
-    whose subject is a building reaches the building (T-1600).
+    whose subject is a building reaches the building (T-1600), and a reading whose
+    subject is the river frontage or the street edge reaches the layer that draws it
+    (T-1699).
     """
     found = prose_target_index(
         town_records(root / "data" / "residents"), root, keys, "resident_record")
@@ -629,6 +656,13 @@ def target_index(root: Path, keys: set[str]) -> dict[str, list[dict]]:
         for key, rows in prose_target_index(
                 sorted(structures.rglob("*.json")), root, keys, "structure_record",
                 STRUCTURE_BLIND_KEYS).items():
+            found[key].extend(rows)
+    for layer, kind in LAYER_SURFACES:
+        base = root.joinpath(*layer)
+        if not base.is_dir():
+            continue
+        for key, rows in prose_target_index(
+                sorted(base.glob("*.json")), root, keys, kind).items():
             found[key].extend(rows)
     return found
 
@@ -1736,6 +1770,45 @@ def self_test() -> int:
             print("  holds: `tier` and `source_id` read as confidence and a cited source")
         (root / "data/businesses/biz_fixture.json").unlink()
 
+        # T-1699: THE WHARF AND FRONTAGE LAYERS AS TARGET SURFACES. A confident, sourced
+        # block naming the claim is a target on either layer; the same claim named in a
+        # `reconstructed` block is not, because a reconstruction spends no reading; and
+        # the layer's manifest, which carries no `id`, is no record at all.
+        write_json(root / "data/wharves/fixture_landings.json", {
+            "id": "fixture_landings",
+            "legal_basis": {"value": "wharfing only", "confidence": "attested",
+                            "sources": ["fixture_press"],
+                            "note": "Section 15, gazette_1835_06_08#c201, the lease."},
+            "existence": {"value": True, "confidence": "reconstructed",
+                          "sources": ["fixture_press"],
+                          "note": "Bounded by gazette_1835_06_08#c202 alone."}})
+        write_json(root / "data/frontage/fixture_edge.json", {
+            "id": "fixture_edge",
+            "walks": {"value": "plank", "confidence": "inferred",
+                      "sources": ["fixture_press"],
+                      "note": "The order of gazette_1835_06_08#c203 on walks."}})
+        write_json(root / "data/frontage/index.json", {
+            "frontage": [{"confidence": "attested", "sources": ["fixture_press"],
+                          "note": "gazette_1835_06_08#c204"}]})
+        layer = target_index(root, {f"gazette_1835_06_08#c20{n}" for n in range(1, 5)})
+        reached = {key: {(t["kind"], t["field_path"]) for t in rows}
+                   for key, rows in layer.items()}
+        if reached.get("gazette_1835_06_08#c201") != {("wharf_record", "/legal_basis")} \
+                or reached.get("gazette_1835_06_08#c203") != {("frontage_record", "/walks")}:
+            failures.append(f"a confident wharf or frontage block was no target: {reached!r}")
+        else:
+            print("  holds: a confident, sourced wharf or frontage block is a target")
+        if "gazette_1835_06_08#c202" in reached:
+            failures.append("a reconstructed wharf block stood as a target")
+        else:
+            print("  fires: a reconstructed wharf block closes nothing")
+        if "gazette_1835_06_08#c204" in reached:
+            failures.append("a layer manifest with no id stood as a target")
+        else:
+            print("  fires: a layer manifest is no record")
+        for name in ("wharves/fixture_landings", "frontage/fixture_edge", "frontage/index"):
+            (root / f"data/{name}.json").unlink()
+
         # T-1342: THE FILE-LOCAL KEY, over the exact shape that made 142 false assertions —
         # two issue files each carrying a claim `c007`, and one card citing one of them.
         registry = {"domains": [{"id": "press", "path": "data/research/press/", "ledger_units": [
@@ -1794,5 +1867,5 @@ def self_test() -> int:
             print("  fires: a duplicate stable unit id")
     for failure in failures:
         print("   SILENT: " + failure)
-    print("LEDGER SELF-TEST %s — 27 case(s)" % ("FAIL" if failures else "PASS"))
+    print("LEDGER SELF-TEST %s — 30 case(s)" % ("FAIL" if failures else "PASS"))
     return 1 if failures else 0

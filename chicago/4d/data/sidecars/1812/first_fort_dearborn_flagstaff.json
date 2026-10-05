@@ -102,13 +102,13 @@
       "sources": [
         "quaife_1913"
       ],
-      "note": "THE PATTERN IS THE LAW'S, NOT A DESCRIPTION. No source reached describes the first fort's colours; Quaife gives it 'a lofty flagstaff' at the parade's centre and a United States garrison flew the national flag. The Flag Act of 13 January 1794 made the flag fifteen stars and fifteen stripes from 1 May 1795, and it stayed so until the Act of 1818 took effect on 4 July 1818 - so every day of this phase (1803-1812) falls under it, Ohio's and Louisiana's admissions notwithstanding. The arrangement of the stars (five staggered rows of three), the size and the wear are reconstructed (L384).",
+      "note": "THE PATTERN IS THE LAW'S, NOT A DESCRIPTION. No source reached describes the first fort's colours; Quaife gives it 'a lofty flagstaff' at the parade's centre and a United States garrison flew the national flag. The Flag Act of 13 January 1794 made the flag fifteen stars and fifteen stripes from 1 May 1795, and it stayed so until the Act of 1818 took effect on 4 July 1818 - so every day of this phase (1803-1812) falls under it, Ohio's and Louisiana's admissions notwithstanding. The arrangement of the stars (five staggered rows of three), the size and the wear are reconstructed (L389).",
       "geometry": "record_only"
     },
     "flag_flying": {
       "value": true,
       "confidence": "reconstructed",
-      "note": "FLOWN AT THE OWNER'S DIRECTION (2026-10-05), AS A RECONSTRUCTION. No source reached says the flag was up on the scene date, 1 August 1812, two weeks before the evacuation. Drawn up in fair weather with a south-westerly breeze, both reconstructed (L384).",
+      "note": "FLOWN AT THE OWNER'S DIRECTION (2026-10-05), AS A RECONSTRUCTION. No source reached says the flag was up on the scene date, 1 August 1812, two weeks before the evacuation. Drawn up in fair weather with a south-westerly breeze, both reconstructed (L389).",
       "geometry": "record_only"
     },
     "function": {
@@ -252,7 +252,7 @@
       ]
     }
   ],
-  "research_note": "THE ONE DIMENSION THE COMMANDANT WROTE ON HIS GARRISON. Whistler lettered the staff '75 feete' and drew it laid down from its foot at the parade's centre; that is the anchor the register's whole scale is measured from, so this record's height is the best-attested number in the fort. T-2124 (2026-10-05): the staff flies the fifteen-star, fifteen-stripe flag of the 1794 Act, pattern inferred and its being up reconstructed (form.flag, form.flag_flying, L384).",
+  "research_note": "THE ONE DIMENSION THE COMMANDANT WROTE ON HIS GARRISON. Whistler lettered the staff '75 feete' and drew it laid down from its foot at the parade's centre; that is the anchor the register's whole scale is measured from, so this record's height is the best-attested number in the fort. T-2124 (2026-10-05): the staff flies the fifteen-star, fifteen-stripe flag of the 1794 Act, pattern inferred and its being up reconstructed (form.flag, form.flag_flying, L389).",
   "research_doc": "",
   "review_required": false
 }

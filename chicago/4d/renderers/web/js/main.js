@@ -2430,6 +2430,7 @@ async function boot() {
   const openSources = () => {
     if (!sourcesPromise) sourcesPromise = import('./sources.js').then(({attachSources}) => attachSources({
       api, registry: loaded.registry, hud, popup, dataBase: bases.dataBase, root: document.getElementById('sources'),
+      scene: loaded.scene.id ?? YEAR,
     })).then(view => { api.sources=view; return view; }).catch(() => {
       sourcesPromise=null;
       document.getElementById('sources').textContent='Sources could not load. Reopen this topic to retry.';

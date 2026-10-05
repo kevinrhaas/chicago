@@ -12436,6 +12436,12 @@
       "asset": "gltf/recon_1835_blk_washington_market_a1_05__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_market_a2_13",
+      "name": "Reconstructed A2 barn or carriage shed #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a2_13.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a2_13__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_market_a3_03",
       "name": "Reconstructed A3 privy #03",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_03.json",
@@ -12446,6 +12452,60 @@
       "name": "Reconstructed A3 privy #06",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_06.json",
       "asset": "gltf/recon_1835_blk_washington_market_a3_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a3_15",
+      "name": "Reconstructed A3 privy #15",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_15.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a3_15__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a4_12",
+      "name": "Reconstructed A4 woodshed or storage shed #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a4_12.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a4_12__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a4_16",
+      "name": "Reconstructed A4 woodshed or storage shed #16",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a4_16.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a4_16__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a5_14",
+      "name": "Reconstructed A5 small utility building #14",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a5_14.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a5_14__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d3_10",
+      "name": "Reconstructed D3 one-room frame cottage #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d3_10.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d3_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d4_08",
+      "name": "Reconstructed D4 two-room frame cottage #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d4_08.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d4_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d4_11",
+      "name": "Reconstructed D4 two-room frame cottage #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d4_11.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d4_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d7_09",
+      "name": "Reconstructed D7 small two-story frame house #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d7_09.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d7_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_h1_07",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_h1_07.json",
+      "asset": "gltf/recon_1835_blk_washington_market_h1_07__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_market_h3_01",
