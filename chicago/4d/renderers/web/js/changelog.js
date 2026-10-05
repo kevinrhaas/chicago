@@ -1,11 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1481, ts: '2026-10-05T10:17:20.094Z', date: 'Oct 5, 2026, 5:17 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+  { v: 1484, ts: '2026-10-05T11:43:42.952Z', date: 'Oct 5, 2026, 6:43 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
       'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
       'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
       'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
       'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1483, ts: '2026-10-05T11:07:09.913Z', date: 'Oct 5, 2026, 6:07 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
+    items: [
+      'Open 1904, then Evidence \u2192 Sources. The list used to show the 1835 town\u2019s sources. It now shows the 32 sources behind 1904 itself: the Glessner House drawings and photographs, the 1911 Sanborn sheets, the city\u2019s paving records and the elevation survey under the ground.',
+      'In 1812 it lists the 22 sources behind the first Fort Dearborn, its ground and its plants.',
+      'Tick \u201cAll registered sources\u201d to see every source; one another year uses reads \u201cother scene\u201d.',
+    ] },
+  { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+    items: [
+      'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
+      'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
+      'All ten are reconstructions: no record says what stood on this block in 1835 (Liberty L384).',
+    ] },
+  { v: 1481, ts: '2026-10-05T10:26:22.802Z', date: 'Oct 5, 2026, 5:26 AM CT', title: 'Shops can now face the side street of a corner lot', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Each reconstructed house and shop stands facing its block\u2019s long street, like Washington or Randolph. Our block layout tool can now also stand one on a corner lot facing the cross street, like Dearborn. That is the step the mechanics\u2019 shops planned for State and Dearborn Streets were waiting on.',
+      'The town\u2019s rules still hold. No workshop goes on State Street, a quiet street in 1835 where none of the seven documented workshops stood. On Dearborn a workshop goes only where no busier street bounds the block.',
+      'The shops themselves come next.',
     ] },
   { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
     items: [
