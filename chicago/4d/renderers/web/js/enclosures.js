@@ -565,8 +565,8 @@ function emitRun(task, terrain, ch, tally, plankPales) {
     into(feet[n]);
     post(feet[n]);
   }
-  // T-2112 — WHAT HANGS IN EACH GATEWAY on this run: its two posts and its
-  // leaves, slip bars or nothing, as the record's `gate` states.
+  // T-2112 — WHAT HANGS IN EACH GATEWAY on this run: its leaves, slip bars or
+  // nothing, as the record's `gate` states, on the stretches' own end posts.
   for (const g of gaps) {
     if (!g.o.gate || g.o.gate.kind === 'opening') continue;
     const jamb = (d) => {

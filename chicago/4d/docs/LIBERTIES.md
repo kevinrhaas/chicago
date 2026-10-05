@@ -21167,8 +21167,8 @@ had run unbroken across the front of every house behind them.
 lots. The kinds are the ones the town's own fences imply: a house lot kept against hogs at large
 (the 1833 town code, `chicago_democrat_1833_11_26`) shuts, so it takes a hung leaf; a trade lot and
 a yard take a cart; a split-rail fence is opened by its bars, which is how a rail fence is opened.
-Every dimension, the leaf construction (two rails and a stile with the fence's stock across it, no
-brace drawn), the shares of shut, ajar and open, and the gate's place in front of the building's
+Every dimension, the leaf construction (a boarded leaf one face of butted boards, a paled one two
+rails with pales across them, no brace drawn, hung on the fence's own end posts), the shares of shut, ajar and open, and the gate's place in front of the building's
 centre rather than its door are ours.
 **How to resolve:** any view or description of an 1830s Chicago dooryard gate replaces the leaf;
 a lot's own door position, where the entrance layer knows it, would place its gate better.

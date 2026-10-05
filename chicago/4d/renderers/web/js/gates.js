@@ -1,5 +1,5 @@
 /**
- * WHAT HANGS IN A GATEWAY (T-2112) — the gate posts, leaves and slip bars a
+ * WHAT HANGS IN A GATEWAY (T-2112) — the leaves and slip bars a
  * fence record's `openings[].gate` states, as plain boxes the calling layer
  * pushes into its own buffer with its own `pushBox`.
  *
@@ -11,24 +11,29 @@
  * The gate itself is `tools/gate_kinds.py`'s, and every number below is a
  * reconstruction like the record that asks for it: a 3 ft 6 in house gate on
  * one leaf, a pair of cart leaves, or slip bars let down out of a rail fence.
- * The leaf frame is two rails and a closing stile with the fence's own stock
- * nailed across it; no brace is drawn, because this layer only draws boxes
- * that stand upright, and a leaning one would be a claim about the gate it
- * does not make.
+ * A boarded leaf is one panel, the way the fence's own butted boards read; a
+ * paled leaf is two rails with the pales spaced across them. No brace is
+ * drawn, because this layer only draws boxes that stand upright, and a
+ * leaning one would be a claim about the gate it does not make.
+ *
+ * WHAT IT DOES NOT DRAW, and why (T-0672's ceilings): the gate posts. Both
+ * fence layers already stand a post at either end of every stretch, so the
+ * jambs a gate hangs on are there; a second post in each would be 448 boxes
+ * of timber nobody sees twice. A boarded leaf is one box rather than a board
+ * apiece for the same reason.
  *
  * Coordinates: the caller hands local ENU jambs with their ground heights; a
  * box comes back in the renderer's world frame (E, up, −N), with `u` its
  * horizontal along-direction and `part` the face set the caller should use.
  */
 
-const POST_HALF_M = 0.08;          // a 6-inch gate post, heavier than the fence's
-const POST_OVER_M = 0.12;          // and standing a little above it
+const POST_HALF_M = 0.07;          // the fence's own end post, which the leaf clears
 const LEAF_RAIL_H_M = 0.09;
 const LEAF_T_M = 0.025;
 const BAR_H_M = 0.09;
 const CLEAR_M = 0.03;              // hinge and latch play either side of a leaf
-const PITCH = { board: 0.16, picket: 0.17, rail: 0.25 };
-const STOCK_W = { board: 0.15, picket: 0.075, rail: 0.07 };
+const PALE_PITCH_M = 0.17;
+const PALE_W_M = 0.075;
 
 function box(out, e, y, n, ue, un, halfLen, halfW, halfH, part) {
   out.push({ cx: e, cy: y, cz: -n, ux: ue, uz: -un, halfLen, halfW, halfH, part });
@@ -46,19 +51,22 @@ function leaf(out, h, d, inward, len, deg, height, stock) {
   const top = height - 0.12;
   const low = 0.18;
   const mid = at(len / 2);
-  // The frame: a rail low and a rail high, and the stile the latch is on.
+  if (stock !== 'picket') {
+    // Boards butted edge to edge read as one face, so they are drawn as one.
+    box(out, mid[0], h.y + (0.06 + top) / 2, mid[1], ue, un, len / 2, LEAF_T_M / 2,
+      (top - 0.06) / 2, 'pale');
+    return;
+  }
+  // The frame: a rail low and a rail high.
   box(out, mid[0], h.y + low, mid[1], ue, un, len / 2, LEAF_T_M, LEAF_RAIL_H_M / 2, 'rail');
   box(out, mid[0], h.y + top, mid[1], ue, un, len / 2, LEAF_T_M, LEAF_RAIL_H_M / 2, 'rail');
-  const st = at(len - 0.04);
-  box(out, st[0], h.y + (low + top) / 2, st[1], ue, un, 0.04, LEAF_T_M,
-    (top - low) / 2 + LEAF_RAIL_H_M / 2, 'post');
-  // The stock across it, the fence's own: boards butted, pales spaced and
-  // standing a hand above the top rail the way the fence's do.
-  const pitch = PITCH[stock] ?? PITCH.board;
-  const w = STOCK_W[stock] ?? STOCK_W.board;
-  const count = Math.max(1, Math.floor((len - 0.08) / pitch));
-  const first = (len - 0.08 - (count - 1) * pitch) / 2;
-  const tall = stock === 'picket' ? top + 0.08 : top;
+  // The pales across it, spaced and standing a hand above the top rail the
+  // way the fence's do.
+  const pitch = PALE_PITCH_M;
+  const w = PALE_W_M;
+  const count = Math.max(1, Math.floor(len / pitch));
+  const first = (len - (count - 1) * pitch) / 2;
+  const tall = top + 0.08;
   for (let k = 0; k < count; k++) {
     const p = at(first + k * pitch);
     box(out, p[0], h.y + (0.06 + tall) / 2, p[1], ue, un, w / 2, LEAF_T_M / 2,
@@ -89,10 +97,6 @@ export function gateBoxes(gate, a, b, height, into) {
     if ((into[0] - mx) * inward[0] + (into[1] - my) * inward[1] < 0) {
       inward = [-inward[0], -inward[1]];
     }
-  }
-  const postH = height + POST_OVER_M;
-  for (const j of [a, b]) {
-    box(out, j.e, j.y + postH / 2, j.n, d[0], d[1], POST_HALF_M, POST_HALF_M, postH / 2, 'post');
   }
   const span = width - 2 * POST_HALF_M - 2 * CLEAR_M;
   if (gate.kind === 'bars') {
