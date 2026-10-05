@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
+  { v: 1457, ts: '2026-10-05T00:58:06.537Z', date: 'Oct 4, 2026, 7:58 PM CT', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
     items: [
       'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',
       'At a stop like that the button now reads Choose an Option. Tap it and the panel scrolls to the options.',
