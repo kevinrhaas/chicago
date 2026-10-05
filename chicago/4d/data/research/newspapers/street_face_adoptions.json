@@ -182,6 +182,24 @@
      }
     }
    }
+  },
+  "the_trade_s_kind": {
+   "reading": "data/research/newspapers/trade_premises.json — what kind of premises each of the register's trades wanted, keyed on its occupation and overridden by its printed trade where the notice says otherwise. Every row is inferred.",
+   "how_the_deal_reads_it": "Within a reading, a business takes a house of trade of the band(s) its trade's kind fits before any other house of trade, and any house of trade before a dwelling. A kind every band fits, or none does, reads no preference.",
+   "still_not_evidence": "Limit 3 is unchanged: which roof on the face is an allocation. The kind is a reading of the trade's own word and not of any building.",
+   "adopted_into_a_roof_of_its_kind": 17,
+   "adopted_into_a_roof_not_of_its_kind": 23,
+   "kind_reads_no_roof": 0,
+   "works_trades_in_a_store": [
+    "business_a_filer_co",
+    "business_briggs_humphrey",
+    "business_chicago_democrat_printing_office",
+    "business_clark_filer_co",
+    "business_l_w_montgomery_boot_and_shoe_maker",
+    "business_pierce_french",
+    "business_rockwell_cabinet_furniture_warehouse"
+   ],
+   "works_roofs_free_on_any_adopted_face": 0
   }
  },
  "counts": {

@@ -28,7 +28,7 @@ corner. This file is that ruling made re-derivable. `docs/STREET-FACE-ADOPTION.m
 policy it implements and states the five limits in full; what follows is how they are
 enforced here.
 
-THE FIVE LIMITS, AND EACH ONE IS AN ASSERTION IN `--check`.
+THE SIX LIMITS, AND EACH ONE IS AN ASSERTION IN `--check`.
 
   1. **A STREET FACE, NEVER A LOT.** The paper's constraint is the face; the lot is the
      reconstruction's. Every adoption carries `lot: null` and `claims_lot: false`, and
@@ -53,6 +53,13 @@ THE FIVE LIMITS, AND EACH ONE IS AN ASSERTION IN `--check`.
      nothing about where the business stood; what it stops doing is contradicting the
      reconstruction's own typology for no reason, and `--check` refuses a business seated
      in a dwelling while a house of trade of the same reading stood free.
+
+  6. **THE DEAL READS WHAT THE TRADE WANTED (T-1670).** Of the houses of trade free under
+     one reading, a business takes one of the band(s) its trade's kind of premises fits —
+     a counter the C bands, a works the W, a freight concern the F — before the rest.
+     The kind is `data/research/newspapers/trade_premises.json`, an inferred reading of
+     the register's own trades, and `--check` refuses a business in a house of trade of
+     the wrong kind while one of its own kind stood free on the same face and reading.
 
      **UNTIL T-1651 THE PAIRING WAS BY THE ROOF'S ID, AND THAT WAS NOT A READING OF THE
      FAMILY.** An anonymous roof's id carries its family as a token — `…_c2_08` — and
@@ -1563,6 +1570,36 @@ def derive() -> dict:
             },
             "re_family_stability": re_family_churn(faces, homes, yards, requested,
                                                    families),
+            # T-1670. THE DEAL READS THE TRADE'S KIND, and this is what says so on the
+            # record: the reading it reads, and how far the faces could honour it.
+            "the_trade_s_kind": {
+                "reading": "data/research/newspapers/trade_premises.json — what kind of "
+                           "premises each of the register's trades wanted, keyed on its "
+                           "occupation and overridden by its printed trade where the "
+                           "notice says otherwise. Every row is inferred.",
+                "how_the_deal_reads_it": "Within a reading, a business takes a house of "
+                                         "trade of the band(s) its trade's kind fits "
+                                         "before any other house of trade, and any house "
+                                         "of trade before a dwelling. A kind every band "
+                                         "fits, or none does, reads no preference.",
+                "still_not_evidence": "Limit 3 is unchanged: which roof on the face is an "
+                                      "allocation. The kind is a reading of the trade's "
+                                      "own word and not of any building.",
+                "adopted_into_a_roof_of_its_kind": sum(
+                    1 for row in adoptions if row["roof_fits_the_trade"] is True),
+                "adopted_into_a_roof_not_of_its_kind": sum(
+                    1 for row in adoptions if row["roof_fits_the_trade"] is False),
+                "kind_reads_no_roof": sum(
+                    1 for row in adoptions if row["roof_fits_the_trade"] is None),
+                "works_trades_in_a_store": sorted(
+                    row["business_id"] for row in adoptions
+                    if row["trade_kind"] == "works"
+                    and str(row["roof_family"]).upper().startswith("C")),
+                "works_roofs_free_on_any_adopted_face": len(
+                    {sid for row in adoptions
+                     for sid in (faces.get(row["street_id"]) or {}).get("free", [])
+                     if str(families.get(sid)).upper().startswith("W")}),
+            },
         },
         "counts": {
             "street_only_in_register": len(pool),
@@ -1746,6 +1783,64 @@ def limits(doc: dict) -> list[str]:
         if row.get("roof_is_a_house_of_trade") is not is_house_of_trade(family):
             bad.append("%s states the wrong reading of family %r against the C, W and F "
                        "bands" % (row.get("business_id"), family))
+    # LIMIT 6, T-1670 — THE DEAL READS THE TRADE'S KIND, AND THIS SAYS IT STILL DOES. The
+    # reading must cover every trade the register holds, each record must carry the kind
+    # the reading gives its own trade, and no business may stand in a house of trade of
+    # the wrong kind while one of its own kind stood unadopted on the same face and
+    # reading — the same reasoning as limit 5, one tier down.
+    premises = trade_premises()
+    register_rows = load(REGISTER)["businesses"]
+    by_business = {b["id"]: b for b in register_rows}
+    for occupation in sorted({b.get("occupation") for b in register_rows
+                              if b.get("occupation")}):
+        if occupation not in premises["by_occupation"]:
+            bad.append("the register's occupation %r has no row in trade_premises.json, so "
+                       "the deal cannot say what kind of premises it wanted" % occupation)
+    printed = {b.get("trade") for b in register_rows}
+    for trade in sorted(premises["by_trade"]):
+        if trade not in printed:
+            bad.append("trade_premises.json overrides %r, which no register entry prints — "
+                       "a stale override is a reading of nothing" % trade)
+    for kind, row in sorted(premises["kinds"].items()):
+        if set(row["bands"]) - set(TRADE_BANDS):
+            bad.append("trade_premises.json's %r fits %s, outside T-1657's C, W and F bands"
+                       % (kind, sorted(set(row["bands"]) - set(TRADE_BANDS))))
+    for table in ("by_occupation", "by_trade"):
+        for key, row in sorted(premises[table].items()):
+            if row.get("kind") not in premises["kinds"]:
+                bad.append("trade_premises.json reads %r as %r, which is no kind it defines"
+                           % (key, row.get("kind")))
+            if row.get("confidence") != "inferred" or not row.get("note"):
+                bad.append("trade_premises.json's %r is not an inferred reading with its "
+                           "reasoning — no notice says what roof its trade stood in" % key)
+    for row in doc["adoptions"]:
+        entry = by_business.get(row.get("business_id")) or {}
+        kind, _ = trade_kind(entry, premises)
+        if row.get("trade_kind") != kind:
+            bad.append("%s says its trade wanted %r; the reading of its own trade says %r"
+                       % (row.get("business_id"), row.get("trade_kind"), kind))
+        bands = kind_bands(kind, premises)
+        family = families.get(row.get("structure_id"))
+        if row.get("roof_fits_the_trade") != (fits_the_trade(family, bands) if bands
+                                              else None):
+            bad.append("%s misstates whether its %s roof fits a %s trade"
+                       % (row.get("business_id"), family, kind))
+        if not bands or set(bands) == set(TRADE_BANDS) or not is_house_of_trade(family) \
+                or fits_the_trade(family, bands):
+            continue
+        standing = (faces_for_limits.get(row["street_id"]) or {}).get(row.get("face")) or []
+        own_kind = sorted(
+            sid for sid in standing
+            if fits_the_trade(families.get(sid), bands)
+            and sid not in homes_for_limits and sid not in yards_for_limits
+            and sid not in reserved_now and sid not in seen)
+        if own_kind:
+            bad.append("%s, a %s trade, stands in %s, a %s, while %s stood free on the same "
+                       "%s of %s — limit 6 refuses a business in a house of trade of the "
+                       "wrong kind while one of its own kind is free"
+                       % (row.get("business_id"), kind, row.get("structure_id"), family,
+                          ", ".join(own_kind), row.get("face"), row.get("street_id")))
+
     pools: dict[tuple[str, int], list[str]] = {}
     for structure_id, family in sorted(families.items()):
         # A roof whose id carries a family token must carry ITS OWN, because that is the
@@ -1826,6 +1921,15 @@ def check() -> int:
              churn["within the bands"]["id_order"]["places_changed"],
              churn["within the bands"]["deal_order"]["worst_single_re_family"],
              churn["within the bands"]["id_order"]["worst_single_re_family"]))
+    kinds = committed["reading"]["the_trade_s_kind"]
+    print("  ok    %d adoption(s) stand in a roof of their trade's kind of premises and %d "
+          "do not; %d works trade(s) stand in a store, and %d works roof(s) stand free on "
+          "any face they were dealt on — no business stood in the wrong kind of house "
+          "of trade while its own kind was free (limit 6, T-1670)"
+          % (kinds["adopted_into_a_roof_of_its_kind"],
+             kinds["adopted_into_a_roof_not_of_its_kind"],
+             len(kinds["works_trades_in_a_store"]),
+             kinds["works_roofs_free_on_any_adopted_face"]))
     print("  ok    %d roof(s) raised for an authored household or workplace seat are reserved "
           "from the deal; %d carry a committed occupancy, %d do not yet (refusal 7, "
           "T-1626 — the platted deal writes none, so that is an upper bound)"
@@ -2110,6 +2214,15 @@ def self_test() -> int:
     case("a record that misstates its roof's family",
          lambda b: first(b).update(roof_family="D1"),
          "own record says")
+    # LIMIT 6's two ways of rotting on the record, T-1670: a trade read as a kind its own
+    # reading does not give it, and a roof said to fit a trade it does not.
+    case("a record that misstates its trade's kind of premises",
+         lambda b: first(b).update(
+             trade_kind="freight" if first(b)["trade_kind"] != "freight" else "counter"),
+         "the reading of its own trade says")
+    case("a record that misstates whether its roof fits its trade",
+         lambda b: first(b).update(roof_fits_the_trade=not first(b)["roof_fits_the_trade"]),
+         "misstates whether its")
     case("a record that misstates the band its roof's family is in",
          lambda b: first(b).update(
              roof_is_a_house_of_trade=not first(b)["roof_is_a_house_of_trade"]),
@@ -2217,7 +2330,7 @@ def self_test() -> int:
     if failed:
         print("SELF-TEST FAIL")
         return 1
-    print("SELF-TEST PASS — all five limits, all three roof refusals (both halves of "
+    print("SELF-TEST PASS — all six limits, all three roof refusals (both halves of "
           "the household one, the yard building, and the roof raised to answer a slot "
           "request), both edges of the 2026-08-30 face ruling and both readings of the "
           "one-roof-one-business ledger fire when broken, and refusal 3 still obeys "
