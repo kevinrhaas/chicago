@@ -12580,6 +12580,24 @@
       "asset": "gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_west_lake_canal_d2_03",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_lake_canal_d2_03.json",
+      "asset": "gltf/recon_1835_blk_west_lake_canal_d2_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_lake_canal_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_lake_canal_d4_02.json",
+      "asset": "gltf/recon_1835_blk_west_lake_canal_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_lake_canal_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_lake_canal_d5_01.json",
+      "asset": "gltf/recon_1835_blk_west_lake_canal_d5_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d4_02.json",

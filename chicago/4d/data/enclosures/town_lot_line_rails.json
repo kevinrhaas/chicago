@@ -29,9 +29,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 59,
-      "runs_bounding_structures_only": 431,
+      "runs_bounding_structures_only": 425,
       "households_that_gained_a_fence": 25,
-      "lots_named": 183,
+      "lots_named": 178,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -1508,6 +1508,30 @@
       "note": "A SIDE LOT LINE — the south side of blk_lake_clinton_lot6 — and the fence on it is built ONCE: blk_lake_clinton_lot6 and blk_lake_clinton_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
+      "id": "side_blk_west_lake_canal_lot2_n",
+      "path_local_enu_m": [
+        [
+          -149.67,
+          -168.02
+        ],
+        [
+          -91.14,
+          -168.49
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot2",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d5_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the north side of blk_west_lake_canal_lot2 — and the fence on it is built ONCE: blk_west_lake_canal_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
       "id": "side_blk_lake_dearborn_lot0_w",
       "path_local_enu_m": [
         [
@@ -1825,6 +1849,170 @@
         }
       ],
       "note": "A SIDE LOT LINE — the south side of blk_lake_clinton_lot7 — and the fence on it is built ONCE: blk_lake_clinton_lot7 and blk_lake_clinton_lot8 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_lake_canal_lot2_blk_west_lake_canal_lot3_s",
+      "path_local_enu_m": [
+        [
+          -148.54,
+          -191.7
+        ],
+        [
+          -121.54,
+          -191.92
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot2",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d5_01"
+          ],
+          "households": [],
+          "side": "north-east",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_west_lake_canal_lot3",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d4_02"
+          ],
+          "households": [],
+          "side": "south-east",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_lake_canal_lot2 — and the fence on it is built ONCE: blk_west_lake_canal_lot2 and blk_west_lake_canal_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "rear_blk_west_lake_canal_lot2",
+      "path_local_enu_m": [
+        [
+          -91.14,
+          -168.49
+        ],
+        [
+          -90.8,
+          -192.17
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot2",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d5_01"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_lake_canal_d5_01 — and the yard behind those buildings is 12.19 m deep by 23.68 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_lake_canal_lot2_blk_west_lake_canal_lot3_s_1",
+      "path_local_enu_m": [
+        [
+          -113.55,
+          -191.98
+        ],
+        [
+          -90.8,
+          -192.17
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot2",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d5_01"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_west_lake_canal_lot3",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d4_02"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_lake_canal_lot2 — and the fence on it is built ONCE: blk_west_lake_canal_lot2 and blk_west_lake_canal_lot3 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "rear_blk_west_lake_canal_lot3",
+      "path_local_enu_m": [
+        [
+          -90.8,
+          -192.17
+        ],
+        [
+          -90.46,
+          -215.85
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot3",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d4_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_lake_canal_d4_02 — and the yard behind those buildings is 12.19 m deep by 23.68 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "rear_blk_west_lake_canal_lot8",
+      "path_local_enu_m": [
+        [
+          -85.09,
+          -215.89
+        ],
+        [
+          -85.35,
+          -192.21
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot8",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d2_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "THE REAR LOT LINE of blk_west_lake_canal_lot8, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_west_lake_canal_d2_03 — and the yard behind those buildings is 12.19 m deep by 23.68 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+    },
+    {
+      "id": "side_blk_west_lake_canal_lot8_n",
+      "path_local_enu_m": [
+        [
+          -85.35,
+          -192.21
+        ],
+        [
+          -27.61,
+          -192.68
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot8",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d2_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the north side of blk_west_lake_canal_lot8 — and the fence on it is built ONCE: blk_west_lake_canal_lot8 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_lake_dearborn_lot1",
@@ -2237,6 +2425,78 @@
         }
       ],
       "note": "A SIDE LOT LINE — the south side of blk_lake_clinton_lot9 — and the fence on it is built ONCE: blk_lake_clinton_lot9 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_lake_canal_lot3_s",
+      "path_local_enu_m": [
+        [
+          -147.41,
+          -215.39
+        ],
+        [
+          -121.43,
+          -215.6
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot3",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d4_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_lake_canal_lot3 — and the fence on it is built ONCE: blk_west_lake_canal_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_lake_canal_lot3_s_1",
+      "path_local_enu_m": [
+        [
+          -111.94,
+          -215.68
+        ],
+        [
+          -90.46,
+          -215.85
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot3",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d4_02"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_lake_canal_lot3 — and the fence on it is built ONCE: blk_west_lake_canal_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_west_lake_canal_lot8_s",
+      "path_local_enu_m": [
+        [
+          -85.09,
+          -215.89
+        ],
+        [
+          -28.14,
+          -216.36
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_west_lake_canal_lot8",
+          "structures": [
+            "recon_1835_blk_west_lake_canal_d2_03"
+          ],
+          "households": [],
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_west_lake_canal_lot8 — and the fence on it is built ONCE: blk_west_lake_canal_lot8 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_lake_dearborn_lot1_w",
@@ -6447,7 +6707,7 @@
       "note": "A SIDE LOT LINE — the west side of blk_washington_clark_lot0 — and the fence on it is built ONCE: blk_washington_clark_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_washington_clark_lot0_blk_washington_clark_lot2_e",
+      "id": "side_blk_washington_clark_lot0_e",
       "path_local_enu_m": [
         [
           609.91,
@@ -6467,24 +6727,13 @@
             "recon_1835_blk_washington_clark_h3_11"
           ],
           "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_washington_clark_lot2",
-          "structures": [
-            "recon_1835_blk_washington_clark_a5_16",
-            "recon_1835_blk_washington_clark_d4_14"
-          ],
-          "households": [],
-          "side": "east",
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_clark_lot0 — and the fence on it is built ONCE: blk_washington_clark_lot0 and blk_washington_clark_lot2 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+      "note": "A SIDE LOT LINE — the east side of blk_washington_clark_lot0 — and the fence on it is built ONCE: blk_washington_clark_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_washington_clark_lot2_blk_washington_clark_lot4_e",
+      "id": "side_blk_washington_clark_lot4_w",
       "path_local_enu_m": [
         [
           634.56,
@@ -6497,27 +6746,16 @@
       ],
       "belongs_to": [
         {
-          "lot": "blk_washington_clark_lot2",
-          "structures": [
-            "recon_1835_blk_washington_clark_a5_16",
-            "recon_1835_blk_washington_clark_d4_14"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
           "lot": "blk_washington_clark_lot4",
           "structures": [
             "recon_1835_blk_washington_clark_a3_03",
             "recon_1835_blk_washington_clark_d5_01"
           ],
           "households": [],
-          "side": "east",
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_clark_lot2 — and the fence on it is built ONCE: blk_washington_clark_lot2 and blk_washington_clark_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+      "note": "A SIDE LOT LINE — the west side of blk_washington_clark_lot4 — and the fence on it is built ONCE: blk_washington_clark_lot4 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_washington_clark_lot4_blk_washington_clark_lot6_e",
@@ -6583,31 +6821,7 @@
       "note": "A SIDE LOT LINE — the east side of blk_washington_clark_lot6 — and the fence on it is built ONCE: blk_washington_clark_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_washington_dearborn_lot0_w",
-      "path_local_enu_m": [
-        [
-          708.26,
-          -453.56
-        ],
-        [
-          708.56,
-          -405.74
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot0",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d7_04"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the west side of blk_washington_dearborn_lot0 — and the fence on it is built ONCE: blk_washington_dearborn_lot0 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot0_blk_washington_dearborn_lot2_e",
+      "id": "side_blk_washington_dearborn_lot2_w",
       "path_local_enu_m": [
         [
           734.16,
@@ -6620,15 +6834,6 @@
       ],
       "belongs_to": [
         {
-          "lot": "blk_washington_dearborn_lot0",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d7_04"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
           "lot": "blk_washington_dearborn_lot2",
           "structures": [
             "recon_1835_blk_washington_dearborn_a1_02",
@@ -6636,14 +6841,13 @@
             "recon_1835_blk_washington_dearborn_h3_01"
           ],
           "households": [],
-          "side": "east",
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot0 — and the fence on it is built ONCE: blk_washington_dearborn_lot0 and blk_washington_dearborn_lot2 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+      "note": "A SIDE LOT LINE — the west side of blk_washington_dearborn_lot2 — and the fence on it is built ONCE: blk_washington_dearborn_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_washington_dearborn_lot2_blk_washington_dearborn_lot4_e",
+      "id": "side_blk_washington_dearborn_lot2_e",
       "path_local_enu_m": [
         [
           760.06,
@@ -6663,78 +6867,10 @@
             "recon_1835_blk_washington_dearborn_h3_01"
           ],
           "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_washington_dearborn_lot4",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_h2_05"
-          ],
-          "households": [],
-          "side": "east",
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot2 — and the fence on it is built ONCE: blk_washington_dearborn_lot2 and blk_washington_dearborn_lot4 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot4_blk_washington_dearborn_lot6_e",
-      "path_local_enu_m": [
-        [
-          785.96,
-          -453.87
-        ],
-        [
-          786.26,
-          -406.37
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot4",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_h2_05"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_washington_dearborn_lot6",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d7_06"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot4 — and the fence on it is built ONCE: blk_washington_dearborn_lot4 and blk_washington_dearborn_lot6 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot6_e",
-      "path_local_enu_m": [
-        [
-          811.86,
-          -453.98
-        ],
-        [
-          812.17,
-          -406.58
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot6",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d7_06"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot6 — and the fence on it is built ONCE: blk_washington_dearborn_lot6 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot2 — and the fence on it is built ONCE: blk_washington_dearborn_lot2 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "rear_blk_washington_market_lot4",
@@ -7333,55 +7469,6 @@
       "note": "THE REAR LOT LINE of blk_washington_clark_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clark_a1_12, recon_1835_blk_washington_clark_a3_13, recon_1835_blk_washington_clark_h3_11 — and the yard behind those buildings is 12.19 m deep by 24.66 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
-      "id": "rear_blk_washington_clark_lot2",
-      "path_local_enu_m": [
-        [
-          634.56,
-          -453.26
-        ],
-        [
-          609.91,
-          -453.16
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_clark_lot2",
-          "structures": [
-            "recon_1835_blk_washington_clark_a5_16",
-            "recon_1835_blk_washington_clark_d4_14"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_clark_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clark_a5_16, recon_1835_blk_washington_clark_d4_14 — and the yard behind those buildings is 12.19 m deep by 24.65 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_washington_clark_lot3",
-      "path_local_enu_m": [
-        [
-          609.88,
-          -458.64
-        ],
-        [
-          634.53,
-          -458.74
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_clark_lot3",
-          "structures": [
-            "recon_1835_blk_washington_clark_d3_15"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_clark_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clark_d3_15 — and the yard behind those buildings is 12.19 m deep by 24.65 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
       "id": "rear_blk_washington_clark_lot4",
       "path_local_enu_m": [
         [
@@ -7484,30 +7571,6 @@
       "note": "THE REAR LOT LINE of blk_washington_clark_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clark_a1_09, recon_1835_blk_washington_clark_a3_10, recon_1835_blk_washington_clark_h3_05 — and the yard behind those buildings is 12.19 m deep by 24.65 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
-      "id": "rear_blk_washington_dearborn_lot0",
-      "path_local_enu_m": [
-        [
-          734.16,
-          -453.66
-        ],
-        [
-          708.26,
-          -453.56
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot0",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d7_04"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_dearborn_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_d7_04 — and the yard behind those buildings is 12.19 m deep by 25.90 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
       "id": "rear_blk_washington_dearborn_lot2",
       "path_local_enu_m": [
         [
@@ -7532,126 +7595,6 @@
         }
       ],
       "note": "THE REAR LOT LINE of blk_washington_dearborn_lot2, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_a1_02, recon_1835_blk_washington_dearborn_a3_03, recon_1835_blk_washington_dearborn_h3_01 — and the yard behind those buildings is 12.19 m deep by 25.90 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot3",
-      "path_local_enu_m": [
-        [
-          734.12,
-          -459.15
-        ],
-        [
-          760.03,
-          -459.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot3",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d3_07"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_dearborn_lot3, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_d3_07 — and the yard behind those buildings is 12.19 m deep by 25.91 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot4",
-      "path_local_enu_m": [
-        [
-          785.96,
-          -453.87
-        ],
-        [
-          760.06,
-          -453.77
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot4",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_h2_05"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_dearborn_lot4, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_h2_05 — and the yard behind those buildings is 12.19 m deep by 25.90 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot5",
-      "path_local_enu_m": [
-        [
-          760.03,
-          -459.25
-        ],
-        [
-          785.93,
-          -459.36
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot5",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d3_08"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_dearborn_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_d3_08 — and the yard behind those buildings is 12.19 m deep by 25.90 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot6",
-      "path_local_enu_m": [
-        [
-          811.86,
-          -453.98
-        ],
-        [
-          785.96,
-          -453.87
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot6",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d7_06"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_dearborn_lot6, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_d7_06 — and the yard behind those buildings is 12.19 m deep by 25.90 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot7",
-      "path_local_enu_m": [
-        [
-          785.93,
-          -459.36
-        ],
-        [
-          811.83,
-          -459.46
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot7",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d4_09"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "THE REAR LOT LINE of blk_washington_dearborn_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_dearborn_d4_09 — and the yard behind those buildings is 12.19 m deep by 25.90 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_market_lot5_w",
@@ -8066,31 +8009,7 @@
       "note": "A SIDE LOT LINE — the east side of blk_washington_lasalle_lot7 — and the fence on it is built ONCE: blk_washington_lasalle_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
-      "id": "side_blk_washington_clark_lot3_w",
-      "path_local_enu_m": [
-        [
-          609.57,
-          -506.86
-        ],
-        [
-          609.88,
-          -458.64
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_clark_lot3",
-          "structures": [
-            "recon_1835_blk_washington_clark_d3_15"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the west side of blk_washington_clark_lot3 — and the fence on it is built ONCE: blk_washington_clark_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_clark_lot3_blk_washington_clark_lot5_e",
+      "id": "side_blk_washington_clark_lot5_w",
       "path_local_enu_m": [
         [
           634.23,
@@ -8103,26 +8022,16 @@
       ],
       "belongs_to": [
         {
-          "lot": "blk_washington_clark_lot3",
-          "structures": [
-            "recon_1835_blk_washington_clark_d3_15"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
           "lot": "blk_washington_clark_lot5",
           "structures": [
             "recon_1835_blk_washington_clark_a4_04",
             "recon_1835_blk_washington_clark_d4_02"
           ],
           "households": [],
-          "side": "east",
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_clark_lot3 — and the fence on it is built ONCE: blk_washington_clark_lot3 and blk_washington_clark_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+      "note": "A SIDE LOT LINE — the west side of blk_washington_clark_lot5 — and the fence on it is built ONCE: blk_washington_clark_lot5 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_washington_clark_lot5_blk_washington_clark_lot7_e",
@@ -8186,122 +8095,6 @@
         }
       ],
       "note": "A SIDE LOT LINE — the east side of blk_washington_clark_lot7 — and the fence on it is built ONCE: blk_washington_clark_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot3_w",
-      "path_local_enu_m": [
-        [
-          733.83,
-          -506.86
-        ],
-        [
-          734.12,
-          -459.15
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot3",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d3_07"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the west side of blk_washington_dearborn_lot3 — and the fence on it is built ONCE: blk_washington_dearborn_lot3 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot3_blk_washington_dearborn_lot5_e",
-      "path_local_enu_m": [
-        [
-          759.72,
-          -506.86
-        ],
-        [
-          760.03,
-          -459.25
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot3",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d3_07"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_washington_dearborn_lot5",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d3_08"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot3 — and the fence on it is built ONCE: blk_washington_dearborn_lot3 and blk_washington_dearborn_lot5 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot5_blk_washington_dearborn_lot7_e",
-      "path_local_enu_m": [
-        [
-          785.62,
-          -506.86
-        ],
-        [
-          785.93,
-          -459.36
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot5",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d3_08"
-          ],
-          "households": [],
-          "side": "west",
-          "refused": "no_household_names_this_ground"
-        },
-        {
-          "lot": "blk_washington_dearborn_lot7",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d4_09"
-          ],
-          "households": [],
-          "side": "east",
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot5 — and the fence on it is built ONCE: blk_washington_dearborn_lot5 and blk_washington_dearborn_lot7 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
-    },
-    {
-      "id": "side_blk_washington_dearborn_lot7_e",
-      "path_local_enu_m": [
-        [
-          811.52,
-          -506.86
-        ],
-        [
-          811.83,
-          -459.46
-        ]
-      ],
-      "belongs_to": [
-        {
-          "lot": "blk_washington_dearborn_lot7",
-          "structures": [
-            "recon_1835_blk_washington_dearborn_d4_09"
-          ],
-          "households": [],
-          "refused": "no_household_names_this_ground"
-        }
-      ],
-      "note": "A SIDE LOT LINE — the east side of blk_washington_dearborn_lot7 — and the fence on it is built ONCE: blk_washington_dearborn_lot7 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     }
   ],
   "openings": [
@@ -9697,46 +9490,6 @@
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
-      "id": "rear_blk_washington_clark_lot2_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        622.23,
-        -453.21
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "bars",
-        "leaves": 0,
-        "bars_down": 2
-      },
-      "opens_into_local_enu_m": [
-        622.39,
-        -429.12
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
-      "id": "rear_blk_washington_clark_lot3_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        622.2,
-        -458.69
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "bars",
-        "leaves": 0,
-        "bars_down": 3
-      },
-      "opens_into_local_enu_m": [
-        622.05,
-        -482.77
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
       "id": "rear_blk_washington_clark_lot4_gate",
       "on": "alley",
       "at_local_enu_m": [
@@ -9815,26 +9568,6 @@
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
-      "id": "rear_blk_washington_dearborn_lot0_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        721.21,
-        -453.61
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "bars",
-        "leaves": 0,
-        "bars_down": 3
-      },
-      "opens_into_local_enu_m": [
-        721.36,
-        -429.73
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
       "id": "rear_blk_washington_dearborn_lot2_gate",
       "on": "alley",
       "at_local_enu_m": [
@@ -9850,103 +9583,6 @@
       "opens_into_local_enu_m": [
         747.26,
         -429.88
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot3_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        747.08,
-        -459.2
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "bars",
-        "leaves": 0,
-        "bars_down": 3
-      },
-      "opens_into_local_enu_m": [
-        746.92,
-        -483.03
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot4_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        773.01,
-        -453.82
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "bars",
-        "leaves": 0,
-        "bars_down": 3
-      },
-      "opens_into_local_enu_m": [
-        773.16,
-        -430.04
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot5_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        772.98,
-        -459.31
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "opening",
-        "leaves": 0
-      },
-      "opens_into_local_enu_m": [
-        772.83,
-        -483.08
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot6_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        798.91,
-        -453.93
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "opening",
-        "leaves": 0
-      },
-      "opens_into_local_enu_m": [
-        799.06,
-        -430.2
-      ],
-      "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
-    },
-    {
-      "id": "rear_blk_washington_dearborn_lot7_gate",
-      "on": "alley",
-      "at_local_enu_m": [
-        798.88,
-        -459.41
-      ],
-      "width_m": 3.048,
-      "gate": {
-        "kind": "opening",
-        "leaves": 0
-      },
-      "opens_into_local_enu_m": [
-        798.73,
-        -483.13
       ],
       "confidence": "reconstructed",
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
@@ -10427,6 +10063,46 @@
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
+      "id": "rear_blk_west_lake_canal_lot2_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -90.97,
+        -180.33
+      ],
+      "width_m": 3.048,
+      "gate": {
+        "kind": "bars",
+        "leaves": 0,
+        "bars_down": 2
+      },
+      "opens_into_local_enu_m": [
+        -120.04,
+        -180.09
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
+    },
+    {
+      "id": "rear_blk_west_lake_canal_lot3_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -90.63,
+        -204.01
+      ],
+      "width_m": 3.048,
+      "gate": {
+        "kind": "bars",
+        "leaves": 0,
+        "bars_down": 2
+      },
+      "opens_into_local_enu_m": [
+        -119.3,
+        -203.78
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
+    },
+    {
       "id": "rear_blk_west_lake_canal_lot5_gate",
       "on": "alley",
       "at_local_enu_m": [
@@ -10442,6 +10118,26 @@
       "opens_into_local_enu_m": [
         -56.14,
         -133.26
+      ],
+      "confidence": "reconstructed",
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
+    },
+    {
+      "id": "rear_blk_west_lake_canal_lot8_gate",
+      "on": "alley",
+      "at_local_enu_m": [
+        -85.22,
+        -204.05
+      ],
+      "width_m": 3.048,
+      "gate": {
+        "kind": "bars",
+        "leaves": 0,
+        "bars_down": 2
+      },
+      "opens_into_local_enu_m": [
+        -56.55,
+        -204.28
       ],
       "confidence": "reconstructed",
       "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
@@ -10641,7 +10337,7 @@
   },
   "coverage": {
     "where": "the edge blocks and the outlying lanes — every block that touches a street the project classes `light`",
-    "lots_fenced": 114,
+    "lots_fenced": 109,
     "lots": [
       "blk_indiana_north_wolcott_lot4",
       "blk_indiana_north_wolcott_lot5",
@@ -10713,19 +10409,11 @@
       "blk_south_water_dearborn_lot5",
       "blk_south_water_dearborn_lot6",
       "blk_washington_clark_lot0",
-      "blk_washington_clark_lot2",
-      "blk_washington_clark_lot3",
       "blk_washington_clark_lot4",
       "blk_washington_clark_lot5",
       "blk_washington_clark_lot6",
       "blk_washington_clark_lot7",
-      "blk_washington_dearborn_lot0",
       "blk_washington_dearborn_lot2",
-      "blk_washington_dearborn_lot3",
-      "blk_washington_dearborn_lot4",
-      "blk_washington_dearborn_lot5",
-      "blk_washington_dearborn_lot6",
-      "blk_washington_dearborn_lot7",
       "blk_washington_franklin_lot0",
       "blk_washington_franklin_lot2",
       "blk_washington_franklin_lot3",
@@ -10750,7 +10438,10 @@
       "blk_washington_wells_lot6",
       "blk_washington_wells_lot7",
       "blk_west_lake_canal_lot0",
+      "blk_west_lake_canal_lot2",
+      "blk_west_lake_canal_lot3",
       "blk_west_lake_canal_lot5",
+      "blk_west_lake_canal_lot8",
       "blk_west_randolph_des_plaines_lot0",
       "blk_west_randolph_des_plaines_lot2",
       "blk_west_randolph_des_plaines_lot3",
@@ -10758,8 +10449,8 @@
       "blk_west_randolph_des_plaines_lot7",
       "blk_west_randolph_des_plaines_lot9"
     ],
-    "runs": 295,
-    "note": "183 of the 191 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 8 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "runs": 289,
+    "note": "178 of the 186 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 8 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 48 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",

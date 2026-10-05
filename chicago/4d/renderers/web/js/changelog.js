@@ -1,10 +1,26 @@
 export const CHANGELOG = [ // newest first
-  { v: 1475, ts: '2026-10-05T08:10:06.378Z', date: 'Oct 5, 2026, 3:10 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Two more blocks south of Washington get their houses', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and both blocks beside you now have houses. On the Dearborn-to-State block six stand around the boarding house that was already there: a two-storey frame house on each Washington corner, a merchant\u2019s house between them, two one-room cottages and a tradesman\u2019s house along Madison. One corner lot is left open.',
       'Across Dearborn, on the Clark block, the last two empty lots are built: a tradesman\u2019s house on Washington with a smokehouse behind it, and a cottage behind that on Madison. That block now carries sixteen roofs on seven of its eight lots.',
       'Eight families had asked for these houses, but households take a standing roof before they ask for one to be built, so the new houses went to families moving up from older roofs nearby. Five of the eight now ask on the Market block instead. With these two blocks full, six families have no lot left on this row and wait on the next blocks to be built.',
       'Nothing here is claimed as evidence. No source says these buildings stood on these blocks in 1835 or where on their lots they sat. The lot grid, the street lines and the ground are committed; the houses are the building programme filling a town it can count but cannot name, and all nine carry that disclosure on their own cards.',
+    ] },
+  { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
+    items: [
+      'Cross to the West Side and walk south down Canal Street from Lake Street. Past the saddler\u2019s and the blacksmith\u2019s on the corner, the block toward Randolph now has two frame cottages facing Canal: a deep-plan cottage and a two-room cottage beside it.',
+      'On the river side of the same block, facing West Water Street, a rough plank shanty stands south of the warehouse. Fences, dooryard gardens, yard paths and privies came with all three.',
+      'Each face keeps open lots at its ends, so the block does not read as a row.',
+      'Open any of them and its card lists the households the town\u2019s housing deal now boards there. All three buildings are our reconstruction: no source places a house on these lots in July 1835, and each card says so.',
+    ] },
+  { v: 1475, ts: '2026-10-05T06:50:00.924Z', date: 'Oct 5, 2026, 1:50 AM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+    items: [
+      'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
+      'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
+      'Starting at\u2026 opens with five one-tap places: the town from above, Fort Dearborn, the forks, South Water Street and the Newberry & Dole wharf.',
+      'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
+      'The wall of category buttons is now one row of five type icons beside the search.',
+      'During a jaunt the [DOC], [INF] and [CONJ] tags no longer sit under the story. Each passage has one small Sources button that shows them.',
     ] },
   { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
     items: [
