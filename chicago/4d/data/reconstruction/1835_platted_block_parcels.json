@@ -1514,7 +1514,7 @@
           "lot": 6,
           "stands_on": "street",
           "fronts": "dearborn",
-          "setback_m": 3.0,
+          "setback_m": 1.55,
           "lateral_m": -14.0
         },
         {
@@ -1523,11 +1523,11 @@
           "lot": 7,
           "stands_on": "street",
           "fronts": "dearborn",
-          "setback_m": 3.0,
+          "setback_m": 1.55,
           "lateral_m": 14.0
         }
       ],
-      "arrangement_note": "A SHOP AT THE BACK OF THE CORNER LOT, ITS DOOR ON DEARBORN STREET (T-2134). The house already standing on this corner lot fronts the block's long face; the shop stands at the other end of the same lot, behind it, 3 m back from the Dearborn Street line and 14 m along it from the middle of the lot's side toward the block alley, with its gable to the street. It is ancillary by position under the owner's ruling of 2026-09-23 that a lot may carry a main house plus a rear building (reconcile_665.inventory_class reads it so), so it adds no house to the frontage and the lot ceiling counts the lot exactly as before. DEARBORN IS THE FACE A SHOP MAY TAKE HERE: it is `ordinary` in data/streets/1835.json, no face of this block outranks it, and five of the town's seven documented workshops stand on an ordinary street. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a shop stood on this lot in 1835, which trade it served, where on the lot it stood and how far back. No source places a workshop here; the shop is an anonymous count-unit at the bottom tier, recorded in docs/LIBERTIES.md (L388)."
+      "arrangement_note": "A SHOP AT THE BACK OF THE CORNER LOT, ITS DOOR ON DEARBORN STREET (T-2134). The house already standing on this corner lot fronts the block's long face; the shop stands at the other end of the same lot, behind it, 1.55 m back from the Dearborn Street line — on the street line, where the placement policy's `mechanics_streets` clause puts a shop and where the town's boarding houses already stand — and 14 m along it from the middle of the lot's side toward the block alley, with its gable to the street. It is ancillary by position under the owner's ruling of 2026-09-23 that a lot may carry a main house plus a rear building (reconcile_665.inventory_class reads it so), so it adds no house to the frontage and the lot ceiling counts the lot exactly as before. DEARBORN IS THE FACE A SHOP MAY TAKE HERE: it is `ordinary` in data/streets/1835.json, no face of this block outranks it, and five of the town's seven documented workshops stand on an ordinary street. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a shop stood on this lot in 1835, which trade it served, where on the lot it stood and how far back. No source places a workshop here; the shop is an anonymous count-unit at the bottom tier, recorded in docs/LIBERTIES.md (L388)."
     },
     {
       "block_id": "blk_lake_clark",
@@ -1852,11 +1852,11 @@
           "lot": 0,
           "stands_on": "street",
           "fronts": "dearborn",
-          "setback_m": 3.0,
+          "setback_m": 1.55,
           "lateral_m": 14.0
         }
       ],
-      "arrangement_note": "A SHOP AT THE BACK OF THE CORNER LOT, ITS DOOR ON DEARBORN STREET (T-2134). The house already standing on this corner lot fronts the block's long face; the shop stands at the other end of the same lot, behind it, 3 m back from the Dearborn Street line and 14 m along it from the middle of the lot's side toward the block alley, with its gable to the street. It is ancillary by position under the owner's ruling of 2026-09-23 that a lot may carry a main house plus a rear building (reconcile_665.inventory_class reads it so), so it adds no house to the frontage and the lot ceiling counts the lot exactly as before. DEARBORN IS THE FACE A SHOP MAY TAKE HERE: it is `ordinary` in data/streets/1835.json, no face of this block outranks it, and five of the town's seven documented workshops stand on an ordinary street. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a shop stood on this lot in 1835, which trade it served, where on the lot it stood and how far back. No source places a workshop here; the shop is an anonymous count-unit at the bottom tier, recorded in docs/LIBERTIES.md (L388)."
+      "arrangement_note": "A SHOP AT THE BACK OF THE CORNER LOT, ITS DOOR ON DEARBORN STREET (T-2134). The house already standing on this corner lot fronts the block's long face; the shop stands at the other end of the same lot, behind it, 1.55 m back from the Dearborn Street line — on the street line, where the placement policy's `mechanics_streets` clause puts a shop and where the town's boarding houses already stand — and 14 m along it from the middle of the lot's side toward the block alley, with its gable to the street. It is ancillary by position under the owner's ruling of 2026-09-23 that a lot may carry a main house plus a rear building (reconcile_665.inventory_class reads it so), so it adds no house to the frontage and the lot ceiling counts the lot exactly as before. DEARBORN IS THE FACE A SHOP MAY TAKE HERE: it is `ordinary` in data/streets/1835.json, no face of this block outranks it, and five of the town's seven documented workshops stand on an ordinary street. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a shop stood on this lot in 1835, which trade it served, where on the lot it stood and how far back. No source places a workshop here; the shop is an anonymous count-unit at the bottom tier, recorded in docs/LIBERTIES.md (L388)."
     },
     {
       "block_id": "blk_lake_franklin",
@@ -4910,11 +4910,11 @@
           "lot": 0,
           "stands_on": "street",
           "fronts": "dearborn",
-          "setback_m": 3.0,
+          "setback_m": 1.55,
           "lateral_m": 14.0
         }
       ],
-      "arrangement_note": "A SHOP AT THE BACK OF THE CORNER LOT, ITS DOOR ON DEARBORN STREET (T-2134). The house already standing on this corner lot fronts the block's long face; the shop stands at the other end of the same lot, behind it, 3 m back from the Dearborn Street line and 14 m along it from the middle of the lot's side toward the block alley, with its gable to the street. It is ancillary by position under the owner's ruling of 2026-09-23 that a lot may carry a main house plus a rear building (reconcile_665.inventory_class reads it so), so it adds no house to the frontage and the lot ceiling counts the lot exactly as before. DEARBORN IS THE FACE A SHOP MAY TAKE HERE: it is `ordinary` in data/streets/1835.json, no face of this block outranks it, and five of the town's seven documented workshops stand on an ordinary street. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a shop stood on this lot in 1835, which trade it served, where on the lot it stood and how far back. No source places a workshop here; the shop is an anonymous count-unit at the bottom tier, recorded in docs/LIBERTIES.md (L388)."
+      "arrangement_note": "A SHOP AT THE BACK OF THE CORNER LOT, ITS DOOR ON DEARBORN STREET (T-2134). The house already standing on this corner lot fronts the block's long face; the shop stands at the other end of the same lot, behind it, 1.55 m back from the Dearborn Street line — on the street line, where the placement policy's `mechanics_streets` clause puts a shop and where the town's boarding houses already stand — and 14 m along it from the middle of the lot's side toward the block alley, with its gable to the street. It is ancillary by position under the owner's ruling of 2026-09-23 that a lot may carry a main house plus a rear building (reconcile_665.inventory_class reads it so), so it adds no house to the frontage and the lot ceiling counts the lot exactly as before. DEARBORN IS THE FACE A SHOP MAY TAKE HERE: it is `ordinary` in data/streets/1835.json, no face of this block outranks it, and five of the town's seven documented workshops stand on an ordinary street. WHAT IS INVENTED IS EVERYTHING THAT MATTERS: that a shop stood on this lot in 1835, which trade it served, where on the lot it stood and how far back. No source places a workshop here; the shop is an anonymous count-unit at the bottom tier, recorded in docs/LIBERTIES.md (L388)."
     },
     {
       "block_id": "blk_west_lake_canal",

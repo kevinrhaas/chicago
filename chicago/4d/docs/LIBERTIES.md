@@ -21399,7 +21399,8 @@ July 1835 retires these six rather than re-placing them.
 Dearborn Street, behind the house already standing on its lot: on lot 0 of
 `blk_washington_dearborn` (behind a D7 house on Washington), lot 0 of `blk_randolph_dearborn`
 (behind a D3 cottage), and lots 6 and 7 of `blk_randolph_clark` (behind a store and a D6
-house). Each stands 3 m back from the Dearborn line and 14 m along it from the middle of the
+house). Each stands on the Dearborn street line (1.55 m off the lot edge, inside the 2.71 m the
+placement policy's `mechanics_streets` clause reads as "on the line") and 14 m along it from the middle of the
 lot's side toward the block alley, its gable to the street.
 
 **The rule this rests on (T-2134).** The schedule owed these four and held them on gated ground
