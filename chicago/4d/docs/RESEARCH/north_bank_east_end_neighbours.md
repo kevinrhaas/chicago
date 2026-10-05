@@ -168,7 +168,7 @@ building stands in the Franklin corner the owner chose on 2026-10-04 (T-2097, L3
 and about half a kilometre west, and `dole_warehouse_south` — Andreas's Lake-and-Dearborn
 warehouse — stands one block south of the end the paper names. Whether the store house is that
 building, a second one on South Water at Dearborn, or the Franklin house after all is a placement
-ruling with a bake, a dock and four jaunts behind it, so it is its own ticket.
+ruling with a bake, a dock and four jaunts behind it, so it is its own ticket, T-2137.
 
 ## 5. What is filed rather than done, and why each is somebody else's ruling
 
@@ -177,7 +177,7 @@ ruling with a bake, a dock and four jaunts behind it, so it is its own ticket.
 | `hh_pruyne_kimberly` is a PARTNERSHIP household banded to the south division on the store's evidence, and Bonnell puts one partner's residence on the north bank | seating it here would carry Peter Pruyne across the river on a sentence about Kimberly; splitting a partnership household is the resident layer's ruling under its own rules |
 | `id_kelsey_patrick` (Fergus 1843) and `id_kelsey_parnick` (Norris 1844) are one man, and Bonnell's sentence spells him **both ways in one sentence** against the same trade | an identity merge is `identity_master`'s ruling under its M-rules, not a structure record's |
 | Eve Kelsey is in no identity of this corpus; Bonnell is the only source that names her | naming her on the roof she kept is the whole of what a structure record can do for her |
-| ~~`newberry_dole_warehouse` should probably be on the north bank east end~~ | **ruled by T-1723: it should not.** The *Chicago Democrat* places the firm's store house on South Water Street on the scene date (§4); the north-bank house is a later one. The paper points at the Dearborn end, which is filed |
+| ~~`newberry_dole_warehouse` should probably be on the north bank east end~~ | **ruled by T-1723: it should not.** The *Chicago Democrat* places the firm's store house on South Water Street on the scene date (§4); the north-bank house is a later one. The paper points at the Dearborn end: T-2137 |
 | Hunter & Hinsdale's warehouse, McCormick & Moon's hat store, Jesse Butler's tailor shop | the first has no position but "opposite" an invented one; the other two are businesses inside a building whose bank is in dispute |
 | a yellow finish for the one house a source paints | a materials-table change with its own gates, not a line in a structure file |
 

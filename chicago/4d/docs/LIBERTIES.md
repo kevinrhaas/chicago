@@ -2641,7 +2641,7 @@ on the position, and Andreas's north-side sentence (1839) and Bonnell's north-ba
 1835, L291) are a LATER house of the firm, not a contradiction of the July one. The c. 1835 view is
 still unidentified and is no longer what the bank rests on. What stays open, and why this entry is
 not resolved: the block (the paper points at the Dearborn end of South Water, half a kilometre east
-of where L378 stands the house — filed), Kinzie & Hunter's bank, and both docks.
+of where L378 stands the house — T-2137), Kinzie & Hunter's bank, and both docks.
 
 ### L67 — A trade advertised in November 1833 becomes a building standing in July 1835
 **Decision:** `elston_soap_candle_manufactory` is built from a newspaper advertisement, with both its
@@ -21152,7 +21152,7 @@ store house on South Water Street, with neighbours on Dearborn Street, from 1834
 issue (L66's revision gives the four notices); Andreas's 1839 sentence and Bonnell's August 1835 walk
 are a later north-bank house. T-1723 does not move the building. What it adds to this entry is that the
 corner is now the weaker half: the same notices point at the Dearborn end of South Water, not at
-Franklin, and that is filed as its own ticket rather than overruling the owner's corner here.
+Franklin, and that is filed as T-2137 rather than overruling the owner's corner here.
 
 ### L379 — A fenced town lot is closed all round, open only on a street a building fronts
 **Decision:** every lot the yard-fence rule of L161 fences (`tools/generate_lot_line_fences.py`)
