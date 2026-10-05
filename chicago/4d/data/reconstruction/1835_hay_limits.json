@@ -574,7 +574,7 @@
   "blocks_with_four_bounding_streets": 63,
   "inside_the_limit": 24,
   "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 5,
+  "scheduling_roofs_outside_the_limit": 3,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_washington_market",
@@ -583,26 +583,6 @@
     "centre_local_enu_m": [
      144.82,
      -454.01
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_clark",
-    "state": "open",
-    "roofs_scheduled": 8,
-    "centre_local_enu_m": [
-     634.55,
-     -456.0
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_dearborn",
-    "state": "open",
-    "roofs_scheduled": 18,
-    "centre_local_enu_m": [
-     760.04,
-     -456.51
     ],
     "inside_the_limit": false
    },
@@ -690,8 +670,8 @@
    },
    {
     "id": "blk_washington_clark",
-    "state": "open",
-    "roofs_scheduled": 8,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -700,8 +680,8 @@
    },
    {
     "id": "blk_washington_dearborn",
-    "state": "open",
-    "roofs_scheduled": 18,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      760.04,
      -456.51
@@ -1131,8 +1111,8 @@
    {
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
-    "state": "complete",
-    "roofs": 0
+    "state": "gated",
+    "roofs": 14
    },
    {
     "id": "west_division_beyond_committed_control",

@@ -462,7 +462,10 @@ STRUCTURE_TICKETS = {
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
     ("south", "inns_taverns"): "T-1683",
-    ("south", "workshops"): "T-1684",
+    # T-1684 WAS SPLIT on 2026-10-05 (T-2133, T-2134). T-2133 gives the generator the
+    # cross-street term and deals no roof, so the cell moves to T-2134, the piece that deals
+    # the W2-W4 shops onto a Dearborn face with it.
+    ("south", "workshops"): "T-2134",
     # T-1200 WAS SPLIT on 2026-09-26 (T-1638, T-1639, T-1640, T-1641) and this row moved
     # with it, for the reason BUSINESS_TICKETS states below: a bucket whose `owning_ticket`
     # names a ticket in state `split` orders work nobody can claim. Of the four children the
