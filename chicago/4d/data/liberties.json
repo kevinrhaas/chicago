@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 410,
+  "count": 411,
   "liberties": [
     {
       "id": "L1",
@@ -25077,6 +25077,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-05 (T-2130)."
+        }
+      ]
+    },
+    {
+      "id": "L388",
+      "title": "The yard goods' woods, hoops, paint and cleats, dealt per object",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "every cask, packing case, bench, wagon and cart in `renderers/web/js/yard.js` is dealt its own wood tone from six weathered woods (silvered, grey-brown, seasoned pine, honey and brown oak, dark oak), shaded again stave by stave and board by board, and wears the plank walks' board-face grain (`clapboard_board_face`, the T-1815 texture) on a second uv. A cask is drawn with a parabolic bilge, a chime standing 28 mm proud of a recessed head, and two pairs of hoops: split wood on about three in five, iron on the rest. A packing case has two end cleats a side. A wagon or cart box is two boards a side with stakes up the outside, and a share of them wear a faded paint (Prussian blue or Venetian red body on a red-oxide gear, a few dull green) while the rest are bare wood. Tyres are iron. Every choice is read off a hash of the object's id or place, so the same page draws the same casks and wagons on every load."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-05 (T-2121): *\"these barrels are so janky ... make them and barrels and other things in different colors weathered wood like we did with the plank sidewalks and use textures etc to make them all look real and weathered\"*, and the wagons \"look eerily similar\"."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "no source gives the colour, wood, hoop or paint of any cask, case or vehicle in this town. Wood-hooped slack barrels and iron-hooped tight casks were both in use in the 1830s; the blue body and red gear is the remembered freight-wagon livery of the period. The tones are bounded by values this project already ships (the fences' 0x8d8272, the old goods tone 0x8a7a5f, the board face's own mean), and every share, width and dimension above is ours. The record's own sizes (`barrel_*`, `crate_size_m`, `wagon_body_m`, `cart_m`) are unchanged."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any inventory, advertisement or view that names a shop's casks or a wagon's colour in 1835 Chicago replaces the deal for that object."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-05 (T-2121)."
         }
       ]
     },
