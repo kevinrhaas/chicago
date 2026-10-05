@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1454, ts: '2026-10-05T00:15:37.551Z', date: 'Oct 4, 2026, 7:15 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
+    items: [
+      'Walk south down State Street past Washington Street. A worn wagon road now leads on, out across the open ground and along the sandy belt behind the lake shore dunes, to the edge of the map.',
+      'It is the State road to Vincennes. In the winter of 1833\u201334 Illinois ordered it laid out from Vincennes to Chicago, mostly along Gurdon Hubbard\u2019s old trail. Before this, nothing led out of the town to the south.',
+      'That the road was there comes from Hubbard\u2019s own account. That it ran along the lake shore sand comes from Moses and Kirkland\u2019s history. Nobody recorded its exact line, so the line is our reconstruction. The Liberties page explains it (L381).',
+    ] },
   { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
     items: [
       'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
