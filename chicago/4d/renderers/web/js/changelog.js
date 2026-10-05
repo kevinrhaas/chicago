@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1475, ts: '2026-10-05T06:14:34.194Z', date: 'Oct 5, 2026, 1:14 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+  { v: null, ts: '', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
     items: [
       'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
       'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
       'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
       'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
+    ] },
+  { v: 1475, ts: '2026-10-05T06:50:00.924Z', date: 'Oct 5, 2026, 1:50 AM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+    items: [
+      'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
+      'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
+      'Starting at\u2026 opens with five one-tap places: the town from above, Fort Dearborn, the forks, South Water Street and the Newberry & Dole wharf.',
+      'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
+      'The wall of category buttons is now one row of five type icons beside the search.',
+      'During a jaunt the [DOC], [INF] and [CONJ] tags no longer sit under the story. Each passage has one small Sources button that shows them.',
     ] },
   { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
     items: [
