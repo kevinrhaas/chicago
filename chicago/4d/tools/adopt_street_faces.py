@@ -546,12 +546,22 @@ def yard_roofs() -> set[str]:
     advertisement that gives its address by one, and a roof off the alley has no street
     face to be on. So the set is unchanged and only the reasoning narrows — a rear cottage
     is refused for standing behind the frontage, not for being a shed.
+
+    T-2141 TAKES THAT REASON AT ITS WORD. T-2134's four workshops at the back of Dearborn
+    corner lots are ancillary by POSITION — the second roof on a lot that already carries
+    its house (T-1482) — but each stands ON the Dearborn street line with its door to it
+    (`stands_on: "street"`, `fronts: "dearborn"`, L389), which is the one thing the
+    reason above says a yard building lacks. `generate_block_infill` already draws this
+    line when it grades a slot by its face ("ancillary by position and still stands ON a
+    street"); this pass now draws it the same way, so a roof is a yard building here when
+    it is ancillary AND stands off the street. Adopting one of the four claims the Dearborn
+    face, as every adoption does, and nothing about the lot or the house beside it.
     """
     out: set[str] = set()
     for path in sorted(STRUCTURES.glob("recon_*.json")):
-        doc = load(path)
-        if ((doc.get("reconstruction") or {}).get("inventory_class")) == "ancillary":
-            out.add(doc["id"])
+        recon = load(path).get("reconstruction") or {}
+        if recon.get("inventory_class") == "ancillary" and recon.get("stands_on") != "street":
+            out.add(path.stem)
     return out
 
 
