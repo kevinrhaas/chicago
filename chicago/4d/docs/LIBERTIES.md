@@ -21229,3 +21229,21 @@ centre rather than its door are ours.
 **How to resolve:** any view or description of an 1830s Chicago dooryard gate replaces the leaf;
 a lot's own door position, where the entrance layer knows it, would place its gate better.
 **Recorded:** 2026-10-04 (T-2112).
+
+### L383 — 1904's Glessner glass draws as a dark plate at Balanced and Light detail
+**Decision:** at the `balanced` and `light` Scene detail settings the Glessner house's one
+glass material, which its GLB marks `KHR_materials_transmission` (factor 1, ior 1.52), is drawn
+as an opaque dark plate: the GLB's own tint × 0.12 and its own roughness, no transmission and no
+blending (`renderers/web/js/glass.js`, `GLASS_BY_DETAIL`). At `full` the GLB's refracting glass
+is drawn as before. The GLB is not changed; `?glass=transmission|clear|dark` names one glass for
+every setting.
+**Why:** the owner's pick, 2026-10-04 (T-2109, answer c: *"dark at balanced and light (every
+pane a darker plate)"*), after T-2099 found the transmission pass to be about half of every
+frame at the 1904 landing. The dark plate halves that frame at both viewports
+(`docs/measurements/T-2109-glessner-glass.md`).
+**What is recorded and what is not:** this is how the browser draws the glass, not a claim about
+the house. No source was read on how the windows looked from Prairie Avenue in 1904; the plate
+loses the sky-lit sheen the refracting glass shows and nothing is seen through it.
+**How to resolve:** a cheaper glass that keeps the sheen, or a frame budget that carries
+transmission at the lower settings, replaces the plate there.
+**Recorded:** 2026-10-05 (T-2109).

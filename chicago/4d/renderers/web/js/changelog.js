@@ -1,9 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1470, ts: '2026-10-05T04:46:05.756Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+  { v: 1472, ts: '2026-10-05T05:17:15.687Z', date: 'Oct 5, 2026, 12:17 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
       'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
       'If a later change moves that number, the checks stop it until someone decides it on purpose.',
+    ] },
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
+    ] },
+  { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+    items: [
+      'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
+      'At Full detail the windows still reflect and see through as before.',
+      'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
     ] },
   { v: 1469, ts: '2026-10-05T04:20:56.828Z', date: 'Oct 4, 2026, 11:20 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
