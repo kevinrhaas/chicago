@@ -6755,7 +6755,9 @@ source record (**T-0075**) would not upgrade the buildings, but it would let the
 Related: **L163** (the bridge these sheds stand beside), **L132** (the wharves at the two frontages
 whose records state a dock — these four state none, so they get none), **L160** and **L161** (the
 same shape of claim at town scale), **T-0004**, **T-0058**, **T-0075**.
-**Recorded:** 2026-08-21.
+**The first shed east of the bridge stood in Dearborn Street, and was moved out of it (T-2118).** Until 2026-10-05 `north_bank_shed_dearborn_e1` had its west 6.63 m and its centroid inside the platted corridor of Dearborn Street north of the river (`dearborn_north`) — an invented building in a platted street, which **T-0253** refuses and for which **T-2012** withdrew this shed's south-bank twin. It was slid 7.16 m east, parallel to North Water Street's drawn line, so its offset from that line and its bearing are the ones it already held, to the first station clear of the corridor on both readings plus a 0.5 m margin. It is still the first shed east of the bridge line; it now stands about 0.5 m short of `north_bank_shed_dearborn_e2`. Nothing about the building changed, and no evidence was spent: no source put it at either station.
+
+**Recorded:** 2026-08-21. **Revised:** 2026-10-05 (T-2118).
 
 
 ### L165 — The Wolf Tavern's sign: the pole it flies from, and the wolf painted on it
