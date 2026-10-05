@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1481, ts: '2026-10-05T10:26:22.802Z', date: 'Oct 5, 2026, 5:26 AM CT', title: 'Shops can now face the side street of a corner lot', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Each reconstructed house and shop stands facing its block\u2019s long street, like Washington or Randolph. Our block layout tool can now also stand one on a corner lot facing the cross street, like Dearborn. That is the step the mechanics\u2019 shops planned for State and Dearborn Streets were waiting on.',
+      'The town\u2019s rules still hold. No workshop goes on State Street, a quiet street in 1835 where none of the seven documented workshops stood. On Dearborn a workshop goes only where no busier street bounds the block.',
+      'The shops themselves come next.',
+    ] },
   { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
