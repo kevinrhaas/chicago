@@ -21256,3 +21256,34 @@ loses the sky-lit sheen the refracting glass shows and nothing is seen through i
 **How to resolve:** a cheaper glass that keeps the sheen, or a frame budget that carries
 transmission at the lower settings, replaces the plate there.
 **Recorded:** 2026-10-05 (T-2109).
+
+### L384 — Six invented houses fill the Dearborn block of the plat's last tier to its lot ceiling
+
+**Decision:** `blk_washington_dearborn` — bounded by Washington, State, Madison and Dearborn, where
+the boarding house T-1951 raised (**L349**) stood alone on one of eight lots — carries **six more
+anonymous houses**: a two-storey frame house (D7) on each Washington corner, a merchant's house
+(H2) between the boarding house and the State corner, two one-room cottages (D3) and a two-room
+cottage (D4) on the Madison face. Lot 1 stays the block's reserved open lot. The count and the
+families are the seating's and the schedule's: `1835_platted_seats.json` carried six `slot`
+requests on this block when T-2130 was claimed, and the 665-roof schedule's lot ceiling here is
+six principal roofs with **no** ancillary roof apportioned, so no yard building is dealt.
+**Everything below that is invented** — that these houses stood on this block in July 1835,
+which lot each stands on, how far back from its street edge and how far to one side. No
+coordinate is authored: every metre is read off the committed lot polygon by
+`tools/generate_block_infill.py` from the recipe entry in
+`data/reconstruction/1835_platted_block_parcels.json` (`phase3_platted_block_washington_dearborn_second_deal`).
+
+**The houses were not taken by the households that asked for them, and that is recorded rather
+than tidied.** Adoption runs before the slot step, as on blk_washington_clark (**L292**), so the
+six roofs went to households already seated on older roofs nearby and the seating turned over
+behind them; **L270** carries who moved and the count, and **L276** the keepers that moved with it.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Washington and Madison, Dearborn and State. A named discovery substitutes for a
+compatible anonymous roof and never increases the total; evidence that the tier was unbuilt in
+July 1835 retires these six rather than re-placing them.
+
+**Covers:** `recon_1835_blk_washington_dearborn_d7_04.inferred_1835.position`, `recon_1835_blk_washington_dearborn_d7_04.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_d7_06.inferred_1835.position`, `recon_1835_blk_washington_dearborn_d7_06.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_h2_05.inferred_1835.position`, `recon_1835_blk_washington_dearborn_h2_05.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_d3_07.inferred_1835.position`, `recon_1835_blk_washington_dearborn_d3_07.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_d3_08.inferred_1835.position`, `recon_1835_blk_washington_dearborn_d3_08.inferred_1835.footprint`, `recon_1835_blk_washington_dearborn_d4_09.inferred_1835.position`, `recon_1835_blk_washington_dearborn_d4_09.inferred_1835.footprint`
+**Related:** **L90**, **L292** (the Clark block, built the same way across Dearborn), **L349**
+(the boarding house on this block), **L270**, **L276**, **T-1758**, **T-2130**.
+**Recorded:** 2026-10-05 (T-2130).
