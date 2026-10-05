@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1497, ts: '2026-10-05T16:30:49.370Z', date: 'Oct 5, 2026, 11:30 AM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',
+      'When the lots of Kinzie\u2019s Addition were first cut, twenty households were given lots on two Indiana Street blocks. The Liberties page said all twenty were labourers\u2019 families. They were not: thirteen were tradesmen\u2019s, six were merchants\u2019 or professionals\u2019, and only one was a labourer\u2019s.',
+      'The entry now says so, and says what stands on those two blocks today: 21 households, eight of them already in cottages. The Liberties page explains it (L270).',
+    ] },
   { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',

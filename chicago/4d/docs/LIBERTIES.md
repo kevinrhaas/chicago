@@ -15008,9 +15008,22 @@ thirty-two platted block rows stood `unsubdivided`, because no lot rule had been
 plat, so the district's headroom was 0 and T-1205 is blocked-tech on it. T-1741 read the rules
 Wright actually draws inside the Addition's cells off `wright_1834_nara_hup`: five of the
 twenty-seven, all in the two tiers nearest the river, are ruled six lots to a face, and sixty
-lots were cut on them. The deal then placed eleven labourers' households on
-`blk_indiana_north_wolcott` and nine on `blk_indiana_north_cass`. **The twenty are slots and
-not roofs**, on the same terms as the others above, and they stand on the same invention
+lots were cut on them. The deal then placed eleven households on
+`blk_indiana_north_wolcott` — six under `tradesman_dwellings` and five under
+`merchant_and_professional_dwellings` — and nine on `blk_indiana_north_cass`, seven
+`tradesman_dwellings`, one `merchant_and_professional_dwellings` and one `labourer_dwellings`,
+hh_barre_john_s's. **Corrected 2026-10-05 (T-1744):** this sentence first said the twenty were
+eleven labourers' households and nine more, which the seats file T-1741 committed (#176) never
+said: the Addition's one labourer's household was on cass, and thirteen of the twenty were
+tradesmen's. `compile_liberties.py` checks this entry's scope COUNT, not the clauses named in its
+prose, so no gate could catch it; the clauses here are read off
+`data/reconstruction/1835_platted_seats.json` at that commit. On the ground as it stands today
+the two blocks hold 21 seats: wolcott's eleven are two `merchant_and_professional_dwellings`
+slots, four `tradesman_dwellings` households adopted onto the D3 cottages raised there and five
+`tradesman_dwellings` slots; cass's ten are four tradesmen's households adopted onto its D3 and
+D4 cottages, five tradesmen's slots and hh_barre_john_s's labourer's slot, still the one
+labourer's household in the Addition. **The twenty were slots and
+not roofs** when they were dealt, on the same terms as the others above, and they stand on the same invention
 this entry records: which lot a household takes is argued from its clause's stated preferences
 and from nothing else. What the reading changed is that the lots exist and are the sheet's
 own; what it did not change is that no source puts any of these households on one. The
