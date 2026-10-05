@@ -1,11 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1490, ts: '2026-10-05T13:38:02.304Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+  { v: null, ts: '', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
       'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
       'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
       'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
       'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+    items: [
+      'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
+      'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
+      'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
+      'The woods, hoops and paint are a reconstruction (Liberty L388). No extra draw calls.',
     ] },
   { v: 1489, ts: '2026-10-05T13:16:51.492Z', date: 'Oct 5, 2026, 8:16 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
     items: [

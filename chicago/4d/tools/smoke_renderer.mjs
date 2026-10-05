@@ -4018,7 +4018,15 @@ for (const [label, viewport, touch] of [
                 + `${c.getZ(i).toFixed(4)}`);
             }
           }
-          return seen.size;
+          // T-2121: and how many of them are the tilt's duck — canvas aged lighter
+          // or darker, so the ratio of its channels is canvas's and nothing else's.
+          let canvas = 0;
+          for (const t of seen) {
+            const [r, g, b] = t.split(',').map(Number);
+            if (g > 0 && b > 0 && Math.abs(r / g - 1.1413) < 0.012
+              && Math.abs(g / b - 1.3923) < 0.015) canvas += 1;
+          }
+          return { all: seen.size, canvas };
         })(),
         span: Number.isFinite(lowest) ? highest - lowest : null,
         frontages: frontages.length,
@@ -4244,14 +4252,16 @@ for (const [label, viewport, touch] of [
       + `${goods.pileInLot} vertex/vertices inside the lot's own footprint`);
 
     // The canvas is canvas. The tilt arrived without a second material, which is
-    // only possible because the colour moved onto the geometry — so the whole
-    // layer, chunks and all, has to carry exactly two tones: timber and duck.
+    // only possible because the colour moved onto the geometry. It held the layer to
+    // exactly its own tones (six after T-1961) until T-2121, when the owner asked
+    // for every cask, case and wagon in its own weathered wood or faded paint: the
+    // tones are now dealt per object and per board, so their COUNT is no longer a
+    // claim, and the check asks the two things it was for — one material, and duck
+    // on the covered wagons — plus the variety the owner asked for.
     check(`${label}: the tilt is drawn in canvas on the layer's one material`,
-      // Six since T-1961: timber, duck, brick, stone, and the hay and hides of
-      // the working trades' yards.
-      goods.tones === 6 && goods.materials === 1,
-      `${goods.tones} vertex tone(s) across ${goods.meshes} chunk(s) on `
-      + `${goods.materials} material(s)`);
+      goods.tones?.canvas >= 1 && goods.tones?.all >= 50 && goods.materials === 1,
+      `${goods.tones?.all} vertex tone(s), ${goods.tones?.canvas} of them canvas, across `
+      + `${goods.meshes} chunk(s) on ${goods.materials} material(s)`);
 
     // ---- T-1960: a privy behind every house, a stable for the horse-keepers ---- //
     // Every record the layer loaded is drawn — a privy no taller than a man can
