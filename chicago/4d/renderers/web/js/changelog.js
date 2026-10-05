@@ -1,9 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1477, ts: '2026-10-05T09:32:22.719Z', date: 'Oct 5, 2026, 4:32 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+  { v: null, ts: '', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
     items: [
       'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
       'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
       'All ten are reconstructions: no record says what stood on this block in 1835 (Liberty L384).',
+    ] },
+  { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+    items: [
+      'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
+      'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
+      'House and store yards stay as they were, kept short with weeds along their fences.',
+      '146 of the town\u2019s 338 platted lots are empty. No source describes one, so this ground is our reconstruction (Liberty L386).',
+    ] },
+  { v: 1477, ts: '2026-10-05T08:22:34.435Z', date: 'Oct 5, 2026, 3:22 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+    items: [
+      'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
+      'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
+      'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
+      'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
     ] },
   { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
     items: [
