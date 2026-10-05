@@ -503,7 +503,14 @@ STRUCTURE_TICKETS = {
     # cell falls back to if its bands are ever taken out of the inventory, so it names the
     # half that would still owe. It is not read while the bands stand.
     ("south", "warehouses_freight"): "T-1673",
-    ("south", "institutional_public"): "T-1202",
+    # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
+    # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
+    # civic roofs the matrix sets all stand, and T-1202 raised none of them, so its id here
+    # was never the provenance of a fill that the gate's own rule would have kept. A sixth
+    # civic roof in the South would be the programme re-budgeted, and the ticket that owns
+    # the programme's remainders is T-1983, "the programme reconciled", the same owner the
+    # South's stable and outbuilding rows below were moved to for the same reason.
+    ("south", "institutional_public"): "T-1983",
     # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies were
     # T-1960's, "wells, privies and stables by household", in all three divisions.
     # MOVED TO T-1215, THEN T-1967, by the pull request that closed T-1960. T-1960 dealt its privies and
