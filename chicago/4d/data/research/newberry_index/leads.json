@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "0cf78012af7af48444d459f32ef60d133fea5a3002fece0ecbf8e768967474d2",
+    "fingerprint": "c4a4b8a06ce60c23a4d65840fcc4f71c60820bf9760772b57595d1b07ec08174",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1441,
-      "structures": 568,
+      "structures": 572,
       "voters": 345
     }
   },
@@ -25557,6 +25557,26 @@
         {
           "id": "fort_dearborn_shop",
           "name": "Fort Dearborn — the shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_randolph_clark_w1_10",
+          "name": "Reconstructed W1 blacksmith shop #10",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_randolph_clark_w2_09",
+          "name": "Reconstructed W2 carpenter or joiner shop #09",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_randolph_dearborn_w2_18",
+          "name": "Reconstructed W2 carpenter or joiner shop #18",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_washington_dearborn_w2_10",
+          "name": "Reconstructed W2 carpenter or joiner shop #10",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         },
         {
