@@ -792,6 +792,38 @@ def record(wharves: list, refused: list, banks: list) -> dict:
                 "division between the stated docks and the invented ones."
             ),
         },
+        "legal_basis": {
+            "value": (
+                "From 1 January 1834 the owner or occupant of a lot fronting the "
+                "Chicago River or its branches, where a street runs to the river, "
+                "might occupy the vacant ground before it for wharfing only, "
+                "leaving eighty feet for a street, on a five-year lease at fifteen "
+                "dollars a year in advance; a lessee who gave the privilege up was "
+                "paid for the wharf he had built on a three-man appraisal of the "
+                "work."
+            ),
+            "confidence": "attested",
+            "sources": ["chicago_democrat_1833_1835"],
+            "note": (
+                "THE LAW EVERY WHARF ON THIS RIVER WAS BUILT UNDER, AND NOTHING "
+                "MORE THAN THE LAW (T-1699). Sections 15 and 16 of the Trustees' "
+                "by-laws of 4 December 1833, in the only printing in which both "
+                "survive whole and signed by the president and clerk: Chicago "
+                "Democrat, 24 December 1833, claims "
+                "chicago_democrat_1833_12_24#c004 (section 15: the vacant "
+                "ground, the eighty feet left for a street, wharfing only, the "
+                "lease and its fee) and chicago_democrat_1833_12_24#c005 "
+                "(section 16: the buy-back of a lessee's wharf on an appraisal "
+                "of the work). The ordinance is attested and so is what it "
+                "says; WHAT IT DOES NOT SAY is any lessee, any street end, any "
+                "wharf, or any dimension of one, so it attests none of the "
+                "decks below, promotes no dock_confidence and moves no face. "
+                "The eighty feet is the platted street width the street layer "
+                "already carries off the reprint of 7 January 1834 (T-1587); "
+                "here it is the strip the privilege had to leave open, and no "
+                "deck below is cut, moved or sized on the strength of it."
+            ),
+        },
         "rule": {
             "note": (
                 "A sidecar standing on the scene date whose own `dock` attribute "

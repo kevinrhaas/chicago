@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1483, ts: '2026-10-05T11:09:33.667Z', date: 'Oct 5, 2026, 6:09 AM CT', title: 'The town\u2019s 1833 wharf law is now written on the river landings', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. The river landings\u2019 record now carries the town\u2019s own wharfing law of December 1833: a lot on the river could build a wharf on the open ground before it, leaving eighty feet for a street, for fifteen dollars a year.',
+      'The law says nothing about any one wharf, so no dock in the town moves or changes size because of it.',
+      'Our research bookkeeping can now count a newspaper reading as used when it lands on the wharves or on the street edge, not only on a person, a business or a building.',
+    ] },
   { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
     items: [
       'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
