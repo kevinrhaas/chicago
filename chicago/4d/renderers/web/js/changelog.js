@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1464, ts: '2026-10-05T03:16:07.134Z', date: 'Oct 4, 2026, 10:16 PM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+    items: [
+      'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
+      'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
+      'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
+      'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
   { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
