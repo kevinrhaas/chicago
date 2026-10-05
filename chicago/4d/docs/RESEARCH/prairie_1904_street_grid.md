@@ -14,11 +14,13 @@ out as margin, walk, parkway and curb, the alleys, and the lots on both faces of
 | `sanborn_1911_chicago_v3_sheet_28` | 18th–20th, Prairie and Calumet: street lines (18th's read block by block), the 24-ft west alley, the east alley with its head and jog, Calumet's curve out of 18th, lot lines and addresses |
 | `sanborn_1911_chicago_v3_sheet_35` | 20th–22nd, Indiana to Calumet: street lines, both alleys (printed 20 ft north of 21st, 18 ft south), lot lines and addresses (a 1.64 px/ft copy) |
 | `chicago_revised_municipal_code_1905` | the sidewalk space (sec. 2072), the walk's one-foot set-back (sec. 2062), the grass plat (sec. 2077), the curb's minimum (sec. 2072) |
+| `robinson_1886_chicago_plate_10` | 16th–18th, both faces of Prairie: the lot, block and subdivision each parcel stands on in 1886 (§ 6, T-2115) |
+| `habs_glessner_house_il_1015_data_pages` | 1800 Prairie's legal description: lots 39, 40 and the north 17 ft of lot 38, block 9, Assessor's Division (§ 6) |
 | the Prairie library, `chicago/prairie_1904_v1/data/map_frontages.csv` | the frontage row(s) each parcel's printed address matches — a cross-reference, not a geometry source |
 
 All three sheets reach the model through T-1250's georeference (`data/traces/gcp/`); the street lines
 T-1250 already read are imported from `tools/georef_prairie_1904.py`, not repeated. No modern street
-map is read. Robinson 1886 plate 10 is not spent here (see § 6).
+map is read. Robinson 1886 plate 10 is spent for the legal lots only (§ 6).
 
 ## 2. Method
 
@@ -85,14 +87,57 @@ Seven lots carry no printed address and are named for their neighbours (`prairie
 Several lots carry more than one address (`prairie_1700`: 1700, 1702, 1706; `prairie_2000`: 2000,
 2010, 2018): the sheet draws one lot there and the parcel follows the sheet.
 
-## 6. Gaps, and what was left for other tickets
+## 6. The legal lots, 16th to 18th (T-2115)
 
-- **Legal lot numbers.** The parcels are the lots the Sanborn sheets DRAW, which are ownership
-  parcels, not necessarily the legal lots. Robinson 1886 plate 10 prints the subdivision and lot
-  numbers for 16th–18th and was not read here; south of 18th only HABS's legal description of 1800
-  Prairie is in hand (Block 9, lots 39, 40 and the north 17 ft of lot 38).
+Every parcel on both faces of Prairie from 16th to 18th carries `legal_lots`: the lot, block and
+subdivision Robinson's Atlas of 1886, plate 10, prints for it, and the 1904 lot card names it. 1800
+Prairie carries HABS's legal description instead, at `attested`; Robinson stops at 18th Street.
+
+**The reading.** The plate's lot lines across each face are read as rows (darkness-profile peaks at a
+stated column band, or on 3x–4x enlargements where a house or a frontage figure covers the band; the
+tool marks which), with the italic lot number the plate prints between each pair. Robinson prints block
+numbers as large bold numerals; HABS's "Block 9 ... Assessor's Division" one block south is the same
+convention.
+
+- **West face.** E. L. Sherman's Sub. ("Sub." is lettered over block 1, "E. L. Sherman's" over block 2),
+  block 1 lots 2, 5, 8, 11 and 13–20 (lots 3, 4, 9 and 10 front Indiana), then block 2 lots 1–9 south of
+  the plate's blue line. Lot 2 of block 2 is printed 105 ft, with a further line drawn across it and no
+  number. That strip is 1708 Prairie, and it is part of lot 2.
+- **East face.** Lots 1, 6, 7 and 12 with no subdivision or block printed over them (2–5 and 8–11 lie
+  toward the railroad). Then a series 1–12 under the one word "Subdivision", lettered with no name before
+  it. Then lots A–E in block 1, which re-divide the larger lots printed 2–4. The building standing beside
+  the plate's 1601 is printed "60", which fits no series on the plate and is not carried as a lot.
+- **Not carried.** A second, larger italic series printed with dashed lines (1–6 near the west face's
+  alley; 1–4 over the east face's lettered lots). It reads as the lots the smaller numbers re-divide, but
+  it straddles the lot lines, so no parcel is given it.
+
+**The match, and why there is a register.** The plate's georeference is good to 4.54 m RMS and a lot is
+7–15 m wide, so a raw overlay could hand one lot's number to its neighbour. The tool shifts the plate
+along each face by the one amount that brings its lot lines nearest the Sanborn's (+0.4 m on the west
+face, −1.8 m on the east). That shift is refused beyond 6 m. After it, the residual is 1.8 m on both
+faces (`legal_lots_register`). Rules for naming a lot on a parcel:
+
+- **Whole:** at least 75 % of the lot's frontage falls inside the parcel.
+- **Part:** at least 25 % of the parcel's frontage and more than twice the residual.
+- **Not named:** anything smaller. That is the two maps disagreeing, not a lot.
+
+So 1600–1608 read as parts of lots 2 and 5 (the 1911 sheet draws three houses on Robinson's two lots),
+1613 and 1615 as halves of lot 7, and 1601 as part of lot 1 with 34 ft carrying no number. The house
+numbers Robinson prints in the street band (Prairie kept its numbers through the 1909 renumbering) agree
+with the match wherever both are printed: 1612 on lot 8, 1619 on lot 12, 1637 on lots 7–8, 1720 on lot 4,
+1736 on lot 9.
+
+**Tier.** `inferred` throughout: an 1886 plate carried to 1904, matched across two georeferences. The
+gate (`--check`, `--self-test`) refuses three things: a plate lot that falls on no parcel; a lot read
+narrower than the narrowest frontage the plate prints (20.9 ft); and a face out of register by more than
+the georeference allows.
+
+## 7. Gaps, and what was left for other tickets
+
 - **Lots off Prairie.** Indiana and Calumet frontages and the lots between the alleys and those
-  streets are laid out as blocks only; their lot lines are not read.
+  streets are laid out as blocks only; their lot lines are not read (T-2116).
+- **Legal lots south of 18th.** Only 1800 Prairie's is in hand (HABS). A plat or atlas plate for
+  18th–22nd would carry the rest the way plate 10 carries 16th–18th.
 - **Indiana 18th–20th** is on sheet 27, not supplied; its east line is carried straight between sheets
   20 and 35. The far lines of Indiana (18th–22nd) and Calumet (20th–22nd) are the near lines moved the
   printed 66 ft, because the sheets stop at the near line.
