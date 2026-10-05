@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1455, ts: '2026-10-05T00:26:15.276Z', date: 'Oct 4, 2026, 7:26 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+  { v: null, ts: '', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
       'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
       'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
       'Gates are a reconstruction (Liberty L381). They add a little to draw, and no extra draw calls.',
+    ] },
+  { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Each setting\u2019s limit came down to that count plus a small fixed margin, so a change that makes the town heavier is caught sooner.',
     ] },
   { v: 1454, ts: '2026-10-05T00:06:56.248Z', date: 'Oct 4, 2026, 7:06 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
