@@ -141,6 +141,11 @@
     "recon_1835_blk_washington_lasalle_h1_02",
     "recon_1835_blk_washington_lasalle_h1_03",
     "recon_1835_blk_washington_lasalle_h2_01",
+    "recon_1835_blk_washington_market_d3_10",
+    "recon_1835_blk_washington_market_d4_08",
+    "recon_1835_blk_washington_market_d4_11",
+    "recon_1835_blk_washington_market_d7_09",
+    "recon_1835_blk_washington_market_h1_07",
     "recon_1835_blk_washington_market_h3_01",
     "recon_1835_blk_washington_market_h3_04",
     "recon_1835_blk_washington_wells_d3_05",
@@ -3222,6 +3227,96 @@
       ],
       [
         [
+          105.98,
+          -417.58
+        ],
+        [
+          105.09,
+          -417.36
+        ],
+        [
+          97.33,
+          -448.86
+        ],
+        [
+          98.22,
+          -449.07
+        ]
+      ],
+      [
+        [
+          108.96,
+          -417.32
+        ],
+        [
+          108.08,
+          -417.57
+        ],
+        [
+          116.28,
+          -446.73
+        ],
+        [
+          117.16,
+          -446.48
+        ]
+      ],
+      [
+        [
+          133.52,
+          -414.03
+        ],
+        [
+          132.65,
+          -413.76
+        ],
+        [
+          121.62,
+          -448.93
+        ],
+        [
+          122.49,
+          -449.2
+        ]
+      ],
+      [
+        [
+          135.18,
+          -413.85
+        ],
+        [
+          134.27,
+          -413.94
+        ],
+        [
+          137.04,
+          -442.55
+        ],
+        [
+          137.95,
+          -442.46
+        ]
+      ],
+      [
+        [
+          133.79,
+          -495.52
+        ],
+        [
+          134.7,
+          -495.6
+        ],
+        [
+          137.9,
+          -463.13
+        ],
+        [
+          136.99,
+          -463.04
+        ]
+      ],
+      [
+        [
           158.66,
           -415.48
         ],
@@ -3290,6 +3385,96 @@
         [
           162.81,
           -462.81
+        ]
+      ],
+      [
+        [
+          184.73,
+          -416.31
+        ],
+        [
+          183.84,
+          -416.52
+        ],
+        [
+          191.63,
+          -449.45
+        ],
+        [
+          192.52,
+          -449.24
+        ]
+      ],
+      [
+        [
+          182.45,
+          -416.53
+        ],
+        [
+          181.55,
+          -416.34
+        ],
+        [
+          177.19,
+          -436.62
+        ],
+        [
+          178.09,
+          -436.82
+        ]
+      ],
+      [
+        [
+          184.12,
+          -416.37
+        ],
+        [
+          183.21,
+          -416.48
+        ],
+        [
+          186.29,
+          -443.73
+        ],
+        [
+          187.2,
+          -443.62
+        ]
+      ],
+      [
+        [
+          180.58,
+          -493.47
+        ],
+        [
+          181.46,
+          -493.75
+        ],
+        [
+          192.4,
+          -459.19
+        ],
+        [
+          191.53,
+          -458.91
+        ]
+      ],
+      [
+        [
+          178.82,
+          -493.66
+        ],
+        [
+          179.73,
+          -493.57
+        ],
+        [
+          176.97,
+          -465.15
+        ],
+        [
+          176.06,
+          -465.24
         ]
       ],
       [
@@ -5589,6 +5774,31 @@
       "to": "privy_blk_randolph_dearborn_lot7"
     },
     {
+      "lot": "blk_washington_market_lot0",
+      "from": "recon_1835_blk_washington_market_h1_07",
+      "to": "privy_blk_washington_market_lot0"
+    },
+    {
+      "lot": "blk_washington_market_lot0",
+      "from": "recon_1835_blk_washington_market_h1_07",
+      "to": "stable_blk_washington_market_lot0"
+    },
+    {
+      "lot": "blk_washington_market_lot2",
+      "from": "recon_1835_blk_washington_market_d4_08",
+      "to": "privy_blk_washington_market_lot2"
+    },
+    {
+      "lot": "blk_washington_market_lot2",
+      "from": "recon_1835_blk_washington_market_d4_08",
+      "to": "recon_1835_blk_washington_market_a4_12"
+    },
+    {
+      "lot": "blk_washington_market_lot3",
+      "from": "recon_1835_blk_washington_market_d3_10",
+      "to": "recon_1835_blk_washington_market_a3_15"
+    },
+    {
       "lot": "blk_washington_market_lot4",
       "from": "recon_1835_blk_washington_market_h3_01",
       "to": "recon_1835_blk_washington_market_a1_02"
@@ -5607,6 +5817,31 @@
       "lot": "blk_washington_market_lot5",
       "from": "recon_1835_blk_washington_market_h3_04",
       "to": "recon_1835_blk_washington_market_a3_06"
+    },
+    {
+      "lot": "blk_washington_market_lot6",
+      "from": "recon_1835_blk_washington_market_d7_09",
+      "to": "privy_blk_washington_market_lot6"
+    },
+    {
+      "lot": "blk_washington_market_lot6",
+      "from": "recon_1835_blk_washington_market_d7_09",
+      "to": "recon_1835_blk_washington_market_a2_13"
+    },
+    {
+      "lot": "blk_washington_market_lot6",
+      "from": "recon_1835_blk_washington_market_d7_09",
+      "to": "recon_1835_blk_washington_market_a5_14"
+    },
+    {
+      "lot": "blk_washington_market_lot7",
+      "from": "recon_1835_blk_washington_market_d4_11",
+      "to": "privy_blk_washington_market_lot7"
+    },
+    {
+      "lot": "blk_washington_market_lot7",
+      "from": "recon_1835_blk_washington_market_d4_11",
+      "to": "recon_1835_blk_washington_market_a4_16"
     },
     {
       "lot": "blk_washington_franklin_lot0",

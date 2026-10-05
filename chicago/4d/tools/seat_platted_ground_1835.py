@@ -140,6 +140,9 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # targets: a change to either deal that moves them is RED in `--check` until somebody
 # restates them here and says why in docs/LIBERTIES.md L270 — which is the point, since
 # before this a re-order of either deal moved the household count with nobody deciding it.
+# 2 -> 1 on 2026-10-05 (T-2129): the Market block's five houses take five of the deal's
+# slot requests as roofs, and the slot room that frees seats hh_bennet_lyman on a slot
+# (blk_washington_dearborn#04) in the deal itself, so a release no longer gains him.
 BUSINESS_DEAL_HOLDS = 40
 # T-2130 (2026-10-05): 2 -> 1. The nine roofs it raised on the plat's last tier are not in the
 # business deal's pool, so the hold stays 40, but with them standing the release finds one fewer

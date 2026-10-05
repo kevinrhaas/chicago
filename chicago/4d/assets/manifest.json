@@ -1606,8 +1606,8 @@
     "recon_1835_blk_lake_market_d3_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30500,
-      "inputs_sha256": "9cd736c9ac03113ed14d6b5035163163e6dcf3b785fd27edcaed22f32c404286",
+      "bytes": 29876,
+      "inputs_sha256": "ab9b0fe9392a5dd4531410a6e58a3ebda5d928ccb678bb2d10e94ecb33be647b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_market_d3_03"
@@ -2065,8 +2065,8 @@
     "recon_1835_blk_randolph_market_d3_04__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30184,
-      "inputs_sha256": "3535d1279a2e5c437e6385ff9ea930219acdcecf88f4792763ee2f3ed9e26027",
+      "bytes": 29560,
+      "inputs_sha256": "bd9848a6e3d0d00683bd4fa9d0eed1faf9f55937842e474813a81144fb0c6b25",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d3_04"
@@ -2083,8 +2083,8 @@
     "recon_1835_blk_randolph_market_d4_07__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 38312,
-      "inputs_sha256": "df2f5cd44efa37a9bb6b4a9c7d839ff899e315cb55fc502f47de17f785afca5e",
+      "bytes": 35192,
+      "inputs_sha256": "8b186bf634e87a7d0ceb519df89d400395130a201a73cde0f3be4c6f075fced6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d4_07"
@@ -2111,7 +2111,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 39516,
-      "inputs_sha256": "8bbfc401ff548fa066d1a024da4a552b24d926b8d77c435a4cbde1f2cbc39d83",
+      "inputs_sha256": "39b4ef079068f95567e9cf7b55a6fc97a6bf9347113f780a6dc765e233bc9b5e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_market_d5_11"
@@ -2254,8 +2254,8 @@
     "recon_1835_blk_south_water_clark_d3_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30676,
-      "inputs_sha256": "cdc09eff63aa31d790bba86946a4c656fa9360dee4d86e8948ae0225fbf19d2b",
+      "bytes": 30984,
+      "inputs_sha256": "cac4bb8092a1d9b41f39356934cc495945f1174be0317ed433bb5631f1d25134",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d3_03"
@@ -2263,8 +2263,8 @@
     "recon_1835_blk_south_water_clark_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 35200,
-      "inputs_sha256": "e3665ee6974edbd0d5bf264415efad165a9b58e397574fa724ed6fb198cbe8f5",
+      "bytes": 39572,
+      "inputs_sha256": "752ef9f7f6bf9177813ac7cc4d4b1f5166528f4667c269fdab3c785b70ec98d0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_clark_d4_02"
@@ -2353,8 +2353,8 @@
     "recon_1835_blk_south_water_dearborn_h1_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 58612,
-      "inputs_sha256": "96eb3002116aad3b3fb1471e3bb3fe92695cde899c06616c2ac1427e0c21068f",
+      "bytes": 58300,
+      "inputs_sha256": "17b37b8ad82b10a94cdd91d5a2c6b8745054e37049407f43a7a29bda00a82261",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_h1_03"
@@ -2452,8 +2452,8 @@
     "recon_1835_blk_south_water_franklin_d3_13__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 33184,
-      "inputs_sha256": "f655f09984503778135f1a32ca22916c334b77e1ec2e47f01912134fa97c01a5",
+      "bytes": 28348,
+      "inputs_sha256": "17a36b69233884a79f9c8f8d7f13537ee3d3f8476b5e839f02b07b31a998fc36",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_franklin_d3_13"
@@ -2569,8 +2569,8 @@
     "recon_1835_blk_south_water_lasalle_d3_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30056,
-      "inputs_sha256": "24a6ff2d8fad4bf2cfceb9882bb29efea980c0e7accc41eea291f598beaa6cc5",
+      "bytes": 30680,
+      "inputs_sha256": "9e428d665306bf83db828268546cf76404da7b114a781cf9763d6aabaa3ecfcb",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d3_03"
@@ -2578,8 +2578,8 @@
     "recon_1835_blk_south_water_lasalle_d3_06__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 26764,
-      "inputs_sha256": "4832e553cde82b4e0421f6343437645950608a2035d8acace8e077e56b6b5aa3",
+      "bytes": 30040,
+      "inputs_sha256": "e97be6091c09b7006daaeccc520139d546dce98ce394dcf8e4a919e7eb1ea564",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_d3_06"
@@ -2677,8 +2677,8 @@
     "recon_1835_blk_south_water_wells_d4_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 41444,
-      "inputs_sha256": "af0340a6183072de01be6983412ea5153085a4b979cc22afa5628d28fdb413de",
+      "bytes": 40820,
+      "inputs_sha256": "28ecf4afc90581f1ee0eaabe2b2ee160bc859fc887c8215891159afe11daa8ff",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_d4_03"
@@ -2755,24 +2755,6 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a4_04"
     },
-    "recon_1835_blk_washington_clark_a5_16__inferred_1835.glb": {
-      "archetype": "outbuilding",
-      "baked_ao": false,
-      "bytes": 39832,
-      "inputs_sha256": "2f0bc7c20714623e25dd2d7faafc183b3de6c6d6c65b01336b7f566e14dde1c5",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_clark_a5_16"
-    },
-    "recon_1835_blk_washington_clark_d3_15__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 31132,
-      "inputs_sha256": "d9cb18de0f215373dc52c094b1b94bfbca39e0668327491b34e85e98e3b644df",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_clark_d3_15"
-    },
     "recon_1835_blk_washington_clark_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -2781,15 +2763,6 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_d4_02"
-    },
-    "recon_1835_blk_washington_clark_d4_14__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 38628,
-      "inputs_sha256": "debe695c4fe07777792b40140f8c7d4672c3f2e02cdb2ab6986e681dc1388343",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_clark_d4_14"
     },
     "recon_1835_blk_washington_clark_d5_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
@@ -2803,8 +2776,8 @@
     "recon_1835_blk_washington_clark_h3_05__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 37108,
-      "inputs_sha256": "71eaf2aabba827839ef5ab108e4f5ff824d76e381d329683c5664a43d5005f50",
+      "bytes": 39292,
+      "inputs_sha256": "ca95cf25435d348f9b985e760dc67fbdb821e238b6bb0106cb5818e3010424da",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_05"
@@ -2845,65 +2818,11 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_dearborn_a3_03"
     },
-    "recon_1835_blk_washington_dearborn_d3_07__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 32396,
-      "inputs_sha256": "053b5ece93d4ead5838248fe024551a37256b38c64b14de20507edc5bbe7d910",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_dearborn_d3_07"
-    },
-    "recon_1835_blk_washington_dearborn_d3_08__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 30368,
-      "inputs_sha256": "d881d46d4425c1e453576054da0610612286ac7e052588b7e39178a1c2a93230",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_dearborn_d3_08"
-    },
-    "recon_1835_blk_washington_dearborn_d4_09__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 39888,
-      "inputs_sha256": "a10f987a9c271ef4f4b8b74f8d39a39a8e0436acb7d545cf8700a7fa4b80ac09",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_dearborn_d4_09"
-    },
-    "recon_1835_blk_washington_dearborn_d7_04__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 68904,
-      "inputs_sha256": "e5240454e7d75f0b40fb26bbd70d07a88a8dfa85c92e6bbfee5215584198bd42",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_dearborn_d7_04"
-    },
-    "recon_1835_blk_washington_dearborn_d7_06__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 71708,
-      "inputs_sha256": "ae9e83297ebd3f864c734e49c39f472d2200ea78b28b9ab426672b378042b426",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_dearborn_d7_06"
-    },
-    "recon_1835_blk_washington_dearborn_h2_05__inferred_1835.glb": {
-      "archetype": "frame_dwelling",
-      "baked_ao": false,
-      "bytes": 93108,
-      "inputs_sha256": "d35def0261626c942511a0ae0df7e4709ae1ebf273492b03c82fa438578fcaa9",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_blk_washington_dearborn_h2_05"
-    },
     "recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 39608,
-      "inputs_sha256": "c02119c27634ca9c46af8f21d0c6959ab73c329ae7a0e1521480f3d1f0f2b001",
+      "bytes": 42108,
+      "inputs_sha256": "f0beae8f2569c59ca31638af0d606a576c22b71b1b66387942ddb497c0133e10",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_dearborn_h3_01"
@@ -3142,6 +3061,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_a1_05"
     },
+    "recon_1835_blk_washington_market_a2_13__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 177108,
+      "inputs_sha256": "29c24050706ad97813786e7c5162a2a069161b93283493345a9ab49847adef3a",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a2_13"
+    },
     "recon_1835_blk_washington_market_a3_03__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -3160,6 +3088,87 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_a3_06"
     },
+    "recon_1835_blk_washington_market_a3_15__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 31096,
+      "inputs_sha256": "cc15671202bccb7efc136cf30ffcd9a90a8a7e2c7f3620d54d0fa9c4fa64bbc6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a3_15"
+    },
+    "recon_1835_blk_washington_market_a4_12__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 52028,
+      "inputs_sha256": "9b4db8f44df1e59ddc2c16b75869d96e71812ea300b1c08fbc4d9cc560492320",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a4_12"
+    },
+    "recon_1835_blk_washington_market_a4_16__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 47348,
+      "inputs_sha256": "097c2055589f86b18286d751d0b8a89c325a2324bdaf9a3d994a208517d4e506",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a4_16"
+    },
+    "recon_1835_blk_washington_market_a5_14__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 41712,
+      "inputs_sha256": "fb08c9be48fa0fda02062110417fa4c4838edf2a84fcb0144d58fc966cc0633f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_a5_14"
+    },
+    "recon_1835_blk_washington_market_d3_10__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32236,
+      "inputs_sha256": "c848ce1bbbdc7d9f0cd31f8b2a388d5c5d4b93f957aa40ee33cb1a56cb4a6f50",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d3_10"
+    },
+    "recon_1835_blk_washington_market_d4_08__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 39264,
+      "inputs_sha256": "123b691aa232e5f3c8a7fa867ef685611f9dbdfece5b41d418a211390babefd3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d4_08"
+    },
+    "recon_1835_blk_washington_market_d4_11__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 38308,
+      "inputs_sha256": "aaf77c938d87fa1fc0bd28732e8aaed9c70c001d4b9c4936c91b259437cd55e6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d4_11"
+    },
+    "recon_1835_blk_washington_market_d7_09__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 74832,
+      "inputs_sha256": "f48a5c60cac92dd78164d715d735a87d3d0f8d493002dd7bc9cebb5a66847042",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_d7_09"
+    },
+    "recon_1835_blk_washington_market_h1_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 60632,
+      "inputs_sha256": "d9a49d683bf2c82ca36631acc2a9cef25a657759f428c43d1bdf6af132ae4196",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_market_h1_07"
+    },
     "recon_1835_blk_washington_market_h3_01__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
@@ -3172,8 +3181,8 @@
     "recon_1835_blk_washington_market_h3_04__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 37728,
-      "inputs_sha256": "9018e6c2f0f442e0ad2fe77ddf5b5426df606eb09b7e3d3a436e2381a23320b7",
+      "bytes": 39912,
+      "inputs_sha256": "25da45d892c630dade129fda9dd0ad26e8e1ef6e50b4b2589de4a86fc11b7fb4",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_market_h3_04"
@@ -4153,8 +4162,8 @@
     "recon_1835_south_d3_001__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30008,
-      "inputs_sha256": "5bc8f805ca06827b3746beb8abeb3fdac85362a4b1a92a9f8244bdc91635d756",
+      "bytes": 30632,
+      "inputs_sha256": "1821c32ff4d87343ff6fae65664c761a36fc590a8fcef876f7a7c2fc79dd66cd",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d3_001"
@@ -4163,7 +4172,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 34208,
-      "inputs_sha256": "7a9fe56759d95d46e17bc69164dd86fbf55a83f65e133b751cf018692fbf79b4",
+      "inputs_sha256": "b2ed57c628246d112ef7f6b94b9eab9e1e277faf813a082bc0ffe7965e8e7021",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d3_008"
@@ -4171,8 +4180,8 @@
     "recon_1835_south_d3_013__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 32816,
-      "inputs_sha256": "e5225f9bbf11823f12cbec8440606a6cd5d76e7bdf39886ec1a7fd812729a445",
+      "bytes": 32504,
+      "inputs_sha256": "01ac1fbabc187949c9cac51966cce42a369eb090079404bd0f4f08fbf9208035",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d3_013"
@@ -4180,8 +4189,8 @@
     "recon_1835_south_d3_017__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 30000,
-      "inputs_sha256": "5426a64c1656b617d085cc73a4a8671fe956fbef8b23486521b8cb4bd16290a8",
+      "bytes": 29688,
+      "inputs_sha256": "32d1b27e9a16dbb4460a96a336cf5c49e39f6bcb42ca1b4acb173b7da36bc114",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d3_017"
@@ -4216,8 +4225,8 @@
     "recon_1835_south_d4_006__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 33756,
-      "inputs_sha256": "26e672262d4dde81e345db85c17e40b1b7d8ab07b77d8a8dcc7bd291aa79132e",
+      "bytes": 33752,
+      "inputs_sha256": "b04cbe1e54666356d197ae3a3581353f9cb5c5cc4853f368d937a6c06156fcb0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d4_006"
@@ -4226,7 +4235,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 37340,
-      "inputs_sha256": "cef532c8e141e68e0a775caf4b99852c6f9dad5df02467321d56c7880ebc70e7",
+      "inputs_sha256": "458bb77a5781a605aad798448e4d00346f9f0ae6c0d81b5048d9819b5ad99b05",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d4_009"
@@ -4235,7 +4244,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 34984,
-      "inputs_sha256": "823e1aa4bdbd30ee4f952e989137a22a5b3d039a952ff3a222aad185066d9078",
+      "inputs_sha256": "5e3b3d97ae900d783bad6f393bda89c37cb9b987bd586d59c88d26440b2fc64a",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d4_014"
@@ -4279,8 +4288,8 @@
     "recon_1835_south_d5_004__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 38280,
-      "inputs_sha256": "0ff58677d64af6e83dacd621459962cc2443ad1fbb4ee85ae4f579acd927080d",
+      "bytes": 38592,
+      "inputs_sha256": "8e716a8bab068824bbf4cfb9ef878fcc85a0917cc1be4bc4bb5beb3cb3ec2c57",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_004"
@@ -4288,8 +4297,8 @@
     "recon_1835_south_d5_007__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 36716,
-      "inputs_sha256": "983ad409eda05d21cc02957161e96f861783ee44db9f1b66edda37b34955235e",
+      "bytes": 36404,
+      "inputs_sha256": "b308caa4ac649a0d11b65600d6eda2cf6c6e89a1d0514d9e7d2d3d2fff29124e",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_007"
@@ -4298,7 +4307,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 36716,
-      "inputs_sha256": "8cb7b4587291011a10e0c0df18f386bafde03809dde7fe26813cc742b1de7e08",
+      "inputs_sha256": "20489a9bccaf31056d5a80904bc050d89aa93124ef819e58238d37d2f644f665",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_011"
@@ -4306,8 +4315,8 @@
     "recon_1835_south_d5_016__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 39212,
-      "inputs_sha256": "c4032f3cf3460ed120d97ff75844e76ce3d58744c3b01ecb786ee42ad277fd72",
+      "bytes": 39524,
+      "inputs_sha256": "685325149cc8692a3c8ddfd28041a1e4be497100bb336659056a7fce1c9699b6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d5_016"
@@ -4342,8 +4351,8 @@
     "recon_1835_south_d6_012__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 47312,
-      "inputs_sha256": "e8c4da90b86043df616504be5434ca396772738094cbb24d0219c66b9493bfa0",
+      "bytes": 47000,
+      "inputs_sha256": "afb37054166de07568b0b034bcb3e0fb21ad733bc3d439197b31f95eedfc8921",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_south_d6_012"

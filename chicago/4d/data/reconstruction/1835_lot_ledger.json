@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 140,
-   "free": 148,
+   "at_capacity": 137,
+   "free": 151,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 195,
-  "lots_barring_another_roof": 193,
+  "lots_with_a_roof": 192,
+  "lots_barring_another_roof": 190,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 254,
+  "principal_roofs_standing": 251,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8449,7 +8449,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8486,7 +8486,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8515,7 +8515,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8528,20 +8528,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_clark_a5_16",
-    "recon_1835_blk_washington_clark_d4_14"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_clark_a5_16": "A5",
-    "recon_1835_blk_washington_clark_d4_14": "D4"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_clark#03",
@@ -8550,7 +8544,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8563,18 +8557,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_clark_d3_15"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_clark_d3_15": "D3"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_clark#04",
@@ -8583,7 +8573,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8618,7 +8608,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8653,7 +8643,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8690,7 +8680,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8727,7 +8717,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8740,18 +8730,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_dearborn_d7_04"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_dearborn_d7_04": "D7"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_dearborn#01",
@@ -8760,7 +8746,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8789,7 +8775,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8826,7 +8812,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8839,18 +8825,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_dearborn_d3_07"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_dearborn_d3_07": "D3"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_dearborn#04",
@@ -8859,7 +8841,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8872,18 +8854,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_dearborn_h2_05"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_dearborn_h2_05": "H2"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_dearborn#05",
@@ -8892,7 +8870,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8905,18 +8883,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_dearborn_d3_08"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_dearborn_d3_08": "D3"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_dearborn#06",
@@ -8925,7 +8899,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -8938,18 +8912,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_dearborn_d7_06"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_dearborn_d7_06": "D7"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_dearborn#07",
@@ -8958,7 +8928,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "at_capacity",
+   "block_state": "open",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -8971,18 +8941,14 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [
-    "recon_1835_blk_washington_dearborn_d4_09"
-   ],
-   "standing_families": {
-    "recon_1835_blk_washington_dearborn_d4_09": "D4"
-   },
-   "principal_roofs_standing": 1,
-   "bars_another_roof": true,
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0,
+   "bars_another_roof": false,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "at_capacity"
+   "state": "free"
   },
   {
    "lot_id": "blk_washington_franklin#00",
@@ -9531,7 +9497,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9544,14 +9510,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_h1_07"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_h1_07": "H1"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#01",
@@ -9560,7 +9530,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9589,7 +9559,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9602,14 +9572,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a4_12",
+    "recon_1835_blk_washington_market_d4_08"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a4_12": "A4",
+    "recon_1835_blk_washington_market_d4_08": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#03",
@@ -9618,7 +9594,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9631,14 +9607,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a3_15",
+    "recon_1835_blk_washington_market_d3_10"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a3_15": "A3",
+    "recon_1835_blk_washington_market_d3_10": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#04",
@@ -9647,7 +9629,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9684,7 +9666,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9721,7 +9703,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "north",
@@ -9734,14 +9716,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a2_13",
+    "recon_1835_blk_washington_market_a5_14",
+    "recon_1835_blk_washington_market_d7_09"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a2_13": "A2",
+    "recon_1835_blk_washington_market_a5_14": "A5",
+    "recon_1835_blk_washington_market_d7_09": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_market#07",
@@ -9750,7 +9740,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": null,
    "plat_lot_confidence": null,
    "face": "south",
@@ -9763,14 +9753,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_market_a4_16",
+    "recon_1835_blk_washington_market_d4_11"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_market_a4_16": "A4",
+    "recon_1835_blk_washington_market_d4_11": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_wells#00",

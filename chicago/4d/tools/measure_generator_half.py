@@ -431,17 +431,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # dwellings, a D5 and a D4 frame cottage and a D2 shanty, all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 568 -> 577 and 562 -> 571 on 2026-10-05 (T-2130): the nine roofs the platted deal
+# 568 -> 578 and 562 -> 572 on 2026-10-05 (T-2129): blk_washington_market's five
+# dwellings (an H1, two D4s, a D7 and a D3) and their five yard buildings, all through
+# emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 578 -> 587 and 572 -> 581 on 2026-10-05 (T-2130): the nine roofs the platted deal
 # requests on blk_washington_dearborn and blk_washington_clark, all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 577,
+    "assets": 587,
     "restales": {
-        "generators/common/*.py": 577,
+        "generators/common/*.py": 587,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 571,
+        "generators/emit.py": 581,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
