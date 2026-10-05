@@ -168,181 +168,10 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the D5 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
-    },
-    "occupants": {
-      "value": "The Carli household — a name the town's own records carry",
-      "confidence": "reconstructed",
-      "sources": [
-        "chicago_democrat_1833_1835"
-      ],
-      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_franklin#06, fronting lake, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [
-    {
-      "household": "hh_kennicott_william_h",
-      "name": "The Kennicott household — a name the town's own records carry",
-      "division": "unplaced",
-      "relation": "shared this roof",
-      "why": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "William H Kennicott",
-          "relationship": "head",
-          "grade": "attested",
-          "occupation": "none_recorded",
-          "note": "THE 1835 POLL LIST AND A SECOND INDEPENDENT SOURCE. Read from directory_1843, directory_1844, newspaper_1833_1835, poll_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1a), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 4 June 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
-        },
-        {
-          "name": "Clarissa Kennicott",
-          "relationship": "wife",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Amos Kennicott",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Elisha Kennicott",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Amanda Kennicott",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Phebe Kennicott",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
-    },
-    {
-      "household": "hh_mulford_e_h",
-      "name": "The Mulford household",
-      "division": "south",
-      "relation": "shared this roof",
-      "why": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "E. H. Mulford",
-          "relationship": "head",
-          "grade": "attested",
-          "occupation": "watchmaker",
-          "note": "Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named'. It gives a name, a trade and usually an arrival year, and it is a retrospective of 1884: a YEAR off it is documented, a MONTH is not, and it says nothing whatever about 1835. FERGUS 1839'S LATER LISTS — 1837 AND 1839 EVIDENCE, NEVER AN 1835 FACT. Fergus' Chicago Directory for 1839 names this person 1 time in its two later lists: the poll of Chicago's first city election, 2 May 1837 — “E. H. Mulford,” (f1839_v0080, printed page 41, ward 1, voting for William B. Ogden). What a match may carry, and it is short: that the man was in Chicago on 2 May 1837 and in that ward. It is written as 1837 evidence with describes_date 1837-05-02, never as an 1835 fact, and the person's grade does not move on this alone. Under the ratified ladder a second contemporary source is what lifts projected_resident, and a poll twenty-two months after the scene date is a second source about CONTINUED RESIDENCE, not about July 1835. The ward is a location in the CITY of 1837, whose six wards are drawn on printed page 46; it is not a location in the town of 1835 and does not place a house. Identity by the crosswalk's own rule: Surname 'Mulford' folds to the same string as the 1837 entry's, and the given name of both begins E. (data/research/directories/fergus_1839_election_crosswalk_1835.json and fergus_1839_register_crosswalk_1835.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a poll twenty-two months after the scene date — or a register four years after it — is a second source about CONTINUED RESIDENCE rather than about July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
-        },
-        {
-          "name": "Sophronia Mulford",
-          "relationship": "wife",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Willard Mulford",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Mary Mulford",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Almira Mulford",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Ira Mulford",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "William Mulford",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "THE ONLY WATCHMAKER IN THE DATASET, and a trade that says something about the town the buildings do not: a settlement supports a watchmaker only when enough people own watches and enough of them break. Andreas's later lists carry an E. H. Mulford sworn in a county proceeding, which corroborates the man's continuing residence at some later date and does not reach 1835."
-    },
-    {
-      "household": "hh_samuel_orro",
-      "name": "The Samuel household — a name from the post office's letter lists",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Orro Samuel",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Orro Samuel' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 5 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
-    }
-  ],
+  "residents": [],
   "citations": [
-    {
-      "source_id": "chicago_democrat_1833_1835",
-      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
-      "url": "",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "that a named trade was being carried on in Chicago in a named week, and often where",
-        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
-        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
-        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
-        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
-        "arrivals and clearances, which date the piers and the harbour as working structures",
-        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
-        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
-        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
-      ],
-      "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
-        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
-        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
-        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
-        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
-        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
-        "a citation without an issue page and column"
-      ]
-    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
@@ -380,9 +209,9 @@
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "keeper",
-      "household": "hh_carli_paul_j",
-      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Carli household's, in Chicago since 1834 (rule F-T)"
+      "by": "type",
+      "household": null,
+      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — a deep-plan frame cottage, a year old (rule F-T: a tradesman's by its type)"
     }
   },
   "fabric_tone": {
