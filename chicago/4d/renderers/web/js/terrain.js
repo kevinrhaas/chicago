@@ -1653,10 +1653,14 @@ const TURF_FRAGMENT = /* glsl */`
   if (chiTurfQ.x > 0.0 && chiTurfQ.y > 0.0 && chiTurfQ.x < 1.0 && chiTurfQ.y < 1.0) {
     float chiTurfM = textureLod(uTurfMask, chiTurfQ, 0.0).r;
     if (chiTurfM > 0.002) {
-      // The edge grades over the mask's own ramp and is ragged at 3 m, so the
-      // town's ground meets the prairie as a worn margin and not a contour.
-      chiTurfW = smoothstep(0.25, 0.75,
-        chiTurfM + 0.35 * (chiTurfNoise(chiTurfEN / 3.3 + 5.1) - 0.5));
+      // The mask is the SHARE of the sward the town holds (T-2125: the zone
+      // finder blends the edge over about 100 m), so the turf grades across that
+      // whole band — broken into 20 m tongues and patches of worn ground and
+      // ragged at 3 m — and the town's ground meets the prairie as a margin
+      // that thins out, not a contour.
+      chiTurfW = smoothstep(0.12, 0.88, chiTurfM
+        + 0.30 * (chiTurfNoise(chiTurfEN / 21.0 + 9.4) - 0.5)
+        + 0.30 * (chiTurfNoise(chiTurfEN / 3.3 + 5.1) - 0.5));
       // The turf carries its own relief, so the prairie's grass grain (T-2089)
       // gives way to it, as it does inside every zone that is not prairie.
       chiSwardW *= 1.0 - chiTurfW;

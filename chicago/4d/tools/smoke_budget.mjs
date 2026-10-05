@@ -344,6 +344,7 @@ const COVERAGE = [
 
   // --- PARTS 10-11: what grows, what moves, and the streets a visitor reads
   ['renderers/web/js/flora.js', [10, 11], 'the flora census, and the boundary it fades at'],
+  ['renderers/web/js/zone-blend.js', [10, 11], 'where the flora census asks a community, and its blended edge'],
   ['renderers/web/js/plants.js', [10, 11], 'the sward, and its ragged edge'],
   ['renderers/web/js/trees.js', [10], 'the horizon timber'],
   ['renderers/web/js/tree-surface.js', [10], 'the trees\' leaf-and-bark atlas and their shader patch (T-2110), drawn in the part trees.js is'],

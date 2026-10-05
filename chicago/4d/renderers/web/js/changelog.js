@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+    items: [
+      'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
+      'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
+      'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
+      'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
+      'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
   { v: 1491, ts: '2026-10-05T13:56:54.591Z', date: 'Oct 5, 2026, 8:56 AM CT', title: 'Newberry & Dole\u2019s warehouse stays south of the river, on the paper\u2019s word', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Newberry & Dole\u2019s forwarding warehouse stays where it stood, on South Water Street across from its dock.',
