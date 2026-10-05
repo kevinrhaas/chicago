@@ -1391,6 +1391,33 @@ for (const [label, viewport, touch] of [
   // run every branch below is a no-op — which is what lets it be called at the
   // head of four different parts. T-0060 wrote it inline twice; T-0121 needed
   // it twice more and made it one function instead of four copies.
+  // T-2122. The nearest station to the street checks' pose (107, -103) that
+  // stands on a sward drawn as plants: a community off the short turf, with a
+  // matrix, plantable at the point and six metres round it. The settled town
+  // draws its turf with the ground's texture, so a census of drawn plants read
+  // in the town reads nothing. Found once, by rings outward; null if none.
+  let swardStationMemo;
+  const swardStation = async () => {
+    if (swardStationMemo !== undefined) return swardStationMemo;
+    swardStationMemo = await page.evaluate(() => {
+      const f = window.__chicago4d.flora;
+      const swards = new Set(f.communities()
+        .filter((c) => !c.turf && c.graminoids > 0 && c.matrixShare > 0).map((c) => c.id));
+      const ok = (e, n) => swards.has(f.zoneAt(e, n)) && f.plantableAt(e, n);
+      for (let r = 0; r <= 600; r += 6) {
+        for (let k = 0; k < Math.max(1, Math.round((2 * Math.PI * r) / 6)); k++) {
+          const t = r ? (k / Math.round((2 * Math.PI * r) / 6)) * Math.PI * 2 : 0;
+          const e = Math.round(107 + Math.cos(t) * r);
+          const n = Math.round(-103 + Math.sin(t) * r);
+          if (ok(e, n) && ok(e + 6, n) && ok(e - 6, n) && ok(e, n + 6) && ok(e, n - 6)) {
+            return { e, n, zone: f.zoneAt(e, n) };
+          }
+        }
+      }
+      return null;
+    });
+    return swardStationMemo;
+  };
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
       if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
@@ -10825,9 +10852,43 @@ for (const [label, viewport, touch] of [
     // The mobile cone here holds 67 rooted plants where it held about 150 while
     // every community was planted at prairie density. The 1e-5 m tolerance is
     // untouched.
+    //
+    // T-2122: the settled town's short turf is drawn by the ground alone now —
+    // no near tuft, and weeds only along kept lot lines — so the street
+    // station plants almost nothing and its count stopped guarding anything.
+    // The roots are read where a sward IS drawn: the nearest station off the
+    // turf, found by `swardStation`, and the walker is put back afterwards.
+    const swardAt = await swardStation();
+    const rootLayer = await page.evaluate((st) => {
+      const a = window.__chicago4d;
+      const out = { rootedPlants: 0, worstPlantRoot: 0 };
+      if (!st) return out;
+      a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
+      for (let i = 0; i < 3; i++) a.step();
+      const waterY = a.terrain.heightfield?.meta?.water_surface_m ?? 0;
+      for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
+        'flora-shrub', 'flora-shrub-far']) {
+        const mesh = a.flora.group.getObjectByName(name);
+        const matrix = mesh?.instanceMatrix?.array;
+        if (!matrix) continue;
+        for (let i = 0; i < mesh.count; i++) {
+          const o = i * 16;
+          const e = matrix[o + 12];
+          const y = matrix[o + 13];
+          const n = -matrix[o + 14];
+          const expected = a.terrain.isWater(e, n) ? waterY : a.terrain.surfaceHeight(e, n);
+          out.worstPlantRoot = Math.max(out.worstPlantRoot, Math.abs(y - expected));
+          out.rootedPlants++;
+        }
+      }
+      a.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
+      for (let i = 0; i < 3; i++) a.step();
+      return out;
+    }, swardAt);
     check(`${label}: detailed flora roots share the terrain and water surfaces`,
-      streetLayer.rootedPlants > 50 && streetLayer.worstPlantRoot < 1e-5,
-      `${streetLayer.rootedPlants} roots, worst error ${streetLayer.worstPlantRoot}`);
+      !!swardAt && rootLayer.rootedPlants > 50 && rootLayer.worstPlantRoot < 1e-5,
+      `${rootLayer.rootedPlants} roots at ${swardAt ? `${swardAt.zone} (${swardAt.e}, ${swardAt.n})`
+        : 'no station off the turf'}, worst error ${rootLayer.worstPlantRoot}`);
     check(`${label}: emergent flora stays within eight metres of a riverbank`,
       streetLayer.deepWaterPlants === 0,
       `${streetLayer.waterPlants} water plants, ${streetLayer.deepWaterPlants} in deep water`);
@@ -11226,10 +11287,19 @@ for (const [label, viewport, touch] of [
     // What IS gated is that the instrument works: every slot dealt is a slot
     // attributed to a species, and it is counting a populated sward rather than
     // an empty one.
-    const sward = await page.evaluate(() => {
-      const s = window.__chicago4d.flora.stats;
-      return {
-        abundance: s.abundance,
+    //
+    // T-2122: read at the sward station, not the town street — see the roots
+    // check. The walker is put back where the parts after this expect it.
+    const swardCensusAt = await swardStation();
+    const sward = await page.evaluate((st) => {
+      const a = window.__chicago4d;
+      if (st) {
+        a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
+        for (let i = 0; i < 3; i++) a.step();
+      }
+      const s = a.flora.stats;
+      const out = {
+        abundance: JSON.parse(JSON.stringify(s.abundance ?? null)),
         draws: (s.draws ?? []).map((d) => ({
           community: d.community, list: d.list, drawn: d.drawn,
           species: d.species.map((x) => ({
@@ -11238,7 +11308,12 @@ for (const [label, viewport, touch] of [
           })),
         })),
       };
-    });
+      if (st) {
+        a.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
+        for (let i = 0; i < 3; i++) a.step();
+      }
+      return out;
+    }, swardCensusAt);
     const dealt = sward.draws.filter((d) => d.drawn > 0);
     const unattributed = sward.draws.filter(
       (d) => d.species.reduce((t, x) => t + x.drawn, 0) !== d.drawn);
@@ -12173,6 +12248,8 @@ for (const [label, viewport, touch] of [
       const rows = [];
       for (const c of compiled) {
         if (!c.graminoids || !(c.matrixShare > 0)) continue;
+        // T-2122: short turf draws no near tuft by design; the ground carries it.
+        if (c.turf) continue;
         let station = null;
         for (let e = -300; e <= 900 && !station; e += 6) {
           for (let n = -300; n <= 500 && !station; n += 6) {

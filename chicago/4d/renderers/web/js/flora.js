@@ -2112,6 +2112,9 @@ export async function createFlora({
     communities() {
       return zones.map((z) => ({
         id: z.id, matrixShare: z.matrixShare, bareSoil: z.bareSoil,
+        /** T-2122. Short turf: drawn by the ground's texture, not as plants,
+         *  so a census of drawn plants has to stand somewhere else. */
+        turf: !!z.turf,
         /** T-1056. The recorded woody band, so a reader of this report can see
          *  WHY a sand zone's shrub count stands below its recorded density. */
         woodyBand: z.woody?.establishes ?? null,
