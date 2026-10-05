@@ -59,20 +59,20 @@
   "persons": 848
  },
  "counts": {
-  "identities": 6954,
+  "identities": 6953,
   "by_grade": {
    "None": 45,
-   "not_1835_resident": 4500,
+   "not_1835_resident": 4499,
    "inferred": 2023,
    "attested": 386
   },
   "by_subtype": {
-   "None": 5312,
+   "None": 5311,
    "projected_resident": 1642
   },
   "by_rule": {
    "G5": 45,
-   "G0": 4500,
+   "G0": 4499,
    "G3": 1641,
    "G1b": 306,
    "G2e": 147,
@@ -3506,8 +3506,7 @@
   {"identity":"id_kelly_james","name":"James Kelly","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["church:st_cyr_marriage_127_1","directories:f1843_e1460","directories:n1844_e1001"],"evidence_classes":["church_after_1835","directory_1843","directory_1844"]},
   {"identity":"id_kelly_john","name":"John Kelly","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["church:st_cyr_marriage_013_3","directories:f1843_e1461","directories:n1844_e1002"],"evidence_classes":["church_after_1835","directory_1843","directory_1844"]},
   {"identity":"id_kelly_patrick","name":"Patrick Kelly","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["church:st_cyr_marriage_018_1","church:st_cyr_marriage_019_3"],"evidence_classes":["church_after_1835"]},
-  {"identity":"id_kelsey_parnick","name":"Parnick Kelsey","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:n1844_e1003"],"evidence_classes":["directory_1844"]},
-  {"identity":"id_kelsey_patrick","name":"Patrick Kelsey","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:f1843_e1462"],"evidence_classes":["directory_1843"]},
+  {"identity":"id_kelsey_parnick","name":"Parnick Kelsey","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:n1844_e1003","directories:f1843_e1462"],"evidence_classes":["directory_1843","directory_1844"]},
   {"identity":"id_kemall_france_g","name":"France G Kemall","canonical_person_id":null,"rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["newspapers:person_kemall_france_g"],"evidence_classes":["newspaper_letter_list"]},
   {"identity":"id_kemper_william","name":"William Kemper","canonical_person_id":null,"rule":"G0","grade":"not_1835_resident","resident_subtype":null,"evidence":["directories:f1843_e1463"],"evidence_classes":["directory_1843"]},
   {"identity":"id_kendall_samuel","name":"Samuel Kendall","canonical_person_id":"kendall_samuel","rule":"G3","grade":"inferred","resident_subtype":"projected_resident","evidence":["newspapers:person_samuel_kendall"],"evidence_classes":["newspaper_letter_list","town_layer"]},

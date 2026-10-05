@@ -20,8 +20,8 @@
     "confidence": "reconstructed",
     "geometry": "canvas texture, drawn at load",
     "tiers": {
-      "inferred": 42,
-      "reconstructed": 38
+      "inferred": 43,
+      "reconstructed": 37
     },
     "note": "DRAWN SINCE 2026-08-21, AND RE-WORDED THE SAME DAY. This block used to read 'NOT DRAWN, AND THAT IS THE WHOLE DISCIPLINE OF THIS LAYER', on L25's reasoning generalised: no source gives the wording of any sign in this town, so every board stayed a blank plank. The owner's instruction of 2026-08-18 overruled it — 'you can and should put the name of the location on the sign board … it is fine if they are reconstructions' — and T-0066 then painted THE RECORD'S OWN `name` on every board. T-0130 CORRECTS THAT, on the owner's word of 2026-08-21: 'philo would not have referred to his own place as log drug store, it would be philo carpenter, drugs and medicines, or druggist or whatever he would have referred to himself as on the sign, that may be different than the name of the building for us, the sign may read differently historically' — and, widening it, 'i guess do a pass on all those signs and make sure they feel right for the era'. A record's `name` is OUR LABEL FOR A BUILDING ('Philo Carpenter's Log Drug Store'); a board carries what a signwriter lettered. The two are now separate fields and are allowed to differ. What they must still agree about is WHO: every sign declares a `sign_identity` that appears in the board AND in the card, the generator refuses to build without it, and tools/smoke_renderer.mjs asserts it at run time over every sign. THE REGISTER is the advertisements' own — proprietor or firm first and largest, the trade beneath, the place last and smallest — carried per line in `sign_lines` and lettered in that hierarchy by renderers/web/js/signage.js. Period spelling is theirs and is kept. THE TIERS: a wording taken off a firm's own advertisement is `inferred`; one built out of the evidenced trade vocabulary for a business that left no advertisement is `reconstructed`. NOT ONE IS `attested` YET, and each note says why and what would change it — the seven 1833-35 newspaper pages behind these wordings were supplied as images in conversation on 2026-08-21 and are not committed to data/sources/assets/, so they are transcriptions and a transcription is not a citation. The owner's ruling of that day is the authority for proceeding anyway: 'I will give you all those data sources later in a more comprehensive form proceed where you can and label reconstruction or inferred with a note as you like.' The LETTERFORM, the colours and the panel remain `style`, a table of the combinations the trade worked in rather than of anything Chicago recorded (docs/LIBERTIES.md L159; L169 for the wording). ONE DEVICE IS NOW PAINTED and it is the one a Chicago tradesman described himself: Carpenter's golden mortar, `sign_device` — see its own note. No other board carries an image, and L25 is untouched: it withholds the Wolf Point wolf because that IMAGE was never described, which is the opposite case to a shop whose own advertisement names its sign."
   },
@@ -1381,21 +1381,24 @@
     {
       "structure_id": "dole_warehouse_south",
       "name": "George W. Dole's Warehouse",
-      "sign_text": "GEO. W. DOLE / Forwarding & Commission Merchant",
+      "sign_text": "NEWBERRY & DOLE / Dry Goods, Hardware & Crockery",
       "sign_lines": [
         {
-          "text": "GEO. W. DOLE",
+          "text": "NEWBERRY & DOLE",
           "role": "name"
         },
         {
-          "text": "Forwarding & Commission Merchant",
+          "text": "Dry Goods, Hardware & Crockery",
           "role": "trade"
         }
       ],
       "sign_identity": "Dole",
-      "sign_text_from": "The firm NEWBERRY & DOLE advertises in both 1833 and 1835 and its warehouse on the north bank carries that firm's own line. THIS building is Dole's own 1832 warehouse and slaughter yard on the south side, and no advertisement in the pages read is signed by Dole alone — so the trade words are the firm's and the single-partner line is ours. Reconstructed for that reason rather than for any doubt about the trade.",
-      "sign_text_confidence": "reconstructed",
-      "sign_text_sources": [],
+      "sign_text_from": "THE FIRM'S STORE, AND THE PAPER'S NEIGHBOURS ARE WHAT SAY SO (T-2137). This was lettered \"GEO. W. DOLE\" on Andreas's word that the 1832 house was Dole's own. By 1834 the Chicago Democrat's advertisers fix themselves off \"Newberry & Dole's store\" ON DEARBORN STREET with a neighbour on each side of it on that street — Tuttle & Brown \"one door south\" (1834-06-04 c011), Wm. H. Taylor \"a few rods north\" (1835-05-20 c020, still standing six weeks before the scene date) — and D. Graves's bakery on South Water \"a few doors north\" of it. A store with Dearborn lots both north and south of it is not on a South Water corner; Andreas's Lake-and-Dearborn house is the one committed building that fits, so the board carries the firm. The trade line is the firm's own first card, \"have just received an assortment of DRY GOODS, HARDWARE, CROCKERY\" (26 November 1833, c013). No street line: the neighbours say Dearborn and this board hangs on the Lake Street face, so a place line would contradict the wall it is painted on. Graded `inferred` because the building is matched to the store by its neighbours and Andreas, not named by either. The river house on South Water carries the firm's forwarding line, so the two boards of one firm say two different trades. The identity stays `Dole`: the card keeps Andreas's name for the house, and Dole is the partner both name.",
+      "sign_text_confidence": "inferred",
+      "sign_text_sources": [
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835"
+      ],
       "trade": "warehouse_and_slaughter_yard",
       "trade_confidence": "attested",
       "trade_class": "works",
@@ -1417,15 +1420,15 @@
         -129.26
       ],
       "facade_bearing_deg": 0.0,
-      "arm_height_m": 3.34,
+      "arm_height_m": 3.35,
       "height_datum": "the base of this building's walls — the lowest of a 5x5 terrain grid over the footprint, as buildings.js sets it",
-      "board_w_m": 3.1,
+      "board_w_m": 2.97,
       "board_h_m": 0.86,
       "board_thickness_m": 0.05,
       "geometry": {
         "proud_m": 0.03
       },
-      "reach_m": 1.67,
+      "reach_m": 1.61,
       "wall_height_m": 3.6,
       "wall_height_from": "the record",
       "frontage_m": 12.19,
@@ -1453,14 +1456,14 @@
           "window"
         ],
         "fixed_to": null,
-        "note": "the copy would not clear window on a 2.96 x 0.90 m board, so the same words are lettered on a longer and narrower 3.10 x 0.86 m one, which does",
+        "note": "the copy would not clear window on a 2.90 x 0.88 m board, so the same words are lettered on a longer and narrower 2.97 x 0.86 m one, which does",
         "wall_span_local_m": [
           0.0,
           12.19
         ],
         "board_span_local_m": [
-          4.55,
-          7.65
+          4.61,
+          7.58
         ],
         "openings": [
           {

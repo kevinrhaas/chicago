@@ -71,8 +71,8 @@
       "new_york": 50,
       "other": 11,
       "southern": 9,
-      "unknown": 105,
-      "yankee": 79
+      "unknown": 104,
+      "yankee": 80
     }
   },
   "_vocabulary_doc": "THE CLOSED VOCABULARY, and it is the resident layer's — data/residents/community_rules.json, one list for people and for the houses they kept. The rows with a zero count are the point and are shipped anyway: a term nobody carries is a measurement of this layer, not a gap in this file. The Businesses view offers a pill only where the count is above zero.",
@@ -116,7 +116,7 @@
       {
         "value": "yankee",
         "label": "New England",
-        "count": 79
+        "count": 80
       },
       {
         "value": "new_york",
@@ -151,7 +151,7 @@
       {
         "value": "unknown",
         "label": "Unknown",
-        "count": 105
+        "count": 104
       }
     ]
   },
@@ -7895,8 +7895,8 @@
       "opened": null,
       "closed": null,
       "dates_tier": "inferred",
-      "proprietor_community": "unknown",
-      "proprietor_community_tier": null,
+      "proprietor_community": "yankee",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },

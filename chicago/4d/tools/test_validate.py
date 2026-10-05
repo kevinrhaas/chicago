@@ -3673,7 +3673,20 @@ def test_a_planting_is_scoped_to_the_scene_it_states() -> None:
 
 
 def test_real_dataset_passes() -> None:
-    """The shipped dataset must satisfy its own rules."""
+    """The shipped dataset must satisfy its own rules.
+
+    Inside tools/check.sh this is already a step of its own: `validate.py --all`, which
+    runs every rule the bare run below does and four families more, so it cannot pass
+    where this would fail. Running both cost the gate 23 s of a whole validation twice
+    (T-2117), so check.sh says so in CHECK_VALIDATE_ALL_IS_A_STEP and this test names
+    the step that carries the verdict rather than running it again. Run by hand, or by
+    anything else, it validates as it always has.
+    """
+    import os
+    if os.environ.get("CHECK_VALIDATE_ALL_IS_A_STEP") == "1":
+        print("  --  the committed dataset validates clean: carried by check.sh's own "
+              "`validate.py --all` step, a superset of this run, so not run twice")
+        return
     import subprocess
     r = subprocess.run([sys.executable, str(Path(__file__).parent / "validate.py")],
                        capture_output=True, text=True)
