@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+  { v: 1464, ts: '2026-10-05T04:11:24.122Z', date: 'Oct 4, 2026, 11:11 PM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [
       'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
       'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
