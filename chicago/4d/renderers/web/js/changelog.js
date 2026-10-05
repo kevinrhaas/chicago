@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1470, ts: '2026-10-05T04:53:28.349Z', date: 'Oct 4, 2026, 11:53 PM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: 1472, ts: '2026-10-05T05:29:37.262Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
+    ] },
+  { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+    items: [
+      'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
+      'At Full detail the windows still reflect and see through as before.',
+      'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
     ] },
   { v: 1469, ts: '2026-10-05T04:20:56.828Z', date: 'Oct 4, 2026, 11:20 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
