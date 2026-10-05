@@ -4891,8 +4891,10 @@ def cmd_self_test() -> int:
     # them — no lot rule had been read for that plat — so the whole North Division's headroom
     # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
     # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
-    # and the platted pass goes 140 -> 160: eleven labourers' households onto
-    # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
+    # and the platted pass goes 140 -> 160: eleven households onto blk_indiana_north_wolcott
+    # and nine onto blk_indiana_north_cass, thirteen of them tradesmen's, six merchant and
+    # professional and one labourer's (T-1744 corrected the "eleven labourers'" this comment
+    # and L270 first carried). All twenty are SLOTS.
     # A slot is a request and not a roof: T-1742 raises them.
     #
     # T-1734 added the other two, from the same ruling and the second of the same pair of

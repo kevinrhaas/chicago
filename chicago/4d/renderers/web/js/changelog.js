@@ -1,10 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1500, ts: '2026-10-05T18:22:41.472Z', date: 'Oct 5, 2026, 1:22 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+  { v: 1502, ts: '2026-10-05T18:39:18.066Z', date: 'Oct 5, 2026, 1:39 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
       'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
       'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
       'The doctor\u2019s card now says he came from Vermont, as an 1895 history of Chicago records. Pruyne\u2019s card keeps the store, and his own arrival year: early 1833, when the shop opened.',
       'Pruyne no longer gets an invented wife and children. The record has him marrying Rebecca Sherman on 20 August 1835, seven weeks after the day the town shows.',
+    ] },
+  { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
+    items: [
+      'Open the 1812 scene and the first Fort Dearborn no longer stands alone. West of it, by the river, is the two-storey log factory, the government trading house. South of that are the Indian agent\u2019s house and a column of three stables. South of the fort is the commanding officer\u2019s fenced garden, with the sutler\u2019s smaller garden toward the beach.',
+      'All seven come from Captain Whistler\u2019s own plan of his post, drawn in January 1808. He drew the fort to scale but noted that the buildings outside it were not. So each one stands where his own figures open the plan out: the agent\u2019s house is \u201ceighteen perches\u201d from the main gate, and the garden is lettered fifty feet to the inch.',
+      'That makes every position, size and height here a reconstruction, and each building\u2019s card says so. Which house was the factory is itself a reading: its number is not legible on the plan, and it is the one that stands due west of the fort, where an 1857 account puts \u201cthe two-story log United States factory\u201d.',
+    ] },
+  { v: 1500, ts: '2026-10-05T17:48:32.709Z', date: 'Oct 5, 2026, 12:48 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',
+      'When the lots of Kinzie\u2019s Addition were first cut, twenty households were given lots on two Indiana Street blocks. The Liberties page said all twenty were labourers\u2019 families. They were not: thirteen were tradesmen\u2019s, six were merchants\u2019 or professionals\u2019, and only one was a labourer\u2019s.',
+      'The entry now says so, and says what stands on those two blocks today: 21 households, eight of them already in cottages. The Liberties page explains it (L270).',
     ] },
   { v: 1499, ts: '2026-10-05T17:24:41.073Z', date: 'Oct 5, 2026, 12:24 PM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [

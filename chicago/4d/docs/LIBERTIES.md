@@ -14333,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 554 phases (550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 559 phases (554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14605,8 +14605,9 @@ for a West labourer household of five, and the housing deal (L354) seats them th
 
 ### L266 — The log cabins and the fort's garrison buildings are shingled, which extends a grading materials.md gives to FRAMED buildings over 78 roofs that are not framed
 
-**Scope:** `structures.phases[log_or_fort_archetype]` — 91 phases: 66 log dwellings and
-25 fort structures. It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
+**Scope:** `structures.phases[log_or_fort_archetype]` — 93 phases: 68 log dwellings and
+25 fort structures. It was 91 until T-2062, 2026-10-05, wrote the first fort's factory and
+agent's house outside its stockade, two log dwellings dated 1808-1812 (L391). It was 81 until T-2049, 2026-10-04, wrote the first Fort Dearborn's ten
 `fort_structure` records (1803-1812; no scene resolves them yet). For that fort's ranges the shingles
 are not this entry's extension at all: Whistler's own 1808 note says "shingled Roofs". It was 83 until T-1743, 2026-10-03, folded `beaubien_new_residence` into the
 Beaubien homestead and moved `beaubien_trading_post` onto the outbuilding archetype. It was 75 until T-1648 re-familied the La Salle block's South Water
@@ -15010,9 +15011,22 @@ thirty-two platted block rows stood `unsubdivided`, because no lot rule had been
 plat, so the district's headroom was 0 and T-1205 is blocked-tech on it. T-1741 read the rules
 Wright actually draws inside the Addition's cells off `wright_1834_nara_hup`: five of the
 twenty-seven, all in the two tiers nearest the river, are ruled six lots to a face, and sixty
-lots were cut on them. The deal then placed eleven labourers' households on
-`blk_indiana_north_wolcott` and nine on `blk_indiana_north_cass`. **The twenty are slots and
-not roofs**, on the same terms as the others above, and they stand on the same invention
+lots were cut on them. The deal then placed eleven households on
+`blk_indiana_north_wolcott` — six under `tradesman_dwellings` and five under
+`merchant_and_professional_dwellings` — and nine on `blk_indiana_north_cass`, seven
+`tradesman_dwellings`, one `merchant_and_professional_dwellings` and one `labourer_dwellings`,
+hh_barre_john_s's. **Corrected 2026-10-05 (T-1744):** this sentence first said the twenty were
+eleven labourers' households and nine more, which the seats file T-1741 committed (#176) never
+said: the Addition's one labourer's household was on cass, and thirteen of the twenty were
+tradesmen's. `compile_liberties.py` checks this entry's scope COUNT, not the clauses named in its
+prose, so no gate could catch it; the clauses here are read off
+`data/reconstruction/1835_platted_seats.json` at that commit. On the ground as it stands today
+the two blocks hold 21 seats: wolcott's eleven are two `merchant_and_professional_dwellings`
+slots, four `tradesman_dwellings` households adopted onto the D3 cottages raised there and five
+`tradesman_dwellings` slots; cass's ten are four tradesmen's households adopted onto its D3 and
+D4 cottages, five tradesmen's slots and hh_barre_john_s's labourer's slot, still the one
+labourer's household in the Addition. **The twenty were slots and
+not roofs** when they were dealt, on the same terms as the others above, and they stand on the same invention
 this entry records: which lot a household takes is argued from its clause's stated preferences
 and from nothing else. What the reading changed is that the lots exist and are the sheet's
 own; what it did not change is that no source puts any of these households on one. The
@@ -21603,3 +21617,43 @@ was up, and from where the wind blew.
 the bare-staff reading this supersedes at the owner's direction).
 **Covers:** `fort_dearborn_flagstaff.staff_1833_37.form.flag_flying`, `first_fort_dearborn_flagstaff.first_fort_1803.form.flag_flying`
 **Recorded:** 2026-10-05 (T-2123, T-2124).
+
+### L391 — The first fort's factory, agency, stables and gardens stand where the 1808 draught's own figures open it out
+
+**Decision:** the 1812 scene gains seven structures outside the first Fort Dearborn's stockade,
+all read off Captain Whistler's draught of January 1808: the United States **factory** (a
+two-storey log trading house), the Indian **agent's house**, a column of three **stables**, and
+the paled **Commanding Officer's garden** and **sutler's garden**. The draught states its scale
+for the garrison only, and says the buildings outside it are "not laid down by a scale". **So
+where each one stands is invented by a stated rule.** The rule takes each building's offset from
+the main gate on the sheet and multiplies it by a figure the drafter wrote himself. For the
+houses and stables that figure is the agent's house's "Distance to Main Gate Eighteen Perches"
+(297 ft, about 3.3 times what the sheet draws). For the gardens it is the officers' garden's
+lettered "5o feete to the Inch" (2.5 times the garrison's twenty).
+
+**What is invented, and what bounds it.** Every position. Every footprint: the houses' drawn
+boxes are read at the forty feet to the inch the index states for the Indian Department's
+dwellings, and the drawings are small pictures of roof and front together, so each plan is an
+upper bound. Every height and pitch, the stables' and gardens' construction, and the gardens'
+paling. The draught draws the gardens' bounds as ruled lines and letters only the houses' yards
+"Paling". **What is read rather than invented**: the arrangement of the buildings and gardens;
+the factory as "two-story log" and "west of the fort" (the Chicago Magazine, 1857, on
+chicagology_prefire052); "the garden on the south side"; the agent's distance; and the garden's
+scale. The "5o" is an inferred reading of a looped 5. **The factory's identity is inferred too.**
+Its numeral 18 is not read on the sheet. It is the paled house due west of the fort, the one of
+Quaife's "two log houses" without the numeral 17. The factory stands on the top of the bank, and
+its low corner is 0.93 m off the falling ground (`ground_contact: approach_not_modelled`). The
+drafter's own figures disagree with each other: the interpreter's house's stated 48 perches is 6.8
+times the drawing, not 3.3. So the rule is one honest reading of the sheet, not a survey. That
+house is not built: its figure puts it on the water's edge, and the ticket did not ask for it.
+Nobody is placed in any of these buildings (L1).
+
+**How to resolve:** a scaled plan of the post's outbuildings, the factory's own records (the
+Office of Indian Trade's letters name its buildings), or an archaeological reading of the
+site would replace the rule's positions outright. A better reading of the numerals beside the
+stables (one reads more like "23", House in Factors Dept.) re-labels them; it does not move them.
+
+**Covers:** `first_fort_outer_agents_house.first_fort_1803.footprint`, `first_fort_outer_agents_house.first_fort_1803.form.loft`, `first_fort_outer_agents_house.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_agents_house.first_fort_1803.form.wall_height_m`, `first_fort_outer_agents_house.first_fort_1803.position`, `first_fort_outer_factory.first_fort_1803.footprint`, `first_fort_outer_factory.first_fort_1803.form.loft`, `first_fort_outer_factory.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_factory.first_fort_1803.form.wall_height_m`, `first_fort_outer_factory.first_fort_1803.ground_contact`, `first_fort_outer_factory.first_fort_1803.position`, `first_fort_outer_officers_garden.first_fort_1803.footprint`, `first_fort_outer_officers_garden.first_fort_1803.form.construction`, `first_fort_outer_officers_garden.first_fort_1803.form.gate_width_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_height_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_spacing_m`, `first_fort_outer_officers_garden.first_fort_1803.form.picket_width_m`, `first_fort_outer_officers_garden.first_fort_1803.form.wall_kind`, `first_fort_outer_officers_garden.first_fort_1803.position`, `first_fort_outer_stable_middle.first_fort_1803.footprint`, `first_fort_outer_stable_middle.first_fort_1803.form.construction`, `first_fort_outer_stable_middle.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_middle.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_middle.first_fort_1803.position`, `first_fort_outer_stable_north.first_fort_1803.footprint`, `first_fort_outer_stable_north.first_fort_1803.form.construction`, `first_fort_outer_stable_north.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_north.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_north.first_fort_1803.position`, `first_fort_outer_stable_south.first_fort_1803.footprint`, `first_fort_outer_stable_south.first_fort_1803.form.construction`, `first_fort_outer_stable_south.first_fort_1803.form.roof_pitch_deg`, `first_fort_outer_stable_south.first_fort_1803.form.wall_height_m`, `first_fort_outer_stable_south.first_fort_1803.position`, `first_fort_outer_sutlers_garden.first_fort_1803.footprint`, `first_fort_outer_sutlers_garden.first_fort_1803.form.construction`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_height_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_spacing_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.picket_width_m`, `first_fort_outer_sutlers_garden.first_fort_1803.form.wall_kind`, `first_fort_outer_sutlers_garden.first_fort_1803.position`, `first_fort_outer_factory.first_fort_1803.ground_contact`.
+**Related:** **T-2062**, **T-2050** (the fort these stand outside, seated on the same frame),
+**T-0469** (the owner's 1812 ask), data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade.
+**Recorded:** 2026-10-05 (T-2062).

@@ -1,0 +1,131 @@
+{
+  "id": "first_fort_outer_factory",
+  "name": "First Fort Dearborn — the United States factory (the factor's house)",
+  "aka": [
+    "Whistler's index no. 18, 'Factors House' (candidate; its numeral is not read)",
+    "the government trading house"
+  ],
+  "archetype": "log_dwelling",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+      },
+      "position": {
+        "utm_e": 448135.03,
+        "utm_n": 4637620.52,
+        "rotation_deg": 90.0,
+        "symbolic_location": "Outside the first Fort Dearborn, in the frame of Whistler's 1808 draught (T-2062 rule, part 'factory'): E -294.2..-266.3 ft, N -35.1..+12.2 ft of the flagstaff's foot, facing east; this record's origin is the box's corner the seat names for that facing.",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "quaife_1913",
+          "chicagology_prefire052"
+        ],
+        "note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught lays down the garrison at twenty feet to the inch and says the buildings outside it are 'not laid down by a scale', so this box is the sheet's ARRANGEMENT opened out about the main gate. The sheet box is px [562, 1035, 625, 1142]. Its offset from the gate's mouth (px [964, 1150]) is multiplied by 3.322, the ratio of the drafter's 'Distance to Main Gate Eighteen Perches' (297 ft) to the 89 ft the sheet draws for the agent's house. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m. Seated with the fort's own frame: the staff's foot at local E +1152, N +221, the frame's north on grid north. The rule is a reconstruction (docs/LIBERTIES.md), so this position carries the drafter's own disagreement between his figures: his two stated distances open the sheet out 3.3 and 6.8 times.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage). It is a reconstruction by stated rule, and tools/read_whistler_1808.py --check (run by check.sh) recomputes it: it refuses this utm point and rotation unless they are what the register's outside_the_stockade rule and the fort's seat give this record's box, to 0.01 m (T-2062)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            14.417,
+            0
+          ],
+          [
+            14.417,
+            8.504
+          ],
+          [
+            0,
+            8.504
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "THE DRAWN BOX AT THE INDIAN DEPARTMENT'S STATED SCALE, forty feet to the inch, from the sheet box in the register. The drawing is a small pictorial elevation, roof and front together, so the box is an upper bound on the plan and the plan itself is reconstructed. The width runs along the front, north-south. At 29 x 47 ft drawn, this is the larger of the pair, which suits a trading store with its quarters."
+      },
+      "form": {
+        "stories": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws its front with two rows of lights. The Chicago Magazine of March 1857 states it outright: 'the two-story log United States factory west of the fort', in a passage that closes 'Such was the old Fort previous to 1812'. That passage is quoted on chicagology_prefire052, whose rights are unresolved, so it is cited here in prose only and the value stands on the draught, at inferred."
+        },
+        "wall_height_m": {
+          "value": 4.6,
+          "confidence": "reconstructed",
+          "note": "Unattested. Two storeys of hewn log, about fifteen feet to the eaves."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "inferred",
+          "sources": [
+            "quaife_1913"
+          ],
+          "note": "Quaife: the factor's and the agent's 'two log houses'. The Chicago Magazine of March 1857 calls the factory 'two-story log' too (quoted on chicagology_prefire052). That page is cited here in prose only: its rights are unresolved, so it does not stand under a built value."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a pitched roof falling to the west."
+        },
+        "roof_pitch_deg": {
+          "value": 35.0,
+          "confidence": "reconstructed",
+          "note": "Unattested; the draught's pictorial roof gives no pitch."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "note": "Two full storeys, so no loft is modelled."
+        },
+        "chimneys": {
+          "value": 2,
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a stack at each end of the roof."
+        }
+      },
+      "ground_contact": {
+        "state": "approach_not_modelled",
+        "note": "THE FACTORY STANDS ON THE TOP OF THE RIVER BANK, where T-2062's rule puts it, 8 m from the 1812 water at its nearest corner. The committed e1830_natural heightfield falls across its 14.4 x 8.5 m rectangle, so one corner stands 0.93 m clear of the ground. That is more than the walker's 0.35 m step-up rule. THE RECORD IS NOT WRONG AND THE TERRAIN IS NOT WRONG: the rule places the house, and the epoch places the bank. What would reconcile them on real ground is a cut, a log underpinning or a bank of earth against the low wall. No source says which, and the log archetype builds none of them, so the gap is declared rather than closed by an invented sill."
+      }
+    }
+  ],
+  "function": {
+    "value": "trading_house",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913",
+      "chicagology_prefire052"
+    ],
+    "note": "The United States factory: the government trading house that sold goods to the Potawatomi and other nations for furs, with the factor's quarters. Identified as this building by T-2062 (register § outside_the_stockade, part 'factory'): it is the paled house due west of the fort, where the Chicago Magazine of 1857 puts 'the two-story log United States factory', and of Quaife's 'two log houses' a short distance to the south-west it is the one without the numeral 17."
+  },
+  "research_note": "THE FACTORY OUTSIDE THE FIRST FORT. It was asked for by the owner through T-0469, and the draught could not place it to scale (T-2062). It stands where T-2062's rule opens the sheet out. Its numeral 18 is not read, so the identification is inferred and stated as such. Nobody is placed in it: the factors are named in the sources, but this record seats no household (L1). The root-houses the 1857 passage puts 'between fort and factory' are not drawn on the sheet and are not built.",
+  "review_required": false
+}
