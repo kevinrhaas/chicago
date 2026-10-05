@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import math
 import sys
+import zlib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -50,10 +51,82 @@ M_PICKET, M_TIMBER, M_DARK = 0, 1, 2
 GATE_RGBA = (0.38, 0.31, 0.24, 1.0)
 
 
+class TonedBuilder(MeshBuilder):
+    """MeshBuilder plus `_TONE`, a per-vertex multiplier on albedo (T-2123).
+
+    A COPY of `fort_structure.TonedBuilder`, and the docstring there says why it
+    is not shared from generators/common/ (every asset in the town would re-bake).
+    Here it gives every picket its own weathering: a stockade of seven hundred
+    posts cut from seven hundred trees, not one board painted seven hundred times.
+    """
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self.tone: list[float] = []
+        self.tone_fn = None
+
+    def add_poly(self, points, confidence: float, mat: int = 0) -> list[int]:
+        idx = super().add_poly(points, confidence, mat)
+        if self.tone_fn is None:
+            self.tone.extend([1.0] * len(points))
+        else:
+            n = float(len(points))
+            c = (sum(p[0] for p in points) / n, sum(p[1] for p in points) / n,
+                 sum(p[2] for p in points) / n)
+            self.tone.extend(float(self.tone_fn(p, c, mat)) for p in points)
+        return idx
+
+    def to_object(self, materials=None):
+        ob = super().to_object(materials)
+        if any(abs(t - 1.0) > 1e-6 for t in self.tone):
+            attr = ob.data.attributes.new(name="_TONE", type="FLOAT", domain="POINT")
+            for i, t in enumerate(self.tone):
+                attr.data[i].value = t
+        return ob
+
+
+def _unit(name: str, *keys) -> float:
+    """A stable number in [0, 1) from a name and some integers (crc32, so every
+    bake deals the same picket the same irregularity)."""
+    return (zlib.crc32(("|".join([name, *map(str, keys)])).encode()) & 0xFFFFFF) / float(0x1000000)
+
+
+# THE PICKETS ARE SPLIT TIMBER, AND NO TWO ARE ALIKE (T-2123). Every number below
+# is RECONSTRUCTED and L384 owns them. What bounds them: the record's own reading
+# of "pickets" — "split or roughly squared timber posts set upright" (construction,
+# on fort_dearborn_palisade) — and the owner's report that the wall read as plain.
+# A split post has a flat face where the log was riven and a rounded back where
+# the bark was; set by hand, it stands a little proud of or short of its
+# neighbours and a little turned. Until this ticket all seven hundred were the
+# same squared post to the millimetre, which is what made the curtain read as a
+# manufactured fence.
+#: How far a picket's top stands above or below the record's height, at most.
+#: Cut out of the head, so the line of the wall is the record's on average.
+PICKET_RISE_M = 0.07
+#: How much narrower than the record's face a picket may be (never wider, so no
+#: post can overlap its neighbour).
+PICKET_NARROW = 0.14
+#: How far one picket is turned about its own axis, at most, either way.
+PICKET_TURN_DEG = 5.0
+#: How far one picket's weathering differs from the next. The plank walk's board
+#: span is 0.14 (frontage.js); a post from another tree, set another year, more.
+PICKET_SPAN = 0.18
+#: Foot and head of every post: the foot stands in splash and damp and is
+#: darker; the head is bleached. Interpolated up the post.
+PICKET_FOOT_K = 0.78
+PICKET_HEAD_K = 1.06
+#: The ribbands: two horizontal timbers spiked across the INSIDE of the curtain,
+#: which is what holds a picket line straight once the posts start to work in the
+#: ground. Standard frontier stockade practice; not attested at this fort.
+RIBBAND_HALF_T = 0.05
+RIBBAND_H = 0.16
+RIBBAND_AT = (0.85, 0.80)   # metres above the ground, and below the head
+
+
 def build(params: PalisadeParams, name: str):
     """Build the enclosure. Returns a Blender object at the local origin."""
     params.validate()
-    b = MeshBuilder(name)
+    b = TonedBuilder(name)
 
     if params.wall_kind == "worm_fence":
         _worm_fence(b, params)
@@ -166,31 +239,72 @@ def _picket_run(b: MeshBuilder, p: PalisadeParams, a, z, conf: float) -> None:
         t = (i + 0.5) * step
         cx, cy = a[0] + ux * t, a[1] + uy * t
         _picket(b, p, cx, cy, ux, uy, nx, ny, hw, ht, conf)
+    # The ribbands, on the side the run's normal points to — inside the curtain
+    # (each side and each bastion return is walked so that +n is inward).
+    if p.wall_kind == "picket_stockade" and run > 0.6:
+        inner = ht + RIBBAND_HALF_T
+        lo_z = RIBBAND_AT[0]
+        hi_z = p.picket_height_m - p.picket_point_m - RIBBAND_AT[1]
+        for z0 in (lo_z, hi_z):
+            _beam(b, (a[0] + nx * inner, a[1] + ny * inner),
+                  (z[0] + nx * inner, z[1] + ny * inner), nx, ny, RIBBAND_HALF_T,
+                  z0, z0 + RIBBAND_H, conf, M_TIMBER)
 
 
 def _picket(b: MeshBuilder, p: PalisadeParams, cx, cy, ux, uy, nx, ny,
             hw, ht, conf: float) -> None:
-    """One post: a rectangular shaft with a sharpened head. Twelve triangles.
+    """One split post with a sharpened head, in the run's own axes.
 
     Built from its own axes rather than as an axis-aligned box, so the same
     function serves the curtain, the returns of a bastion and the flanks of a
     gate without any of them having to be parallel to x or y.
+
+    A six-sided section since T-2123: the riven face flat on the inside of the
+    curtain, the back chamfered where the round of the log was, so from outside
+    the wall reads as a row of timbers rather than of boards. Height, width, turn,
+    the lean of the point and the weathering are each the post's own, from a hash
+    of where it stands (the constants above; L384). Eighteen triangles, up from
+    twelve.
     """
-    shaft = p.picket_height_m - p.picket_point_m
-    corners = [
-        (cx - ux * hw - nx * ht, cy - uy * hw - ny * ht),
-        (cx + ux * hw - nx * ht, cy + uy * hw - ny * ht),
-        (cx + ux * hw + nx * ht, cy + uy * hw + ny * ht),
-        (cx - ux * hw + nx * ht, cy - uy * hw + ny * ht),
-    ]
-    for i in range(4):
-        (x0, y0), (x1, y1) = corners[i], corners[(i + 1) % 4]
+    def r(k):
+        return 2.0 * _unit(b.name, "picket", round(cx * 100), round(cy * 100), k) - 1.0
+
+    height = p.picket_height_m + PICKET_RISE_M * r(0)
+    head = p.picket_point_m * (1.0 + 0.2 * r(1))
+    shaft = height - head
+    hw = hw * (1.0 - PICKET_NARROW * 0.5 * (r(2) + 1.0))
+    turn = math.radians(PICKET_TURN_DEG * r(3))
+    cs, sn = math.cos(turn), math.sin(turn)
+    au, av = ux * cs - nx * sn, uy * cs - ny * sn       # the turned run axis
+    an, bn = -av, au                                    # and its normal
+
+    def at(u, v):
+        return (cx + au * u + an * v, cy + av * u + bn * v)
+
+    # counter-clockwise from above in (along, normal): inner face at +ht
+    section = [at(-hw, -0.25 * ht), at(-0.55 * hw, -ht), at(0.55 * hw, -ht),
+               at(hw, -0.25 * ht), at(hw, ht), at(-hw, ht)]
+    lean = hw * 0.35 * r(4)
+    apex = (*at(lean, 0.0), height)
+    k = 1.0 + PICKET_SPAN * r(5)
+
+    def tone(pt, _c, mat):
+        if mat != M_PICKET:
+            return 1.0
+        f = max(0.0, min(1.0, pt[2] / height))
+        return k * (PICKET_FOOT_K + (PICKET_HEAD_K - PICKET_FOOT_K) * f)
+
+    prev = b.tone_fn
+    b.tone_fn = tone
+    n = len(section)
+    for i in range(n):
+        (x0, y0), (x1, y1) = section[i], section[(i + 1) % n]
         b.add_poly([(x0, y0, 0.0), (x1, y1, 0.0),
                     (x1, y1, shaft), (x0, y0, shaft)], conf, M_PICKET)
-    apex = (cx, cy, p.picket_height_m)
-    for i in range(4):
-        (x0, y0), (x1, y1) = corners[i], corners[(i + 1) % 4]
+    for i in range(n):
+        (x0, y0), (x1, y1) = section[i], section[(i + 1) % n]
         b.add_poly([(x0, y0, shaft), (x1, y1, shaft), apex], conf, M_PICKET)
+    b.tone_fn = prev
 
 
 def _bastion(b: MeshBuilder, p: PalisadeParams, corner: str, conf: float) -> None:

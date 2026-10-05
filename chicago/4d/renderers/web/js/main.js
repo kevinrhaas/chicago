@@ -58,6 +58,7 @@ import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createWells } from './wells.js';
+import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
@@ -1751,6 +1752,13 @@ async function boot() {
   scene3d.add(wells.group);
   api.wells = wells;
 
+  // The colours on the fort's flagstaff (T-2124): hung from the staff the
+  // buildings drew, at the pattern and grade the staff's own record carries
+  // (`flag`, `flag_flying`). One draw call a flag, moved in the vertex shader.
+  const flags = createFlags({ registry: loaded.registry, buildings, confidence, problems });
+  scene3d.add(flags.group);
+  api.flags = flags;
+
   /**
    * What the PLANTERS treat as built ground: the buildings' footprints plus the
    * wharf decks. A deck is a floor, and a forb growing up through the planks
@@ -3297,6 +3305,7 @@ async function boot() {
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
+    flags.update(dt);
 
     renderer.render(scene3d, camera);
     bootController.frameRendered();

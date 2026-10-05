@@ -150,6 +150,7 @@ function normalizeGeometry(src, matrix, material, confidence, label, tone) {
   const factors = toneFactors(base[0], base[1], base[2], tone ?? NEUTRAL_TONE);
   geo.setAttribute('position', toFloatAttribute(position, 3));
   geo.setAttribute('color', albedoAttribute(base, factors, position.count));
+  applyPieceTone(geo.getAttribute('color'), src.getAttribute('_tone'));
   geo.setAttribute('_roughness', roughnessAttribute(material, position.count));
   geo.setAttribute('normal', src.getAttribute('normal')
     ? toFloatAttribute(src.getAttribute('normal'), 3)
@@ -200,6 +201,27 @@ function albedoAttribute(base, factors, count) {
     out[i * 3] = r; out[i * 3 + 1] = g; out[i * 3 + 2] = b;
   }
   return new THREE.BufferAttribute(out, 3);
+}
+
+/**
+ * EACH PIECE OF WOOD ITS OWN WEATHERING (T-2123). A generator that builds a
+ * run of separate timbers — the fort's log courses and pickets — can write a
+ * `_TONE` per vertex, and it multiplies into the colour here, after the
+ * building's facade tone: the plank walk's per-board rule (frontage.js
+ * § THE WALK'S OWN TIMBER) carried to a log wall, so one course reads as one
+ * log and the next as another. Folded into `color` rather than kept as an
+ * attribute, so a batch's attribute set does not depend on which mesh came
+ * first, and `setWeathering` keeps it because it rescales by ratio.
+ * A mesh without the attribute is untouched; the bounds are the generator's
+ * (fort_structure.py LOG_SPAN, palisade.py PICKET_SPAN; L384).
+ */
+function applyPieceTone(color, tone) {
+  if (!tone) return;
+  const a = color.array;
+  for (let i = 0; i < tone.count; i += 1) {
+    const k = tone.getX(i);
+    a[i * 3] *= k; a[i * 3 + 1] *= k; a[i * 3 + 2] *= k;
+  }
 }
 
 /**

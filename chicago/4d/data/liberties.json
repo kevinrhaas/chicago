@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 406,
+  "count": 407,
   "liberties": [
     {
       "id": "L1",
@@ -24717,6 +24717,41 @@
         {
           "label": "Recorded",
           "text": "2026-10-04 (T-2112)."
+        }
+      ]
+    },
+    {
+      "id": "L384",
+      "title": "Fort Dearborn's roofs sit on their walls, its timber is piece by piece, and its staffs fly the flag in law",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "in both forts (`generators/archetypes/fort_structure.py`, `palisade.py`, `renderers/web/js/flags.js`): - **Roofs.** Every gable and shed covering now passes through the wall head with a 0.30 m eave that hangs below it, and the gable and shed ends are closed by wall: a log building's gable is more log courses on the wall's own course grid, with chinking; a shed roof's high side is the back wall carried up to the high plate. Each covering plane is toned from 0.84 at the eave to 1.02 at the ridge, ±6 % a plane, with its edge darker still. - **Logs.** Every course of every log wall is its own piece with its own tone (±16 %), the two sill courses darker (×0.80, ×0.92). - **Pickets.** Each stockade picket is a split log, six-sided with the flat face inward, varied in height, head, width, turn and lean, toned piece by piece and darker at the foot; two ribbands run along the inside of each run; the timber grain runs up the picket. - **Flags.** The 1835 staff flies the 24-star, 13-stripe flag (stars in four rows of six); the 1812 staff the 15-star, 15-stripe flag (five staggered rows of three). The fly is 0.30 of the staff (about 15 ft and 22 ft), hoist to fly 1 : 1.6, worn (the 1835 flag fully, the 1812 by half: bleached toward a frayed fly end), streaming north-east on a south-westerly breeze with a gentle travelling ripple."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-05 (T-2123, T-2124), at the fort in 1835: *\"the roof is hovering, so that should be fixed, and be sure to apply those textures that we have to everything ... that wood looks pretty plain, and we have done better ... can we have a US flag or whatever the period correct flag ... both 1835 and 1812\"*. The artillery house's shed roof floated over an open back, the gables were plain boards over log walls, every log in a wall was one colour, and both staffs stood bare."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "no source reached gives either fort's roof pitch, eave, gable construction, log colour, picket section or ribbands; all of it is the archetype's, chosen to read as hewn and split timber the way the town's plank walks do. The flags' STAR AND STRIPE COUNTS are inferred from the Flag Acts (1794: fifteen and fifteen from 1 May 1795; 1818: thirteen stripes and a star a state from the 4th of July after admission, so 24 stars from 4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one, is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is ours — Andreas has it up \"in pleasant weather and on holidays\", the scene is drawn fair, and the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 1 August 1812. The arrangement of the stars, the size, the colours' wear and the wind are ours."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a quartermaster's account, a post return or a period view of either fort replaces the roofs and timber; any record of the post's colours (a requisition for a garrison or storm flag, its size) replaces the cloth; a weather record for 1 July 1835 settles whether it was up, and from where the wind blew."
+        },
+        {
+          "label": "Related",
+          "text": "L204 (the staff's position), L232 (the fort's well), T-0096 (the staff found, and the bare-staff reading this supersedes at the owner's direction)."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-05 (T-2123, T-2124)."
         }
       ]
     },

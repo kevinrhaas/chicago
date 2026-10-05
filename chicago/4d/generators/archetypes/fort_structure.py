@@ -30,12 +30,13 @@ from __future__ import annotations
 
 import math
 import sys
+import zlib
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from common.logwork import (  # noqa: E402
-    CHINK_RGBA, HEWN_RGBA, RELIEF_M, hewn_log_wall,
+    CHINK_RGBA, COURSE_M, HEWN_RGBA, RELIEF_M, hewn_log_wall,
 )
 from common import materials  # noqa: E402
 from common.mesh import MeshBuilder, ROOF_RGBA, simple_material  # noqa: E402
@@ -97,10 +98,87 @@ PAINT_OVER = {
 }
 
 
+class TonedBuilder(MeshBuilder):
+    """MeshBuilder plus one more float a vertex: `_TONE`, a multiplier on albedo.
+
+    T-2123. The owner, looking at the fort in 1835: "that wood looks pretty plain,
+    and we have done better" — and what the better wood does (the plank walk,
+    frontage.js § THE WALK'S OWN TIMBER) is give every board its OWN weathering, so
+    a run of timber reads as separate pieces of wood rather than one painted slab.
+    The fort could not: each log wall was one box, so every course of every wall
+    shared one colour to the bit. So each course is now its own band of faces, and
+    each band carries a tone the renderer multiplies into the building's colour
+    (buildings.js reads `_tone`). 1.0 everywhere is the old building exactly, and
+    the attribute is left off a mesh that never leaves 1.0.
+
+    The tone is taken at a face's CENTROID by `fn(point, centroid, material)`, so a
+    face is one piece of wood and a course does not shade into the next; `point` is
+    there for a gradient WITHIN a piece (a picket darker at its foot than its head),
+    and `material` so the chinking between two logs is not dealt a log's tone.
+
+    A copy of this class lives in palisade.py, deliberately: a module in
+    generators/common/ is hashed into every asset in the town (code_inputs.py), so
+    sharing these thirty lines from there would re-bake 400 buildings for a change
+    that moves the fort's vertices only.
+    """
+
+    def __init__(self, name: str):
+        super().__init__(name)
+        self.tone: list[float] = []
+        self.tone_fn = None
+
+    def add_poly(self, points, confidence: float, mat: int = 0) -> list[int]:
+        idx = super().add_poly(points, confidence, mat)
+        if self.tone_fn is None:
+            self.tone.extend([1.0] * len(points))
+        else:
+            n = float(len(points))
+            c = (sum(p[0] for p in points) / n, sum(p[1] for p in points) / n,
+                 sum(p[2] for p in points) / n)
+            self.tone.extend(float(self.tone_fn(p, c, mat)) for p in points)
+        return idx
+
+    def to_object(self, materials=None):
+        ob = super().to_object(materials)
+        if any(abs(t - 1.0) > 1e-6 for t in self.tone):
+            attr = ob.data.attributes.new(name="_TONE", type="FLOAT", domain="POINT")
+            for i, t in enumerate(self.tone):
+                attr.data[i].value = t
+        return ob
+
+
+def _unit(name: str, *keys) -> float:
+    """A stable number in [0, 1) from a name and some integers: the same building
+    weathers the same way on every bake (crc32, not Python's salted hash)."""
+    return (zlib.crc32(("|".join([name, *map(str, keys)])).encode()) & 0xFFFFFF) / float(0x1000000)
+
+
+#: How far one log differs from the next, at most, either way. The plank walk's
+#: board span is 0.14 (frontage.js WALK_BOARD_SPAN); a hewn log is a bigger piece
+#: of a different tree, so it is allowed a little more. RECONSTRUCTED (L384).
+LOG_SPAN = 0.16
+#: The sill course sits in the splash and the damp and reads darker than the logs
+#: above it; the next one up a little. RECONSTRUCTED (L384).
+SILL_K = (0.80, 0.92)
+
+
+def _log_tone(name: str, z0: float, course: float = COURSE_M):
+    """The tone function for a coursed log wall whose grid starts at `z0`."""
+    def fn(_p, c, mat):
+        if mat != M_WALL:
+            return 1.0
+        i = int(math.floor((c[2] - z0) / course + 1e-6))
+        k = 1.0 + LOG_SPAN * (2.0 * _unit(name, "log", i, round(c[0] / 2.0), round(c[1] / 2.0)) - 1.0)
+        if 0 <= i < len(SILL_K):
+            k *= SILL_K[i]
+        return k
+    return fn
+
+
 def build(params: FortStructureParams, name: str):
     """Build one fort structure. Returns a Blender object at the local origin."""
     params.validate()
-    b = MeshBuilder(name)
+    b = TonedBuilder(name)
 
     if params.kind == "parade":
         _parade(b, params)
@@ -198,9 +276,9 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
     over = p.overhang_m
 
     lower_z = wz if over == 0.0 else p.storey_height_m
-    if p.construction in ("log", "hewn_log"):
-        hewn_log_wall(b, 0.0, 0.0, w, d, 0.0, lower_z, c_mass, M_WALL, M_TRIM,
-                      skip=("bottom", "top"))
+    log = p.construction in ("log", "hewn_log")
+    if log:
+        _log_wall(b, b.name, 0.0, 0.0, w, d, 0.0, lower_z, c_mass)
     else:
         b.add_box(0.0, 0.0, 0.0, w, d, lower_z, c_mass, M_WALL,
                   skip=("bottom", "top"))
@@ -211,16 +289,18 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
         # the jetty: a floor plate on the overhang, then the upper storey
         b.add_box(-over, -over, lower_z, w + over, d + over, lower_z + 0.18,
                   c_mass, M_TRIM, skip=("top",))
-        if p.construction in ("log", "hewn_log"):
-            hewn_log_wall(b, -over, -over, w + over, d + over, lower_z + 0.18, wz + 0.18,
-                          c_mass, M_WALL, M_TRIM, skip=("bottom", "top"))
+        if log:
+            _log_wall(b, b.name, -over, -over, w + over, d + over, lower_z + 0.18,
+                      wz + 0.18, c_mass)
         else:
             b.add_box(-over, -over, lower_z + 0.18, w + over, d + over, wz + 0.18,
                       c_mass, M_WALL, skip=("bottom", "top"))
 
     ex = over
     eave = wz + (0.18 if over > 0.0 else 0.0)
-    ridge = _roof(b, p, -ex, -ex, w + ex, d + ex, eave, c_roof)
+    # The course grid the gable infill continues: the top storey's own.
+    grid0 = (lower_z + 0.18) if over > 0.0 else 0.0
+    ridge = _roof(b, p, -ex, -ex, w + ex, d + ex, eave, c_roof, c_mass, grid0)
 
     if p.kind == "magazine":
         _magazine_door(b, p, c_mass)
@@ -234,25 +314,202 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
         _chimneys(b, p, ridge, p.conf("chimneys", "reconstructed"), M_CHIMNEY)
 
 
+#: How far a pitched roof reaches past the wall at its eaves and its rakes. The
+#: 0.25 of `MeshBuilder.add_gable_roof`, a little more, because a log wall is
+#: thicker than a frame one and a short overhang on it reads as a lid. RECONSTRUCTED
+#: (L384), as every dimension of every roof in this fort already is.
+EAVE_M = 0.30
+#: The covering's own thickness at its edges: boards and shingles on a deck, seen
+#: edge-on from the parade. Without it a roof is a sheet of paper. RECONSTRUCTED.
+ROOF_EDGE_M = 0.07
+# T-2123 roof weathering (L384): eave-to-ridge tone, per-plane spread, edge shadow.
+ROOF_EAVE_K = 0.84
+ROOF_RIDGE_K = 1.02
+ROOF_PLANE_SPAN = 0.06
+ROOF_EDGE_K = 0.85
+
+
 def _roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1,
-          eave_z: float, conf: float) -> float:
+          eave_z: float, conf: float, c_wall: float = None, grid0: float = 0.0) -> float:
+    """The roof, with the walls under it carried up to meet it.
+
+    T-2123, on the owner's report that the artillery house's roof was "hovering".
+    It was: this function drew a shed roof's high edge 1.6 m above a wall that
+    stopped at the eave, with nothing under either end, and every gable roof here
+    drew its gable triangles IN ROOF SHINGLE, a quarter-metre outboard of the wall
+    and floating at the eave line a hand's breadth above the wall head. A roof sits
+    ON its walls: the wall plane under a gable or a shed's high side is the wall,
+    built of what the wall is built of (`_gable_wall`), and the roof plane passes
+    through the wall head at the wall line and runs on DOWN to its eave, so there
+    is no slot of sky between the two.
+    """
+    c_wall = conf if c_wall is None else c_wall
+    t = math.tan(math.radians(p.roof_pitch_deg))
     if p.roof_type in ("flat", "none"):
         b.add_poly([(x0, y0, eave_z), (x0, y1, eave_z), (x1, y1, eave_z),
                     (x1, y0, eave_z)], conf, M_ROOF)
         return eave_z
     if p.roof_type == "gable":
-        return b.add_gable_roof(x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf, M_ROOF,
-                                ridge_along_x=(x1 - x0) >= (y1 - y0))
+        return _gable_roof(b, p, x0, y0, x1, y1, eave_z, t, conf, c_wall, grid0)
     if p.roof_type == "shed":
-        rise = (y1 - y0) * math.tan(math.radians(p.roof_pitch_deg))
-        hi = eave_z + rise
-        b.add_poly([(x0, y0, hi), (x1, y0, hi), (x1, y1, eave_z), (x0, y1, eave_z)],
-                   conf, M_ROOF)
-        b.add_poly([(x0, y1, eave_z), (x0, y0, hi), (x1, y0, hi), (x1, y1, eave_z)][::-1],
-                   conf, M_ROOF)
-        return hi
+        return _shed_roof(b, p, x0, y0, x1, y1, eave_z, t, conf, c_wall, grid0)
     return _hip_roof(b, x0, y0, x1, y1, eave_z, p.roof_pitch_deg, conf,
                      pyramid=(p.roof_type == "pyramid"))
+
+
+def _roof_plane(b: MeshBuilder, pts, conf: float, ridge_edge: int = None) -> None:
+    """One plane of covering, counter-clockwise from above, with its edges given
+    the covering's thickness. `ridge_edge` names the edge (by its first vertex)
+    that meets another plane at the ridge and so shows no edge at all.
+
+    T-2123: a covering weathers from the eave up — the drip edge holds water and
+    moss, the ridge dries first — so each plane carries a tone from ROOF_EAVE_K at
+    its lowest edge to ROOF_RIDGE_K at its highest, times a per-plane variation so
+    the two sides of a ridge do not match to the bit (L384). The thickness faces
+    take the eave's tone, darker by the shadow under the edge."""
+    zs = [q[2] for q in pts]
+    z_lo, z_hi = min(zs), max(zs)
+    k_plane = 1.0 + ROOF_PLANE_SPAN * (2.0 * _unit(b.name, "roof", *(round(v, 1) for q in pts[:2] for v in q)) - 1.0)
+
+    def tone(q, _c, _m):
+        f = (q[2] - z_lo) / (z_hi - z_lo) if z_hi - z_lo > 1e-6 else 0.0
+        return k_plane * (ROOF_EAVE_K + (ROOF_RIDGE_K - ROOF_EAVE_K) * f)
+
+    prev = b.tone_fn
+    b.tone_fn = tone
+    b.add_poly(pts, conf, M_ROOF)
+    b.tone_fn = lambda _q, _c, _m: k_plane * ROOF_EAVE_K * ROOF_EDGE_K
+    n = len(pts)
+    for i in range(n):
+        if i == ridge_edge:
+            continue
+        a, z = pts[i], pts[(i + 1) % n]
+        b.add_poly([a, (a[0], a[1], a[2] - ROOF_EDGE_M),
+                    (z[0], z[1], z[2] - ROOF_EDGE_M), z], conf, M_ROOF)
+    b.tone_fn = prev
+
+
+def _gable_roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1, eave_z: float,
+                t: float, conf: float, c_wall: float, grid0: float) -> float:
+    o = EAVE_M
+    drop = o * t                       # the eave hangs below the wall head by this
+    lo = eave_z - drop
+    if (x1 - x0) >= (y1 - y0):
+        ym = (y0 + y1) / 2.0
+        ridge = eave_z + (ym - y0) * t
+        _roof_plane(b, [(x0 - o, y0 - o, lo), (x1 + o, y0 - o, lo),
+                        (x1 + o, ym, ridge), (x0 - o, ym, ridge)], conf, ridge_edge=2)
+        _roof_plane(b, [(x1 + o, y1 + o, lo), (x0 - o, y1 + o, lo),
+                        (x0 - o, ym, ridge), (x1 + o, ym, ridge)], conf, ridge_edge=2)
+        gable = [(y0, eave_z), (y1, eave_z), (ym, ridge)]
+        _gable_wall(b, p, "x", x0, gable, -1, c_wall, grid0)
+        _gable_wall(b, p, "x", x1, gable, 1, c_wall, grid0)
+    else:
+        xm = (x0 + x1) / 2.0
+        ridge = eave_z + (xm - x0) * t
+        _roof_plane(b, [(xm, y0 - o, ridge), (xm, y1 + o, ridge),
+                        (x0 - o, y1 + o, lo), (x0 - o, y0 - o, lo)], conf, ridge_edge=0)
+        _roof_plane(b, [(x1 + o, y0 - o, lo), (x1 + o, y1 + o, lo),
+                        (xm, y1 + o, ridge), (xm, y0 - o, ridge)], conf, ridge_edge=2)
+        gable = [(x0, eave_z), (x1, eave_z), (xm, ridge)]
+        _gable_wall(b, p, "y", y0, gable, -1, c_wall, grid0)
+        _gable_wall(b, p, "y", y1, gable, 1, c_wall, grid0)
+    return ridge
+
+
+def _shed_roof(b: MeshBuilder, p: FortStructureParams, x0, y0, x1, y1, eave_z: float,
+               t: float, conf: float, c_wall: float, grid0: float) -> float:
+    """A lean-to: high along the back (y0), falling to the front (y1).
+
+    The back wall is carried up to the high plate and the two end walls are
+    carried up under the slope — the three pieces the artillery house was missing.
+    """
+    o = EAVE_M
+    hi = eave_z + (y1 - y0) * t
+    _roof_plane(b, [(x0 - o, y0 - o, hi + o * t), (x1 + o, y0 - o, hi + o * t),
+                    (x1 + o, y1 + o, eave_z - o * t), (x0 - o, y1 + o, eave_z - o * t)],
+                conf)
+    _gable_wall(b, p, "y", y0, [(x0, eave_z), (x1, eave_z), (x1, hi), (x0, hi)], -1,
+                c_wall, grid0)
+    end = [(y0, eave_z), (y1, eave_z), (y0, hi)]
+    _gable_wall(b, p, "x", x0, end, -1, c_wall, grid0)
+    _gable_wall(b, p, "x", x1, end, 1, c_wall, grid0)
+    return hi
+
+
+def _slice(outline, z: float):
+    """The interval a convex outline in (u, z) covers at height `z`, or None."""
+    us = []
+    n = len(outline)
+    for i in range(n):
+        (ua, za), (ub, zb) = outline[i], outline[(i + 1) % n]
+        if abs(zb - za) < 1e-9:
+            if abs(z - za) < 1e-9:
+                us += [ua, ub]
+            continue
+        if min(za, zb) - 1e-9 <= z <= max(za, zb) + 1e-9:
+            us.append(ua + (ub - ua) * (z - za) / (zb - za))
+    return (min(us), max(us)) if us else None
+
+
+def _wall_quad(b: MeshBuilder, axis: str, plane: float, lo, hi, za: float, zb: float,
+               outward: int, conf: float, mat: int) -> None:
+    """A band of wall between heights `za` and `zb`, its edges at `lo` (u0, u1) and
+    `hi` (u0, u1), on an axis-aligned plane — wound to face `outward`, as `_panel`.
+    A band whose top has closed to a point is a triangle."""
+    if axis == "y":
+        pt = lambda u, z: (u, plane, z)  # noqa: E731
+        natural = -1
+    else:
+        pt = lambda u, z: (plane, u, z)  # noqa: E731
+        natural = 1
+    pts = [pt(lo[0], za), pt(lo[1], za), pt(hi[1], zb), pt(hi[0], zb)]
+    if hi[1] - hi[0] < 1e-6:
+        pts = pts[:3]
+    if outward != natural:
+        pts.reverse()
+    b.add_poly(pts, conf, mat)
+
+
+def _gable_wall(b: MeshBuilder, p: FortStructureParams, axis: str, plane: float,
+                outline, outward: int, conf: float, grid0: float) -> None:
+    """The wall above the plate, under a roof: a gable, or a shed's high side.
+
+    Built of what the wall below is built of. A log building's gable carries its
+    log courses on up, shortening with the rake, with the same proud chinking at
+    every course line and on the same course grid as the wall under it — so a
+    course that starts on the eave wall does not jump a few centimetres where it
+    turns the corner. That is how a log pen with a log gable is built; the other
+    common gable of the period, boards nailed over a frame, is equally possible
+    on any one of these buildings and is not attested for any (L384). Brick and
+    frame walls get one flat piece of their own material.
+    """
+    zs = [z for _, z in outline]
+    z0, z1 = min(zs), max(zs)
+    if p.construction not in ("log", "hewn_log"):
+        lo, hi = _slice(outline, z0), _slice(outline, z1)
+        _wall_quad(b, axis, plane, lo, hi, z0, z1, outward, conf, M_WALL)
+        return
+    prev = b.tone_fn
+    b.tone_fn = _log_tone(b.name, grid0)
+    k0 = int(math.floor((z0 - grid0) / COURSE_M + 1e-6))
+    cuts = [z0] + [grid0 + k * COURSE_M for k in range(k0 + 1, k0 + 200)
+                   if z0 + 1e-3 < grid0 + k * COURSE_M < z1 - 1e-3] + [z1]
+    gap = min(0.055, COURSE_M * 0.22)
+    for za, zb in zip(cuts, cuts[1:]):
+        lo, hi = _slice(outline, za), _slice(outline, zb)
+        if lo is None or hi is None:
+            continue
+        _wall_quad(b, axis, plane, lo, hi, za, zb, outward, conf, M_WALL)
+    b.tone_fn = prev
+    # Proud chinking at each course line inside the gable, as hewn_log_wall lays it.
+    for zc in cuts[1:-1]:
+        za, zb = zc - gap / 2, zc + gap / 2
+        sa, sb = _slice(outline, za), _slice(outline, zb)
+        if sa is None or sb is None or sb[1] - sb[0] < 0.1:
+            continue
+        _wall_quad(b, axis, plane + outward * RELIEF_M, sa, sb, za, zb, outward, conf,
+                   M_TRIM)
 
 
 def _hip_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
@@ -263,7 +520,12 @@ def _hip_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
     x0, y0, x1, y1 = x0 - overhang, y0 - overhang, x1 + overhang, y1 + overhang
     w, d = x1 - x0, y1 - y0
     short = min(w, d)
-    rise = (short / 2.0) * math.tan(math.radians(pitch_deg))
+    t = math.tan(math.radians(pitch_deg))
+    # T-2123: the plane passes through the wall head at the wall line and hangs
+    # on below it to the eave, as `_roof` explains; it used to start AT the wall
+    # head's height out at the eave and so stood clear of the wall it covered.
+    eave_z = eave_z - overhang * t
+    rise = (short / 2.0) * t
     top = eave_z + rise
     if pyramid or abs(w - d) < 1e-6:
         apex = ((x0 + x1) / 2.0, (y0 + y1) / 2.0, top)
@@ -287,6 +549,27 @@ def _hip_roof(b: MeshBuilder, x0, y0, x1, y1, eave_z, pitch_deg, conf,
         b.add_poly([(x1, y0, eave_z), (x1, y1, eave_z), r1, r0], conf, M_ROOF)
         b.add_poly([(x0, y1, eave_z), (x0, y0, eave_z), r0, r1], conf, M_ROOF)
     return top
+
+
+def _log_wall(b: MeshBuilder, name: str, x0, y0, x1, y1, z0: float, z1: float,
+              conf: float) -> None:
+    """`hewn_log_wall`, with every course its own band of faces (T-2123).
+
+    The same wall to the vertex — the same outer surface, the same proud chinking
+    and the same alternating notched corners, which `hewn_log_wall` still lays —
+    except that the log box is cut at each course line, so each log can carry its
+    own `_TONE` (TonedBuilder). Twelve triangles a course a building; a nine-course
+    barracks is about a hundred more.
+    """
+    prev = b.tone_fn
+    b.tone_fn = _log_tone(name, z0)
+    n = max(int((z1 - z0) / COURSE_M), 1)
+    cuts = [z0 + i * COURSE_M for i in range(n + 1) if z0 + i * COURSE_M < z1 - 1e-3] + [z1]
+    for za, zb in zip(cuts, cuts[1:]):
+        b.add_box(x0, y0, za, x1, y1, zb, conf, M_WALL, skip=("bottom", "top"))
+    hewn_log_wall(b, x0, y0, x1, y1, z0, z1, conf, M_WALL, M_TRIM,
+                  skip=("bottom", "top", "front", "back", "left", "right"))
+    b.tone_fn = prev
 
 
 def _panel(b: MeshBuilder, axis: str, plane: float, u0: float, u1: float,
@@ -495,14 +778,12 @@ def _root_house(b: MeshBuilder, p: FortStructureParams) -> None:
 def _flagstaff(b: MeshBuilder, p: FortStructureParams) -> None:
     """A bare tapering spar: the garrison flagstaff.
 
-    **Why it is bare.** Andreas is the source and Andreas is precise about when the
-    flag was up — it "flaunted, IN PLEASANT WEATHER AND ON HOLIDAYS", and from the
-    southern approach a traveller saw "the flag over the fort, IF PERCHANCE IT WAS
-    FLYING". 1835-07-01 is a Wednesday, it is not a holiday, and this project does
-    not model weather. A flag drawn on this spar would therefore be a claim about
-    one particular forenoon that the source explicitly declines to make, in the same
-    way a shut gate is a claim about a garrison being present. The staff is what is
-    attested; the bunting is not, so the halyard truck is where this mesh stops.
+    **Why the mesh stops at the truck.** The flag is not baked here. Andreas has the
+    1835 staff fly "a weather-beaten flag ... IN PLEASANT WEATHER AND ON HOLIDAYS",
+    so whether it is up is a claim about one forenoon, and since T-2124 the staff's
+    record says so in its own attributes (`flag`, `flag_flying`, each graded) and
+    the renderer's flags.js hangs and moves the cloth from them. The spar is what is
+    attested; the bunting is a separate, separately-graded layer (L384).
 
     **What is the archetype's.** Everything except the height. No source reached
     gives the second fort's staff a thickness, a taper, a truck or a step, so the
