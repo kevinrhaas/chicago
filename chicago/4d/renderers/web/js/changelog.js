@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
+    items: [
+      'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
+      'This is the ground of 15 August 1812. An 1895 history describes the bank there as ten to twenty feet above the water, with sand hills \u201cnot high and not continuous\u201d. A 1913 account puts the row of hills about a hundred yards back from the beach. The column marched on the beach, and the beach is unchanged.',
+      'No source places any single hill, so where each one stands and how high it is are our reconstruction. The Liberties page says so.',
+    ] },
   { v: 1502, ts: '2026-10-05T18:41:21.129Z', date: 'Oct 5, 2026, 1:41 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
     items: [
       'The four workshops that opened onto Dearborn Street behind corner houses now hold businesses. Cooley and Halsman, tailors, and S. Abell, attorney and counsellor, hang their boards there. Elmira Fowler and W. H. Taylor\u2019s boot and shoe store take the other two.',
