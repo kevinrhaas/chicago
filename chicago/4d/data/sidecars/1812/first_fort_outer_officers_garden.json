@@ -1,0 +1,199 @@
+{
+  "id": "first_fort_outer_officers_garden",
+  "phase": "first_fort_1803",
+  "name": "First Fort Dearborn — the Commanding Officer's garden",
+  "aka": [
+    "'Comm'g Officers Garden' on Whistler's draught"
+  ],
+  "archetype": "palisade",
+  "asset": "gltf/first_fort_outer_officers_garden__first_fort_1803.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1808-01-25",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "andreas_1884_v1"
+    ],
+    "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1113.84,
+    "local_n": 107.31,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "chicagology_prefire052"
+    ],
+    "position_note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught lays down the garrison at twenty feet to the inch and says the buildings outside it are 'not laid down by a scale', so this box is the sheet's ARRANGEMENT opened out about the main gate. The sheet box is px [752, 1514, 1166, 1722]. Its offset from the gate's mouth (px [964, 1150]) is multiplied by 2.5, the ratio of the garden's lettered '5o feete to the Inch' to the garrison's twenty. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m. Seated with the fort's own frame: the staff's foot at local E +1152, N +221, the frame's north on grid north. The rule is a reconstruction (docs/LIBERTIES.md), so this position carries the drafter's own disagreement between his figures: his two stated distances open the sheet out 3.3 and 6.8 times.",
+    "symbolic_location": "Outside the first Fort Dearborn, in the frame of Whistler's 1808 draught (T-2062 rule, part 'officers_garden'): E -125.2..+103.8 ft, N -373.0..-258.0 ft of the flagstaff's foot, facing north; this record's origin is the box's corner the seat names for that facing.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        69.799,
+        0
+      ],
+      [
+        69.799,
+        35.052
+      ],
+      [
+        0,
+        35.052
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "MEASURED AT THE GARDEN'S OWN LETTERED SCALE, '5o feete to the Inch' (inferred reading, register § outside_the_stockade): the four ruled sides, px 752..1166 by 1514..1722, are 229 x 115 ft. The scale reading is inferred and the drafter's lines are freehand, so the box is reconstructed."
+  },
+  "attributes": {
+    "wall_kind": {
+      "value": "picket_stockade",
+      "confidence": "reconstructed",
+      "note": "A paling: a fence of light pales set in the ground. The draught draws the garden's bounds as plain ruled lines, not the zigzag of a worm fence, and letters the yards beside nos. 17 and 18 'Paling'. That this garden had the same fence is the reconstruction."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "Unattested. Split pales, the archetype's light-post kind."
+    },
+    "picket_height_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "Unattested. Five feet, enough to keep stock out of a garden, and the lowest the archetype builds."
+    },
+    "picket_width_m": {
+      "value": 0.12,
+      "confidence": "reconstructed",
+      "note": "Unattested. A split pale."
+    },
+    "picket_spacing_m": {
+      "value": 0.2,
+      "confidence": "reconstructed",
+      "note": "Unattested. Pales a hand apart."
+    },
+    "gate_sides": {
+      "value": [
+        "n"
+      ],
+      "confidence": "inferred",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught"
+      ],
+      "note": "The draught brings a walk into the garden at mid-width on its north side, toward the fort."
+    },
+    "gate_width_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "Unattested. A walk's width."
+    },
+    "function": {
+      "value": "company_gardens",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "chicagology_prefire052",
+        "quaife_1913"
+      ],
+      "note": "Lettered 'Comm'g Officers Garden' south of the fort, eight beds in two rows. The Chicago Magazine of 1857 on the first fort: 'the garden on the south side'. Quaife: melons and other small fruit and vegetables."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "chicagology_prefire052",
+      "citation": "\"Fort Dearborn History.\" Chicagology. Reprinting the address delivered by Hon. John Wentworth at the Fort Dearborn Memorial Tablet ceremonies, 21 May 1881, as printed in the Chicago Tribune, 22 May 1881; with the caption to a woodcut of Alexander Hesler's 1855 photograph, an addendum on the fort in 1850 signed Robert Fergus, and an extract from Chicago Magazine, Vol. 1, No. 1, March 1857.",
+      "url": "https://chicagology.com/prefire/prefire052/",
+      "archived_url": "https://web.archive.org/web/20260209092824/https://chicagology.com/prefire/prefire052/",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "NOTHING THAT wentworth_1881_fort_dearborn DOES NOT ALREADY SUPPLY, except the last three entries below - cite that record for the fort, not this one",
+        "commandant's quarters, brick, about 25 x 50 ft, at the north-west corner of the enclosure (1855 caption)",
+        "officers' quarters, wood, about 30 x 60 ft, at the north-west corner (1855 caption)",
+        "parade ground 80 x 200 ft (1855 caption) AND about 80 x 400 ft (Fergus, 1850) - a disagreement, not a figure",
+        "the sutler's building (key D) and the north gate (key E)",
+        "the 1850 arrangement: quarters west of the parade ground, artillery house, barracks and storehouse east",
+        "the sun-dial on an 8-inch square timber post about 2 ft high, near the parade ground's south end (1850)",
+        "the whitewashed rough-board fence about 6 ft high, pickets already removed (1850)",
+        "the kitchen garden in the south-west corner of the enclosure (1850)",
+        "the fort's use as a general hospital from 11 July during the 1832 cholera",
+        "Bvt. Maj. Joseph Plympton arriving 1 August 1836; the soldiers withdrawn 29 December 1836",
+        "J. B. Beaubien's purchase of the reservation, 28 May 1835, for $94.61",
+        "Beaubien's later residence at the north-east corner of South Water Street and Michigan Avenue, expressly after he left the John Dean house",
+        "the 1831 lighthouse authorised 3 March 1831, fallen in October 1831, soon rebuilt; Samuel C. Lasby first keeper"
+      ],
+      "what_it_does_not_supply": [
+        "a single consistent parade-ground dimension",
+        "any hospital BUILDING inside the fort",
+        "any description of the 1816 fort's walls, blockhouses, palisade or sally-port that is unambiguously about the 1816 fort",
+        "the fort as it stood in 1835 (its two extended physical descriptions are of the pre-1812 fort and of the fort in 1850)",
+        "any plan, footprint, orientation or measured survey",
+        "the height, roof form or fenestration of any fort building",
+        "any evidence independent of wentworth_1881_fort_dearborn - it is the same text at a different address"
+      ]
+    },
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "THE GARDEN SOUTH OF THE FIRST FORT (T-2062). It is the one part outside the stockade that states a scale of its own, '5o feete to the Inch', read at T-2062. So its SIZE is a measurement at that inferred scale, and its PLACE is the reconstruction. ONLY THE PALING IS BUILT. The eight beds and the walks are ground, and the flora layer has no cultivated zone for them, so the plot inside is the prairie the 1812 cover lays (as with the 1830 garrison garden).",
+  "research_doc": "",
+  "review_required": false
+}

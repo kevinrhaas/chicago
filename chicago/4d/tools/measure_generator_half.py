@@ -443,13 +443,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Dearborn Street corner lots, three W2 and a W1, all `outbuilding` through emit.py and
 # the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 591 -> 598 and 585 -> 592 on 2026-10-05 (T-2062): seven meshes outside the first Fort
+# Dearborn's stockade in the 1812 scene — the factory and the agent's house (`log_dwelling`),
+# three stables (`outbuilding`) and two paled gardens (`palisade`), all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 591,
+    "assets": 598,
     "restales": {
-        "generators/common/*.py": 591,
+        "generators/common/*.py": 598,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 585,
+        "generators/emit.py": 592,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

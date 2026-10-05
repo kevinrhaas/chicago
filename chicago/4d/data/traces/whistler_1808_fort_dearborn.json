@@ -750,5 +750,140 @@
    "detail": "The 1816 stockade is derived at about 174 ft square (data/structures/fort_dearborn_palisade.json, off Harrison 1830); this one's outer row is about 108 x 111 ft. Both blockhouses here are at the north-west and south-east angles, where the second fort had one at the south-west. Nothing of either is to be borrowed for the other (data/exclusions.json, fort_dearborn_first_1803)."
   }
  ],
- "for_t2049": "What may be BUILT from this, and at what grade: the inner and outer picket lines, the two blockhouse footprints, the four ranges' footprints and their rooms, the main gate's place, the two small houses, the parade and the staff's place and height. All are INFERRED (a measured reading of a tier-1 sheet whose scale rests on one anchor), never documented. NOT on the sheet: heights (the elevations disagree), the wicket gate, the guard house, the stores 14 and 15, the covered way and the gutters, and the bearing to true north."
+ "for_t2049": "What may be BUILT from this, and at what grade: the inner and outer picket lines, the two blockhouse footprints, the four ranges' footprints and their rooms, the main gate's place, the two small houses, the parade and the staff's place and height. All are INFERRED (a measured reading of a tier-1 sheet whose scale rests on one anchor), never documented. NOT on the sheet: heights (the elevations disagree), the wicket gate, the guard house, the stores 14 and 15, the covered way and the gutters, and the bearing to true north.",
+ "outside_the_stockade": {
+  "ticket": "T-2062",
+  "parent_ticket": "T-2050",
+  "what_this_is": "The reading T-2062 adds for the buildings and gardens the draught draws OUTSIDE the stockade, and the rule they are built to. The index puts these off the garrison scale: the Indian Department's dwellings are 'laid down at forty feet to the Inch' and their distances 'not laid down by a scale'. So no part here is a measurement of where it stood. Each one is the sheet's ARRANGEMENT, opened out by a figure the drafter wrote himself. Every number below is a pixel box on the pinned sheet (sha256 above) or a figure lettered on it. tools/read_whistler_1808.py --check re-derives every record built from this from those boxes.",
+  "the_rule": "Each part is placed by its sheet offset from the main gate's outer mouth (gate_px), multiplied by an EXPANSION. A part with a stated distance or a stated scale uses its own: the agent's house (no. 17) has 'Distance to Main Gate Eighteen Perches' (297 ft), and the Commanding Officer's garden is lettered '5o feete to the Inch' (50/20 = 2.5). A part with neither uses the expansion of the nearest part that has one: the factory and the stables take no. 17's, and the sutler's garden takes the officers' garden's. A building's footprint is its drawn box at the scale the index states for the Indian Department's dwellings (40 ft to the inch), and a garden's is its drawn box at the garden's own lettered scale. The drawn buildings are small pictorial elevations, roof and front together, so a footprint read this way is an upper bound and is RECONSTRUCTED. The positions are reconstructed too.",
+  "inch_px": 90.4,
+  "inch_px_note": "One inch of the garrison scale: 20 ft at the staff's 4.52 px per foot. The other two scales are fractions of the same inch.",
+  "gate_px": [
+   964,
+   1150
+  ],
+  "gate_px_note": "The main gate passage's south mouth: index no. 7's box [950, 1100, 978, 1150], mid-width at its outer edge. The drafter's distance lines end 'to Main Gate'.",
+  "expansions": {
+   "agent_17": {
+    "stated": "Distance to Main Gate Eighteen Perches",
+    "stated_ft": 297.0,
+    "measured_from_part": "agents_house",
+    "note": "A perch is 16.5 ft. The sheet puts the house's centre about 89 ft from the gate at the garrison scale, so the drafter's figure is about 3.3 times the drawing."
+   },
+   "garden_scale": {
+    "stated": "Comm'g Officers Garden 5o feete to the Inch",
+    "scale_ft_per_in": 50.0,
+    "note": "READ AT T-2062, on a 4x crop of the lettering above the garden's north side. The first figure is the period 5 with a looped head, so it is easily taken for an 's'; 'so feete' makes no sense and '5o' does. The 2048 register left this scale unread. It is inferred and not attested."
+   }
+  },
+  "parts": [
+   {
+    "part": "factory",
+    "record": "first_fort_outer_factory",
+    "index_no": 18,
+    "sheet_px": [
+     562,
+     1035,
+     625,
+     1142
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 90,
+    "drawn": "pictorial elevation, roof to the west and a two-storey front of six lights to the east, with a paled yard lettered 'Paling' east of it",
+    "identity": "The paled house north of no. 17, at the head of the column of buildings west of the fort, with no numeral read (index no. 18 stays not_located). It is BUILT as the factory, and the identification is inferred from two statements that agree. Quaife says the factor's and the agent's 'two log houses' stood 'a short distance to the southwest'. The Chicago Magazine of March 1857, on chicagology_prefire052, puts 'the two-story log United States factory west of the fort', and this is the one house of the pair that stands due west."
+   },
+   {
+    "part": "agents_house",
+    "record": "first_fort_outer_agents_house",
+    "index_no": 17,
+    "sheet_px": [
+     553,
+     1255,
+     629,
+     1356
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 90,
+    "drawn": "pictorial elevation drawn like the factory, numeral '17' beside it, its paled yard east of it with the distance line running from it"
+   },
+   {
+    "part": "stable_north",
+    "record": "first_fort_outer_stable_north",
+    "index_no": 24,
+    "sheet_px": [
+     552,
+     1403,
+     584,
+     1446
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 90,
+    "drawn": "the first of the column of three small buildings south of no. 17"
+   },
+   {
+    "part": "stable_middle",
+    "record": "first_fort_outer_stable_middle",
+    "index_no": 24,
+    "sheet_px": [
+     552,
+     1467,
+     583,
+     1514
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 90,
+    "drawn": "the second of the three. At 3x its numeral reads more like '23' (House in Factors Dept.) than '24'. That is NOT asserted, and all three are built as the stables the register reads beside the column."
+   },
+   {
+    "part": "stable_south",
+    "record": "first_fort_outer_stable_south",
+    "index_no": 24,
+    "sheet_px": [
+     552,
+     1555,
+     578,
+     1596
+    ],
+    "scale_ft_per_in": 40.0,
+    "expansion": "agent_17",
+    "facing": 90,
+    "drawn": "the third of the three"
+   },
+   {
+    "part": "officers_garden",
+    "record": "first_fort_outer_officers_garden",
+    "index_no": null,
+    "sheet_px": [
+     752,
+     1514,
+     1166,
+     1722
+    ],
+    "scale_ft_per_in": 50.0,
+    "expansion": "garden_scale",
+    "facing": 0,
+    "drawn": "a ruled rectangle of eight beds in two rows with a walk round them, entered by a walk from the north at mid-width. Its four sides are the four longest ruled lines in the box (rows 1514 and 1722, columns 752 and 1166)."
+   },
+   {
+    "part": "sutlers_garden",
+    "record": "first_fort_outer_sutlers_garden",
+    "index_no": null,
+    "sheet_px": [
+     1325,
+     1535,
+     1412,
+     1740
+    ],
+    "scale_ft_per_in": 50.0,
+    "expansion": "garden_scale",
+    "facing": 0,
+    "drawn": "a small ruled plot east of the officers' garden toward the beach, lettered 'a Sutlers Garden', with one small house inside it. The house is not built: its numeral is not legible, and the register's no. 21 reading of a mark near it stays unread."
+   }
+  ],
+  "not_built": "The interpreter's house (no. 19). Its own stated distance (48 perches, 792 ft) carries it to within 4 m of the 1812 river's edge on the committed water (data/terrain/epochs/e1830_natural/river.geojson), and the ticket does not ask for it. Also not built: the paled yards beside nos. 17 and 18, and the 'Old field' lettered west of the road, which is ground rather than a structure."
+ }
 }

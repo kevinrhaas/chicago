@@ -1,0 +1,98 @@
+{
+  "id": "first_fort_outer_stable_north",
+  "name": "First Fort Dearborn — stable, north of three",
+  "aka": [
+    "Whistler's index no. 24, 'Stables'"
+  ],
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+      },
+      "position": {
+        "utm_e": 448131.4,
+        "utm_n": 4637540.94,
+        "rotation_deg": 90.0,
+        "symbolic_location": "Outside the first Fort Dearborn, in the frame of Whistler's 1808 draught (T-2062 rule, part 'stable_north'): E -306.1..-291.9 ft, N -267.9..-248.9 ft of the flagstaff's foot, facing east; this record's origin is the box's corner the seat names for that facing.",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught lays down the garrison at twenty feet to the inch and says the buildings outside it are 'not laid down by a scale', so this box is the sheet's ARRANGEMENT opened out about the main gate. The sheet box is px [552, 1403, 584, 1446]. Its offset from the gate's mouth (px [964, 1150]) is multiplied by 3.322, the ratio of the drafter's 'Distance to Main Gate Eighteen Perches' (297 ft) to the 89 ft the sheet draws for the agent's house. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m. Seated with the fort's own frame: the staff's foot at local E +1152, N +221, the frame's north on grid north. The rule is a reconstruction (docs/LIBERTIES.md), so this position carries the drafter's own disagreement between his figures: his two stated distances open the sheet out 3.3 and 6.8 times.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage). It is a reconstruction by stated rule, and tools/read_whistler_1808.py --check (run by check.sh) recomputes it: it refuses this utm point and rotation unless they are what the register's outside_the_stockade rule and the fort's seat give this record's box, to 0.01 m (T-2062)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            5.791,
+            0
+          ],
+          [
+            5.791,
+            4.328
+          ],
+          [
+            0,
+            4.328
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "THE DRAWN BOX AT FORTY FEET TO THE INCH, as the agent's house. The drawing is a small pictorial elevation, so the plan is reconstructed."
+      },
+      "form": {
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested. Log, like the houses beside it."
+        },
+        "wall_height_m": {
+          "value": 2.4,
+          "confidence": "reconstructed",
+          "note": "Unattested; a one-storey stable."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught draws a pitched roof."
+        },
+        "roof_pitch_deg": {
+          "value": 34.0,
+          "confidence": "reconstructed",
+          "note": "Unattested."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "stable",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "The first of the column of three small buildings south of the agent's house. The register reads numeral 24, 'Stables', beside the column and cannot say which of the three it covers, so all three are built as stables."
+  },
+  "research_note": "A STABLE OUTSIDE THE FIRST FORT, the first of three in a column on the road west of the gardens (T-2062).",
+  "review_required": false
+}

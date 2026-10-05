@@ -1,10 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1499, ts: '2026-10-05T17:49:14.010Z', date: 'Oct 5, 2026, 12:49 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
+  { v: 1502, ts: '2026-10-05T18:41:21.129Z', date: 'Oct 5, 2026, 1:41 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
     items: [
       'The four workshops that opened onto Dearborn Street behind corner houses now hold businesses. Cooley and Halsman, tailors, and S. Abell, attorney and counsellor, hang their boards there. Elmira Fowler and W. H. Taylor\u2019s boot and shoe store take the other two.',
       'These are firms the 1834\u201335 papers place on Dearborn Street and nowhere narrower. Until now the town treated the new shops as back-yard buildings and would not put a business in them. They stand on the street, so they are on Dearborn\u2019s face like any other roof there.',
       'Four more Dearborn businesses now have a roof: the wholesale wine and liquor store, the Dearborn Street auction and commission rooms, George Holsman, and a second Cooley partnership. 44 of the 52 businesses the papers give only a street for now stand on it.',
       'Which roof on the street each firm gets is our choice, not evidence, and its card says so.',
+    ] },
+  { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
+    items: [
+      'Open the 1812 scene and the first Fort Dearborn no longer stands alone. West of it, by the river, is the two-storey log factory, the government trading house. South of that are the Indian agent\u2019s house and a column of three stables. South of the fort is the commanding officer\u2019s fenced garden, with the sutler\u2019s smaller garden toward the beach.',
+      'All seven come from Captain Whistler\u2019s own plan of his post, drawn in January 1808. He drew the fort to scale but noted that the buildings outside it were not. So each one stands where his own figures open the plan out: the agent\u2019s house is \u201ceighteen perches\u201d from the main gate, and the garden is lettered fifty feet to the inch.',
+      'That makes every position, size and height here a reconstruction, and each building\u2019s card says so. Which house was the factory is itself a reading: its number is not legible on the plan, and it is the one that stands due west of the fort, where an 1857 account puts \u201cthe two-story log United States factory\u201d.',
+    ] },
+  { v: 1500, ts: '2026-10-05T17:48:32.709Z', date: 'Oct 5, 2026, 12:48 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',
+      'When the lots of Kinzie\u2019s Addition were first cut, twenty households were given lots on two Indiana Street blocks. The Liberties page said all twenty were labourers\u2019 families. They were not: thirteen were tradesmen\u2019s, six were merchants\u2019 or professionals\u2019, and only one was a labourer\u2019s.',
+      'The entry now says so, and says what stands on those two blocks today: 21 households, eight of them already in cottages. The Liberties page explains it (L270).',
+    ] },
+  { v: 1499, ts: '2026-10-05T17:24:41.073Z', date: 'Oct 5, 2026, 12:24 PM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+    items: [
+      'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
+      'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
+      'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
+      'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
     ] },
   { v: 1498, ts: '2026-10-05T17:06:41.763Z', date: 'Oct 5, 2026, 12:06 PM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
