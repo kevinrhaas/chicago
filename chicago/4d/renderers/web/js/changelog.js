@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
+  { v: 1466, ts: '2026-10-05T03:30:16.259Z', date: 'Oct 4, 2026, 10:30 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
     items: [
       'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
       'The shed is still a reconstruction: no record names it, and its card says so. Only where it stands changed.',
