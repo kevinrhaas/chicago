@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1463, ts: '2026-10-05T02:32:54.088Z', date: 'Oct 4, 2026, 9:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
+  { v: null, ts: '', title: 'Row-house cards are now checked against where they stand', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
       'Twice before, that card named the wrong wall or the wrong street. Each time a person reading the files caught it.',
       'Now every such card, 43 in all, is checked against the building\u2019s actual position whenever the town is rebuilt. All 43 are correct today.',
+    ] },
+  { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+    items: [
+      'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
+      'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
+      'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
     ] },
   { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
     items: [
