@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1483, ts: '2026-10-05T11:06:40.844Z', date: 'Oct 5, 2026, 6:06 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+  { v: null, ts: '', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
       'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
       'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
       'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1483, ts: '2026-10-05T11:07:09.913Z', date: 'Oct 5, 2026, 6:07 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
+    items: [
+      'Open 1904, then Evidence \u2192 Sources. The list used to show the 1835 town\u2019s sources. It now shows the 32 sources behind 1904 itself: the Glessner House drawings and photographs, the 1911 Sanborn sheets, the city\u2019s paving records and the elevation survey under the ground.',
+      'In 1812 it lists the 22 sources behind the first Fort Dearborn, its ground and its plants.',
+      'Tick \u201cAll registered sources\u201d to see every source; one another year uses reads \u201cother scene\u201d.',
     ] },
   { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
     items: [
