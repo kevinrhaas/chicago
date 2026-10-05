@@ -15828,9 +15828,9 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Forty-nine roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Seventy-four roofs across six districts now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 50 roofs (51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 74 roofs (50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -15909,6 +15909,18 @@ refused **78** (55 of them said on the roof), owed **48 → 20**. A named roof's
 its keeper's arrival year under the T-1816 finish rule (**L330**), so 21 of the new keepers'
 roofs were re-baked: an older household's cottage stands silvered and weathered rather than
 new-sawn. No ruling moved, and no name was written to a roof it was not dealt.
+
+**T-2136 TAKES IT TO 74, AND NOTHING IS OWED ANY MORE.** The 24 seats the three districts
+above left owed — 18 on the Washington tier, which `blk_randolph_` never reached, five on the
+West Division's `blk_west_*` blocks and one on `blk_indiana_north_cass` — stood on roofs this
+pass already owned, so the only thing missing was the district. Three enter `DISTRICTS` with
+T-2136 as their ticket and no `parent`: `washington`, `west` and `indiana_north`. The deal
+seats 51 households on them: 24 are now named on their roofs and 27 are letter-list names the
+ruling of 2026-08-30 refuses, each said on its roof. Written **50 → 74**, refused **83** (all 83
+now said on the roof), owed **24 → 0**. Under the T-1816 finish rule (**L330**) 16 of the new
+keepers' roofs were re-baked to their keeper's arrival year; the other eight's finish did not
+move. Which household sits on which of these lots is still L270's deal and nothing else. No
+ruling moved, and no name was written to a roof it was not dealt.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in

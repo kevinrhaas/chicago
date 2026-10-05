@@ -70,6 +70,29 @@ ring's 11, and the sward asks millions per deal. Desktop smoke part 10, whose ce
 lookups at each of three tiers, ran past the 600 s foreground limit twice on the branch. flora.js
 now bins each ring's edges by northing once and reads one bin per point: 0.15 us a lookup, and the
 identical answer at 2.1 million points compared on the committed rings.
+## T-2136 — the last three districts' roofs name their keepers (2026-10-05)
+
+`tools/name_the_keepers_1835.py` now runs over every block the platted deal seats on: three
+districts join `DISTRICTS` with T-2136 as their ticket — `washington` (`blk_washington_`),
+`west` (`blk_west_`) and `indiana_north` (`blk_indiana_north_`) — and carry no `parent`,
+because T-2136 was a piece of no programme ticket.
+
+- **51 seats, 24 keepers written, 27 refusals said on the roof** (every one the letter-list
+  ruling of 2026-08-30). Town-wide: written 50 → **74**, refused 83 (all on the roof), owed
+  24 → **0**; the ledger's `owed_to` is null. L276 restated.
+- **The self-test no longer needs something owed.** Its owner-liveness cases asked the
+  committed ledger's owed rows, so a ledger owing nothing failed as NOT EXERCISED. With nothing
+  owed it now asks a copy with one written row moved to owed and `OWED_TO` as its owner.
+- **16 roofs re-baked** (`bake.sh --only` those ids): the T-1816 finish rule (L330) reads the
+  keeper's arrival year, so roof condition and finish moved. The other eight named roofs and
+  the 27 refused ones carry prose only.
+- Downstream re-derived: platted seats (`households_that_would_change_roof` 33 → 27 in the
+  business-deal tripwire, because more adopted roofs now read occupied), the roof redeal
+  audit (seated 138 → 162), entrance aprons, woodpiles, 1835 sidecars, source-use backlinks.
+
+**Unverified:** no source places any of these households on these lots; the seat is L270's
+invention and the card says so.
+
 ## T-1691 — the Lake Street blocks' roofs name their keepers (2026-10-04)
 
 `tools/name_the_keepers_1835.py` now runs over a third district, `lake` (of T-1201), and is

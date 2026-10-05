@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Houses on Washington Street and west of the river name who lives there', kind: 'change',
+    items: [
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 24 more of them now name the household living there, 74 across the town.',
+      'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
+      '27 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '16 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+    ] },
   { v: 1488, ts: '2026-10-05T12:57:24.109Z', date: 'Oct 5, 2026, 7:57 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
     items: [
       'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
