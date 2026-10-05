@@ -2171,19 +2171,37 @@
       [
         [
           -226.09,
-          -341.83
+          -341.78
         ],
         [
           -226.79,
-          -342.42
+          -342.37
         ],
         [
-          -220.52,
-          -349.85
+          -220.61,
+          -349.61
         ],
         [
-          -219.83,
-          -349.26
+          -219.91,
+          -349.01
+        ]
+      ],
+      [
+        [
+          -226.56,
+          -335.44
+        ],
+        [
+          -226.06,
+          -336.2
+        ],
+        [
+          -223.12,
+          -334.29
+        ],
+        [
+          -223.62,
+          -333.52
         ]
       ],
       [
@@ -4727,19 +4745,19 @@
       [
         [
           -489.22,
-          -119.93
+          -119.92
         ],
         [
           -489.18,
-          -120.85
+          -120.84
         ],
         [
-          -464.62,
-          -119.97
+          -464.47,
+          -119.89
         ],
         [
-          -464.66,
-          -119.06
+          -464.5,
+          -118.98
         ]
       ],
       [
@@ -4907,37 +4925,19 @@
       [
         [
           -429.64,
-          -355.8
+          -355.78
         ],
         [
           -429.46,
-          -354.91
+          -354.88
         ],
         [
           -449.28,
-          -350.98
+          -350.84
         ],
         [
-          -449.45,
-          -351.88
-        ]
-      ],
-      [
-        [
-          -429.3,
-          -359.21
-        ],
-        [
-          -429.72,
-          -358.41
-        ],
-        [
-          -446.73,
-          -367.33
-        ],
-        [
-          -446.31,
-          -368.14
+          -449.47,
+          -351.73
         ]
       ],
       [
@@ -5631,6 +5631,11 @@
       "lot": "blk_randolph_clinton_lot3",
       "from": "recon_1835_west_021",
       "to": "privy_blk_randolph_clinton_lot3"
+    },
+    {
+      "lot": "blk_randolph_clinton_lot3",
+      "from": "recon_1835_west_021",
+      "to": "stable_blk_randolph_clinton_lot3"
     },
     {
       "lot": "blk_randolph_clinton_lot4",
@@ -6391,11 +6396,6 @@
       "lot": "blk_west_randolph_des_plaines_lot9",
       "from": "recon_1835_blk_west_randolph_des_plaines_d5_04",
       "to": "privy_blk_west_randolph_des_plaines_lot9"
-    },
-    {
-      "lot": "blk_west_randolph_des_plaines_lot9",
-      "from": "recon_1835_blk_west_randolph_des_plaines_d5_04",
-      "to": "stable_blk_west_randolph_des_plaines_lot9"
     },
     {
       "lot": "blk_west_randolph_canal_lot0",
