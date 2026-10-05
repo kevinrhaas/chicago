@@ -118,12 +118,12 @@
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 255
+      "reconstructed": 239
     },
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 65
+      "reconstructed": 81
     },
     "use_stated": {
       "camp_ground": 3,
@@ -215,12 +215,12 @@
       "occupied": {
         "attested": 50,
         "inferred": 9,
-        "reconstructed": 255
+        "reconstructed": 239
       },
       "occupants_in_prose_only": {
         "attested": 9,
         "inferred": 10,
-        "reconstructed": 65
+        "reconstructed": 81
       },
       "use_stated": {
         "attested": 25,

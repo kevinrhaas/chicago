@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "263 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "264 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 199,
     "refused": 0,
-    "refuges": 279,
-    "paths": 263
+    "refuges": 280,
+    "paths": 264
   },
   "lots": [
     {
@@ -9784,20 +9784,20 @@
       "refuges_local_enu_m": [
         [
           [
-            631.98,
-            -453.1
+            632.13,
+            -453.11
           ],
           [
             634.42,
             -453.12
           ],
           [
-            634.44,
-            -450.68
+            634.43,
+            -450.83
           ],
           [
-            632.0,
-            -450.66
+            632.14,
+            -450.82
           ]
         ],
         [
@@ -11111,20 +11111,20 @@
       "refuges_local_enu_m": [
         [
           [
-            1014.66,
+            1014.51,
             521.96
           ],
           [
             1012.22,
-            521.98
+            521.97
           ],
           [
-            1012.2,
-            519.54
+            1012.21,
+            519.68
           ],
           [
-            1014.64,
-            519.52
+            1014.5,
+            519.67
           ]
         ],
         [
@@ -11870,20 +11870,38 @@
       "refuges_local_enu_m": [
         [
           [
-            -451.34,
+            -451.33,
             -349.9
           ],
           [
-            -451.36,
-            -352.34
+            -451.35,
+            -352.64
           ],
           [
-            -448.92,
-            -352.36
+            -448.91,
+            -352.66
           ],
           [
-            -448.9,
+            -448.89,
             -349.92
+          ]
+        ],
+        [
+          [
+            -450.9,
+            -365.7
+          ],
+          [
+            -450.95,
+            -371.8
+          ],
+          [
+            -446.08,
+            -371.84
+          ],
+          [
+            -446.03,
+            -365.74
           ]
         ]
       ]

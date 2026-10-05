@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1493, ts: '2026-10-05T14:57:03.145Z', date: 'Oct 5, 2026, 9:57 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+  { v: null, ts: '', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
       'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
       'Nothing here is claimed as evidence. No source puts a workshop on these lots in 1835 or says which trade worked there. The shops are the programme filling a town it can count but cannot name, and each carries that disclosure on its own card.',
+    ] },
+  { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+    items: [
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
+      'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
+      '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
     ] },
   { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [

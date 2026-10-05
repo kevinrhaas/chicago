@@ -148,7 +148,13 @@ BUSINESS_DEAL_HOLDS = 40
 # blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
 # standing beside T-2129's Market block the deal hands hh_bennet_lyman on, and a release would
 # seat him again (L270).
-BUSINESS_DEAL_COSTS = 2
+# 2 -> 1 on 2026-10-05 (T-2136): the keepers pass now writes household ids onto the
+# Washington tier's roofs, and a roof carrying one is offered to that household alone (the
+# T-1638 return above) — in the release counterfactual as in the deal. So the households on
+# those roofs no longer move when the business deal's roofs are released, and the cascade
+# that vacated recon_1835_blk_washington_lasalle_d7_05 for him does not run. No seat in the
+# deal itself moved (L270).
+BUSINESS_DEAL_COSTS = 1
 
 TICKET = "T-1613"
 PARENT = "T-1199"
