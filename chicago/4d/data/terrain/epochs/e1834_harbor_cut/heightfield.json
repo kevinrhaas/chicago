@@ -124,7 +124,7 @@
     "cell_max": 213.175
    },
    "street_section": {
-    "cells": 21135,
+    "cells": 23943,
     "cell_max": 186.376
    },
    "swales": {
@@ -144,5 +144,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "5965a38ccdd04226ff60589c53a8961c2d8f59860fbfd2ac925c21a4773400c1"
+ "inputs_sha256": "74c2f45895204e8eee06e7a7b976fcf6466d3cfe04c568596281f0b891feb2e2"
 }
