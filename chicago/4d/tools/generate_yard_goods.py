@@ -801,6 +801,18 @@ def build_wagons(cars: dict) -> tuple[list, list]:
     walls = [(sid, w) for sid, w in
              ((sid, _footprint_world(sc)) for sid, sc in cars.items()) if len(w) >= 3]
 
+    # ONLY THE WALLS THAT CAN WIN (T-2117). Every lattice point below stands inside the
+    # yard's box, and so does every vertex of its fence, so no point is farther from the
+    # fence than the box's diagonal and its clearance is never more than that. A wall
+    # whose own box stands farther off than the diagonal can therefore never be the
+    # least clearance, and measuring it from every one of the lattice's points was 45 of
+    # this check's 65 s. The 0.01 m is slack for the lattice's 3-decimal rounding; the
+    # stand chosen is the one the whole town's walls give, to the bit.
+    reach = math.hypot(e_hi - e_lo, n_hi - n_lo) + 0.01
+    walls = [(sid, w) for sid, w in walls
+             if max(min(p[0] for p in w) - e_hi, e_lo - max(p[0] for p in w),
+                    min(p[1] for p in w) - n_hi, n_lo - max(p[1] for p in w)) <= reach]
+
     # THE STAND IS SEARCHED, NOT CHOSEN: a 0.25 m lattice over the yard's own bounding
     # box, keeping the point whose least clearance — to every committed wall and to
     # every fence line of the yard — is greatest. Ties break toward the south and then
@@ -813,7 +825,8 @@ def build_wagons(cars: dict) -> tuple[list, list]:
         n = _round(n_lo + i * step, 3)
         for j in range(steps_e + 1):
             e = _round(e_lo + j * step, 3)
-            clear = min(min(_dist_to_polygon((e, n), w) for _, w in walls),
+            clear = min(min((_dist_to_polygon((e, n), w) for _, w in walls),
+                            default=math.inf),
                         min(_dist_to_path((e, n), r) for r in runs if len(r) >= 2))
             if clear > best_clear + 1e-9:
                 best, best_clear = (e, n), clear

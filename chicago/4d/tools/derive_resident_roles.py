@@ -536,8 +536,27 @@ def _external_note(what: str, why: str) -> str:
     return what + " " + why
 
 
+# THE CROSSWALKS ARE READ ONCE A RUN, NOT ONCE A PERSON (T-2117). Every card asks the
+# gazetteer, the 1839 register and the three directory crosswalks for its own rows, and
+# `roles_for` is asked twice a card — 35,139 parses of the same five files on one
+# `--check`, 73 of its 90 s, and 168 s inside check.sh's pool, the slowest step of the
+# gate. Nothing here writes to those files or to what they parse to (every row offered
+# is a new dict), so one parse per file answers for all of them. The memo is keyed by
+# the file's size and mtime as well as its path, so a file that changes under a running
+# process is read again rather than answered from memory.
+_LOADED: dict[Path, tuple[tuple[int, int], object]] = {}
+
+
 def _load(path: Path):
-    return read_json(path) if path.exists() else None
+    try:
+        st = path.stat()
+    except FileNotFoundError:
+        return None
+    stamp = (st.st_mtime_ns, st.st_size)
+    held = _LOADED.get(path)
+    if held is None or held[0] != stamp:
+        held = _LOADED[path] = (stamp, read_json(path))
+    return held[1]
 
 
 def gazetteer_index() -> dict[str, dict]:

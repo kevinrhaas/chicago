@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1496, ts: '2026-10-05T15:53:58.479Z', date: 'Oct 5, 2026, 10:53 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+  { v: 1497, ts: '2026-10-05T16:43:16.298Z', date: 'Oct 5, 2026, 11:43 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
       'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
       'Nothing here is claimed as evidence. No source puts a workshop on these lots in 1835 or says which trade worked there. The shops are the programme filling a town it can count but cannot name, and each carries that disclosure on its own card.',
+    ] },
+  { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',
+      'Those checks had grown past the ten minutes our automated builders get to run them, so a change could go out without a full check. A few of them were doing the same work dozens of times over. They now do it once and give the same answers, and the whole set runs in about eight minutes.',
     ] },
   { v: 1495, ts: '2026-10-05T15:25:36.630Z', date: 'Oct 5, 2026, 10:25 AM CT', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
     items: [

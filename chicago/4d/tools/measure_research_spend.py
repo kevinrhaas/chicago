@@ -200,6 +200,30 @@ def read_json(path: Path):
         return None
 
 
+# THE RESEARCH FILES ARE PARSED ONCE A RUN (T-2117). `measure` walks every domain's
+# files three ways and the self-test measures 21 times: 56,073 parses of the same few
+# thousand files, 20 of its 52 s, inside tools/check.sh's heaviest tail. Only the
+# walks that READ a record go through here — the baseline and the registry, which
+# `tighten` and `raise_ceiling` edit in memory, still get a fresh parse on every read.
+# The memo is keyed by the file's TEXT, so a self-test case that writes a scratch file
+# is parsed afresh however fast it was written, and nothing here writes into a record
+# it was handed.
+_RECORDS: dict[str, object] = {}
+
+
+def read_record(path: Path):
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:
+        return None
+    if text not in _RECORDS:
+        try:
+            _RECORDS[text] = json.loads(text)
+        except ValueError:
+            _RECORDS[text] = None
+    return _RECORDS[text]
+
+
 # ---------------------------------------------------------------------------
 # THE SECOND HOP. Everything above measures research READ against research RULED
 # ON. That is two thirds of the owner's original question and not the third he
@@ -241,7 +265,7 @@ def resident_records() -> dict:
     """Every resident record by its own id — households and the people files alike."""
     out = {}
     for path in town_records(RESIDENTS):
-        doc = read_json(path)
+        doc = read_record(path)
         if isinstance(doc, dict) and doc.get("id"):
             out[doc["id"]] = doc
     return out
@@ -466,7 +490,7 @@ def count_written(domain_dir: Path, records: dict) -> tuple:
     for path in sorted(domain_dir.rglob("*.json")):
         if not is_crosswalk(path):
             continue
-        doc = read_json(path)
+        doc = read_record(path)
         if not isinstance(doc, dict):
             continue
         from_file = doc_rests_on(doc)
@@ -555,7 +579,7 @@ def count_read(domain_dir: Path) -> tuple:
     for path in sorted(domain_dir.rglob("*.json")):
         if is_crosswalk(path):
             continue
-        doc = read_json(path)
+        doc = read_record(path)
         if not isinstance(doc, dict):
             continue
         units = named_units(doc)
@@ -579,7 +603,7 @@ def units_read(domain_dir: Path) -> set:
     for path in sorted(domain_dir.rglob("*.json")):
         if is_crosswalk(path):
             continue
-        doc = read_json(path)
+        doc = read_record(path)
         if not isinstance(doc, dict):
             continue
         for key in unit_containers(doc):
@@ -624,7 +648,7 @@ def count_spent(domain_dir: Path) -> tuple[int, int, list]:
     for path in sorted(domain_dir.rglob("*.json")):
         if not is_crosswalk(path):
             continue
-        doc = read_json(path)
+        doc = read_record(path)
         if not isinstance(doc, dict):
             continue
         for key, rulings in doc.items():

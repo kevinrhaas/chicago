@@ -18,6 +18,18 @@
 # that costs a minute has to be made cheaper, or moved to tools/bake.sh, or the budget
 # has to be re-argued out loud here.
 #
+# IT OUTGREW IT A SECOND TIME, AND WAS MADE CHEAPER (T-2117). By 2026-10-05, 782 steps
+# took more than 600 s on a four-core steward runner — three runs ended on rc 124 at
+# 763 of 774 — and 2,288 CPU-seconds went into the pool. The heavy tail was not hard
+# work; it was the same work done many times over: one tool parsing five crosswalks
+# 35,000 times, a self-test rebuilding an unchanged frontage census fourteen times,
+# another re-segmenting the whole newspaper corpus 157 times, two searches measuring
+# every wall and street in town from points they could not reach, and the validator's
+# suite re-running the full validation the step before it had just run. Each was cut
+# to the work it actually needed, and each tool's verdict, output and self-test
+# transcript is unchanged byte for byte. Measured on four cores: 484 s, 1,906
+# CPU-seconds. Each step's time sits in CHECK_TIMINGS. Read it before adding to the tail.
+#
 #   tools/check.sh            the gate
 #   tools/check.sh --strict   warnings are errors (used before a release)
 #
@@ -219,8 +231,10 @@ selftest "…and it refuses a thinned air, a shrunk apron and the two literals d
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
 
+# The validator's own suite re-validates the committed dataset as one of its tests;
+# the step above already did, and more strictly, so the suite is told so (T-2117).
 step "validator self-tests" \
-  python3 tools/test_validate.py
+  env CHECK_VALIDATE_ALL_IS_A_STEP=1 python3 tools/test_validate.py
 
 # T-1727. STRUCTURE VERSIONS — `?structure=<id>&version=<label>` swaps one building for a
 # committed alternate so competing builds can be compared side by side. validate.py above

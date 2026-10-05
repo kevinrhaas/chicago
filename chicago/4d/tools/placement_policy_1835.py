@@ -653,16 +653,36 @@ def clause(clause_id: str) -> dict:
 
 # ------------------------------------------------------------------ the reading
 
+# ONE INVOCATION, ONE TREE (T-2117). The census is the whole cost of this module — a
+# nearest-frontage search for every committed roof, about 12 s — and the self-test asked
+# for it fourteen times over a tree it never touches: it breaks the CLAUSES, the
+# outlier reasons and the constants' readers in memory, never a record. Measured
+# 2026-10-05: 95 s serial and 162 s inside check.sh's pool, the second-slowest step of
+# the gate. So `main` holds the first tree it reads and every later `_tree()` of that
+# run is handed the same one; nothing in this module writes into it (`reading` copies
+# each row it scores). Only `main` turns the hold on. A module that imports this one
+# and moves records between two readings in one process still gets a fresh census on
+# every call, exactly as before.
+_HOLD_THE_TREE = False
+_HELD_TREE: tuple | None = None
+
+
 def _tree():
     """The committed census, the reconciliation's families, and the street classes.
 
     Imported inside the function on purpose: `measure_frontage_fabric` imports THIS
     module for its constants, and a module-level import here would close the circle.
     """
+    global _HELD_TREE
+    if _HELD_TREE is not None:
+        return _HELD_TREE
     sys.path.insert(0, str(TOOLS))
     from measure_frontage_fabric import (  # noqa: E402
         census, documented_families, street_traffic)
-    return census(), documented_families(), street_traffic()
+    tree = census(), documented_families(), street_traffic()
+    if _HOLD_THE_TREE:
+        _HELD_TREE = tree
+    return tree
 
 
 def clauses_for(family: str) -> list[dict]:
@@ -1074,6 +1094,9 @@ def main() -> int:
                         help="break the five assertions in memory and watch them fire")
     parser.add_argument("--quiet", action="store_true", help="print only the verdict")
     args = parser.parse_args()
+
+    global _HOLD_THE_TREE
+    _HOLD_THE_TREE = True   # one invocation reads the committed tree once (T-2117)
 
     if args.self_test:
         return self_test()
