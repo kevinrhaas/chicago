@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1474, ts: '2026-10-05T05:58:29.488Z', date: 'Oct 5, 2026, 12:58 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+  { v: 1475, ts: '2026-10-05T06:19:37.082Z', date: 'Oct 5, 2026, 1:19 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [
       'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
       'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
       'House and store yards stay as they were, kept short with weeds along their fences.',
       '149 of the town\u2019s 338 platted lots are empty. No source describes one, so this ground is our reconstruction (Liberty L386).',
+    ] },
+  { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
+      'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
     ] },
   { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
     items: [

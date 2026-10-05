@@ -5,6 +5,7 @@
 #   tools/bake.sh                 build everything
 #   tools/bake.sh --only <id>     build one structure
 #   tools/bake.sh --only a,b,c    build several, in one Blender start-up
+#                                 (either form derives only the masters it built)
 #   tools/bake.sh --no-bake       skip the UV unwrap (fast iteration)
 #
 # AO is NOT baked here and never has been in the nightly: `--ao` is opt-in on
@@ -46,9 +47,23 @@ fetch_blender() {
 echo "== Blender"
 fetch_blender
 
+# T-1653. A `--only` bake derives the masters its build wrote and no others. Until
+# this, the step below ran over every master in the tree whatever was selected — ~570
+# of them, two npx start-ups each, about eighteen minutes — so re-baking one roof cost
+# a run more of its 600-second foreground ceiling than the bake itself did. build.py
+# writes the list (`--wrote`), because only it knows which phases and versions a
+# selection resolved to; this passes it on unread. A bake with no selection still runs
+# the whole step, which is also what rewrites assets/manifest.web.json whole.
+SELECTED=0
+for arg in "$@"; do
+  case "$arg" in --only|--only=*) SELECTED=1 ;; esac
+done
+WROTE="$(mktemp -t bakewrote.XXXXXX)"
+trap 'rm -f "$WROTE"' EXIT
+
 echo
 echo "== generate + bake"
-"$BIN" -b -noaudio --factory-startup --python generators/build.py -- "$@"
+"$BIN" -b -noaudio --factory-startup --python generators/build.py -- "$@" --wrote "$WROTE"
 
 echo
 echo "== web derivatives"
@@ -56,7 +71,17 @@ echo "== web derivatives"
 # Blender-free runner can regenerate the derivatives from the committed
 # masters and MEASURE the result. The flags, the bit depths and the reasons
 # all live over there, and this is their only caller.
-tools/web_derivatives.sh
+if [ "$SELECTED" = "1" ]; then
+  if [ ! -s "$WROTE" ]; then
+    echo "   the selection built no master, so there is nothing to derive — see the" >&2
+    echo "   skip lines above. Refusing to go on to publish a tree this bake did not touch." >&2
+    exit 1
+  fi
+  echo "   $(wc -l < "$WROTE" | tr -d ' ') master(s) built by this selection; deriving those alone (T-1653)"
+  tools/web_derivatives.sh --only "$(paste -sd, "$WROTE")"
+else
+  tools/web_derivatives.sh
+fi
 
 echo
 echo "== sidecars"
