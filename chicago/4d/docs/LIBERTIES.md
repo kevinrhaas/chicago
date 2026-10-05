@@ -21258,7 +21258,38 @@ loses the sky-lit sheen the refracting glass shows and nothing is seen through i
 transmission at the lower settings, replaces the plate there.
 **Recorded:** 2026-10-05 (T-2109).
 
-### L384 — Six invented houses fill the Dearborn block of the plat's last tier to its lot ceiling
+### L386 — A vacant town lot is grazed prairie remnant: the flowers the stock leave, on a cropped sward
+**Decision:** T-2101 gives every platted lot with no building on it — no house placed in it, no
+standing footprint over it and no outbuilding dealt to it — its own flora community,
+`z11_lot_remnant` (`data/flora/zones/z11_lot_remnant.json`, written with its manifest entry by
+`tools/derive_lot_remnant.py` and re-derived by `check.sh`). 146 of the plat's 338 lots, in 71
+rings where neighbouring vacant lots share their side lines. On them the settled town's ruderal
+weeds give way to the mesic prairie's bunchgrasses cropped to 0.25-0.55 m, the town's trodden
+bluegrass and clover, and six of the prairie's flowers: bergamot, black-eyed Susan, rattlesnake
+master and butterfly weed at or above their prairie density, the two coneflowers thinned. Compass
+plant, Indian grass, purple prairie clover, lead plant, ox-eye and wild quinine are left out, each
+with its reason in the record. Grass covers 60 % of the ground, the sand prairie's share, and bare ground 15 %, between the prairie's 2 % and the trodden town's
+45 %.
+**Why:** the owner asked on 2026-10-04 for a town "less 'weedy'" without cutting "the beautiful
+plants and grass and flowers", and T-2086 point 2 asked that a vacant lot stay a grazed, flowering
+prairie remnant. The flora dossier has the grid "drawn but mostly not built" in summer 1835 and
+stock at large on it (the 7 Nov 1833 code against wandering pigs; cattle on the unfenced commons).
+No source describes a particular vacant lot. What bounds the invention: every species is a
+committed record's own, copied with its July state and colour and never graded above its parent;
+no height is above the parent's; and which flowers stand follows the ordinary ecology of grazed
+prairie, where stock take the palatable plants first and leave the bitter, aromatic, spiny and
+milky ones.
+**Consequence:** walking the town, the open lots between the houses read as short, patchy prairie
+with lavender, yellow, orange and pale-green flower heads in it, not as a weed patch, and the yards
+of the built lots (L376) stay as they were. A lot is vacant by the committed buildings alone: a
+district built on it later takes it out of the remnant by re-running the tool. A lot is not fenced
+or claimed by this; it states only the ground.
+**How to resolve:** a period description or view of an unbuilt Chicago town lot in the 1830s, or a
+grazing study of a comparable lake-plain prairie remnant, would replace the crop heights, the
+densities and the list of flowers that stand.
+**Recorded:** 2026-10-05 (T-2101).
+
+### L387 — Six invented houses fill the Dearborn block of the plat's last tier to its lot ceiling
 
 **Decision:** `blk_washington_dearborn` — bounded by Washington, State, Madison and Dearborn, where
 the boarding house T-1951 raised (**L349**) stood alone on one of eight lots — carries **six more

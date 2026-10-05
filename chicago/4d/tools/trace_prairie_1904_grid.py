@@ -83,6 +83,13 @@ LINES: dict[str, dict[str, tuple]] = {
         "ic_row": ("v", [[4111.6, 1100], [4231.2, 1500], [4350.7, 1900], [4467.5, 2300], [4583.9, 2700],
                          [4704.7, 3100], [4823.2, 3500], [4941.4, 3900], [5060.0, 4300], [5179.0, 4700],
                          [5295.1, 5100], [5414.9, 5500], [5533.7, 5900]]),
+        # T-2116, the 16th Street corner of the Indiana face: the east line of the corner
+        # lot (the west wall of the 209-217 E. 16th St. row, carried on past the row's rear
+        # to the next lot line), column profile peaks across rows 1300-1420 and 1445-1485;
+        # and that lot line, the first to run from Indiana to the alley (row profile peaks
+        # at columns 1045-1140 and 1750-1900).
+        "ind_16_corner_rear": ("v", [[1571.6, 1360], [1571.4, 1465]]),
+        "ind_16_l1494": ("h", [[1092, 1492.7], [1825, 1497.4]]),
     },
     "28": {
         # E. 18th Street's two property lines, read WITHIN each block rather than across
@@ -110,6 +117,15 @@ LINES: dict[str, dict[str, tuple]] = {
         "alley_w_e": ("v", [[476.0, 700], [474.7, 1200], [474.9, 1600]]),
         "alley_e_w": ("v", [[1170.4, 400], [1170.3, 700], [1172.0, 1200], [1173.4, 1600]]),
         "alley_e_e": ("v", [[1203.0, 400], [1202.0, 1200], [1203.0, 1600]]),
+        # T-2116, the two Indiana corners whose rear is taken by lots fronting the cross
+        # street. 20th: the line 2001-2009 Indiana end on (column profile peaks, rows
+        # 300-340 and 360-395) and the first lot line to reach the alley (row peaks at
+        # columns 148-185 and 330-430). 21st: the line 2101-2105 end on (rows 1000-1075)
+        # and the first lot line behind them that reaches the alley.
+        "ind_20_corner_rear": ("v", [[308.8, 320], [309.0, 378]]),
+        "ind_20_l437": ("h", [[166, 437.5], [380, 435.0]]),
+        "ind_21_corner_rear": ("v", [[325.4, 1010], [325.4, 1070]]),
+        "ind_21_l1084": ("h", [[166, 1083.8], [380, 1081.7]]),
     },
 }
 
@@ -215,6 +231,127 @@ FACES = [
      "labels": [["2101", 1025], ["2109", 1150], ["2115", 1245], ["2123", 1335], ["2125", 1400], ["2127", 1475],
                 ["2129", 1515], ["2141", 1680]]},
 ]
+
+# T-2116: the Indiana and Calumet frontage lots, read the same way -- a lot line is kept
+# where it crosses the front yard AND the middle of the lot. On sheets 20 and 28 the rows
+# are profile peaks at the column given, each confirmed by a second peak at a column
+# across the lot (sheet 20: 1750-1900; sheet 28: 3680-3780 north of row 3450, 4150-4260
+# south of it). Sheet 35 is too coarse to stand on a profile alone: its rows are profile
+# peaks at columns 148-185 (Indiana) or 1440-1490 (Calumet), each checked by eye on 2-3x
+# enlargements with a 10-px grid, and the same rows read across the rear of the lot.
+#
+# Three Indiana corners are cut two ways: lots that front the cross street stand behind
+# the corner's Indiana lots. Each is laid out as two faces -- the Indiana lots, ending on
+# the line the sheet draws behind them, and a cross-street face ('axis': 'col', whose lot
+# lines are COLUMNS read at the row given, between its 'west' and 'east' bounds). Where a
+# corner's cross-street numbers stand on a lot no line divides from the Indiana one (the
+# Kodak works at 18th, the church at 21st, the post-office block at 22nd), they are carried
+# on that lot as 'cross_street'. Sheet 27 (Indiana, 18th to 20th) was not supplied, so that
+# face has no lots.
+AVENUE_FACES = [
+    {"id": "indiana_e_16_18_corner", "street": "indiana", "side": "east", "sheet": "20",
+     "block": "blk_indiana_prairie_16_18",
+     "front": ("line", "20", "indiana_e"), "rear": ("line", "20", "ind_16_corner_rear"),
+     "north": ("line", "20", "s16_s"), "south": ("line", "20", "ind_16_l1494"),
+     "column": 1092, "lot_lines": [],
+     "labels": [["1601", 1320], ["1603", 1420]],
+     "cross_street": {"first": ["201 E. 16th St."]},
+     "note": ("One five-storey building (office and tin shop) carries both numbers; the sheet draws no lot line "
+              "between them.")},
+    {"id": "e16th_s_indiana_16_18", "street": "e16th", "side": "south", "sheet": "20", "axis": "col",
+     "block": "blk_indiana_prairie_16_18",
+     "front": ("line", "20", "s16_s"), "rear": ("line", "20", "ind_16_l1494"),
+     "west": ("line", "20", "ind_16_corner_rear"), "east": ("line", "20", "alley_w_w"),
+     "column": 1380, "lot_lines": [],
+     "labels": [["209", 1629], ["211", 1729], ["213", 1821], ["215", 1957], ["217", 2064]],
+     "note": ("A row of five 3 1/2-storey dwellings. Its four party walls stop at the row's rear wall (column "
+              "peaks at 1674, 1775, 1878 and 1986 across rows 1300-1420, none across 1445-1485), so the sheet "
+              "draws no lot line between them and the row is one lot here. The numbers in parentheses above "
+              "them, (41) to (33), are the pre-1909 ones and are not carried.")},
+    {"id": "indiana_e_16_18", "street": "indiana", "side": "east", "sheet": "20",
+     "block": "blk_indiana_prairie_16_18",
+     "front": ("line", "20", "indiana_e"), "rear": ("line", "20", "alley_w_w"),
+     "north": ("line", "20", "ind_16_l1494"), "south": ("line", "28", "s18_n_a"),
+     "column": 1092,
+     "lot_lines": [2108.0, 2312.6, 2629.3, 2942.2, 3080.2, 3240.8, 3391.5, 3544.6, 3902.2, 4449.0, 4751.6,
+                   4898.5, 5056.3, 5205.6, 5324.5],
+     "labels": [["1605", 1525], ["1613", 2050], ["1615", 2160], ["1617", 2260], ["1619", 2400], ["1623", 2820],
+                ["1637", 3420], ["1641", 3700], ["1703", 4000], ["1713", 4600], ["1727", 5400], ["1737", 6000]],
+     "cross_street": {"last": ["200 E. 18th St.", "216 E. 18th St."]}},
+    {"id": "indiana_e_20_21_corner", "street": "indiana", "side": "east", "sheet": "35",
+     "block": "blk_indiana_prairie_20_21",
+     "front": ("line", "35", "indiana_e"), "rear": ("line", "35", "ind_20_corner_rear"),
+     "north": ("line", "28", "s20_s"), "south": ("line", "35", "ind_20_l437"),
+     "column": 166, "lot_lines": [355.0, 397.3],
+     "labels": [["2001", 287], ["2003", 327], ["2007", 370], ["2009", 412]]},
+    {"id": "e20th_s_indiana_20_21", "street": "e20th", "side": "south", "sheet": "35", "axis": "col",
+     "block": "blk_indiana_prairie_20_21",
+     "front": ("line", "28", "s20_s"), "rear": ("line", "35", "ind_20_l437"),
+     "west": ("line", "35", "ind_20_corner_rear"), "east": ("line", "35", "alley_w_w"),
+     "column": 320, "lot_lines": [360.7, 399.2],
+     "labels": [["213", 338], ["215", 382], ["217", 418]],
+     "note": ("The first lot runs from the line the Indiana lots end on, so it holds the 10-ft passage the sheet "
+              "prints between them and 213's own west line (column 326); the sheet does not say whose it is.")},
+    {"id": "indiana_e_20_21", "street": "indiana", "side": "east", "sheet": "35",
+     "block": "blk_indiana_prairie_20_21",
+     "front": ("line", "35", "indiana_e"), "rear": ("line", "35", "alley_w_w"),
+     "north": ("line", "35", "ind_20_l437"), "south": ("line", "35", "s21_n"),
+     "column": 166, "lot_lines": [476.6, 518.6, 560.0, 602.2, 642.3, 684.6, 726.0],
+     "labels": [["2011", 447], ["2013", 490], ["2017", 533], ["2019", 577], ["2021", 616], ["2023", 657],
+                ["2027", 700], ["2029", 760], ["2035", 871]],
+     "cross_street": {"last": ["216 E. 21st St."]}},
+    {"id": "indiana_e_21_22_corner", "street": "indiana", "side": "east", "sheet": "35",
+     "block": "blk_indiana_prairie_21_22",
+     "front": ("line", "35", "indiana_e"), "rear": ("line", "35", "ind_21_corner_rear"),
+     "north": ("line", "35", "s21_s"), "south": ("line", "35", "ind_21_l1084"),
+     "column": 166, "lot_lines": [],
+     "labels": [["2101", 1012], ["2105", 1058]],
+     "note": "One building (office and garage) carries both numbers; the sheet draws no lot line between them."},
+    {"id": "e21st_s_indiana_21_22", "street": "e21st", "side": "south", "sheet": "35", "axis": "col",
+     "block": "blk_indiana_prairie_21_22",
+     "front": ("line", "35", "s21_s"), "rear": ("line", "35", "ind_21_l1084"),
+     "west": ("line", "35", "ind_21_corner_rear"), "east": ("line", "35", "alley_w_w"),
+     "column": 1040, "lot_lines": [375.2],
+     "labels": [["215", 389.5], ["217", 433]]},
+    {"id": "indiana_e_21_22", "street": "indiana", "side": "east", "sheet": "35",
+     "block": "blk_indiana_prairie_21_22",
+     "front": ("line", "35", "indiana_e"), "rear": ("line", "35", "alley_w_w"),
+     "north": ("line", "35", "ind_21_l1084"), "south": ("line", "35", "s22_n"),
+     "column": 166, "lot_lines": [1149.6, 1208.8, 1289.5, 1371.8, 1453.8, 1538.0],
+     "labels": [["2107", 1105], ["2111", 1178], ["2115", 1228], ["2117", 1271], ["2119", 1310], ["2123", 1387],
+                ["2125", 1422], ["2129", 1480], ["2131", 1515], ["2133", 1545]],
+     "cross_street": {"last": ["202 E. 22nd St.", "204 E. 22nd St.", "206 E. 22nd St.", "210 E. 22nd St.",
+                               "212 E. 22nd St."]}},
+    {"id": "calumet_w_18_20", "street": "calumet", "side": "west", "sheet": "28",
+     "block": "blk_prairie_calumet_18_20",
+     "front": ("poly", "28", "calumet_w"), "rear": ("poly_join", "28", ["rear_1801_1811", "alley_e_e"]),
+     "north": ("line", "28", "s18_s_d"), "south": ("line", "28", "s20_n"),
+     "column": 3290,
+     "lot_lines": [2664.4, 2914.3, 3163.9, 3519.9, 3883.8, 4218.7, 4888.3, 5484.9, 5734.0],
+     "labels": [["1800", 1475], ["1830", 2725], ["1832", 3000], ["1836", 3300], ["1840", 3650], ["1900", 4037],
+                ["1910", 4662], ["1922", 5275], ["1928", 5650], ["1932", 5825]]},
+    {"id": "calumet_w_20_21", "street": "calumet", "side": "west", "sheet": "35",
+     "block": "blk_prairie_calumet_20_21",
+     "front": ("line", "35", "calumet_w"), "rear": ("line", "35", "alley_e_e"),
+     "north": ("line", "28", "s20_s"), "south": ("line", "35", "s21_n"),
+     "column": 1465, "lot_lines": [332.7, 393.2, 518.0, 557.0, 681.8],
+     "labels": [["2000", 301], ["2004", 343], ["2008", 404], ["2010", 449], ["2012", 494], ["2016", 536],
+                ["2018", 607], ["2032", 823]]},
+    {"id": "calumet_w_21_22", "street": "calumet", "side": "west", "sheet": "35",
+     "block": "blk_prairie_calumet_21_22",
+     "front": ("line", "35", "calumet_w"), "rear": ("line", "35", "alley_e_e"),
+     "north": ("line", "35", "s21_s"), "south": ("line", "35", "s22_n"),
+     "column": 1465, "lot_lines": [1075.2, 1199.4, 1364.0, 1446.4, 1528.8],
+     "labels": [["2100", 1030], ["2106", 1104], ["2114", 1246], ["2124", 1398], ["2128", 1475], ["2140", 1640]]},
+]
+AVENUES = ("prairie", "indiana", "calumet")
+# The blocks the tiling check leaves out, each with its reason.
+UNTILED_BLOCKS = {
+    "blk_indiana_prairie_18_20": "Indiana Avenue 18th-20th is on sheet 27, not supplied: its east-face lots are not read",
+    "blk_prairie_ic_16_18": "T-0474's east-face lots end on the IC right-of-way line and cover 99.4 per cent of the block "
+                            "it outlines; why the rest is not reached is not T-2116's to rule",
+}
+TILE_TOLERANCE_M2 = 2.0   # rounding: every polygon is written to the centimetre
 
 # ---------------------------------------------------------------------------
 # THE 1886 LEGAL LOTS (T-1745). Robinson's Atlas of 1886, plate 10, prints the lot and
@@ -970,11 +1107,18 @@ READ_AGAINST_LIBRARY = {
 }
 
 
+def poly_len(poly) -> float:
+    return sum(dist(poly[i], poly[i + 1]) for i in range(len(poly) - 1))
+
+
 def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
-    front = geo.get(face["front"])[1]
+    front_kind, front = geo.get(face["front"])
     rear_kind, rear = geo.get(face["rear"])
-    north = geo.get(face["north"])[1]
-    south = geo.get(face["south"])[1]
+    by_col = face.get("axis") == "col"
+    # A row-axis face runs north to south between two cross-street lines; a column-axis
+    # face (lots fronting a cross street) runs west to east between two avenue-wise lines.
+    north = geo.get(face["west"] if by_col else face["north"])[1]
+    south = geo.get(face["east"] if by_col else face["south"])[1]
     sheet = face["sheet"]
     col = face["column"]
     dn = unit(sub(north[1], north[0]))
@@ -986,10 +1130,17 @@ def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
         for rule in face.get("columns", []):
             if ("from_row" in rule and y >= rule["from_row"]) or y in rule.get("rows", []):
                 c = rule["column"]
-        p = to_local(sheet, c, y)
+        p = to_local(sheet, y, c) if by_col else to_local(sheet, c, y)
         lot_lines.append((p, add(p, d)))
     lot_lines.append(south)
-    rows = lib.get(sheet, [])
+    # Every lot line must fall between the face's two bounds, in reading order: a pick
+    # outside them would draw a lot that overlaps its neighbour or folds over itself.
+    if front_kind == "line":
+        fu = unit(sub(front[1], front[0]))
+        ts = [dot(sub(line_x(front, ln), front[0]), fu) for ln in lot_lines]
+        if not (all(a < b for a, b in zip(ts, ts[1:])) or all(a > b for a, b in zip(ts, ts[1:]))):
+            raise SystemExit(f"{face['id']}: its lot lines fall outside the face or out of order")
+    rows = lib.get(sheet, []) if face["street"] == "prairie" else []
     side = face["side"]
     by_addr = {}
     for r in rows:
@@ -1001,7 +1152,15 @@ def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
     used_labels = set()
     for i in range(len(lot_lines) - 1):
         la, lb = lot_lines[i], lot_lines[i + 1]
-        fa, fb = line_x(front, la), line_x(front, lb)
+        if front_kind == "line":
+            fa, fb = line_x(front, la), line_x(front, lb)
+            front_mid = []
+        else:
+            fa, sa_f = poly_line_x(front, la, prefer="start")
+            fb, sb_f = poly_line_x(front, lb, prefer="start")
+            fmid = sub_poly(front, sa_f, sb_f)
+            front_mid = fmid[1:-1]
+            fa, fb = fmid[0], fmid[-1]
         if rear_kind == "line":
             ra, rb = line_x(rear, la), line_x(rear, lb)
             rear_mid = []
@@ -1011,7 +1170,7 @@ def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
             mid = sub_poly(rear, sb, sa)
             rear_mid = mid[1:-1]
             ra, rb = mid[-1], mid[0]
-        poly = [fa, fb, rb, *rear_mid, ra]
+        poly = [fa, *front_mid, fb, rb, *rear_mid, ra]
         if polygon_area(poly) < 0:
             poly = list(reversed(poly))
         y0 = bounds[i] if bounds[i] is not None else -1e9
@@ -1020,7 +1179,7 @@ def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
         for lab in here:
             used_labels.add(lab[0])
         addrs = [lab[0] for lab in here]
-        frontage_ft = dist(fa, fb) / FT
+        frontage_ft = poly_len([fa, *front_mid, fb]) / FT
         depth_ft = (dist(fa, ra) + dist(fb, rb)) / 2 / FT
         lib_ids, disagreements = [], []
         for a in addrs:
@@ -1029,12 +1188,12 @@ def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
             for h in hit:
                 if h["id"] not in lib_ids:
                     lib_ids.append(h["id"])
-            if first in READ_AGAINST_LIBRARY:
+            if first in READ_AGAINST_LIBRARY and face["street"] == "prairie":
                 row, why = READ_AGAINST_LIBRARY[first]
                 disagreements.append({"printed": a, "library_row": row, "reading": why})
                 if row not in lib_ids:
                     lib_ids.append(row)
-            elif not hit:
+            elif not hit and face["street"] == "prairie":
                 raise SystemExit(f"{face['id']}: {a} matches no library row and no ruling says why")
         out.append({
             "poly": poly, "addresses": addrs, "frontage_ft": frontage_ft, "depth_ft": depth_ft,
@@ -1049,13 +1208,15 @@ def parcels_for(geo: Geo, face: dict, lib: dict[str, list[dict]]):
 
 def parcel_ids(face: dict, parcels: list[dict]) -> list[str]:
     ids = []
+    st = face["street"]
+    start, end = ("w", "e") if face.get("axis") == "col" else ("n", "s")
     for i, p in enumerate(parcels):
         if p["addresses"]:
-            ids.append("prairie_" + p["addresses"][0].split()[0])
+            ids.append(f"{st}_" + p["addresses"][0].split()[0])
         else:
-            prev = next((q["addresses"][-1].split()[0] for q in reversed(parcels[:i]) if q["addresses"]), "n")
-            nxt = next((q["addresses"][0].split()[0] for q in parcels[i + 1:] if q["addresses"]), "s")
-            ids.append(f"prairie_{prev}_{nxt}")
+            prev = next((q["addresses"][-1].split()[0] for q in reversed(parcels[:i]) if q["addresses"]), start)
+            nxt = next((q["addresses"][0].split()[0] for q in parcels[i + 1:] if q["addresses"]), end)
+            ids.append(f"{st}_{prev}_{nxt}")
     # a run of unlabelled lots between the same two addresses is lettered north to south
     for base in {i for i in ids if ids.count(i) > 1}:
         k = 0
@@ -1257,35 +1418,58 @@ def build() -> dict:
                          "geometry_tier": "inferred", "sources": sorted({SHEET_SOURCE[s["sheet"]], CODE_1905}),
                          **({"derived_sides": derived} if derived else {})})
 
-    for f in FACES:
+    corner_words = {
+        "west": ("NE_street", "SE_street", "SW_rear", "NW_rear"),
+        "east": ("NW_street", "SW_street", "SE_rear", "NE_rear"),
+        "south": ("NW_street", "NE_street", "SE_rear", "SW_rear"),
+    }
+    for f in FACES + AVENUE_FACES:
         parcels = parcels_for(geo, f, lib)
         ids = parcel_ids(f, parcels)
         face_id = f"{f['street']}__{f['block'].replace('blk_', '')}"
-        for pid, p in zip(ids, parcels):
+        by_col = f.get("axis") == "col"
+        cross = f.get("cross_street", {})
+        for k, (pid, p) in enumerate(zip(ids, parcels)):
             fa, fb = p["front"]
             ra, rb = p["rear"]
+            others = [x for x in (f["front"], f["rear"], f.get("north"), f.get("south"), f.get("west"), f.get("east"))
+                      if x and x[0] != "local" and x[1] != f["sheet"]]
             rec = {
                 "id": pid,
                 "addresses_1911": p["addresses"],
-                "street": "prairie", "side": f["side"], "block": f["block"], "street_face": face_id,
-                "where": f"the {f['side']} side of Prairie Avenue, in the block {block_words(f['block'])}",
+                "street": f["street"], "side": f["side"], "block": f["block"], "street_face": face_id,
+                "where": f"the {f['side']} side of {STREETS[f['street']]['name_1904']}, in the block {block_words(f['block'])}",
                 "polygon_local_m": [pt(q) for q in p["poly"]],
-                "corners_local_m": ({"NE_street": pt(fa), "SE_street": pt(fb), "SW_rear": pt(rb), "NW_rear": pt(ra)}
-                                    if f["side"] == "west" else
-                                    {"NW_street": pt(fa), "SW_street": pt(fb), "SE_rear": pt(rb), "NE_rear": pt(ra)}),
+                "corners_local_m": dict(zip(corner_words[f["side"]], (pt(fa), pt(fb), pt(rb), pt(ra)))),
                 "frontage_ft": round(p["frontage_ft"], 1),
                 "depth_ft": round(p["depth_ft"], 1),
                 "area_m2": r2(abs(polygon_area(p["poly"]))),
                 "geometry_tier": "inferred",
-                "sources": [SHEET_SOURCE[f["sheet"]]] + ([SHEET_SOURCE["28"]] if f["south"][1] == "28" and f["sheet"] != "28" else []),
-                "read": f"lot lines at sheet {f['sheet']} rows {p['lot_line_rows']} (profile peaks at column {f['column']}); "
-                        f"front {ref_label(f['front'])}, rear {ref_label(f['rear'])}",
+                "sources": ([SHEET_SOURCE[f["sheet"]]] + ([SHEET_SOURCE["28"]] if f["south"][1] == "28" and f["sheet"] != "28" else [])
+                            if f in FACES else
+                            [SHEET_SOURCE[f["sheet"]]] + sorted({SHEET_SOURCE[x[1]] for x in others})),
+                "read": (f"lot lines at sheet {f['sheet']} columns {p['lot_line_rows']} (profile peaks at row {f['column']}); "
+                         if by_col else
+                         f"lot lines at sheet {f['sheet']} rows {p['lot_line_rows']} (profile peaks at column {f['column']}); ")
+                        + f"front {ref_label(f['front'])}, rear {ref_label(f['rear'])}",
                 "library_frontage_ids": p["library_frontage_ids"],
             }
             if p["disagreements"]:
                 rec["library_disagreements"] = p["disagreements"]
+            on_lot = cross.get("first", []) if k == 0 else []
+            on_lot = on_lot + (cross.get("last", []) if k == len(parcels) - 1 else [])
+            if on_lot:
+                rec["cross_street_addresses_1911"] = on_lot
+            notes = []
             if not p["addresses"]:
-                rec["note"] = "No address is printed beside this lot on the 1911 sheet."
+                notes.append("No address is printed beside this lot on the 1911 sheet.")
+            if f.get("note"):
+                notes.append(f["note"])
+            if on_lot:
+                notes.append(f"The sheet prints {', '.join(on_lot)} on this lot as well, on its cross-street side, "
+                             "and draws no lot line that would part them from it.")
+            if notes:
+                rec["note"] = " ".join(notes)
             parcels_out.append(rec)
         if f["id"] in ROBINSON_LOTS:
             registers.append(legal_lots_for(geo, f, parcels_out[-len(parcels):]))
@@ -1383,7 +1567,8 @@ def contract(doc: dict) -> list[str]:
     # the lots of a face tile it: frontages sum to the face's lot-line span
     by_face: dict[str, list] = {}
     for p in doc["parcels"]:
-        by_face.setdefault(p["block"] + p["side"], []).append(p)
+        if p["street"] in AVENUES:   # a cross-street corner is a few lots, not a face
+            by_face.setdefault(p["block"] + p["street"] + p["side"], []).append(p)
     for key, ps in by_face.items():
         total = sum(p["frontage_ft"] for p in ps)
         # the shortest face is 20th-21st, 377 ft between two 66-ft streets
@@ -1419,12 +1604,24 @@ def contract(doc: dict) -> list[str]:
                        f"{reg['narrowest_lot'][0]} ft, narrower than any frontage the plate prints")
         for lot in reg["unnamed_lots"]:
             bad.append(f"{reg['face']}: the 1886 plate's lot {lot} falls on no parcel")
-    on_plate = {f["block"] for f in FACES if f["id"] in ROBINSON_LOTS}
+    # Robinson's plate 10 was read for the Prairie faces (T-2115); its Indiana lots are not
+    on_plate = {(f["block"], f["street"]) for f in FACES if f["id"] in ROBINSON_LOTS}
     for p in doc["parcels"]:
-        if p["block"] in on_plate and "legal_lots" not in p:
+        if (p["block"], p["street"]) in on_plate and "legal_lots" not in p:
             bad.append(f"{p['id']}: stands on Robinson's plate 10 and carries no legal_lots")
     if "legal_lots" not in parcels.get("prairie_1800", {"legal_lots": 1}):
         bad.append("prairie_1800 carries no legal_lots, and HABS states them")
+    # T-2116: a block every face of which is read is TILED by its lots and its alley -- a
+    # corner read two ways, a lot line outside its face or a face left out shows as a gap
+    # or an overlap here, because each lot is cut from lines its neighbours share.
+    for b in doc["blocks"]:
+        if b["id"] in UNTILED_BLOCKS:
+            continue
+        lots = sum(p["area_m2"] for p in doc["parcels"] if p["block"] == b["id"])
+        alley = sum(a["area_m2"] for a in doc["alleys"] if a["block"] == b["id"])
+        if abs(lots + alley - b["area_m2"]) > TILE_TOLERANCE_M2:
+            bad.append(f"{b['id']}: its lots and alley cover {lots + alley:.1f} m2 of its {b['area_m2']} m2 -- "
+                       "a gap or an overlap, not a tiling")
     faces = {f["id"] for f in doc["faces"]}
     for p in doc["parcels"]:
         if p["street_face"] not in faces:
@@ -1495,6 +1692,28 @@ def self_test() -> int:
     doc = copy.deepcopy(base)
     doc["faces"][0]["bands"].pop("curb")
     cases.append(("a face missing a band is refused", bool(contract(doc))))
+
+    saved_a = copy.deepcopy(AVENUE_FACES)
+    AVENUE_FACES[:] = [f for f in AVENUE_FACES if f["id"] != "e20th_s_indiana_20_21"]
+    cases.append(("a corner whose cross-street lots are left out leaves a hole the tiling check sees",
+                  any("not a tiling" in b and "indiana_prairie_20_21" in b for b in contract(build()))))
+    AVENUE_FACES[:] = copy.deepcopy(saved_a)
+    next(f for f in AVENUE_FACES if f["id"] == "e20th_s_indiana_20_21")["lot_lines"][1] = 452.0
+    try:
+        build()
+        ok = False
+    except SystemExit as e:
+        ok = "outside the face" in str(e)
+    cases.append(("a cross-street lot line read past the alley, outside its corner, is refused", ok))
+    AVENUE_FACES[:] = copy.deepcopy(saved_a)
+    next(f for f in AVENUE_FACES if f["id"] == "calumet_w_20_21")["lot_lines"][2] = 380.0
+    try:
+        build()
+        ok = False
+    except SystemExit as e:
+        ok = "out of order" in str(e)
+    cases.append(("a Calumet lot line read out of order is refused rather than drawn as a folded lot", ok))
+    AVENUE_FACES[:] = copy.deepcopy(saved_a)
 
     cases.append(("the committed file is what the tool derives", not check()))
     for label, ok in cases:
