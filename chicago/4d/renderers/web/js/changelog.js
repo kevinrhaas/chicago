@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1464, ts: '2026-10-05T03:09:05.182Z', date: 'Oct 4, 2026, 10:09 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
+    items: [
+      'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
+      'The shed is still a reconstruction: no record names it, and its card says so. Only where it stands changed.',
+    ] },
   { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
