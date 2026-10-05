@@ -252,6 +252,35 @@
    "tier": "inferred"
   }
  },
+ "legal_lots_standard": "T-1745. legal_lots on a parcel is the lot (and block and subdivision) a plat or deed names for it. 16th to 18th Street: Robinson's Atlas of 1886, plate 10, read through the T-1250 georeference and registered to the Sanborn lot lines along each face (legal_lots_register), so INFERRED for 1904. 1800 Prairie: HABS's legal description, ATTESTED. South of 18th Street no plat is in hand.",
+ "legal_lots_register": [
+  {
+   "face": "prairie_w_16_18",
+   "plate_shift_m": 0.4,
+   "residual_rms_m": 1.77,
+   "lines_matched": 19,
+   "lines_read": 22,
+   "unnamed_lots": [],
+   "narrowest_lot": [
+    21.5,
+    "6"
+   ],
+   "lots_read": 21
+  },
+  {
+   "face": "prairie_e_16_18",
+   "plate_shift_m": -1.8,
+   "residual_rms_m": 1.78,
+   "lines_matched": 15,
+   "lines_read": 22,
+   "unnamed_lots": [],
+   "narrowest_lot": [
+    21.8,
+    "6"
+   ],
+   "lots_read": 21
+  }
+ ],
  "rulings": {
   "glessner_lot_frontage": {
    "question": "T-1731 left the frontage of 1800 Prairie at 74 or 77 ft, and the 1800/1808 line, for this ticket.",
@@ -9467,7 +9496,31 @@
    "read": "lot lines at sheet 20 rows [None, 1472.4] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-001"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 2, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "2"
+    ],
+    "whole": [],
+    "part": [
+     "2"
+    ],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1004.0,
+      1040.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1604",
@@ -9526,7 +9579,37 @@
    "read": "lot lines at sheet 20 rows [1472.4, 1643.0] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-002"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Parts of lots 2 and 5, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "2",
+     "5"
+    ],
+    "whole": [],
+    "part": [
+     "2",
+     "5"
+    ],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1004.0,
+      1040.0
+     ],
+     [
+      1040.0,
+      1082.9
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1608",
@@ -9585,7 +9668,31 @@
    "read": "lot lines at sheet 20 rows [1643.0, 1816.9] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-003"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 5, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "5"
+    ],
+    "whole": [],
+    "part": [
+     "5"
+    ],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1040.0,
+      1082.9
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1612",
@@ -9644,7 +9751,31 @@
    "read": "lot lines at sheet 20 rows [1816.9, 2123.0] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-004"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 8, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "8"
+    ],
+    "whole": [
+     "8"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1082.9,
+      1126.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1616",
@@ -9703,7 +9834,31 @@
    "read": "lot lines at sheet 20 rows [2123.0, 2327.3] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-005"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 11, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "11"
+    ],
+    "whole": [
+     "11"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1126.0,
+      1156.9
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1616_1620",
@@ -9759,7 +9914,31 @@
    ],
    "read": "lot lines at sheet 20 rows [2327.3, 2480.2] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [],
-   "note": "No address is printed beside this lot on the 1911 sheet."
+   "note": "No address is printed beside this lot on the 1911 sheet.",
+   "legal_lots": {
+    "label": "Lot 13, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "13"
+    ],
+    "whole": [
+     "13"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1156.9,
+      1177.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1620",
@@ -9818,7 +9997,31 @@
    "read": "lot lines at sheet 20 rows [2480.2, 2645.3] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-006"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 14, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "14"
+    ],
+    "whole": [
+     "14"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1177.0,
+      1198.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1620_1626",
@@ -9874,7 +10077,31 @@
    ],
    "read": "lot lines at sheet 20 rows [2645.3, 2793.4] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [],
-   "note": "No address is printed beside this lot on the 1911 sheet."
+   "note": "No address is printed beside this lot on the 1911 sheet.",
+   "legal_lots": {
+    "label": "Lot 15, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "15"
+    ],
+    "whole": [
+     "15"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1198.1,
+      1220.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1626",
@@ -9933,7 +10160,31 @@
    "read": "lot lines at sheet 20 rows [2793.4, 2951.6] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-007"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 16, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "16"
+    ],
+    "whole": [
+     "16"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1220.0,
+      1242.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1628",
@@ -9992,7 +10243,31 @@
    "read": "lot lines at sheet 20 rows [2951.6, 3087.9] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-008"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 17, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "17"
+    ],
+    "whole": [
+     "17"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1242.1,
+      1263.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1630",
@@ -10051,7 +10326,31 @@
    "read": "lot lines at sheet 20 rows [3087.9, 3256.6] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-009"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 18, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "18"
+    ],
+    "whole": [
+     "18"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1263.1,
+      1285.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1634",
@@ -10110,7 +10409,31 @@
    "read": "lot lines at sheet 20 rows [3256.6, 3404.2] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-010"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 19, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "19"
+    ],
+    "whole": [
+     "19"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1285.1,
+      1305.8
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1636",
@@ -10169,7 +10492,31 @@
    "read": "lot lines at sheet 20 rows [3404.2, 3557.3] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-011"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 20, block 1 of E. L. Sherman's Sub.",
+    "lots": [
+     "20"
+    ],
+    "whole": [
+     "20"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1305.8,
+      1330.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2."
+   }
   },
   {
    "id": "prairie_1638",
@@ -10228,7 +10575,31 @@
    "read": "lot lines at sheet 20 rows [3557.3, 3809.2] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-012"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 1, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "1"
+    ],
+    "whole": [
+     "1"
+    ],
+    "part": [],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1330.1,
+      1363.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1700",
@@ -10291,7 +10662,31 @@
     "frontage-20-013",
     "frontage-20-014",
     "frontage-20-015"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 2, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "2"
+    ],
+    "whole": [],
+    "part": [
+     "2"
+    ],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1363.1,
+      1453.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1708",
@@ -10350,7 +10745,31 @@
    "read": "lot lines at sheet 20 rows [4248.1, 4398.1] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-016"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 2, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "2"
+    ],
+    "whole": [],
+    "part": [
+     "2"
+    ],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1363.1,
+      1453.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1712",
@@ -10409,7 +10828,31 @@
    "read": "lot lines at sheet 20 rows [4398.1, 4703.8] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-017"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 3, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "3"
+    ],
+    "whole": [
+     "3"
+    ],
+    "part": [],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1453.0,
+      1500.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1720",
@@ -10468,7 +10911,31 @@
    "read": "lot lines at sheet 20 rows [4703.8, 5190.5] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-018"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 4, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "4"
+    ],
+    "whole": [
+     "4"
+    ],
+    "part": [],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1500.1,
+      1577.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1726",
@@ -10527,7 +10994,37 @@
    "read": "lot lines at sheet 20 rows [5190.5, 5555.8] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-019"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lots 5 and 6, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "5",
+     "6"
+    ],
+    "whole": [
+     "5",
+     "6"
+    ],
+    "part": [],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1577.0,
+      1599.1
+     ],
+     [
+      1599.1,
+      1618.0
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1730",
@@ -10586,7 +11083,38 @@
    "read": "lot lines at sheet 20 rows [5555.8, 5906.6] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-020"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 8 and part of lot 7, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "7",
+     "8"
+    ],
+    "whole": [
+     "8"
+    ],
+    "part": [
+     "7"
+    ],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1618.0,
+      1643.0
+     ],
+     [
+      1643.0,
+      1664.1
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1736",
@@ -10645,7 +11173,31 @@
    "read": "lot lines at sheet 20 rows [5906.6, None] (profile peaks at column 3290); front sheet 20 line prairie_w, rear sheet 20 line alley_w_e",
    "library_frontage_ids": [
     "frontage-20-021"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 9, block 2 of E. L. Sherman's Sub.",
+    "lots": [
+     "9"
+    ],
+    "whole": [],
+    "part": [
+     "9"
+    ],
+    "block": "2",
+    "subdivision": "E. L. Sherman's Sub.",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1664.1,
+      1690.2
+     ]
+    ],
+    "plate_shift_m": 0.4,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered +0.4 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate draws a further line across it at about row 1435 with no number; that strip is part of lot 2."
+   }
   },
   {
    "id": "prairie_1601",
@@ -10704,7 +11256,31 @@
    "read": "lot lines at sheet 20 rows [None, 1261.2] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-022"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 1 (no subdivision named on the plate); the rest of its frontage (34 ft) carries no lot number on the plate",
+    "lots": [
+     "1"
+    ],
+    "whole": [],
+    "part": [
+     "1"
+    ],
+    "block": null,
+    "subdivision": null,
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      984.9,
+      1039.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+   }
   },
   {
    "id": "prairie_1605",
@@ -10770,7 +11346,31 @@
      "library_row": "frontage-20-023",
      "reading": "The sheet prints 1605 beside the Illinois Central 16th St. station lot; the library reads 1603. The station is the same frontage."
     }
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 1 (no subdivision named on the plate)",
+    "lots": [
+     "1"
+    ],
+    "whole": [],
+    "part": [
+     "1"
+    ],
+    "block": null,
+    "subdivision": null,
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      984.9,
+      1039.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+   }
   },
   {
    "id": "prairie_1607",
@@ -10830,7 +11430,31 @@
    "read": "lot lines at sheet 20 rows [1505.0, 1802.7] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-024"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 6 (no subdivision named on the plate)",
+    "lots": [
+     "6"
+    ],
+    "whole": [
+     "6"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": null,
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1039.0,
+      1080.1
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+   }
   },
   {
    "id": "prairie_1613",
@@ -10889,7 +11513,31 @@
    "read": "lot lines at sheet 20 rows [1802.7, 1956.2] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-025"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 7 (no subdivision named on the plate)",
+    "lots": [
+     "7"
+    ],
+    "whole": [],
+    "part": [
+     "7"
+    ],
+    "block": null,
+    "subdivision": null,
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1080.1,
+      1124.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+   }
   },
   {
    "id": "prairie_1615",
@@ -10948,7 +11596,31 @@
    "read": "lot lines at sheet 20 rows [1956.2, 2106.8] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-026"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 7 (no subdivision named on the plate)",
+    "lots": [
+     "7"
+    ],
+    "whole": [],
+    "part": [
+     "7"
+    ],
+    "block": null,
+    "subdivision": null,
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1080.1,
+      1124.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+   }
   },
   {
    "id": "prairie_1619",
@@ -11007,7 +11679,31 @@
    "read": "lot lines at sheet 20 rows [2106.8, 2285.8] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-027"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 12 (no subdivision named on the plate)",
+    "lots": [
+     "12"
+    ],
+    "whole": [
+     "12"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": null,
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1124.0,
+      1154.8
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). No subdivision name or block number is printed over these four lots; the series skips 2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not carried as a lot."
+   }
   },
   {
    "id": "prairie_1621",
@@ -11066,7 +11762,31 @@
    "read": "lot lines at sheet 20 rows [2285.8, 2439.4] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-028"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 1 of an unnamed 'Subdivision'",
+    "lots": [
+     "1"
+    ],
+    "whole": [],
+    "part": [
+     "1"
+    ],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1154.8,
+      1177.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1623",
@@ -11125,7 +11845,31 @@
    "read": "lot lines at sheet 20 rows [2439.4, 2583.7] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-029"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Part of lot 2 of an unnamed 'Subdivision'",
+    "lots": [
+     "2"
+    ],
+    "whole": [],
+    "part": [
+     "2"
+    ],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1177.0,
+      1198.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1625",
@@ -11184,7 +11928,31 @@
    "read": "lot lines at sheet 20 rows [2583.7, 2761.8] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-030"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot 3 of an unnamed 'Subdivision'",
+    "lots": [
+     "3"
+    ],
+    "whole": [
+     "3"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1198.0,
+      1218.1
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1625_1637_a",
@@ -11240,7 +12008,31 @@
    ],
    "read": "lot lines at sheet 20 rows [2761.8, 2925.1] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [],
-   "note": "No address is printed beside this lot on the 1911 sheet."
+   "note": "No address is printed beside this lot on the 1911 sheet.",
+   "legal_lots": {
+    "label": "Lot 4 of an unnamed 'Subdivision'",
+    "lots": [
+     "4"
+    ],
+    "whole": [
+     "4"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1218.1,
+      1240.9
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1625_1637_b",
@@ -11296,7 +12088,31 @@
    ],
    "read": "lot lines at sheet 20 rows [2925.1, 3076.7] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [],
-   "note": "No address is printed beside this lot on the 1911 sheet."
+   "note": "No address is printed beside this lot on the 1911 sheet.",
+   "legal_lots": {
+    "label": "Lot 5 of an unnamed 'Subdivision'",
+    "lots": [
+     "5"
+    ],
+    "whole": [
+     "5"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1240.9,
+      1264.1
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1625_1637_c",
@@ -11352,7 +12168,31 @@
    ],
    "read": "lot lines at sheet 20 rows [3076.7, 3189.2] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [],
-   "note": "No address is printed beside this lot on the 1911 sheet."
+   "note": "No address is printed beside this lot on the 1911 sheet.",
+   "legal_lots": {
+    "label": "Lot 6 of an unnamed 'Subdivision'",
+    "lots": [
+     "6"
+    ],
+    "whole": [
+     "6"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1264.1,
+      1283.3
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1637",
@@ -11411,7 +12251,37 @@
    "read": "lot lines at sheet 20 rows [3189.2, 3530.9] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-031"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lots 7 and 8 of an unnamed 'Subdivision'",
+    "lots": [
+     "7",
+     "8"
+    ],
+    "whole": [
+     "7",
+     "8"
+    ],
+    "part": [],
+    "block": null,
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1283.3,
+      1305.0
+     ],
+     [
+      1305.0,
+      1329.2
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name before it on this copy; the series continues as 9 to 12 south of the blue line."
+   }
   },
   {
    "id": "prairie_1701",
@@ -11470,7 +12340,49 @@
    "read": "lot lines at sheet 20 rows [3530.9, 4182.0] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-032"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lots 9, 10, 11 and 12, block 1 of an unnamed 'Subdivision'",
+    "lots": [
+     "9",
+     "10",
+     "11",
+     "12"
+    ],
+    "whole": [
+     "9",
+     "10",
+     "11",
+     "12"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1329.2,
+      1350.0
+     ],
+     [
+      1350.0,
+      1372.0
+     ],
+     [
+      1372.0,
+      1393.0
+     ],
+     [
+      1393.0,
+      1422.1
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+   }
   },
   {
    "id": "prairie_1709",
@@ -11529,7 +12441,31 @@
    "read": "lot lines at sheet 20 rows [4182.0, 4783.8] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-033"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lot A, block 1 of an unnamed 'Subdivision'",
+    "lots": [
+     "A"
+    ],
+    "whole": [
+     "A"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1422.1,
+      1505.9
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+   }
   },
   {
    "id": "prairie_1721",
@@ -11595,7 +12531,37 @@
      "library_row": "frontage-20-034",
      "reading": "The sheet prints 1721; the library reads 1719 for the same two-bayed house."
     }
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lots B and C, block 1 of an unnamed 'Subdivision'",
+    "lots": [
+     "B",
+     "C"
+    ],
+    "whole": [
+     "B",
+     "C"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1505.9,
+      1557.0
+     ],
+     [
+      1557.0,
+      1579.0
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+   }
   },
   {
    "id": "prairie_1729",
@@ -11654,7 +12620,37 @@
    "read": "lot lines at sheet 20 rows [5189.1, None] (profile peaks at column 3760); front sheet 20 line prairie_e, rear sheet 20 line ic_row",
    "library_frontage_ids": [
     "frontage-20-035"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lots D and E, block 1 of an unnamed 'Subdivision'",
+    "lots": [
+     "D",
+     "E"
+    ],
+    "whole": [
+     "D",
+     "E"
+    ],
+    "part": [],
+    "block": "1",
+    "subdivision": "Subdivision",
+    "tier": "inferred",
+    "sources": [
+     "robinson_1886_chicago_plate_10"
+    ],
+    "plate_rows": [
+     [
+      1579.0,
+      1600.1
+     ],
+     [
+      1600.1,
+      1687.8
+     ]
+    ],
+    "plate_shift_m": -1.8,
+    "note": "Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged 1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face (the plate registered -1.8 m along it; a lot is named whole where 75% of its frontage falls in the parcel, and as a part where it is 25% or more of the parcel's and over twice the 1.8 m the two maps' lines still disagree by). The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and D-E (the lots the lettered ones re-divide) is not carried."
+   }
   },
   {
    "id": "prairie_1800",
@@ -11712,7 +12708,22 @@
    "read": "lot lines at sheet 28 rows [None, 1645.4] (profile peaks at column 1628); front sheet 28 line prairie_w, rear sheet 28 line alley_w_e",
    "library_frontage_ids": [
     "frontage-28-036"
-   ]
+   ],
+   "legal_lots": {
+    "label": "Lots 39, 40 and the north 17 ft of lot 38, block 9, Assessor's Division of Section 22",
+    "lots": [
+     "39",
+     "40",
+     "38 (north 17 ft)"
+    ],
+    "block": "9",
+    "subdivision": "Assessor's Division of the SW fractional quarter of Section 22, T39N, R14E",
+    "tier": "attested",
+    "sources": [
+     "habs_glessner_house_il_1015_data_pages"
+    ],
+    "note": "HABS's legal description of 1800 Prairie, the lots John J. Glessner bought on 24 March 1885 (docs/RESEARCH/glessner_house_1904.md section 4). Robinson's plate 10 stops at 18th Street."
+   }
   },
   {
    "id": "prairie_1808",

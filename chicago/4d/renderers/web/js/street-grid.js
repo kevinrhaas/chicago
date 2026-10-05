@@ -231,6 +231,16 @@ function parcelCard(p, grid) {
     },
     street_face: { value: p.street_face, confidence: 'inferred', sources: p.sources, note: 'The block face this lot fronts, as laid out in the grid.' },
   };
+  // T-1745: the legal lot, as Robinson's 1886 atlas (16th-18th) or HABS (1800) names it.
+  const legal = p.legal_lots;
+  if (legal) {
+    attributes.legal_lots = {
+      value: legal.label, confidence: legal.tier, sources: legal.sources ?? [], note: legal.note ?? '',
+    };
+  }
+  const legalWords = legal?.lots?.length
+    ? ` ${legal.tier === 'attested' ? 'Its deed' : "Robinson's 1886 atlas"} names it ${legal.label.charAt(0).toLowerCase()}${legal.label.slice(1)}.`
+    : '';
   return {
     id: p.id,
     sidecar: {
@@ -239,8 +249,8 @@ function parcelCard(p, grid) {
       // The card's opening line, in the grid's own words (popup.js prints it in
       // place of the sentence it composes for a building).
       change_note: `A lot on ${p.where}: ${p.frontage_ft} ft along the avenue and ${p.depth_ft} ft deep, `
-        + `as the 1911 Sanborn sheet draws it${addr ? `, printed ${addr}` : ', with no number printed'}. `
-        + 'No building is drawn on it yet.',
+        + `as the 1911 Sanborn sheet draws it${addr ? `, printed ${addr}` : ', with no number printed'}.`
+        + `${legalWords} No building is drawn on it yet.`,
       placement: {
         symbolic_location: p.where ?? 'Prairie Avenue',
         position_confidence: p.geometry_tier,
