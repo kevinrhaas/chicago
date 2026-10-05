@@ -133,10 +133,10 @@
   "counts": {
     "dwelling_lots": 180,
     "privies": 137,
-    "stables": 18,
+    "stables": 19,
     "privy_standing": 35,
     "stable_standing": 15,
-    "horse_households": 34,
+    "horse_households": 35,
     "refused": 9,
     "dwellings_off_plat": 109
   },
@@ -2458,7 +2458,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -2480,7 +2480,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -2526,7 +2526,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -2570,7 +2570,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -2592,7 +2592,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -2724,7 +2724,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -2884,7 +2884,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "grey",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -2930,7 +2930,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -2952,7 +2952,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -3030,21 +3030,21 @@
       "lot": "blk_washington_clark_lot2",
       "belongs_to": "recon_1835_blk_washington_clark_d4_14",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        633.21,
-        -451.89
+        633.28,
+        -451.97
       ],
       "bearing_deg": 0.36,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_washington_clark_lot3",
@@ -3152,7 +3152,7 @@
       "eave_m": 2.0,
       "head_m": 2.3,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "whitewash"
     },
@@ -3174,7 +3174,7 @@
       "eave_m": 2.45,
       "head_m": 3.75,
       "roof": "gable",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board_and_batten",
       "stalls": 2,
@@ -3220,7 +3220,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3340,21 +3340,21 @@
       "lot": "blk_indiana_north_cass_lot9",
       "belongs_to": "recon_1835_blk_indiana_north_cass_d3_02",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "labourer",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        1013.43,
-        520.75
+        1013.36,
+        520.82
       ],
       "bearing_deg": -179.61,
-      "along_m": 1.22,
-      "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "along_m": 1.07,
+      "depth_m": 1.07,
+      "eave_m": 1.85,
+      "head_m": 2.05,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "slab"
     },
     {
       "id": "privy_blk_west_lake_des_plaines_lot0",
@@ -3440,7 +3440,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3462,7 +3462,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3574,7 +3574,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3606,21 +3606,45 @@
       "lot": "blk_west_randolph_des_plaines_lot9",
       "belongs_to": "recon_1835_blk_west_randolph_des_plaines_d5_04",
       "households": [],
-      "household_class": "tradesman",
+      "household_class": "merchant",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        -450.13,
-        -351.13
+        -450.12,
+        -351.28
       ],
       "bearing_deg": 90.47,
-      "along_m": 1.22,
+      "along_m": 1.52,
       "depth_m": 1.22,
-      "eave_m": 1.95,
-      "head_m": 2.2,
+      "eave_m": 2.0,
+      "head_m": 2.3,
       "roof": "shed",
       "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "board"
+      "finish": "whitewash"
+    },
+    {
+      "id": "stable_blk_west_randolph_des_plaines_lot9",
+      "kind": "stable",
+      "lot": "blk_west_randolph_des_plaines_lot9",
+      "belongs_to": "recon_1835_blk_west_randolph_des_plaines_d5_04",
+      "households": [],
+      "household_class": "merchant",
+      "class_read_from": "fabric_basis.class (L330)",
+      "at_local_enu_m": [
+        -448.49,
+        -368.77
+      ],
+      "bearing_deg": 90.47,
+      "along_m": 4.88,
+      "depth_m": 3.66,
+      "eave_m": 2.45,
+      "head_m": 3.75,
+      "roof": "gable",
+      "weather": "seasoned",
+      "confidence": "reconstructed",
+      "finish": "board_and_batten",
+      "stalls": 2,
+      "kept_a_horse_because": "merchant"
     },
     {
       "id": "privy_blk_wabansia_c_t7_lot1",

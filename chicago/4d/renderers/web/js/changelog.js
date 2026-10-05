@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1493, ts: '2026-10-05T14:34:32.351Z', date: 'Oct 5, 2026, 9:34 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
+  { v: 1494, ts: '2026-10-05T15:04:27.752Z', date: 'Oct 5, 2026, 10:04 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',
       'Those checks had grown past the ten minutes our automated builders get to run them, so a change could go out without a full check. A few of them were doing the same work dozens of times over. They now do it once and give the same answers, and the whole set runs in about eight minutes.',
+    ] },
+  { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+    items: [
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
+      'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
+      '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
     ] },
   { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
