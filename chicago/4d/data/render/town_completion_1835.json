@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 4,
+    "structures_empty_owing_somebody": 3,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -118,7 +118,7 @@
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 243
+      "reconstructed": 244
     },
     "occupants_in_prose_only": {
       "attested": 9,
@@ -140,13 +140,12 @@
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
-      "dwelling": 4
+      "dwelling": 3
     },
     "empty": [
-      "recon_1835_blk_south_water_dearborn_h1_03",
-      "recon_1835_blk_south_water_franklin_d3_03",
-      "recon_1835_blk_south_water_franklin_d3_13",
-      "recon_1835_blk_south_water_lasalle_d3_03"
+      "recon_1835_blk_randolph_market_d4_03",
+      "recon_1835_blk_randolph_wells_d3_05",
+      "recon_1835_blk_south_water_clark_d3_03"
     ]
   },
   "tiers": {
@@ -215,7 +214,7 @@
       "occupied": {
         "attested": 50,
         "inferred": 9,
-        "reconstructed": 243
+        "reconstructed": 244
       },
       "occupants_in_prose_only": {
         "attested": 9,
@@ -230,7 +229,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 4
+        "reconstructed": 3
       }
     },
     "streets": {
@@ -269,7 +268,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 4,
+      "open": 3,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]

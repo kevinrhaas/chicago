@@ -1637,7 +1637,7 @@
         "slots_requested": 24,
         "roofs_offered_for_adoption": 162,
         "roofs_held_back": 56,
-        "ground_taken": 158,
+        "ground_taken": 157,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 21,
@@ -5179,10 +5179,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 556,
-        "standing_with_an_occupant": 206,
-        "standing_without_an_occupant": 350,
+        "standing_with_an_occupant": 207,
+        "standing_without_an_occupant": 349,
         "to_build_total": 130,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 350 of the 556 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 349 of the 556 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -6040,7 +6040,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "350 of 556 standing records carry no occupants block."
+      "measured_now": "349 of 556 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
