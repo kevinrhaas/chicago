@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1478, ts: '2026-10-05T08:57:07.349Z', date: 'Oct 5, 2026, 3:57 AM CT', title: 'Businesses on the 1835 streets now get the kind of building their trade needed', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
       'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
       'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
+    ] },
+  { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+    items: [
+      'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
+      'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
+      'House and store yards stay as they were, kept short with weeds along their fences.',
+      '146 of the town\u2019s 338 platted lots are empty. No source describes one, so this ground is our reconstruction (Liberty L386).',
     ] },
   { v: 1477, ts: '2026-10-05T08:22:34.435Z', date: 'Oct 5, 2026, 3:22 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
     items: [

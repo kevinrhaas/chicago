@@ -2747,6 +2747,20 @@
       ]
     },
     {
+      "why": "THE VACANT LOTS AS GRAZED PRAIRIE REMNANT (T-2101): z11_lot_remnant, its extent the union of every platted lot holding no building, no standing footprint and no dealt outbuilding, and its species copied from z02_mesic_prairie and z10_settled_town under a stated grazing crop; written with its copy in data/flora/index.json. PLACED BY LAYER, directly after the kept ground, because it reads the same lot survey, the yard outbuildings and z10_settled_town's derived extent (tools/derive_settled_town_extent.py, earlier). Measured 2026-10-05: run with --write on a clean tree it changed no committed byte. WRITES, BUT DOES NOT CLAIM, ITS OUTPUT, for the reason the yard goods step gives.",
+      "command": [
+        "python3",
+        "tools/derive_lot_remnant.py",
+        "--write"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/derive_lot_remnant.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1544's reading of what Wright's 1834 sheet says about the 288.3 m the corporate boundary's west leg extrapolates from Hubbard Street to Ohio Street. It runs AFTER the generators that place buildings, because one of the four things it measures is how close that extension comes to a DRAWN structure — run before them it would price the extrapolation against a stale town — and after tools/generate_plat_lots.py for the same reason the West Division's spacing measurement does. IT MOVES NOTHING: no centreline is edited, no leg re-graded, no record re-seated, and every figure it writes is read back out of committed files, which is why it may own its output outright. `resolves` names that one file: two runs re-derive the same bytes, so a conflict there is settled by rebuilding rather than by choosing a side.",
       "command": [
         "python3",
