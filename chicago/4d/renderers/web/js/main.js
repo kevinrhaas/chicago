@@ -31,7 +31,7 @@ import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
-import { readGlassMode } from './glass.js';
+import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
@@ -1236,8 +1236,9 @@ const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [
 const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
 document.getElementById('view').setAttribute('aria-label', `Chicago, ${YEAR}`);
 const DEBUG = params.get('debug') === '1';
-// T-2109: which glass a transmissive pane is drawn with (glass.js).
-const GLASS = readGlassMode(params);
+// T-2109: which glass a transmissive pane is drawn with — `?glass=` when the
+// address names one, otherwise the owner's pick for the detail level (glass.js).
+const GLASS_REQUEST = readGlassRequest(params);
 /** T-1727: `?structure=<id>&version=<label>` — one committed alternate of one structure,
  *  for comparing competing builds side by side. Null when the address asks for none. */
 const VERSION_REQUEST = readVersionRequest(location.search);
@@ -1509,7 +1510,7 @@ async function boot() {
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
     lowSpec: coarse,
-    glass: GLASS,
+    glass: glassForDetail(detailLevel, GLASS_REQUEST),
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
   });
@@ -2110,8 +2111,12 @@ async function boot() {
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          // T-2109: the glass changes exactly where the asset does (transmission
+          // on the full model, the dark plate on the shared `.light` one), so
+          // this rebuild is also the one that changes the glass.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse, glass: GLASS });
+            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
+            glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }

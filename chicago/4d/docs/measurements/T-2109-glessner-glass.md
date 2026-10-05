@@ -12,9 +12,9 @@ changed: it still records what the glass is, and only how the browser draws it c
 
 | `?glass=` | what is drawn | batches |
 |---|---|---|
-| `transmission` (default, unchanged) | the GLB's own glass, refracting a second render of the scene | — |
+| `transmission` (the `full` default) | the GLB's own glass, refracting a second render of the scene | — |
 | `clear` | plain alpha-blended pane, tint × 0.35, opacity 0.28, no depth write: the room shows through without refraction | one sorted transparent batch |
-| `dark` | opaque plate, tint × 0.12, the GLB's own roughness 0.065: reads like plate glass from the street in daylight | joins the house's opaque batches |
+| `dark` (the `balanced` and `light` default) | opaque plate, tint × 0.12, the GLB's own roughness 0.065: reads like plate glass from the street in daylight | joins the house's opaque batches |
 
 ## Frame time at the 1904 landing
 
@@ -50,3 +50,12 @@ The ticket asks him to pick which one ships, at least at `balanced` and `light`.
 does, nothing changes by default: on the dev preview, `?year=1904&glass=clear` or
 `&glass=dark` shows each candidate. The recommendation is **clear at balanced and
 light**, with transmission kept at `full`. It halves the frame and changes the least.
+
+## The owner's pick (2026-10-04) and what shipped
+
+**Answer (c): dark at `balanced` and `light`.** Since this PR `glass.js` draws the glass by
+Scene detail setting: `GLASS_BY_DETAIL` is `full` → `transmission`, `balanced` and `light` →
+`dark`, and `?glass=` still names one glass for every setting. The split falls exactly where the
+Glessner asset does (the master GLB at `full`, the shared `.light` GLB below it), so the detail
+switch's own rebuild is what changes the glass. `tools/check_glass_modes.mjs` holds the mapping
+and the override. The dark plate is Liberty L383.
