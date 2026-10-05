@@ -448,13 +448,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # three stables (`outbuilding`) and two paled gardens (`palisade`), all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 598 -> 602 and 592 -> 596 on 2026-10-05 (T-2132): the four cottages on plat block 44,
+# blk_west_randolph_canal — two D5, a D4 and a D6, all `frame_dwelling` through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 598,
+    "assets": 602,
     "restales": {
-        "generators/common/*.py": 598,
+        "generators/common/*.py": 602,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 592,
+        "generators/emit.py": 596,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1503, ts: '2026-10-05T19:35:42.690Z', date: 'Oct 5, 2026, 2:35 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
+  { v: 1504, ts: '2026-10-05T19:56:36.756Z', date: 'Oct 5, 2026, 2:56 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
     items: [
       'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
       'This is the ground of 15 August 1812. An 1895 history describes the bank there as ten to twenty feet above the water, with sand hills \u201cnot high and not continuous\u201d. A 1913 account puts the row of hills about a hundred yards back from the beach. The column marched on the beach, and the beach is unchanged.',
       'No source places any single hill, so where each one stands and how high it is are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1503, ts: '2026-10-05T19:18:23.183Z', date: 'Oct 5, 2026, 2:18 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
+    items: [
+      'Walk south on Canal Street past the Western Hotel and the block toward Washington Street is no longer empty. Three frame cottages now face Canal Street, one on the Washington corner, and a storey-and-a-half cottage faces West Water Street on the river side.',
+      'This block had no lot lines until now. The 1830 plat gives its two rows of lots different depths, 180 feet and 150 feet, because the river cuts into the row along West Water Street. Each row is now cut to the depth the plat gives it.',
+      'Four West Side families now have a home in the town, and the other four lots along West Water Street stay open ground.',
+      'No source names these houses or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L313).',
     ] },
   { v: 1502, ts: '2026-10-05T18:41:21.129Z', date: 'Oct 5, 2026, 1:41 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
     items: [

@@ -5019,6 +5019,120 @@
       ],
       "arrangement_note": "THE LAST THREE ROOFS THE WEST DENSITY LEAVES ON PLAT BLOCK 29, AND THE FIRST PIECE OF THE WEST DIVISION'S REMAINDER (T-1829). `tools/reconcile_665.py` sizes this ten-lot block at six roofs -- the reviewed West recipe's six on blk_west_lake_des_plaines's ten lots (T-1783) -- and three already stand: the two named trade roofs on the Lake-and-Canal corner lot, S. B. Cobb's saddlery and Asahel Pierce's blacksmith shop, and the forks freight warehouse T-1773 raised on the Lake-and-West-Water corner. That leaves three roofs of principal room, no ancillary room, and the seating file's three slot requests fill it exactly: a deep-plan frame cottage (D5) and a two-room frame cottage (D4) side by side on the Canal face at plat lots 6 and 7, and a rough plank shanty (D2) on the West Water face at plat lot 8. The two cottages stand on Canal Street, the graded approach from the forks and the better of the block's two faces, and the shanty on West Water, the light river street, so no face is exchanged. The set-outs (5.0 and 7.5 m on Canal, 4.0 m on West Water) and lateral offsets are inventions bounded by the lot lines, and differ from blk_lake_clinton's Canal-face roofs directly across the street (6.5 m) so the two faces of one street do not read as a surveyed building line. Five free lots stay open, one at each end of each face and one beside each corner holding, so neither face reads as a continuous row. WHAT IS INVENTED: that any building stood on these three lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals are read off the sheet; neither is evidence about these buildings.",
       "frontage_argued_on": "west_division_thompson_1830"
+    },
+    {
+      "block_id": "blk_west_randolph_canal",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_west_randolph_canal",
+      "claimed": "2026-10-05",
+      "bounded_by": {
+        "north": "randolph",
+        "south": "washington",
+        "west": "canal",
+        "east": "west_water"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 6,
+        "standing_roofs": 2,
+        "free_lots": 8,
+        "headroom": 4,
+        "dealt_roofs": 4,
+        "dealt_principal": 4,
+        "dealt_ancillary": 0,
+        "principal": 4,
+        "ancillary": 0
+      },
+      "families": {
+        "D5": 2,
+        "D4": 1,
+        "D6": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2132",
+        "parent": "T-1208",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_bronson_arthur",
+            "family": "D5",
+            "order_book_draw": "blk_west_randolph_canal / D5 / west"
+          },
+          {
+            "seat": "hh_bourassa_mark",
+            "family": "D4",
+            "order_book_draw": "blk_west_randolph_canal / D4 / west"
+          },
+          {
+            "seat": "hh_brown_hanna_e",
+            "family": "D5",
+            "order_book_draw": "blk_west_randolph_canal / D5 / west"
+          },
+          {
+            "seat": "hh_brownson_myron_k",
+            "family": "D6",
+            "order_book_draw": "blk_west_randolph_canal / D6 / west"
+          }
+        ],
+        "why": "THE BLOCK'S WHOLE REQUEST, RAISED ON THE LOTS IT ASKED FOR. Once plat block 44 is cut on its own two printed depths (T-2132), the seating file asks four roofs of it and no more -- hh_bronson_arthur's D5 on lot index 2, hh_bourassa_mark's D4 on lot index 3 and hh_brown_hanna_e's D5 on lot index 4 (the Washington corner), all three fronting Canal under the tradesman_dwellings clause, and hh_brownson_myron_k's D6 on lot index 8 fronting West Water under the same clause -- which is exactly the four roofs of principal room the schedule's West density leaves here beside the Western Hotel and its stable. No face is exchanged: three of the four ask for Canal, which the lot ledger reads `ordinary`, and the one on West Water, which it reads `light`, is the plainest of the four. A REQUEST IS NOT EVIDENCE: all four roofs are anonymous count-units at the bottom tier, standing on invented positions on conjectural side lot lines, and the seating pass re-runs behind the deal to say which household ends up under which roof."
+      },
+      "open_lots": [
+        {
+          "lot": 5,
+          "why": "The West Water column's Randolph corner (plat lot 1), left open behind the Western Hotel: an inn's yard backs onto it across the alley, and the seating asks nothing of it."
+        },
+        {
+          "lot": 6,
+          "why": "The West Water column's second lot (plat lot 4), left open so the river face reads as loose, light-street ground and not a built row."
+        },
+        {
+          "lot": 7,
+          "why": "The West Water column's middle lot (plat lot 5), left open beside the one cottage this deal stands on that face."
+        },
+        {
+          "lot": 9,
+          "why": "The West Water column's Washington corner (plat lot 9), left open: the seating asks nothing of it, the schedule's ceiling of six is reached without it, and here the column is at its shallowest, where the South Branch has taken thirty feet off the printed depth."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 6.0,
+          "lateral_m": 1.0
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 5.5,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "D6",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "west_water",
+          "setback_m": 3.5,
+          "lateral_m": 1.5
+        }
+      ],
+      "arrangement_note": "THE FIRST ROOFS ON PLAT BLOCK 44, AND THE SECOND PIECE OF THE WEST DIVISION'S REMAINDER (T-2132). Until T-2132 this block stood with its boundary, its numeral and its lot count and no lot lines, refused with the fourteen blocks that print no dimension -- but it prints two, 180 ft under its west column and 150 ft under its east, where the South Branch has cut into the lots fronting West Water Street. tools/generate_plat_lots.py now cuts it on those two figures, each column sized by its own printed depth and never averaged, and `tools/reconcile_665.py` sizes the ten lots at six roofs -- the reviewed West recipe's six on blk_west_lake_des_plaines's ten lots (T-1783). Two already stand, the Western Hotel on the Randolph-and-Canal corner lot and its stable on the lot south of it, so four roofs of principal room are left and the seating file's four slot requests fill them exactly: a deep-plan frame cottage (D5) and a two-room frame cottage (D4) side by side on the Canal face at plat lots 6 and 7, a second deep-plan cottage (D5) on the Washington corner at plat lot 10, and a D6 on the West Water face at plat lot 8. The set-outs (6.0, 4.5 and 5.5 m on Canal, 3.5 m on West Water) and lateral offsets are inventions bounded by the lot lines, and differ from blk_west_lake_canal's Canal-face roofs one block north (5.0 and 7.5 m) so the street does not read as a surveyed building line. Four lots stay open, all on the West Water face, so the river street reads as thin, light ground. WHAT IS INVENTED: that any building stood on these four lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals and two depths are read off the sheet; neither is evidence about these buildings.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {
