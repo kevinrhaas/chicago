@@ -43,6 +43,13 @@
       "ticket": "T-2136",
       "parent_ticket": null,
       "refusals_said_on_the_roof_by": "T-2136"
+    },
+    {
+      "district": "school_section_tier",
+      "block_prefix": "blk_school_section_tier_",
+      "ticket": "T-2147",
+      "parent_ticket": "T-1755",
+      "refusals_said_on_the_roof_by": "T-2147"
     }
   ],
   "target_date": "1835-07-01",
@@ -61,7 +68,8 @@
       "lake",
       "washington",
       "west",
-      "indiana_north"
+      "indiana_north",
+      "school_section_tier"
     ],
     "block_prefixes": [
       "blk_south_water_",
@@ -69,12 +77,14 @@
       "blk_lake_",
       "blk_washington_",
       "blk_west_",
-      "blk_indiana_north_"
+      "blk_indiana_north_",
+      "blk_school_section_tier_"
     ],
     "districts_available": [
       "indiana_north",
       "lake",
       "randolph",
+      "school_section_tier",
       "south_water",
       "washington",
       "west"
