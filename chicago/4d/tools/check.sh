@@ -1639,6 +1639,17 @@ step "the warehouse's cargo doors and the freight doors over them set out once" 
 selftest "…and that still fires when a single-door store moves by a nanometre" \
   python3 tools/test_storefront_cargo_rhythm.py --self-test
 
+# T-2104: every shopfront's header board was built with no street face and a face
+# lying ON the wall behind it (add_box's "back" is the y1 face, which on a +y facade
+# is the one the street sees), and the two fought for depth as a visitor turned. The
+# house stoops had the same skip. This builds the frame town without Blender and
+# refuses a trim face lying on a wall that is not the hidden side of a board.
+step "no trim board in the frame town lies flat on its own wall" \
+  python3 tools/test_facade_board_faces.py
+
+selftest "…and that still fires when a board's street face goes missing" \
+  python3 tools/test_facade_board_faces.py --self-test
+
 step "the street edge's cross-street faces enumerate as the plat says" \
   python3 tools/test_frontage_faces.py
 

@@ -527,10 +527,17 @@ def _shopfront(b: MeshBuilder, p: FrameStorefrontParams,
     sx0, sx1, head = shop
     reveal = _wall_thickness(p)
 
-    # pilaster boards at each end, standing proud of the siding
+    # pilaster boards at each end, standing proud of the siding.
+    # EVERY BOARD ON THIS +y FACE SKIPS "front", NOT "back" (T-2104). add_box
+    # names its faces by axis — "front" is the y0 face, "back" the y1 face — so
+    # on a board running from the wall at y out to y + t, "front" is the face
+    # nailed to the wall and "back" is the one the street sees. Skipping "back"
+    # left the fascia with no street face and a face lying ON the wall behind it,
+    # and the two fought for the same depth: the header flickered as a visitor
+    # turned in front of every shopfront in the town.
     for a, c in ((sx0, sx0 + SHOP_PILASTER_M), (sx1 - SHOP_PILASTER_M, sx1)):
         _board(b, a, y, c, y + 0.034, 0.0, head, conf, M_TRIM,
-               skip=("bottom", "back"))
+               skip=("bottom", "front"))
 
     # THE RUN OF PANELS IS THE PARAMS MODULE'S SET-OUT (T-0520): `shopfront_panels`
     # states the door and the show windows left to right, and the signage layer reads
@@ -554,13 +561,13 @@ def _shopfront(b: MeshBuilder, p: FrameStorefrontParams,
             m0, m1 = u1, panels[i + 1][1]
             _panel(b, "y", y, m0, m1, 0.0, head, 1, conf, M_TRIM)
             _board(b, m0, y, m1, y + 0.022, SHOP_SILL_Z_M - 0.05,
-                   head, conf, M_TRIM, skip=("bottom", "back"))
+                   head, conf, M_TRIM, skip=("bottom", "front"))
     _panel(b, "y", y, panels[-1][2], sx1, 0.0, head, 1, conf, M_TRIM)
 
     # the fascia over the whole opening — the board a sign goes on, and the thing
     # that ties the run of panels into one shopfront
     _board(b, sx0 - 0.04, y, sx1 + 0.04, y + 0.048, head, head + SHOP_FASCIA_M,
-           conf, M_TRIM, skip=("bottom", "back"))
+           conf, M_TRIM, skip=("bottom", "front"))
 
 
 def _reveal(b: MeshBuilder, y: float, u0: float, u1: float, z0: float, z1: float,
@@ -583,7 +590,7 @@ def _show_window(b: MeshBuilder, y: float, u0: float, u1: float, head: float,
     _panel(b, "y", y, u0, u1, 0.0, sill, 1, conf, M_TRIM)          # stall riser
     _panel(b, "y", y, u0, u1, top, head, 1, conf, M_TRIM)          # head board
     _board(b, u0, y, u1, y + 0.040, sill - 0.05, sill + 0.02, conf, M_TRIM,
-           skip=("bottom", "back"))                                # counter sill
+           skip=("bottom", "front"))                                # counter sill
     _panel(b, "y", y - reveal, u0, u1, sill, top, 1, conf, M_GLASS)
     _reveal(b, y, u0, u1, sill, top, reveal, conf)
     # muntins: small panes, because glass came by scow and was sold by the light
@@ -631,7 +638,7 @@ def _sign(b: MeshBuilder, p: FrameStorefrontParams,
     z0 = head + SHOP_FASCIA_M * 0.06
     z1 = head + SHOP_FASCIA_M + 0.11
     _board(b, cx - w / 2, y + 0.048, cx + w / 2, y + 0.105, z0, z1, conf, M_SIGN,
-           skip=("back",))
+           skip=("front",))
 
 
 # -------------------------------------------------------------- the other walls
