@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
+  { v: 1480, ts: '2026-10-05T09:45:14.032Z', date: 'Oct 5, 2026, 4:45 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
       'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
