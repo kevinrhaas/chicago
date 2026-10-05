@@ -49,6 +49,9 @@ step "The working bank never hides the timber standing on it (T-2098)" \
 step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
   node tools/check_glass_modes.mjs
 
+step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
+  node tools/check_sharpness_default.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
