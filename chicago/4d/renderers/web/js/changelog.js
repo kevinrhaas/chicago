@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1463, ts: '2026-10-05T02:41:15.635Z', date: 'Oct 4, 2026, 9:41 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+    items: [
+      'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
+      'At Full detail the windows still reflect and see through as before.',
+      'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
+    ] },
   { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
     items: [
       'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
