@@ -2755,6 +2755,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_a4_04"
     },
+    "recon_1835_blk_washington_clark_a5_16__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 39832,
+      "inputs_sha256": "2f0bc7c20714623e25dd2d7faafc183b3de6c6d6c65b01336b7f566e14dde1c5",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_a5_16"
+    },
+    "recon_1835_blk_washington_clark_d3_15__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 31132,
+      "inputs_sha256": "d9cb18de0f215373dc52c094b1b94bfbca39e0668327491b34e85e98e3b644df",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_d3_15"
+    },
     "recon_1835_blk_washington_clark_d4_02__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -2763,6 +2781,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_d4_02"
+    },
+    "recon_1835_blk_washington_clark_d4_14__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 38628,
+      "inputs_sha256": "debe695c4fe07777792b40140f8c7d4672c3f2e02cdb2ab6986e681dc1388343",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clark_d4_14"
     },
     "recon_1835_blk_washington_clark_d5_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
@@ -2776,8 +2803,8 @@
     "recon_1835_blk_washington_clark_h3_05__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 39292,
-      "inputs_sha256": "ca95cf25435d348f9b985e760dc67fbdb821e238b6bb0106cb5818e3010424da",
+      "bytes": 37108,
+      "inputs_sha256": "71eaf2aabba827839ef5ab108e4f5ff824d76e381d329683c5664a43d5005f50",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_05"
@@ -2818,11 +2845,65 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_dearborn_a3_03"
     },
+    "recon_1835_blk_washington_dearborn_d3_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 32396,
+      "inputs_sha256": "053b5ece93d4ead5838248fe024551a37256b38c64b14de20507edc5bbe7d910",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_d3_07"
+    },
+    "recon_1835_blk_washington_dearborn_d3_08__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 30368,
+      "inputs_sha256": "d881d46d4425c1e453576054da0610612286ac7e052588b7e39178a1c2a93230",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_d3_08"
+    },
+    "recon_1835_blk_washington_dearborn_d4_09__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 39888,
+      "inputs_sha256": "a10f987a9c271ef4f4b8b74f8d39a39a8e0436acb7d545cf8700a7fa4b80ac09",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_d4_09"
+    },
+    "recon_1835_blk_washington_dearborn_d7_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 68904,
+      "inputs_sha256": "e5240454e7d75f0b40fb26bbd70d07a88a8dfa85c92e6bbfee5215584198bd42",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_d7_04"
+    },
+    "recon_1835_blk_washington_dearborn_d7_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 71708,
+      "inputs_sha256": "ae9e83297ebd3f864c734e49c39f472d2200ea78b28b9ab426672b378042b426",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_d7_06"
+    },
+    "recon_1835_blk_washington_dearborn_h2_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 93108,
+      "inputs_sha256": "d35def0261626c942511a0ae0df7e4709ae1ebf273492b03c82fa438578fcaa9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_dearborn_h2_05"
+    },
     "recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 42108,
-      "inputs_sha256": "f0beae8f2569c59ca31638af0d606a576c22b71b1b66387942ddb497c0133e10",
+      "bytes": 39608,
+      "inputs_sha256": "c02119c27634ca9c46af8f21d0c6959ab73c329ae7a0e1521480f3d1f0f2b001",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_dearborn_h3_01"
