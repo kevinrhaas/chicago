@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',
+      'Those checks had grown past the ten minutes our automated builders get to run them, so a change could go out without a full check. A few of them were doing the same work dozens of times over. They now do it once and give the same answers, and the whole set runs in about eight minutes.',
+    ] },
   { v: 1495, ts: '2026-10-05T15:25:36.630Z', date: 'Oct 5, 2026, 10:25 AM CT', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
     items: [
       'Nothing you can see changes in the town. Kelsey\u2019s small yellow boarding-house on the north-side sand hills now has a corrected card.',
