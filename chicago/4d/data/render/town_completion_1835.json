@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 13,
+    "structures_empty_owing_somebody": 0,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -118,12 +118,12 @@
     "occupied": {
       "attested": 50,
       "inferred": 9,
-      "reconstructed": 245
+      "reconstructed": 251
     },
     "occupants_in_prose_only": {
       "attested": 9,
       "inferred": 10,
-      "reconstructed": 76
+      "reconstructed": 83
     },
     "use_stated": {
       "camp_ground": 3,
@@ -139,24 +139,8 @@
       "the_printed_count_is_held": 5,
       "vacant_to_let": 1
     },
-    "empty_owing_somebody": {
-      "dwelling": 13
-    },
-    "empty": [
-      "recon_1835_blk_west_lake_canal_d2_03",
-      "recon_1835_blk_west_lake_canal_d5_01",
-      "recon_1835_blk_west_randolph_canal_d5_01",
-      "recon_1835_blk_west_randolph_canal_d6_04",
-      "recon_1835_west_014",
-      "recon_1835_west_019",
-      "recon_1835_west_021",
-      "recon_1835_west_030",
-      "recon_1835_west_031",
-      "recon_1835_west_033",
-      "recon_1835_west_034",
-      "recon_1835_west_042",
-      "recon_1835_west_044"
-    ]
+    "empty_owing_somebody": {},
+    "empty": []
   },
   "tiers": {
     "persons": {
@@ -224,12 +208,12 @@
       "occupied": {
         "attested": 50,
         "inferred": 9,
-        "reconstructed": 245
+        "reconstructed": 251
       },
       "occupants_in_prose_only": {
         "attested": 9,
         "inferred": 10,
-        "reconstructed": 76
+        "reconstructed": 83
       },
       "use_stated": {
         "attested": 25,
@@ -239,7 +223,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 13
+        "reconstructed": 0
       }
     },
     "streets": {
@@ -278,7 +262,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 13,
+      "open": 0,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]

@@ -9,15 +9,15 @@
   "counts": {
     "frontages": 29,
     "objects": 160,
-    "wagons": 75,
+    "wagons": 74,
     "wagons_by_kind": {
-      "farm_box": 24,
+      "farm_box": 23,
       "covered": 17,
       "cart": 34
     },
-    "wagons_at_street_verges": 66,
+    "wagons_at_street_verges": 65,
     "wagons_in_yards": 6,
-    "wagon_stands_refused": 63,
+    "wagon_stands_refused": 64,
     "benches": 1,
     "sheds": 1,
     "marked_objects": 160,
@@ -3812,26 +3812,6 @@
       "note": "THE COVERED WAGON UNDER THE SHED, from the same plate and standing on the same derived centre as the bay over it. It is the farm wagon this record already draws — the body, the wheels and the tongue are L131's invented numbers and have not moved — with a TILT added: canvas on bows, 1.10 m of rise over the body's top rail and 0.12 m pulled past the end bows, open at both ends. The bows themselves are not drawn, for the reason the barrels' hoops are not: under the canvas there is nothing to see. It lies ALONG the wall because that is how a 4.05 m bay takes a 3.05 m body, with the tongue down and out of the open end into the yard. What is invented is the wagon, the tilt and the fact that either stood here on 1 July 1835: docs/LIBERTIES.md L131 and L134."
     },
     {
-      "id": "town_wagon_canal_1",
-      "kind": "farm_box",
-      "stands_on": "canal",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        -142.92,
-        -473.9
-      ],
-      "bearing_deg": 182.8,
-      "drawn_up": "along the road",
-      "slew_deg": 4.5,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A farm box wagon standing at the verge of Canal Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 4.5 degrees off that square to the right, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its tongue down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
       "id": "town_wagon_canal_3",
       "kind": "cart",
       "stands_on": "canal",
@@ -5351,6 +5331,11 @@
     {
       "enclosure_id": "*",
       "why": "EVERY OTHER PLACE IN THE TOWN, refused in writing UNTIL 2026-08-21, AND THE REFUSAL IS NOW OVERRULED. This entry used to read: 'docs/ROADMAP.md K5 (c) offers wagons/drays (documented mired on Lake St) — this project holds no source record for that, and a dray dropped into Lake Street on the strength of a roadmap parenthesis would be traffic invented to look busy … the yard whose own name is the attestation gets the wagon, and the rest wait for a source.' No source arrived. The OWNER did, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' T-0064 is that instruction and the town's wagons below are it, every one of them reconstructed and every one of them placed by a rule over the committed street lines rather than by a hand — see `town_wagon_rule` on this record and docs/LIBERTIES.md L162. What is still refused, and refused for the same reason as before, is a wagon standing IN a travelled track: a dray mired in Lake Street is a scene this project has no source for and would be a claim about the road as well as about the wagon."
+    },
+    {
+      "stand": "canal 1",
+      "street": "Canal Street",
+      "why": "on the right verge, it stands on the trodden ground in front of a door (town_entrance_aprons, T-1984): the way in and out of a building is kept clear, and a wagon left across it is the thing the owner walked into."
     },
     {
       "stand": "canal 5",
