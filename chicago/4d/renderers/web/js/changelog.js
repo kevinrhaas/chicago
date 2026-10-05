@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'The front door is now a working time machine', kind: 'feature',
+  { v: 1463, ts: '2026-10-05T02:35:18.451Z', date: 'Oct 4, 2026, 9:35 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
       'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
       'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
