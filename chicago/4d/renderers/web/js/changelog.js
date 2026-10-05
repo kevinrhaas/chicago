@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1477, ts: '2026-10-05T08:22:34.435Z', date: 'Oct 5, 2026, 3:22 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+    items: [
+      'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
+      'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
+      'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
+      'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
+    ] },
   { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
     items: [
       'Cross to the West Side and walk south down Canal Street from Lake Street. Past the saddler\u2019s and the blacksmith\u2019s on the corner, the block toward Randolph now has two frame cottages facing Canal: a deep-plan cottage and a two-room cottage beside it.',
