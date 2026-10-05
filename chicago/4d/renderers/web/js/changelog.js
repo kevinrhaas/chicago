@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1471, ts: '2026-10-05T05:20:13.787Z', date: 'Oct 5, 2026, 12:20 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+  { v: 1472, ts: '2026-10-05T05:20:27.510Z', date: 'Oct 5, 2026, 12:20 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [
       'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
       'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
       'House and store yards stay as they were, kept short with weeds along their fences.',
       '149 of the town\u2019s 338 platted lots are empty. No source describes one, so this ground is our reconstruction (Liberty L386).',
+    ] },
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
     ] },
   { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
