@@ -5040,8 +5040,13 @@ def cmd_self_test() -> int:
     # the plat on the owner's T-1755 ruling and the schedule gives them room, so 34
     # households the platted pass had handed on are dealt a slot there (182 -> 216 platted
     # seats, L270) — requests T-2145..T-2147 raise.
+    # 289 -> 302 on 2026-10-05 (T-1746): the North's 26 owed dwellings stand south of
+    # Michigan Street instead of on Kinzie's Addition; the thirteen households whose slots
+    # stood on its two blocks are seated off the plat under standing North roofs, and
+    # thirteen more owed North households beside them (216 -> 203 platted seats, 73 -> 99
+    # off-plat, L270, L271, L392).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 289
+        data["inventory"], data["programme"], occ))["seated"] == 302
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
