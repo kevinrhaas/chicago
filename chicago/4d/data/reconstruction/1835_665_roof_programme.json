@@ -102,26 +102,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 546,
+  "structure_records": 549,
   "physical_roofs": {
-   "min": 528,
-   "max": 529,
+   "min": 531,
+   "max": 532,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 389,
+   "generated": 392,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 292,
-   "west": 101,
+   "west": 104,
    "north": 119,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 243,
+   "ordinary_dwellings": 246,
    "larger_boarding_houses": 34,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
@@ -143,10 +143,10 @@
    "C3": 16,
    "C4": 4,
    "D1": 56,
-   "D2": 29,
+   "D2": 30,
    "D3": 54,
-   "D4": 49,
-   "D5": 27,
+   "D4": 50,
+   "D5": 28,
    "D6": 18,
    "D7": 10,
    "F1": 8,
@@ -193,11 +193,11 @@
   ]
  },
  "remaining": {
-  "roofs": 140,
+  "roofs": 137,
   "of_target": 668,
   "by_district": {
    "south": 73,
-   "west": 34,
+   "west": 31,
    "north": 33,
    "fort": 0
   },
@@ -213,7 +213,7 @@
    "west": {
     "barns_stables": 6,
     "larger_boarding_houses": 3,
-    "ordinary_dwellings": 15,
+    "ordinary_dwellings": 12,
     "small_outbuildings": 9,
     "warehouses_freight": 1
    },
@@ -235,10 +235,10 @@
    "C3": 1,
    "C4": 1,
    "D1": 0,
-   "D2": 9,
+   "D2": 8,
    "D3": 11,
-   "D4": 22,
-   "D5": 23,
+   "D4": 21,
+   "D5": 22,
    "D6": 11,
    "D7": 8,
    "F1": 0,
@@ -288,10 +288,10 @@
     "H1": 1,
     "H2": 1,
     "H3": 1,
-    "D2": 2,
+    "D2": 1,
     "D3": 2,
-    "D4": 4,
-    "D5": 4,
+    "D4": 3,
+    "D5": 3,
     "D6": 2,
     "D7": 1,
     "A3": 1,
@@ -327,9 +327,9 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 90,
+  "schedulable_on_committed_ground": 87,
   "gated_on_coverage": 50,
-  "statement": "90 of the 140 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 50 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "statement": "87 of the 137 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 50 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 338,
   "blocks_named": 80,
   "southern_ground": {
@@ -1907,24 +1907,18 @@
    },
    "lots": 10,
    "capacity_roofs": 6,
-   "standing_roofs": 3,
-   "free_lots": 8,
-   "principal_room": 3,
+   "standing_roofs": 6,
+   "free_lots": 5,
+   "principal_room": 0,
    "ancillary_room": 0,
-   "headroom": 3,
-   "state": "open",
+   "headroom": 0,
+   "state": "at_capacity",
    "density": "6 roofs per 10 lots, the reviewed West recipe on blk_west_lake_des_plaines (T-1783)",
-   "roofs": 3,
-   "families": {
-    "D2": 1,
-    "D4": 1,
-    "D5": 1
-   },
-   "principal": 3,
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0,
-   "trade_roofs": 0,
-   "frontage_weight": 0.4387,
-   "lot_ceiling_principal": 7,
+   "lot_ceiling_principal": 4,
    "row_lots_required": 0
   },
   {
