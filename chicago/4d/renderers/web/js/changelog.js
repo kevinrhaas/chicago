@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1464, ts: '2026-10-05T02:51:06.238Z', date: 'Oct 4, 2026, 9:51 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Row-house cards are now checked against where they stand', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
       'Twice before, that card named the wrong wall or the wrong street. Each time a person reading the files caught it.',
