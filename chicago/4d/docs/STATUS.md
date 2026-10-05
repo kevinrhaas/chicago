@@ -1,3 +1,60 @@
+## T-2144 — the School Section tier joins the grid and the roof schedule (2026-10-05)
+
+The owner answered T-1755 (b): the South's owed dwellings cross Madison onto the School
+Section's Madison–Monroe tier. The run that took T-1755 found it was more than one run — the
+tier's lots lived only in `school_section_tier_lots.json`, which neither `reconcile_665.py` nor
+`generate_block_infill.py` reads — and split it: **T-2144** (this) opens the ground, and
+**T-2145** (Clark blocks 118, 119), **T-2146** (Wells blocks 94, 95) and **T-2147** (Market
+block 81) build on it.
+
+- `generate_plat_lots.py` quotes the tier as a third seated tract, the way Michigan St tract and
+  Wabansia join: only the cells east of the forks with lots on dry ground — **81, 94, 95, 118,
+  119, forty lots**. Blocks 24–72 (West), 80 (under datum at its river corners) and 1/142 (never
+  cut) stay on the off-plat ledger, which now skips any tier block the grid carries.
+- `reconcile_665.py` schedules the tier **one principal roof to a lot, no party-line row**, each
+  block keeping a lot open: 7 principal + 2 yard roofs of room per block. The South balance
+  (`south_plat_beyond_committed_control`, 20 roofs) empties; the tier is dealt **36 roofs —
+  32 dwellings (D2–D7), three boarding houses (H1–H3) on block 95, one yard building** — and the
+  Market wedge (`blk_south_water_market`, still the owner's) keeps 6 of its 22.
+- The seating walked to a fixpoint: **216 seated** after the T-2132 merge (182 on dev), the 34 new ones
+  slot requests on the tier that T-2145..T-2147 raise. 56 keeper rows moved; no mesh went stale.
+- The order book's `ordinary_dwellings/south` row moves to **T-2145** (T-1755 is split).
+- Corridor-strip baseline re-written: only `blocks_after` and `lots_after` moved, by the tier's 5 blocks and 40 lots (77→82, 340→380 on the merged tree).
+
+## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
+
+T-1829 left the West Division 12 ordinary dwellings and a freight roof short, with every
+lot-ruled West block at capacity and the rest gated on a lot line. One of the gated cells was not
+like the others. Plat block 44 (`blk_west_randolph_canal`, Randolph to Washington between Canal
+and West Water) prints **two** depths on the sheet, 180 ft under its west column and 150 ft under
+its east (`thompson_west_division_lots.json`): the South Branch has cut into the West Water lots.
+`thompson_west_division_lots.json` leaves `lot_depth_ft` null there because it will not average
+them, and `generate_plat_lots.west_lot_figure` read that null as "prints no dimension". That is
+the wrong pile. The block prints more of itself than block 29 does, and block 29 was already
+cut on a single depth.
+
+- **The cut.** `west_lot_figure` now returns `lot_depth_ft_per_column` when both column depths
+  are read, and `subdivide_west` gives each column its printed share of what the committed face
+  leaves after the 18 ft alley (west 59.7 m, east 49.8 m deep). The figures are never averaged.
+  The closure is published as before: the sheet asks 348 ft, and the committed lines give 367.4.
+  Block 51 (180 / 88) would cut the same way, but the committed grid does not build it today.
+- **The deal.** `reconcile_665.py` opens the block at the West density (6 per 10 lots) beside
+  the Western Hotel and its stable: 4 roofs of room. The seating's four slot requests fill it
+  exactly. The recipe raises a D5 at plat lot 6, a D4 at plat lot 7 and a D5 at plat lot 10 (the
+  Washington corner) on Canal, and a D6 at plat lot 8 on West Water. The other four West Water
+  lots stay open. Baked with `generators/build.py --only` and `web_derivatives.sh --only`.
+- **The fixpoint.** As on T-1829, `rederive.mjs` alone does not settle: the keeper pass is not
+  in the manifest. Walking keepers → the three infill generators → `reconcile_665` → the seating
+  took six laps, plus one more after the tail, and lands at **182 seated** (dev 178; West 28 → 32).
+  The four requesters are seated on standing West roofs, and four older West households adopt the
+  new houses. 21 households change roof, and none is handed on. Named keepers 77 → 80. Twelve
+  meshes whose keepers moved were rebaked (26 s for the twelve).
+- Liberties: **L263** 554 → 558, **L270** 178 → 182 (who moved), **L276** 77 → 80, **L313**
+  covers block 44's lot ruling and four roofs.
+- Order book: `ordinary_dwellings/west` 67 of 75, **8 left**; `warehouses_freight/west` 1 left.
+  These rows, and the complete stores and workshops rows, move to **T-2143**, filed with this
+  finding as its acceptance.
+
 ## T-2062 — the first fort's factory, agency, stables and gardens, by the draught's own figures (2026-10-05)
 
 **Visible:** seven structures now stand outside the first Fort Dearborn in the 1812 scene. They

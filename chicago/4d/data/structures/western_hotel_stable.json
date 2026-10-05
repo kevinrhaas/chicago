@@ -117,6 +117,22 @@
     ],
     "note": "Stow is documented as the builder and operator of the hotel; that the stable behind it was his follows from its being described as part of the house, and is not separately stated. No hostler is named."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "west_division",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/thompson_lots.json",
+    "block_id": "blk_west_randolph_canal",
+    "lot_index": 1,
+    "lot_number": 3,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "documented",
+    "confidence": "inferred",
+    "footprint_share": 1.0,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 3 of blk_west_randolph_canal in the west_division grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (documented), read from data/traces/vectors/thompson_lots.json."
+  },
   "research_note": "THIS RECORD EXISTS TO DISCHARGE HALF OF docs/LIBERTIES.md L10, AND ONLY HALF. L10 admits that 'the large stable and the yard into which the trains were driven', with entrances from both streets, are attested and not modelled, and that data/structures/western_hotel.json carries the admission as `stables: true` with `geometry: 'absent'`. The stable is now built. THE YARD IS NOT, AND CANNOT BE BY THIS ARCHETYPE — it is an enclosure, and this project has no enclosure archetype; the same gap keeps `estray_pen` and Clybourn's stockyard from being what they were. L10 should therefore be NARROWED rather than resolved, and the wording for that narrowing is written up with this parcel's report. The yard's admission now also sits on this record, at form.wagon_yard, so that the omission travels with the building that is nearest to it. WHAT IS INVENTED HERE AND WHAT WOULD FIX IT. The footprint is invented outright — 'large' is the only dimensional word anyone wrote — and the fabric, the wall height, the door class and the door's elevation are all reasoned from the hotel and from the trade rather than from any description of the stable. Two things would upgrade nearly all of it at once: the Wright 1834 or Hathaway 1834 sheets read at lot level for the Randolph and Canal block, which would give the yard's boundary and the stable's range if either sheet carries outbuildings; and any Chicago Democrat or Chicago American advertisement of Stow's, which for a wagon house would ordinarily name the stabling it offered. Failing both, an insurance or tax description of the premises from the 1840s, when the stables are still attested standing. SEE ALSO the correction recorded in this parcel's report to the tariff sentence quoted in generators/preview.py and generators/archetypes/outbuilding_params.py: the Wolf Point '13 cents to stable a horse' is not in the source it is attributed to, and the attested Cook County rate is different.",
   "review_required": false
 }

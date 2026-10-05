@@ -47,13 +47,18 @@
    "moved": [
     {
      "district": "south",
-     "blocks": 3,
-     "trade_roofs": 3,
-     "blocks_redealt": 2,
+     "blocks": 8,
+     "trade_roofs": 4,
+     "blocks_redealt": 7,
      "quota": {
-      "blk_south_water_wells": 0,
-      "blk_south_water_dearborn": 0,
-      "blk_south_water_market": 3
+      "blk_south_water_wells": 1,
+      "blk_south_water_dearborn": 1,
+      "blk_school_section_tier_81": 0,
+      "blk_school_section_tier_94": 0,
+      "blk_school_section_tier_95": 0,
+      "blk_school_section_tier_118": 0,
+      "blk_school_section_tier_119": 0,
+      "blk_south_water_market": 2
      }
     },
     {
@@ -76,16 +81,18 @@
     "F3": "Landing apron and cargo-door arrangement must follow site access and cannot extend into water or duplicate a counted pier.",
     "W5": "A crane/derrick is rare and must not become a default; river access requires validated dry-bank terrain contact."
    },
-   "swapped": [
-    {
-     "family": "F3",
-     "from": "blk_south_water_market",
-     "to": "south_plat_beyond_committed_control",
-     "for": "D2",
-     "same_trade": false
-    }
-   ],
+   "swapped": [],
    "held": [
+    {
+     "unit": "blk_south_water_wells",
+     "family": "F3",
+     "why": "south has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
+    },
+    {
+     "unit": "blk_south_water_market",
+     "family": "F3",
+     "why": "south has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
+    },
     {
      "unit": "blk_indiana_north_wolcott",
      "family": "F3",
@@ -97,26 +104,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 572,
+  "structure_records": 576,
   "physical_roofs": {
-   "min": 554,
-   "max": 555,
+   "min": 558,
+   "max": 559,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 415,
+   "generated": 419,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
    "south": 315,
-   "west": 104,
+   "west": 108,
    "north": 119,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 257,
+   "ordinary_dwellings": 261,
    "larger_boarding_houses": 36,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
@@ -140,9 +147,9 @@
    "D1": 56,
    "D2": 30,
    "D3": 58,
-   "D4": 54,
-   "D5": 28,
-   "D6": 18,
+   "D4": 55,
+   "D5": 30,
+   "D6": 19,
    "D7": 13,
    "F1": 8,
    "F2": 5,
@@ -188,11 +195,11 @@
   ]
  },
  "remaining": {
-  "roofs": 114,
+  "roofs": 110,
   "of_target": 668,
   "by_district": {
    "south": 50,
-   "west": 31,
+   "west": 27,
    "north": 33,
    "fort": 0
   },
@@ -207,7 +214,7 @@
    "west": {
     "barns_stables": 6,
     "larger_boarding_houses": 3,
-    "ordinary_dwellings": 12,
+    "ordinary_dwellings": 8,
     "small_outbuildings": 9,
     "warehouses_freight": 1
    },
@@ -231,9 +238,9 @@
    "D1": 0,
    "D2": 8,
    "D3": 7,
-   "D4": 19,
-   "D5": 20,
-   "D6": 11,
+   "D4": 18,
+   "D5": 18,
+   "D6": 10,
    "D7": 5,
    "F1": 0,
    "F2": 2,
@@ -280,9 +287,9 @@
     "H3": 1,
     "D2": 1,
     "D3": 1,
-    "D4": 3,
-    "D5": 4,
-    "D6": 2,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
     "D7": 1,
     "A3": 1,
     "A4": 4,
@@ -317,11 +324,11 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 41,
-  "gated_on_coverage": 73,
-  "statement": "41 of the 114 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 73 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
-  "platted_lots": 338,
-  "blocks_named": 80,
+  "schedulable_on_committed_ground": 77,
+  "gated_on_coverage": 33,
+  "statement": "77 of the 110 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 33 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "platted_lots": 388,
+  "blocks_named": 85,
   "southern_ground": {
    "field_south_edge_n_m": -3800.0,
    "madison_line_n_m_at_state": -525.2,
@@ -393,14 +400,14 @@
    "roofs": 4,
    "families": {
     "A2": 1,
-    "D2": 1,
     "D4": 1,
-    "D5": 1
+    "D5": 1,
+    "F3": 1
    },
    "principal": 3,
    "ancillary": 1,
    "frontage_weight": 0.4764,
-   "trade_roofs": 0,
+   "trade_roofs": 1,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
   },
@@ -475,14 +482,14 @@
    "roofs": 4,
    "families": {
     "A5": 1,
-    "D3": 1,
-    "D4": 1,
-    "D6": 1
+    "D2": 1,
+    "D6": 1,
+    "F2": 1
    },
    "principal": 3,
    "ancillary": 1,
    "frontage_weight": 0.4805,
-   "trade_roofs": 0,
+   "trade_roofs": 1,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
   },
@@ -1925,7 +1932,7 @@
   },
   {
    "id": "blk_west_randolph_canal",
-   "kind": "platted_block_unscheduled",
+   "kind": "platted_block",
    "district": "west",
    "bounded_by": {
     "north": "randolph",
@@ -1933,20 +1940,20 @@
     "west": "canal",
     "east": "west_water"
    },
-   "lots": 0,
-   "capacity_roofs": 0,
-   "standing_roofs": 2,
-   "free_lots": 0,
+   "lots": 10,
+   "capacity_roofs": 6,
+   "standing_roofs": 6,
+   "free_lots": 4,
    "principal_room": 0,
    "ancillary_room": 0,
    "headroom": 0,
-   "state": "gated",
-   "waiting_on": "a lot line. The sheet prints no lot figures for this cell (data/traces/thompson_west_division_lots.json), so there is nothing to deal a roof onto. T-1414 (2026-10-03) put the West Division's corridors into the platted layer and found the sheet's lot figures already on the block records, each unruled block with its refusal; a re-read of the scan is owed and no live ticket owns it.",
+   "state": "at_capacity",
+   "density": "6 roofs per 10 lots, the reviewed West recipe on blk_west_lake_des_plaines (T-1783)",
    "roofs": 0,
    "families": {},
    "principal": 0,
    "ancillary": 0,
-   "lot_ceiling_principal": 0,
+   "lot_ceiling_principal": 3,
    "row_lots_required": 0
   },
   {
@@ -2356,6 +2363,179 @@
    "row_lots_required": 0
   },
   {
+   "id": "blk_school_section_tier_81",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "market_school_section",
+    "east": "school_section_line_8"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "roofs": 8,
+   "families": {
+    "A2": 1,
+    "D3": 1,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
+    "D7": 1
+   },
+   "principal": 7,
+   "ancillary": 1,
+   "frontage_weight": 0.0,
+   "trade_roofs": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_94",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "school_section_line_8",
+    "east": "wells_school_section"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "roofs": 7,
+   "families": {
+    "D2": 1,
+    "D3": 1,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1
+   },
+   "principal": 7,
+   "ancillary": 0,
+   "frontage_weight": 0.0,
+   "trade_roofs": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_95",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "wells_school_section",
+    "east": "school_section_line_10"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "roofs": 7,
+   "families": {
+    "D2": 1,
+    "D4": 1,
+    "D5": 1,
+    "D7": 1,
+    "H1": 1,
+    "H2": 1,
+    "H3": 1
+   },
+   "principal": 7,
+   "ancillary": 0,
+   "frontage_weight": 0.0,
+   "trade_roofs": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_118",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "school_section_line_10",
+    "east": "clark_school_section"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "roofs": 7,
+   "families": {
+    "D2": 1,
+    "D3": 1,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1
+   },
+   "principal": 7,
+   "ancillary": 0,
+   "frontage_weight": 0.0,
+   "trade_roofs": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_school_section_tier_119",
+   "kind": "platted_block",
+   "district": "south",
+   "bounded_by": {
+    "north": "madison",
+    "south": "monroe",
+    "west": "clark_school_section",
+    "east": "school_section_line_12"
+   },
+   "lots": 8,
+   "capacity_roofs": 10,
+   "standing_roofs": 0,
+   "free_lots": 8,
+   "principal_room": 7,
+   "ancillary_room": 2,
+   "headroom": 9,
+   "state": "open",
+   "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
+   "roofs": 7,
+   "families": {
+    "D3": 1,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
+    "D7": 1
+   },
+   "principal": 7,
+   "ancillary": 0,
+   "frontage_weight": 0.0,
+   "trade_roofs": 0,
+   "lot_ceiling_principal": 7,
+   "row_lots_required": 0
+  },
+  {
    "id": "blk_south_water_market",
    "kind": "platted_block_awaiting_street_control",
    "district": "south",
@@ -2375,26 +2555,21 @@
    "state": "gated",
    "waiting_on": "South Water Street's committed centreline stops 32 m short of this block — the street control ROADMAP S9 records as owed. Measured dry: tools/measure_block_gating.py carries South Water toward this block over 25 m of ground with no wet sample on it, so this one really is waiting on a trace. What is missing is one control point at Market and South Water: the committed set holds four (Lake-Canal, Lake-Market, Randolph-Canal, Kinzie-Canal) and NONE anywhere on South Water, and Market's centreline stops at its single control point where Lake crosses it. AND THAT POINT CANNOT BE DERIVED, MEASURED 2026-08-27 BY T-0183. Under the node rule in data/traces/street_control.json the two modern successors — North Upper Wacker Drive and West Upper Wacker Drive — share exactly two nodes, and they are lake_market's own committed pair: Wacker changes name through a bend at the Lake Street junction rather than crossing at South Water, so the rule returns a plausible point 110 m south of the corner it names. Re-run it with tools/refetch_control.py --discover market_south_water, which now refuses the set rather than reporting it; the reading is filed under `refused_control` in street_control.json. So this block is NOT waiting on somebody fetching a junction. It is waiting on an owner decision — close South Water's west end onto Market from the 1834 sheets and the committed bank, which is what the rest of that curve already stands on, or return these 27 roofs to the South balance. HE RULED FOR THE CLOSURE ON 2026-08-29, AND THE GROUND REFUSED IT. Executed on the line as committed, the closure emits this block as a bowtie — South Water has converged on Lake Street before it reaches Market and their platted corridors overlap by 14.9 m there — and carried as far north as the committed waterline allows it leaves 2.8 m of block depth at Market against the 24.384 m one platted lot fronts. So these 27 roofs are not on the ground the ruling was about: the block is a wedge the South Branch pinches out at its west corner, and only its eastern two thirds could ever carry a lot. The refusal now fires in tools/generate_plat_lots.py --self-test rather than emitting a 4,411 m2 block with a plausible depth; the measurement is under `refused_control.market_south_water` in street_control.json and in docs/RESEARCH/thompson_plat_grid.md § 6.2, and what to do with the wedge is back with the owner.",
    "lots_note": "eight lots assumed from the emitted blocks' own subdivision; the block itself is not generated, so it has no measured geometry",
-   "roofs": 22,
+   "roofs": 6,
    "families": {
-    "A2": 1,
-    "D2": 3,
-    "D3": 1,
-    "D4": 4,
-    "D5": 5,
-    "D6": 2,
-    "D7": 2,
-    "F2": 1,
-    "F4": 1,
-    "H1": 1,
-    "H2": 1
+    "D2": 1,
+    "D4": 1,
+    "D5": 1,
+    "D6": 1,
+    "F3": 1,
+    "F4": 1
    },
-   "principal": 21,
-   "ancillary": 1,
+   "principal": 6,
+   "ancillary": 0,
    "frontage_weight": 0.5182,
    "trade_roofs": 2,
    "lot_ceiling_principal": 7,
-   "row_lots_required": 7
+   "row_lots_required": 0
   },
   {
    "id": "blk_south_water_clinton",
@@ -2441,35 +2616,27 @@
    "id": "south_plat_beyond_committed_control",
    "kind": "district_balance",
    "district": "south",
-   "capacity_roofs": 20,
+   "capacity_roofs": 0,
    "standing_roofs": 0,
-   "headroom": 20,
-   "state": "gated",
-   "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
-   "roofs": 20,
-   "families": {
-    "D2": 1,
-    "D3": 2,
-    "D4": 5,
-    "D5": 5,
-    "D6": 3,
-    "D7": 1,
-    "F3": 2,
-    "H3": 1
-   },
-   "principal": 20,
+   "headroom": 0,
+   "state": "complete",
+   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 110 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 80 roofs of headroom against 50 left to build — a surplus of 30 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
+   "surplus_headroom": 30,
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0
   },
   {
    "id": "west_division_beyond_committed_control",
    "kind": "district_balance",
    "district": "west",
-   "capacity_roofs": 31,
+   "capacity_roofs": 27,
    "standing_roofs": 0,
-   "headroom": 31,
+   "headroom": 27,
    "state": "gated",
    "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-   "roofs": 31,
+   "roofs": 27,
    "families": {
     "A1": 1,
     "A2": 5,
@@ -2478,16 +2645,16 @@
     "A5": 4,
     "D2": 1,
     "D3": 1,
-    "D4": 3,
-    "D5": 4,
-    "D6": 2,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
     "D7": 1,
     "F3": 1,
     "H1": 1,
     "H2": 1,
     "H3": 1
    },
-   "principal": 16,
+   "principal": 12,
    "ancillary": 15
   },
   {

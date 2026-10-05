@@ -392,11 +392,11 @@
   }
  ],
  "what_is_seated_on_the_short_spacing_today": {
-  "structures_seated_by_block_id": 23,
-  "structures_named_on_those_lots": 40,
-  "lots_reached_by_a_committed_record": 32,
+  "structures_seated_by_block_id": 29,
+  "structures_named_on_those_lots": 46,
+  "lots_reached_by_a_committed_record": 38,
   "rows_seated_on_those_lots": {
-   "data/enclosures/town_lot_line_rails.json": 116,
+   "data/enclosures/town_lot_line_rails.json": 140,
    "data/enclosures/town_lot_line_pickets.json": 19
   },
   "blocks_cut_between_these_lines": 11,
@@ -404,8 +404,8 @@
    "original_town": 2,
    "west_division": 9
   },
-  "blocks_with_their_lot_lines_cut": 5,
-  "lots_cut": 50,
+  "blocks_with_their_lot_lines_cut": 6,
+  "lots_cut": 60,
   "so": "every one of these blocks is bounded by two of the five lines, so its face, its area, its lot lines and everything seated against them are measured off the present spacing. Moving a line re-cuts the blocks on both sides of it, and this is the size of that."
  },
  "what_this_leaves_to_decide": {

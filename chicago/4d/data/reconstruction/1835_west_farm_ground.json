@@ -49,7 +49,7 @@
    "T-1615": 44
   },
   "why_owed": {
-   "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 177 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule": 44
+   "every farmstead standing off the plat in this division — 2 D1 cabin(s) each with an A2 barn in reach, which the farmstead rule (T-1794) gives to farm households ahead of the labourers — is already seated, and the other cabins are labourers' with no barn beside them. So this household is stated as farming beyond the modelled ground: no source places its farm, and tools/measure_west_farm_ground_1835.py sizes the West farm ground it could stand on; and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule": 44
   },
   "statement": "every one of them is `policy_only`: a name from the post office's letter lists with no address, its division dealt from the order book's household target and its class from the town model's employment distribution, whose `Agriculture` column is the farms clause. No source puts any of them on any ground — the post office served the whole country round, and a farmer who collected mail at Chicago need not have farmed inside the modelled box."
  },
@@ -192,14 +192,14 @@
  },
  "the_programme": {
   "west_target": 135,
-  "west_remaining": 31,
+  "west_remaining": 27,
   "remaining_by_family": {
    "D1": 0,
    "A2": 5
   },
   "ordinary_dwellings": {
-   "to_build": 12,
-   "owning_ticket": "T-2132"
+   "to_build": 8,
+   "owning_ticket": "T-2143"
   },
   "barns_stables": {
    "to_build": 6,
@@ -210,7 +210,7 @@
   "remaining_by_group": {
    "barns_stables": 6,
    "larger_boarding_houses": 3,
-   "ordinary_dwellings": 12,
+   "ordinary_dwellings": 8,
    "small_outbuildings": 9,
    "warehouses_freight": 1
   }
@@ -223,5 +223,5 @@
   "farm_households_seated_in_them": 2,
   "pairs_note": "a D1 cabin and an A2 barn that already stand on the farm ground ARE a farmstead's two roofs, and seating a farm household under one draws on no programme headroom at all. Since T-1794 the off-plat deal's farmstead rule (tools/seat_off_plat_ground_1835.py) gives them to farm households ahead of the labourers, who ranked above the farms clause and had taken every one."
  },
- "verdict": "46 West farm households are dealt and no source places one of them: 2 are seated in a standing farmstead and 44 are owed. The West ground outside the 1833 corporation limits and off every subdivided tract is 177.7 ha — 10.98 forties — so at one farm to the smallest holding either source names, the modelled ground holds at most 10 farmstead(s), and 36 of the 46 must be stated as farming beyond it. 14 roof(s) already stand on that ground, 7 of them D1 cabins and 2 A2 barns — 2 cabin-and-barn pair(s), 2 of them seated by a farm household under the farmstead rule. The programme carries 0 D1+A2 farmstead(s) as it stands: the West has 0 D1 and 5 A2 left to build, its 12 remaining dwellings are T-2132's and its 6 barns T-1983's. 1 register row(s) of farm size reach the West ground outside the limits."
+ "verdict": "46 West farm households are dealt and no source places one of them: 2 are seated in a standing farmstead and 44 are owed. The West ground outside the 1833 corporation limits and off every subdivided tract is 177.7 ha — 10.98 forties — so at one farm to the smallest holding either source names, the modelled ground holds at most 10 farmstead(s), and 36 of the 46 must be stated as farming beyond it. 14 roof(s) already stand on that ground, 7 of them D1 cabins and 2 A2 barns — 2 cabin-and-barn pair(s), 2 of them seated by a farm household under the farmstead rule. The programme carries 0 D1+A2 farmstead(s) as it stands: the West has 0 D1 and 5 A2 left to build, its 8 remaining dwellings are T-2143's and its 6 barns T-1983's. 1 register row(s) of farm size reach the West ground outside the limits."
 }

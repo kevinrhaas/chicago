@@ -648,8 +648,12 @@ def west_lot_figure(record: dict) -> dict | None:
 
     Two blocks print TWO depths rather than one (44 at 180 and 150, 51 at 180 and 88 —
     the South Branch eating into the east column) and the authored file deliberately
-    leaves `lot_depth_ft` null on both rather than average them. They fall here with the
-    fourteen, which is the file's own refusal honoured rather than worked around.
+    leaves `lot_depth_ft` null on both rather than average them. Until T-2132 they fell
+    here with the fourteen, and that was the wrong pile: the refusal is of an AVERAGE,
+    not of the block's figures. Each column's depth is ink on this block, read at the
+    block's own north face, so each block prints MORE of itself than block 29 does, not
+    less. They are taken as what they are — one depth per column, never averaged — and
+    `subdivide_west` sizes each column by its own printed depth.
     """
     if record.get("lot_frontage_ft") is not None:
         return {"figure": "lot_frontage_ft", "ft": float(record["lot_frontage_ft"]),
@@ -661,10 +665,21 @@ def west_lot_figure(record: dict) -> dict | None:
                 "printed": record.get("depth_figures_read"),
                 "region": record.get("depth_region"),
                 "governs": "the east-west depth of a lot, and so the two columns and the alley"}
+    depths = record.get("depth_figures_read") or {}
+    west_ft, east_ft = depths.get("west_column_ft"), depths.get("east_column_ft")
+    if west_ft is not None and east_ft is not None:
+        return {"figure": "lot_depth_ft_per_column",
+                "ft": {"west": float(west_ft), "east": float(east_ft)},
+                "printed": depths,
+                "region": record.get("depth_region") or record.get("region"),
+                "governs": ("the east-west depth of each column's lots, so the two "
+                            "columns, their share of the block and the alley between "
+                            "them; the two figures are NOT averaged (T-2132)")}
     return None
 
 
-def subdivide_west(block: dict, alley_m: float, rows: int) -> dict:
+def subdivide_west(block: dict, alley_m: float, rows: int,
+                   column_depths_ft: dict | None = None) -> dict:
     """The West Division block: two columns of lots backing onto a NORTH-SOUTH alley.
 
     The transpose of `subdivide`, and a separate function rather than a flag on it,
@@ -687,6 +702,15 @@ def subdivide_west(block: dict, alley_m: float, rows: int) -> dict:
     # what is left of that face. In `u` — the fraction along the chains, west to east.
     half = alley_m / (2.0 * face) if face else 0.0
     edges_u = [(0.0, 0.5 - half), (0.5 + half, 1.0)]
+    if column_depths_ft and face:
+        # T-2132: a block that prints a DIFFERENT depth for each column (44 at 180 and
+        # 150) gives each column its printed share of what the committed face leaves
+        # after the alley. The proportion is read; the lengths stay the committed
+        # lines divided, which is all any lot line in this file is.
+        west_ft, east_ft = column_depths_ft["west"], column_depths_ft["east"]
+        lots_u = 1.0 - alley_m / face
+        split = lots_u * west_ft / (west_ft + east_ft)
+        edges_u = [(0.0, split), (split + alley_m / face, 1.0)]
 
     def point(u: float, v: float) -> tuple:
         top = resample(north_chain, u)
@@ -883,6 +907,9 @@ def west_module_for(entry: dict, record: dict, figure: dict | None, west: dict) 
         rows = taken["rows_read"]
         asks_ft = rows * figure["ft"]
         has_ft, axis = depth_ft, "north to south"
+    elif figure["figure"] == "lot_depth_ft_per_column":
+        asks_ft = figure["ft"]["west"] + figure["ft"]["east"] + west["alley_width_ft"]
+        has_ft, axis = face_ft, "east to west"
     else:
         asks_ft = 2 * figure["ft"] + west["alley_width_ft"]
         has_ft, axis = face_ft, "east to west"
@@ -1955,9 +1982,99 @@ def wabansia() -> dict:
     }
 
 
+# T-2144. THE SCHOOL SECTION'S MADISON-MONROE TIER, on the owner's ruling of 2026-10-05
+# on T-1755: "Cross Madison: build them on the School Section's Madison-Monroe tier (80
+# lots sold in October 1833, cut by T-1477), so the town spills over its south line." The
+# tier is already cut, lot by lot, by tools/cut_school_section_tier.py — this module does
+# not cut it again, it QUOTES it, the way the two tracts above quote their seatings. And
+# it quotes only the cells the ruling builds on: the South Division's (east of the forks,
+# which is local easting 0), with the register's lots on them, and on dry ground at every
+# corner. That is five blocks and forty lots — 81, 94, 95, 118 and 119. The West blocks of
+# the tier (24-72), the river block (80, under datum at its west corners) and the two the
+# register never cuts (1, 142) stay on the off-plat ledger, where
+# tools/seat_off_plat_ground_1835.py reads the tier file itself.
+SCHOOL_SECTION_TIER_PATH = DATA / "traces" / "vectors" / "school_section_tier_lots.json"
+
+
+def school_section_tier_joins(block: dict) -> bool:
+    """Whether a block of the tier file is one the T-1755 ruling builds on (T-2144)."""
+    ring = block["boundary_local_enu_m"]
+    ground = block.get("ground") or {}
+    return (bool(block.get("lots")) and min(p[0] for p in ring) > 0.0
+            and not ground.get("below_datum") and not ground.get("off_the_modelled_field"))
+
+
+def school_section_tier() -> dict:
+    """The tier's South Division blocks, quoted cell for cell from the committed cut."""
+    doc = load(SCHOOL_SECTION_TIER_PATH)
+    numerals = {b["block_number"]: b["numeral"]
+                for b in load(DATA / "traces" / "vectors" / "school_section_blocks_1834.json")["blocks"]}
+    cells = []
+    for block in doc["blocks"]:
+        if not school_section_tier_joins(block):
+            continue
+        conf = block["confidence"]
+        lots = [{
+            "tier": lot["face"],
+            "frontage_m": lot["frontage_m"],
+            "depth_m": lot["depth_m"],
+            "polygon": lot["polygon"],
+            "plat_lot_number": lot["lot"],
+            "plat_lot_confidence": conf["lot_numbers"],
+            "fronts": lot["fronts"],
+        } for lot in block["lots"]]
+        cells.append({
+            "id": block["id"],
+            "grid": "school_section_tier",
+            "plat": block["plat"],
+            "bounded_by": dict(block["bounded_by"]),
+            "boundary_local_enu_m": block["boundary_local_enu_m"],
+            "area_m2": block["area_m2"],
+            "frontage_m": block["frontage_m"],
+            "frontage_ft": block["frontage_ft"],
+            "depth_m": block["depth_m"],
+            "lots_per_face": block["lots_per_face"],
+            "alley_local_enu_m": block["alley_local_enu_m"],
+            "lots": lots,
+            "lot_rule": {
+                "read_in": "data/traces/vectors/school_section_tier_lots.json § module",
+                "lot_count": conf["lot_count"],
+                "lot_lines": conf["lot_lines"],
+                "witnessed_by_the_sale": block["witnessed_by_the_sale"]["note"],
+            },
+            "plat_block_number": {
+                "number": block["school_section_block_number"],
+                "confidence": numerals[block["school_section_block_number"]]["confidence"],
+                "numeral_on_sheet": numerals[block["school_section_block_number"]]["on_sheet"],
+                "sources": [numerals[block["school_section_block_number"]]["source"]],
+                "authored_in": "data/traces/vectors/school_section_blocks_1834.json",
+                "note": numerals[block["school_section_block_number"]]["note"],
+            },
+        })
+    return {
+        "id": "school_section_tier",
+        "plat": "wright_1834_school_section",
+        "name": ("the School Section's Madison-Monroe tier, south of the town line, "
+                 "Wright 1834 (its South Division blocks)"),
+        "seated_in": "data/traces/vectors/school_section_blocks_1834.json",
+        "read_in": "data/traces/vectors/school_section_tier_lots.json",
+        "cells": cells,
+        "module": {
+            "module": doc["module"]["module"],
+            "authored_in": "data/traces/vectors/school_section_tier_lots.json",
+            "confidence": "inferred",
+            "division": "south",
+            "chosen_by": doc["module"]["why_this_module"],
+            "lot_subdivision": doc["module"]["division"],
+            "joined_by": ("T-2144, on the owner's T-1755 ruling of 2026-10-05: only the "
+                          "cells east of the forks with lots on dry ground"),
+        },
+    }
+
+
 def seated_tracts() -> list[dict]:
     """The grids whose cells are cut from a committed SEATING, not from street lines."""
-    return [michigan_st_tract(), wabansia()]
+    return [michigan_st_tract(), wabansia(), school_section_tier()]
 
 
 def _seated_blocker(off: list, wet: list, ring: list, field) -> str:
@@ -2130,8 +2247,10 @@ def grid_from_inputs() -> dict:
             cell = (addition_cells.get(block_id)
                     if layer["id"] == "kinzies_addition" else None)
             if is_west:
-                divided = subdivide_west(built, alley_m,
-                                         len(record["lot_numerals_north_to_south"]))
+                divided = subdivide_west(
+                    built, alley_m, len(record["lot_numerals_north_to_south"]),
+                    figure["ft"] if figure and figure["figure"] == "lot_depth_ft_per_column"
+                    else None)
             elif transposed is not None:
                 divided = subdivide_west(
                     built, alley_m, len(transposed["lot_numerals_north_to_south"]))
