@@ -905,6 +905,115 @@ def lot_frame(lot: dict, alley: list[tuple[float, float]]) -> dict:
     }
 
 
+# --------------------------------------------------------------------------
+# the cross-street term (T-2133, of T-1684)
+# --------------------------------------------------------------------------
+#
+# Every lot of this grid fronts one of its block's two LONG faces, and until T-2133
+# that was the only face a slot could front: `lot_frame` asks the geometry for the
+# edge opposite the alley and stands the roof off it. So a slot that named a cross
+# street — State, Dearborn, Clark on the South Division's east-west blocks — fell
+# through to its lot's own long face, stood broadside to the street it named, and the
+# bearing gate in `check_block` refused it for looking the wrong way. That refusal
+# was right about the geometry and said nothing about the town: T-1201 asked for "the
+# mechanics' shops on State and Dearborn", and T-1682 measured that not one slot in
+# the recipe's history had ever been dealt a cross-street face, because there was no
+# term to deal it with.
+#
+# A CORNER LOT HAS TWO STREET EDGES, and the second is the term. A slot whose `fronts`
+# names a face of its block that is not its lot's own long face stands off the lot
+# edge that lies ON that face — the corner lot's side line — with the facade looking
+# out along that face's outward normal, which is the bearing `check_block` already
+# holds every roof to. `setback_m` is measured in from the side line and `lateral_m`
+# slides the roof along it, exactly as both read on a long face.
+#
+# WHAT IT DOES NOT DO, so that nothing below needs a second reading:
+#   * It admits only a lot with an edge on that face. An interior lot has none and is
+#     refused by name: a roof cannot front a street its lot does not touch.
+#   * It is a STREET term. A yard building stands off the alley behind the roof whose
+#     lot it serves, and a yard behind a cross-street roof is not a term this
+#     generator has, so an alley slot naming a cross street is refused rather than
+#     guessed at.
+#   * It relaxes nothing about WHICH roofs may front a cross street. A cross street is
+#     a face of its block like any other, so `check_non_dwelling_slot` grades it
+#     unchanged: State is `light` in data/streets/1835.json and the record puts a zero
+#     on workshops there, so a W roof on State is refused; Dearborn is `ordinary` and
+#     a W roof takes it only on a block no face of which outranks it.
+#   * It relaxes nothing about density. The roof holds its lot as any principal roof
+#     does, so a corner lot already built on its long face cannot also take a roof on
+#     its side street — whether it should is T-2134's question, not this term's.
+#   * It writes no record. No recipe slot uses it yet; `--self-test` is its
+#     demonstration, and every committed record re-derives byte for byte.
+#
+# The tolerance is measured, not tuned: across the 522 lot edges of the committed
+# grid that lie on a block face the worst stands 0.28 m off it, and the nearest edge
+# of any lot NOT on a face stands 10.79 m off. One metre separates the two cleanly.
+CROSS_FACE_TOL_M = 1.0
+
+
+def face_compass(grid: dict, street: str, where: str) -> str:
+    """Which face of the block — north, south, east or west — is `street`."""
+    compass = [k for k, v in grid["bounded_by"].items() if v == street]
+    if len(compass) != 1:
+        raise SystemExit(f"{where} fronts {street!r}, which is not exactly one face of "
+                         f"{grid['id']}")
+    return compass[0]
+
+
+def edge_on_face(poly: list[tuple[float, float]], face: dict):
+    """The lot edge lying on the face, or None — measured off both its ends."""
+    edges = [(poly[i], poly[(i + 1) % len(poly)]) for i in range(len(poly))]
+    best = min(edges, key=lambda e: max(abs(face_project(face, p)[1]) for p in e))
+    off = max(abs(face_project(face, p)[1]) for p in best)
+    return best if off <= CROSS_FACE_TOL_M else None
+
+
+def cross_street_frame(lot: dict, grid: dict, street: str, where: str) -> dict:
+    """The frame a roof stands on when it fronts its corner lot's SIDE street."""
+    face = face_frame(grid, face_compass(grid, street, where))
+    poly = [tuple(p) for p in lot["polygon"]]
+    side = edge_on_face(poly, face)
+    if side is None:
+        raise SystemExit(f"{where} fronts {street!r}, and its lot has no edge on that "
+                         f"face — only a corner lot touches a cross street, so a roof "
+                         f"on an interior lot cannot front one (T-2133)")
+    fm = _mid(*side)
+    # Inward is the face's own normal reversed, not the side line's: the bearing gate
+    # measures every roof against the face, so the frame is taken from the same line.
+    inward = (-face["outward"][0], -face["outward"][1])
+    depth = max(face_project(face, p)[1] for p in poly) - min(
+        face_project(face, p)[1] for p in poly)
+    return {
+        "front_mid": fm, "rear_mid": None, "depth_m": depth,
+        "front_len_m": math.dist(*side), "rear_len_m": None,
+        "inward": inward, "polygon": poly, "cross_street": street,
+    }
+
+
+def slot_frame(block: dict, grid: dict, frames: list[dict], slot: dict,
+               lot_index: int, family: str) -> dict:
+    """The frame a lot slot stands on: its lot's own, or the cross-street term's.
+
+    A slot whose street IS its lot's long face gets `lot_frame`'s frame untouched —
+    that is every slot the recipe has ever dealt, and why every committed record
+    re-derives unchanged. The test is geometric, not a lookup: the lot's own front
+    edge either lies on the named face or it does not.
+    """
+    frame = frames[lot_index]
+    where = f"{block['block_id']}: slot {family} on lot {lot_index}"
+    face = face_frame(grid, face_compass(grid, slot["fronts"], where))
+    poly = frame["polygon"]
+    own = edge_on_face(poly, face)
+    if own is not None and math.dist(_mid(*own), frame["front_mid"]) < 1e-6:
+        return frame
+    if slot["stands_on"] != "street":
+        raise SystemExit(f"{where} stands on the {slot['stands_on']} and fronts "
+                         f"{slot['fronts']!r}, which is not its lot's own face. The "
+                         f"cross-street term is a street term: a yard building serves "
+                         f"the roof whose lot it stands behind (T-2133)")
+    return cross_street_frame(grid["lots"][lot_index], grid, slot["fronts"], where)
+
+
 def place(edge_mid: tuple[float, float], inward: tuple[float, float],
           setback: float, lateral: float, width: float,
           depth: float) -> tuple[float, float, float]:
@@ -998,6 +1107,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
 
     on_frontage = slot["stands_on"] == "frontage"
     fronts_alley = slot["stands_on"] == "alley"
+    # T-2133: the frame says whether the roof fronts its corner lot's side street.
+    cross = bool(frame and frame.get("cross_street"))
     if on_frontage:
         # The coordinate is resolved in a second pass, by `place_frontage`, because a
         # run is a CHAIN: the unit at the end of the face is fixed by the block's own
@@ -1049,6 +1160,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
     else:
         where += (f"; a yard building off the block alley behind the {slot['fronts'].title()} "
                   "Street frontage" if fronts_alley
+                  else f"; standing back from the {faces.title()} Street side of its "
+                  "corner lot" if cross
                   else f"; standing back from the {faces.title()} Street frontage")
 
     anchor = slot.get("anchor") or {}
@@ -1081,7 +1194,8 @@ def make_record(block: dict, slot: dict, lot_index: int | None, frame: dict | No
         "geometry is the K7 plat module's — this project has never read Thompson's "
         "numbering off a sheet, and the side lot lines and the alley are conjectural "
         f"even where the block face is not. The building stands {setback:.1f} m back "
-        f"from its {'alley' if fronts_alley else 'street'} edge, which is a typology "
+        f"from its {'alley' if fronts_alley else 'side street' if cross else 'street'} "
+        "edge, which is a typology "
         "for the period and not a measurement of this lot. The whole footprint — not "
         "its centre — is tested against the platted street corridors, against its own "
         "lot lines and against every other footprint in the dataset, so no invented "
@@ -1206,8 +1320,10 @@ def build_block(block: dict, table: dict[str, dict], lots_by_id: dict[str, dict]
         if not on_frontage:
             check_non_dwelling_slot(block, slot, family, streets)
         records.append(make_record(
-            block, slot, lot_index, None if on_frontage else frames[lot_index], spec,
-            family, datum, seq, face))
+            block, slot, lot_index,
+            None if on_frontage else slot_frame(block, grid, frames, slot, lot_index,
+                                                family),
+            spec, family, datum, seq, face))
     if frontage:
         place_frontage(block, face, strip, records, datum)
     check_block(block, grid, frames, records, datum, face, strip, sibling_lots)
@@ -1756,11 +1872,7 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     for record in records:
         recon = record["reconstruction"]
         street = recon["fronts"]
-        compass = [k for k, v in grid["bounded_by"].items() if v == street]
-        if len(compass) != 1:
-            raise SystemExit(f"{record['id']} fronts {street!r}, which is not exactly "
-                             f"one face of {block['block_id']}")
-        want = face_frame(grid, compass[0])["bearing"]
+        want = face_frame(grid, face_compass(grid, street, record["id"]))["bearing"]
         if recon["stands_on"] == "alley":
             want = (want + 180.0) % 360.0   # a yard building looks at the alley behind it
         got = float(record["phases"][0]["position"]["rotation_deg"])
@@ -2240,11 +2352,158 @@ def records_from_inputs() -> list[dict]:
     return records
 
 
+def self_test() -> int:
+    """The cross-street term's demonstration (T-2133), and each of its refusals firing.
+
+    No recipe slot uses the term yet, so nothing under `--check` exercises it; this
+    does, on the committed ground of `blk_washington_dearborn` — the block T-2134
+    looks to, whose best face is Dearborn (`ordinary`) against Washington and State
+    (`light`) and Madison (unclassed). It deals nothing: every slot here is synthetic
+    and no record is written. The physical gates are the ones `check_block` holds a
+    lot roof to — the lot line and its margin, the platted corridors, the facade
+    bearing — asked of the synthetic roof directly, because the rest of that gate
+    reads the committed town and would make this test a statement about whatever
+    happens to be built on the block today.
+    """
+    from plat_corridors import corridors, intrusion  # noqa: PLC0415
+
+    lots_by_id = {b["id"]: b for b in load(LOTS_PATH)["blocks"]}
+    datum = load(DATA / "datum.json")
+    table = families()
+    streets = street_traffic()
+    lanes = corridors()
+    failures: list[str] = []
+
+    def block_of(block_id: str) -> tuple[dict, dict, list[dict]]:
+        grid = lots_by_id[block_id]
+        alley = [tuple(p) for p in grid["alley_local_enu_m"]]
+        block = {"block_id": block_id, "district": "south",
+                 "programme_phase": "self_test_t2133", "bounded_by": grid["bounded_by"]}
+        return block, grid, [lot_frame(lot, alley) for lot in grid["lots"]]
+
+    def corner(grid: dict, street: str) -> int:
+        """The first lot, in grid order, with an edge on the street's face."""
+        face = face_frame(grid, face_compass(grid, street, "self-test"))
+        return next(i for i, lot in enumerate(grid["lots"])
+                    if edge_on_face([tuple(p) for p in lot["polygon"]], face) is not None)
+
+    def deal(block_id: str, family: str, lot: int, fronts: str,
+             stands_on: str = "street", setback: float = 3.0,
+             toward_alley_m: float = 0.0) -> dict:
+        block, grid, frames = block_of(block_id)
+        slot = {"family": family, "inventory_class": "principal_functional",
+                "lot": lot, "stands_on": stands_on, "fronts": fronts,
+                "setback_m": setback, "lateral_m": 0.0}
+        check_non_dwelling_slot(block, slot, family, streets)
+        frame = slot_frame(block, grid, frames, slot, lot, family)
+        if toward_alley_m:
+            # Slide along the side line toward the block alley, whichever way that is
+            # on this face — the end of a corner lot a shop would stand at.
+            alley = grid["alley_local_enu_m"]
+            am = (sum(p[0] for p in alley) / len(alley), sum(p[1] for p in alley) / len(alley))
+            axis = (frame["inward"][1], -frame["inward"][0])
+            sign = 1.0 if ((am[0] - frame["front_mid"][0]) * axis[0]
+                           + (am[1] - frame["front_mid"][1]) * axis[1]) > 0 else -1.0
+            slot["lateral_m"] = sign * toward_alley_m
+        return make_record(block, slot, lot, frame, table[family], family, datum, 1)
+
+    def expect(what: str, ok: bool, detail: str = "") -> None:
+        print(f"{'OK  ' if ok else 'FAIL'} {what}{(' — ' + detail) if detail else ''}")
+        if not ok:
+            failures.append(what)
+
+    def refused(what: str, needle: str, fn) -> None:
+        try:
+            fn()
+        except SystemExit as exc:
+            expect(what, needle in str(exc), str(exc)[:160])
+            return
+        expect(what, False, "it was admitted")
+
+    # 1. THE DEMONSTRATION: a carpenter's shop on Dearborn, at the alley end of the
+    #    Washington-and-Dearborn corner lot, held to every physical gate a lot roof is.
+    blk = "blk_washington_dearborn"
+    _, grid, frames = block_of(blk)
+    alley = [tuple(p) for p in grid["alley_local_enu_m"]]
+    for family, street in (("W2", "dearborn"), ("W3", "dearborn"), ("D3", "state")):
+        lot = corner(grid, street)
+        rec = deal(blk, family, lot, street, toward_alley_m=12.0)
+        poly = world_polygon(rec, datum)
+        face = face_frame(grid, face_compass(grid, street, rec["id"]))
+        got = float(rec["phases"][0]["position"]["rotation_deg"])
+        off = abs((got - face["bearing"] + 180.0) % 360.0 - 180.0)
+        expect(f"{family} on lot {lot} looks out along the {street} face",
+               off < 0.5, f"{got:.2f} deg against the face's {face['bearing']:.2f}")
+        lot_poly = frames[lot]["polygon"]
+        inside = all(point_in_polygon(pt, lot_poly) for pt in poly)
+        margin = min(distance_to_edges(pt, lot_poly) for pt in poly)
+        expect(f"{family} on lot {lot} stands inside its lot, clear of the margin",
+               inside and margin >= LOT_MARGIN_M - 0.005, f"{margin:.2f} m to a lot line")
+        hit, depth = intrusion(poly, lanes)
+        expect(f"{family} on lot {lot} stays out of every platted corridor", not hit,
+               f"{depth:.1f} m into {hit}" if hit else "")
+        back = min(abs(face_project(face, pt)[1]) for pt in poly)
+        expect(f"{family} on lot {lot} stands its setback back from the {street} line",
+               abs(back - 3.0) < 0.35, f"{back:.2f} m")
+        to_alley = min(distance_to_edges(pt, alley) for pt in poly)
+        expect(f"{family} on lot {lot} slid along its side line to the alley end",
+               to_alley < frames[lot]["depth_m"] / 2.0, f"{to_alley:.1f} m from the alley")
+        recon = rec["reconstruction"]
+        expect(f"{family} on lot {lot} says what it fronts and where",
+               recon["fronts"] == street and recon["lot_index"] == lot
+               and f"{street.title()} Street side of its corner lot"
+               in rec["phases"][0]["position"]["symbolic_location"])
+        importlib.import_module(f"archetypes.{rec['archetype']}_params").from_phase(
+            rec["phases"][0])
+        # Without the term the same slot falls through to its lot's own face and
+        # looks ninety degrees away from the street it names — the refusal T-1682 met.
+        old = place(frames[lot]["front_mid"], frames[lot]["inward"], 3.0, 0.0, 6.0, 9.0)
+        stale = abs((old[2] - face["bearing"] + 180.0) % 360.0 - 180.0)
+        expect(f"…and without the term {family} on lot {lot} would look {stale:.0f} deg off",
+               stale > 45.0)
+
+    # 2. THE OWN FACE IS UNTOUCHED: a slot on its lot's long face gets lot_frame's frame.
+    block, grid, frames = block_of(blk)
+    lot = corner(grid, "dearborn")
+    slot = {"family": "D3", "lot": lot, "stands_on": "street", "fronts": "washington"}
+    expect("a long-face slot keeps its lot's own frame, the same object",
+           slot_frame(block, grid, frames, slot, lot, "D3") is frames[lot])
+
+    # 3. THE REFUSALS, each by the clause that owns it.
+    interior = next(i for i, lt in enumerate(grid["lots"])
+                    if edge_on_face([tuple(p) for p in lt["polygon"]],
+                                    face_frame(grid, "west")) is None
+                    and edge_on_face([tuple(p) for p in lt["polygon"]],
+                                     face_frame(grid, "east")) is None)
+    refused("an interior lot cannot front a cross street", "no edge on that face",
+            lambda: deal(blk, "W2", interior, "dearborn"))
+    refused("a workshop on State is refused: State is light", "light street",
+            lambda: deal(blk, "W2", corner(grid, "state"), "state"))
+    refused("a workshop on Dearborn is refused where Lake outranks it", "better face",
+            lambda: deal("blk_lake_dearborn", "W2",
+                         corner(lots_by_id["blk_lake_dearborn"], "dearborn"), "dearborn"))
+    refused("a yard building cannot take the cross-street term", "street term",
+            lambda: deal(blk, "A1", corner(grid, "dearborn"), "dearborn", "alley"))
+    refused("a street that bounds no face of the block is refused", "not exactly one face",
+            lambda: deal(blk, "D3", corner(grid, "dearborn"), "clark"))
+
+    if failures:
+        print(f"FAIL: {len(failures)} of the cross-street term's assertions did not hold")
+        return 1
+    print("OK: the cross-street term stands a roof on its corner lot's side street, and "
+          "every clause that refuses one still fires")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true",
                     help="verify the committed records still re-derive from the recipe")
+    ap.add_argument("--self-test", action="store_true",
+                    help="the cross-street term (T-2133) stands, and its refusals fire")
     args = ap.parse_args()
+    if args.self_test:
+        return self_test()
 
     records = records_from_inputs()
     expected = {f"{r['id']}.json" for r in records}
