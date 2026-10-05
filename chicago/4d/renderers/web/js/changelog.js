@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1472, ts: '2026-10-05T05:17:15.687Z', date: 'Oct 5, 2026, 12:17 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+  { v: null, ts: '', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
       'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
       'If a later change moves that number, the checks stop it until someone decides it on purpose.',
+    ] },
+  { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tested giving every building baked shadows in its corners and under its eaves, the shading called ambient occlusion.',
+      'Done the usual way, with a shadow picture per building, the town took 547 separate drawing steps instead of 5. That roughly doubled the work per frame on a phone, so it is not shipping.',
+      'Those shadow pictures would also never reach the walls or roofs, which already carry their own texture. The plan is now to store the shadows in the buildings’ corners themselves, which adds no drawing steps.',
     ] },
   { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
     items: [
