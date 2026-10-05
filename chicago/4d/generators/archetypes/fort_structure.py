@@ -155,10 +155,10 @@ def _unit(name: str, *keys) -> float:
 
 #: How far one log differs from the next, at most, either way. The plank walk's
 #: board span is 0.14 (frontage.js WALK_BOARD_SPAN); a hewn log is a bigger piece
-#: of a different tree, so it is allowed a little more. RECONSTRUCTED (L389).
+#: of a different tree, so it is allowed a little more. RECONSTRUCTED (L390).
 LOG_SPAN = 0.16
 #: The sill course sits in the splash and the damp and reads darker than the logs
-#: above it; the next one up a little. RECONSTRUCTED (L389).
+#: above it; the next one up a little. RECONSTRUCTED (L390).
 SILL_K = (0.80, 0.92)
 
 
@@ -317,12 +317,12 @@ def _building(b: MeshBuilder, p: FortStructureParams) -> None:
 #: How far a pitched roof reaches past the wall at its eaves and its rakes. The
 #: 0.25 of `MeshBuilder.add_gable_roof`, a little more, because a log wall is
 #: thicker than a frame one and a short overhang on it reads as a lid. RECONSTRUCTED
-#: (L389), as every dimension of every roof in this fort already is.
+#: (L390), as every dimension of every roof in this fort already is.
 EAVE_M = 0.30
 #: The covering's own thickness at its edges: boards and shingles on a deck, seen
 #: edge-on from the parade. Without it a roof is a sheet of paper. RECONSTRUCTED.
 ROOF_EDGE_M = 0.07
-# T-2123 roof weathering (L389): eave-to-ridge tone, per-plane spread, edge shadow.
+# T-2123 roof weathering (L390): eave-to-ridge tone, per-plane spread, edge shadow.
 ROOF_EAVE_K = 0.84
 ROOF_RIDGE_K = 1.02
 ROOF_PLANE_SPAN = 0.06
@@ -365,7 +365,7 @@ def _roof_plane(b: MeshBuilder, pts, conf: float, ridge_edge: int = None) -> Non
     T-2123: a covering weathers from the eave up — the drip edge holds water and
     moss, the ridge dries first — so each plane carries a tone from ROOF_EAVE_K at
     its lowest edge to ROOF_RIDGE_K at its highest, times a per-plane variation so
-    the two sides of a ridge do not match to the bit (L389). The thickness faces
+    the two sides of a ridge do not match to the bit (L390). The thickness faces
     take the eave's tone, darker by the shadow under the edge."""
     zs = [q[2] for q in pts]
     z_lo, z_hi = min(zs), max(zs)
@@ -481,7 +481,7 @@ def _gable_wall(b: MeshBuilder, p: FortStructureParams, axis: str, plane: float,
     course that starts on the eave wall does not jump a few centimetres where it
     turns the corner. That is how a log pen with a log gable is built; the other
     common gable of the period, boards nailed over a frame, is equally possible
-    on any one of these buildings and is not attested for any (L389). Brick and
+    on any one of these buildings and is not attested for any (L390). Brick and
     frame walls get one flat piece of their own material.
     """
     zs = [z for _, z in outline]
@@ -783,7 +783,7 @@ def _flagstaff(b: MeshBuilder, p: FortStructureParams) -> None:
     so whether it is up is a claim about one forenoon, and since T-2124 the staff's
     record says so in its own attributes (`flag`, `flag_flying`, each graded) and
     the renderer's flags.js hangs and moves the cloth from them. The spar is what is
-    attested; the bunting is a separate, separately-graded layer (L389).
+    attested; the bunting is a separate, separately-graded layer (L390).
 
     **What is the archetype's.** Everything except the height. No source reached
     gives the second fort's staff a thickness, a taper, a truck or a step, so the

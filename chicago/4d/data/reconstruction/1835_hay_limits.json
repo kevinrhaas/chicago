@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 330,
-  "outside": 237,
+  "inside": 333,
+  "outside": 238,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 48,
    "west_of_canal_street": 83,
-   "south_of_washington_street": 77,
+   "south_of_washington_street": 78,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -518,6 +518,7 @@
     "recon_1835_blk_washington_dearborn_d7_06",
     "recon_1835_blk_washington_dearborn_h2_05",
     "recon_1835_blk_washington_dearborn_h3_01",
+    "recon_1835_blk_washington_dearborn_w2_10",
     "recon_1835_blk_washington_franklin_a1_10",
     "recon_1835_blk_washington_franklin_a2_09",
     "recon_1835_blk_washington_franklin_a3_13",
@@ -1112,7 +1113,7 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "gated",
-    "roofs": 24
+    "roofs": 20
    },
    {
     "id": "west_division_beyond_committed_control",

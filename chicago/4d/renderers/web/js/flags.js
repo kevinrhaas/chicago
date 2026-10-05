@@ -22,7 +22,7 @@
  *    lofty flagstaff". On 1 August 1812 the law is the Flag Act of 1794: fifteen
  *    stars and FIFTEEN stripes, in force from 1 May 1795 to 4 July 1818. INFERRED.
  *  - That either flag is UP at the scene's hour, how big it is, how its stars
- *    are laid out and which way the wind takes it are RECONSTRUCTED — L389 —
+ *    are laid out and which way the wind takes it are RECONSTRUCTED — L390 —
  *    and the confidence view dithers the cloth accordingly.
  *
  * WHAT IT COSTS. One draw call and one 512 px canvas texture a flag, a 24 x 12
@@ -44,7 +44,7 @@ import { LEVELS } from './confidence.js';
  * THE PATTERNS — counted from the acts, laid out by us. Rows of stars are the
  * commonest layouts the two counts were flown in (24: four rows of six; 15:
  * five staggered rows of three, the Fort McHenry arrangement); the law fixed
- * the count, not the layout, until 1912, so each layout is reconstructed (L389).
+ * the count, not the layout, until 1912, so each layout is reconstructed (L390).
  * `union` is the canton's depth in stripes and its share of the fly.
  */
 export const PATTERNS = {
@@ -53,7 +53,7 @@ export const PATTERNS = {
 };
 
 /**
- * HOW BIG, AND WHERE THE WIND IS. Reconstructed (L389), every one.
+ * HOW BIG, AND WHERE THE WIND IS. Reconstructed (L390), every one.
  *  - The fly is a share of the staff: a post flag of the period ran to about a
  *    third of its staff (the 1813 storm flag at Fort McHenry was 17 x 25 ft on
  *    a staff of about 90); 0.30 gives the 1835 staff a 15 ft flag and the 1812

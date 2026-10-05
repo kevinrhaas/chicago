@@ -8006,6 +8006,16 @@
       "why": "the paper did not print this house's name whole — [boot, shoe and leather store, Lake street, proprietor not recovered] (biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered) — so there is no name to letter without writing one here."
     },
     {
+      "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+      "trade": "blacksmith_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
+    },
+    {
       "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
       "trade": "older_log_dwelling",
       "why": "the register firm the street-face adoption houses here, Elmira Fowler (biz_elmira_fowler), keeps a trade — milliner — that ADOPTED_FIRM_TRADE hangs no board for (a school is outside both classes, by clause 2)."
@@ -8014,6 +8024,11 @@
       "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
       "trade": "one_room_frame_cottage",
       "why": "the paper did not print this house's name whole — [uncertain: W. H. Taylor], Dearborn Street boot and shoe store (biz_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store) — so there is no name to letter without writing one here."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_blk_randolph_wells_d2_07",
@@ -8049,6 +8064,11 @@
       "structure_id": "recon_1835_blk_south_water_wells_c3_02",
       "trade": "narrow_two_story_store",
       "why": "Chicago Bakery (biz_chicago_bakery) has no entry in ADOPTED_WORDING, so nothing is lettered until one is typed."
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01",

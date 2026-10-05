@@ -51,8 +51,8 @@
   "lots_with_a_roof": 200,
   "lots_barring_another_roof": 198,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 259,
-  "lots_over_their_own_rule": 17
+  "principal_roofs_standing": 263,
+  "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
   "rule": {
@@ -5002,16 +5002,18 @@
    "principal_roofs_max": 1,
    "standing": [
     "recon_1835_blk_randolph_clark_a4_07",
-    "recon_1835_blk_randolph_clark_c2_01"
+    "recon_1835_blk_randolph_clark_c2_01",
+    "recon_1835_blk_randolph_clark_w2_09"
    ],
    "standing_families": {
     "recon_1835_blk_randolph_clark_a4_07": "A4",
-    "recon_1835_blk_randolph_clark_c2_01": "C2"
+    "recon_1835_blk_randolph_clark_c2_01": "C2",
+    "recon_1835_blk_randolph_clark_w2_09": "W2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -5036,15 +5038,17 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_randolph_clark_d6_04"
+    "recon_1835_blk_randolph_clark_d6_04",
+    "recon_1835_blk_randolph_clark_w1_10"
    ],
    "standing_families": {
-    "recon_1835_blk_randolph_clark_d6_04": "D6"
+    "recon_1835_blk_randolph_clark_d6_04": "D6",
+    "recon_1835_blk_randolph_clark_w1_10": "W1"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -5406,16 +5410,18 @@
    "principal_roofs_max": 1,
    "standing": [
     "recon_1835_blk_randolph_dearborn_a4_06",
-    "recon_1835_blk_randolph_dearborn_d3_01"
+    "recon_1835_blk_randolph_dearborn_d3_01",
+    "recon_1835_blk_randolph_dearborn_w2_18"
    ],
    "standing_families": {
     "recon_1835_blk_randolph_dearborn_a4_06": "A4",
-    "recon_1835_blk_randolph_dearborn_d3_01": "D3"
+    "recon_1835_blk_randolph_dearborn_d3_01": "D3",
+    "recon_1835_blk_randolph_dearborn_w2_18": "W2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
@@ -8741,15 +8747,17 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
-    "recon_1835_blk_washington_dearborn_d7_04"
+    "recon_1835_blk_washington_dearborn_d7_04",
+    "recon_1835_blk_washington_dearborn_w2_10"
    ],
    "standing_families": {
-    "recon_1835_blk_washington_dearborn_d7_04": "D7"
+    "recon_1835_blk_washington_dearborn_d7_04": "D7",
+    "recon_1835_blk_washington_dearborn_w2_10": "W2"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
-   "over_its_rule": false,
+   "over_its_rule": true,
    "reserved_for": null,
    "state": "at_capacity"
   },
