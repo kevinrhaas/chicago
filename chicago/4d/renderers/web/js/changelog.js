@@ -1,9 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1490, ts: '2026-10-05T14:29:31.546Z', date: 'Oct 5, 2026, 9:29 AM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+  { v: null, ts: '', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
       'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
       'Nothing here is claimed as evidence. No source puts a workshop on these lots in 1835 or says which trade worked there. The shops are the programme filling a town it can count but cannot name, and each carries that disclosure on its own card.',
+    ] },
+  { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+    items: [
+      'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
+      'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
+      'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
+      'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
+      'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1491, ts: '2026-10-05T13:56:54.591Z', date: 'Oct 5, 2026, 8:56 AM CT', title: 'Newberry & Dole\u2019s warehouse stays south of the river, on the paper\u2019s word', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Newberry & Dole\u2019s forwarding warehouse stays where it stood, on South Water Street across from its dock.',
+      'A letter about an August 1835 walk put the firm\u2019s warehouse on the north bank instead. We have now read the 1834\u201335 Chicago Democrat: four shopkeepers\u2019 notices place the firm\u2019s \u201cstore house, on south water street\u201d, one of them in the issue of July 1, 1835, the day the scene shows. So the south bank now rests on a source from that summer. Until now it rested on a note no one could trace.',
+      'The north-bank warehouse of that walk is likely a second building the firm had by late August. Nothing dates it to July, so it is not added.',
+      'The same notices point to the Dearborn Street end of South Water Street, four blocks east of where the warehouse stands. That is now an open question of its own. The Liberties page explains it (L66, L378).',
+    ] },
+  { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+    items: [
+      'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
+      'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
+      'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
+      'The woods, hoops and paint are a reconstruction (Liberty L388). No extra draw calls.',
     ] },
   { v: 1489, ts: '2026-10-05T13:16:51.492Z', date: 'Oct 5, 2026, 8:16 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
     items: [

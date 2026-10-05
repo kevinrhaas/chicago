@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 411,
+  "count": 412,
   "liberties": [
     {
       "id": "L1",
@@ -3367,7 +3367,7 @@
         }
       ],
       "recorded": "2026-08-11",
-      "revised": null,
+      "revised": "2026-10-05",
       "fields": [
         {
           "label": "Decision",
@@ -3396,6 +3396,10 @@
         {
           "label": "Recorded",
           "text": "2026-08-11."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-05 (T-1723) — the bank half of this entry is answered, by the second route its \"How to resolve\" names, and the answer keeps the south bank. Newberry & Dole's own card in the *Chicago Democrat* states no street, but its neighbours' cards do, and four advertisers who never mention one another hang off it: Peter Cohen \"next door below Messrs. Newberry and Dole's store house, on south water street\" (copy of 3 November 1834, still printed in the scene-date issue of 1 July 1835, `chicago_democrat_1835_07_01#c001`); W. H. Brown \"on Dearborn street, one door from Newberry & Dole's store\" (28 May 1834); W. H. Taylor \"on Dearborn street, a few rods north of Messrs. Newberry & Dole's Store\" (20 May 1835). Both streets are south-bank streets, so `chicago_democrat_1833_1835` is now cited on the position, and Andreas's north-side sentence (1839) and Bonnell's north-bank walk (26 August 1835, L291) are a LATER house of the firm, not a contradiction of the July one. The c. 1835 view is still unidentified and is no longer what the bank rests on. What stays open, and why this entry is not resolved: the block (the paper points at the Dearborn end of South Water, half a kilometre east of where L378 stands the house — T-2137), Kinzie & Hunter's bank, and both docks."
         }
       ]
     },
@@ -16283,14 +16287,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 554
+        "count": 550
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 554 phases (550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 550 phases (541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Scope revision, 2026-10-01 (T-1766)",
@@ -17238,7 +17242,6 @@
         "inf_blacksmith_shop_west",
         "mason_blacksmith_shop",
         "pierce_blacksmith_shop",
-        "recon_1835_blk_randolph_clark_w1_10",
         "recon_1835_canal_trade_w1_003"
       ],
       "covers": [
@@ -17251,14 +17254,14 @@
       ],
       "scope": {
         "enumeration": "structures.phases[chimneys]",
-        "count": 5
+        "count": 4
       },
       "recorded": "2026-09-27",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[chimneys]` — 5 phases built with a forge stack: `pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west`, `recon_1835_canal_trade_w1_003` and `recon_1835_blk_randolph_clark_w1_10`, the town's five `outbuilding` smithies (four until T-2134's blacksmith's shop on Dearborn Street, 2026-10-05). The `chimneys: 1` the five anonymous-parcel generators now deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it stands against are in `generators/archetypes/outbuilding_params.py`."
+          "text": "`structures.phases[chimneys]` — 4 phases built with a forge stack: `pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west` and `recon_1835_canal_trade_w1_003`, the town's four `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it stands against are in `generators/archetypes/outbuilding_params.py`."
         },
         {
           "label": "Scope revision, 2026-10-01 (T-1766)",
@@ -24581,7 +24584,7 @@
         }
       ],
       "recorded": "2026-10-04",
-      "revised": null,
+      "revised": "2026-10-05",
       "fields": [
         {
           "label": "Decision",
@@ -24610,6 +24613,10 @@
         {
           "label": "Recorded",
           "text": "2026-10-04 (T-2097)."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-05 (T-1723) — the bank is settled and it is the south bank, so this entry no longer stands \"against Andreas and Bonnell\". The firm's neighbours in the *Chicago Democrat* put its store house on South Water Street, with neighbours on Dearborn Street, from 1834 through the scene-date issue (L66's revision gives the four notices); Andreas's 1839 sentence and Bonnell's August 1835 walk are a later north-bank house. T-1723 does not move the building. What it adds to this entry is that the corner is now the weaker half: the same notices point at the Dearborn end of South Water, not at Franklin, and that is filed as T-2137 rather than overruling the owner's corner here."
         }
       ]
     },
@@ -24940,6 +24947,37 @@
       ]
     },
     {
+      "id": "L385",
+      "title": "Where two plant communities meet, they blend across a wandering margin about 100 m wide",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-05",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the flora layer no longer asks a community's extent its exact question at a plant's own point. A polygon or a box (the settled town, the dense forest, the held-out squares) is asked at the point moved by a slow wander (up to about 26 m, on waves of roughly 280, 120 and 43 m) plus a per-plant draw of up to 50 m either way, peaked at the plant's own point (`renderers/web/js/zone-blend.js`). Deep in a community every plant still belongs to it; across the band the share of each community changes smoothly, so the town's cropped turf thins into the prairie over about 100 m along a ragged line. A water buffer reaching 30 m or more (the riverbank timber) spreads its far side by up to about 48 m; the marsh keeps its edge at the water, and the wet and mesic prairies' elevation bands are not blended (they already follow the swales). On the town's side, a prairie plant the band puts within its reach of the town's recorded edge is handed to the town's turf at a share falling from 60 % at the line to none at the band's far side, so the margin's prairie is thinner, as grazed ground is. The ground's turf texture grades across the same band (`flora.js` hands it the town's share per texel, not a yes or no). Fort Dearborn's bare apron, which states an outer ring and no fence, now carries on past that ring into a 22 m skirt whose cover frays out along a wandering line, and the sward thins in across it at the same share (`renderers/web/js/yards.js`). A fenced yard keeps its edge at its fence."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-05 (T-2125): *\"the edge of your areas is very sharp between the fort and prairie and prairie and settled lands ... the separations are linear and sharp, please make them less linear ... graduate the areas together ... so its barely perceptible that you cross an area ... maybe 100 meter ... there is a cabin there with a perfectly round settled area around it and it would be irregular\"*. The settled town's extent is the plat and every standing structure grown by a 50 m Euclidean halo, so a lone cabin stood in a disc, and every community changed on a line one plant wide."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "no survey drew any of these edges, and the zone records say so in their own notes; none drew a margin's width either. The communities that meet in a band, and their species, are the records'; the band's width, its wander, the draw's shape, the apron's 22 m skirt and its fray are ours, bounded by the dossier's 50-200 m grazed halo around a settlement (`docs/research/02-flora.md` § ZONE 10) and the owner's \"maybe 100 meter\". The records, their extents and every tool that audits them are unchanged: the renderer moves where it asks, not the rule it asks."
+        },
+        {
+          "label": "How to resolve",
+          "text": "a plat, survey note or view that shows where the town's grazed ground gave way to the prairie, or how far the fort's trodden ground ran, replaces the band there."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-05 (T-2125)."
+        }
+      ]
+    },
+    {
       "id": "L386",
       "title": "A vacant town lot is grazed prairie remnant: the flowers the stock leave, on a cropped sward",
       "section": "per_subject",
@@ -25083,86 +25121,32 @@
     },
     {
       "id": "L388",
-      "title": "Four invented workshops stand at the back of Dearborn Street corner lots",
+      "title": "The yard goods' woods, hoops, paint and cleats, dealt per object",
       "section": "per_subject",
-      "subjects": [
-        "recon_1835_blk_randolph_clark_w1_10",
-        "recon_1835_blk_randolph_clark_w2_09",
-        "recon_1835_blk_randolph_dearborn_w2_18",
-        "recon_1835_blk_washington_dearborn_w2_10"
-      ],
-      "covers": [
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_randolph_clark_w1_10",
-          "phase": "inferred_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_randolph_clark_w1_10",
-          "phase": "inferred_1835",
-          "aspect": "position"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_randolph_clark_w2_09",
-          "phase": "inferred_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_randolph_clark_w2_09",
-          "phase": "inferred_1835",
-          "aspect": "position"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_randolph_dearborn_w2_18",
-          "phase": "inferred_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_randolph_dearborn_w2_18",
-          "phase": "inferred_1835",
-          "aspect": "position"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_washington_dearborn_w2_10",
-          "phase": "inferred_1835",
-          "aspect": "footprint"
-        },
-        {
-          "domain": "structure",
-          "structure": "recon_1835_blk_washington_dearborn_w2_10",
-          "phase": "inferred_1835",
-          "aspect": "position"
-        }
-      ],
+      "subjects": [],
+      "covers": [],
       "recorded": "2026-10-05",
       "revised": null,
       "fields": [
         {
           "label": "Decision",
-          "text": "the South Division's last four workshops — three carpenter's or joiner's shops (W2) and a blacksmith's shop (W1) — stand at the BACK of four corner lots, each fronting Dearborn Street, behind the house already standing on its lot: on lot 0 of `blk_washington_dearborn` (behind a D7 house on Washington), lot 0 of `blk_randolph_dearborn` (behind a D3 cottage), and lots 6 and 7 of `blk_randolph_clark` (behind a store and a D6 house). Each stands on the Dearborn street line (1.55 m off the lot edge, inside the 2.71 m the placement policy's `mechanics_streets` clause reads as \"on the line\") and 14 m along it from the middle of the lot's side toward the block alley, its gable to the street. **The rule this rests on (T-2134).** The schedule owed these four and held them on gated ground (`blk_south_water_market` and `south_plat_beyond_committed_control`), where nothing can stand, while every block with a face a workshop may take read `at_capacity`: a block's room is counted a free lot to a principal roof. The owner ruled on 2026-09-23 (T-1482) that a lot may carry a main house plus a rear building, which is ancillary by its position. A workshop at the rear of a CORNER lot, door on the side street, is that same rear building turned to face the street it stands beside, so `reconcile_665.inventory_class` now reads it as ancillary — workshops only, and only behind a principal roof already on the lot. It takes no lot of its own, so no block's reserved open lot is spent and `ROW_UNITS_PER_LOT` counts every lot as it did. The face clauses still bind it: Dearborn is `ordinary` and no face of these three blocks outranks it; a shop on State or Washington (`light`) or on a Lake or South Water block is still refused. **Everything else is invented** — that a shop stood on any of these lots in 1835, which trade, where on the lot and how far back. No source places a workshop here. Each is an anonymous count-unit at the bottom tier, drawn one for one from the gated units' workshops (`drawn_from_gated_ground` on the three recipe entries), so no family total moves."
+          "text": "every cask, packing case, bench, wagon and cart in `renderers/web/js/yard.js` is dealt its own wood tone from six weathered woods (silvered, grey-brown, seasoned pine, honey and brown oak, dark oak), shaded again stave by stave and board by board, and wears the plank walks' board-face grain (`clapboard_board_face`, the T-1815 texture) on a second uv. A cask is drawn with a parabolic bilge, a chime standing 28 mm proud of a recessed head, and two pairs of hoops: split wood on about three in five, iron on the rest. A packing case has two end cleats a side. A wagon or cart box is two boards a side with stakes up the outside, and a share of them wear a faded paint (Prussian blue or Venetian red body on a red-oxide gear, a few dull green) while the rest are bare wood. Tyres are iron. Every choice is read off a hash of the object's id or place, so the same page draws the same casks and wagons on every load."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-05 (T-2121): *\"these barrels are so janky ... make them and barrels and other things in different colors weathered wood like we did with the plank sidewalks and use textures etc to make them all look real and weathered\"*, and the wagons \"look eerily similar\"."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "no source gives the colour, wood, hoop or paint of any cask, case or vehicle in this town. Wood-hooped slack barrels and iron-hooped tight casks were both in use in the 1830s; the blue body and red gear is the remembered freight-wagon livery of the period. The tones are bounded by values this project already ships (the fences' 0x8d8272, the old goods tone 0x8a7a5f, the board face's own mean), and every share, width and dimension above is ours. The record's own sizes (`barrel_*`, `crate_size_m`, `wagon_body_m`, `cart_m`) are unchanged."
         },
         {
           "label": "How to resolve",
-          "text": "a lot-level deed, assessment or directory entry for a shop on Dearborn Street between Randolph and Madison. A named discovery substitutes for a compatible anonymous shop and never increases the total; evidence that these corners carried nothing behind their houses retires the shops rather than moving them."
-        },
-        {
-          "label": "Covers",
-          "text": "`recon_1835_blk_washington_dearborn_w2_10.inferred_1835.position`, `recon_1835_blk_washington_dearborn_w2_10.inferred_1835.footprint`, `recon_1835_blk_randolph_dearborn_w2_18.inferred_1835.position`, `recon_1835_blk_randolph_dearborn_w2_18.inferred_1835.footprint`, `recon_1835_blk_randolph_clark_w2_09.inferred_1835.position`, `recon_1835_blk_randolph_clark_w2_09.inferred_1835.footprint`, `recon_1835_blk_randolph_clark_w1_10.inferred_1835.position`, `recon_1835_blk_randolph_clark_w1_10.inferred_1835.footprint`"
-        },
-        {
-          "label": "Related",
-          "text": "**L387** (the houses on the Dearborn block these stand behind), **L349**, **T-1684**, **T-2133** (the cross-street term), **T-2134**, **T-1482** (the owner's rear-building ruling)."
+          "text": "any inventory, advertisement or view that names a shop's casks or a wagon's colour in 1835 Chicago replaces the deal for that object."
         },
         {
           "label": "Recorded",
-          "text": "2026-10-05 (T-2134)."
+          "text": "2026-10-05 (T-2121)."
         }
       ]
     },
