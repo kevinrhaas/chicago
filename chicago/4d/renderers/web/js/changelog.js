@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1470, ts: '2026-10-05T04:46:05.756Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
+      'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
+      'If a later change moves that number, the checks stop it until someone decides it on purpose.',
+    ] },
   { v: 1469, ts: '2026-10-05T04:20:56.828Z', date: 'Oct 4, 2026, 11:20 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
       'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',

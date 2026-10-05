@@ -134,6 +134,17 @@ platted deal reached one more `tradesman_dwellings` seat in the South Division, 
 this tree's answer and not a property of the change — two allocations running blind to one
 pool can move the count either way, which is **T-1669**.
 
+*T-1669 ruled it, and measured it.* The platted deal was never wholly blind: this deal's picks
+reach it as occupancies on the records, and it held them back. It now reads this deal's table,
+which is upstream of it, and names those roofs as this deal's (`held_by:
+street_face_business_deal` in `1835_platted_seats.json`). The precedence is written down — the
+narrower placement, a street face, deals before the wider one, a division — and costed by
+re-dealing the plat with every roof this deal holds released: on the tree that ruling shipped
+against it costs the households **2** seats, though 14 of the 40 roofs would be adopted and 40
+households would change roof. This deal still reads nothing the platted deal writes. The cost
+is pinned in `seat_platted_ground_1835.py`, so a re-order here that moves it is red there until
+it is argued for in **L270**.
+
 *And it takes several passes to see it.* The two deals feed each other through the structure
 records, so a single rebuild of this table is not the answer: `adopt_street_faces` →
 `generate_*_infill` → `redeal_anonymous_roofs` → `seat_platted_ground_1835` →
