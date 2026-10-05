@@ -177,6 +177,36 @@
           }
         }
       }
+    },
+    {
+      "cpu": "Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz",
+      "cores": 4,
+      "where": "the steward runner, 2026-10-05 (GitHub-hosted, polecat-platform's steward-improve; phone only: T-2110 changed only the phone's default)",
+      "tiers": {
+        "full": {
+          "mobile": 8750
+        },
+        "balanced": {
+          "mobile": 6250
+        },
+        "light": {
+          "mobile": 3500
+        }
+      },
+      "measured": {
+        "on": "2026-10-05, T-2110's branch on dev @ a576cd3b, published mirror, steward runner (4 cores), ANGLE SwiftShader; phone 390x780 dpr 3, Image sharpness Low (1) — the phone's new default — CPU 4x throttled; medians of 2 frames. The same page at Medium (1.5, --sharpness 1.5) read full 9427, balanced 6907, light 4230 ms: Low is 17.5 %, 20.4 % and 26.1 % cheaper",
+        "mobile": {
+          "full": {
+            "frame_ms": 7777
+          },
+          "balanced": {
+            "frame_ms": 5501
+          },
+          "light": {
+            "frame_ms": 3124
+          }
+        }
+      }
     }
   ]
 }

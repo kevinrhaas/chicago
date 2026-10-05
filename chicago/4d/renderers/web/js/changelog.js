@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1464, ts: '2026-10-05T02:58:07.931Z', date: 'Oct 4, 2026, 9:58 PM CT', title: 'A phone starts at Low image sharpness, for smoother frames', kind: 'change',
+    items: [
+      'On a phone, the town now opens at Image sharpness Low, not Medium. At Light detail, where a phone starts, each frame draws about a quarter faster. Edges are a little softer, most of all on log walls and roofs seen from the air.',
+      'A desktop still starts at Medium.',
+      'If you have ever picked a sharpness in Settings, you keep it.',
+    ] },
   { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
