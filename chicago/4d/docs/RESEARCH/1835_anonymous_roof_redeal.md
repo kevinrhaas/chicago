@@ -4,18 +4,18 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **450** anonymous roofs
-- keep: **442** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
-- refamily: **8** (5 of them into a band that already fits the committed footprint)
+- audited: **458** anonymous roofs
+- keep: **446** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- refamily: **12** (7 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 558 stand, so the town is 110 roofs short before this audit and 110 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 566 stand, so the town is 102 roofs short before this audit and 102 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
 | bucket | target | standing | anonymous | head | after | head after |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `structures/barns_stables/south` | 35 | 33 | 26 | 2 | 33 | 2 |
+| `structures/barns_stables/south` | 35 | 34 | 27 | 1 | 35 | 0 |
 | `structures/barns_stables/west` | 20 | 14 | 11 | 6 | 14 | 6 |
 | `structures/barns_stables/north` | 17 | 11 | 10 | 6 | 15 | 2 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
@@ -29,7 +29,7 @@ The programme wants 668 roofs and 558 stand, so the town is 110 roofs short befo
 | `structures/larger_boarding_houses/south` | 28 | 25 | 24 | 3 | 25 | 3 |
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 3 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/ordinary_dwellings/south` | 176 | 136 | 127 | 40 | 138 | 38 |
+| `structures/ordinary_dwellings/south` | 176 | 143 | 134 | 33 | 144 | 32 |
 | `structures/ordinary_dwellings/west` | 75 | 67 | 63 | 8 | 67 | 8 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 52 | 26 | 60 | 24 |
 | `structures/small_outbuildings/south` | 48 | 47 | 46 | 1 | 45 | 3 |
@@ -48,10 +48,14 @@ The programme wants 668 roofs and 558 stand, so the town is 110 roofs short befo
 | `structures/workshops/north` | 7 | 7 | 3 | 0 | 5 | 2 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 8 roofs that change
+## The 12 roofs that change
 
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
+| `recon_1835_blk_school_section_tier_81_d3_05` | south | D3 | D1 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 101.36 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
+| `recon_1835_blk_school_section_tier_81_d4_03` | south | D4 | A2 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 98.66 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
+| `recon_1835_blk_school_section_tier_81_d6_01` | south | D6 | D1 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 98.94 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
+| `recon_1835_blk_school_section_tier_81_d7_07` | south | D7 | D1 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 98.92 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a4_12` | south | A4 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_north_c3_064` | north | C3 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
