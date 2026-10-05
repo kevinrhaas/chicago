@@ -1,11 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1467, ts: '2026-10-05T03:49:48.719Z', date: 'Oct 4, 2026, 10:49 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+  { v: null, ts: '', title: 'The front door is now a working time machine', kind: 'feature',
     items: [
       'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
       'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
       '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
       'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
       'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
+    ] },
+  { v: 1467, ts: '2026-10-05T03:48:41.028Z', date: 'Oct 4, 2026, 10:48 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
+    items: [
+      'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
+      'The shed is still a reconstruction: no record names it, and its card says so. Only where it stands changed.',
     ] },
   { v: 1466, ts: '2026-10-05T03:32:41.154Z', date: 'Oct 4, 2026, 10:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
     items: [
