@@ -237,9 +237,16 @@ transformed.z += chiS * aFlex * 0.26;
         + shader.vertexShader.replace('#include <begin_vertex>',
           '#include <begin_vertex>\nvTreeLeaf = aLeaf;');
       shader.fragmentShader = 'varying float vTreeLeaf;\n' + shader.fragmentShader;
+      // T-2110: a leaf card keeps 3.5 % of the bump, and the bump reads the
+      // atlas three more times a fragment — 31 % of the trees' frame at the
+      // phone's worst stand. So the bump is only computed where it is kept
+      // whole, on bark. `aLeaf` is 0 or 1 for a whole card, so the branch is
+      // uniform across every triangle and its derivatives stay defined.
       shader.fragmentShader = shader.fragmentShader.replace('#include <normal_fragment_maps>', `
 vec3 chiUnrelievedNormal = normal;
+if (vTreeLeaf < 0.5) {
 #include <normal_fragment_maps>
+}
 normal = normalize(mix(chiUnrelievedNormal, normal, mix(1.0, 0.035, vTreeLeaf)));
 `).replace('#include <roughnessmap_fragment>', `
 #include <roughnessmap_fragment>

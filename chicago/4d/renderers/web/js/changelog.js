@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1453, ts: '2026-10-04T23:50:19.207Z', date: 'Oct 4, 2026, 6:50 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+  { v: null, ts: '', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
       'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
       'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
       'Gates are a reconstruction (Liberty L381). They add a little to draw, and no extra draw calls.',
+    ] },
+  { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
+    items: [
+      'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
+      'Each leaf used to work out a tiny surface texture that it then nearly threw away. It now skips that step. Bark keeps its texture.',
+      'On a desktop at Full detail, a frame at the river forks is about 5% faster. On a phone at Light detail, the busiest views are about 3% faster.',
+      'On a phone, Image sharpness Low draws a frame 26 to 29% faster than Medium, but softer. Whether a phone should start at Low is for the owner to decide. You can choose it now in Settings.',
     ] },
   { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
