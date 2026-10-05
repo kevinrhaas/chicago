@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
+  { v: 1485, ts: '2026-10-05T11:59:57.820Z', date: 'Oct 5, 2026, 6:59 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
     items: [
       'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
       'The court had no building of its own yet. In 1834 it met in the Mansion House’s unfinished loft, then in an unfinished store on Dearborn Street. For the spring 1835 term, held 25 May to 9 June, no source we have read names a room.',
