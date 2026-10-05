@@ -3144,20 +3144,6 @@ async function boot() {
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
-    onSources: () => {
-      // Browse the existing Evidence hub without entering or cancelling a paused outing.
-      const hudWasHidden = hudRoot.hidden;
-      gate.hidden = true; hudRoot.hidden = false; hudRoot.inert = false;
-      hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showHub();
-      const panel = document.getElementById('panel');
-      document.getElementById('panel-close').focus();
-      const back = new MutationObserver(() => {
-        if (!panel.hidden) return;
-        back.disconnect(); gate.hidden = false; hudRoot.hidden = hudWasHidden; hudRoot.inert = true;
-        document.getElementById('welcome-sources').focus();
-      });
-      back.observe(panel, { attributes: true, attributeFilter: ['hidden'] });
-    },
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');

@@ -28,8 +28,14 @@ hh_abbott_titus_h and hh_barry_j_r adopt the new ones. Named keepers 49 → 51.
 - Order book: `ordinary_dwellings/west` 63 of 75, **12 left**; `warehouses_freight/west` 1 left.
   Every lot-ruled West block now reads `at_capacity` and the other 19 are gated on a lot line,
   so the West rows move to **T-2132**, which carries that finding as its acceptance.
-- `("south", "ordinary_dwellings")` moved from T-1758 to T-2130: T-1758 was split during this
-  run (T-2129, T-2130) and the book refuses a row owned by a split ticket.
+- T-1758 was split during this run (T-2129, T-2130) and the book refuses a row owned by a split
+  ticket; this branch moved `("south", "ordinary_dwellings")` to T-2130 and #462 (T-2131) made the
+  same move on dev, whose comment the merge keeps.
+- Gate repairs after the first CI read: L313 now covers block 29's three roofs; five West meshes
+  whose keepers moved (recon_1835_blk_lake_clinton_d4_01, …_randolph_clinton_d3_04, west_008,
+  west_014, west_021) rebaked; entrance aprons, alley lanes, woodpiles and the roof redeal
+  re-derived; the Newberry leads re-parsed over all four volumes (~10 min, not in the lap);
+  T-0059's stated figures 568 / 562. None of these is in `derived_manifest.json`.
 
 ## T-2119 — the front door as a working machine (2026-10-05)
 

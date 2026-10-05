@@ -379,8 +379,17 @@ STRUCTURE_TICKETS = {
     # THAN A FIX: 55 roofs is far more than one block, so the cell will move again when
     # T-1758 closes with it still owing, exactly as the north cell four entries below has
     # moved five times in three days.
-    # T-1758 WAS SPLIT on 2026-10-05 (T-2129 the Market block, T-2130 the Dearborn and Clark
-    # blocks and the rest of the tier): the row moves to T-2130, the child that owns what is left.
+    #
+    # AND SWEPT ONTO T-2130 ON 2026-10-05 (T-2131), BECAUSE T-1758 WAS SPLIT AT 06:09Z — into
+    # T-2129 (the Market block's five houses) and T-2130 (the Dearborn and Clark blocks' slots)
+    # — and a row naming a split ticket orders work nobody can claim. That took dev's own gate
+    # red on this one row, after the split's own branch had gated green, and every open pull
+    # request with it. Both children are live and both raise this cell's dwellings, so the rule
+    # above would accept either; it goes to T-2130 because that is the one that raises the
+    # dwellings LEFT once the Market block in flight is built. The cell owes far more than
+    # either block, so naming T-2129 would only order the next sweep the moment it closes,
+    # inside a pull request already mid-build; naming T-2130 lets T-2129 close untouched and
+    # moves the row again only when T-2130 closes with it still owing, as the chain expects.
     ("south", "ordinary_dwellings"): "T-2130",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
