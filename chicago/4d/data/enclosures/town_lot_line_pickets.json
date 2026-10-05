@@ -2909,8 +2909,21 @@
         526.8
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          72.5
+        ]
+      },
+      "opens_into_local_enu_m": [
+        989.87,
+        542.46
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_indiana_north_cass_lot5_gate",
@@ -2920,8 +2933,21 @@
         522.3
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          76.5,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        989.62,
+        506.63
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_indiana_north_cass_lot8_gate",
@@ -2931,8 +2957,21 @@
         526.56
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          77.6,
+          73.7
+        ]
+      },
+      "opens_into_local_enu_m": [
+        1019.67,
+        542.22
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_indiana_north_cass_lot9_gate",
@@ -2942,8 +2981,21 @@
         522.06
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          19.6,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        1019.42,
+        506.39
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_clark_lot1_gate",
@@ -2953,8 +3005,21 @@
         -188.75
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          81.7
+        ]
+      },
+      "opens_into_local_enu_m": [
+        599.08,
+        -216.92
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_franklin_lot0_gate",
@@ -2964,8 +3029,21 @@
         -180.21
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          70.5
+        ]
+      },
+      "opens_into_local_enu_m": [
+        231.97,
+        -151.99
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_franklin_lot1_gate",
@@ -2975,8 +3053,21 @@
         -185.7
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          86.4
+        ]
+      },
+      "opens_into_local_enu_m": [
+        231.59,
+        -213.93
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_franklin_lot2_gate",
@@ -2986,8 +3077,21 @@
         -180.41
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          31.2,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        256.37,
+        -152.18
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_franklin_lot5_gate",
@@ -2997,8 +3101,21 @@
         -186.09
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          70.5,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        280.4,
+        -214.32
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_lasalle_lot1_gate",
@@ -3008,8 +3125,21 @@
         -187.63
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          28.8,
+          86.4
+        ]
+      },
+      "opens_into_local_enu_m": [
+        475.75,
+        -215.92
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_lasalle_lot2_gate",
@@ -3019,8 +3149,21 @@
         -182.4
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          75.1,
+          31.5
+        ]
+      },
+      "opens_into_local_enu_m": [
+        500.88,
+        -154.17
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_lasalle_lot4_gate",
@@ -3030,8 +3173,21 @@
         -182.61
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          15.8,
+          78.5
+        ]
+      },
+      "opens_into_local_enu_m": [
+        525.63,
+        -154.38
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_lasalle_lot5_gate",
@@ -3041,8 +3197,16 @@
         -188.09
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "opening",
+        "leaves": 0
+      },
+      "opens_into_local_enu_m": [
+        525.25,
+        -216.32
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_lasalle_lot7_gate",
@@ -3052,8 +3216,21 @@
         -188.29
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          71.2,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        550.0,
+        -216.52
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_market_lot1_gate",
@@ -3063,8 +3240,21 @@
         -184.7
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          76.9,
+          27.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        109.67,
+        -212.93
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_market_lot2_gate",
@@ -3074,8 +3264,21 @@
         -179.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          41.1,
+          38.1
+        ]
+      },
+      "opens_into_local_enu_m": [
+        134.43,
+        -151.19
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_market_lot4_gate",
@@ -3085,8 +3288,21 @@
         -179.62
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          82.1,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        158.81,
+        -151.39
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_market_lot5_gate",
@@ -3096,8 +3312,21 @@
         -185.1
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          85.9
+        ]
+      },
+      "opens_into_local_enu_m": [
+        158.44,
+        -213.33
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_market_lot7_gate",
@@ -3107,8 +3336,21 @@
         -185.3
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          77.9,
+          76.1
+        ]
+      },
+      "opens_into_local_enu_m": [
+        182.82,
+        -213.53
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_wells_lot1_gate",
@@ -3118,8 +3360,21 @@
         -186.69
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          76.7,
+          84.1
+        ]
+      },
+      "opens_into_local_enu_m": [
+        353.59,
+        -214.92
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_wells_lot6_gate",
@@ -3129,8 +3384,21 @@
         -181.8
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          27.4,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        427.15,
+        -153.57
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_lake_wells_lot7_gate",
@@ -3140,8 +3408,21 @@
         -187.29
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        426.79,
+        -215.52
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_clark_lot3_gate",
@@ -3151,8 +3432,21 @@
         -56.02
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          35.5,
+          77.5
+        ]
+      },
+      "opens_into_local_enu_m": [
+        624.6,
+        -79.29
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_clark_lot5_gate",
@@ -3162,8 +3456,21 @@
         -56.32
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          85.9
+        ]
+      },
+      "opens_into_local_enu_m": [
+        649.24,
+        -79.54
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_franklin_lot3_gate",
@@ -3173,8 +3480,21 @@
         -55.45
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          79.3
+        ]
+      },
+      "opens_into_local_enu_m": [
+        256.8,
+        -77.51
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_franklin_lot4_gate",
@@ -3184,8 +3504,21 @@
         -49.95
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          21.2,
+          83.3
+        ]
+      },
+      "opens_into_local_enu_m": [
+        281.49,
+        -27.79
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_franklin_lot5_gate",
@@ -3195,8 +3528,21 @@
         -55.45
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          82.3,
+          87.1
+        ]
+      },
+      "opens_into_local_enu_m": [
+        281.2,
+        -77.61
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_lasalle_lot1_gate",
@@ -3206,8 +3552,21 @@
         -55.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          73.0,
+          88.7
+        ]
+      },
+      "opens_into_local_enu_m": [
+        476.57,
+        -78.39
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_lasalle_lot3_gate",
@@ -3217,8 +3576,16 @@
         -55.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "opening",
+        "leaves": 0
+      },
+      "opens_into_local_enu_m": [
+        501.34,
+        -78.49
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_lasalle_lot4_gate",
@@ -3228,8 +3595,21 @@
         -49.93
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        526.42,
+        -26.76
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_lasalle_lot7_gate",
@@ -3239,8 +3619,21 @@
         -55.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          82.7,
+          77.8
+        ]
+      },
+      "opens_into_local_enu_m": [
+        550.87,
+        -78.69
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_wells_lot3_gate",
@@ -3250,8 +3643,21 @@
         -55.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          73.5
+        ]
+      },
+      "opens_into_local_enu_m": [
+        378.8,
+        -77.99
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_wells_lot5_gate",
@@ -3261,8 +3667,21 @@
         -55.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          15.8,
+          20.1
+        ]
+      },
+      "opens_into_local_enu_m": [
+        403.19,
+        -78.09
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_south_water_wells_lot7_gate",
@@ -3272,8 +3691,21 @@
         -55.42
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          80.5,
+          87.8
+        ]
+      },
+      "opens_into_local_enu_m": [
+        427.6,
+        -78.19
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_wabansia_c_t7_lot1_gate",
@@ -3283,8 +3715,21 @@
         381.83
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          78.8,
+          71.3
+        ]
+      },
+      "opens_into_local_enu_m": [
+        -416.28,
+        329.07
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_west_lake_des_plaines_lot0_gate",
@@ -3294,8 +3739,21 @@
         -129.98
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          85.8
+        ]
+      },
+      "opens_into_local_enu_m": [
+        -485.76,
+        -129.79
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_west_lake_des_plaines_lot4_gate",
@@ -3305,8 +3763,16 @@
         -224.73
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "opening",
+        "leaves": 0
+      },
+      "opens_into_local_enu_m": [
+        -483.49,
+        -224.54
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_west_lake_des_plaines_lot5_gate",
@@ -3316,8 +3782,21 @@
         -130.03
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          75.9,
+          31.6
+        ]
+      },
+      "opens_into_local_enu_m": [
+        -433.29,
+        -130.22
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     },
     {
       "id": "rear_blk_west_lake_des_plaines_lot8_gate",
@@ -3327,8 +3806,21 @@
         -201.09
       ],
       "width_m": 3.048,
+      "gate": {
+        "kind": "carriage_gate",
+        "leaves": 2,
+        "leaf_stock": "picket",
+        "swing_deg": [
+          0.0,
+          0.0
+        ]
+      },
+      "opens_into_local_enu_m": [
+        -431.59,
+        -201.28
+      ],
       "confidence": "reconstructed",
-      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots, because a hung gate would be an invention on top of an invention."
+      "note": "INVENTED, like every gateway on this layer. A yard a cart could not enter is not a yard, and the alley is the only side of this lot a cart could come at, so the gap is centred in the alley line; 10 ft is a team and a wagon, not a person with a basket. NO GATE LEAF IS DRAWN — the fence simply stops, the way it does at the wagon yard, the pound and the garden plots. SINCE T-2112 `gate` says what hangs in it — a pair of leaves, slip bars or nothing — by the rule in tools/gate_kinds.py, an invention on top of an invention and graded so."
     }
   ],
   "form": {

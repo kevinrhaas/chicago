@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1461, ts: '2026-10-05T02:01:41.680Z', date: 'Oct 4, 2026, 9:01 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+  { v: 1462, ts: '2026-10-05T02:21:26.578Z', date: 'Oct 4, 2026, 9:21 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
       'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
       'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
+  { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+    items: [
+      'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
+      'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
+      'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
+      'Gates are a reconstruction (Liberty L382). They add a little to draw, and no extra draw calls.',
     ] },
   { v: 1460, ts: '2026-10-05T01:41:53.671Z', date: 'Oct 4, 2026, 8:41 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
     items: [

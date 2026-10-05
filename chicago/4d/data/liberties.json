@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 405,
+  "count": 406,
   "liberties": [
     {
       "id": "L1",
@@ -24686,6 +24686,37 @@
         {
           "label": "Recorded",
           "text": "2026-10-05."
+        }
+      ]
+    },
+    {
+      "id": "L382",
+      "title": "Every fenced street front and yard gateway has a gate or an opening, varied by lot",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [],
+      "recorded": "2026-10-04",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "each improved lot behind a T-0069 street-lining fence gets a way in from the street in front of the building nearest the street on it: a hung foot gate, 3 ft 6 in, for a dwelling, and a pair of carriage leaves, 9 ft, for a trade (`tools/generate_frontage_works.py`, 73 gates on 33 fences). The 10 ft cart gateways the lot-line yard fences already left on their alley and street lines (L161, L379) now say what hangs in them: a pair of board or paled leaves in a board or picket fence, slip bars let down in a split-rail one, and about one in seven left a plain gap (`tools/generate_lot_line_fences.py`, 177 gateways). Whether a gate stands shut, ajar or open, which post it hangs on and whether a house gate is boarded or paled is read off a hash of the gate's id (`tools/gate_kinds.py`), so neighbours differ and the records re-derive byte for byte. Drawn by `renderers/web/js/gates.js` for both fence layers."
+        },
+        {
+          "label": "Why",
+          "text": "the owner, 2026-10-04 (T-2112): *\"if someone has a property and the fence runs the front of the property they should have a gate or opening, i imagine a gate is period appropriate ... vary by property what kind of gate/opening entrance they have based on correct 1835\"*. The street fences had run unbroken across the front of every house behind them."
+        },
+        {
+          "label": "What is recorded and what is not",
+          "text": "no source places, sizes or describes a gate on any of these lots. The kinds are the ones the town's own fences imply: a house lot kept against hogs at large (the 1833 town code, `chicago_democrat_1833_11_26`) shuts, so it takes a hung leaf; a trade lot and a yard take a cart; a split-rail fence is opened by its bars, which is how a rail fence is opened. Every dimension, the leaf construction (a boarded leaf one face of butted boards, a paled one two rails with pales across them, no brace drawn, hung on the fence's own end posts), the shares of shut, ajar and open, and the gate's place in front of the building's centre rather than its door are ours."
+        },
+        {
+          "label": "How to resolve",
+          "text": "any view or description of an 1830s Chicago dooryard gate replaces the leaf; a lot's own door position, where the entrance layer knows it, would place its gate better."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-04 (T-2112)."
         }
       ]
     },
