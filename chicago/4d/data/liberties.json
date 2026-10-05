@@ -20138,6 +20138,18 @@
       "covers": [
         {
           "domain": "structure",
+          "structure": "recon_1835_blk_west_lake_canal_*",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_west_lake_canal_*",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
           "structure": "recon_1835_blk_west_randolph_des_plaines_*",
           "phase": "inferred_1835",
           "aspect": "footprint"
@@ -20166,7 +20178,7 @@
         },
         {
           "label": "Consequence",
-          "text": "the town gains its first roofs on the West Division's outer platted ground beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its target. `blk_west_lake_canal`'s three (frame cottages) are scheduled and not built here: T-1773's warehouse stands on lot 1 of that block, and the order book hands the cottages, with the rest of the West's ordinary-dwellings row, to T-1774, the ticket that hands T-1208 on with the West's exact remainder."
+          "text": "the town gains its first roofs on the West Division's outer platted ground beyond the recipe's clusters, and the West's ordinary-dwellings row moves three roofs toward its target. `blk_west_lake_canal`'s three (frame cottages) are scheduled and not built here: T-1773's warehouse stands on lot 1 of that block, and the order book hands the cottages, with the rest of the West's ordinary-dwellings row, to T-1774, the ticket that hands T-1208 on with the West's exact remainder. **T-1829 built them (2026-10-05)**: on `blk_west_lake_canal` (plat block 29) the seating's three slot requests are raised on the lots they asked for — a deep-plan frame cottage (D5) on plat lot 6 and a two-room frame cottage (D4) on plat lot 7 of the Canal face, set out 5.0 and 7.5 m, and a rough plank shanty (D2) on plat lot 8 of the West Water face at 4.0 m — and the block's other five free lots are left open. That block is now at its ceiling of six, as is every lot-ruled West block, and the West's remaining 12 ordinary dwellings go to T-2132. What is invented on block 29 is the same as on block 47: the three roofs' presence, families, lots, set-outs and lateral offsets."
         },
         {
           "label": "How to resolve",
@@ -20174,11 +20186,11 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`, `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`"
+          "text": "`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`, `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`, `recon_1835_blk_west_lake_canal_*.inferred_1835.position`, `recon_1835_blk_west_lake_canal_*.inferred_1835.footprint`"
         },
         {
           "label": "Ticket",
-          "text": "T-1783."
+          "text": "T-1783; T-1829 (block 29's three roofs)."
         },
         {
           "label": "Recorded",

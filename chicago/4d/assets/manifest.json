@@ -1525,8 +1525,8 @@
     "recon_1835_blk_lake_clinton_d4_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 37684,
-      "inputs_sha256": "0dd5cf2bfecda83939c1f9147aee7cb9cf6637e518333c49a00e37c253c86c2a",
+      "bytes": 37060,
+      "inputs_sha256": "11e51737e8b6d197607b27cb20d8da0fa624d7f140b0458f225166cd17577b04",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_lake_clinton_d4_01"
@@ -1750,8 +1750,8 @@
     "recon_1835_blk_randolph_clinton_d3_04__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 31452,
-      "inputs_sha256": "415fffa553625407d386ec697c975b61337dc26fe6ef08c874bb336168353d6d",
+      "bytes": 31448,
+      "inputs_sha256": "b4d800b7bb8838ef8bc8740ed99a24f35cff3cde28f0749b70f44907d586a8f0",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_randolph_clinton_d3_04"
@@ -4397,7 +4397,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 37332,
-      "inputs_sha256": "f3e1c7ee2619dbfa0e4f687e497e8763e1415b0bda4d32e3f3af5a5a6e17a1e0",
+      "inputs_sha256": "ad1f0fe8f7c53319150f8bb00660868115f352779b6b4067ff583c1aa3c75c1b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_008"
@@ -4451,7 +4451,7 @@
       "archetype": "log_dwelling",
       "baked_ao": false,
       "bytes": 32776,
-      "inputs_sha256": "ab45a0f6ca21b3a95cf14ba4a09d0bcb34d38f9cf0feb2871d376d38cc483d55",
+      "inputs_sha256": "bc1b3772f5b84c664c7e8424a54e25834d68e2337b43b947da2db9358cd22d24",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_014"
@@ -4514,7 +4514,7 @@
       "archetype": "frame_dwelling",
       "baked_ao": false,
       "bytes": 40768,
-      "inputs_sha256": "923edaf61065574290f9c6021cf30a9f5cbd574921611b49fc1746b9bb9d252f",
+      "inputs_sha256": "e88332dae5c6aa0239f851bf5cab9dd80edde13646e0ae31a7b23537cdc05714",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_021"

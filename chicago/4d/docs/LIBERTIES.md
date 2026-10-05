@@ -18424,7 +18424,14 @@ beyond the recipe's clusters, and the West's ordinary-dwellings row moves three 
 target. `blk_west_lake_canal`'s three (frame cottages) are
 scheduled and not built here: T-1773's warehouse stands on lot 1 of that block, and the
 order book hands the cottages, with the rest of the West's ordinary-dwellings row, to T-1774,
-the ticket that hands T-1208 on with the West's exact remainder.
+the ticket that hands T-1208 on with the West's exact remainder. **T-1829 built them (2026-10-05)**: on `blk_west_lake_canal`
+(plat block 29) the seating's three slot requests are raised on the lots they asked for — a
+deep-plan frame cottage (D5) on plat lot 6 and a two-room frame cottage (D4) on plat lot 7 of the
+Canal face, set out 5.0 and 7.5 m, and a rough plank shanty (D2) on plat lot 8 of the West Water
+face at 4.0 m — and the block's other five free lots are left open. That block is now at its
+ceiling of six, as is every lot-ruled West block, and the West's remaining 12 ordinary dwellings
+go to T-2132. What is invented on block 29 is the same as on block 47: the three roofs'
+presence, families, lots, set-outs and lateral offsets.
 
 **How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
 blocks, or a period view west along Randolph; either replaces the ceiling and these placements
@@ -18432,9 +18439,11 @@ outright. A named discovery substitutes for a compatible anonymous roof and neve
 total.
 
 **Covers:** `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`,
-`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`
+`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`,
+`recon_1835_blk_west_lake_canal_*.inferred_1835.position`,
+`recon_1835_blk_west_lake_canal_*.inferred_1835.footprint`
 
-**Ticket:** T-1783.
+**Ticket:** T-1783; T-1829 (block 29's three roofs).
 
 **Recorded:** 2026-10-01 (T-1783). **Revised:** 2026-10-01 (numbered **L313**: it was written as L311, then L312, and T-1760 and T-1761 took those numbers on `dev` first; `blk_west_lake_canal`'s room restated from four to three after T-1773's warehouse).
 
