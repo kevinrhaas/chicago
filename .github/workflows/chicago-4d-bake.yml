@@ -148,7 +148,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
-      bake: ${{ steps.q.outputs.bake }}
+      # `declined` is T-1118's: the ref this run would bake has no live base, so
+      # the bake job is skipped (its `if:` wants exactly '1') and the run ends
+      # green. An empty `declined` — the step skipped or died — falls through to
+      # q's own verdict, so a broken liveness question can never stop a bake.
+      bake: ${{ steps.live.outputs.declined == '1' && 'declined' || steps.q.outputs.bake }}
     steps:
       # T-0232 RULED OUT, in writing, with the reasons — the bounded retried
       # clone (.github/chicago-4d-clone.sh) is NOT applied to this workflow:
@@ -239,6 +243,40 @@ jobs:
             echo "::notice::$(tr '\n' ' ' <"$WHY")"
           else
             echo "::notice::SKIPPING — $(tr '\n' ' ' <"$WHY")"
+          fi
+      # T-1118 — IS THE REF THIS RUN WOULD BAKE STILL GOING ANYWHERE?
+      #
+      # The bake job's `baseref` step asks this too, and when it answers "dead"
+      # the bake still runs: three quarters of an hour regenerating 196 assets,
+      # a pushed branch and the published smoke, and then `open-pr` withholds
+      # the PR. Five of the seven dead-base bakes measured on 2026-09-14 were
+      # dead before they started, so asking here — on this five-minute runner,
+      # before the Blender one is claimed — recovers each of those in full.
+      #
+      # The two that died MID-FLIGHT are untouched: their base was live here,
+      # so they bake, push and lose only the PR, exactly as before. The nightly
+      # bakes `dev`, a pipeline tier, and bake_ref.py never asks about a tier.
+      # The rule and its self-test live in tools/bake_ref.py (start_verdict).
+      #
+      # FAIL OPEN, like everything else in this job: any error, and any answer
+      # that is not 0 or 1, bakes.
+      - id: live
+        if: steps.q.outputs.bake == '1'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -uo pipefail
+          WHY=$(mktemp)
+          LIVE=$(python3 chicago/4d/tools/bake_ref.py --start-verdict 2>"$WHY") || LIVE=1
+          case "$LIVE" in
+            0|1) ;;
+            *) echo "bake_ref.py --start-verdict answered '$LIVE', which is not 0 or 1 — baking" >"$WHY"; LIVE=1 ;;
+          esac
+          if [ "$LIVE" = "0" ]; then
+            echo "declined=1" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Bake declined — dead base::$(tr '\n' ' ' <"$WHY")"
+          else
+            echo "::notice::$(tr '\n' ' ' <"$WHY")"
           fi
 
   bake:
@@ -697,10 +735,10 @@ jobs:
           # which runs at minute forty and can simply ask. The cheap check was put
           # in one place when it belonged in two.
           #
-          # Both are kept. The job-start answer still gates this whole job (and
-          # under T-1118 will skip the bake itself), which is the cheap win on the
-          # bases that were already dead at the starting line; this one closes the
-          # window that one cannot see. Same rule, same script, same fail-safe:
+          # All three are kept. The `warranted` job's answer (T-1118) skips the
+          # bake itself on a base that was already dead at the starting line,
+          # which is the cheap win; the bake job's start-time answer still gates
+          # this whole job; this one closes the window neither can see. Same rule, same script, same fail-safe:
           # any doubt answers live.
           LIVE=$(python3 chicago/4d/tools/bake_ref.py --check-base "$BASE")
           if [ "$LIVE" != "1" ]; then
