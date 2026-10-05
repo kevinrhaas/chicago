@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1498, ts: '2026-10-05T17:10:36.338Z', date: 'Oct 5, 2026, 12:10 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
+  { v: 1499, ts: '2026-10-05T17:19:28.031Z', date: 'Oct 5, 2026, 12:19 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
     items: [
       'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',
       'When the lots of Kinzie\u2019s Addition were first cut, twenty households were given lots on two Indiana Street blocks. The Liberties page said all twenty were labourers\u2019 families. They were not: thirteen were tradesmen\u2019s, six were merchants\u2019 or professionals\u2019, and only one was a labourer\u2019s.',
       'The entry now says so, and says what stands on those two blocks today: 21 households, eight of them already in cottages. The Liberties page explains it (L270).',
+    ] },
+  { v: 1498, ts: '2026-10-05T17:06:41.763Z', date: 'Oct 5, 2026, 12:06 PM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
+    items: [
+      'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
+      'These were the last four workshops the town\u2019s building programme still owed the South Division. Until now it held them on ground nothing can be built on yet, because every block a shop could face was already full. A shop behind a house takes no lot of its own, so every block keeps its open lot.',
+      'Nothing here is claimed as evidence. No source puts a workshop on these lots in 1835 or says which trade worked there. The shops are the programme filling a town it can count but cannot name, and each carries that disclosure on its own card.',
     ] },
   { v: 1497, ts: '2026-10-05T16:26:38.278Z', date: 'Oct 5, 2026, 11:26 AM CT', title: 'Shops placed by Newberry & Dole\u2019s store now stand at Lake and Dearborn', kind: 'change',
     items: [
