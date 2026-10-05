@@ -1560,7 +1560,7 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 }
 .welcome-action .menu-icon { color: var(--accent); margin-bottom: 4px; flex: none; }
 .welcome-action strong { display: block; font-size: 15px; line-height: 1.15; font-weight: 650; }
-.welcome-action > span { display: block; font-size: 11.5px; line-height: 1.25; color: var(--ink-dim); }
+.welcome-action > span { display: block; font: 400 9.5px/1.3 var(--font-mono, ui-monospace, monospace); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-dim); }
 .welcome-action:not(:disabled):hover, .welcome-quick-start:hover { border-color: var(--accent); }
 .welcome-action[aria-expanded="true"] { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 14%, var(--panel)); }
 .welcome-back { display: none; }
@@ -1683,8 +1683,8 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .jaunt-star { margin-left: 6px; font-size: 11px; color: var(--accent); vertical-align: 2px; }
 .jaunt-premise { margin: 2px 0 0; font-size: 12.5px; line-height: 1.35; color: var(--ink-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .jaunt-card.open .jaunt-premise { display: none; }
-.jaunt-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; margin: 4px 0 0; font-size: 11px; color: var(--ink-dim); }
-.jaunt-family { color: var(--fam); font-weight: 650; font-size: 10px; letter-spacing: .09em; text-transform: uppercase; }
+.jaunt-tags { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 8px; margin: 4px 0 0; font: 400 10px/1.4 var(--font-mono, ui-monospace, monospace); letter-spacing: .06em; color: var(--ink-dim); }
+.jaunt-family { color: var(--fam); font-weight: 600; font-size: 9.5px; letter-spacing: .09em; text-transform: uppercase; }
 .jaunt-length { --g2: color-mix(in srgb, currentColor 28%, transparent); --g3: var(--g2); font-variant-numeric: tabular-nums; white-space: nowrap; }
 .jaunt-length::before { content: ''; display: inline-block; width: 15px; height: 6px; margin-right: 4px; vertical-align: 1px;
   background: linear-gradient(90deg, currentColor 0 4px, transparent 4px 5.5px, var(--g2) 5.5px 9.5px, transparent 9.5px 11px, var(--g3) 11px 15px); }

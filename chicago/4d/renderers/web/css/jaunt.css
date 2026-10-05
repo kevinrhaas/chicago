@@ -126,3 +126,9 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-keepsake-card { border: 1px solid currentColor; border-radius: 10px; text-align: center; }
 .jaunt-award { margin: 8px 0; }
 [data-action="daybook-reset"] { margin-top: 12px; }
+/* T-2120: sources stay one tap away without crowding the story. */
+.jaunt-panel .jaunt-sources-toggle { display: inline-flex; align-items: center; width: auto; min-width: 0; min-height: 36px; margin: -2px 0 6px; padding: 0 9px;
+  font: inherit; font-size: .72rem; letter-spacing: .04em; color: var(--ink-dim); background: none;
+  border: 1px solid var(--edge); border-radius: 999px; cursor: pointer; opacity: .75; }
+.jaunt-panel .jaunt-sources-toggle[aria-expanded="true"] { opacity: 1; color: var(--accent); border-color: var(--accent); }
+.jaunt-evidence[hidden] { display: none; }
