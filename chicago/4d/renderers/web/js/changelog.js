@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1502, ts: '2026-10-05T18:59:15.477Z', date: 'Oct 5, 2026, 1:59 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
+    items: [
+      'On the north bank, east of Franklin Street, a small boatman\u2019s cabin stood in the middle of North Water Street. It now stands 20 m north, on the block behind the street, still facing the river.',
+      'The cabin is invented: the town needed one for a boatman\u2019s household, and no source places it. Its card says so, and now also says how far it moved and why.',
+      'The checks that keep invented buildings out of roads now look at all 80 streets the town draws, not just the 44 on the original plats. This cabin was the only invented building they found standing in a road.',
+    ] },
   { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
     items: [
       'Open the 1812 scene and the first Fort Dearborn no longer stands alone. West of it, by the river, is the two-storey log factory, the government trading house. South of that are the Indian agent\u2019s house and a column of three stables. South of the fort is the commanding officer\u2019s fenced garden, with the sutler\u2019s smaller garden toward the beach.',

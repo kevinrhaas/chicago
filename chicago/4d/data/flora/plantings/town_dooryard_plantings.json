@@ -268,8 +268,8 @@
       "id": "inf_boatman_cabin_north_tree_1",
       "species": "ulmus_americana",
       "at_local_enu_m": [
-        257.71,
-        125.55
+        250.0,
+        165.94
       ],
       "height_m": 18.5,
       "confidence": "reconstructed",
@@ -279,8 +279,8 @@
       "id": "inf_boatman_cabin_north_bush_1",
       "species": "ribes_spp",
       "at_local_enu_m": [
-        242.37,
-        127.95
+        256.3,
+        143.75
       ],
       "height_m": 1.37,
       "confidence": "reconstructed",
