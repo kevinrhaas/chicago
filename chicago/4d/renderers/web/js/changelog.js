@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1456, ts: '2026-10-05T00:43:09.864Z', date: 'Oct 4, 2026, 7:43 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+  { v: 1457, ts: '2026-10-05T01:24:16.506Z', date: 'Oct 4, 2026, 8:24 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
       'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
       'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
       'Gates are a reconstruction (Liberty L381). They add a little to draw, and no extra draw calls.',
+    ] },
+  { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
     ] },
   { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
