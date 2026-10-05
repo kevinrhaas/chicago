@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1462, ts: '2026-10-05T02:21:26.578Z', date: 'Oct 4, 2026, 9:21 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+  { v: 1463, ts: '2026-10-05T02:38:39.866Z', date: 'Oct 4, 2026, 9:38 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
       'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
       'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
+  { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
+      'We have now decided why, and written it down: on the south bank that ground lies inside South Water Street as it was laid out, and no record of the time puts a building there. We will not invent one in the street.',
+      'That bank is shown instead as what the town\u2019s records point to: worn working ground with landings out to the water, where goods came ashore for the stores across the street.',
     ] },
   { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
