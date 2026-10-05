@@ -1,9 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1502, ts: '2026-10-05T18:59:15.477Z', date: 'Oct 5, 2026, 1:59 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
+  { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
     items: [
       'On the north bank, east of Franklin Street, a small boatman\u2019s cabin stood in the middle of North Water Street. It now stands 20 m north, on the block behind the street, still facing the river.',
       'The cabin is invented: the town needed one for a boatman\u2019s household, and no source places it. Its card says so, and now also says how far it moved and why.',
       'The checks that keep invented buildings out of roads now look at all 80 streets the town draws, not just the 44 on the original plats. This cabin was the only invented building they found standing in a road.',
+    ] },
+  { v: 1503, ts: '2026-10-05T19:18:23.183Z', date: 'Oct 5, 2026, 2:18 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
+    items: [
+      'Walk south on Canal Street past the Western Hotel and the block toward Washington Street is no longer empty. Three frame cottages now face Canal Street, one on the Washington corner, and a storey-and-a-half cottage faces West Water Street on the river side.',
+      'This block had no lot lines until now. The 1830 plat gives its two rows of lots different depths, 180 feet and 150 feet, because the river cuts into the row along West Water Street. Each row is now cut to the depth the plat gives it.',
+      'Four West Side families now have a home in the town, and the other four lots along West Water Street stay open ground.',
+      'No source names these houses or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L313).',
+    ] },
+  { v: 1502, ts: '2026-10-05T18:41:21.129Z', date: 'Oct 5, 2026, 1:41 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
+    items: [
+      'The four workshops that opened onto Dearborn Street behind corner houses now hold businesses. Cooley and Halsman, tailors, and S. Abell, attorney and counsellor, hang their boards there. Elmira Fowler and W. H. Taylor\u2019s boot and shoe store take the other two.',
+      'These are firms the 1834\u201335 papers place on Dearborn Street and nowhere narrower. Until now the town treated the new shops as back-yard buildings and would not put a business in them. They stand on the street, so they are on Dearborn\u2019s face like any other roof there.',
+      'Four more Dearborn businesses now have a roof: the wholesale wine and liquor store, the Dearborn Street auction and commission rooms, George Holsman, and a second Cooley partnership. 44 of the 52 businesses the papers give only a street for now stand on it.',
+      'Which roof on the street each firm gets is our choice, not evidence, and its card says so.',
     ] },
   { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
     items: [

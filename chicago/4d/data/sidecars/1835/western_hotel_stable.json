@@ -115,6 +115,12 @@
         "drloih_hotels"
       ],
       "note": "Stow is documented as the builder and operator of the hotel; that the stable behind it was his follows from its being described as part of the house, and is not separately stated. No hostler is named."
+    },
+    "stands_on_lot": {
+      "value": "lot 3, west division",
+      "confidence": "inferred",
+      "sources": [],
+      "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 100% on lot 3 of blk_west_randolph_canal in the west_division grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (documented), read from data/traces/vectors/thompson_lots.json."
     }
   },
   "residents": [],

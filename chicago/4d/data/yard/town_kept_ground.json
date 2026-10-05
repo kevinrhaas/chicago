@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "264 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "270 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 199,
+    "lots": 205,
     "refused": 0,
-    "refuges": 280,
-    "paths": 264
+    "refuges": 286,
+    "paths": 270
   },
   "lots": [
     {
@@ -5301,15 +5301,33 @@
           ],
           [
             -218.33,
-            -349.07
+            -348.77
           ],
           [
             -220.77,
-            -349.05
+            -348.75
           ],
           [
             -220.79,
             -351.49
+          ]
+        ],
+        [
+          [
+            -218.99,
+            -335.69
+          ],
+          [
+            -218.94,
+            -329.59
+          ],
+          [
+            -223.81,
+            -329.55
+          ],
+          [
+            -223.86,
+            -335.65
           ]
         ]
       ]
@@ -11181,20 +11199,20 @@
       "refuges_local_enu_m": [
         [
           [
-            -462.67,
-            -120.72
+            -462.66,
+            -120.56
           ],
           [
             -462.65,
-            -118.28
+            -118.27
           ],
           [
-            -465.09,
+            -464.94,
             -118.26
           ],
           [
-            -465.11,
-            -120.7
+            -464.95,
+            -120.55
           ]
         ]
       ]
@@ -11870,38 +11888,331 @@
       "refuges_local_enu_m": [
         [
           [
-            -451.33,
+            -451.34,
             -349.9
           ],
           [
-            -451.35,
-            -352.64
+            -451.36,
+            -352.34
           ],
           [
-            -448.91,
-            -352.66
+            -448.92,
+            -352.36
           ],
           [
-            -448.89,
+            -448.9,
             -349.92
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot0",
+      "structures": [
+        "western_hotel"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -143.33,
+          -284.91
+        ],
+        [
+          -87.96,
+          -285.36
+        ],
+        [
+          -85.55,
+          -282.94
+        ],
+        [
+          -85.73,
+          -267.15
+        ],
+        [
+          -88.19,
+          -264.7
+        ],
+        [
+          -144.32,
+          -264.24
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -84.92,
+            -286.01
+          ],
+          [
+            -84.9,
+            -283.27
+          ],
+          [
+            -87.34,
+            -283.25
+          ],
+          [
+            -87.36,
+            -285.99
           ]
         ],
         [
           [
-            -450.9,
-            -365.7
+            -85.13,
+            -271.42
           ],
           [
-            -450.95,
-            -371.8
+            -85.07,
+            -264.1
           ],
           [
-            -446.08,
-            -371.84
+            -90.55,
+            -264.06
           ],
           [
-            -446.03,
-            -365.74
+            -90.61,
+            -271.38
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot1",
+      "structures": [
+        "western_hotel_stable"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -142.27,
+          -307.11
+        ],
+        [
+          -87.71,
+          -307.55
+        ],
+        [
+          -85.3,
+          -305.13
+        ],
+        [
+          -85.48,
+          -289.34
+        ],
+        [
+          -87.94,
+          -286.89
+        ],
+        [
+          -143.26,
+          -286.44
+        ]
+      ],
+      "refuges_local_enu_m": []
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot2",
+      "structures": [
+        "recon_1835_blk_west_randolph_canal_d5_01"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -141.21,
+          -329.31
+        ],
+        [
+          -87.46,
+          -329.75
+        ],
+        [
+          -85.05,
+          -327.33
+        ],
+        [
+          -85.23,
+          -311.53
+        ],
+        [
+          -87.69,
+          -309.08
+        ],
+        [
+          -142.2,
+          -308.64
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -84.63,
+            -310.92
+          ],
+          [
+            -84.61,
+            -308.48
+          ],
+          [
+            -87.05,
+            -308.46
+          ],
+          [
+            -87.07,
+            -310.9
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot3",
+      "structures": [
+        "recon_1835_blk_west_randolph_canal_d4_02"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -140.15,
+          -351.51
+        ],
+        [
+          -87.2,
+          -351.94
+        ],
+        [
+          -84.79,
+          -349.52
+        ],
+        [
+          -84.97,
+          -333.73
+        ],
+        [
+          -87.44,
+          -331.28
+        ],
+        [
+          -141.14,
+          -330.84
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -84.38,
+            -333.12
+          ],
+          [
+            -84.36,
+            -330.68
+          ],
+          [
+            -86.8,
+            -330.66
+          ],
+          [
+            -86.82,
+            -333.1
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot4",
+      "structures": [
+        "recon_1835_blk_west_randolph_canal_d5_03"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -139.08,
+          -373.71
+        ],
+        [
+          -86.95,
+          -374.13
+        ],
+        [
+          -84.54,
+          -371.71
+        ],
+        [
+          -84.72,
+          -355.92
+        ],
+        [
+          -87.18,
+          -353.47
+        ],
+        [
+          -140.08,
+          -353.04
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -84.12,
+            -355.31
+          ],
+          [
+            -84.1,
+            -352.87
+          ],
+          [
+            -86.54,
+            -352.85
+          ],
+          [
+            -86.56,
+            -355.29
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot8",
+      "structures": [
+        "recon_1835_blk_west_randolph_canal_d6_04"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -75.43,
+          -352.03
+        ],
+        [
+          -31.96,
+          -352.39
+        ],
+        [
+          -31.5,
+          -331.73
+        ],
+        [
+          -75.59,
+          -331.37
+        ],
+        [
+          -78.01,
+          -333.79
+        ],
+        [
+          -77.88,
+          -349.58
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -78.48,
+            -350.19
+          ],
+          [
+            -78.5,
+            -352.63
+          ],
+          [
+            -76.06,
+            -352.65
+          ],
+          [
+            -76.04,
+            -350.21
           ]
         ]
       ]
