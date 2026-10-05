@@ -248,6 +248,13 @@ at least 14 m from every committed roof (an open yard between every pair, no str
 least 25 m from every named structure, and inside the initial occupied envelope. None is a
 reading of a source (L392).
 
+A fourth predicate was added when this branch was laid onto T-2132's `dev`: **no more than
+58 m from a street corridor**, the body of the frontage census (`tools/measure_frontage_fabric.py`).
+Three of the first positions (rows 76, 90 and 93) stood 69-92 m from the nearest corridor, in the
+empty band `FRONTAGE_REACH_M` is cut from (T-1511), and closed it: the reach would have re-derived
+from 75.58 m to 182.87 m and re-scored every streetless building in town. They were re-searched
+under all four predicates and moved 6, 47 and 45 m, each staying in its own cluster.
+
 With no roof left to plan on the two cells, the schedule plans none, the platted deal requests
 no slot there, and the thirteen households whose slots stood on them are seated by the
 off-plat deal under standing North Division roofs, with thirteen more owed North households

@@ -13,6 +13,13 @@
   build. The platted deal now requests no slot anywhere (it had 13, all on those two blocks);
   those 13 households and 13 more owed North households are seated by the off-plat deal, and
   all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
+- **Laid onto dev's T-2062/T-2132/T-1726/T-2144**: a salvage of a cancelled run, finished by
+  merging `dev` and walking the seating chain and the keeper pass to their fixpoint. The
+  liberty was renumbered L391 -> **L392** (T-2062 took L391). Three of the 26 (rows 76, 90, 93)
+  stood 69-92 m from any street corridor and moved `FRONTAGE_REACH_M`'s measured band from
+  66.06-85.10 m to 142.58-223.16 m (the self-test refuses that); they were re-searched under a
+  fourth predicate, at most 58 m from a corridor, and moved 6, 47 and 45 m. The band reads
+  66.06-85.10 m again, midpoint 75.58 m, 36 streetless rows.
 - **Not measured**: no source places any of these houses; every position is a search result
   against the placement predicates, stated as such.
 

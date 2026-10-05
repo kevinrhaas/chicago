@@ -21700,7 +21700,10 @@ three more measured at the deal: at least 14 m from every committed roof, so an 
 stands between every pair and no run reads as a street wall; at least 25 m from every named
 structure, the recipe's review buffer; and inside the parcel's initial occupied envelope
 (E 430-1300, N 105-390). Kinzie Street between Dearborn and Wolcott is left as T-1205 dealt
-it (L368), with no house between its trade roofs. No position is a reading of a source.
+it (L368), with no house between its trade roofs. And no more than 58 m from a street
+corridor, the body of the frontage census: rows 76, 90 and 93 first stood 69-92 m out, in the
+empty band `FRONTAGE_REACH_M` is measured from, and were re-searched and moved 6, 47 and 45 m
+rather than re-derive the reach for the whole town. No position is a reading of a source.
 
 **Who lives in them.** Nobody is placed by this entry. The off-plat deal (L271) seats owed
 North households under standing roofs, and these are standing roofs: thirteen of the
