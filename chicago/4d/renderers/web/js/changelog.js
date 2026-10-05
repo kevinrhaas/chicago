@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+  { v: 1480, ts: '2026-10-05T09:51:46.183Z', date: 'Oct 5, 2026, 4:51 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
       'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
