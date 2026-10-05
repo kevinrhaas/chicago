@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1499, ts: '2026-10-05T17:37:42.927Z', date: 'Oct 5, 2026, 12:37 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
+    items: [
+      'Open the 1812 scene and the first Fort Dearborn no longer stands alone. West of it, by the river, is the two-storey log factory, the government trading house. South of that are the Indian agent\u2019s house and a column of three stables. South of the fort is the commanding officer\u2019s fenced garden, with the sutler\u2019s smaller garden toward the beach.',
+      'All seven come from Captain Whistler\u2019s own plan of his post, drawn in January 1808. He drew the fort to scale but noted that the buildings outside it were not. So each one stands where his own figures open the plan out: the agent\u2019s house is \u201ceighteen perches\u201d from the main gate, and the garden is lettered fifty feet to the inch.',
+      'That makes every position, size and height here a reconstruction, and each building\u2019s card says so. Which house was the factory is itself a reading: its number is not legible on the plan, and it is the one that stands due west of the fort, where an 1857 account puts \u201cthe two-story log United States factory\u201d.',
+    ] },
   { v: 1498, ts: '2026-10-05T17:06:41.763Z', date: 'Oct 5, 2026, 12:06 PM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',

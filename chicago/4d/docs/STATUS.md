@@ -1,3 +1,30 @@
+## T-2062 — the first fort's factory, agency, stables and gardens, by the draught's own figures (2026-10-05)
+
+**Visible:** seven structures now stand outside the first Fort Dearborn in the 1812 scene. They
+are the factory (a two-storey log trading house) and the agent's house west and south-west of the
+fort, three stables south of those, the Commanding Officer's paled garden south of the fort, and the
+sutler's garden toward the beach. Each is a new `first_fort_outer_*` record, baked with `bake.sh --only`.
+
+**The rule, because the draught refuses a scale out here.** Whistler states his scale for the garrison
+only. The register gains `outside_the_stockade`: every part is its sheet offset from the main gate,
+multiplied by a figure the drafter wrote. That is 297 ft over the 89 ft drawn (3.32) for the agent's
+house, the factory and the stables, and the garden's own "5o feete to the Inch" (2.5) for the two
+gardens. The "5o" was read at T-2062 off a 4x crop and is inferred. Footprints are the drawn boxes at
+the index's forty feet to the inch, an upper bound because the drawings are pictorial.
+`read_whistler_1808.py --check` re-derives all seven from the register's pixel boxes (to 0.01 m) and
+refuses one that moves. L390 records the whole of it as reconstructed.
+
+**What is not settled.** The factory's numeral 18 is not read. It is identified as the paled house due
+west, which agrees with Quaife and with the 1857 Chicago Magazine passage on chicagology_prefire052.
+That page's rights are unresolved, so it is cited in prose and stands under no built value. The
+drafter's figures disagree: the interpreter's house's 48 perches is 6.8 times the drawing, not 3.3. It
+is not built, because its figure puts it on the water's edge. The factory's low corner is 0.93 m off
+the falling bank (`approach_not_modelled`). The middle stable's numeral may be 23, not 24. That is not
+asserted. Nobody is seated in any of the seven (L1).
+
+**Gate:** the T-2062 gate run is named in the PR. `validate.py` passes with 0 errors. L263 (559) and
+L266 (93) are restated, and `measure_generator_half` is restated 591 → 598.
+
 ## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
 
 The first piece of the West Division's remainder T-1826 handed on. `blk_west_lake_canal` (plat

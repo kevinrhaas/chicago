@@ -351,6 +351,69 @@
       "phase_id": "first_fort_1803",
       "structure_id": "first_fort_dearborn_soldiers_barracks_sw"
     },
+    "first_fort_outer_agents_house__first_fort_1803.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 53632,
+      "inputs_sha256": "e4c7ca4e588a87ef169b4948a65da73d8c015480c7d142111958b709091d4e3b",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_agents_house"
+    },
+    "first_fort_outer_factory__first_fort_1803.glb": {
+      "archetype": "log_dwelling",
+      "baked_ao": false,
+      "bytes": 53648,
+      "inputs_sha256": "41883945717543d8c2277c1846fc5ed32aab5bdde5ce95fe4e3e76aec81a894a",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_factory"
+    },
+    "first_fort_outer_officers_garden__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 1132336,
+      "inputs_sha256": "27a7712f6338130c82cf55d02044ed563ff6c5aec70b54cba115591aa9ca1c29",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_officers_garden"
+    },
+    "first_fort_outer_stable_middle__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 72328,
+      "inputs_sha256": "a054ad7ab7225e9b561d08091337a05ea942459aec123a299d17b55e32813df4",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_stable_middle"
+    },
+    "first_fort_outer_stable_north__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 62028,
+      "inputs_sha256": "bade37b05eab54aabe1a82917534aaac4ea4804fab7ad9aba084b13d48875b93",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_stable_north"
+    },
+    "first_fort_outer_stable_south__first_fort_1803.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 62340,
+      "inputs_sha256": "67a7d0f9ce484cb3418dafddadc3028dc48af59400de3047d8f02baeed4d64fd",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_stable_south"
+    },
+    "first_fort_outer_sutlers_garden__first_fort_1803.glb": {
+      "archetype": "palisade",
+      "baked_ao": false,
+      "bytes": 532908,
+      "inputs_sha256": "fa6086eae4da392d61e4cdf86effb41cc4dbf9e80c2b59d2802413cf8023bffd",
+      "kind": "generated",
+      "phase_id": "first_fort_1803",
+      "structure_id": "first_fort_outer_sutlers_garden"
+    },
     "first_presbyterian_church__frame_1834.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
