@@ -31,9 +31,11 @@
  *    A cabin's halo is still the record's 50 m — the town is still its own at
  *    the door — but its rim is now a ragged margin that thins over about
  *    100 m, and not a circle.
- *  - An elevation band's limits are DITHERED by a few centimetres, the same
- *    wander and draw scaled to height, so wet prairie climbs into the mesic in
- *    tongues along the contour instead of stopping on it.
+ *  - An elevation band is NOT blended. It is a contour on a plain with under
+ *    two metres of relief, so it already wanders with the swales, and the wet
+ *    and mesic prairie lie in a patchwork across the whole of it: blending
+ *    them put nearly every plant slot inside an edge band and made the plant
+ *    layer measurably slower everywhere, for a line the owner did not name.
  *  - A water buffer keeps its inner limit (the marsh stays at the water) and
  *    only a buffer reaching far from the water — the riverbank timber's 90 m —
  *    has its outer limit spread.
@@ -51,7 +53,7 @@
  */
 
 /**
- * The band, per kind of edge, in metres (heights in metres too).
+ * The band, per kind of edge, in metres.
  *
  *  - `reach` — the per-plant draw spans +/-reach, so the whole visible band is
  *    about twice it. 50 m on a polygon is the owner's 100 m.
@@ -59,15 +61,11 @@
  *    line.
  *
  * A polygon edge is the town's against the prairie, the forest's against the
- * prairie: margins made by grazing, cutting and fire, which wander widely. An
- * elevation band is a contour on a plain with under two metres of relief, so
- * 0.10 m of reach moves the edge tens of metres across a gentle swale and
- * almost nothing up a steep bank — the ground decides how wide it is. A buffer
- * is a distance from the water, and only its far side spreads.
+ * prairie: margins made by grazing, cutting and fire, which wander widely. A
+ * buffer is a distance from the water, and only its far side spreads.
  */
 export const ZONE_BLEND = Object.freeze({
   polygon: Object.freeze({ reach: 50, wander: 26 }),
-  elevation_band: Object.freeze({ reach: 0.10, wander: 0.06 }),
   buffer: Object.freeze({ reach: 30, wander: 18, from: 30 }),
 });
 
@@ -86,82 +84,100 @@ export const ZONE_BLEND_MAX_M = ZONE_BLEND.polygon.reach + ZONE_BLEND.polygon.wa
 const WANDER_TILE_M = 1024;
 const WANDER_CELL_M = 16;
 const WANDER_N = WANDER_TILE_M / WANDER_CELL_M;
+// Three channels interleaved, one per use (east, north, the band limits), each
+// the same waves read 317 m and 541 m further along per channel, so one lookup
+// serves all three.
 const WANDER = (() => {
-  const t = new Float32Array(WANDER_N * WANDER_N);
+  const t = new Float32Array(WANDER_N * WANDER_N * 3);
   const k = (2 * Math.PI) / WANDER_TILE_M;
+  const wave = (e, n) => 0.42 * Math.sin(k * (3 * e + 2 * n) + 1.7)
+                       + 0.30 * Math.sin(k * (-5 * e + 7 * n) + 0.4)
+                       + 0.28 * Math.sin(k * (19 * e - 15 * n) + 2.9);
   for (let j = 0; j < WANDER_N; j++) {
     for (let i = 0; i < WANDER_N; i++) {
       const e = i * WANDER_CELL_M;
       const n = j * WANDER_CELL_M;
-      t[j * WANDER_N + i] = 0.42 * Math.sin(k * (3 * e + 2 * n) + 1.7)
-                          + 0.30 * Math.sin(k * (-5 * e + 7 * n) + 0.4)
-                          + 0.28 * Math.sin(k * (19 * e - 15 * n) + 2.9);
+      for (let c = 0; c < 3; c++) t[(j * WANDER_N + i) * 3 + c] = wave(e + 317 * c, n + 541 * c);
     }
   }
   return t;
 })();
 
-/** The wander at (e, n); `salt` reads the tile elsewhere, so the two axes and
- *  the band limits each wander on their own. */
-export function blendWander(e, n, salt = 0) {
-  const x = (e + 317 * salt) / WANDER_CELL_M;
-  const y = (n + 541 * salt) / WANDER_CELL_M;
+/** The wander at (e, n) on channel `c` (0 east, 1 north, 2 band limits). */
+export function blendWander(e, n, c = 0) {
+  const x = e / WANDER_CELL_M;
+  const y = n / WANDER_CELL_M;
   const fx = Math.floor(x);
   const fy = Math.floor(y);
   const tx = x - fx;
   const ty = y - fy;
-  const i0 = ((fx % WANDER_N) + WANDER_N) % WANDER_N;
-  const j0 = ((fy % WANDER_N) + WANDER_N) % WANDER_N;
-  const i1 = i0 + 1 === WANDER_N ? 0 : i0 + 1;
-  const j1 = (j0 + 1 === WANDER_N ? 0 : j0 + 1) * WANDER_N;
-  const r0 = j0 * WANDER_N;
-  const a = WANDER[r0 + i0] + (WANDER[r0 + i1] - WANDER[r0 + i0]) * tx;
-  const b = WANDER[j1 + i0] + (WANDER[j1 + i1] - WANDER[j1 + i0]) * tx;
+  const i0 = fx & (WANDER_N - 1);
+  const j0 = fy & (WANDER_N - 1);
+  const i1 = (i0 + 1) & (WANDER_N - 1);
+  const j1 = (j0 + 1) & (WANDER_N - 1);
+  const p00 = (j0 * WANDER_N + i0) * 3 + c;
+  const p10 = (j0 * WANDER_N + i1) * 3 + c;
+  const p01 = (j1 * WANDER_N + i0) * 3 + c;
+  const p11 = (j1 * WANDER_N + i1) * 3 + c;
+  const a = WANDER[p00] + (WANDER[p10] - WANDER[p00]) * tx;
+  const b = WANDER[p01] + (WANDER[p11] - WANDER[p01]) * tx;
   return a + (b - a) * ty;
-}
-
-/** A 32-bit positional hash on a 0.5 m grain (lakeshore.js `ditherHash`'s
- *  mixer), salted, so the same point always answers the same. */
-function hash32(e, n, salt) {
-  const a = Math.round(e * 2) | 0;
-  const b = Math.round(n * 2) | 0;
-  let h = Math.imul(a, 0x27d4eb2d) ^ Math.imul(b, 0x165667b1) ^ salt;
-  h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
-  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);
-  return (h ^ (h >>> 16)) >>> 0;
-}
-
-/** Two bytes of a hash as one draw, -1..+1, peaked at 0 (two uniforms summed). */
-function draw(h, shift) {
-  return (((h >>> shift) & 255) + ((h >>> (shift + 8)) & 255) + 1) / 256 - 1;
 }
 
 /**
  * Where to ask a polygon or box extent about the plant at (e, n), written into
  * `out` so the caller's hot loop allocates nothing. `out.w` and `out.d` are a
- * third wander and a third draw, for the band limits below.
+ * third wander and a third draw, for a buffer's far limit (`blendBuffer`).
+ *
+ * Paid on every plant slot near an edge, so it is written flat: one positional
+ * hash (lakeshore.js `ditherHash`'s mixer, 0.5 m grain) whose four bytes make
+ * the two axes' draws (two bytes summed each, so peaked at zero), a fifth draw
+ * from one more multiply, and one bilinear read of the three wander channels.
  */
 const P_REACH = ZONE_BLEND.polygon.reach;
 const P_WANDER = ZONE_BLEND.polygon.wander;
 export function blendPoint(e, n, out) {
-  const reach = P_REACH;
-  const wander = P_WANDER;
-  const h = hash32(e, n, 0x51ed270b);
-  out.e = e + wander * blendWander(e, n, 0) + reach * draw(h, 0);
-  out.n = n + wander * blendWander(e, n, 1) + reach * draw(h, 16);
-  out.w = blendWander(e, n, 2);
-  out.d = draw(hash32(e, n, 0x2c1b3c6d), 0);
+  const a = Math.round(e * 2) | 0;
+  const b = Math.round(n * 2) | 0;
+  let h = Math.imul(a, 0x27d4eb2d) ^ Math.imul(b, 0x165667b1) ^ 0x51ed270b;
+  h = Math.imul(h ^ (h >>> 15), 0x85ebca6b);
+  h = Math.imul(h ^ (h >>> 13), 0xc2b2ae35);
+  h ^= h >>> 16;
+  const g = Math.imul(h ^ (h >>> 11), 0x9e3779b1);
+  const de = ((h & 255) + ((h >>> 8) & 255) + 1) / 256 - 1;
+  const dn = (((h >>> 16) & 255) + (h >>> 24) + 1) / 256 - 1;
+  out.d = (((g >>> 8) & 255) + (g >>> 24) + 1) / 256 - 1;
+  const x = e / WANDER_CELL_M;
+  const y = n / WANDER_CELL_M;
+  const fx = Math.floor(x);
+  const fy = Math.floor(y);
+  const tx = x - fx;
+  const ty = y - fy;
+  const i0 = fx & (WANDER_N - 1);
+  const j0 = fy & (WANDER_N - 1);
+  const i1 = (i0 + 1) & (WANDER_N - 1);
+  const j1 = (j0 + 1) & (WANDER_N - 1);
+  const p00 = (j0 * WANDER_N + i0) * 3;
+  const p10 = (j0 * WANDER_N + i1) * 3;
+  const p01 = (j1 * WANDER_N + i0) * 3;
+  const p11 = (j1 * WANDER_N + i1) * 3;
+  const w00 = (1 - tx) * (1 - ty);
+  const w10 = tx * (1 - ty);
+  const w01 = (1 - tx) * ty;
+  const w11 = tx * ty;
+  const W = WANDER;
+  out.e = e + P_WANDER * (W[p00] * w00 + W[p10] * w10 + W[p01] * w01 + W[p11] * w11) + P_REACH * de;
+  out.n = n + P_WANDER * (W[p00 + 1] * w00 + W[p10 + 1] * w10 + W[p01 + 1] * w01 + W[p11 + 1] * w11)
+    + P_REACH * dn;
+  out.w = W[p00 + 2] * w00 + W[p10 + 2] * w10 + W[p01 + 2] * w01 + W[p11 + 2] * w11;
   return out;
 }
 
-/** How far to shift an elevation band's limits, from a `blendPoint` result. */
-export function blendElevation(q) {
-  const { reach, wander } = ZONE_BLEND.elevation_band;
-  return wander * q.w + reach * q.d;
-}
+
 
 /** How far to shift a far-reaching buffer's outer limit, from a `blendPoint` result. */
+const B_REACH = ZONE_BLEND.buffer.reach;
+const B_WANDER = ZONE_BLEND.buffer.wander;
 export function blendBuffer(q) {
-  const { reach, wander } = ZONE_BLEND.buffer;
-  return wander * q.w + reach * q.d;
+  return B_WANDER * q.w + B_REACH * q.d;
 }

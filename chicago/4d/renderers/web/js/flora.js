@@ -53,7 +53,7 @@ import * as THREE from 'three';
 import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 import { softExtentWeight, ditherHash } from './lakeshore.js';
 // T-2125: where a community's edge is asked, so the edges blend and wander.
-import { blendPoint, blendElevation, blendBuffer, ZONE_BLEND, ZONE_BLEND_MAX_M } from './zone-blend.js';
+import { blendPoint, blendBuffer, ZONE_BLEND, ZONE_BLEND_MAX_M } from './zone-blend.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
@@ -3590,15 +3590,61 @@ function zoneFinder(zones, terrain, water) {
   // millions of times a deal (T-2096, T-2099). So the band is only asked for
   // where an edge is near: the plain answer on a BLEND_CELL_M grid, and every
   // cell within the band's reach of a cell answering differently is marked.
-  const near = blendNearEdge(exact, terrain);
+  const grid = blendNearEdge(exact, terrain);
+  const near = grid?.near ?? null;
+  // THE TOWN'S MARGIN IS GRAZED (and the plant layer is not made dearer by it).
+  // A prairie slot in the band beside the town's turf is handed to the turf at
+  // a share that falls from TOWN_GRAZE at the recorded line to none at the band's
+  // far side: the margin's prairie is thinner and shorter-cropped than the open
+  // prairie, as grazed ground is, and the turf the ground paints there follows it
+  // (the turf mask is this finder's own answer). A turf slot is the cheapest the
+  // plant layer deals, so this keeps the band's cost at or under the hard edge's
+  // (T-2096, T-2099), where a plain blend drew prairie cards over the town side.
+  const turf = zones.find((z) => z.turf) ?? null;
+  const gap = turf ? grid?.townGap ?? null : null;
+  // A slot's answer never changes, and the plant layer re-deals the same
+  // world-anchored slots every 0.6 m walked, so the answers are kept in a
+  // direct-mapped cache keyed by the slot's own coordinates (T-2096). 64k
+  // entries, about 1.1 MB; a collision only costs the question again.
+  const CACHE = 1 << 16;
+  const keyE = new Float64Array(CACHE).fill(NaN);
+  const keyN = new Float64Array(CACHE);
+  const val = new Uint8Array(CACHE);
+  const byIndex = [null, ...zones];
+  const indexOf = new Map(zones.map((z, i) => [z, i + 1]));
   return function find(e, n) {
+    let h = Math.imul(Math.round(e * 8) | 0, 0x27d4eb2d) ^ Math.imul(Math.round(n * 8) | 0, 0x165667b1);
+    h = (h ^ (h >>> 15)) & (CACHE - 1);
+    if (keyE[h] === e && keyN[h] === n) return byIndex[val[h]];
+    const z = answer(e, n);
+    keyE[h] = e; keyN[h] = n; val[h] = z ? indexOf.get(z) : 0;
+    return z;
+  };
+  function answer(e, n) {
     if (near && !near(e, n)) return exact(e, n);
     blendPoint(e, n, q);
+    let hit = null;
     for (const z of zones) {
-      if (matches(z.extent, e, n, terrain, water, q)) return z;
+      if (matches(z.extent, e, n, terrain, water, q)) { hit = z; break; }
     }
-    return null;
-  };
+    if (gap && hit && !hit.turf && hit.priority < turf.priority && hit.extent?.kind !== 'lake_shore') {
+      const d = gap(e, n);
+      if (d < ZONE_BLEND_MAX_M
+        && ditherHash(e + 0.27, n - 0.41) < TOWN_GRAZE * (1 - d / ZONE_BLEND_MAX_M)) return turf;
+    }
+    return hit;
+  }
+}
+
+/** T-2125: the share of prairie slots handed to the town's turf at its recorded
+ *  edge; it falls to none at the far side of the band. */
+const TOWN_GRAZE = 0.6;
+
+/** A community whose edges this band does not blend: an elevation band, or an
+ *  extent with its own soft ramp (lakeshore.js). */
+function openClass(z) {
+  const x = z.extent;
+  return x?.kind === 'elevation_band' || x?.kind === 'lake_shore' || !!(x?.edge && x?.box);
 }
 
 /** T-2125: the grid `zoneFinder` reads to skip the band far from any edge. */
@@ -3610,11 +3656,16 @@ function blendNearEdge(exact, terrain) {
   const w = Math.ceil(hf.widthM / c) + 1;
   const h = Math.ceil(hf.depthM / c) + 1;
   const ids = new Map();
+  const turfIds = new Set();
   const zone = new Uint16Array(w * h);
   for (let j = 0; j < h; j++) {
     for (let i = 0; i < w; i++) {
       const z = exact(hf.originE + (i + 0.5) * c, hf.originN + (j + 0.5) * c);
-      const key = z ? z.id : '';
+      // The open communities are one class here: the prairies' elevation
+      // bands are not blended, and the sand's soft extents ramp themselves
+      // (T-1819), so the lines between them are no edge of this band's.
+      const key = z ? (openClass(z) ? '~open' : z.id) : '';
+      if (z?.turf) turfIds.add(key);
       if (!ids.has(key)) ids.set(key, ids.size);
       zone[j * w + i] = ids.get(key);
     }
@@ -3647,13 +3698,68 @@ function blendNearEdge(exact, terrain) {
     last = Infinity;
     for (let j = h - 1; j >= 0; j--) { if (row[j * w + i]) last = j; if (last - j <= r) mark[j * w + i] = 1; }
   }
+  // How far each cell lies from the TOWN'S edge (a turf cell beside one that is
+  // not), in cells, by a two-pass chamfer, capped past the band.
+  const turfOf = [...ids.keys()].map((id) => turfIds.has(id));
+  const cap = r + 1;
+  const dist = new Float32Array(w * h).fill(cap);
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const t = turfOf[zone[j * w + i]];
+      if ((i + 1 < w && turfOf[zone[j * w + i + 1]] !== t)
+        || (j + 1 < h && turfOf[zone[(j + 1) * w + i]] !== t)) {
+        dist[j * w + i] = 0;
+        if (i + 1 < w) dist[j * w + i + 1] = 0;
+        if (j + 1 < h) dist[(j + 1) * w + i] = 0;
+      }
+    }
+  }
+  const D = Math.SQRT2;
+  const relax = (k, v) => { if (v < dist[k]) dist[k] = v; };
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const k = j * w + i;
+      if (i > 0) relax(k, dist[k - 1] + 1);
+      if (j > 0) {
+        relax(k, dist[k - w] + 1);
+        if (i > 0) relax(k, dist[k - w - 1] + D);
+        if (i + 1 < w) relax(k, dist[k - w + 1] + D);
+      }
+    }
+  }
+  for (let j = h - 1; j >= 0; j--) {
+    for (let i = w - 1; i >= 0; i--) {
+      const k = j * w + i;
+      if (i + 1 < w) relax(k, dist[k + 1] + 1);
+      if (j + 1 < h) {
+        relax(k, dist[k + w] + 1);
+        if (i + 1 < w) relax(k, dist[k + w + 1] + D);
+        if (i > 0) relax(k, dist[k + w - 1] + D);
+      }
+    }
+  }
   const e0 = hf.originE;
   const n0 = hf.originN;
-  return (e, n) => {
-    const i = Math.floor((e - e0) / c);
-    const j = Math.floor((n - n0) / c);
-    if (i < 0 || j < 0 || i >= w || j >= h) return true;
-    return mark[j * w + i] === 1;
+  return {
+    near: (e, n) => {
+      const i = Math.floor((e - e0) / c);
+      const j = Math.floor((n - n0) / c);
+      if (i < 0 || j < 0 || i >= w || j >= h) return true;
+      return mark[j * w + i] === 1;
+    },
+    /** Metres to the town's edge, bilinear between cell centres. */
+    townGap: (e, n) => {
+      const x = Math.min(w - 1.001, Math.max(0, (e - e0) / c - 0.5));
+      const y = Math.min(h - 1.001, Math.max(0, (n - n0) / c - 0.5));
+      const i = Math.floor(x);
+      const j = Math.floor(y);
+      const tx = x - i;
+      const ty = y - j;
+      const k = j * w + i;
+      const a = dist[k] + (dist[k + 1] - dist[k]) * tx;
+      const b = dist[k + w] + (dist[k + w + 1] - dist[k + w]) * tx;
+      return (a + (b - a) * ty) * c;
+    },
   };
 }
 
@@ -3703,9 +3809,10 @@ function matches(x, e, n, terrain, water, q = null) {
       ok = true;
       break;
     case 'elevation_band': {
-      // T-2125: the band's limits are dithered by centimetres, so the
-      // community runs along the contour in tongues rather than stopping on it.
-      const y = terrain.surfaceHeight(e, n) + (q ? blendElevation(q) : 0);
+      // Not blended (T-2125): a band is a contour on ground with under two
+      // metres of relief, so it already wanders with the swales, and blending
+      // it would put the whole prairie inside an edge band.
+      const y = terrain.surfaceHeight(e, n);
       ok = Array.isArray(x.elev_m) && y >= x.elev_m[0] && y <= x.elev_m[1];
       break;
     }

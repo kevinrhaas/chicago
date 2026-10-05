@@ -784,6 +784,8 @@ export function createFencedGround({
     }
     if (f) interior.feather = f;
   }
+  // An array, not the map's iterator: the sward asks this of every slot.
+  const featherList = [...feathers.values()].filter(Boolean);
 
   /** Is this point inside a fenced interior — the question `flora.js` asks
    *  through `main.js`'s block-list composition, and the question the smoke asks
@@ -799,8 +801,8 @@ export function createFencedGround({
         return i.feather ? i.feather.cover(e, n) > ditherHash(e, n) : true;
       }
     }
-    for (const f of feathers.values()) {
-      if (!f) continue;
+    for (let k = 0; k < featherList.length; k++) {
+      const f = featherList[k];
       const b = f.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
       if (pointInPolygon(f.outer, e, n) && !pointInPolygon(f.ring, e, n)) {
