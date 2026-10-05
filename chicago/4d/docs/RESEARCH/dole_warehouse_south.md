@@ -81,6 +81,19 @@ neighbour a few rods north of it.
 south" fit the south-east corner the record already takes, and they fit a store just north of Lake
 on the Dearborn face too. Nothing moves until a printing settles that.
 
+**The register reads the store as this house (T-2142, 2026-10-05).** The record carries the aka
+`Newberry & Dole's store`, so `tools/compile_register.py` resolves that anchor here instead of calling
+it unresolved. Six register rows move from `street_only` or `unplaceable` to `new_building` on this
+house: D. Graves, J. B. Brown's Dearborn Street grocery, W. H. Brown, both of Wm. H. Taylor's rows, and
+the Chicago and St. Joseph packet ("apply on board, or [at] the store of Messrs Newberry & Dole").
+Tuttle & Brown resolves too, but stays out of the July town: the paper contradicts it in June 1834.
+Downstream, the address book seats the six on this roof at rung `structure` and grade `inferred`. That is
+the rule it already applies to "first door north from the Tremont House": the anchor's roof is the seat,
+and `replaceable_by` names what would move it. "One door south" and "a few rods north" say the
+shops stood beside the store, not in it, so the seat is the nearest committed roof and not a claim
+that they shared it. This house only takes the alias. The forwarding house's anchors ("store house",
+Cohen) have one word more and do not match it, and the Chicago Bakery's printing "Newbury" does not match either.
+
 ## The parcel's shared inventions
 
 Three things are true of every record in the South Water Street parcel and are written once here
