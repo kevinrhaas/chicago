@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1472, ts: '2026-10-05T05:25:35.370Z', date: 'Oct 5, 2026, 12:25 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+    items: [
+      'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
+      'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
+      'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
+      'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
+    ] },
   { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
