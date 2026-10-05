@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1479, ts: '2026-10-05T09:31:22.120Z', date: 'Oct 5, 2026, 4:31 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
       'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
       'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
+    ] },
+  { v: 1479, ts: '2026-10-05T08:59:14.060Z', date: 'Oct 5, 2026, 3:59 AM CT', title: 'The shop-and-home count tells named homes from guessed ones again', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. When businesses the 1835 newspapers name are stood on their streets, our records count the houses on each street that are already homes, so no shop is put in one.',
+      'That count splits the homes into those of a family the town\u2019s records name and those of a family we infer. A slip in the code made the first half read zero on every street, whatever stood there. It is fixed, and our checks now recount both halves house by house.',
+      'Today the totals are the same either way: no named family yet lives in one of these reconstructed houses on a business street. The check makes sure the count will be right when one does.',
     ] },
   { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [

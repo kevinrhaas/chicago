@@ -1446,14 +1446,14 @@ def derive() -> dict:
     by_street: dict[str, dict] = {}
     for street_id in sorted({b["action_target"] for b in pool
                              if b["action_target"]} | set(faces)):
-        named = [b for b in pool if b["action_target"] == street_id]
-        if not named:
+        naming_it = [b for b in pool if b["action_target"] == street_id]
+        if not naming_it:
             continue
         face = faces.get(street_id) or {key: list(value)
                                         for key, value in EMPTY_FACE.items()}
         by_street[street_id] = {
             "street_name": fronting_street.street_name(street_id),
-            "businesses_naming_it": len(named),
+            "businesses_naming_it": len(naming_it),
             "adopted": sum(1 for row in adoptions if row["street_id"] == street_id),
             "roofs_lot_front": len(face[FRONT]),
             "roofs_corner_side": len(face[SIDE]),
@@ -1766,6 +1766,31 @@ def limits(doc: dict) -> list[str]:
                     "trade of the same reading is free"
                     % (row.get("business_id"), row.get("structure_id"),
                        row.get("roof_family"), ", ".join(free_trade), how, street_id))
+    # THE HOME SPLIT, RE-DERIVED — T-1632. `roofs_home` is every household roof on a face
+    # and the two columns under it say which layer holds each: a household
+    # `data/residents/` names, or one the inferred programme hypothesises. `derive()` once
+    # rebound `named` to the list of businesses naming the street inside its per-street
+    # loop, so the test `sid in named` asked whether a structure id was a business record,
+    # every street read `roofs_home_named: 0`, and the inferred column absorbed the rest.
+    # Nothing could see it, because the two columns still summed. So the split is re-read
+    # here against the residents layer itself, roof by roof, and not against the sum.
+    for street_id, row in sorted(((doc.get("counts") or {}).get("by_street") or {}).items()):
+        face = faces_for_limits.get(street_id) or EMPTY_FACE
+        homes_here = face["homes"]
+        named_here = len([sid for sid in homes_here if sid in named])
+        if row.get("roofs_home") != len(homes_here):
+            bad.append("%s says %r household roof(s) stand on its faces; the faces hold %d"
+                       % (street_id, row.get("roofs_home"), len(homes_here)))
+        if row.get("roofs_home_named") != named_here:
+            bad.append("%s says %r of its household roofs hold a household "
+                       "data/residents/ names; the residents layer seats one in %d — the "
+                       "home split is not the residents layer's (T-1632)"
+                       % (street_id, row.get("roofs_home_named"), named_here))
+        if row.get("roofs_home_inferred") != len(homes_here) - named_here:
+            bad.append("%s says %r of its household roofs hold only an inferred "
+                       "household; %d do — the home split is not the residents layer's "
+                       "(T-1632)" % (street_id, row.get("roofs_home_inferred"),
+                                     len(homes_here) - named_here))
     # And the two statements the stable deal order rests on, re-derived rather than
     # trusted. If either stops holding, `roof_key` is no longer a re-family invariant and
     # T-1651's whole claim goes with it.
@@ -2058,6 +2083,29 @@ def self_test() -> int:
          lambda b: first(b).update(street_id="washington"),
          "does not front")
 
+    # T-1632. The residents layer seats no named household on a reconstructed roof in
+    # 1835 today, so every street's named column is honestly 0 and the old shadowing bug
+    # would produce the very same table. These two cases are what make the split a gate
+    # rather than a coincidence: moving a roof from one column to the other, either way,
+    # must fire even though the two columns still sum to `roofs_home`.
+    housed = next((street for street, row in sorted(doc["counts"]["by_street"].items())
+                   if row["roofs_home"]), None)
+    if housed is None:
+        print("  FAIL  no street has a household roof on its faces, so the home split "
+              "cannot be tested")
+        failed = 1
+    else:
+        def shift(by):
+            def mutate(broken):
+                row = broken["counts"]["by_street"][housed]
+                row["roofs_home_named"] += by
+                row["roofs_home_inferred"] -= by
+            return mutate
+        case("a home split that books an inferred roof as named",
+             shift(1), "the home split is not the residents layer's")
+        case("a home split that books a named roof as inferred",
+             shift(-1), "the home split is not the residents layer's")
+
     # THE 2026-08-30 RULING'S OWN BOUNDARY. It widened what counts as a face by exactly
     # one reading, and the two ways that widening could quietly become three are a record
     # that reaches its street only by the DECLINED band, and a corner adoption that
@@ -2332,7 +2380,7 @@ def self_test() -> int:
         return 1
     print("SELF-TEST PASS — all six limits, all three roof refusals (both halves of "
           "the household one, the yard building, and the roof raised to answer a slot "
-          "request), both edges of the 2026-08-30 face ruling and both readings of the "
+          "request), both edges of the 2026-08-30 face ruling, both directions of the home split (T-1632) and both readings of the "
           "one-roof-one-business ledger fire when broken, and refusal 3 still obeys "
           "identity.json's two_houses rulings (20 cases)")
     return 0
