@@ -38,7 +38,7 @@
    62.5
   ],
   "marsh_exclusion_m": 48.0,
-  "plain_cells_audited": 705870,
+  "plain_cells_audited": 705665,
   "carried_frame": {
    "cells": 356650,
    "block_max": 1.836,
@@ -124,7 +124,7 @@
     "cell_max": 213.175
    },
    "street_section": {
-    "cells": 23943,
+    "cells": 24257,
     "cell_max": 186.376
    },
    "swales": {
@@ -144,5 +144,5 @@
   "ground": "gltf/terrain__e1834_harbor_cut.glb",
   "water": "gltf/water__e1834_harbor_cut.glb"
  },
- "inputs_sha256": "74c2f45895204e8eee06e7a7b976fcf6466d3cfe04c568596281f0b891feb2e2"
+ "inputs_sha256": "cd49927e0b8d4f53f3d3e656bc103a3dfa1b3e922bf0a52641cb895882bbccd8"
 }

@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1506, ts: '2026-10-05T23:13:15.146Z', date: 'Oct 5, 2026, 6:13 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+  { v: null, ts: '', date: '', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
       'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
       'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
       'The doctor\u2019s card now says he came from Vermont, as an 1895 history of Chicago records. Pruyne\u2019s card keeps the store, and his own arrival year: early 1833, when the shop opened.',
       'Pruyne no longer gets an invented wife and children. The record has him marrying Rebecca Sherman on 20 August 1835, seven weeks after the day the town shows.',
+    ] },
+  { v: 1506, ts: '2026-10-05T22:21:46.692Z', date: 'Oct 5, 2026, 5:21 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
+    items: [
+      'Canal Street and West Water Street now run south past Washington Street to Madison Street, the south edge of the 1830 town. Before, both stopped short at Washington.',
+      'The new block between them has six houses: five face Canal Street, from a house on the Washington corner to a larger merchant\u2019s house on the Madison corner, and a small shanty faces West Water Street by the river.',
+      'The 1830 plat gives this block\u2019s two rows of lots different depths, 180 feet and 88 feet, because the river cuts deep into the row along West Water Street. Each row is cut to its own depth.',
+      'Six West Side families now have a home in the town. No source names these houses or who lived in them; each card says so, and the Liberties page explains it (L313).',
     ] },
   { v: 1505, ts: '2026-10-05T20:26:07.594Z', date: 'Oct 5, 2026, 3:26 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
     items: [
