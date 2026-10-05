@@ -1,10 +1,27 @@
 export const CHANGELOG = [ // newest first
-  { v: 1472, ts: '2026-10-05T05:29:37.262Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: null, ts: '', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
+      'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
+    ] },
+  { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
+      'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
+      'If a later change moves that number, the checks stop it until someone decides it on purpose.',
+    ] },
+  { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tested giving every building baked shadows in its corners and under its eaves, the shading called ambient occlusion.',
+      'Done the usual way, with a shadow picture per building, the town took 547 separate drawing steps instead of 5. That roughly doubled the work per frame on a phone, so it is not shipping.',
+      'Those shadow pictures would also never reach the walls or roofs, which already carry their own texture. The plan is now to store the shadows in the buildings’ corners themselves, which adds no drawing steps.',
     ] },
   { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
     items: [
