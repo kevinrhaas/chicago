@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1484, ts: '2026-10-05T11:31:12.660Z', date: 'Oct 5, 2026, 6:31 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. 24 reconstructed houses still wait for us to say which household lives in each, or why we can\u2019t. 18 of them are on the Washington Street blocks.',
+      'Our records handed those houses to planning tasks that had all finished, so nothing would ever have picked them up. They now point to a new open task, and our checks fail if that task closes while any of the houses are still waiting.',
+      'The town\u2019s list of what is left to build had a row like that too: the South\u2019s public buildings, all five of which already stand. It now points to the task that keeps the building list balanced.',
+    ] },
   { v: 1483, ts: '2026-10-05T11:07:09.913Z', date: 'Oct 5, 2026, 6:07 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
     items: [
       'Open 1904, then Evidence \u2192 Sources. The list used to show the 1835 town\u2019s sources. It now shows the 32 sources behind 1904 itself: the Glessner House drawings and photographs, the 1911 Sanborn sheets, the city\u2019s paving records and the elevation survey under the ground.',
