@@ -21044,6 +21044,15 @@ poses fall by 59-77 % at every tier (docs/measurements/t-2085-town-turf.json).
 pattern of wear and growth replaces the reconstructed scales; a dossier height over 0.25 m for the
 town's matrix takes the community off this rule by its own record.
 **Recorded:** 2026-10-04 (T-2085).
+**Revised:** 2026-10-05 (T-2122) — the near ring on turf is gone. The owner found the tufts and
+weeds T-2085 kept to 7.6 m popping up around the walker on bare town ground ("things constantly
+pop up ... remove those close up grass animations in town"), so on turf no near tuft is drawn at
+any tier and the turf is the painted texture alone. Weeds on turf stand only where a kept lot
+re-seats them along its line (L376), and they stand on the ordinary forb ring, so they arrive at
+its ragged edge twenty-odd metres out; the loose weeds on open turf, and T-2094's verge patches,
+are no longer drawn. The records' species and shares are untouched; this decides only what is
+DRAWN. Flora triangles at the in-town stands fall a further 8-68 % at Full (Green Tree 34.9k to
+11.2k, back lot 60.2k to 44.7k, the forks 162k to 135k, Lake at Market 36.3k to 35.6k).
 
 ### L376 — A used lot is kept short: weeds and flowers stand at its lines, its back corners and its sheds
 **Decision:** T-2086 writes, for every improved platted lot, the ground its household kept

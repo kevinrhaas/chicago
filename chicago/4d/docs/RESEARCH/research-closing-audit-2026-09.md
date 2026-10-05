@@ -8,8 +8,8 @@ Registered reading units: **23,716**, as of 2026-09-15. Unclassified: **0**. Ass
 
 | Disposition | Units |
 | --- | ---: |
-| aggregate_only | 375 |
-| asserted | 1,396 |
+| aggregate_only | 373 |
+| asserted | 1,398 |
 | later_only | 12,615 |
 | outside_chicago | 119 |
 | refused | 8,734 |
@@ -23,7 +23,7 @@ Every asserted unit names the record and field it wrote to. Grouped by the layer
 | households | 812 |
 | businesses | 542 |
 | structures | 41 |
-| outside the four layers | 1 |
+| outside the four layers | 3 |
 
 **Read this honestly.** The unit-level ledger proves the second hop for households, businesses and structures. It proves nothing at unit level for residents, which is not a claim that the layer is unresearched — the newspaper register below is compiled from the same readings by `tools/compile_register.py`, and the roofs carry their own graded attributes. Sections 4 and 5 read those layers directly for that reason.
 
