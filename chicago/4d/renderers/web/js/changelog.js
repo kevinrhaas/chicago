@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: 1475, ts: '2026-10-05T06:16:48.629Z', date: 'Oct 5, 2026, 1:16 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
