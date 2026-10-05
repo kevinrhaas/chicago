@@ -148,7 +148,11 @@ BUSINESS_DEAL_HOLDS = 40
 # blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
 # standing beside T-2129's Market block the deal hands hh_bennet_lyman on, and a release would
 # seat him again (L270).
-BUSINESS_DEAL_COSTS = 2
+# 2 -> 1 on 2026-10-05 (T-2136): the roof a release would have given him,
+# recon_1835_blk_washington_lasalle_d7_05, now carries its keeper's household id, and a roof
+# that does is offered to that household alone (the T-1638 return above) — in the
+# counterfactual as in the deal. No seat in the deal itself moved (L270).
+BUSINESS_DEAL_COSTS = 1
 
 TICKET = "T-1613"
 PARENT = "T-1199"
