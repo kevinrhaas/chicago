@@ -27,7 +27,7 @@ export function scenePresentation(value, targetDate) {
     arrivalLine: `You have arrived in Chicago, ${when}.`,
     welcomeTitle: `Welcome to Chicago, ${when}.`,
     eyebrow: year === 1835 ? 'A town at the water’s edge' : year === 1904 ? 'Prairie Avenue' : year === 1812 ? 'The first Fort Dearborn' : 'Chicago through time',
-    intro: `You are entering a digital reconstruction of ${year === 1904 ? 'Prairie Avenue' : 'Chicago'} as it stood ${date ? 'on' : 'in'} ${dated}, built from the sources listed under Evidence.`,
+    intro: `Destination locked: ${year === 1904 ? 'Prairie Avenue' : 'Chicago'}, ${dated}. Reconstructed from the sources under Evidence.`,
     entries: year === 1835 ? EARLY_ENTRIES : year === 1904 ? prairieCards :
       ['assess', 'collect', 'prepare', 'resolve'].map(phase => ({ id: `scene_${year}_${phase}`, phase,
         kind: 'operational', text: `Preparing Chicago, ${year}`, weight: 1, min_dwell_ms: 2400 })),
