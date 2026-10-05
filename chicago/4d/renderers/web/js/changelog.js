@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1481, ts: '2026-10-05T10:02:26.700Z', date: 'Oct 5, 2026, 5:02 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
+  { v: 1482, ts: '2026-10-05T10:47:47.199Z', date: 'Oct 5, 2026, 5:47 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
       'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
       'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
+    ] },
+  { v: 1481, ts: '2026-10-05T10:26:22.802Z', date: 'Oct 5, 2026, 5:26 AM CT', title: 'Shops can now face the side street of a corner lot', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Each reconstructed house and shop stands facing its block\u2019s long street, like Washington or Randolph. Our block layout tool can now also stand one on a corner lot facing the cross street, like Dearborn. That is the step the mechanics\u2019 shops planned for State and Dearborn Streets were waiting on.',
+      'The town\u2019s rules still hold. No workshop goes on State Street, a quiet street in 1835 where none of the seven documented workshops stood. On Dearborn a workshop goes only where no busier street bounds the block.',
+      'The shops themselves come next.',
     ] },
   { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
     items: [
