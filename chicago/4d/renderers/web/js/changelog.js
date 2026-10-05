@@ -1,8 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1494, ts: '2026-10-05T15:04:27.752Z', date: 'Oct 5, 2026, 10:04 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
+  { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',
       'Those checks had grown past the ten minutes our automated builders get to run them, so a change could go out without a full check. A few of them were doing the same work dozens of times over. They now do it once and give the same answers, and the whole set runs in about eight minutes.',
+    ] },
+  { v: 1495, ts: '2026-10-05T15:25:36.630Z', date: 'Oct 5, 2026, 10:25 AM CT', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. Kelsey\u2019s small yellow boarding-house on the north-side sand hills now has a corrected card.',
+      'The 1843 and 1844 directories print its keeper as \u201cPatrick\u201d and \u201cParnick\u201d Kelsey. They are now one man: the same trade on the same Wolcott Street block, with the same two Hough boarders in both books.',
+      'The card used to say an 1835 letter spells him both ways. It does not. The page reads \u201cParnick\u201d both times. The Liberties page explains it (L291).',
+    ] },
+  { v: 1494, ts: '2026-10-05T15:03:31.603Z', date: 'Oct 5, 2026, 10:03 AM CT', title: 'Newberry & Dole\u2019s sign goes up on their Dearborn Street store', kind: 'change',
+    items: [
+      'The warehouse at Lake and Dearborn now carries a NEWBERRY & DOLE board: \u201cDry Goods, Hardware & Crockery\u201d, the firm\u2019s own words from its first advertisement in November 1833. It used to read GEO. W. DOLE.',
+      'Why: shopkeepers in the 1834\u201335 Chicago Democrat place themselves \u201cone door south\u201d and \u201ca few rods north\u201d of Newberry & Dole\u2019s store, both on Dearborn Street. That is a store on Dearborn, not on South Water, and this house is the one that stands there.',
+      'The firm\u2019s forwarding warehouse stays at Franklin and South Water. The one notice that names it gives South Water Street and no cross street, so nothing moves it.',
+      'The building\u2019s card now names it as the firm\u2019s store too. The Liberties page explains the ruling (L66, L378).',
     ] },
   { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
     items: [

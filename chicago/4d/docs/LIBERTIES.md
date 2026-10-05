@@ -2642,6 +2642,13 @@ on the position, and Andreas's north-side sentence (1839) and Bonnell's north-ba
 still unidentified and is no longer what the bank rests on. What stays open, and why this entry is
 not resolved: the block (the paper points at the Dearborn end of South Water, half a kilometre east
 of where L378 stands the house — T-2137), Kinzie & Hunter's bank, and both docks.
+**Revised:** 2026-10-05 (T-2137) — the block is ruled and the house does not move. Read together,
+the Dearborn advertisers place the firm's STORE, not its store house: Tuttle & Brown are "one door
+south" of it on Dearborn (27 May 1834, `chicago_democrat_1834_06_04#c011`) and Taylor "a few rods
+north" of it on the same street, so the store has Dearborn lots on both sides and is not on a South
+Water corner. It is matched to `dole_warehouse_south`, Andreas's Lake-and-Dearborn house, which now
+carries the firm (inferred). The STORE HOUSE is placed by Cohen alone, on South Water with no cross
+street, so the Franklin corner (L378) stands. Kinzie & Hunter's bank and both docks are still open.
 
 ### L67 — A trade advertised in November 1833 becomes a building standing in July 1835
 **Decision:** `elston_soap_candle_manufactory` is built from a newspaper advertisement, with both its
@@ -16910,11 +16917,22 @@ occupant for each roof and both are graded `attested` on `occupants`; neither ge
 `resident_assignment`. Dr. Kimberly is held in `hh_pruyne_kimberly`, a **partnership** household
 headed by Peter Pruyne and banded to the *south* division on the evidence of the store — seating that
 household here would carry Pruyne across the river on a sentence about Kimberly, and splitting a
-partnership household is the resident layer's ruling. Kelsey is held as **two unmerged directory
+partnership household is the resident layer's ruling. Kelsey was held as **two unmerged directory
 identities**, `id_kelsey_patrick` (Fergus 1843) and `id_kelsey_parnick` (Norris 1844), and Eve Kelsey
-is in no identity of this corpus at all; Bonnell's sentence is the best evidence here that the two
-Kelseys are one man — it spells him both ways in one sentence — but a merge is the identity layer's
-under its own M-rules. Both are filed, not performed.
+is in no identity of this corpus at all. Both are filed, not performed.
+
+**Corrected, 2026-10-05 (T-2139): Bonnell does not spell Kelsey both ways, and the two identities
+are now one.** This paragraph said his sentence "spells him both ways in one sentence". It does not:
+the page image of Andreas vol. 1, printed page 137, reads "occupied by Parnick Kelsey" and "Eve,
+Parnick's wife" — *Parnick* both times. The merge has been made anyway, on the directories' own
+evidence rather than on Bonnell's spelling: the same trade on the same Wolcott Street block a year
+apart, and the **same two Hough boarders** under him in both books ("bds Pat. Kelsey" in 1843, "res
+P. Kelsey's" in 1844). `data/research/directories/reading_merge_crosswalk.json` declares it and
+`tools/consolidate_resident_evidence.py` applies it under D1 as `id_kelsey_parnick`. The name is the
+one liberty: the four printings split two and two (Bonnell and Norris *Parnick*, Fergus 1839 and
+1843 *Patrick*), the identity is named for the 1835 witness, and which was the man's own spelling is
+not ruled. The identity is a directory man of 1843–44 graded `not_1835_resident`, so it still reaches
+no card and seats no household on the sand-hill house.
 
 **And Kelsey's house is not the house the directories print.** Fergus 1843 and Norris 1844 both put
 Kelsey's boarding house on Wolcott Street between Kinzie and Michigan, about 230 m west of the sand
@@ -21176,6 +21194,13 @@ issue (L66's revision gives the four notices); Andreas's 1839 sentence and Bonne
 are a later north-bank house. T-1723 does not move the building. What it adds to this entry is that the
 corner is now the weaker half: the same notices point at the Dearborn end of South Water, not at
 Franklin, and that is filed as T-2137 rather than overruling the owner's corner here.
+**Revised:** 2026-10-05 (T-2137) — the corner is NOT the weaker half after all, and it stands. The
+Dearborn notices place the firm's STORE, which has a Dearborn neighbour one door south and another a
+few rods north, so it stands on the Dearborn face and not on South Water; it is matched to
+`dole_warehouse_south` at Lake and Dearborn. The one notice that names the STORE HOUSE (Cohen's) gives
+South Water Street and no cross street, which is what this entry already says. The corner, the setback
+and the bearing remain ours; a printing that gives the store house a cross street is still what would
+move it.
 
 ### L379 — A fenced town lot is closed all round, open only on a street a building fronts
 **Decision:** every lot the yard-fence rule of L161 fences (`tools/generate_lot_line_fences.py`)
