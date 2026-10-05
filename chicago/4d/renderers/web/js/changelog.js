@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+  { v: 1491, ts: '2026-10-05T14:14:58.524Z', date: 'Oct 5, 2026, 9:14 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
       'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
