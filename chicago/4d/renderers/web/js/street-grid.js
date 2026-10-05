@@ -239,7 +239,8 @@ function parcelCard(p, grid) {
     };
   }
   const legalWords = legal?.lots?.length
-    ? ` ${legal.tier === 'attested' ? 'Its deed' : "Robinson's 1886 atlas"} names it ${legal.label.charAt(0).toLowerCase()}${legal.label.slice(1)}.`
+    ? ` ${legal.tier === 'attested' ? 'HABS\'s legal description' : "Robinson's 1886 atlas"} names it `
+      + `${legal.label.charAt(0).toLowerCase()}${legal.label.slice(1)}${legal.label.endsWith('.') ? '' : '.'}`
     : '';
   return {
     id: p.id,
