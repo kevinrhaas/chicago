@@ -21390,3 +21390,40 @@ July 1835 retires these six rather than re-placing them.
 **Related:** **L90**, **L292** (the Clark block, built the same way across Dearborn), **L349**
 (the boarding house on this block), **L270**, **L276**, **T-1758**, **T-2130**.
 **Recorded:** 2026-10-05 (T-2130).
+
+### L388 — Four invented workshops stand at the back of Dearborn Street corner lots
+
+**Decision:** the South Division's last four workshops — three carpenter's or joiner's shops
+(W2) and a blacksmith's shop (W1) — stand at the BACK of four corner lots, each fronting
+Dearborn Street, behind the house already standing on its lot: on lot 0 of
+`blk_washington_dearborn` (behind a D7 house on Washington), lot 0 of `blk_randolph_dearborn`
+(behind a D3 cottage), and lots 6 and 7 of `blk_randolph_clark` (behind a store and a D6
+house). Each stands 3 m back from the Dearborn line and 14 m along it from the middle of the
+lot's side toward the block alley, its gable to the street.
+
+**The rule this rests on (T-2134).** The schedule owed these four and held them on gated ground
+(`blk_south_water_market` and `south_plat_beyond_committed_control`), where nothing can stand,
+while every block with a face a workshop may take read `at_capacity`: a block's room is
+counted a free lot to a principal roof. The owner ruled on 2026-09-23 (T-1482) that a lot may
+carry a main house plus a rear building, which is ancillary by its position. A workshop at the
+rear of a CORNER lot, door on the side street, is that same rear building turned to face the
+street it stands beside, so `reconcile_665.inventory_class` now reads it as ancillary — workshops
+only, and only behind a principal roof already on the lot. It takes no lot of its own, so no
+block's reserved open lot is spent and `ROW_UNITS_PER_LOT` counts every lot as it did. The
+face clauses still bind it: Dearborn is `ordinary` and no face of these three blocks outranks
+it; a shop on State or Washington (`light`) or on a Lake or South Water block is still refused.
+
+**Everything else is invented** — that a shop stood on any of these lots in 1835, which trade,
+where on the lot and how far back. No source places a workshop here. Each is an anonymous
+count-unit at the bottom tier, drawn one for one from the gated units' workshops
+(`drawn_from_gated_ground` on the three recipe entries), so no family total moves.
+
+**How to resolve:** a lot-level deed, assessment or directory entry for a shop on Dearborn
+Street between Randolph and Madison. A named discovery substitutes for a compatible anonymous
+shop and never increases the total; evidence that these corners carried nothing behind their
+houses retires the shops rather than moving them.
+
+**Covers:** `recon_1835_blk_washington_dearborn_w2_10.inferred_1835.position`, `recon_1835_blk_washington_dearborn_w2_10.inferred_1835.footprint`, `recon_1835_blk_randolph_dearborn_w2_18.inferred_1835.position`, `recon_1835_blk_randolph_dearborn_w2_18.inferred_1835.footprint`, `recon_1835_blk_randolph_clark_w2_09.inferred_1835.position`, `recon_1835_blk_randolph_clark_w2_09.inferred_1835.footprint`, `recon_1835_blk_randolph_clark_w1_10.inferred_1835.position`, `recon_1835_blk_randolph_clark_w1_10.inferred_1835.footprint`
+**Related:** **L387** (the houses on the Dearborn block these stand behind), **L349**, **T-1684**,
+**T-2133** (the cross-street term), **T-2134**, **T-1482** (the owner's rear-building ruling).
+**Recorded:** 2026-10-05 (T-2134).

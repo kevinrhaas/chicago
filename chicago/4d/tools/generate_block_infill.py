@@ -1298,7 +1298,7 @@ def build_block(block: dict, table: dict[str, dict], lots_by_id: dict[str, dict]
     # would collide on the first slot that shared a family. Everything else already
     # works across entries: occupancy, separation and the roadway are all measured
     # against the committed dataset rather than against this entry's own slots.
-    check_slot_inventory_classes(block)
+    check_slot_inventory_classes(block, grid, frames)
     records = []
     for seq, slot in enumerate(block["slots"], start=int(block.get("seq_start", 1))):
         on_frontage = slot["stands_on"] == "frontage"
@@ -1409,7 +1409,40 @@ def principal_lots_of(block: dict) -> set[int]:
     return held
 
 
-def check_slot_inventory_classes(block: dict) -> None:
+def side_street_slot(block: dict, grid: dict | None, frames: list[dict] | None,
+                     slot: dict) -> bool:
+    """Whether a street slot fronts its corner lot's SIDE street, off the committed grid.
+
+    `slot_frame` already answers it — it returns the lot's own frame, the same object,
+    exactly when the slot's street is the lot's long face — so the question is asked of
+    the geometry the roof will actually stand on and never of a recipe flag (T-2134).
+    """
+    if grid is None or frames is None or slot.get("stands_on") != "street" or "lot" not in slot:
+        return False
+    lot = int(slot["lot"])
+    return slot_frame(block, grid, frames, slot, lot, slot["family"]) is not frames[lot]
+
+
+def sibling_principal_lots(block: dict) -> set[int]:
+    """The lots of this block a principal roof from ANOTHER deal already stands on.
+
+    Read off the committed records, as T-1809's yard gate in `check_block` reads them.
+    Asked only by the side-street workshop term (T-2134): a shop behind a house another
+    deal built is the case the term exists for, and widening the older yard rule to
+    sibling deals here would re-derive slots that already stand.
+    """
+    stem = f"{PREFIX}{block['block_id'].removeprefix('blk_')}_"
+    held = set()
+    for path in sorted(STRUCTURES.glob(f"{stem}*.json")):
+        recon = load(path).get("reconstruction") or {}
+        if (recon.get("inventory_class") == "principal_functional"
+                and recon.get("block_id") == block["block_id"] and "lot_index" in recon):
+            held.add(int(recon["lot_index"]))
+    return held
+
+
+def check_slot_inventory_classes(block: dict, grid: dict | None = None,
+                                 frames: list[dict] | None = None) -> None:
     """Every slot's declared class must be the one the derivation gives it. T-1610.
 
     THIS IS WHAT MAKES A RE-DEAL A RE-DEAL. `inventory_class` reads a slot's family and
@@ -1422,11 +1455,17 @@ def check_slot_inventory_classes(block: dict) -> None:
     from a typo. With this, the only way to move a slot's class is to move the slot.
     """
     held = principal_lots_of(block)
+    sibling_held = None
     for seq, slot in enumerate(block["slots"], start=int(block.get("seq_start", 1))):
         lot = int(slot["lot"]) if "lot" in slot else None
+        side = side_street_slot(block, grid, frames, slot)
+        if side and sibling_held is None:
+            sibling_held = sibling_principal_lots(block)
         derived = inventory_class(
             slot["family"], stands_on=slot.get("stands_on"),
-            lot_carries_a_principal_roof=lot is not None and lot in held)
+            lot_carries_a_principal_roof=lot is not None and (
+                lot in held or (side and lot in sibling_held)),
+            fronts_side_street=side)
         if slot.get("inventory_class") == derived:
             continue
         where = (f"on the {slot.get('stands_on')}" if lot is None
@@ -1442,7 +1481,12 @@ def check_slot_inventory_classes(block: dict) -> None:
 def check_non_dwelling_slot(block: dict, slot: dict, family: str,
                             streets: dict[str, str]) -> None:
     """The two clauses above, on a slot standing on a lot. See NON_DWELLING_LETTERS."""
-    if family[0] not in NON_DWELLING_LETTERS or slot["inventory_class"] == "ancillary":
+    # A yard building is not graded by the face it backs onto. A side-street workshop
+    # (T-2134) is ancillary by position and still stands ON a street, so it is graded
+    # by that street exactly as a principal shop would be: no shop on a light street,
+    # and none on a face the block's better street outranks.
+    if family[0] not in NON_DWELLING_LETTERS or (
+            slot["inventory_class"] == "ancillary" and slot.get("stands_on") != "street"):
         return
     fronts = slot["fronts"]
     klass = streets.get(fronts)
@@ -1777,9 +1821,30 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
         raise SystemExit(f"{block['block_id']}: {principal} principal / "
                          f"{len(records) - principal} ancillary against a claim of "
                          f"{claimed['principal']} / {claimed['ancillary']}")
-    if len(records) > claimed["headroom"]:
+    # T-2134. A side-street workshop is drawn from the DISTRICT's workshops, not from the
+    # block's headroom. The schedule holds the South's last workshops on gated ground
+    # where nothing can stand until its gate lifts, and a built block's headroom is zero
+    # because it counts a free lot per principal roof — which a rear shop does not take.
+    # So the draw is named, family by family, against the units that held it, and only a
+    # side-street workshop may spend it: a yard building or a house still needs headroom.
+    gated = block.get("drawn_from_gated_ground")
+    drawn = 0
+    if gated:
+        shops = Counter(r["reconstruction"]["family"] for r in records
+                        if r["reconstruction"]["inventory_class"] == "ancillary"
+                        and r["reconstruction"].get("stands_on") == "street")
+        if dict(shops) != gated["families"]:
+            raise SystemExit(f"{block['block_id']}: the gated-ground draw names "
+                             f"{gated['families']} and the side-street workshops dealt "
+                             f"are {dict(shops)}. Only a side-street workshop spends it")
+        if not gated.get("units") or len((gated.get("why") or "").split()) < 12:
+            raise SystemExit(f"{block['block_id']}: a gated-ground draw names the units "
+                             f"it draws from and says why")
+        drawn = sum(gated["families"].values())
+    if len(records) > claimed["headroom"] + drawn:
         raise SystemExit(f"{block['block_id']}: {len(records)} roofs exceed the block's "
-                         f"{claimed['headroom']} of headroom")
+                         f"{claimed['headroom']} of headroom"
+                         + (f" and the {drawn} drawn from gated ground" if drawn else ""))
 
     dealt_p = claimed.get("dealt_principal", claimed["principal"])
     dealt_a = claimed.get("dealt_ancillary", claimed["ancillary"])
@@ -2486,6 +2551,33 @@ def self_test() -> int:
             lambda: deal(blk, "A1", corner(grid, "dearborn"), "dearborn", "alley"))
     refused("a street that bounds no face of the block is refused", "not exactly one face",
             lambda: deal(blk, "D3", corner(grid, "dearborn"), "clark"))
+
+    # 4. THE SIDE-STREET WORKSHOP (T-2134): ancillary by position behind a house already on
+    #    its corner lot, and still graded by the street it stands on.
+    block, grid, frames = block_of(blk)
+    lot = corner(grid, "dearborn")
+    side = {"family": "W2", "lot": lot, "stands_on": "street", "fronts": "dearborn"}
+    own = {"family": "W2", "lot": lot, "stands_on": "street", "fronts": "washington"}
+    expect("the side street is read off the grid, not the recipe",
+           side_street_slot(block, grid, frames, side)
+           and not side_street_slot(block, grid, frames, own))
+    for family, house, want in (("W2", True, "ancillary"),
+                                ("W2", False, "principal_functional"),
+                                ("C2", True, "principal_functional"),
+                                ("D3", True, "principal_functional")):
+        got = inventory_class(family, stands_on="street",
+                              lot_carries_a_principal_roof=house, fronts_side_street=True)
+        expect(f"a {family} on the side street {'behind' if house else 'with no'} house "
+               f"derives {want}", got == want, got)
+    expect("a W2 on its lot's own face behind a house is still principal",
+           inventory_class("W2", stands_on="street", lot_carries_a_principal_roof=True)
+           == "principal_functional")
+    refused("a side-street workshop on State is still refused: State is light",
+            "light street",
+            lambda: check_non_dwelling_slot(
+                block, {"family": "W2", "inventory_class": "ancillary", "lot": 0,
+                        "stands_on": "street", "fronts": "state", "setback_m": 3.0},
+                "W2", streets))
 
     if failures:
         print(f"FAIL: {len(failures)} of the cross-street term's assertions did not hold")
