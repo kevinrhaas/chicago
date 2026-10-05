@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1457, ts: '2026-10-05T00:54:32.111Z', date: 'Oct 4, 2026, 7:54 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+    items: [
+      'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
+      'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
+      'On a desktop at Full detail, the worst frame of a turn fell from 31 ms to 8 ms.',
+      'Turning in 1812 is as smooth as in 1835. 1904 has no wild planting to redraw, so walking there was already light on the processor.',
+    ] },
   { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
     items: [
       'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
