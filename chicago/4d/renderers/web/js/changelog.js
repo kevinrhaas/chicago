@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Each setting\u2019s limit came down to that count plus a small fixed margin, so a change that makes the town heavier is caught sooner.',
+    ] },
   { v: 1454, ts: '2026-10-05T00:06:56.248Z', date: 'Oct 4, 2026, 7:06 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
     items: [
       'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
