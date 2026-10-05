@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1453, ts: '2026-10-04T23:46:05.749Z', date: 'Oct 4, 2026, 6:46 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+  { v: null, ts: '', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
     items: [
       'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
       'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
       'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
       'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
+    ] },
+  { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
+    items: [
+      'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
+      'Each leaf used to work out a tiny surface texture that it then nearly threw away. It now skips that step. Bark keeps its texture.',
+      'On a desktop at Full detail, a frame at the river forks is about 5% faster. On a phone at Light detail, the busiest views are about 3% faster.',
+      'On a phone, Image sharpness Low draws a frame 26 to 29% faster than Medium, but softer. Whether a phone should start at Low is for the owner to decide. You can choose it now in Settings.',
     ] },
   { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
