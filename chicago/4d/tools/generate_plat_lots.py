@@ -1338,12 +1338,13 @@ def street_lines(streets: dict) -> dict:
     for street in streets["streets"]:
         points = [(float(e), float(n)) for e, n in street["path_local_enu_m"]]
         corridor = float(street.get("corridor_width_m", default))
+        reach = own_reach(street["id"], points)
         lines[street["id"]] = {
             "id": street["id"],
             "name": street["name_1835"],
             "points": points,
-            "mean_e": sum(p[0] for p in points) / len(points),
-            "mean_n": sum(p[1] for p in points) / len(points),
+            "mean_e": sum(p[0] for p in reach) / len(reach),
+            "mean_n": sum(p[1] for p in reach) / len(reach),
             "confidence": street.get("geometry_confidence", "reconstructed"),
             "corridor_m": corridor,
             "half_width_m": corridor / 2.0,
@@ -1397,6 +1398,21 @@ CARRIED_REACHES = {
     "canal": (-150.8, -400.0),
     "west_water": (-20.21, -404.02),
 }
+
+
+def own_reach(street_id: str, points: list) -> list:
+    """The reach of a line the grid north of its carry was cut on: the whole line, or for a
+    carried one, from the vertex its carry began at (T-2143). A line's MEAN position is
+    read off this, so carrying it south moves no measurement of the tiers it already
+    bounded — the same reason `face_chord` keeps each reach's own chord."""
+    start = CARRIED_REACHES.get(street_id)
+    if start is None:
+        return points
+    for i, p in enumerate(points):
+        if math.dist(p, start) < 1e-6:
+            return points[i:]
+    raise SystemExit(f"{street_id}'s carried reach begins at {start}, which is no longer "
+                     "a vertex of its committed line")
 
 
 def face_chord(street_id: str, lines: dict, side: tuple, own: float,

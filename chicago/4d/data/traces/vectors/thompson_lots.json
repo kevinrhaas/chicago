@@ -259,7 +259,7 @@
    ],
    "held_on_the_south_module_by_their_own_deal": [],
    "refused_on_every_one_of_them": "and the refusal is arithmetic, not preference. Two lot columns alone need 360 ft; the committed faces west of the river are . The arrangement does not fit before the alley is cut.",
-   "what_is_short_is_the_spacing_not_the_module": "Clinton to Canal is committed at 382.9 ft against the plat's 458 ft — 75.1 ft short, the same finding tools/measure_west_division_module.py reports and the owner reported on 2026-08-31. Seating the printed module means moving those centrelines, which is T-1540 and is deliberately not done here: this generator writes what the committed lines give and records what the sheet asks for beside it.",
+   "what_is_short_is_the_spacing_not_the_module": "Clinton to Canal is committed at 367.9 ft against the plat's 458 ft — 90.1 ft short, the same finding tools/measure_west_division_module.py reports and the owner reported on 2026-08-31. Seating the printed module means moving those centrelines, which is T-1540 and is deliberately not done here: this generator writes what the committed lines give and records what the sheet asks for beside it.",
    "and_the_ruling_did_not_wait_for_them_to_move": "the owner ruled on 2026-09-23 (T-1479, option a) that the division's module may cut a block printing no lot figures of its own, at `inferred`, with every record on it re-seated onto the lot nearest where it already stands. So the block above listed under `transposed_onto_the_west_arrangement` IS subdivided the other way about now — two columns and a north-south alley instead of faces and an east-west one, ten lots carrying the sheet's own numerals — WITHOUT the printed module having been seated at its printed size and without a centreline having moved. The refusal above is still arithmetic and is still true; it is no longer what holds a cell shut. What T-1540 would still change is the SIZE: seated at 378 ft these lots would be the plat's lots rather than the plat's arrangement cut into short ground.",
    "and_what_holds_the_rest": "a cell under `held_on_the_south_module_by_their_own_deal` is held by its own reconstruction parcel and not by this refusal. The transpose turns a block through ninety degrees and its lots stop fronting the east-west streets, so a parcel that argued which family takes which FACE argued it against faces the transpose removes. T-1734 re-makes that argument and re-places those roofs; until it does, the block keeps the arrangement its deal was argued on. Which cells those are is read from data/reconstruction/1835_platted_block_parcels.json, so a parcel dealt onto a third such cell holds it on its own.",
    "and_since_t_1455_the_division_has_its_own_grid": "`west_division` above cuts the other twenty of the sheet's twenty-two West Division blocks, on the West Division's own tier lines and in the West Division's own arrangement. It does NOT seat the printed module at its printed size either — that is still T-1540's — it cuts the printed arrangement and the counted rows into the block the committed lines give and publishes the shortfall on each block as `closure_against_the_committed_lines`. The two cells both grids can reach stay on THIS grid either way — the same ground derived twice is the one thing a generated layer may not do — and they are carried in the West Division grid's omissions with the arrangement each of them is cut on said there. What the ruling changed is the arrangement, not which grid emits the cell."
@@ -2170,7 +2170,7 @@
      "the_sheet_asks_ft": 378.0,
      "the_committed_lines_give_ft": 315.2,
      "short_by_ft": 62.8,
-     "so": "the lot lines on this block divide the ground the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size — the same thing every other lot line in this file is. What is short is this project's West Division street spacing: Clinton to Canal is committed at 382.9 ft against the plat's own 458 ft. T-1540 measured that gap on every interval of this grid and found no single centreline moved can close three of them, so it is published here and not closed here."
+     "so": "the lot lines on this block divide the ground the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size — the same thing every other lot line in this file is. What is short is this project's West Division street spacing: Clinton to Canal is committed at 367.9 ft against the plat's own 458 ft. T-1540 measured that gap on every interval of this grid and found no single centreline moved can close three of them, so it is published here and not closed here."
     },
     "the_two_refusals_this_overrode": {
      "the_arithmetic": "the two lot columns alone need 360 ft and this block's face is 315.2 ft, so the arrangement does not fit before the alley is cut; 378 ft is 62.8 ft more than the block has. North to south 388.4 ft divides into 5.14 lots of 75 3/5 ft, and a plat does not print a fifth of a lot.",
@@ -4323,7 +4323,7 @@
      "the_sheet_asks_ft": 378.0,
      "the_committed_lines_give_ft": 326.1,
      "short_by_ft": 51.9,
-     "so": "the lot lines on this block divide the ground the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size — the same thing every other lot line in this file is. What is short is this project's West Division street spacing: Clinton to Canal is committed at 382.9 ft against the plat's own 458 ft. T-1540 measured that gap on every interval of this grid and found no single centreline moved can close three of them, so it is published here and not closed here."
+     "so": "the lot lines on this block divide the ground the committed lines give, in the arrangement and the count the sheet reads, and are NOT the printed figure seated at its printed size — the same thing every other lot line in this file is. What is short is this project's West Division street spacing: Clinton to Canal is committed at 367.9 ft against the plat's own 458 ft. T-1540 measured that gap on every interval of this grid and found no single centreline moved can close three of them, so it is published here and not closed here."
     },
     "the_two_refusals_this_overrode": {
      "the_arithmetic": "the two lot columns alone need 360 ft and this block's face is 326.1 ft, so the arrangement does not fit before the alley is cut; 378 ft is 51.9 ft more than the block has. North to south 364.0 ft divides into 4.81 lots of 75 3/5 ft, and a plat does not print a fifth of a lot.",
@@ -18873,7 +18873,7 @@
     "west": "canal",
     "east": "market"
    },
-   "reason": "the streets are 250 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
   },
   {
    "id": "blk_south_water_market",
@@ -18905,7 +18905,7 @@
     "west": "canal",
     "east": "market"
    },
-   "reason": "the streets are 250 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block",
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block",
    "plat_block_number": {
     "number": 29,
     "confidence": "inferred",
@@ -18926,7 +18926,7 @@
     "west": "canal",
     "east": "market"
    },
-   "reason": "the streets are 250 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
   },
   {
    "id": "blk_washington_clinton",
@@ -18948,7 +18948,7 @@
     "west": "canal",
     "east": "market"
    },
-   "reason": "the streets are 250 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
+   "reason": "the streets are 255 m apart, past the 200 m the plat's module allows a block — what lies between them is the river, not a block"
   },
   {
    "id": "blk_superior_north_pine",

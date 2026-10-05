@@ -1,3 +1,57 @@
+## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
+
+**What a visitor sees.** Canal Street and West Water Street run on south of Washington to
+Madison, and the block between them — plat block 51, the West Division's last tier — carries
+six houses: five on the Canal face (D6 on the Washington corner, D5, D4, D3, and a D7 on the
+Madison corner) and a D2 shanty on West Water. Changelog v1504.
+
+**Why the block was not there.** T-2132 named plat block 51 as the next West ground (180 ft
+under its west column, 88 under its east), "but the committed grid does not build that block at
+all". The reason was two lines short and one line unheld: every West column stopped at local N
+-400, the OLD south edge of the heightfield — the clip T-1707 removed from the South Division's
+seven columns — and the tier's south line, the plat's "south town line", returned None.
+
+**What changed, and the rules each change keeps.**
+
+- `canal` carried on its own southern bearing to `madison` ([-147.18, -519.05]); the old end
+  kept as a vertex.
+- `west_water` carried by its own rule — the committed bank offset one half-corridor west —
+  onto `branches.geojson`'s west bank of the South Branch (same Wright 1834 sheet, inferred),
+  cut at Madison. The old south end is kept rather than re-mitred (re-mitring moved it 0.21 m
+  and re-cut block 44), and the one hard bank turn (N -446.7, a mitre 12.51 m from the water) is
+  BEVELLED so the existing 0.15 m vertex assertion holds unwidened.
+  `tools/measure_west_division_streets.py` derives and asserts the whole line.
+- `generate_plat_lots.WEST_TOWN_LINES` maps "south town line" to `madison`, the Original Town's
+  south line (`build_survey_tracts.ORIGINAL_TOWN_BOUNDS`). The north town line still returns None.
+- **A carried reach is cut on its own chord** (`CARRIED_REACHES`, `face_chord`, `own_reach`). A
+  block face is the chord of its column's edge, end to end; carrying West Water moved that chord
+  and re-cut block 44's east face 8.2 m WEST, away from its own kerb, under T-2132's four houses.
+  With the rule, every pre-existing block and omission in `thompson_lots.json` re-derives
+  byte-identical, and line means (the clinton → canal spacing, the "255 m apart" refusals) are
+  read off the old reach, so `measure_west_division_module.py`'s finding stands unmoved.
+- Block 51 cuts at 321.4 ft of face against the sheet's 286 (180 + 18 + 88); columns 57.7-66.5 m
+  and 28.2-32.5 m deep; all 434 ground samples dry.
+- **`square_to_face`** (`generate_block_infill.squared_to_face`): the West Water face runs 7.5°
+  off the lot axis (the sheet prints "North 8 East" up that side), past the 5° facade gate. The
+  shanty's slot asks to stand square to its face; the gate stays at 5°, and the key refuses a lot
+  less than 2° off (it is for a skewed lot, not a setting).
+
+**Fixpoint.** Keepers → infill → `reconcile_665` → seating, 17 laps, settled at **188 seated**
+(182 on dev): the six who asked are seated on standing West roofs and six older West households
+adopt the new houses; 32 households change roof, none handed on. Named keepers 80 → 81. 19
+keeper-moved meshes, the six new ones, and terrain + water (Canal's worked bed now graded to
+Madison) rebaked with the pinned Blender.
+
+**Restated, with why.** L263 563 → 569, L270 182 → 188, L276 80 → 81, L313 covers block 51.
+T-0059's figures 602/596 → 608/602 (six new frame meshes). `tools/corridor_strip_baseline.json`
+`--write-baseline`: the counterfactual's `lots_after` 340 → 350 and `blocks_after` 77 → 78 are
+this block's ten lots; nothing else moved. `north_of_box_reading.json`: drawn on-grid street
+20,280 → 20,517 m, the two carried reaches.
+
+**Handed on.** 2 West ordinary dwellings and 1 freight roof remain. They go to **T-2148**:
+blocks 48-50 on the same tier print 180 ft under both columns and are omitted now only because
+Des Plaines, Jefferson and Clinton stop at N -400.
+
 ## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
 
 T-1829 left the West Division 12 ordinary dwellings and a freight roof short, with every
