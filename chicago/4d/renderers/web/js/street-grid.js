@@ -9,7 +9,8 @@
  *   faces          the four bands of every block's sidewalk space, measured from
  *                  the street line: a 1-ft margin, the walk, the parkway, the curb
  *   alleys         at their drawn widths
- *   parcels        as lines: the lots on both faces of Prairie Avenue
+ *   parcels        as lines: the lots on both faces of Prairie Avenue, and (T-2116) the
+ *                  Indiana and Calumet frontage lots and the cross-street corners
  *
  * WHAT IT PAVES THEM WITH, from `data/street_surfaces/<scene>.json` (T-1728,
  * authored, held to the grid and the sources by tools/check_street_surfaces.py):
@@ -215,6 +216,10 @@ function materialAttribute(surfaces, s) {
 function parcelCard(p, grid) {
   const sheet = (p.sources ?? [])[0] ?? '';
   const addr = p.addresses_1911?.length ? p.addresses_1911.join(', ') : null;
+  // T-2116: the Indiana, Calumet and cross-street lots carry their own street.
+  const streetName = grid.streets?.[p.street]?.name_1904 ?? 'Prairie Avenue';
+  const onPrairie = (p.street ?? 'prairie') === 'prairie';
+  const cross = p.cross_street_addresses_1911 ?? [];
   const ruling = p.id === grid.rulings?.glessner_lot_frontage?.parcel ? grid.rulings.glessner_lot_frontage : null;
   const attributes = {
     frontage_ft: {
@@ -226,23 +231,42 @@ function parcelCard(p, grid) {
     addresses_printed_1911: {
       value: addr ?? 'none printed', confidence: 'inferred', sources: [sheet],
       note: 'The numbers the 1911 sheet prints beside this lot. Chicago renumbered its streets in 1909-11, '
-        + 'so a 1911 number is a cross-reference to the Prairie library, not a claim about the 1904 address'
+        + (onPrairie
+          ? 'so a 1911 number is a cross-reference to the Prairie library, not a claim about the 1904 address'
+          : 'so a 1911 number is not a claim about the 1904 address')
         + (p.library_disagreements?.length ? `. ${p.library_disagreements.map((d) => d.reading).join(' ')}` : '.'),
     },
+    ...(cross.length ? {
+      cross_street_addresses_1911: {
+        value: cross.join(', '), confidence: 'inferred', sources: [sheet],
+        note: 'Numbers the 1911 sheet prints on this lot\'s cross-street side, with no lot line drawn to part them from it.',
+      },
+    } : {}),
     street_face: { value: p.street_face, confidence: 'inferred', sources: p.sources, note: 'The block face this lot fronts, as laid out in the grid.' },
   };
+  // T-1745: the legal lot, as Robinson's 1886 atlas (16th-18th) or HABS (1800) names it.
+  const legal = p.legal_lots;
+  if (legal) {
+    attributes.legal_lots = {
+      value: legal.label, confidence: legal.tier, sources: legal.sources ?? [], note: legal.note ?? '',
+    };
+  }
+  const legalWords = legal?.lots?.length
+    ? ` ${legal.tier === 'attested' ? 'HABS\'s legal description' : "Robinson's 1886 atlas"} names it `
+      + `${legal.label.charAt(0).toLowerCase()}${legal.label.slice(1)}${legal.label.endsWith('.') ? '' : '.'}`
+    : '';
   return {
     id: p.id,
     sidecar: {
-      name: addr ? `${p.addresses_1911[0].split(' ')[0]} Prairie Avenue — the lot` : 'A lot on Prairie Avenue',
+      name: addr ? `${p.addresses_1911[0].split(' ')[0]} ${streetName} — the lot` : `A lot on ${streetName}`,
       phase: null,
       // The card's opening line, in the grid's own words (popup.js prints it in
       // place of the sentence it composes for a building).
-      change_note: `A lot on ${p.where}: ${p.frontage_ft} ft along the avenue and ${p.depth_ft} ft deep, `
-        + `as the 1911 Sanborn sheet draws it${addr ? `, printed ${addr}` : ', with no number printed'}. `
-        + 'No building is drawn on it yet.',
+      change_note: `A lot on ${p.where}: ${p.frontage_ft} ft along the ${(p.street ?? 'prairie').startsWith('e') ? 'street' : 'avenue'} and ${p.depth_ft} ft deep, `
+        + `as the 1911 Sanborn sheet draws it${addr ? `, printed ${addr}` : ', with no number printed'}.`
+        + `${legalWords} No building is drawn on it yet.`,
       placement: {
-        symbolic_location: p.where ?? 'Prairie Avenue',
+        symbolic_location: p.where ?? streetName,
         position_confidence: p.geometry_tier,
         position_sources: p.sources,
         position_note: `${p.read}. A 1911 survey carried to 1904: the lot lines are assumed unchanged between the two dates.`,
@@ -250,7 +274,8 @@ function parcelCard(p, grid) {
       attributes,
       citations: [],
       research_doc: 'docs/RESEARCH/prairie_1904_street_grid.md',
-      research_note: `Parcel ${p.id} of the 1904 Prairie Avenue grid (data/street_grid/1904.json, T-0474)`
+      research_note: `Parcel ${p.id} of the 1904 Prairie Avenue grid (data/street_grid/1904.json, `
+        + `${onPrairie ? 'T-0474' : 'T-2116'})`
         + (p.library_frontage_ids?.length ? `; the Prairie library's frontage rows ${p.library_frontage_ids.join(', ')}` : '')
         + '. No building is drawn on it yet.'
         + (ruling ? ` ${ruling.for_T_1732 ?? ruling['for_T-1732'] ?? ''}` : ''),

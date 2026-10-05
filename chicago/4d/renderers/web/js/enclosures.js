@@ -95,6 +95,7 @@
  */
 
 import * as THREE from 'three';
+import { gateBoxes } from './gates.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -564,6 +565,27 @@ function emitRun(task, terrain, ch, tally, plankPales) {
     into(feet[n]);
     post(feet[n]);
   }
+  // T-2112 — WHAT HANGS IN EACH GATEWAY on this run: its leaves, slip bars or
+  // nothing, as the record's `gate` states, on the stretches' own end posts.
+  for (const g of gaps) {
+    if (!g.o.gate || g.o.gate.kind === 'opening') continue;
+    const jamb = (d) => {
+      const [e, north] = at(path, s, d);
+      return terrain.isWater?.(e, north) ? null
+        : { e, n: north, y: terrain.surfaceHeight(e, north) };
+    };
+    const ja = jamb(g.d - g.width / 2);
+    const jb = jamb(g.d + g.width / 2);
+    if (!ja || !jb) continue;
+    into(ja, jb);
+    cover(ch.buf, ja.e, ja.n);
+    cover(ch.buf, jb.e, jb.n);
+    for (const bx of gateBoxes(g.o.gate, ja, jb, height, g.o.opens_into_local_enu_m)) {
+      pushBox(ch.buf, bx.cx, bx.cy, bx.cz, bx.ux, bx.uz, bx.halfLen, bx.halfW, bx.halfH,
+        level, bx.part);
+    }
+    tally.gates = (tally.gates ?? 0) + 1;
+  }
 }
 
 /**
@@ -700,8 +722,9 @@ export async function createEnclosures({
    * lit it perfectly, which is what made the cause so hard to see.
    *
    * The key below is this layer's own, so the fence gets its own program. The
-   * general trap is not fixed here — any future layer that patches a plain lit
-   * material walks into the same collision — and is filed as its own ticket.
+   * general trap is now closed in `confidence.patch()` itself, which keys a
+   * program by the hooks that write it (T-0053); this key stays because it is
+   * the fence's own and replaces that one.
    */
   mat.customProgramCacheKey = () => 'chicago4d-enclosure-timber';
 
@@ -741,7 +764,7 @@ export async function createEnclosures({
     for (const m of meshes) { group.remove(m); m.geometry.dispose(); }
     meshes = [];
     const sink = firstBuild ? problems : [];
-    const census = { enclosures: 0, posts: 0, pales: 0, dropped: 0, chunks: 0 };
+    const census = { enclosures: 0, posts: 0, pales: 0, gates: 0, dropped: 0, chunks: 0 };
     const plankPales = PLANK_LEVELS.has(level);
     const ch = newChunker();
     // Per-record, so a record that drew nothing can still be named; the CHUNKS
@@ -784,6 +807,7 @@ export async function createEnclosures({
       census.enclosures += 1;
       census.posts += t.posts;
       census.pales += t.pales;
+      census.gates += t.gates ?? 0;
       census.dropped += t.dropped;
     }
     firstBuild = false;

@@ -46,6 +46,15 @@ step "Culled plankwalks retain exact, tier-eligible deck tops (T-2037)" \
 step "The working bank never hides the timber standing on it (T-2098)" \
   node tools/check_bank_decal_depth.mjs
 
+step "A cheaper glass replaces only transmissive panes, and only when asked (T-2109)" \
+  node tools/check_glass_modes.mjs
+
+step "A phone starts at Image sharpness Low, a desktop at Medium, a stored choice wins (T-2110)" \
+  node tools/check_sharpness_default.mjs
+
+step "A patched plain lit material cannot be handed another layer's shader program (T-0053)" \
+  node tools/test_program_cache_key.mjs
+
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
@@ -620,7 +629,10 @@ selftest "…and its own assertions still fire when broken" \
 # The rule is DISCOVERED, not listed — it applies wherever the shape appears (a
 # list of two or more objects that all carry an `id`), so a list added tomorrow
 # is covered without anybody remembering to register it. 2,835 files, 0.6 s.
-step "no committed list carries the same id twice" \
+# T-0829 extended it to lists of STRINGS — provenance, coverage, citations — which
+# carry no `id` for the rule above to read: every one is held as a set unless the
+# tool's MULTISETS table names it (one element per row, rows allowed to agree).
+step "no committed list carries the same id, or the same string in a set, twice" \
   python3 tools/check_unique_ids.py --check
 
 selftest "…and its own assertions still fire when broken" \
@@ -1044,6 +1056,14 @@ step "…and the strip still reads the same off the sheet" \
 step "platted block parcels match their recipe and the committed lots" \
   python3 tools/generate_block_infill.py --check
 
+# T-2133 (of T-1684). The cross-street term — a roof fronting its corner lot's SIDE
+# street — is dealt by no recipe slot yet, so `--check` above never reaches it. This
+# stands synthetic roofs on Dearborn and State and holds them to the lot, corridor and
+# bearing gates, then breaks it five ways: an interior lot, a workshop on light State,
+# a workshop where Lake outranks Dearborn, a yard building, a street that bounds no face.
+selftest "…and a roof can front its corner lot's side street, and every refusal fires" \
+  python3 tools/generate_block_infill.py --self-test
+
 # A frontage entry declares the lots its party-line run stands across, and until T-0429
 # nothing measured whether it did. That entry's run was anchored on the east end of its
 # own strip and packed back west until the roofs ran out, which happened two lots short
@@ -1056,6 +1076,17 @@ step "every frontage run stands across the lots its recipe declares" \
   python3 tools/measure_frontage_declaration.py --check
 selftest "…and its own assertions still fire when broken" \
   python3 tools/measure_frontage_declaration.py --self-test
+
+# The note on every unit of a party-line row makes geometric claims — which street, how
+# far back, which wall the anchor fixes and where — and the regeneration gate above
+# cannot catch a wrong one: it re-derives each record FROM the same template, so a
+# template that names the wrong wall re-derives the wrong wall perfectly. T-0189 and
+# T-0208 were both found by a person reading the file. This reads the prose and holds
+# each claim to the committed footprint and the committed plat (T-0239).
+step "every party-line note says what its placement did" \
+  python3 tools/check_frontage_notes.py --check
+selftest "…and a note naming the wrong wall still fails" \
+  python3 tools/check_frontage_notes.py --self-test
 
 # The residents manifest is DERIVED, and now it is gated like one (T-0715). Four
 # minting passes and four rewriting passes each rebuilt the SLICE of
@@ -1444,6 +1475,11 @@ step "the yard outbuildings re-derive from the rule that dealt them by household
 # them — which ground is kept is a rule, so it is re-derived here.
 step "the kept yards, their refuges and their worn paths re-derive from the lot survey (T-2086)" \
   python3 tools/generate_kept_ground.py --check
+# And the lots with no building on them (T-2101): grazed prairie remnant, a flora community
+# whose extent is every vacant platted lot and whose species are the prairie's and the town's
+# own under a stated crop — derived, so a district built later takes its lots out by re-running.
+step "the vacant lots' grazed prairie remnant re-derives from the plat and the lot survey (T-2101)" \
+  python3 tools/derive_lot_remnant.py --check
 
 # And the OTHER HALF of that ordinance, which the goods record refused in writing:
 # timber, stone and brick are building material on a lot that is going up, not a
@@ -1632,6 +1668,17 @@ step "the warehouse's cargo doors and the freight doors over them set out once" 
 
 selftest "…and that still fires when a single-door store moves by a nanometre" \
   python3 tools/test_storefront_cargo_rhythm.py --self-test
+
+# T-2104: every shopfront's header board was built with no street face and a face
+# lying ON the wall behind it (add_box's "back" is the y1 face, which on a +y facade
+# is the one the street sees), and the two fought for depth as a visitor turned. The
+# house stoops had the same skip. This builds the frame town without Blender and
+# refuses a trim face lying on a wall that is not the hidden side of a board.
+step "no trim board in the frame town lies flat on its own wall" \
+  python3 tools/test_facade_board_faces.py
+
+selftest "…and that still fires when a board's street face goes missing" \
+  python3 tools/test_facade_board_faces.py --self-test
 
 step "the street edge's cross-street faces enumerate as the plat says" \
   python3 tools/test_frontage_faces.py
@@ -3130,6 +3177,9 @@ selftest "reference browsers: only what the root already ships is served from it
 # `apply_census_1840_bridges.py --check` asserted its own copy was fresh, which is how
 # two owners came to disagree about whitespace and turn this gate red on any run that
 # published (T-0933).
+selftest "letter-list roster: the cohort packs and reads back exactly (T-0438)" \
+  python3 tools/pack_letter_list.py --self-test
+
 step "the published residents layer carries its source's value" \
   node tools/check_published_residents.mjs
 

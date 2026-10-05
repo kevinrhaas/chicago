@@ -160,6 +160,47 @@ measurement that says the vertex signature does not answer this question.
 
 ---
 
+## 6. Re-measured 2026-10-05 (T-0776): the step is reproducible, all 570 of 570
+
+T-0776 was filed from T-0686 (PR #882, 2026-09-05): a full `tools/web_derivatives.sh` on an
+unchanged tree rewrote **348** derivatives, every one at an **identical byte count**, so the step
+looked like it carried state into its bytes. Re-measured on `dev` at `b6ade5e3`:
+
+| | |
+|---|---|
+| derivatives the step publishes | **570**: 564 top-level masters, Glessner v4 (materialized from its archive), 4 structure versions under `versions/<id>/<label>/`, and v4's `.light.glb` |
+| reproduced byte-for-byte, run 1 (`--out` scratch, 8 parallel `--only` calls) | **570 of 570** against the committed `assets/web/` |
+| reproduced byte-for-byte, run 2 (`measure_web_reproduction.py`, 5 chunks) | **570 of 570**, `--report`: 570 reproduce, 0 do not |
+| the step run **in place** on a top-level master, a versioned master, Glessner v4 (which repacks its archive) and a v3 version | `git status` empty afterwards, `assets/manifest.web.json` and `assets/manifest.json` included |
+
+**What made the 348, an inferred reading, not a measured one.** The derivatives carry their
+generator in the GLB's JSON (`asset.generator`, today `glTF-Transform v4.5.0`). Until T-0537
+(PR #1372, closed 2026-09-16) the step ran `npx gltf-transform` UNPINNED. npm's registry dates
+`@gltf-transform/core` **4.5.0 to 2026-09-01**, four days before T-0686. §Method below measured
+this tree on **4.4.2**. `v4.4.2` and `v4.5.0` are the same length, so a full run on 2026-09-05
+restamped every derivative the 4.4.2 step had made, with no other change and no change in byte
+count. That is the observation T-0776 recorded, and it explains the "identical byte counts" part
+too, which a temp path or an ordering leak would not (both would vary in length). 4.5.1 (npm,
+2026-09-28) would have done it again had the pin not landed twelve days earlier. The old bytes
+are gone, so this is not re-measured. The reading rests on the dates and on today's 570 of 570.
+
+**So the step carries no state, and T-0537's pin was the cure.** Nothing in the step was changed
+for T-0776. The "skip an asset whose master has not moved" fallback T-0776 offered is not
+needed for reproducibility. Whether it is wanted for COST is T-1653's question.
+
+**The census was missing a class of output, and that is what changed.** Until this parcel,
+`masters()` read `assets/gltf/*.glb` only, so the four structure versions and the v4 light file
+were never compared. It now takes `versions/*/*/*.glb` as `--only` names, which the step already
+accepts, and compares a `.light.glb` wherever the shipped tree carries one. A light file is kept
+out of the vertex proxy (it is reduced geometry by design). Glessner v4 is in the census only once
+`tools/recover_glessner_v4.py --materialize` has put its master on disk, which `check.sh` and
+`publish.sh` both do.
+
+Cost on this runner (4 cores): ~2.5 s per asset serially, so 4 min 47 s per 114-asset chunk.
+Two chunks run side by side in 5 min 10 s, so the whole control is three foreground commands.
+
+---
+
 ## Method, and what this does not claim
 
 `tools/measure_web_reproduction.py --chunk K/N` runs `tools/web_derivatives.sh --out <scratch>

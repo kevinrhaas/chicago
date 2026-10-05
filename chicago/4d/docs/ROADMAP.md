@@ -3279,6 +3279,64 @@ changes the parcel's target.**
    A per-asset map is therefore a batching decision as well as a byte-budget one (T-0285), and
    the empty two thirds of the atlas is its own ticket (T-0286).
 
+   4. **AND THE TOWN-WIDE FIGURE, T-2126 (T-0285's first half), 2026-10-05: AO on every master
+   takes the town from 5 structure batches to 547.** All 561 structure GLBs baked with
+   `build.py --all --ao` into the working tree (Cycles AO is ~2 s a master on this runner, so
+   the whole town is three foreground calls, not a parcel), read, and reverted — nothing shipped.
+   `tools/critic_shots.mjs --no-mask`, source tree, the same tree without AO as the control:
+
+   | station | viewport | draws without | draws with AO | Δ |
+   |---|---|---|---|---|
+   | `sauganash` | mobile 390x780 | 166 | 309 | **+143** |
+   | `lake_market` | mobile 390x780 | 238 | 456 | **+218** |
+   | `south_water` | mobile 390x780 | 197 | 466 | **+269** |
+   | `sauganash` | desktop 1280x800 | 188 | 349 | **+161** |
+   | `lake_market` | desktop 1280x800 | 275 | 553 | **+278** |
+   | `south_water` | desktop 1280x800 | 238 | 565 | **+327** |
+
+   `tools/measure_ao_batches.mjs` reads the `structures` group as built and says why. Without AO:
+   **5** batches, 4 carrying a shared relief map. With AO: **547** batches — still 2 wall-relief
+   and 2 roof-relief, and **543 carrying a map no other batch has**. Three things that reading
+   settles, none of which T-0227's one-building swap could see:
+
+   - **It is one batch per MATERIAL, not per building.** The exporter writes one glTF `texture`
+     per material, all pointing at the one image (`sauganash_hotel`: five materials, five
+     texture entries, one source), and the loader makes a `Texture` — a uuid — for each, so
+     `materialKey()` splits a building's shutters from its brick from its glass. The +2 that
+     T-0227 measured for the Sauganash was this, not one map.
+   - **The baked occlusion never reaches a bound wall or roof.** The wall relief (T-1963) and the
+     roof relief (T-1488) both rebind `aoMap` to their shared maps before the key is taken — that
+     is why walls and roofs still come to 2 + 2 batches. So T-0227's darkened white wall would
+     not reproduce on today's renderer: the atlas survives only on what neither relief binds — trim,
+     shutters, chimneys, brick — and the town pays 543 batches for those.
+   - **The route it implies is per-vertex AO.** Of the three: a *shared atlas across masters*
+     still has to win the `aoMap` slot from the relief maps, and at T-0158's full-occupancy
+     288² a master, 561 masters are 46.5 M texels — three 4096² pages, so three batches per
+     material class at best, and one page holds ~202 masters; a *per-batch atlas built at
+     load* restores today's draws but keeps the whole download — ~107 KB a master, ~60 MB for
+     561 — against 1.5 MB of headroom and adds a boot-time repack; *per-vertex AO* — one byte a vertex, riding into the
+     batch the way `_roughness` and `_grain` already do — costs **zero** batches and multiplies
+     in the patched chunk beside the relief's own occlusion instead of fighting it for a slot.
+     Its price is resolution: at a log house's 330 triangles it carries building-scale
+     occlusion (eaves, the ground line, the inside corners) and none of the centimetre-scale
+     contact the cage was for — which the relief maps' own AO channels now carry. **So R-W3a's
+     cage parcel starts here: bake occlusion to a vertex attribute, not a texture.**
+
+   5. **AND THE EMPTY TWO THIRDS, T-2127 (T-0285's second half, T-0286's ask), 2026-10-05: it
+   was never the bytes.** `tools/measure_ao_atlas.py` reads 30 masters (first, middle and last
+   of every archetype, plus the Sauganash; `glessner_house` skipped at 731,781 faces) through
+   the bake's own `emit.unwrap` / `bake_ao` / `export_glb`. Every master is one UV island per
+   face — boxes meet at 90°, past `smart_project`'s 66° — so `island_margin` changes nothing
+   and occupancy is island count × gap. The one change, `uv.lightmap_pack(PREF_MARGIN_DIV=0.4)`
+   after the unwrap, takes occupancy **20.5 % → 56.0 %** of a 512² atlas and the occlusion PNGs
+   **3.14 MB → 6.12 MB (+95 %)**: texels no island owns are one constant value that PNG stores
+   for almost nothing, so filling them spends bytes on more baked surface. Baked at the
+   smallest side that holds wall density it needs 45.6 % fewer texels and still costs **+7.3 %**;
+   the narrowest gap goes 5 px → 2, and on **5 of 30** masters the named wall loses texels per
+   metre. **Not adopted** (`emit.py` unchanged, so no master staled); the byte cost of an atlas
+   is its baked surface, which no packing recovers — one more reason the cage parcel bakes to
+   a vertex attribute. Tables: `docs/measurements/T-2127-ao-atlas-packing.md`.
+
 **And a cost figure the bake half has to answer first.** With the export working, one asset's
 master goes **94,420 → 202,292 bytes (+114 %)**: a 512×512 occlusion PNG carrying real variation
 costs ~107 KB, where the uniformly black one compressed to 3,620 — which is why T-0015 measured

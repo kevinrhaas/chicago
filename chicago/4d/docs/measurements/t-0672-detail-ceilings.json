@@ -1,0 +1,307 @@
+{
+ "ticket": "T-0672",
+ "what": "The three scene-detail triangle ceilings, re-read on the published mirror of dev so each tier can come back down to its measured worst stand plus the absolute headroom T-0672 recorded (18,059 / 16,806 / 15,791), rounded up to 5,000.",
+ "tree": "published mirror of dev @ 7504e4fc (carries #432, T-2111), built by tools/publish.sh",
+ "instrument": "node tools/measure_detail_ceilings.mjs (normal animation loop, not --stepped), six stands; desktop full+balanced in one pass (the pass was cut at the 580 s foreground limit while reading light, so light was read again in a pass of its own), mobile in two passes",
+ "measured_on": "2026-10-04",
+ "readings": [
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "lake_at_canal",
+   "triangles": 2627486,
+   "calls": 250
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "the_forks",
+   "triangles": 2663850,
+   "calls": 243
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "from_above",
+   "triangles": 2396657,
+   "calls": 177
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "lake_and_market",
+   "triangles": 2320073,
+   "calls": 275
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "prairie_west",
+   "triangles": 2665994,
+   "calls": 250
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "full",
+   "stand": "sauganash_26",
+   "triangles": 1930030,
+   "calls": 189
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "lake_at_canal",
+   "triangles": 2072747,
+   "calls": 233
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "the_forks",
+   "triangles": 2048387,
+   "calls": 221
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "from_above",
+   "triangles": 1840571,
+   "calls": 174
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "lake_and_market",
+   "triangles": 1946262,
+   "calls": 269
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "prairie_west",
+   "triangles": 2033967,
+   "calls": 221
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "balanced",
+   "stand": "sauganash_26",
+   "triangles": 1579451,
+   "calls": 188
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "lake_at_canal",
+   "triangles": 917642,
+   "calls": 48
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "the_forks",
+   "triangles": 946780,
+   "calls": 60
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "from_above",
+   "triangles": 876283,
+   "calls": 55
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "lake_and_market",
+   "triangles": 862238,
+   "calls": 81
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "prairie_west",
+   "triangles": 988055,
+   "calls": 62
+  },
+  {
+   "viewport": "desktop 1280x800",
+   "level": "light",
+   "stand": "sauganash_26",
+   "triangles": 784117,
+   "calls": 74
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "lake_at_canal",
+   "triangles": 2370778,
+   "calls": 247
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "the_forks",
+   "triangles": 2169527,
+   "calls": 216
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "from_above",
+   "triangles": 2303790,
+   "calls": 163
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "lake_and_market",
+   "triangles": 1909932,
+   "calls": 238
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "prairie_west",
+   "triangles": 2433217,
+   "calls": 264
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "full",
+   "stand": "sauganash_26",
+   "triangles": 1852146,
+   "calls": 169
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "lake_at_canal",
+   "triangles": 1913781,
+   "calls": 224
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "the_forks",
+   "triangles": 1690420,
+   "calls": 185
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "from_above",
+   "triangles": 1750327,
+   "calls": 163
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "lake_and_market",
+   "triangles": 1680253,
+   "calls": 233
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "prairie_west",
+   "triangles": 1874712,
+   "calls": 223
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "balanced",
+   "stand": "sauganash_26",
+   "triangles": 1502894,
+   "calls": 165
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "lake_at_canal",
+   "triangles": 831912,
+   "calls": 47
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "the_forks",
+   "triangles": 829220,
+   "calls": 53
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "from_above",
+   "triangles": 851072,
+   "calls": 68
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "lake_and_market",
+   "triangles": 763414,
+   "calls": 78
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "prairie_west",
+   "triangles": 893194,
+   "calls": 55
+  },
+  {
+   "viewport": "mobile 390x780",
+   "level": "light",
+   "stand": "sauganash_26",
+   "triangles": 754105,
+   "calls": 64
+  }
+ ],
+ "worst": {
+  "desktop 1280x800 | full": {
+   "stand": "prairie_west",
+   "triangles": 2665994
+  },
+  "desktop 1280x800 | balanced": {
+   "stand": "lake_at_canal",
+   "triangles": 2072747
+  },
+  "desktop 1280x800 | light": {
+   "stand": "prairie_west",
+   "triangles": 988055
+  },
+  "mobile 390x780 | full": {
+   "stand": "prairie_west",
+   "triangles": 2433217
+  },
+  "mobile 390x780 | balanced": {
+   "stand": "lake_at_canal",
+   "triangles": 1913781
+  },
+  "mobile 390x780 | light": {
+   "stand": "prairie_west",
+   "triangles": 893194
+  }
+ },
+ "set": {
+  "full": {
+   "worst": 2665994,
+   "headroom": 18059,
+   "ceiling": 2685000,
+   "was": 2840000
+  },
+  "balanced": {
+   "worst": 2072747,
+   "headroom": 16806,
+   "ceiling": 2090000,
+   "was": 2145000
+  },
+  "light": {
+   "worst": 988055,
+   "headroom": 15791,
+   "ceiling": 1005000,
+   "was": 1040000
+  }
+ }
+}

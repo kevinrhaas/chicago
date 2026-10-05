@@ -10254,6 +10254,234 @@
           ]
         }
       ]
+    },
+    {
+      "id": "state_road_south",
+      "name_1835": "The State road to Vincennes",
+      "name_2026": null,
+      "name_changed": false,
+      "path_local_enu_m": [
+        [
+          824.4,
+          -400
+        ],
+        [
+          860,
+          -450
+        ],
+        [
+          930,
+          -530
+        ],
+        [
+          1020,
+          -640
+        ],
+        [
+          1110,
+          -760
+        ],
+        [
+          1170,
+          -900
+        ],
+        [
+          1195,
+          -1060
+        ],
+        [
+          1200,
+          -1300
+        ],
+        [
+          1190,
+          -1600
+        ],
+        [
+          1178,
+          -1900
+        ],
+        [
+          1182,
+          -2200
+        ],
+        [
+          1186,
+          -3000
+        ],
+        [
+          1188,
+          -3797.5
+        ]
+      ],
+      "corridor_width_m": 12.0,
+      "track_width_m": 4.5,
+      "surface": "light_worn_earth",
+      "traffic": "light",
+      "geometry_confidence": "reconstructed",
+      "surface_confidence": "inferred",
+      "wear_confidence": "reconstructed",
+      "note": "THE TOWN'S ROAD SOUTH, DRAWN AT THE RECONSTRUCTED TIER (T-1702). WHAT IS DOCUMENTED: in the winter of 1833-34 the General Assembly ordered a State road located from Vincennes to Chicago, with mile-stones on it, and from Danville to Chicago the Commissioners adopted Hubbard's trail most of the way, 'the most direct route and on the most favorable ground' (hubbard_autobiography_1911 p. 154, claim bk_hub_083); the trail itself he had opened north to Chicago in 1824 and it 'became the regularly traveled route between Chicago and Danville' (bk_hub_082), 'for years the only well-defined road between Chicago and the Wabash country' (bk_hub_011). So on 1 July 1835 a located State road reached this town from the south and had for about eighteen months. WHERE IT RAN AS IT CAME IN is the second source's: Moses & Kirkland (vol. 1 p. 32), looking on from Kinzie's purchase of 1803, say that 'a few years later a road, stretching southward along the sand on the lake shore' might have been seen. The sand is this ground's own sand-ridge belt east of State Street (the terrain spec's beach-and-dune surface). WHAT IS NOT DOCUMENTED: nobody in this corpus traced the line, and no source puts a single vertex of it. THE ALIGNMENT IS THE INVENTION, and these are its bounds: it leaves the town where the town's worn track ends, at State Street's drawn south end (local E +824.4 N -400), crosses the open south-west corner of the reservation onto the sand belt, keeps behind the reconstructed south dunes (at least 120 m inland of the 1835 waterline, so it runs on the sand plain and not over a hummock or the beach), and goes straight south to the box's south wall, because nothing says where it bent and Blue Island lies beyond the ground. Sampled every 2 m at its centre and 3 m either side, all 3.5 km of it is dry on the committed heightfield. It is NOT the town's State Street carried south: that record's platted reach south of Washington Street draws no track, and stays so (T-1707). `name_2026` is null because no modern street is claimed to descend from this line. The traffic class is `light` because the town's daily traffic was inside the plat and this is one road to the country; the shallow worn bed the street section cuts for that class is the same reconstruction every opened street carries (L338). Recorded in docs/LIBERTIES.md as L381.",
+      "citations": [
+        {
+          "source_id": "chicago_dpw_1891_streets",
+          "citation": "Chicago Department of Public Works. Fifteenth Annual Report of the Department of Public Works to the Mayor and City Council of the City of Chicago, for the Fiscal Year Ending December 31, 1890. Chicago, 1891.",
+          "url": "https://archive.org/details/258unkngoog",
+          "archived_url": "https://archive.org/stream/258unkngoog/258unkngoog_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "what_it_supplies": [
+            "the official chronology of early Chicago street grading and turnpiking",
+            "South Water Street's 1833-34 pitching and drainage-grading orders",
+            "South Water and Lake Streets as the two principal early improved thoroughfares",
+            "the later dates that rule out plank, limestone block, macadam, and cobblestone surfaces on 1 July 1835",
+            "the fall 1836 date for turnpiking Canal Street, Lake Street west to Desplaines, and Randolph Street"
+          ],
+          "what_it_does_not_supply": [
+            "a measured carriageway width, crown, rut spacing, soil colour, or cut-and-fill profile",
+            "proof that Hubbard's La Salle Street work was complete by 1 July 1835",
+            "a license to render every platted street as improved or equally travelled",
+            "street centreline geometry"
+          ]
+        },
+        {
+          "source_id": "hathaway_1834",
+          "citation": "Hathaway, Joshua. Chicago with the School Section, Wabansia, and Kinzie's Addition. 1834.",
+          "url": "https://www.loc.gov/item/2008621683/",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "platted extent"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        },
+        {
+          "source_id": "hubbard_autobiography_1911",
+          "citation": "Gurdon Saltonstall Hubbard, The Autobiography of Gurdon Saltonstall Hubbard, Pa-pa-ma-ta-be, \"The Swift Walker\", with an Introduction by Caroline M. McIlvaine, Librarian of the Chicago Historical Society (Chicago: R. R. Donnelley & Sons Company, The Lakeside Press, Christmas 1911) — The Lakeside Classics. Read in full for its Chicago material before 1836: the front matter, McIlvaine's Introduction (pages ix-xxvii), and Hubbard's own narrative at pages 27-41, 135-138, 141-144, 153-159, 165-174 and 178-182. Hubbard's letter of 25 July 1827, printed as a note at page 174, is a separate source record.",
+          "url": "https://archive.org/details/autobiographyofg00hubb",
+          "archived_url": "https://archive.org/download/autobiographyofg00hubb/autobiographyofg00hubb_djvu.txt",
+          "tier": 2,
+          "tier_label": "near-primary recollection",
+          "transcribes": [
+            {
+              "work": "Hubbard's own autobiographical narrative — his engagement with the American Fur Company at Montreal and Mackinaw, the voyage of September 1818, his first entry into Chicago on 1 October 1818, the fort and its neighbours as he first saw them, the Chicago portage and Mud Lake, Hubbard's Trail, the trading posts of the Illinois River, and the Winnebago Scare of 1827 — ending abruptly at November 1830",
+              "date": "Written in the 1880s; printed 1888 and again 1911. Describes 1818-1830.",
+              "tier": 2,
+              "note": "A participant's recollection at more than fifty years' distance, and the rung most of this reading sits on. It is a recollection and not a record: the Fort Dearborn measurements are paces remembered, the payment of page 167 is dated to the wrong year, and the commanders' list is Hubbard's own search of the War Department records, which he says failed for the years after June 1833. The Winnebago Scare section (pages 166-174) is footnoted as coming not from the Diary but 'from statements by Mr. Hubbard in Chicago Historical Series, No. 10', which is one remove further."
+            },
+            {
+              "work": "Caroline M. McIlvaine's Introduction, pages ix-xxvii — a 1911 review of the fifty-six years the Autobiography does not cover, compiled from letters, memoranda, contemporaries' reminiscences and printed history, and quoting E. O. Gale's Reminiscences of Early Chicago, The Chicago American of 10 October 1835, the Sunday Times of 24 October 1875 and Henry E. Hamilton's 1907 biographical sketch",
+              "date": "1911",
+              "tier": 4,
+              "note": "EVERY STATEMENT THIS PROJECT TAKES ABOUT 1834, 1835 OR 1836 COMES FROM HERE AND NOT FROM HUBBARD. The brick building at La Salle and South Water, the five or six hundred inhabitants, the brig Illinois of 25 May 1835, the Green Tree Tavern, the fire engine, the Russell & Mather purchase, the canal commissioners and the water-works are all McIlvaine's, written seventy-six years after the scene, and several are quotations at a further remove. A run reaching for 'Hubbard on 1835' is reaching for McIlvaine."
+            },
+            {
+              "work": "Editorial notes by Henry E. Hamilton, signed H. E. H., inserted in square brackets in the narrative — including the note at page 178 that the hog-driving of 1829-30 'was the beginning of the packing industry in Chicago' — and the publishers' preface and closing note",
+              "date": "1888 (the notes); 1911 (the preface and the closing note, the latter signed C. M. M.)",
+              "tier": 4,
+              "note": "Compiler's judgements, sixty years after the events, printed inside the narrative's own type. bk_hub_101 and bk_hub_104 are read from this layer and say so."
+            }
+          ],
+          "what_it_supplies": [
+            "Fort Dearborn's occupation chronology, dated to the day, from its establishment in 1804 to its final abandonment on 29 December 1836 — which puts the scene year inside a continuous garrison running from 1 October 1832",
+            "a full description of the second fort as a man who lived beside it in 1818 remembered it: fourteen-foot oak pickets, a block house at the south-west corner and a bastion at the north-west, whitewashed stockade and buildings, the officers' quarters outside the pickets with a piazza at second-storey level, the soldiers' quarters, the sutler's store in the north-east corner, two gates, two ten-foot guardhouses, a two-storey commissary storehouse and a brick magazine",
+            "the fort's surroundings: a four-acre garden, a military barn, a field running half a mile south, the ONE road, a fence line closed from river to river, the well by the south gate, and wash-houses on the sandy beach east of the pickets",
+            "the Factor House — two storeys, squared logs, a split-picket fence, Jouett to about 1810 and then John Dean — and the American Fur Company's round-log storehouse built by John Craft and occupied after his death by Jean Baptiste Beaubien",
+            "John Kinzie's house described from inside it: a long log cabin with a rude piazza, fronting the river directly opposite the fort, with a window that had a sight-line to the fort at night — the piazza confirmed again nine years later",
+            "a complete building count for the whole of the present Cook County in 1818: the fort's group, the Factor House, the Fur Company storehouse, Hardscrabble, Ouilmette's cabin and Kinzie's house, and nothing else",
+            "the river mouth's history — its natural outlet at the fort, its southward migration behind a sand spit driven by north-east winds, its position at The Pines a mile south as late as 1827, the soldiers' cut of spring 1828 and the sand's refilling of it",
+            "landscape: the prairie seen from Douglas Grove, the Blue Island grove and the Desplaines timber, wild onion and leek along the river, wild rice and head-high grass at Mud Lake, the old cultivated field on the River Guarie still legible as cornhills, and prairie fires dangerous enough to sink boats against",
+            "Hubbard's Trail, dated by the man who cut it (1822 to Danville, extended north to Chicago in 1824) and the State road from Vincennes to Chicago ordered in the winter of 1833-34 that adopted most of it",
+            "the settlement's size taken sideways: about forty men and women turned out to fight the fort fire in 1827, and a majority of the men at the fort that summer were Hubbard's own employees",
+            "for 1835, at one remove through McIlvaine: the brig Illinois lightered ashore on 25 May because the harbour could not take her, the passengers going on to the Green Tree Tavern, the Chicago American of 10 October 1835 on Hubbard's fire engine, and the March 1835 purchase of the eighty acres of Russell & Mather's addition for $5,000",
+            "one period document, and it is graded separately: Hubbard's letter to his sister headed 'Chicago, July 25, 1827', at data/sources/hubbard_letter_1827_07_25.json"
+          ],
+          "what_it_does_not_supply": [
+            "Hubbard's own eyewitness on 1835. HIS NARRATIVE ENDS IN NOVEMBER 1830 and the closing note says so in as many words; the book's 1835 is Caroline McIlvaine's, written in 1911",
+            "any plat position, lot, or measured coordinate. Every placement here is prose — 'west and a little south of the fort', 'about where Wells street now crosses the river' — and several are given in streets that did not exist when the thing described did",
+            "reliable dimensions. 'A square of about six hundred feet' for the Fort Dearborn stockade is a pace-estimate at sixty years' distance and is much larger than the fort this project reconstructs",
+            "a consistent account of the officers' quarters: page 36 puts them outside the pickets and built of hewn logs, page 167 puts the commanding officers' former quarters in a brick building just within the north stockade and the log quarters within the pickets on the west. The book contradicts itself and this project does not resolve it",
+            "the right year for the Pottawatomie payment and the fort fire: page 167 prints 1828 where the section heading, the surrounding narrative and Hubbard's own dated letter all say July 1827",
+            "the names of the officers commanding Fort Dearborn after 19 June 1833 — Hubbard says he could not find them in the War Department records, so the source names nobody in command during the scene year",
+            "a residence for anybody in 1835. Every person Hubbard names, he names for what they did between 1812 and 1830",
+            "page images. This reading is of the Internet Archive's OCR text of the scan, corroborated against the deposited PDF's own text layer; no claim here is scan_verified"
+          ]
+        },
+        {
+          "source_id": "moses_kirkland_history_of_chicago_v1",
+          "citation": "John Moses and Joseph Kirkland (eds.), History of Chicago, Illinois, vol. 1 (Chicago and New York: Munsell & Co., 1895). Read here for the town before 1836: the immigration chapter 'From Village to City - 1830 to 1837 - the Balloon Age' at printed pages 78-79 and 87-98, the 'Real Estate and Insurance' chapter at pages 541-542, the packing trade at page 389, the fire department at pages 207-208, the Kinzie-Clybourn genealogy quoted from Blanchard at page 35, and the Biographical sketches of P. F. W. Peck, Philo Carpenter, John Dean Caton and Alexander N. Fullerton at pages 570-577 and 584; and, for the shore of 1812 (T-0471), the chapter 'The Massacre' at pages 49-50, 54 and 60-61 - the low, discontinuous sand-hills south of Twelfth Street, the scattered cottonwoods on the bank's lower reaches, and the two 'Massacre trees' of Eighteenth Street with Mrs. Kinzie's word that they were saplings in 1812.",
+          "url": "https://archive.org/details/historyofchicago01mose",
+          "archived_url": "https://archive.org/download/historyofchicago01mose/historyofchicago01mose_djvu.txt",
+          "tier": 3,
+          "tier_label": "compiled secondary (Andreas)",
+          "transcribes": [
+            {
+              "work": "Rufus Blanchard, Discovery of the Northwest and History of Chicago (Wheaton, Ill.: R. Blanchard & Co., 1881)",
+              "date": "1881",
+              "tier": 3,
+              "note": "PRINTED AT LENGTH AND NOT MERELY CITED. At pages 34-35 the volume introduces the Kinzie and Clybourn genealogy as 'best told by Rufus Blanchard ... He says:' and sets the whole passage as a block quotation, which is why bk_mose1_019 - Benjamin Hall's 1830 arrival and the town's first tannery - is a reading of Blanchard through Moses and Kirkland and not of Moses and Kirkland. This project does not hold Blanchard and cannot check the transcription. Blanchard in turn credits Benjamin Hall himself for the detail, so the chain to the fact is three deep and the claim says so."
+            }
+          ],
+          "what_it_supplies": [
+            "A TRADE CENSUS OF THE WHOLE TOWN, at page 95: the State census taken between 1 September and December 1835 counted 3,297 people, forty-four stores, two book stores, four druggists, two silversmiths and jewellers, two tin and copper manufactories, two printing offices, two breweries, one steam saw-mill, one iron foundry, four storage and forwarding houses, eight taverns, one lottery office, one bank, five churches, seven schools, twenty-two lawyers, fourteen physicians, and a lyceum and reading room. The project had no denominator for its business layer and this is one - for December 1835 and not for July.",
+            "A BUILDING WITH FOUR OF THE FIVE FIELDS data/structures/ WANTS, at page 90: John S. C. Hogan's story-and-a-half log storehouse, 45 by 18 feet, at the angle where Lake and South Water streets meet, with the post office partitioned off inside it from 2 November 1832.",
+            "TWO RESIDENCES STATED AS SUCH, which is the field the town is thinnest in: Rev. Jeremiah Porter lodging and keeping his study in the second storey of Peck's store from May 1833 (page 571), and John Dean Caton renting the back room and attic of Dr Temple's Temple Building from December 1833, sleeping in the attic and practising law in the back room, and sub-letting desk-room in it to his competitor Spring (page 577).",
+            "BUSINESSES GIVEN BY CORNER, LOT OR LANDMARK: Dole's and Peck's first frame business buildings at the south-east corners of South Water and Dearborn and of South Water and La Salle (page 89); Peck's two-storey frame store of black walnut brought from Detroit, occupied in the fall of 1831 (page 570); Sylvester Marsh killing beef under an old elm on the open prairie at what became Monroe Street from the winter of 1833-4 (page 389); William Jones's lots 2 and 7 in block 17 fronting Water and Lake (page 542).",
+            "OCCUPATIONS AND ARRIVALS for men this project already holds: Philo Carpenter as the town's first druggist, arriving within a month before 19 August 1832; Benjamin Hall as proprietor of the first tannery ever established there, arriving 1830; Dole, Clybourn, the Noble brothers and Gurdon S. Hubbard beginning the slaughtering and packing trade in 1832; the 1833 spring arrivals including Caton, Kimball and Asahel Pierce; and Hubbard's permanent residence dated to 1832 by the compiler's own reason for leaving him off a list.",
+            "TWO PRESENCE LISTS: the twenty-two men who signed the Pioneer Hook and Ladder Company roll on 7 October 1835 (pages 207-208), and, unread and left for its own ticket, the 'LIST OF ACTUAL SETTLERS AT CHICAGO, PRIOR TO 1830' at pages 78-79, about thirty rows with nativity, year and remarks columns.",
+            "ONE STATEMENT ABOUT THE GROUND OF THE SCENE, at page 79: the winter of 1834-5 was open, with little snow, front doors standing open all winter, and cattle living on grass on the river bank."
+          ],
+          "what_it_does_not_supply": [
+            "MOST OF WHAT IT WAS FETCHED FOR. Of the forty-nine lead surnames the Newberry index flagged against this work, thirteen earned a claim, twenty-one appear only outside the pre-1836 window, eight appear early and say nothing usable, one (`black`) is only ever the adjective, four are unresolved because the volume carries a surname one character from the index card's spelling, and two are absent outright. The full row-by-row result is committed at data/research/books/moses_kirkland_v1_lead_surnames.json so the next run does not pay for the search twice.",
+            "VOLUME 2, WHICH IS HALF THE WORK. Only volume 1 is read. The Newberry cards do not say which volume they cite, so an absence recorded here may simply be in the other book, and every ABSENT verdict in the lookup file says so on itself.",
+            "AN INDEPENDENT VOICE. It is a compilation of 1895 and it names its own authorities on the pages read: Andreas for Garrett's $1,800,000 of auction sales, Bross's History of Chicago page 38 for the earliest deeds, the Story of Chicago page 130 for Caton's election tally, Hurlbut's Chicago Antiquities pages 37-8 for the pre-1830 settler list, S. R. Beggs's West and Northwest page 95 for the Black Hawk alarm, and Rufus Blanchard's Discovery of the Northwest and History of Chicago (1881) quoted at length for the Kinzie-Clybourn genealogy. Where the sentence itself credits another work, the claim says so and the citation must go to that work and not to this one.",
+            "A SINGLE ADDRESS IN THE MODERN SENSE, and no street numbers. Positions here are corners, lots, blocks, a river bank and a tree.",
+            "ANY DATE FINER THAN THE YEAR for two things this project wanted finer: Caton's marriage, which is given as '1835' with the scene date sitting in the middle of it, and the Hubbard-Marsh packing partnership, which is 'later'.",
+            "CONSISTENCY WITH ITSELF. Page 89 dates Dole's and Peck's first frame business buildings to 1832 while page 570 has Peck's occupied in the fall of 1831; page 207 forms the Pioneer Hook and Ladder Company on 7 October 1835 while page 570 has it organised on 20 October 1835. Both readings of each are recorded and neither is adopted."
+          ]
+        },
+        {
+          "source_id": "osm_streets_2026",
+          "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
+          "url": "https://www.openstreetmap.org/",
+          "archived_url": "https://overpass-api.de/",
+          "tier": 4,
+          "tier_label": "later scholarship"
+        },
+        {
+          "source_id": "thompson_plat_1830",
+          "citation": "Thompson, James. Plat of the Town of Chicago. Illinois and Michigan Canal Commissioners, completed 4 August 1830.",
+          "url": "https://commons.wikimedia.org/wiki/File:Thompson_plat_of_Chicago_1830.png",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness"
+        },
+        {
+          "source_id": "wright_1834",
+          "citation": "Wright, J. S. Chicago, drawn by J. S. Wright according to survey. New York: P. A. Mesier's Lith., 1834.",
+          "url": "https://collections.leventhalmap.org/search/commonwealth:js9577436",
+          "archived_url": "",
+          "tier": 1,
+          "tier_label": "period/eyewitness",
+          "what_it_supplies": [
+            "street geometry",
+            "block and lot subdivision",
+            "shoreline",
+            "river channel and the 1834 cut",
+            "survey-date colouring"
+          ],
+          "what_it_does_not_supply": [
+            "building footprints",
+            "building locations"
+          ]
+        }
+      ]
     }
   ],
   "structures": [
@@ -12208,6 +12436,12 @@
       "asset": "gltf/recon_1835_blk_washington_market_a1_05__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_market_a2_13",
+      "name": "Reconstructed A2 barn or carriage shed #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a2_13.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a2_13__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_market_a3_03",
       "name": "Reconstructed A3 privy #03",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_03.json",
@@ -12218,6 +12452,60 @@
       "name": "Reconstructed A3 privy #06",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_06.json",
       "asset": "gltf/recon_1835_blk_washington_market_a3_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a3_15",
+      "name": "Reconstructed A3 privy #15",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a3_15.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a3_15__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a4_12",
+      "name": "Reconstructed A4 woodshed or storage shed #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a4_12.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a4_12__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a4_16",
+      "name": "Reconstructed A4 woodshed or storage shed #16",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a4_16.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a4_16__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_a5_14",
+      "name": "Reconstructed A5 small utility building #14",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_a5_14.json",
+      "asset": "gltf/recon_1835_blk_washington_market_a5_14__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d3_10",
+      "name": "Reconstructed D3 one-room frame cottage #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d3_10.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d3_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d4_08",
+      "name": "Reconstructed D4 two-room frame cottage #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d4_08.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d4_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d4_11",
+      "name": "Reconstructed D4 two-room frame cottage #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d4_11.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d4_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_d7_09",
+      "name": "Reconstructed D7 small two-story frame house #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_d7_09.json",
+      "asset": "gltf/recon_1835_blk_washington_market_d7_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_market_h1_07",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_market_h1_07.json",
+      "asset": "gltf/recon_1835_blk_washington_market_h1_07__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_market_h3_01",
@@ -12296,6 +12584,24 @@
       "name": "Reconstructed H2 merchant or professional house #07",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_wells_h2_07.json",
       "asset": "gltf/recon_1835_blk_washington_wells_h2_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_lake_canal_d2_03",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_lake_canal_d2_03.json",
+      "asset": "gltf/recon_1835_blk_west_lake_canal_d2_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_lake_canal_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_lake_canal_d4_02.json",
+      "asset": "gltf/recon_1835_blk_west_lake_canal_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_lake_canal_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_lake_canal_d5_01.json",
+      "asset": "gltf/recon_1835_blk_west_lake_canal_d5_01__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_west_randolph_des_plaines_d4_02",

@@ -34,6 +34,7 @@ import { enuToWorld, bearingToYaw, toFloatAttribute } from './terrain.js';
 import { dealTones, toneFor, toneFactors, NEUTRAL_TONE } from './facades.js';
 import { loadRoofRelief } from './roof-relief.js';
 import { loadWallRelief } from './wall-relief.js';
+import { cheapenGlass, DEFAULT_GLASS } from './glass.js';
 
 /** Walk up until something claims a structure_id. Returns null if nothing does. */
 export function structureIdOf(object) {
@@ -330,7 +331,7 @@ function materialKey(m) {
  * @param {object} o.terrain                from createTerrain (for ground height)
  */
 export async function createBuildings({ registry, confidence, terrain, checkpoint = () => null,
-  onProgress = () => {}, preserveMaterials = false, lowSpec = false }) {
+  onProgress = () => {}, preserveMaterials = false, lowSpec = false, glass = DEFAULT_GLASS }) {
   const group = new THREE.Group();
   group.name = 'structures';
   const problems = [];
@@ -417,7 +418,15 @@ export async function createBuildings({ registry, confidence, terrain, checkpoin
       const sourceMaterial = Array.isArray(mesh.material) ? mesh.material[0] : mesh.material;
       // A detail replacement rebuilds from the same source records. Never whiten
       // or shader-patch those source materials: each batch owns its own copy.
-      const material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
+      let material = preserveMaterials ? sourceMaterial.clone() : sourceMaterial;
+      // T-2109: a transmissive pane costs a second draw of every opaque thing
+      // behind it. The replacement is a fresh material, so a clone it replaces
+      // is ours to free; a shared source material is left alone.
+      const cheaper = cheapenGlass(material, glass);
+      if (cheaper !== material) {
+        if (preserveMaterials) material.dispose();
+        material = cheaper;
+      }
       // Before the key is taken, and only ever by name — T-1488 and
       // docs/GLB-CONTRACT.md § Roof coverings.
       const reliefWarning = relief.apply(material);

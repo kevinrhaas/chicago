@@ -1,0 +1,549 @@
+{
+ "ticket": "T-2110",
+ "tool": "tools/measure_still_frame.mjs --probe / --sharpness / --capture",
+ "tree": "published",
+ "measured": "2026-10-04",
+ "note": "SwiftShader software rasteriser: absolute ms are this runner's; shares are the reading. \"before\" = dev @ 07a28a03; \"after\" = the same tree with the leaf-card bump skipped (tree-surface.js).",
+ "readings": [
+  {
+   "run": "phone_light_probe_before",
+   "frames": 2,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4563.6,
+     "cpu": 23.6,
+     "worst": 4563.6,
+     "triangles": 942016,
+     "calls": 73,
+     "probe": {
+      "trees": {
+       "shipped": {
+        "frame": 1312.3,
+        "triangles": 207748
+       },
+       "no bump": {
+        "frame": 910.7,
+        "triangles": 207748,
+        "saves": 401.6
+       },
+       "lambert, same cut-out": {
+        "frame": 595.2,
+        "triangles": 207748,
+        "saves": 717.1
+       },
+       "unlit, same cut-out": {
+        "frame": 325.9,
+        "triangles": 207748,
+        "saves": 986.4
+       }
+      },
+      "terrain": {
+       "shipped": {
+        "frame": 1154.5,
+        "triangles": 150202
+       },
+       "lit, no ground chunks": {
+        "frame": 659.4,
+        "triangles": 150202,
+        "saves": 495.1
+       },
+       "unlit": {
+        "frame": 256.9,
+        "triangles": 150202,
+        "saves": 897.6
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "run": "phone_light_probe_after",
+   "frames": 3,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 4324.5,
+     "cpu": 14.3,
+     "worst": 4378,
+     "triangles": 942016,
+     "calls": 73,
+     "probe": {
+      "trees": {
+       "shipped": {
+        "frame": 1153.3,
+        "triangles": 207748
+       },
+       "no bump": {
+        "frame": 899.1,
+        "triangles": 207748,
+        "saves": 254.2
+       },
+       "lambert, same cut-out": {
+        "frame": 589.3,
+        "triangles": 207748,
+        "saves": 564
+       },
+       "unlit, same cut-out": {
+        "frame": 322,
+        "triangles": 207748,
+        "saves": 831.3
+       }
+      },
+      "terrain": {
+       "shipped": {
+        "frame": 1144.4,
+        "triangles": 150202
+       },
+       "no turf": {
+        "frame": 1009.7,
+        "triangles": 150202,
+        "saves": 134.7
+       },
+       "lit, no ground chunks": {
+        "frame": 658.4,
+        "triangles": 150202,
+        "saves": 486
+       },
+       "unlit": {
+        "frame": 261.4,
+        "triangles": 150202,
+        "saves": 883
+       },
+       "zones": 2
+      },
+      "order": {
+       "shipped": {
+        "frame": 4212.8
+       },
+       "trees last": {
+        "frame": 4213.2,
+        "saves": -0.4,
+        "pixelsChanged": 0,
+        "mostLevels": 0
+       },
+       "terrain last": {
+        "frame": 4208.8,
+        "saves": 4,
+        "pixelsChanged": 0,
+        "mostLevels": 8
+       }
+      }
+     }
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": null,
+     "pixelRatio": 1.5,
+     "frame": 3498.1,
+     "cpu": 12.4,
+     "worst": 3512.5,
+     "triangles": 841116,
+     "calls": 68,
+     "probe": {
+      "trees": {
+       "shipped": {
+        "frame": 1072.3,
+        "triangles": 205336
+       },
+       "no bump": {
+        "frame": 841.8,
+        "triangles": 205336,
+        "saves": 230.5
+       },
+       "lambert, same cut-out": {
+        "frame": 572.9,
+        "triangles": 205336,
+        "saves": 499.4
+       },
+       "unlit, same cut-out": {
+        "frame": 326.4,
+        "triangles": 205336,
+        "saves": 745.9
+       }
+      },
+      "terrain": {
+       "shipped": {
+        "frame": 1393.3,
+        "triangles": 164990
+       },
+       "no turf": {
+        "frame": 1399.6,
+        "triangles": 164990,
+        "saves": -6.3
+       },
+       "lit, no ground chunks": {
+        "frame": 926.8,
+        "triangles": 164990,
+        "saves": 466.5
+       },
+       "unlit": {
+        "frame": 353.4,
+        "triangles": 164990,
+        "saves": 1039.9
+       },
+       "zones": 2
+      },
+      "order": {
+       "shipped": {
+        "frame": 3491.1
+       },
+       "trees last": {
+        "frame": 3517.2,
+        "saves": -26.1,
+        "pixelsChanged": 0,
+        "mostLevels": 0
+       },
+       "terrain last": {
+        "frame": 3511.9,
+        "saves": -20.8,
+        "pixelsChanged": 0,
+        "mostLevels": 11
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "run": "desktop_full_forks_probe_before",
+   "frames": 2,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 12446.8,
+     "cpu": 5.7,
+     "worst": 12446.8,
+     "triangles": 2663838,
+     "calls": 243,
+     "probe": {
+      "trees": {
+       "shipped": {
+        "frame": 4398.2,
+        "triangles": 579352
+       },
+       "no bump": {
+        "frame": 3092.1,
+        "triangles": 579352,
+        "saves": 1306.1
+       },
+       "lambert, same cut-out": {
+        "frame": 1992.7,
+        "triangles": 579352,
+        "saves": 2405.5
+       },
+       "unlit, same cut-out": {
+        "frame": 1051.4,
+        "triangles": 579352,
+        "saves": 3346.8
+       }
+      },
+      "terrain": {
+       "shipped": {
+        "frame": 2024.5,
+        "triangles": 231739
+       },
+       "no turf": {
+        "frame": 1759.3,
+        "triangles": 231739,
+        "saves": 265.2
+       },
+       "lit, no ground chunks": {
+        "frame": 1060.7,
+        "triangles": 231739,
+        "saves": 963.8
+       },
+       "unlit": {
+        "frame": 323.3,
+        "triangles": 231739,
+        "saves": 1701.2
+       },
+       "zones": 2
+      },
+      "order": {
+       "shipped": {
+        "frame": 12154.8
+       },
+       "trees last": {
+        "frame": 12160,
+        "saves": -5.2,
+        "pixelsChanged": 0,
+        "mostLevels": 0
+       },
+       "terrain last": {
+        "frame": 12144.9,
+        "saves": 9.9,
+        "pixelsChanged": 0,
+        "mostLevels": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "run": "desktop_full_forks_probe_after",
+   "frames": 2,
+   "viewport": "desktop 1280x800",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 1,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "full",
+     "stand": "the_forks",
+     "sharpness": null,
+     "pixelRatio": 1,
+     "frame": 11775.3,
+     "cpu": 5.8,
+     "worst": 11775.3,
+     "triangles": 2663838,
+     "calls": 243,
+     "probe": {
+      "trees": {
+       "shipped": {
+        "frame": 3804.6,
+        "triangles": 579352
+       },
+       "no bump": {
+        "frame": 3087.4,
+        "triangles": 579352,
+        "saves": 717.2
+       },
+       "lambert, same cut-out": {
+        "frame": 1982,
+        "triangles": 579352,
+        "saves": 1822.6
+       },
+       "unlit, same cut-out": {
+        "frame": 1050.4,
+        "triangles": 579352,
+        "saves": 2754.2
+       }
+      },
+      "terrain": {
+       "shipped": {
+        "frame": 1983.9,
+        "triangles": 231739
+       },
+       "no turf": {
+        "frame": 1733.1,
+        "triangles": 231739,
+        "saves": 250.8
+       },
+       "lit, no ground chunks": {
+        "frame": 1060,
+        "triangles": 231739,
+        "saves": 923.9
+       },
+       "unlit": {
+        "frame": 321.4,
+        "triangles": 231739,
+        "saves": 1662.5
+       },
+       "zones": 2
+      },
+      "order": {
+       "shipped": {
+        "frame": 11518.3
+       },
+       "trees last": {
+        "frame": 11523.5,
+        "saves": -5.2,
+        "pixelsChanged": 0,
+        "mostLevels": 0
+       },
+       "terrain last": {
+        "frame": 11506.9,
+        "saves": 11.4,
+        "pixelsChanged": 0,
+        "mostLevels": 0
+       }
+      }
+     }
+    }
+   ]
+  },
+  {
+   "run": "phone_light_sharpness_before",
+   "frames": 2,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "the_forks",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 2603.7,
+     "cpu": 16.2,
+     "worst": 2603.7,
+     "triangles": 818742,
+     "calls": 53
+    },
+    {
+     "level": "light",
+     "stand": "the_forks",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 3422.7,
+     "cpu": 26.5,
+     "worst": 3422.7,
+     "triangles": 818742,
+     "calls": 53
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 3403.2,
+     "cpu": 16.8,
+     "worst": 3403.2,
+     "triangles": 942016,
+     "calls": 73
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 4488.4,
+     "cpu": 15.2,
+     "worst": 4488.4,
+     "triangles": 942016,
+     "calls": 73
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 2685.5,
+     "cpu": 13.9,
+     "worst": 2685.5,
+     "triangles": 841116,
+     "calls": 68
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 3772.8,
+     "cpu": 13.1,
+     "worst": 3772.8,
+     "triangles": 841116,
+     "calls": 68
+    }
+   ]
+  },
+  {
+   "run": "phone_light_sharpness_after",
+   "frames": 2,
+   "viewport": "phone 390x780 dpr3 cpu/4",
+   "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+   "dpr": 3,
+   "lowSpecShadows": true,
+   "errors": [],
+   "rows": [
+    {
+     "level": "light",
+     "stand": "the_forks",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 2562.4,
+     "cpu": 14.6,
+     "worst": 2562.4,
+     "triangles": 818742,
+     "calls": 53
+    },
+    {
+     "level": "light",
+     "stand": "the_forks",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 3564.3,
+     "cpu": 205.8,
+     "worst": 3564.3,
+     "triangles": 818742,
+     "calls": 53
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 3221.6,
+     "cpu": 14.8,
+     "worst": 3221.6,
+     "triangles": 942016,
+     "calls": 73
+    },
+    {
+     "level": "light",
+     "stand": "town_backyard",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 4356.3,
+     "cpu": 12.2,
+     "worst": 4356.3,
+     "triangles": 942016,
+     "calls": 73
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 1,
+     "pixelRatio": 1,
+     "frame": 2562.5,
+     "cpu": 12.7,
+     "worst": 2562.5,
+     "triangles": 841116,
+     "calls": 68
+    },
+    {
+     "level": "light",
+     "stand": "from_above",
+     "sharpness": 1.5,
+     "pixelRatio": 1.5,
+     "frame": 3633.4,
+     "cpu": 12.4,
+     "worst": 3633.4,
+     "triangles": 841116,
+     "calls": 68
+    }
+   ]
+  }
+ ]
+}

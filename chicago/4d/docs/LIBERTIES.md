@@ -6755,7 +6755,9 @@ source record (**T-0075**) would not upgrade the buildings, but it would let the
 Related: **L163** (the bridge these sheds stand beside), **L132** (the wharves at the two frontages
 whose records state a dock — these four state none, so they get none), **L160** and **L161** (the
 same shape of claim at town scale), **T-0004**, **T-0058**, **T-0075**.
-**Recorded:** 2026-08-21.
+**The first shed east of the bridge stood in Dearborn Street, and was moved out of it (T-2118).** Until 2026-10-05 `north_bank_shed_dearborn_e1` had its west 6.63 m and its centroid inside the platted corridor of Dearborn Street north of the river (`dearborn_north`) — an invented building in a platted street, which **T-0253** refuses and for which **T-2012** withdrew this shed's south-bank twin. It was slid 7.16 m east, parallel to North Water Street's drawn line, so its offset from that line and its bearing are the ones it already held, to the first station clear of the corridor on both readings plus a 0.5 m margin. It is still the first shed east of the bridge line; it now stands about 0.5 m short of `north_bank_shed_dearborn_e2`. Nothing about the building changed, and no evidence was spent: no source put it at either station.
+
+**Recorded:** 2026-08-21. **Revised:** 2026-10-05 (T-2118).
 
 
 ### L165 — The Wolf Tavern's sign: the pole it flies from, and the wolf painted on it
@@ -14309,7 +14311,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 528 phases (516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 541 phases (531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14899,7 +14901,7 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 178 households (T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 178 households (T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15367,7 +15369,28 @@ shift a lot, `hh_beech_reuben`'s changes family (H1 to H2), and **three househol
 `hh_clarke_h_b` — owed to **T-1614** in writing, because every open block that still plans their
 families has only the lot the schedule keeps open. Nobody standing under a roof moves.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s).
+**THE BUSINESS DEAL GOES FIRST, AND WHAT THAT COSTS IS NOW MEASURED (T-1669).** This deal and
+the street-face business deal (**L212**) spend one pool of anonymous roofs. The business deal's
+picks reached this one as occupancies on the structure records, and it held all **40** of them
+back as "a committed claim about the town" — which they are not; they are the other deal's
+allocation. It now reads `street_face_adoptions.json`, upstream of it by the road the
+occupancies already took, so no cycle closes, and names those 40 `held_by:
+street_face_business_deal`. The precedence is ruled rather than left to whichever pass ran
+last: **the narrower placement deals first**, because a business the paper puts on a street can
+stand on that one face and nowhere else, while a banded household may take any roof of an
+admitted family in its division. And it is costed by re-dealing, not by counting roofs.
+Release all 40 and this deal adopts the **14** dwellings among them (the 26 houses of trade it
+does not want), every one by a household already seated elsewhere moving to a better-scored
+lot, and seats **1** more household in all — `hh_humphrey_fre_lemuel` into a roof another
+household vacates. **So the precedence costs the households 1 seat of 1,424**, and 33 would
+change roof or lot. (It cost 2 until T-2129: the second, `hh_bennet_lyman`, was a household a
+release put on a slot, and once the Market block's five houses took five slot requests as
+roofs the deal seats him on a slot itself, at `blk_washington_dearborn#04`, so a release no
+longer gains him.) Both numbers are tripwires in
+`seat_platted_ground_1835.py --check`: a re-order of either deal that moves them is red until
+somebody restates them and says why here. No seat, roof or record moved for this.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved), 2026-10-05 (T-2129, the precedence's cost restated 2 -> 1: the Market block's houses seat `hh_bennet_lyman` in the deal itself).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -15807,7 +15830,7 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Forty-nine roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 49 roofs given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 50 roofs (51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -18404,7 +18427,14 @@ beyond the recipe's clusters, and the West's ordinary-dwellings row moves three 
 target. `blk_west_lake_canal`'s three (frame cottages) are
 scheduled and not built here: T-1773's warehouse stands on lot 1 of that block, and the
 order book hands the cottages, with the rest of the West's ordinary-dwellings row, to T-1774,
-the ticket that hands T-1208 on with the West's exact remainder.
+the ticket that hands T-1208 on with the West's exact remainder. **T-1829 built them (2026-10-05)**: on `blk_west_lake_canal`
+(plat block 29) the seating's three slot requests are raised on the lots they asked for — a
+deep-plan frame cottage (D5) on plat lot 6 and a two-room frame cottage (D4) on plat lot 7 of the
+Canal face, set out 5.0 and 7.5 m, and a rough plank shanty (D2) on plat lot 8 of the West Water
+face at 4.0 m — and the block's other five free lots are left open. That block is now at its
+ceiling of six, as is every lot-ruled West block, and the West's remaining 12 ordinary dwellings
+go to T-2132. What is invented on block 29 is the same as on block 47: the three roofs'
+presence, families, lots, set-outs and lateral offsets.
 
 **How to resolve:** parcel-level tax, deed or assessment evidence for the West Division's outer
 blocks, or a period view west along Randolph; either replaces the ceiling and these placements
@@ -18412,9 +18442,11 @@ outright. A named discovery substitutes for a compatible anonymous roof and neve
 total.
 
 **Covers:** `recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.position`,
-`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`
+`recon_1835_blk_west_randolph_des_plaines_*.inferred_1835.footprint`,
+`recon_1835_blk_west_lake_canal_*.inferred_1835.position`,
+`recon_1835_blk_west_lake_canal_*.inferred_1835.footprint`
 
-**Ticket:** T-1783.
+**Ticket:** T-1783; T-1829 (block 29's three roofs).
 
 **Recorded:** 2026-10-01 (T-1783). **Revised:** 2026-10-01 (numbered **L313**: it was written as L311, then L312, and T-1760 and T-1761 took those numbers on `dev` first; `blk_west_lake_canal`'s room restated from four to three after T-1773's warehouse).
 
@@ -21123,3 +21155,197 @@ of it on side lines. The three records' run count goes from 442 to 474.
 naming its fences, replaces the rule; a view showing open-fronted house lots on a street settles
 the front-half test.
 **Recorded:** 2026-10-04 (T-2102).
+
+### L380 — The far treeline rises from nothing near the town and is not drawn from the air
+
+**Decision:** the horizon timber band (`renderers/web/js/trees.js` § 5) now draws a far body at
+nothing where it comes within 330 m of the eye and rises on a smoothstep to its full height at
+**800 m** (`NEAR_FADE_M`), where L356 had it step down only over its last 60 m. A run of the band
+ends in a shoulder: its last few vertices step down to 45 % over at most a quarter of the run. And
+the band is a walker's horizon only: between an eye height of **5 m and 12 m** its top sinks onto
+its foot (`BAND_FADE_EYE_M`), and above 12 m it is not drawn. **What the band leaves out near the
+town and above it is a choice of drawing, not a claim that no timber stood there.**
+**Why:** the owner, 2026-10-04 (T-2103): *"you can see massive moving up and down blobs"* looking
+west down South Water, and *"i found another when flying"* from 55 ft over La Salle. The South
+Water belt runs along the street, so seen down the street every point of it lands in the same few
+bearings and the band kept the nearest, tallest one: a 23–28 px blob that rode the 330 m cut as he
+walked. From the air the band's foot, a fixed 12 m below the eye and hidden by the near ground when
+walking, stood on the far ground as a slab with sheer ends. A ring silhouette draws angle, not
+depth, so it cannot draw a body pointing at the eye or seen from above honestly; the modelled trees
+carry both views instead.
+**How to resolve:** draw the near bodies as modelled timber (the near-field planter's stands carried
+past the box), at which point the band can keep only what is truly far; or a horizon renderer that
+carries depth.
+**Related:** **L356** (the band's top and texture), **L182** (the South Water Street belt),
+**T-1978**, **T-2103** (this entry).
+**Recorded:** 2026-10-04.
+
+### L381 — The State road to Vincennes: a located road whose line into the town nobody traced
+
+**Decision:** a travelled way, `state_road_south` in `data/streets/1835.json`, runs from the
+south end of State Street's worn track (local E +824.4 N -400) across the open south-west corner
+of the reservation onto the lakeshore sand belt, and straight south behind the dunes to the
+modelled ground's south wall at N -3797.5 — 3.5 km, a 4.5 m light-worn earth track inside a
+12 m corridor, `light` traffic. `geometry_confidence` and `wear_confidence` are
+**reconstructed**; the surface is `inferred` from the surface standard (earth only on this
+date). The street section grades it like every opened street, so the committed heightfield and
+the ground mesh were regenerated with it (a 0.25-0.4 ft worn bed, L338).
+**Why:** the road is documented and its line is not. Hubbard: in the winter of 1833-34 the
+General Assembly ordered a State road located from Vincennes to Chicago with mile-stones on it,
+and from Danville to Chicago the commissioners adopted his trail most of the way
+(`hubbard_autobiography_1911` p. 154, bk_hub_083; the trail itself bk_hub_082, and "the only
+well-defined road between Chicago and the Wabash country", bk_hub_011). Moses & Kirkland (vol. 1
+p. 32) put the town's road south "along the sand on the lake shore". So on 1 July 1835 the
+town's land approach from the south was a located State road on the sand belt east of State
+Street, and the street layer held nothing there at all: a visitor walking south out of the town
+met unbroken prairie.
+**What bounds the invention:** it leaves the town where the town's own worn track ends; it
+stays on the sand belt the second source names; it keeps at least 120 m inland of the 1835
+waterline, behind the reconstructed south dunes (L334), so it is neither on
+the beach nor over a hummock; it is dry at every sample on the committed heightfield; and it
+runs straight south because nothing says where it bent — Blue Island, the next place the trail
+is named at, is off the ground. It does NOT carry the town's State Street south of Washington
+Street, whose platted reach still draws no track (T-1707), and `name_2026` is null because no
+modern street is claimed to descend from it. No mile-stone is drawn: the order to place them is
+documented and their placing is not.
+**How to resolve:** a period map that draws the road's entry into the town — the "old maps" on
+which Hubbard says the trail was marked — or a commissioners' report of the 1834 location with
+bearings, which would replace the line vertex for vertex.
+**Related:** **L140** (the fort road, the town's other reconstructed way out), **L334** (the dunes), **L338** (the
+street section), **T-1587** (the three Hubbard readings ruled and this approach filed),
+**T-1707**, **T-1702** (this entry).
+**Recorded:** 2026-10-05.
+
+### L382 — Every fenced street front and yard gateway has a gate or an opening, varied by lot
+**Decision:** each improved lot behind a T-0069 street-lining fence gets a way in from the street
+in front of the building nearest the street on it: a hung foot gate, 3 ft 6 in, for a dwelling,
+and a pair of carriage leaves, 9 ft, for a trade (`tools/generate_frontage_works.py`, 73 gates on
+33 fences). The 10 ft cart gateways the lot-line yard fences already left on their alley and street
+lines (L161, L379) now say what hangs in them: a pair of board or paled leaves in a board or picket
+fence, slip bars let down in a split-rail one, and about one in seven left a plain gap
+(`tools/generate_lot_line_fences.py`, 177 gateways). Whether a gate stands shut, ajar or open, which
+post it hangs on and whether a house gate is boarded or paled is read off a hash of the gate's id
+(`tools/gate_kinds.py`), so neighbours differ and the records re-derive byte for byte. Drawn by
+`renderers/web/js/gates.js` for both fence layers.
+**Why:** the owner, 2026-10-04 (T-2112): *"if someone has a property and the fence runs the front
+of the property they should have a gate or opening, i imagine a gate is period appropriate ... vary
+by property what kind of gate/opening entrance they have based on correct 1835"*. The street fences
+had run unbroken across the front of every house behind them.
+**What is recorded and what is not:** no source places, sizes or describes a gate on any of these
+lots. The kinds are the ones the town's own fences imply: a house lot kept against hogs at large
+(the 1833 town code, `chicago_democrat_1833_11_26`) shuts, so it takes a hung leaf; a trade lot and
+a yard take a cart; a split-rail fence is opened by its bars, which is how a rail fence is opened.
+Every dimension, the leaf construction (a boarded leaf one face of butted boards, a paled one two
+rails with pales across them, no brace drawn, hung on the fence's own end posts), the shares of shut, ajar and open, and the gate's place in front of the building's
+centre rather than its door are ours.
+**How to resolve:** any view or description of an 1830s Chicago dooryard gate replaces the leaf;
+a lot's own door position, where the entrance layer knows it, would place its gate better.
+**Recorded:** 2026-10-04 (T-2112).
+
+### L383 — 1904's Glessner glass draws as a dark plate at Balanced and Light detail
+**Decision:** at the `balanced` and `light` Scene detail settings the Glessner house's one
+glass material, which its GLB marks `KHR_materials_transmission` (factor 1, ior 1.52), is drawn
+as an opaque dark plate: the GLB's own tint × 0.12 and its own roughness, no transmission and no
+blending (`renderers/web/js/glass.js`, `GLASS_BY_DETAIL`). At `full` the GLB's refracting glass
+is drawn as before. The GLB is not changed; `?glass=transmission|clear|dark` names one glass for
+every setting.
+**Why:** the owner's pick, 2026-10-04 (T-2109, answer c: *"dark at balanced and light (every
+pane a darker plate)"*), after T-2099 found the transmission pass to be about half of every
+frame at the 1904 landing. The dark plate halves that frame at both viewports
+(`docs/measurements/T-2109-glessner-glass.md`).
+**What is recorded and what is not:** this is how the browser draws the glass, not a claim about
+the house. No source was read on how the windows looked from Prairie Avenue in 1904; the plate
+loses the sky-lit sheen the refracting glass shows and nothing is seen through it.
+**How to resolve:** a cheaper glass that keeps the sheen, or a frame budget that carries
+transmission at the lower settings, replaces the plate there.
+**Recorded:** 2026-10-05 (T-2109).
+
+### L384 — Five invented dwellings around the Market block's boarding houses, and their five yard buildings
+
+**Decision:** `blk_washington_market` — bounded by Washington, Franklin, Madison and Market, where
+T-1951 raised two boarding houses back to back on lots 4 and 5 (**L347**) and left the other six
+lots open — now carries **ten more anonymous roofs**: five dwellings, one to a lot, and five yard
+buildings behind four of them. On the Washington face a one-and-a-half-story house (H1) on the
+Market corner (lot 0), a tradesman's frame house (D4) beside it (lot 2) and a small two-story frame
+house (D7) on the Franklin corner (lot 6); on the Madison face a one-room cottage (D3, lot 3) and a
+second D4 on the Franklin corner (lot 7). Behind them a carriage shed and a smokehouse (the D7),
+a woodshed apiece (both D4s) and a privy (the cottage). Lot 1, the Madison-and-Market corner,
+stays the block's reserved open lot. **Everything below the count is invented** — that any of
+these buildings stood on this block in July 1835, which buildings they were, and where on its lot
+each sits. No coordinate is authored: every metre is read off the committed lot polygon by
+`tools/generate_block_infill.py` from the recipe entry
+`phase3_platted_block_washington_market_second_deal` in
+`data/reconstruction/1835_platted_block_parcels.json`.
+
+**Why five, which is the whole of the block's lot ceiling.** The 665-roof schedule gives this
+block `lot_ceiling_principal` 5 over its six free lots, the sixth being the open one its own
+sizing rule keeps, and `1835_platted_seats.json` held exactly five `slot` requests here with no
+roof under them — an H1, a D7, a D3 and two D4s, every one a family the schedule's plan for the
+block holds. So the count, the families and the lots are the seating's and the schedule's. The
+other principal roofs the schedule still apportions this block would have to stand two to a lot
+along a frontage run, and a party-wall row on the town's outermost platted tier in July 1835 is a
+claim nothing supports.
+
+**Why these yard buildings, and why the corner house has none.** The plan holds five ancillary
+roofs (a carriage shed, a privy, two woodsheds, a small utility building) and all five are built,
+dealt UP the household scale as **L304** dealt the Franklin block's. **The Market-corner house
+stands in an open yard, and that is measured rather than chosen:** T-1951 tried a stable and a
+privy on lot 0 first and `ancillary_behind_its_own_roof` refused both, because Market Street is
+graded `principal` and a yard building may not have a principal street as its nearest. So the D7
+takes two yard buildings and the H1 none.
+
+**Which household stands under which roof is the placement policy's** (**L270** carries the
+seating arithmetic); nothing in this entry depends on it, and the roofs would be exactly as
+invented if nobody stood under them.
+
+**How to resolve:** parcel-level tax, deed, assessment or surveyed building evidence for the
+block between Washington and Madison, Market and Franklin, and a reading of Thompson's lot
+numbering from the sheets themselves. A named discovery substitutes for a compatible anonymous
+roof and never increases the total. Evidence that the tier south of Washington was still wholly
+unbuilt in July 1835 would retire all ten rather than re-place them.
+
+**Covers:** `recon_1835_blk_washington_market_h1_07.inferred_1835.position`, `recon_1835_blk_washington_market_h1_07.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d4_08.inferred_1835.position`, `recon_1835_blk_washington_market_d4_08.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d7_09.inferred_1835.position`, `recon_1835_blk_washington_market_d7_09.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d3_10.inferred_1835.position`, `recon_1835_blk_washington_market_d3_10.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_d4_11.inferred_1835.position`, `recon_1835_blk_washington_market_d4_11.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a4_12.inferred_1835.position`, `recon_1835_blk_washington_market_a4_12.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a2_13.inferred_1835.position`, `recon_1835_blk_washington_market_a2_13.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a5_14.inferred_1835.position`, `recon_1835_blk_washington_market_a5_14.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a3_15.inferred_1835.position`, `recon_1835_blk_washington_market_a3_15.inferred_1835.footprint`,
+`recon_1835_blk_washington_market_a4_16.inferred_1835.position`, `recon_1835_blk_washington_market_a4_16.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L304** (the
+Franklin block, whose yard-building argument this follows), **L347** (the two boarding houses on
+this block), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1758** (split; this is its piece **T-2129**).
+**Recorded:** 2026-10-05 (T-2129).
+
+### L386 — A vacant town lot is grazed prairie remnant: the flowers the stock leave, on a cropped sward
+**Decision:** T-2101 gives every platted lot with no building on it — no house placed in it, no
+standing footprint over it and no outbuilding dealt to it — its own flora community,
+`z11_lot_remnant` (`data/flora/zones/z11_lot_remnant.json`, written with its manifest entry by
+`tools/derive_lot_remnant.py` and re-derived by `check.sh`). 146 of the plat's 338 lots, in 71
+rings where neighbouring vacant lots share their side lines. On them the settled town's ruderal
+weeds give way to the mesic prairie's bunchgrasses cropped to 0.25-0.55 m, the town's trodden
+bluegrass and clover, and six of the prairie's flowers: bergamot, black-eyed Susan, rattlesnake
+master and butterfly weed at or above their prairie density, the two coneflowers thinned. Compass
+plant, Indian grass, purple prairie clover, lead plant, ox-eye and wild quinine are left out, each
+with its reason in the record. Grass covers 60 % of the ground, the sand prairie's share, and bare ground 15 %, between the prairie's 2 % and the trodden town's
+45 %.
+**Why:** the owner asked on 2026-10-04 for a town "less 'weedy'" without cutting "the beautiful
+plants and grass and flowers", and T-2086 point 2 asked that a vacant lot stay a grazed, flowering
+prairie remnant. The flora dossier has the grid "drawn but mostly not built" in summer 1835 and
+stock at large on it (the 7 Nov 1833 code against wandering pigs; cattle on the unfenced commons).
+No source describes a particular vacant lot. What bounds the invention: every species is a
+committed record's own, copied with its July state and colour and never graded above its parent;
+no height is above the parent's; and which flowers stand follows the ordinary ecology of grazed
+prairie, where stock take the palatable plants first and leave the bitter, aromatic, spiny and
+milky ones.
+**Consequence:** walking the town, the open lots between the houses read as short, patchy prairie
+with lavender, yellow, orange and pale-green flower heads in it, not as a weed patch, and the yards
+of the built lots (L376) stay as they were. A lot is vacant by the committed buildings alone: a
+district built on it later takes it out of the remnant by re-running the tool. A lot is not fenced
+or claimed by this; it states only the ground.
+**How to resolve:** a period description or view of an unbuilt Chicago town lot in the 1830s, or a
+grazing study of a comparable lake-plain prairie remnant, would replace the crop heights, the
+densities and the list of flowers that stand.
+**Recorded:** 2026-10-05 (T-2101).

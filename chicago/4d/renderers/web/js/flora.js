@@ -737,6 +737,14 @@ const CONE_KEEP_M = 3.5;
 /** Cosine of the cone half-angle, and the yaw change that forces a rebuild. */
 const CONE_COS = Math.cos(62 * Math.PI / 180);
 const CONE_YAW_STEP = 0.20;
+/**
+ * T-2106. The longest a spread near rebuild may stay in flight, in wall-clock
+ * milliseconds, before it is finished in one frame. At 60 Hz that is fifteen
+ * frames, more than any pass is paced over; it is there for a slow renderer —
+ * SwiftShader at five frames a second — where a reader waiting a couple of
+ * frames after a move has to find one whole lattice, as it always did.
+ */
+const SPREAD_MAX_MS = 250;
 
 /** Conservative camera azimuth, quantized outward in five-degree buckets.
  * A level-camera cone misses ground exposed by a downward flight view; using
@@ -1205,7 +1213,7 @@ export async function createFlora({
   };
 
   const water = await waterField(terrain, checkpoint);
-  const blocks = footprintCircles(footprints);
+  const blocks = circleGrid(footprintCircles(footprints));
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
   stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
@@ -1310,7 +1318,8 @@ export async function createFlora({
   // ---- placement --------------------------------------------------------- //
 
   const centres = { near: null, yaw: null, farShrub: null, farShrubYaw: null, coneCos: null, pitch: null, eyeY: null,
-    last: null };
+    last: null, lastYaw: null };
+
   const waterY = terrain.heightfield?.meta?.water_surface_m ?? 0;
 
   // The lattice each layer is scattered on, and the ring the shader fades it
@@ -1387,7 +1396,11 @@ export async function createFlora({
     // entitled to the riverbed under a dock as a bluestem is to the soil under a
     // walk, and neither may come up through the planks. Owner-reported twice:
     // reeds through the dock decks, sward through the sidewalks (T-0085/T-0124).
-    for (const b of blocks) {
+    // T-2096: only the floors whose circle reaches this slot's cell are asked.
+    // The whole list was walked for every slot of every rebuild, and it was the
+    // largest single cost of a turn in place (tools/measure_walk_frames.mjs).
+    const near = blocks.at(e, n);
+    if (near) for (const b of near) {
       const dx = e - b.e;
       const dz = n - b.n;
       if (dx * dx + dz * dz < b.r2 && pointInPolygon(b.pts, e, n)) return null;
@@ -1951,6 +1964,116 @@ export async function createFlora({
 
   const tmpV = new THREE.Vector3();
   const tmpF = new THREE.Vector3();
+  const tmpQ = new THREE.Quaternion();
+
+  /**
+   * T-2106. THE REBUILDS, SPREAD OVER FRAMES. Each of the two passes the walker
+   * triggers — the near lattice (`rebuildAll`) and the far shrubs with their
+   * carries (`rebuildFarShrubs`) — is a generator already, which the boot path
+   * iterates between paints. While the visitor moves smoothly the animation
+   * loop now does the same: a pass is started EARLY, advanced a slice of each
+   * frame, and its sets are committed only when it lands, so the GPU goes on
+   * drawing the last whole lattice and never a half-dealt one. The deal itself
+   * is untouched — a pass dealt over ten frames lands the plants a pass dealt
+   * in one would, which `tools/measure_walk_frames.mjs --verify` checks.
+   *
+   * `reach` is how far the walker may stand from the pass's centre before the
+   * lattice on screen runs out of margin (`step` for the near rings, the far
+   * shrubs' own step for theirs); `CONE_YAW_STEP` is the same for a turn.
+   * `cost` is what the last whole pass spent: the next one is paced on it.
+   */
+  const nearPass = { name: 'near', make: rebuildAll, at: 'near', yawAt: 'yaw',
+    reach: step, pending: null, cost: null };
+  const farPass = { name: 'far', make: rebuildFarShrubs, at: 'farShrub', yawAt: 'farShrubYaw',
+    reach: tune.farShrub.step, pending: null, cost: null };
+  stats.spread = { landings: 0, drained: 0, abandoned: 0, frames: 0, ms: 0,
+    passes: { near: 0, far: 0 }, last: { near: null, far: null } };
+
+  /** Run, start or advance one pass this frame. True if its sets changed. */
+  function runPass(p, f, due) {
+    const { e, n, yaw } = f;
+    // Worth spreading: the last pass cost more than the slice, and half this
+    // pass's margin — the most a spread pass can use — holds at least four
+    // frames of the walker's pace and turn (two to spread over, two in hand).
+    // A pass that fits in the slice, a teleport, a snap turn, a horse at the
+    // near rings' 0.6 m step: each takes the one-frame pass it always did,
+    // started on time and not early, because starting a pass early that
+    // cannot then be spread only adds passes (measured on a ride: 367 against
+    // 221).
+    const spread = f.spread && (p.cost ?? 0) > f.budgetMs
+      && f.pace * 4 <= p.reach / 2 && f.turnRate * 4 <= CONE_YAW_STEP / 2;
+    if (p.pending && !spread) {
+      // Dealt for a pose the camera has jumped from: dropped uncommitted. The
+      // sets still hold the last whole lattice on the GPU, and `due` decides
+      // afresh whether that one still serves.
+      p.pending = null;
+      stats.spread.abandoned++;
+    }
+    const c = centres[p.at];
+    const d = c ? Math.hypot(e - c.e, n - c.n) : Infinity;
+    const dy = centres[p.yawAt] === null ? Infinity : yawGap(yaw, centres[p.yawAt]);
+    if (!p.pending) {
+      if (!spread) {
+        if (!due) return false;
+        const t0 = performance.now();
+        for (const _ of p.make(e, n, f.cone)) { /* runtime synchronous path */ }
+        p.cost = performance.now() - t0;
+        stats.spread.passes[p.name]++;
+        centres[p.at] = { e, n };
+        centres[p.yawAt] = yaw;
+        return true;
+      }
+      // Start EARLY by as far as the walker will go while the pass is spread:
+      // its pace (and turn) per frame, for the frames the last pass's cost
+      // needs at this budget, and two in hand. Never earlier than half the
+      // reach — spreading every pass over half the margin is the least any
+      // frame can be asked to pay, because the pass after it needs the rest.
+      const frames = Math.ceil((p.cost ?? 0) / Math.max(f.budgetMs, 0.5)) + 3;
+      const lead = Math.min(p.reach / 2, Math.max(f.pace, frames * f.pace));
+      const leadYaw = Math.min(CONE_YAW_STEP / 2, frames * f.turnRate);
+      if (d + lead <= p.reach && dy + leadYaw <= CONE_YAW_STEP) return false;
+      f.camera.getWorldQuaternion(tmpQ);
+      p.pending = { gen: p.make(e, n, f.cone), e, n, yaw, spent: 0, frames: 0,
+        t0: performance.now(),
+        // Where the camera stood, so a gate can deal the same pass in one frame
+        // and compare the two plant for plant.
+        camera: [tmpV.x, tmpV.y, tmpV.z, ...tmpQ.toArray()] };
+    }
+    // The frames left before the camera reaches the edge of the lattice on
+    // screen, at this frame's pace and turn, less one for the frame this one
+    // renders and one in hand. A pass not landed by then is finished in this
+    // frame: the margin is never spent, only the time.
+    const left = Math.min(
+      f.pace > 0 ? (p.reach - d) / f.pace : Infinity,
+      f.turnRate > 0 ? (CONE_YAW_STEP - dy) / f.turnRate : Infinity) - 2;
+    const late = left < 1 || performance.now() - p.pending.t0 > SPREAD_MAX_MS;
+    const owed = Math.max(0, (p.cost ?? f.budgetMs) - p.pending.spent);
+    const slice = late ? Infinity : Math.max(f.budgetMs, owed / Math.max(1, left));
+    const t0 = performance.now();
+    let done = false;
+    do { done = p.pending.gen.next().done; } while (!done && performance.now() - t0 < slice);
+    p.pending.spent += performance.now() - t0;
+    p.pending.frames++;
+    if (!done) return false;
+    land(p, late);
+    return true;
+  }
+
+  /** A spread pass has run to its end: its lattice is the one shown. */
+  function land(p, drained) {
+    const q = p.pending;
+    centres[p.at] = { e: q.e, n: q.n };
+    centres[p.yawAt] = q.yaw;
+    p.cost = q.spent;
+    const sp = stats.spread;
+    sp.landings++;
+    if (drained) sp.drained++;
+    sp.frames += q.frames;
+    sp.ms += q.spent;
+    sp.last[p.name] = { e: q.e, n: q.n, yaw: q.yaw, frames: q.frames, ms: q.spent,
+      camera: q.camera, pass: ++sp.passes[p.name] };
+    p.pending = null;
+  }
 
   return {
     group,
@@ -2195,7 +2318,14 @@ export async function createFlora({
       centres.pitch = Math.asin(tmpF.y); centres.eyeY = tmpV.y;
     },
 
-    update(dt, camera) {
+    /**
+     * @param {number} [budgetMs] T-2106: the milliseconds of this frame the
+     *   near rebuild may spend. Unset (or Infinity), a rebuild runs to
+     *   completion in the frame that needs it, which is what every caller that
+     *   reads the buffers straight after must get; the animation loop passes a
+     *   slice and the pass is spread over the frames the margin allows.
+     */
+    update(dt, camera, budgetMs = Infinity) {
       uniforms.uChiTime.value += dt * TUNE.wind.speedNear;
       if (!sunFound) {
         sunFound = sunFromScene(group, uniforms, problems);
@@ -2228,24 +2358,46 @@ export async function createFlora({
       // than a frame late. See `moved`.
       const pace = centres.last ? Math.hypot(e - centres.last.e, n - centres.last.n) : 0;
       centres.last = { e, n };
-      let rebuilt = false;
-      if (coneChanged || turnedFar || moved(centres.farShrub, e, n, tune.farShrub.step, pace)) {
-        for (const _ of rebuildFarShrubs(e, n, cone)) { /* synchronous */ }
-        centres.farShrub = { e, n };
-        centres.farShrubYaw = yaw;
-        rebuilt = true;
-      }
-      if (coneChanged || turned || moved(centres.near, e, n, step, pace)) {
-        for (const _ of rebuildAll(e, n, cone)) { /* runtime synchronous path */ }
-        centres.near = { e, n };
-        centres.yaw = yaw;
-        rebuilt = false;
-      }
+      // T-2106. How far the last frame turned the view, as `pace` is how far it
+      // carried the walker.
+      const turnRate = centres.lastYaw === null ? 0 : yawGap(yaw, centres.lastYaw);
+      centres.lastYaw = yaw;
+      // A rebuild may be spread only over SMOOTH motion (see `runPass`): a new
+      // cone needs the lattice where the camera now is, in this frame, exactly
+      // as before. So does a caller that set no budget — every tool that drives
+      // `step()` and reads the buffers straight after.
+      const frame = { e, n, yaw, cone, pace, turnRate, budgetMs, camera,
+        spread: Number.isFinite(budgetMs) && !coneChanged
+          && centres.near !== null && centres.farShrub !== null };
+      // The far shrubs and the carries first, on their own step, as before.
+      const farLanded = runPass(farPass, frame, coneChanged || turnedFar
+        || moved(centres.farShrub, e, n, tune.farShrub.step, pace));
+      const nearLanded = runPass(nearPass, frame, coneChanged || turned
+        || moved(centres.near, e, n, step, pace));
       if (coneChanged) {
         centres.coneCos = coneCos; centres.pitch = pitch; centres.eyeY = tmpV.y;
       }
-      if (rebuilt) tally();
+      // `rebuildAll` tallies itself; a far pass alone has to be counted.
+      if (farLanded && !nearLanded) tally();
     },
+
+    /** T-2106. Land a spread rebuild now, if one is under way — for a reader
+     *  of the buffers that must see one whole lattice. True if one landed. */
+    settle() {
+      let landed = false;
+      for (const p of [farPass, nearPass]) {
+        if (!p.pending) continue;
+        const t0 = performance.now();
+        for (const _ of p.pending.gen) { /* drained */ }
+        p.pending.spent += performance.now() - t0;
+        land(p, true);
+        landed = true;
+      }
+      if (landed) tally();
+      return landed;
+    },
+    /** T-2106. Whether a spread rebuild is under way, its sets uncommitted. */
+    inFlight() { return nearPass.pending !== null || farPass.pending !== null; },
 
     dispose() {
       for (const d of disposables) d?.dispose?.();
@@ -2280,6 +2432,11 @@ function inertRig(group, stats) {
  * early. A move longer than the step is a jump, not a pace: it rebuilds on its
  * own distance, and is not carried into the frame after it.
  */
+/** The unsigned angle between two yaws, in radians, across the wrap. */
+function yawGap(a, b) {
+  return Math.abs(((a - b + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
+}
+
 function moved(centre, e, n, step, pace = 0) {
   if (!centre) return true;
   return Math.hypot(e - centre.e, n - centre.n) + (pace <= step ? pace : 0) > step;
@@ -3466,16 +3623,54 @@ function matches(x, e, n, terrain, water) {
       return false;
   }
   if (!ok) {
-    for (const patch of x.include_polygons ?? []) {
+    for (const patch of ringsNear(x.include_polygons, e, n)) {
       if (pointInPolygon(patch, e, n)) { ok = true; break; }
     }
   }
   if (!ok) return false;
-  for (const hole of x.exclude_polygons ?? []) {
+  for (const hole of ringsNear(x.exclude_polygons, e, n)) {
     if (pointInPolygon(hole, e, n)) return false;
   }
   return true;
 }
+
+/**
+ * The rings of an extent's `include_polygons` / `exclude_polygons` list that can
+ * hold (e, n), read from a bin index built once per list (T-2101). The vacant-lot
+ * remnant holds 69 lot rings spread over the whole town, so walking the list ring
+ * by ring put 69 box tests on every sward slot in town; a point now reads the one
+ * bin it falls in. Same answer as the full walk: a ring is filed under every bin
+ * its box touches. Keyed by the list's own array, which the records never mutate.
+ */
+const RINGS_BIN_M = 32;
+const RINGS_INDEX = new WeakMap();
+const NO_RINGS = [];
+function ringsNear(list, e, n) {
+  if (!list?.length) return NO_RINGS;
+  if (list.length < 4) return list;
+  let ix = RINGS_INDEX.get(list);
+  if (!ix) {
+    ix = new Map();
+    for (const ring of list) {
+      let e0 = Infinity; let e1 = -Infinity; let n0 = Infinity; let n1 = -Infinity;
+      for (const [pe, pn] of ring) {
+        if (pe < e0) e0 = pe; if (pe > e1) e1 = pe;
+        if (pn < n0) n0 = pn; if (pn > n1) n1 = pn;
+      }
+      for (let i = Math.floor(e0 / RINGS_BIN_M); i <= Math.floor(e1 / RINGS_BIN_M); i++) {
+        for (let j = Math.floor(n0 / RINGS_BIN_M); j <= Math.floor(n1 / RINGS_BIN_M); j++) {
+          const k = ringsBin(i, j);
+          if (!ix.has(k)) ix.set(k, []);
+          ix.get(k).push(ring);
+        }
+      }
+    }
+    RINGS_INDEX.set(list, ix);
+  }
+  return ix.get(ringsBin(Math.floor(e / RINGS_BIN_M), Math.floor(n / RINGS_BIN_M))) ?? NO_RINGS;
+}
+/** A numeric bin key, so a lookup allocates no string. 65,536 bins a side at 32 m. */
+function ringsBin(i, j) { return (i + 32768) * 65536 + (j + 32768); }
 
 /**
  * The same even-odd test over an EDGE INDEX built once per ring (T-2091). Only an
@@ -3557,6 +3752,39 @@ function footprintCircles(footprints) {
     const r = Math.sqrt(r2) + 1.0;
     return { e, n, r2: r * r, pts: f.pts };
   });
+}
+
+/**
+ * T-2096. The floor circles bucketed on a world grid, so `station` asks only
+ * the ones that can contain the slot. Every circle is filed in every cell its
+ * bounding square touches, and a point inside a circle is inside that square,
+ * so the bucket holds every circle the full list would have matched: the answer
+ * is the same and only the misses are no longer paid for.
+ */
+const CIRCLE_CELL_M = 8;
+function circleGrid(circles) {
+  const cells = new Map();
+  const key = (i, j) => (i + 32768) * 65536 + (j + 32768);
+  for (const b of circles) {
+    const r = Math.sqrt(b.r2);
+    const i0 = Math.floor((b.e - r) / CIRCLE_CELL_M);
+    const i1 = Math.floor((b.e + r) / CIRCLE_CELL_M);
+    const j0 = Math.floor((b.n - r) / CIRCLE_CELL_M);
+    const j1 = Math.floor((b.n + r) / CIRCLE_CELL_M);
+    for (let i = i0; i <= i1; i++) {
+      for (let j = j0; j <= j1; j++) {
+        const k = key(i, j);
+        const list = cells.get(k);
+        if (list) list.push(b); else cells.set(k, [b]);
+      }
+    }
+  }
+  return {
+    size: circles.length,
+    at(e, n) {
+      return cells.get(key(Math.floor(e / CIRCLE_CELL_M), Math.floor(n / CIRCLE_CELL_M)));
+    },
+  };
 }
 
 /* -------------------------------------------------------------------------- */
@@ -3694,20 +3922,15 @@ function hash3(a, b, c) {
  * gate is on and the one a visitor can see, because a species standing nowhere
  * is a species the town does not have.
  */
-/**
- * The block rotation, kept for `stratum` and no longer read by the sparse draw.
- *
- * It was the Cranley–Patterson offset that kept the rank-1 lattice from
- * repeating one diagonal across the field, sixteen cells square because at four
- * (64 slots) the rotation was all that survived — an independent draw in a
- * costume. T-0265 replaced the lattice, so nothing reads `shift` on that path
- * any more; the two constants stay because `scatter`'s block arithmetic is one
- * expression for both draws and `tools/measure_rank_bias.mjs` mirrors those
- * lines verbatim as its drift guard. Removing the dead branch is T-0371's, not
- * this ticket's — it is a change to the tool's contract, not to the deal.
+/*
+ * THE BLOCK ROTATION IS GONE (T-0371). It was the Cranley–Patterson offset that
+ * kept the rank-1 lattice from repeating one diagonal across the field, one per
+ * 16×16-cell block (`LD_BLOCK_SHIFT = 4`, keyed on `LD_BLOCK_SALT`). T-0265
+ * replaced the lattice with `cellPhase`, after which `scatter` still hashed a
+ * block key, a rotation and a block index for every lattice cell and read none
+ * of them. Only the `strata` draw has blocks now, and `scatter` computes them on
+ * that path alone; `tools/measure_rank_bias.mjs` mirrors those lines verbatim.
  */
-const LD_BLOCK_SHIFT = 4;
-const LD_BLOCK_SALT = 0x2b1f3d7d;
 
 function frac(x) { return x - Math.floor(x); }
 
@@ -3986,7 +4209,7 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
   // ROADMAP K49(d). The block is the stratum: every slot in it is dealt a
   // distinct rank, so a CDF band gets its exact count rather than a Poisson one.
   const strata = draw === 'strata';
-  const shiftBits = strata ? STRAT_BLOCK_SHIFT : LD_BLOCK_SHIFT;
+  const shiftBits = STRAT_BLOCK_SHIFT;
   const span = 1 << shiftBits;
   const nSlots = span * span * perCell;
   const half = stratumHalf(nSlots);
@@ -3995,26 +4218,52 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
   // start would put it back where K49(f) left it.
   const globalShift = hash3(salt, STRAT_SALT, 0x9e3779b9) / 4294967296;
   yield { done: 0, total: r1 - r0 + 1 };
+  // T-2096. A cell no slot of which can pass the ring or the cone test below is
+  // skipped before its slots are hashed. Each slot's stream is seeded from its
+  // own cell and index, so skipping a cell moves no other slot: the plants
+  // dealt are exactly the ones the per-slot tests would have kept. Three
+  // quarters of the bounding square is outside a walker's cone, and hashing it
+  // was most of what a rebuild spent before a single plant was asked about.
+  const halfDiag = cell * Math.SQRT1_2;
   for (let r = r0; r <= r1; r++) {
+    const ny0 = r * cell - camN, ny1 = (r + 1) * cell - camN;
+    const ny = ny0 > 0 ? ny0 : ny1 < 0 ? -ny1 : 0;
+    const fy = Math.max(Math.abs(ny0), Math.abs(ny1));
     for (let c = c0; c <= c1; c++) {
+      const nx0 = c * cell - camE, nx1 = (c + 1) * cell - camE;
+      const nx = nx0 > 0 ? nx0 : nx1 < 0 ? -nx1 : 0;
+      if (nx * nx + ny * ny > rr) continue;
+      const fx = Math.max(Math.abs(nx0), Math.abs(nx1));
+      if (fx * fx + fy * fy < ri) continue;
+      if (cone) {
+        const ce = (c + 0.5) * cell - camE, cn = (r + 0.5) * cell - camN;
+        const cd = Math.hypot(ce, cn);
+        if (cd - halfDiag > CONE_KEEP_M) {
+          const low = cone.cos >= 0 ? (cd - halfDiag) * cone.cos : (cd + halfDiag) * cone.cos;
+          if (ce * cone.fe + cn * cone.fn + halfDiag
+            < low - 2 * (cone.margin ?? 0) - 1e-6) continue;
+        }
+      }
       const cellSeed = hash3(c, r, salt);
-      // ROADMAP K49(b). One rotation per 16×16-cell block of the WORLD lattice —
-      // and, K49(d), one permutation key per the same block.
-      const bc = c >> shiftBits;
-      const br = r >> shiftBits;
-      const blockHash = hash3(bc, br, salt ^ (strata ? STRAT_SALT : LD_BLOCK_SALT));
-      // ROADMAP K49(c2). The lattice takes a Cranley–Patterson rotation, which
-      // wants an independent offset per block; the stratification takes a phase
-      // that SWEEPS its own step across neighbouring blocks, because a random
-      // one leaves a narrow band to a coin toss in the frame. See `blockPhase`.
-      const shift = strata
-        ? blockPhase(bc, br, nSlots, globalShift)
-        : blockHash / 4294967296;
-      // The slot's index inside its own block. Arithmetic shift, so a block west
-      // or south of the origin indexes the same way as one east or north of it.
-      const base = ((c - ((c >> shiftBits) << shiftBits)) * span
-        + (r - ((r >> shiftBits) << shiftBits))) * perCell;
-      const cellPhase = strata ? 0 : blockPhase(c, r, perCell, globalShift);
+      // ROADMAP K49(d). The strata draw deals one permutation per 4×4-cell block
+      // of the WORLD lattice; the sparse draw has no blocks at all since T-0265
+      // (see `cellPhase`), so none of this is computed for it (T-0371).
+      let blockHash = 0, shift = 0, base = 0, cellPhase = 0;
+      if (strata) {
+        const bc = c >> shiftBits;
+        const br = r >> shiftBits;
+        blockHash = hash3(bc, br, salt ^ STRAT_SALT);
+        // ROADMAP K49(c2). A phase that SWEEPS its own step across neighbouring
+        // blocks, because a random one leaves a narrow band to a coin toss in
+        // the frame. See `blockPhase`.
+        shift = blockPhase(bc, br, nSlots, globalShift);
+        // The slot's index inside its own block. Arithmetic shift, so a block
+        // west or south of the origin indexes the same way as one east or north.
+        base = ((c - ((c >> shiftBits) << shiftBits)) * span
+          + (r - ((r >> shiftBits) << shiftBits))) * perCell;
+      } else {
+        cellPhase = blockPhase(c, r, perCell, globalShift);
+      }
       for (let k = 0; k < perCell; k++) {
         const rng = rngFrom(hash3(cellSeed, k, 0x68bc21eb));
         // ROADMAP K49(b). The slot's own place in the deal: it decides BOTH

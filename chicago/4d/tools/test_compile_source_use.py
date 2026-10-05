@@ -135,6 +135,33 @@ class SourceUseTests(unittest.TestCase):
         self.assertEqual(next(e['use'] for e in edges if e['entity_id'] == 'birds'), 'scene')
         self.assertEqual(next(e['confidence'] for e in edges if e['entity_id'] == 'L1'), 'reconstructed')
 
+    def test_other_scene_lists_its_own_sources(self):
+        """T-2079: 1904 lists what its records cite; 1835's own use and edges are unchanged."""
+        self.put('data/structures/house.json', {'id': 'house', 'phases': [
+            {'id': 'old', 'documented_range': {'from': '1830-01-01', 'to': '1840-01-01'},
+             'roof': {'sources': ['map'], 'confidence': 'inferred'}},
+            {'id': 'new', 'documented_range': {'from': '1890-01-01', 'to': '1950-01-01'},
+             'roof': {'sources': ['memory'], 'confidence': 'attested'}}]})
+        self.put('data/sidecars/1835/index.json', {'structures': [{'id': 'house', 'sidecar': 'sidecars/1835/house.json'}]})
+        self.put('data/sidecars/1835/house.json', {'citations': [{'source_id': 'map'}]})
+        self.put('data/scenes/1904.json', {'target_date': '1904-07-01', 'terrain_epoch': 'e1871', 'layers': ['terrain', 'street_grid']})
+        self.put('data/sidecars/1904/index.json', {'structures': [{'id': 'house'}]})
+        self.put('data/street_grid/1904.json', {'streets': [{'id': 'prairie', 'sources': ['paper']}]})
+        c = Compiler(self.root)
+        c.collect()
+        outputs = c.outputs()
+        uses = json.loads(c.scene_outputs(outputs)['1904'])['uses']
+        self.assertEqual(uses, {'map': 'other_scene', 'memory': 'scene', 'paper': 'scene', 'unused': 'unused'})
+        self.assertEqual(self.rows(c)['map']['use'], 'scene')
+        self.assertEqual(self.rows(c)['paper']['use'], 'other_scene')
+        old = json.loads(outputs['map.json'])['edges']
+        self.assertTrue(all('scenes' not in e for e in old), 'an 1835-only edge gains no scenes key')
+        new = json.loads(outputs['memory.json'])['edges']
+        self.assertEqual([(e['use'], e['scenes']) for e in new], [('other_scene', ['1904'])])
+        self.put('data/scenes/1904.json', {'target_date': '1904-07-01', 'layers': ['residents']})
+        with self.assertRaisesRegex(ValueError, 'cannot read them yet'):
+            Compiler(self.root).collect()
+
     def test_confidence_audit_validates_backlinks_and_still_rejects_authored_errors(self):
         self.put('data/exclusions.json', {'excluded': [{'id': 'x', 'sources': ['map'], 'confidence': 'attested'}]})
         outputs, _ = compile_outputs(self.root)

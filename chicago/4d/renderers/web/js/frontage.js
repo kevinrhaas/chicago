@@ -75,6 +75,7 @@
 
 import * as THREE from 'three';
 import { resolveBases } from './scene-loader.js';
+import { gateBoxes } from './gates.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -932,44 +933,81 @@ function buildFence(buf, fence, terrain, level, problems) {
     const dn = b[1] - a[1];
     const len = Math.hypot(de, dn);
     if (len < 0.5) continue;
-    const bays = Math.max(1, Math.round(len / spacing));
     const ux = de / len;
     const uz = -dn / len;            // local ENU to the renderer's (E, up, -N)
-    const feet = [];
-    for (let i = 0; i <= bays; i += 1) {
-      const e = a[0] + de * (i / bays);
-      const n = a[1] + dn * (i / bays);
-      const y = terrain.isWater?.(e, n) ? null : groundAt(terrain, e, n);
-      feet.push(y === null ? null : { e, n, y });
+    // T-2112 — THE GATEWAYS ON THIS LINE. An opening whose stated centre lies on
+    // this segment takes its width out of the fence, and what hangs in it is
+    // drawn after the timber.
+    const gaps = [];
+    for (const o of fence.openings ?? []) {
+      const c = o.at_local_enu_m;
+      if (!Array.isArray(c)) continue;
+      const t = ((c[0] - a[0]) * de + (c[1] - a[1]) * dn) / (len * len);
+      const off = Math.abs((c[0] - a[0]) * (dn / len) - (c[1] - a[1]) * (de / len));
+      if (t < 0 || t > 1 || off > 1.0) continue;
+      gaps.push({ d: t * len, width: o.width_m ?? 1.07, o });
     }
-    for (let i = 0; i <= bays; i += 1) {
-      const f = feet[i];
-      if (!f) continue;
-      pushBox(buf, f.e, f.y + height / 2, -f.n, ux, uz,
-        postHalf, postHalf, height / 2, level, true);
-      posts += 1;
-    }
-    for (let i = 0; i < bays; i += 1) {
-      const p = feet[i];
-      const q = feet[i + 1];
-      if (!p || !q || Math.abs(p.y - q.y) > FENCE_MAX_STEP_M) continue;
-      const bayLen = Math.hypot(q.e - p.e, q.n - p.n);
-      if (bayLen < 0.05) continue;
-      for (let c = 1; c <= courses; c += 1) {
-        const f = courses > 1 ? 0.22 + 0.58 * ((c - 1) / (courses - 1)) : 0.55;
-        pushBox(buf,
-          (p.e + q.e) / 2, (p.y + q.y) / 2 + height * f - FENCE_RAIL_H_M / 2,
-          -(p.n + q.n) / 2, ux, uz,
-          bayLen / 2, FENCE_RAIL_W_M / 2, FENCE_RAIL_H_M / 2, level, true);
+    let spans = [[0, len]];
+    for (const g of gaps) {
+      const lo = g.d - g.width / 2;
+      const hi = g.d + g.width / 2;
+      const next = [];
+      for (const [p0, p1] of spans) {
+        if (hi <= p0 || lo >= p1) { next.push([p0, p1]); continue; }
+        if (lo > p0) next.push([p0, lo]);
+        if (hi < p1) next.push([hi, p1]);
       }
-      const count = Math.max(1, Math.floor(bayLen / boardPitch));
-      const first = (bayLen - (count - 1) * boardPitch) / 2;
-      for (let k = 0; k < count; k += 1) {
-        const t = (first + k * boardPitch) / bayLen;
-        pushBox(buf,
-          p.e + (q.e - p.e) * t, p.y + (q.y - p.y) * t + height / 2,
-          -(p.n + (q.n - p.n) * t), ux, uz,
-          boardW / 2, FENCE_BOARD_T_M / 2, height / 2, level, true);
+      spans = next;
+    }
+    const footAt = (d) => {
+      const e = a[0] + ux * d;
+      const n = a[1] + (dn / len) * d;
+      const y = terrain.isWater?.(e, n) ? null : groundAt(terrain, e, n);
+      return y === null ? null : { e, n, y };
+    };
+    for (const g of gaps) {
+      const ja = footAt(g.d - g.width / 2);
+      const jb = footAt(g.d + g.width / 2);
+      if (!ja || !jb) continue;
+      for (const bx of gateBoxes(g.o.gate, ja, jb, height, g.o.opens_into_local_enu_m)) {
+        pushBox(buf, bx.cx, bx.cy, bx.cz, bx.ux, bx.uz, bx.halfLen, bx.halfW, bx.halfH,
+          level, bx.part !== 'rail');
+      }
+    }
+    for (const [lo, hi] of spans) {
+      if (hi - lo < 0.3) continue;
+      const bays = Math.max(1, Math.round((hi - lo) / spacing));
+      const feet = [];
+      for (let i = 0; i <= bays; i += 1) feet.push(footAt(lo + (hi - lo) * (i / bays)));
+      for (let i = 0; i <= bays; i += 1) {
+        const f = feet[i];
+        if (!f) continue;
+        pushBox(buf, f.e, f.y + height / 2, -f.n, ux, uz,
+          postHalf, postHalf, height / 2, level, true);
+        posts += 1;
+      }
+      for (let i = 0; i < bays; i += 1) {
+        const p = feet[i];
+        const q = feet[i + 1];
+        if (!p || !q || Math.abs(p.y - q.y) > FENCE_MAX_STEP_M) continue;
+        const bayLen = Math.hypot(q.e - p.e, q.n - p.n);
+        if (bayLen < 0.05) continue;
+        for (let c = 1; c <= courses; c += 1) {
+          const f = courses > 1 ? 0.22 + 0.58 * ((c - 1) / (courses - 1)) : 0.55;
+          pushBox(buf,
+            (p.e + q.e) / 2, (p.y + q.y) / 2 + height * f - FENCE_RAIL_H_M / 2,
+            -(p.n + q.n) / 2, ux, uz,
+            bayLen / 2, FENCE_RAIL_W_M / 2, FENCE_RAIL_H_M / 2, level, true);
+        }
+        const count = Math.max(1, Math.floor(bayLen / boardPitch));
+        const first = (bayLen - (count - 1) * boardPitch) / 2;
+        for (let k = 0; k < count; k += 1) {
+          const t = (first + k * boardPitch) / bayLen;
+          pushBox(buf,
+            p.e + (q.e - p.e) * t, p.y + (q.y - p.y) * t + height / 2,
+            -(p.n + (q.n - p.n) * t), ux, uz,
+            boardW / 2, FENCE_BOARD_T_M / 2, height / 2, level, true);
+        }
       }
     }
   }

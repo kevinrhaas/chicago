@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** T-2046 — the arrival-and-jaunts path, laid out at the sizes a phone actually takes.
+/** T-2046 / T-2061 — the arrival-and-jaunts path, laid out at the sizes a phone actually takes.
  *
  *   ./tools/publish.sh && node tools/measure_arrival_layouts.mjs [--layout narrow-320] [--write]
  *
@@ -15,8 +15,9 @@
  *
  * At every step it asserts, and exits 1 on any failure:
  *   - nothing scrolls sideways (scrollWidth <= innerWidth);
- *   - every visible control the path owns (the welcome, the jaunt panel, the context card)
- *     is at least 44x44 CSS px on a touch layout;
+ *   - every visible control the path reaches (the welcome, the jaunt panel, the context card,
+ *     the HUD's chips, the drawer and the place card) is at least 44x44 CSS px on a touch
+ *     layout;
  *   - the place card, the drawer, the jaunt panel, the HUD's controls and the thumb's strip
  *     at the foot of the screen (--jaunt-floor) do not overlap one another, and nothing
  *     in the welcome sits on top of another of its controls;
@@ -26,9 +27,9 @@
  *   - focus is never left on <body>: it moves with the region that opened, onto Return when
  *     a card hides the story, and back to the link that opened the card on Return.
  *
- * Controls owned by other surfaces — the HUD's chips, the place card's inline controls and
- * the drawer's header and tabs — are measured and REPORTED, never passed or failed here; their successor is named in the
- * reading. Insets are applied with Emulation.setSafeAreaInsetsOverride; a browser without
+ * T-2046 measured the HUD's chips, the place card's inline controls and the drawer's header
+ * and tabs and only REPORTED them; T-2061 brought them to 44 px on touch and they are gated
+ * with the rest. Insets are applied with Emulation.setSafeAreaInsetsOverride; a browser without
  * it says so in the reading rather than passing the inset checks on zeros.
  *
  * Stills go to ARRIVAL_LAYOUT_EVIDENCE (default /tmp/arrival-layouts). `--write` records the
@@ -58,7 +59,6 @@ const LAYOUTS = [
   { name: 'desktop', viewport: { width: 1280, height: 800 }, touch: false, insets: { top: 0, bottom: 0, left: 0, right: 0 } },
 ].filter((l) => !only || l.name === only);
 if (!LAYOUTS.length) { console.error(`no layout named ${only}`); process.exit(2); }
-const SUCCESSOR = process.env.ARRIVAL_LAYOUT_SUCCESSOR || 'the HUD chips, the place card\'s inline controls and the drawer header/tabs under 44px on touch';
 
 const mime = { '.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.css': 'text/css',
   '.json': 'application/json', '.wasm': 'application/wasm', '.svg': 'image/svg+xml', '.woff2': 'font/woff2' };
@@ -81,21 +81,16 @@ function readLayout({ touch, insets }) {
   const name = (el) => `${el.tagName.toLowerCase()}${el.id ? `#${el.id}` : ''}${el.dataset.action ? `[${el.dataset.action}]` : ''}`
     + `${el.dataset.link ? `[${el.dataset.link}]` : ''} "${(el.getAttribute('aria-label') || el.textContent || '').trim().slice(0, 28)}"`;
   const hits = (a, b) => Math.min(a.r, b.r) - Math.max(a.l, b.l) > 1 && Math.min(a.b, b.b) - Math.max(a.t, b.t) > 1;
-  const W = innerWidth, H = innerHeight, f = [], report = [];
+  const W = innerWidth, H = innerHeight, f = [];
   if (document.documentElement.scrollWidth > W) f.push(`scrolls sideways: ${document.documentElement.scrollWidth} > ${W}`);
   const controls = (scope) => [...scope.querySelectorAll('button, a[href], input, select, summary, [role=button]')]
     .filter((el) => vis(el) && !el.disabled && el.getBoundingClientRect().width > 0);
-  const owned = ['#gate', '#jaunt-panel', '.jaunt-context-card'].map((s) => document.querySelector(s)).filter(vis);
-  const elsewhere = ['#hud', '#panel', '#popup'].map((s) => document.querySelector(s)).filter(vis);
+  const owned = ['#gate', '#jaunt-panel', '.jaunt-context-card', '#hud', '#popup'].map((s) => document.querySelector(s)).filter(vis);
   if (touch) {
     for (const scope of owned) for (const el of controls(scope)) {
       const b = el.getBoundingClientRect();
       if (b.bottom <= 0 || b.top >= H) continue;
       if (b.width < 43.5 || b.height < 43.5) f.push(`target under 44px: ${name(el)} ${Math.round(b.width)}x${Math.round(b.height)}`);
-    }
-    for (const scope of elsewhere) for (const el of controls(scope)) {
-      const b = el.getBoundingClientRect();
-      if (b.bottom > 0 && b.top < H && (b.width < 43.5 || b.height < 43.5)) report.push(`${name(el)} ${Math.round(b.width)}x${Math.round(b.height)}`);
     }
   }
   // The surfaces that must not cover one another while a jaunt is running.
@@ -147,11 +142,11 @@ function readLayout({ touch, insets }) {
     if (b.l < insets.left - 0.5 || b.r > W - insets.right + 0.5 || b.t < insets.top - 0.5 || b.b > H - insets.bottom + 0.5) f.push('outside the safe area: the welcome card');
   }
   const a = document.activeElement;
-  return { failures: f, elsewhere: report, focus: a && a !== document.body ? name(a) : 'body',
+  return { failures: f, focus: a && a !== document.body ? name(a) : 'body',
     focusVisible: !!a && a !== document.body && vis(a), focusLink: a?.dataset?.link ?? null };
 }
 
-const results = { ticket: 'T-2046', measuredAt: new Date().toISOString(), browser: browser.version(), layouts: [] };
+const results = { ticket: 'T-2061', measuredAt: new Date().toISOString(), browser: browser.version(), layouts: [] };
 let failed = 0;
 for (const layout of LAYOUTS) {
   const { name, viewport, touch, insets } = layout;
@@ -163,7 +158,7 @@ for (const layout of LAYOUTS) {
   page.setDefaultTimeout(90_000);
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message || String(e)));
-  const record = { name, viewport, touch, insets, insetsApplied: false, steps: [], elsewhere: [], errors };
+  const record = { name, viewport, touch, insets, insetsApplied: false, steps: [], errors };
   if (insets.top || insets.bottom || insets.left || insets.right) {
     const cdp = await ctx.newCDPSession(page);
     try { await cdp.send('Emulation.setSafeAreaInsetsOverride', { insets }); record.insetsApplied = true; } catch (e) { record.insetsNote = `not applied: ${e.message}`; }
@@ -174,7 +169,6 @@ for (const layout of LAYOUTS) {
     const r = await page.evaluate(readLayout, { touch, insets: record.insetsApplied ? insets : { top: 0, bottom: 0, left: 0, right: 0 } });
     const s = { step: label, failures: [...r.failures, ...await extra(r)], focus: r.focus };
     record.steps.push(s);
-    for (const e of r.elsewhere) if (!record.elsewhere.includes(e)) record.elsewhere.push(e);
     if (touch || label === 'at-stop') {
       const still = path.join(out, `${name}-${String(record.steps.length).padStart(2, '0')}-${label}.png`);
       await page.screenshot({ path: still });
@@ -297,13 +291,11 @@ for (const layout of LAYOUTS) {
   }
   record.failures = record.steps.reduce((n, s) => n + s.failures.length, 0);
   failed += record.failures;
-  if (record.elsewhere.length) console.log(`      reported, not gated (${SUCCESSOR}): ${record.elsewhere.length} control(s)`);
   results.layouts.push(record);
   await ctx.close();
 }
 await browser.close();
 server.close();
-results.successor = SUCCESSOR;
 results.verdict = failed ? `FAIL — ${failed} failure(s)` : 'PASS';
 console.log(`\narrival layouts: ${results.verdict}; stills in ${out}`);
 if (write) {

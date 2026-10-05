@@ -25,14 +25,29 @@ It also asserts the precondition the comma form needs from the DATA: no
 structure id may contain a comma. An id with a comma in it would make `a,b`
 ambiguous between one structure and two, and no amount of careful parsing
 recovers from that — the separator has to be a character the ids cannot use.
+
+T-1653 CARRIES THE SAME PROMISE ONE LINK FURTHER. A `--only` bake built one roof and
+then ran `tools/web_derivatives.sh` over every master in the tree — ~570, two npx
+start-ups each, about eighteen minutes — because nothing told the derivative step
+what had been built. Now build.py writes the masters it wrote (`--wrote`) and bake.sh
+hands that list to `web_derivatives.sh --only a.glb,b.glb`. That is three files
+agreeing about one selection, so this gate holds all three texts, asserts no master
+name under assets/gltf/ carries the comma the list splits on, and its self-test runs
+the derivative step itself on a fixture with a stub toolchain: a list derives its
+members and nothing else, merges its record, and a name no master answers to or an
+empty list is refused before a byte is written.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -42,6 +57,8 @@ from common.selection import parse_only, refusal, selects  # noqa: E402
 
 BAKE_SH = ROOT / "tools" / "bake.sh"
 BUILD_PY = ROOT / "generators" / "build.py"
+WEB_SH = ROOT / "tools" / "web_derivatives.sh"
+MASTERS = ROOT / "assets" / "gltf"
 STRUCTURES = ROOT / "data" / "structures"
 
 # The documented form, written exactly as bake.sh's usage writes it. This literal
@@ -79,6 +96,19 @@ def audit_texts(bake_sh: str, build_py: str) -> list[str]:
         rep.append("generators/build.py compares a structure id against `args.only` "
                    "for EQUALITY. That is the T-1652 defect exactly: a comma list "
                    "matches no id, so the documented form silently builds nothing.")
+    # T-1653: the derivative step's selection is the list the build wrote.
+    if not re.search(r'build\.py -- "\$@" --wrote\b', bake_sh):
+        rep.append("tools/bake.sh no longer asks build.py for the masters it wrote "
+                   "(`--wrote`), so a `--only` bake cannot tell the derivative step "
+                   "what it built and re-derives the whole town (T-1653).")
+    if not re.search(r"^\s*tools/web_derivatives\.sh --only\b", bake_sh, re.M):
+        rep.append("tools/bake.sh no longer passes a selection to "
+                   "tools/web_derivatives.sh, so `--only <id>` derives every master in "
+                   "the tree — ~18 minutes for one roof (T-1653).")
+    if '"--wrote"' not in build_py:
+        rep.append("generators/build.py no longer takes `--wrote`, which is the only "
+                   "record of which phases and versions a selection resolved to "
+                   "(T-1653).")
     if re.search(r"if\s+args\.only\b", build_py):
         rep.append("generators/build.py tests `args.only` for truth. `--only \"\"` is "
                    "falsy, so that test reads an empty selection — an unexpanded "
@@ -117,6 +147,90 @@ def audit_rule() -> list[str]:
                    f"them is ambiguous: {', '.join(commas)}")
     if not ids:
         rep.append(f"no structure records found under {STRUCTURES}.")
+    masters = [p.relative_to(MASTERS).as_posix() for p in MASTERS.rglob("*.glb")]
+    commas = [one for one in masters if "," in one]
+    if commas:
+        rep.append("these masters' paths contain a comma, which is the separator "
+                   "`tools/web_derivatives.sh --only a,b` splits on (T-1653): "
+                   + ", ".join(commas))
+    return rep
+
+
+# ------------------------------------------------- the derivative step, run (T-1653)
+# A stand-in for the pinned toolchain: it answers `--version` with the pin, and for
+# `optimize` / `meshopt` writes a small file carrying the pinned stamp, so the step
+# under test is the committed script and only the npx it calls is fake. The same
+# construction tools/test_glessner_v4_package_producer.py uses.
+STUB_NPX = """#!/usr/bin/env python3
+import os, sys
+from pathlib import Path
+args = sys.argv[1:]
+args = args[args.index("gltf-transform") + 1:]
+if os.environ.get("FIXTURE_TRANSFORM") == "unavailable":
+    raise SystemExit(1)
+if args[0] == "--version":
+    print("4.5.0"); raise SystemExit()
+command, source, target = args[:3]
+Path(target).write_bytes(b"glTF-Transform v4.5.0 " + command.encode())
+"""
+
+
+def run_step(script: str, names: list[str], *args: str, mode: str = "optimized"):
+    """Run a copy of `script` (web_derivatives.sh's text) over fixture masters."""
+    with tempfile.TemporaryDirectory() as directory:
+        root = Path(directory)
+        (root / "tools").mkdir()
+        (root / "tools" / "web_derivatives.sh").write_text(script)
+        # A full run asks for the ignored Glessner v4 master before it starts; the
+        # fixture has none to recover, so its recovery is a no-op here.
+        (root / "tools" / "recover_glessner_v4.py").write_text("")
+        (root / "bin").mkdir()
+        npx = root / "bin" / "npx"
+        npx.write_text(STUB_NPX)
+        npx.chmod(0o755)
+        (root / "assets" / "gltf").mkdir(parents=True)
+        for name in names:
+            (root / "assets" / "gltf" / name).write_bytes(name.encode() * 400)
+        (root / "assets" / "manifest.web.json").write_text(json.dumps(
+            {"masters": {"untouched.glb": "kept"}}))
+        env = {**os.environ, "PATH": f"{root / 'bin'}{os.pathsep}{os.environ['PATH']}",
+               "FIXTURE_TRANSFORM": mode}
+        done = subprocess.run(["bash", "tools/web_derivatives.sh", *args], cwd=root,
+                              env=env, capture_output=True, text=True)
+        web = root / "assets" / "web"
+        made = sorted(p.name for p in web.glob("*.glb")) if web.is_dir() else []
+        record = json.loads((root / "assets" / "manifest.web.json").read_text())
+        return done.returncode, made, sorted(record.get("masters", {}))
+
+
+def audit_step(script: str) -> list[str]:
+    """What the derivative step does with a selection, run rather than read."""
+    rep: list[str] = []
+    town = ["a__p.glb", "b__p.glb", "c__p.glb", "terrain__e.glb"]
+    code, made, record = run_step(script, town, "--only", "a__p.glb,terrain__e.glb")
+    if code != 0 or made != ["a__p.glb", "terrain__e.glb"]:
+        rep.append(f"`--only a,b` derived {made} (exit {code}), not exactly the two "
+                   "masters it named.")
+    elif record != ["a__p.glb", "terrain__e.glb", "untouched.glb"]:
+        rep.append(f"`--only a,b` left the record reading {record}: a selection must "
+                   "merge its masters in and keep every other entry.")
+    code, made, _ = run_step(script, town, "--only", "a__p.glb", mode="unavailable")
+    if code != 0 or made != ["a__p.glb"]:
+        rep.append(f"without the toolchain, `--only a` copied {made} (exit {code}) — the "
+                   "fallback must copy the selection, not every master in the tree.")
+    code, made, record = run_step(script, town, "--only", "a__p.glb,nobody__p.glb")
+    if code == 0 or made:
+        rep.append(f"`--only` naming a master that does not exist ran (exit {code}, "
+                   f"wrote {made}); it must be refused before any work.")
+    code, made, _ = run_step(script, town, "--only", "")
+    if code == 0 or made:
+        rep.append(f"`--only \"\"` ran (exit {code}, wrote {made}); an empty selection "
+                   "is not the whole town and must be refused.")
+    code, made, record = run_step(script, town)
+    if code != 0 or made != sorted(town) or record != sorted(town):
+        rep.append(f"with no selection the step derived {made} and recorded {record} "
+                   f"(exit {code}); a full run derives every master and rewrites the "
+                   "record whole.")
     return rep
 
 
@@ -142,6 +256,15 @@ def self_test() -> int:
     else:
         print("  ok    bake.sh's documented form is the form build.py implements")
 
+    print("\n  -- the derivative step does what a selection says (T-1653)")
+    web_sh = WEB_SH.read_text()
+    live_step = audit_step(web_sh)
+    if live_step:
+        for line in live_step:
+            fails.append(f"the committed derivative step: {line}")
+    else:
+        print("  ok    a list derives its members, an unknown or empty one is refused")
+
     print("\n  -- and each assertion fires when the pair is broken")
     arm("the usage drops the comma form",
         bake_sh.replace(DOC_FORM, "--only <id>"), build_py, "no longer documents")
@@ -158,6 +281,38 @@ def self_test() -> int:
     arm("the falsy-empty test comes back",
         bake_sh, build_py + "\n    if args.only:\n        pass\n", "tests `args.only` for truth")
 
+    arm("bake.sh stops asking build.py what it wrote (T-1653)",
+        bake_sh.replace(" --wrote ", " "), build_py, "no longer asks build.py")
+    arm("bake.sh derives the whole town again (T-1653)",
+        re.sub(r'tools/web_derivatives\.sh --only "[^\n]*', "tools/web_derivatives.sh",
+               bake_sh), build_py, "no longer passes a selection")
+    arm("build.py drops --wrote (T-1653)",
+        bake_sh, build_py.replace('"--wrote"', '"--written"'), "no longer takes `--wrote`")
+
+    def arm_step(label: str, broken: str, expect: str) -> None:
+        if broken == web_sh:
+            fails.append(f"{label}: the break did not apply to web_derivatives.sh")
+            return
+        rep = audit_step(broken)
+        if any(expect in line for line in rep):
+            print(f"  ok    {label}")
+        else:
+            fails.append(f"{label}: NOT caught (findings: {rep})")
+
+    arm_step("the step ignores the selection",
+             web_sh.replace('[ -z "$ONLY" ] && return 0', "return 0"), "not exactly the two")
+    arm_step("the fallback copies every master again",
+             web_sh.replace('    cp -f "$f" "$OUT/"\n',
+                            '    cp -f assets/gltf/*.glb "$OUT/"\n'), "the fallback must")
+    arm_step("an unknown name is skipped rather than refused",
+             web_sh.replace('[ -f "assets/gltf/$name" ] || missing=', ': || missing='),
+             "must be refused before any work")
+    arm_step("an empty selection reads as the whole town",
+             web_sh.replace('elif [ -n "$ONLY_GIVEN" ]; then', 'elif false; then'),
+             "is not the whole town")
+    arm_step("a selection rewrites the record whole",
+             web_sh.replace("if only and record.exists():", "if False:"),
+             "must merge its masters in")
     print()
     for f in fails:
         print(f"  FAIL  {f}")

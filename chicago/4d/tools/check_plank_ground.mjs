@@ -37,6 +37,7 @@ const dataBase=pathToFileURL(path.join(sourceRoot,'data/'));
 const frontageSource=await readFile(path.join(sourceRoot,'renderers/web/js/frontage.js'),'utf8');
 const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '${threeURL}'`)
  .replace("import { resolveBases } from './scene-loader.js';","const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
+ .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
  +'\nexport {timberBuf,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
  return {ok:true,json:async()=>JSON.parse(await readFile(file,'utf8'))};};

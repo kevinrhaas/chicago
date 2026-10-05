@@ -21,7 +21,7 @@ export function createJauntPanel({ destinations, actions }) {
   controls.setAttribute('aria-label', 'Jaunt navigation');
   const buttons = {};
   for (const [id, label] of [['prev', 'Previous Stop'], ['next', 'Next Stop'], ['end', 'End Jaunt'], ['menu', 'Jaunts Menu']]) {
-    buttons[id] = button(label, () => actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
+    buttons[id] = button(label, () => id === 'next' ? goNext() : actions[id]()); buttons[id].dataset.action = id; controls.append(buttons[id]);
   }
   const mode = node('select'); mode.setAttribute('aria-label', 'Jaunt travel mode');
   mode.title = 'Fly is a viewing convenience, not 1835 transport.';
@@ -36,7 +36,7 @@ export function createJauntPanel({ destinations, actions }) {
   collapse.setAttribute('aria-label', 'Collapse the outing panel'); collapse.setAttribute('aria-expanded', 'true');
   const bar = node('div', '', 'jaunt-bar'), barLabel = button('', () => setCollapsed(false));
   barLabel.className = 'jaunt-bar-label'; barLabel.setAttribute('aria-expanded', 'false');
-  const barNext = button('Next Stop', () => actions.next()); barNext.dataset.action = 'bar-next';
+  const barNext = button('Next Stop', () => goNext()); barNext.dataset.action = 'bar-next';
   const barReturn = button('Return', () => { if (state?.phase === 'detail') actions.returnFromDetail(); else actions.closeOverlay(); }); barReturn.hidden = true; barReturn.dataset.action = 'return';
   const barEnd = button('End', actions.end); barEnd.setAttribute('aria-label', 'End Jaunt');
   bar.append(barLabel, barNext, barReturn, barEnd);
@@ -58,7 +58,17 @@ export function createJauntPanel({ destinations, actions }) {
     if (focus) (value ? barLabel : collapse).focus({ preventScroll: true });
   }
   root.addEventListener('keydown', e => e.stopPropagation());
-  let state, key, overlayView = null;
+  let state, key, overlayView = null, needsChoice = false;
+  // T-2114: a stop that asks for a choice used to grey out Next Stop with the options
+  // below the fold on a phone, so the outing read as stuck. Next Stop now says so and,
+  // tapped, opens the panel and brings the first open option into view.
+  function goNext() {
+    if (!needsChoice) return actions.next();
+    setCollapsed(false, { focus: false });
+    const first = body.querySelector('[data-choice]:not(:disabled)');
+    first?.closest('.jaunt-choices')?.scrollIntoView({ block: 'nearest' });
+    first?.focus({ preventScroll: true });
+  }
   const saveView = () => { overlayView ??= { scroll: body.scrollTop, collapsed, focus: document.activeElement?.dataset.link }; };
   const restoreView = () => {
     if (!overlayView) return;
@@ -91,7 +101,15 @@ export function createJauntPanel({ destinations, actions }) {
     const unsafe = claims.some(c => claimPresentation(c).text === 'Unverified attribution withheld.');
     const paragraph = node('p', unsafe ? 'Unverified attribution withheld.' : text, narrative ? 'jaunt-narrative' : '');
     paragraph.title = paragraph.textContent; parent.append(paragraph);
-    const chips = node('div', '', 'jaunt-evidence');
+    if (!claims.length) return;
+    // T-2120: the sourcing folds behind one quiet toggle per passage instead of a row of
+    // [DOC]/[INF]/[CONJ] chips under the story; every claim and source is one tap away.
+    const chips = node('div', '', 'jaunt-evidence'); chips.hidden = true;
+    const toggle = button(`Sources · ${claims.length}`, () => {
+      chips.hidden = !chips.hidden; toggle.setAttribute('aria-expanded', String(!chips.hidden));
+    });
+    toggle.className = 'jaunt-sources-toggle'; toggle.setAttribute('aria-expanded', 'false');
+    parent.append(toggle);
     for (const claim of claims) {
       const presentation = claimPresentation(claim), fold = node('details', '', presentation.narrative ? 'jaunt-narrative' : '');
       fold.append(node('summary', `${presentation.label} ${claim?.id || 'Evidence'}`), node('p', presentation.text));
@@ -181,7 +199,10 @@ export function createJauntPanel({ destinations, actions }) {
       }
       body.append(links);
     }
-    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state);
+    const here = state.visited[state.stopIndex];
+    needsChoice = state.phase === 'atStop' && !canNext(state) && !here.committed && choicesFor(state).length > 0;
+    buttons.prev.disabled = state.stopIndex === 0; buttons.next.disabled = barNext.disabled = !canNext(state) && !needsChoice;
+    for (const b of [buttons.next, barNext]) { b.textContent = needsChoice ? 'Choose an Option' : 'Next Stop'; b.classList.toggle('jaunt-needs-choice', needsChoice); }
     const place = destinations.byId(stop.destination.kind, stop.destination.id)?.label || stop.destination.id;
     barLabel.replaceChildren(node('span', `▴ ${['travelling', 'paused'].includes(state.phase) ? 'On the way to ' : ''}${place}`),
       node('small', `Stop ${state.stopIndex + 1} of ${state.jaunt.stops.length}`));

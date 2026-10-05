@@ -4182,28 +4182,8 @@
       },
       "open_lots": [
         {
-          "lot": 0,
-          "why": "The Washington-and-Market corner, the block's water side, open because this deal has no roof for it: the deal is the size of the plan's unclaimed H3 headroom and its yard, nothing more — and it was tried first and refused: Market Street is graded `principal`, and `ancillary_behind_its_own_roof` refuses a stable or privy whose nearest street is a principal one, so a house here could not have its yard. hh_bently_wm_t's slot request on it stands as a request, unbuilt, as it stood before this deal."
-        },
-        {
           "lot": 1,
           "why": "The Madison-and-Market corner, and the lot this deal names as the block's reserved open one. The schedule's own sizing (T-1623) counts principal room over the free lots LESS ONE so that a block is never dealt out of its open lot, and `1835_platted_seats.json` already keeps this lot clear of every request for the same reason; which lot carries the reservation is arbitrary within the block, and this entry takes the one the seating already names."
-        },
-        {
-          "lot": 2,
-          "why": "An interior lot on the Washington face, next to the Market corner, open because this deal has no roof for it: the deal is the size of the plan's unclaimed H3 headroom and its yard, nothing more. hh_chiney_ralph's slot request on it stands as a request, unbuilt, as it stood before this deal."
-        },
-        {
-          "lot": 3,
-          "why": "An interior lot on the Madison face, behind lot 2, open because this deal has no roof for it: the deal is the size of the plan's unclaimed H3 headroom and its yard, nothing more. hh_chevalier_joseph's slot request on it stands as a request, unbuilt, as it stood before this deal."
-        },
-        {
-          "lot": 6,
-          "why": "The Washington-and-Franklin corner, open because this deal has no roof for it: the deal is the size of the plan's unclaimed H3 headroom and its yard, nothing more, and a boarding house here would score above the Clark block's two (a corner is the one term of the lodging clause's `prefers` a Washington-tier lot can answer) and draw the South's two banded keepers off the houses raised for them. hh_bennet_lyman's slot request on it stands as a request, unbuilt, as it stood before this deal."
-        },
-        {
-          "lot": 7,
-          "why": "The Madison-and-Franklin corner, open because this deal has no roof for it: the deal is the size of the plan's unclaimed H3 headroom and its yard, nothing more, and a boarding house here would score above the Clark block's two (a corner is the one term of the lodging clause's `prefers` a Washington-tier lot can answer) and draw the South's two banded keepers off the houses raised for them. hh_clarke_h_b's slot request on it stands as a request, unbuilt, as it stood before this deal."
         }
       ],
       "slots": [
@@ -4263,6 +4243,172 @@
         }
       ],
       "arrangement_note": "TWO BOARDING HOUSES BACK TO BACK IN THE MIDDLE OF THE BLOCK, ONE ON EACH LONG FACE, EACH WITH A STABLE AND A PRIVY BEHIND IT (T-1951, of T-1810). The order book carries the South's `larger_boarding_houses` cell at twenty-eight ordered and twenty standing, and the 665-roof schedule apportions this block two H3 roofs that `1835_platted_seats.json` lists under `plan_left_unclaimed` with the sentence `the plan offers this family and no banded row of this division is admitted by a clause that takes it`. So these houses answer the PLAN and not a household: the South's two banded tavern keepers already stand on the Clark block's first two houses, and each keeper here is the lodgers stage's draw, as the Clark block's third house's is. The block stood empty; it stands at six roofs on two of its eight lots. Each house is the form T-1778 built on the first seat: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper-storey windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` block shows the arithmetic). Each stands 1.55 m off its lot's street edge, the setback every house on the tier took, lot 4's facing Washington and lot 5's Madison, so the two stand back to back across the block alley as the Clark block's first two houses do and their yards meet at it. WHY NOT THE CORNERS, which the `lodging_near_the_landings` clause reads as where the documented lodging roofs stood (\"on a corner, an approach or the water\"). Two reasons, both measured on this deal's first two tries. The Washington-and-Market corner is the water side, but Market Street is graded `principal`, and a stable or privy behind a house there stands nearest that street, which `ancillary_behind_its_own_roof` refuses. And the Franklin corners score exactly what the Clark block's two corner houses score in the platted deal, which breaks the tie on the lot id, so a house on either drew hh_beaubien_mark and hh_sweet_alanson off the houses T-1778 and T-1809 raised for them; this ticket raises the plan's unclaimed roofs and does not move a seated keeper. So the pair stands mid-block, and that is a liberty and not a finding. The stable stands off the alley on one side of each lot and the privy on the other, 4-4.5 m in from the alley edge as every yard building of this module stands, and each serves only the lot it is in the yard of. THE YARD MIX IS NOT THE PLAN'S, and it is said: the schedule apportions this block's yard as a mix sized for the dwellings its plan expected, and a stable and a privy apiece is what the documented lodging roofs show, as L326 states for the Clark block. EVERY FREE LOT BUT THE KEPT-OPEN ONE CARRIED A SLOT REQUEST, so both houses stand on requested lots: hh_benton_datas_e's H2 on lot 4 and hh_chattin_clark's D3 on lot 5. The lodging roof goes first under the precedence T-1777's deal order already gives it over the dwelling clauses, and the two requests are re-seated or owed in writing by the seating chain, not by this entry. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in 1835, where on the lot they sat and how far back. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+    },
+    {
+      "block_id": "blk_washington_market",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_washington_market_second_deal",
+      "claimed": "2026-10-05",
+      "seq_start": 7,
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "market",
+        "east": "franklin"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 6,
+        "free_lots": 6,
+        "headroom": 20,
+        "dealt_roofs": 10,
+        "dealt_principal": 5,
+        "dealt_ancillary": 5,
+        "principal": 5,
+        "ancillary": 5
+      },
+      "families": {
+        "H1": 1,
+        "D7": 1,
+        "D4": 2,
+        "D3": 1,
+        "A2": 1,
+        "A3": 1,
+        "A4": 2,
+        "A5": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2129",
+        "parent": "T-1758",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_benediet_loma",
+            "family": "H1",
+            "order_book_draw": "blk_washington_market / H1 / south"
+          },
+          {
+            "seat": "hh_chevalier_joseph",
+            "family": "D4",
+            "order_book_draw": "blk_washington_market / D4 / south"
+          },
+          {
+            "seat": "hh_beech_reuben",
+            "family": "D7",
+            "order_book_draw": "blk_washington_market / D7 / south"
+          },
+          {
+            "seat": "hh_chattin_clark",
+            "family": "D3",
+            "order_book_draw": "blk_washington_market / D3 / south"
+          },
+          {
+            "seat": "hh_chiney_ralph",
+            "family": "D4",
+            "order_book_draw": "blk_washington_market / D4 / south"
+          }
+        ],
+        "why": "THE SEATING ASKED FOR FIVE ROOFS ON THIS BLOCK AND THE SCHEDULE HOLDS EXACTLY FIVE. When T-1758 was claimed, `1835_platted_seats.json` carried five `slot` requests on blk_washington_market with no structure under them — an H1 on lot 0, a D4 on lot 2, a D3 on lot 3, a D7 on lot 6 and a D4 on lot 7 — and the 665-roof schedule (data/reconstruction/1835_665_roof_programme.json) gives the block `lot_ceiling_principal` 5 over its six free lots, the sixth being the reserved open one. The schedule's own family list for the block holds one H1, one D7, one D3 and three D4, so every one of the five requested families is inside the plan, and its five ancillary roofs (A2, A3, two A4, A5) are the yards dealt here. So the count, the families and the lots are the seating's and the schedule's, and nothing in this deal chooses them."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Madison-and-Market corner, still the block's reserved open lot. The schedule's sizing (T-1623) counts principal room over the free lots less one so that a block is never dealt out of its open lot, the first deal named this one, and `1835_platted_seats.json` keeps it clear of every request; a deal that fills the other five lots is the reason that reservation exists, not a reason to spend it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "washington",
+          "setback_m": 5.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "madison",
+          "setback_m": 5.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 2,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": 5.0
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.5,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A5",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "washington",
+          "setback_m": 4.0,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 3,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.0,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 7,
+          "stands_on": "alley",
+          "fronts": "madison",
+          "setback_m": 4.5,
+          "lateral_m": 5.0
+        }
+      ],
+      "arrangement_note": "THE MARKET BLOCK FILLED TO ITS LOT CEILING: FIVE HOUSES AROUND THE TWO BOARDING HOUSES, AND THEIR YARDS. T-1951 raised two boarding houses back to back on lots 4 and 5 and left the other six lots open because its deal was the size of the plan's H3 headroom and no more. This deal builds the five houses the seating has been asking for on those lots ever since: on the Washington face a one-and-a-half-storey house (H1) on the Market corner, a tradesman's frame house (D4) beside it and a two-storey frame house (D7) on the Franklin corner; on the Madison face a one-room cottage (D3) behind lot 2 and a second D4 on the Franklin corner. Lot 1, the Madison-and-Market corner, stays the block's reserved open lot. THE YARDS ARE DEALT UP THE HOUSEHOLD SCALE, as T-1751 dealt them on the Franklin block: the D7 gets a carriage shed and a smokehouse, each D4 a woodshed, the cottage a privy. THE MARKET-CORNER HOUSE GETS NO YARD, and that is measured rather than chosen: T-1951 tried a stable and privy on this lot first and `ancillary_behind_its_own_roof` refused both, because Market Street is graded `principal` and a yard building may not have a principal street as its nearest. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses and yard buildings stood on this block in 1835, where on the lot they sat and how far back; all ten are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
     },
     {
       "block_id": "blk_washington_dearborn",
@@ -4351,6 +4497,110 @@
         }
       ],
       "arrangement_note": "A BOARDING HOUSE ON THE WASHINGTON FACE, ONE LOT IN FROM THE DEARBORN CORNER, WITH ITS STABLE AND PRIVY BEHIND IT (T-1951, of T-1810). The 665-roof schedule apportions this block one H3 roof that `1835_platted_seats.json` lists under `plan_left_unclaimed` with the sentence `the plan offers this family and no banded row of this division is admitted by a clause that takes it`, so the house answers the PLAN and not a household and its keeper is the lodgers stage's draw. The block stood empty; it stands at three roofs on one of its eight lots. The house is the form T-1778 built on the first seat: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper-storey windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` block shows the arithmetic). It stands 1.55 m off the lot's Washington edge, the setback every house on the tier took, one lot east of the Dearborn Street crossing where the Clark block's second house stands on the far corner. WHY NOT THE CORNER: every corner of this block scores in the platted deal exactly what the Clark block's two corner houses score, and the tie breaks on the lot id, so a house on any of them drew hh_beaubien_mark or hh_sweet_alanson off the house T-1778 or T-1809 raised for them; this ticket raises the plan's unclaimed roofs and does not move a seated keeper. So the house stands one lot in, and that is a liberty and not a finding. The stable stands off the alley on one side of the lot and the privy on the other, 4-4.5 m in from the alley edge as every yard building of this module stands, and both serve only this lot; the mix is not the plan's, for L326's reason. EVERY FREE LOT BUT THE KEPT-OPEN ONE CARRIED A SLOT REQUEST, so the house stands on a requested lot: hh_benediet_loma's H2 on lot 2. The lodging roof goes first under the precedence T-1777's deal order already gives it over the dwelling clauses, and the request is re-seated or owed in writing by the seating chain, not by this entry. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in 1835, where on the lot they sat and how far back. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+    },
+    {
+      "block_id": "blk_west_lake_canal",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_west_lake_canal",
+      "claimed": "2026-10-05",
+      "bounded_by": {
+        "north": "lake",
+        "south": "randolph",
+        "west": "canal",
+        "east": "west_water"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 6,
+        "standing_roofs": 3,
+        "free_lots": 8,
+        "headroom": 3,
+        "dealt_roofs": 3,
+        "dealt_principal": 3,
+        "dealt_ancillary": 0,
+        "principal": 3,
+        "ancillary": 0
+      },
+      "families": {
+        "D5": 1,
+        "D4": 1,
+        "D2": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1829",
+        "parent": "T-1208",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_bourassa_jean_baptiste",
+            "family": "D5",
+            "order_book_draw": "blk_west_lake_canal / D5 / west"
+          },
+          {
+            "seat": "hh_borum_richard",
+            "family": "D4",
+            "order_book_draw": "blk_west_lake_canal / D4 / west"
+          },
+          {
+            "seat": "hh_bruno_anne_franoise_apolline",
+            "family": "D2",
+            "order_book_draw": "blk_west_lake_canal / D2 / west"
+          }
+        ],
+        "why": "THE BLOCK'S WHOLE REQUEST, RAISED ON THE LOTS IT ASKED FOR. The seating file asks three roofs of this block and no more -- hh_bourassa_jean_baptiste's D5 on lot index 2 and hh_borum_richard's D4 on lot index 3, both fronting Canal under the tradesman_dwellings clause, and hh_bruno_anne_franoise_apolline's D2 on lot index 8 fronting West Water under the labourer_dwellings clause -- which is exactly the three roofs of principal room the schedule's West density leaves here. No face is exchanged: the two frame cottages already ask for Canal, which the lot ledger reads `ordinary`, and the plank shanty asks for West Water, which it reads `light`, so the committed street hierarchy and the request already agree that the better face takes the better houses. A REQUEST IS NOT EVIDENCE: all three roofs are anonymous count-units at the bottom tier, standing on invented positions on conjectural side lot lines, and the seating pass re-runs behind the deal to say which household ends up under which roof."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Canal column's second lot from Lake Street (plat lot 3), left open between Cobb's saddlery and Pierce's blacksmith shop, the two named trade roofs on the Lake corner and the two cottages this deal stands further south, so the trade corner keeps a yard's width of open ground beside it rather than reading as the first lot of a continuous row."
+        },
+        {
+          "lot": 4,
+          "why": "The Canal column's Randolph end (plat lot 10), left open so the face reads trade corner, open, two cottages, open from Lake to Randolph. The West recipe's Zone B asks for breaks between yard groups and not a continuous frontage; this is the break."
+        },
+        {
+          "lot": 6,
+          "why": "The West Water column's second lot (plat lot 4), left open south of the forks freight warehouse on the Lake corner: a freight roof on the river street keeps its wagon yard, and the seating asks for nothing here."
+        },
+        {
+          "lot": 7,
+          "why": "The West Water column's middle lot (plat lot 5), left open between the warehouse's yard and the shanty dealt to plat lot 8, so the river face reads as loose, light-street ground and not a built row."
+        },
+        {
+          "lot": 9,
+          "why": "The West Water column's Randolph end (plat lot 9), left open: the seating asks nothing of it, and the schedule's ceiling of six is reached without it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 5.0,
+          "lateral_m": -2.0
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 7.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D2",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "west_water",
+          "setback_m": 4.0,
+          "lateral_m": 2.0
+        }
+      ],
+      "arrangement_note": "THE LAST THREE ROOFS THE WEST DENSITY LEAVES ON PLAT BLOCK 29, AND THE FIRST PIECE OF THE WEST DIVISION'S REMAINDER (T-1829). `tools/reconcile_665.py` sizes this ten-lot block at six roofs -- the reviewed West recipe's six on blk_west_lake_des_plaines's ten lots (T-1783) -- and three already stand: the two named trade roofs on the Lake-and-Canal corner lot, S. B. Cobb's saddlery and Asahel Pierce's blacksmith shop, and the forks freight warehouse T-1773 raised on the Lake-and-West-Water corner. That leaves three roofs of principal room, no ancillary room, and the seating file's three slot requests fill it exactly: a deep-plan frame cottage (D5) and a two-room frame cottage (D4) side by side on the Canal face at plat lots 6 and 7, and a rough plank shanty (D2) on the West Water face at plat lot 8. The two cottages stand on Canal Street, the graded approach from the forks and the better of the block's two faces, and the shanty on West Water, the light river street, so no face is exchanged. The set-outs (5.0 and 7.5 m on Canal, 4.0 m on West Water) and lateral offsets are inventions bounded by the lot lines, and differ from blk_lake_clinton's Canal-face roofs directly across the street (6.5 m) so the two faces of one street do not read as a surveyed building line. Five free lots stay open, one at each end of each face and one beside each corner holding, so neither face reads as a continuous row. WHAT IS INVENTED: that any building stood on these three lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals are read off the sheet; neither is evidence about these buildings.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {

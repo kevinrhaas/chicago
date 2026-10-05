@@ -4592,6 +4592,27 @@ for (const [label, viewport, touch] of [
         }
         return false;
       };
+      // A GATE IS NOT A DECK EITHER (T-2112). A street fence's gate leaf swings
+      // off the fence line into the lot, its low rail 0.18 m up, so a leaf
+      // standing open is fence timber outside the 0.2 m band above. It only
+      // ever swings to the lot side (`opens_into_local_enu_m`), and the walk is
+      // on the street side, so a half-disc on the lot side of each opening, a
+      // leaf's reach in radius, is fence and nothing else.
+      const gateDiscs = [];
+      for (const r of f?.records ?? []) {
+        for (const fence of r.fences ?? []) {
+          for (const o of fence.openings ?? []) {
+            if (!o.gate || !o.at_local_enu_m || !o.opens_into_local_enu_m) continue;
+            const [ge, gn] = o.at_local_enu_m;
+            const ie = o.opens_into_local_enu_m[0] - ge;
+            const iN = o.opens_into_local_enu_m[1] - gn;
+            const il = Math.hypot(ie, iN) || 1;
+            gateDiscs.push({ ge, gn, ie: ie / il, iN: iN / il, r: (o.width_m ?? 1) + 0.2 });
+          }
+        }
+      }
+      const onGate = (e, n) => gateDiscs.some((g) => Math.hypot(e - g.ge, n - g.gn) <= g.r
+        && (e - g.ge) * g.ie + (n - g.gn) * g.iN >= -0.2);
       // THE BUSINESS-FRONT FITTINGS ARE NOT DECK (T-1813). A stoop's landing
       // stands 0.38 m over its ground, a mounting block 0.46 m and a tie rail's
       // rail 0.93 to 1.03 m, so they are measured against their own records
@@ -4664,7 +4685,7 @@ for (const [label, viewport, touch] of [
           const deck = deckAt(e, n);
           const base = deck === null ? ground
             : (Number.isFinite(ground) ? Math.max(ground, deck) : deck);
-          if (Number.isFinite(base) && !onFence(e, n) && !onFitting(e, n)) {
+          if (Number.isFinite(base) && !onFence(e, n) && !onGate(e, n) && !onFitting(e, n)) {
             const d = y - base;
             highest = Math.max(highest, d);
             // The deck: everything under a metre. The post and its board are
@@ -11076,6 +11097,60 @@ for (const [label, viewport, touch] of [
       `${horizon.pxPerRad?.toFixed?.(1)} px/rad against ${expectedPxPerRad.toFixed(1)} live `
       + `(${horizon.liveHeightCss} css px over ${horizon.liveFovDeg?.toFixed?.(1)}°)`);
 
+    // T-2103 — the band from the two stands the owner caught it at, after
+    // T-1978 had passed every check above. (1) Down South Water facing west,
+    // `main_stem_belt_east` points at the eye, so every sample along it lands
+    // in the same few bearings and the bin keeps the tallest: dev drew it as a
+    // 23–28 px blob at the street end (0.028–0.034 rad at 833 px/rad) whose
+    // height rode the 330 m cut as you walked. Faded in from the cut to
+    // NEAR_FADE_M it draws 7.5 px at this stand and nothing from 160 m on. The
+    // bar is in RADIANS so both viewports share it: 0.015 rad is half of
+    // dev's, and above the fix with room for the haze and the viewport.
+    // (2) From 17 m up over La Salle, the band's foot stood on the far ground
+    // as a slab; it must not be drawn at all from the air. The pose is put
+    // back afterwards, so nothing below inherits these stands.
+    const band = await page.evaluate(async () => {
+      const a = window.__chicago4d;
+      const frames = (k) => new Promise((r) => {
+        const step = () => (k-- <= 0 ? r() : requestAnimationFrame(step));
+        requestAnimationFrame(step);
+      });
+      const w = a.walker;
+      const was = { e: w.state.e, n: w.state.n, yaw: w.bearingDeg,
+        pitch: w.state.pitch * 180 / Math.PI, flying: !!a.flying, alt: w.state.altitude };
+      const out = {};
+      a.setFly(false);
+      w.teleport({ local_e: 700, local_n: 8, yaw_deg: 275, pitch_deg: 0 });
+      await frames(3);
+      const cen = a.trees.horizonCensus();
+      let peak = 0;
+      let body = null;
+      for (const b of cen.bins) {
+        if (Math.abs(((b.bearingDeg - 275 + 540) % 360) - 180) > 30) continue;
+        if (b.drawnPx > peak) { peak = b.drawnPx; body = b.body; }
+      }
+      out.street = { peakPx: peak, peakRad: peak / cen.pxPerRad, body,
+        lift: a.trees.horizonLift?.()?.lift ?? null };
+      a.setFly(true);
+      w.teleport({ local_e: 451, local_n: -112, yaw_deg: 251, altitude_m: 17, pitch_deg: -12 });
+      await frames(3);
+      out.air = a.trees.horizonLift?.() ?? { lift: null, visible: null };
+      a.setFly(was.flying);
+      w.teleport({ local_e: was.e, local_n: was.n, yaw_deg: was.yaw, pitch_deg: was.pitch,
+        altitude_m: was.flying ? was.alt : null });
+      await frames(3);
+      return out;
+    });
+    check(`${label}: the far treeline draws no blob down South Water (T-2103)`,
+      band.street.lift === 1 && band.street.peakRad <= 0.015,
+      `peak ${band.street.peakPx.toFixed(1)} px = ${band.street.peakRad.toFixed(4)} rad`
+      + ` (${band.street.body ?? 'no body'}) facing W from E 700 N 8, against 0.015 rad;`
+      + ` lift ${band.street.lift}`);
+    check(`${label}: the far treeline is not drawn from the air (T-2103)`,
+      band.air.lift === 0 && band.air.visible === false,
+      `lift ${band.air.lift} visible ${band.air.visible} at eye ${band.air.eyeY?.toFixed?.(1)} m`
+      + ` (fades between ${band.air.fadeEyeM?.join('–')} m)`);
+
     // --- the drawn population (ROADMAP K48) ---------------------------------
 
     // THE DRAWN POPULATION — ROADMAP K48, and it is the census K47 found
@@ -16069,7 +16144,7 @@ for (const [label, viewport, touch] of [
     await tap('#jaunt-panel [data-action="menu"]');
     await until(() => window.__chicago4d.welcome.state === 'welcome'
       && window.__chicago4d.jaunts.state.phase === 'menu');
-    await tap('#welcome-jaunts-explore');
+    await tap('#welcome-explore');
     await until(() => !document.getElementById('welcome-picker').hidden);
     check(`${label}: Explore on my own clears a paused jaunt`,
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));

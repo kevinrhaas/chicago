@@ -1,3 +1,46 @@
+## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
+
+The first piece of the West Division's remainder T-1826 handed on. `blk_west_lake_canal` (plat
+block 29, Lake to Randolph between Canal and West Water) read 3 standing / 3 room at the West
+density (6 roofs per 10 lots, T-1783), and `1835_platted_seats.json` held exactly three slot
+requests on it. The recipe entry in `1835_platted_block_parcels.json` raises all three on the lots
+they asked for — a D5 deep-plan cottage at plat lot 6 and a D4 two-room cottage at plat lot 7 on
+Canal, a D2 plank shanty at plat lot 8 on West Water — and leaves the other five free lots open.
+No face is exchanged: Canal reads `ordinary` and West Water `light`, and the requests already put
+the frame cottages on Canal. Set-outs (5.0 / 7.5 m on Canal, 4.0 m on West Water) differ from
+blk_lake_clinton's 6.5 m directly across Canal. Baked with pinned Blender 4.5.3
+(`generators/build.py --only`) and `web_derivatives.sh --only`, one master at a time
+(`bake.sh --only` still derives the whole town, T-1653).
+
+**The seating needed the keeper ledger walked by hand to settle.** `rederive.mjs --run` alone
+read 175 seated: the pass's adoption step gave the three new roofs to earlier households in its
+own order, and the three roofs they left still carried those households as written keepers, so
+the next pass held them back as committed occupancy and the three requesters were handed on.
+`name_the_keepers_1835.py --build` is not in `tools/derived_manifest.json`, so nothing in the
+lap rewrites it; walking keepers → `generate_block_infill.py` / `generate_west_infill.py` /
+`generate_west_freight.py` → the seating chain to a fixpoint took six passes and lands at
+**178 seated** (152 adopted, 26 slots; West 28), unchanged from dev. The three requesters are
+seated on standing West roofs, 22 more West households step a roof, and hh_abbott_constant,
+hh_abbott_titus_h and hh_barry_j_r adopt the new ones. Named keepers 49 → 51.
+
+- Liberties restated: **L263** 528 → 531 roofed phases, **L270** 178 held (who moved),
+  **L276** 49 → 51 named keepers.
+- Order book: `ordinary_dwellings/west` 63 of 75, **12 left**; `warehouses_freight/west` 1 left.
+  Every lot-ruled West block now reads `at_capacity` and the other 19 are gated on a lot line,
+  so the West rows move to **T-2132**, which carries that finding as its acceptance.
+- T-1758 was split during this run (T-2129, T-2130) and the book refuses a row owned by a split
+  ticket; this branch moved `("south", "ordinary_dwellings")` to T-2130 and #462 (T-2131) made the
+  same move on dev, whose comment the merge keeps.
+- Gate repairs after the first CI read: L313 now covers block 29's three roofs; five West meshes
+  whose keepers moved (recon_1835_blk_lake_clinton_d4_01, …_randolph_clinton_d3_04, west_008,
+  west_014, west_021) rebaked; entrance aprons, alley lanes, woodpiles and the roof redeal
+  re-derived; the Newberry leads re-parsed over all four volumes (~10 min, not in the lap);
+  T-0059's stated figures 568 / 562. None of these is in `derived_manifest.json`.
+
+## T-2119 — the front door as a working machine (2026-10-05)
+
+Owner request in the project thread: the Temporal Observatory home page should feel like a machine, not a website. The `/4d/` portal (`renderers/web/portal/`) now draws a console: an interval-monitor screen (where WOLF POINT APERTURE: OPEN is a status message, not a headline), the chronometer in a porthole with the three coordinates marked on it, a destination-year readout, a lamp bank and three gauges — the YearReadout, IndicatorLamp, TransitSequence and Placard pieces of the design package that T-2036 left unused. It cold-boots in about three seconds, then keeps a log ticking, wanders its readings, shows a hold on each destination control, re-runs one of each control's status checks every tick, and lets a hold slip and recover every 9–14 s. On the owner's follow-ups the period prose on the cards became status checklists, the copy is terse game-HUD status rather than period seasoning, 1904 and 1812 read CALIBRATING (partly built, cleared for entry; a lower, shakier hold) while 1835 reads LOCK NOMINAL, and the gauges, lamps, porthole and plates are built differently in each of the four machines. The operator's manual is a `<dialog>` holding the backstory, controls, status meanings and evidence grades. All motion is CSS transform/opacity or one 800 ms JS tick that sleeps while the tab is hidden; reduced motion skips the cold start and the tick. The readings are decorative and the manual says so. Checked with `tools/test_temporal_menu_browser.mjs` (1280×800, 390×844 reduced-motion, no-JS), extended to assert the console, the holds, the live log and the manual.
+
 ## T-2091 — the settled town's ground, derived over every built block (2026-10-04)
 
 The first piece of the owner's T-2084 ("the town stands in wet prairie"). `z10_settled_town`'s
@@ -205,8 +248,12 @@ It removes all 1,855 measured ground intersections, adds 8,704 ground triangles
 and at most one distant-walk call. All 107,532 emitted top triangles are clear.
 Footprints, walking heights, recorded species and intentional slough gaps remain.
 
-After removing zero-area grass-tip triangles, measured limits are 2,840,000 Full /
+After removing zero-area grass-tip triangles, measured limits were 2,840,000 Full /
 2,145,000 Balanced / 1,040,000 Light, under the owner's October 3 authorization.
+T-0672 re-read dev @ 7504e4fc on October 4 (worst 2,665,994 / 2,072,747 / 988,055,
+desktop) and took each back down to worst plus its recorded headroom: 2,685,000 /
+2,090,000 / 1,005,000. Light stays above the old 785,000 floor because the owner
+authorized the October 3 raises after T-0672 was written.
 Draw-call caps are unchanged. Six-stand measurements fit those limits; these
 software-rendered readings do not predict consumer frame rates.
 

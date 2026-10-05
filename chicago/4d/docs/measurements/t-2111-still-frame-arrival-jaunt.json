@@ -1,0 +1,381 @@
+{
+  "ticket": "T-2111",
+  "tool": "tools/measure_still_frame.mjs",
+  "tree": "published",
+  "dev": "29fa96f2",
+  "measured": "2026-10-04",
+  "machine": {
+    "model": "AMD EPYC 9V74 80-Core Processor",
+    "cores": 4,
+    "where": "steward runner"
+  },
+  "note": "arrival + jaunt: --stands landing,jaunt --arrival 15 at every tier; worst stand: --gate (town_backyard, every tier, with the bare screen). The gate readings were taken before the tool printed the machine; the machine is this run’s.",
+  "readings": [
+    {
+      "run": "arrival_jaunt_desktop",
+      "ticket": "T-2111",
+      "tree": "published",
+      "year": "1835",
+      "frames": 2,
+      "warmup": 0,
+      "throttle": 4,
+      "passes": [
+        {
+          "viewport": "desktop 1280x800",
+          "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "timerQuery": false,
+          "dpr": 1,
+          "lowSpecShadows": true,
+          "arrival": {
+            "welcome": "welcome",
+            "gateUp": true,
+            "seconds": 23.5,
+            "framesDrawn": 3,
+            "perSecond": 0.13,
+            "pictureUnchanged": true
+          },
+          "jaunt": {
+            "id": "fort-dearborn-errand",
+            "stop": 0,
+            "local_e": 1146.7117012257274,
+            "local_n": 184.3681819462743,
+            "yaw_deg": 180,
+            "pitch_deg": 0
+          },
+          "rows": [
+            {
+              "level": "full",
+              "stand": "landing",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 7726.5,
+              "cpu": 5.1,
+              "worst": 7726.5,
+              "triangles": 1901737,
+              "calls": 188
+            },
+            {
+              "level": "full",
+              "stand": "jaunt",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 6894.7,
+              "cpu": 5.3,
+              "worst": 6894.7,
+              "triangles": 963812,
+              "calls": 62
+            },
+            {
+              "level": "balanced",
+              "stand": "landing",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 7984.1,
+              "cpu": 8.6,
+              "worst": 7984.1,
+              "triangles": 1562911,
+              "calls": 129
+            },
+            {
+              "level": "balanced",
+              "stand": "jaunt",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 3468,
+              "cpu": 4.7,
+              "worst": 3468,
+              "triangles": 995642,
+              "calls": 95
+            },
+            {
+              "level": "light",
+              "stand": "landing",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 4588.9,
+              "cpu": 17.4,
+              "worst": 4588.9,
+              "triangles": 783015,
+              "calls": 75
+            },
+            {
+              "level": "light",
+              "stand": "jaunt",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 2814.6,
+              "cpu": 4.6,
+              "worst": 2814.6,
+              "triangles": 556343,
+              "calls": 40
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "run": "arrival_jaunt_mobile",
+      "ticket": "T-2111",
+      "tree": "published",
+      "year": "1835",
+      "frames": 2,
+      "warmup": 0,
+      "throttle": 4,
+      "passes": [
+        {
+          "viewport": "phone 390x780 dpr3 cpu/4",
+          "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "timerQuery": false,
+          "dpr": 3,
+          "lowSpecShadows": true,
+          "arrival": {
+            "welcome": "welcome",
+            "gateUp": true,
+            "seconds": 19.5,
+            "framesDrawn": 6,
+            "perSecond": 0.31,
+            "pictureUnchanged": true
+          },
+          "jaunt": {
+            "id": "fort-dearborn-errand",
+            "stop": 0,
+            "local_e": 1146.0251789900165,
+            "local_n": 188.8361327811203,
+            "yaw_deg": 180,
+            "pitch_deg": 0
+          },
+          "rows": [
+            {
+              "level": "full",
+              "stand": "landing",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 5713.5,
+              "cpu": 25,
+              "worst": 5713.5,
+              "triangles": 1792820,
+              "calls": 166
+            },
+            {
+              "level": "full",
+              "stand": "jaunt",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 3444.6,
+              "cpu": 29.3,
+              "worst": 3444.6,
+              "triangles": 805475,
+              "calls": 62
+            },
+            {
+              "level": "balanced",
+              "stand": "landing",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 5105.6,
+              "cpu": 24.9,
+              "worst": 5105.6,
+              "triangles": 1441906,
+              "calls": 125
+            },
+            {
+              "level": "balanced",
+              "stand": "jaunt",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 2075.7,
+              "cpu": 19.5,
+              "worst": 2075.7,
+              "triangles": 696066,
+              "calls": 55
+            },
+            {
+              "level": "light",
+              "stand": "landing",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 3239.7,
+              "cpu": 17.3,
+              "worst": 3239.7,
+              "triangles": 740375,
+              "calls": 69
+            },
+            {
+              "level": "light",
+              "stand": "jaunt",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 1802.3,
+              "cpu": 15.1,
+              "worst": 1802.3,
+              "triangles": 452416,
+              "calls": 32
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "run": "worst_stand_desktop",
+      "ticket": "T-2111",
+      "tree": "published",
+      "year": "1835",
+      "frames": 2,
+      "warmup": 0,
+      "throttle": 4,
+      "passes": [
+        {
+          "viewport": "desktop 1280x800",
+          "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "timerQuery": false,
+          "dpr": 1,
+          "lowSpecShadows": true,
+          "arrival": null,
+          "jaunt": null,
+          "rows": [
+            {
+              "level": "full",
+              "stand": "town_backyard",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 13919,
+              "cpu": 9.8,
+              "worst": 13919,
+              "triangles": 2980131,
+              "calls": 283,
+              "bare": {
+                "frame": 82.5,
+                "cpu": 0.7,
+                "worst": 82.9,
+                "triangles": 12,
+                "calls": 1
+              },
+              "screens": 168.7
+            },
+            {
+              "level": "balanced",
+              "stand": "town_backyard",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 10460.1,
+              "cpu": 7.2,
+              "worst": 10460.1,
+              "triangles": 2333135,
+              "calls": 273,
+              "bare": {
+                "frame": 84.5,
+                "cpu": 0.7,
+                "worst": 92.3,
+                "triangles": 12,
+                "calls": 1
+              },
+              "screens": 123.8
+            },
+            {
+              "level": "light",
+              "stand": "town_backyard",
+              "sharpness": null,
+              "pixelRatio": 1,
+              "frame": 6649.6,
+              "cpu": 4.5,
+              "worst": 6649.6,
+              "triangles": 1078988,
+              "calls": 81,
+              "bare": {
+                "frame": 84.7,
+                "cpu": 0.7,
+                "worst": 85.1,
+                "triangles": 12,
+                "calls": 1
+              },
+              "screens": 78.5
+            }
+          ],
+          "errors": []
+        }
+      ]
+    },
+    {
+      "run": "worst_stand_mobile",
+      "ticket": "T-2111",
+      "tree": "published",
+      "year": "1835",
+      "frames": 2,
+      "warmup": 0,
+      "throttle": 4,
+      "passes": [
+        {
+          "viewport": "phone 390x780 dpr3 cpu/4",
+          "device": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+          "timerQuery": false,
+          "dpr": 3,
+          "lowSpecShadows": true,
+          "arrival": null,
+          "jaunt": null,
+          "rows": [
+            {
+              "level": "full",
+              "stand": "town_backyard",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 10027.6,
+              "cpu": 25.8,
+              "worst": 10027.6,
+              "triangles": 2614331,
+              "calls": 234,
+              "bare": {
+                "frame": 69.5,
+                "cpu": 3,
+                "worst": 73.4,
+                "triangles": 12,
+                "calls": 1
+              },
+              "screens": 144.3
+            },
+            {
+              "level": "balanced",
+              "stand": "town_backyard",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 7220,
+              "cpu": 22.5,
+              "worst": 7220,
+              "triangles": 2053935,
+              "calls": 229,
+              "bare": {
+                "frame": 68.7,
+                "cpu": 2.9,
+                "worst": 70.8,
+                "triangles": 12,
+                "calls": 1
+              },
+              "screens": 105.1
+            },
+            {
+              "level": "light",
+              "stand": "town_backyard",
+              "sharpness": null,
+              "pixelRatio": 1.5,
+              "frame": 4262.3,
+              "cpu": 15.8,
+              "worst": 4262.3,
+              "triangles": 942016,
+              "calls": 73,
+              "bare": {
+                "frame": 69,
+                "cpu": 3.1,
+                "worst": 71.2,
+                "triangles": 12,
+                "calls": 1
+              },
+              "screens": 61.8
+            }
+          ],
+          "errors": []
+        }
+      ]
+    }
+  ]
+}

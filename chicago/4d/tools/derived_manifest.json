@@ -2416,6 +2416,8 @@
         "chicago/4d/data/sidecars/1835/sources/wright_1834_nara_hup.json",
         "chicago/4d/data/sidecars/1835/sources/wright_in_memoriam_1885.json",
         "chicago/4d/data/sidecars/1835/sources/wttw_ira_couch.json",
+        "chicago/4d/data/sidecars/1812/sources/uses.json",
+        "chicago/4d/data/sidecars/1904/sources/uses.json",
         "chicago/4d/docs/measurements/source_use_coverage.md"
       ],
       "verify": [
@@ -2743,6 +2745,20 @@
       "verify": [
         "python3",
         "tools/generate_kept_ground.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE VACANT LOTS AS GRAZED PRAIRIE REMNANT (T-2101): z11_lot_remnant, its extent the union of every platted lot holding no building, no standing footprint and no dealt outbuilding, and its species copied from z02_mesic_prairie and z10_settled_town under a stated grazing crop; written with its copy in data/flora/index.json. PLACED BY LAYER, directly after the kept ground, because it reads the same lot survey, the yard outbuildings and z10_settled_town's derived extent (tools/derive_settled_town_extent.py, earlier). Measured 2026-10-05: run with --write on a clean tree it changed no committed byte. WRITES, BUT DOES NOT CLAIM, ITS OUTPUT, for the reason the yard goods step gives.",
+      "command": [
+        "python3",
+        "tools/derive_lot_remnant.py",
+        "--write"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/derive_lot_remnant.py",
         "--check"
       ]
     },
