@@ -32,28 +32,28 @@
  ],
  "counts": {
   "rows_in_scope": 1424,
-  "seated": 177,
-  "owed": 1247,
+  "seated": 178,
+  "owed": 1246,
   "by_how": {
-   "adopted": 159,
+   "adopted": 160,
    "slot": 18
   },
   "by_clause": {
    "labourer_dwellings": 35,
    "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 32,
-   "tradesman_dwellings": 108
+   "tradesman_dwellings": 109
   },
   "by_district": {
    "north": 21,
-   "south": 128,
+   "south": 129,
    "west": 28
   },
   "by_family": {
    "D1": 21,
    "D2": 14,
    "D3": 43,
-   "D4": 34,
+   "D4": 35,
    "D5": 20,
    "D6": 11,
    "D7": 15,
@@ -61,8 +61,8 @@
    "H2": 8,
    "H3": 2
   },
-  "lots_taken": 159,
-  "roofs_adopted": 159,
+  "lots_taken": 160,
+  "roofs_adopted": 160,
   "slots_requested": 18,
   "owed_by_band_clause": {
    "division_ground": 24,
@@ -70,7 +70,7 @@
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 93,
    "merchant_and_professional_dwellings": 385,
-   "tradesman_dwellings": 533
+   "tradesman_dwellings": 532
   },
   "roofs_offered_for_adoption": 168,
   "roofs_held_back": 56,
@@ -78,9 +78,9 @@
   "seats_the_business_deal_costs": 1
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1247,
+  "rows": 1246,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 177 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 178 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
@@ -112,8 +112,8 @@
     "lot_id": "blk_lake_dearborn#01"
    }
   ],
-  "households_that_would_change_roof": 41,
-  "reading": "the business deal holds 40 roofs on the plat, 26 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 41 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "households_that_would_change_roof": 38,
+  "reading": "the business deal holds 40 roofs on the plat, 26 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 38 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -3982,6 +3982,30 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
+   "lot_id": "blk_lake_lasalle#00",
+   "block_id": "blk_lake_lasalle",
+   "lot_index": 0,
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_south_d4_009",
+   "family": "D4",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "party_line_run",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_carter_j|T-1522|division:c7463942aefd|class:f92f54648d7d",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_cary_junis_a_or_j_r",
+   "kind": "household",
+   "name": "The Cary household — a name from the post office's letter lists",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
    "lot_id": "blk_lake_franklin#06",
    "block_id": "blk_lake_franklin",
    "lot_index": 6,
@@ -3996,13 +4020,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_carter_j|T-1522|division:c7463942aefd|class:f92f54648d7d",
+   "seed": "hh_cary_junis_a_or_j_r|T-1522|division:afac53ad6eb2|class:d7af5135142d",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_cary_junis_a_or_j_r",
+   "id": "hh_casy_honora",
    "kind": "household",
-   "name": "The Cary household — a name from the post office's letter lists",
+   "name": "The Casy household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4020,13 +4044,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_cary_junis_a_or_j_r|T-1522|division:afac53ad6eb2|class:d7af5135142d",
+   "seed": "hh_casy_honora|T-1522|division:9c8d5f53c3f4|class:fc70803e61cd",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_casy_honora",
+   "id": "hh_catton_william",
    "kind": "household",
-   "name": "The Casy household — a name the town's own records carry",
+   "name": "The Catton household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4044,13 +4068,13 @@
    "multi_building_rule": "party_line_run",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": null,
-   "seed": "hh_casy_honora|T-1522|division:9c8d5f53c3f4|class:fc70803e61cd",
+   "seed": "hh_catton_william|T-1522|division:61001ba6b4cf|class:dff890aac887",
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_catton_william",
+   "id": "hh_chamberlain_l_c",
    "kind": "household",
-   "name": "The Catton household — a name from the post office's letter lists",
+   "name": "The Chamberlain household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4063,30 +4087,6 @@
    "how": "adopted",
    "structure_id": "recon_1835_south_d3_017",
    "family": "D3",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "party_line_run",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_catton_william|T-1522|division:61001ba6b4cf|class:dff890aac887",
-   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_chamberlain_l_c",
-   "kind": "household",
-   "name": "The Chamberlain household — a name from the post office's letter lists",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "band": "south/tradesman_dwellings",
-   "lot_id": "blk_lake_clark#06",
-   "block_id": "blk_lake_clark",
-   "lot_index": 6,
-   "fronts": "lake",
-   "street_class": "principal",
-   "corner": true,
-   "how": "adopted",
-   "structure_id": "recon_1835_south_d4_014",
-   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "party_line_run",
@@ -4109,8 +4109,8 @@
    "street_class": "principal",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_south_d5_016",
-   "family": "D5",
+   "structure_id": "recon_1835_south_d4_014",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "party_line_run",
@@ -4123,6 +4123,30 @@
    "id": "hh_chapman_george",
    "kind": "household",
    "name": "The Chapman household — a name the town's own records carry",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "band": "south/tradesman_dwellings",
+   "lot_id": "blk_lake_clark#06",
+   "block_id": "blk_lake_clark",
+   "lot_index": 6,
+   "fronts": "lake",
+   "street_class": "principal",
+   "corner": true,
+   "how": "adopted",
+   "structure_id": "recon_1835_south_d5_016",
+   "family": "D5",
+   "stands_on": "lot",
+   "setback_class": "typology",
+   "multi_building_rule": "party_line_run",
+   "policy_rule": "tradesman_dwellings",
+   "order_book_draw": null,
+   "seed": "hh_chapman_george|T-1522|division:9b729db18a7e|class:9c9ef8b6cf47",
+   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
+  },
+  {
+   "id": "hh_chattin_clark",
+   "kind": "household",
+   "name": "The Chattin household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4144,13 +4168,13 @@
     "family": "D3",
     "district": "south"
    },
-   "seed": "hh_chapman_george|T-1522|division:9b729db18a7e|class:9c9ef8b6cf47",
+   "seed": "hh_chattin_clark|T-1522|division:675b1d6b3f38|class:e48772e1976a",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_chattin_clark",
+   "id": "hh_chevalier_joseph",
    "kind": "household",
-   "name": "The Chattin household — a name from the post office's letter lists",
+   "name": "The Chevalier household — a name the town's own records carry",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4172,13 +4196,13 @@
     "family": "D4",
     "district": "south"
    },
-   "seed": "hh_chattin_clark|T-1522|division:675b1d6b3f38|class:e48772e1976a",
+   "seed": "hh_chevalier_joseph|T-1522|division:cc33cb680a19|class:a7de58adaedc",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
-   "id": "hh_chevalier_joseph",
+   "id": "hh_chiney_ralph",
    "kind": "household",
-   "name": "The Chevalier household — a name the town's own records carry",
+   "name": "The Chiney household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -4200,7 +4224,7 @@
     "family": "D4",
     "district": "south"
    },
-   "seed": "hh_chevalier_joseph|T-1522|division:cc33cb680a19|class:a7de58adaedc",
+   "seed": "hh_chiney_ralph|T-1522|division:9f5925f505cd|class:95302775ddcb",
    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
@@ -8746,15 +8770,6 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_chiney_ralph",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_dearborn (blk_south_water_dearborn#07), blk_south_water_wells (blk_south_water_wells#01), blk_washington_market (blk_washington_market#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
