@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
+      'The court had no building of its own yet. In 1834 it met in the Mansion House’s unfinished loft, then in an unfinished store on Dearborn Street. For the spring 1835 term, held 25 May to 9 June, no source we have read names a room.',
+      'So no building in the town is marked as that court room.',
+    ] },
   { v: 1484, ts: '2026-10-05T11:30:10.304Z', date: 'Oct 5, 2026, 6:30 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
