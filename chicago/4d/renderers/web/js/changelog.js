@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1494, ts: '2026-10-05T15:03:31.603Z', date: 'Oct 5, 2026, 10:03 AM CT', title: 'Newberry & Dole\u2019s sign goes up on their Dearborn Street store', kind: 'change',
+    items: [
+      'The warehouse at Lake and Dearborn now carries a NEWBERRY & DOLE board: \u201cDry Goods, Hardware & Crockery\u201d, the firm\u2019s own words from its first advertisement in November 1833. It used to read GEO. W. DOLE.',
+      'Why: shopkeepers in the 1834\u201335 Chicago Democrat place themselves \u201cone door south\u201d and \u201ca few rods north\u201d of Newberry & Dole\u2019s store, both on Dearborn Street. That is a store on Dearborn, not on South Water, and this house is the one that stands there.',
+      'The firm\u2019s forwarding warehouse stays at Franklin and South Water. The one notice that names it gives South Water Street and no cross street, so nothing moves it.',
+      'The building\u2019s card now names it as the firm\u2019s store too. The Liberties page explains the ruling (L66, L378).',
+    ] },
   { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
     items: [
       'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',

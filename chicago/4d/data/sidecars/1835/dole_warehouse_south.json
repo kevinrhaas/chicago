@@ -114,9 +114,11 @@
       "value": "George W. Dole, forwarding and commission merchant and provision packer",
       "confidence": "attested",
       "sources": [
-        "andreas_1884_v1"
+        "andreas_1884_v1",
+        "chicago_democrat_1833_11_26",
+        "chicago_democrat_1833_1835"
       ],
-      "note": "Dole is documented as the builder and proprietor. His partnership under the style Newberry & Dole is documented separately, but the firm's forwarding house is the partnership's and this record does not attach a Newberry to this building. THE PARTNER'S NAME CORRECTED, T-0396 (2026-09-12): this note read 'his partnership with Oliver Newberry'. Oliver Newberry of Detroit stands in the firm's own advertisement as its Detroit REFERENCE and not as its partner, and the Chicago Newberry of the style is inferred to be Walter L. — the argument is on newberry_dole_warehouse's own `occupants` note and the ruling is declared at data/research/newspapers/identity.json § proprietor_distinctions. Nothing about THIS building moves either way: it was Dole's alone before the firm and this record never attached the other partner to it."
+      "note": "Dole is documented as the builder and proprietor. His partnership under the style Newberry & Dole is documented separately, but the firm's forwarding house is the partnership's and this record does not attach a Newberry to this building. THE PARTNER'S NAME CORRECTED, T-0396 (2026-09-12): this note read 'his partnership with Oliver Newberry'. Oliver Newberry of Detroit stands in the firm's own advertisement as its Detroit REFERENCE and not as its partner, and the Chicago Newberry of the style is inferred to be Walter L. — the argument is on newberry_dole_warehouse's own `occupants` note and the ruling is declared at data/research/newspapers/identity.json § proprietor_distinctions. Nothing about THIS building moves either way: it was Dole's alone before the firm and this record never attached the other partner to it. BY 1834 THIS IS THE FIRM'S STORE, INFERRED (T-2137, 2026-10-05). The Chicago Democrat's advertisers place themselves off 'Newberry & Dole's store' on Dearborn Street with a neighbour on each side on that street — Tuttle & Brown 'one door south' (chicago_democrat_1834_06_04#c011), Wm. H. Taylor 'a few rods north' (1835_05_20#c020) — W. H. Brown 'one door from' it (1834_05_28#c004), and D. Graves's bakery 'on South Water-street, a few doors north' of it (1834_03_25#c003). That is a store on the Dearborn face south of South Water, which is this building's crossing on Andreas's word; no other committed building fits it. Dole was the Chicago partner of the style, so his 1832 house carrying the firm's store from late 1833 is the plain reading, and the firm's own card of 26 November 1833 says what it sold there: 'DRY GOODS, HARDWARE, CROCKERY, &c.'. The value above is left as Andreas gives it because Andreas is who names the building; the firm is carried here and on the signboard, graded inferred, because the paper names a store and not this house. The firm's forwarding and storage house is newberry_dole_warehouse on South Water, a different building that Peter Cohen places."
     }
   },
   "residents": [],
@@ -130,6 +132,77 @@
       "tier_label": "compiled secondary (Andreas)"
     },
     {
+      "source_id": "chicago_democrat_1833_11_26",
+      "citation": "The Chicago Democrat. Vol. I, No. 1. Chicago, Ill.: John Calhoun, Tuesday, November 26, 1833.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in November 1833",
+        "the Chicago Democrat's own address, self-reported: the corner of South Water and Clark streets",
+        "Philo Carpenter advertising drugs, medicines, oils, paints and dye-stuffs, dated Nov. 22, 1833 — with NO address, so it cannot disambiguate his two shops",
+        "C. & I. Harmon advertising dry goods, crockery, hardware and wet and dry groceries, dated Nov. 18, 1833 — with NO address, so it does NOT corroborate the Clark/South Water corner Andreas gives them",
+        "W. Kimball's 'New Store' at the corner of South Water and Clark — a SECOND, independently attested occupant of that junction in the same issue, signed",
+        "Peter Cohen, clothier and grocer, self-reported at the EAST END OF SOUTH WATER-STREET, and trading in Chicago before Nov 1833 ('old customers ... past favors')",
+        "Goss & Cobb, saddle and harness makers, self-reported on the corner of Lake and Canal streets",
+        "Matthias Mason & Co., blacksmiths, on 'Main-street, nearly opposite Graves' Tavern' — a street name this project does not otherwise hold",
+        "B. Jones, grocery and provision store, and separately a storage/forwarding/commission business — both ads give NO street",
+        "Newberry & Dole, forwarding and commission merchants — no address",
+        "John Wright, cut nails and general merchandise; and TWO BUILDINGS TO LET until 1 June 1834",
+        "Daniel Elston & [illegible], soap and candle manufactory, paying cash for tallow and house ashes",
+        "a tavern stand kept by Chester Ingersoll, 'lately occupied by Mr. Wm. W. WATTLES', dated 4 October 1833",
+        "the house of Chester Ingersoll used as the district polling place, 9 December 1833",
+        "THE VILLAGE ORDINANCES of 7 November 1833, complete — the richest single item in the paper",
+        "Ordinance 1: the corporate limits surveyed ALONG the northern United States' Pier 'to the termination thereof' — the pier as an existing, walkable structure with a definite landward end",
+        "Ordinance 5: 'either of the bridges in said town' and their 'plank or any piece of timber' — EXACTLY TWO bridges on 7 Nov 1833, of plank-and-timber construction",
+        "Ordinance 6: wooden buildings with wooden and lath-and-plaster partitions, heated by STOVES not fireplaces, pipes passing through roof or side wall and carried 18 inches above the roof, guarded by stone-ware pipe, brick, tin or sheet iron",
+        "Ordinance 9: timber, stone, brick, boxes and barrels stacked in the streets",
+        "Ordinances 3, 7 and 8: hogs at large, horses run through the streets, stallions",
+        "the schooner Austerlitz, Capt. Smith, from Buffalo, arrived about the 1[9]th inst. with a full cargo of merchandise for citizens of this village and cleared on the 21st IN BALLAST",
+        "a school established in the village by Mr. Sproat of Boston, already running on 26 Nov 1833",
+        "a public auction of United States property held AT FORT DEARBORN, 2 December 1833",
+        "the village population passing 'more than eight hundred souls' in late 1833"
+      ],
+      "what_it_does_not_supply": [
+        "any building's dimensions",
+        "any building's form, material, storey count or fenestration",
+        "the specific corner of any junction it names — the imprint says 'on the corner of', and which of the four is not in the sentence",
+        "evidence that any building named here still stood on 1835-07-01 — this issue is NINETEEN MONTHS before the scene date, in the town's fastest-changing period, and the population went from 800 to 3,265 in between",
+        "any building footprint or plan",
+        "any length or width for the piers",
+        "any corroboration of the estray pen — see the negative finding in the note"
+      ]
+    },
+    {
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
+      ],
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
+    },
+    {
       "source_id": "osm_streets_2026",
       "citation": "OpenStreetMap contributors. Street centerline intersection nodes for downtown Chicago, retrieved via the Overpass API, 2026-08-09.",
       "url": "https://www.openstreetmap.org/",
@@ -138,7 +211,7 @@
       "tier_label": "later scholarship"
     }
   ],
-  "research_note": "A DOCUMENTED BUSINESS AT AN AMBIGUOUS ADDRESS. Andreas gives the date, the owner and both uses, and locates the building only as 'close to the present site of the Tremont House' — a landmark that post-dates the warehouse by a year and that moved corners between the first Tremont and its successors. The position note works through that; the short version is that the crossing is safe and the corner is a reading. TWO GUARDS TRAVEL WITH THIS RECORD. First, Newberry and Dole's forwarding warehouse and wharf were on the NORTH bank of the river, immediately east of the later Rush Street bridge, and must not be conflated with this one. Second, the 1834 South Branch slaughter-house means the yard half of this record had probably moved before the scene date. WHAT IS CONJECTURAL HERE: the footprint outright, and the storey count, which unusually has no typological argument behind it either way. WHAT WOULD UPGRADE THEM: any Chicago Democrat advertisement of Dole's giving his address relative to a cross street; the 1834-35 town lot records for the Lake and Dearborn block; or a description of the building in the packing literature Andreas draws on at scan p. 1151. See docs/RESEARCH/dole_warehouse_south.md.",
+  "research_note": "A DOCUMENTED BUSINESS AT AN AMBIGUOUS ADDRESS. Andreas gives the date, the owner and both uses, and locates the building only as 'close to the present site of the Tremont House' — a landmark that post-dates the warehouse by a year and that moved corners between the first Tremont and its successors. The position note works through that; the short version is that the crossing is safe and the corner is a reading. TWO GUARDS TRAVEL WITH THIS RECORD. First, Newberry and Dole's forwarding warehouse and wharf were on the NORTH bank of the river, immediately east of the later Rush Street bridge, and must not be conflated with this one. Second, the 1834 South Branch slaughter-house means the yard half of this record had probably moved before the scene date. WHAT IS CONJECTURAL HERE: the footprint outright, and the storey count, which unusually has no typological argument behind it either way. WHAT WOULD UPGRADE THEM: any Chicago Democrat advertisement of Dole's giving his address relative to a cross street; the 1834-35 town lot records for the Lake and Dearborn block; or a description of the building in the packing literature Andreas draws on at scan p. 1151. See docs/RESEARCH/dole_warehouse_south.md. THE FIRST GUARD ABOVE IS SUPERSEDED, AND THE SECOND QUESTION IT RAISED IS ANSWERED (T-1723, T-2137, 2026-10-05). The forwarding house's bank was ruled SOUTH on the Chicago Democrat's own advertisers (T-1723), and the north-bank sentence is Andreas's 1839 warehouse. The address this record's open threads asked for arrived the same way: the paper's Dearborn advertisers place 'Newberry & Dole's store' on Dearborn Street with neighbours north and south of it, which is this crossing, so this building is now read as the firm's store in 1834-35 (occupants note) and is lettered NEWBERRY & DOLE. The two records are still NOT merged: the store house on South Water is a second premises that Peter Cohen places, and it keeps its own record.",
   "research_doc": "docs/RESEARCH/dole_warehouse_south.md",
   "review_required": false
 }
