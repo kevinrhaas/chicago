@@ -168,72 +168,9 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D4 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
-    },
-    "occupants": {
-      "value": "The Bourassa household — a name the town's own records carry",
-      "confidence": "reconstructed",
-      "sources": [
-        "st_cyr_register_ichr_v4"
-      ],
-      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_west_lake_des_plaines#05, fronting jefferson, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [
-    {
-      "household": "hh_bourassa_mark",
-      "name": "The Bourassa household — a name the town's own records carry",
-      "division": "unplaced",
-      "relation": "lived here",
-      "why": "the roof T-1613 dealt this household, joined here and not re-argued",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "Mark Bourassa",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 31 March 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
-        },
-        {
-          "name": "Mary Gilbert",
-          "relationship": "wife",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
-        },
-        {
-          "name": "Sarah Gilbert",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Ira Gilbert",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "George Gilbert",
-          "relationship": "son",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        },
-        {
-          "name": "Rhoda Gilbert",
-          "relationship": "daughter",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the north division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
-    }
-  ],
+  "residents": [],
   "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
@@ -252,43 +189,6 @@
         "A surviving July 1835 building census or parcel-by-parcel roof register.",
         "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
         "Authority to replace stronger building-specific evidence already represented in the dataset."
-      ]
-    },
-    {
-      "source_id": "st_cyr_register_ichr_v4",
-      "citation": "The first Chicago Catholic church register — Father John Mary Irenaeus St. Cyr's marriage register and his death and burial page — as printed and annotated in the *Illinois Catholic Historical Review*, vol. 4 (July 1921 - April 1922), and republished in two pages by the Genealogy Trails Transcription Team. 128 dated marriages of 1834-1839, each naming groom, bride, witnesses and officiating priest, and 11 deaths and burials of June 1834 to March 1837.",
-      "url": "https://genealogytrails.com/ill/cook/marriages_catholic.html",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "transcribes": [
-        {
-          "work": "The first Chicago Catholic church record, kept by Father J. M. I. St. Cyr from 1833 and continued by Fathers Bernard Schaeffer and Timothy O'Meara to 1839",
-          "date": "1833-1839",
-          "tier": 1,
-          "note": "THE ORIGINAL, and nobody in this project has seen it. What is read here is a 1921-22 article that prints the marriage entries and the death entries and comments on them. The article itself says the death record 'is contained on a single page' of the book."
-        },
-        {
-          "work": "Illinois Catholic Historical Review, vol. 4 (July 1921 - April 1922)",
-          "date": "1921",
-          "tier": 2,
-          "note": "The layer actually read, at one further remove: the Genealogy Trails team transcribed these two pages out of the Review and this project read the transcription. Every record citing this source is graded transcription_mediated, twice over."
-        }
-      ],
-      "what_it_supplies": [
-        "128 marriages at Chicago (125 of them) between 1834 and 1839, each dated, and each naming its witnesses BY NAME — 513 named readings of people standing at a named place on a named day",
-        "six marriages IN THE SCENE YEAR, which with their witnesses put twenty named people in Chicago on five days of 1835",
-        "eleven deaths and burials, four of them in 1835, including the death of Thomas Owen, agent of the Indians, at Chicago on 15 October 1835",
-        "the register's own arithmetic — 22 St. Cyr marriages, 18 Schaeffer, 87 O'Meara, 1 Plunkett — which verifies any reading of it without the book",
-        "the dates bounding each priest's time at Chicago, which is what makes an unsigned entry attributable",
-        "the Irish, French and German Catholic population of the town, which is the part the poll books and letter lists reach least well"
-      ],
-      "what_it_does_not_supply": [
-        "any address, lot, dwelling or workplace — the register places nobody anywhere in the town",
-        "any age, except for three infants and one nine-year-old on the death page",
-        "the baptisms. The article tallies 282 of them by these same priests and prints none; that register is T-0503's object and is not in this source",
-        "residence. A marriage at Chicago on a day of 1835 is presence on that day, and presence is not residence",
-        "reliable spelling. The article says so itself: a French and German priest writing Irish and English names, and an Irish priest writing French and German ones"
       ]
     }
   ],
@@ -309,9 +209,9 @@
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "keeper",
-      "household": "hh_bourassa_mark",
-      "words": "new-sawn clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Bourassa household's, in Chicago since 1835 (rule F-T)"
+      "by": "type",
+      "household": null,
+      "words": "new-sawn clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — a two-room frame cottage, new-built (rule F-T: a tradesman's by its type)"
     }
   },
   "fabric_tone": {
