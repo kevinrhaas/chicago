@@ -1,10 +1,64 @@
 export const CHANGELOG = [ // newest first
-  { v: 1464, ts: '2026-10-05T03:16:07.134Z', date: 'Oct 4, 2026, 10:16 PM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+  { v: null, ts: '', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
       'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
       'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
       'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tested giving every building baked shadows in its corners and under its eaves, the shading called ambient occlusion.',
+      'Done the usual way, with a shadow picture per building, the town took 547 separate drawing steps instead of 5. That roughly doubled the work per frame on a phone, so it is not shipping.',
+      'Those shadow pictures would also never reach the walls or roofs, which already carry their own texture. The plan is now to store the shadows in the buildings’ corners themselves, which adds no drawing steps.',
+    ] },
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
+    ] },
+  { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+    items: [
+      'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
+      'At Full detail the windows still reflect and see through as before.',
+      'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
+    ] },
+  { v: 1469, ts: '2026-10-05T04:20:56.828Z', date: 'Oct 4, 2026, 11:20 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+    items: [
+      'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
+      'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
+      '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
+      'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
+      'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
+    ] },
+  { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. Each layer of the town can add its own steps to how a surface is shaded. Two layers with different steps could still be handed one shared shader, and then one of them drew in solid black.',
+      'That is how a fence once came out black. It was fixed for that fence alone. Now each set of shading steps gets its own shader, and anything that shades the same way still shares one, so nothing extra is compiled.',
+    ] },
+  { v: 1467, ts: '2026-10-05T03:48:41.028Z', date: 'Oct 4, 2026, 10:48 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
+    items: [
+      'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
+      'The shed is still a reconstruction: no record names it, and its card says so. Only where it stands changed.',
+    ] },
+  { v: 1466, ts: '2026-10-05T03:32:41.154Z', date: 'Oct 4, 2026, 10:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
+      'Twice before, that card named the wrong wall or the wrong street. Each time a person reading the files caught it.',
+      'Now every such card, 43 in all, is checked against the building\u2019s actual position whenever the town is rebuilt. All 43 are correct today.',
+    ] },
+  { v: 1465, ts: '2026-10-05T03:13:04.374Z', date: 'Oct 4, 2026, 10:13 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
+      'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
+      'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
+  { v: 1464, ts: '2026-10-05T02:58:07.931Z', date: 'Oct 4, 2026, 9:58 PM CT', title: 'A phone starts at Low image sharpness, for smoother frames', kind: 'change',
+    items: [
+      'On a phone, the town now opens at Image sharpness Low, not Medium. At Light detail, where a phone starts, each frame draws about a quarter faster. Edges are a little softer, most of all on log walls and roofs seen from the air.',
+      'A desktop still starts at Medium.',
+      'If you have ever picked a sharpness in Settings, you keep it.',
     ] },
   { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [

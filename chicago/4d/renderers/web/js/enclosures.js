@@ -722,8 +722,9 @@ export async function createEnclosures({
    * lit it perfectly, which is what made the cause so hard to see.
    *
    * The key below is this layer's own, so the fence gets its own program. The
-   * general trap is not fixed here — any future layer that patches a plain lit
-   * material walks into the same collision — and is filed as its own ticket.
+   * general trap is now closed in `confidence.patch()` itself, which keys a
+   * program by the hooks that write it (T-0053); this key stays because it is
+   * the fence's own and replaces that one.
    */
   mat.customProgramCacheKey = () => 'chicago4d-enclosure-timber';
 

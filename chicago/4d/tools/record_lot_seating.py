@@ -110,7 +110,7 @@ GRADES = ("conjectural", "inferred", "documented")
 # and read as a run: what the record claims is NOT its lot, what a source calls its lot,
 # and what the ground under it turned out to be.
 KEY_ORDER = ("id", "name", "aka", "archetype", "phases", "function", "occupants",
-             "reconstruction", "lot_claim", "lot_address", "stands_on_lot", "land_owner",
+             "stated_use", "reconstruction", "lot_claim", "lot_address", "stands_on_lot", "land_owner",
              "xref", "_frontage", "research_note", "review_required",
              "resident_assignment")
 

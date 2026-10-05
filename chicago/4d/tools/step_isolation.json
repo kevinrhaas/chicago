@@ -2606,6 +2606,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/check_frontage_notes.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/check_gate_readers.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2659,6 +2663,10 @@
       "wrote_ignored": []
     },
     "tools/check_rulings_not_lost.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_sharpness_default.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -4610,6 +4618,10 @@
       "wrote_ignored": []
     },
     "tools/test_pr_stuck.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/test_program_cache_key.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

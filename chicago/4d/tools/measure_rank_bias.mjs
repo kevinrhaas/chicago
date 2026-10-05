@@ -43,7 +43,7 @@
  * here. A rename or a rewrite in that file changes this tool's answer or fails
  * it by name; it cannot leave the tool quietly measuring last month's
  * arithmetic. `scatter`'s own index arithmetic is inline rather than a function,
- * so the four lines this tool reproduces are asserted to appear VERBATIM in the
+ * so the lines this tool reproduces are asserted to appear VERBATIM in the
  * shipped `scatter` before anything is dealt. That guard is the same shape as
  * the far-timber gate's "FAR_TIMBER renamed out from under the gate" assertion,
  * and for the same reason.
@@ -147,10 +147,17 @@ function loadDeal() {
   // four expressions reproduced in `dealBlock` below are asserted verbatim
   // instead: change `scatter` and this fails loudly rather than leaving the tool
   // measuring a deal the renderer no longer performs.
+  //
+  // T-0371: until then the first two lines here were the ternaries that chose
+  // between this block arithmetic and the rank-1 lattice's block ROTATION, which
+  // T-0265 had already left unread — so the guard pinned dead code in place.
+  // `scatter` now computes a block only on the strata path, and these are the
+  // lines of that path, including the block size `dealBlock` takes as its own.
   const MIRRORED = [
-    'const blockHash = hash3(bc, br, salt ^ (strata ? STRAT_SALT : LD_BLOCK_SALT));',
-    '? blockPhase(bc, br, nSlots, globalShift)',
-    'const base = ((c - ((c >> shiftBits) << shiftBits)) * span',
+    'const shiftBits = STRAT_BLOCK_SHIFT;',
+    'blockHash = hash3(bc, br, salt ^ STRAT_SALT);',
+    'shift = blockPhase(bc, br, nSlots, globalShift);',
+    'base = ((c - ((c >> shiftBits) << shiftBits)) * span',
     '? stratum(base + k, nSlots, half, blockHash, shift)',
     'const globalShift = hash3(salt, STRAT_SALT, 0x9e3779b9) / 4294967296;',
     'const nSlots = span * span * perCell;',
