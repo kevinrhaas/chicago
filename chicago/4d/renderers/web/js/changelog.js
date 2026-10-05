@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1456, ts: '2026-10-05T00:41:32.398Z', date: 'Oct 4, 2026, 7:41 PM CT', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
+  { v: null, ts: '', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
     items: [
       'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',
       'At a stop like that the button now reads Choose an Option. Tap it and the panel scrolls to the options.',
       'Nothing about the previous jaunt was carried over. All 26 jaunts were run start to finish, one after another, on a phone-sized window.',
+    ] },
+  { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
     ] },
   { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
