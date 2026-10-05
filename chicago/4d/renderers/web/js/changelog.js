@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1497, ts: '2026-10-05T16:30:49.370Z', date: 'Oct 5, 2026, 11:30 AM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
+  { v: 1498, ts: '2026-10-05T17:10:36.338Z', date: 'Oct 5, 2026, 12:10 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
     items: [
       'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',
       'When the lots of Kinzie\u2019s Addition were first cut, twenty households were given lots on two Indiana Street blocks. The Liberties page said all twenty were labourers\u2019 families. They were not: thirteen were tradesmen\u2019s, six were merchants\u2019 or professionals\u2019, and only one was a labourer\u2019s.',
       'The entry now says so, and says what stands on those two blocks today: 21 households, eight of them already in cottages. The Liberties page explains it (L270).',
+    ] },
+  { v: 1497, ts: '2026-10-05T16:26:38.278Z', date: 'Oct 5, 2026, 11:26 AM CT', title: 'Shops placed by Newberry & Dole\u2019s store now stand at Lake and Dearborn', kind: 'change',
+    items: [
+      'Six businesses in the 1834\u201335 Chicago Democrat give their address only as being near Newberry & Dole\u2019s store: a baker, two Dearborn Street shoe and grocery shops, W. H. Brown, and the agent for the Chicago and St. Joseph packet. They are now placed at that store, the warehouse at Lake and Dearborn, instead of somewhere on the street.',
+      'Their seat is the nearest building we have, not a claim that they shared it. \u201cOne door south\u201d and \u201ca few rods north\u201d mean they stood beside it.',
+      'Three shop signs on reconstructed buildings along Dearborn and South Water come down. Those buildings were housing these firms until a better address was found, and other firms now fill some of them.',
     ] },
   { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [

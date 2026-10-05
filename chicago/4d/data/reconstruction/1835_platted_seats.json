@@ -332,8 +332,8 @@
    "family": "D1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
-   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
+   "occupants": "Elmira Fowler — millinery and dress making",
+   "business_id": "business_elmira_fowler"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
@@ -341,8 +341,8 @@
    "family": "D3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "J. B. Brown, Dearborn Street grocery — groceries",
-   "business_id": "business_j_b_brown_dearborn_street_grocery"
+   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
+   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
@@ -395,8 +395,8 @@
    "family": "C1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "D. Graves — bakery",
-   "business_id": "business_d_graves"
+   "occupants": "Clark, Filer & Co. — cabinet shop; chairs",
+   "business_id": "business_clark_filer_co"
   },
   {
    "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
@@ -431,20 +431,11 @@
    "family": "D2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Elmira Fowler — millinery and dress making",
-   "business_id": "business_elmira_fowler"
+   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
+   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
-   "lot_id": "blk_south_water_franklin#02",
-   "family": "C2",
-   "held_by": "street_face_business_deal",
-   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Briggs & Humphrey — carriage and sleigh making",
-   "business_id": "business_briggs_humphrey"
-  },
-  {
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
    "lot_id": "blk_south_water_franklin#02",
    "family": "C2",
    "held_by": "street_face_business_deal",
@@ -453,7 +444,7 @@
    "business_id": "business_j_h_mulford"
   },
   {
-   "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
    "lot_id": "blk_south_water_franklin#02",
    "family": "C2",
    "held_by": "street_face_business_deal",
@@ -462,13 +453,22 @@
    "business_id": "business_jones_king_co"
   },
   {
+   "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+   "lot_id": "blk_south_water_franklin#02",
+   "family": "C2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "H. Doty & Co. — dry goods and groceries",
+   "business_id": "business_h_doty_co"
+  },
+  {
    "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
    "lot_id": "blk_south_water_franklin#06",
    "family": "C4",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Clark, Filer & Co. — cabinet shop; chairs",
-   "business_id": "business_clark_filer_co"
+   "occupants": "Briggs & Humphrey — carriage and sleigh making",
+   "business_id": "business_briggs_humphrey"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_d4_02",
@@ -485,8 +485,8 @@
    "family": "C1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "H. Doty & Co. — dry goods and groceries",
-   "business_id": "business_h_doty_co"
+   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture",
+   "business_id": "business_rockwell_cabinet_furniture_warehouse"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
@@ -494,8 +494,8 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture",
-   "business_id": "business_rockwell_cabinet_furniture_warehouse"
+   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes",
+   "business_id": "business_samuel_lewis"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
@@ -503,8 +503,8 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes",
-   "business_id": "business_samuel_lewis"
+   "occupants": "Hiram Pearsons — storage and commission merchant",
+   "business_id": "business_hiram_pearsons"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
@@ -512,8 +512,8 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Hiram Pearsons — storage and commission merchant",
-   "business_id": "business_hiram_pearsons"
+   "occupants": "Chicago Democrat printing office — newspaper and job printing",
+   "business_id": "business_chicago_democrat_printing_office"
   },
   {
    "structure_id": "recon_1835_blk_south_water_lasalle_d2_09",
@@ -557,8 +557,8 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Chicago Democrat printing office — newspaper and job printing",
-   "business_id": "business_chicago_democrat_printing_office"
+   "occupants": "A. Filer & Co. — cabinet and chair manufactory",
+   "business_id": "business_a_filer_co"
   },
   {
    "structure_id": "recon_1835_blk_south_water_wells_c3_02",
@@ -566,8 +566,8 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "A. Filer & Co. — cabinet and chair manufactory",
-   "business_id": "business_a_filer_co"
+   "occupants": "Chicago Bakery — baker",
+   "business_id": "business_chicago_bakery"
   },
   {
    "structure_id": "recon_1835_south_c3_040",
