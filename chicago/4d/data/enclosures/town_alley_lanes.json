@@ -270,6 +270,9 @@
   "recon_1835_blk_washington_wells_h1_02",
   "recon_1835_blk_washington_wells_h1_03",
   "recon_1835_blk_washington_wells_h2_07",
+  "recon_1835_blk_west_lake_canal_d2_03",
+  "recon_1835_blk_west_lake_canal_d4_02",
+  "recon_1835_blk_west_lake_canal_d5_01",
   "recon_1835_blk_west_randolph_des_plaines_d4_02",
   "recon_1835_blk_west_randolph_des_plaines_d5_04",
   "recon_1835_blk_west_randolph_des_plaines_d6_03",
@@ -3747,6 +3750,9 @@
    "served": [
     "goss_cobb_saddlery",
     "pierce_blacksmith_shop",
+    "recon_1835_blk_west_lake_canal_d2_03",
+    "recon_1835_blk_west_lake_canal_d4_02",
+    "recon_1835_blk_west_lake_canal_d5_01",
     "recon_1835_forks_freight_f2_001"
    ]
   },

@@ -4497,6 +4497,110 @@
         }
       ],
       "arrangement_note": "A BOARDING HOUSE ON THE WASHINGTON FACE, ONE LOT IN FROM THE DEARBORN CORNER, WITH ITS STABLE AND PRIVY BEHIND IT (T-1951, of T-1810). The 665-roof schedule apportions this block one H3 roof that `1835_platted_seats.json` lists under `plan_left_unclaimed` with the sentence `the plan offers this family and no banded row of this division is admitted by a clause that takes it`, so the house answers the PLAN and not a household and its keeper is the lodgers stage's draw. The block stood empty; it stands at three roofs on one of its eight lots. The house is the form T-1778 built on the first seat: two storeys of clapboard on the frame_tavern placeholder with the tavern's cues left off, a one-storey kitchen wing behind, its upper-storey windows and stovepipes sized from the beds the lodging model gives it (the record's `reconstruction.capacity` block shows the arithmetic). It stands 1.55 m off the lot's Washington edge, the setback every house on the tier took, one lot east of the Dearborn Street crossing where the Clark block's second house stands on the far corner. WHY NOT THE CORNER: every corner of this block scores in the platted deal exactly what the Clark block's two corner houses score, and the tie breaks on the lot id, so a house on any of them drew hh_beaubien_mark or hh_sweet_alanson off the house T-1778 or T-1809 raised for them; this ticket raises the plan's unclaimed roofs and does not move a seated keeper. So the house stands one lot in, and that is a liberty and not a finding. The stable stands off the alley on one side of the lot and the privy on the other, 4-4.5 m in from the alley edge as every yard building of this module stands, and both serve only this lot; the mix is not the plan's, for L326's reason. EVERY FREE LOT BUT THE KEPT-OPEN ONE CARRIED A SLOT REQUEST, so the house stands on a requested lot: hh_benediet_loma's H2 on lot 2. The lodging roof goes first under the precedence T-1777's deal order already gives it over the dwelling clauses, and the request is re-seated or owed in writing by the seating chain, not by this entry. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a boarding house, a stable or a privy stood on this block in 1835, where on the lot they sat and how far back. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+    },
+    {
+      "block_id": "blk_west_lake_canal",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_west_lake_canal",
+      "claimed": "2026-10-05",
+      "bounded_by": {
+        "north": "lake",
+        "south": "randolph",
+        "west": "canal",
+        "east": "west_water"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 6,
+        "standing_roofs": 3,
+        "free_lots": 8,
+        "headroom": 3,
+        "dealt_roofs": 3,
+        "dealt_principal": 3,
+        "dealt_ancillary": 0,
+        "principal": 3,
+        "ancillary": 0
+      },
+      "families": {
+        "D5": 1,
+        "D4": 1,
+        "D2": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-1829",
+        "parent": "T-1208",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_bourassa_jean_baptiste",
+            "family": "D5",
+            "order_book_draw": "blk_west_lake_canal / D5 / west"
+          },
+          {
+            "seat": "hh_borum_richard",
+            "family": "D4",
+            "order_book_draw": "blk_west_lake_canal / D4 / west"
+          },
+          {
+            "seat": "hh_bruno_anne_franoise_apolline",
+            "family": "D2",
+            "order_book_draw": "blk_west_lake_canal / D2 / west"
+          }
+        ],
+        "why": "THE BLOCK'S WHOLE REQUEST, RAISED ON THE LOTS IT ASKED FOR. The seating file asks three roofs of this block and no more -- hh_bourassa_jean_baptiste's D5 on lot index 2 and hh_borum_richard's D4 on lot index 3, both fronting Canal under the tradesman_dwellings clause, and hh_bruno_anne_franoise_apolline's D2 on lot index 8 fronting West Water under the labourer_dwellings clause -- which is exactly the three roofs of principal room the schedule's West density leaves here. No face is exchanged: the two frame cottages already ask for Canal, which the lot ledger reads `ordinary`, and the plank shanty asks for West Water, which it reads `light`, so the committed street hierarchy and the request already agree that the better face takes the better houses. A REQUEST IS NOT EVIDENCE: all three roofs are anonymous count-units at the bottom tier, standing on invented positions on conjectural side lot lines, and the seating pass re-runs behind the deal to say which household ends up under which roof."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Canal column's second lot from Lake Street (plat lot 3), left open between Cobb's saddlery and Pierce's blacksmith shop, the two named trade roofs on the Lake corner and the two cottages this deal stands further south, so the trade corner keeps a yard's width of open ground beside it rather than reading as the first lot of a continuous row."
+        },
+        {
+          "lot": 4,
+          "why": "The Canal column's Randolph end (plat lot 10), left open so the face reads trade corner, open, two cottages, open from Lake to Randolph. The West recipe's Zone B asks for breaks between yard groups and not a continuous frontage; this is the break."
+        },
+        {
+          "lot": 6,
+          "why": "The West Water column's second lot (plat lot 4), left open south of the forks freight warehouse on the Lake corner: a freight roof on the river street keeps its wagon yard, and the seating asks for nothing here."
+        },
+        {
+          "lot": 7,
+          "why": "The West Water column's middle lot (plat lot 5), left open between the warehouse's yard and the shanty dealt to plat lot 8, so the river face reads as loose, light-street ground and not a built row."
+        },
+        {
+          "lot": 9,
+          "why": "The West Water column's Randolph end (plat lot 9), left open: the seating asks nothing of it, and the schedule's ceiling of six is reached without it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 5.0,
+          "lateral_m": -2.0
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 7.5,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D2",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "west_water",
+          "setback_m": 4.0,
+          "lateral_m": 2.0
+        }
+      ],
+      "arrangement_note": "THE LAST THREE ROOFS THE WEST DENSITY LEAVES ON PLAT BLOCK 29, AND THE FIRST PIECE OF THE WEST DIVISION'S REMAINDER (T-1829). `tools/reconcile_665.py` sizes this ten-lot block at six roofs -- the reviewed West recipe's six on blk_west_lake_des_plaines's ten lots (T-1783) -- and three already stand: the two named trade roofs on the Lake-and-Canal corner lot, S. B. Cobb's saddlery and Asahel Pierce's blacksmith shop, and the forks freight warehouse T-1773 raised on the Lake-and-West-Water corner. That leaves three roofs of principal room, no ancillary room, and the seating file's three slot requests fill it exactly: a deep-plan frame cottage (D5) and a two-room frame cottage (D4) side by side on the Canal face at plat lots 6 and 7, and a rough plank shanty (D2) on the West Water face at plat lot 8. The two cottages stand on Canal Street, the graded approach from the forks and the better of the block's two faces, and the shanty on West Water, the light river street, so no face is exchanged. The set-outs (5.0 and 7.5 m on Canal, 4.0 m on West Water) and lateral offsets are inventions bounded by the lot lines, and differ from blk_lake_clinton's Canal-face roofs directly across the street (6.5 m) so the two faces of one street do not read as a surveyed building line. Five free lots stay open, one at each end of each face and one beside each corner holding, so neither face reads as a continuous row. WHAT IS INVENTED: that any building stood on these three lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals are read off the sheet; neither is evidence about these buildings.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {

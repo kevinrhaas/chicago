@@ -43,7 +43,11 @@ try {
     await page.screenshot({ path: path.join(out, `${viewport.width}-welcome.png`) });
     await page.locator('#welcome-jaunts').dispatchEvent('click');
     assert(await page.locator('#welcome-jaunts-region').isVisible());
-    await page.locator('#welcome-jaunts-explore').dispatchEvent('click');
+    // T-2120: the back arrow returns to the three choices; Starting at… leads with five quick starts.
+    await page.locator('#welcome-back').dispatchEvent('click');
+    assert(await page.locator('#welcome-jaunts-region').isHidden() && await page.locator('#welcome-back').isHidden());
+    await page.locator('#welcome-explore').dispatchEvent('click');
+    assert.equal(await page.locator('#welcome-quick .welcome-quick-start').count(), 5);
     const before = await page.evaluate(() => ({ ...__chicago4d.player }));
     await page.locator('#welcome-search').fill('Sauganash');
     await page.keyboard.type('wasd');
@@ -68,6 +72,13 @@ try {
       assert(Math.hypot(result.actual.e - result.expected.e, result.actual.n - result.expected.n) < .01);
       receipts.push(result);
     }
+    // A quick start enters the town at its viewpoint.
+    const quick = await page.evaluate(() => {
+      const a = __chicago4d; if (a.welcome.state === 'world') a.welcome.show();
+      a.welcome.enter('explore'); document.querySelector('#welcome-quick [data-id="forks"]').click();
+      return { state: a.welcome.state, e: a.walker.state.e, n: a.walker.state.n, anchor: a.destinations.byId('anchor', 'forks') };
+    });
+    assert.equal(quick.state, 'world', JSON.stringify(quick));
     await page.locator('#btn-start').dispatchEvent('click');
     const pause = await page.evaluate(() => ({ e: __chicago4d.walker.state.e, n: __chicago4d.walker.state.n, help: document.getElementById('control-help').hidden }));
     assert(pause.help);

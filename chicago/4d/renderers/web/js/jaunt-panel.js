@@ -101,7 +101,15 @@ export function createJauntPanel({ destinations, actions }) {
     const unsafe = claims.some(c => claimPresentation(c).text === 'Unverified attribution withheld.');
     const paragraph = node('p', unsafe ? 'Unverified attribution withheld.' : text, narrative ? 'jaunt-narrative' : '');
     paragraph.title = paragraph.textContent; parent.append(paragraph);
-    const chips = node('div', '', 'jaunt-evidence');
+    if (!claims.length) return;
+    // T-2120: the sourcing folds behind one quiet toggle per passage instead of a row of
+    // [DOC]/[INF]/[CONJ] chips under the story; every claim and source is one tap away.
+    const chips = node('div', '', 'jaunt-evidence'); chips.hidden = true;
+    const toggle = button(`Sources · ${claims.length}`, () => {
+      chips.hidden = !chips.hidden; toggle.setAttribute('aria-expanded', String(!chips.hidden));
+    });
+    toggle.className = 'jaunt-sources-toggle'; toggle.setAttribute('aria-expanded', 'false');
+    parent.append(toggle);
     for (const claim of claims) {
       const presentation = claimPresentation(claim), fold = node('details', '', presentation.narrative ? 'jaunt-narrative' : '');
       fold.append(node('summary', `${presentation.label} ${claim?.id || 'Evidence'}`), node('p', presentation.text));
