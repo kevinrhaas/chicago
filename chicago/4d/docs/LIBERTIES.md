@@ -15010,9 +15010,22 @@ thirty-two platted block rows stood `unsubdivided`, because no lot rule had been
 plat, so the district's headroom was 0 and T-1205 is blocked-tech on it. T-1741 read the rules
 Wright actually draws inside the Addition's cells off `wright_1834_nara_hup`: five of the
 twenty-seven, all in the two tiers nearest the river, are ruled six lots to a face, and sixty
-lots were cut on them. The deal then placed eleven labourers' households on
-`blk_indiana_north_wolcott` and nine on `blk_indiana_north_cass`. **The twenty are slots and
-not roofs**, on the same terms as the others above, and they stand on the same invention
+lots were cut on them. The deal then placed eleven households on
+`blk_indiana_north_wolcott` — six under `tradesman_dwellings` and five under
+`merchant_and_professional_dwellings` — and nine on `blk_indiana_north_cass`, seven
+`tradesman_dwellings`, one `merchant_and_professional_dwellings` and one `labourer_dwellings`,
+hh_barre_john_s's. **Corrected 2026-10-05 (T-1744):** this sentence first said the twenty were
+eleven labourers' households and nine more, which the seats file T-1741 committed (#176) never
+said: the Addition's one labourer's household was on cass, and thirteen of the twenty were
+tradesmen's. `compile_liberties.py` checks this entry's scope COUNT, not the clauses named in its
+prose, so no gate could catch it; the clauses here are read off
+`data/reconstruction/1835_platted_seats.json` at that commit. On the ground as it stands today
+the two blocks hold 21 seats: wolcott's eleven are two `merchant_and_professional_dwellings`
+slots, four `tradesman_dwellings` households adopted onto the D3 cottages raised there and five
+`tradesman_dwellings` slots; cass's ten are four tradesmen's households adopted onto its D3 and
+D4 cottages, five tradesmen's slots and hh_barre_john_s's labourer's slot, still the one
+labourer's household in the Addition. **The twenty were slots and
+not roofs** when they were dealt, on the same terms as the others above, and they stand on the same invention
 this entry records: which lot a household takes is argued from its clause's stated preferences
 and from nothing else. What the reading changed is that the lots exist and are the sheet's
 own; what it did not change is that no source puts any of these households on one. The
@@ -21557,3 +21570,49 @@ houses retires the shops rather than moving them.
 **Related:** **L387** (the houses on the Dearborn block these stand behind), **L349**, **T-1684**,
 **T-2133** (the cross-street term), **T-2134**, **T-1482** (the owner's rear-building ruling).
 **Recorded:** 2026-10-05 (T-2134).
+
+### L390 — Fort Dearborn's roofs sit on their walls, its timber is piece by piece, and its staffs fly the flag in law
+**Merge identity:** this entry was L384, then L390, on the Fort Dearborn branch; dev assigned
+both numbers first (the Market block, then the Dearborn Street workshops). It is L390 here.
+**Decision:** in both forts (`generators/archetypes/fort_structure.py`, `palisade.py`,
+`renderers/web/js/flags.js`):
+- **Roofs.** Every gable and shed covering now passes through the wall head with a 0.30 m eave
+  that hangs below it, and the gable and shed ends are closed by wall: a log building's gable is
+  more log courses on the wall's own course grid, with chinking; a shed roof's high side is the
+  back wall carried up to the high plate. Each covering plane is toned from 0.84 at the eave to
+  1.02 at the ridge, ±6 % a plane, with its edge darker still.
+- **Logs.** Every course of every log wall is its own piece with its own tone (±16 %), the two
+  sill courses darker (×0.80, ×0.92).
+- **Pickets.** Each stockade picket is a split log, six-sided with the flat face inward, varied
+  in width, turn and the lean of its point (height and head stay the record's), toned piece by
+  piece and darker at the foot; two ribbands run along the inside of each run; the timber grain
+  runs up the picket.
+- **Flags.** The 1835 staff flies the 24-star, 13-stripe flag (stars in four rows of six); the
+  1812 staff the 15-star, 15-stripe flag (five staggered rows of three). The fly is 0.30 of the
+  staff (about 15 ft and 22 ft), hoist to fly 1 : 1.6, worn (the 1835 flag fully, the 1812 by
+  half: bleached toward a frayed fly end), streaming north-east on a south-westerly breeze with
+  a gentle travelling ripple.
+**Why:** the owner, 2026-10-05 (T-2123, T-2124), at the fort in 1835: *"the roof is hovering, so
+that should be fixed, and be sure to apply those textures that we have to everything ... that
+wood looks pretty plain, and we have done better ... can we have a US flag or whatever the period
+correct flag ... both 1835 and 1812"*. The artillery house's shed roof floated over an open back,
+the gables were plain boards over log walls, every log in a wall was one colour, and both staffs
+stood bare.
+**What is recorded and what is not:** no source reached gives either fort's roof pitch, eave,
+gable construction, log colour, picket section or ribbands; all of it is the archetype's,
+chosen to read as hewn and split timber the way the town's plank walks do. The flags' STAR AND
+STRIPE COUNTS are inferred from the Flag Acts (1794: fifteen and fifteen from 1 May 1795; 1818:
+thirteen stripes and a star a state from the 4th of July after admission, so 24 stars from
+4 July 1822 to 4 July 1836). That the 1835 staff flew a flag at all, and a weather-beaten one,
+is Andreas's (`andreas_1884_v1`, vol. 1 p. 128); that it is UP on the scene's forenoon is
+ours — Andreas has it up "in pleasant weather and on holidays", the scene is drawn fair, and
+the record grades `flag_flying` reconstructed. Nothing says the 1812 flag was up on 1 August
+1812. The arrangement of the stars, the size, the colours' wear and the wind are ours.
+**How to resolve:** a quartermaster's account, a post return or a period view of either fort
+replaces the roofs and timber; any record of the post's colours (a requisition for a garrison
+or storm flag, its size) replaces the cloth; a weather record for 1 July 1835 settles whether it
+was up, and from where the wind blew.
+**Related:** L204 (the staff's position), L232 (the fort's well), T-0096 (the staff found, and
+the bare-staff reading this supersedes at the owner's direction).
+**Covers:** `fort_dearborn_flagstaff.staff_1833_37.form.flag_flying`, `first_fort_dearborn_flagstaff.first_fort_1803.form.flag_flying`
+**Recorded:** 2026-10-05 (T-2123, T-2124).

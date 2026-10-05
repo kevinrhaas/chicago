@@ -55,6 +55,8 @@
       "phases[].form.fence_height_m.note",
       "phases[].form.fenestration.note",
       "phases[].form.fire_rings.note",
+      "phases[].form.flag.note",
+      "phases[].form.flag_flying.note",
       "phases[].form.forge.note",
       "phases[].form.frame_addition.note",
       "phases[].form.frame_addition_depth_m.note",

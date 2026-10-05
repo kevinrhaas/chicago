@@ -124,6 +124,9 @@ PICKET_MATERIAL = "log"
 #: knob: the archetype's own rule yields 8.4 % on this record, and 4 % is half of
 #: that, which is the point at which the sawtooth stops reading at the wall.
 MIN_POINT_FRACTION = 0.04
+# Triangles in one picket's head, so apex vertices per post: four while the
+# picket was a square box, six since T-2123 split it to a six-sided section.
+HEAD_TRIS = 6
 
 # ---------------------------------------------------------------- the plate
 #
@@ -229,7 +232,7 @@ def model_head(glb: pathlib.Path = GLB) -> dict:
         "apex_verts": n_apex,
         "point_m": round(apex - shoulder, 4),
         "point_fraction": round((apex - shoulder) / apex, 4) if apex else 0.0,
-        "posts": n_apex // 4,
+        "posts": n_apex // HEAD_TRIS,
         "record_picket_height_m": form["picket_height_m"]["value"],
         "record_picket_height_confidence": form["picket_height_m"]["confidence"],
     }
@@ -251,18 +254,18 @@ def gate(head: dict, echo=print) -> int:
     else:
         echo(f"  ok    the pickets are pointed — {point} m of head, "
              f"{frac * 100:.1f} % of a {head['apex_m']} m picket")
-    if head["apex_verts"] % 4:
+    if head["apex_verts"] % HEAD_TRIS:
         echo(f"  FAIL  {head['glb']}: {head['apex_verts']} apex vertices is not a "
-             f"whole number of four-triangle heads")
+             f"whole number of {HEAD_TRIS}-triangle heads")
         bad += 1
     elif head["apex_verts"] >= head["shoulder_verts"]:
         echo(f"  FAIL  {head['glb']}: {head['apex_verts']} apex vertices against "
              f"{head['shoulder_verts']} at the shoulder — a head is one vertex per "
-             f"post against four, so these are caps and not points")
+             f"post against the shaft's many, so these are caps and not points")
         bad += 1
     else:
         echo(f"  ok    {head['posts']} posts carry one apex each "
-             f"({head['apex_verts']} verts, 4 per post)")
+             f"({head['apex_verts']} verts, {HEAD_TRIS} per post)")
     if abs(head["apex_m"] - head["record_picket_height_m"]) > 0.02:
         echo(f"  FAIL  {head['glb']}: the mesh tops out at {head['apex_m']} m and the "
              f"record states {head['record_picket_height_m']} m — the point was added "
