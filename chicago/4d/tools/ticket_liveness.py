@@ -276,6 +276,28 @@ def order_book_holes(states: dict[str, str], parents: dict[str, str],
     return []
 
 
+def keeper_holes(states: dict[str, str], parents: dict[str, str],
+                 root: Path = ROOT) -> list[str]:
+    """The keepers ledger's owed seats (T-1705), asked against a hypothetical queue.
+
+    `1835_roof_keepers.json` hands the seats outside its districts to one ticket,
+    `owed_to`, and its `--check` holds that ticket live. Closing it without moving the
+    seats on would pass on its own PR (the ticket reads `review`) and turn `dev` red the
+    moment the tickets repo settled the close — the shape this file was written for.
+    """
+    sys.path.insert(0, str(root / "tools"))
+    try:
+        import name_the_keepers_1835 as nk
+    except Exception as exc:                                  # pragma: no cover
+        return [f"NOT CHECKED: the keepers ledger could not be read ({exc})"]
+    import json
+    path = root / "data/reconstruction/1835_roof_keepers.json"
+    if not path.is_file():
+        return []
+    ledger = json.loads(path.read_text(encoding="utf-8"))
+    return nk.owed_order_problems(ledger, dict(states), children_of(parents))
+
+
 # ------------------------------------------------------------------- the question
 
 def ticket_ids_in(name: str) -> list[str]:
@@ -377,6 +399,14 @@ def would_strand(closing: list[str], root: Path = ROOT) -> tuple[list[str], list
     before_holes = set(order_book_holes(states, parents, root))
     for hole in order_book_holes(after, parents, root):
         if hole not in before_holes:
+            faults.append(f"{hole} — and that is new with this close")
+        elif hole.startswith("NOT CHECKED"):
+            faults.append(hole)
+
+    # AND THE KEEPERS LEDGER'S ONE WORK ORDER (T-1705), asked the same way.
+    before_keepers = set(keeper_holes(states, parents, root))
+    for hole in keeper_holes(after, parents, root):
+        if hole not in before_keepers:
             faults.append(f"{hole} — and that is new with this close")
         elif hole.startswith("NOT CHECKED"):
             faults.append(hole)
