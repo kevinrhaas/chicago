@@ -97,6 +97,8 @@
  */
 
 import * as THREE from 'three';
+import { resolveBases } from './scene-loader.js';
+import { loadTimberRelief } from './frontage.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
@@ -111,13 +113,14 @@ const LEVEL = { attested: 0, documented: 0, inferred: 0.5, reconstructed: 1 };
  * same division `enclosures.js` makes between a fence's line and a rail's
  * thickness, and a visitor who hides `reconstructed` loses all of it either way.
  */
-const BARREL_SIDES = 10;
-const WHEEL_SIDES = 12;
+const BARREL_SIDES = 12;
+const WHEEL_SIDES = 16;
 /**
  * T-0064 CUT TWO OF THESE, and both cuts are the same argument the barrel's
  * missing hoops already make: triangles spent on something the eye cannot
- * resolve. The wheel keeps its 12 sides — a 1.37 m wheel at 10 would show its
- * facets to anyone standing beside it — but a wheel used to carry SIX spoke
+ * resolve. The wheel kept its 12 sides — a 1.37 m wheel at 10 would show its
+ * facets to anyone standing beside it, and T-2121 took it to 16 when the owner
+ * stood beside one and saw a dodecagon — but a wheel used to carry SIX spoke
  * boxes (twelve spokes' worth) where five reads identically at any distance a
  * visitor can be, and its hub was a 10-sided cask 9 cm in radius, which is a
  * cylinder drawn finer than the plank next to it. Together that is 32 triangles off
@@ -179,6 +182,86 @@ const GOODS_COLOUR = 0x8a7a5f;
  * space, so an sRGB hex pushed raw would be visibly wrong).
  */
 const CANVAS_COLOUR = 0xbfb49b;
+
+/**
+ * THE WEATHERED WOODS (T-2121). The owner, 2026-10-05: the barrels were "so janky
+ * compared to what else you have done", and the wagons "look eerily similar" — make
+ * them "different colors weathered wood like we did with the plank sidewalks". One
+ * goods tone dealt to every cask, case and wagon in town is exactly what reads as a
+ * copy, so each object is now DEALT a wood from these, seeded on its own id or place,
+ * and then shaded a little lighter or darker again, piece by piece.
+ *
+ * RECONSTRUCTED (docs/LIBERTIES.md L383), bounded by what this town already ships:
+ * the silvered end sits by the fences' weathered 0x8d8272 and the outbuildings' grey
+ * pine; the warm end by the goods' old 0x8a7a5f and the board face's own mean
+ * (rgb 126/112/91). Oak casks run browner than pine cases because white oak is a
+ * browner wood; none of these is a claim about any one object.
+ */
+const WOODS = {
+  silver: 0x7e786d,      // pine or oak a few summers out: bleached grey
+  greybrown: 0x86796a,   // weathered, not yet silvered
+  pine: 0xa08a68,        // seasoned pine, the colour of a packing case
+  honey: 0x96744f,       // newer oak, warm
+  oak: 0x7b644b,         // white oak staves, brown
+  darkoak: 0x5f4c3b,     // oak dark with wet, tar or age
+};
+/** Who gets which wood, and how often — weights, not shares of anything recorded. */
+const WOOD_DEALS = {
+  barrel: [['oak', 4], ['honey', 2], ['greybrown', 3], ['darkoak', 2], ['silver', 1]],
+  crate: [['pine', 3], ['silver', 2], ['greybrown', 2], ['honey', 1]],
+  timber: [['greybrown', 3], ['silver', 3], ['pine', 2], ['oak', 1]],
+};
+/**
+ * A WAGON IS OFTEN PAINTED, and that is the period's own answer to "eerily similar".
+ * The freight wagon of the 1830s is remembered blue in the body and red in the gear,
+ * and the farm wagon after it in the same pair or bare; so a share of the wagons and
+ * carts here wear a FADED paint — the grain shows through, as worn paint on a board
+ * does — and the rest are bare wood of the woods above. RECONSTRUCTED (the same
+ * liberty): no wagon in this town has a recorded colour.
+ */
+const WAGON_PAINT = {
+  blue: 0x5e7080,        // Prussian blue, faded chalky by the sun
+  red: 0x8a5040,         // Venetian red body
+  green: 0x6b735c,       // a dull green, the least common
+  oxide: 0x7a4536,       // red-oxide running gear
+};
+const WAGON_SCHEMES = [
+  // [weight, body, gear] — a wood name or a paint name
+  [3, 'blue', 'oxide'], [2, 'red', 'oxide'], [1, 'green', 'oxide'],
+  [1, 'blue', 'greybrown'],
+  [2, 'greybrown', 'greybrown'], [2, 'silver', 'silver'], [1, 'oak', 'darkoak'],
+  [1, 'pine', 'oxide'],
+];
+/** Iron — a tyre, a hoop, a stake's band: black gone rusty. */
+const IRON_COLOUR = 0x3d3631;
+/** A split-wood hoop: hickory or ash, paler than the staves it binds. */
+const WOOD_HOOP_COLOUR = 0xa38d6a;
+
+/** Pick from `[[name, weight], ...]` with a 0..1 draw. */
+function dealFrom(list, r) {
+  const total = list.reduce((a, [, w]) => a + w, 0);
+  let x = r * total;
+  for (const [name, w] of list) { x -= w; if (x < 0) return name; }
+  return list[list.length - 1][0];
+}
+/** A tone triple in the working colour space, `k` lighter or darker. */
+const toneCache = new Map();
+function toneOf(name, k = 1) {
+  const hex = WOODS[name] ?? WAGON_PAINT[name] ?? name;
+  const key = `${hex}:${k.toFixed(3)}`;
+  let t = toneCache.get(key);
+  if (!t) {
+    const c = new THREE.Color(hex).multiplyScalar(k);
+    t = [c.r, c.g, c.b];
+    toneCache.set(key, t);
+  }
+  return t;
+}
+
+/** A wagon side's stake, square (T-2121). */
+const WAGON_STAKE_M = 0.05;
+/** A packing case's end cleat: its face and how far it stands proud (T-2121). */
+const CRATE_CLEAT_M = [0.07, 0.018];
 
 /** The tilt: how many facets the canvas arch is drawn with. */
 const TILT_SEGS = 8;
@@ -486,10 +569,126 @@ function buildMarkAtlas(wanted) {
 /* -------------------------------------------------------------------------- */
 
 /**
+ * THE GRAIN AND THE WEATHER (T-2121), and how every primitive below writes them.
+ *
+ * Each vertex carries a second uv, `uv1`, in METRES of the board face the plank
+ * walks wear (`frontage.js`, T-1815): `u` runs along the grain, `v` across it, and
+ * each piece starts the tile at its own seeded offset so two staves or two boards
+ * never show the same figure. The material binds that face's normal map and its
+ * albedo modulation on `uv1`, so a barrel, a case and a wagon side carry the same
+ * raised grain and checks as the walk they stand on. Anything that is not wood —
+ * the tilt's duck, an iron tyre or hoop, brick, stone, hay, a hide, a woodpile's
+ * painted cells — writes the NO_GRAIN sentinel and the shader leaves it flat.
+ *
+ * The buffer carries the state the current object is drawn in, set by its builder
+ * and restored after it: `tint` (its tone), `k` (a multiplier, for end grain and a
+ * piece's own spread), `ground` (the grade it stands on, for the contact darkening),
+ * `grainAxis` and `grainOff` (which way its grain runs and where on the tile it
+ * starts), and `grainOn` (false for a whole chunk that is never wood).
+ */
+const NO_GRAIN = [-8192, -8192];
+/** End grain reads darker than face grain — the frontage's own 0.72 (L320). */
+const END_GRAIN_K = 0.72;
+/**
+ * Contact: the foot of anything standing in the mud carries the mud. Darkened by up to
+ * this much at grade, fading out over CONTACT_M — the frontage's contact rule (L320) at
+ * the scale of a barrel rather than a post.
+ */
+const CONTACT_K = 0.32;
+const CONTACT_M = 0.22;
+/** How deep the grain's relief reads on the goods (the walk's is 1). */
+const GRAIN_NORMAL_SCALE = 1.35;
+/** The board face's tile, metres — `clapboard_board_face`'s span_m. */
+const GRAIN_TILE_M = 4.48;
+
+/** A stable 32-bit hash of a string or number list (FNV-1a). */
+function hashOf(...parts) {
+  const s = parts.join('|');
+  let h = 2166136261;
+  for (let i = 0; i < s.length; i += 1) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); }
+  return h >>> 0;
+}
+/** A seeded 0..1 stream — the same object draws the same way on every load. */
+function streamOf(seed) {
+  let s = seed >>> 0 || 1;
+  return () => {
+    s = (s + 0x6d2b79f5) >>> 0;
+    let t = s;
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+/** Where a piece of timber starts on the tile, seeded on where it lies (to the cm). */
+function seededOff(x, y, z) {
+  const r = streamOf(hashOf(Math.round(x * 100), Math.round(y * 100), Math.round(z * 100)));
+  return [r() * GRAIN_TILE_M, r() * GRAIN_TILE_M];
+}
+
+function isGrained(buf) {
+  return buf.grainOn !== false && !(buf.bare && buf.bare.has(buf.tint));
+}
+function unit3(v) {
+  const L = Math.hypot(v[0], v[1], v[2]) || 1;
+  return [v[0] / L, v[1] / L, v[2] / L];
+}
+function cross3(a, b) {
+  return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+}
+function dot3(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; }
+
+/**
+ * The grain uv of a flat face: `u` along the buffer's grain axis laid into the face,
+ * `v` across it. A face the grain runs INTO (a timber's end) has no along — it takes
+ * the next axis instead, and its tone is the caller's end-grain business.
+ */
+function planarGrain(buf, P, fn) {
+  if (!isGrained(buf)) return null;
+  const axis = buf.grainAxis ?? [0, 1, 0];
+  let g = [axis[0] - fn[0] * dot3(axis, fn), axis[1] - fn[1] * dot3(axis, fn),
+    axis[2] - fn[2] * dot3(axis, fn)];
+  if (Math.hypot(g[0], g[1], g[2]) < 0.3) {
+    const alt = Math.abs(fn[1]) < 0.9 ? [0, 1, 0] : [1, 0, 0];
+    g = [alt[0] - fn[0] * dot3(alt, fn), alt[1] - fn[1] * dot3(alt, fn),
+      alt[2] - fn[2] * dot3(alt, fn)];
+  }
+  g = unit3(g);
+  const w = cross3(fn, g);
+  const [ou, ov] = buf.grainOff ?? [0, 0];
+  return P.map((p) => [dot3(p, g) + ou, dot3(p, w) + ov]);
+}
+
+/** One vertex, with every stream the layer carries. */
+function emitV(buf, p, n, level, uv, g, k) {
+  buf.pos.push(p[0], p[1], p[2]);
+  buf.nrm.push(n[0], n[1], n[2]);
+  buf.conf.push(level);
+  // `buf.tint` is the colour the caller is currently drawing in, in the renderer's
+  // working colour space; `k` is the piece's own spread and the end grain, and the
+  // contact term darkens what stands within a hand of the grade it stands on.
+  let m = k * (buf.k ?? 1);
+  if (buf.ground != null) {
+    const above = Math.max(0, p[1] - buf.ground);
+    m *= 1 - CONTACT_K * Math.max(0, 1 - above / CONTACT_M);
+  }
+  buf.col.push(buf.tint[0] * m, buf.tint[1] * m, buf.tint[2] * m);
+  // And `buf.blank` is the white cell of the mark atlas (T-0065). Everything that is
+  // not a marked face samples it, which multiplies to exactly the timber's own tone.
+  const t = uv ?? buf.blank;
+  buf.uv.push(t[0], t[1]);
+  const q = g ?? NO_GRAIN;
+  buf.uv1.push(q[0], q[1]);
+}
+
+/**
  * One box, 12 triangles, flat-shaded from its own face normals. `u` is the
  * horizontal unit vector along the box's length; up is world Y always.
  * Deliberately the same helper shape as the enclosure and signage layers' —
  * three layers drawing small timber the same way is one thing to reason about.
+ *
+ * ITS GRAIN RUNS ALONG ITS LONGEST SIDE (T-2121), as the walk's boards do — along a
+ * plank, up a post, along a bolster — and the two faces the grain runs into are its
+ * END GRAIN, drawn a half stop darker.
  */
 function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   markRect = null, open = false) {
@@ -505,13 +704,21 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
     P(-1, -1, 1), P(1, -1, 1), P(1, 1, 1), P(-1, 1, 1),
   ];
   const faces = [
-    [[1, 5, 6], [1, 6, 2], [ux, 0, uz]],
-    [[4, 0, 3], [4, 3, 7], [-ux, 0, -uz]],
-    [[3, 2, 6], [3, 6, 7], [vx, 0, vz]],
-    [[0, 4, 5], [0, 5, 1], [-vx, 0, -vz]],
-    [[4, 7, 6], [4, 6, 5], [0, 1, 0]],
-    [[0, 1, 2], [0, 2, 3], [0, -1, 0]],
+    [[1, 5, 6], [1, 6, 2], [ux, 0, uz], 0],
+    [[4, 0, 3], [4, 3, 7], [-ux, 0, -uz], 0],
+    [[3, 2, 6], [3, 6, 7], [vx, 0, vz], 1],
+    [[0, 4, 5], [0, 5, 1], [-vx, 0, -vz], 1],
+    [[4, 7, 6], [4, 6, 5], [0, 1, 0], 2],
+    [[0, 1, 2], [0, 2, 3], [0, -1, 0], 2],
   ];
+  // The grain's axis: whichever of the three half-extents is longest.
+  const ext = [halfLen, halfW, halfH];
+  const along = ext[0] >= ext[1] && ext[0] >= ext[2] ? 0 : (ext[1] >= ext[2] ? 1 : 2);
+  const axes = [[ux, 0, uz], [vx, 0, vz], [0, 1, 0]];
+  const keepAxis = buf.grainAxis;
+  const keepOff = buf.grainOff;
+  buf.grainAxis = axes[along];
+  if (!buf.pieceOff) buf.grainOff = seededOff(cx, cy, cz);
   /**
    * THE MARKED FACE IS FACE 3, and which one that is falls out of the frame
    * rather than out of a preference. `u` is along the wall and `v` is `u`
@@ -530,40 +737,40 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
     return [markRect.u0 + sx2 * (markRect.u1 - markRect.u0),
       markRect.v0 + ty * (markRect.v1 - markRect.v0)];
   };
-  faces.forEach(([t1, t2, n], fi) => {
+  faces.forEach(([t1, t2, n, axis], fi) => {
     // `open` leaves the underside off a box lying on the ground (T-1959): two
     // triangles nobody can see, on several hundred small things.
     if (open && fi === 5) return;
     const marked = markRect && fi === 3;
+    const k = axis === along ? END_GRAIN_K : 1;
     for (const t of [t1, t2]) {
-      for (const i of t) {
-        buf.pos.push(p[i][0], p[i][1], p[i][2]);
-        buf.nrm.push(n[0], n[1], n[2]);
-        buf.conf.push(level);
-        buf.col.push(buf.tint[0], buf.tint[1], buf.tint[2]);
-        const uv = marked ? uvAt(i) : buf.blank;
-        buf.uv.push(uv[0], uv[1]);
-      }
+      const pts = t.map((i) => p[i]);
+      const g = planarGrain(buf, pts, n);
+      t.forEach((i, j) => emitV(buf, p[i], n, level, marked ? uvAt(i) : null,
+        g ? g[j] : null, k));
     }
   });
+  buf.grainAxis = keepAxis;
+  buf.grainOff = keepOff;
 }
 
-function tri(buf, a, b, c, n, level, uvs = null) {
+/**
+ * One triangle. `n` is its normal, or three per-vertex normals; `uvs` the atlas
+ * coordinates of a marked or painted face; `g` explicit grain coordinates, which
+ * default to the face projected on the buffer's grain axis.
+ */
+function tri(buf, a, b, c, n, level, uvs = null, g = null, k = 1) {
   const P = [a, b, c];
+  const N = Array.isArray(n[0]) ? n : null;
+  let grain = g;
+  if (!grain && isGrained(buf)) {
+    const fn = unit3(cross3([b[0] - a[0], b[1] - a[1], b[2] - a[2]],
+      [c[0] - a[0], c[1] - a[1], c[2] - a[2]]));
+    grain = planarGrain(buf, P, fn);
+  }
+  if (g && !isGrained(buf)) grain = null;
   for (let i = 0; i < 3; i += 1) {
-    const p = P[i];
-    buf.pos.push(p[0], p[1], p[2]);
-    buf.nrm.push(n[0], n[1], n[2]);
-    buf.conf.push(level);
-    // `buf.tint` is the colour the caller is currently drawing in, in the
-    // renderer's working colour space. Every primitive on this layer goes
-    // through here or through `pushBox`, so nothing can be emitted untinted.
-    buf.col.push(buf.tint[0], buf.tint[1], buf.tint[2]);
-    // And `buf.blank` is the white cell of the mark atlas (T-0065). Everything
-    // that is not a marked face samples it, which multiplies to exactly the
-    // timber the layer drew before it had a texture at all.
-    const uv = uvs ? uvs[i] : buf.blank;
-    buf.uv.push(uv[0], uv[1]);
+    emitV(buf, P[i], N ? N[i] : n, level, uvs ? uvs[i] : null, grain ? grain[i] : null, k);
   }
 }
 
@@ -581,76 +788,126 @@ function pushBoxV(buf, c, ea, eb, ec0, level) {
     + (ea[2] * eb[0] - ea[0] * eb[2]) * ec0[1]
     + (ea[0] * eb[1] - ea[1] * eb[0]) * ec0[2];
   const ec = hand < 0 ? [-ec0[0], -ec0[1], -ec0[2]] : ec0;
-  const unit = (v) => {
-    const L = Math.hypot(v[0], v[1], v[2]) || 1;
-    return [v[0] / L, v[1] / L, v[2] / L];
-  };
   const P = (a, b, d) => [
     c[0] + ea[0] * a + eb[0] * b + ec[0] * d,
     c[1] + ea[1] * a + eb[1] * b + ec[1] * d,
     c[2] + ea[2] * a + eb[2] * b + ec[2] * d,
   ];
-  const na = unit(ea);
-  const nb = unit(eb);
-  const nc = unit(ec);
+  const na = unit3(ea);
+  const nb = unit3(eb);
+  const nc = unit3(ec);
   const neg = (v) => [-v[0], -v[1], -v[2]];
+  // T-2121: the grain runs along the longest half-edge, as `pushBox`'s does.
+  const lens = [ea, eb, ec].map((v) => Math.hypot(v[0], v[1], v[2]));
+  const along = lens[0] >= lens[1] && lens[0] >= lens[2] ? 0 : (lens[1] >= lens[2] ? 1 : 2);
+  const keepAxis = buf.grainAxis;
+  const keepOff = buf.grainOff;
+  buf.grainAxis = [na, nb, nc][along];
+  if (!buf.pieceOff) buf.grainOff = seededOff(c[0], c[1], c[2]);
   const faces = [
-    [P(1, -1, -1), P(1, 1, -1), P(1, 1, 1), P(1, -1, 1), na],
-    [P(-1, 1, -1), P(-1, -1, -1), P(-1, -1, 1), P(-1, 1, 1), neg(na)],
-    [P(-1, 1, -1), P(-1, 1, 1), P(1, 1, 1), P(1, 1, -1), nb],
-    [P(-1, -1, 1), P(-1, -1, -1), P(1, -1, -1), P(1, -1, 1), neg(nb)],
-    [P(-1, -1, 1), P(1, -1, 1), P(1, 1, 1), P(-1, 1, 1), nc],
-    [P(1, -1, -1), P(-1, -1, -1), P(-1, 1, -1), P(1, 1, -1), neg(nc)],
+    [P(1, -1, -1), P(1, 1, -1), P(1, 1, 1), P(1, -1, 1), na, 0],
+    [P(-1, 1, -1), P(-1, -1, -1), P(-1, -1, 1), P(-1, 1, 1), neg(na), 0],
+    [P(-1, 1, -1), P(-1, 1, 1), P(1, 1, 1), P(1, 1, -1), nb, 1],
+    [P(-1, -1, 1), P(-1, -1, -1), P(1, -1, -1), P(1, -1, 1), neg(nb), 1],
+    [P(-1, -1, 1), P(1, -1, 1), P(1, 1, 1), P(-1, 1, 1), nc, 2],
+    [P(1, -1, -1), P(-1, -1, -1), P(-1, 1, -1), P(1, 1, -1), neg(nc), 2],
   ];
-  for (const [a, b, d, e, n] of faces) {
-    tri(buf, a, b, d, n, level);
-    tri(buf, a, d, e, n, level);
+  for (const [a, b, d, e, n, axis] of faces) {
+    const k = axis === along ? END_GRAIN_K : 1;
+    tri(buf, a, b, d, n, level, null, null, k);
+    tri(buf, a, d, e, n, level, null, null, k);
   }
+  buf.grainAxis = keepAxis;
+  buf.grainOff = keepOff;
 }
 
 /**
- * A barrel: two frusta belly to belly, so the staves bow the way a coopered cask
- * has to bow, plus its two heads. `axis` is a unit vector — up for a barrel
- * standing on its head, horizontal for one laid on its side — and `right` is any
- * unit vector across it.
- *
- * `sides` staves gives 4·sides side triangles and 2·(sides−2) head triangles;
- * at 10 that is 56 for a whole barrel, which is what lets a hundred and fifty of
- * them cost less than one building. It defaults to a cask's ten and is passed
- * down to six for a WHEEL HUB, which is the same solid at a fifth of the size
- * and does not need a cask's roundness (T-0064).
+ * A triangle wound to face `out` whatever order its corners arrive in — the cask
+ * below is built in a frame its callers turn every way, and a head wound inward is
+ * a lid the back-face cull throws away (the open-topped casks T-2121 was filed on).
+ * Swaps the second and third corner, with everything that rides on them.
  */
-function pushBarrel(buf, cx, cy, cz, axis, right, len, bellyR, headR, level,
-  sides = BARREL_SIDES, headMark = null, sideMark = null) {
+function triOut3(buf, P, N, out, level, uvs = null, g = null, k = 1) {
+  const x = cross3([P[1][0] - P[0][0], P[1][1] - P[0][1], P[1][2] - P[0][2]],
+    [P[2][0] - P[0][0], P[2][1] - P[0][1], P[2][2] - P[0][2]]);
+  if (dot3(x, out) >= 0) {
+    tri(buf, P[0], P[1], P[2], N, level, uvs, g, k);
+    return;
+  }
+  const sw = (q) => (q ? [q[0], q[2], q[1]] : null);
+  tri(buf, P[0], P[2], P[1], Array.isArray(N[0]) ? sw(N) : N, level, sw(uvs), sw(g), k);
+}
+
+/**
+ * THE STAVE PROFILE, as fractions of the half-length from the belly (0) to the
+ * chine (1): the ring edges a hoop sits between. A cask of the period was hooped
+ * either with split-wood hoops — hickory or ash, wide and bound in pairs, what
+ * slack flour and provision barrels carried — or with iron bands, narrower and dark;
+ * both a head hoop near each chine and a quarter hoop either side of the bilge.
+ * RECONSTRUCTED (docs/LIBERTIES.md L383): the widths are a cooper's proportions,
+ * not a measurement of any cask in this town.
+ */
+const HOOP_RINGS = {
+  wood: { rings: [0, 0.42, 0.62, 0.72, 0.94, 1], hoops: [[0.42, 0.62], [0.72, 0.94]] },
+  iron: { rings: [0, 0.48, 0.58, 0.80, 0.92, 1], hoops: [[0.48, 0.58], [0.80, 0.92]] },
+};
+/** How far the staves stand past the head (the chime), and how thick a stave is. */
+const CHIME_M = 0.028;
+const STAVE_T_M = 0.02;
+
+/**
+ * A CASK (T-2121, replacing T-0040's two frusta). Staves bowed on a true bilge, read
+ * as staves; hoops; the stave ends standing proud of a recessed head at each chime;
+ * and lit as a round thing, with a normal per vertex rather than one per facet.
+ *
+ * WHAT WAS WRONG WITH THE OLD ONE, in the owner's word "janky": its two heads were
+ * wound inward, so the back-face cull threw them away and every cask in the town was
+ * an open tube; and each stave was two triangles lit by two different normals, the
+ * one through its top corner and the one through its bottom, so ten staves read as
+ * twenty zigzag teeth. Both are gone by construction — `triOut3` winds every face to
+ * its own outward normal, and the normals come from the surface, not from a corner.
+ *
+ * `axis` is a unit vector — up for a barrel standing on its head, horizontal for one
+ * laid on its side — and `right` is any unit vector across it. `o`:
+ *   sides       staves (12; a wheel hub passes 6)
+ *   plain       a hub: belly ring, flat heads, no hoops, no chime
+ *   hoops       'wood' | 'iron'; `hoopTint` the hoops' tone
+ *   capLow      false for a cask standing on its low head: nobody sees under it
+ *   rng         the cask's own stream, for each stave's tone and grain
+ *   headMark / sideMark   as T-0065 dealt them (see below)
+ */
+function pushCask(buf, cx, cy, cz, axis, right, len, bellyR, headR, level, o = {}) {
+  const sides = o.sides ?? BARREL_SIDES;
+  const plain = !!o.plain;
+  const rng = o.rng ?? (() => 0.5);
+  const headMark = o.headMark ?? null;
+  const sideMark = o.sideMark ?? null;
   const [ax, ay, az] = axis;
   const [rx, ry, rz] = right;
   // the third axis of the frame, right × axis
   const sx = ry * az - rz * ay;
   const sy = rz * ax - rx * az;
   const sz = rx * ay - ry * ax;
-  const at = (t, r, k) => [
-    cx + ax * t + (rx * Math.cos(k) + sx * Math.sin(k)) * r,
-    cy + ay * t + (ry * Math.cos(k) + sy * Math.sin(k)) * r,
-    cz + az * t + (rz * Math.cos(k) + sz * Math.sin(k)) * r,
-  ];
+  const dir = (k) => [rx * Math.cos(k) + sx * Math.sin(k), ry * Math.cos(k) + sy * Math.sin(k),
+    rz * Math.cos(k) + sz * Math.sin(k)];
   const half = len / 2;
-  const ring = (t, r) => {
-    const out = [];
-    for (let i = 0; i < sides; i += 1) {
-      out.push(at(t, r, (i / sides) * Math.PI * 2));
-    }
-    return out;
+  const at = (t, r, k) => {
+    const d = dir(k);
+    return [cx + ax * t + d[0] * r, cy + ay * t + d[1] * r, cz + az * t + d[2] * r];
   };
-  const lo = ring(-half, headR);
-  const mid = ring(0, bellyR);
-  const hi = ring(half, headR);
-  const nOf = (p, t) => {
-    const dx = p[0] - (cx + ax * t);
-    const dy = p[1] - (cy + ay * t);
-    const dz = p[2] - (cz + az * t);
-    const L = Math.hypot(dx, dy, dz) || 1;
-    return [dx / L, dy / L, dz / L];
+  // The bilge: a parabola from the head's radius at each chine to the belly's at the
+  // middle, which is the curve a bent stave takes to within a millimetre at this girth.
+  const bulge = bellyR - headR;
+  const rOf = (s) => headR + bulge * (1 - s * s);
+  // The surface's own normal at (s, k): outward, tipped by the bilge's slope.
+  const nAt = (s, k) => {
+    const d = dir(k);
+    const slope = (-2 * bulge * s) / (half || 1);       // dr/dt
+    return unit3([d[0] - ax * slope, d[1] - ay * slope, d[2] - az * slope]);
   };
+  const step = (Math.PI * 2) / sides;
+  const ang = (i) => i * step;
+
   /**
    * THE BILGE MARK (T-0065), and it is painted across `BILGE_STAVES` of the
    * cask's staves rather than around the whole of it, because a stencil is a
@@ -664,23 +921,14 @@ function pushBarrel(buf, cx, cy, cz, axis, right, len, bellyR, headR, level,
    * `u` runs BACKWARDS around the arc, and the sign is the same one the cases
    * needed: a reader standing off the cask with world up sees screen-right at
    * `forward x up`, which for a point `d` round from the centre works out as
-   * `-sin d`. `v` runs up the cask, 0 at the lower chine and 1 at the upper,
-   * with the belly ring at the half — so the lettering bows out with the
-   * staves, exactly as paint on a real cask does.
+   * `-sin d`. `v` runs up the cask, 0 at the lower chine and 1 at the upper —
+   * so the lettering bows out with the staves, exactly as paint on a real cask does.
    */
-  const step = (Math.PI * 2) / sides;
   let q0 = 0;
-  if (sideMark) {
-    // the stave whose own middle is nearest the direction that must face out
-    q0 = Math.round(sideMark.center / step - 0.5);
-  }
+  if (sideMark) q0 = Math.round(sideMark.center / step - 0.5);
   const first = q0 - (BILGE_STAVES - 1) / 2;
-  /** The uv of ring point `i` at height `t` (0 lower chine, 1 upper), or null. */
   const sideUV = (i, t) => {
     if (!sideMark) return null;
-    // `i` counted forward from the arc's first stave, wrapped into one turn —
-    // which is what lets the caller hand this `i + 1` on the last stave and get
-    // the arc's own far edge rather than a jump back to its near one.
     let n2 = (i - first) % sides;
     if (n2 < 0) n2 += sides;
     if (n2 > BILGE_STAVES) return null;
@@ -690,41 +938,87 @@ function pushBarrel(buf, cx, cy, cz, axis, right, len, bellyR, headR, level,
       sideMark.rect.v0 + t * (sideMark.rect.v1 - sideMark.rect.v0),
     ];
   };
+
+  // ---- the staves and the hoops ------------------------------------------- //
+  const spec = plain ? { rings: [0, 1], hoops: [] } : HOOP_RINGS[o.hoops ?? 'iron'];
+  const ringS = [...spec.rings.slice(1).reverse().map((s) => -s), ...spec.rings];
+  const inHoop = (s0, s1) => {
+    const m = Math.abs((s0 + s1) / 2);
+    return spec.hoops.some(([a, b]) => m > a && m < b);
+  };
+  const keepTint = buf.tint;
+  const keepOn = buf.grainOn;
   for (let i = 0; i < sides; i += 1) {
-    const j = (i + 1) % sides;
-    for (const [a, b, t0, t1] of [[lo, mid, 0, 0.5], [mid, hi, 0.5, 1]]) {
-      const ai = sideUV(i, t0);
-      const bi = sideUV(i, t1);
-      const bj = sideUV(i + 1, t1);
-      const aj = sideUV(i + 1, t0);
-      const on = ai && bi && bj && aj;
-      tri(buf, a[i], b[i], b[j], nOf(b[i], 0), level, on ? [ai, bi, bj] : null);
-      tri(buf, a[i], b[j], a[j], nOf(a[i], 0), level, on ? [ai, bj, aj] : null);
+    const j = i + 1;
+    // Each stave its own board: its own place on the grain's tile and its own
+    // shade of the cask's tone, so the staves read as staves.
+    const ou = rng() * GRAIN_TILE_M;
+    const ov = rng() * GRAIN_TILE_M;
+    const kStave = 0.9 + rng() * 0.2;
+    // A stave is a flat board, so its normal leans a little toward its own middle:
+    // round in the light, and still a ring of boards rather than a turned post.
+    const mid = ang(i) + step / 2;
+    const nS = (s, k) => {
+      const a2 = nAt(s, k);
+      const b2 = nAt(s, mid);
+      return unit3([a2[0] * 0.65 + b2[0] * 0.35, a2[1] * 0.65 + b2[1] * 0.35,
+        a2[2] * 0.65 + b2[2] * 0.35]);
+    };
+    for (let r = 0; r < ringS.length - 1; r += 1) {
+      const s0 = ringS[r];
+      const s1 = ringS[r + 1];
+      const hoop = inHoop(s0, s1);
+      const t0 = s0 * half;
+      const t1 = s1 * half;
+      const A0 = at(t0, rOf(s0), ang(i));
+      const B0 = at(t1, rOf(s1), ang(i));
+      const B1 = at(t1, rOf(s1), ang(j));
+      const A1 = at(t0, rOf(s0), ang(j));
+      const N = [nS(s0, ang(i)), nS(s1, ang(i)), nS(s1, ang(j)), nS(s0, ang(j))];
+      // grain: along the stave for a stave; around the cask for a split-wood hoop
+      const arc0 = ang(i) * bellyR;
+      const arc1 = ang(j) * bellyR;
+      let G = null;
+      if (hoop) {
+        G = [[arc0 + ou, t0 + ov], [arc0 + ou, t1 + ov], [arc1 + ou, t1 + ov],
+          [arc1 + ou, t0 + ov]];
+      } else {
+        G = [[t0 + ou, arc0 + ov], [t1 + ou, arc0 + ov], [t1 + ou, arc1 + ov],
+          [t0 + ou, arc1 + ov]];
+      }
+      let U = null;
+      if (!hoop && sideMark) {
+        const v0 = (s0 + 1) / 2;
+        const v1 = (s1 + 1) / 2;
+        const u = [sideUV(i, v0), sideUV(i, v1), sideUV(i + 1, v1), sideUV(i + 1, v0)];
+        if (u.every(Boolean)) U = u;
+      }
+      let k = kStave;
+      if (hoop) {
+        buf.tint = o.hoopTint ?? keepTint;
+        buf.grainOn = o.hoops === 'wood' ? keepOn : false;
+        k = 0.94 + (kStave - 1) * 0.3;
+      }
+      const out = dir(mid);
+      triOut3(buf, [A0, B0, B1], [N[0], N[1], N[2]], out, level,
+        U ? [U[0], U[1], U[2]] : null, [G[0], G[1], G[2]], k);
+      triOut3(buf, [A0, B1, A1], [N[0], N[2], N[3]], out, level,
+        U ? [U[0], U[2], U[3]] : null, [G[0], G[2], G[3]], k);
+      if (hoop) { buf.tint = keepTint; buf.grainOn = keepOn; }
     }
   }
+
+  // ---- the heads ----------------------------------------------------------- //
   /**
    * A HEAD MARK GOES ON THE `hi` HEAD (T-0065) — for the empties laid along a
    * wall, whose bilge is turned up at the sky and whose head is the one face of
-   * them a visitor reads the right way up. A standing cask is marked on its
-   * BILGE instead, below. A ring point at angle k stands at `cos k` along
-   * `right` and `sin k` along the frame's third axis, so the disc maps onto the
-   * cell by exactly that, up to which way round the reader is.
+   * them a visitor reads the right way up. A ring point at angle k stands at
+   * `cos k` along `right` and `sin k` along the frame's third axis, so the disc
+   * maps onto the cell by exactly that, up to which way round the reader is.
    *
-   * `rot` turns the lettering a quarter for the laid cask, and neither mapping
-   * is a taste — both are `right = forward x up` worked through.
-   *
-   * UPRIGHT: a reader stands on the street and looks in at the head, so the
-   * page's up is the frame's third axis (the inward normal, `sin k`) and its
-   * rightward direction is MINUS `right` (`-cos k`), because
-   * `third x y = -right`.
-   *
-   * LAID: the cask lies along the wall, so its head faces down the footway and
-   * the reader is at the far end of it. The page's up is world up, which for a
-   * laid cask IS `right` (`cos k`), and its rightward direction is the third
-   * axis (`sin k`).
-   *
-   * Getting either sign wrong writes the mark mirrored, which is exactly what
-   * the first build of this did to every case in the town.
+   * UPRIGHT: the page's up is the frame's third axis and its rightward direction is
+   * MINUS `right`. LAID: the page's up is world up, which for a laid cask IS `right`,
+   * and its rightward direction is the third axis. `rot` selects the second.
    */
   const markUV = (k) => {
     const c = Math.cos(k);
@@ -735,16 +1029,53 @@ function pushBarrel(buf, cx, cy, cz, axis, right, len, bellyR, headR, level,
       headMark.rect.v0 + (0.5 + 0.5 * my) * (headMark.rect.v1 - headMark.rect.v0),
     ];
   };
-  const ang = (i) => (i / sides) * Math.PI * 2;
-  for (const [ringPts, sign] of [[lo, -1], [hi, 1]]) {
-    const n = [ax * sign, ay * sign, az * sign];
-    const marked = headMark && sign > 0;
+  for (const e of [-1, 1]) {
+    if (e < 0 && o.capLow === false) continue;
+    const outN = [ax * e, ay * e, az * e];
+    const marked = headMark && e > 0;
+    // The head's boards run across it, along `right`.
+    const headOff = [rng() * GRAIN_TILE_M, rng() * GRAIN_TILE_M];
+    const headG = (p) => [dot3(p, [rx, ry, rz]) + headOff[0], dot3(p, [sx, sy, sz]) + headOff[1]];
+    if (plain) {
+      const ring = [];
+      for (let i = 0; i < sides; i += 1) ring.push(at(e * half, headR, ang(i)));
+      for (let i = 1; i < sides - 1; i += 1) {
+        const P = [ring[0], ring[i], ring[i + 1]];
+        triOut3(buf, P, outN, outN, level, null, P.map(headG), END_GRAIN_K);
+      }
+      continue;
+    }
+    const tRim = e * half;
+    const tHead = e * (half - CHIME_M);
+    const rIn = headR - STAVE_T_M;
+    for (let i = 0; i < sides; i += 1) {
+      const k0 = ang(i);
+      const k1 = ang(i + 1);
+      // the chime: the stave ends, an annulus of end grain round the rim
+      const o0 = at(tRim, headR, k0);
+      const o1 = at(tRim, headR, k1);
+      const i0 = at(tRim, rIn, k0);
+      const i1 = at(tRim, rIn, k1);
+      triOut3(buf, [o0, o1, i1], outN, outN, level, null, null, END_GRAIN_K * 0.95);
+      triOut3(buf, [o0, i1, i0], outN, outN, level, null, null, END_GRAIN_K * 0.95);
+      // and the inside of the staves down to the head, in the cask's own shade
+      const d0 = at(tHead, rIn, k0);
+      const d1 = at(tHead, rIn, k1);
+      const n0 = dir(k0).map((v) => -v);
+      const n1 = dir(k1).map((v) => -v);
+      const inward = dir((k0 + k1) / 2).map((v) => -v);
+      const gi = [[0, k0 * rIn], [tRim - tHead, k0 * rIn], [tRim - tHead, k1 * rIn], [0, k1 * rIn]]
+        .map(([u, v]) => [u + headOff[1], v + headOff[0]]);
+      triOut3(buf, [d0, i0, i1], [n0, n0, n1], inward, level, null, [gi[0], gi[1], gi[2]], 0.62);
+      triOut3(buf, [d0, i1, d1], [n0, n1, n1], inward, level, null, [gi[0], gi[2], gi[3]], 0.62);
+    }
+    // the head itself, recessed in its croze
+    const ring = [];
+    for (let i = 0; i < sides; i += 1) ring.push(at(tHead, rIn, ang(i)));
     for (let i = 1; i < sides - 1; i += 1) {
-      const uvs = marked
-        ? [markUV(ang(0)), markUV(ang(i)), markUV(ang(i + 1))]
-        : null;
-      if (sign > 0) tri(buf, ringPts[0], ringPts[i], ringPts[i + 1], n, level, uvs);
-      else tri(buf, ringPts[0], ringPts[i + 1], ringPts[i], n, level);
+      const P = [ring[0], ring[i], ring[i + 1]];
+      const uvs = marked ? [markUV(ang(0)), markUV(ang(i)), markUV(ang(i + 1))] : null;
+      triOut3(buf, P, outN, outN, level, uvs, P.map(headG), 0.9);
     }
   }
 }
@@ -771,15 +1102,26 @@ function pushWheel(buf, cx, cy, cz, axle, radius, level) {
   ];
   const half = WHEEL_T_M / 2;
   const inner = radius - WHEEL_RIM_M;
+  // T-2121: the tyre is IRON — a wheel of the period ran on a shrunk-on iron tyre —
+  // so it is drawn dark and without grain; the felloe's grain runs round the wheel
+  // and each spoke's along the spoke.
+  const keepTint = buf.tint;
+  const keepAxis = buf.grainAxis;
+  const keepOn = buf.grainOn;
   for (let i = 0; i < WHEEL_SIDES; i += 1) {
     const k0 = (i / WHEEL_SIDES) * Math.PI * 2;
     const k1 = ((i + 1) / WHEEL_SIDES) * Math.PI * 2;
-    const nOut = [rx * Math.cos((k0 + k1) / 2), Math.sin((k0 + k1) / 2),
-      rz * Math.cos((k0 + k1) / 2)];
+    const km = (k0 + k1) / 2;
+    const nOut = [rx * Math.cos(km), Math.sin(km), rz * Math.cos(km)];
     const nIn = [-nOut[0], -nOut[1], -nOut[2]];
     // tyre
+    buf.tint = buf.iron ?? keepTint;
+    buf.grainOn = false;
     tri(buf, at(radius, k0, -half), at(radius, k0, half), at(radius, k1, half), nOut, level);
     tri(buf, at(radius, k0, -half), at(radius, k1, half), at(radius, k1, -half), nOut, level);
+    buf.tint = keepTint;
+    buf.grainOn = keepOn;
+    buf.grainAxis = [-rx * Math.sin(km), Math.cos(km), -rz * Math.sin(km)];
     // the felloe's inside face
     tri(buf, at(inner, k0, -half), at(inner, k1, half), at(inner, k0, half), nIn, level);
     tri(buf, at(inner, k0, -half), at(inner, k1, -half), at(inner, k1, half), nIn, level);
@@ -804,6 +1146,7 @@ function pushWheel(buf, cx, cy, cz, axle, radius, level) {
     const sk = Math.sin(k);
     const d = [rx * ck, sk, rz * ck];              // along the spoke, unit
     const q = [-rx * sk, ck, -rz * sk];            // across it, in the wheel plane
+    buf.grainAxis = d;
     const half3 = SPOKE_T_M / 2;
     const L = inner;
     const corners = [];
@@ -828,8 +1171,9 @@ function pushWheel(buf, cx, cy, cz, axle, radius, level) {
     face(2, 3, 7, 6, d);
   }
   // the hub
-  pushBarrel(buf, cx, cy, cz, axle, [rx, 0, rz], WHEEL_T_M * 2.2, HUB_R_M, HUB_R_M * 0.8,
-    level, HUB_SIDES);
+  buf.grainAxis = keepAxis;
+  pushCask(buf, cx, cy, cz, axle, [rx, 0, rz], WHEEL_T_M * 2.2, HUB_R_M, HUB_R_M * 0.8,
+    level, { sides: HUB_SIDES, plain: true });
 }
 
 /**
@@ -947,10 +1291,37 @@ function buildItem(buf, item, form, terrain, level, problems, who, marks = null)
   const x = at[0];
   const z = -at[1];
 
+  // T-2121: every object is DEALT its own wood and its own shading, seeded on where
+  // it stands and whose door it is at, so a rank of casks is a rank of different
+  // casks and the same page draws the same ones on every load.
+  const rng = streamOf(hashOf(who ?? '', item.kind, Math.round(at[0] * 100),
+    Math.round(at[1] * 100), item.tier ?? 0));
+  const keep = { tint: buf.tint, ground: buf.ground, k: buf.k };
+  buf.ground = base;
+  const done = (drew) => {
+    buf.tint = keep.tint;
+    buf.ground = keep.ground;
+    buf.k = keep.k;
+    return drew;
+  };
+
   if (item.kind === 'barrel') {
     const h = form.barrelHeight;
     const belly = form.barrelBelly / 2;
     const head = form.barrelHead / 2;
+    buf.tint = toneOf(dealFrom(WOOD_DEALS.barrel, rng()), 0.9 + rng() * 0.18);
+    // Split-wood hoops on most — the slack barrels of flour and provisions — and
+    // iron on the rest, the tight casks.
+    const iron = rng() < 0.4;
+    const cask = {
+      rng, hoops: iron ? 'iron' : 'wood',
+      // A split hoop weathers with the cask it binds, so it is the cask's own tone
+      // taken half way to fresh hickory — a band, not a stripe of paint.
+      hoopTint: iron ? buf.iron : buf.tint.map((c, n) => {
+        const h = toneOf(WOOD_HOOP_COLOUR, 0.9 + rng() * 0.1)[n];
+        return (c + h) / 2;
+      }),
+    };
     /**
      * T-0065, AND WHERE THE MARK GOES DEPENDS ON WHICH WAY THE CASK IS LYING.
      * A cask STANDING on its head is read from the footway, so its stencil is
@@ -964,17 +1335,19 @@ function buildItem(buf, item, form, terrain, level, problems, who, marks = null)
       // an empty put back out, lying ALONG the wall and out of the way rather
       // than across the footway: the axis is the along-wall direction.
       const rect = item.mark && marks ? marks(item.mark, 'head') : null;
-      pushBarrel(buf, x, base + belly, z, [wx, 0, wz], [0, 1, 0], h, belly, head, level,
-        BARREL_SIDES, rect ? { rect, rot: 1 } : null);
+      pushCask(buf, x, base + belly, z, [wx, 0, wz], [0, 1, 0], h, belly, head, level,
+        { ...cask, headMark: rect ? { rect, rot: 1 } : null });
     } else {
       // Upright, `right` is along the wall and the frame's third axis is the
       // INWARD normal, so the direction that has to face the street is the one
-      // at three quarters of a turn: cos = 0, sin = -1, which is -third.
+      // at three quarters of a turn: cos = 0, sin = -1, which is -third. Standing
+      // on its low head, that head is never seen and is not drawn.
       const rect = item.mark && marks ? marks(item.mark, 'bilge') : null;
-      pushBarrel(buf, x, base + h / 2, z, [0, 1, 0], [wx, 0, wz], h, belly, head, level,
-        BARREL_SIDES, null, rect ? { rect, center: (3 * Math.PI) / 2 } : null);
+      pushCask(buf, x, base + h / 2, z, [0, 1, 0], [wx, 0, wz], h, belly, head, level,
+        { ...cask, capLow: false,
+          sideMark: rect ? { rect, center: (3 * Math.PI) / 2 } : null });
     }
-    return true;
+    return done(true);
   }
   if (item.kind === 'bench') {
     // A backless plank bench standing against a wall: a seat plank on two plank
@@ -982,29 +1355,102 @@ function buildItem(buf, item, form, terrain, level, problems, who, marks = null)
     // the wall plane, so the back edge touches the boards.
     const [L, D, H] = form.bench;
     const t = form.benchPlank;
+    buf.tint = toneOf(dealFrom(WOOD_DEALS.timber, rng()), 0.9 + rng() * 0.15);
     pushBox(buf, x, base + H - t / 2, z, wx, wz, L / 2, D / 2, t / 2, level);
     // the two ends, inset so the seat overhangs them the way a bench's does
     const endInset = Math.min(0.14, L / 8);
     for (const s2 of [-1, 1]) {
+      buf.k = 0.88 + rng() * 0.12;
       pushBox(buf, x + wx * s2 * (L / 2 - endInset), base + (H - t) / 2,
         z + wz * s2 * (L / 2 - endInset), wx, wz, t / 2, (D * 0.82) / 2, (H - t) / 2,
         level);
     }
-    return true;
+    return done(true);
   }
   if (item.kind === 'crate') {
     const [l, w, hh] = form.crate;
     const tier = item.tier || 0;
     const s = tier === 0 ? 1 : form.crate2Scale;
     const y = base + (tier === 0 ? hh / 2 : hh + (hh * s) / 2);
+    buf.tint = toneOf(dealFrom(WOOD_DEALS.crate, rng()), 0.9 + rng() * 0.18);
     // The shipping mark goes on the face that looks at the street, which is the
     // one `pushBox` calls face 3. A case stacked on another is the same aspect
     // — it is the same case scaled — so both tiers share the atlas cell.
     pushBox(buf, x, y, z, wx, wz, (l * s) / 2, (w * s) / 2, (hh * s) / 2, level,
       item.mark && marks ? marks(item.mark, 'case') : null);
-    return true;
+    // T-2121: and the CLEATS a packing case is nailed up with — two battens up each
+    // end, standing proud of the boards. A box without them reads as a block.
+    const cl = CRATE_CLEAT_M;
+    for (const e of [-1, 1]) {
+      for (const c of [-1, 1]) {
+        buf.k = 0.84 + rng() * 0.12;
+        const along = e * ((l * s) / 2 + cl[1] / 2);
+        const across = c * ((w * s) / 2 - cl[0] / 2 - 0.02);
+        pushBox(buf, x + wx * along - wz * across, y, z + wz * along + wx * across,
+          wx, wz, cl[1] / 2, cl[0] / 2, (hh * s) / 2, level);
+      }
+    }
+    return done(true);
   }
-  return false;
+  return done(false);
+}
+
+/**
+ * WHAT A WAGON OR CART IS PAINTED, OR NOT (T-2121) — dealt from `WAGON_SCHEMES` on
+ * the vehicle's own id, so the same wagon wears the same coat on every load, and
+ * then aged: a body a little lighter or darker, a canvas a little dirtier.
+ */
+function wagonCoat(wagon) {
+  const rng = streamOf(hashOf('wagon', wagon.id ?? '', ...(wagon.at_local_enu_m ?? [])));
+  const total = WAGON_SCHEMES.reduce((a, [w]) => a + w, 0);
+  let r = rng() * total;
+  let pick = WAGON_SCHEMES[0];
+  for (const sc of WAGON_SCHEMES) { r -= sc[0]; if (r < 0) { pick = sc; break; } }
+  const age = 0.88 + rng() * 0.18;
+  return {
+    rng,
+    body: toneOf(pick[1], age),
+    gear: toneOf(pick[2], age * (0.92 + rng() * 0.1)),
+    canvas: toneOf(CANVAS_COLOUR, 0.84 + rng() * 0.18),
+  };
+}
+
+/**
+ * A WAGON BOX OF BOARDS (T-2121): a plank floor, each side two boards on edge, each
+ * end two boards, and stakes up the outside of the sides — so a visitor looking at
+ * one sees planks, each its own shade, and not four slabs. The box's outer size is
+ * the record's `wagon_body_m` (or `cart_m`) exactly as before; the boards divide it.
+ */
+function pushWagonBox(buf, x, z, bed, fx, fz, sx, sz, L, W, H, level, coat, stakes) {
+  const keep = buf.tint;
+  buf.tint = coat.body;
+  buf.k = 0.94 + coat.rng() * 0.08;
+  pushBox(buf, x, bed, z, fx, fz, L / 2, W / 2, 0.035, level);
+  const lowH = H * 0.55;
+  const highH = H - lowH;
+  for (const s of [-1, 1]) {
+    for (const [y0, h] of [[0, lowH], [lowH, highH]]) {
+      buf.k = 0.86 + coat.rng() * 0.2;
+      pushBox(buf, x + sx * s * (W / 2), bed + y0 + h / 2, z + sz * s * (W / 2),
+        fx, fz, L / 2, 0.03, h / 2, level);
+      buf.k = 0.86 + coat.rng() * 0.2;
+      pushBox(buf, x + fx * s * (L / 2), bed + y0 + h / 2, z + fz * s * (L / 2),
+        sx, sz, W / 2 - 0.03, 0.03, h / 2, level);
+    }
+  }
+  // The stakes, in the gear's coat, standing a hand proud of the top board.
+  buf.tint = coat.gear;
+  for (const s of [-1, 1]) {
+    for (let i = 0; i < stakes; i += 1) {
+      const along = -L / 2 + 0.18 + (i * (L - 0.36)) / Math.max(stakes - 1, 1);
+      buf.k = 0.9 + coat.rng() * 0.12;
+      const off = W / 2 + 0.03 + WAGON_STAKE_M / 2;
+      pushBox(buf, x + fx * along + sx * s * off, bed + H / 2, z + fz * along + sz * s * off,
+        fx, fz, WAGON_STAKE_M / 2, WAGON_STAKE_M / 2, H / 2 + 0.05, level);
+    }
+  }
+  buf.k = 1;
+  buf.tint = keep;
 }
 
 function buildWagon(buf, wagon, form, terrain, level, problems) {
@@ -1025,16 +1471,15 @@ function buildWagon(buf, wagon, form, terrain, level, problems) {
   const z = -at[1];
   const [L, W, H] = form.wagonBody;
   const bed = base + form.wagonBedY;
+  const coat = wagonCoat(wagon);
+  const keepTint = buf.tint;
+  buf.ground = base;
 
   // the body: a plank floor and four sides, so a visitor looking down into it
   // sees a wagon box and not a solid block.
-  pushBox(buf, x, bed, z, fx, fz, L / 2, W / 2, 0.035, level);
-  for (const s of [-1, 1]) {
-    pushBox(buf, x + sx * s * (W / 2), bed + H / 2, z + sz * s * (W / 2),
-      fx, fz, L / 2, 0.03, H / 2, level);
-    pushBox(buf, x + fx * s * (L / 2), bed + H / 2, z + fz * s * (L / 2),
-      sx, sz, W / 2, 0.03, H / 2, level);
-  }
+  pushWagonBox(buf, x, z, bed, fx, fz, sx, sz, L, W, H, level, coat, 3);
+  // everything under the box — gear, wheels, tongue — is in the gear's coat
+  buf.tint = coat.gear;
   // the two axles and their wheels
   const pairs = [
     [-L / 2 + 0.35, form.wagonRearWheel / 2],
@@ -1150,11 +1595,15 @@ function buildWagon(buf, wagon, form, terrain, level, problems) {
   // only thing on this layer drawn in something other than the timber tone.
   if (wagon.tilt) {
     const [rise, over] = form.wagonTilt;
-    buf.tint = buf.canvas;
+    buf.tint = coat.canvas;
+    buf.grainOn = false;
     pushTilt(buf, x, bed + H, z, fx, fz, sx, sz, L / 2 + over, W / 2, rise, level);
-    buf.tint = buf.timber;
+    buf.grainOn = undefined;
+    buf.tint = coat.gear;
   }
   if (wagon.yoke) pushYoke(buf, x, z, base, fx, fz, sx, sz, form, L, level);
+  buf.tint = keepTint;
+  buf.ground = null;
   return true;
 }
 
@@ -1188,15 +1637,13 @@ function buildCart(buf, wagon, form, terrain, level, problems) {
   const z = -at[1];
   const [L, W, H, wheelD, bedY, shaft] = form.cart;
   const bed = base + bedY;
+  const coat = wagonCoat(wagon);
+  const keepTint = buf.tint;
+  buf.ground = base;
   // the box: a floor and four sides, the wagon's own construction at the cart's
   // own size.
-  pushBox(buf, x, bed, z, fx, fz, L / 2, W / 2, 0.035, level);
-  for (const s of [-1, 1]) {
-    pushBox(buf, x + sx * s * (W / 2), bed + H / 2, z + sz * s * (W / 2),
-      fx, fz, L / 2, 0.03, H / 2, level);
-    pushBox(buf, x + fx * s * (L / 2), bed + H / 2, z + fz * s * (L / 2),
-      sx, sz, W / 2, 0.03, H / 2, level);
-  }
+  pushWagonBox(buf, x, z, bed, fx, fz, sx, sz, L, W, H, level, coat, 2);
+  buf.tint = coat.gear;
   // ONE axle, under the box's middle where a cart's has to be: the load is
   // balanced over it rather than carried between two of them.
   const r = wheelD / 2;
@@ -1225,10 +1672,15 @@ function buildCart(buf, wagon, form, terrain, level, problems) {
   if (wagon.hogshead) {
     const [caskL, caskBelly, caskHead] = form.hogshead;
     const caskR = Math.min(caskBelly, W - 0.06) / 2;
-    pushBarrel(buf, x, bed + 0.035 + caskR, z, [fx, 0, fz], [0, 1, 0],
-      Math.min(caskL, L), caskR, (caskHead / caskBelly) * caskR, level);
+    buf.tint = toneOf('darkoak', 0.95 + coat.rng() * 0.15);
+    pushCask(buf, x, bed + 0.035 + caskR, z, [fx, 0, fz], [0, 1, 0],
+      Math.min(caskL, L), caskR, (caskHead / caskBelly) * caskR, level,
+      { rng: coat.rng, hoops: 'iron', hoopTint: buf.iron });
+    buf.tint = coat.gear;
   }
   if (wagon.yoke) pushYoke(buf, x, z, base, fx, fz, sx, sz, form, L, level);
+  buf.tint = keepTint;
+  buf.ground = null;
   return true;
 }
 
@@ -2463,6 +2915,84 @@ function readForm(record) {
 }
 
 /**
+ * THE BOARD FACE ON THE GOODS (T-2121): the walk's grain, bound on `uv1`.
+ *
+ * The layer keeps its ONE material and its one draw call per chunk. Its `map` is the
+ * mark atlas on `uv` (T-0065) and stays so; the grain rides on the second uv set:
+ *   normalMap   the board face's relief — a CLONE of the walks' texture with its
+ *               `channel` set to 1, which shares the walks' image and upload
+ *   uChiGrain   the face's albedo modulation, multiplied into the diffuse after the
+ *               atlas and before the vertex tone, exactly as the walk wears it
+ * and both are switched off, per vertex, where `uv1` holds the NO_GRAIN sentinel —
+ * duck, iron, brick, stone, hay and hides stay as smooth as they were.
+ */
+function bindGrain(mat, grain) {
+  const normalMap = grain.normalMap.clone();
+  normalMap.channel = 1;
+  normalMap.needsUpdate = true;
+  mat.normalMap = normalMap;
+  // A little deeper than the walk wears it: a cask or a wagon side is seen close and
+  // across the grain, where a walk is seen grazing along it.
+  mat.normalScale.set(GRAIN_NORMAL_SCALE, GRAIN_NORMAL_SCALE);
+  // The packed occlusion/roughness: R darkens the checks and the open grain in the
+  // ambient light, G roughens and smooths it, so worn faces catch the sun differently
+  // from the raised grain beside them. Rescaled so its mean lands on the layer's 0.88.
+  let orm = null;
+  if (grain.ormMap) {
+    orm = grain.ormMap.clone();
+    orm.channel = 1;
+    orm.needsUpdate = true;
+    mat.roughnessMap = orm;
+    mat.aoMap = orm;
+    mat.roughness = 0.88 / (grain.meanRough || 0.88);
+  }
+  const uniforms = {
+    uChiGrainMod: { value: grain.modMap },
+    uChiGrainHead: { value: grain.headroom },
+    uChiGrainTile: { value: 1 / (grain.tileM || GRAIN_TILE_M) },
+  };
+  const prior = mat.onBeforeCompile;
+  mat.onBeforeCompile = function (shader, renderer) {
+    prior?.call(this, shader, renderer);
+    Object.assign(shader.uniforms, uniforms);
+    shader.vertexShader = /* glsl */`
+uniform float uChiGrainTile;
+varying float vChiGrain;
+varying vec2 vChiGrainUv;
+` + shader.vertexShader.replace('#include <uv_vertex>', /* glsl */`
+#include <uv_vertex>
+vChiGrain = uv1.x > ${(NO_GRAIN[0] / 2).toFixed(1)} ? 1.0 : 0.0;
+vChiGrainUv = uv1 * uChiGrainTile;
+`);
+    shader.fragmentShader = /* glsl */`
+uniform sampler2D uChiGrainMod;
+uniform float uChiGrainHead;
+varying float vChiGrain;
+varying vec2 vChiGrainUv;
+` + shader.fragmentShader
+      .replace('#include <map_fragment>', /* glsl */`
+#include <map_fragment>
+diffuseColor.rgb *= mix(1.0, texture2D(uChiGrainMod, vChiGrainUv).r * uChiGrainHead, vChiGrain);
+`)
+      .replace('#include <normal_fragment_maps>', /* glsl */`
+if (vChiGrain > 0.5) {
+#include <normal_fragment_maps>
+}
+`)
+      .replace('#include <roughnessmap_fragment>', /* glsl */`
+#include <roughnessmap_fragment>
+roughnessFactor = mix(${(0.88).toFixed(2)}, roughnessFactor, vChiGrain);
+`)
+      .replace('#include <aomap_fragment>', /* glsl */`
+if (vChiGrain > 0.5) {
+#include <aomap_fragment>
+}
+`);
+  };
+  return [normalMap, orm].filter(Boolean);
+}
+
+/**
  * @param {object} o dataBase (data/ root) · terrain · confidence · problems
  * @returns {Promise<{group: THREE.Group, records: object[], census: object,
  *                    pickAt: function, dispose: function}>}
@@ -2490,7 +3020,7 @@ export async function createYardGoods({
     census: { records: 0, frontages: 0, objects: 0, barrels: 0, crates: 0, wagons: 0,
       byKind: {}, benches: 0, sheds: 0, outbuildings: 0, byOutbuilding: {}, refused: 0, wagonsRefused: 0, chunks: 0,
       marked: 0, markCells: 0, lots: 0, piles: 0, orphaned: 0, byMaterial: {},
-      woodpiles: 0, woodByKind: {}, woodChunks: 0 },
+      woodpiles: 0, woodByKind: {}, woodChunks: 0, relief: null },
     pickAt: () => null,
     dispose: () => {},
   };
@@ -2508,6 +3038,9 @@ export async function createYardGoods({
     problems.push(`yard: ${err.message} — no goods are stood out`);
     return out;
   }
+  // T-2121: the plank walks' board face, shared with them (one copy in memory),
+  // loading beside the records; the material waits for it below.
+  const reliefP = loadTimberRelief(resolveBases().assetBase);
   const wanted = Array.isArray(index.yard) ? index.yard : [];
   const loaded = await Promise.all(wanted.map(async (y) => {
     if (!y.file) return [y.id, null, 'the manifest gave no file'];
@@ -2608,6 +3141,10 @@ export async function createYardGoods({
   tones.bark = [barkTone.r, barkTone.g, barkTone.b];
   tones.split = [splitTone.r, splitTone.g, splitTone.b];
   tones.white = woodRects ? [1, 1, 1] : tones.split;
+  // T-2121: iron, and the tones that are never wood and so never carry its grain.
+  tones.iron = toneOf(IRON_COLOUR);
+  tones.bare = new Set([tones.canvas, tones.brick, tones.stone, tones.hay, tones.hide,
+    tones.white, tones.bark, tones.split, tones.iron]);
   /**
    * THE CHUNKS, and what decides which one a thing goes in: WHERE IT STANDS.
    * Every object on this layer is anchored at a point in local ENU, so the
@@ -2630,7 +3167,7 @@ export async function createYardGoods({
     if (!chunk) {
       chunk = {
         key,
-        buf: { pos: [], nrm: [], conf: [], col: [], uv: [], ...tones,
+        buf: { pos: [], nrm: [], conf: [], col: [], uv: [], uv1: [], ...tones,
           tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
         spans: [],
       };
@@ -2657,8 +3194,11 @@ export async function createYardGoods({
     if (!chunk) {
       chunk = {
         key,
-        buf: { pos: [], nrm: [], conf: [], col: [], uv: [], ...tones,
-          tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
+        // The woodpiles' sticks are painted in the atlas (T-1959) and carry no
+        // board-face grain over that.
+        buf: { pos: [], nrm: [], conf: [], col: [], uv: [], uv1: [], ...tones,
+          tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects,
+          grainOn: false },
         spans: [],
       };
       woodChunks.set(key, chunk);
@@ -2857,6 +3397,10 @@ export async function createYardGoods({
    */
   if (atlas) mat.map = atlas.texture;
   mat.name = 'yard-goods-timber';
+  const grain = await reliefP;
+  if (grain.problem) problems.push(`yard: ${grain.problem} — the goods are drawn without grain`);
+  const grainMaps = grain.problem ? [] : bindGrain(mat, grain);
+  out.census.relief = grain.problem ? null : grain.id;
   confidence?.patch(mat);
   /**
    * ITS OWN PROGRAM CACHE KEY, AND WHY THIS LINE IS NOT OPTIONAL. three caches a
@@ -2868,7 +3412,8 @@ export async function createYardGoods({
    * with no page error and no warning. This layer is the same shape of material
    * and would walk into the same collision; ticket T-0053 is the general fix.
    */
-  mat.customProgramCacheKey = () => 'chicago4d-yard-goods-timber';
+  mat.customProgramCacheKey = () => (grain.problem ? 'chicago4d-yard-goods-timber'
+    : 'chicago4d-yard-goods-timber-grain');
 
   const meshes = [];
   /**
@@ -2888,6 +3433,9 @@ export async function createYardGoods({
       new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
     geo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
     if (atlas) geo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
+    if (!grain.problem) {
+      geo.setAttribute('uv1', new THREE.Float32BufferAttribute(chunk.buf.uv1, 2));
+    }
     // The whole point of the chunk: its own bounding sphere, around its own
     // block of the town, so the frustum can leave it out.
     geo.computeBoundingSphere();
@@ -2895,6 +3443,7 @@ export async function createYardGoods({
     // scratch, and the chunk maps would otherwise keep them for the life of the
     // page (T-2063 — what got the 1835 tab killed on an iPhone).
     chunk.buf.pos = chunk.buf.nrm = chunk.buf.conf = chunk.buf.col = chunk.buf.uv = null;
+    chunk.buf.uv1 = null;
     const mesh = new THREE.Mesh(geo, mat);
     mesh.name = 'yard-chunk';
     mesh.castShadow = true;
@@ -2938,6 +3487,8 @@ export async function createYardGoods({
     for (const m of meshes) m.geometry.dispose();
     atlas?.texture?.dispose();
     mat.dispose();
+    grain.dispose?.();
+    for (const t of grainMaps) t.dispose();
   };
   return out;
 }

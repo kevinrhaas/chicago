@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+    items: [
+      'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
+      'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
+      'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
+      'The woods, hoops and paint are a reconstruction (Liberty L383). No extra draw calls.',
+    ] },
   { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
