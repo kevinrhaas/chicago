@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1499, ts: '2026-10-05T17:49:14.010Z', date: 'Oct 5, 2026, 12:49 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
+    items: [
+      'The four workshops that opened onto Dearborn Street behind corner houses now hold businesses. Cooley and Halsman, tailors, and S. Abell, attorney and counsellor, hang their boards there. Elmira Fowler and W. H. Taylor\u2019s boot and shoe store take the other two.',
+      'These are firms the 1834\u201335 papers place on Dearborn Street and nowhere narrower. Until now the town treated the new shops as back-yard buildings and would not put a business in them. They stand on the street, so they are on Dearborn\u2019s face like any other roof there.',
+      'Four more Dearborn businesses now have a roof: the wholesale wine and liquor store, the Dearborn Street auction and commission rooms, George Holsman, and a second Cooley partnership. 44 of the 52 businesses the papers give only a street for now stand on it.',
+      'Which roof on the street each firm gets is our choice, not evidence, and its card says so.',
+    ] },
   { v: 1498, ts: '2026-10-05T17:06:41.763Z', date: 'Oct 5, 2026, 12:06 PM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [
       'Walk Dearborn Street between Randolph and Madison and four small workshops now stand at the back of corner lots, their gable ends on the street: three carpenter\u2019s shops and a blacksmith\u2019s shop with a brick forge stack. Each stands behind the house or store already on its lot, which keeps its own front on the long street.',
