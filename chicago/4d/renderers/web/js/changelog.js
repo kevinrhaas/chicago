@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1474, ts: '2026-10-05T06:11:42.151Z', date: 'Oct 5, 2026, 1:11 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+  { v: null, ts: '', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
       'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
       'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
       'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1474, ts: '2026-10-05T05:59:52.053Z', date: 'Oct 5, 2026, 12:59 AM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
+      'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
     ] },
   { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
     items: [
