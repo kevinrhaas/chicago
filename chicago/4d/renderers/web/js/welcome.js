@@ -129,7 +129,8 @@ export function createWelcome({ gate, scene = { id: '1835', target_date: '1835-0
     gate.querySelector('.welcome-intro').textContent = presentation.intro;
     about(presentation.year);
     // The arrival's own button becomes the third choice: straight into the town.
-    if (spawn.parentElement !== back.parentElement) back.parentElement.appendChild(spawn);
+    // Kept before the back arrow, so the gate's first buttons stay the visible choices.
+    if (spawn.parentElement !== back.parentElement) back.before(spawn);
     spawn.classList.add('welcome-action');
     spawn.innerHTML = `${iconSvg('explore', 22)}<strong>Explore<span class="welcome-long"> by myself</span></strong><span>Free roam</span>`;
     spawn.setAttribute('aria-label', isTouch ? 'Explore by myself: tap to enter Chicago' : 'Explore by myself: enter Chicago');

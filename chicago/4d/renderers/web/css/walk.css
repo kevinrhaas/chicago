@@ -1570,7 +1570,7 @@ body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row
 .gate[data-region] .gate-eyebrow, .gate[data-region] .welcome-intro { display: none; }
 .gate[data-state="welcome"][data-region] h1 { font-size: 17px; margin: 0 0 10px; }
 .gate[data-region] .welcome-actions { grid-template-columns: 44px repeat(3, minmax(0, 1fr)); gap: 5px; }
-.gate[data-region] .welcome-back { display: grid; place-items: center; padding: 0; background: none; }
+.gate[data-region] .welcome-back { display: grid; place-items: center; padding: 0; background: none; order: -1; }
 .gate[data-region] .welcome-action, .gate[data-state="welcome"][data-region] .gate-btn.welcome-action {
   flex-direction: row; justify-content: center; gap: 6px; min-height: 44px; padding: 0 6px; }
 .gate[data-region] .welcome-action .menu-icon { width: 16px; height: 16px; margin: 0; }
