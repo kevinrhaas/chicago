@@ -217,9 +217,9 @@
   "adopted_into_a_roof_of_no_trade": 14,
   "roofs_free_and_a_house_of_trade": 29,
   "houses_of_trade_left_free": 3,
-  "roofs_reserved_for_a_slot_request": 46,
+  "roofs_reserved_for_a_slot_request": 51,
   "reserved_and_held_by_a_committed_occupancy": 4,
-  "reserved_without_a_committed_occupancy": 42,
+  "reserved_without_a_committed_occupancy": 47,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -709,6 +709,61 @@
    "requested_by_seat": "hh_barry_john_s",
    "order_book_draw": "blk_washington_lasalle / H2 / south",
    "dealt_by_ticket": "T-1735",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_market_d3_10",
+   "block_id": "blk_washington_market",
+   "programme_phase": "phase3_platted_block_washington_market_second_deal",
+   "family": "D3",
+   "requested_by_seat": "hh_chattin_clark",
+   "order_book_draw": "blk_washington_market / D3 / south",
+   "dealt_by_ticket": "T-2129",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_market_d4_08",
+   "block_id": "blk_washington_market",
+   "programme_phase": "phase3_platted_block_washington_market_second_deal",
+   "family": "D4",
+   "requested_by_seat": "hh_chevalier_joseph",
+   "order_book_draw": "blk_washington_market / D4 / south",
+   "dealt_by_ticket": "T-2129",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_market_d4_11",
+   "block_id": "blk_washington_market",
+   "programme_phase": "phase3_platted_block_washington_market_second_deal",
+   "family": "D4",
+   "requested_by_seat": "hh_chiney_ralph",
+   "order_book_draw": "blk_washington_market / D4 / south",
+   "dealt_by_ticket": "T-2129",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_market_d7_09",
+   "block_id": "blk_washington_market",
+   "programme_phase": "phase3_platted_block_washington_market_second_deal",
+   "family": "D7",
+   "requested_by_seat": "hh_beech_reuben",
+   "order_book_draw": "blk_washington_market / D7 / south",
+   "dealt_by_ticket": "T-2129",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_market_h1_07",
+   "block_id": "blk_washington_market",
+   "programme_phase": "phase3_platted_block_washington_market_second_deal",
+   "family": "H1",
+   "requested_by_seat": "hh_benediet_loma",
+   "order_book_draw": "blk_washington_market / H1 / south",
+   "dealt_by_ticket": "T-2129",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   },
