@@ -24,7 +24,13 @@
   --safe-b: env(safe-area-inset-bottom, 0px);
   --safe-t: env(safe-area-inset-top, 0px);
   --vh: 100vh;
+  /* T-2061: the height of one row of HUD chips, and so of everything hung below it. */
+  --hud-row: 38px;
 }
+/* A thumb gets 44 px, the touch floor the jaunt path already holds itself to. Every
+   panel that opens under the HUD reads its top from this one number, so raising it
+   moves them all together rather than leaving a card over the chips' new foot. */
+body:is(.is-touch, .touch-first) { --hud-row: 44px; }
 
 [data-theme="light"] {
   --ink: #1d1a14;
@@ -329,7 +335,7 @@ body:is(.is-touch, .touch-first) .gate-touch { display: block; }
    not a second way to steer. */
 .navigation-stack {
   position: absolute;
-  top: calc(58px + var(--safe-t));
+  top: calc(20px + var(--hud-row) + var(--safe-t));
   left: 10px;
   display: grid;
   justify-items: start;
@@ -516,9 +522,10 @@ body:is(.is-touch, .touch-first) .gate-touch { display: block; }
   border-radius: var(--r);
   box-shadow: var(--shadow);
   cursor: pointer;
-  min-height: 38px;
+  min-height: var(--hud-row);
+  min-width: var(--hud-row);
 }
-.chip.icon { width: 38px; justify-content: center; padding: 8px; font-size: 15px; }
+.chip.icon { width: var(--hud-row); justify-content: center; padding: 8px; font-size: 15px; }
 .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
 
 /* Unread marker on the help chip. `position: relative` has to sit on the chip
@@ -880,7 +887,7 @@ body.is-touch .crosshair { display: none; }
   position: fixed;
   z-index: 30;
   right: 12px;
-  top: calc(58px + var(--safe-t));
+  top: calc(20px + var(--hud-row) + var(--safe-t));
   width: min(392px, calc(100vw - 24px));
   max-height: calc(var(--vh) - 80px - var(--safe-t) - var(--safe-b));
   overflow: auto;
@@ -1046,6 +1053,12 @@ table.attrs td .val { font-variant-numeric: tabular-nums; }
 .attr-toggle {
   background: none; border: 0; padding: 0; margin-top: 3px;
   font: inherit; font-size: 11px; color: var(--accent); cursor: pointer; text-decoration: underline;
+}
+/* T-2061: the word stays where it was; its tap box grows to 44 px round it, pulled
+   up into the sources line above so a card of a dozen claims does not double in length. */
+body:is(.is-touch, .touch-first) .attr-toggle {
+  display: inline-flex; align-items: center; min-width: 44px; min-height: 44px;
+  margin: -10px 0 -8px;
 }
 
 ol.cites { margin: 0; padding-left: 18px; font-size: 12.5px; display: grid; gap: 9px; }
@@ -1369,7 +1382,7 @@ kbd {
      meaning; both keep their title and aria-label, and the Evidence tab
      explains the dot at length. */
   .chip-label { display: none; }
-  #btn-fly, #btn-confidence { width: 38px; justify-content: center; padding: 8px; }
+  #btn-fly, #btn-confidence { width: var(--hud-row); justify-content: center; padding: 8px; }
   /* And when an altitude is showing, it says more than a date that never
      changes — so the date yields rather than the badge growing. */
   .badge.has-alt .badge-sub { display: none; }
@@ -1377,7 +1390,7 @@ kbd {
      phone screenshots apart. */
   .badge.has-version .badge-sub { display: none; }
   .badge-version { max-width: 9.5em; }
-  .navigation-stack { top: calc(55px + var(--safe-t)); }
+  .navigation-stack { top: calc(17px + var(--hud-row) + var(--safe-t)); }
   .street-readout { width: 188px; }
   /* The mobile panel spans the same left edge as the navigation readouts. Hide
      them while it is open instead of letting its translucent surface mix the
@@ -1396,6 +1409,8 @@ kbd {
   border-top-left-radius: 0; border-bottom-left-radius: 0; border-left: 0;
   width: 26px; min-width: 26px; padding: 8px 0; font-size: 11px;
 }
+/* T-2061: on touch the caret is its own 44 px target, not a 26 px sliver of the pill. */
+body:is(.is-touch, .touch-first) .chip-group > .chip-more { width: var(--hud-row); min-width: var(--hud-row); }
 .chip-group > .chip-more[aria-expanded="true"] { border-color: var(--accent); color: var(--accent); }
 /* A dot on the caret when a level is hidden. Hiding changes what the town IS,
    and a control that quietly removes two thirds of the buildings has to say so
@@ -1452,7 +1467,7 @@ kbd {
      Found by the mobile smoke (T-0108's real clicks), 2026-09-05. */
   .confidence-menu {
     position: fixed; left: 12px; right: 12px; width: auto;
-    top: calc(58px + var(--safe-t));
+    top: calc(20px + var(--hud-row) + var(--safe-t));
   }
 }
 
