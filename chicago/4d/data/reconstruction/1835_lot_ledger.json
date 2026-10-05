@@ -39,8 +39,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 137,
-   "free": 151,
+   "at_capacity": 145,
+   "free": 143,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -48,10 +48,10 @@
    "party_line_run": 64
   },
   "corner_lots": 138,
-  "lots_with_a_roof": 192,
-  "lots_barring_another_roof": 190,
+  "lots_with_a_roof": 200,
+  "lots_barring_another_roof": 198,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 251,
+  "principal_roofs_standing": 259,
   "lots_over_their_own_rule": 17
  },
  "the_density_standard": {
@@ -8528,14 +8528,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_a5_16",
+    "recon_1835_blk_washington_clark_d4_14"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_a5_16": "A5",
+    "recon_1835_blk_washington_clark_d4_14": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#03",
@@ -8557,14 +8563,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clark_d3_15"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clark_d3_15": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clark#04",
@@ -8730,14 +8740,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_d7_04"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_d7_04": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#01",
@@ -8825,14 +8839,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_d3_07"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_d3_07": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#04",
@@ -8854,14 +8872,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_h2_05"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_h2_05": "H2"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#05",
@@ -8883,14 +8905,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_d3_08"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_d3_08": "D3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#06",
@@ -8912,14 +8938,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_d7_06"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_d7_06": "D7"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#07",
@@ -8941,14 +8971,18 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_dearborn_d4_09"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_dearborn_d4_09": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_franklin#00",
