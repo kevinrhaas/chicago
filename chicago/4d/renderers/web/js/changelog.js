@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1480, ts: '2026-10-05T09:45:14.032Z', date: 'Oct 5, 2026, 4:45 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
+  { v: 1481, ts: '2026-10-05T10:02:26.700Z', date: 'Oct 5, 2026, 5:02 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
     items: [
       'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
       'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
       'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
+    ] },
+  { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
+      'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
     ] },
   { v: 1479, ts: '2026-10-05T08:59:14.060Z', date: 'Oct 5, 2026, 3:59 AM CT', title: 'The shop-and-home count tells named homes from guessed ones again', kind: 'fix',
     items: [
