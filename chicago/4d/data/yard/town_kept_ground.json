@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "239 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "242 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it keeps the zone's planting",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 183,
+    "lots": 186,
     "refused": 0,
-    "refuges": 252,
-    "paths": 239
+    "refuges": 255,
+    "paths": 242
   },
   "lots": [
     {
@@ -10524,6 +10524,110 @@
       "refuges_local_enu_m": []
     },
     {
+      "lot": "blk_west_lake_canal_lot2",
+      "structures": [
+        "recon_1835_blk_west_lake_canal_d5_01"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -147.81,
+          -190.94
+        ],
+        [
+          -94.01,
+          -191.38
+        ],
+        [
+          -91.61,
+          -188.96
+        ],
+        [
+          -91.86,
+          -171.68
+        ],
+        [
+          -94.33,
+          -169.23
+        ],
+        [
+          -148.87,
+          -168.79
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -91.27,
+            -171.07
+          ],
+          [
+            -91.25,
+            -168.63
+          ],
+          [
+            -93.69,
+            -168.61
+          ],
+          [
+            -93.71,
+            -171.05
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_lake_canal_lot3",
+      "structures": [
+        "recon_1835_blk_west_lake_canal_d4_02"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -146.68,
+          -214.63
+        ],
+        [
+          -93.67,
+          -215.06
+        ],
+        [
+          -91.27,
+          -212.64
+        ],
+        [
+          -91.52,
+          -195.36
+        ],
+        [
+          -93.99,
+          -192.91
+        ],
+        [
+          -147.74,
+          -192.47
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -90.93,
+            -194.75
+          ],
+          [
+            -90.91,
+            -192.31
+          ],
+          [
+            -93.35,
+            -192.29
+          ],
+          [
+            -93.37,
+            -194.73
+          ]
+        ]
+      ]
+    },
+    {
       "lot": "blk_west_lake_canal_lot5",
       "structures": [
         "recon_1835_forks_freight_f2_001"
@@ -10555,6 +10659,58 @@
         ]
       ],
       "refuges_local_enu_m": []
+    },
+    {
+      "lot": "blk_west_lake_canal_lot8",
+      "structures": [
+        "recon_1835_blk_west_lake_canal_d2_03"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -81.9,
+          -215.15
+        ],
+        [
+          -28.88,
+          -215.59
+        ],
+        [
+          -28.39,
+          -193.44
+        ],
+        [
+          -82.14,
+          -193.0
+        ],
+        [
+          -84.55,
+          -195.42
+        ],
+        [
+          -84.36,
+          -212.7
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -85.19,
+            -192.36
+          ],
+          [
+            -85.2,
+            -194.65
+          ],
+          [
+            -82.91,
+            -194.66
+          ],
+          [
+            -82.9,
+            -192.37
+          ]
+        ]
+      ]
     },
     {
       "lot": "blk_west_randolph_des_plaines_lot0",

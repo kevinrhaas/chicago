@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1476, ts: '2026-10-05T08:01:56.554Z', date: 'Oct 5, 2026, 3:01 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+  { v: null, ts: '', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
     items: [
       'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
       'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
       'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
       'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
+    ] },
+  { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
+    items: [
+      'Cross to the West Side and walk south down Canal Street from Lake Street. Past the saddler\u2019s and the blacksmith\u2019s on the corner, the block toward Randolph now has two frame cottages facing Canal: a deep-plan cottage and a two-room cottage beside it.',
+      'On the river side of the same block, facing West Water Street, a rough plank shanty stands south of the warehouse. Fences, dooryard gardens, yard paths and privies came with all three.',
+      'Each face keeps open lots at its ends, so the block does not read as a row.',
+      'Open any of them and its card lists the households the town\u2019s housing deal now boards there. All three buildings are our reconstruction: no source places a house on these lots in July 1835, and each card says so.',
     ] },
   { v: 1475, ts: '2026-10-05T06:50:00.924Z', date: 'Oct 5, 2026, 1:50 AM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
