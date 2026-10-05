@@ -4,10 +4,12 @@
  *
  * 1904's Glessner glass carries KHR_materials_transmission, which makes three
  * draw every opaque object a second time; glass.js swaps it at load for a
- * `clear` or `dark` pane when `?glass=` asks. This holds the swap to its terms:
- * only a transmissive material is touched, the default keeps the GLB's own
- * glass, the input is never mutated, and the replacement carries no
- * transmission (so three's transmission pass cannot run for it).
+ * `clear` or `dark` pane. This holds the swap to its terms: only a
+ * transmissive material is touched, a caller naming no mode keeps the GLB's
+ * own glass, the input is never mutated, and the replacement carries no
+ * transmission (so three's transmission pass cannot run for it). And it holds
+ * the owner's pick (2026-10-04, answer c): the dark plate at `balanced` and
+ * `light`, the GLB's transmission at `full`, `?glass=` overriding both.
  */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -19,7 +21,7 @@ const web = path.join(root, 'renderers/web');
 const threeURL = pathToFileURL(path.join(web, 'vendor/three-0.185.1/three.module.js')).href;
 const THREE = await import(threeURL);
 const source = await readFile(path.join(web, 'js/glass.js'), 'utf8');
-const { cheapenGlass, readGlassMode, GLASS_MODES, DEFAULT_GLASS } = await import(
+const { cheapenGlass, readGlassRequest, glassForDetail, GLASS_MODES, GLASS_BY_DETAIL, DEFAULT_GLASS } = await import(
   `data:text/javascript;base64,${Buffer.from(source.replace("from 'three'", `from '${threeURL}'`)).toString('base64')}`);
 
 const checks = [];
@@ -36,9 +38,23 @@ check('the default keeps the GLB glass, untouched', () => {
 });
 check('?glass= reads only a known mode', () => {
   assert.deepEqual([...GLASS_MODES], ['transmission', 'clear', 'dark']);
-  for (const m of GLASS_MODES) assert.equal(readGlassMode(new URLSearchParams(`glass=${m}`)), m);
-  for (const q of ['', 'glass=', 'glass=CLEAR', 'glass=frosted']) assert.equal(readGlassMode(new URLSearchParams(q)), DEFAULT_GLASS);
-  assert.equal(readGlassMode(null), DEFAULT_GLASS);
+  for (const m of GLASS_MODES) assert.equal(readGlassRequest(new URLSearchParams(`glass=${m}`)), m);
+  for (const q of ['', 'glass=', 'glass=CLEAR', 'glass=frosted']) assert.equal(readGlassRequest(new URLSearchParams(q)), null);
+  assert.equal(readGlassRequest(null), null);
+});
+check("the owner's pick: dark at balanced and light, transmission at full", () => {
+  assert.deepEqual({ ...GLASS_BY_DETAIL }, { full: 'transmission', balanced: 'dark', light: 'dark' });
+  assert.equal(glassForDetail('full'), 'transmission');
+  assert.equal(glassForDetail('balanced'), 'dark');
+  assert.equal(glassForDetail('light'), 'dark');
+  // An unknown setting keeps the GLB's glass rather than guessing.
+  for (const d of [undefined, null, '', 'ultra', 'toString']) assert.equal(glassForDetail(d), DEFAULT_GLASS);
+});
+check('?glass= overrides the pick at every setting', () => {
+  for (const d of ['full', 'balanced', 'light']) {
+    for (const m of GLASS_MODES) assert.equal(glassForDetail(d, m), m);
+    assert.equal(glassForDetail(d, 'frosted'), GLASS_BY_DETAIL[d]);
+  }
 });
 check('an opaque or untransmissive material is never swapped', () => {
   for (const m of ['clear', 'dark']) {

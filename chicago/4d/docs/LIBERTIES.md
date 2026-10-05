@@ -6755,7 +6755,9 @@ source record (**T-0075**) would not upgrade the buildings, but it would let the
 Related: **L163** (the bridge these sheds stand beside), **L132** (the wharves at the two frontages
 whose records state a dock — these four state none, so they get none), **L160** and **L161** (the
 same shape of claim at town scale), **T-0004**, **T-0058**, **T-0075**.
-**Recorded:** 2026-08-21.
+**The first shed east of the bridge stood in Dearborn Street, and was moved out of it (T-2118).** Until 2026-10-05 `north_bank_shed_dearborn_e1` had its west 6.63 m and its centroid inside the platted corridor of Dearborn Street north of the river (`dearborn_north`) — an invented building in a platted street, which **T-0253** refuses and for which **T-2012** withdrew this shed's south-bank twin. It was slid 7.16 m east, parallel to North Water Street's drawn line, so its offset from that line and its bearing are the ones it already held, to the first station clear of the corridor on both readings plus a 0.5 m margin. It is still the first shed east of the bridge line; it now stands about 0.5 m short of `north_bank_shed_dearborn_e2`. Nothing about the building changed, and no evidence was spent: no source put it at either station.
+
+**Recorded:** 2026-08-21. **Revised:** 2026-10-05 (T-2118).
 
 
 ### L165 — The Wolf Tavern's sign: the pole it flies from, and the wolf painted on it
@@ -15367,7 +15369,25 @@ shift a lot, `hh_beech_reuben`'s changes family (H1 to H2), and **three househol
 `hh_clarke_h_b` — owed to **T-1614** in writing, because every open block that still plans their
 families has only the lot the schedule keeps open. Nobody standing under a roof moves.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s).
+**THE BUSINESS DEAL GOES FIRST, AND WHAT THAT COSTS IS NOW MEASURED (T-1669).** This deal and
+the street-face business deal (**L212**) spend one pool of anonymous roofs. The business deal's
+picks reached this one as occupancies on the structure records, and it held all **40** of them
+back as "a committed claim about the town" — which they are not; they are the other deal's
+allocation. It now reads `street_face_adoptions.json`, upstream of it by the road the
+occupancies already took, so no cycle closes, and names those 40 `held_by:
+street_face_business_deal`. The precedence is ruled rather than left to whichever pass ran
+last: **the narrower placement deals first**, because a business the paper puts on a street can
+stand on that one face and nowhere else, while a banded household may take any roof of an
+admitted family in its division. And it is costed by re-dealing, not by counting roofs.
+Release all 40 and this deal adopts the **14** dwellings among them (the 26 houses of trade it
+does not want), every one by a household already seated elsewhere moving to a better-scored
+lot, and seats **2** more households in all — `hh_humphrey_fre_lemuel` into a roof another
+household vacates, and `hh_bennet_lyman` on a slot. **So the precedence costs the households 2
+seats of 1,424**, and 40 would change roof or lot. Both numbers are tripwires in
+`seat_platted_ground_1835.py --check`: a re-order of either deal that moves them is red until
+somebody restates them and says why here. No seat, roof or record moved for this.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -21210,7 +21230,25 @@ centre rather than its door are ours.
 a lot's own door position, where the entrance layer knows it, would place its gate better.
 **Recorded:** 2026-10-04 (T-2112).
 
-### L383 — The yard goods' woods, hoops, paint and cleats, dealt per object
+### L383 — 1904's Glessner glass draws as a dark plate at Balanced and Light detail
+**Decision:** at the `balanced` and `light` Scene detail settings the Glessner house's one
+glass material, which its GLB marks `KHR_materials_transmission` (factor 1, ior 1.52), is drawn
+as an opaque dark plate: the GLB's own tint × 0.12 and its own roughness, no transmission and no
+blending (`renderers/web/js/glass.js`, `GLASS_BY_DETAIL`). At `full` the GLB's refracting glass
+is drawn as before. The GLB is not changed; `?glass=transmission|clear|dark` names one glass for
+every setting.
+**Why:** the owner's pick, 2026-10-04 (T-2109, answer c: *"dark at balanced and light (every
+pane a darker plate)"*), after T-2099 found the transmission pass to be about half of every
+frame at the 1904 landing. The dark plate halves that frame at both viewports
+(`docs/measurements/T-2109-glessner-glass.md`).
+**What is recorded and what is not:** this is how the browser draws the glass, not a claim about
+the house. No source was read on how the windows looked from Prairie Avenue in 1904; the plate
+loses the sky-lit sheen the refracting glass shows and nothing is seen through it.
+**How to resolve:** a cheaper glass that keeps the sheen, or a frame budget that carries
+transmission at the lower settings, replaces the plate there.
+**Recorded:** 2026-10-05 (T-2109).
+
+### L384 — The yard goods' woods, hoops, paint and cleats, dealt per object
 **Decision:** every cask, packing case, bench, wagon and cart in `renderers/web/js/yard.js` is
 dealt its own wood tone from six weathered woods (silvered, grey-brown, seasoned pine, honey and
 brown oak, dark oak), shaded again stave by stave and board by board, and wears the plank walks'

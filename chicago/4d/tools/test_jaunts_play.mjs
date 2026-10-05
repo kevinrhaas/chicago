@@ -104,7 +104,7 @@ try {
     const endMs = await page.evaluate(() => { const start = performance.now(); __chicago4d.jaunts.end(); return performance.now() - start; });
     assert(endMs < 200, `End took ${endMs}ms`); assert.equal((await state()).jaunt, null);
     assert.equal(await page.evaluate(() => __chicago4d.travel.state.phase), 'idle');
-    await page.waitForFunction(() => document.activeElement?.textContent === 'Start Jaunt');
+    await page.waitForFunction(() => document.activeElement?.dataset.action === 'start');
     const framing = [];
     for (const anchor of ['sauganash', 'cermak_prairie']) {
       assert(await page.evaluate(id => __chicago4d.welcome.enter('anchor', id), anchor), `entered ${anchor}`);
@@ -207,7 +207,7 @@ try {
       assert.equal((await state()).phase, 'outcome');
     }
     await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago')); await atStop();
-    await page.evaluate(() => __chicago4d.jaunts.menu()); await click(page.locator('#welcome-jaunts-explore'));
+    await page.evaluate(() => __chicago4d.jaunts.menu()); await click(page.locator('#welcome-explore'));
     assert.equal((await state()).jaunt, null); assert.deepEqual(errors, []);
     fs.writeFileSync(path.join(out, `${viewport.width}-play.json`), JSON.stringify({ viewport, prefix, endMs, bootJauntRequests: 0, states, requests, pageErrors: errors }, null, 2) + '\n');
     console.log(`JAUNT PLAY PASS — ${viewport.width}×${viewport.height}, pilot and fixture, End ${endMs.toFixed(1)}ms, 0 page errors`);

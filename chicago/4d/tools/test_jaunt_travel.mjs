@@ -39,15 +39,15 @@ try {
       }
     };
     await page.locator('#welcome-jaunts').click();
-    const card = page.locator('[data-jaunt="new-in-chicago"]'), select = card.locator('select');
-    await select.waitFor();
+    const card = page.locator('[data-jaunt="new-in-chicago"]'), pick = mode => card.locator(`[data-mode="${mode}"]`).click();
+    await card.locator('[data-action="more"]').click();
     const estimates = {};
     for (const mode of ['walk', 'wagon', 'horse', 'fly', 'instantly']) {
-      await select.selectOption(mode); estimates[mode] = await card.locator('[data-jaunt-estimate]').innerText();
+      await pick(mode); estimates[mode] = await card.locator('[data-jaunt-estimate]').innerText();
     }
     assert.notEqual(estimates.walk, estimates.instantly);
     console.log(`JAUNT TRAVEL ${viewport.width}: card estimates ${JSON.stringify(estimates)}`);
-    await select.selectOption('horse');
+    await pick('horse');
     await page.screenshot({ path: path.join(out, `${viewport.width}-menu.png`) });
     assert(await page.evaluate(() => __chicago4d.jaunts.start('new-in-chicago', { mode: 'horse' })));
     await layout();

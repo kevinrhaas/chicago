@@ -191,7 +191,7 @@ const CANVAS_COLOUR = 0xbfb49b;
  * copy, so each object is now DEALT a wood from these, seeded on its own id or place,
  * and then shaded a little lighter or darker again, piece by piece.
  *
- * RECONSTRUCTED (docs/LIBERTIES.md L383), bounded by what this town already ships:
+ * RECONSTRUCTED (docs/LIBERTIES.md L384), bounded by what this town already ships:
  * the silvered end sits by the fences' weathered 0x8d8272 and the outbuildings' grey
  * pine; the warm end by the goods' old 0x8a7a5f and the board face's own mean
  * (rgb 126/112/91). Oak casks run browner than pine cases because white oak is a
@@ -844,7 +844,7 @@ function triOut3(buf, P, N, out, level, uvs = null, g = null, k = 1) {
  * either with split-wood hoops — hickory or ash, wide and bound in pairs, what
  * slack flour and provision barrels carried — or with iron bands, narrower and dark;
  * both a head hoop near each chine and a quarter hoop either side of the bilge.
- * RECONSTRUCTED (docs/LIBERTIES.md L383): the widths are a cooper's proportions,
+ * RECONSTRUCTED (docs/LIBERTIES.md L384): the widths are a cooper's proportions,
  * not a measurement of any cask in this town.
  */
 const HOOP_RINGS = {

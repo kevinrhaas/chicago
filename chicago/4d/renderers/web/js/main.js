@@ -31,7 +31,7 @@ import { readVersionRequest } from './structure-versions.js';
 import { createWorld } from './world.js';
 import { createTerrain, enuToWorld, groundTiling, hazeReachM } from './terrain.js';
 import { createBuildings } from './buildings.js';
-import { readGlassMode } from './glass.js';
+import { readGlassRequest, glassForDetail } from './glass.js';
 import { createConfidenceView } from './confidence.js';
 import { createIntent, createBackendSwitch } from './controls/intent.js';
 import { createPointerLockBackend, isTyping } from './controls/pointerlock.js';
@@ -73,6 +73,7 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
+import { resolveSharpness, sharpnessGuess } from './sharpness.js';
 
 const VERSION = '0.1.0';
 
@@ -1235,8 +1236,9 @@ const PATH_YEAR = (location.pathname.match(/\/(\d{4})\/?(?:index\.html)?$/) || [
 const YEAR = (params.get('year') || PATH_YEAR || '1835').replace(/[^0-9a-z_-]/gi, '');
 document.getElementById('view').setAttribute('aria-label', `Chicago, ${YEAR}`);
 const DEBUG = params.get('debug') === '1';
-// T-2109: which glass a transmissive pane is drawn with (glass.js).
-const GLASS = readGlassMode(params);
+// T-2109: which glass a transmissive pane is drawn with — `?glass=` when the
+// address names one, otherwise the owner's pick for the detail level (glass.js).
+const GLASS_REQUEST = readGlassRequest(params);
 /** T-1727: `?structure=<id>&version=<label>` — one committed alternate of one structure,
  *  for comparing competing builds side by side. Null when the address asks for none. */
 const VERSION_REQUEST = readVersionRequest(location.search);
@@ -1337,6 +1339,9 @@ async function boot() {
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
+  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
+  // on a desktop (T-2110 — see sharpness.js).
+  const qualityGuess = sharpnessGuess(coarse);
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -1394,15 +1399,17 @@ async function boot() {
   });
   /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
-   * by `renderer.setPixelRatio(Math.min(dpr, hud.settings.quality))` once the
-   * visitor's stored settings are read, and the shipped default of `quality` is
-   * **1.5 on both platforms** — so the `: 2` here reaches a fresh visitor's
-   * screen for the handful of frames before the HUD mounts and nowhere else.
+   * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
+   * stored settings are read. Until T-2110 the shipped default of `quality` was
+   * **1.5 on both platforms**; since the owner's answer there it is the device
+   * guess `qualityGuess` — **1 on a phone, 1.5 on a desktop** — and this boot
+   * ratio is that same guess, so a fresh visitor's first frames are drawn at the
+   * ratio they keep rather than snapping down once the HUD mounts.
    * T-0157's premise held that a phone was capped at 1.5 "rather than 2"; what
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, qualityGuess));
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -1503,7 +1510,7 @@ async function boot() {
   let buildings = await createBuildings({ registry: loaded.registry, confidence, terrain,
     preserveMaterials: inspectionLod,
     lowSpec: coarse,
-    glass: GLASS,
+    glass: glassForDetail(detailLevel, GLASS_REQUEST),
     checkpoint: bootCheckpoint,
     onProgress: (done, total) => bootController.progress('buildings', done, total),
   });
@@ -2104,8 +2111,12 @@ async function boot() {
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
+          // T-2109: the glass changes exactly where the asset does (transmission
+          // on the full model, the dark plate on the shared `.light` one), so
+          // this rebuild is also the one that changes the glass.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
-            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse, glass: GLASS });
+            checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
+            glass: glassForDetail(level, GLASS_REQUEST) });
           if (next.buildings.problems.length || next.buildings.roll.missing.length) {
             throw new Error(next.buildings.problems.join('; ') || 'the replacement did not draw every structure');
           }
@@ -2354,6 +2365,7 @@ async function boot() {
     onTravelStop: () => travel?.stop('button'),
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
+    resolvedQuality: qualityGuess,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -2640,7 +2652,7 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, hud.settings.quality));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);
@@ -3132,20 +3144,6 @@ async function boot() {
     ...Object.fromEntries(['next', 'prev', 'end', 'menu', 'resume', 'restart', 'choose', 'revise', 'setMode', 'straight', 'resumeRide', 'detail', 'returnFromDetail', 'dismissContext'].map(name => [name, (...args) => jauntRuntime?.[name](...args)])),
   };
   api.welcome = createWelcome({ gate, scene: loaded.scene, destinations, isTouch: coarse,
-    onSources: () => {
-      // Browse the existing Evidence hub without entering or cancelling a paused outing.
-      const hudWasHidden = hudRoot.hidden;
-      gate.hidden = true; hudRoot.hidden = false; hudRoot.inert = false;
-      hud.setPanel(true); hud.selectTab('evidence'); api.evidenceHub.showHub();
-      const panel = document.getElementById('panel');
-      document.getElementById('panel-close').focus();
-      const back = new MutationObserver(() => {
-        if (!panel.hidden) return;
-        back.disconnect(); gate.hidden = false; hudRoot.hidden = hudWasHidden; hudRoot.inert = true;
-        document.getElementById('welcome-sources').focus();
-      });
-      back.observe(panel, { attributes: true, attributeFilter: ['hidden'] });
-    },
     onExplore: () => { if (!jauntEntering && jauntRuntime?.state.jaunt) jauntRuntime.explore(); },
     onJaunts: async () => {
       const root = document.getElementById('welcome-jaunts-content');
