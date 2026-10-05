@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1453, ts: '2026-10-04T23:52:32.751Z', date: 'Oct 4, 2026, 6:52 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+  { v: 1454, ts: '2026-10-05T00:14:58.616Z', date: 'Oct 4, 2026, 7:14 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
     items: [
       'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
       'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
       'On a desktop at Full detail, the worst frame of a turn fell from 31 ms to 8 ms.',
       'Turning in 1812 is as smooth as in 1835. 1904 has no wild planting to redraw, so walking there was already light on the processor.',
+    ] },
+  { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
+    items: [
+      'Every leaf on every tree is now cheaper to draw. The trees take about an eighth less time to draw, on a phone and on a desktop. Compared pixel for pixel, the picture is the same.',
+      'Each leaf used to work out a tiny surface texture that it then nearly threw away. It now skips that step. Bark keeps its texture.',
+      'On a desktop at Full detail, a frame at the river forks is about 5% faster. On a phone at Light detail, the busiest views are about 3% faster.',
+      'On a phone, Image sharpness Low draws a frame 26 to 29% faster than Medium, but softer. Whether a phone should start at Low is for the owner to decide. You can choose it now in Settings.',
     ] },
   { v: 1452, ts: '2026-10-04T23:10:10.129Z', date: 'Oct 4, 2026, 6:10 PM CT', title: 'No more treeline blob down South Water, or slab from the air', kind: 'fix',
     items: [
