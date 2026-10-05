@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1490, ts: '2026-10-05T13:38:08.381Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: 1491, ts: '2026-10-05T13:57:34.915Z', date: 'Oct 5, 2026, 8:57 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+    items: [
+      'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
+      'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
+      'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
+      'The woods, hoops and paint are a reconstruction (Liberty L388). No extra draw calls.',
     ] },
   { v: 1489, ts: '2026-10-05T13:16:51.492Z', date: 'Oct 5, 2026, 8:16 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
     items: [
