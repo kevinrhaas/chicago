@@ -3635,7 +3635,7 @@
   "cross_checks": {
     "committed_plat_blocks_inside_the_original_town": {
       "claim": "If a plat's bounds are where this project puts them, every block it has generated from that plat's module must fall inside them. This does not prove any bounds — a bigger rectangle would pass too — but a block outside its OWN plat would disprove them. Each block is tested against the tract its `grid` names: the Original Town's blocks against the 1830 canal commissioners' four streets, Kinzie's Addition's against Kinzie's.",
-      "blocks": 78,
+      "blocks": 83,
       "by_plat": {
         "kinzies_addition": 27,
         "original_town": 25,
@@ -3643,7 +3643,13 @@
         "west_division": 9
       },
       "outside": [],
-      "no_ring_for_their_plat": [],
+      "no_ring_for_their_plat": [
+        "blk_school_section_tier_81",
+        "blk_school_section_tier_94",
+        "blk_school_section_tier_95",
+        "blk_school_section_tier_118",
+        "blk_school_section_tier_119"
+      ],
       "not_testable_and_why": {
         "michigan_st_tract": {
           "blocks": [
