@@ -3590,7 +3590,12 @@ function zoneFinder(zones, terrain, water) {
   // millions of times a deal (T-2096, T-2099). So the band is only asked for
   // where an edge is near: the plain answer on a BLEND_CELL_M grid, and every
   // cell within the band's reach of a cell answering differently is marked.
-  const grid = blendNearEdge(exact, terrain);
+  // A patch laid over the town's own ground at a higher priority (the vacant
+  // lots of T-2101) is bounded by lot lines, which were fenced and kept: it is
+  // not blended either way, and it is one class with the town in the grid.
+  const turf = zones.find((z) => z.turf) ?? null;
+  const lots = turf ? zones.filter((z) => lotBound(z, turf)) : [];
+  const grid = blendNearEdge(exact, terrain, turf && lots.length ? new Set(lots) : null, turf);
   const near = grid?.near ?? null;
   // THE TOWN'S MARGIN IS GRAZED (and the plant layer is not made dearer by it).
   // A prairie slot in the band beside the town's turf is handed to the turf at
@@ -3600,7 +3605,6 @@ function zoneFinder(zones, terrain, water) {
   // (the turf mask is this finder's own answer). A turf slot is the cheapest the
   // plant layer deals, so this keeps the band's cost at or under the hard edge's
   // (T-2096, T-2099), where a plain blend drew prairie cards over the town side.
-  const turf = zones.find((z) => z.turf) ?? null;
   const gap = turf ? grid?.townGap ?? null : null;
   // A slot's answer never changes, and the plant layer re-deals the same
   // world-anchored slots every 0.6 m walked, so the answers are kept in a
@@ -3622,9 +3626,13 @@ function zoneFinder(zones, terrain, water) {
   };
   function answer(e, n) {
     if (near && !near(e, n)) return exact(e, n);
+    for (const z of lots) {
+      if (matches(z.extent, e, n, terrain, water)) return z;
+    }
     blendPoint(e, n, q);
     let hit = null;
     for (const z of zones) {
+      if (lots.length && lots.includes(z)) continue;
       if (matches(z.extent, e, n, terrain, water, q)) { hit = z; break; }
     }
     if (gap && hit && !hit.turf && hit.priority < turf.priority && hit.extent?.kind !== 'lake_shore') {
@@ -3647,9 +3655,15 @@ function openClass(z) {
   return x?.kind === 'elevation_band' || x?.kind === 'lake_shore' || !!(x?.edge && x?.box);
 }
 
+/** A polygon community over the town's turf at a higher priority: a patch of
+ *  the town bounded by its lot lines (T-2101's vacant lots), not blended. */
+function lotBound(z, turf) {
+  return !z.turf && z.extent?.kind === 'polygon' && z.priority > turf.priority;
+}
+
 /** T-2125: the grid `zoneFinder` reads to skip the band far from any edge. */
 const BLEND_CELL_M = 24;
-function blendNearEdge(exact, terrain) {
+function blendNearEdge(exact, terrain, lots = null, turf = null) {
   const hf = terrain?.heightfield;
   if (!hf?.loaded || !(hf.widthM > 0 && hf.depthM > 0)) return null;
   const c = BLEND_CELL_M;
@@ -3664,7 +3678,7 @@ function blendNearEdge(exact, terrain) {
       // The open communities are one class here: the prairies' elevation
       // bands are not blended, and the sand's soft extents ramp themselves
       // (T-1819), so the lines between them are no edge of this band's.
-      const key = z ? (openClass(z) ? '~open' : z.id) : '';
+      const key = z ? (openClass(z) ? '~open' : lots?.has(z) ? turf.id : z.id) : '';
       if (z?.turf) turfIds.add(key);
       if (!ids.has(key)) ids.set(key, ids.size);
       zone[j * w + i] = ids.get(key);
@@ -3833,16 +3847,54 @@ function matches(x, e, n, terrain, water, q = null) {
       return false;
   }
   if (!ok) {
-    for (const patch of x.include_polygons ?? []) {
+    for (const patch of ringsNear(x.include_polygons, qe, qn)) {
       if (pointInPolygon(patch, qe, qn)) { ok = true; break; }
     }
   }
   if (!ok) return false;
-  for (const hole of x.exclude_polygons ?? []) {
+  for (const hole of ringsNear(x.exclude_polygons, qe, qn)) {
     if (pointInPolygon(hole, qe, qn)) return false;
   }
   return true;
 }
+
+/**
+ * The rings of an extent's `include_polygons` / `exclude_polygons` list that can
+ * hold (e, n), read from a bin index built once per list (T-2101). The vacant-lot
+ * remnant holds 69 lot rings spread over the whole town, so walking the list ring
+ * by ring put 69 box tests on every sward slot in town; a point now reads the one
+ * bin it falls in. Same answer as the full walk: a ring is filed under every bin
+ * its box touches. Keyed by the list's own array, which the records never mutate.
+ */
+const RINGS_BIN_M = 32;
+const RINGS_INDEX = new WeakMap();
+const NO_RINGS = [];
+function ringsNear(list, e, n) {
+  if (!list?.length) return NO_RINGS;
+  if (list.length < 4) return list;
+  let ix = RINGS_INDEX.get(list);
+  if (!ix) {
+    ix = new Map();
+    for (const ring of list) {
+      let e0 = Infinity; let e1 = -Infinity; let n0 = Infinity; let n1 = -Infinity;
+      for (const [pe, pn] of ring) {
+        if (pe < e0) e0 = pe; if (pe > e1) e1 = pe;
+        if (pn < n0) n0 = pn; if (pn > n1) n1 = pn;
+      }
+      for (let i = Math.floor(e0 / RINGS_BIN_M); i <= Math.floor(e1 / RINGS_BIN_M); i++) {
+        for (let j = Math.floor(n0 / RINGS_BIN_M); j <= Math.floor(n1 / RINGS_BIN_M); j++) {
+          const k = ringsBin(i, j);
+          if (!ix.has(k)) ix.set(k, []);
+          ix.get(k).push(ring);
+        }
+      }
+    }
+    RINGS_INDEX.set(list, ix);
+  }
+  return ix.get(ringsBin(Math.floor(e / RINGS_BIN_M), Math.floor(n / RINGS_BIN_M))) ?? NO_RINGS;
+}
+/** A numeric bin key, so a lookup allocates no string. 65,536 bins a side at 32 m. */
+function ringsBin(i, j) { return (i + 32768) * 65536 + (j + 32768); }
 
 /**
  * The same even-odd test over an EDGE INDEX built once per ring (T-2091). Only an

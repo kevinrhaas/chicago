@@ -356,11 +356,12 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     "extent.wander_m": ("mesh", "x.wander_m ?? 0"),
     "extent.edge.ramp_m": ("mesh", "x.edge.ramp_m ?? 0"),
     "extent.edge.wander_m": ("mesh", "x.edge.wander_m ?? 0"),
-    "extent.exclude_polygons": ("mesh", "x.exclude_polygons ?? []"),
+    "extent.exclude_polygons": ("mesh", "ringsNear(x.exclude_polygons, qe, qn)"),
     # Ground a community holds that its own extent rule cannot reach — the mirror
     # of the exclusions above. z03's evidence names the public square and its rule
     # is an elevation band that cannot find a block the terrain draws flat.
-    "extent.include_polygons": ("mesh", "x.include_polygons ?? []"),
+    # Both lists are read through a bin index since T-2101 (69 vacant-lot rings).
+    "extent.include_polygons": ("mesh", "ringsNear(x.include_polygons, qe, qn)"),
     "extent.priority": ("mesh", "rec.extent?.priority"),
     # Per species.
     "species[].role": ("mesh", "OUR_ROLES.has(sp.role)"),

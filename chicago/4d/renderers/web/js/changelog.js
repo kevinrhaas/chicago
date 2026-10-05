@@ -1,11 +1,36 @@
 export const CHANGELOG = [ // newest first
-  { v: 1477, ts: '2026-10-05T08:09:55.162Z', date: 'Oct 5, 2026, 3:09 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+  { v: 1481, ts: '2026-10-05T10:17:20.094Z', date: 'Oct 5, 2026, 5:17 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
       'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
       'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
       'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
       'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
+      'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
+    ] },
+  { v: 1479, ts: '2026-10-05T08:59:14.060Z', date: 'Oct 5, 2026, 3:59 AM CT', title: 'The shop-and-home count tells named homes from guessed ones again', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. When businesses the 1835 newspapers name are stood on their streets, our records count the houses on each street that are already homes, so no shop is put in one.',
+      'That count splits the homes into those of a family the town\u2019s records name and those of a family we infer. A slip in the code made the first half read zero on every street, whatever stood there. It is fixed, and our checks now recount both halves house by house.',
+      'Today the totals are the same either way: no named family yet lives in one of these reconstructed houses on a business street. The check makes sure the count will be right when one does.',
+    ] },
+  { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+    items: [
+      'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
+      'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
+      'House and store yards stay as they were, kept short with weeds along their fences.',
+      '146 of the town\u2019s 338 platted lots are empty. No source describes one, so this ground is our reconstruction (Liberty L386).',
+    ] },
+  { v: 1477, ts: '2026-10-05T08:22:34.435Z', date: 'Oct 5, 2026, 3:22 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
+    items: [
+      'Open 1904 and walk west to Indiana Avenue or east to Calumet. Their blocks were bare outlines; now each lot is drawn, 64 in all, as the 1911 Sanborn sheets survey them.',
+      'Click a lot and its card gives its frontage, its depth and the house numbers the sheet prints beside it.',
+      'At three Indiana corners, rows of lots facing the cross street stand behind the corner lots, like 213 to 217 East 20th Street. Those lots are drawn too.',
+      'Indiana between 18th and 20th Street stays without lots. That stretch is on a sheet we do not have yet.',
     ] },
   { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
     items: [
