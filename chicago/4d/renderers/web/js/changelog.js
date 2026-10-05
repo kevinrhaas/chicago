@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A view of the town drawn long afterwards shows low warehouses on both banks of the river below the Dearborn Street bridge, and only the north bank has them here.',
+      'We have now decided why, and written it down: on the south bank that ground lies inside South Water Street as it was laid out, and no record of the time puts a building there. We will not invent one in the street.',
+      'That bank is shown instead as what the town\u2019s records point to: worn working ground with landings out to the water, where goods came ashore for the stores across the street.',
+    ] },
   { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
