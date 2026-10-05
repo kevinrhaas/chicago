@@ -360,6 +360,35 @@ def _edge_candidates(points: list, ring: list) -> list:
     return out
 
 
+# THE BOUNDING-BOX PRUNE (T-2117). `census` asks every committed roof against every
+# corridor's every edge, and it is asked by the placement policy, the face rule and
+# their self-tests — the heaviest tail of tools/check.sh. The axis gap between two
+# boxes is a lower bound on any distance between their contents, so a corridor whose
+# box is already farther than the best frontage found is skipped. The slack keeps a
+# rounding-level tie out of the prune's hands, so the answer stays byte for byte the
+# one the full search gives, tie order included.
+_PRUNE_SLACK_M = 1e-6
+_RING_BOUNDS: dict[int, tuple[list, tuple[float, float, float, float]]] = {}
+
+
+def _bounds(points) -> tuple[float, float, float, float]:
+    xs = [p[0] for p in points]
+    ys = [p[1] for p in points]
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def _ring_bounds(ring: list) -> tuple[float, float, float, float]:
+    """A corridor's box, held per ring object for as long as the ring is alive."""
+    held = _RING_BOUNDS.get(id(ring))
+    if held is None or held[0] is not ring:
+        held = _RING_BOUNDS[id(ring)] = (ring, _bounds(ring))
+    return held[1]
+
+
+def _gap(a, b) -> float:
+    return max(b[0] - a[2], a[0] - b[2], b[1] - a[3], a[1] - b[3], 0.0)
+
+
 def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
                      water: list | None = None,
                      reach: float | None = None) -> tuple[str | None, float]:
@@ -427,8 +456,17 @@ def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
     reach = FRONTAGE_REACH_M if reach is None else reach
     best_id, best = None, float("inf")
     points = sampled(polygon)
+    box = _bounds(points)
     for street_id, lane in lanes.items():
         ring, centre = lane["ring"], lane["centre"]
+        # A corridor whose bounding box stands farther off than the frontage already
+        # found cannot hold the footprint or come nearer than it, so every edge below
+        # would `break` on its first candidate. Skipping it changes no answer and saves
+        # the edge search that is most of the gate's census cost (T-2117). A box that
+        # touches the footprint's is never skipped: the footprint may stand inside it.
+        gap = _gap(box, _ring_bounds(ring))
+        if gap > 0 and gap > best + _PRUNE_SLACK_M:
+            continue
         near = float("inf")
         inside = [p for p in points if point_in_polygon(p, ring)]
         if inside:

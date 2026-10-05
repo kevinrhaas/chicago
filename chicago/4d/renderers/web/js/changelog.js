@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1491, ts: '2026-10-05T13:56:03.908Z', date: 'Oct 5, 2026, 8:56 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
+    items: [
+      'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',
+      'Those checks had grown past the ten minutes our automated builders get to run them, so a change could go out without a full check. A few of them were doing the same work dozens of times over. They now do it once and give the same answers, and the whole set runs in about eight minutes.',
+    ] },
   { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [
       'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
