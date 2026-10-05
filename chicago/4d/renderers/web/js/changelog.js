@@ -1,10 +1,45 @@
 export const CHANGELOG = [ // newest first
-  { v: 1491, ts: '2026-10-05T13:57:34.915Z', date: 'Oct 5, 2026, 8:57 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: 1496, ts: '2026-10-05T16:02:04.504Z', date: 'Oct 5, 2026, 11:02 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1495, ts: '2026-10-05T15:25:36.630Z', date: 'Oct 5, 2026, 10:25 AM CT', title: 'Kelsey\u2019s boarding-house keeper is one man, not two', kind: 'change',
+    items: [
+      'Nothing you can see changes in the town. Kelsey\u2019s small yellow boarding-house on the north-side sand hills now has a corrected card.',
+      'The 1843 and 1844 directories print its keeper as \u201cPatrick\u201d and \u201cParnick\u201d Kelsey. They are now one man: the same trade on the same Wolcott Street block, with the same two Hough boarders in both books.',
+      'The card used to say an 1835 letter spells him both ways. It does not. The page reads \u201cParnick\u201d both times. The Liberties page explains it (L291).',
+    ] },
+  { v: 1494, ts: '2026-10-05T15:03:31.603Z', date: 'Oct 5, 2026, 10:03 AM CT', title: 'Newberry & Dole\u2019s sign goes up on their Dearborn Street store', kind: 'change',
+    items: [
+      'The warehouse at Lake and Dearborn now carries a NEWBERRY & DOLE board: \u201cDry Goods, Hardware & Crockery\u201d, the firm\u2019s own words from its first advertisement in November 1833. It used to read GEO. W. DOLE.',
+      'Why: shopkeepers in the 1834\u201335 Chicago Democrat place themselves \u201cone door south\u201d and \u201ca few rods north\u201d of Newberry & Dole\u2019s store, both on Dearborn Street. That is a store on Dearborn, not on South Water, and this house is the one that stands there.',
+      'The firm\u2019s forwarding warehouse stays at Franklin and South Water. The one notice that names it gives South Water Street and no cross street, so nothing moves it.',
+      'The building\u2019s card now names it as the firm\u2019s store too. The Liberties page explains the ruling (L66, L378).',
+    ] },
+  { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+    items: [
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
+      'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
+      '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+    ] },
+  { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+    items: [
+      'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
+      'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
+      'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
+      'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
+      'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1491, ts: '2026-10-05T13:56:54.591Z', date: 'Oct 5, 2026, 8:56 AM CT', title: 'Newberry & Dole\u2019s warehouse stays south of the river, on the paper\u2019s word', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Newberry & Dole\u2019s forwarding warehouse stays where it stood, on South Water Street across from its dock.',
+      'A letter about an August 1835 walk put the firm\u2019s warehouse on the north bank instead. We have now read the 1834\u201335 Chicago Democrat: four shopkeepers\u2019 notices place the firm\u2019s \u201cstore house, on south water street\u201d, one of them in the issue of July 1, 1835, the day the scene shows. So the south bank now rests on a source from that summer. Until now it rested on a note no one could trace.',
+      'The north-bank warehouse of that walk is likely a second building the firm had by late August. Nothing dates it to July, so it is not added.',
+      'The same notices point to the Dearborn Street end of South Water Street, four blocks east of where the warehouse stands. That is now an open question of its own. The Liberties page explains it (L66, L378).',
     ] },
   { v: 1490, ts: '2026-10-05T13:38:23.073Z', date: 'Oct 5, 2026, 8:38 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [

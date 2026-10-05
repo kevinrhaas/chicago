@@ -67,6 +67,7 @@ import * as THREE from 'three';
 import { GRIT_TILE_M } from './ground-strip-mask.js';
 import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
 import { swardTexture, swardUniforms } from './terrain.js';
+import { ditherHash } from './lakeshore.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -87,6 +88,19 @@ const LIFT_M = { base: 0.022, bed: 0.028, path: 0.034 };
  *  invention as the treatment itself and are drawn in the vertex colour rather
  *  than in the map, because the fringe follows the FENCE and the map tiles. */
 const FRINGE_M = { worn_earth: 1.3, trodden_earth: 0.45, road_earth: 0.6, dooryard_garden: 0.55 };
+
+/**
+ * T-2125 — UNFENCED GROUND FEATHERS OUT. A ground that states one outer ring and
+ * no fence along it (the fort's apron, T-0097: `fringe_ring_local_enu_m`) used
+ * to stop at that ring with a fringe under half a metre wide, so bare earth met
+ * the sward along four ruled lines — the owner's "the edge ... between the fort
+ * and prairie" (2026-10-05). It now carries on past the ring into a skirt this
+ * many metres wide, its cover thinning along a line that wanders in and out
+ * (`featherCover`), and the sward thins in across the same band at the same
+ * share. A FENCED yard keeps its edge: a fence is a line, and the ground at it
+ * changes there. Reconstructed — docs/LIBERTIES.md.
+ */
+const FEATHER_M = { worn_earth: 22, trodden_earth: 22 };
 
 /** The beds in a dooryard, in metres: a bed, the walkway beside it, how many are
  *  laid at most, and how long a bed may run. The cap is what makes one rule work
@@ -123,6 +137,73 @@ function edgeDistance(pts, e, n) {
     best = Math.min(best, Math.hypot(ax + dx * t - e, ay + dy * t - n));
   }
   return best;
+}
+
+/** Twice the signed area of a ring: positive when it runs anticlockwise. */
+function signedArea2(pts) {
+  let a = 0;
+  for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
+    a += pts[j][0] * pts[i][1] - pts[i][0] * pts[j][1];
+  }
+  return a;
+}
+
+/**
+ * A CONVEX ring pushed out by `d` metres, corner for corner (each side moved
+ * out along its normal, each corner where its two moved sides meet), or null
+ * when the ring is not convex — the skirt below is only laid where this offset
+ * is exact, and the one ring that asks for it (the fort's apron) is a square.
+ */
+function offsetConvexRing(pts, d) {
+  const k = pts.length;
+  if (k < 3) return null;
+  const ccw = signedArea2(pts) > 0 ? 1 : -1;
+  for (let i = 0; i < k; i++) {
+    const a = pts[i]; const b = pts[(i + 1) % k]; const c = pts[(i + 2) % k];
+    const cross = (b[0] - a[0]) * (c[1] - b[1]) - (b[1] - a[1]) * (c[0] - b[0]);
+    if (cross * ccw < -1e-9) return null;
+  }
+  // The outward normal of side i (from vertex i to i + 1).
+  const normals = pts.map((a, i) => {
+    const b = pts[(i + 1) % k];
+    const len = Math.hypot(b[0] - a[0], b[1] - a[1]) || 1;
+    return [ccw * (b[1] - a[1]) / len, -ccw * (b[0] - a[0]) / len];
+  });
+  return pts.map((p, i) => {
+    const n0 = normals[(i + k - 1) % k];
+    const n1 = normals[i];
+    // The miter: along the bisector, far enough that both sides sit at d.
+    const bx = n0[0] + n1[0];
+    const by = n0[1] + n1[1];
+    const dot = bx * n1[0] + by * n1[1] || 1;
+    return [p[0] + (bx * d) / dot, p[1] + (by * d) / dot];
+  });
+}
+
+/** The edge's wander for a feathered ground, about -1..+1: ~28 m, ~15 m and
+ *  ~6 m waves at oblique angles, so a side of the fort's square shows several
+ *  tongues of bare earth reaching into the grass and bays of grass between. */
+function featherWander(e, n) {
+  return 0.55 * Math.sin(0.211 * e + 0.137 * n + 0.4)
+       + 0.30 * Math.sin(-0.173 * e + 0.389 * n + 1.9)
+       + 0.15 * Math.sin(0.83 * e - 0.61 * n + 2.6);
+}
+
+/**
+ * How much of a feathered ground covers (e, n), 0..1: all of it inside the
+ * ring, none of it at the skirt's far edge, and between them a short ramp whose
+ * middle wanders from the ring to four fifths of the way out. Never reaches the
+ * skirt's own outer line, so the skirt has no edge of its own to show.
+ */
+function featherCover(ring, width, e, n) {
+  const s = edgeDistance(ring, e, n) * (pointInPolygon(ring, e, n) ? -1 : 1);
+  // A wandering middle and a fine fray, over a short ramp: worn tongues and
+  // bays of grass with soft edges, not a veil of dust laid evenly over the band.
+  const fray = Math.sin(1.93 * e + 0.71 * n + 0.3) * Math.sin(-0.57 * e + 2.11 * n + 1.1);
+  const mid = width * (0.40 + 0.30 * featherWander(e, n) + 0.10 * fray);
+  const ramp = width * 0.14;
+  const t = Math.min(1, Math.max(0, (s - (mid - ramp)) / (2 * ramp)));
+  return 1 - t * t * (3 - 2 * t);
 }
 
 /** A ring, with any repeated closing vertex dropped. */
@@ -494,7 +575,7 @@ const TREATMENTS = {
  * into the water would be a claim about a shoreline this layer knows nothing of.
  */
 function layRegion(buf, poly, terrain, o) {
-  const { frame, period, lift, level, tint, alpha, fringeOf } = o;
+  const { frame, period, lift, level, tint, alpha, fringeOf, coverOf = null } = o;
   const b = bboxOf(poly);
   const e0 = Math.floor(b.minE / CELL_M) * CELL_M;
   const n0 = Math.floor(b.minN / CELL_M) * CELL_M;
@@ -518,7 +599,7 @@ function layRegion(buf, poly, terrain, o) {
           r: tint[0] + (1 - tint[0]) * f,
           g: tint[1] + (1 - tint[1]) * f,
           bl: tint[2] + (1 - tint[2]) * f,
-          a: alpha[1] + (alpha[0] - alpha[1]) * f,
+          a: (alpha[1] + (alpha[0] - alpha[1]) * f) * (coverOf ? coverOf(e, n) : 1),
         };
       });
       if (wet) continue;
@@ -674,6 +755,38 @@ export function createFencedGround({
   }
   if (!out.interiors.length) return out;
 
+  // T-2125: the feathered grounds, one per outer ring however many interiors
+  // share it — each with its skirt (the ring pushed out by FEATHER_M, as one
+  // quad per side) and the cover the drape and the sward both read.
+  const feathers = new Map();
+  for (const interior of out.interiors) {
+    const width = FEATHER_M[interior.treatment];
+    const ring = interior.fringePts;
+    if (!width || !ring) continue;
+    let f = feathers.get(ring);
+    if (f === undefined) {
+      const outer = offsetConvexRing(ring, width);
+      f = outer ? {
+        ring, width, outer, bbox: bboxOf(outer), interior,
+        // Each quad wound anticlockwise, as every interior is, so its
+        // triangles face up and are not culled.
+        skirt: ring.map((p, i) => {
+          const q = [p, ring[(i + 1) % ring.length], outer[(i + 1) % ring.length], outer[i]];
+          return signedArea2(q) > 0 ? q : q.reverse();
+        }),
+        cover: (e, n) => featherCover(ring, width, e, n),
+      } : null;
+      if (!f) {
+        problems.push(`yards: ${interior.record}'s outer ring is not convex — its ground is `
+          + 'not feathered into the sward and stops at the ring');
+      }
+      feathers.set(ring, f);
+    }
+    if (f) interior.feather = f;
+  }
+  // An array, not the map's iterator: the sward asks this of every slot.
+  const featherList = [...feathers.values()].filter(Boolean);
+
   /** Is this point inside a fenced interior — the question `flora.js` asks
    *  through `main.js`'s block-list composition, and the question the smoke asks
    *  through `plantableAt`. Cheap rejection on the bounding box first: this runs
@@ -682,7 +795,19 @@ export function createFencedGround({
     for (const i of out.interiors) {
       const b = i.bbox;
       if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
-      if (pointInPolygon(i.pts, e, n)) return true;
+      if (pointInPolygon(i.pts, e, n)) {
+        // T-2125: on a feathered ground the sward thins in at the share the
+        // earth thins out, drawn per slot so the same slot always answers.
+        return i.feather ? i.feather.cover(e, n) > ditherHash(e, n) : true;
+      }
+    }
+    for (let k = 0; k < featherList.length; k++) {
+      const f = featherList[k];
+      const b = f.bbox;
+      if (e < b.minE || e > b.maxE || n < b.minN || n > b.maxN) continue;
+      if (pointInPolygon(f.outer, e, n) && !pointInPolygon(f.ring, e, n)) {
+        return f.cover(e, n) > ditherHash(e, n);
+      }
     }
     return false;
   };
@@ -725,8 +850,19 @@ export function createFencedGround({
 
     out.census.cells += layRegion(bufFor(spec.base), pts, terrain, {
       frame, period: PERIOD_M[spec.base], lift: LIFT_M.base, level: interior.level,
-      tint: spec.fringe, alpha: spec.alpha, fringeOf,
+      tint: spec.fringe, alpha: spec.alpha, fringeOf, coverOf: interior.feather?.cover ?? null,
     });
+    // T-2125: the skirt, laid once per feathered ground (by its first interior),
+    // a quad per side of the ring, at the fringe's own tint and the cover's alpha.
+    const feather = interior.feather;
+    if (feather && feather.interior === interior) {
+      for (const quad of feather.skirt) {
+        out.census.cells += layRegion(bufFor(spec.base), quad, terrain, {
+          frame, period: PERIOD_M[spec.base], lift: LIFT_M.base, level: interior.level,
+          tint: spec.fringe, alpha: spec.alpha, fringeOf: () => 0, coverOf: feather.cover,
+        });
+      }
+    }
     out.census.interiors += 1;
     out.census.byTreatment[interior.treatment] =
       (out.census.byTreatment[interior.treatment] ?? 0) + 1;
