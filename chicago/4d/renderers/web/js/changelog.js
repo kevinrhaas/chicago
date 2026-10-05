@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. Each layer of the town can add its own steps to how a surface is shaded. Two layers with different steps could still be handed one shared shader, and then one of them drew in solid black.',
+      'That is how a fence once came out black. It was fixed for that fence alone. Now each set of shading steps gets its own shader, and anything that shades the same way still shares one, so nothing extra is compiled.',
+    ] },
   { v: 1467, ts: '2026-10-05T03:48:41.028Z', date: 'Oct 4, 2026, 10:48 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
     items: [
       'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
