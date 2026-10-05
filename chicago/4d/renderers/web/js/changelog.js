@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+  { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
       'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
