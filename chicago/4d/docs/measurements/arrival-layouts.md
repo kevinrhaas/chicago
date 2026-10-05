@@ -1,4 +1,4 @@
-# Arrival and jaunts — layouts (T-2046)
+# Arrival and jaunts — layouts (T-2046, T-2061)
 
 Piece 3 of 4 of T-1272. The reading is `arrival-layouts.json` beside this page, written
 by `node tools/measure_arrival_layouts.mjs --layout <name> --write` against the
@@ -54,18 +54,28 @@ Read with an exploratory version of the same walk on `dev` at ab1ee8f7, before a
 The keyboard-open picker already passed: the search and the first result stay above a
 336 px keyboard.
 
-## Reported, not gated: a successor
+## Gated since T-2061: the HUD, the drawer and the place card
 
-Some controls on the path are owned by other surfaces. They are measured and listed in
-each layout's `elsewhere`, and they are not passed or failed here:
+T-2046 measured the controls these surfaces own and only reported them: the HUD chips
+38 px tall (the Confidence caret 26 px wide), the drawer's Back and Close 30x30 and its
+tabs 37 px wide at 320 px, and the place card's `why` toggles 19x17. T-2061 brought each
+to 44 px on touch and moved `#hud` (which holds the drawer) and `#popup` into the tool's
+owned set, so they now pass or fail with the rest. The four layouts PASS (re-read
+2026-10-04 with `--write`, one layout per command).
 
-- the HUD chips, 38 px tall;
-- the drawer's Back and Close, 30x30, and its tabs, 37 px wide at 320 px;
-- the place card's `why` toggles, 19x17.
-
-They are filed as **T-2061**, at the foot of band 9. The queue was over its ceiling, so
-it was filed with `--anyway` and its reason: T-2047, the report that names this section's
-successors, merged while this piece was in flight, so no live ticket owned the finding.
+- **One number for the HUD row.** `--hud-row` (walk.css) is 38 px, and 44 px on
+  `body.is-touch` / `body.touch-first`. The chips' height and minimum width read it, and so
+  does every panel hung below the HUD: the drawer, the place card, the confidence menu and
+  the navigation stack (`20px + --hud-row`), the jaunt overlays (`26px + --hud-row`) and the
+  jaunt panel under a wrapped HUD (`24px + 2 x --hud-row`: 100 px at 38, 112 px at 44,
+  where the wrapped foot moved from ~92 to ~104). Desktop is unchanged.
+- **The drawer's rail at 320 px.** Eight tabs in one row need 358 px, so under that the rail
+  is two rows of four, 44 px tall. Every tab stays in view, the What's new dot with it, at a
+  cost of ~36 px of drawer height on a 320 px phone. A rail that scrolls sideways kept the
+  height but put What's new out of view, and was not taken.
+- **The `why` toggle** keeps its word and its place; its tap box grows to 44 px round it
+  and is pulled up into the sources line above, so a card grows by about 10 px a claim
+  rather than 27.
 
 **Not covered by this reading:** the emulated keyboard shrinks the layout viewport (the
 `resizes-content` case). The visual-viewport-only case is the gentler one and is not read

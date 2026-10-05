@@ -29,7 +29,7 @@
 .hud-panel {
   pointer-events: auto;
   position: fixed;
-  top: calc(58px + var(--safe-t));
+  top: calc(20px + var(--hud-row) + var(--safe-t));
   right: 0;
   bottom: 0;
   width: min(440px, 100vw);
@@ -177,6 +177,9 @@
 .panel-back:hover, .panel-close:hover { color: var(--ink); background: var(--step); }
 .panel-back:focus-visible, .panel-close:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
 .panel-back[hidden] { display: none; }
+/* T-2061: a thumb's 44 px. The icons stay 18 px; only the box round them grows. */
+body:is(.is-touch, .touch-first) :is(.panel-back, .panel-close) { width: 44px; height: 44px; }
+body:is(.is-touch, .touch-first) .panel-close { margin-right: -6px; }
 
 /* ----------------------------------------------------------- the scroll --- */
 
@@ -414,4 +417,13 @@ details.why > .legend-note { margin: 6px 0 0; line-height: 1.55; }
   .tab-dot { top: 5px; }
   .panel-body { padding: 12px 14px 22px; }
   .travel-banner { font-size: 12px; }
+}
+/* T-2061: eight tabs in one row need 8 x 44 px and the 6 px of rail padding, so under
+   358 px wide the row is too narrow for a thumb on any of them. There the rail takes
+   two rows of four instead: every tab stays in view, the What's new dot with it, and
+   each one is wider than the 37 px it had. A scene that hides a tab leaves a gap at
+   the end of the second row and nothing else changes. */
+@media (max-width: 357px) {
+  .panel-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .panel-tab { min-height: 44px; padding: 5px 1px 6px; }
 }

@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
+    ] },
   { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
