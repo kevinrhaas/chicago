@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1488, ts: '2026-10-05T12:50:59.373Z', date: 'Oct 5, 2026, 7:50 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+  { v: null, ts: '', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [
       'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
       'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
       'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
       'The woods, hoops and paint are a reconstruction (Liberty L387). No extra draw calls.',
+    ] },
+  { v: 1488, ts: '2026-10-05T12:57:24.109Z', date: 'Oct 5, 2026, 7:57 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
+      'The court had no building of its own yet. In 1834 it met in the Mansion House’s unfinished loft, then in an unfinished store on Dearborn Street. For the spring 1835 term, held 25 May to 9 June, no source we have read names a room.',
+      'So no building in the town is marked as that court room.',
     ] },
   { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
