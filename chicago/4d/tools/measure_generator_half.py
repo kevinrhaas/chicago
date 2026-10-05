@@ -427,13 +427,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # `fort_structure`, two `palisade`, one `outbuilding`, all through emit.py and the common
 # modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 565 -> 568 and 559 -> 562 on 2026-10-05 (T-1829): blk_west_lake_canal's three
+# dwellings, a D5 and a D4 frame cottage and a D2 shanty, all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 565,
+    "assets": 568,
     "restales": {
-        "generators/common/*.py": 565,
+        "generators/common/*.py": 568,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 559,
+        "generators/emit.py": 562,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

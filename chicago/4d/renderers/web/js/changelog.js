@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1476, ts: '2026-10-05T07:46:20.934Z', date: 'Oct 5, 2026, 2:46 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+  { v: null, ts: '', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [
       'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
       'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
       'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
       'The woods, hoops and paint are a reconstruction (Liberty L384). No extra draw calls.',
+    ] },
+  { v: 1476, ts: '2026-10-05T07:35:44.614Z', date: 'Oct 5, 2026, 2:35 AM CT', title: 'Two cottages and a shanty between Canal Street and the river', kind: 'change',
+    items: [
+      'Cross to the West Side and walk south down Canal Street from Lake Street. Past the saddler\u2019s and the blacksmith\u2019s on the corner, the block toward Randolph now has two frame cottages facing Canal: a deep-plan cottage and a two-room cottage beside it.',
+      'On the river side of the same block, facing West Water Street, a rough plank shanty stands south of the warehouse. Fences, dooryard gardens, yard paths and privies came with all three.',
+      'Each face keeps open lots at its ends, so the block does not read as a row.',
+      'Open any of them and its card lists the households the town\u2019s housing deal now boards there. All three buildings are our reconstruction: no source places a house on these lots in July 1835, and each card says so.',
     ] },
   { v: 1475, ts: '2026-10-05T06:50:00.924Z', date: 'Oct 5, 2026, 1:50 AM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
