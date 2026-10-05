@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1501, ts: '2026-10-05T18:40:11.758Z', date: 'Oct 5, 2026, 1:40 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
+    items: [
+      'Walk south on Canal Street past the Western Hotel and the block toward Washington Street is no longer empty. Three frame cottages now face Canal Street, one on the Washington corner, and a storey-and-a-half cottage faces West Water Street on the river side.',
+      'This block had no lot lines until now. The 1830 plat gives its two rows of lots different depths, 180 feet and 150 feet, because the river cuts into the row along West Water Street. Each row is now cut to the depth the plat gives it.',
+      'Four West Side families now have a home in the town, and the other four lots along West Water Street stay open ground.',
+      'No source names these houses or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L313).',
+    ] },
   { v: 1500, ts: '2026-10-05T17:48:32.709Z', date: 'Oct 5, 2026, 12:48 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
     items: [
       'Nothing you can see changes in the town. One entry on the Liberties page now describes the north side correctly.',

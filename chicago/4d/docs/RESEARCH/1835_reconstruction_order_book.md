@@ -657,22 +657,22 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
 | `structures/ordinary_dwellings/south` | 176 | 136 | 40 | 0 | T-1755 |
-| `structures/ordinary_dwellings/west` | 75 | 67 | 8 | 0 | T-2132 |
+| `structures/ordinary_dwellings/west` | 75 | 67 | 8 | 0 | T-2143 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 47 | 1 | 0 | T-1983 |
 | `structures/small_outbuildings/west` | 14 | 5 | 9 | 0 | T-1983 |
 | `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-1983 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 0 | 0 | T-1694 |
-| `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2132 |
+| `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2143 |
 | `structures/stores_mixed_use/north` | 4 | 4 | 0 | 0 | T-1205 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/warehouses_freight/south/street_line` | 10 | 6 | 4 | 0 | T-1673 |
 | `structures/warehouses_freight/south/river_bank` | 1 | 1 | 0 | 0 | T-1640 |
-| `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-2132 |
+| `structures/warehouses_freight/west` | 2 | 1 | 1 | 0 | T-2143 |
 | `structures/warehouses_freight/north` | 7 | 6 | 1 | 0 | T-2022 |
 | `structures/workshops/south` | 15 | 15 | 0 | 0 | T-2134 |
-| `structures/workshops/west` | 8 | 8 | 0 | 0 | T-2132 |
+| `structures/workshops/west` | 8 | 8 | 0 | 0 | T-2143 |
 | `structures/workshops/north` | 7 | 7 | 0 | 0 | T-1205 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | T-1204 |
 

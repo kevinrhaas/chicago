@@ -1,3 +1,37 @@
+## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
+
+T-1829 left the West Division 12 ordinary dwellings and a freight roof short, with every
+lot-ruled West block at capacity and the rest gated on a lot line. One of the gated cells was not
+like the others. Plat block 44 (`blk_west_randolph_canal`, Randolph to Washington between Canal
+and West Water) prints **two** depths on the sheet, 180 ft under its west column and 150 ft under
+its east (`thompson_west_division_lots.json`): the South Branch has cut into the West Water lots.
+`thompson_west_division_lots.json` leaves `lot_depth_ft` null there because it will not average
+them, and `generate_plat_lots.west_lot_figure` read that null as "prints no dimension". That is
+the wrong pile. The block prints more of itself than block 29 does, and block 29 was already
+cut on a single depth.
+
+- **The cut.** `west_lot_figure` now returns `lot_depth_ft_per_column` when both column depths
+  are read, and `subdivide_west` gives each column its printed share of what the committed face
+  leaves after the 18 ft alley (west 59.7 m, east 49.8 m deep). The figures are never averaged.
+  The closure is published as before: the sheet asks 348 ft, and the committed lines give 367.4.
+  Block 51 (180 / 88) would cut the same way, but the committed grid does not build it today.
+- **The deal.** `reconcile_665.py` opens the block at the West density (6 per 10 lots) beside
+  the Western Hotel and its stable: 4 roofs of room. The seating's four slot requests fill it
+  exactly. The recipe raises a D5 at plat lot 6, a D4 at plat lot 7 and a D5 at plat lot 10 (the
+  Washington corner) on Canal, and a D6 at plat lot 8 on West Water. The other four West Water
+  lots stay open. Baked with `generators/build.py --only` and `web_derivatives.sh --only`.
+- **The fixpoint.** As on T-1829, `rederive.mjs` alone does not settle: the keeper pass is not
+  in the manifest. Walking keepers → the three infill generators → `reconcile_665` → the seating
+  took six laps, plus one more after the tail, and lands at **182 seated** (dev 178; West 28 → 32).
+  The four requesters are seated on standing West roofs, and four older West households adopt the
+  new houses. 21 households change roof, and none is handed on. Named keepers 77 → 80. Twelve
+  meshes whose keepers moved were rebaked (26 s for the twelve).
+- Liberties: **L263** 554 → 558, **L270** 178 → 182 (who moved), **L276** 77 → 80, **L313**
+  covers block 44's lot ruling and four roofs.
+- Order book: `ordinary_dwellings/west` 67 of 75, **8 left**; `warehouses_freight/west` 1 left.
+  These rows, and the complete stores and workshops rows, move to **T-2143**, filed with this
+  finding as its acceptance.
+
 ## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
 
 The first piece of the West Division's remainder T-1826 handed on. `blk_west_lake_canal` (plat
