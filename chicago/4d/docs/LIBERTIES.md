@@ -15392,16 +15392,17 @@ somebody restates them and says why here. No seat, roof or record moved for this
 **Restated by T-2130 (2026-10-05): the cost is 2 seats again, the hold still 40.** The nine roofs T-2130 raised on the plat's last tier are no part of the business deal's pool, so it still holds the same 40. With them standing beside T-2129's Market block, the deal no longer seats `hh_bennet_lyman` itself, and a release of those 40 would seat him again — on `recon_1835_blk_washington_lasalle_d7_05`, a roof another household vacates — as well as `hh_humphrey_fre_lemuel` into `recon_1835_south_d1_033`; 40 seated households would change roof or lot. The precedence is unchanged; what it costs moved because the plat's last tier moved under it, and `BUSINESS_DEAL_COSTS` is restated to 2 for that reason.
 
 **Restated by T-2136 (2026-10-05): the cost is 1 seat, the hold still 40.** The keepers pass
-now runs over the Washington tier, so `recon_1835_blk_washington_lasalle_d7_05` carries its
-keeper's household id (`hh_beaubien_monique`), and a roof that does is offered to that
-household and to nobody else — the rule that keeps this deal from un-seating its own keepers
-on a re-derivation, and it binds the release counterfactual the same way. So a release no
-longer frees that roof for `hh_bennet_lyman`, and seats `hh_humphrey_fre_lemuel` alone; 32
-seated households would change roof or lot. Not one seat in the deal itself moved. What moved
+now runs over the Washington tier, the West blocks and Indiana Street north, so 27 more roofs
+carry their keeper's household id, and a roof that does is offered to that household and to
+nobody else — the rule that keeps this deal from un-seating its own keepers on a
+re-derivation, and it binds the release counterfactual the same way. So those households no
+longer move when the business deal's roofs are released, the cascade that vacated
+`recon_1835_blk_washington_lasalle_d7_05` for `hh_bennet_lyman` does not run, and a release
+seats `hh_humphrey_fre_lemuel` alone; 32 seated households would change roof or lot, not 40. Not one seat in the deal itself moved. What moved
 is what a release could take back from a pass that has already published its keepers, and
 `BUSINESS_DEAL_COSTS` is restated to 1 for that reason.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved), 2026-10-05 (T-2129, the precedence's cost restated 2 -> 1: the Market block's houses seat `hh_bennet_lyman` in the deal itself), 2026-10-05 (T-2130, the seat table after the Dearborn and Clark blocks were built, and the precedence's cost restated 1 -> 2), 2026-10-05 (T-2136, the precedence's cost restated 2 -> 1: the keepers pass pins `recon_1835_blk_washington_lasalle_d7_05` to its keeper; no seat moved).
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved), 2026-10-05 (T-2129, the precedence's cost restated 2 -> 1: the Market block's houses seat `hh_bennet_lyman` in the deal itself), 2026-10-05 (T-2130, the seat table after the Dearborn and Clark blocks were built, and the precedence's cost restated 1 -> 2), 2026-10-05 (T-2136, the precedence's cost restated 2 -> 1: the keepers pass pins 27 more roofs to their keepers, which stops the release cascade that freed a roof for `hh_bennet_lyman`; no seat moved).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
