@@ -124,7 +124,9 @@ missing measurement:
   draws on the south bank is wharfed out over the water rather than standing on it — is
   live and belongs to the wharf layer (T-0059), not to the ground.
 
-That question is filed as its own ticket rather than answered here.
+That question is filed as its own ticket rather than answered here. **Answered 2026-10-05
+(T-0253): refused, and the reach goes to the wharf layer** — § The river margin, decided, at
+the foot of this page.
 
 ## What would replace this finding
 
@@ -601,3 +603,52 @@ rather than E 805.0. The positions that used to read as standing on the riversid
 now read as standing in the street, because the extended corridor covers that end of the walk.
 `--self-test`'s on-reach check now asserts the drawbridge's south landing, the footprint that still
 stands inside the box, and its rectangle tests use e2's ring.
+
+## The river margin, decided, 2026-10-05 (T-0253)
+
+§ What is still open asked whether an invented building may stand on the river margin of a
+platted street corridor. **It may not.** The plate's south-bank warehouses are not built in
+South Water Street's corridor, and what the plate draws on this bank is carried by the wharf
+layer, which already draws it. This is a refusal, not a rule: nothing is placed, no gate is
+loosened, and `data/exclusions.json` → `south_bank_warehouses_dearborn_reach` now says which.
+
+**Why a refusal and not a rule.**
+
+1. **No source puts a building there.** Image 3 of the owner's brief of 2026-08-18 is a tier-5
+   retrospective view and the only witness. The town's own committed evidence has every South
+   Water store on the street's south side facing the river across it (`data/wharves/working_bank.json`).
+   A warehouse on the corridor's river margin would be the dataset asserting a row of buildings
+   no record in this project names, placed knowingly inside a platted corridor, in a project
+   that spent T-0009 taking 29 documented ones out.
+2. **The bank is already drawn, as what it was.** `working_bank.json` (T-1771) carries South
+   Water's river side from E 140 to E 800 — the whole reach this page measures — as the worked
+   bank the owner asked for on 2026-09-30: worn earth, low docks, landings and ramps between
+   river and street. Five of the seven landings in `river_landings.json` cross it to the water.
+   That is the wharfing-out practice § What is still open named as the live alternative, and it
+   is how the plate's river trade is shown here. The generator half of a larger wharf layer
+   (T-0059) was withdrawn; nothing in this decision asks for it back.
+3. **The project has already refused this act once, on the owner's choice.** When South Water
+   Street was carried on to State Street (T-2012, 2026-10-03) its corridor took
+   `south_bank_shed_dearborn_e1`'s footprint, and the reconstructed shed was withdrawn rather
+   than left standing in the platted street (`docs/LIBERTIES.md` L274, struck). A rule that let
+   an invented warehouse stand in the same corridor a few metres west would contradict that
+   ruling.
+
+**What it holds the tools to.** `tools/measure_corridor_intrusion.py --gate` keeps refusing a new
+lap by construction (23 of 561 placed phases lap a corridor on this date). **One of the 23 is itself the act this
+decision refuses:** `north_bank_shed_dearborn_e1`, an invented freight shed (T-0133, L164), laps
+Dearborn North's corridor by 6.63 m with its centroid inside it, banked in the baseline and
+refused in writing nowhere. This decision does not move it; it is filed as its own ticket.
+Its written-refusal mechanism (T-0195) stays for documented records whose escape is blocked,
+and `--write-baseline` is never spent to bank an invented building's lap. Nothing in the gate
+changes, which is the point: the decision is that the gate was already right.
+
+**What would re-open it.** A source — a lot record, an advertisement, a contemporary view of
+1835 or earlier — placing a building on the river margin of South Water Street. A flat strip
+measured inside the corridor is not one: `fits_beside_the_street` counting positions there is
+a fact about relief and width, and this page has said since T-1642 that a number is not a
+reason to build.
+
+**Links:** T-0253 (this decision) · T-0134 · T-2012 · T-1771 · T-0062 · T-0059 · T-0009 ·
+T-0195 · `docs/LIBERTIES.md` L79, L164, L274 · `data/exclusions.json` →
+`south_bank_warehouses_dearborn_reach`.
