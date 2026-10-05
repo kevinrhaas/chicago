@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
+  { v: 1505, ts: '2026-10-05T20:26:07.594Z', date: 'Oct 5, 2026, 3:26 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
     items: [
       'Walk south across Madison between Market and State and the five blocks there are no longer open prairie. They are now cropped, grazed vacant lots, the same sward as the empty lots inside the town. No house stands on them yet.',
       'These blocks were sold lot by lot in October 1833, in the School Section beyond the town\u2019s south line. The town plan still owes the South Division about forty houses, and every block inside the line is full. So those houses will be built here, one to a lot, with a lot left open on each block.',

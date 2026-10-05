@@ -16,10 +16,10 @@ block 81) build on it.
   (`south_plat_beyond_committed_control`, 20 roofs) empties; the tier is dealt **36 roofs —
   32 dwellings (D2–D7), three boarding houses (H1–H3) on block 95, one yard building** — and the
   Market wedge (`blk_south_water_market`, still the owner's) keeps 6 of its 22.
-- The seating walked to a fixpoint in two laps: **212 seated** (was 178), the 34 new ones
+- The seating walked to a fixpoint: **216 seated** after the T-2132 merge (182 on dev), the 34 new ones
   slot requests on the tier that T-2145..T-2147 raise. 56 keeper rows moved; no mesh went stale.
 - The order book's `ordinary_dwellings/south` row moves to **T-2145** (T-1755 is split).
-- Corridor-strip baseline re-written: only `blocks_after` 77→82 and `lots_after` 330→370 moved.
+- Corridor-strip baseline re-written: only `blocks_after` and `lots_after` moved, by the tier's 5 blocks and 40 lots (77→82, 340→380 on the merged tree).
 
 ## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
 
