@@ -73,6 +73,7 @@ import { createTravel } from './travel.js';
 import { mountPeople } from './people.js';
 import { firmCrosswalk, mountBusinesses } from './businesses.js';
 import { createEvidenceHub } from './evidence.js';
+import { resolveSharpness, sharpnessGuess } from './sharpness.js';
 
 const VERSION = '0.1.0';
 
@@ -1338,6 +1339,9 @@ async function boot() {
   // Resolve BEFORE the GLB fetch: a weak-machine boot must never download the
   // full inspection model simply to turn it down once Settings has mounted.
   let detailLevel = readDetailPreference() || (coarse ? 'light' : 'full');
+  // Image sharpness for a visitor who never chose one: Low on a phone, Medium
+  // on a desktop (T-2110 — see sharpness.js).
+  const qualityGuess = sharpnessGuess(coarse);
   const detailOpts = () => ({ detail: detailLevel });
 
   /**
@@ -1395,15 +1399,17 @@ async function boot() {
   });
   /**
    * The boot-time ratio. Note that this is superseded a few hundred lines below
-   * by `renderer.setPixelRatio(Math.min(dpr, hud.settings.quality))` once the
-   * visitor's stored settings are read, and the shipped default of `quality` is
-   * **1.5 on both platforms** — so the `: 2` here reaches a fresh visitor's
-   * screen for the handful of frames before the HUD mounts and nowhere else.
+   * by `renderer.setPixelRatio(Math.min(dpr, quality))` once the visitor's
+   * stored settings are read. Until T-2110 the shipped default of `quality` was
+   * **1.5 on both platforms**; since the owner's answer there it is the device
+   * guess `qualityGuess` — **1 on a phone, 1.5 on a desktop** — and this boot
+   * ratio is that same guess, so a fresh visitor's first frames are drawn at the
+   * ratio they keep rather than snapping down once the HUD mounts.
    * T-0157's premise held that a phone was capped at 1.5 "rather than 2"; what
    * the renderer actually reports is 1.5 on a phone at dpr 2 and 1.0 on a
    * desktop at dpr 1, which is the phone supersampling MORE than the desktop.
    */
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, coarse ? 1.5 : 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, qualityGuess));
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
@@ -2359,6 +2365,7 @@ async function boot() {
     onTravelStop: () => travel?.stop('button'),
     isTouch: prefersTouch(),
     resolvedDetail: detailLevel,
+    resolvedQuality: qualityGuess,
     structureVersion: loaded.versionState,
     onConfidence: (on) => confidence.set(on),
     onFly: (on) => { intent.flying = !!on; },
@@ -2645,7 +2652,7 @@ async function boot() {
 
   camera.fov = hud.settings.fov;
   camera.updateProjectionMatrix();
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, hud.settings.quality));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, resolveSharpness(hud.settings.quality, coarse)));
   streets.setLegibilityAid(hud.settings.roadAid);
   world.setBrightness(hud.settings.brightness);
   navigation.setCompassVisible(hud.settings.compass);

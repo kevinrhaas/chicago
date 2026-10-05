@@ -1,9 +1,27 @@
 export const CHANGELOG = [ // newest first
-  { v: 1463, ts: '2026-10-05T02:41:15.635Z', date: 'Oct 4, 2026, 9:41 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+  { v: 1466, ts: '2026-10-05T03:41:03.903Z', date: 'Oct 4, 2026, 10:41 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
       'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
       'At Full detail the windows still reflect and see through as before.',
       'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
+    ] },
+  { v: 1465, ts: '2026-10-05T03:13:04.374Z', date: 'Oct 4, 2026, 10:13 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
+      'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
+      'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
+  { v: 1464, ts: '2026-10-05T02:58:07.931Z', date: 'Oct 4, 2026, 9:58 PM CT', title: 'A phone starts at Low image sharpness, for smoother frames', kind: 'change',
+    items: [
+      'On a phone, the town now opens at Image sharpness Low, not Medium. At Light detail, where a phone starts, each frame draws about a quarter faster. Edges are a little softer, most of all on log walls and roofs seen from the air.',
+      'A desktop still starts at Medium.',
+      'If you have ever picked a sharpness in Settings, you keep it.',
+    ] },
+  { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+    items: [
+      'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
+      'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
+      'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
     ] },
   { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
     items: [
