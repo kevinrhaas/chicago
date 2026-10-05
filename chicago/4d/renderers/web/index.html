@@ -70,23 +70,25 @@
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-label="Preparing the selected scene"
          aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i></i></div>
     <div id="welcome" hidden>
-      <p class="welcome-intro">You are entering a digital reconstruction of the town as it stood on 1 July 1835, built from the sources listed under Evidence.</p>
+      <p class="welcome-intro">Destination locked: Chicago, 1 July 1835. Reconstructed from the sources under Evidence.</p>
       <details id="welcome-about" class="welcome-about" hidden>
         <summary></summary>
         <div id="welcome-about-cards"></div>
       </details>
       <div class="welcome-actions">
-        <button id="welcome-jaunts" class="welcome-action primary" aria-expanded="false" aria-controls="welcome-jaunts-region"><strong>Jaunts</strong><span>Short stories through the town</span></button>
-        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>I’ll Explore Myself</strong><span>Starting At…</span></button>
+        <button id="welcome-jaunts" class="welcome-action" aria-expanded="false" aria-controls="welcome-jaunts-region"><strong>Jaunts</strong><span>Guided outings</span></button>
+        <button id="welcome-explore" class="welcome-action" aria-expanded="false" aria-controls="welcome-picker"><strong>Starting at…</strong><span>Pick a place</span></button>
+        <button id="welcome-back" class="welcome-back" type="button" aria-label="Back to the arrival choices" title="Back"></button>
       </div>
-      <button id="welcome-sources" class="welcome-link">Sources &amp; City</button>
       <section id="welcome-jaunts-region" class="welcome-region" aria-label="Jaunts" hidden>
         <div id="welcome-jaunts-content"><p>Choose Jaunts to see the first route preview.</p></div>
-        <button id="welcome-jaunts-explore" class="welcome-link">Explore on my own instead</button>
       </section>
       <section id="welcome-picker" class="welcome-region" aria-label="Choose a starting place" hidden>
-        <label for="welcome-search">Starting at…</label>
-        <input id="welcome-search" type="search" placeholder="Search places, businesses or people" autocomplete="off">
+        <div id="welcome-quick" class="welcome-quick" role="group" aria-label="Quick starts"></div>
+        <div class="welcome-find">
+          <label for="welcome-search" class="visually-hidden">Search places</label>
+          <input id="welcome-search" type="search" placeholder="Search places, businesses or people" autocomplete="off">
+        </div>
         <div id="welcome-kinds" class="welcome-kinds" role="group" aria-label="Destination kinds"></div>
         <div id="welcome-results" class="welcome-results" aria-label="Starting places"></div>
         <p id="welcome-message" role="status"></p>
