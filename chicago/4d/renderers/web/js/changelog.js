@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1483, ts: '2026-10-05T11:07:09.913Z', date: 'Oct 5, 2026, 6:07 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
+    items: [
+      'Open 1904, then Evidence \u2192 Sources. The list used to show the 1835 town\u2019s sources. It now shows the 32 sources behind 1904 itself: the Glessner House drawings and photographs, the 1911 Sanborn sheets, the city\u2019s paving records and the elevation survey under the ground.',
+      'In 1812 it lists the 22 sources behind the first Fort Dearborn, its ground and its plants.',
+      'Tick \u201cAll registered sources\u201d to see every source; one another year uses reads \u201cother scene\u201d.',
+    ] },
   { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
     items: [
       'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',

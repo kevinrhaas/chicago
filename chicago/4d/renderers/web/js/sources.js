@@ -15,6 +15,24 @@ export function selectSources(rows, state) {
     ? b.counts[state.sort] - a.counts[state.sort]
     : state.sort === 'date' ? String(a.date ?? '').localeCompare(String(b.date ?? '')) : 0) || a.citation.localeCompare(b.citation));
 }
+/** T-2079: the catalog is one file; a scene other than 1835 lays its own use map over it,
+ * so "sources used in this scene" means the sources ITS records cite. A map that misses a
+ * registered source is refused rather than guessed: a wrong `use` is a wrong default list. */
+export function sceneRows(rows, map) {
+  if (!map) return rows;
+  if (!map.uses || typeof map.uses !== 'object') throw Error('Invalid scene use map');
+  return rows.map(r => {
+    const use = map.uses[r.source_id];
+    if (!USES.includes(use)) throw Error(`No use for ${r.source_id} in scene ${map.scene}`);
+    return {...r, use};
+  });
+}
+/** An edge's `use` is read from 1835; another scene reads its own from `scenes`. */
+export function edgeUse(edge, scene = '1835') {
+  if (String(scene) === '1835') return edge.use;
+  if (Array.isArray(edge.scenes) && edge.scenes.map(String).includes(String(scene))) return 'scene';
+  return edge.use === 'scene' ? 'other_scene' : edge.use;
+}
 export function gradeCounts(edges) {
   const claims = new Map(), entities = new Map();
   for (const e of edges) {
@@ -53,7 +71,7 @@ function counts(row) {
 function urlLink(url,label) {
   try { const u = new URL(url); if (!['https:','http:'].includes(u.protocol)) return '';return `<a href="${esc(u.href)}" target="_blank" rel="noopener noreferrer">${label}</a>`; } catch { return ''; }
 }
-export async function mountSources({root, dataBase, onTitle, onBack, onOpen, canOpen=()=>undefined, fetcher=fetch}) {
+export async function mountSources({root, dataBase, scene='1835', onTitle, onBack, onOpen, canOpen=()=>undefined, fetcher=fetch}) {
   const css=document.createElement('link');css.rel='stylesheet';css.href=new URL('../css/sources.css',import.meta.url);document.head.append(css);
   const scroll=root.closest('.panel-scroll') || root.parentElement;
   const state={query:'',all:false,type:'',tier:'',use:'',sort:'claims',filtersOpen:false,limit:40,scroll:0,detailScroll:0,detail:null};
@@ -61,9 +79,11 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
   root.innerHTML='<p role="status">Loading source catalog…</p>';
   const api={state,show, get rows(){return rows;},open:openDetail,cancel(){sequence++;navigation.abort();navigation=new AbortController();}};
   async function loadIndex() { try {
-    const res=await fetcher(new URL('sidecars/1835/sources/index.json',dataBase));
-    if(!res.ok)throw Error(`HTTP ${res.status}`);
-    const data=await res.json();if(!Array.isArray(data.sources))throw Error('Invalid catalog');rows=data.sources;
+    const own=String(scene)!=='1835';
+    const [res,map]=await Promise.all([fetcher(new URL('sidecars/1835/sources/index.json',dataBase)),
+      own ? fetcher(new URL(`sidecars/${encodeURIComponent(scene)}/sources/uses.json`,dataBase)) : null]);
+    if(!res.ok || (map && !map.ok))throw Error(`HTTP ${res.ok ? map.status : res.status}`);
+    const data=await res.json();if(!Array.isArray(data.sources))throw Error('Invalid catalog');rows=sceneRows(data.sources,map && await map.json());
     root.dataset.count=String(rows.length);root.removeAttribute('aria-busy');renderList();
   } catch {
     // Keep the tile unknown: failed transport is not a source count of zero.
@@ -107,7 +127,7 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
   function edgeHtml(edge,index){
     const label=words(edge.entity_id),locator=typeof edge.locator==='string'?edge.locator:edge.locator?JSON.stringify(edge.locator):'No locator recorded';
     const supported=canOpen(edge) ?? ['structure','person','business','flora','fauna','terrain','exclusion','liberty'].includes(edge.entity_type);
-    return `<li>${supported?`<button type="button" data-edge="${index}">${esc(label)}</button>`:`<b>${esc(label)} — decision summary</b>`} ${chip(edge.confidence)}<span>${esc(words(edge.claim))} · ${esc(words(edge.use))} · ${esc(locator)}</span></li>`;
+    return `<li>${supported?`<button type="button" data-edge="${index}">${esc(label)}</button>`:`<b>${esc(label)} — decision summary</b>`} ${chip(edge.confidence)}<span>${esc(words(edge.claim))} · ${esc(words(edgeUse(edge,scene)))} · ${esc(locator)}</span></li>`;
   }
   function edgeList(edges,all){
     const list=document.createElement('ul');list.className='src-edges';let limit=0;
@@ -143,8 +163,8 @@ export async function mountSources({root, dataBase, onTitle, onBack, onOpen, can
 }
 
 /** Navigation is lazy too: opening Sources is the only path that loads this code. */
-export function attachSources({api,registry,hud,popup,dataBase,root}) {
-  return mountSources({root,dataBase,
+export function attachSources({api,registry,hud,popup,dataBase,root,scene}) {
+  return mountSources({root,dataBase,scene,
     canOpen: edge => edge.entity_type === 'terrain' ? !!terrainCardId(edge,api.ground?.claims || []) : undefined,
     onTitle: (text, back) => { if (api.evidenceHub.topic === 'sources') hud.setTitle(text, back); },
     onBack: () => api.evidenceHub.showHub({focusTile:'sources'}),
