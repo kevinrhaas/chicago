@@ -85,12 +85,12 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "construction": {
-      "value": "balloon_frame",
+      "value": "braced_frame",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "single_pen",
@@ -124,42 +124,34 @@
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the D3 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
     },
-    "porch": {
-      "value": "stoop",
-      "confidence": "reconstructed",
-      "sources": [
-        "owner_chicago_1835_reconstruction_spec_2026"
-      ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a plank stoop at the door on most, and no shutters (rule FORM-P)."
-    },
     "glazing": {
-      "value": "12_over_12_6x8",
+      "value": "6_over_6_6x8",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the attested Chicago pane, 6 x 8 in, mostly twelve-over-twelve (rule FORM-G)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — the attested 6 x 8 in pane in the fewest lights, six or nine to a sash (rule FORM-G)."
     },
     "trim": {
+      "value": "scant",
+      "confidence": "reconstructed",
+      "sources": [
+        "owner_chicago_1835_reconstruction_spec_2026"
+      ],
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — the narrowest corner boards and frieze that keep the weather out (rule FORM-T)."
+    },
+    "chimney_head": {
       "value": "plain",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — the plain corner boards and frieze a sided frame needs to keep water out (rule FORM-T)."
-    },
-    "chimney_head": {
-      "value": "corbel",
-      "confidence": "reconstructed",
-      "sources": [
-        "owner_chicago_1835_reconstruction_spec_2026"
-      ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a brick stack finished in one corbelled course; the stack's brick is inferred and not dealt (rule FORM-H)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: labourer class — a brick stack carried straight up, with no corbel at its head; the stack's brick is inferred and not dealt (rule FORM-H)."
     },
     "siding_exposure_m": {
-      "value": 0.127,
+      "value": 0.14,
       "confidence": "reconstructed",
-      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+      "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
     },
     "function": {
       "value": "one_room_frame_cottage",
@@ -170,44 +162,16 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "The Blanshard household — a name the town's own records carry",
+      "value": "The Bonn household — a name the town's own records carry",
       "confidence": "reconstructed",
       "sources": [
-        "chicago_democrat_1833_1835"
+        "st_marys_baptismal_register_1833_1835"
       ],
       "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1638; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_south_water_franklin#04, fronting south_water, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
   "residents": [],
   "citations": [
-    {
-      "source_id": "chicago_democrat_1833_1835",
-      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
-      "url": "",
-      "archived_url": "",
-      "tier": 1,
-      "tier_label": "period/eyewitness",
-      "what_it_supplies": [
-        "that a named trade was being carried on in Chicago in a named week, and often where",
-        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
-        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
-        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
-        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
-        "arrivals and clearances, which date the piers and the harbour as working structures",
-        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
-        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
-        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
-      ],
-      "what_it_does_not_supply": [
-        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
-        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
-        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
-        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
-        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
-        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
-        "a citation without an issue page and column"
-      ]
-    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
@@ -226,6 +190,42 @@
         "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
         "Authority to replace stronger building-specific evidence already represented in the dataset."
       ]
+    },
+    {
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "citation": "The baptismal register of St Mary's, Chicago — the first Catholic parish in the town — opened by Father John Mary Irenaeus St. Cyr on 22 May 1833 and read here for the years 1833, 1834 and 1835: 57 entries in French and English naming children, parents, godparents and witnesses, with the priest's own signature under every one and eight autographs of the town's own people beside them.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "The baptismal register kept at Chicago by Father J. M. I. St. Cyr from May 1833",
+          "date": "1833-1849",
+          "tier": 1,
+          "note": "THE ORIGINAL, and these eleven images are photographs of it. A reading made off them is scan_verified — the higher of this project's two reading grades — and it outranks the marriage and death pages of st_cyr_register_ichr_v4, which reached this project through a 1921-22 article and a web transcription."
+        }
+      ],
+      "what_it_supplies": [
+        "57 dated baptisms of 1833-1835 and 267 named readings of people — 46 of the entries at Chicago and 166 of the readings adults there",
+        "KINSHIP, which no other source this project holds gives at all: a child, its two parents and its two godparents on one dated line, 44 times over",
+        "the town's Catholic population — French, Métis, Irish and German — of whom 85 distinct adults reach no surname in the residents layer",
+        "eight AUTOGRAPHS: Mark Beaubien, Josette Laframboise, Augustin Bonné, Monique Nadeau, Jean Baptiste Lavigne, J. B. Beaubien, Robert A. Kinzie and Gwinthlean Whistler signing under the priest, each placing a named person at a named place on a named day in their own hand",
+        "two adult baptisms with AGES — Josette Laframboise Beaubien at 38 in June 1834 and Geneviève Medera at about 20 in June 1835 — which are the only ages this project has for either woman",
+        "the parish's own start date, 22 May 1833, on a page the book heads '1er Page'",
+        "the register's own arithmetic: pencil tallies of 19, 24 and 14 baptisms for 1833, 1834 and 1835, which check any reading of it",
+        "a hue and cry on the title page describing what a young man of the Illinois country wore in 1833 or 1834 — a white pea coat, gray pants and a fur cap"
+      ],
+      "what_it_does_not_supply": [
+        "any address, lot, street, dwelling or workplace — the register places nobody anywhere in the town, and names no church building on any of the eleven pages",
+        "residence, and this is the trap. A baptism documents a person at a font on a day. Presence is not residence and nothing here mints or regrades a resident",
+        "presence on 1 July 1835 for anyone not baptised or standing as sponsor within days of it",
+        "occupation. One entry writes 'Doctor Egan' — a title inside a name — and that is the only trade the book ever states",
+        "ALL CHICAGO. Entries 1-11 of 1834 were written at Bear Creek, the South Fork of the Sangamon and Springfield, in Sangamon County, on the priest's journey back from St. Louis. A reader who takes the book as a Chicago roll plants eleven households in the wrong county",
+        "reliable spelling. A French priest wrote Irish, English and German names and phoneticised Potawatomi and Odawa ones; the same woman is Nadeau, Nodeau and Nodou in his own hand on three pages",
+        "the sponsors of 1834 entry 4, which stood on a line the scan's frame cuts off",
+        "anything about 1836 or later. The two page-sides in the deposit that carry 1837-38 and 1849 entries are declared and not transcribed"
+      ]
     }
   ],
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
@@ -242,15 +242,15 @@
     "stands_on": "frontage",
     "fronts": "south_water",
     "sequence": 13,
-    "finish_key": "ochre",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "finish_key": "weathered_timber",
+    "roof_condition": "patched",
+    "age_state": "established",
     "fabric_basis": {
-      "rule": "F-T",
-      "class": "tradesman",
-      "by": "keeper",
-      "household": "hh_blanshard_f_g",
-      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Blanshard household's, in Chicago since 1834 (rule F-T)"
+      "rule": "F-L",
+      "class": "labourer",
+      "by": "keeper_trade",
+      "household": "hh_bonn_augustin",
+      "words": "silvered clapboard on a braced frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a patched roof — The Bonn household's, a laundress, in Chicago since 1833 (rule F-L)"
     },
     "frontage": {
       "block": "blk_south_water_franklin",
@@ -262,11 +262,11 @@
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
-    "class": "tradesman",
-    "age_state": "recent",
-    "weather_years": 1.5,
+    "class": "labourer",
+    "age_state": "established",
+    "weather_years": 2.5,
     "weather_rate": 1.0,
-    "lay_m": 0.006,
+    "lay_m": 0.008,
     "confidence": "reconstructed"
   }
 }

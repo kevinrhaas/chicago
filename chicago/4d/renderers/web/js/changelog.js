@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+    items: [
+      'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
+      'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
+      'All ten are reconstructions: no record says what stood on this block in 1835 (Liberty L384).',
+    ] },
   { v: 1481, ts: '2026-10-05T10:26:22.802Z', date: 'Oct 5, 2026, 5:26 AM CT', title: 'Shops can now face the side street of a corner lot', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Each reconstructed house and shop stands facing its block\u2019s long street, like Washington or Randolph. Our block layout tool can now also stand one on a corner lot facing the cross street, like Dearborn. That is the step the mechanics\u2019 shops planned for State and Dearborn Streets were waiting on.',
