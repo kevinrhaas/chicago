@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1467, ts: '2026-10-05T03:48:41.028Z', date: 'Oct 4, 2026, 10:48 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
+    items: [
+      'Cross the Dearborn Street drawbridge to the north bank and look downstream. The first freight shed east of the bridge stood more than half inside the line of Dearborn Street, where the town\u2019s plat put a street. It now stands 7 metres east, on its block, shoulder to shoulder with the next shed in the row.',
+      'The shed is still a reconstruction: no record names it, and its card says so. Only where it stands changed.',
+    ] },
   { v: 1466, ts: '2026-10-05T03:32:41.154Z', date: 'Oct 4, 2026, 10:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
     items: [
       'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
