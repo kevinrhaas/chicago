@@ -384,13 +384,15 @@ STRUCTURE_TICKETS = {
     # T-2129 (the Market block's five houses) and T-2130 (the Dearborn and Clark blocks' slots)
     # — and a row naming a split ticket orders work nobody can claim. That took dev's own gate
     # red on this one row, after the split's own branch had gated green, and every open pull
-    # request with it. Both children are live and both raise this cell's dwellings, so the rule
-    # above would accept either; it goes to T-2130 because that is the one that raises the
-    # dwellings LEFT once the Market block in flight is built. The cell owes far more than
-    # either block, so naming T-2129 would only order the next sweep the moment it closes,
-    # inside a pull request already mid-build; naming T-2130 lets T-2129 close untouched and
-    # moves the row again only when T-2130 closes with it still owing, as the chain expects.
-    ("south", "ordinary_dwellings"): "T-2130",
+    # request with it.
+    #
+    # AND ON TO T-1755 WITH T-2130's OWN PR, because T-2130 raises the Dearborn and Clark blocks
+    # to their lot ceilings and closes with the cell still owing — a row naming a done ticket
+    # orders work nobody can claim, exactly as a split one does. T-1755 is "the South
+    # Division's remaining ordinary dwellings ... after the plat's last tier" in as many words,
+    # `open` and claimable, so the row stops moving with every block of this tier and waits
+    # where the remainder is owned.
+    ("south", "ordinary_dwellings"): "T-1755",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
