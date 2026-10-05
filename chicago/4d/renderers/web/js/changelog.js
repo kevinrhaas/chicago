@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+    items: [
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
+      'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
+      '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+    ] },
   { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',

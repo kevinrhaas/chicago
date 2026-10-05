@@ -11,16 +11,16 @@
   "by_row": {
    "cabin": 40,
    "cottage": 143,
-   "house": 56,
+   "house": 55,
    "keeper": 18,
-   "merchant": 31,
+   "merchant": 32,
    "shanty": 26
   },
   "by_class": {
    "keeper": 18,
-   "labourer": 73,
-   "merchant": 31,
-   "tradesman": 192
+   "labourer": 75,
+   "merchant": 32,
+   "tradesman": 189
   },
   "by_basis": {
    "default": 17,
@@ -1691,7 +1691,7 @@
    "structure_id": "recon_1835_blk_indiana_north_cass_d3_02",
    "name": "Reconstructed D3 one-room frame cottage #02",
    "function": "one_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -5305,7 +5305,7 @@
    "structure_id": "recon_1835_blk_washington_clark_d4_14",
    "name": "Reconstructed D4 two-room frame cottage #14",
    "function": "two_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -7219,32 +7219,32 @@
    "structure_id": "recon_1835_blk_west_randolph_des_plaines_d5_04",
    "name": "Reconstructed D5 deep-plan frame cottage #04",
    "function": "deep_plan_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "merchant",
    "household_by": "fabric_rule",
    "house": "larger",
-   "row": "house",
-   "rule": "Y-W4",
+   "row": "merchant",
+   "rule": "Y-W5",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      -412.62,
-      -358.99
+      -412.31,
+      -358.69
      ],
      "bearing_deg": 180.47,
-     "length_m": 3.04,
-     "depth_m": 0.61,
-     "height_m": 0.74,
-     "stick": "stove",
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 0.78,
+     "stick": "cord",
      "seed": 1864282567
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      -413.68,
-      -357.58
+      -413.07,
+      -356.98
      ],
      "bearing_deg": 180.47,
      "billets": 1,
