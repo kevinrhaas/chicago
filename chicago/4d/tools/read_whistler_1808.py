@@ -31,7 +31,11 @@ commit (data/traces/README.md):
     and rotation are what SEAT_LOCAL, SEAT_BEARING_DEG and its FACING give its box, and
     the two forts cannot resolve together — no second-fort phase opens inside the first
     fort's range, every scene resolves all fourteen first-fort records or none, and the
-    1812 scene resolves all fourteen.
+    1812 scene resolves all fourteen;
+  * (T-2062) the factory, the agent's house, the stables and the two gardens OUTSIDE
+    the stockade (`first_fort_outer_*`) stand where the register's `outside_the_stockade`
+    rule puts them: the sheet's arrangement about the main gate, opened out by the
+    drafter's own eighteen perches or the garden's lettered fifty feet to the inch.
 
 `--remeasure` fetches the working copy, refuses it if its sha256 has moved, and finds
 the staff's two ends again: the longest near-continuous dark run in columns 994-1007,
@@ -306,6 +310,88 @@ def records(doc: dict) -> list[str]:
     return errs
 
 
+#: T-2062. Outside the stockade the drafter's distances are "not laid down by a scale",
+#: so these records are NOT built from the garrison frame's measured boxes. Each is the
+#: sheet's arrangement opened out about the main gate by a figure he wrote himself —
+#: `outside_the_stockade.the_rule` in the register — and stands for as long as the post.
+OUTSIDE_PREFIX = "first_fort_outer_"
+PERCH_FT = 16.5
+
+
+def outside_boxes(doc: dict) -> dict[str, dict]:
+    """Each outside record's fort-frame box (ft), footprint (m) and facing, from the register."""
+    out = doc["outside_the_stockade"]
+    s = doc["scale"]["px_per_ft"]
+    ox, oy = doc["scale"]["staff_px"]["foot"]
+    gx, gy = out["gate_px"]
+    parts = {p["part"]: p for p in out["parts"]}
+
+    def centre(box):
+        return ((box[0] + box[2]) / 2, (box[1] + box[3]) / 2)
+
+    exp = {}
+    for key, e in out["expansions"].items():
+        if "stated_ft" in e:
+            cx, cy = centre(parts[e["measured_from_part"]]["sheet_px"])
+            exp[key] = e["stated_ft"] / (math.hypot(cx - gx, cy - gy) / s)
+        else:
+            exp[key] = e["scale_ft_per_in"] / (out["inch_px"] / s)
+    boxes = {}
+    for p in out["parts"]:
+        x0, y0, x1, y1 = p["sheet_px"]
+        cx, cy = centre(p["sheet_px"])
+        k = exp[p["expansion"]]
+        ce = (gx - ox) / s + (cx - gx) / s * k
+        cn = (oy - gy) / s - (cy - gy) / s * k
+        ft_per_px = p["scale_ft_per_in"] / out["inch_px"]
+        w, h = (x1 - x0) * ft_per_px, (y1 - y0) * ft_per_px
+        box = [round(ce - w / 2, 1), round(ce + w / 2, 1), round(cn - h / 2, 1), round(cn + h / 2, 1)]
+        ew, ns = (box[1] - box[0]) * FT_M, (box[3] - box[2]) * FT_M
+        boxes[p["record"]] = {"box": box, "facing": p["facing"], "expansion": round(k, 3),
+                              "size_m": (ns, ew) if p["facing"] in (90, 270) else (ew, ns)}
+    return boxes
+
+
+def outside_records(doc: dict) -> list[str]:
+    """The records built outside the stockade against the rule they are built to."""
+    errs: list[str] = []
+    if "outside_the_stockade" not in doc:
+        return errs
+    out = doc["outside_the_stockade"]
+    e17 = out["expansions"]["agent_17"]
+    if abs(e17["stated_ft"] - 18 * PERCH_FT) > 0.01:
+        errs.append(f"no. 17's stated distance is {e17['stated_ft']} ft, not eighteen perches")
+    boxes = outside_boxes(doc)
+    have = {p.stem for p in (ROOT / "data" / "structures").glob(f"{OUTSIDE_PREFIX}*.json")}
+    for sid in sorted(have ^ set(boxes)):
+        errs.append(f"{sid}: {'an outside record the register does not read' if sid in have else 'read in the register, but no record'}")
+    datum = json.loads((ROOT / "data" / "datum.json").read_text())
+    for sid, b in sorted(boxes.items()):
+        f = ROOT / "data" / "structures" / f"{sid}.json"
+        if not f.exists():
+            continue
+        st = json.loads(f.read_text())
+        ph = st["phases"][0]
+        if len(st["phases"]) != 1 or ph["documented_range"]["to"] != FIRST_FORT[1]:
+            errs.append(f"{sid}: must carry one phase closing with the first fort on {FIRST_FORT[1]}")
+        pos = ph["position"]
+        want = "E {:+.1f}..{:+.1f} ft, N {:+.1f}..{:+.1f} ft".format(*b["box"])
+        if want not in pos.get("symbolic_location", ""):
+            errs.append(f"{sid}: symbolic_location does not carry the rule's box {want}")
+        e, n, rot = seat(b["box"], b["facing"], datum)
+        off = math.hypot(pos["utm_e"] - e, pos["utm_n"] - n)
+        if off > SEAT_TOL_M or float(pos.get("rotation_deg") or 0.0) != rot:
+            errs.append(f"{sid}: stands {off:.2f} m / {pos.get('rotation_deg')} deg off where the "
+                        f"rule seats its box ({e:.2f}, {n:.2f} turned {rot})")
+        poly = ph["footprint"]["polygon"]
+        w = max(p[0] for p in poly) - min(p[0] for p in poly)
+        d = max(p[1] for p in poly) - min(p[1] for p in poly)
+        if abs(w - b["size_m"][0]) > TOL_M or abs(d - b["size_m"][1]) > TOL_M:
+            errs.append(f"{sid}: footprint {w:.2f} x {d:.2f} m is not the rule's "
+                        f"{b['size_m'][0]:.2f} x {b['size_m'][1]:.2f} m")
+    return errs
+
+
 def fetch(doc: dict) -> bytes:
     cache = Path("/tmp") / "chicago4d-whistler-1808.png"
     if not cache.exists():
@@ -348,7 +434,7 @@ def remeasure(doc: dict) -> list[str]:
 
 def main() -> int:
     doc = json.loads(TRACE.read_text())
-    errs = check(doc) + records(doc) + two_forts()
+    errs = check(doc) + records(doc) + two_forts() + outside_records(doc)
     if "--remeasure" in sys.argv:
         errs += remeasure(doc)
     if errs:
@@ -359,7 +445,9 @@ def main() -> int:
     count = {st: sum(1 for r in rows if r["status"] == st) for st in sorted(STATUSES)}
     print(f"OK: Whistler 1808 at {doc['scale']['px_per_ft']} px/ft off the 75 ft staff; "
           f"34 index numbers — " + ", ".join(f"{v} {k}" for k, v in count.items())
-          + f"; {len(RECORDS)} first-fort records built from it")
+          + f"; {len(RECORDS)} first-fort records built from it"
+          + (f", {len(outside_boxes(doc))} outside the stockade (T-2062)"
+             if "outside_the_stockade" in doc else ""))
     return 0
 
 

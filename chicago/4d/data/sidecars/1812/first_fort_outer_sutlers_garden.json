@@ -1,0 +1,150 @@
+{
+  "id": "first_fort_outer_sutlers_garden",
+  "phase": "first_fort_1803",
+  "name": "First Fort Dearborn — the sutler's garden",
+  "aka": [
+    "'a Sutlers Garden' on Whistler's draught"
+  ],
+  "archetype": "palisade",
+  "asset": "gltf/first_fort_outer_sutlers_garden__first_fort_1803.glb",
+  "scene": "1812",
+  "target_date": "1812-08-01",
+  "documented_range": {
+    "from": "1808-01-25",
+    "to": "1812-08-16",
+    "confidence": "inferred",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "andreas_1884_v1"
+    ],
+    "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+  },
+  "change_note": "",
+  "placement": {
+    "local_e": 1210.43,
+    "local_n": 104.26,
+    "rotation_deg": 0.0,
+    "position_confidence": "reconstructed",
+    "position_sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "quaife_1913"
+    ],
+    "position_note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught lays down the garrison at twenty feet to the inch and says the buildings outside it are 'not laid down by a scale', so this box is the sheet's ARRANGEMENT opened out about the main gate. The sheet box is px [1325, 1535, 1412, 1740]. Its offset from the gate's mouth (px [964, 1150]) is multiplied by 2.5, the ratio of the garden's lettered '5o feete to the Inch' to the garrison's twenty. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m. Seated with the fort's own frame: the staff's foot at local E +1152, N +221, the frame's north on grid north. The rule is a reconstruction (docs/LIBERTIES.md), so this position carries the drafter's own disagreement between his figures: his two stated distances open the sheet out 3.3 and 6.8 times.",
+    "symbolic_location": "Outside the first Fort Dearborn, in the frame of Whistler's 1808 draught (T-2062 rule, part 'sutlers_garden'): E +191.7..+239.8 ft, N -383.0..-269.6 ft of the flagstaff's foot, facing north; this record's origin is the box's corner the seat names for that facing.",
+    "uncertainty_m": 20,
+    "placement_provisional": false,
+    "vertical_anchor": "terrain",
+    "walk_surface_m": null
+  },
+  "footprint": {
+    "polygon": [
+      [
+        0,
+        0
+      ],
+      [
+        14.661,
+        0
+      ],
+      [
+        14.661,
+        34.564
+      ],
+      [
+        0,
+        34.564
+      ]
+    ],
+    "confidence": "reconstructed",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught"
+    ],
+    "note": "THE DRAWN BOX AT THE NEIGHBOURING GARDEN'S '5o feete to the Inch'. This plot states no scale, so the size is reconstructed."
+  },
+  "attributes": {
+    "wall_kind": {
+      "value": "picket_stockade",
+      "confidence": "reconstructed",
+      "note": "A paling: a fence of light pales set in the ground. The draught draws the garden's bounds as plain ruled lines, not the zigzag of a worm fence, and letters the yards beside nos. 17 and 18 'Paling'. That this garden had the same fence is the reconstruction."
+    },
+    "construction": {
+      "value": "log",
+      "confidence": "reconstructed",
+      "note": "Unattested. Split pales, the archetype's light-post kind."
+    },
+    "picket_height_m": {
+      "value": 1.5,
+      "confidence": "reconstructed",
+      "note": "Unattested. Five feet, enough to keep stock out of a garden, and the lowest the archetype builds."
+    },
+    "picket_width_m": {
+      "value": 0.12,
+      "confidence": "reconstructed",
+      "note": "Unattested. A split pale."
+    },
+    "picket_spacing_m": {
+      "value": 0.2,
+      "confidence": "reconstructed",
+      "note": "Unattested. Pales a hand apart."
+    },
+    "function": {
+      "value": "company_gardens",
+      "confidence": "attested",
+      "sources": [
+        "whistler_1808_fort_dearborn_draught",
+        "quaife_1913"
+      ],
+      "note": "Lettered 'a Sutlers Garden': the small plot east of the Commanding Officer's garden, toward the beach. Quaife mentions 'a smaller garden' between the fort and the river mouth."
+    }
+  },
+  "residents": [],
+  "citations": [
+    {
+      "source_id": "andreas_1884_v1",
+      "citation": "Andreas, A. T. History of Chicago: From the Earliest Period to the Present Time. Vol. 1. Chicago: A. T. Andreas, 1884.",
+      "url": "https://archive.org/details/historyofchicago01andr",
+      "archived_url": "",
+      "tier": 3,
+      "tier_label": "compiled secondary (Andreas)"
+    },
+    {
+      "source_id": "quaife_1913",
+      "citation": "Quaife, Milo Milton. Chicago and the Old Northwest, 1673-1835: A Study of the Evolution of the Northwestern Frontier, together with a History of Fort Dearborn. Chicago: University of Chicago Press, 1913.",
+      "url": "https://www.gutenberg.org/ebooks/69274",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 4,
+      "tier_label": "later scholarship",
+      "what_it_supplies": [
+        "the 1808 Whistler draught index for the FIRST fort, with its scale and its distances",
+        "Major Long's 1816 report on the second fort under construction",
+        "a scholarly negative: no dimension of the second fort's stockade"
+      ],
+      "what_it_does_not_supply": [
+        "any plan or dimension of the 1816 fort",
+        "anything about the fort after 1835"
+      ]
+    },
+    {
+      "source_id": "whistler_1808_fort_dearborn_draught",
+      "citation": "Whistler, Captain John. \"Fort Dearborn\" [draught of the garrison and its vicinity], dated in the parade 'January 25th 1808', with its 'Index annexed to the Draught of Fort Dearborn &c.' signed at Fort Dearborn 20 February 1808. Original in the files of the War Department, Washington. Reproduced as the plate 'Fort Dearborn and Vicinity in 1808. From the original draft by Captain Whistler in the archives of the War Department at Washington', facing p. 164 of Quaife, Chicago and the Old Northwest, 1673-1835 (Chicago, 1913); the index is printed in full in note 413 on the same pages.",
+      "url": "https://www.gutenberg.org/files/69274/69274-h/images/fpage164_lg.png",
+      "archived_url": "https://www.gutenberg.org/files/69274/69274-h/69274-h.htm",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "the first fort's garrison in plan at a stated scale: the double row of pickets, the two blockhouses at the north-west and south-east angles, the four barracks ranges, the magazine, two small houses, the main gate, the parade and the flagstaff",
+        "the drafter's index of 34 numbered features, and the note that two of them (the covered way and the gutters) are omitted from their places",
+        "the arrangement of the factor's and agent's establishments, stables, gardens and the houses across the river, by position only and not to scale"
+      ],
+      "what_it_does_not_supply": [
+        "any building height: the folded elevations disagree with each other",
+        "the fort's bearing to true north: no north arrow was found on the reproduction",
+        "the covered way to the river and the gutters, which the index itself says are omitted",
+        "anything about the second fort of 1816"
+      ]
+    }
+  ],
+  "research_note": "THE SUTLER'S GARDEN (T-2062). It carries no scale of its own and takes the officers' garden's. The small house drawn inside it is not built: its numeral is not legible. Quaife's 'Indian graveyard' near it is not on this sheet and is not modelled; the depiction of Indigenous burial is the owner's question (AGENTS.md).",
+  "research_doc": "",
+  "review_required": false
+}
