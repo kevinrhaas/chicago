@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1481, ts: '2026-10-05T10:30:05.885Z', date: 'Oct 5, 2026, 5:30 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
+    items: [
+      'Open 1904, then Evidence \u2192 Sources. The list used to show the 1835 town\u2019s sources. It now shows the 32 sources behind 1904 itself: the Glessner House drawings and photographs, the 1911 Sanborn sheets, the city\u2019s paving records and the elevation survey under the ground.',
+      'In 1812 it lists the 22 sources behind the first Fort Dearborn, its ground and its plants.',
+      'Tick \u201cAll registered sources\u201d to see every source; one another year uses reads \u201cother scene\u201d.',
+    ] },
   { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
