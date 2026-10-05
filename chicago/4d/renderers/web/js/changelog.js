@@ -1,10 +1,25 @@
 export const CHANGELOG = [ // newest first
-  { v: 1492, ts: '2026-10-05T14:51:21.225Z', date: 'Oct 5, 2026, 9:51 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: 1494, ts: '2026-10-05T15:39:02.378Z', date: 'Oct 5, 2026, 10:39 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1493, ts: '2026-10-05T14:48:23.861Z', date: 'Oct 5, 2026, 9:48 AM CT', title: 'Houses on Washington Street and west of the river name their households', kind: 'change',
+    items: [
+      'Open a reconstructed house on the Washington Street blocks, on Lake or Randolph west of the river, or on Indiana Street north of it. 27 more of them now name the household living there, 77 across the town.',
+      'Each name comes from the town’s own records. Which house each family lives in is our reconstruction, and the card says so.',
+      '32 more houses say why they name nobody: the family is known only from a post-office letter list, and a name on a letter list is not an address.',
+      '21 of the newly named houses now look their age: the longer the family has been in Chicago, the more weathered the house. A household here since 1831 lives under a weather-darkened roof.',
+    ] },
+  { v: 1492, ts: '2026-10-05T14:25:38.284Z', date: 'Oct 5, 2026, 9:25 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+    items: [
+      'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
+      'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
+      'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
+      'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
+      'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
     ] },
   { v: 1491, ts: '2026-10-05T13:56:54.591Z', date: 'Oct 5, 2026, 8:56 AM CT', title: 'Newberry & Dole\u2019s warehouse stays south of the river, on the paper\u2019s word', kind: 'change',
     items: [

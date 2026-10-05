@@ -79,12 +79,12 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "construction": {
-          "value": "balloon_frame",
+          "value": "braced_frame",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
         },
         "paint": {
           "value": "whitewash",
@@ -135,9 +135,9 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
         },
         "siding_exposure_m": {
-          "value": 0.14,
+          "value": 0.127,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in or 5.5 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in or 5.5 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
         }
       },
       "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
@@ -150,6 +150,15 @@
       "owner_chicago_1835_reconstruction_spec_2026"
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the H3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+  },
+  "occupants": {
+    "value": "The Sweet household",
+    "confidence": "reconstructed",
+    "sources": [
+      "andreas_1884_v1",
+      "chicago_voter_lists_1833_1835_irad"
+    ],
+    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2136; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's lodging_near_the_landings clause answered on the committed plat: blk_washington_clark#06, fronting washington, a standing roof of family H3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
   },
   "reconstruction": {
     "status": "inferred_anonymous",
@@ -164,14 +173,14 @@
     "fronts": "washington",
     "sequence": 6,
     "finish_key": "whitewash",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "roof_condition": "darkened",
+    "age_state": "established",
     "fabric_basis": {
       "rule": "F-B",
       "class": "keeper",
-      "by": "type",
-      "household": null,
-      "words": "whitewashed clapboard on a balloon frame under a weathered roof — a boarding house, a year old (rule F-B: a boarding-house or tavern keeper's by its type)"
+      "by": "keeper_trade",
+      "household": "hh_sweet_alanson",
+      "words": "whitewashed clapboard on a braced frame under a weather-darkened roof — The Sweet household's, a tavern keeper, in Chicago since 1832 (rule F-B)"
     },
     "capacity": {
       "beds_ordinary": 13,
@@ -184,6 +193,12 @@
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }
+  },
+  "resident_assignment": {
+    "status": "assigned",
+    "confidence": "reconstructed",
+    "note": "T-2136: seated by the placement policy's platted deal under its lodging_near_the_landings clause, on blk_washington_clark#06 fronting washington — a standing anonymous roof of family H3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+    "household_id": "hh_sweet_alanson"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. The H3 boarding house resolves through the frame_tavern archetype, the crosswalk's placeholder for it; the canonical boarding_house_frame generator is not implemented. The tavern's own cues are not raised on it: no gallery, no frontispiece, no sign, and a kitchen door rather than a carriage door in the rear service wing.",
   "review_required": false

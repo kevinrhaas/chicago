@@ -15404,7 +15404,18 @@ longer gains him.) Both numbers are tripwires in
 somebody restates them and says why here. No seat, roof or record moved for this.
 **Restated by T-2130 (2026-10-05): the cost is 2 seats again, the hold still 40.** The nine roofs T-2130 raised on the plat's last tier are no part of the business deal's pool, so it still holds the same 40. With them standing beside T-2129's Market block, the deal no longer seats `hh_bennet_lyman` itself, and a release of those 40 would seat him again — on `recon_1835_blk_washington_lasalle_d7_05`, a roof another household vacates — as well as `hh_humphrey_fre_lemuel` into `recon_1835_south_d1_033`; 40 seated households would change roof or lot. The precedence is unchanged; what it costs moved because the plat's last tier moved under it, and `BUSINESS_DEAL_COSTS` is restated to 2 for that reason.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved), 2026-10-05 (T-2129, the precedence's cost restated 2 -> 1: the Market block's houses seat `hh_bennet_lyman` in the deal itself), 2026-10-05 (T-2130, the seat table after the Dearborn and Clark blocks were built, and the precedence's cost restated 1 -> 2).
+**Restated by T-2136 (2026-10-05): the cost is 1 seat, the hold still 40.** The keepers pass
+now runs over the Washington tier, the West blocks and Indiana Street north, so 27 more roofs
+carry their keeper's household id, and a roof that does is offered to that household and to
+nobody else — the rule that keeps this deal from un-seating its own keepers on a
+re-derivation, and it binds the release counterfactual the same way. So those households no
+longer move when the business deal's roofs are released, the cascade that vacated
+`recon_1835_blk_washington_lasalle_d7_05` for `hh_bennet_lyman` does not run, and a release
+seats `hh_humphrey_fre_lemuel` alone; 32 seated households would change roof or lot, not 40. Not one seat in the deal itself moved. What moved
+is what a release could take back from a pass that has already published its keepers, and
+`BUSINESS_DEAL_COSTS` is restated to 1 for that reason.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved), 2026-10-05 (T-2129, the precedence's cost restated 2 -> 1: the Market block's houses seat `hh_bennet_lyman` in the deal itself), 2026-10-05 (T-2130, the seat table after the Dearborn and Clark blocks were built, and the precedence's cost restated 1 -> 2), 2026-10-05 (T-2136, the precedence's cost restated 2 -> 1: the keepers pass pins 27 more roofs to their keepers, which stops the release cascade that freed a roof for `hh_bennet_lyman`; no seat moved).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
@@ -15842,9 +15853,9 @@ sheet followed **hathaway_1834**, **L31a** (the bank face's shape, which is unch
 **L150** (the La Salle slough, whose mouth is the one break left in this run), the corridor-line
 disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
-### L276 — Forty-nine roofs on South Water, the Randolph tier and Lake Street now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
+### L276 — Seventy-seven roofs across six districts now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 50 roofs (51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 77 roofs (50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -15923,6 +15934,17 @@ refused **78** (55 of them said on the roof), owed **48 → 20**. A named roof's
 its keeper's arrival year under the T-1816 finish rule (**L330**), so 21 of the new keepers'
 roofs were re-baked: an older household's cottage stands silvered and weathered rather than
 new-sawn. No ruling moved, and no name was written to a roof it was not dealt.
+
+**T-2136 TAKES IT TO 77, AND NOTHING IS OWED ANY MORE.** The 27 seats the three districts
+above left owed — 21 on the Washington tier (three of them on the roofs T-2130 had just raised), which `blk_randolph_` never reached, five on the
+West Division's `blk_west_*` blocks and one on `blk_indiana_north_cass` — stood on roofs this
+pass already owned, so the only thing missing was the district. Three enter `DISTRICTS` with
+T-2136 as their ticket and no `parent`: `washington`, `west` and `indiana_north`. The deal
+seats 59 households on them: 27 are now named on their roofs and 32 are letter-list names the
+ruling of 2026-08-30 refuses, each said on its roof. Written **50 → 77**, refused **88** (all 88
+now said on the roof), owed **27 → 0**. Under the T-1816 finish rule (**L330**) 21 roofs were
+re-baked to their keeper's arrival year; the other named roofs' finish did not move. Which household sits on which of these lots is still L270's deal and nothing else. No
+ruling moved, and no name was written to a roof it was not dealt.
 
 **No new invention is made here.** The invention is **L270**'s: which of the town's banded
 households takes which lot of the committed plat, dealt by a policy in
@@ -21348,6 +21370,41 @@ unbuilt in July 1835 would retire all ten rather than re-place them.
 Franklin block, whose yard-building argument this follows), **L347** (the two boarding houses on
 this block), **L270** (the platted deal this block answers), **T-1707** (the tier), **T-1758** (split; this is its piece **T-2129**).
 **Recorded:** 2026-10-05 (T-2129).
+
+### L385 — Where two plant communities meet, they blend across a wandering margin about 100 m wide
+**Decision:** the flora layer no longer asks a community's extent its exact question at a plant's
+own point. A polygon or a box (the settled town, the dense forest, the held-out squares) is asked
+at the point moved by a slow wander (up to about 26 m, on waves of roughly 280, 120 and 43 m) plus
+a per-plant draw of up to 50 m either way, peaked at the plant's own point
+(`renderers/web/js/zone-blend.js`). Deep in a community every plant still belongs to it; across the
+band the share of each community changes smoothly, so the town's cropped turf thins into the
+prairie over about 100 m along a ragged line. A water buffer reaching 30 m or more (the riverbank
+timber) spreads its far side by up to about 48 m; the marsh keeps its edge at the water, and the
+wet and mesic prairies' elevation bands are not blended (they already follow the swales). On the
+town's side, a prairie plant the band puts within its reach of the town's recorded edge is handed
+to the town's turf at a share falling from 60 % at the line to none at the band's far side, so the
+margin's prairie is thinner, as grazed ground is. The ground's turf texture
+grades across the same band (`flora.js` hands it the town's share per texel, not a yes or no).
+Fort Dearborn's bare apron, which states an outer ring and no fence, now carries on past that ring
+into a 22 m skirt whose cover frays out along a wandering line, and the sward thins in across it
+at the same share (`renderers/web/js/yards.js`). A fenced yard keeps its edge at its fence.
+**Why:** the owner, 2026-10-05 (T-2125): *"the edge of your areas is very sharp between the fort and
+prairie and prairie and settled lands ... the separations are linear and sharp, please make them
+less linear ... graduate the areas together ... so its barely perceptible that you cross an area
+... maybe 100 meter ... there is a cabin there with a perfectly round settled area around it and it
+would be irregular"*. The settled town's extent is the plat and every standing structure grown by
+a 50 m Euclidean halo, so a lone cabin stood in a disc, and every community changed on a line one
+plant wide.
+**What is recorded and what is not:** no survey drew any of these edges, and the zone records say
+so in their own notes; none drew a margin's width either. The communities that meet in a band, and
+their species, are the records'; the band's width, its wander, the draw's shape, the apron's 22 m
+skirt and its fray are ours, bounded by the dossier's 50-200 m grazed halo around a settlement
+(`docs/research/02-flora.md` § ZONE 10) and the owner's "maybe 100 meter". The records, their
+extents and every tool that audits them are unchanged: the renderer moves where it asks, not the
+rule it asks.
+**How to resolve:** a plat, survey note or view that shows where the town's grazed ground gave way
+to the prairie, or how far the fort's trodden ground ran, replaces the band there.
+**Recorded:** 2026-10-05 (T-2125).
 
 ### L386 — A vacant town lot is grazed prairie remnant: the flowers the stock leave, on a cropped sward
 **Decision:** T-2101 gives every platted lot with no building on it — no house placed in it, no
