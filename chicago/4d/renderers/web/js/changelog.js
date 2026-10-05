@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1478, ts: '2026-10-05T09:12:45.167Z', date: 'Oct 5, 2026, 4:12 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+  { v: 1479, ts: '2026-10-05T09:37:29.394Z', date: 'Oct 5, 2026, 4:37 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
       'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
+  { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
+    items: [
+      'Walk 1835 between the houses. A lot with no building on it is no longer a patch of trodden ground and weeds. It is short, patchy prairie grass, knee-high at most, with bergamot, black-eyed Susan, coneflower, rattlesnake master and butterfly weed in flower.',
+      'These are the flowers grazing cattle and pigs leave behind. The tall prairie plants they eat first stay out on the open prairie.',
+      'House and store yards stay as they were, kept short with weeds along their fences.',
+      '146 of the town\u2019s 338 platted lots are empty. No source describes one, so this ground is our reconstruction (Liberty L386).',
     ] },
   { v: 1477, ts: '2026-10-05T08:22:34.435Z', date: 'Oct 5, 2026, 3:22 AM CT', title: 'The 1904 grid has lots on Indiana and Calumet Avenues', kind: 'feature',
     items: [

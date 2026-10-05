@@ -36,9 +36,9 @@ wall. So for every improved platted lot this writes:
      lays worn earth on a drape and takes the sward off it; it is the same treatment the
      door aprons use, so a path is the town's own dirt and not a new canvas.
 
-A VACANT LOT IS NOT A YARD and this writes nothing for one: a platted lot with no building
-keeps the zone's planting. What it should be instead — a grazed, flowering prairie remnant —
-is the other half of T-2086 and is a community question, not a lot-line question.
+A VACANT LOT IS NOT A YARD and this writes nothing for one. What it is instead — a grazed,
+flowering prairie remnant — is the other half of T-2086 and a community question, not a
+lot-line question: `tools/derive_lot_remnant.py` gives those lots `z11_lot_remnant` (T-2101).
 
 WHAT IS NOT DONE: no mown lawn (not 1835 — docs/RESEARCH/1835_photographic_fabric_
 preparation.md), no new species, no change to any zone's abundance, and the dooryard gardens'
@@ -314,7 +314,8 @@ def kept_record(lots, refused, n_paths) -> dict:
             "paths": f"{n_paths} worn path(s), {PATH_W_M} m (3 ft) wide, house back wall to "
                      "outbuilding wall — written to data/enclosures/town_yard_paths.json",
             "vacant_lots": "a platted lot with no building is not a yard and is not listed; "
-                           "it keeps the zone's planting",
+                           "it is grazed prairie remnant, z11_lot_remnant (T-2101, "
+                           "tools/derive_lot_remnant.py)",
             "reader": "renderers/web/js/flora.js, through main.js forbSeat",
         },
         "counts": {"lots": len(lots), "refused": len(refused),
