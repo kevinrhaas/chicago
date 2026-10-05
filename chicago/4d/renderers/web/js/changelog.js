@@ -1,11 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1469, ts: '2026-10-05T04:34:28.289Z', date: 'Oct 4, 2026, 11:34 PM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+  { v: null, ts: '', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
       'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
       'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
       'Starting at\u2026 opens with five one-tap places: the town from above, Fort Dearborn, the forks, South Water Street and the Newberry & Dole wharf.',
       'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
       'The wall of category buttons is now one row of five type icons beside the search.',
+    ] },
+  { v: 1469, ts: '2026-10-05T04:20:56.828Z', date: 'Oct 4, 2026, 11:20 PM CT', title: 'The front door is now a working time machine', kind: 'feature',
+    items: [
+      'Open the 4D home page and the Apparatus cold-boots: lamps light, gauges swing, the chronometer sweeps and finds each year, then its screen reads WOLF POINT APERTURE: OPEN.',
+      'It keeps running while you watch. The log scrolls status lines, gauges and readings move, and each destination shows a live hold and rechecks its status. Now and then a hold slips and the machine pulls it back.',
+      '1835 is Lock Nominal. 1904 and 1812 are only partly built, so they now show Calibrating: less steady, but cleared for entry.',
+      'Point at a destination and the chronometer targets it while the year readout rolls. Clicking still jumps you there, now lit Scan, Lock, Arrive.',
+      'A Manual button opens the operator\u2019s manual: controls, what the statuses mean and the evidence grades. The gauges and lamps change with each of the four appearances.',
     ] },
   { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
     items: [
