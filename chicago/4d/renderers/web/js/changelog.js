@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1499, ts: '2026-10-05T17:26:50.682Z', date: 'Oct 5, 2026, 12:26 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+  { v: 1500, ts: '2026-10-05T18:22:41.472Z', date: 'Oct 5, 2026, 1:22 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
       'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
       'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
       'The doctor\u2019s card now says he came from Vermont, as an 1895 history of Chicago records. Pruyne\u2019s card keeps the store, and his own arrival year: early 1833, when the shop opened.',
       'Pruyne no longer gets an invented wife and children. The record has him marrying Rebecca Sherman on 20 August 1835, seven weeks after the day the town shows.',
+    ] },
+  { v: 1499, ts: '2026-10-05T17:24:41.073Z', date: 'Oct 5, 2026, 12:24 PM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+    items: [
+      'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
+      'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
+      'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
+      'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
     ] },
   { v: 1498, ts: '2026-10-05T17:06:41.763Z', date: 'Oct 5, 2026, 12:06 PM CT', title: 'Workshops open onto Dearborn Street behind corner houses', kind: 'change',
     items: [

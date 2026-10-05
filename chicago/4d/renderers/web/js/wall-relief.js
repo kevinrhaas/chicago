@@ -46,7 +46,9 @@
  *
  * By `wall-grain.js`'s rule, read off the record: `wall` on the three frame
  * archetypes (clapboard, but not the three storefronts dealt vertical board) and
- * `log` on the archetypes whose logs lie down. Trim, casings, sash, chinking,
+ * `log` on the archetypes whose logs lie down, and since T-2123 on the
+ * stockade's standing pickets with the grain turned up the post (a negative
+ * `_grain`, see `wall-grain.js` STANDING_LOG_ARCHETYPES). Trim, casings, sash, chinking,
  * battens and outbuilding boards are NOT bound, because the face frame grains
  * every upright face horizontally and an upright board grained across reads as
  * broken (defect 4). The library maps are bound at 1024 px; a coarse device
@@ -191,11 +193,13 @@ function patch(material, set) {
     chiWallT = chiWallL > 1e-4 ? chiWallT / chiWallL : vec3( 1.0, 0.0, 0.0 );
     vec3 chiWallB = cross( chiWallT, chiWallN );
     vec2 chiWallUv = vec2( dot( chiWallP, chiWallT ), dot( chiWallP, chiWallB ) ) / chiWallTileM;
+    // A negative grain is a STANDING timber (T-2123): the grain runs up it.
+    if ( _grain < 0.0 ) chiWallUv = chiWallUv.yx;
     vNormalMapUv = chiWallUv;
     vRoughnessMapUv = chiWallUv;
     vAoMapUv = chiWallUv;
     vChiWallRough = _roughness;
-    vChiWallGrain = _grain;
+    vChiWallGrain = abs( _grain );
   }`,
       );
     shader.fragmentShader = 'uniform float chiWallMeanRough;\n'
@@ -263,7 +267,9 @@ export async function loadWallRelief({ assetBase = resolveBases().assetBase, low
         patch(material, set);
         material.userData = { ...(material.userData ?? {}), chiWallRelief: rule.substrate };
       }
-      return rule.grain;
+      // The sign carries the axis, so a standing timber can share a batch,
+      // a program and a map with the laid logs (the shader takes abs()).
+      return rule.upright ? -rule.grain : rule.grain;
     },
   };
 }
