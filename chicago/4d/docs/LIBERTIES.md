@@ -15381,13 +15381,16 @@ stand on that one face and nowhere else, while a banded household may take any r
 admitted family in its division. And it is costed by re-dealing, not by counting roofs.
 Release all 40 and this deal adopts the **14** dwellings among them (the 26 houses of trade it
 does not want), every one by a household already seated elsewhere moving to a better-scored
-lot, and seats **2** more households in all — `hh_humphrey_fre_lemuel` into a roof another
-household vacates, and `hh_bennet_lyman` on a slot. **So the precedence costs the households 2
-seats of 1,424**, and 40 would change roof or lot. Both numbers are tripwires in
+lot, and seats **1** more household in all — `hh_humphrey_fre_lemuel` into a roof another
+household vacates. **So the precedence costs the households 1 seat of 1,424**, and 33 would
+change roof or lot. (It cost 2 until T-2129: the second, `hh_bennet_lyman`, was a household a
+release put on a slot, and once the Market block's five houses took five slot requests as
+roofs the deal seats him on a slot itself, at `blk_washington_dearborn#04`, so a release no
+longer gains him.) Both numbers are tripwires in
 `seat_platted_ground_1835.py --check`: a re-order of either deal that moves them is red until
 somebody restates them and says why here. No seat, roof or record moved for this.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved).
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved), 2026-10-05 (T-2129, the precedence's cost restated 2 -> 1: the Market block's houses seat `hh_bennet_lyman` in the deal itself).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
