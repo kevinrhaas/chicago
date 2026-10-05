@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "262 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "263 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 199,
     "refused": 0,
-    "refuges": 275,
-    "paths": 262
+    "refuges": 279,
+    "paths": 263
   },
   "lots": [
     {
@@ -7180,7 +7180,8 @@
       "lot": "blk_randolph_clark_lot6",
       "structures": [
         "recon_1835_blk_randolph_clark_a4_07",
-        "recon_1835_blk_randolph_clark_c2_01"
+        "recon_1835_blk_randolph_clark_c2_01",
+        "recon_1835_blk_randolph_clark_w2_09"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -7244,13 +7245,32 @@
             669.89,
             -318.44
           ]
+        ],
+        [
+          [
+            674.31,
+            -308.04
+          ],
+          [
+            674.27,
+            -300.65
+          ],
+          [
+            664.96,
+            -300.7
+          ],
+          [
+            665.01,
+            -308.1
+          ]
         ]
       ]
     },
     {
       "lot": "blk_randolph_clark_lot7",
       "structures": [
-        "recon_1835_blk_randolph_clark_d6_04"
+        "recon_1835_blk_randolph_clark_d6_04",
+        "recon_1835_blk_randolph_clark_w1_10"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -7296,6 +7316,24 @@
             684.49,
             -331.02
           ]
+        ],
+        [
+          [
+            674.2,
+            -337.85
+          ],
+          [
+            674.15,
+            -329.65
+          ],
+          [
+            664.92,
+            -329.71
+          ],
+          [
+            664.97,
+            -337.91
+          ]
         ]
       ]
     },
@@ -7303,7 +7341,8 @@
       "lot": "blk_randolph_dearborn_lot0",
       "structures": [
         "recon_1835_blk_randolph_dearborn_a4_06",
-        "recon_1835_blk_randolph_dearborn_d3_01"
+        "recon_1835_blk_randolph_dearborn_d3_01",
+        "recon_1835_blk_randolph_dearborn_w2_18"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -7366,6 +7405,24 @@
           [
             728.98,
             -319.4
+          ]
+        ],
+        [
+          [
+            721.51,
+            -313.3
+          ],
+          [
+            721.55,
+            -320.57
+          ],
+          [
+            732.76,
+            -320.5
+          ],
+          [
+            732.71,
+            -313.23
           ]
         ]
       ]
@@ -10086,7 +10143,8 @@
     {
       "lot": "blk_washington_dearborn_lot0",
       "structures": [
-        "recon_1835_blk_washington_dearborn_d7_04"
+        "recon_1835_blk_washington_dearborn_d7_04",
+        "recon_1835_blk_washington_dearborn_w2_10"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -10131,6 +10189,24 @@
           [
             708.42,
             -450.98
+          ]
+        ],
+        [
+          [
+            720.11,
+            -446.26
+          ],
+          [
+            720.16,
+            -453.76
+          ],
+          [
+            730.8,
+            -453.69
+          ],
+          [
+            730.75,
+            -446.19
           ]
         ]
       ]

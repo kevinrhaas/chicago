@@ -14311,7 +14311,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 550 phases (541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 554 phases (550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -16289,9 +16289,10 @@ re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_
 
 ### L282 — The blacksmith's forge stack: three brick blocks against an end wall, and no source describes any of it
 
-**Scope:** `structures.phases[chimneys]` — 4 phases built with a forge stack:
-`pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west` and
-`recon_1835_canal_trade_w1_003`, the town's four `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now
+**Scope:** `structures.phases[chimneys]` — 5 phases built with a forge stack:
+`pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west`,
+`recon_1835_canal_trade_w1_003` and `recon_1835_blk_randolph_clark_w1_10`, the town's five
+`outbuilding` smithies (four until T-2134's blacksmith's shop on Dearborn Street, 2026-10-05). The `chimneys: 1` the five anonymous-parcel generators now
 deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants
 above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it
 stands against are in `generators/archetypes/outbuilding_params.py`.

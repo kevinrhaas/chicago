@@ -8340,9 +8340,24 @@
       "why": "the paper did not print this house's name whole — [boot, shoe and leather store, Lake street, proprietor not recovered] (biz_boot_shoe_and_leather_store_lake_street_proprietor_not_recovered) — so there is no name to letter without writing one here."
     },
     {
+      "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+      "trade": "blacksmith_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
+    },
+    {
       "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
       "trade": "older_log_dwelling",
       "why": "the paper did not print this house's name whole — [uncertain: W. H. Taylor], Dearborn Street boot and shoe store (biz_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store) — so there is no name to letter without writing one here."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_blk_randolph_wells_d2_07",
@@ -8373,6 +8388,11 @@
       "structure_id": "recon_1835_blk_south_water_wells_c2_01",
       "trade": "store_residence",
       "why": "the Chicago Democrat printed its office 'over Messrs. Jones & King['s] Hard[ware store]' on South Water Street in 1835 (T-0403), and the street-face adoption houses Jones, King & Co. in a different roof from this one. A board here would put the paper somewhere its own colophon says it was not; it waits on the adoption seating the office over its landlord's store."
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+      "trade": "carpenter_or_joiner_shop",
+      "why": "an anonymous slot. The archetype tables' own rule — never invent business, sign text or goods for an anonymous slot — and this record keeps it. Now that a board carries a NAME there is not even one to paint. (T-1834 hangs a board on a reconstructed roof only where the business layer records a firm IN it, and it records none here.)"
     },
     {
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01",
