@@ -1,6 +1,7 @@
 /** Lazy catalog, route preview and session handoff. */
 import { createJauntMenu } from './jaunt-menu.js';
 import { createJournal, presentKeepsake } from './jaunt-journal.js';
+import { icon } from './menu-icons.js';
 export function createJauntPreview({ root, scene = '1835', dataBase, destinations, api, fetcher = fetch, onStart, onResume, getSession = () => null, estimate = () => null, storage }) {
   const base = new URL(`sidecars/${encodeURIComponent(scene)}/jaunts/`, dataBase);
   let catalogPromise, daybookPromise, journal = null, serial = 0;
@@ -14,6 +15,10 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   const button = (text, action) => {
     const el = node('button', text, 'welcome-link'); el.type = 'button';
     el.addEventListener('click', action); return el;
+  };
+  // T-2120: every sub-view of Jaunts leads with the same way back.
+  const backButton = action => {
+    const el = button('Back to Jaunts', action); el.classList.add('jaunt-back'); el.prepend(icon('back', 16)); return el;
   };
   async function json(name, options) {
     const response = await fetcher(new URL(name, base), options);
@@ -62,7 +67,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
   function showDaybook(returnId) {
     menu.capture();
     ++serial;
-    const title = node('h3', journal.book.title), back = button('Back to Jaunts', () => list(api.catalog, returnId));
+    const title = node('h3', journal.book.title), back = backButton(() => list(api.catalog, returnId));
     const view = node('section', '', 'jaunt-daybook'); view.setAttribute('aria-label', 'Daybook');
     view.append(title, node('p', journal.book.disclaimer, 'jaunt-meta'));
     if (journal.notice) view.append(node('p', journal.notice, 'jaunt-session-note'));
@@ -93,10 +98,11 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
     if (!root.closest('[hidden]')) { el.tabIndex = -1; el.focus({ preventScroll: true }); }
   }
   function list(rows, returnId, focusStart = false) {
-    const prefix = [node('p', 'Choose an outing, or read its route before you start.')];
+    const prefix = [];
     if (journal) {
-      const entry = button(`Daybook · ${journal.level().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
-      entry.dataset.action = 'daybook'; prefix.push(entry);
+      const entry = button(`${journal.level().title} · ${journal.keepsakes.length} kept`, () => showDaybook(returnId));
+      entry.title = 'Daybook'; entry.setAttribute('aria-label', `Daybook · ${entry.textContent}`);
+      entry.dataset.action = 'daybook'; entry.classList.add('jaunt-daybook-chip'); entry.prepend(icon('News & Knowledge', 15)); prefix.push(entry);
     }
     const session = getSession();
     if (session?.notice) prefix.push(node('p', session.notice, 'jaunt-session-note'));
@@ -133,7 +139,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       const content = await load(row.id);
       if (request !== serial) return;
       const title = node('h3', content.title);
-      root.replaceChildren(button('Back to Jaunts', () => { ++serial; list(api.catalog, row.id); }), title,
+      root.replaceChildren(backButton(() => { ++serial; list(api.catalog, row.id); }), title,
         node('p', 'Route preview', 'jaunt-meta'), node('p', content.opening.text));
       const stops = node('ol', '', 'jaunt-stops');
       for (const stop of content.stops) {
@@ -161,7 +167,7 @@ export function createJauntPreview({ root, scene = '1835', dataBase, destination
       contents.delete(row.id);
       if (request !== serial) return;
       root.replaceChildren(node('p', 'This route could not load. Your place in the welcome is safe.'),
-        button('Try the route again', () => select(row)), button('Back to Jaunts', () => list(api.catalog, row.id)));
+        button('Try the route again', () => select(row)), backButton(() => list(api.catalog, row.id)));
     }
   }
   async function open(returnId) {

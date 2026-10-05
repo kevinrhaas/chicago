@@ -51,31 +51,29 @@ try {
     // engine and DOM live, but stop background WebGL draws for menu-only interactions.
     await page.evaluate(() => __chicago4d.renderer.setAnimationLoop(null));
     console.log(`MENU ${viewport.width}: boot ready; no jaunt requests`);
-    await click(page.locator('#welcome-sources'));
-    await page.locator('#panel').waitFor({ state: 'visible' });
-    assert(await page.getByRole('button', { name: /^Sources/ }).count());
-    await click(page.locator('#panel-close'));
-    await page.waitForSelector('#gate:not([hidden])');
+    // T-2120: Sources & City left the welcome; the three choices are all it offers.
+    assert.equal(await page.locator('#welcome-sources').count(), 0);
     console.log(`MENU ${viewport.width}: opening catalog`);
     await click(page.locator('#welcome-jaunts'));
     await page.waitForSelector('.jaunt-list .jaunt-card');
-    assert.equal(await page.locator('.jaunt-card').count(), 26);
-    assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 20);
-    assert.equal(await page.locator('.jaunt-featured .jaunt-card').count(), 6);
+    assert.equal(await page.locator('.jaunt-card').count(), 30, 'one bounded window, no repeated featured block');
+    assert.equal(await page.locator('.jaunt-list .jaunt-card:first-child .jaunt-star').count(), 1, 'featured outings lead');
+    assert(await page.locator('#welcome-back').isVisible(), 'a way back from Jaunts');
     console.log(`MENU ${viewport.width}: catalog ready`);
     await page.locator('#jaunt-menu-search').fill('tavern');
     assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 11);
-    assert(!(await page.locator('.jaunt-featured').isVisible()));
-    await click(page.getByRole('button', { name: 'Taverns', exact: true }));
+    await click(page.getByRole('button', { name: 'Wayfinding', exact: true }));
     assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 11);
     await click(page.getByRole('button', { name: 'Clear filters', exact: true }));
-    assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 20);
-    await click(page.getByRole('button', { name: 'More outings', exact: true }));
+    assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 30);
     const card = page.locator('.jaunt-list [data-jaunt="fixture-menu-25"]');
-    const select = card.locator('select'), duration = card.locator('[data-jaunt-estimate]');
-    await select.selectOption('walk'); const walking = await duration.innerText();
-    await select.selectOption('instantly'); assert.notEqual(await duration.innerText(), walking);
-    assert.match(await card.innerText(), /Outing 25.*sample outing.*Taverns.*5 stops.*about.*min.*Instantly/s);
+    if (!await card.count()) await click(page.getByRole('button', { name: 'More outings', exact: true }));
+    const duration = card.locator('[data-jaunt-estimate]');
+    await click(card.locator('[data-action="more"]'));
+    await click(card.locator('[data-mode="walk"]')); const walking = await duration.innerText();
+    await click(card.locator('[data-mode="instantly"]')); assert.notEqual(await duration.innerText(), walking);
+    assert.equal(await card.locator('[data-mode="instantly"]').getAttribute('aria-checked'), 'true');
+    assert.match(await card.innerText(), /Outing 25.*5 stops.*sample outing.*Taverns.*about.*min.*Instantly/s);
     // Enter activates a real Start control and the exact scroll/focus comes back after End.
     await card.getByRole('button', { name: 'Start Jaunt', exact: true }).evaluate(el => { el.scrollIntoView({ block: 'nearest' }); el.focus({ preventScroll: true }); });
     const before = await page.locator('#welcome-jaunts-region').evaluate(el => el.scrollTop);
@@ -104,10 +102,10 @@ try {
     await page.waitForSelector('#jaunt-menu-search');
     assert.equal(await page.locator('#jaunt-menu-search').inputValue(), 'tavern');
     await click(page.getByRole('button', { name: 'Clear filters', exact: true }));
-    await click(page.getByRole('button', { name: 'More outings', exact: true }));
-    await click(page.getByRole('button', { name: 'More outings', exact: true }));
-    assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 15);
+    if (await page.getByRole('button', { name: 'Earlier outings', exact: true }).isHidden()) await click(page.getByRole('button', { name: 'More outings', exact: true }));
+    assert.equal(await page.locator('.jaunt-list .jaunt-card').count(), 25);
     const held = page.locator('[data-jaunt="fixture-menu-54"]');
+    await click(held.locator('[data-action="more"]'));
     assert.match(await held.innerText(), /Unavailable — Consultation required/);
     assert.equal(await held.getByRole('button', { name: 'Start Jaunt', exact: true }).count(), 0);
     for (const size of viewport.width === 390 ? [{ width: 390, height: 430 }, viewport] : [viewport]) {
@@ -121,11 +119,15 @@ try {
       assert(layout.target.y >= 0 && layout.target.bottom <= layout.height && layout.target.height >= 44, JSON.stringify(layout));
       await page.screenshot({ path: path.join(out, `${size.width}-${size.height}-window.png`) });
     }
+    // Escape steps back to the three choices first, then into the town.
+    await page.keyboard.press('Escape');
+    assert.equal(await page.evaluate(() => document.getElementById('gate').dataset.region), undefined);
+    assert.equal(await page.evaluate(() => document.activeElement.id), 'welcome-jaunts');
     await page.keyboard.press('Escape');
     assert.equal(await page.evaluate(() => __chicago4d.welcome.state), 'world');
     assert.equal(errors.length, 0, errors.join('\n'));
     receipts.push({ viewport, bootJauntRequests: 0, maxCards: 26, beforeScroll: before, returned, pageErrors: errors });
-    console.log(`MENU ${viewport.width}: PASS — filters, 55 rows, mode, Start/End, resume, Explore, layouts, Escape`);
+    console.log(`MENU ${viewport.width}: PASS — filters, 55 rows, type, mode, Start/End, resume, Explore, layouts, Escape`);
     await context.close();
   }
   fs.writeFileSync(path.join(out, 'acceptance.json'), JSON.stringify(receipts, null, 2) + '\n');

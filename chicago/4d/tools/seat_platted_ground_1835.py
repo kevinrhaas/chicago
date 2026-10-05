@@ -92,6 +92,17 @@ and a row in one of them is not refused here, it is HANDED ON to T-1614 with tha
 reason. A row in a plat band that finds no roof and no slot is owed too, for the same
 file. No row is dropped and no row is blank.
 
+## THE BUSINESS DEAL GOES FIRST (T-1669)
+
+This deal and the street-face business deal (`tools/adopt_street_faces.py`, L212) spend
+one pool of anonymous roofs. The business deal's picks arrive here as occupancies on the
+records, and they used to be held back as if they were committed claims about the town.
+They are now named as the other deal's (`held_by: street_face_business_deal`), the
+precedence between the two is written down — the narrower placement deals first — and its
+cost to the households is measured by re-dealing the plat with those roofs released.
+`BUSINESS_DEAL_HOLDS` and `BUSINESS_DEAL_COSTS` pin it, so a re-order of either deal that
+moves the household count is red until somebody rules on it.
+
 ## WHICH WAY IT IS WRONG IF IT IS WRONG
 
 Toward a plat that holds too FEW of the town's households. The deal seats what the
@@ -120,6 +131,17 @@ STRUCTURES = DATA / "structures"
 
 LEDGER_OUT = DATA / "reconstruction" / "1835_lot_ledger.json"
 SEATS_OUT = DATA / "reconstruction" / "1835_platted_seats.json"
+# The street-face business deal's own table (T-0354, L212). Read, never written: see
+# `the_business_deal_goes_first()` for why reading it here closes no cycle.
+ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
+
+# T-1669. What the business deal's precedence holds back from this deal, and what that
+# costs it, restated whenever either deal is re-ordered. These are TRIPWIRES, not
+# targets: a change to either deal that moves them is RED in `--check` until somebody
+# restates them here and says why in docs/LIBERTIES.md L270 — which is the point, since
+# before this a re-order of either deal moved the household count with nobody deciding it.
+BUSINESS_DEAL_HOLDS = 40
+BUSINESS_DEAL_COSTS = 2
 
 TICKET = "T-1613"
 PARENT = "T-1199"
@@ -219,7 +241,17 @@ def load() -> dict:
         "traffic": traffic, "documented": documented,
         "address_book": load_json(ADDRESS_BOOK),
         "occupancy": occupancy,
+        "business_roofs": business_roofs(),
     }
+
+
+def business_roofs() -> dict[str, str]:
+    """structure id -> the business the street-face deal stood in it (T-1669)."""
+    if not ADOPTIONS.exists():
+        return {}
+    return {row["structure_id"]: row["business_id"]
+            for row in load_json(ADOPTIONS).get("adoptions", [])
+            if row.get("structure_id")}
 
 
 # --------------------------------------------------------------------- the ledger
@@ -384,15 +416,27 @@ def adoptable(data: dict,
             occupants = record.get("occupants")
             seated_to = (record.get("resident_assignment") or {}).get("household_id")
             if occupants and not seated_to:
-                held_back.append({
+                business = data["business_roofs"].get(structure_id)
+                row = {
                     "structure_id": structure_id,
                     "lot_id": lot["lot_id"],
                     "family": letter,
+                    "held_by": "committed_occupancy",
                     "why": "its own record already states an occupancy, and a policy "
                            "deal does not overturn a committed claim about the town",
                     "occupants": (occupants.get("value") if isinstance(occupants, dict)
                                   else str(occupants)),
-                })
+                }
+                if business:
+                    # T-1669. Not a committed claim about the town: the other policy
+                    # deal's allocation, which goes first. Said so, by name.
+                    row["held_by"] = "street_face_business_deal"
+                    row["business_id"] = business
+                    row["why"] = ("the street-face business deal (L212) stood a "
+                                  "documented business here, and it deals first: its "
+                                  "placement is one street face where a banded "
+                                  "household's is a whole division (T-1669)")
+                held_back.append(row)
                 continue
             if seated_to:
                 reserved[structure_id] = seated_to
@@ -696,6 +740,106 @@ def deal(data: dict, lots: list[dict]) -> dict:
     }
 
 
+# ------------------------------------------------- the business deal goes first
+
+PRECEDENCE_RULING = (
+    "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this "
+    "one, and this pass takes what it leaves. Both deals spend one pool of anonymous "
+    "roofs, so one of them has to go first, and the narrower placement does: a business "
+    "the paper places on a street can stand on that one face and nowhere else, while a "
+    "banded household may take any roof of an admitted family in its whole division. "
+    "Which business goes on which roof of its face is that deal's allocation, as which "
+    "roof a household takes is this one's. It is an allocation precedence between two of "
+    "this project's own passes, with no source read on either side and no claim about "
+    "1835 either way, so a run settles it and writes down why (T-1669, on the reasoning "
+    "T-1626 set out for refusal 7).")
+
+
+def the_business_deal_goes_first(data: dict, dealt: dict) -> dict:
+    """What the business deal's precedence costs this one, MEASURED by re-dealing.
+
+    T-1669. The two deals were each said to run blind to the other. This one never was
+    quite: the business deal's picks reach it as occupancies on the structure records
+    (`tools/inferred_occupancy.py` spends them there), and it held them back as "a
+    committed claim about the town", which they are not. Reading the business deal's
+    own table names them for what they are, and closes no cycle: that table is upstream
+    of this one by the same road the occupancies already took, and
+    `adopt_street_faces.py` still reads nothing this pass writes.
+
+    The cost is a counterfactual and not a count of roofs. Release every roof the
+    business deal holds, deal the plat again, and difference the seats. A released
+    dwelling the deal adopts does NOT always seat somebody new — a household already
+    seated elsewhere in the division may simply move to a better-scored lot — so the
+    number of roofs a release would fill is reported beside the number of households it
+    would seat, and only the second is a cost.
+    """
+    held = sorted(row["structure_id"] for row in dealt["held_back"]
+                  if row.get("held_by") == "street_face_business_deal")
+    released = dict(data)
+    released["records"] = dict(data["records"])
+    for structure_id in held:
+        record = dict(released["records"][structure_id])
+        record.pop("occupants", None)
+        released["records"][structure_id] = record
+    again = deal(released, ledger(released))
+
+    now = {seat["id"]: seat for seat in dealt["seats"]}
+    then = {seat["id"]: seat for seat in again["seats"]}
+    lost = sorted(set(now) - set(then))
+    if lost:
+        raise Fault("releasing the business deal's roofs UNSEATED " + ", ".join(lost)
+                    + " — more supply cannot cost this deal a seat, so the deal is not "
+                    "monotone and the cost below would be a false statement")
+    gained = [then[row_id] for row_id in sorted(set(then) - set(now))]
+    held_set = set(held)
+    filled = sorted({seat["structure_id"] for seat in again["seats"]
+                     if seat.get("structure_id") in held_set})
+    moved = sorted(row_id for row_id in now
+                   if (now[row_id].get("structure_id"), now[row_id]["lot_id"])
+                   != (then[row_id].get("structure_id"), then[row_id]["lot_id"]))
+    by_newcomers = sum(1 for seat in gained if seat.get("structure_id") in held_set)
+    # T-1657's bands, the same test the business deal itself reads.
+    from normalise_structure_function import TRADE_BANDS  # noqa: E402
+    trade = [sid for sid in held
+             if str(data["records"][sid].get("reconstruction", {}).get("family") or "")
+             .upper().startswith(TRADE_BANDS)]
+    return {
+        "ruling": PRECEDENCE_RULING,
+        "roofs_held": len(held),
+        "roofs_held_that_are_houses_of_trade": len(trade),
+        "roofs_a_release_would_fill": filled,
+        "households_it_costs": [
+            {"id": seat["id"], "clause": seat["clause"], "district": seat["district"],
+             "how": seat["how"], "would_take": seat.get("structure_id"),
+             "lot_id": seat["lot_id"]} for seat in gained],
+        "households_that_would_change_roof": len(moved),
+        "reading": (
+            f"the business deal holds {len(held)} roofs on the plat, {len(trade)} of them "
+            "raised as houses of trade. Released, this deal would adopt "
+            f"{len(filled)} of them — {by_newcomers} by a household seated nowhere today "
+            f"and {len(filled) - by_newcomers} by households already seated, moving to a "
+            f"better-scored lot — and seat {len(gained)} more household(s) in all, "
+            "counting any the moves leave a roof or a slot for; "
+            f"{len(moved)} seated household(s) would change roof or lot. So the "
+            f"precedence costs the households {len(gained)} seat(s), and that number is "
+            "a tripwire in this file: a re-order of either deal that moves it is red "
+            "until it is restated and argued for."),
+    }
+
+
+def assert_the_precedence_is_ruled(counts: dict) -> None:
+    """T-1669's tripwire: the precedence's cost moves only when somebody says so."""
+    held = counts.get("roofs_held_by_the_business_deal")
+    cost = counts.get("seats_the_business_deal_costs")
+    if (held, cost) != (BUSINESS_DEAL_HOLDS, BUSINESS_DEAL_COSTS):
+        raise Fault(
+            f"the street-face business deal now holds {held} roofs on the plat and costs "
+            f"this deal {cost} seat(s); this file rules on {BUSINESS_DEAL_HOLDS} and "
+            f"{BUSINESS_DEAL_COSTS}. One of the two deals was re-ordered and moved the "
+            "household count — restate BUSINESS_DEAL_HOLDS / BUSINESS_DEAL_COSTS and say "
+            "why in docs/LIBERTIES.md L270 (T-1669)")
+
+
 # ------------------------------------------------------------------ the invariants
 
 def assert_the_deal_is_honest(data: dict, lots: list[dict], dealt: dict) -> None:
@@ -729,6 +873,10 @@ def assert_the_deal_is_honest(data: dict, lots: list[dict], dealt: dict) -> None
                         f"clause {seat['clause']} admits only "
                         f"{', '.join(clause['applies_to'])}")
         if seat["how"] == "adopted":
+            if seat["structure_id"] in data["business_roofs"]:
+                raise Fault(f"{seat['id']} adopts {seat['structure_id']}, which the "
+                            "street-face business deal holds — the two deals would both "
+                            "be standing someone under one roof (T-1669)")
             if seat["structure_id"] in adopted:
                 raise Fault(f"{seat['structure_id']} is adopted twice — two households "
                             "cannot be the sole household of one roof")
@@ -932,6 +1080,8 @@ def seats_document(data: dict, lots: list[dict], dealt: dict) -> dict:
             "data/reconstruction/1835_address_book.json",
             "data/reconstruction/1835_placement_policy.json",
             "data/reconstruction/1835_665_roof_programme.json",
+            "data/research/newspapers/street_face_adoptions.json (the business deal, "
+            "which goes first — T-1669)",
         ],
         "counts": {
             "rows_in_scope": len(seats) + len(owed),
@@ -948,6 +1098,9 @@ def seats_document(data: dict, lots: list[dict], dealt: dict) -> dict:
                 Counter(row["clause"] for row in owed).items())),
             "roofs_offered_for_adoption": dealt["adoptable_offered"],
             "roofs_held_back": len(dealt["held_back"]),
+            "roofs_held_by_the_business_deal": dealt["precedence"]["roofs_held"],
+            "seats_the_business_deal_costs":
+                len(dealt["precedence"]["households_it_costs"]),
         },
         "what_the_plat_could_not_hold": {
             "rows": len(owed),
@@ -960,6 +1113,7 @@ def seats_document(data: dict, lots: list[dict], dealt: dict) -> dict:
                 "fringes and the branches. The binding constraint is the one the "
                 "665-roof programme already states: coverage, not recipes.",
         },
+        "the_business_deal_goes_first": dealt["precedence"],
         "roofs_held_back": dealt["held_back"],
         "plan_left_unclaimed": dealt["unclaimed_plan"],
         "seats": seats,
@@ -976,6 +1130,7 @@ def derive() -> tuple[dict, dict, dict, list[dict], dict]:
     lots = ledger(data)
     dealt = deal(data, lots)
     assert_the_deal_is_honest(data, lots, dealt)
+    dealt["precedence"] = the_business_deal_goes_first(data, dealt)
     return data, ledger_document(data, lots), seats_document(data, lots, dealt), lots, dealt
 
 
@@ -1006,6 +1161,7 @@ def cmd_check() -> int:
         if path.read_text(encoding="utf-8") != _dump(doc):
             raise Fault(f"{path.relative_to(ROOT)} no longer re-derives — run "
                         "tools/seat_platted_ground_1835.py --build")
+    assert_the_precedence_is_ruled(seats_doc["counts"])
     print(f"OK: {ledger_doc['counts']['lots']} committed lots and "
           f"{seats_doc['counts']['seated']} platted seats re-derive, and the "
           f"{seats_doc['counts']['owed']} the plat cannot hold are owed in writing")
@@ -1152,6 +1308,27 @@ def cmd_self_test() -> int:
         assert_the_deal_is_honest(data, lots, bent)
     _fires("an owed row with a blank reason", a_blank_reason)
     print("   an owed row with no reason written                  refused")
+
+    def a_household_under_a_business_roof():
+        bent = json.loads(json.dumps(dealt))
+        adopted = [s for s in bent["seats"] if s["how"] == "adopted"]
+        held = [r for r in bent["held_back"]
+                if r.get("held_by") == "street_face_business_deal"]
+        if not adopted or not held:
+            raise Fault("fixture needs an adoption and a roof the business deal holds")
+        adopted[0]["structure_id"] = held[0]["structure_id"]
+        assert_the_deal_is_honest(data, lots, bent)
+    _fires("a household adopted into a roof the business deal holds",
+           a_household_under_a_business_roof, expect="street-face business deal holds")
+    print("   a household under a roof the business deal holds    refused")
+
+    def the_precedence_moved_unruled():
+        assert_the_precedence_is_ruled({
+            "roofs_held_by_the_business_deal": BUSINESS_DEAL_HOLDS,
+            "seats_the_business_deal_costs": BUSINESS_DEAL_COSTS + 1})
+    _fires("a re-order that moves the business deal's cost unruled",
+           the_precedence_moved_unruled, expect="T-1669")
+    print("   the business deal's cost moved with nobody ruling   refused")
 
     print("\nSELF-TEST PASS")
     return 0

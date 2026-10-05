@@ -36,6 +36,7 @@ try {
     await page.waitForSelector('[data-jaunt="new-in-chicago"]');
     assert(!requests.some(r=>r.endsWith('/new-in-chicago.json')),'content stays lazy until selected');
     await page.screenshot({path:path.join(out,`${viewport.width}-catalog.png`)});
+    await page.locator('[data-jaunt="new-in-chicago"] [data-action="more"]').click();
     await page.getByRole('button',{name:'Preview the route',exact:true}).click();
     await page.getByRole('button',{name:'Try the route again'}).click();
     await page.waitForSelector('.jaunt-stops');
@@ -62,7 +63,7 @@ try {
     await page.getByRole('button',{name:'Preview the route',exact:true}).click();
     await page.waitForSelector('.jaunt-stops');
     assert.equal(requests.filter(r=>r.endsWith('/new-in-chicago.json')).length,count,'cached selection');
-    await page.locator('#welcome-jaunts-explore').click();
+    await page.locator('#welcome-explore').click();
     assert(await page.locator('#welcome-search').isVisible());
     assert.equal(errors.length,0,errors.join('\n'));
     receipts.push({viewport,prefix,bootJauntRequests:0,stops:5,catalogAttempts:catalogFailures,contentAttempts:contentFailures,requests,pageErrors:errors});
@@ -76,7 +77,7 @@ try {
     const root=document.createElement('div');document.body.replaceChildren(root);
     const api={};const fetcher=async()=>({ok:true,json:async()=>({jaunts:[{id:'held',title:'Awaiting review',premise:'A held story.',category:'Orientation',stop_count:2,primary_family:'Wayfinding',availability:'unavailable',reason:'Consultation required.'}]})});
     await createJauntPreview({root,dataBase:new URL('/data/',location.href),destinations:{},api,fetcher}).open();
-    return {text:root.textContent,buttons:root.querySelectorAll('button').length};
+    return {text:root.textContent,buttons:root.querySelectorAll('[data-action="start"], [data-action="preview"]').length};
   });
   assert.match(unavailable.text,/Unavailable — Consultation required/);assert.equal(unavailable.buttons,0);
   receipts.push({unavailable});

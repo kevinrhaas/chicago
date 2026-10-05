@@ -4094,20 +4094,15 @@ function hash3(a, b, c) {
  * gate is on and the one a visitor can see, because a species standing nowhere
  * is a species the town does not have.
  */
-/**
- * The block rotation, kept for `stratum` and no longer read by the sparse draw.
- *
- * It was the Cranley–Patterson offset that kept the rank-1 lattice from
- * repeating one diagonal across the field, sixteen cells square because at four
- * (64 slots) the rotation was all that survived — an independent draw in a
- * costume. T-0265 replaced the lattice, so nothing reads `shift` on that path
- * any more; the two constants stay because `scatter`'s block arithmetic is one
- * expression for both draws and `tools/measure_rank_bias.mjs` mirrors those
- * lines verbatim as its drift guard. Removing the dead branch is T-0371's, not
- * this ticket's — it is a change to the tool's contract, not to the deal.
+/*
+ * THE BLOCK ROTATION IS GONE (T-0371). It was the Cranley–Patterson offset that
+ * kept the rank-1 lattice from repeating one diagonal across the field, one per
+ * 16×16-cell block (`LD_BLOCK_SHIFT = 4`, keyed on `LD_BLOCK_SALT`). T-0265
+ * replaced the lattice with `cellPhase`, after which `scatter` still hashed a
+ * block key, a rotation and a block index for every lattice cell and read none
+ * of them. Only the `strata` draw has blocks now, and `scatter` computes them on
+ * that path alone; `tools/measure_rank_bias.mjs` mirrors those lines verbatim.
  */
-const LD_BLOCK_SHIFT = 4;
-const LD_BLOCK_SALT = 0x2b1f3d7d;
 
 function frac(x) { return x - Math.floor(x); }
 
@@ -4386,7 +4381,7 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
   // ROADMAP K49(d). The block is the stratum: every slot in it is dealt a
   // distinct rank, so a CDF band gets its exact count rather than a Poisson one.
   const strata = draw === 'strata';
-  const shiftBits = strata ? STRAT_BLOCK_SHIFT : LD_BLOCK_SHIFT;
+  const shiftBits = STRAT_BLOCK_SHIFT;
   const span = 1 << shiftBits;
   const nSlots = span * span * perCell;
   const half = stratumHalf(nSlots);
@@ -4422,23 +4417,25 @@ function* scatter(camE, camN, cell, perCell, radius, inner, salt, draw, cone, em
         }
       }
       const cellSeed = hash3(c, r, salt);
-      // ROADMAP K49(b). One rotation per 16×16-cell block of the WORLD lattice —
-      // and, K49(d), one permutation key per the same block.
-      const bc = c >> shiftBits;
-      const br = r >> shiftBits;
-      const blockHash = hash3(bc, br, salt ^ (strata ? STRAT_SALT : LD_BLOCK_SALT));
-      // ROADMAP K49(c2). The lattice takes a Cranley–Patterson rotation, which
-      // wants an independent offset per block; the stratification takes a phase
-      // that SWEEPS its own step across neighbouring blocks, because a random
-      // one leaves a narrow band to a coin toss in the frame. See `blockPhase`.
-      const shift = strata
-        ? blockPhase(bc, br, nSlots, globalShift)
-        : blockHash / 4294967296;
-      // The slot's index inside its own block. Arithmetic shift, so a block west
-      // or south of the origin indexes the same way as one east or north of it.
-      const base = ((c - ((c >> shiftBits) << shiftBits)) * span
-        + (r - ((r >> shiftBits) << shiftBits))) * perCell;
-      const cellPhase = strata ? 0 : blockPhase(c, r, perCell, globalShift);
+      // ROADMAP K49(d). The strata draw deals one permutation per 4×4-cell block
+      // of the WORLD lattice; the sparse draw has no blocks at all since T-0265
+      // (see `cellPhase`), so none of this is computed for it (T-0371).
+      let blockHash = 0, shift = 0, base = 0, cellPhase = 0;
+      if (strata) {
+        const bc = c >> shiftBits;
+        const br = r >> shiftBits;
+        blockHash = hash3(bc, br, salt ^ STRAT_SALT);
+        // ROADMAP K49(c2). A phase that SWEEPS its own step across neighbouring
+        // blocks, because a random one leaves a narrow band to a coin toss in
+        // the frame. See `blockPhase`.
+        shift = blockPhase(bc, br, nSlots, globalShift);
+        // The slot's index inside its own block. Arithmetic shift, so a block
+        // west or south of the origin indexes the same way as one east or north.
+        base = ((c - ((c >> shiftBits) << shiftBits)) * span
+          + (r - ((r >> shiftBits) << shiftBits))) * perCell;
+      } else {
+        cellPhase = blockPhase(c, r, perCell, globalShift);
+      }
       for (let k = 0; k < perCell; k++) {
         const rng = rngFrom(hash3(cellSeed, k, 0x68bc21eb));
         // ROADMAP K49(b). The slot's own place in the deal: it decides BOTH

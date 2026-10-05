@@ -379,7 +379,18 @@ STRUCTURE_TICKETS = {
     # THAN A FIX: 55 roofs is far more than one block, so the cell will move again when
     # T-1758 closes with it still owing, exactly as the north cell four entries below has
     # moved five times in three days.
-    ("south", "ordinary_dwellings"): "T-1758",
+    #
+    # AND SWEPT ONTO T-2130 ON 2026-10-05 (T-2131), BECAUSE T-1758 WAS SPLIT AT 06:09Z — into
+    # T-2129 (the Market block's five houses) and T-2130 (the Dearborn and Clark blocks' slots)
+    # — and a row naming a split ticket orders work nobody can claim. That took dev's own gate
+    # red on this one row, after the split's own branch had gated green, and every open pull
+    # request with it. Both children are live and both raise this cell's dwellings, so the rule
+    # above would accept either; it goes to T-2130 because that is the one that raises the
+    # dwellings LEFT once the Market block in flight is built. The cell owes far more than
+    # either block, so naming T-2129 would only order the next sweep the moment it closes,
+    # inside a pull request already mid-build; naming T-2130 lets T-2129 close untouched and
+    # moves the row again only when T-2130 closes with it still owing, as the chain expects.
+    ("south", "ordinary_dwellings"): "T-2130",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -515,7 +526,9 @@ STRUCTURE_TICKETS = {
     # T-1774 WAS SPLIT on 2026-10-01 (T-1826, T-1827). T-1826 closed the books and handed
     # T-1208 on: every ticket in T-1208's chain was split or done, so the 16 left here went
     # to T-1829, filed for exactly this remainder, blk_west_lake_canal's three cottages first.
-    ("west", "ordinary_dwellings"): "T-1829",
+    # T-1829 built blk_west_lake_canal's three cottages (2026-10-05) and handed the 12 left
+    # here, and the West rows below, to T-2132: every lot-ruled West block reads at_capacity.
+    ("west", "ordinary_dwellings"): "T-2132",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -539,10 +552,10 @@ STRUCTURE_TICKETS = {
     # which closes the West's books and hands T-1208 "the West's exact remainder".
     # Both read complete (6 of 6, 8 of 8) when T-1774 split, and move with the remainder to
     # T-1829 so the row names a live ticket.
-    ("west", "stores_mixed_use"): "T-1829",
+    ("west", "stores_mixed_use"): "T-2132",
     ("west", "larger_boarding_houses"): "T-1953",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-1829",
+    ("west", "workshops"): "T-2132",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind. When T-1774 split
@@ -550,7 +563,7 @@ STRUCTURE_TICKETS = {
     # verdict, which T-1827 carries out, takes a roof out of this row. T-1827 did (046 is
     # an H2 house now), so the row reads 1 of 2 and the freight roof it orders goes with the
     # rest of the West's remainder to T-1829, which already holds stores and workshops.
-    ("west", "warehouses_freight"): "T-1829",
+    ("west", "warehouses_freight"): "T-2132",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1983",  # moved with the South's, above

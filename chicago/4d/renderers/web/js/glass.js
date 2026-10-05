@@ -16,18 +16,36 @@
  *           plate glass reads from a street in daylight. Batches with the
  *           house's own opaque surfaces.
  *
- * `transmission` keeps the GLB's own glass. Which one ships is the owner's
- * pick (T-2109); until then the default is unchanged and `?glass=` chooses.
+ * `transmission` keeps the GLB's own glass.
+ *
+ * WHICH ONE SHIPS IS THE OWNER'S PICK (T-2109, answered 2026-10-04: "dark at
+ * balanced and light"). So the glass follows the Scene detail setting:
+ * `full` keeps the GLB's transmission, where the frame budget is spent on
+ * purpose for the inspection model, and `balanced` and `light` draw the dark
+ * plate, which halved the 1904 landing frame at both viewports
+ * (docs/measurements/T-2109-glessner-glass.md). `?glass=` still names one
+ * mode for every setting, to compare.
  */
 import * as THREE from 'three';
 
 export const GLASS_MODES = Object.freeze(['transmission', 'clear', 'dark']);
+/** The GLB's own glass: what a caller that names no mode gets. */
 export const DEFAULT_GLASS = 'transmission';
+/** The owner's pick, per Scene detail setting (T-2109, answer c). */
+export const GLASS_BY_DETAIL = Object.freeze({ full: 'transmission', balanced: 'dark', light: 'dark' });
 
-/** `?glass=clear|dark|transmission`; anything else is the default. */
-export function readGlassMode(params) {
+/** `?glass=clear|dark|transmission`, or null when the address names none. */
+export function readGlassRequest(params) {
   const asked = params?.get?.('glass');
-  return GLASS_MODES.includes(asked) ? asked : DEFAULT_GLASS;
+  return GLASS_MODES.includes(asked) ? asked : null;
+}
+
+/** The glass drawn at `detail`: the address's own mode when it names one,
+ * otherwise the owner's pick for that setting. An unknown setting keeps the
+ * GLB's glass rather than guessing a cheaper one. */
+export function glassForDetail(detail, requested = null) {
+  if (GLASS_MODES.includes(requested)) return requested;
+  return Object.hasOwn(GLASS_BY_DETAIL, detail) ? GLASS_BY_DETAIL[detail] : DEFAULT_GLASS;
 }
 
 export function isTransmissive(material) {
