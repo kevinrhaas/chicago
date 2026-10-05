@@ -398,21 +398,26 @@ The roster offers 1,812 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 251 — 238 by adopting a roof that already stands, 13 by asking for one
-- still on no ground at all: 1,173
+- seated: 285 — 238 by adopting a roof that already stands, 47 by asking for one
+- still on no ground at all: 1,139
 - of the 572 roofs the town already has, 238 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 178 | 165 | 13 | 1,246 |
-| The ground the plat does not draw | T-1614 | 1,246 | 73 | 73 | 0 | 1,173 |
+| The committed plat | T-1613 | 1,424 | 212 | 165 | 47 | 1,212 |
+| The ground the plat does not draw | T-1614 | 1,212 | 73 | 73 | 0 | 1,139 |
 
-13 slot(s) on 2 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
+47 slot(s) on 7 block(s) — blk_indiana_north_cass, blk_indiana_north_wolcott, blk_school_section_tier_118, blk_school_section_tier_119, blk_school_section_tier_81, blk_school_section_tier_94, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
 | `hh_adams_elizabeth` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#11` | D7 | `merchant_and_professional_dwellings` |
 | `hh_albee_clark_b` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#10` | D7 | `merchant_and_professional_dwellings` |
+| `hh_bennet_lyman` | `blk_school_section_tier_119` | `blk_school_section_tier_119#07` | D7 | `merchant_and_professional_dwellings` |
+| `hh_bently_wm_t` | `blk_school_section_tier_81` | `blk_school_section_tier_81#07` | D7 | `merchant_and_professional_dwellings` |
+| `hh_benton_datas_e` | `blk_school_section_tier_95` | `blk_school_section_tier_95#07` | D7 | `merchant_and_professional_dwellings` |
+| `hh_berger_f_c` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | H1 | `merchant_and_professional_dwellings` |
+| `hh_blake_levi` | `blk_school_section_tier_95` | `blk_school_section_tier_95#01` | H2 | `merchant_and_professional_dwellings` |
 | `hh_bailly_joseph` | `blk_indiana_north_cass` | `blk_indiana_north_cass#07` | D3 | `tradesman_dwellings` |
 | `hh_baily_john` | `blk_indiana_north_cass` | `blk_indiana_north_cass#06` | D4 | `tradesman_dwellings` |
 | `hh_barber_beta_l` | `blk_indiana_north_cass` | `blk_indiana_north_cass#03` | D5 | `tradesman_dwellings` |
@@ -423,9 +428,38 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_beaubien_john_s` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#03` | D4 | `tradesman_dwellings` |
 | `hh_beaubien_susan` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#02` | D4 | `tradesman_dwellings` |
 | `hh_bennett_william` | `blk_indiana_north_wolcott` | `blk_indiana_north_wolcott#01` | D4 | `tradesman_dwellings` |
+| `hh_clarke_h_b` | `blk_school_section_tier_118` | `blk_school_section_tier_118#05` | D3 | `tradesman_dwellings` |
+| `hh_cleaveland_wm_p` | `blk_school_section_tier_118` | `blk_school_section_tier_118#04` | D4 | `tradesman_dwellings` |
+| `hh_clement_dorcinrk` | `blk_school_section_tier_118` | `blk_school_section_tier_118#03` | D4 | `tradesman_dwellings` |
+| `hh_clevinger_d_p` | `blk_school_section_tier_118` | `blk_school_section_tier_118#02` | D5 | `tradesman_dwellings` |
+| `hh_cobb_l_b` | `blk_school_section_tier_118` | `blk_school_section_tier_118#07` | D5 | `tradesman_dwellings` |
+| `hh_coleman_edward_b` | `blk_school_section_tier_118` | `blk_school_section_tier_118#06` | D6 | `tradesman_dwellings` |
+| `hh_colewell_m` | `blk_school_section_tier_119` | `blk_school_section_tier_119#05` | D3 | `tradesman_dwellings` |
+| `hh_collett_j_a` | `blk_school_section_tier_119` | `blk_school_section_tier_119#04` | D4 | `tradesman_dwellings` |
+| `hh_comstock_h_h` | `blk_school_section_tier_119` | `blk_school_section_tier_119#03` | D4 | `tradesman_dwellings` |
+| `hh_cone_joseph_c` | `blk_school_section_tier_119` | `blk_school_section_tier_119#02` | D5 | `tradesman_dwellings` |
+| `hh_conter_willard` | `blk_school_section_tier_119` | `blk_school_section_tier_119#06` | D5 | `tradesman_dwellings` |
+| `hh_coslet_elisabeth` | `blk_school_section_tier_119` | `blk_school_section_tier_119#01` | D6 | `tradesman_dwellings` |
+| `hh_coslet_godfrey` | `blk_school_section_tier_81` | `blk_school_section_tier_81#05` | D3 | `tradesman_dwellings` |
+| `hh_cross_oliver` | `blk_school_section_tier_81` | `blk_school_section_tier_81#04` | D4 | `tradesman_dwellings` |
+| `hh_crull_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#03` | D4 | `tradesman_dwellings` |
+| `hh_curtin_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#02` | D5 | `tradesman_dwellings` |
+| `hh_curtin_l_g` | `blk_school_section_tier_81` | `blk_school_section_tier_81#06` | D5 | `tradesman_dwellings` |
+| `hh_cutler_morris` | `blk_school_section_tier_81` | `blk_school_section_tier_81#01` | D6 | `tradesman_dwellings` |
+| `hh_dailey_thomas` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D3 | `tradesman_dwellings` |
+| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D4 | `tradesman_dwellings` |
+| `hh_darling_daniel` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D4 | `tradesman_dwellings` |
+| `hh_darling_enoch` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D5 | `tradesman_dwellings` |
+| `hh_dave_john` | `blk_school_section_tier_94` | `blk_school_section_tier_94#07` | D5 | `tradesman_dwellings` |
+| `hh_davis_george` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | D6 | `tradesman_dwellings` |
+| `hh_delano_loring` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D4 | `tradesman_dwellings` |
+| `hh_dell_frank` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D5 | `tradesman_dwellings` |
 | `hh_barre_john_s` | `blk_indiana_north_cass` | `blk_indiana_north_cass#10` | D2 | `labourer_dwellings` |
+| `hh_humphrey_fre_lemuel` | `blk_school_section_tier_118` | `blk_school_section_tier_118#01` | D2 | `labourer_dwellings` |
+| `hh_hunt_charles_cotesworth_pinckney` | `blk_school_section_tier_94` | `blk_school_section_tier_94#01` | D2 | `labourer_dwellings` |
+| `hh_ira_paddock` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D2 | `labourer_dwellings` |
 
-1,173 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,139 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -656,7 +690,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/south` | 28 | 25 | 3 | 0 | T-1957 |
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
-| `structures/ordinary_dwellings/south` | 176 | 136 | 40 | 0 | T-1755 |
+| `structures/ordinary_dwellings/south` | 176 | 136 | 40 | 0 | T-2145 |
 | `structures/ordinary_dwellings/west` | 75 | 63 | 12 | 0 | T-2132 |
 | `structures/ordinary_dwellings/north` | 84 | 58 | 26 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 47 | 1 | 0 | T-1983 |
@@ -680,9 +714,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 41
-- `roofs_gated_on_coverage`: 73
-- `statement`: 41 of the 114 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 73 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_on_committed_ground`: 77
+- `roofs_gated_on_coverage`: 37
+- `statement`: 77 of the 114 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 37 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -710,7 +744,6 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 |  |
 | `ground/blk_south_water_market` | 27 | — | — | 0 |  |
-| `ground/south_plat_beyond_committed_control` | 20 | — | — | 0 |  |
 | `ground/west_division_beyond_committed_control` | 31 | — | — | 0 |  |
 
 ## Where the model and the roof programme disagree
