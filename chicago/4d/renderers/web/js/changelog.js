@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1468, ts: '2026-10-05T04:13:03.883Z', date: 'Oct 4, 2026, 11:13 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+  { v: 1469, ts: '2026-10-05T04:32:37.067Z', date: 'Oct 4, 2026, 11:32 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
       'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
       'At Full detail the windows still reflect and see through as before.',
       'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
+    ] },
+  { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. Each layer of the town can add its own steps to how a surface is shaded. Two layers with different steps could still be handed one shared shader, and then one of them drew in solid black.',
+      'That is how a fence once came out black. It was fixed for that fence alone. Now each set of shading steps gets its own shader, and anything that shades the same way still shares one, so nothing extra is compiled.',
     ] },
   { v: 1467, ts: '2026-10-05T03:48:41.028Z', date: 'Oct 4, 2026, 10:48 PM CT', title: 'The freight shed by the Dearborn bridge is out of Dearborn Street', kind: 'fix',
     items: [

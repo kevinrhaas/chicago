@@ -150,6 +150,20 @@ const FRAGMENT_TINT = /* glsl */`
 `;
 
 /**
+ * The key three would compile a material's hooks under, as it stands now: a key
+ * the material was given wins; otherwise the source text of its hook, which is
+ * three's own default; and nothing at all for the unhooked default material.
+ */
+function programKeyOf(material) {
+  if (Object.prototype.hasOwnProperty.call(material, 'customProgramCacheKey')) {
+    return String(material.customProgramCacheKey());
+  }
+  const hook = material.onBeforeCompile;
+  if (typeof hook !== 'function' || hook === THREE.Material.prototype.onBeforeCompile) return '';
+  return hook.toString();
+}
+
+/**
  * One uniforms object shared by every patched material, so flipping the view is
  * a single assignment no matter how many materials exist.
  */
@@ -196,7 +210,11 @@ export function createConfidenceView({
     patched.add(material);
 
     const prior = material.onBeforeCompile;
-    material.onBeforeCompile = (shader, renderer) => {
+    // Read BEFORE the hook below is installed: three's default key is the
+    // source text of whatever `onBeforeCompile` is current, so asked afterwards
+    // it would only ever answer with ours.
+    const priorKey = programKeyOf(material);
+    const hook = (shader, renderer) => {
       if (typeof prior === 'function') prior(shader, renderer);
       Object.assign(shader.uniforms, uniforms);
 
@@ -220,6 +238,29 @@ export function createConfidenceView({
         );
       }
       shader.fragmentShader = f;
+    };
+    material.onBeforeCompile = hook;
+    // THE PROGRAM CACHE KEY NAMES THE CHAIN, NOT THE MATERIAL (T-0053).
+    //
+    // three caches a compiled program under a key ending in
+    // `customProgramCacheKey()`, whose default is `onBeforeCompile.toString()`.
+    // Left at that default, every material this function touches reports the
+    // source text of `hook` above, whatever was chained beneath it — so a plain
+    // patched MeshStandardMaterial was handed the program of a mapless building
+    // material, whose second hook reads `_roughness` and facade-tone attributes
+    // the plain one never bound, and drew in solid black (T-0050).
+    //
+    // A key unique to each material would cure that and cost a program per
+    // building material: 334 of them, compiling identical GLSL. What decides the
+    // GLSL is the set of hooks on the material, so that is what goes in the key —
+    // ours, plus whatever was beneath it when we arrived, plus whatever was
+    // wrapped around it since. Every plain patched material still shares one
+    // program and every building material shares another; only materials whose
+    // hooks write different shaders are kept apart. A key a layer assigns AFTER
+    // patching (enclosures.js and its kin) replaces this one, as before.
+    material.customProgramCacheKey = function customProgramCacheKey() {
+      const outer = this.onBeforeCompile === hook ? '' : `|wrap:${this.onBeforeCompile}`;
+      return `chicago4d-confidence${priorKey ? `|over:${priorKey}` : ''}${outer}`;
     };
     material.needsUpdate = true;
     return material;
