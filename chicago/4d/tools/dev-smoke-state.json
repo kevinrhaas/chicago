@@ -7,6 +7,39 @@
       "parts": [
         1
       ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 35,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-05T22:40:42.279Z",
+      "ref": "steward/t2143-block-51-west-water-to-madison",
+      "commit": "47fa9623508c",
+      "devCommit": "854792f81adb",
+      "treeHash": "sha256:cb5fb2d19d4a9e5a",
+      "treeDirty": true,
+      "changelogHash": "sha256:d083c7ee39a6821f",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.5,
+          4,
+          3.3
+        ]
+      },
+      "source": "/tmp/smoke-d1.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
       "verdict": "pass",
       "target": "published",
       "passed": 82,
@@ -1810,37 +1843,6 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36895681173 https://github.com/kevinrhaas/chicago/actions/runs/36895681173"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "8",
-      "parts": [
-        8
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 18,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 352,
-      "takenAt": "2026-10-01T16:55:01.900Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.2,
-          4.2,
-          4.1
-        ]
-      },
-      "source": "/tmp/t1811/smoke-d8.log"
     }
   ]
 }

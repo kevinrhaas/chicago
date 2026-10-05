@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1505, ts: '2026-10-05T20:47:55.347Z', date: 'Oct 5, 2026, 3:47 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
+  { v: 1506, ts: '2026-10-05T22:21:46.692Z', date: 'Oct 5, 2026, 5:21 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
     items: [
       'Canal Street and West Water Street now run south past Washington Street to Madison Street, the south edge of the 1830 town. Before, both stopped short at Washington.',
       'The new block between them has six houses: five face Canal Street, from a house on the Washington corner to a larger merchant\u2019s house on the Madison corner, and a small shanty faces West Water Street by the river.',
       'The 1830 plat gives this block\u2019s two rows of lots different depths, 180 feet and 88 feet, because the river cuts deep into the row along West Water Street. Each row is cut to its own depth.',
       'Six West Side families now have a home in the town. No source names these houses or who lived in them; each card says so, and the Liberties page explains it (L313).',
+    ] },
+  { v: 1505, ts: '2026-10-05T20:26:07.594Z', date: 'Oct 5, 2026, 3:26 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
+    items: [
+      'Walk south across Madison between Market and State and the five blocks there are no longer open prairie. They are now cropped, grazed vacant lots, the same sward as the empty lots inside the town. No house stands on them yet.',
+      'These blocks were sold lot by lot in October 1833, in the School Section beyond the town\u2019s south line. The town plan still owes the South Division about forty houses, and every block inside the line is full. So those houses will be built here, one to a lot, with a lot left open on each block.',
+      'Thirty-four households who had no lot are now given one on these blocks, and their cards say so. Their houses come in the next few updates.',
     ] },
   { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
     items: [

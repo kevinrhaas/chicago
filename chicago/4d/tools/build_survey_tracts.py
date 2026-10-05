@@ -929,7 +929,11 @@ def cross_checks(polys, tracts):
                  # Thompson drew both sides of the river on one sheet — so it is tested
                  # against the same ring. It is a separate GRID because its block is a
                  # different block, not because it is a separate survey.
-                 "west_division": "canal_commissioners_1830"}
+                 "west_division": "canal_commissioners_1830",
+                 # T-2144. The School Section's Madison-Monroe tier joined the lot layer
+                 # on the owner's T-1755 ruling, and its blocks are Section 16's own — so
+                 # they are tested against the School Section chip they were sold out of.
+                 "school_section_tier": "school_section"}
     # A PLAT THIS LAYER HOLDS NO POLYGON FOR IS NAMED, NOT SKIPPED. The test above is
     # "does a block fall inside its own plat", and it cannot be asked of a plat whose
     # bounds are not committed anywhere — the Michigan Street tract is seated in the lot

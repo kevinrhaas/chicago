@@ -3,7 +3,7 @@
 **What a visitor sees.** Canal Street and West Water Street run on south of Washington to
 Madison, and the block between them — plat block 51, the West Division's last tier — carries
 six houses: five on the Canal face (D6 on the Washington corner, D5, D4, D3, and a D7 on the
-Madison corner) and a D2 shanty on West Water. Changelog v1505.
+Madison corner) and a D2 shanty on West Water. Changelog v1506.
 
 **Why the block was not there.** T-2132 named plat block 51 as the next West ground (180 ft
 under its west column, 88 under its east), "but the committed grid does not build that block at
@@ -51,6 +51,36 @@ this block's ten lots; nothing else moved. `north_of_box_reading.json`: drawn on
 **Handed on.** 2 West ordinary dwellings and 1 freight roof remain. They go to **T-2148**:
 blocks 48-50 on the same tier print 180 ft under both columns and are omitted now only because
 Des Plaines, Jefferson and Clinton stop at N -400.
+
+**Lapped over T-2144 (2026-10-05).** Merged onto dev after the School Section tier landed:
+`generate_plat_lots.py` re-cut 84 blocks and 398 lots (dev 83 / 388, plus block 51's ten), and
+the keeper → infill → `reconcile_665` → seating walk settled in four laps at **222 platted
+seats** (dev 216 + the six who asked) and 73 off-plat, 295 in the order book (dev 289). Every
+West seat reads as it did on this branch before the merge. No mesh went stale. Corridor-strip
+baseline: `blocks_after` 82 → 83, `lots_after` 380 → 390, block 51 alone. L270 restated 216 → 222.
+
+## T-2144 — the School Section tier joins the grid and the roof schedule (2026-10-05)
+
+The owner answered T-1755 (b): the South's owed dwellings cross Madison onto the School
+Section's Madison–Monroe tier. The run that took T-1755 found it was more than one run — the
+tier's lots lived only in `school_section_tier_lots.json`, which neither `reconcile_665.py` nor
+`generate_block_infill.py` reads — and split it: **T-2144** (this) opens the ground, and
+**T-2145** (Clark blocks 118, 119), **T-2146** (Wells blocks 94, 95) and **T-2147** (Market
+block 81) build on it.
+
+- `generate_plat_lots.py` quotes the tier as a third seated tract, the way Michigan St tract and
+  Wabansia join: only the cells east of the forks with lots on dry ground — **81, 94, 95, 118,
+  119, forty lots**. Blocks 24–72 (West), 80 (under datum at its river corners) and 1/142 (never
+  cut) stay on the off-plat ledger, which now skips any tier block the grid carries.
+- `reconcile_665.py` schedules the tier **one principal roof to a lot, no party-line row**, each
+  block keeping a lot open: 7 principal + 2 yard roofs of room per block. The South balance
+  (`south_plat_beyond_committed_control`, 20 roofs) empties; the tier is dealt **36 roofs —
+  32 dwellings (D2–D7), three boarding houses (H1–H3) on block 95, one yard building** — and the
+  Market wedge (`blk_south_water_market`, still the owner's) keeps 6 of its 22.
+- The seating walked to a fixpoint: **216 seated** after the T-2132 merge (182 on dev), the 34 new ones
+  slot requests on the tier that T-2145..T-2147 raise. 56 keeper rows moved; no mesh went stale.
+- The order book's `ordinary_dwellings/south` row moves to **T-2145** (T-1755 is split).
+- Corridor-strip baseline re-written: only `blocks_after` and `lots_after` moved, by the tier's 5 blocks and 40 lots (77→82, 340→380 on the merged tree).
 
 ## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
 
