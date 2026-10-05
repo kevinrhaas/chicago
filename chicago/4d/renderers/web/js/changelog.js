@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: 1471, ts: '2026-10-05T04:54:28.178Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
+  { v: null, ts: '', title: 'A simpler arrival menu: three choices, quick starts, tidy jaunts', kind: 'change',
     items: [
       'The welcome card now offers three equal choices: Jaunts, Starting at\u2026 and Explore by myself. Sources & City is gone from it; Evidence is still in the town\u2019s menu.',
       'Inside Jaunts or Starting at\u2026 a back arrow returns to the three choices. Escape does the same.',
@@ -7,6 +7,18 @@ export const CHANGELOG = [ // newest first
       'Jaunts are a compact list. Each has an icon and colour for its type, a one-line summary, its stops and a length gauge, and a play button. The arrow opens the full summary, a small travel-mode toggle and the route preview.',
       'The wall of category buttons is now one row of five type icons beside the search.',
       'During a jaunt the [DOC], [INF] and [CONJ] tags no longer sit under the story. Each passage has one small Sources button that shows them.',
+    ] },
+  { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tested giving every building baked shadows in its corners and under its eaves, the shading called ambient occlusion.',
+      'Done the usual way, with a shadow picture per building, the town took 547 separate drawing steps instead of 5. That roughly doubled the work per frame on a phone, so it is not shipping.',
+      'Those shadow pictures would also never reach the walls or roofs, which already carry their own texture. The plan is now to store the shadows in the buildings’ corners themselves, which adds no drawing steps.',
+    ] },
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
     ] },
   { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
