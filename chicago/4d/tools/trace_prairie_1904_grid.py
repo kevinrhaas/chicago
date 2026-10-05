@@ -217,6 +217,106 @@ FACES = [
 ]
 
 # ---------------------------------------------------------------------------
+# THE 1886 LEGAL LOTS (T-1745). Robinson's Atlas of 1886, plate 10, prints the lot and
+# block numbers of 16th to 18th Street, Indiana Avenue to the Illinois Central, on the
+# committed photograph (data/traces/gcp/robinson_1886_plate_10_gcps.json, T-1250). Each
+# run is a stretch of one Prairie Avenue face: the rows of the lot lines the plate draws
+# across it, north to south, read at the column stated, and between each pair of lines
+# the lot number the plate prints in that lot. Rows are profile peaks (median darkness
+# across the column band, the method T-1250 used) where the band is clear of buildings
+# and frontage figures, and readings on 3x-4x enlargements where a building or a figure
+# covers it (the rows marked in 'by_eye'). A lot of None is a lot the plate draws and
+# numbers with nothing this reading can carry (see its note).
+#
+# THE PLATE'S CONVENTION, AND WHAT IS NOT RULED. Robinson prints block numbers as large
+# bold numerals and lot numbers as italic ones; the subdivision's name is lettered across
+# the ground it covers. HABS's legal description of 1800 Prairie ("Block 9 ... Assessor's
+# Division") is the same convention one block south. The plate also prints, in places, a
+# second and larger italic series with dashed lines -- 1 to 6 near the alley of the west
+# face's block 1, 1 to 4 on the east face's block 1 over the lettered lots A to E -- which
+# reads as the lots the smaller numbers re-divide. That series straddles the lot lines and
+# is NOT carried onto parcels here; the run's note names it.
+ROBINSON_SOURCE = "robinson_1886_chicago_plate_10"
+ROBINSON_GCP = GCP_DIR / "robinson_1886_plate_10_gcps.json"
+ROBINSON_LOTS = {
+    "prairie_w_16_18": {
+        "column": [478, 490],
+        "column_note": "columns 478-490, between the house fronts and the frontage figures",
+        "runs": [
+            {"block": "1", "subdivision": "E. L. Sherman's Sub.",
+             "lines": [1004.0, 1040.0, 1082.9, 1126.0, 1156.9, 1177.0, 1198.1, 1220.0, 1242.1, 1263.1, 1285.1,
+                       1305.8, 1330.1],
+             "by_eye": {1285.1: "columns 440-452: a building covers 478-490 at the 18/19 line"},
+             "lots": ["2", "5", "8", "11", "13", "14", "15", "16", "17", "18", "19", "20"],
+             "note": ("Lots 3, 4, 9 and 10 front Indiana Avenue, so the Prairie face runs 2, 5, 8, 11. The larger "
+                      "italic series 1 to 6 printed near the alley, with its dashed lines, is not carried. The "
+                      "name is lettered across both blocks: 'Sub.' over block 1, 'E. L. Sherman's' over block 2.")},
+            {"block": "2", "subdivision": "E. L. Sherman's Sub.",
+             "lines": [1330.1, 1363.1, 1453.0, 1500.1, 1577.0, 1599.1, 1618.0, 1643.0, 1664.1, 1690.2],
+             "by_eye": {},
+             "lots": ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+             "note": ("The plate's blue line at row 1330 parts the two blocks. Lot 2 is printed 105 ft and the plate "
+                      "draws a further line across it at about row 1435 with no number; that strip is part of lot 2.")},
+        ],
+    },
+    "prairie_e_16_18": {
+        "column": [600, 625],
+        "column_note": "columns 600-625, east of the houses; 556-563 beside the street line north of row 1040",
+        "runs": [
+            {"block": None, "subdivision": None,
+             "lines": [984.9, 1039.0, 1080.1, 1124.0, 1154.8],
+             "by_eye": {984.9: "columns 556-563, under the building printed '60'",
+                        1039.0: "columns 556-563"},
+             "lots": ["1", "6", "7", "12"],
+             "note": ("No subdivision name or block number is printed over these four lots; the series skips "
+                      "2-5 and 8-11, which lie east of them toward the railroad. The building north of row 985, "
+                      "beside the plate's 1601, is printed '60', which fits no lot series on the plate and is not "
+                      "carried as a lot.")},
+            {"block": None, "subdivision": "Subdivision",
+             "lines": [1154.8, 1177.0, 1198.0, 1218.1, 1240.9, 1264.1, 1283.3, 1305.0, 1329.2],
+             "by_eye": {1305.0: "a dashed line, on a 4x enlargement"},
+             "lots": ["1", "2", "3", "4", "5", "6", "7", "8"],
+             "note": ("The plate letters the one word 'Subdivision' diagonally across lots 4 to 10 with no name "
+                      "before it on this copy; the series continues as 9 to 12 south of the blue line.")},
+            {"block": "1", "subdivision": "Subdivision",
+             "lines": [1329.2, 1350.0, 1372.0, 1393.0, 1422.1, 1505.9, 1557.0, 1579.0, 1600.1, 1687.8],
+             "by_eye": {1350.0: "a dashed line, on a 3x enlargement", 1372.0: "a dashed line, on a 3x enlargement",
+                        1393.0: "on a 3x enlargement"},
+             "lots": ["9", "10", "11", "12", "A", "B", "C", "D", "E"],
+             "note": ("The bold 1 is printed in lot A. The larger italic 1 to 4 printed over lots 9-12, A, B-C and "
+                      "D-E (the lots the lettered ones re-divide) is not carried.")},
+        ],
+    },
+}
+# The one legal description south of 18th Street in hand (HABS data page 1).
+HABS_DATA = "habs_glessner_house_il_1015_data_pages"
+LEGAL_1800 = {
+    "parcel": "prairie_1800",
+    "label": "Lots 39, 40 and the north 17 ft of lot 38, block 9, Assessor's Division of Section 22",
+    "lots": ["39", "40", "38 (north 17 ft)"], "block": "9",
+    "subdivision": "Assessor's Division of the SW fractional quarter of Section 22, T39N, R14E",
+    "tier": "attested", "sources": [HABS_DATA],
+    "note": ("HABS's legal description of 1800 Prairie, the lots John J. Glessner bought on 24 March 1885 "
+             "(docs/RESEARCH/glessner_house_1904.md section 4). Robinson's plate 10 stops at 18th Street."),
+}
+# A lot is the parcel's whole if at least this share of the lot's frontage falls in it;
+# a lot that falls short is named as a part only where it is at least this share of the
+# parcel's own frontage AND more than twice the register's residual (the RMS distance,
+# after the shift, from each plate line to the Sanborn line it matched), so a sliver
+# from a neighbour's lot that is no bigger than the two maps' disagreement is not named.
+WHOLE_LOT_SHARE = 0.75
+PART_OF_PARCEL_SHARE = 0.25
+# The plate is registered to the Sanborn's lot lines along each face by one shift along
+# the face, because the plate's georeference is good to 4.54 m RMS and a lot is 7-15 m: a
+# fit error of half a lot would otherwise hand one lot's number to its neighbour. The
+# shift is fitted on the lines themselves and must stay inside the georeference's error.
+MAX_REGISTER_SHIFT_M = 6.0
+# The narrowest frontage the plate prints on these faces is 20.9 ft (block 2, lot 6); a
+# lot read narrower than this is two lines read where there is one, not a lot.
+MIN_PLATE_LOT_FT = 15.0
+
+
+# ---------------------------------------------------------------------------
 # THE STREET SECTION. Widths in feet from the street (property) line outward into
 # the street. Revised Municipal Code of 1905, sec. 2072: the sidewalk space is 14 ft
 # on a street 66-80 ft wide and 10 ft on one 50-60 ft wide; sec. 2062: the walk is
@@ -968,6 +1068,126 @@ def parcel_ids(face: dict, parcels: list[dict]) -> list[str]:
     return ids
 
 
+def robinson_local(px: float, py: float) -> tuple[float, float]:
+    if "r86" not in _CO:
+        _CO["r86"] = json.loads(ROBINSON_GCP.read_text(encoding="utf-8"))["fit"]["coefficients"]
+    c = _CO["r86"]
+    return (c["a"] * px + c["b"] * py + c["c"], c["d"] * px + c["e"] * py + c["f"])
+
+
+def lot_words(lots: list[str]) -> str:
+    return lots[0] if len(lots) == 1 else ", ".join(lots[:-1]) + " and " + lots[-1]
+
+
+def legal_lots_for(geo: Geo, face: dict, recs: list[dict]) -> dict:
+    """Name the plate's lots on each parcel of one face; returns the face's register reading."""
+    spec = ROBINSON_LOTS[face["id"]]
+    front = geo.get(face["front"])[1]
+    u = unit(sub(front[1], front[0]))
+    s_of = lambda p: dot(sub(p, front[0]), u)    # noqa: E731 -- metres along the face
+    col = sum(spec["column"]) / 2
+    lots = []
+    for run in spec["runs"]:
+        ss = [s_of(robinson_local(col, row)) for row in run["lines"]]
+        for i, lot in enumerate(run["lots"]):
+            lots.append({"run": run, "lot": lot, "s": sorted((ss[i], ss[i + 1])),
+                         "rows": [run["lines"][i], run["lines"][i + 1]]})
+    pars = []
+    for r in recs:
+        c = r["corners_local_m"]
+        a, b = (c["NE_street"], c["SE_street"]) if face["side"] == "west" else (c["NW_street"], c["SW_street"])
+        pars.append(sorted((s_of(a), s_of(b))))
+    # the register: the shift along the face that brings the plate's interior lines
+    # nearest the Sanborn's, by least squares over the lines within 4 m after the shift
+    sanborn = sorted({round(v, 3) for p in pars for v in p})
+    plate = sorted({round(v, 3) for L in lots for v in L["s"]})
+
+    def cost(d):
+        return sum(min(min(abs(x + d - y) for y in sanborn), 4.0) ** 2 for x in plate)
+    shift = min((k / 10 for k in range(int(-MAX_REGISTER_SHIFT_M * 10) - 20, int(MAX_REGISTER_SHIFT_M * 10) + 21)),
+                key=lambda d: (cost(d), abs(d)))
+    matched = [min(abs(x + shift - y) for y in sanborn) for x in plate]
+    matched = [m for m in matched if m < 4.0]
+    residual = math.sqrt(sum(m * m for m in matched) / len(matched)) if matched else 0.0
+    named = {}
+    for r, (p0, p1) in zip(recs, pars):
+        whole, part = [], []
+        for L in lots:
+            if L["lot"] is None:
+                continue
+            l0, l1 = L["s"][0] + shift, L["s"][1] + shift
+            ov = max(0.0, min(p1, l1) - max(p0, l0))
+            if ov <= 0:
+                continue
+            if ov >= WHOLE_LOT_SHARE * (l1 - l0):
+                whole.append(L)
+            elif ov >= PART_OF_PARCEL_SHARE * (p1 - p0) and ov > 2 * residual:
+                part.append(L)
+        hits = sorted(whole + part, key=lambda L: L["s"][0])
+        if not hits:
+            near = min(lots, key=lambda L: abs((L["s"][0] + L["s"][1]) / 2 + shift - (p0 + p1) / 2))
+            r["legal_lots"] = {
+                "label": "No lot number printed", "lots": [], "tier": "inferred",
+                "sources": [ROBINSON_SOURCE], "plate_shift_m": round(shift, 2),
+                "note": "Robinson's 1886 plate 10 prints no lot number this reading can carry on this parcel. "
+                        + near["run"]["note"],
+            }
+            continue
+        runs = []
+        for L in hits:
+            if L["run"] not in runs:
+                runs.append(L["run"])
+        if len(runs) != 1:
+            raise SystemExit(f"{r['id']}: its lots fall in two runs of the plate, which this record cannot say "
+                             f"({[L['lot'] for L in hits]}, shift {shift:+.1f} m)")
+        run = runs[0]
+        nums = [L["lot"] for L in hits]
+        wn, pn = [L["lot"] for L in whole], [L["lot"] for L in sorted(part, key=lambda L: L["s"][0])]
+        words = " and ".join(
+            ([f"Lot {wn[0]}" if len(wn) == 1 else f"Lots {lot_words(wn)}"] if wn else [])
+            + ([("part" if wn else "Part") + f" of lot {pn[0]}" if len(pn) == 1 else
+                ("parts" if wn else "Parts") + f" of lots {lot_words(pn)}"] if pn else []))
+        if run["subdivision"] == "Subdivision":
+            where = (f", block {run['block']}" if run["block"] else "") + " of an unnamed 'Subdivision'"
+        elif run["subdivision"]:
+            where = (f", block {run['block']}" if run["block"] else "") + f" of {run['subdivision']}"
+        else:
+            where = " (no subdivision named on the plate)"
+        covered = 0.0
+        for L in hits:
+            covered += max(0.0, min(p1, L["s"][1] + shift) - max(p0, L["s"][0] + shift))
+        bare = (p1 - p0) - covered
+        if bare > max(2 * residual, PART_OF_PARCEL_SHARE * (p1 - p0)):
+            where += f"; the rest of its frontage ({bare / FT:.0f} ft) carries no lot number on the plate"
+        r["legal_lots"] = {
+            "label": words + where,
+            "lots": nums,
+            "whole": [L["lot"] for L in whole],
+            "part": [L["lot"] for L in part],
+            "block": run["block"],
+            "subdivision": run["subdivision"],
+            "tier": "inferred",
+            "sources": [ROBINSON_SOURCE],
+            "plate_rows": [[L["rows"][0], L["rows"][1]] for L in hits],
+            "plate_shift_m": round(shift, 2),
+            "note": ("Robinson's Atlas of 1886, plate 10, carried to 1904: the lot lines are assumed unchanged "
+                     "1886-1904, and the plate's lots are matched to the 1911 Sanborn parcel along the face "
+                     f"(the plate registered {shift:+.1f} m along it; a lot is named whole where "
+                     f"{WHOLE_LOT_SHARE:.0%} of its frontage falls in the parcel, and as a part where it is "
+                     f"{PART_OF_PARCEL_SHARE:.0%} or more of the parcel's and over twice the "
+                     f"{residual:.1f} m the two maps' lines still disagree by). {run['note']}"),
+        }
+        for L in hits:
+            named.setdefault(id(L), []).append(r["id"])
+    unnamed = [f"{L['lot']} (rows {L['rows'][0]}-{L['rows'][1]})" for L in lots
+               if L["lot"] is not None and id(L) not in named]
+    return {"face": face["id"], "plate_shift_m": round(shift, 2), "residual_rms_m": round(residual, 2),
+            "lines_matched": len(matched), "lines_read": len(plate), "unnamed_lots": unnamed,
+            "narrowest_lot": min(([round((L["s"][1] - L["s"][0]) / FT, 1), L["lot"]] for L in lots
+                                  if L["lot"] is not None), key=lambda x: x[0]),
+            "lots_read": sum(1 for L in lots if L["lot"] is not None)}
+
+
 # ---------------------------------------------------------------------------
 
 
@@ -976,6 +1196,7 @@ def build() -> dict:
     lib = library_rows()
 
     blocks_out, faces_out, alleys_out, segs_out, parcels_out = [], [], [], [], []
+    registers = []
     block_by_id = {}
     for b in BLOCKS:
         corners, paths, bands = ring_bands(geo, b)
@@ -1066,6 +1287,12 @@ def build() -> dict:
             if not p["addresses"]:
                 rec["note"] = "No address is printed beside this lot on the 1911 sheet."
             parcels_out.append(rec)
+        if f["id"] in ROBINSON_LOTS:
+            registers.append(legal_lots_for(geo, f, parcels_out[-len(parcels):]))
+
+    for rec in parcels_out:
+        if rec["id"] == LEGAL_1800["parcel"]:
+            rec["legal_lots"] = {k: v for k, v in LEGAL_1800.items() if k != "parcel"}
 
     glessner = next(p for p in parcels_out if p["id"] == "prairie_1800")
     doc = {
@@ -1095,6 +1322,12 @@ def build() -> dict:
                         "row_width_sources": sorted({SHEET_SOURCE[s] for s in ("20", "28", "35")})}
                     for k, v in STREETS.items()},
         "derived_lines": DERIVED_LINES,
+        "legal_lots_standard": ("T-1745. legal_lots on a parcel is the lot (and block and subdivision) a plat or "
+                                "deed names for it. 16th to 18th Street: Robinson's Atlas of 1886, plate 10, read "
+                                "through the T-1250 georeference and registered to the Sanborn lot lines along each "
+                                "face (legal_lots_register), so INFERRED for 1904. 1800 Prairie: HABS's legal "
+                                "description, ATTESTED. South of 18th Street no plat is in hand."),
+        "legal_lots_register": registers,
         "rulings": {
             "glessner_lot_frontage": {
                 "question": "T-1731 left the frontage of 1800 Prairie at 74 or 77 ft, and the 1800/1808 line, for this ticket.",
@@ -1177,6 +1410,21 @@ def contract(doc: dict) -> list[str]:
         # the smallest superblocks are the 20th-21st pair, about 13,200 m2
         if not 8000 <= b["area_m2"] <= 60000:
             bad.append(f"{b['id']}: a {b['area_m2']} m2 block is not one of these superblocks")
+    for reg in doc.get("legal_lots_register", []):
+        if abs(reg["plate_shift_m"]) > MAX_REGISTER_SHIFT_M:
+            bad.append(f"{reg['face']}: the 1886 plate registers {reg['plate_shift_m']} m along the face, beyond "
+                       f"the {MAX_REGISTER_SHIFT_M} m its georeference allows: a misread line, not a fit error")
+        if reg["narrowest_lot"][0] < MIN_PLATE_LOT_FT:
+            bad.append(f"{reg['face']}: the 1886 plate's lot {reg['narrowest_lot'][1]} reads "
+                       f"{reg['narrowest_lot'][0]} ft, narrower than any frontage the plate prints")
+        for lot in reg["unnamed_lots"]:
+            bad.append(f"{reg['face']}: the 1886 plate's lot {lot} falls on no parcel")
+    on_plate = {f["block"] for f in FACES if f["id"] in ROBINSON_LOTS}
+    for p in doc["parcels"]:
+        if p["block"] in on_plate and "legal_lots" not in p:
+            bad.append(f"{p['id']}: stands on Robinson's plate 10 and carries no legal_lots")
+    if "legal_lots" not in parcels.get("prairie_1800", {"legal_lots": 1}):
+        bad.append("prairie_1800 carries no legal_lots, and HABS states them")
     faces = {f["id"] for f in doc["faces"]}
     for p in doc["parcels"]:
         if p["street_face"] not in faces:
@@ -1212,6 +1460,28 @@ def self_test() -> int:
         ok = "labels fall on no lot" in str(e)
     cases.append(("an address label centred on a lot line, which belongs to no lot, is refused", ok))
     FACES[:] = copy.deepcopy(saved)
+
+    saved_r = copy.deepcopy(ROBINSON_LOTS)
+    run = ROBINSON_LOTS["prairie_w_16_18"]["runs"][1]
+    run["lines"][4] = run["lines"][5] - 2.0   # lot 4 / 5 misread 21 px south: lot 5 shrinks to a sliver
+    cases.append(("an 1886 lot line misread so a lot is a sliver is refused",
+                  any("narrower than any frontage" in b for b in contract(build()))))
+    ROBINSON_LOTS.clear()
+    ROBINSON_LOTS.update(copy.deepcopy(saved_r))
+    for run in ROBINSON_LOTS["prairie_e_16_18"]["runs"]:
+        run["lines"] = [y + 60 for y in run["lines"]]   # a face read 60 px (21 m) out of register
+    try:
+        ok = bool(contract(build()))
+    except SystemExit:
+        ok = True
+    cases.append(("an 1886 face read three lots out of register is refused rather than re-shifted to fit", ok))
+    ROBINSON_LOTS.clear()
+    ROBINSON_LOTS.update(copy.deepcopy(saved_r))
+
+    doc = copy.deepcopy(base)
+    next(p for p in doc["parcels"] if p["id"] == "prairie_1612").pop("legal_lots")
+    cases.append(("a 16th-18th parcel with no legal_lots is refused",
+                  any("carries no legal_lots" in b for b in contract(doc))))
 
     doc = copy.deepcopy(base)
     doc["cross_sections"]["row_66"]["bands"][1]["to_ft"] = 8.0

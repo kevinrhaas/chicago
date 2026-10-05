@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1463, ts: '2026-10-05T02:38:39.866Z', date: 'Oct 4, 2026, 9:38 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
+  { v: 1464, ts: '2026-10-05T02:59:33.748Z', date: 'Oct 4, 2026, 9:59 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
     items: [
       'Nothing you can see changes in this update. We rebuilt all 570 building files the walkthrough downloads, twice, from their originals. Every one came back identical to the copy you are served, down to the last byte.',
       'An earlier rebuild had changed 348 of them for no visible reason. That was a version label written inside each file, changed by a tool update. The tool is now held at one version, so it cannot happen again.',
       'The check now also covers the older and lighter versions of a building, so none is left out.',
+    ] },
+  { v: 1463, ts: '2026-10-05T02:33:45.809Z', date: 'Oct 4, 2026, 9:33 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+    items: [
+      'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
+      'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
+      'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
     ] },
   { v: 1462, ts: '2026-10-05T02:20:28.118Z', date: 'Oct 4, 2026, 9:20 PM CT', title: 'Why no warehouses stand on the river side of South Water Street', kind: 'change',
     items: [
