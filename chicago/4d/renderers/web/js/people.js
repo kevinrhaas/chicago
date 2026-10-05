@@ -43,6 +43,7 @@ import { escapeHtml } from './citations.js';
 import { displayName } from './display-name.js';
 import { householdHtml, loadResidentJoins, words } from './residents.js';
 import { seatHtml, goTarget } from './seat.js';
+import { readHouseholdRecord } from './letter-list-roster.js';
 
 const PAGE = 80;
 
@@ -869,7 +870,7 @@ export async function mountPeople({
       }
     };
     try {
-      const [hh, citationsById] = await Promise.all([getJson(`residents/${r.file}`), citations()]);
+      const [hh, citationsById] = await Promise.all([readHouseholdRecord(dataBase, r.file, { cohort: !!r.letter_list_only }), citations()]);
       if (seq !== openSeq || signal?.aborted) return false; // a later open won
       render(hh, { citationsById, researchByPerson: new Map(), directoryByPerson: new Map(),
         withheldByPerson: new Map(), ladderRules: [] });

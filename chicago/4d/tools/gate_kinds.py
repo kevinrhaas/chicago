@@ -5,7 +5,7 @@ property they should have a gate or opening, i imagine a gate is period appropri
 vary by property what kind of gate/opening entrance they have based on correct 1835"*.
 
 THE KINDS, and what each stands on. None of them is attested on any Chicago lot; they are
-the gates the town's own fence types imply, graded `reconstructed` at docs/LIBERTIES.md L381.
+the gates the town's own fence types imply, graded `reconstructed` at docs/LIBERTIES.md L382.
 
   * `foot_gate` — one hung leaf, about 3 ft 6 in, in front of a dwelling's door. A board
     or paled fence on a house lot was a yard kept against hogs that ran at large (the

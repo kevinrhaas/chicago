@@ -21148,7 +21148,43 @@ carries depth.
 **T-1978**, **T-2103** (this entry).
 **Recorded:** 2026-10-04.
 
-### L381 — Every fenced street front and yard gateway has a gate or an opening, varied by lot
+### L381 — The State road to Vincennes: a located road whose line into the town nobody traced
+
+**Decision:** a travelled way, `state_road_south` in `data/streets/1835.json`, runs from the
+south end of State Street's worn track (local E +824.4 N -400) across the open south-west corner
+of the reservation onto the lakeshore sand belt, and straight south behind the dunes to the
+modelled ground's south wall at N -3797.5 — 3.5 km, a 4.5 m light-worn earth track inside a
+12 m corridor, `light` traffic. `geometry_confidence` and `wear_confidence` are
+**reconstructed**; the surface is `inferred` from the surface standard (earth only on this
+date). The street section grades it like every opened street, so the committed heightfield and
+the ground mesh were regenerated with it (a 0.25-0.4 ft worn bed, L338).
+**Why:** the road is documented and its line is not. Hubbard: in the winter of 1833-34 the
+General Assembly ordered a State road located from Vincennes to Chicago with mile-stones on it,
+and from Danville to Chicago the commissioners adopted his trail most of the way
+(`hubbard_autobiography_1911` p. 154, bk_hub_083; the trail itself bk_hub_082, and "the only
+well-defined road between Chicago and the Wabash country", bk_hub_011). Moses & Kirkland (vol. 1
+p. 32) put the town's road south "along the sand on the lake shore". So on 1 July 1835 the
+town's land approach from the south was a located State road on the sand belt east of State
+Street, and the street layer held nothing there at all: a visitor walking south out of the town
+met unbroken prairie.
+**What bounds the invention:** it leaves the town where the town's own worn track ends; it
+stays on the sand belt the second source names; it keeps at least 120 m inland of the 1835
+waterline, behind the reconstructed south dunes (L334), so it is neither on
+the beach nor over a hummock; it is dry at every sample on the committed heightfield; and it
+runs straight south because nothing says where it bent — Blue Island, the next place the trail
+is named at, is off the ground. It does NOT carry the town's State Street south of Washington
+Street, whose platted reach still draws no track (T-1707), and `name_2026` is null because no
+modern street is claimed to descend from it. No mile-stone is drawn: the order to place them is
+documented and their placing is not.
+**How to resolve:** a period map that draws the road's entry into the town — the "old maps" on
+which Hubbard says the trail was marked — or a commissioners' report of the 1834 location with
+bearings, which would replace the line vertex for vertex.
+**Related:** **L140** (the fort road, the town's other reconstructed way out), **L334** (the dunes), **L338** (the
+street section), **T-1587** (the three Hubbard readings ruled and this approach filed),
+**T-1707**, **T-1702** (this entry).
+**Recorded:** 2026-10-05.
+
+### L382 — Every fenced street front and yard gateway has a gate or an opening, varied by lot
 **Decision:** each improved lot behind a T-0069 street-lining fence gets a way in from the street
 in front of the building nearest the street on it: a hung foot gate, 3 ft 6 in, for a dwelling,
 and a pair of carriage leaves, 9 ft, for a trade (`tools/generate_frontage_works.py`, 73 gates on

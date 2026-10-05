@@ -1,10 +1,35 @@
 export const CHANGELOG = [ // newest first
-  { v: 1457, ts: '2026-10-05T01:24:16.506Z', date: 'Oct 4, 2026, 8:24 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
+  { v: 1461, ts: '2026-10-05T01:57:15.867Z', date: 'Oct 4, 2026, 8:57 PM CT', title: 'Street fences have gates, and yard gateways have gates or bars', kind: 'fix',
     items: [
       'Walk Lake Street past the board fences in front of the houses: each house now has its own gate in the fence, in front of it. Some stand shut, some ajar, some open.',
       'A shop or workshop behind a street fence has a pair of wide cart gates instead.',
       'The wide gateways at the back and street side of fenced yards now have a pair of board or paled gates. Split-rail fences open with slip bars, the rails slid out and laid on the ground. A few are just a gap.',
-      'Gates are a reconstruction (Liberty L381). They add a little to draw, and no extra draw calls.',
+      'Gates are a reconstruction (Liberty L382). They add a little to draw, and no extra draw calls.',
+    ] },
+  { v: 1460, ts: '2026-10-05T01:41:53.671Z', date: 'Oct 4, 2026, 8:41 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
+    items: [
+      'Walk south down State Street past Washington Street. A worn wagon road now leads on, out across the open ground and along the sandy belt behind the lake shore dunes, to the edge of the map.',
+      'It is the State road to Vincennes. In the winter of 1833\u201334 Illinois ordered it laid out from Vincennes to Chicago, mostly along Gurdon Hubbard\u2019s old trail. Before this, nothing led out of the town to the south.',
+      'That the road was there comes from Hubbard\u2019s own account. That it ran along the lake shore sand comes from Moses and Kirkland\u2019s history. Nobody recorded its exact line, so the line is our reconstruction. The Liberties page explains it (L381).',
+    ] },
+  { v: 1459, ts: '2026-10-05T01:23:30.633Z', date: 'Oct 4, 2026, 8:23 PM CT', title: 'The letter-list names load half the size', kind: 'change',
+    items: [
+      'Open People and look at the names known only from the post office\u2019s letter lists. Each one opens as before, with nothing left out.',
+      'They now come down to your browser in half the size, about 4.6 MB where it was 9.3 MB. Most of those records repeat the same paragraphs, and now each paragraph is sent once.',
+      'After the first name opens, other names with the same first letter open straight away.',
+    ] },
+  { v: 1458, ts: '2026-10-05T01:08:43.898Z', date: 'Oct 4, 2026, 8:08 PM CT', title: 'Jaunts that start with a choice no longer look stuck', kind: 'fix',
+    items: [
+      'Fourteen jaunts, A Bed for the Night among them, ask you to choose before you can move on. On a phone the options sat below the story, out of sight, and Next Stop was simply greyed out, so the outing looked stuck at its first stop.',
+      'At a stop like that the button now reads Choose an Option. Tap it and the panel scrolls to the options.',
+      'Nothing about the previous jaunt was carried over. All 26 jaunts were run start to finish, one after another, on a phone-sized window.',
+    ] },
+  { v: 1457, ts: '2026-10-05T00:54:32.111Z', date: 'Oct 4, 2026, 7:54 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+    items: [
+      'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
+      'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
+      'On a desktop at Full detail, the worst frame of a turn fell from 31 ms to 8 ms.',
+      'Turning in 1812 is as smooth as in 1835. 1904 has no wild planting to redraw, so walking there was already light on the processor.',
     ] },
   { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
     items: [

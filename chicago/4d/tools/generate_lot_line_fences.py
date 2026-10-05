@@ -682,7 +682,7 @@ def build(entries, sidecars):
                         "INVENTED, like every gateway on this layer. A lot closed on its "
                         "street line still has to be got into from the street, so the gap "
                         "is centred in that line, 10 ft for a cart; `gate` says what hangs "
-                        "in it (T-2112, tools/gate_kinds.py, L381)."
+                        "in it (T-2112, tools/gate_kinds.py, L382)."
                     ),
                 })
 
