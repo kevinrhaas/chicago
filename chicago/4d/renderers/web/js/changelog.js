@@ -1,9 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1479, ts: '2026-10-05T09:52:43.437Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+  { v: null, ts: '', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
     items: [
       'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
       'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
       'All ten are reconstructions: no record says what stood on this block in 1835 (Liberty L384).',
+    ] },
+  { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
+      'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
+    ] },
+  { v: 1479, ts: '2026-10-05T08:59:14.060Z', date: 'Oct 5, 2026, 3:59 AM CT', title: 'The shop-and-home count tells named homes from guessed ones again', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. When businesses the 1835 newspapers name are stood on their streets, our records count the houses on each street that are already homes, so no shop is put in one.',
+      'That count splits the homes into those of a family the town\u2019s records name and those of a family we infer. A slip in the code made the first half read zero on every street, whatever stood there. It is fixed, and our checks now recount both halves house by house.',
+      'Today the totals are the same either way: no named family yet lives in one of these reconstructed houses on a business street. The check makes sure the count will be right when one does.',
     ] },
   { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [
