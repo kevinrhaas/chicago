@@ -1,9 +1,35 @@
 export const CHANGELOG = [ // newest first
-  { v: 1454, ts: '2026-10-05T00:15:37.551Z', date: 'Oct 4, 2026, 7:15 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
+  { v: 1458, ts: '2026-10-05T01:09:21.056Z', date: 'Oct 4, 2026, 8:09 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
     items: [
       'Walk south down State Street past Washington Street. A worn wagon road now leads on, out across the open ground and along the sandy belt behind the lake shore dunes, to the edge of the map.',
       'It is the State road to Vincennes. In the winter of 1833\u201334 Illinois ordered it laid out from Vincennes to Chicago, mostly along Gurdon Hubbard\u2019s old trail. Before this, nothing led out of the town to the south.',
       'That the road was there comes from Hubbard\u2019s own account. That it ran along the lake shore sand comes from Moses and Kirkland\u2019s history. Nobody recorded its exact line, so the line is our reconstruction. The Liberties page explains it (L381).',
+    ] },
+  { v: 1457, ts: '2026-10-05T00:54:32.111Z', date: 'Oct 4, 2026, 7:54 PM CT', title: 'Turning and walking no longer wait on the grass', kind: 'fix',
+    items: [
+      'Re-planting the grass and flowers around you as you move used to happen all at once, in a single frame, so every small turn or few steps cost one long pause. That work is now shared across the next few frames, and the plants still stand exactly where they did.',
+      'On a slowed-down phone at Light detail, the worst frame of a slow turn fell from 70 ms to 16 ms, of a flight from 56 ms to 15 ms, and of a walk from 34 ms to 23 ms. No frame of those moves takes longer than 33 ms any more.',
+      'On a desktop at Full detail, the worst frame of a turn fell from 31 ms to 8 ms.',
+      'Turning in 1812 is as smooth as in 1835. 1904 has no wild planting to redraw, so walking there was already light on the processor.',
+    ] },
+  { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
+    ] },
+  { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We counted what the town draws at six places, at every Scene detail setting, on a desktop-sized window and a phone-sized one.',
+      'Each setting\u2019s limit came down to that count plus a small fixed margin, so a change that makes the town heavier is caught sooner.',
+    ] },
+  { v: 1454, ts: '2026-10-05T00:06:56.248Z', date: 'Oct 4, 2026, 7:06 PM CT', title: 'The header over shop doors and windows stops flickering as you turn', kind: 'fix',
+    items: [
+      'Stand in front of a shop and turn: the header board over the door and windows is now one steady board. It used to flicker with the wall\u2019s siding showing through it.',
+      'The board was built without its front face, so its back sat on the wall and the two fought to be seen. All 43 shopfronts in town are fixed.',
+      'The front steps of 108 houses had the same fault at their base and are fixed too.',
+      'Nothing new is drawn, so it costs nothing extra on a phone.',
     ] },
   { v: 1453, ts: '2026-10-04T23:45:10.247Z', date: 'Oct 4, 2026, 6:45 PM CT', title: 'Trees cost less to draw, and look the same', kind: 'fix',
     items: [

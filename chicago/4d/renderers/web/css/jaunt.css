@@ -49,7 +49,7 @@
 html[data-jaunt-active] { --jaunt-floor: 140px; --jaunt-nav: 72px; }
 html[data-jaunt-active] .jaunt-panel.jaunt-detail { bottom: calc(var(--jaunt-floor) + env(safe-area-inset-bottom)); }
 html[data-jaunt-active] #popup:not([hidden]), html[data-jaunt-active] #panel:not([hidden]), .jaunt-context-card {
-  top: calc(64px + env(safe-area-inset-top)); bottom: calc(var(--jaunt-floor) + var(--jaunt-nav) + env(safe-area-inset-bottom) + 8px);
+  top: calc(26px + var(--hud-row) + env(safe-area-inset-top)); bottom: calc(var(--jaunt-floor) + var(--jaunt-nav) + env(safe-area-inset-bottom) + 8px);
   height: auto; max-height: none; }
 html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-context-card { position: fixed; z-index: 32; left: 14px; width: min(430px, calc(100vw - 28px));
@@ -59,29 +59,30 @@ html[data-jaunt-active]:has(#panel:not([hidden])) #popup { visibility: hidden; }
 .jaunt-context-card button { min-height: 44px; padding: 8px 16px; font: inherit; }
 @media (max-width: 900px) {
   html[data-jaunt-active] { --jaunt-floor: clamp(80px, 18vh, 140px); --jaunt-nav: 168px; }
-  .jaunt-panel { top: calc(100px + env(safe-area-inset-top)); left: 8px; right: 8px; width: auto;
+  .jaunt-panel { top: calc(24px + 2 * var(--hud-row) + env(safe-area-inset-top)); left: 8px; right: 8px; width: auto;
     bottom: calc(var(--jaunt-floor) + env(safe-area-inset-bottom)); max-height: none; }
   .jaunt-body { flex: 1; }
   .jaunt-choice { grid-template-columns: minmax(104px, 42%) 1fr; }
   .jaunt-detail { top: auto; }
   .jaunt-panel.jaunt-collapsed { top: auto; }
   html[data-jaunt-active] #popup:not([hidden]), html[data-jaunt-active] #panel:not([hidden]) {
-    top: calc(64px + env(safe-area-inset-top)); bottom: calc(var(--jaunt-floor) + var(--jaunt-nav) + env(safe-area-inset-bottom) + 8px);
+    top: calc(26px + var(--hud-row) + env(safe-area-inset-top)); bottom: calc(var(--jaunt-floor) + var(--jaunt-nav) + env(safe-area-inset-bottom) + 8px);
     left: 8px; right: 8px; width: auto; height: auto; max-height: none; }
 }
 @media (max-height: 500px) {
-  .jaunt-panel:not(.jaunt-detail) { top: calc(58px + env(safe-area-inset-top)); }
+  .jaunt-panel:not(.jaunt-detail) { top: calc(20px + var(--hud-row) + env(safe-area-inset-top)); }
   .jaunt-body { padding: 8px 12px; }
 }
 /* T-2046: layouts. On a phone held upright the HUD wraps to a second row of chips that
-   ends near 92px, so a card or drawer opened from a stop starts where the panel does and
+   ends near 92px (104px once T-2061 gave touch chips 44px: the 100px below is
+   24px + two --hud-row), so a card or drawer opened from a stop starts where the panel does and
    leaves that row uncovered. Held sideways (390px tall) a stacked panel had 171px, all of
    it taken by the controls, and the stop's own text and links were clipped to nothing:
    there the controls stand in a column to the right of the story instead of under it,
    in the same order focus takes. Both edges
    take the landscape notch's side insets. */
 @media (max-width: 900px) and (min-height: 501px) {
-  html[data-jaunt-active] #popup:not([hidden]), html[data-jaunt-active] #panel:not([hidden]) { top: calc(100px + env(safe-area-inset-top)); }
+  html[data-jaunt-active] #popup:not([hidden]), html[data-jaunt-active] #panel:not([hidden]) { top: calc(24px + 2 * var(--hud-row) + env(safe-area-inset-top)); }
 }
 @media (max-width: 900px) {
   .jaunt-panel { left: max(8px, env(safe-area-inset-left)); right: max(8px, env(safe-area-inset-right)); }

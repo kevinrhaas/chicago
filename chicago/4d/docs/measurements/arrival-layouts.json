@@ -1,8 +1,142 @@
 {
-  "ticket": "T-2046",
-  "measuredAt": "2026-10-04T01:57:58.049Z",
+  "ticket": "T-2061",
+  "measuredAt": "2026-10-04T22:55:59.213Z",
   "browser": "153.0.8010.12",
   "layouts": [
+    {
+      "name": "narrow-320",
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "touch": true,
+      "insets": {
+        "top": 47,
+        "bottom": 34,
+        "left": 0,
+        "right": 0
+      },
+      "insetsApplied": true,
+      "steps": [
+        {
+          "step": "welcome",
+          "failures": [],
+          "focus": "h1#gate-title \"Welcome to Chicago, summer 1\"",
+          "still": "narrow-320-01-welcome.png"
+        },
+        {
+          "step": "picker",
+          "failures": [],
+          "focus": "input#welcome-search \"\"",
+          "still": "narrow-320-02-picker.png"
+        },
+        {
+          "step": "jaunts-menu",
+          "failures": [],
+          "focus": "button#welcome-jaunts \"JauntsShort outings in Chica\"",
+          "still": "narrow-320-03-jaunts-menu.png"
+        },
+        {
+          "step": "at-stop",
+          "failures": [],
+          "focus": "h2 \"Sauganash Hotel\"",
+          "still": "narrow-320-04-at-stop.png"
+        },
+        {
+          "step": "place-card",
+          "failures": [],
+          "focus": "button[return] \"Return\"",
+          "still": "narrow-320-05-place-card.png"
+        },
+        {
+          "step": "returned",
+          "failures": [],
+          "focus": "button[structure:sauganash_hotel] \"About this place\"",
+          "still": "narrow-320-06-returned.png"
+        },
+        {
+          "step": "source",
+          "failures": [],
+          "focus": "button[return] \"Return\"",
+          "still": "narrow-320-07-source.png"
+        },
+        {
+          "step": "returned-from-source",
+          "failures": [],
+          "focus": "button[source:kinzie_waubun_1856] \"Read Wau-Bun source\"",
+          "still": "narrow-320-08-returned-from-source.png"
+        }
+      ],
+      "errors": [],
+      "failures": 0
+    },
+    {
+      "name": "landscape",
+      "viewport": {
+        "width": 780,
+        "height": 390
+      },
+      "touch": true,
+      "insets": {
+        "top": 0,
+        "bottom": 21,
+        "left": 47,
+        "right": 47
+      },
+      "insetsApplied": true,
+      "steps": [
+        {
+          "step": "welcome",
+          "failures": [],
+          "focus": "h1#gate-title \"Welcome to Chicago, summer 1\"",
+          "still": "landscape-01-welcome.png"
+        },
+        {
+          "step": "picker",
+          "failures": [],
+          "focus": "input#welcome-search \"\"",
+          "still": "landscape-02-picker.png"
+        },
+        {
+          "step": "jaunts-menu",
+          "failures": [],
+          "focus": "section#welcome-jaunts-region \"Jaunts\"",
+          "still": "landscape-03-jaunts-menu.png"
+        },
+        {
+          "step": "at-stop",
+          "failures": [],
+          "focus": "h2 \"Sauganash Hotel\"",
+          "still": "landscape-04-at-stop.png"
+        },
+        {
+          "step": "place-card",
+          "failures": [],
+          "focus": "button[return] \"Return\"",
+          "still": "landscape-05-place-card.png"
+        },
+        {
+          "step": "returned",
+          "failures": [],
+          "focus": "button[structure:sauganash_hotel] \"About this place\"",
+          "still": "landscape-06-returned.png"
+        },
+        {
+          "step": "source",
+          "failures": [],
+          "focus": "button[return] \"Return\"",
+          "still": "landscape-07-source.png"
+        },
+        {
+          "step": "returned-from-source",
+          "failures": [],
+          "focus": "button[source:kinzie_waubun_1856] \"Read Wau-Bun source\"",
+          "still": "landscape-08-returned-from-source.png"
+        }
+      ],
+      "errors": [],
+      "failures": 0
+    },
     {
       "name": "keyboard-390",
       "viewport": {
@@ -73,18 +207,6 @@
           "still": "keyboard-390-09-returned-from-source.png"
         }
       ],
-      "elsewhere": [
-        "button#btn-start \"Start / Jaunts\" 105x38",
-        "button#btn-confidence \"Confidence\" 38x38",
-        "button#btn-confidence-more \"▾\" 26x38",
-        "button#btn-pace \"Walk\" 40x38",
-        "button#btn-fly \"Fly\" 38x38",
-        "button#btn-theme \"Light / dark interface\" 38x38",
-        "button#btn-help \"Menu\" 38x38",
-        "button \"why\" 19x17",
-        "button#panel-back \"Back\" 30x30",
-        "button#panel-close \"Close\" 30x30"
-      ],
       "errors": [],
       "failures": 0
     },
@@ -140,7 +262,6 @@
           "focus": "button[source:kinzie_waubun_1856] \"Read Wau-Bun source\""
         }
       ],
-      "elsewhere": [],
       "errors": [],
       "tabOrder": [
         "welcome-jaunts",
@@ -151,172 +272,7 @@
         "machine-dial"
       ],
       "failures": 0
-    },
-    {
-      "name": "narrow-320",
-      "viewport": {
-        "width": 320,
-        "height": 640
-      },
-      "touch": true,
-      "insets": {
-        "top": 47,
-        "bottom": 34,
-        "left": 0,
-        "right": 0
-      },
-      "insetsApplied": true,
-      "steps": [
-        {
-          "step": "welcome",
-          "failures": [],
-          "focus": "h1#gate-title \"Welcome to Chicago, summer 1\"",
-          "still": "narrow-320-01-welcome.png"
-        },
-        {
-          "step": "picker",
-          "failures": [],
-          "focus": "input#welcome-search \"\"",
-          "still": "narrow-320-02-picker.png"
-        },
-        {
-          "step": "jaunts-menu",
-          "failures": [],
-          "focus": "button#welcome-jaunts \"JauntsShort outings in Chica\"",
-          "still": "narrow-320-03-jaunts-menu.png"
-        },
-        {
-          "step": "at-stop",
-          "failures": [],
-          "focus": "h2 \"Sauganash Hotel\"",
-          "still": "narrow-320-04-at-stop.png"
-        },
-        {
-          "step": "place-card",
-          "failures": [],
-          "focus": "button[return] \"Return\"",
-          "still": "narrow-320-05-place-card.png"
-        },
-        {
-          "step": "returned",
-          "failures": [],
-          "focus": "button[structure:sauganash_hotel] \"About this place\"",
-          "still": "narrow-320-06-returned.png"
-        },
-        {
-          "step": "source",
-          "failures": [],
-          "focus": "button[return] \"Return\"",
-          "still": "narrow-320-07-source.png"
-        },
-        {
-          "step": "returned-from-source",
-          "failures": [],
-          "focus": "button[source:kinzie_waubun_1856] \"Read Wau-Bun source\"",
-          "still": "narrow-320-08-returned-from-source.png"
-        }
-      ],
-      "elsewhere": [
-        "button#btn-start \"Start / Jaunts\" 105x38",
-        "button#btn-confidence \"Confidence\" 38x38",
-        "button#btn-confidence-more \"▾\" 26x38",
-        "button#btn-pace \"Walk\" 40x38",
-        "button#btn-fly \"Fly\" 38x38",
-        "button#btn-theme \"Light / dark interface\" 38x38",
-        "button#btn-help \"Menu\" 38x38",
-        "button \"Go to\" 37x60",
-        "button \"Travel\" 37x60",
-        "button \"People\" 37x60",
-        "button \"Firms\" 37x60",
-        "button \"Evidence\" 37x60",
-        "button \"Settings\" 37x60",
-        "button \"Controls\" 37x60",
-        "button \"What's new\" 37x60",
-        "button#panel-back \"Back\" 30x30",
-        "button#panel-close \"Close\" 30x30"
-      ],
-      "errors": [],
-      "failures": 0
-    },
-    {
-      "name": "landscape",
-      "viewport": {
-        "width": 780,
-        "height": 390
-      },
-      "touch": true,
-      "insets": {
-        "top": 0,
-        "bottom": 21,
-        "left": 47,
-        "right": 47
-      },
-      "insetsApplied": true,
-      "steps": [
-        {
-          "step": "welcome",
-          "failures": [],
-          "focus": "h1#gate-title \"Welcome to Chicago, summer 1\"",
-          "still": "landscape-01-welcome.png"
-        },
-        {
-          "step": "picker",
-          "failures": [],
-          "focus": "input#welcome-search \"\"",
-          "still": "landscape-02-picker.png"
-        },
-        {
-          "step": "jaunts-menu",
-          "failures": [],
-          "focus": "section#welcome-jaunts-region \"Jaunts\"",
-          "still": "landscape-03-jaunts-menu.png"
-        },
-        {
-          "step": "at-stop",
-          "failures": [],
-          "focus": "h2 \"Sauganash Hotel\"",
-          "still": "landscape-04-at-stop.png"
-        },
-        {
-          "step": "place-card",
-          "failures": [],
-          "focus": "button[return] \"Return\"",
-          "still": "landscape-05-place-card.png"
-        },
-        {
-          "step": "returned",
-          "failures": [],
-          "focus": "button[structure:sauganash_hotel] \"About this place\"",
-          "still": "landscape-06-returned.png"
-        },
-        {
-          "step": "source",
-          "failures": [],
-          "focus": "button[return] \"Return\"",
-          "still": "landscape-07-source.png"
-        },
-        {
-          "step": "returned-from-source",
-          "failures": [],
-          "focus": "button[source:kinzie_waubun_1856] \"Read Wau-Bun source\"",
-          "still": "landscape-08-returned-from-source.png"
-        }
-      ],
-      "elsewhere": [
-        "button#btn-start \"Start / Jaunts\" 105x38",
-        "button#btn-confidence \"Confidence\" 105x38",
-        "button#btn-confidence-more \"▾\" 26x38",
-        "button#btn-pace \"Walk\" 74x38",
-        "button#btn-fly \"Fly\" 62x38",
-        "button#btn-theme \"Light / dark interface\" 38x38",
-        "button#btn-help \"Menu\" 38x38",
-        "button#panel-back \"Back\" 30x30",
-        "button#panel-close \"Close\" 30x30"
-      ],
-      "errors": [],
-      "failures": 0
     }
   ],
-  "successor": "the HUD chips, the place card's inline controls and the drawer header/tabs under 44px on touch",
   "verdict": "PASS"
 }
