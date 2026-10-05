@@ -12232,10 +12232,28 @@
       "asset": "gltf/recon_1835_blk_washington_clark_a4_04__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clark_a5_16",
+      "name": "Reconstructed A5 small utility building #16",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a5_16.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a5_16__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_d3_15",
+      "name": "Reconstructed D3 one-room frame cottage #15",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d3_15.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_d3_15__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_clark_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d4_02.json",
       "asset": "gltf/recon_1835_blk_washington_clark_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_d4_14",
+      "name": "Reconstructed D4 two-room frame cottage #14",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d4_14.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_d4_14__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_clark_d5_01",
@@ -12272,6 +12290,42 @@
       "name": "Reconstructed A3 privy #03",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_a3_03.json",
       "asset": "gltf/recon_1835_blk_washington_dearborn_a3_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d3_07",
+      "name": "Reconstructed D3 one-room frame cottage #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d3_07.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d3_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d3_08",
+      "name": "Reconstructed D3 one-room frame cottage #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d3_08.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d3_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d4_09",
+      "name": "Reconstructed D4 two-room frame cottage #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d4_09.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d4_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d7_04",
+      "name": "Reconstructed D7 small two-story frame house #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d7_04.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d7_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d7_06",
+      "name": "Reconstructed D7 small two-story frame house #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d7_06.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d7_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_h2_05",
+      "name": "Reconstructed H2 merchant or professional house #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_h2_05.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_h2_05__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_dearborn_h3_01",
