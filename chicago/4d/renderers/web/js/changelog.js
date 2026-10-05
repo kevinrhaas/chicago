@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1482, ts: '2026-10-05T10:43:24.169Z', date: 'Oct 5, 2026, 5:43 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+  { v: null, ts: '', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
       'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
       'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
       'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+    items: [
+      'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
+      'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
+      'All ten are reconstructions: no record says what stood on this block in 1835 (Liberty L384).',
     ] },
   { v: 1481, ts: '2026-10-05T10:26:22.802Z', date: 'Oct 5, 2026, 5:26 AM CT', title: 'Shops can now face the side street of a corner lot', kind: 'change',
     items: [
