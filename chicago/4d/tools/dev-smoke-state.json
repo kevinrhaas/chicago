@@ -3,6 +3,37 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 82,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 440,
+      "takenAt": "2026-10-05T17:56:35.767Z",
+      "ref": "steward/t-2062-first-fort-outer",
+      "commit": "f5b3e79e03a0",
+      "devCommit": "12c1b2e3c959",
+      "treeHash": "sha256:3eb6f50b789f39e8",
+      "treeDirty": false,
+      "changelogHash": "sha256:93578d9c9ad4837e",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.1,
+          4.2,
+          3.7
+        ]
+      },
+      "source": "/tmp/smoke_1835_d1.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "8",
       "parts": [
         8
@@ -1810,37 +1841,6 @@
         ]
       },
       "source": "/tmp/t1811/smoke-d8.log"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 454,
-      "takenAt": "2026-10-01T16:42:50.945Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          4.4,
-          4.3,
-          4.1
-        ]
-      },
-      "source": "/tmp/t1811/smoke-d7.log"
     }
   ]
 }

@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1501, ts: '2026-10-05T18:40:11.758Z', date: 'Oct 5, 2026, 1:40 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
+  { v: 1502, ts: '2026-10-05T18:40:36.777Z', date: 'Oct 5, 2026, 1:40 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
     items: [
       'Walk south on Canal Street past the Western Hotel and the block toward Washington Street is no longer empty. Three frame cottages now face Canal Street, one on the Washington corner, and a storey-and-a-half cottage faces West Water Street on the river side.',
       'This block had no lot lines until now. The 1830 plat gives its two rows of lots different depths, 180 feet and 150 feet, because the river cuts into the row along West Water Street. Each row is now cut to the depth the plat gives it.',
       'Four West Side families now have a home in the town, and the other four lots along West Water Street stay open ground.',
       'No source names these houses or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L313).',
+    ] },
+  { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
+    items: [
+      'Open the 1812 scene and the first Fort Dearborn no longer stands alone. West of it, by the river, is the two-storey log factory, the government trading house. South of that are the Indian agent\u2019s house and a column of three stables. South of the fort is the commanding officer\u2019s fenced garden, with the sutler\u2019s smaller garden toward the beach.',
+      'All seven come from Captain Whistler\u2019s own plan of his post, drawn in January 1808. He drew the fort to scale but noted that the buildings outside it were not. So each one stands where his own figures open the plan out: the agent\u2019s house is \u201ceighteen perches\u201d from the main gate, and the garden is lettered fifty feet to the inch.',
+      'That makes every position, size and height here a reconstruction, and each building\u2019s card says so. Which house was the factory is itself a reading: its number is not legible on the plan, and it is the one that stands due west of the fort, where an 1857 account puts \u201cthe two-story log United States factory\u201d.',
     ] },
   { v: 1500, ts: '2026-10-05T17:48:32.709Z', date: 'Oct 5, 2026, 12:48 PM CT', title: 'Who was dealt the north side\u2019s first lots, told right', kind: 'change',
     items: [
