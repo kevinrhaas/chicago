@@ -85,12 +85,12 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D4 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "construction": {
-      "value": "braced_frame",
+      "value": "balloon_frame",
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "hall_parlour",
@@ -168,6 +168,14 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D4 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "The Bousque household — a name the town's own records carry",
+      "confidence": "reconstructed",
+      "sources": [
+        "st_marys_baptismal_register_1833_1835"
+      ],
+      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_randolph_market#03, fronting washington, a standing roof of family D4 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
   "residents": [
@@ -210,101 +218,6 @@
         }
       ],
       "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
-    },
-    {
-      "household": "hh_inf_physician_south_01",
-      "name": "Evidence-only household — Dr. Josiah C. Goodhue",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Dr. Josiah C. Goodhue",
-          "relationship": "head",
-          "grade": "attested",
-          "occupation": "physician",
-          "note": "A DOCUMENTED MAN ON A RECONSTRUCTED ROOF. The papers name him and this household's dwelling does not: what is attested is the person and his trade, and what remains the reconstruction's is everything about where he lived. He is printed as 'Dr. Josian C. Goovnur' and the corpus reads his trade as physician. Cited at the Democrat of 4 February 1834, column 1. THIS ROOF DID NOT COME FROM HIS RECORD. The household was raised by the occupation census because the town of 3,265 people in 398 dwellings needed a physician and no documented one was available; the register (data/research/newspapers/register_1835.json, action `replace_invented`) is what says one now is. The dwelling's existence, position and footprint are unchanged and still conjectural, and nothing here claims he slept in it — only that the town's need for this trade is met by a man the papers name rather than by one this project invented. The invented name this record used to carry, and its name_basis block, are retired: an invented name is not kept beside a documented one. No figure is drawn (docs/LIBERTIES.md L1); the placement is L205. He is placed nowhere in particular by his own record, which is the condition of taking ANY roof of his trade — a man the papers put on a named street takes only a roof the plat stands on that street (T-0367), and one they place somewhere this scene cannot honour is refused outright. READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Goodhue, J. C.” (tax_1833_037, line 89); Election returns — poll list of 1834, filed 11 August 1834 — “Goodhue, J.” (poll_1834_044, line 213). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Goodhue' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 10 times, as “GOODHUE JOSIAH C”, “GOODHUE J C”, 1833-10-25 to 1836-06-30: 9 lots in the platted town — lot 10 of block 13 in the town the register codes CHIV (L10BL13CHIV, as printed); lot 13 of block 21 in the town the register codes CHIV (L13B21CHIV, as printed); lot 5 of block 13 in the town the register codes CHIV (L5BL13CHIV, as printed); lot 5 of block 17 in the town the register codes CHIV (L5BL17CHIV, as printed); lot 5 of block 37 in the town the register codes CHIOT (L5BL37CHIOT, as printed); lot 7 of block 38 in the town the register codes CHIOTV (L7BL38CHIOTV, as printed); lot 8 of block 13 in the town the register codes CHIV (L8BL13CHIV, as printed); lot 9 of block 13 in the town the register codes CHIV (L9BL13CHIV, as printed); lot 9 of block 51 in the town the register codes CHIOTV (L9BL51CHIOTV, as printed) and 1 parcel of the school section — lot 4 of block 119 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $17333.00 (ls0163, ls1169, ls1170, ls1171, ls1172, ls1173, ls1174, ls1175, ls1176, ls1177). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $17080.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: GOODHUE JOSIAH C matches Dr. Josiah C. Goodhue: the forename names Dr. Josiah C. Goodhue of the 1 person of this surname, and the forename agrees in full. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
-        }
-      ],
-      "research_note": "RECONSTRUCTED HOUSEHOLD - first of 1 physician households in this layer, in the south division. EIGHT PHYSICIANS ARE DOCUMENTED IN THE 1833 TOWN AND THIS DATASET HELD NOT ONE DOCTOR'S OFFICE. Four are written as households in the documented layer. One further physician household is inferred to occupy the office this parcel builds, because naming that office for a documented doctor would attach a real man to an invented building. METHOD: the count comes from the occupation census in data/reconstruction/1835_inferred_household_programme.json, which calibrates every trade against three things this project already holds - the 1835 town census (3,265 people, 398 dwellings), Andreas's roster of the fall of 1833 (about fifty named people, most with a trade, in a settlement of some 350), and the reconstruction specification's roof schedule, whose workshop and store family targets are treated as the ceiling on a trade rather than as its measure. Every count is stated NET of the documented layer: this dataset infers a tradesman only where it cannot name one. RETIRED AN INVENTED NAME (T-0264). This household was raised by the occupation census and named from the invented-name pools. The newspaper register matched it to Dr. Josiah C. Goodhue, a documented physician the corpus names 1 time(s) and places nowhere in particular, and he now holds the roof. What changed is WHO: the argument for the household, its dwelling and its position are untouched and still the reconstruction's, and the person's grade is `inferred` — a real man with reconstructed details — rather than `attested`, which would claim the dwelling too. tools/replace_invented_residents.py derives this deal and prints every candidate it refused. T-0489: reconstructed occupancy retired; evidence-based person retained and unplaced."
-    },
-    {
-      "household": "hh_rc_burke_owen",
-      "name": "The Burke household — a trade the rosters never printed",
-      "division": "south",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Owen Burke",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "labourer",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at labourer. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
-    },
-    {
-      "household": "hh_rc_nolan_thomas",
-      "name": "The Nolan household — a trade the rosters never printed",
-      "division": "south",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Thomas Nolan",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "brickmaker",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at brickmaker. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
-    },
-    {
-      "household": "hh_rc_reilly_michael",
-      "name": "The Reilly household — a trade the rosters never printed",
-      "division": "south",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Michael Reilly",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "clerk",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the south division, at clerk. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
-    },
-    {
-      "household": "hh_um_che_chalk_goes",
-      "name": "Che Chalk Goes — of the company the 1832 roll heads INDIAN",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the town's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Che Chalk Goes",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "CARDED FROM THE BORDERLINE ROSTER'S R6 (T-1376, stage `underdocumented`). Enrolled at Chicago in 1832 in the company the Black Hawk War roll heads INDIAN, with no 1835 corroboration and no card. The licence is R3's — the same roll, the same year, the same page — and the twenty men of Kercheval's company the town already carries were re-admitted under it. The roll prints him as `CHE CHALK GOES`, company `INDIAN`, enrolled at `CHICAGO`. The research READ this name and WITHHELD it, and that refusal is not overturned: this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence, and it says so on its face. The reading, the source and the refusal stand at `civic:data/research/civic/records/blackhawk_war_1832_chicago.json#records/blackhawk_1832_016#0` in data/reconstruction/1835_borderline_roster.json. REVIEW REQUIRED: this card is a record of a Native person at Chicago in the three years of the removal, and AGENTS.md's standing constraint holds it for review by Native scholars or community organisations before any scene carrying it may be marked released. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "WRITTEN BY tools/reconstruct_underdocumented.py (T-1376), the `native_and_metis` half of the `underdocumented` stage of the 1835 resident reconstruction programme, under the owner's ruling of 2026-09-17 recorded in AGENTS.md. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a card written here lives beside the re-admissions and is overlaid onto the scene by tools/compile_scene.py. REVIEW REQUIRED AND TOUCHES REMOVAL, both true, for the subject this record is about: a Native man at Chicago in 1832, three years before the removal of the Potawatomi from this place, inside the project's first target year. The review AGENTS.md commits to has not been held; until it is, no scene carrying this card may be marked released. docs/RESEARCH/native_and_metis_1835.md lists every source read and what is still owed. docs/LIBERTIES.md carries the invention."
     }
   ],
   "citations": [
@@ -326,6 +239,42 @@
         "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
         "Authority to replace stronger building-specific evidence already represented in the dataset."
       ]
+    },
+    {
+      "source_id": "st_marys_baptismal_register_1833_1835",
+      "citation": "The baptismal register of St Mary's, Chicago — the first Catholic parish in the town — opened by Father John Mary Irenaeus St. Cyr on 22 May 1833 and read here for the years 1833, 1834 and 1835: 57 entries in French and English naming children, parents, godparents and witnesses, with the priest's own signature under every one and eight autographs of the town's own people beside them.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
+        {
+          "work": "The baptismal register kept at Chicago by Father J. M. I. St. Cyr from May 1833",
+          "date": "1833-1849",
+          "tier": 1,
+          "note": "THE ORIGINAL, and these eleven images are photographs of it. A reading made off them is scan_verified — the higher of this project's two reading grades — and it outranks the marriage and death pages of st_cyr_register_ichr_v4, which reached this project through a 1921-22 article and a web transcription."
+        }
+      ],
+      "what_it_supplies": [
+        "57 dated baptisms of 1833-1835 and 267 named readings of people — 46 of the entries at Chicago and 166 of the readings adults there",
+        "KINSHIP, which no other source this project holds gives at all: a child, its two parents and its two godparents on one dated line, 44 times over",
+        "the town's Catholic population — French, Métis, Irish and German — of whom 85 distinct adults reach no surname in the residents layer",
+        "eight AUTOGRAPHS: Mark Beaubien, Josette Laframboise, Augustin Bonné, Monique Nadeau, Jean Baptiste Lavigne, J. B. Beaubien, Robert A. Kinzie and Gwinthlean Whistler signing under the priest, each placing a named person at a named place on a named day in their own hand",
+        "two adult baptisms with AGES — Josette Laframboise Beaubien at 38 in June 1834 and Geneviève Medera at about 20 in June 1835 — which are the only ages this project has for either woman",
+        "the parish's own start date, 22 May 1833, on a page the book heads '1er Page'",
+        "the register's own arithmetic: pencil tallies of 19, 24 and 14 baptisms for 1833, 1834 and 1835, which check any reading of it",
+        "a hue and cry on the title page describing what a young man of the Illinois country wore in 1833 or 1834 — a white pea coat, gray pants and a fur cap"
+      ],
+      "what_it_does_not_supply": [
+        "any address, lot, street, dwelling or workplace — the register places nobody anywhere in the town, and names no church building on any of the eleven pages",
+        "residence, and this is the trap. A baptism documents a person at a font on a day. Presence is not residence and nothing here mints or regrades a resident",
+        "presence on 1 July 1835 for anyone not baptised or standing as sponsor within days of it",
+        "occupation. One entry writes 'Doctor Egan' — a title inside a name — and that is the only trade the book ever states",
+        "ALL CHICAGO. Entries 1-11 of 1834 were written at Bear Creek, the South Fork of the Sangamon and Springfield, in Sangamon County, on the priest's journey back from St. Louis. A reader who takes the book as a Chicago roll plants eleven households in the wrong county",
+        "reliable spelling. A French priest wrote Irish, English and German names and phoneticised Potawatomi and Odawa ones; the same woman is Nadeau, Nodeau and Nodou in his own hand on three pages",
+        "the sponsors of 1834 entry 4, which stood on a line the scan's frame cuts off",
+        "anything about 1836 or later. The two page-sides in the deposit that carry 1837-38 and 1849 entries are declared and not transcribed"
+      ]
     }
   ],
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
@@ -343,22 +292,22 @@
     "stands_on": "street",
     "fronts": "washington",
     "sequence": 3,
-    "finish_key": "weathered_timber",
-    "roof_condition": "darkened",
-    "age_state": "established",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "type",
-      "household": null,
-      "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weather-darkened roof — a two-room frame cottage, from the 1832–33 town (rule F-T: a tradesman's by its type)"
+      "by": "keeper",
+      "household": "hh_bousque_bernard",
+      "words": "new-sawn clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Bousque household's, in Chicago since 1835 (rule F-T)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "tradesman",
-    "age_state": "established",
-    "weather_years": 2.5,
+    "age_state": "new",
+    "weather_years": 0.5,
     "weather_rate": 1.0,
     "lay_m": 0.006,
     "confidence": "reconstructed"
