@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1487, ts: '2026-10-05T12:35:45.781Z', date: 'Oct 5, 2026, 7:35 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
+  { v: 1488, ts: '2026-10-05T12:57:24.109Z', date: 'Oct 5, 2026, 7:57 AM CT', title: 'Where the county court sat in spring 1835 stays unknown', kind: 'change',
     items: [
       'Nothing you can see changes in this update. A notice of December 1834 sends a defendant to “the Court House at Chicago” in May 1835, months before the town’s brick court-house was built.',
       'The court had no building of its own yet. In 1834 it met in the Mansion House’s unfinished loft, then in an unfinished store on Dearborn Street. For the spring 1835 term, held 25 May to 9 June, no source we have read names a room.',
       'So no building in the town is marked as that court room.',
+    ] },
+  { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+    items: [
+      'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
+      'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
+      'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
+      'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
     ] },
   { v: 1486, ts: '2026-10-05T12:08:26.457Z', date: 'Oct 5, 2026, 7:08 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
     items: [
