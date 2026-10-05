@@ -15369,7 +15369,25 @@ shift a lot, `hh_beech_reuben`'s changes family (H1 to H2), and **three househol
 `hh_clarke_h_b` — owed to **T-1614** in writing, because every open block that still plans their
 families has only the lot the schedule keeps open. Nobody standing under a roof moves.
 
-**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s).
+**THE BUSINESS DEAL GOES FIRST, AND WHAT THAT COSTS IS NOW MEASURED (T-1669).** This deal and
+the street-face business deal (**L212**) spend one pool of anonymous roofs. The business deal's
+picks reached this one as occupancies on the structure records, and it held all **40** of them
+back as "a committed claim about the town" — which they are not; they are the other deal's
+allocation. It now reads `street_face_adoptions.json`, upstream of it by the road the
+occupancies already took, so no cycle closes, and names those 40 `held_by:
+street_face_business_deal`. The precedence is ruled rather than left to whichever pass ran
+last: **the narrower placement deals first**, because a business the paper puts on a street can
+stand on that one face and nowhere else, while a banded household may take any roof of an
+admitted family in its division. And it is costed by re-dealing, not by counting roofs.
+Release all 40 and this deal adopts the **14** dwellings among them (the 26 houses of trade it
+does not want), every one by a household already seated elsewhere moving to a better-scored
+lot, and seats **2** more households in all — `hh_humphrey_fre_lemuel` into a roof another
+household vacates, and `hh_bennet_lyman` on a slot. **So the precedence costs the households 2
+seats of 1,424**, and 40 would change roof or lot. Both numbers are tripwires in
+`seat_platted_ground_1835.py --check`: a re-order of either deal that moves them is red until
+somebody restates them and says why here. No seat, roof or record moved for this.
+
+**Recorded:** 2026-09-26. **Revised:** 2026-09-26, 2026-09-27 (T-1651, the seat count only), 2026-09-29 (T-1735, the seat count and the tier's re-apportionment), 2026-09-29 (T-1751, the adoption and slot tables, and the tier's first fall in slots), 2026-10-01 (T-1761, the adoption and slot tables, re-measured after T-1760; again after T-1794 and T-1773, unchanged), 2026-10-01 (T-1777, the deal order: lodging fourth), 2026-10-02 (T-1950, the seat count: one household owed for the third H3), 2026-10-02 (T-1951, the seat count: three households owed for the South's last three planned H3s), 2026-10-05 (T-1669, the business deal's precedence ruled and costed; no seat moved).
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
