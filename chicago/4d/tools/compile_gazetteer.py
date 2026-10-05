@@ -442,7 +442,26 @@ def text_lines(recorded_path, deposit, repo):
         target = Path(repo) / recorded_path
     if not target.exists():
         return None
-    return target.read_text(encoding="utf-8").splitlines()
+    text = target.read_text(encoding="utf-8")
+    lines = _READ.get(text)
+    if lines is None:
+        lines = _READ[text] = text.splitlines()
+        _OWNED.add(id(lines))
+    return lines
+
+
+# ONE TRANSCRIPTION, ONE SEGMENTATION (T-2117). `check` walks every artifact of the
+# corpus and segments it into columns, and the self-test runs `check` 157 times over a
+# corpus it mostly does not touch: 16,317 segmentations, 157 of its 171 s, and the
+# slowest step of tools/check.sh. The memo is keyed by the file's TEXT, not its path or
+# mtime, so a case that writes a broken transcription into its scratch deposit is
+# segmented afresh however fast it was written. A list `text_lines` hands out is never
+# altered by any caller here, and `column_starts` answers from memory only for those
+# lists (each kept alive by `_READ`, so its id is never re-used); a list made anywhere
+# else — the self-test's own dialect fixtures — is segmented every time.
+_READ: dict[str, list[str]] = {}
+_OWNED: set[int] = set()
+_STARTS: dict[int, list] = {}
 
 
 def printed_page_index(lines):
@@ -470,6 +489,16 @@ def column_starts(lines):
     seventh dialect is the exception and needs no ordinal at all: its column rules state
     the scan page themselves, so they are looked up in `printed_page_index`.
     """
+    if id(lines) in _STARTS:
+        return list(_STARTS[id(lines)])
+    starts = _column_starts(lines)
+    if id(lines) in _OWNED:
+        _STARTS[id(lines)] = starts
+        return list(starts)
+    return starts
+
+
+def _column_starts(lines):
     starts = []
     page = None
     banners = 0
