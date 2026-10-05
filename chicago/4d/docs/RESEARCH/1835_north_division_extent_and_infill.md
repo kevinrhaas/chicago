@@ -216,3 +216,39 @@ joiner's shop and a second C3. All six are reconstructed (L368).
 **The warehouse is still owed.** The F3 belongs on the North Water bank, the one north street
 graded `light`, and no committed clause seats a warehouse on a light street. Seating it needs a
 bank-landing clause or a regrade of North Water argued on its own evidence.
+
+## The Addition's 26 dwellings come south of Michigan Street (T-1746, 2026-10-05)
+
+The order book owed the North 26 ordinary dwellings (`structures/ordinary_dwellings/north`:
+target 84, standing 58), and the 665-roof schedule had dealt all 26 to the two subdivided
+cells above: 20 to `blk_indiana_north_wolcott` and 6 to `blk_indiana_north_cass`. Both stand at
+the ceiling this memo's alternation puts on them, four roofs each, and the seating pass had
+asked for twenty roofs there. One of the two had to give way.
+
+**Ruled: this memo stands, and the seating gives way.** The memo is the committed reading of
+the July 1835 north side; the seating is a policy deal that reads no source about those
+blocks. Nor does the memo refuse the roofs themselves: its own full North target is 90
+ordinary dwellings against the inventory's 84. What it refuses is spending them north of
+Michigan Street, where the primary maps draw lots and no buildings.
+
+So the 26 stand, family for family as the schedule dealt them (D2 3, D3 3, D4 7, D5 7, D6 4,
+D7 2), as recipe rows 68-93 of `1835_north_division_initial_parcel.json` (`addition_surplus`)
+in this memo's three inner clusters:
+
+| where | roofs |
+|---|---:|
+| north face of Kinzie Street, west of Dearborn and east of Wolcott | 9 |
+| south face of Kinzie, in the North Water band | 5 |
+| scattered through the Kinzie-Michigan interior | 12 |
+
+Kinzie Street between Dearborn and Wolcott is left as T-1205 dealt it, with no house between
+its trade roofs, and Michigan Street stays a sparse outer edge. Each centre was found by a
+deterministic search against the generator's own tests and three more, measured at the deal:
+at least 14 m from every committed roof (an open yard between every pair, no street wall), at
+least 25 m from every named structure, and inside the initial occupied envelope. None is a
+reading of a source (L389).
+
+With no roof left to plan on the two cells, the schedule plans none, the platted deal requests
+no slot there, and the thirteen households whose slots stood on them are seated by the
+off-plat deal under standing North Division roofs, with thirteen more owed North households
+beside them. All 26 new roofs are occupied.

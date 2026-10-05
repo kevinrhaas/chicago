@@ -1,3 +1,21 @@
+## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
+
+- **Ruled**: the north-division memo stands and the seating gives way. The 26 ordinary
+  dwellings the schedule had dealt to `blk_indiana_north_wolcott` (20) and
+  `blk_indiana_north_cass` (6), both already at the memo's four-roof ceiling, stand instead
+  in the memo's three inner clusters south of Michigan Street: recipe rows 68-93 of
+  `1835_north_division_initial_parcel.json` (`addition_surplus`), family for family.
+  Recorded in the memo's new section and **L389**.
+- **Visible**: 26 new houses north of the river (9 on Kinzie's north face, 5 on its south
+  face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
+  school house were rebaked for the siding re-deal their new neighbours caused.
+- **Seated**: the order book's `structures/ordinary_dwellings/north` reads 84 standing, 0 to
+  build. The platted deal now requests no slot anywhere (it had 13, all on those two blocks);
+  those 13 households and 13 more owed North households are seated by the off-plat deal, and
+  all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
+- **Not measured**: no source places any of these houses; every position is a search result
+  against the placement predicates, stated as such.
+
 ## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
 
 The first piece of the West Division's remainder T-1826 handed on. `blk_west_lake_canal` (plat

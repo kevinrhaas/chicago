@@ -641,6 +641,11 @@ STRUCTURE_TICKETS = {
     # apportioned `roofs: 0`, so there is nowhere on this addition the 26 can stand without
     # either the memo or the seating giving way. Ordering them from T-1746 is the order book
     # saying so: the next run on this cell rules, and does not deal.
+    #
+    # T-1746 RULED, 2026-10-05: the memo stands and the seating gives way. The 26 stand
+    # south of Michigan Street as recipe rows 68-93 of 1835_north_division_initial_parcel.json
+    # (`addition_surplus`, L389), so the row reads 0 left. It keeps T-1746's name as the
+    # ticket that closed it; a later raise of the North's target is a new ticket.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1952",

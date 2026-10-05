@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
+    items: [
+      'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
+      'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
+      'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
+      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L389).',
+    ] },
   { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [
       'Nothing in the town or on its menus changed. This is about the checks every change has to pass before it ships.',

@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 569,
-    "structures_reached": 103,
+    "structures_placed": 595,
+    "structures_reached": 122,
     "structures_reached_by_grade": {
       "inferred": 25,
-      "reconstructed": 78
+      "reconstructed": 97
     },
     "structures_unreached_by_section": {
-      "09": 463,
+      "09": 470,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -1924,7 +1924,16 @@
       },
       "refusal": null,
       "note": null,
-      "structures": []
+      "structures": [
+        {
+          "id": "recon_1835_north_d5_068",
+          "margin_m": 4.4
+        },
+        {
+          "id": "recon_1835_north_d5_082",
+          "margin_m": 13.8
+        }
+      ]
     },
     {
       "record_id": "ls0051",
@@ -2256,6 +2265,10 @@
           "margin_m": 66.1
         },
         {
+          "id": "recon_1835_north_d2_085",
+          "margin_m": 37.0
+        },
+        {
           "id": "recon_1835_north_d3_024",
           "margin_m": 43.5
         },
@@ -2266,6 +2279,10 @@
         {
           "id": "recon_1835_north_d3_055",
           "margin_m": 26.4
+        },
+        {
+          "id": "recon_1835_north_d3_073",
+          "margin_m": 0.9
         },
         {
           "id": "recon_1835_north_d4_015",
@@ -2280,12 +2297,40 @@
           "margin_m": 59.3
         },
         {
+          "id": "recon_1835_north_d4_083",
+          "margin_m": 34.3
+        },
+        {
           "id": "recon_1835_north_d5_057",
           "margin_m": 28.8
         },
         {
+          "id": "recon_1835_north_d5_071",
+          "margin_m": 0.7
+        },
+        {
+          "id": "recon_1835_north_d5_074",
+          "margin_m": 0.8
+        },
+        {
+          "id": "recon_1835_north_d5_086",
+          "margin_m": 52.1
+        },
+        {
+          "id": "recon_1835_north_d5_092",
+          "margin_m": 36.4
+        },
+        {
           "id": "recon_1835_north_d6_058",
           "margin_m": 33.9
+        },
+        {
+          "id": "recon_1835_north_d6_070",
+          "margin_m": 0.2
+        },
+        {
+          "id": "recon_1835_north_d6_084",
+          "margin_m": 32.7
         },
         {
           "id": "recon_1835_north_h2_030",
@@ -2790,6 +2835,10 @@
           "margin_m": 73.2
         },
         {
+          "id": "recon_1835_north_d2_091",
+          "margin_m": 33.1
+        },
+        {
           "id": "recon_1835_north_d3_020",
           "margin_m": 49.2
         },
@@ -2798,12 +2847,28 @@
           "margin_m": 54.6
         },
         {
+          "id": "recon_1835_north_d3_089",
+          "margin_m": 83.0
+        },
+        {
           "id": "recon_1835_north_d4_039",
           "margin_m": 28.2
         },
         {
           "id": "recon_1835_north_d4_043",
           "margin_m": 58.0
+        },
+        {
+          "id": "recon_1835_north_d4_075",
+          "margin_m": 65.5
+        },
+        {
+          "id": "recon_1835_north_d4_087",
+          "margin_m": 31.8
+        },
+        {
+          "id": "recon_1835_north_d4_090",
+          "margin_m": 13.3
         },
         {
           "id": "recon_1835_north_d5_019",
@@ -2830,8 +2895,20 @@
           "margin_m": 34.2
         },
         {
+          "id": "recon_1835_north_d6_093",
+          "margin_m": 14.3
+        },
+        {
           "id": "recon_1835_north_d7_031",
           "margin_m": 51.7
+        },
+        {
+          "id": "recon_1835_north_d7_076",
+          "margin_m": 26.6
+        },
+        {
+          "id": "recon_1835_north_d7_088",
+          "margin_m": 106.8
         },
         {
           "id": "recon_1835_north_h2_022",
@@ -3027,6 +3104,10 @@
           "margin_m": 73.2
         },
         {
+          "id": "recon_1835_north_d2_091",
+          "margin_m": 33.1
+        },
+        {
           "id": "recon_1835_north_d3_020",
           "margin_m": 49.2
         },
@@ -3035,12 +3116,28 @@
           "margin_m": 54.6
         },
         {
+          "id": "recon_1835_north_d3_089",
+          "margin_m": 83.0
+        },
+        {
           "id": "recon_1835_north_d4_039",
           "margin_m": 28.2
         },
         {
           "id": "recon_1835_north_d4_043",
           "margin_m": 58.0
+        },
+        {
+          "id": "recon_1835_north_d4_075",
+          "margin_m": 65.5
+        },
+        {
+          "id": "recon_1835_north_d4_087",
+          "margin_m": 31.8
+        },
+        {
+          "id": "recon_1835_north_d4_090",
+          "margin_m": 13.3
         },
         {
           "id": "recon_1835_north_d5_019",
@@ -3067,8 +3164,20 @@
           "margin_m": 34.2
         },
         {
+          "id": "recon_1835_north_d6_093",
+          "margin_m": 14.3
+        },
+        {
           "id": "recon_1835_north_d7_031",
           "margin_m": 51.7
+        },
+        {
+          "id": "recon_1835_north_d7_076",
+          "margin_m": 26.6
+        },
+        {
+          "id": "recon_1835_north_d7_088",
+          "margin_m": 106.8
         },
         {
           "id": "recon_1835_north_h2_022",
@@ -40077,15 +40186,22 @@
       "recon_1835_north_a5_011",
       "recon_1835_north_d1_001",
       "recon_1835_north_d2_003",
+      "recon_1835_north_d2_077",
       "recon_1835_north_d3_002",
       "recon_1835_north_d3_006",
       "recon_1835_north_d3_016",
+      "recon_1835_north_d3_081",
       "recon_1835_north_d4_004",
       "recon_1835_north_d4_005",
       "recon_1835_north_d4_012",
       "recon_1835_north_d4_017",
       "recon_1835_north_d4_018",
+      "recon_1835_north_d4_069",
+      "recon_1835_north_d4_072",
+      "recon_1835_north_d4_079",
+      "recon_1835_north_d5_078",
       "recon_1835_north_d6_021",
+      "recon_1835_north_d6_080",
       "recon_1835_north_h1_007",
       "recon_1835_north_w3_062",
       "recon_1835_south_a1_046",
