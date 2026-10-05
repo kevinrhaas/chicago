@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Two more blocks south of Washington get their houses', kind: 'change',
+  { v: 1488, ts: '2026-10-05T12:57:12.024Z', date: 'Oct 5, 2026, 7:57 AM CT', title: 'Two more blocks south of Washington get their houses', kind: 'change',
     items: [
       'Walk south down Dearborn Street past Washington and both blocks beside you now have houses. On the Dearborn-to-State block six stand around the boarding house that was already there: a two-storey frame house on each Washington corner, a merchant\u2019s house between them, two one-room cottages and a tradesman\u2019s house along Madison. One lot is left open.',
       'Across Dearborn, on the Clark block, the last two empty lots are built: a tradesman\u2019s house on Washington with a smokehouse behind it, and a cottage behind that on Madison. That block now carries sixteen roofs on seven of its eight lots.',
