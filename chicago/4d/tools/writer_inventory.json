@@ -7,6 +7,13 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "derive_lot_remnant.py": {
+      "placement": "manifest",
+      "write_mode": "--write",
+      "measured": "2026-10-05",
+      "finding": "Reproduces: ran `--write` on a clean tree in 2s, wrote its outputs, changed no committed byte.",
+      "placed": "by layer, 2026-10-05 \u2014 directly after tools/generate_kept_ground.py; it reads the lot survey, the yard outbuildings and z10_settled_town's derived extent (T-2101)"
+    },
     "derive_settled_town_extent.py": {
       "placement": "manifest",
       "write_mode": "--write",
