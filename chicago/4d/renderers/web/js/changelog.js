@@ -1,7 +1,7 @@
 export const CHANGELOG = [ // newest first
   { v: null, ts: '', date: '', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
-      'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a two-storey house on the east corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
+      'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the first of the five blocks there to be built; the other four follow in the next updates.',
       'Seven households now live in these houses, two of them named on the house itself. The seven who had asked for these lots are given lots on the next blocks south instead, because households already in the town move into new houses first.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L392).',

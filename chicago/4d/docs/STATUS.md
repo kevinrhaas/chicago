@@ -9,7 +9,7 @@ lot 0 kept open) with one A2 yard roof.
   the pinned Blender (`bake.sh --only`, nine meshes: the eight plus `blk_washington_market_d4_11`,
   whose siding stock the parcel deal advanced). **L392** records the invention.
 - The keeper pass gains a seventh district, `school_section_tier` (carried by T-2147); without
-  it the block's two letter-list-free keepers were owed to T-2136, which is done, and
+  it the block's two writable keepers were owed to T-2136, which is done, and
   `name_the_keepers_1835.py --check` was red. Blocks 94/95/118/119 share the prefix.
 - Seating walked to its fixpoint (four full laps, then 25 inner keeper↔seat laps — the walk moves
   one roof a lap down the household order, as T-2129 saw): **216 seated, held**; adopted
