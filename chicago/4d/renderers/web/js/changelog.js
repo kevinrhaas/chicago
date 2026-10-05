@@ -1,11 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1484, ts: '2026-10-05T11:43:42.952Z', date: 'Oct 5, 2026, 6:43 AM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+  { v: null, ts: '', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
     items: [
       'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
       'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
       'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
       'The same soft edge now runs where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
       'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
+  { v: 1485, ts: '2026-10-05T11:53:33.468Z', date: 'Oct 5, 2026, 6:53 AM CT', title: 'The town\u2019s 1833 wharf law is now written on the river landings', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. The river landings\u2019 record now carries the town\u2019s own wharfing law of December 1833: a lot on the river could build a wharf on the open ground before it, leaving eighty feet for a street, for fifteen dollars a year.',
+      'The law says nothing about any one wharf, so no dock in the town moves or changes size because of it.',
+      'Our research bookkeeping can now count a newspaper reading as used when it lands on the wharves or on the street edge, not only on a person, a business or a building.',
+    ] },
+  { v: 1484, ts: '2026-10-05T11:30:10.304Z', date: 'Oct 5, 2026, 6:30 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
+    items: [
+      'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
+      'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
+      'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
     ] },
   { v: 1483, ts: '2026-10-05T11:07:09.913Z', date: 'Oct 5, 2026, 6:07 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
     items: [
