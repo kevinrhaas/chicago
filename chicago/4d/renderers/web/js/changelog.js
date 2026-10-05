@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1473, ts: '2026-10-05T06:07:47.525Z', date: 'Oct 5, 2026, 1:07 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+  { v: null, ts: '', title: 'No more grass popping up around you in town', kind: 'fix',
     items: [
       'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
       'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
       'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
       'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1473, ts: '2026-10-05T05:40:19.511Z', date: 'Oct 5, 2026, 12:40 AM CT', title: 'Shops and homes on the 1835 plat now share roofs by a written rule', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Two parts of the 1835 town hand out the same empty roofs: one stands the businesses the newspapers name on their streets, the other seats the households the address book names in their part of town.',
+      'Neither could see what the other took, so a change to one could quietly add or remove households from the other. Now the businesses go first, because each can only stand on its own street, and the cost to households is measured: 2 of 1,424.',
+      'If a later change moves that number, the checks stop it until someone decides it on purpose.',
     ] },
   { v: 1472, ts: '2026-10-05T05:29:09.489Z', date: 'Oct 5, 2026, 12:29 AM CT', title: 'We measured what soft shadows in every corner would cost', kind: 'change',
     items: [
