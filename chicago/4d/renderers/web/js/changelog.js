@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1502, ts: '2026-10-05T19:30:26.486Z', date: 'Oct 5, 2026, 2:30 PM CT', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
+  { v: null, ts: '', date: '', title: 'The town\u2019s next houses will cross Madison Street', kind: 'change',
     items: [
       'Walk south across Madison between Market and State and the five blocks there are no longer open prairie. They are now cropped, grazed vacant lots, the same sward as the empty lots inside the town. No house stands on them yet.',
       'These blocks were sold lot by lot in October 1833, in the School Section beyond the town\u2019s south line. The town plan still owes the South Division about forty houses, and every block inside the line is full. So those houses will be built here, one to a lot, with a lot left open on each block.',
       'Thirty-four households who had no lot are now given one on these blocks, and their cards say so. Their houses come in the next few updates.',
+    ] },
+  { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
+  { v: 1502, ts: '2026-10-05T18:41:21.129Z', date: 'Oct 5, 2026, 1:41 PM CT', title: 'Four Dearborn Street businesses move into the new workshops', kind: 'change',
+    items: [
+      'The four workshops that opened onto Dearborn Street behind corner houses now hold businesses. Cooley and Halsman, tailors, and S. Abell, attorney and counsellor, hang their boards there. Elmira Fowler and W. H. Taylor\u2019s boot and shoe store take the other two.',
+      'These are firms the 1834\u201335 papers place on Dearborn Street and nowhere narrower. Until now the town treated the new shops as back-yard buildings and would not put a business in them. They stand on the street, so they are on Dearborn\u2019s face like any other roof there.',
+      'Four more Dearborn businesses now have a roof: the wholesale wine and liquor store, the Dearborn Street auction and commission rooms, George Holsman, and a second Cooley partnership. 44 of the 52 businesses the papers give only a street for now stand on it.',
+      'Which roof on the street each firm gets is our choice, not evidence, and its card says so.',
     ] },
   { v: 1501, ts: '2026-10-05T18:14:28.376Z', date: 'Oct 5, 2026, 1:14 PM CT', title: 'Outside the 1812 fort: the trading house, agency, stables and gardens', kind: 'change',
     items: [

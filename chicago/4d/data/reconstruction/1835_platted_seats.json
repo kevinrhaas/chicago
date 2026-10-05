@@ -72,9 +72,9 @@
    "merchant_and_professional_dwellings": 380,
    "tradesman_dwellings": 506
   },
-  "roofs_offered_for_adoption": 177,
-  "roofs_held_back": 56,
-  "roofs_held_by_the_business_deal": 40,
+  "roofs_offered_for_adoption": 173,
+  "roofs_held_back": 60,
+  "roofs_held_by_the_business_deal": 44,
   "seats_the_business_deal_costs": 1
  },
  "what_the_plat_could_not_hold": {
@@ -84,8 +84,8 @@
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
-  "roofs_held": 40,
-  "roofs_held_that_are_houses_of_trade": 26,
+  "roofs_held": 44,
+  "roofs_held_that_are_houses_of_trade": 30,
   "roofs_a_release_would_fill": [
    "recon_1835_blk_lake_franklin_d1_02",
    "recon_1835_blk_lake_market_d2_04",
@@ -113,7 +113,7 @@
    }
   ],
   "households_that_would_change_roof": 35,
-  "reading": "the business deal holds 40 roofs on the plat, 26 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 35 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "reading": "the business deal holds 44 roofs on the plat, 30 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 35 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -323,6 +323,24 @@
    "family": "D6",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
+   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+   "lot_id": "blk_randolph_clark#07",
+   "family": "W1",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Cooley and Halsman — tailors",
+   "business_id": "business_cooley_and_halsman"
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+   "lot_id": "blk_randolph_clark#06",
+   "family": "W2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
    "occupants": "S. Abell, attorney and counsellor — attorney, counsellor and land conveyancer",
    "business_id": "business_s_abell_attorney_and_counsellor"
   },
@@ -332,8 +350,8 @@
    "family": "D1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Elmira Fowler — millinery and dress making",
-   "business_id": "business_elmira_fowler"
+   "occupants": "Cooley and Hol[b]man — tailoring",
+   "business_id": "business_cooley_and_hol_b_man"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
@@ -341,8 +359,8 @@
    "family": "D3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
-   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
+   "occupants": "the Dearborn Street auction and commission rooms — auction and commission rooms",
+   "business_id": "business_the_dearborn_street_auction_and_commission_rooms"
   },
   {
    "structure_id": "recon_1835_blk_randolph_dearborn_h1_14",
@@ -350,8 +368,17 @@
    "family": "H1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Cooley and Halsman — tailors",
-   "business_id": "business_cooley_and_halsman"
+   "occupants": "a wholesale wine and liquor store, Dearborn Street — wholesale wine and liquors",
+   "business_id": "business_a_wholesale_wine_and_liquor_store_dearborn_street"
+  },
+  {
+   "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+   "lot_id": "blk_randolph_dearborn#00",
+   "family": "W2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "[uncertain: W. H. Taylor], Dearborn Street boot and shoe store — boot, shoe and leather store, and boot and shoe making",
+   "business_id": "business_uncertain_w_h_taylor_dearborn_street_boot_and_shoe_store"
   },
   {
    "structure_id": "recon_1835_blk_randolph_wells_d2_07",
@@ -431,8 +458,8 @@
    "family": "D2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[tin, sheet iron and stove manufactory, proprietor not recovered] — tin, sheet iron and stove work",
-   "business_id": "business_tin_sheet_iron_and_stove_manufactory_proprietor_not_recovered"
+   "occupants": "George Holsman — tailoring",
+   "business_id": "business_george_holsman"
   },
   {
    "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
@@ -568,6 +595,15 @@
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
    "occupants": "Chicago Bakery — baker",
    "business_id": "business_chicago_bakery"
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+   "lot_id": "blk_washington_dearborn#00",
+   "family": "W2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Elmira Fowler — millinery and dress making",
+   "business_id": "business_elmira_fowler"
   },
   {
    "structure_id": "recon_1835_south_c3_040",
