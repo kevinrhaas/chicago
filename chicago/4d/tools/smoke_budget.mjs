@@ -276,6 +276,11 @@ const COVERAGE = [
   // part 13 and never opened the directory it had changed. ANCHORS below now holds it.
   ['renderers/web/js/agencies.js', [3, 13], 'the agency on the card, and on the person'],
   ['renderers/web/js/people.js', [12], 'the directory of everyone in the town'],
+  // T-0438. The reader the cohort's rows go through once the mirror ships them packed:
+  // a letter-list person opened from the directory (12) and a row of the Evidence
+  // panel's letter-list group, whose body the smoke reads (13). No building card holds
+  // a letter-list name, so part 3 never reaches it.
+  ['renderers/web/js/letter-list-roster.js', [12, 13], 'how a letter-list household is read from the published roster'],
   ['data/reconstruction/1835_agencies.json', [3, 13], 'the compiled relation both cards read'],
   // T-1959. The placement policy is the seating and yard generators' rule book: what
   // it decides reaches the scene only through the records those generators write (the
