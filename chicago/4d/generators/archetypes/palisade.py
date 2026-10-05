@@ -92,7 +92,7 @@ def _unit(name: str, *keys) -> float:
 
 
 # THE PICKETS ARE SPLIT TIMBER, AND NO TWO ARE ALIKE (T-2123). Every number below
-# is RECONSTRUCTED and L384 owns them. What bounds them: the record's own reading
+# is RECONSTRUCTED and L389 owns them. What bounds them: the record's own reading
 # of "pickets" — "split or roughly squared timber posts set upright" (construction,
 # on fort_dearborn_palisade) — and the owner's report that the wall read as plain.
 # A split post has a flat face where the log was riven and a rounded back where
@@ -261,7 +261,7 @@ def _picket(b: MeshBuilder, p: PalisadeParams, cx, cy, ux, uy, nx, ny,
     curtain, the back chamfered where the round of the log was, so from outside
     the wall reads as a row of timbers rather than of boards. Height, width, turn,
     the lean of the point and the weathering are each the post's own, from a hash
-    of where it stands (the constants above; L384). Eighteen triangles, up from
+    of where it stands (the constants above; L389). Eighteen triangles, up from
     twelve: six-sided shaft, six-triangle head.
     """
     def r(k):
