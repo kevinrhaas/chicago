@@ -22263,11 +22263,21 @@
    "layer": "residents",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "reason": "Refused twice over. No candidate reaches 'Klmberly l' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Klmberly l' at all. And if it were, a heading against Ira Kimberly; Osa Kimberly; Dr Edmund Stoughton Kimberly would still be a surname against a person, which is always a refusal here.",
+   "reason": "Refused twice over. No candidate reaches 'Klmberly l' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Klmberly l' at all. And if it were, a heading against Dr Edmund Stoughton Kimberly; Marie Theresa Ellis Kimberly; Ira Kimberly; Osa Kimberly would still be a surname against a person, which is always a refusal here.",
    "record_ids": [
     "nbi_v02_1566"
    ],
    "candidates": [
+    {
+     "id": "kimberly_edmund_s",
+     "name": "Dr Edmund Stoughton Kimberly",
+     "rule": "OCR variant (0.88 similarity to 'kimberly')"
+    },
+    {
+     "id": "kimberly_marie_theresa",
+     "name": "Marie Theresa Ellis Kimberly",
+     "rule": "OCR variant (0.88 similarity to 'kimberly')"
+    },
     {
      "id": "kimberly_ira",
      "name": "Ira Kimberly",
@@ -22277,17 +22287,13 @@
      "id": "kimberly_osa",
      "name": "Osa Kimberly",
      "rule": "OCR variant (0.88 similarity to 'kimberly')"
-    },
-    {
-     "id": "kimberly_edmund_s",
-     "name": "Dr Edmund Stoughton Kimberly",
-     "rule": "OCR variant (0.88 similarity to 'kimberly')"
     }
    ],
    "person_ids": [
+    "kimberly_edmund_s",
+    "kimberly_marie_theresa",
     "kimberly_ira",
-    "kimberly_osa",
-    "kimberly_edmund_s"
+    "kimberly_osa"
    ],
    "works_cited": [
     "andreas_history_of_chicago"
@@ -75444,10 +75450,10 @@
   {
    "record_id": "nbi_v02_1566",
    "a": "Klmberly l | ' Cklttgo, III, (Aaireas, /.. T.) 18844) 1-3 Klabl",
-   "b": "Ira Kimberly; Osa Kimberly; Dr Edmund Stoughton Kimberly; Dr. Kimberly's residence; Ed. S. Kimberly; Edmund S. Kimberly; Ira Kimberly; Dr. E. S. Kimberly; Edmund L. Kimberly; Osa Kimberly; Edmund L. Kimberly; Ira Kimberly",
+   "b": "Dr Edmund Stoughton Kimberly; Marie Theresa Ellis Kimberly; Ira Kimberly; Osa Kimberly; Dr. Kimberly's residence; Ed. S. Kimberly; Edmund S. Kimberly; Ira Kimberly; Dr. E. S. Kimberly; Edmund L. Kimberly; Osa Kimberly; Edmund L. Kimberly; Ira Kimberly",
    "outcome": "refused",
    "class": "ocr_variant_only",
-   "rule": "Refused twice over. No candidate reaches 'Klmberly l' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Klmberly l' at all. And if it were, a heading against Ira Kimberly; Osa Kimberly; Dr Edmund Stoughton Kimberly would still be a surname against a person, which is always a refusal here. Ruled on the card \"Klmberly l | ' Cklttgo, III, (Aaireas, /.. T.) 18844) 1-3 Klabl\" against Ira Kimberly; Osa Kimberly; Dr Edmund Stoughton Kimberly; Dr. Kimberly's residence; Ed. S. Kimberly; Edmund S. Kimberly; Ira Kimberly; Dr. E. S. Kimberly; Edmund L. Kimberly; Osa Kimberly; Edmund L. Kimberly; Ira Kimberly.",
+   "rule": "Refused twice over. No candidate reaches 'Klmberly l' by an exact surname key - every one of them came through the OCR similarity window, so the heading is not certainly 'Klmberly l' at all. And if it were, a heading against Dr Edmund Stoughton Kimberly; Marie Theresa Ellis Kimberly; Ira Kimberly; Osa Kimberly would still be a surname against a person, which is always a refusal here. Ruled on the card \"Klmberly l | ' Cklttgo, III, (Aaireas, /.. T.) 18844) 1-3 Klabl\" against Dr Edmund Stoughton Kimberly; Marie Theresa Ellis Kimberly; Ira Kimberly; Osa Kimberly; Dr. Kimberly's residence; Ed. S. Kimberly; Edmund S. Kimberly; Ira Kimberly; Dr. E. S. Kimberly; Edmund L. Kimberly; Osa Kimberly; Edmund L. Kimberly; Ira Kimberly.",
    "layers": [
     "residents",
     "structures",
@@ -75461,6 +75467,7 @@
    "person_ids": [
     "kimberly_edmund_s",
     "kimberly_ira",
+    "kimberly_marie_theresa",
     "kimberly_osa"
    ],
    "person_id": null,

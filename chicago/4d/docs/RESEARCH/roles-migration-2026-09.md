@@ -205,6 +205,7 @@ least one source in common, with corroborators beside it.
 | `kennicott_william_h` | 6 | 0 | dentist; dentist, 133 Lake; physician; surgeon dentist |
 | `kercheval_gholson` | 2 | 1 | real estate dealer; sub_agent |
 | `kimball_walter` | 2 | 0 | dry_goods_merchant; probate judge, cor. Clark and |
+| `kimberly_edmund_s` | 3 | 1 | physician; physician, 101 Lake |
 | `king_byram` | 2 | 1 | Jones, King & Co; hardware_merchant |
 | `king_tuthill` | 4 | 1 | New York clothing store; clothier; clothing, dry goods, &c; ready-made clothing, dry goods, etc., 115 Lake |
 | `kinzie_james` | 2 | 1 | merchant; real estate agent |
@@ -245,7 +246,6 @@ least one source in common, with corroborators beside it.
 | `pierce_asahel` | 5 | 1 | alderman; blacksmith; blacksmith, 20 Market; blacksmith. S. Water st. b Lake and Randolph sts; plow and wagon maker |
 | `porter_hibbard` | 3 | 0 | (Bristol & P.); (Bristol & Porter,); of Bristol & Porter, house'cor Clark and Adams |
 | `pruyne_peter` | 2 | 1 | druggist; druggist and apothecary |
-| `kimberly_edmund_s` | 3 | 1 | physician; physician, 101 Lake |
 | `reed_william` | 3 | 0 | cabinet maker; carpenter |
 | `rider_eli_a` | 4 | 0 | clerk at C. L. P. Hojran; clerk, C. L. P. Hogan; clerk, Charles L. P. Hogan; merchant |
 | `rue_john_c` | 3 | 0 | carpenter; carpenter and builder; carpenter, 156 Clark |

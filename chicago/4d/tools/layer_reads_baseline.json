@@ -66,7 +66,7 @@
       "records": 1386
     },
     "residents/household:division": {
-      "records": 1458,
+      "records": 1459,
       "refused_because": "Denormalised. The MANIFEST's copy is what the panel groups and labels rows by, and validate.py fails the build if the two disagree; reading both would be two answers to one question."
     },
     "residents/household:division_reconstructed.band": {
@@ -139,7 +139,7 @@
       "records": 11
     },
     "residents/household:head": {
-      "records": 1458,
+      "records": 1459,
       "refused_because": "The record's own copy of the same foreign key. Refused for the same reason, and it is the record that is authoritative."
     },
     "residents/household:kin[].book_kin": {
@@ -211,6 +211,9 @@
     },
     "residents/household:persons[].appearance_bounds[].source_title": {
       "records": 29
+    },
+    "residents/household:persons[].associated_with[].undated": {
+      "records": 1
     },
     "residents/household:persons[].dated_bounds[].as_printed": {
       "records": 250
@@ -325,27 +328,27 @@
       "records": 738
     },
     "residents/household:persons[].stated_family.as_read": {
-      "records": 3,
+      "records": 4,
       "refused_because": "The source's words for the relative, kept verbatim so the match can be audited against the page — 'Welthyan Loomis', 'Mrs A. G. Burley'. Where it differs from the name on the card that difference is a finding, and it belongs in the note, which is where it is written and where the visitor reads it. Un-banks the day a card prints the reading beside the name."
     },
     "residents/household:persons[].stated_family.pass": {
-      "records": 3,
+      "records": 4,
       "refused_because": "The stated-family pass's own bookkeeping — which pass wrote this person, so `--build` can lift its whole output back out and re-derive it rather than appending to it. That re-derivability is the reason the key exists: a verdict re-read from `write` to `no_seat` has to take somebody back OUT of the town, and a pass that cannot find its own writes cannot do that. It is a fact about the tool, not about the woman on the card."
     },
     "residents/household:persons[].stated_family.read_from": {
-      "records": 3,
+      "records": 4,
       "refused_because": "Which field of which record the statement was read out of — the pass's audit trail back to the sentence. File-and-field routing, the same class of key as `record_file`, and it names a location in this repository rather than anything about 1835."
     },
     "residents/household:persons[].stated_family.relation": {
-      "records": 3,
+      "records": 4,
       "refused_because": "The normalised relation word the reading matched on — `wife`, `daughter`. The poorer of two copies: the person's own `relationship` is what the card prints, it is the field every other resident carries, and it is authored for a reader rather than for a matcher. Showing this one instead would be showing less, which is the ruling this table already makes about `households[].present_on_scene_date`."
     },
     "residents/household:persons[].stated_family.statement": {
-      "records": 3,
+      "records": 4,
       "refused_because": "The id of the read statement this seat came from — a foreign key into the derived reading in docs/RESEARCH/stated-families-2026-09.md and into the verdict table in data/residents/stated_family_rulings.json. It resolves a row; it states nothing about the person. The claim it resolves to reaches the visitor as the note and the sources on this person's own row."
     },
     "residents/household:persons[].stated_family.ticket": {
-      "records": 3,
+      "records": 4,
       "refused_because": "Which ticket seated this person. Repository provenance of the same class as `source_pass` — useful to a reader of the JSON and to the run that has to audit a pass, and not part of what a visitor judges the record by. What the visitor needs is the evidence, and the card already shows it: the grade, the sources and the note that says what the source does NOT say."
     },
     "residents/household:present_on_scene_date.basis.kind": {
@@ -369,10 +372,10 @@
       "records": 11
     },
     "residents/household:reason_for_coming.replaceable_by.kind": {
-      "records": 1433
+      "records": 1434
     },
     "residents/household:reason_for_coming.written_by_stage": {
-      "records": 1433
+      "records": 1434
     },
     "residents/household:refamilied.changed": {
       "records": 25
@@ -476,11 +479,11 @@
       "records": 1342
     },
     "residents/manifest:households[].head": {
-      "records": 1458,
+      "records": 1459,
       "refused_because": "A foreign key into `persons[].id`, not a figure — it names which person heads the household, and that fact already reaches the visitor as that person's `relationship`, shown on their own row."
     },
     "residents/manifest:households[].present_on_scene_date": {
-      "records": 1458,
+      "records": 1459,
       "refused_because": "The flat copy of a graded claim. `residents.js` shows the RECORD's block — its value, its confidence, its reasoning and its sources — and the manifest's bare value carries none of that. Showing the poorer copy would be showing less."
     },
     "residents/manifest:households[].projected_resident": {

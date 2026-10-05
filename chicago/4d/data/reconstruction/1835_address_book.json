@@ -228,28 +228,28 @@
   ]
  },
  "counts": {
-  "rows": 1634,
-  "households": 1458,
+  "rows": 1635,
+  "households": 1459,
   "businesses": 176,
   "by_rung": {
    "division_band": 82,
    "face": 56,
    "owed": 11,
    "policy_only": 1342,
-   "structure": 80,
+   "structure": 81,
    "unplaceable": 63
   },
   "by_reach": {
    "division": 82,
    "face": 56,
    "none": 1405,
-   "structure": 80,
+   "structure": 81,
    "structure_owed": 11
   },
   "households_by_rung": {
    "division_band": 82,
    "policy_only": 1342,
-   "structure": 33,
+   "structure": 34,
    "unplaceable": 1
   },
   "businesses_by_rung": {
@@ -258,12 +258,12 @@
    "structure": 47,
    "unplaceable": 62
   },
-  "seated": 1560,
+  "seated": 1561,
   "owed": 11,
   "by_seat_kind": {
    "division_band": 1424,
    "street_face": 16,
-   "structure": 120
+   "structure": 121
   },
   "by_band": {
    "north/division_ground": 6,
@@ -33644,6 +33644,31 @@
    "dealt_roof": null
   },
   {
+   "id": "hh_kimberly_edmund_s",
+   "kind": "household",
+   "name": "The Kimberly household",
+   "rung": "structure",
+   "seat": {
+    "kind": "structure",
+    "id": "kimberly_residence"
+   },
+   "works_seat": {
+    "kind": "structure",
+    "id": "pruyne_kimball_drugstore"
+   },
+   "reach": "structure",
+   "reach_value": null,
+   "division": "north",
+   "tier": "inferred",
+   "basis": "SEATED BY T-2140 IN THE HOUSE BONNELL GIVES HIM. J. D. Bonnell's letter of 1876, quoted by Andreas (vol. 1, printed pages 136-137): \"east of which [the Lake House] was the residence of Dr. Kimball, who was a partner of Mr. Pruyne in a drug store on South Water Street.\" A doctor, Pruyne's partner, and a druggist on South Water Street identify this man three ways over; data/structures/kimberly_residence.json raised the building on that sentence and named him its occupant, and refused to write the household link while he shared a record with Pruyne, because seating the partnership there would have carried Pruyne across the river on a sentence about Kimberly. With the two men on two records the link is written from this side, which is the direction the evidence runs in. GRADED AT THE INFERENCE, NOT THE SENTENCE: the walk is the morning of 26 August 1835, eight weeks after the scene date, and the carry back to 1 July is the inference. A LATER DIRECTORY AGREES AND IS NOT LEANED ON: Fergus's 1839 directory prints 'Kimberly, Dr. Edmund S., res. N. Water st next Lake House' (f1839_e0850) - the same spot four years on, which corroborates the house and dates nothing in 1835.",
+   "words": "Seated at a named roof — the strongest rung this ladder has. The household record carries the seat at inferred.",
+   "replaceable_by": "a source naming a different building",
+   "owed_to": null,
+   "band": null,
+   "seed": null,
+   "dealt_roof": null
+  },
+  {
    "id": "hh_kimberly_ira",
    "kind": "household",
    "name": "The Kimberly household — a name the town's own records carry",
@@ -46512,7 +46537,7 @@
   {
    "id": "hh_pruyne_kimberly",
    "kind": "household",
-   "name": "The Pruyne and Kimberly partnership household",
+   "name": "The Pruyne household",
    "rung": "division_band",
    "seat": {
     "kind": "division_band",

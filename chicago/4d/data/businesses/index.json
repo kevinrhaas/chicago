@@ -35,8 +35,8 @@
     },
     "named_people": 421,
     "named_people_linked_to_a_town_card": 367,
-    "works_at_households": 50,
-    "works_at_households_resolving_to_a_business": 36,
+    "works_at_households": 51,
+    "works_at_households_resolving_to_a_business": 37,
     "by_grade": {
       "attested": 163,
       "inferred": 70,
@@ -16833,6 +16833,14 @@
       "business_ids": [
         "biz_w_kimball",
         "biz_w_kimball_s_new_store"
+      ]
+    },
+    {
+      "household_id": "hh_kimberly_edmund_s",
+      "head": "kimberly_edmund_s",
+      "structure_id": "pruyne_kimball_drugstore",
+      "business_ids": [
+        "biz_p_pruyne_co"
       ]
     },
     {

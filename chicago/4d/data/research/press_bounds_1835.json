@@ -19,7 +19,7 @@
   "units_with_no_identification": 28,
   "bounds_written": 250,
   "people_written": 155,
-  "households_touched": 153,
+  "households_touched": 154,
   "identifications_refused": 134,
   "grades_changed": 0,
   "identities_changed": 0,
@@ -3259,6 +3259,150 @@
    ]
   },
   {
+   "household_id": "hh_kimberly_edmund_s",
+   "person_id": "kimberly_edmund_s",
+   "bounds": [
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_04_23#c007",
+     "claim_kind": "notice",
+     "as_printed": "EDMUND S. KiMBERLY,",
+     "role": "announced candidate for the House of Representatives",
+     "locator": "chicago_democrat_1834_04_23 page 3 column 1",
+     "describes_date": "1834-04-23",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-04-23",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-04-23 names 'EDMUND S. KiMBERLY,' in the claim read as chicago_democrat_1834_04_23#c007, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_08_06#c001",
+     "claim_kind": "event",
+     "as_printed": "id S. Kimberly,",
+     "role": "candidate for Representative to the General Assembly",
+     "locator": "chicago_democrat_1834_08_06 page 3 column 1",
+     "describes_date": "1834-08-06",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-06",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-06 names 'id S. Kimberly,' in the claim read as chicago_democrat_1834_08_06#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_08_13#c005",
+     "claim_kind": "event",
+     "as_printed": "Edmund S. Kimberl",
+     "role": "candidate for Representative to the General Assembly",
+     "locator": "chicago_democrat_1834_08_13 page 2 column 5",
+     "describes_date": "1834-08-13",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-08-13",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-13 names 'Edmund S. Kimberl' in the claim read as chicago_democrat_1834_08_13#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1834_11_19#c001",
+     "claim_kind": "event",
+     "as_printed": "Doct. E. 8. tly",
+     "role": "committee member",
+     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
+     "describes_date": "1834-11-19",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1834-11-19",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_doct_e_s_kimber_ly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'Doct. E. 8. tly' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_07_01#c010",
+     "claim_kind": "event",
+     "as_printed": "E. S. Kimberly",
+     "role": "committee",
+     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
+     "describes_date": "1835-07-01",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-07-01",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'E. S. Kimberly' in the claim read as chicago_democrat_1835_07_01#c010, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    },
+    {
+     "bound_kind": "print_appearance",
+     "corpus": "chicago_press_1833_1835",
+     "publication": "The Chicago Democrat",
+     "record_id": "chicago_democrat_1835_07_01#c011",
+     "claim_kind": "event",
+     "as_printed": "E. S. Kimberley",
+     "role": "committee",
+     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
+     "describes_date": "1835-07-01",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-07-01",
+     "here_by": null,
+     "side_of_scene_date": "earlier",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_s_kimberley, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
+     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'E. S. Kimberley' in the claim read as chicago_democrat_1835_07_01#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ]
+  },
+  {
    "household_id": "hh_king_byram",
    "person_id": "king_byram",
    "bounds": [
@@ -4659,150 +4803,6 @@
      ],
      "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_h_porter, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
      "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'H. Porter' in the claim read as chicago_democrat_1835_07_01#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    }
-   ]
-  },
-  {
-   "household_id": "hh_pruyne_kimberly",
-   "person_id": "kimberly_edmund_s",
-   "bounds": [
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_04_23#c007",
-     "claim_kind": "notice",
-     "as_printed": "EDMUND S. KiMBERLY,",
-     "role": "announced candidate for the House of Representatives",
-     "locator": "chicago_democrat_1834_04_23 page 3 column 1",
-     "describes_date": "1834-04-23",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-04-23",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-04-23 names 'EDMUND S. KiMBERLY,' in the claim read as chicago_democrat_1834_04_23#c007, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_08_06#c001",
-     "claim_kind": "event",
-     "as_printed": "id S. Kimberly,",
-     "role": "candidate for Representative to the General Assembly",
-     "locator": "chicago_democrat_1834_08_06 page 3 column 1",
-     "describes_date": "1834-08-06",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-08-06",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-06 names 'id S. Kimberly,' in the claim read as chicago_democrat_1834_08_06#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_08_13#c005",
-     "claim_kind": "event",
-     "as_printed": "Edmund S. Kimberl",
-     "role": "candidate for Representative to the General Assembly",
-     "locator": "chicago_democrat_1834_08_13 page 2 column 5",
-     "describes_date": "1834-08-13",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-08-13",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-13 names 'Edmund S. Kimberl' in the claim read as chicago_democrat_1834_08_13#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_11_19#c001",
-     "claim_kind": "event",
-     "as_printed": "Doct. E. 8. tly",
-     "role": "committee member",
-     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
-     "describes_date": "1834-11-19",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-11-19",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_doct_e_s_kimber_ly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'Doct. E. 8. tly' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1835_07_01#c010",
-     "claim_kind": "event",
-     "as_printed": "E. S. Kimberly",
-     "role": "committee",
-     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
-     "describes_date": "1835-07-01",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1835-07-01",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'E. S. Kimberly' in the claim read as chicago_democrat_1835_07_01#c010, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1835_07_01#c011",
-     "claim_kind": "event",
-     "as_printed": "E. S. Kimberley",
-     "role": "committee",
-     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
-     "describes_date": "1835-07-01",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1835-07-01",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_s_kimberley, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'E. S. Kimberley' in the claim read as chicago_democrat_1835_07_01#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
     }
    ]
   },

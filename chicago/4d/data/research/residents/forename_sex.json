@@ -9,8 +9,8 @@
   "male": 91,
   "female": 41,
   "refused": 5,
-  "from_a_bearer_in_this_layer": 57,
-  "from_a_pool_only": 75,
+  "from_a_bearer_in_this_layer": 58,
+  "from_a_pool_only": 74,
   "contractions": 15,
   "not_a_forename": 22,
   "collective": 6
@@ -1155,7 +1155,11 @@
   },
   {
    "forename": "marie",
-   "attested_bearers": {},
+   "attested_bearers": {
+    "female": [
+     "kimberly_marie_theresa"
+    ]
+   },
    "in_pools": [
     "french_colonial"
    ],

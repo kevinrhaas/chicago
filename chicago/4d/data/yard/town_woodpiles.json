@@ -11,22 +11,22 @@
   "by_row": {
    "cabin": 40,
    "cottage": 143,
-   "house": 55,
+   "house": 54,
    "keeper": 18,
-   "merchant": 32,
+   "merchant": 33,
    "shanty": 26
   },
   "by_class": {
    "keeper": 18,
    "labourer": 75,
-   "merchant": 32,
-   "tradesman": 189
+   "merchant": 33,
+   "tradesman": 188
   },
   "by_basis": {
-   "default": 17,
+   "default": 16,
    "fabric_rule": 267,
    "function": 6,
-   "household_trade": 10,
+   "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
@@ -1402,38 +1402,40 @@
    "structure_id": "kimberly_residence",
    "name": "Dr. Kimberly's residence",
    "function": "dwelling",
-   "household_class": "tradesman",
-   "household_by": "default",
+   "household_class": "merchant",
+   "household_by": "household_trade",
    "house": "larger",
-   "row": "house",
-   "rule": "Y-W4",
+   "row": "merchant",
+   "rule": "Y-W5",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      1106.54,
-      347.44
+      1106.63,
+      347.14
      ],
      "bearing_deg": 0.0,
-     "length_m": 2.63,
-     "depth_m": 0.61,
-     "height_m": 1.19,
-     "stick": "stove",
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.21,
+     "stick": "cord",
      "seed": 1697703966
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
       1107.4,
-      346.04
+      345.43
      ],
      "bearing_deg": 0.0,
      "billets": 3,
      "seed": 452667520
     }
-   ]
+   ],
+   "household": "hh_kimberly_edmund_s",
+   "trade": "physician"
   },
   {
    "structure_id": "lasalle_lake_house",

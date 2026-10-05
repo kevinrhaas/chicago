@@ -1564,7 +1564,7 @@
    ]
   },
   {
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "person_id": "kimberly_edmund_s",
    "source_id": "chicago_voter_lists_1833_1835_irad",
    "entries": [
@@ -1575,7 +1575,7 @@
      "list_date": "1833",
      "as_read": "Kimberly, Edmund S.",
      "line": 109,
-     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered.",
      "discriminator": "forenames agree initial for initial: entry 'Edmund S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'"
     },
     {
@@ -1585,7 +1585,7 @@
      "list_date": "1834-08-11",
      "as_read": "Kimberly, Dr. E. S.",
      "line": 232,
-     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered.",
      "discriminator": "forenames agree initial for initial: entry 'Dr. E. S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'"
     }
    ]
@@ -1602,7 +1602,7 @@
      "list_date": "1833",
      "as_read": "Kimberly, Ira",
      "line": 110,
-     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered.",
      "discriminator": "forenames agree initial for initial: entry 'Ira Kimberly' against resident 'Ira Kimberly'"
     },
     {
@@ -1612,7 +1612,7 @@
      "list_date": "1835",
      "as_read": "Kimberly, Ira",
      "line": 327,
-     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered.",
      "discriminator": "forenames agree initial for initial: entry 'Ira Kimberly' against resident 'Ira Kimberly'"
     }
    ]
@@ -2977,7 +2977,7 @@
      "list_date": "1834-08-11",
      "as_read": "Kimberly, Osa",
      "line": 234,
-     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
+     "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered.",
      "discriminator": "forenames agree initial for initial: entry 'Osa Kimberly' against resident 'Osa Kimberly'"
     }
    ]

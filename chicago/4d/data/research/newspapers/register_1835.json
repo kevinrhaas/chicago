@@ -12,7 +12,7 @@
     "structures": 568,
     "structures_sharing_a_name": 71,
     "streets": 80,
-    "resident_persons": 1441
+    "resident_persons": 1442
   },
   "counts": {
     "businesses": {
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 1019,
+        "none_recorded": 1020,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 1025,
+      "households_total": 1026,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -15271,7 +15271,7 @@
       "last_seen": "1834-11-19",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_dodge_trowbridge",
@@ -15733,7 +15733,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_s_kimberly",
@@ -15744,7 +15744,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_simons",
@@ -15953,7 +15953,7 @@
       "last_seen": "1834-08-13",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_edmund_uncertain_poke",
@@ -34686,7 +34686,7 @@
       "last_seen": "1834-07-16",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_douglass_sloan",
