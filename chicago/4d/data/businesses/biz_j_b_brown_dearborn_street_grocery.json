@@ -57,7 +57,7 @@
   "staffing": null,
   "locations": [
     {
-      "kind": "street_only",
+      "kind": "anchored",
       "structure_id": null,
       "street_id": "dearborn",
       "face": null,
@@ -65,8 +65,14 @@
       "from": "1834-07-02",
       "to": null,
       "tier": "inferred",
-      "basis": "The paper names a street and no house on it.",
-      "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds."
+      "basis": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south.",
+      "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "dole_warehouse_south",
+        "title": "George W. Dole's Warehouse",
+        "streets": []
+      }
     }
   ],
   "dates": {

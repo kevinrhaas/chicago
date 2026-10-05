@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1497, ts: '2026-10-05T16:28:28.388Z', date: 'Oct 5, 2026, 11:28 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
+  { v: 1498, ts: '2026-10-05T16:51:51.293Z', date: 'Oct 5, 2026, 11:51 AM CT', title: 'Fort Dearborn flies its flag, and its roofs sit on their walls', kind: 'feature',
     items: [
       'Both forts now fly the US flag of their date. In 1835 it has 24 stars and 13 stripes, the legal flag from 1822 to 1836. In 1812 it has 15 stars and 15 stripes. The flags are weathered and ripple gently in a south-west breeze.',
       'The artillery house roof no longer floats. Its back wall now rises to the roof. Every roof in both forts now overhangs its walls, and the gable ends of log buildings are log too.',
       'Each log in a wall, and each picket in the stockade, now has its own colour, so the timber reads as separate pieces of wood. Pickets are split logs of uneven height, with rails along the inside.',
       'The flag pattern comes from the Flag Acts of 1794 and 1818. Whether the flag was up that day is our reconstruction, and the Confidence view marks it that way.',
+    ] },
+  { v: 1497, ts: '2026-10-05T16:26:38.278Z', date: 'Oct 5, 2026, 11:26 AM CT', title: 'Shops placed by Newberry & Dole\u2019s store now stand at Lake and Dearborn', kind: 'change',
+    items: [
+      'Six businesses in the 1834\u201335 Chicago Democrat give their address only as being near Newberry & Dole\u2019s store: a baker, two Dearborn Street shoe and grocery shops, W. H. Brown, and the agent for the Chicago and St. Joseph packet. They are now placed at that store, the warehouse at Lake and Dearborn, instead of somewhere on the street.',
+      'Their seat is the nearest building we have, not a claim that they shared it. \u201cOne door south\u201d and \u201ca few rods north\u201d mean they stood beside it.',
+      'Three shop signs on reconstructed buildings along Dearborn and South Water come down. Those buildings were housing these firms until a better address was found, and other firms now fill some of them.',
     ] },
   { v: 1496, ts: '2026-10-05T15:59:26.383Z', date: 'Oct 5, 2026, 10:59 AM CT', title: 'Nothing you can see: our checks fit their time limit again', kind: 'chore',
     items: [
