@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "270 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "276 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 205,
+    "lots": 211,
     "refused": 0,
-    "refuges": 286,
-    "paths": 270
+    "refuges": 292,
+    "paths": 276
   },
   "lots": [
     {
@@ -2067,19 +2067,19 @@
         [
           [
             -226.49,
-            -122.63
+            -122.47
           ],
           [
-            -226.47,
-            -120.19
+            -226.48,
+            -120.18
           ],
           [
-            -228.91,
+            -228.77,
             -120.17
           ],
           [
-            -228.93,
-            -122.61
+            -228.78,
+            -122.46
           ]
         ]
       ]
@@ -5301,33 +5301,15 @@
           ],
           [
             -218.33,
-            -348.77
+            -349.07
           ],
           [
             -220.77,
-            -348.75
+            -349.05
           ],
           [
             -220.79,
             -351.49
-          ]
-        ],
-        [
-          [
-            -218.99,
-            -335.69
-          ],
-          [
-            -218.94,
-            -329.59
-          ],
-          [
-            -223.81,
-            -329.55
-          ],
-          [
-            -223.86,
-            -335.65
           ]
         ]
       ]
@@ -11199,20 +11181,20 @@
       "refuges_local_enu_m": [
         [
           [
-            -462.66,
-            -120.56
+            -462.67,
+            -120.72
           ],
           [
             -462.65,
-            -118.27
+            -118.28
           ],
           [
-            -464.94,
+            -465.09,
             -118.26
           ],
           [
-            -464.95,
-            -120.55
+            -465.11,
+            -120.7
           ]
         ]
       ]
@@ -11751,20 +11733,38 @@
       "refuges_local_enu_m": [
         [
           [
-            -457.65,
-            -330.11
+            -457.64,
+            -330.41
           ],
           [
-            -457.63,
+            -457.62,
             -327.67
           ],
           [
-            -460.07,
+            -460.06,
             -327.65
           ],
           [
-            -460.09,
-            -330.09
+            -460.08,
+            -330.39
+          ]
+        ],
+        [
+          [
+            -457.25,
+            -349.57
+          ],
+          [
+            -457.2,
+            -343.47
+          ],
+          [
+            -462.07,
+            -343.43
+          ],
+          [
+            -462.12,
+            -349.53
           ]
         ]
       ]
@@ -11889,18 +11889,18 @@
         [
           [
             -451.34,
-            -349.9
+            -349.91
           ],
           [
-            -451.36,
-            -352.34
+            -451.35,
+            -352.2
           ],
           [
-            -448.92,
-            -352.36
+            -449.06,
+            -352.21
           ],
           [
-            -448.9,
+            -449.05,
             -349.92
           ]
         ]
@@ -12213,6 +12213,318 @@
           [
             -76.04,
             -350.21
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot0",
+      "structures": [
+        "recon_1835_blk_west_washington_canal_d6_01"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -137.24,
+          -419.7
+        ],
+        [
+          -75.69,
+          -420.12
+        ],
+        [
+          -73.07,
+          -417.7
+        ],
+        [
+          -71.98,
+          -402.6
+        ],
+        [
+          -74.25,
+          -400.15
+        ],
+        [
+          -137.85,
+          -399.63
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -72.59,
+            -420.76
+          ],
+          [
+            -72.57,
+            -418.32
+          ],
+          [
+            -75.01,
+            -418.3
+          ],
+          [
+            -75.03,
+            -420.74
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot1",
+      "structures": [
+        "recon_1835_blk_west_washington_canal_d5_02"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -136.58,
+          -441.3
+        ],
+        [
+          -77.25,
+          -441.61
+        ],
+        [
+          -74.63,
+          -439.19
+        ],
+        [
+          -73.54,
+          -424.09
+        ],
+        [
+          -75.8,
+          -421.64
+        ],
+        [
+          -137.19,
+          -421.23
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -74.15,
+            -442.26
+          ],
+          [
+            -74.13,
+            -439.82
+          ],
+          [
+            -76.57,
+            -439.8
+          ],
+          [
+            -76.59,
+            -442.24
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot2",
+      "structures": [
+        "recon_1835_blk_west_washington_canal_d4_03"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -135.93,
+          -462.9
+        ],
+        [
+          -78.8,
+          -463.11
+        ],
+        [
+          -76.18,
+          -460.68
+        ],
+        [
+          -75.09,
+          -445.58
+        ],
+        [
+          -77.36,
+          -443.14
+        ],
+        [
+          -136.53,
+          -442.83
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -74.35,
+            -444.97
+          ],
+          [
+            -74.33,
+            -442.53
+          ],
+          [
+            -76.77,
+            -442.51
+          ],
+          [
+            -76.79,
+            -444.95
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot3",
+      "structures": [
+        "recon_1835_blk_west_washington_canal_d3_04"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -135.27,
+          -484.5
+        ],
+        [
+          -80.36,
+          -484.6
+        ],
+        [
+          -77.74,
+          -482.18
+        ],
+        [
+          -76.65,
+          -467.07
+        ],
+        [
+          -78.91,
+          -464.63
+        ],
+        [
+          -135.88,
+          -464.42
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -77.25,
+            -485.23
+          ],
+          [
+            -77.25,
+            -482.79
+          ],
+          [
+            -79.69,
+            -482.79
+          ],
+          [
+            -79.69,
+            -485.23
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot4",
+      "structures": [
+        "recon_1835_blk_west_washington_canal_d7_05"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -134.61,
+          -506.1
+        ],
+        [
+          -81.91,
+          -506.1
+        ],
+        [
+          -79.29,
+          -503.67
+        ],
+        [
+          -78.2,
+          -488.56
+        ],
+        [
+          -80.47,
+          -486.13
+        ],
+        [
+          -135.22,
+          -486.02
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -78.8,
+            -506.72
+          ],
+          [
+            -78.8,
+            -504.28
+          ],
+          [
+            -81.24,
+            -504.28
+          ],
+          [
+            -81.24,
+            -506.72
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot8",
+      "structures": [
+        "recon_1835_blk_west_washington_canal_d2_06"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -68.75,
+          -484.62
+        ],
+        [
+          -43.94,
+          -484.67
+        ],
+        [
+          -41.3,
+          -464.77
+        ],
+        [
+          -67.12,
+          -464.67
+        ],
+        [
+          -69.76,
+          -467.09
+        ],
+        [
+          -70.99,
+          -482.19
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -70.22,
+            -464.03
+          ],
+          [
+            -70.23,
+            -466.32
+          ],
+          [
+            -67.94,
+            -466.33
+          ],
+          [
+            -67.93,
+            -464.04
           ]
         ]
       ]

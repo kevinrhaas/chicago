@@ -990,6 +990,29 @@ def cross_street_frame(lot: dict, grid: dict, street: str, where: str) -> dict:
     }
 
 
+def squared_to_face(frame: dict, face: dict, where: str) -> dict:
+    """The lot's frame turned square to the face it fronts (T-2143), for a slot that asks.
+
+    `lot_frame` takes its axis from the front edge's midpoint to the rear edge's, which
+    is square to the face on every lot whose two long edges are parallel — every lot the
+    recipe had dealt before plat block 51. Block 51's West Water face is not parallel to
+    its alley: the bank turns, the sheet prints a bearing North 8 East up that side, and
+    the committed face runs 7.5 degrees off the lot axis, past the five degrees the facade
+    gate below allows. A roof framed on the lot axis would stand askew to its own street.
+    So a slot may say `square_to_face`, and only where the lot axis is genuinely off its
+    face: the building then stands off the same front midpoint, square to the face, and
+    the gate is left at five degrees rather than widened to admit the skew.
+    """
+    inward = (-face["outward"][0], -face["outward"][1])
+    off = math.degrees(math.acos(max(-1.0, min(1.0, inward[0] * frame["inward"][0]
+                                                + inward[1] * frame["inward"][1]))))
+    if off < 2.0:
+        raise SystemExit(f"{where} asks to stand square to its face, but its lot is only "
+                         f"{off:.1f} deg off it; `square_to_face` is for a skewed lot, not "
+                         "a setting")
+    return {**frame, "inward": inward, "squared_to_face_deg": round(off, 2)}
+
+
 def slot_frame(block: dict, grid: dict, frames: list[dict], slot: dict,
                lot_index: int, family: str) -> dict:
     """The frame a lot slot stands on: its lot's own, or the cross-street term's.
@@ -1005,6 +1028,8 @@ def slot_frame(block: dict, grid: dict, frames: list[dict], slot: dict,
     poly = frame["polygon"]
     own = edge_on_face(poly, face)
     if own is not None and math.dist(_mid(*own), frame["front_mid"]) < 1e-6:
+        if slot.get("square_to_face"):
+            return squared_to_face(frame, face, where)
         return frame
     if slot["stands_on"] != "street":
         raise SystemExit(f"{where} stands on the {slot['stands_on']} and fronts "
