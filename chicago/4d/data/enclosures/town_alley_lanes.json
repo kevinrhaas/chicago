@@ -103,6 +103,8 @@
   "recon_1835_blk_randolph_clark_d6_04",
   "recon_1835_blk_randolph_clark_h1_03",
   "recon_1835_blk_randolph_clark_h2_02",
+  "recon_1835_blk_randolph_clark_w1_10",
+  "recon_1835_blk_randolph_clark_w2_09",
   "recon_1835_blk_randolph_clinton_a1_06",
   "recon_1835_blk_randolph_clinton_a2_05",
   "recon_1835_blk_randolph_clinton_a3_07",
@@ -131,6 +133,7 @@
   "recon_1835_blk_randolph_dearborn_d5_02",
   "recon_1835_blk_randolph_dearborn_d6_10",
   "recon_1835_blk_randolph_dearborn_h1_14",
+  "recon_1835_blk_randolph_dearborn_w2_18",
   "recon_1835_blk_randolph_franklin_a1_07",
   "recon_1835_blk_randolph_franklin_a3_08",
   "recon_1835_blk_randolph_franklin_d1_06",
@@ -238,6 +241,7 @@
   "recon_1835_blk_washington_dearborn_d7_06",
   "recon_1835_blk_washington_dearborn_h2_05",
   "recon_1835_blk_washington_dearborn_h3_01",
+  "recon_1835_blk_washington_dearborn_w2_10",
   "recon_1835_blk_washington_franklin_a1_10",
   "recon_1835_blk_washington_franklin_a2_09",
   "recon_1835_blk_washington_franklin_a3_13",
@@ -3513,7 +3517,9 @@
     "recon_1835_blk_randolph_clark_d2_05",
     "recon_1835_blk_randolph_clark_d6_04",
     "recon_1835_blk_randolph_clark_h1_03",
-    "recon_1835_blk_randolph_clark_h2_02"
+    "recon_1835_blk_randolph_clark_h2_02",
+    "recon_1835_blk_randolph_clark_w1_10",
+    "recon_1835_blk_randolph_clark_w2_09"
    ]
   },
   {
@@ -3544,7 +3550,8 @@
     "recon_1835_blk_randolph_dearborn_d4_03",
     "recon_1835_blk_randolph_dearborn_d5_02",
     "recon_1835_blk_randolph_dearborn_d6_10",
-    "recon_1835_blk_randolph_dearborn_h1_14"
+    "recon_1835_blk_randolph_dearborn_h1_14",
+    "recon_1835_blk_randolph_dearborn_w2_18"
    ]
   },
   {
@@ -3704,7 +3711,8 @@
     "recon_1835_blk_washington_dearborn_d7_04",
     "recon_1835_blk_washington_dearborn_d7_06",
     "recon_1835_blk_washington_dearborn_h2_05",
-    "recon_1835_blk_washington_dearborn_h3_01"
+    "recon_1835_blk_washington_dearborn_h3_01",
+    "recon_1835_blk_washington_dearborn_w2_10"
    ]
   },
   {

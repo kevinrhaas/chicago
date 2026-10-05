@@ -439,13 +439,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # requests on blk_washington_dearborn and blk_washington_clark, all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 587 -> 591 and 581 -> 585 on 2026-10-05 (T-2134): the four side-street workshops on
+# Dearborn Street corner lots, three W2 and a W1, all `outbuilding` through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 587,
+    "assets": 591,
     "restales": {
-        "generators/common/*.py": 587,
+        "generators/common/*.py": 591,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 581,
+        "generators/emit.py": 585,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

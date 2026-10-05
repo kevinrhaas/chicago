@@ -2957,24 +2957,6 @@
       ],
       [
         [
-          673.04,
-          -282.41
-        ],
-        [
-          672.16,
-          -282.65
-        ],
-        [
-          682.69,
-          -320.95
-        ],
-        [
-          683.57,
-          -320.7
-        ]
-      ],
-      [
-        [
           671.09,
           -282.59
         ],
@@ -2989,6 +2971,24 @@
         [
           668.53,
           -314.27
+        ]
+      ],
+      [
+        [
+          671.54,
+          -282.55
+        ],
+        [
+          670.63,
+          -282.55
+        ],
+        [
+          670.63,
+          -301.14
+        ],
+        [
+          671.54,
+          -301.14
         ]
       ],
       [
@@ -3011,20 +3011,20 @@
       ],
       [
         [
-          723.05,
-          -283.24
+          672.81,
+          -365.39
         ],
         [
-          722.18,
-          -282.97
+          673.72,
+          -365.32
         ],
         [
-          710.14,
-          -321.07
+          671.72,
+          -337.39
         ],
         [
-          711.01,
-          -321.34
+          670.81,
+          -337.46
         ]
       ],
       [
@@ -3043,6 +3043,24 @@
         [
           727.37,
           -315.06
+        ]
+      ],
+      [
+        [
+          724.4,
+          -283.08
+        ],
+        [
+          723.49,
+          -283.13
+        ],
+        [
+          725.06,
+          -313.74
+        ],
+        [
+          725.98,
+          -313.69
         ]
       ],
       [
@@ -4307,20 +4325,20 @@
       ],
       [
         [
-          721.67,
-          -420.39
+          723.5,
+          -420.22
         ],
         [
-          720.81,
-          -420.08
+          722.58,
+          -420.25
         ],
         [
-          709.47,
-          -451.3
+          723.44,
+          -446.69
         ],
         [
-          710.33,
-          -451.62
+          724.35,
+          -446.66
         ]
       ],
       [
@@ -5719,12 +5737,12 @@
     {
       "lot": "blk_randolph_clark_lot6",
       "from": "recon_1835_blk_randolph_clark_c2_01",
-      "to": "privy_blk_randolph_clark_lot6"
+      "to": "recon_1835_blk_randolph_clark_a4_07"
     },
     {
       "lot": "blk_randolph_clark_lot6",
       "from": "recon_1835_blk_randolph_clark_c2_01",
-      "to": "recon_1835_blk_randolph_clark_a4_07"
+      "to": "recon_1835_blk_randolph_clark_w2_09"
     },
     {
       "lot": "blk_randolph_clark_lot7",
@@ -5732,14 +5750,19 @@
       "to": "privy_blk_randolph_clark_lot7"
     },
     {
-      "lot": "blk_randolph_dearborn_lot0",
-      "from": "recon_1835_blk_randolph_dearborn_d3_01",
-      "to": "privy_blk_randolph_dearborn_lot0"
+      "lot": "blk_randolph_clark_lot7",
+      "from": "recon_1835_blk_randolph_clark_d6_04",
+      "to": "recon_1835_blk_randolph_clark_w1_10"
     },
     {
       "lot": "blk_randolph_dearborn_lot0",
       "from": "recon_1835_blk_randolph_dearborn_d3_01",
       "to": "recon_1835_blk_randolph_dearborn_a4_06"
+    },
+    {
+      "lot": "blk_randolph_dearborn_lot0",
+      "from": "recon_1835_blk_randolph_dearborn_d3_01",
+      "to": "recon_1835_blk_randolph_dearborn_w2_18"
     },
     {
       "lot": "blk_randolph_dearborn_lot1",
@@ -6094,7 +6117,7 @@
     {
       "lot": "blk_washington_dearborn_lot0",
       "from": "recon_1835_blk_washington_dearborn_d7_04",
-      "to": "privy_blk_washington_dearborn_lot0"
+      "to": "recon_1835_blk_washington_dearborn_w2_10"
     },
     {
       "lot": "blk_washington_dearborn_lot2",
