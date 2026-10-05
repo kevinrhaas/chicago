@@ -798,12 +798,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "South Water Street",
-   "model_seat": "recon_1835_blk_south_water_lasalle_f2_10",
+   "model_seat": "recon_1835_blk_south_water_lasalle_c1_08",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "south_water",
    "printed_place": "3 the east end of South Water-stree!\nlatel eccapied by Peter Cohen, wick they rede",
-   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_f2_10', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'South Water Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c1_08', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_harmon_loomis_co",
@@ -863,12 +863,12 @@
    "grade": "street_only_adopted",
    "evidence_reach": "street",
    "evidence_street": "La Salle Street",
-   "model_seat": "recon_1835_blk_south_water_lasalle_c1_08",
+   "model_seat": "recon_1835_blk_south_water_lasalle_f2_10",
    "seat_is_substitutable": true,
    "register_action": "street_only",
    "register_action_target": "lasalle",
    "printed_place": "corner of\nand char",
-   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_c1_08', which is housing and not a reading: substitutable, no lot, no anchor."
+   "clause": "The paper reaches 'La Salle Street' and nothing narrower. The street-face adoption ruling of 2026-08-29 seated it on 'recon_1835_blk_south_water_lasalle_f2_10', which is housing and not a reading: substitutable, no lot, no anchor."
   },
   {
    "business_id": "business_ingersoll_s_tavern_stand",

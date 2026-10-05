@@ -1,10 +1,64 @@
 export const CHANGELOG = [ // newest first
-  { v: 1479, ts: '2026-10-05T09:03:31.329Z', date: 'Oct 5, 2026, 4:03 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
+  { v: 1488, ts: '2026-10-05T12:50:59.373Z', date: 'Oct 5, 2026, 7:50 AM CT', title: 'Barrels, crates and wagons in weathered wood', kind: 'feature',
     items: [
       'Barrels are round now, with bowed staves, hoops of split wood or iron, and a lid sunk inside the rim. They used to be open-topped, zigzag tubes.',
       'Every barrel, crate, bench, wagon and cart gets its own weathered wood, from bleached grey to dark oak, with the same grain as the plank walks.',
       'Some wagons and carts wear faded blue or red paint on red running gear, and the rest are bare wood, so no two look alike. Wheels have iron tyres.',
       'The woods, hoops and paint are a reconstruction (Liberty L387). No extra draw calls.',
+    ] },
+  { v: 1487, ts: '2026-10-05T12:20:40.231Z', date: 'Oct 5, 2026, 7:20 AM CT', title: 'No more grass popping up around you in town', kind: 'fix',
+    items: [
+      'Walk anywhere in the 1835 town. The small spiky grass tufts that kept springing up a few steps around you are gone. The short town grass is now drawn by the ground alone, so nothing grows out of the dirt as you move.',
+      'Weeds in town now grow only along yard fences and lot lines, and they come into view about 20 metres away instead of at your feet. Loose weeds out on open ground and road edges are gone.',
+      'The open prairie outside the town is unchanged: its grass stands thick right up to you.',
+      'Town views draw fewer plants than before, by up to two thirds where you stand. The Liberties page explains it (L375).',
+    ] },
+  { v: 1486, ts: '2026-10-05T12:08:26.457Z', date: 'Oct 5, 2026, 7:08 AM CT', title: 'Our records no longer hand work to a finished task', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. 24 reconstructed houses still wait for us to say which household lives in each, or why we can\u2019t. 18 of them are on the Washington Street blocks.',
+      'Our records handed those houses to planning tasks that had all finished, so nothing would ever have picked them up. They now point to a new open task, and our checks fail if that task closes while any of the houses are still waiting.',
+      'The town\u2019s list of what is left to build had a row like that too: the South\u2019s public buildings, all five of which already stand. It now points to the task that keeps the building list balanced.',
+    ] },
+  { v: 1485, ts: '2026-10-05T11:53:33.468Z', date: 'Oct 5, 2026, 6:53 AM CT', title: 'The town\u2019s 1833 wharf law is now written on the river landings', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. The river landings\u2019 record now carries the town\u2019s own wharfing law of December 1833: a lot on the river could build a wharf on the open ground before it, leaving eighty feet for a street, for fifteen dollars a year.',
+      'The law says nothing about any one wharf, so no dock in the town moves or changes size because of it.',
+      'Our research bookkeeping can now count a newspaper reading as used when it lands on the wharves or on the street edge, not only on a person, a business or a building.',
+    ] },
+  { v: 1484, ts: '2026-10-05T11:30:10.304Z', date: 'Oct 5, 2026, 6:30 AM CT', title: 'Businesses on 1835 streets get the kind of building their trade needed', kind: 'change',
+    items: [
+      'When a newspaper names only the street a business stood on, we give it one of the empty buildings on that street. Until now we could only tell a shop from a house, so a cabinet maker could be put in a dry-goods store.',
+      'Each trade the papers name is now read as wanting a counter, a workshop, a warehouse or an office, and a business gets a building of that kind first. On La Salle Street a forwarding merchant and a dry-goods store swap buildings: the merchant takes the warehouse, the store takes the shop.',
+      'Seven workshop trades, including three cabinet makers, still stand in stores, because no workshop stands free on their streets. Each one now says so on its record.',
+    ] },
+  { v: 1483, ts: '2026-10-05T11:07:09.913Z', date: 'Oct 5, 2026, 6:07 AM CT', title: 'Sources in 1904 and 1812 list what those scenes cite', kind: 'fix',
+    items: [
+      'Open 1904, then Evidence \u2192 Sources. The list used to show the 1835 town\u2019s sources. It now shows the 32 sources behind 1904 itself: the Glessner House drawings and photographs, the 1911 Sanborn sheets, the city\u2019s paving records and the elevation survey under the ground.',
+      'In 1812 it lists the 22 sources behind the first Fort Dearborn, its ground and its plants.',
+      'Tick \u201cAll registered sources\u201d to see every source; one another year uses reads \u201cother scene\u201d.',
+    ] },
+  { v: 1482, ts: '2026-10-05T10:44:44.577Z', date: 'Oct 5, 2026, 5:44 AM CT', title: 'Five houses fill out the Market Street block south of Washington', kind: 'feature',
+    items: [
+      'Walk west along Washington Street past Franklin. Around the two boarding houses on the block towards Market Street there are now five more houses: a one-and-a-half-story house on the Market corner, a frame house beside it and a two-story house on the Franklin corner, with a cottage and another frame house behind them on Madison.',
+      'Behind four of them stand a carriage shed, a smokehouse, two woodsheds and a privy. The Market-corner house has no yard buildings, because Market was a main street.',
+      'All ten are reconstructions: no record says what stood on this block in 1835 (Liberty L384).',
+    ] },
+  { v: 1481, ts: '2026-10-05T10:26:22.802Z', date: 'Oct 5, 2026, 5:26 AM CT', title: 'Shops can now face the side street of a corner lot', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Each reconstructed house and shop stands facing its block\u2019s long street, like Washington or Randolph. Our block layout tool can now also stand one on a corner lot facing the cross street, like Dearborn. That is the step the mechanics\u2019 shops planned for State and Dearborn Streets were waiting on.',
+      'The town\u2019s rules still hold. No workshop goes on State Street, a quiet street in 1835 where none of the seven documented workshops stood. On Dearborn a workshop goes only where no busier street bounds the block.',
+      'The shops themselves come next.',
+    ] },
+  { v: 1480, ts: '2026-10-05T09:52:09.028Z', date: 'Oct 5, 2026, 4:52 AM CT', title: 'Packing building corner-shading images tighter would not shrink the download', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. We tried a tighter layout for the images that would darken buildings\u2019 corners and eaves, on thirty buildings of every kind.',
+      'It used the space nearly three times better, yet the images got larger, because empty space in them costs almost nothing. So when that shading comes, it will be stored in the buildings\u2019 shapes, with no extra images to download.',
+    ] },
+  { v: 1479, ts: '2026-10-05T08:59:14.060Z', date: 'Oct 5, 2026, 3:59 AM CT', title: 'The shop-and-home count tells named homes from guessed ones again', kind: 'fix',
+    items: [
+      'Nothing you can see changes in this update. When businesses the 1835 newspapers name are stood on their streets, our records count the houses on each street that are already homes, so no shop is put in one.',
+      'That count splits the homes into those of a family the town\u2019s records name and those of a family we infer. A slip in the code made the first half read zero on every street, whatever stood there. It is fixed, and our checks now recount both halves house by house.',
+      'Today the totals are the same either way: no named family yet lives in one of these reconstructed houses on a business street. The check makes sure the count will be right when one does.',
     ] },
   { v: 1478, ts: '2026-10-05T08:43:24.198Z', date: 'Oct 5, 2026, 3:43 AM CT', title: 'Empty town lots are now short, flowering prairie', kind: 'change',
     items: [
