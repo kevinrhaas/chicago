@@ -4045,8 +4045,8 @@
     "recon_1835_north_d4_090__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 37968,
-      "inputs_sha256": "f3f2232b6dad5b4366d8623239539cb683198ac3b8f76c6e0ede7718fc0a608a",
+      "bytes": 36096,
+      "inputs_sha256": "caa11ff09d9b8ed5e73b9df9bbbbf0f69bddb58620e7885fb22002a037abab5b",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d4_090"
@@ -4225,8 +4225,8 @@
     "recon_1835_north_d6_093__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 43568,
-      "inputs_sha256": "5c32d18d41da93992da7a2470e979701dd5a86a957c6585af7315c37726fcbf6",
+      "bytes": 45440,
+      "inputs_sha256": "a272181d792f2ac6686f8754d0c926d4c43af1ecf76bc1892b2b3feb4d91b6d8",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_d6_093"
@@ -5518,8 +5518,8 @@
     "watkins_school_house__house_1833.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 51060,
-      "inputs_sha256": "f5123bcfc734e2293dea0a36df4dc7e8278881aab0b3e5182d05462d8d75fe8f",
+      "bytes": 49812,
+      "inputs_sha256": "013198f32b0f19908e755a6f28a95f52983428fbc5a698b0f0044f303faee609",
       "kind": "generated",
       "phase_id": "house_1833",
       "structure_id": "watkins_school_house"

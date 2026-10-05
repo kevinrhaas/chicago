@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
 - audited: **472** anonymous roofs
-- keep: **462** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
-- refamily: **10** (7 of them into a band that already fits the committed footprint)
+- keep: **464** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- refamily: **8** (5 of them into a band that already fits the committed footprint)
 - retire: **0**
 
 The programme wants 668 roofs and 580 stand, so the town is 88 roofs short before this audit and 88 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
@@ -48,7 +48,7 @@ The programme wants 668 roofs and 580 stand, so the town is 88 roofs short befor
 | `structures/workshops/north` | 7 | 7 | 3 | 0 | 5 | 2 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 10 roofs that change
+## The 8 roofs that change
 
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
@@ -57,11 +57,9 @@ The programme wants 668 roofs and 580 stand, so the town is 88 roofs short befor
 | `recon_1835_north_c3_064` | north | C3 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
 | `recon_1835_north_c3_066` | north | C3 | A2 | refamily | the placement policy refuses this family here — stands 3.44 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands |
 | `recon_1835_north_c4_067` | north | C4 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
-| `recon_1835_north_d6_093` | north | D6 | A2 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 79.62 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_north_d7_076` | north | D7 | A2 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 91.79 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands |
 | `recon_1835_north_t1_061` | north | T1 | A2 | refamily | the placement policy refuses this family here — stands 3.58 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line; the slot is wanted and the position stands |
-| `recon_1835_north_w2_065` | north | W2 | D6 | refamily | the placement policy refuses this family here — stands 3.64 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
-| `recon_1835_north_w3_062` | north | W3 | D6 | refamily | the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
+| `recon_1835_north_w2_065` | north | W2 | A2 | refamily | the placement policy refuses this family here — stands 3.64 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
+| `recon_1835_north_w3_062` | north | W3 | A2 | refamily | the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
 
 ## The 4 breaches owed out
 

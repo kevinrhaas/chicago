@@ -1109,14 +1109,14 @@
     [
       76,
       "d7_076",
-      1000,
-      282,
+      466.0,
+      367.0,
       "D7",
       "principal_functional",
       24,
       32,
-      180,
-      "wolcott_kinzie_core",
+      0,
+      "kinzie_michigan_interior",
       null
     ],
     [
@@ -1291,14 +1291,14 @@
     [
       90,
       "d4_090",
-      1088.8,
-      304.8,
+      976.0,
+      332.0,
       "D4",
       "principal_functional",
       20,
       26,
       180,
-      "kinzie_michigan_interior",
+      "wolcott_kinzie_core",
       null
     ],
     [
@@ -1330,14 +1330,14 @@
     [
       93,
       "d6_093",
-      1044.0,
-      294.0,
+      976.0,
+      297.0,
       "D6",
       "principal_functional",
       22,
       30,
       180,
-      "kinzie_michigan_interior",
+      "wolcott_kinzie_core",
       null
     ]
   ],

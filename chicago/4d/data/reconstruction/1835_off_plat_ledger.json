@@ -7264,7 +7264,6 @@
     "recon_1835_north_d6_044",
     "recon_1835_north_d6_093",
     "recon_1835_north_d7_031",
-    "recon_1835_north_d7_076",
     "recon_1835_north_d7_088",
     "recon_1835_north_h2_028",
     "recon_1835_north_h2_045",
@@ -7297,14 +7296,13 @@
     "recon_1835_north_d6_044": "D6",
     "recon_1835_north_d6_093": "D6",
     "recon_1835_north_d7_031": "D7",
-    "recon_1835_north_d7_076": "D7",
     "recon_1835_north_d7_088": "D7",
     "recon_1835_north_h2_028": "H2",
     "recon_1835_north_h2_045": "H2",
     "recon_1835_north_w2_065": "W2",
     "watkins_school_house": "I2"
    },
-   "principal_roofs_standing": 25
+   "principal_roofs_standing": 24
   },
   {
    "parcel_id": "school_section",
@@ -7452,6 +7450,7 @@
     "recon_1835_north_d6_058",
     "recon_1835_north_d6_070",
     "recon_1835_north_d6_084",
+    "recon_1835_north_d7_076",
     "recon_1835_north_h2_030",
     "recon_1835_north_t1_061",
     "recon_1835_north_w3_062",
@@ -7508,6 +7507,7 @@
     "recon_1835_north_d6_058": "D6",
     "recon_1835_north_d6_070": "D6",
     "recon_1835_north_d6_084": "D6",
+    "recon_1835_north_d7_076": "D7",
     "recon_1835_north_h2_030": "H2",
     "recon_1835_north_t1_061": "T1",
     "recon_1835_north_w3_062": "W3",
@@ -7526,7 +7526,7 @@
     "recon_1835_west_055": "A2",
     "west_approach_wagon_camp": null
    },
-   "principal_roofs_standing": 47
+   "principal_roofs_standing": 48
   },
   {
    "parcel_id": "the_landing_place",

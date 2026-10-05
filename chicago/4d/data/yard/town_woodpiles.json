@@ -8682,13 +8682,13 @@
    "row": "cottage",
    "rule": "Y-W3",
    "confidence": "reconstructed",
-   "wall": "back",
+   "wall": "side",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      1085.07,
-      307.06
+      972.27,
+      334.26
      ],
      "bearing_deg": 90.0,
      "length_m": 2.39,
@@ -8700,8 +8700,8 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      1083.67,
-      306.31
+      970.87,
+      333.51
      ],
      "bearing_deg": 90.0,
      "billets": 3,
@@ -9544,10 +9544,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      1047.94,
-      294.21
+      976.89,
+      302.04
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 180.0,
      "length_m": 2.25,
      "depth_m": 0.61,
      "height_m": 0.77,
@@ -9557,10 +9557,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      1047.94,
-      296.81
+      974.29,
+      302.04
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 180.0,
      "length_m": 2.25,
      "depth_m": 0.61,
      "height_m": 0.84,
@@ -9570,10 +9570,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      1049.34,
-      297.48
+      973.62,
+      303.44
      ],
-     "bearing_deg": 270.0,
+     "bearing_deg": 180.0,
      "billets": 3,
      "seed": 850813596
     }
@@ -9631,10 +9631,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      1001.11,
-      287.23
+      464.89,
+      361.77
      ],
-     "bearing_deg": 180.0,
+     "bearing_deg": 0.0,
      "length_m": 2.55,
      "depth_m": 0.61,
      "height_m": 1.15,
@@ -9644,10 +9644,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      998.21,
-      287.23
+      467.79,
+      361.77
      ],
-     "bearing_deg": 180.0,
+     "bearing_deg": 0.0,
      "length_m": 2.55,
      "depth_m": 0.61,
      "height_m": 0.77,
@@ -9657,10 +9657,10 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      997.39,
-      288.63
+      468.61,
+      360.37
      ],
-     "bearing_deg": 180.0,
+     "bearing_deg": 0.0,
      "billets": 1,
      "seed": 1587496394
     }
