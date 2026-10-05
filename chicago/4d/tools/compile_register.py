@@ -152,7 +152,8 @@ EXCLUSIONS = ("contradicted_before_scene_date", "opening_announced_after_scene_d
 # Words that carry no identity in a name or an anchor: articles, the honorifics the
 # papers set before a name, and the four nouns that appear in half the storefronts in
 # town. Dropping them is what lets "Messrs. Newberry & Dole's store" meet the committed
-# record "Newberry & Dole Warehouse"; keeping them would make every anchor unique.
+# aka "Newberry & Dole's store" on dole_warehouse_south (T-2142); keeping them would
+# make every anchor unique.
 ANCHOR_STOP = {
     "the", "a", "an", "of", "and", "at", "in", "on", "s", "to", "his", "their", "its",
     "street", "streets", "st", "sts", "messrs", "mr", "mrs", "dr", "esq", "jr", "sen",

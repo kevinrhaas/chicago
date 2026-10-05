@@ -28,10 +28,10 @@
       "tin_and_copper_manufactory": 4
     },
     "by_location_kind": {
-      "anchored": 28,
+      "anchored": 34,
       "premises": 65,
-      "street_only": 92,
-      "unplaceable": 106
+      "street_only": 88,
+      "unplaceable": 104
     },
     "named_people": 421,
     "named_people_linked_to_a_town_card": 367,
@@ -43,10 +43,10 @@
       "reconstructed": 53
     },
     "by_where_kind": {
-      "anchored": 28,
+      "anchored": 34,
       "premises": 64,
-      "street_only": 92,
-      "unplaceable": 102
+      "street_only": 88,
+      "unplaceable": 100
     },
     "by_street": {
       "Canal Street": 10,
@@ -313,7 +313,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Baptist meeting house' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+          "structure_id": "recon_1835_blk_south_water_wells_c2_01",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -1354,7 +1354,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
+          "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -1873,7 +1873,13 @@
         "tier": "inferred",
         "from": "1834-04-01",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Newbury & Dole's store\" names nothing the committed town holds."
+        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Newbury & Dole's store\" names nothing the committed town holds.",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_wells_c3_02",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1834-04-01",
@@ -1939,7 +1945,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Messrs. Jones & King's hardware store\" names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_wells_c2_01",
+          "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2198,7 +2204,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of randolph and names nothing narrower.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c4_01",
+          "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -2803,21 +2809,20 @@
         }
       ],
       "where": {
-        "kind": "street_only",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "title": "George W. Dole's Warehouse",
+          "streets": []
+        },
         "street_id": "south_water",
         "street": "South Water Street",
         "tier": "inferred",
         "from": "1834-03-25",
         "to": null,
-        "limit_reason": "The paper names South Water Street and nothing narrower; the anchor \"Newberry & Dole's store\" names nothing the committed town holds.",
-        "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
-          "by": "street_face_adoption",
-          "tier": "reconstructed",
-          "claims_lot": false
-        }
+        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-03-25",
@@ -4167,7 +4172,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor 'the new bridge' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+          "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -5019,7 +5024,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -5426,7 +5431,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_c3_13",
+          "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -5971,21 +5976,20 @@
         }
       ],
       "where": {
-        "kind": "street_only",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "title": "George W. Dole's Warehouse",
+          "streets": []
+        },
         "street_id": "dearborn",
         "street": "Dearborn Street",
         "tier": "inferred",
         "from": "1834-07-02",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds.",
-        "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
-          "by": "street_face_adoption",
-          "tier": "reconstructed",
-          "claims_lot": false
-        }
+        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-02",
@@ -6384,7 +6388,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the Printing Office' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -7727,7 +7731,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -10153,7 +10157,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor 'the stand formerly occupied by Clark & Co.' names nothing the committed town holds.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
+          "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -10786,7 +10790,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
+          "structure_id": "recon_1835_blk_south_water_lasalle_c2_11",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -11483,15 +11487,20 @@
       "firm_styles": [],
       "people": [],
       "where": {
-        "kind": "unplaceable",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "title": "George W. Dole's Warehouse",
+          "streets": []
+        },
         "street_id": null,
         "street": null,
         "tier": "inferred",
         "from": "1834-08-06",
         "to": null,
-        "limit_reason": "No street the model holds. The anchor 'the store of Messrs Newberry & Dole' names nothing the committed town holds."
+        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-08-06",
@@ -12244,7 +12253,13 @@
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake streets CORNER OF [DEARBORN] AND LA', and the plat resolves both sides to ['dearborn', 'lake']."
+        "limit_reason": "The paper names Dearborn Street and nothing narrower; a corner of 'Dearborn' and 'Lake streets CORNER OF [DEARBORN] AND LA', and the plat resolves both sides to ['dearborn', 'lake'].",
+        "housed_in": {
+          "structure_id": "recon_1835_blk_south_water_dearborn_d2_04",
+          "by": "street_face_adoption",
+          "tier": "reconstructed",
+          "claims_lot": false
+        }
       },
       "locations": 1,
       "opened": "1835-05-20",
@@ -12690,7 +12705,7 @@
         "to": null,
         "limit_reason": "The paper names Dearborn Street and nothing narrower; the paper gives no anchor.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_randolph_dearborn_d1_16",
+          "structure_id": "recon_1835_blk_randolph_dearborn_d3_15",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -13076,15 +13091,20 @@
         }
       ],
       "where": {
-        "kind": "unplaceable",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "title": "George W. Dole's Warehouse",
+          "streets": []
+        },
         "street_id": null,
         "street": null,
         "tier": "inferred",
         "from": "1834-05-28",
         "to": null,
-        "limit_reason": "No street the model holds. The anchor \"Newberry & Dole's store\" names nothing the committed town holds."
+        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-05-28",
@@ -13842,15 +13862,20 @@
         }
       ],
       "where": {
-        "kind": "street_only",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "title": "George W. Dole's Warehouse",
+          "streets": []
+        },
         "street_id": "dearborn",
         "street": "Dearborn Street",
         "tier": "inferred",
         "from": "1835-05-20",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's Store\" names nothing the committed town holds."
+        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1835-05-20",
@@ -13896,15 +13921,20 @@
         }
       ],
       "where": {
-        "kind": "street_only",
+        "kind": "anchored",
         "structure_id": null,
-        "anchor": null,
+        "anchor": {
+          "kind": "structure",
+          "id": "dole_warehouse_south",
+          "title": "George W. Dole's Warehouse",
+          "streets": []
+        },
         "street_id": "dearborn",
         "street": "Dearborn Street",
         "tier": "inferred",
         "from": "1835-08-05",
         "to": null,
-        "limit_reason": "The paper names Dearborn Street and nothing narrower; the anchor \"Newberry & Dole's Store\" names nothing the committed town holds."
+        "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes."
       },
       "locations": 1,
       "opened": "1834-07-08",
