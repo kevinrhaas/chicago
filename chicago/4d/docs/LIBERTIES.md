@@ -21240,7 +21240,7 @@ weeds give way to the mesic prairie's bunchgrasses cropped to 0.25-0.55 m, the t
 bluegrass and clover, and six of the prairie's flowers: bergamot, black-eyed Susan, rattlesnake
 master and butterfly weed at or above their prairie density, the two coneflowers thinned. Compass
 plant, Indian grass, purple prairie clover, lead plant, ox-eye and wild quinine are left out, each
-with its reason in the record. Bare ground 12 %, between the prairie's 2 % and the trodden town's
+with its reason in the record. Grass covers 60 % of the ground, the sand prairie's share, and bare ground 15 %, between the prairie's 2 % and the trodden town's
 45 %.
 **Why:** the owner asked on 2026-10-04 for a town "less 'weedy'" without cutting "the beautiful
 plants and grass and flowers", and T-2086 point 2 asked that a vacant lot stay a grazed, flowering

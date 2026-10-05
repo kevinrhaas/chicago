@@ -109,7 +109,7 @@ LEFT_OUT = {
                                 "onto grazed ground",
 }
 
-COVER = {"matrix_fraction": 0.75, "bare_soil_fraction": 0.12, "standing_water_fraction": 0.02}
+COVER = {"matrix_fraction": 0.6, "bare_soil_fraction": 0.15, "standing_water_fraction": 0.02}
 
 EXISTENCE_NOTE = (
     "RECONSTRUCTED (T-2101, " + LIBERTY + "). DERIVED, NOT DRAWN: tools/derive_lot_remnant.py "

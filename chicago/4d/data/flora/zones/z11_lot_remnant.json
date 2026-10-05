@@ -12,8 +12,8 @@
  ],
  "generated_by": "tools/derive_lot_remnant.py",
  "cover": {
-  "matrix_fraction": 0.75,
-  "bare_soil_fraction": 0.12,
+  "matrix_fraction": 0.6,
+  "bare_soil_fraction": 0.15,
   "standing_water_fraction": 0.02
  },
  "ground": {
