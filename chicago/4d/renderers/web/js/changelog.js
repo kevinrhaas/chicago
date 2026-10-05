@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1471, ts: '2026-10-05T04:53:33.554Z', date: 'Oct 4, 2026, 11:53 PM CT', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
+  { v: null, ts: '', title: 'Rebuilding one building no longer reprocesses the whole town', kind: 'change',
     items: [
       'Nothing you can see changes in this update. When we rebuild a single building, only that building\u2019s download is now re-made. Before, every file in the town was re-made too, about twelve minutes of work for one roof.',
       'A one-building rebuild now finishes in under nine minutes, checks included, so more buildings can be fixed in each working session.',
+    ] },
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
     ] },
   { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
