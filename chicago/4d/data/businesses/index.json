@@ -5019,7 +5019,7 @@
         "to": null,
         "limit_reason": "The paper names South Water Street and nothing narrower; the anchor is a reach of south_water and names nothing narrower.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
+          "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
@@ -5543,7 +5543,7 @@
         "to": null,
         "limit_reason": "The paper names La Salle Street and nothing narrower; a corner of '[…]' and '[Cl]ar[k] corner of', and the plat resolves neither side.",
         "housed_in": {
-          "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
+          "structure_id": "recon_1835_blk_south_water_lasalle_f2_10",
           "by": "street_face_adoption",
           "tier": "reconstructed",
           "claims_lot": false
