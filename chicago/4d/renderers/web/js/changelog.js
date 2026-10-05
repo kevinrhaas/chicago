@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1471, ts: '2026-10-05T04:54:43.623Z', date: 'Oct 4, 2026, 11:54 PM CT', title: 'Plants are placed with a little less work', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Every flower, shrub and grass tuft stands exactly where it stood before.',
+      'Each time the plants around you are rebuilt, the town was still working out a setting for an older way of placing them that nothing had used since September. It no longer does.',
+      'We checked about two million plant positions against the old code. Every one came out identical.',
+    ] },
   { v: 1470, ts: '2026-10-05T04:46:46.986Z', date: 'Oct 4, 2026, 11:46 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
       'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
