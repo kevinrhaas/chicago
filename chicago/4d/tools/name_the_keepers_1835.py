@@ -136,6 +136,12 @@ DISTRICTS = {
              "parent": None, "says_why": "T-2136"},
     "indiana_north": {"prefix": "blk_indiana_north_", "ticket": "T-2136",
                       "parent": None, "says_why": "T-2136"},
+    # T-2147, piece 4 of T-1755. The School Section's Madison-Monroe tier joined the plat
+    # with T-2144 and its first roofs rose on block 81 with T-2147, which is the first
+    # build ticket to reach the district, so it carries the pass here. The tier's other
+    # South blocks (94, 95, 118, 119; T-2145, T-2146) share the prefix and the pass.
+    "school_section_tier": {"prefix": "blk_school_section_tier_", "ticket": "T-2147",
+                            "parent": "T-1755", "says_why": "T-2147"},
 }
 
 # `parent` IS PROVENANCE, NOT A WORK ORDER (T-1705). It says which programme ticket a
@@ -145,7 +151,8 @@ DISTRICTS = {
 # looking ticket id this pass writes is `OWED_TO`, below, and that one is gated.
 
 # The order the passes have been run in, which is the order the ledger states them in.
-RUN_FOR = ("south_water", "randolph", "lake", "washington", "west", "indiana_north")
+RUN_FOR = ("south_water", "randolph", "lake", "washington", "west", "indiana_north",
+           "school_section_tier")
 
 # WHO CARRIES THE OWED SEATS (T-1705). A seat outside the districts above is held owed BY
 # NAME, and until T-1705 the ledger handed every one of them to "T-1200's successors
