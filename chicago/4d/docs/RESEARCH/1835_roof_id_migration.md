@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/measure_roof_id_migration.py --build`. T-1483
 T-1445 returned 32 refamily verdicts; T-1451 carried out the 6 whose record id does not encode its family. These are the other 26. Each becomes a new id the moment its family moves, and the id is named across the tree. NOTHING IS MOVED HERE: this is the measurement the three carry-out tickets (T-1481 south, T-1482 the platted blocks, T-1484 north) each stand on.
 
 - roofs whose id moves: **8**
-- files that name one: **38**
-- of those, **1** hold a reference a rename would falsify, **1** rename, **35** are re-derived by their own tool, **1** are frozen records of a past run
+- files that name one: **40**
+- of those, **1** hold a reference a rename would falsify, **1** rename, **37** are re-derived by their own tool, **1** are frozen records of a past run
 
 ## The rows that cost judgement
 
@@ -22,8 +22,8 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 0 | 16 | 1 | 0 |
-| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 0 | 16 | 1 | 0 |
+| `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 0 | 18 | 1 | 0 |
+| `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 0 | 18 | 1 | 0 |
 | `recon_1835_north_c3_064` | `recon_1835_north_a2_064` | 1 | 15 | 1 | 0 |
 | `recon_1835_north_c3_066` | `recon_1835_north_a2_066` | 1 | 15 | 1 | 0 |
 | `recon_1835_north_c4_067` | `recon_1835_north_a2_067` | 1 | 18 | 1 | 0 |
@@ -39,7 +39,7 @@ A plain pointer at the record. The migration rewrites the string and nothing els
 | --- | ---: | --- |
 | `tools/seat_trade_roofs_1835.py` | 6 | a plain pointer at the record |
 
-## Re-derived — 35 file(s)
+## Re-derived — 37 file(s)
 
 Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit these; it re-runs the tool and commits what comes out.
 
@@ -50,6 +50,7 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | `data/enclosures/town_lot_line_rails.json` | 2 | generated_by tools/generate_lot_line_fences.py |
 | `data/enclosures/town_yard_paths.json` | 2 | generated_by tools/generate_kept_ground.py |
 | `data/liberties.json` | 8 | compiled from docs/LIBERTIES.md by tools/compile_liberties.py |
+| `data/reconstruction/1835_block_redeal_remedies.json` | 2 | Derived |
 | `data/reconstruction/1835_business_reconstruction.json` | 1 | DERIVED from the reconstruction order book and the resident band's trade heads by tools/reconstruct_businesses_1835 |
 | `data/reconstruction/1835_hay_limits.json` | 5 | Derived |
 | `data/reconstruction/1835_lodgers_seated.json` | 1 | DERIVED |
@@ -80,6 +81,7 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | `data/yard/town_kept_ground.json` | 2 | generated_by tools/generate_kept_ground.py |
 | `data/yard/town_trade_yards.json` | 1 | Goods each WORKING trade kept in its own yard — casks at the cooperages, barrels at the packing and slaughter houses, boards at the joiners', hides at the tannery, a hay rick at th |
 | `docs/RESEARCH/1835_anonymous_roof_redeal.md` | 8 | DERIVED — regenerate with `tools/redeal_anonymous_roofs |
+| `docs/RESEARCH/1835_block_redeal_remedies.md` | 2 | DERIVED — regenerate with `tools/measure_block_redeal_remedies |
 
 ## Frozen — 1 file(s)
 
