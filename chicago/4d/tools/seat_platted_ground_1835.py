@@ -144,10 +144,11 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # slot requests as roofs, and the slot room that frees seats hh_bennet_lyman on a slot
 # (blk_washington_dearborn#04) in the deal itself, so a release no longer gains him.
 BUSINESS_DEAL_HOLDS = 40
-# T-2130 (2026-10-05): 2 -> 1. The nine roofs it raised on the plat's last tier are not in the
-# business deal's pool, so the hold stays 40, but with them standing the release finds one fewer
-# household to seat (L270).
-BUSINESS_DEAL_COSTS = 1
+# 1 -> 2 on 2026-10-05 (T-2130): the nine roofs it raised on blk_washington_dearborn and
+# blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
+# standing beside T-2129's Market block, a release would also seat hh_benton_datas_e on a slot
+# at blk_washington_dearborn#01 (L270).
+BUSINESS_DEAL_COSTS = 2
 
 TICKET = "T-1613"
 PARENT = "T-1199"
