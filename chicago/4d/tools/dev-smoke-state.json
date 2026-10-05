@@ -2,6 +2,37 @@
   "note": "T-0216 — dev's standing smoke result, so a branch can answer \"is this red mine, or did I inherit it?\" from the record instead of re-running the stage on a clean worktree (three agents paid that price on one red on 2026-08-27; T-0215). Written by tools/dev-smoke-state.mjs, which parses a smoke log — local or from a chicago-4d-smoke.yml run. Every reading carries the CONDITIONS it was taken under, because a quiet CI runner does not predict a loaded steward box: T-0215 measured a factor of twenty on one tree. loadavg is sampled when the reading is filed, so it includes the smoke's own load. `treeHash` digests exactly what the smoke exercises (renderers, data, assets, smoke_renderer.mjs, the published mirror), so a reading whose hash matches yours is a reading OF YOUR TREE. A RECORD, NOT A BAR: nothing here gates anything. THE PART NUMBERS CHANGED ON 2026-08-30 (T-0346): part 4 was cut into 4, 5 and 6 and the old parts 5-9 became 7-11; then T-0173 halved part 7 (8-11 -> 9-12) and T-0170 halved part 10 (11-12 -> 12-13). A reading filed before any of those is labelled in the OLD numbering of its day. Each of those also carries a treeHash that cannot match a tree containing the cut, so `ask` already reports them as not taken on your tree — but read the stage number as dated rather than current.",
   "readings": [
     {
+      "viewport": "mobile",
+      "stage": "12",
+      "parts": [
+        12
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 97,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 522,
+      "takenAt": "2026-10-05T03:32:47.907Z",
+      "ref": "steward/t0239-frontage-note-gate",
+      "commit": "948c71d51571",
+      "devCommit": "5ac49c9bc5f3",
+      "treeHash": "sha256:363cc45848d448d2",
+      "treeDirty": false,
+      "changelogHash": "sha256:7f755c992abc8758",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          2.4,
+          3.8,
+          3.5
+        ]
+      },
+      "source": "/tmp/smoke_m12.log"
+    },
+    {
       "viewport": "desktop",
       "stage": "1",
       "parts": [
@@ -1793,38 +1824,6 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36888989304 https://github.com/kevinrhaas/chicago/actions/runs/36888989304"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "10-13",
-      "parts": [
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "fail",
-      "target": "published",
-      "passed": 244,
-      "failed": 1,
-      "failures": [
-        "desktop 1280x800: the sward's outer boundary is not a constant screen row — 16/16 bearing bins from E -300 N 172, boundary rows spread 3.9 px, reach 25.18-27.48 m at 6.25% coverage (at the old 2%: 16/16 bins, spread 3.5 px, reach 25.41-27.55 m)"
-      ],
-      "wallSeconds": 2276,
-      "takenAt": "2026-10-01T16:00:51.9605964Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36888731661 https://github.com/kevinrhaas/chicago/actions/runs/36888731661"
     }
   ]
 }

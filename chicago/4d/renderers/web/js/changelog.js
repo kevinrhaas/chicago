@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1466, ts: '2026-10-05T03:41:03.903Z', date: 'Oct 4, 2026, 10:41 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
+  { v: 1467, ts: '2026-10-05T03:55:00.003Z', date: 'Oct 4, 2026, 10:55 PM CT', title: 'The 1904 Glessner house draws faster at Balanced and Light', kind: 'change',
     items: [
       'Open 1904 at Balanced or Light detail (Settings, Scene detail). The Glessner house\u2019s windows are now dark panes, and the view at the Prairie Avenue landing takes about half as long to draw on a phone and on a desktop.',
       'At Full detail the windows still reflect and see through as before.',
       'This was the owner\u2019s pick between two cheaper panes. The dark pane is a drawing choice, not a finding about the house (Liberty L383).',
+    ] },
+  { v: 1466, ts: '2026-10-05T03:32:41.154Z', date: 'Oct 4, 2026, 10:32 PM CT', title: 'Row-house cards are now checked against where they stand', kind: 'change',
+    items: [
+      'Nothing you can see changes in this update. Open a house in a row of shared walls and its card says which street it faces, how far back it stands and which wall lines up with its neighbour.',
+      'Twice before, that card named the wrong wall or the wrong street. Each time a person reading the files caught it.',
+      'Now every such card, 43 in all, is checked against the building\u2019s actual position whenever the town is rebuilt. All 43 are correct today.',
     ] },
   { v: 1465, ts: '2026-10-05T03:13:04.374Z', date: 'Oct 4, 2026, 10:13 PM CT', title: 'We checked that every building file can be rebuilt exactly', kind: 'change',
     items: [
