@@ -117,12 +117,42 @@ for a change that meant nothing at all.
 id. The two agree — the gate asserts that too — which is exactly why an id-ordered deal
 could pass for a family-aware one for a year while being neither.
 
-*What limit 5 does not fix.* A **cabinet manufactory** may still be seated in a
-store-residence, because C2 is a house of trade and the C, W and F bands are the only
-division this project holds. Telling a counter trade from a works trade would need a reading
-of the register's 145 trade strings that does not exist yet, and inventing one here would be
-a claim dressed as an allocation. The remaining mismatch is left standing and named, as
-**T-1670**.
+*What limit 5 did not fix, and limit 6 does.* A **cabinet manufactory** could still be
+seated in a store-residence, because C2 is a house of trade and the C, W and F bands were the
+only division the deal held. Telling a counter trade from a works trade needed a reading of
+the register's trades that did not exist, and inventing one inside the deal would have been
+a claim dressed as an allocation.
+
+**6. THE DEAL READS WHAT THE TRADE WANTED.** Added 2026-10-05 for **T-1670**. The reading now
+exists as its own file, `data/research/newspapers/trade_premises.json`: what kind of
+premises each trade in the register wanted — a **counter** (the C bands), a **works** (W),
+**maker and dealer** (C or W, and it does not choose), **freight** (F), an **office** or
+schoolroom (C — the crosswalk's C1 is the land office), or a tavern or stable, which no
+trade band raises. It is keyed on the register's own `occupation`, and a `by_trade` row
+overrides it where the printed trade says otherwise: a `merchant` whose notice prints
+"storage and commission merchant" is a freight concern, a `shoemaker` whose notice prints
+only a store is a counter. **Every row is `inferred`** with its reasoning, because no notice
+says what roof its trade stood in; it is a reading of the trade's own word and of no
+building. Of the houses of trade free under one reading, a business takes one of its kind's
+bands before the rest; a kind every band fits, or none does, reads no preference. Each
+record carries `trade_kind`, `roof_fits_the_trade` and a `kind_note` saying, where the roof
+is not of the trade's kind, what held every roof of that kind on the face — and `--check`
+refuses a business in the wrong kind of house of trade while its own kind stood free.
+
+*What it moved on this tree.* One swap and nothing else: on La Salle Street's corner side
+**Hubbard & Co.**, commission and forwarding merchants, now stand in the F2 warehouse and
+**H. Doty & Co.**, dry goods and groceries, in the C1 shop — the same two roofs, so the
+platted deal, which reads which roofs this deal holds, moved no household. 17 of the 40
+adoptions stand in a roof of their trade's kind and 23 do not (14 of those are T-1651's
+dwellings).
+
+*What it does not fix, measured.* Seven **works** trades still stand in stores — the three
+cabinet makers and the carriage maker on South Water Street among them — and the reason is
+now a number on the record: **no W-band roof stands free on any face these businesses were
+dealt on** (`reading.the_trade_s_kind.works_roofs_free_on_any_adopted_face` is 0). The deal
+cannot honour a kind the faces do not hold; what the cabinet manufactory wants is a roof the
+roof programme has not raised on South Water Street, which is a question for the street's
+own build and not for this allocation.
 
 *And what it moved that is not this policy's.* The business deal and the platted household
 deal (**L270**) take from one pool of anonymous roofs and neither may read the other's
