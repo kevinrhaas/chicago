@@ -3565,6 +3565,60 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01"
     },
+    "recon_1835_blk_west_washington_canal_d2_06__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 69200,
+      "inputs_sha256": "9ea596e3c9be52533d3e467dded97d6b4473e8e1cfe55b75b574d5af2aa909a4",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_washington_canal_d2_06"
+    },
+    "recon_1835_blk_west_washington_canal_d3_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 30532,
+      "inputs_sha256": "7bccbed063fb5aee0c90cce988c331e4750c956d6f859660c8870fe098383de6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_washington_canal_d3_04"
+    },
+    "recon_1835_blk_west_washington_canal_d4_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 41456,
+      "inputs_sha256": "3a89c2acc1b824aacdda74082e13921abe652e76e0c333a746498a850af5160f",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_washington_canal_d4_03"
+    },
+    "recon_1835_blk_west_washington_canal_d5_02__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 36776,
+      "inputs_sha256": "452b35a201e78056865961371cd8240e9f81dcb19354b42210d7507ee4f3e27c",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_washington_canal_d5_02"
+    },
+    "recon_1835_blk_west_washington_canal_d6_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 40204,
+      "inputs_sha256": "1a7877d2839dc4b9fa76e97c29896ccb470d4aa0f15c7b324f2239b1cf5c488d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_washington_canal_d6_01"
+    },
+    "recon_1835_blk_west_washington_canal_d7_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 70948,
+      "inputs_sha256": "bee8230ed4a2c711f9327362e095626fb81cba39fd11838f7509ce5246e1f1b3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_west_washington_canal_d7_05"
+    },
     "recon_1835_canal_trade_c3_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,

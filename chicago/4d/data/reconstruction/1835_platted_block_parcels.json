@@ -5133,6 +5133,152 @@
       ],
       "arrangement_note": "THE FIRST ROOFS ON PLAT BLOCK 44, AND THE SECOND PIECE OF THE WEST DIVISION'S REMAINDER (T-2132). Until T-2132 this block stood with its boundary, its numeral and its lot count and no lot lines, refused with the fourteen blocks that print no dimension -- but it prints two, 180 ft under its west column and 150 ft under its east, where the South Branch has cut into the lots fronting West Water Street. tools/generate_plat_lots.py now cuts it on those two figures, each column sized by its own printed depth and never averaged, and `tools/reconcile_665.py` sizes the ten lots at six roofs -- the reviewed West recipe's six on blk_west_lake_des_plaines's ten lots (T-1783). Two already stand, the Western Hotel on the Randolph-and-Canal corner lot and its stable on the lot south of it, so four roofs of principal room are left and the seating file's four slot requests fill them exactly: a deep-plan frame cottage (D5) and a two-room frame cottage (D4) side by side on the Canal face at plat lots 6 and 7, a second deep-plan cottage (D5) on the Washington corner at plat lot 10, and a D6 on the West Water face at plat lot 8. The set-outs (6.0, 4.5 and 5.5 m on Canal, 3.5 m on West Water) and lateral offsets are inventions bounded by the lot lines, and differ from blk_west_lake_canal's Canal-face roofs one block north (5.0 and 7.5 m) so the street does not read as a surveyed building line. Four lots stay open, all on the West Water face, so the river street reads as thin, light ground. WHAT IS INVENTED: that any building stood on these four lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals and two depths are read off the sheet; neither is evidence about these buildings.",
       "frontage_argued_on": "west_division_thompson_1830"
+    },
+    {
+      "block_id": "blk_west_washington_canal",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_west_washington_canal",
+      "claimed": "2026-10-05",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "canal",
+        "east": "west_water"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 6,
+        "standing_roofs": 0,
+        "free_lots": 10,
+        "headroom": 6,
+        "dealt_roofs": 6,
+        "dealt_principal": 6,
+        "dealt_ancillary": 0,
+        "principal": 6,
+        "ancillary": 0
+      },
+      "families": {
+        "D2": 1,
+        "D3": 1,
+        "D4": 1,
+        "D5": 1,
+        "D6": 1,
+        "D7": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2143",
+        "parent": "T-1208",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_cappy_george",
+            "family": "D6",
+            "order_book_draw": "blk_west_washington_canal / D6 / west"
+          },
+          {
+            "seat": "hh_butterfield_ben",
+            "family": "D5",
+            "order_book_draw": "blk_west_washington_canal / D5 / west"
+          },
+          {
+            "seat": "hh_brush_matthias",
+            "family": "D4",
+            "order_book_draw": "blk_west_washington_canal / D4 / west"
+          },
+          {
+            "seat": "hh_bruen_hir",
+            "family": "D3",
+            "order_book_draw": "blk_west_washington_canal / D3 / west"
+          },
+          {
+            "seat": "hh_bailey_bennet",
+            "family": "D7",
+            "order_book_draw": "blk_west_washington_canal / D7 / west"
+          },
+          {
+            "seat": "hh_cooley_edward_v",
+            "family": "D2",
+            "order_book_draw": "blk_west_washington_canal / D2 / west"
+          }
+        ],
+        "why": "THE BLOCK'S WHOLE REQUEST, RAISED ON THE LOTS IT ASKED FOR. Once plat block 51 is on the layer (T-2143: Canal and West Water carried to Madison, the plat's south town line), the seating file asks six roofs of it and no more -- hh_cappy_george's D6 on lot index 0 (the Washington corner), hh_butterfield_ben's D5 on lot index 1, hh_brush_matthias's D4 on lot index 2 and hh_bruen_hir's D3 on lot index 3, all four fronting Canal under the tradesman_dwellings clause, hh_bailey_bennet's D7 on lot index 4 (the Madison corner) fronting Canal under the merchant_and_professional_dwellings clause, and hh_cooley_edward_v's D2 on lot index 8 fronting West Water under the labourer_dwellings clause -- which is exactly the six roofs of principal room the schedule's West density gives an empty ten-lot block. No face is exchanged: five of the six ask for Canal, which the lot ledger reads `ordinary`, and the one on West Water, which it reads `light`, is the plainest of the six. A REQUEST IS NOT EVIDENCE: all six roofs are anonymous count-units at the bottom tier, standing on invented positions on conjectural side lot lines, and the seating pass re-runs behind the deal to say which household ends up under which roof."
+      },
+      "open_lots": [
+        {
+          "lot": 5,
+          "why": "The West Water column's Washington corner (plat lot 1), left open: the seating asks nothing of it and the schedule's six are reached without it."
+        },
+        {
+          "lot": 6,
+          "why": "The West Water column's second lot (plat lot 4), left open so the river face reads as loose, light-street ground and not a built row."
+        },
+        {
+          "lot": 7,
+          "why": "The West Water column's middle lot (plat lot 5), left open beside the one shanty this deal stands on that face."
+        },
+        {
+          "lot": 9,
+          "why": "The West Water column's Madison corner (plat lot 9), left open: here the column is at its shallowest, the 88 ft the sheet prints where the South Branch has taken more than half a lot's depth."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D6",
+          "inventory_class": "principal_functional",
+          "lot": 0,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 6.5,
+          "lateral_m": 1.0
+        },
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 1,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 2,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 7.5,
+          "lateral_m": 0.5
+        },
+        {
+          "family": "D3",
+          "inventory_class": "principal_functional",
+          "lot": 3,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 5.0,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "D7",
+          "inventory_class": "principal_functional",
+          "lot": 4,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 6.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D2",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "west_water",
+          "setback_m": 3.0,
+          "lateral_m": -1.0,
+          "square_to_face": true
+        }
+      ],
+      "arrangement_note": "THE FIRST ROOFS ON PLAT BLOCK 51, THE WEST DIVISION'S LAST TIER, AND THE THIRD PIECE OF THE DIVISION'S REMAINDER (T-2143). Until T-2143 this block was not on the layer at all: its tier, Washington to the south town line, leaned on a line the grid did not hold, and Canal and West Water stopped at local N -400, the old south edge of the modelled field. T-2143 carried both to Madison, the Original Town's south line, as T-1707 carried the South Division's seven columns, and tools/generate_plat_lots.py cuts the block on its own two printed depths, 180 ft under its west column and 88 ft under its east, never averaged. `tools/reconcile_665.py` sizes the ten lots at six roofs -- the reviewed West recipe's six on blk_west_lake_des_plaines's ten lots (T-1783) -- and the seating file's six slot requests fill them exactly: five houses on the Canal face, from a D6 on the Washington corner (plat lot 2) through a D5, a D4 and a D3 (plat lots 3, 6 and 7) to a D7 merchant's house on the Madison corner (plat lot 10), and a D2 shanty on the West Water face at plat lot 8. The set-outs (6.5, 4.5, 7.5, 5.0 and 6.0 m on Canal, 3.0 m on West Water) and lateral offsets are inventions bounded by the lot lines, staggered so the one fully built face does not read as a surveyed building line, and differ from blk_west_randolph_canal's Canal-face roofs one block north. The shanty stands square to West Water (`square_to_face`): that face runs 7.5 degrees off the lot axis, where the sheet prints a bearing North 8 East up the block's east side, and a roof framed on the lot axis would look askew down its own street. Four lots stay open, all on the West Water face, so the river street reads as thin, light ground. WHAT IS INVENTED: that any building stood on these six lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals and two depths are read off the sheet; neither is evidence about these buildings.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {
