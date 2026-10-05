@@ -43,6 +43,8 @@ The derivation, and each rule is here because a module in this tree exercises it
   CAN ask for the control line is a module that reads it.
 * `corridors()` or `corridors(False)` → DRAWN.
 * `block_edges(…)`                    → DRAWN, since the block faces are that line offset.
+* `every_corridor()`                  → DRAWN: the platted layer on its drawn line plus every
+  street off it, which has no control to be centred on (T-1726).
 * `intrusion(polygon)`                → DRAWN: with no lanes of its own it builds the drawn
   ones. `intrusion(polygon, lanes)` counts as NEITHER — it follows the lanes it is handed,
   and every caller here hands it lanes it has already been charged for. Reading the second
@@ -76,7 +78,7 @@ DEFINER = "tools/plat_corridors.py"
 # The names that carry a line. `sampled`, `SAMPLE_M` and `QUOTED_M` do not: a polygon
 # sampler and two quoting tolerances say nothing about which line a caller took, and a
 # module that imports only those owes no declaration.
-CORRIDOR_NAMES = {"corridors", "control_offsets", "intrusion"}
+CORRIDOR_NAMES = {"corridors", "every_corridor", "control_offsets", "intrusion"}
 GRID_NAMES = {"block_edges"}
 LINE_NAMES = CORRIDOR_NAMES | GRID_NAMES
 
@@ -141,7 +143,7 @@ def read(path: Path, source: str | None = None) -> dict | None:
             continue
         if name == "control_offsets":
             takes.add("control")
-        elif name == "block_edges":
+        elif name in ("block_edges", "every_corridor"):
             takes.add("drawn")
         elif name == "corridors":
             given = ([a for a in args[:1]]

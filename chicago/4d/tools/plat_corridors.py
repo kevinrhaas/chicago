@@ -49,7 +49,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "tools"))
 
 from generate_plat_lots import (  # noqa: E402
-    CORRIDOR_EW, CORRIDOR_NS, DATA, corridor_rings, load,
+    CORRIDOR_EW, CORRIDOR_NS, DATA, corridor_rings, load, offset_polyline,
     point_in_polygon, point_to_ring_m, street_lines,
 )
 
@@ -253,6 +253,47 @@ def corridors(from_control: bool = False) -> dict:
             "control_verdict": offsets.get(sid, {}).get("verdict", "no_control"),
         }
     return out
+
+
+def omitted_corridors() -> dict:
+    """The corridor of every drawn street the platted layer leaves out, by street id.
+
+    Read from `data/streets/1835.json` at each record's OWN declared width, and never
+    authored as a list: a street joins or leaves this set by what the town draws and what
+    `CORRIDOR_EW`/`CORRIDOR_NS` cover. It was `generate_west_infill.omitted_street_corridors`
+    until T-1726 brought it here, because every generator now asks it.
+
+    These are DRAWN corridors and nothing else. The streets they cover are out of the
+    platted layer for stated reasons — cut from a riverbank (`north_water`, `west_water`),
+    held on an open question (`jefferson`, T-2018), or laid by a survey other than the
+    module's (the School Section's 66 ft lines, the Michigan Street tract, the fort road,
+    the State road) — and a corridor here asserts none of those plats. It answers one
+    question: would a visitor walking the street as drawn walk into this wall.
+    """
+    lines = street_lines(load(DATA / "streets" / "1835.json"))
+    out = {}
+    for sid, street in lines.items():
+        if sid in CORRIDOR_EW or sid in CORRIDOR_NS:
+            continue
+        half = float(street["half_width_m"])
+        left = offset_polyline(street["points"], half, (-1.0, 0.0))
+        right = offset_polyline(street["points"], half, (1.0, 0.0))
+        out[sid] = {"name": street["name"], "ring": left + list(reversed(right)),
+                    "points": street["points"], "half_width_m": half}
+    return out
+
+
+def every_corridor() -> dict:
+    """Every street this town draws: the platted layer on the drawn line, plus the rest.
+
+    T-1726. `corridors()` is the PLAT — the block grid's module, oriented on its rows and
+    columns, and read by gates that compare a corridor edge against a block face. It stays
+    exactly that. But a generator asking "may I put a roof here" is not asking about the
+    plat; it is asking about the street, and on 2026-10-05 thirty-six of the eighty drawn
+    streets were outside the platted layer, so the answer there was "yes" by omission.
+    This is the layer every generator's no-roof-in-the-road assertion reads.
+    """
+    return {**corridors(), **omitted_corridors()}
 
 
 def sampled(polygon: list, pitch: float = SAMPLE_M) -> list:

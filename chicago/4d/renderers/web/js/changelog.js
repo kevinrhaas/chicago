@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1504, ts: '2026-10-05T20:47:21.563Z', date: 'Oct 5, 2026, 3:47 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
+  { v: 1505, ts: '2026-10-05T20:47:55.347Z', date: 'Oct 5, 2026, 3:47 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
     items: [
       'Canal Street and West Water Street now run south past Washington Street to Madison Street, the south edge of the 1830 town. Before, both stopped short at Washington.',
       'The new block between them has six houses: five face Canal Street, from a house on the Washington corner to a larger merchant\u2019s house on the Madison corner, and a small shanty faces West Water Street by the river.',
       'The 1830 plat gives this block\u2019s two rows of lots different depths, 180 feet and 88 feet, because the river cuts deep into the row along West Water Street. Each row is cut to its own depth.',
       'Six West Side families now have a home in the town. No source names these houses or who lived in them; each card says so, and the Liberties page explains it (L313).',
+    ] },
+  { v: 1504, ts: '2026-10-05T19:48:01.259Z', date: 'Oct 5, 2026, 2:48 PM CT', title: 'A boatman\u2019s cabin steps out of North Water Street', kind: 'fix',
+    items: [
+      'On the north bank, east of Franklin Street, a small boatman\u2019s cabin stood in the middle of North Water Street. It now stands 20 m north, on the block behind the street, still facing the river.',
+      'The cabin is invented: the town needed one for a boatman\u2019s household, and no source places it. Its card says so, and now also says how far it moved and why.',
+      'The checks that keep invented buildings out of roads now look at all 80 streets the town draws, not just the 44 on the original plats. This cabin was the only invented building they found standing in a road.',
     ] },
   { v: 1503, ts: '2026-10-05T19:18:23.183Z', date: 'Oct 5, 2026, 2:18 PM CT', title: 'Four cottages on Canal Street between Randolph and Washington', kind: 'feature',
     items: [

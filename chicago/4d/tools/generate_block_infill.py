@@ -1829,7 +1829,7 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
                 datum: dict, face: dict | None = None,
                 strip: dict | None = None,
                 sibling_lots: frozenset[int] = frozenset()) -> None:
-    from plat_corridors import corridors, intrusion  # noqa: PLC0415
+    from plat_corridors import every_corridor, intrusion  # noqa: PLC0415
     from heightfield import Heightfield  # noqa: PLC0415
 
     mine = [(r["id"], world_polygon(r, datum)) for r in records]
@@ -2249,11 +2249,12 @@ def check_block(block: dict, grid: dict, frames: list[dict], records: list[dict]
     # nothing in the platted roadway. The lots are offset from the corridors, so this
     # cannot fail while the lot test passes — which is the point of running it anyway:
     # if the two ever disagree, the disagreement is the finding.
-    lanes = corridors()
+    # T-1726: and in no drawn street either, the thirty-six off the platted layer included.
+    lanes = every_corridor()
     for sid, poly in mine:
         street, depth = intrusion(poly, lanes)
         if street:
-            raise SystemExit(f"{sid} reaches {depth:.1f} m inside the platted "
+            raise SystemExit(f"{sid} reaches {depth:.1f} m inside the "
                              f"{lanes[street]['name']} corridor")
 
     # nothing within three metres of anything else in the dataset — EXCEPT a declared
@@ -2455,13 +2456,13 @@ def self_test() -> int:
     reads the committed town and would make this test a statement about whatever
     happens to be built on the block today.
     """
-    from plat_corridors import corridors, intrusion  # noqa: PLC0415
+    from plat_corridors import every_corridor, intrusion  # noqa: PLC0415
 
     lots_by_id = {b["id"]: b for b in load(LOTS_PATH)["blocks"]}
     datum = load(DATA / "datum.json")
     table = families()
     streets = street_traffic()
-    lanes = corridors()
+    lanes = every_corridor()
     failures: list[str] = []
 
     def block_of(block_id: str) -> tuple[dict, dict, list[dict]]:
@@ -2530,7 +2531,7 @@ def self_test() -> int:
         expect(f"{family} on lot {lot} stands inside its lot, clear of the margin",
                inside and margin >= LOT_MARGIN_M - 0.005, f"{margin:.2f} m to a lot line")
         hit, depth = intrusion(poly, lanes)
-        expect(f"{family} on lot {lot} stays out of every platted corridor", not hit,
+        expect(f"{family} on lot {lot} stays out of every drawn street", not hit,
                f"{depth:.1f} m into {hit}" if hit else "")
         back = min(abs(face_project(face, pt)[1]) for pt in poly)
         expect(f"{family} on lot {lot} stands its setback back from the {street} line",

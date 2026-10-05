@@ -3,7 +3,7 @@
 **What a visitor sees.** Canal Street and West Water Street run on south of Washington to
 Madison, and the block between them — plat block 51, the West Division's last tier — carries
 six houses: five on the Canal face (D6 on the Washington corner, D5, D4, D3, and a D7 on the
-Madison corner) and a D2 shanty on West Water. Changelog v1504.
+Madison corner) and a D2 shanty on West Water. Changelog v1505.
 
 **Why the block was not there.** T-2132 named plat block 51 as the next West ground (180 ft
 under its west column, 88 under its east), "but the committed grid does not build that block at
