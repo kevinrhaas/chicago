@@ -456,6 +456,7 @@ GROUND_GROUPS = [
     ("spit_1812", "the baymouth spit"),
     ("isthmus_1812", "the spit's neck"),
     ("north_lake_shore_1812", "the lake shore north of the spit"),
+    ("south_lake_sand_hills_1812", "the sand hills south of Twelfth Street"),
 ]
 
 
