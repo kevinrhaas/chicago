@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1460, ts: '2026-10-05T01:50:28.820Z', date: 'Oct 4, 2026, 8:50 PM CT', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
+  { v: null, ts: '', title: '1904 lots on Prairie Avenue now name their legal lot', kind: 'feature',
     items: [
       'In the 1904 scene, tap a lot on Prairie Avenue between 16th and 18th Street. Its card now names the lot, block and subdivision it stood on, read from Robinson\u2019s 1886 atlas of Chicago, such as \u201cLot 8, block 1 of E. L. Sherman\u2019s Sub.\u201d',
       'Where the 1911 map splits an 1886 lot between two houses, or one house takes two lots, the card says so.',
       'The Glessner House lot at 1800 Prairie names the lots its legal description gives: 39, 40 and the north 17 feet of 38, in block 9.',
+    ] },
+  { v: 1460, ts: '2026-10-05T01:41:53.671Z', date: 'Oct 4, 2026, 8:41 PM CT', title: 'A road leaves the town south, along the lake shore sand', kind: 'feature',
+    items: [
+      'Walk south down State Street past Washington Street. A worn wagon road now leads on, out across the open ground and along the sandy belt behind the lake shore dunes, to the edge of the map.',
+      'It is the State road to Vincennes. In the winter of 1833\u201334 Illinois ordered it laid out from Vincennes to Chicago, mostly along Gurdon Hubbard\u2019s old trail. Before this, nothing led out of the town to the south.',
+      'That the road was there comes from Hubbard\u2019s own account. That it ran along the lake shore sand comes from Moses and Kirkland\u2019s history. Nobody recorded its exact line, so the line is our reconstruction. The Liberties page explains it (L381).',
     ] },
   { v: 1459, ts: '2026-10-05T01:23:30.633Z', date: 'Oct 4, 2026, 8:23 PM CT', title: 'The letter-list names load half the size', kind: 'change',
     items: [
