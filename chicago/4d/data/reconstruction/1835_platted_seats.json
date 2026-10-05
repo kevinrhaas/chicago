@@ -72,10 +72,10 @@
    "merchant_and_professional_dwellings": 384,
    "tradesman_dwellings": 536
   },
-  "roofs_offered_for_adoption": 157,
+  "roofs_offered_for_adoption": 162,
   "roofs_held_back": 56,
   "roofs_held_by_the_business_deal": 40,
-  "seats_the_business_deal_costs": 2
+  "seats_the_business_deal_costs": 1
  },
  "what_the_plat_could_not_hold": {
   "rows": 1249,
@@ -104,14 +104,6 @@
   ],
   "households_it_costs": [
    {
-    "id": "hh_bennet_lyman",
-    "clause": "merchant_and_professional_dwellings",
-    "district": "south",
-    "how": "slot",
-    "would_take": null,
-    "lot_id": "blk_washington_market#00"
-   },
-   {
     "id": "hh_humphrey_fre_lemuel",
     "clause": "labourer_dwellings",
     "district": "south",
@@ -120,8 +112,8 @@
     "lot_id": "blk_lake_dearborn#01"
    }
   ],
-  "households_that_would_change_roof": 40,
-  "reading": "the business deal holds 40 roofs on the plat, 26 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 2 more household(s) in all, counting any the moves leave a roof or a slot for; 40 seated household(s) would change roof or lot. So the precedence costs the households 2 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "households_that_would_change_roof": 37,
+  "reading": "the business deal holds 40 roofs on the plat, 26 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 37 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
