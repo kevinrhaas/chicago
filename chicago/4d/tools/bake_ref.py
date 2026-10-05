@@ -46,6 +46,8 @@ here, so the day the pipeline grows a stage tier this does not quietly disagree
 with the manifest that every other reader uses.
 
     tools/bake_ref.py --event <name> --ref <ref> [--github]
+    tools/bake_ref.py --start-verdict      # should the bake start? (T-1118)
+    tools/bake_ref.py --check-base BRANCH  # is BRANCH still a live base?
     tools/bake_ref.py --self-test
 """
 from __future__ import annotations
@@ -151,6 +153,48 @@ def base_is_live(base, pr_states, integration="dev", production="main"):
                    f"PR into it could never reach {integration}")
 
 
+def start_verdict(event, ref, dev_exists, states_for,
+                  integration="dev", production="main"):
+    """Should this bake START at all? (T-1118) Returns (bake, branch, reason).
+
+    `base_is_live` was first asked in the bake job's SECOND step, so when it
+    answered "dead" the run already knew it was pointless — and went on to spend
+    three quarters of an hour regenerating 196 assets, pushing a branch nobody
+    would read and smoking it, only for `open-pr` to withhold the PR at the end.
+    Five of the seven bakes measured on 2026-09-14 were dead BEFORE they began.
+
+    So the same question is now put in the `warranted` job, which runs on a
+    five-minute runner before the Blender one is ever claimed. It is `resolve`
+    and `base_is_live` composed, nothing more: which ref would this run bake,
+    and does that ref still have anywhere to go?
+
+      * a pipeline tier is never asked about — the nightly bakes `dev`, and no
+        pull request state can talk it out of that. `states_for` is not called;
+      * `states_for(branch)` returns the head branch's PR states and may raise.
+        ANY failure answers BAKE, the same one-directional fail-safe as
+        `--check-base`: a wrong "dead" loses a bake, a wrong "live" costs one;
+      * a base that dies AFTER this answer is not this function's business. The
+        bake job's own `baseref` step and `open-pr` still ask, and that path —
+        bake, push, withhold the PR — is unchanged.
+    """
+    branch, why = resolve(event, ref, dev_exists, integration, production)
+    if branch in (integration, production):
+        live, reason = base_is_live(branch, [], integration, production)
+    else:
+        try:
+            states = states_for(branch)
+        except Exception as exc:                                   # noqa: BLE001
+            return True, branch, (f"{why}; could not ask GitHub about {branch} "
+                                  f"({exc}) — treating it as live and baking")
+        live, reason = base_is_live(branch, states, integration, production)
+    if live:
+        return True, branch, f"{why}; {reason}"
+    return False, branch, (f"DECLINED {branch} — {reason}. Nothing is regenerated, no "
+                           f"branch is pushed and the published smoke does not run; the "
+                           f"next bake on {integration} rebuilds from the sources that "
+                           f"did merge. A declined bake is not a failure.")
+
+
 def pr_states_for(base, repo=None):
     """Every PR state ever recorded for head branch `base`. [] when unknown."""
     import json as _json
@@ -181,6 +225,9 @@ def main(argv=None):
     ap.add_argument("--dev-exists", choices=["0", "1"])
     ap.add_argument("--github", action="store_true")
     ap.add_argument("--self-test", action="store_true")
+    ap.add_argument("--start-verdict", action="store_true",
+                    help="should a bake of this run's ref start at all? prints 1 or 0 "
+                         "(T-1118; the warranted job asks it)")
     ap.add_argument("--check-base", metavar="BRANCH",
                     help="is a bake PR into BRANCH still able to reach the integration "
                          "tier? prints 1 or 0")
@@ -215,6 +262,13 @@ def main(argv=None):
         dev_exists = subprocess.run(
             ["git", "ls-remote", "--exit-code", "--heads", "origin", integration],
             cwd=REPO, capture_output=True).returncode == 0
+
+    if args.start_verdict:
+        bake, _branch, reason = start_verdict(args.event, args.ref, dev_exists,
+                                              pr_states_for, integration, production)
+        print(reason, file=sys.stderr)
+        print("1" if bake else "0")
+        return 0
 
     branch, reason = resolve(args.event, args.ref, dev_exists, integration, production)
     # The REASON goes to stderr and the ANSWER to stdout, always — so the caller
@@ -297,6 +351,54 @@ def self_test():
     case("the states are read case-insensitively, as the API spells them",
          base_is_live("steward/x", ["MERGED"])[0], False)
 
+    # --- should the bake start at all? (T-1118) ----------------------------
+    # THE FAULT: five of 2026-09-14's seven dead-base bakes were dead before they
+    # began, and each spent a full bake, a push and a smoke to learn it.
+    def merged(_b):
+        return ["merged"]
+
+    def no_pr(_b):
+        return []
+
+    def opened(_b):
+        return ["closed", "open"]
+
+    def unreachable(_b):
+        raise OSError("api.github.com unreachable")
+
+    asked = []
+
+    def watched(b):
+        asked.append(b)
+        return ["merged"]
+
+    case("a push to a branch whose PR has merged does not start a bake",
+         start_verdict("push", "refs/heads/steward/t-1004-two-men-one-card", True, merged)[0],
+         False)
+    case("…nor does a dispatch against one",
+         start_verdict("workflow_dispatch", "refs/heads/fix/queue-ratchet", True, merged)[0],
+         False)
+    case("…and the decline names the ref it declined and says it is not a failure",
+         all(w in start_verdict("push", "refs/heads/fix/queue-ratchet", True, merged)[2]
+             for w in ("DECLINED fix/queue-ratchet", "not a failure")), True)
+    case("a branch with an open PR still bakes",
+         start_verdict("push", "refs/heads/steward/reopened", True, opened)[0], True)
+    case("a branch with no PR yet still bakes — the T-0454 dispatch",
+         start_verdict("workflow_dispatch", "refs/heads/steward/t-0429-south-water-lasalle",
+                       True, no_pr)[0], True)
+    case("an unanswerable PR question bakes rather than declines",
+         start_verdict("push", "refs/heads/steward/x", True, unreachable)[0], True)
+    # THE NIGHTLY IS UNTOUCHED. It bakes dev, dev is a tier, and no PR state is
+    # even consulted — a rule that could skip the nightly is worse than the waste
+    # it saves. `watched` would answer "merged" if it were ever asked.
+    case("the nightly always starts, whatever a PR question would have said",
+         start_verdict("schedule", "refs/heads/main", True, watched)[:2], (True, "dev"))
+    case("…a push to dev always starts",
+         start_verdict("push", "refs/heads/dev", True, watched)[:2], (True, "dev"))
+    case("…a dispatch on main bakes dev and starts",
+         start_verdict("workflow_dispatch", "refs/heads/main", True, watched)[:2], (True, "dev"))
+    case("…and none of those three asked GitHub anything", asked, [])
+
     # --- the drift guards --------------------------------------------------
     # Comments stripped first: the workflow step quotes the line it replaced, and
     # a guard that reads prose cannot tell a fix from a description of one.
@@ -324,6 +426,16 @@ def self_test():
     # runs before the work cannot see a base die during it.
     case("…and it asks AGAIN at the moment the PR is opened, not only at job start",
          live.count("--check-base") >= 2, True)
+    # T-1118: THE DEAD-BASE ANSWER IS ASKED BEFORE THE BLENDER RUNNER IS CLAIMED.
+    # It lives in the `warranted` job, whose output the bake job's `if:` already
+    # reads, so a declined bake shows as a skipped job and the run stays green.
+    gate = live.split("\n  bake:\n", 1)[0]
+    case("the warranted job asks whether the bake should start at all",
+         "--start-verdict" in gate, True)
+    case("…and a decline turns the job's bake output off",
+         "steps.live.outputs.declined == '1'" in gate, True)
+    case("…and a crashed or garbled answer bakes rather than declines",
+         "|| LIVE=1" in gate and 'echo "declined=1"' in gate, True)
     # A GREEN BAKE PR THAT NOTHING MERGES IS STILL A BAKE PR NOBODY MERGED. The
     # liveness rule above decides whether to OPEN one; this asserts the workflow
     # then arms auto-merge on it. A steward run arms its own PR and merges it
