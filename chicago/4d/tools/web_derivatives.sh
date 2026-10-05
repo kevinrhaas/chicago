@@ -88,6 +88,12 @@
 # files reproduce here exactly (`optimize` dedups without the palette pass) and three
 # failures carry no weld. The signature is not the set and no gate is built on it.
 #
+# RE-MEASURED 2026-10-05 BY T-0776: **570 of 570** (every top-level master, the four
+# structure versions and v4's light file) reproduce byte for byte, twice running, and an
+# in-place run leaves `git status` empty. This step carries no state. The 348
+# same-size rewrites T-0776 saw were the generator stamp moving under an unpinned npx
+# (`v4.4.2` to `v4.5.0`), which the T-0537 pin below now holds still.
+#
 # AND THE SENTENCE AT THE TOP IS TRUE AFTER ALL, WHICH IS THE POINT OF THE CONTROL:
 # on all 189, the bytes this script produces on a Blender-free runner are md5-identical
 # to the bytes the nightly bake put in PR #175. What was wrong was never the extraction —
