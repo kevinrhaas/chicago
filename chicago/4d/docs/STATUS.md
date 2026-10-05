@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
 
 T-1829 left the West Division 12 ordinary dwellings and a freight roof short, with every
@@ -32,7 +31,7 @@ cut on a single depth.
 - Order book: `ordinary_dwellings/west` 67 of 75, **8 left**; `warehouses_freight/west` 1 left.
   These rows, and the complete stores and workshops rows, move to **T-2143**, filed with this
   finding as its acceptance.
-=======
+
 ## T-2062 — the first fort's factory, agency, stables and gardens, by the draught's own figures (2026-10-05)
 
 **Visible:** seven structures now stand outside the first Fort Dearborn in the 1812 scene. They
@@ -59,7 +58,6 @@ asserted. Nobody is seated in any of the seven (L1).
 
 **Gate:** the T-2062 gate run is named in the PR. `validate.py` passes with 0 errors. L263 (559) and
 L266 (93) are restated, and `measure_generator_half` is restated 591 → 598.
->>>>>>> origin/dev
 
 ## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
 

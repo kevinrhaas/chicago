@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 573,
+    "structures_placed": 577,
     "structures_reached": 103,
     "structures_reached_by_grade": {
       "inferred": 25,
       "reconstructed": 78
     },
     "structures_unreached_by_section": {
-      "09": 467,
+      "09": 471,
       "10": 1,
       "16": 1,
       "outside the four sections": 1
@@ -40062,6 +40062,10 @@
       "recon_1835_blk_west_lake_canal_d2_03",
       "recon_1835_blk_west_lake_canal_d4_02",
       "recon_1835_blk_west_lake_canal_d5_01",
+      "recon_1835_blk_west_randolph_canal_d4_02",
+      "recon_1835_blk_west_randolph_canal_d5_01",
+      "recon_1835_blk_west_randolph_canal_d5_03",
+      "recon_1835_blk_west_randolph_canal_d6_04",
       "recon_1835_blk_west_randolph_des_plaines_d4_02",
       "recon_1835_blk_west_randolph_des_plaines_d5_04",
       "recon_1835_blk_west_randolph_des_plaines_d6_03",
