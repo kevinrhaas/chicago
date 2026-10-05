@@ -14333,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 550 phases (541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 554 phases (550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -16333,9 +16333,10 @@ re-seating that put e1 square to the walk **T-1643**, `docs/RESEARCH/south_bank_
 
 ### L282 — The blacksmith's forge stack: three brick blocks against an end wall, and no source describes any of it
 
-**Scope:** `structures.phases[chimneys]` — 4 phases built with a forge stack:
-`pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west` and
-`recon_1835_canal_trade_w1_003`, the town's four `outbuilding` smithies. The `chimneys: 1` the five anonymous-parcel generators now
+**Scope:** `structures.phases[chimneys]` — 5 phases built with a forge stack:
+`pierce_blacksmith_shop`, `mason_blacksmith_shop`, `inf_blacksmith_shop_west`,
+`recon_1835_canal_trade_w1_003` and `recon_1835_blk_randolph_clark_w1_10`, the town's five
+`outbuilding` smithies (four until T-2134's blacksmith's shop on Dearborn Street, 2026-10-05). The `chimneys: 1` the five anonymous-parcel generators now
 deal family **W1** puts every W1 roof dealt after this on the same footing. The geometry is `_forge_stack` and the four constants
 above it in `generators/archetypes/outbuilding.py`; the count, its bounds and the wall it
 stands against are in `generators/archetypes/outbuilding_params.py`.
@@ -21518,3 +21519,41 @@ The record's own sizes (`barrel_*`, `crate_size_m`, `wagon_body_m`, `cart_m`) ar
 **How to resolve:** any inventory, advertisement or view that names a shop's casks or a wagon's
 colour in 1835 Chicago replaces the deal for that object.
 **Recorded:** 2026-10-05 (T-2121).
+
+### L389 — Four invented workshops stand at the back of Dearborn Street corner lots
+
+**Decision:** the South Division's last four workshops — three carpenter's or joiner's shops
+(W2) and a blacksmith's shop (W1) — stand at the BACK of four corner lots, each fronting
+Dearborn Street, behind the house already standing on its lot: on lot 0 of
+`blk_washington_dearborn` (behind a D7 house on Washington), lot 0 of `blk_randolph_dearborn`
+(behind a D3 cottage), and lots 6 and 7 of `blk_randolph_clark` (behind a store and a D6
+house). Each stands on the Dearborn street line (1.55 m off the lot edge, inside the 2.71 m the
+placement policy's `mechanics_streets` clause reads as "on the line") and 14 m along it from the middle of the
+lot's side toward the block alley, its gable to the street.
+
+**The rule this rests on (T-2134).** The schedule owed these four and held them on gated ground
+(`blk_south_water_market` and `south_plat_beyond_committed_control`), where nothing can stand,
+while every block with a face a workshop may take read `at_capacity`: a block's room is
+counted a free lot to a principal roof. The owner ruled on 2026-09-23 (T-1482) that a lot may
+carry a main house plus a rear building, which is ancillary by its position. A workshop at the
+rear of a CORNER lot, door on the side street, is that same rear building turned to face the
+street it stands beside, so `reconcile_665.inventory_class` now reads it as ancillary — workshops
+only, and only behind a principal roof already on the lot. It takes no lot of its own, so no
+block's reserved open lot is spent and `ROW_UNITS_PER_LOT` counts every lot as it did. The
+face clauses still bind it: Dearborn is `ordinary` and no face of these three blocks outranks
+it; a shop on State or Washington (`light`) or on a Lake or South Water block is still refused.
+
+**Everything else is invented** — that a shop stood on any of these lots in 1835, which trade,
+where on the lot and how far back. No source places a workshop here. Each is an anonymous
+count-unit at the bottom tier, drawn one for one from the gated units' workshops
+(`drawn_from_gated_ground` on the three recipe entries), so no family total moves.
+
+**How to resolve:** a lot-level deed, assessment or directory entry for a shop on Dearborn
+Street between Randolph and Madison. A named discovery substitutes for a compatible anonymous
+shop and never increases the total; evidence that these corners carried nothing behind their
+houses retires the shops rather than moving them.
+
+**Covers:** `recon_1835_blk_washington_dearborn_w2_10.inferred_1835.position`, `recon_1835_blk_washington_dearborn_w2_10.inferred_1835.footprint`, `recon_1835_blk_randolph_dearborn_w2_18.inferred_1835.position`, `recon_1835_blk_randolph_dearborn_w2_18.inferred_1835.footprint`, `recon_1835_blk_randolph_clark_w2_09.inferred_1835.position`, `recon_1835_blk_randolph_clark_w2_09.inferred_1835.footprint`, `recon_1835_blk_randolph_clark_w1_10.inferred_1835.position`, `recon_1835_blk_randolph_clark_w1_10.inferred_1835.footprint`
+**Related:** **L387** (the houses on the Dearborn block these stand behind), **L349**, **T-1684**,
+**T-2133** (the cross-street term), **T-2134**, **T-1482** (the owner's rear-building ruling).
+**Recorded:** 2026-10-05 (T-2134).

@@ -191,10 +191,10 @@ Then every location claim the research makes, reconciled: **1,910** rows, each c
 
 | Disposition | Rows |
 | --- | ---: |
-| `limited` | 201 |
+| `limited` | 195 |
 | `no_claim` | 1,342 |
 | `refused` | 189 |
-| `resolved` | 178 |
+| `resolved` | 184 |
 
 Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. Rows called resolved that resolve onto nothing: **0** (C7). This is the answer to *how many attested location facts sit in prose with no structured target*: none — every claim in the corpus is a row here, and a row that could not be placed says so with its reason rather than being dropped or guessed past.
 

@@ -3,6 +3,134 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 9,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-05T16:42:45.794Z",
+      "ref": "steward/t-2134-dearborn-shops",
+      "commit": "03ae02ebc992",
+      "devCommit": "f846ebdc8f1b",
+      "treeHash": "sha256:7196ab347a4e0c84",
+      "treeDirty": false,
+      "changelogHash": "sha256:4b2541da512adf63",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_d8.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 18,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 264,
+      "takenAt": "2026-10-05T16:42:45.691Z",
+      "ref": "steward/t-2134-dearborn-shops",
+      "commit": "03ae02ebc992",
+      "devCommit": "f846ebdc8f1b",
+      "treeHash": "sha256:7196ab347a4e0c84",
+      "treeDirty": false,
+      "changelogHash": "sha256:4b2541da512adf63",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.3,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_m8.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "8",
+      "parts": [
+        8
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 18,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 261,
+      "takenAt": "2026-10-05T15:44:55.972Z",
+      "ref": "steward/t-2134-dearborn-shops",
+      "commit": "9340f9ce39cd",
+      "devCommit": "cc86910e3875",
+      "treeHash": "sha256:f164583b5ad52284",
+      "treeDirty": false,
+      "changelogHash": "sha256:2aaf99c4a9614389",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          4.2,
+          4.2,
+          4.1
+        ]
+      },
+      "source": "/tmp/smoke_m8.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 35,
+      "failed": 1,
+      "failures": [
+        "desktop 1280x800: the suite body ran to completion — Error: page.evaluate: Target page, context or browser has been closed"
+      ],
+      "wallSeconds": null,
+      "takenAt": "2026-10-05T15:40:29.026Z",
+      "ref": "steward/t-2134-dearborn-shops",
+      "commit": "9340f9ce39cd",
+      "devCommit": "cc86910e3875",
+      "treeHash": "sha256:f164583b5ad52284",
+      "treeDirty": false,
+      "changelogHash": "sha256:2aaf99c4a9614389",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.7,
+          4.1,
+          4
+        ]
+      },
+      "source": "/tmp/smoke_d1.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "1",
       "parts": [
         1
@@ -1713,124 +1841,6 @@
         ]
       },
       "source": "/tmp/t1811/smoke-d7.log"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "10-13",
-      "parts": [
-        10,
-        11,
-        12,
-        13
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 245,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 848,
-      "takenAt": "2026-10-01T16:18:51.5129745Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36889183566 https://github.com/kevinrhaas/chicago/actions/runs/36889183566"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "7-9",
-      "parts": [
-        7,
-        8,
-        9
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 55,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:03:48.6652200Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36889115055 https://github.com/kevinrhaas/chicago/actions/runs/36889115055"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7-9",
-      "parts": [
-        7,
-        8,
-        9
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 53,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:03:48.6652200Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36889115055 https://github.com/kevinrhaas/chicago/actions/runs/36889115055"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "3-6",
-      "parts": [
-        3,
-        4,
-        5,
-        6
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 142,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T16:03:14.9620204Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "3be47a42fe838b1ff4938e83857872f0eab2777d",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36889037700 https://github.com/kevinrhaas/chicago/actions/runs/36889037700"
     }
   ]
 }

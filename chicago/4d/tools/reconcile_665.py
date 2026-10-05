@@ -339,17 +339,35 @@ def group_of(family: str) -> str:
 # roof are the ones the same deal already placed one on. So "behind the principal roof on
 # its own lot" is read off the recipe, and a caller who knows no position (the North
 # Division's placement rows, which carry none) gets the group-only answer it always got.
+#
+# T-2134 CARRIES THE SAME RULING ROUND A CORNER. A workshop at the back of a CORNER lot,
+# fronting the lot's side street, behind the house that already fronts the long face, is
+# the rear building the owner's ruling admits — "a lot may carry a main house plus a rear
+# dwelling" — with its door on the street it stands beside rather than on the alley. It
+# is ancillary by position for the same reason the rear cottage is: it adds no house to
+# the lot's frontage, so `ROW_UNITS_PER_LOT` and the lot ceiling count the lot exactly as
+# they did. The term is workshops only, on purpose. The documented record puts a shop
+# behind or beside its master's house; a store is the thing a stranger has to find, and
+# a store on a side street is the store's own frontage and a principal roof (T-0024).
+# `fronts_side_street` is read off the committed lot grid by the caller — the slot's
+# street either is its lot's own long face or it is not — never typed into a recipe.
 def inventory_class(family: str, *, stands_on: str | None = None,
-                    lot_carries_a_principal_roof: bool = False) -> str:
+                    lot_carries_a_principal_roof: bool = False,
+                    fronts_side_street: bool = False) -> str:
     """`ancillary` or `principal_functional`, from what a roof IS and where it STANDS.
 
     A barn or a small outbuilding is ancillary by what it is, wherever it stands — that
     half is unchanged and is the older rule. Anything else is ancillary when it stands in
-    the yard: off the alley, on a lot whose principal roof is already dealt.
+    the yard: off the alley, on a lot whose principal roof is already dealt. A workshop
+    is also ancillary when it fronts its corner lot's SIDE street behind that roof
+    (T-2134).
     """
     if group_of(family) in ANCILLARY_GROUPS:
         return "ancillary"
     if stands_on == "alley" and lot_carries_a_principal_roof:
+        return "ancillary"
+    if (stands_on == "street" and fronts_side_street and lot_carries_a_principal_roof
+            and group_of(family) == "workshops"):
         return "ancillary"
     return "principal_functional"
 
