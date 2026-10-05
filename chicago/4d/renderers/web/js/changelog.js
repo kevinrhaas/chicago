@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1456, ts: '2026-10-05T00:46:01.014Z', date: 'Oct 4, 2026, 7:46 PM CT', title: 'The letter-list names load half the size', kind: 'change',
+  { v: 1457, ts: '2026-10-05T00:51:01.679Z', date: 'Oct 4, 2026, 7:51 PM CT', title: 'The letter-list names load half the size', kind: 'change',
     items: [
       'Open People and look at the names known only from the post office\u2019s letter lists. Each one opens as before, with nothing left out.',
       'They now come down to your browser in half the size, about 4.6 MB where it was 9.3 MB. Most of those records repeat the same paragraphs, and now each paragraph is sent once.',
       'After the first name opens, other names with the same first letter open straight away.',
+    ] },
+  { v: 1456, ts: '2026-10-05T00:37:45.841Z', date: 'Oct 4, 2026, 7:37 PM CT', title: 'Bigger buttons for your thumb on a phone', kind: 'fix',
+    items: [
+      'On a phone or tablet, the buttons along the top of the screen are now a full fingertip tall and wide, the small arrow beside Confidence included.',
+      'The menu\u2019s Back and Close buttons are bigger too. On a very narrow phone its eight sections sit in two rows of four, so none is too thin to tap.',
+      'The \u201cwhy\u201d under a fact on a building\u2019s card is easier to tap, and stays where it was.',
+      'Cards and menus open a little lower on a phone, so they never cover the buttons. Nothing changes on a computer.',
     ] },
   { v: 1455, ts: '2026-10-05T00:23:24.271Z', date: 'Oct 4, 2026, 7:23 PM CT', title: 'Tighter frame budgets at every Scene detail setting', kind: 'change',
     items: [
