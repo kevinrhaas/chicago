@@ -19,6 +19,7 @@
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { unpackRecord } from '../renderers/web/js/letter-list-roster.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(HERE, '..');                 // chicago/4d
@@ -53,10 +54,67 @@ if (!existsSync(SITE)) {
 }
 
 const srcFiles = new Set(walk(SRC));
-const siteFiles = new Set(walk(SITE));
 const problems = [];
 let checked = 0;
 let minified = 0;
+
+// T-0438. The letter-list cohort ships PACKED under letter_list/ — a roster of the
+// strings it repeats and a shard per initial — and its per-record files are taken out
+// of the mirror by tools/pack_letter_list.py. Those records are held to the same claim
+// as every other file here: each one, unpacked by the renderer's own `unpackRecord`,
+// must parse to its source's value. So the roster's records join the comparison below
+// as if they were published at their own paths, and the packed files themselves are
+// the one thing in the mirror with no source of their own.
+const ROSTER_DIR = 'letter_list';
+const packed = new Map();
+const rosterPath = path.join(SITE, ROSTER_DIR, 'roster.json');
+const rosterFiles = walk(path.join(SITE, ROSTER_DIR)).map((f) => `${ROSTER_DIR}/${f}`);
+if (existsSync(rosterPath)) {
+  const roster = JSON.parse(readFileSync(rosterPath, 'utf8'));
+  const shardBodies = new Map();
+  for (const f of rosterFiles) {
+    if (f.endsWith('/roster.json')) continue;
+    shardBodies.set(path.basename(f, '.json'), JSON.parse(readFileSync(path.join(SITE, f), 'utf8')));
+  }
+  const listed = new Set();
+  for (const [file, shard] of Object.entries(roster.shards || {})) {
+    const rec = shardBodies.get(shard)?.records?.[file];
+    if (rec === undefined) {
+      problems.push(`the letter-list roster puts ${file} in shard ${shard} and that shard does not hold it`);
+      continue;
+    }
+    listed.add(`${shard}|${file}`);
+    try {
+      packed.set(file, unpackRecord(rec, roster.strings || []));
+    } catch (e) {
+      problems.push(`${file} does not unpack from shard ${shard}: ${e.message}`);
+    }
+  }
+  for (const [shard, body] of shardBodies) {
+    for (const file of Object.keys(body.records || {})) {
+      if (!listed.has(`${shard}|${file}`)) {
+        problems.push(`letter_list/${shard}.json carries ${file} and the roster does not name it there`);
+      }
+    }
+  }
+  // The cohort is exactly the index's letter_list_only households — no more, no fewer.
+  const index = JSON.parse(readFileSync(path.join(SRC, 'index.json'), 'utf8'));
+  const cohort = new Set((index.households || []).filter((e) => e.letter_list_only).map((e) => e.file));
+  for (const f of cohort) {
+    if (!packed.has(f)) problems.push(`${f} is in the letter-list cohort and the roster does not carry it`);
+  }
+  for (const f of packed.keys()) {
+    if (!cohort.has(f)) problems.push(`the roster carries ${f}, which the index does not put in the letter-list cohort`);
+  }
+} else if (rosterFiles.length) {
+  problems.push(`letter_list/ is published without its roster.json — its shards cannot be read`);
+}
+const siteFiles = new Set(walk(SITE).filter((f) => !f.startsWith(`${ROSTER_DIR}/`)));
+for (const rel of packed.keys()) {
+  if (siteFiles.has(rel)) {
+    problems.push(`${rel} is published twice — as its own file and in the letter-list roster`);
+  }
+}
 
 for (const rel of siteFiles) {
   if (!srcFiles.has(rel)) {
@@ -81,8 +139,23 @@ for (const rel of siteFiles) {
   if (!readFileSync(path.join(SITE, rel), 'utf8').includes('\n')) minified++;
 }
 
+let unpacked = 0;
+for (const [rel, b] of packed) {
+  let a;
+  try { a = JSON.parse(readFileSync(path.join(SRC, rel), 'utf8')); } catch (e) {
+    problems.push(`data/residents/${rel} is in the roster and does not parse at its source: ${e.message}`);
+    continue;
+  }
+  if (!same(a, b)) {
+    problems.push(`${rel} does NOT read back from the letter-list roster as its source's value — `
+      + 'the roster is stale, or tools/pack_letter_list.py changed a record on the way out');
+    continue;
+  }
+  unpacked++;
+}
+
 for (const rel of srcFiles) {
-  if (!siteFiles.has(rel)) {
+  if (!siteFiles.has(rel) && !packed.has(rel)) {
     problems.push(`data/residents/${rel} is in the repository and NOT in the mirror — the renderer `
       + 'fetches this layer by path and an unpublished file is a 404 on the deployed site');
   }
@@ -96,4 +169,5 @@ if (problems.length) {
 }
 
 console.log(`published residents OK — ${checked} file(s) carry their source's value exactly, `
-  + `${minified} of them shipped on one line`);
+  + `${minified} of them shipped on one line`
+  + (packed.size ? `; ${unpacked} letter-list record(s) read back exactly from the roster (T-0438)` : ''));

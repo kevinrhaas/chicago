@@ -348,6 +348,13 @@ for q in Path(sys.argv[1]).rglob("*.json"):
     q.write_text(json.dumps(json.loads(q.read_text(encoding="utf-8")),
                             ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
 MINIFY
+  # …and the letter-list cohort ships PACKED (T-0438): 773 records whose fill passes
+  # wrote the same paragraphs onto nearly every one came to 9.30 MiB as one file each.
+  # The roster holds each repeated string once and a shard per initial holds the
+  # records; the per-record files leave the mirror, the renderer reads the cohort
+  # through js/letter-list-roster.js, and check_published_residents.mjs unpacks every
+  # record and holds it deep-equal to its source. The repository's records are untouched.
+  python3 tools/pack_letter_list.py "$SITE/data/residents"
 fi
 
 # The business layer. 196 firms compiled from the register — and 166 of them
