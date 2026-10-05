@@ -1,3 +1,21 @@
+## T-2147 — the School Section tier's Market block (81) built to its lot ceiling: the first roofs south of Madison (2026-10-05)
+
+Piece 4 of T-1755, on the ground T-2144 opened. The seating held seven `slot` requests on
+`blk_school_section_tier_81` and the schedule gives it `lot_ceiling_principal` 7 (one roof a lot,
+lot 0 kept open) with one A2 yard roof.
+
+- Recipe entry `phase3_platted_block_school_section_tier_81`: D6@1, D5@2, D4@3, D4@4, D3@5, D5@6,
+  D7@7 and an A2 carriage shed behind the D7 — the schedule's family list to the roof. Baked with
+  the pinned Blender (`bake.sh --only`, nine meshes: the eight plus `blk_washington_market_d4_11`,
+  whose siding stock the parcel deal advanced). **L392** records the invention.
+- The keeper pass gains a seventh district, `school_section_tier` (carried by T-2147); without
+  it the block's two letter-list-free keepers were owed to T-2136, which is done, and
+  `name_the_keepers_1835.py --check` was red. Blocks 94/95/118/119 share the prefix.
+- Seating walked to its fixpoint (four full laps, then 25 inner keeper↔seat laps — the walk moves
+  one roof a lap down the household order, as T-2129 saw): **216 seated, held**; adopted
+  169 → 176, slots 47 → 40. The seven who asked re-slot on blocks 94, 118 and 119 (T-2145,
+  T-2146). Keepers 80 → 82. L263 (571), L270 and L276 restated.
+
 ## T-2144 — the School Section tier joins the grid and the roof schedule (2026-10-05)
 
 The owner answered T-1755 (b): the South's owed dwellings cross Madison onto the School
