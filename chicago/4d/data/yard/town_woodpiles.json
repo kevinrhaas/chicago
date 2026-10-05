@@ -7,35 +7,35 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 299,
+  "dwellings": 302,
   "by_row": {
    "cabin": 40,
-   "cottage": 134,
-   "house": 52,
+   "cottage": 135,
+   "house": 53,
    "keeper": 18,
    "merchant": 29,
-   "shanty": 25
+   "shanty": 26
   },
   "by_class": {
    "keeper": 18,
-   "labourer": 73,
+   "labourer": 74,
    "merchant": 29,
-   "tradesman": 178
+   "tradesman": 180
   },
   "by_basis": {
    "default": 17,
-   "fabric_rule": 251,
+   "fabric_rule": 254,
    "function": 6,
    "household_trade": 10,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 273,
-   "cordwood": 299,
+   "chopping_block": 275,
+   "cordwood": 302,
    "log_heap": 40,
-   "slab_heap": 25
+   "slab_heap": 26
   },
-  "piled": 298,
+  "piled": 301,
   "refused": 1
  },
  "existence": {
@@ -6544,6 +6544,117 @@
      "bearing_deg": 90.33,
      "billets": 1,
      "seed": 916776951
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_west_lake_canal_d2_03",
+   "name": "Reconstructed D2 rough plank dwelling or shanty #03",
+   "function": "rough_plank_dwelling_or_shanty",
+   "household_class": "labourer",
+   "household_by": "fabric_rule",
+   "house": "shanty",
+   "row": "shanty",
+   "rule": "Y-W1",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "slab_heap",
+     "at_local_enu_m": [
+      -39.65,
+      -201.36
+     ],
+     "bearing_deg": 90.47,
+     "pieces": 8,
+     "seed": 812214804
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_west_lake_canal_d4_02",
+   "name": "Reconstructed D4 two-room frame cottage #02",
+   "function": "two_room_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -131.15,
+      -203.16
+     ],
+     "bearing_deg": 270.46,
+     "length_m": 1.82,
+     "depth_m": 0.61,
+     "height_m": 0.93,
+     "stick": "stove",
+     "seed": 1766328447
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      -129.74,
+      -202.72
+     ],
+     "bearing_deg": 270.46,
+     "billets": 1,
+     "seed": 1678023395
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_west_lake_canal_d5_01",
+   "name": "Reconstructed D5 deep-plan frame cottage #01",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -136.02,
+      -173.8
+     ],
+     "bearing_deg": 180.46,
+     "length_m": 3.13,
+     "depth_m": 0.61,
+     "height_m": 1.0,
+     "stick": "stove",
+     "seed": 1424391847
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      -139.5,
+      -173.77
+     ],
+     "bearing_deg": 180.46,
+     "length_m": 3.13,
+     "depth_m": 0.61,
+     "height_m": 1.1,
+     "stick": "stove",
+     "seed": 21449441
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      -140.6,
+      -172.36
+     ],
+     "bearing_deg": 180.46,
+     "billets": 1,
+     "seed": 900653686
     }
    ]
   },

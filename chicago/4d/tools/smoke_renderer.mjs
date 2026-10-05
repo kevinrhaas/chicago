@@ -16221,7 +16221,7 @@ for (const [label, viewport, touch] of [
     await tap('#jaunt-panel [data-action="menu"]');
     await until(() => window.__chicago4d.welcome.state === 'welcome'
       && window.__chicago4d.jaunts.state.phase === 'menu');
-    await tap('#welcome-jaunts-explore');
+    await tap('#welcome-explore');
     await until(() => !document.getElementById('welcome-picker').hidden);
     check(`${label}: Explore on my own clears a paused jaunt`,
       (await jaunt()).id === null && await p14.evaluate(() => !document.documentElement.hasAttribute('data-jaunt-active')));
