@@ -344,7 +344,7 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     # therefore a vertex. `x` is the extent object inside `matchZone`.
     "extent.kind": ("mesh", "switch (x.kind)"),
     "extent.elev_m": ("mesh", "Array.isArray(x.elev_m)"),
-    "extent.polygon": ("mesh", "pointInPolygon(x.polygon, e, n)"),
+    "extent.polygon": ("mesh", "pointInPolygon(x.polygon, qe, qn)"),
     "extent.box.e": ("mesh", "const be = x.box.e;"),
     "extent.box.n": ("mesh", "const bn = x.box.n;"),
     "extent.of": ("mesh", "if (x.of !== 'water') return false;"),

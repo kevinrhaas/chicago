@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1469, ts: '2026-10-05T04:43:08.627Z', date: 'Oct 4, 2026, 11:43 PM CT', title: 'Town, prairie and fort ground now fade into each other', kind: 'change',
+    items: [
+      'In 1835, walk or fly out of the town into the prairie. The short town grass no longer stops on a line. It thins into the tall prairie over about 100 metres, along an edge that wanders in and out.',
+      'A lone cabin out on the prairie no longer sits in a perfect circle of town ground. Its trodden patch is ragged and fades out into the grass.',
+      'Fort Dearborn\u2019s bare earth no longer ends on four straight lines. It frays out into the grass over about 20 metres around the fort.',
+      'The same soft edge now runs between the wet and dry prairie, and where the riverbank woods\u2019 undergrowth gives way to prairie. The marsh still stops at the water.',
+      'Nothing new is claimed about where these edges were. The Liberties page explains it (L385).',
+    ] },
   { v: 1468, ts: '2026-10-05T04:05:33.254Z', date: 'Oct 4, 2026, 11:05 PM CT', title: 'Two parts of the town can no longer share the wrong shader', kind: 'fix',
     items: [
       'Nothing you can see changes in this update. Each layer of the town can add its own steps to how a surface is shaded. Two layers with different steps could still be handed one shared shader, and then one of them drew in solid black.',

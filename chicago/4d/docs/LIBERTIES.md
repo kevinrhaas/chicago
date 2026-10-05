@@ -21211,3 +21211,35 @@ centre rather than its door are ours.
 **How to resolve:** any view or description of an 1830s Chicago dooryard gate replaces the leaf;
 a lot's own door position, where the entrance layer knows it, would place its gate better.
 **Recorded:** 2026-10-04 (T-2112).
+
+### L385 — Where two plant communities meet, they blend across a wandering margin about 100 m wide
+**Decision:** the flora layer no longer asks a community's extent its exact question at a plant's
+own point. A polygon or a box (the settled town, the dense forest, the held-out squares) is asked
+at the point moved by a slow wander (up to about 26 m, on waves of roughly 280, 120 and 43 m) plus
+a per-plant draw of up to 50 m either way, peaked at the plant's own point
+(`renderers/web/js/zone-blend.js`). Deep in a community every plant still belongs to it; across the
+band the share of each community changes smoothly, so the town's cropped turf thins into the
+prairie over about 100 m along a ragged line. An elevation band's limits are dithered the same way
+by up to about 0.16 m, and a water buffer reaching 30 m or more (the riverbank timber) spreads its
+far side by up to about 48 m; the marsh keeps its edge at the water. The ground's turf texture
+grades across the same band (`flora.js` hands it the town's share per texel, not a yes or no).
+Fort Dearborn's bare apron, which states an outer ring and no fence, now carries on past that ring
+into a 22 m skirt whose cover frays out along a wandering line, and the sward thins in across it
+at the same share (`renderers/web/js/yards.js`). A fenced yard keeps its edge at its fence.
+**Why:** the owner, 2026-10-05 (T-2125): *"the edge of your areas is very sharp between the fort and
+prairie and prairie and settled lands ... the separations are linear and sharp, please make them
+less linear ... graduate the areas together ... so its barely perceptible that you cross an area
+... maybe 100 meter ... there is a cabin there with a perfectly round settled area around it and it
+would be irregular"*. The settled town's extent is the plat and every standing structure grown by
+a 50 m Euclidean halo, so a lone cabin stood in a disc, and every community changed on a line one
+plant wide.
+**What is recorded and what is not:** no survey drew any of these edges, and the zone records say
+so in their own notes; none drew a margin's width either. The communities that meet in a band, and
+their species, are the records'; the band's width, its wander, the draw's shape, the apron's 22 m
+skirt and its fray are ours, bounded by the dossier's 50-200 m grazed halo around a settlement
+(`docs/research/02-flora.md` § ZONE 10) and the owner's "maybe 100 meter". The records, their
+extents and every tool that audits them are unchanged: the renderer moves where it asks, not the
+rule it asks.
+**How to resolve:** a plat, survey note or view that shows where the town's grazed ground gave way
+to the prairie, or how far the fort's trodden ground ran, replaces the band there.
+**Recorded:** 2026-10-05 (T-2125).
