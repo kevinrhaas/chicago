@@ -158,6 +158,10 @@
     "recon_1835_blk_west_lake_canal_d2_03",
     "recon_1835_blk_west_lake_canal_d4_02",
     "recon_1835_blk_west_lake_canal_d5_01",
+    "recon_1835_blk_west_randolph_canal_d4_02",
+    "recon_1835_blk_west_randolph_canal_d5_01",
+    "recon_1835_blk_west_randolph_canal_d5_03",
+    "recon_1835_blk_west_randolph_canal_d6_04",
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",
@@ -196,6 +200,7 @@
     "south_bank_shed_dearborn_e2",
     "st_marys_church",
     "wabansia_doctors_house",
+    "western_hotel",
     "wright_building_to_let_a",
     "wright_building_to_let_b"
   ],
@@ -2166,19 +2171,37 @@
       [
         [
           -226.09,
-          -341.83
+          -341.78
         ],
         [
           -226.79,
-          -342.42
+          -342.37
         ],
         [
-          -220.52,
-          -349.85
+          -220.61,
+          -349.61
         ],
         [
-          -219.83,
-          -349.26
+          -219.91,
+          -349.01
+        ]
+      ],
+      [
+        [
+          -226.56,
+          -335.44
+        ],
+        [
+          -226.06,
+          -336.2
+        ],
+        [
+          -223.12,
+          -334.29
+        ],
+        [
+          -223.62,
+          -333.52
         ]
       ],
       [
@@ -4722,19 +4745,19 @@
       [
         [
           -489.22,
-          -119.93
+          -119.92
         ],
         [
           -489.18,
-          -120.85
+          -120.84
         ],
         [
-          -464.62,
-          -119.97
+          -464.47,
+          -119.89
         ],
         [
-          -464.66,
-          -119.06
+          -464.5,
+          -118.98
         ]
       ],
       [
@@ -4902,37 +4925,127 @@
       [
         [
           -429.64,
-          -355.8
+          -355.78
         ],
         [
           -429.46,
-          -354.91
+          -354.88
         ],
         [
           -449.28,
-          -350.98
+          -350.84
         ],
         [
-          -449.45,
-          -351.88
+          -449.47,
+          -351.73
         ]
       ],
       [
         [
-          -429.3,
-          -359.21
+          -135.79,
+          -271.56
         ],
         [
-          -429.72,
-          -358.41
+          -136.02,
+          -272.44
         ],
         [
-          -446.73,
-          -367.33
+          -87.0,
+          -284.88
         ],
         [
-          -446.31,
-          -368.14
+          -86.77,
+          -284.0
+        ]
+      ],
+      [
+        [
+          -135.94,
+          -271.29
+        ],
+        [
+          -135.86,
+          -272.2
+        ],
+        [
+          -90.09,
+          -268.39
+        ],
+        [
+          -90.16,
+          -267.48
+        ]
+      ],
+      [
+        [
+          -116.39,
+          -324.05
+        ],
+        [
+          -115.99,
+          -324.87
+        ],
+        [
+          -86.39,
+          -310.46
+        ],
+        [
+          -86.79,
+          -309.64
+        ]
+      ],
+      [
+        [
+          -119.32,
+          -343.86
+        ],
+        [
+          -119.0,
+          -344.72
+        ],
+        [
+          -86.18,
+          -332.6
+        ],
+        [
+          -86.5,
+          -331.74
+        ]
+      ],
+      [
+        [
+          -115.39,
+          -366.56
+        ],
+        [
+          -115.03,
+          -367.4
+        ],
+        [
+          -85.9,
+          -354.82
+        ],
+        [
+          -86.26,
+          -353.98
+        ]
+      ],
+      [
+        [
+          -53.14,
+          -337.22
+        ],
+        [
+          -53.61,
+          -336.44
+        ],
+        [
+          -76.77,
+          -350.58
+        ],
+        [
+          -76.29,
+          -351.36
         ]
       ],
       [
@@ -5518,6 +5631,11 @@
       "lot": "blk_randolph_clinton_lot3",
       "from": "recon_1835_west_021",
       "to": "privy_blk_randolph_clinton_lot3"
+    },
+    {
+      "lot": "blk_randolph_clinton_lot3",
+      "from": "recon_1835_west_021",
+      "to": "stable_blk_randolph_clinton_lot3"
     },
     {
       "lot": "blk_randolph_clinton_lot4",
@@ -6280,9 +6398,34 @@
       "to": "privy_blk_west_randolph_des_plaines_lot9"
     },
     {
-      "lot": "blk_west_randolph_des_plaines_lot9",
-      "from": "recon_1835_blk_west_randolph_des_plaines_d5_04",
-      "to": "stable_blk_west_randolph_des_plaines_lot9"
+      "lot": "blk_west_randolph_canal_lot0",
+      "from": "western_hotel",
+      "to": "privy_blk_west_randolph_canal_lot0"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot0",
+      "from": "western_hotel",
+      "to": "stable_blk_west_randolph_canal_lot0"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot2",
+      "from": "recon_1835_blk_west_randolph_canal_d5_01",
+      "to": "privy_blk_west_randolph_canal_lot2"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot3",
+      "from": "recon_1835_blk_west_randolph_canal_d4_02",
+      "to": "privy_blk_west_randolph_canal_lot3"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot4",
+      "from": "recon_1835_blk_west_randolph_canal_d5_03",
+      "to": "privy_blk_west_randolph_canal_lot4"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot8",
+      "from": "recon_1835_blk_west_randolph_canal_d6_04",
+      "to": "privy_blk_west_randolph_canal_lot8"
     },
     {
       "lot": "blk_wabansia_c_t7_lot1",
