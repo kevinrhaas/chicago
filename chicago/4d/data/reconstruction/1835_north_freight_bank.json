@@ -1,0 +1,24 @@
+{
+  "id": "north_freight_bank_1835",
+  "target_date": "1835-07-01",
+  "owning_ticket": "T-2022",
+  "parent_ticket": "T-1205",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "research_memo": "docs/RESEARCH/1835_north_division_extent_and_infill.md",
+  "tier": "reconstructed",
+  "basis": "The order book's structures/warehouses_freight/north row sets 7 and finds 6 standing, so it orders one more freight roof for the North Division. The 665-roof schedule dealt that F3 to blk_indiana_north_wolcott, where the block generator refuses it (Wolcott is graded light, and the commercial_front clause avoids light streets), and T-1205 left it owed rather than force it onto Kinzie Street. THE BANK-LANDING CLAUSE, argued on the North bank's own evidence rather than on the street hierarchy: (1) every freight roof the North already holds stands on the main stem's north bank and fronts the WATER — Kinzie & Hunter's warehouse and the four sheds on the Dearborn reach — and the placement policy records each of them, in its own words, as seated by the water and not by the light street beside it ('its frontage is the water', tools/placement_policy_1835.py OUTLIER_REASONS); the face rule's light-street zero is a statement about roofs that FRONT a street, and leaves these out on that ground (tools/measure_face_rule.py not_a_frontage). (2) The plate that put those sheds on this bank, image 3 of the owner's brief of 2026-08-18, draws low warehouses on the banks of the reach below the Dearborn drawbridge; it is tier-5 pictorial and decides the type, never a coordinate. (3) The town itself priced North Water's river face as a wharfing frontage: in November 1835 the trustees sold the wharfing privileges for 999 years at a minimum of $25 a front foot on South Water, $18.75 on North Water and $18 on West Water (wood_1881_chicago_and_its_distinguished_citizens), so North Water's landing was valued above West Water's, where T-1773 seated the West's warehouse. That sale is four months after the target date and dates no building; it is read for the frontage's character, not for this roof. So a freight roof on the North bank takes a lot on the tier's south face, its front on North Water Street and the river across the street, which is how its five neighbours stand. The lot is plat lot 1 of blk_kinzie_lasalle_north, the lower tier's corner on the WEST side of Clark Street: every lower-tier lot of the Dearborn reach is held (lots 1-4 of blk_kinzie_dearborn_north, lots 1-3 of blk_kinzie_clark_north), and the one free lot east of Clark, blk_kinzie_clark_north lot 4, has the 1833 north-side school standing on the North Water frontage directly in front of it, 5.7 m from where a warehouse's cargo doors would be. The North parcel's own rule keeps the named school-house and its yard, so the landing goes across Clark instead, about 28 m from the school. A corner, on the line, is where commercial_front puts any freight roof: the side wall stands 1.5 m inside the lot's Clark line, as T-1773's warehouse at the forks does, and the front wall 3.2 m inside its North Water line, because North Water as data/streets/1835.json draws it (from the traced bank, tools/derive_north_water.py, at its declared width) reaches about 2.6 m into this lot, and the wall keeps about 0.6 m clear of that line as T-1205's Kinzie Street roofs keep clear of theirs. North Water Street is NOT regraded: the clause is about where a forwarding trade fronts, and the street's light class keeps refusing a store or warehouse a block parcel would deal there.",
+  "replaceable_by": "Any reading that seats a named forwarder or warehouse on the North bank in July 1835 substitutes for this roof rather than adding beside it; the order book's North freight row is the count it fills.",
+  "placement": {
+    "structure_id": "recon_1835_bank_freight_f3_001",
+    "family": "F3",
+    "block_id": "blk_kinzie_lasalle_north",
+    "lot_tier": "lower",
+    "plat_lot_number": 1,
+    "fronts": "north_water",
+    "side_street": "clark_north",
+    "corner_end": "east",
+    "front_setback_m": 3.2,
+    "side_setback_m": 1.5,
+    "geometry_seed": "recon_1835_bank_freight_f3"
+  }
+}
