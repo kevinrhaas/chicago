@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1511, ts: '2026-10-06T18:03:42.771Z', date: 'Oct 6, 2026, 1:03 PM CT', title: 'A lighter first visit', kind: 'change',
+    items: [
+      'The walkthrough no longer downloads the list of everything we made up before you can step into the street. It arrives the first time you open Evidence or a building\u2019s card, so a first visit is about 0.6 MB lighter.',
+      'Nothing on the list changed. A card that opens before the list has arrived is drawn again with its \u201cWhat we made up here\u201d section a moment later.',
+    ] },
   { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
     items: [
       'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
