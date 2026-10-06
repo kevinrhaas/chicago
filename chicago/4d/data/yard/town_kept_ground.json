@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "276 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "291 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 211,
+    "lots": 225,
     "refused": 0,
-    "refuges": 292,
-    "paths": 276
+    "refuges": 307,
+    "paths": 291
   },
   "lots": [
     {
@@ -4842,19 +4842,37 @@
         [
           [
             735.67,
-            -189.94
+            -189.95
           ],
           [
-            733.38,
+            732.93,
             -189.93
           ],
           [
-            733.37,
-            -192.22
+            732.91,
+            -192.37
           ],
           [
-            735.66,
-            -192.23
+            735.65,
+            -192.39
+          ]
+        ],
+        [
+          [
+            716.14,
+            -189.78
+          ],
+          [
+            710.04,
+            -189.74
+          ],
+          [
+            710.0,
+            -194.62
+          ],
+          [
+            716.1,
+            -194.66
           ]
         ],
         [
@@ -12596,6 +12614,734 @@
           [
             -403.62,
             309.72
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot1",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d2_01"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          475.9,
+          -642.88
+        ],
+        [
+          498.97,
+          -642.88
+        ],
+        [
+          498.97,
+          -593.39
+        ],
+        [
+          496.53,
+          -590.95
+        ],
+        [
+          478.34,
+          -590.95
+        ],
+        [
+          475.9,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            477.58,
+            -590.34
+          ],
+          [
+            475.28,
+            -590.34
+          ],
+          [
+            475.28,
+            -592.62
+          ],
+          [
+            477.58,
+            -592.62
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot2",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d5_02"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          502.93,
+          -583.94
+        ],
+        [
+          521.11,
+          -583.94
+        ],
+        [
+          523.55,
+          -581.5
+        ],
+        [
+          523.55,
+          -532.01
+        ],
+        [
+          500.49,
+          -532.01
+        ],
+        [
+          500.49,
+          -581.5
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            499.87,
+            -584.56
+          ],
+          [
+            502.31,
+            -584.56
+          ],
+          [
+            502.31,
+            -582.12
+          ],
+          [
+            499.87,
+            -582.12
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot3",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d4_03"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          500.49,
+          -642.88
+        ],
+        [
+          523.55,
+          -642.88
+        ],
+        [
+          523.55,
+          -593.39
+        ],
+        [
+          521.11,
+          -590.95
+        ],
+        [
+          502.93,
+          -590.95
+        ],
+        [
+          500.49,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            502.31,
+            -590.33
+          ],
+          [
+            499.87,
+            -590.33
+          ],
+          [
+            499.87,
+            -592.77
+          ],
+          [
+            502.31,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot4",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d4_04"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          527.51,
+          -583.94
+        ],
+        [
+          545.69,
+          -583.94
+        ],
+        [
+          548.13,
+          -581.5
+        ],
+        [
+          548.13,
+          -532.01
+        ],
+        [
+          525.07,
+          -532.01
+        ],
+        [
+          525.07,
+          -581.5
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            546.31,
+            -584.56
+          ],
+          [
+            548.75,
+            -584.56
+          ],
+          [
+            548.75,
+            -582.12
+          ],
+          [
+            546.31,
+            -582.12
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot5",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d3_05"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          525.07,
+          -642.88
+        ],
+        [
+          548.13,
+          -642.88
+        ],
+        [
+          548.13,
+          -593.39
+        ],
+        [
+          545.69,
+          -590.95
+        ],
+        [
+          527.51,
+          -590.95
+        ],
+        [
+          525.07,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            548.75,
+            -590.33
+          ],
+          [
+            546.31,
+            -590.33
+          ],
+          [
+            546.31,
+            -592.77
+          ],
+          [
+            548.75,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot6",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d6_06"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          552.09,
+          -583.94
+        ],
+        [
+          570.28,
+          -583.94
+        ],
+        [
+          572.72,
+          -581.5
+        ],
+        [
+          572.72,
+          -532.01
+        ],
+        [
+          549.65,
+          -532.01
+        ],
+        [
+          549.65,
+          -581.5
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            549.03,
+            -584.56
+          ],
+          [
+            551.47,
+            -584.56
+          ],
+          [
+            551.47,
+            -582.12
+          ],
+          [
+            549.03,
+            -582.12
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot7",
+      "structures": [
+        "recon_1835_blk_school_section_tier_118_d5_07"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          549.65,
+          -642.88
+        ],
+        [
+          572.72,
+          -642.88
+        ],
+        [
+          572.72,
+          -593.39
+        ],
+        [
+          570.28,
+          -590.95
+        ],
+        [
+          552.09,
+          -590.95
+        ],
+        [
+          549.65,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            551.47,
+            -590.33
+          ],
+          [
+            549.03,
+            -590.33
+          ],
+          [
+            549.03,
+            -592.77
+          ],
+          [
+            551.47,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot1",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d6_01"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          594.35,
+          -642.88
+        ],
+        [
+          618.2,
+          -642.88
+        ],
+        [
+          618.2,
+          -593.39
+        ],
+        [
+          615.76,
+          -590.95
+        ],
+        [
+          596.79,
+          -590.95
+        ],
+        [
+          594.35,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            596.17,
+            -590.33
+          ],
+          [
+            593.73,
+            -590.33
+          ],
+          [
+            593.73,
+            -592.77
+          ],
+          [
+            596.17,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot2",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d5_02"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          622.16,
+          -583.94
+        ],
+        [
+          641.13,
+          -583.94
+        ],
+        [
+          643.57,
+          -581.5
+        ],
+        [
+          643.57,
+          -532.01
+        ],
+        [
+          619.72,
+          -532.01
+        ],
+        [
+          619.72,
+          -581.5
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            641.75,
+            -584.56
+          ],
+          [
+            644.19,
+            -584.56
+          ],
+          [
+            644.19,
+            -582.12
+          ],
+          [
+            641.75,
+            -582.12
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot3",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d4_03"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          619.72,
+          -642.88
+        ],
+        [
+          643.57,
+          -642.88
+        ],
+        [
+          643.57,
+          -593.39
+        ],
+        [
+          641.13,
+          -590.95
+        ],
+        [
+          622.16,
+          -590.95
+        ],
+        [
+          619.72,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            621.54,
+            -590.33
+          ],
+          [
+            619.1,
+            -590.33
+          ],
+          [
+            619.1,
+            -592.77
+          ],
+          [
+            621.54,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot4",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d4_04"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          647.53,
+          -583.94
+        ],
+        [
+          666.49,
+          -583.94
+        ],
+        [
+          668.93,
+          -581.5
+        ],
+        [
+          668.93,
+          -532.01
+        ],
+        [
+          645.09,
+          -532.01
+        ],
+        [
+          645.09,
+          -581.5
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            644.47,
+            -584.56
+          ],
+          [
+            646.91,
+            -584.56
+          ],
+          [
+            646.91,
+            -582.12
+          ],
+          [
+            644.47,
+            -582.12
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot5",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d3_05"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          645.09,
+          -642.88
+        ],
+        [
+          668.93,
+          -642.88
+        ],
+        [
+          668.93,
+          -593.39
+        ],
+        [
+          666.49,
+          -590.95
+        ],
+        [
+          647.53,
+          -590.95
+        ],
+        [
+          645.09,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            646.91,
+            -590.33
+          ],
+          [
+            644.47,
+            -590.33
+          ],
+          [
+            644.47,
+            -592.77
+          ],
+          [
+            646.91,
+            -592.77
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot6",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d5_06"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          672.89,
+          -583.94
+        ],
+        [
+          691.86,
+          -583.94
+        ],
+        [
+          694.3,
+          -581.5
+        ],
+        [
+          694.3,
+          -532.01
+        ],
+        [
+          670.45,
+          -532.01
+        ],
+        [
+          670.45,
+          -581.5
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            669.83,
+            -584.56
+          ],
+          [
+            672.27,
+            -584.56
+          ],
+          [
+            672.27,
+            -582.12
+          ],
+          [
+            669.83,
+            -582.12
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot7",
+      "structures": [
+        "recon_1835_blk_school_section_tier_119_d7_07"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          670.45,
+          -642.88
+        ],
+        [
+          694.3,
+          -642.88
+        ],
+        [
+          694.3,
+          -593.39
+        ],
+        [
+          691.86,
+          -590.95
+        ],
+        [
+          672.89,
+          -590.95
+        ],
+        [
+          670.45,
+          -593.39
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            694.92,
+            -590.33
+          ],
+          [
+            692.48,
+            -590.33
+          ],
+          [
+            692.48,
+            -592.77
+          ],
+          [
+            694.92,
+            -592.77
           ]
         ]
       ]
