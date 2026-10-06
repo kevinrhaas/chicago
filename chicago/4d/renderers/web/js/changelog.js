@@ -1,9 +1,9 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Fourteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: 1510, ts: '2026-10-06T02:24:32.448Z', date: 'Oct 5, 2026, 9:24 PM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
-      'In 1835, walk south across Madison at Wells. The two blocks either side of Wells, between Madison and Monroe, now have a house on nearly every lot: fourteen in all, from a labourer\u2019s shanty to a merchant\u2019s house and a two-storey boarding house standing at the Madison street line.',
-      'West of Wells are seven tradesmen\u2019s and labourers\u2019 houses. East of Wells the houses are larger: a merchant\u2019s house on the Wells corner, a storey-and-a-half house on the far corner, and the boarding house. Each block keeps its west Madison corner lot empty.',
-      'Thirteen of the town\u2019s households move into the new houses, and the boarding house takes in lodgers.',
+      'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
+      'West of Wells stand seven tradesmen\u2019s and labourers\u2019 houses. East of Wells the houses are larger: a merchant\u2019s house on the Wells corner and a storey-and-a-half house on the far corner. Each block keeps its west Madison corner lot empty.',
+      'Thirteen of the town\u2019s households move into the new houses.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
     ] },
   { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',

@@ -1,31 +1,37 @@
-## T-2146 — the School Section tier's Wells blocks (94, 95) built to their lot ceilings (2026-10-06)
+## T-2146 — the School Section tier's Wells blocks (94, 95): thirteen houses on their requested lots (2026-10-06)
 
 Piece 3 of T-1755, on the owner's ruling (b): the South's owed dwellings cross Madison. T-2144
 opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no roof under them.
 
 - **The deal.** Two recipe entries in `1835_platted_block_parcels.json`, one roof to a lot, lot 0
-  (the west Madison corner) kept open on each: block 94 takes its seven requests (D2, D3, two D4,
-  two D5, D6), which is the schedule's whole plan for it; block 95 takes its six (D2, D4, D5, D7, H1,
-  H2) plus the schedule's **H3 boarding house** on lot 2. No household asks for an H3 because no
-  banded South clause admits the family (`plan_left_unclaimed`), so it is built on the schedule's
-  word and the lodging model fills it (a lodger is housed there at the fixpoint). **L394**.
-- **Keeper district.** `name_the_keepers_1835.py` gains `school_section_tier`, byte-identical to the
-  hunk on T-2145's and T-2147's branches, so whichever merges first carries it and the others merge
-  clean on it.
-- **The fixpoint.** Keepers → the four infill generators → `reconcile_665` → the seating chain,
-  walked eighteen laps (42 s each; again eighteen after dev's T-1746 merged in) until a lap moved nothing, then `rederive.mjs --tail
-  tools/compile_liberties.py` (three laps). **209 seated, held** (on dev after T-1746): adopted 175 → 188, slot requests
-  34 → 21. As on T-2130, adoption runs first, so older households take the thirteen dwellings and
-  the thirteen who asked re-slot on blocks 81, 118 and 119. hh_democrat_printers is handed on;
-  hh_laframboise_franois is seated; hh_bennet_lyman, handed on since T-2130, takes the H1, so the
-  business deal's release cost drops 1 → 0. 75 seated households change roof or lot. Keepers 81 → 86.
-- **Out of the manifest, re-run by hand:** the roof re-audit, land tracts, street-face adoptions,
-  population profile, lodging model, reconstructed trades seating, register, entrances, alley lanes,
+  (the west Madison corner) kept open on each. Block 94 takes its seven requests (D2, D3, two D4,
+  two D5, D6), the schedule's whole plan for it. Block 95 takes its six (D2, D4, D5, D7, H1, H2).
+  **L394**.
+- **The H3 that was withdrawn.** The schedule also plans an H3 boarding house on block 95. No
+  household asks for it, because no banded South clause admits the family. It was built here first.
+  Its beds then moved the lodging model, and `seat_lodgers_1835.py` refused the result: it would draw
+  8 lodgers out of `persons/male/10_19/south/lodging/trade`, and the book holds 7 there. That stage
+  stops on purpose until its basis is deliberately re-frozen, so raising the H3 is a lodging decision.
+  Lot 2 is left open for it, and the roof goes to **T-1957** with the South's other owed boarding houses.
+- **Keeper district.** `name_the_keepers_1835.py` gains `school_section_tier`. The hunk is
+  byte-identical to the one on T-2145's and T-2147's branches, so whichever merges first carries it.
+- **The fixpoint.** The lap is keepers → the four infill generators → `reconcile_665` → the
+  seating chain, about 42 s each. It settled after eighteen laps on each of three trees: before and
+  after dev's T-1746 merged in, and again without the H3. Then `rederive.mjs --tail
+  tools/compile_liberties.py` ran (three laps). **209 seated, held** (dev's figure after T-1746):
+  adopted 175 → 188, slot requests 34 → 21. As on T-2130, adoption runs first, so 13 older
+  households take the new houses and the 13 who asked re-slot on blocks 81, 118 and 119.
+  - hh_democrat_printers is handed on, and hh_laframboise_franois is seated.
+  - hh_bennet_lyman, handed on since T-2130, takes the H1, so the business deal's release cost drops 1 → 0.
+  - 75 seated households change roof or lot. Keepers go 81 → 86.
+- **Re-run by hand, outside the manifest:** the roof re-audit, land tracts, street-face adoptions,
+  population profile, lodging model, reconstructed-trades seating, register, entrances, alley lanes,
   woodpiles, hay limits, and the Newberry leads (all four volumes re-parsed). T-0059's asset counts
-  634/628 → 648/642.
-- **Baked**: the fourteen new meshes and four whose siding stock moved, then the nineteen the keeper
-  cascade left stale, all with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`).
-- Restated: **L263** 595 → 609, **L270** (count held; who moved), **L276** 81 → 86.
+  go 634/628 → 647/641.
+- **Baked** with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`): the
+  thirteen new meshes, the four whose siding stock moved, and the meshes the keeper cascade staled.
+- Restated: **L263** 595 → 608, **L270** (the count held; who moved), **L276** 81 → 86.
+
 ## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
 
 - **Ruled**: the north-division memo stands and the seating gives way. The 26 ordinary
