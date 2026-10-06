@@ -5,6 +5,18 @@ export const CHANGELOG = [ // newest first
       'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
       'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
     ] },
+  { v: 1512, ts: '2026-10-06T18:29:26.487Z', date: 'Oct 6, 2026, 1:29 PM CT', title: 'Jefferson Street stops at Kinzie, as surveyed', kind: 'fix',
+    items: [
+      'Almost nothing you can see changes. Jefferson Street, an unopened survey line on the west side, is never drawn as a road. At the doctor\u2019s house north of Kinzie Street, the woodpile and a dooryard planting now face the house\u2019s real front, since no street runs past its side.',
+      'Our map of it ran a block north of Kinzie Street, through a Wabansia block that the 1834 survey draws whole. That stretch came from the modern street, which was extended later. The 1830 plat that names Jefferson ends it at Kinzie, and now so do we.',
+      'The town\u2019s 1833 boundary follows Jefferson \u201cand its continuation\u201d north to Ohio Street. It has not moved, but north of Kinzie it is now a projection, so we no longer say whether the doctor\u2019s house and barn on that block stood inside the town.',
+    ] },
+  { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
+      'The town\u2019s check of which street each house faces did not know Monroe Street, the south edge of the School Section blocks sold in 1833. Every house on a Monroe lot was read as facing no street, so the check would have turned three of them into barns and sheds.',
+      'It now reads Monroe for those lots, because the 1833 lot plan says they face it. Russel E. Heacock\u2019s house on Monroe Street, 30 m back from it, is now read as facing it too.',
+    ] },
   { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
     items: [
       'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',

@@ -119,9 +119,13 @@ BEARING_FROM = "clinton"
 # read 2026-09-24 by the node rule in data/traces/street_control.json and transformed to
 # EPSG:26916 against data/datum.json.) The corporate boundary's west leg walks the result;
 # see tools/measure_corporation_limits.py.
+#
+# T-2018, 2026-10-06 — AND CUT BACK TO THE FIRST OF THEM. Hubbard's node witnessed a later
+# extension through Wabansia block 59, which Wright 1834 draws whole, and Thompson's 1830
+# plat draws Jefferson no farther north than Kinzie; so the line now ends on Kinzie's node
+# and Hubbard is no longer its control. The street record's note states the ruling.
 CARRIED_ONTO_OWN_CONTROL = {
-    "jefferson": [("Kinzie", -410.158, 263.614, "708314133"),
-                  ("Hubbard", -410.159, 381.887, "12233681439")],
+    "jefferson": [("Kinzie", -410.158, 263.614, "708314133")],
 }
 
 BANK_REACH = 9
