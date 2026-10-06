@@ -22,6 +22,13 @@
   66.06-85.10 m again, midpoint 75.58 m, 36 streetless rows.
 - **Not measured**: no source places any of these houses; every position is a search result
   against the placement predicates, stated as such.
+- **Lapped over T-2143 (2026-10-06).** Merged `dev` a third time, after T-2143 raised plat
+  block 51: derived files took dev's side and were rebuilt (`rederive.mjs --run`, then keepers ->
+  the four infill generators -> `reconcile_665` -> the seating chain, settled in two laps, then
+  the scene tail, hay limits, woodpiles, the redeal, the roof-id surface and the Newberry
+  re-parse). Settled at **308 seated** (dev 295 + the 13): **209 platted** (dev 222 less the
+  Addition's 13 slots), **99 off-plat** (73 + 26). L263 595 phases, L270 209, order-book pin
+  295 -> 308, T-0059's figures 634/628. `validate.py --stale` clean: no mesh moved.
 
 ## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
 
