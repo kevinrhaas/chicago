@@ -1,6 +1,6 @@
 {
   "id": "recon_1835_west_046",
-  "name": "Reconstructed H2 merchant or professional house #046",
+  "name": "Reconstructed H2 medium boarding house #046",
   "archetype": "frame_tavern",
   "phases": [
     {
@@ -110,6 +110,22 @@
           ],
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous West Division instance."
         },
+        "upper_windows": {
+          "value": 6,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. It is the H3 boarding house's rule (L318) carried to the medium house the lodging model also counts as a boarding house; the count indicates capacity and is not a recovered interior plan, and docs/LIBERTIES.md (L324) owns the ratios."
+        },
+        "stovepipes": {
+          "value": 3,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. It is the H3 boarding house's rule (L318) carried to the medium house the lodging model also counts as a boarding house; the count indicates capacity and is not a recovered interior plan, and docs/LIBERTIES.md (L324) owns the ratios."
+        },
         "siding_exposure_m": {
           "value": 0.127,
           "confidence": "reconstructed",
@@ -120,12 +136,12 @@
     }
   ],
   "function": {
-    "value": "merchant_or_professional_house",
+    "value": "medium_boarding_house",
     "confidence": "reconstructed",
     "sources": [
       "owner_chicago_1835_reconstruction_spec_2026"
     ],
-    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. The H2 family read as the crosswalk's merchant two-storey house (`house_frame_large:merchant_two_story`), the function the South's H2 records carry: the platted deal holds this roof under its merchant_and_professional_dwellings clause (T-1827), so it stands as a merchant's house and not a boarding house, and the lodging model counts no beds in it. No occupant is named; the clause, not a source, sets the use."
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the H2 family to satisfy the aggregate West Division mix; no occupant or individual use is known."
   },
   "reconstruction": {
     "status": "inferred_anonymous",
@@ -144,13 +160,24 @@
       "by": "type",
       "household": null,
       "words": "ochre-washed clapboard on a balloon frame under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
+    },
+    "capacity": {
+      "beds_ordinary": 9,
+      "beds_crowded": 21,
+      "from": "data/reconstruction/1835_lodging_model.json",
+      "row": "classes[class=boarding_house] per-place figure: the house is not yet a place in the model, which apportions only buildings that stand",
+      "sizes": {
+        "upper_windows": "ceil(21 crowded beds / 3 to a chamber) = 7, held to 5-10 (the house's own five bays to the H3 crosswalk's top) = 7, then to the 6 sashes a front of 7.32 m carries at 1.15 m a bay: 6 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(9 ordinary beds / 3 to a stove) = 3, held to 2-6: 3",
+        "chimneys": "not sized by the beds: the two brick stacks are the household's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
+      }
     }
   },
   "resident_assignment": {
     "status": "unassigned",
     "confidence": "reconstructed",
-    "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1691). The placement policy's platted deal seated a household on this roof under its merchant_and_professional_dwellings clause, on blk_west_randolph_des_plaines#01 — a standing anonymous roof of family H2 that clause admits — and T-1691 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 30 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
+    "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-1691). The placement policy's platted deal seated a household on this roof under its merchant_and_professional_dwellings clause, on blk_west_randolph_des_plaines#01 — a standing anonymous roof of family H2 that clause admits — and T-1691 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 29 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
   },
-  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive. H2 merchant-house massing uses the same generic rectangular frame block as the West's boarding houses, without the beds' windows and stovepipes.",
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Aggregate mix follows the supplied specification; exact presence, position, footprint, finish and instance-level form are interpretive. H2 boarding-house massing currently uses a generic rectangular frame block because no boarding-house generator is implemented.",
   "review_required": false
 }

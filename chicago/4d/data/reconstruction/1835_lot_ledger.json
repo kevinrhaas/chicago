@@ -40,8 +40,8 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 156,
-   "free": 222,
+   "at_capacity": 161,
+   "free": 217,
    "room": 50
   },
   "by_multi_building_rule": {
@@ -49,10 +49,10 @@
    "party_line_run": 64
   },
   "corner_lots": 178,
-  "lots_with_a_roof": 212,
-  "lots_barring_another_roof": 210,
+  "lots_with_a_roof": 217,
+  "lots_barring_another_roof": 215,
   "shared_business_fronts": 2,
-  "principal_roofs_standing": 274,
+  "principal_roofs_standing": 279,
   "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
@@ -10052,14 +10052,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clinton_a1_06",
+    "recon_1835_blk_washington_clinton_a5_07",
+    "recon_1835_blk_washington_clinton_h2_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clinton_a1_06": "A1",
+    "recon_1835_blk_washington_clinton_a5_07": "A5",
+    "recon_1835_blk_washington_clinton_h2_01": "H2"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clinton#06",
@@ -10081,14 +10089,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clinton_a2_08",
+    "recon_1835_blk_washington_clinton_a4_09",
+    "recon_1835_blk_washington_clinton_h3_02"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clinton_a2_08": "A2",
+    "recon_1835_blk_washington_clinton_a4_09": "A4",
+    "recon_1835_blk_washington_clinton_h3_02": "H3"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clinton#07",
@@ -10110,14 +10126,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clinton_a2_10",
+    "recon_1835_blk_washington_clinton_d5_03"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clinton_a2_10": "A2",
+    "recon_1835_blk_washington_clinton_d5_03": "D5"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clinton#08",
@@ -10139,14 +10161,20 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clinton_a4_11",
+    "recon_1835_blk_washington_clinton_d4_04"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clinton_a4_11": "A4",
+    "recon_1835_blk_washington_clinton_d4_04": "D4"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_clinton#09",
@@ -10168,14 +10196,22 @@
    "dry": true,
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_washington_clinton_a2_12",
+    "recon_1835_blk_washington_clinton_a5_13",
+    "recon_1835_blk_washington_clinton_h1_05"
+   ],
+   "standing_families": {
+    "recon_1835_blk_washington_clinton_a2_12": "A2",
+    "recon_1835_blk_washington_clinton_a5_13": "A5",
+    "recon_1835_blk_washington_clinton_h1_05": "H1"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_washington_dearborn#00",
