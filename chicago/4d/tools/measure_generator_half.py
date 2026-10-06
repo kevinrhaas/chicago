@@ -456,13 +456,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # blk_west_washington_canal — a D2 shanty and D3 to D7 dwellings, all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 608 -> 622 and 602 -> 616 on 2026-10-06 (T-2146): the fourteen houses on the School Section
+# tier's blocks 94 and 95 — D2 to D7 dwellings, an H1, an H2 and an H3 boarding house, all
+# through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 608,
+    "assets": 622,
     "restales": {
-        "generators/common/*.py": 608,
+        "generators/common/*.py": 622,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 602,
+        "generators/emit.py": 616,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

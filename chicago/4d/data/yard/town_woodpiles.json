@@ -7,35 +7,35 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 325,
+  "dwellings": 339,
   "by_row": {
    "cabin": 40,
-   "cottage": 146,
-   "house": 60,
-   "keeper": 18,
-   "merchant": 33,
-   "shanty": 27
+   "cottage": 150,
+   "house": 65,
+   "keeper": 19,
+   "merchant": 35,
+   "shanty": 29
   },
   "by_class": {
-   "keeper": 18,
-   "labourer": 78,
-   "merchant": 33,
-   "tradesman": 195
+   "keeper": 19,
+   "labourer": 80,
+   "merchant": 35,
+   "tradesman": 204
   },
   "by_basis": {
    "default": 16,
-   "fabric_rule": 277,
+   "fabric_rule": 291,
    "function": 6,
    "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 297,
-   "cordwood": 333,
+   "chopping_block": 309,
+   "cordwood": 350,
    "log_heap": 40,
-   "slab_heap": 27
+   "slab_heap": 29
   },
-  "piled": 324,
+  "piled": 338,
   "refused": 1
  },
  "existence": {
@@ -4133,6 +4133,563 @@
      "bearing_deg": 0.34,
      "billets": 1,
      "seed": 522219558
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d2_01",
+   "name": "Reconstructed D2 rough plank dwelling or shanty #01",
+   "function": "rough_plank_dwelling_or_shanty",
+   "household_class": "labourer",
+   "household_by": "fabric_rule",
+   "house": "shanty",
+   "row": "shanty",
+   "rule": "Y-W1",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "slab_heap",
+     "at_local_enu_m": [
+      234.0,
+      -632.74
+     ],
+     "bearing_deg": 180.0,
+     "pieces": 11,
+     "seed": 2047212453
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d3_05",
+   "name": "Reconstructed D3 one-room frame cottage #05",
+   "function": "one_room_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      295.7,
+      -631.94
+     ],
+     "bearing_deg": 180.0,
+     "length_m": 2.54,
+     "depth_m": 0.61,
+     "height_m": 0.79,
+     "stick": "stove",
+     "seed": 212139116
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      294.88,
+      -630.53
+     ],
+     "bearing_deg": 180.0,
+     "billets": 3,
+     "seed": 1143682280
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d4_03",
+   "name": "Reconstructed D4 two-room frame cottage #03",
+   "function": "two_room_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      264.23,
+      -629.2
+     ],
+     "bearing_deg": 180.0,
+     "length_m": 1.85,
+     "depth_m": 0.61,
+     "height_m": 0.71,
+     "stick": "stove",
+     "seed": 1066444110
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      263.75,
+      -627.8
+     ],
+     "bearing_deg": 180.0,
+     "billets": 2,
+     "seed": 1503815199
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d4_04",
+   "name": "Reconstructed D4 two-room frame cottage #04",
+   "function": "two_room_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      298.46,
+      -544.79
+     ],
+     "bearing_deg": 0.0,
+     "length_m": 2.38,
+     "depth_m": 0.61,
+     "height_m": 0.85,
+     "stick": "stove",
+     "seed": 418090877
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      299.2,
+      -546.2
+     ],
+     "bearing_deg": 0.0,
+     "billets": 3,
+     "seed": 1874167913
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d5_02",
+   "name": "Reconstructed D5 deep-plan frame cottage #02",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      269.94,
+      -543.42
+     ],
+     "bearing_deg": 270.0,
+     "length_m": 2.86,
+     "depth_m": 0.61,
+     "height_m": 1.11,
+     "stick": "stove",
+     "seed": 881605318
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      269.94,
+      -540.22
+     ],
+     "bearing_deg": 270.0,
+     "length_m": 2.86,
+     "depth_m": 0.61,
+     "height_m": 0.93,
+     "stick": "stove",
+     "seed": 760810782
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      271.34,
+      -544.4
+     ],
+     "bearing_deg": 270.0,
+     "billets": 3,
+     "seed": 941403989
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d5_07",
+   "name": "Reconstructed D5 deep-plan frame cottage #07",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "side",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      323.21,
+      -633.26
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 3.12,
+     "depth_m": 0.61,
+     "height_m": 1.08,
+     "stick": "stove",
+     "seed": 559476332
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      323.21,
+      -636.73
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 3.12,
+     "depth_m": 0.61,
+     "height_m": 0.95,
+     "stick": "stove",
+     "seed": 226091621
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      321.8,
+      -632.15
+     ],
+     "bearing_deg": 90.0,
+     "billets": 2,
+     "seed": 966698691
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_94_d6_06",
+   "name": "Reconstructed D6 one-and-a-half-story frame cottage #06",
+   "function": "one_and_a_half_story_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      329.42,
+      -547.05
+     ],
+     "bearing_deg": 0.0,
+     "length_m": 2.3,
+     "depth_m": 0.61,
+     "height_m": 0.82,
+     "stick": "stove",
+     "seed": 1700932523
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      330.12,
+      -548.45
+     ],
+     "bearing_deg": 0.0,
+     "billets": 3,
+     "seed": 918226009
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_d2_03",
+   "name": "Reconstructed D2 rough plank dwelling or shanty #03",
+   "function": "rough_plank_dwelling_or_shanty",
+   "household_class": "labourer",
+   "household_by": "fabric_rule",
+   "house": "shanty",
+   "row": "shanty",
+   "rule": "Y-W1",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "slab_heap",
+     "at_local_enu_m": [
+      398.93,
+      -632.79
+     ],
+     "bearing_deg": 180.0,
+     "pieces": 8,
+     "seed": 1800429890
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_d4_05",
+   "name": "Reconstructed D4 two-room frame cottage #05",
+   "function": "two_room_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "cottage",
+   "rule": "Y-W3",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      419.78,
+      -629.48
+     ],
+     "bearing_deg": 180.0,
+     "length_m": 2.41,
+     "depth_m": 0.61,
+     "height_m": 0.87,
+     "stick": "stove",
+     "seed": 573784528
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      419.02,
+      -628.07
+     ],
+     "bearing_deg": 180.0,
+     "billets": 3,
+     "seed": 1308670456
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_d5_04",
+   "name": "Reconstructed D5 deep-plan frame cottage #04",
+   "function": "deep_plan_frame_cottage",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      422.95,
+      -546.9
+     ],
+     "bearing_deg": 0.0,
+     "length_m": 3.05,
+     "depth_m": 0.61,
+     "height_m": 0.79,
+     "stick": "stove",
+     "seed": 751665432
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      424.02,
+      -548.3
+     ],
+     "bearing_deg": 0.0,
+     "billets": 3,
+     "seed": 841530145
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_d7_07",
+   "name": "Reconstructed D7 small two-story frame house #07",
+   "function": "small_two_story_frame_house",
+   "household_class": "tradesman",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "house",
+   "rule": "Y-W4",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      440.7,
+      -631.17
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 2.35,
+     "depth_m": 0.61,
+     "height_m": 1.1,
+     "stick": "stove",
+     "seed": 1775304889
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      439.3,
+      -631.89
+     ],
+     "bearing_deg": 90.0,
+     "billets": 3,
+     "seed": 851358365
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_h1_06",
+   "name": "Reconstructed H1 larger one-and-a-half-story house #06",
+   "function": "larger_one_and_a_half_story_house",
+   "household_class": "merchant",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "merchant",
+   "rule": "Y-W5",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      439.93,
+      -538.82
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.17,
+     "stick": "cord",
+     "seed": 2145598988
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      439.93,
+      -541.61
+     ],
+     "bearing_deg": 90.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 0.83,
+     "stick": "cord",
+     "seed": 565649068
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      438.22,
+      -538.05
+     ],
+     "bearing_deg": 90.0,
+     "billets": 2,
+     "seed": 825853881
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_h2_01",
+   "name": "Reconstructed H2 merchant or professional house #01",
+   "function": "merchant_or_professional_house",
+   "household_class": "merchant",
+   "household_by": "fabric_rule",
+   "house": "larger",
+   "row": "merchant",
+   "rule": "Y-W5",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      378.61,
+      -637.07
+     ],
+     "bearing_deg": 270.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.1,
+     "stick": "cord",
+     "seed": 524126083
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      378.61,
+      -634.28
+     ],
+     "bearing_deg": 270.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 0.96,
+     "stick": "cord",
+     "seed": 860172188
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      380.32,
+      -637.84
+     ],
+     "bearing_deg": 270.0,
+     "billets": 3,
+     "seed": 1336589538
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_95_h3_02",
+   "name": "Reconstructed H3 boarding house #02",
+   "function": "large_boarding_house",
+   "household_class": "keeper",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "keeper",
+   "rule": "Y-W6",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      397.16,
+      -548.4
+     ],
+     "bearing_deg": 0.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.2,
+     "stick": "cord",
+     "seed": 1746631801
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      399.95,
+      -548.4
+     ],
+     "bearing_deg": 0.0,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 0.99,
+     "stick": "cord",
+     "seed": 1286208777
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      400.72,
+      -550.11
+     ],
+     "bearing_deg": 0.0,
+     "billets": 3,
+     "seed": 1243894741
     }
    ]
   },
@@ -9475,42 +10032,6 @@
    "structure_id": "recon_1835_south_d1_021",
    "name": "Reconstructed D1 older log dwelling #021",
    "function": "older_log_dwelling",
-   "household_class": "labourer",
-   "household_by": "fabric_rule",
-   "house": "log",
-   "row": "cabin",
-   "rule": "Y-W2",
-   "confidence": "reconstructed",
-   "wall": "back",
-   "items": [
-    {
-     "kind": "log_heap",
-     "at_local_enu_m": [
-      235.38,
-      -189.47
-     ],
-     "bearing_deg": 269.88,
-     "logs": 3,
-     "log_length_m": 2.62,
-     "depth_m": 1.38,
-     "seed": 1072779574
-    },
-    {
-     "kind": "chopping_block",
-     "at_local_enu_m": [
-      237.17,
-      -188.61
-     ],
-     "bearing_deg": 269.88,
-     "billets": 1,
-     "seed": 1502364281
-    }
-   ]
-  },
-  {
-   "structure_id": "recon_1835_south_d1_032",
-   "name": "Reconstructed D1 older log dwelling #032",
-   "function": "older_log_dwelling",
    "household_class": "merchant",
    "household_by": "fabric_rule",
    "house": "log",
@@ -9522,38 +10043,74 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      657.71,
-      -188.89
+      235.31,
+      -192.17
      ],
-     "bearing_deg": 90.07,
+     "bearing_deg": 269.88,
      "length_m": 2.44,
      "depth_m": 1.22,
-     "height_m": 1.03,
+     "height_m": 0.84,
      "stick": "cord",
-     "seed": 616502656
+     "seed": 1072779574
     },
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      657.7,
-      -191.68
+      235.3,
+      -189.38
      ],
-     "bearing_deg": 90.07,
+     "bearing_deg": 269.88,
      "length_m": 2.44,
      "depth_m": 1.22,
-     "height_m": 1.21,
+     "height_m": 1.14,
      "stick": "cord",
-     "seed": 1533707293
+     "seed": 1502364281
     },
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      655.99,
-      -192.45
+      237.01,
+      -188.61
+     ],
+     "bearing_deg": 269.88,
+     "billets": 1,
+     "seed": 328494746
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_south_d1_032",
+   "name": "Reconstructed D1 older log dwelling #032",
+   "function": "older_log_dwelling",
+   "household_class": "labourer",
+   "household_by": "fabric_rule",
+   "house": "log",
+   "row": "cabin",
+   "rule": "Y-W2",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "log_heap",
+     "at_local_enu_m": [
+      657.63,
+      -188.93
+     ],
+     "bearing_deg": 90.07,
+     "logs": 3,
+     "log_length_m": 2.51,
+     "depth_m": 1.38,
+     "seed": 616502656
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      655.84,
+      -189.73
      ],
      "bearing_deg": 90.07,
      "billets": 2,
-     "seed": 2139739240
+     "seed": 1533707293
     }
    ]
   },

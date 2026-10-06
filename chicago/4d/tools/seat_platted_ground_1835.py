@@ -158,7 +158,12 @@ BUSINESS_DEAL_HOLDS = 44
 # those roofs no longer move when the business deal's roofs are released, and the cascade
 # that vacated recon_1835_blk_washington_lasalle_d7_05 for him does not run. No seat in the
 # deal itself moved (L270).
-BUSINESS_DEAL_COSTS = 1
+# 1 -> 0 on 2026-10-06 (T-2146): the household a release of the business deal's roofs would
+# have seated again was hh_bennet_lyman, handed on since T-2130. The fourteen roofs T-2146
+# raised on the School Section tier's blocks 94 and 95 seat him in the deal itself (the H1 on
+# blk_school_section_tier_95#06), so releasing the business deal's roofs no longer moves the
+# household count. The hold is unchanged at 44 (L270).
+BUSINESS_DEAL_COSTS = 0
 
 TICKET = "T-1613"
 PARENT = "T-1199"
