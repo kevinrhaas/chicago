@@ -25,9 +25,9 @@ Each line is *how many of the 2928 people carry at least one record of that kind
 
 | coverage | of 2928 | % | what counts |
 | --- | ---: | ---: | --- |
-| identities | **1438** | 49.1% | a name with at least one source id anywhere on the card |
+| identities | **1439** | 49.1% | a name with at least one source id anywhere on the card |
 | occupations | **340** | 11.6% | an occupation that is not `none_recorded` |
-| household membership | **1864** | 63.7% | recorded inside a household of two or more people |
+| household membership | **1863** | 63.6% | recorded inside a household of two or more people |
 | kinship | **1283** | 43.8% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
 | property / address | **289** | 9.9% | the household resolves a `lives_at` or a `works_at` |
 | voter / civic evidence | **305** | 10.4% | a poll book, tax list, muster roll, treaty payment or other public record |
@@ -39,9 +39,9 @@ Each line is *how many of the 2928 people carry at least one record of that kind
 | --- | ---: | ---: |
 | `corroborated_across_categories` | 468 | 16.0% |
 | `two_or_more_sources_one_category` | 14 | 0.5% |
-| `one_source` | 357 | 12.2% |
+| `one_source` | 358 | 12.2% |
 | `the_letter_lists_alone` | 599 | 20.5% |
-| `no_source` | 1490 | 50.9% |
+| `no_source` | 1489 | 50.9% |
 
 `corroborated_across_categories` is the only result that means two *kinds* of
 record agree; two newspaper notices of the same name are
@@ -55,7 +55,7 @@ record agree; two newspaper notices of the same name are
 | civic | 305 |
 | census | 47 |
 | church | 42 |
-| book | 382 |
+| book | 383 |
 | directory | 228 |
 | secondary | 81 |
 
@@ -330,8 +330,8 @@ defect in this export.
 | no address | 2639 | neither `lives_at` nor `works_at` resolves |
 | unplaced | 2438 | the household carries division `unplaced`: in the town, on no lot |
 | no research row | 2092 | no cohort ticket has reviewed this person; the programme reached 836 of 2928 |
-| no source of their own | 1490 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
-| rests on one source | 956 | one source id on the card and no second category to check it against |
+| no source of their own | 1489 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
+| rests on one source | 957 | one source id on the card and no second category to check it against |
 | rests on the letter lists alone | 599 | known only from the post office's uncalled-for lists |
 | candidate identity open | 118 | a candidate was found and not asserted; the identity is still a question |
 | conflicting evidence, ruled | 95 | a recorded conflict carries a written adjudication and a named reopening condition; every one of them is a decline, and none adopts a candidate |

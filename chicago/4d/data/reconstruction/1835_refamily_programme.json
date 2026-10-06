@@ -52,19 +52,19 @@
   },
   "what_it_is_left_holding": {
     "people": 414,
-    "buckets": 52,
+    "buckets": 53,
     "buckets_cleared": 0,
-    "of_refused_buckets": 52,
+    "of_refused_buckets": 53,
     "by_family": [
-      {
-        "sex": "male",
-        "age_band": "under_10",
-        "people_still_held": 74
-      },
       {
         "sex": "female",
         "age_band": "under_10",
-        "people_still_held": 72
+        "people_still_held": 73
+      },
+      {
+        "sex": "male",
+        "age_band": "under_10",
+        "people_still_held": 73
       },
       {
         "sex": "female",
@@ -79,7 +79,7 @@
       {
         "sex": "female",
         "age_band": "10_19",
-        "people_still_held": 42
+        "people_still_held": 41
       },
       {
         "sex": "male",
@@ -94,7 +94,7 @@
       {
         "sex": "male",
         "age_band": "30_39",
-        "people_still_held": 18
+        "people_still_held": 19
       },
       {
         "sex": "female",
@@ -117,7 +117,7 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 2 if only the division changed, 17 if the household kind changed too, 78 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 3 if only the division changed, 18 if the household kind changed too, 79 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
     "still_owed_now": 223,
@@ -139,7 +139,7 @@
   },
   "the_residue_and_the_ruling_on_it": {
     "people_still_held": 414,
-    "buckets_they_are_held_in": 52,
+    "buckets_they_are_held_in": 53,
     "and_what_holds_each_of_them": [
       {
         "refusal": "a_documented_reading_shrank_the_order",
@@ -161,7 +161,7 @@
   "what_would_move_the_remainder": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 239 people under twenty and 112 adult women, and their cells hold 13 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 238 people under twenty and 112 adult women, and their cells hold 13 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
@@ -171,7 +171,7 @@
     },
     {
       "id": "the_22_seated_households",
-      "says": "67 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
+      "says": "73 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.",
       "who_owns_it": "T-1199"
     },
     {
@@ -185,11 +185,11 @@
       "bucket": "persons/male/under_10/south/family/none",
       "owning_ticket": "T-1174",
       "held_at": 109,
-      "the_re_cut_would_have_ordered": 62,
-      "surplus_still_held": 47,
+      "the_re_cut_would_have_ordered": 63,
+      "surplus_still_held": 46,
       "refamilied_out_already": 10,
       "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 47
+      "surplus_when_the_programme_is_spent": 46
     },
     {
       "bucket": "persons/female/under_10/south/family/none",
@@ -224,12 +224,12 @@
     {
       "bucket": "persons/female/10_19/south/family/none",
       "owning_ticket": "T-1174",
-      "held_at": 55,
+      "held_at": 54,
       "the_re_cut_would_have_ordered": 32,
-      "surplus_still_held": 23,
+      "surplus_still_held": 22,
       "refamilied_out_already": 6,
       "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 23
+      "surplus_when_the_programme_is_spent": 22
     },
     {
       "bucket": "persons/male/20_29/south/family/trade",
@@ -242,6 +242,16 @@
       "surplus_when_the_programme_is_spent": 21
     },
     {
+      "bucket": "persons/female/under_10/north/family/none",
+      "owning_ticket": "T-1174",
+      "held_at": 41,
+      "the_re_cut_would_have_ordered": 24,
+      "surplus_still_held": 17,
+      "refamilied_out_already": 4,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 17
+    },
+    {
       "bucket": "persons/male/under_10/north/family/none",
       "owning_ticket": "T-1174",
       "held_at": 44,
@@ -250,16 +260,6 @@
       "refamilied_out_already": 7,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 17
-    },
-    {
-      "bucket": "persons/female/under_10/north/family/none",
-      "owning_ticket": "T-1174",
-      "held_at": 41,
-      "the_re_cut_would_have_ordered": 25,
-      "surplus_still_held": 16,
-      "refamilied_out_already": 4,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 16
     },
     {
       "bucket": "persons/female/20_29/south/family/trade",
@@ -636,6 +636,16 @@
       "owning_ticket": "T-2023",
       "held_at": 5,
       "the_re_cut_would_have_ordered": 4,
+      "surplus_still_held": 1,
+      "refamilied_out_already": 0,
+      "outstanding_moves": 0,
+      "surplus_when_the_programme_is_spent": 1
+    },
+    {
+      "bucket": "persons/male/30_39/north/lodging/none",
+      "owning_ticket": "T-2023",
+      "held_at": 6,
+      "the_re_cut_would_have_ordered": 5,
       "surplus_still_held": 1,
       "refamilied_out_already": 0,
       "outstanding_moves": 0,

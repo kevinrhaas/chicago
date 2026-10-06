@@ -660,6 +660,11 @@ STRUCTURE_TICKETS = {
     # apportioned `roofs: 0`, so there is nowhere on this addition the 26 can stand without
     # either the memo or the seating giving way. Ordering them from T-1746 is the order book
     # saying so: the next run on this cell rules, and does not deal.
+    #
+    # T-1746 RULED, 2026-10-05: the memo stands and the seating gives way. The 26 stand
+    # south of Michigan Street as recipe rows 68-93 of 1835_north_division_initial_parcel.json
+    # (`addition_surplus`, L393), so the row reads 0 left. It keeps T-1746's name as the
+    # ticket that closed it; a later raise of the North's target is a new ticket.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1952",
@@ -5046,8 +5051,13 @@ def cmd_self_test() -> int:
     # block 51 comes onto the layer and its six houses are raised; the six households that
     # asked for them are seated on standing West roofs and nobody is handed on (216 -> 222
     # platted seats, L270, L313).
+    # 295 -> 308 on 2026-10-05 (T-1746, merged over T-2143): the North's 26 owed dwellings stand
+    # south of Michigan Street instead of on Kinzie's Addition; the thirteen households whose
+    # slots stood on its two blocks are seated off the plat under standing North roofs, and
+    # thirteen more owed North households beside them (222 -> 209 platted seats, 73 -> 99
+    # off-plat, L270, L271, L393).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 295
+        data["inventory"], data["programme"], occ))["seated"] == 308
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

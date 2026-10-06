@@ -141,15 +141,15 @@
       "works_on_other_people_s_ground": 3
     },
     "by_age_scope": {
-      "age_is_not_settled": 578,
+      "age_is_not_settled": 577,
       "below_working_age": 867,
-      "working_age": 2470
+      "working_age": 2471
     },
     "by_age_scope_and_status": {
       "age_is_not_settled": {
         "at_a_seat_this_project_drew": 3,
         "at_a_trade_with_no_house_to_join": 21,
-        "no_trade_recorded": 545,
+        "no_trade_recorded": 544,
         "on_their_own_account": 9
       },
       "below_working_age": {
@@ -159,15 +159,15 @@
         "at_a_named_house": 127,
         "at_a_seat_this_project_drew": 120,
         "at_a_trade_with_no_house_to_join": 325,
-        "no_trade_recorded": 1781,
+        "no_trade_recorded": 1782,
         "on_their_own_account": 117
       }
     },
     "placed_at_work": 376,
     "carry_a_trade": 672,
-    "working_age": 2470,
+    "working_age": 2471,
     "working_age_placed_at_work": 364,
-    "working_age_with_no_trade_recorded": 1781
+    "working_age_with_no_trade_recorded": 1782
   },
   "mechanics_shops": {
     "printed_count": 25,
@@ -11572,7 +11572,7 @@
     },
     {
       "person_id": "kimberly_edmund_s",
-      "household_id": "hh_pruyne_kimberly",
+      "household_id": "hh_kimberly_edmund_s",
       "record_folder": "households",
       "age_band": "30-39",
       "age_scope": "working_age",
@@ -11591,6 +11591,19 @@
     {
       "person_id": "kimberly_ira",
       "household_id": "hh_kimberly_ira",
+      "record_folder": "households",
+      "age_band": "20-29",
+      "age_scope": "working_age",
+      "trade": null,
+      "trade_confidence": "reconstructed",
+      "status": "no_trade_recorded",
+      "reason": "no_trade_recorded",
+      "decided_by": "the card's occupation, which records none",
+      "houses": []
+    },
+    {
+      "person_id": "kimberly_marie_theresa",
+      "household_id": "hh_kimberly_edmund_s",
       "record_folder": "households",
       "age_band": "20-29",
       "age_scope": "working_age",
@@ -43344,19 +43357,6 @@
       "record_folder": "households",
       "age_band": "5-9",
       "age_scope": "below_working_age",
-      "trade": null,
-      "trade_confidence": "reconstructed",
-      "status": "no_trade_recorded",
-      "reason": "no_trade_recorded",
-      "decided_by": "the card's occupation, which records none",
-      "houses": []
-    },
-    {
-      "person_id": "rc_thomas_frederick_child_4",
-      "household_id": "hh_thomas_frederick",
-      "record_folder": "households",
-      "age_band": "10-14",
-      "age_scope": "age_is_not_settled",
       "trade": null,
       "trade_confidence": "reconstructed",
       "status": "no_trade_recorded",
