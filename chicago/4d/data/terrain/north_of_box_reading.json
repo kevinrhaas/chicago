@@ -79,16 +79,16 @@
   "drawn": {
    "streets": 29,
    "partly_off_grid": 0,
-   "on_grid_m": 20516.91,
+   "on_grid_m": 20635.99,
    "off_grid_m": 0,
    "off_grid_fraction": 0
   },
   "platted_only": {
    "streets": 51,
    "partly_off_grid": 20,
-   "on_grid_m": 47651.95,
+   "on_grid_m": 47890.12,
    "off_grid_m": 2799.89,
-   "off_grid_fraction": 0.0555
+   "off_grid_fraction": 0.0552
   }
  },
  "drawn": [],
