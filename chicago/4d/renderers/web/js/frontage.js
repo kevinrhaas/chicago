@@ -184,9 +184,9 @@ const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
  * `push` (of one to three values) and `length` (T-2152). The buffers were JS
  * number arrays, and growing a town's worth of them by doubling copied about a
  * gigabyte through the heap while the walks were laid — garbage that held a
- * phone's heap near 500 MB mid-load. A Float32 stream stores exactly what the
- * Float32 attribute it becomes stores; the seam offsets keep 64 bits because
- * `plankGapAttribute` rounds them as they were before.
+ * phone's heap near 500 MB mid-load. The store is 64-bit, so every value is the
+ * same double the plain array held and the Float32 attribute it becomes is
+ * unchanged to the bit; `plainTimber` hands a harness the plain arrays back.
  */
 class Grow {
   constructor(Type) { this.Type = Type; this.a = new Type(1024); this.length = 0; }
@@ -214,9 +214,17 @@ class Grow {
 }
 
 /** An empty timber buffer: positions, normals, confidence and colour. */
-const timberBuf = () => ({ pos: new Grow(Float32Array), nrm: new Grow(Float32Array),
-  conf: new Grow(Float32Array), col: new Grow(Float32Array), uv: new Grow(Float32Array),
+const timberBuf = () => ({ pos: new Grow(Float64Array), nrm: new Grow(Float64Array),
+  conf: new Grow(Float64Array), col: new Grow(Float64Array), uv: new Grow(Float64Array),
   seam: new Grow(Float64Array), walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
+
+/** The streams of a built buffer as plain arrays, for a check that indexes them. */
+function plainTimber(buf) {
+  for (const k of ['pos', 'nrm', 'conf', 'col', 'uv', 'seam']) {
+    if (buf[k]?.view) buf[k] = Array.from(buf[k].view());
+  }
+  return buf;
+}
 
 /**
  * DROP A BUFFER'S SCRATCH ONCE ITS GEOMETRY HOLDS A COPY (T-2063). The arrays
