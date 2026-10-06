@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 419,
+  "count": 420,
   "liberties": [
     {
       "id": "L1",
@@ -16610,7 +16610,7 @@
       "fields": [
         {
           "label": "Scope",
-          "text": "`platted_seats.seats[dealt]` — 209 households (T-1746 carried the 26 dwellings the schedule had dealt to blk_indiana_north_wolcott and blk_indiana_north_cass off them, 2026-10-05, L393, so the schedule plans no roof on either block and the deal requests no slot on either: the thirteen households whose slots stood there, hh_adams_elizabeth and hh_albee_clark_b on wolcott's merchant and professional lots, hh_bailly_joseph, hh_baily_john, hh_barber_beta_l, hh_barnard_j_h, hh_barnes_wheeler, hh_beach_william_h, hh_beadieston_ste, hh_beaubien_john_s, hh_beaubien_susan and hh_bennett_william on tradesmen's lots and hh_barre_john_s on cass's one labourer's lot, are handed to the off-plat deal and each is seated there under a standing North Division roof (L271); 222 until then: T-2143 carried Canal and West Water to Madison and raised the six roofs the deal asked of plat block 51, blk_west_washington_canal, 2026-10-05, and the count rose by the six who asked: hh_bailey_bennet, hh_bruen_hir, hh_brush_matthias, hh_butterfield_ben, hh_cappy_george and hh_cooley_edward_v are seated on standing West roofs (recon_1835_west_046, _031, _044, _042, _008 and _014), while six older West households adopt the new houses — hh_abbot_8_g, hh_abbott_constant, hh_abbott_titus_h, hh_allan_richard_b, hh_barrows_mary and hh_barry_j_r — and 32 households change roof in all, none handed on; the merge onto T-2144's tier moved none of those West seats. 216 until then: T-2144 joined the School Section's Madison–Monroe tier to the plat, 2026-10-05, on the owner's T-1755 ruling to cross Madison: its five South blocks — 81, 94, 95, 118 and 119, forty lots — are scheduled one house to a lot, keeping a lot open on each, and 34 households the deal had handed on to T-1614 are dealt a slot on them, the requests T-2145, T-2146 and T-2147 build; 182 until then: T-2132 cut plat block 44, blk_west_randolph_canal, on its own two printed depths and raised the four roofs the deal asked of it, 2026-10-05, and the count rose by the four who asked: hh_bronson_arthur, hh_bourassa_mark, hh_brown_hanna_e and hh_brownson_myron_k are seated on standing West roofs (recon_1835_west_044, _031, _042 and _008), while hh_abbott_constant, hh_abbott_titus_h, hh_ballingale_p and hh_barry_william take the four new houses from older roofs nearby, adoption running before the slot step as before; 21 seated households change roof behind them and none is handed on, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2130 raised the nine roofs the deal had asked for on blk_washington_dearborn and blk_washington_clark, 2026-10-05, on top of T-2129's Market block, and the count held while the deal turned over under it: `hh_chiney_ralph`, handed on by T-2129, is seated on the standing recon_1835_south_d5_016, and `hh_bennet_lyman`, whose slot stood at blk_washington_dearborn#04, is handed on, owed to T-1614 in writing. As with T-1751, none of the households that asked took a new roof, because adoption runs before the slot step: hh_ballard_thomas, hh_barrest_wilham, hh_beaubien_monique, hh_bertrand_b_h, hh_blakesley_harvey_a and hh_byam_seth move onto the Dearborn block's six, and hh_boilvin_nicholas and hh_bonn_augustin onto the Clark block's two houses, all from older roofs nearby. 53 seated households change roof or lot behind them, seven of them from a slot to a standing roof, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its fields is read off a committed record and the entry below says which. **The ledger invents nothing.** Which lot exists is `data/traces/vectors/thompson_lots.json` (T-0221, T-1194). Which street a lot's face fronts is that block's own `bounded_by`, and that street's traffic class is `data/streets/1835.json`. What stands on a lot is `tools/plat_occupancy.py`, measured, not asserted — a footprint's lot is the one it has the most area on and only if it reaches that lot's buildable inset. How many principal roofs the lot may carry is the placement policy's own `multi_building_lot` rule, selected by the street class: three party-line units on a principal street, one anywhere else. A lot's corner is its position on its own face. Six lookups, joined in one place for the first time, and the liberties they stand on are already recorded — **L90** for the anonymous roofs, the plat entries for the grid."
+          "text": "`platted_seats.seats[dealt]` — 209 households (209 also after T-2146 raised the thirteen roofs of the School Section tier's blocks 94 and 95, 2026-10-06, L394, and the count held while the deal turned over under it: as on T-2130, adoption runs before the slot step, so the thirteen slot requests that stood on the two blocks become adoptions by older households — hh_benediet_loma, hh_bennet_lyman, hh_bently_wm_t, hh_bradford_harriet, hh_bradley_joseph, hh_brink_john, hh_britain_hiram_z, hh_brookes_samuel, hh_brookins_david, hh_casy_honora, hh_catton_william, hh_crandall_beman and hh_gifford_hezekiah take the thirteen dwellings — and the households that asked re-slot on blocks 81, 118 and 119, which T-2147 and T-2145 build; hh_democrat_printers is handed on and hh_laframboise_franois is seated; hh_bennet_lyman, handed on since T-2130, is seated on the block-95 H1, so a release of the street-face business deal's 44 roofs no longer costs a seat (`BUSINESS_DEAL_COSTS` 1 → 0, the hold unchanged); 75 seated households change roof or lot in all, read at the fixpoint of the seating chain and the keeper pass together (eighteen laps); the schedule's H3 boarding house on block 95 is not raised (L394); before that, T-1746 carried the 26 dwellings the schedule had dealt to blk_indiana_north_wolcott and blk_indiana_north_cass off them, 2026-10-05, L393, so the schedule plans no roof on either block and the deal requests no slot on either: the thirteen households whose slots stood there, hh_adams_elizabeth and hh_albee_clark_b on wolcott's merchant and professional lots, hh_bailly_joseph, hh_baily_john, hh_barber_beta_l, hh_barnard_j_h, hh_barnes_wheeler, hh_beach_william_h, hh_beadieston_ste, hh_beaubien_john_s, hh_beaubien_susan and hh_bennett_william on tradesmen's lots and hh_barre_john_s on cass's one labourer's lot, are handed to the off-plat deal and each is seated there under a standing North Division roof (L271); 222 until then: T-2143 carried Canal and West Water to Madison and raised the six roofs the deal asked of plat block 51, blk_west_washington_canal, 2026-10-05, and the count rose by the six who asked: hh_bailey_bennet, hh_bruen_hir, hh_brush_matthias, hh_butterfield_ben, hh_cappy_george and hh_cooley_edward_v are seated on standing West roofs (recon_1835_west_046, _031, _044, _042, _008 and _014), while six older West households adopt the new houses — hh_abbot_8_g, hh_abbott_constant, hh_abbott_titus_h, hh_allan_richard_b, hh_barrows_mary and hh_barry_j_r — and 32 households change roof in all, none handed on; the merge onto T-2144's tier moved none of those West seats. 216 until then: T-2144 joined the School Section's Madison–Monroe tier to the plat, 2026-10-05, on the owner's T-1755 ruling to cross Madison: its five South blocks — 81, 94, 95, 118 and 119, forty lots — are scheduled one house to a lot, keeping a lot open on each, and 34 households the deal had handed on to T-1614 are dealt a slot on them, the requests T-2145, T-2146 and T-2147 build; 182 until then: T-2132 cut plat block 44, blk_west_randolph_canal, on its own two printed depths and raised the four roofs the deal asked of it, 2026-10-05, and the count rose by the four who asked: hh_bronson_arthur, hh_bourassa_mark, hh_brown_hanna_e and hh_brownson_myron_k are seated on standing West roofs (recon_1835_west_044, _031, _042 and _008), while hh_abbott_constant, hh_abbott_titus_h, hh_ballingale_p and hh_barry_william take the four new houses from older roofs nearby, adoption running before the slot step as before; 21 seated households change roof behind them and none is handed on, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2130 raised the nine roofs the deal had asked for on blk_washington_dearborn and blk_washington_clark, 2026-10-05, on top of T-2129's Market block, and the count held while the deal turned over under it: `hh_chiney_ralph`, handed on by T-2129, is seated on the standing recon_1835_south_d5_016, and `hh_bennet_lyman`, whose slot stood at blk_washington_dearborn#04, is handed on, owed to T-1614 in writing. As with T-1751, none of the households that asked took a new roof, because adoption runs before the slot step: hh_ballard_thomas, hh_barrest_wilham, hh_beaubien_monique, hh_bertrand_b_h, hh_blakesley_harvey_a and hh_byam_seth move onto the Dearborn block's six, and hh_boilvin_nicholas and hh_bonn_augustin onto the Clark block's two houses, all from older roofs nearby. 53 seated households change roof or lot behind them, seven of them from a slot to a standing roof, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots the deal reads from. This entry covers the SEATS. The ledger is not a liberty and is not claimed as one: each of its fields is read off a committed record and the entry below says which. **The ledger invents nothing.** Which lot exists is `data/traces/vectors/thompson_lots.json` (T-0221, T-1194). Which street a lot's face fronts is that block's own `bounded_by`, and that street's traffic class is `data/streets/1835.json`. What stands on a lot is `tools/plat_occupancy.py`, measured, not asserted — a footprint's lot is the one it has the most area on and only if it reaches that lot's buildable inset. How many principal roofs the lot may carry is the placement policy's own `multi_building_lot` rule, selected by the street class: three party-line units on a principal street, one anywhere else. A lot's corner is its position on its own face. Six lookups, joined in one place for the first time, and the liberties they stand on are already recorded — **L90** for the anonymous roofs, the plat entries for the grid."
         },
         {
           "label": "Decision",
@@ -26054,6 +26054,212 @@
         {
           "label": "Recorded",
           "text": "2026-10-05 (T-1746)."
+        }
+      ]
+    },
+    {
+      "id": "L394",
+      "title": "Thirteen invented houses on the School Section tier's Wells blocks south of Madison",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_blk_school_section_tier_94_d2_01",
+        "recon_1835_blk_school_section_tier_94_d3_05",
+        "recon_1835_blk_school_section_tier_94_d4_03",
+        "recon_1835_blk_school_section_tier_94_d4_04",
+        "recon_1835_blk_school_section_tier_94_d5_02",
+        "recon_1835_blk_school_section_tier_94_d5_07",
+        "recon_1835_blk_school_section_tier_94_d6_06",
+        "recon_1835_blk_school_section_tier_95_d2_02",
+        "recon_1835_blk_school_section_tier_95_d4_04",
+        "recon_1835_blk_school_section_tier_95_d5_03",
+        "recon_1835_blk_school_section_tier_95_d7_06",
+        "recon_1835_blk_school_section_tier_95_h1_05",
+        "recon_1835_blk_school_section_tier_95_h2_01"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d2_01",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d2_01",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d3_05",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d3_05",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_03",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_03",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_02",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_02",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_07",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_07",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d6_06",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d6_06",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d2_02",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d2_02",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d5_03",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d5_03",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d7_06",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d7_06",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h1_05",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h1_05",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h2_01",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h2_01",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the School Section's Madison–Monroe tier, which T-2144 joined to the plat on the owner's T-1755 ruling (cross Madison), now carries **thirteen anonymous houses on its two Wells blocks**, one to a lot. **Block 94** (`blk_school_section_tier_94`, between the section's eighth line and Wells): on the Madison face a larger frame house (D5, lot 2), a tradesman's frame house (D4, lot 4) and a storey-and-a-half cottage (D6) on the Wells corner; on the Monroe face a labourer's shanty (D2) on the west corner, a D4, a one-room cottage (D3) and a second D5 on the Wells corner. **Block 95** (`blk_school_section_tier_95`, between Wells and the section's tenth line): on the Madison face a D5 (lot 4) and a larger storey-and-a-half house (H1) on the east corner; on the Monroe face a merchant's or professional man's house (H2) on the Wells corner, a D2, a D4 and a small two-storey frame house (D7) on the east corner. Lot 0 on each block, the west Madison corner, stays the reserved open lot. **Everything below the count is invented** — that any of these houses stood here in July 1835 (the state sold the tier's lots one by one in October 1833; nothing shows them built on), which houses they were, and where on its lot each sits. No coordinate is authored: every metre is read off the committed lot polygon by `tools/generate_block_infill.py` from the recipe entries `phase3_platted_block_school_section_tier_94` and `_95` in `data/reconstruction/1835_platted_block_parcels.json`. **Why these thirteen.** `1835_platted_seats.json` held thirteen `slot` requests on the two blocks, and every one is a family and a lot the 665-roof schedule's plan holds: on 94 the plan's whole seven (one D2, one D3, two D4, two D5, one D6); on 95 six of its seven (D2, D4, D5, D7, H1, H2). So the count, the families and the lots are the seating's and the schedule's. **What is left unbuilt, and why.** The schedule's seventh roof on block 95 is an H3 boarding house, which no banded South clause admits, so no household asks for it. It was built on this branch first and withdrawn: its beds move the lodging model, and the boarder stage (`tools/seat_lodgers_1835.py`) then draws eight lodgers out of `persons/male/10_19/south/lodging/trade` where the order book holds seven, which that stage refuses by design until its lodger basis is deliberately re-frozen. That is a lodging decision, so lot 2 is left open for it and the roof goes with the South's other owed boarding houses to T-1957."
+        },
+        {
+          "label": "Would replace",
+          "text": "any record that places a house, an owner or an occupant on a School Section lot south of Madison before July 1835 — a deed book entry with a building, a tax list, or a reminiscence naming the block."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_blk_school_section_tier_94_d2_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d2_01.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d3_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d3_05.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d4_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d4_03.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d4_04.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d5_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d5_02.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d5_07.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d5_07.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d6_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d6_06.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d2_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d2_02.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d4_04.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d5_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d5_03.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d7_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d7_06.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_h1_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_h1_05.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_h2_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_h2_01.inferred_1835.footprint`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2146 (piece 3 of T-1755)."
+        },
+        {
+          "label": "Related",
+          "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L263**, **L270**, **L276**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-06 (T-2146)."
         }
       ]
     },
