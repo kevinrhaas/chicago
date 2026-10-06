@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
+    items: [
+      'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
+      'The camp stands for a Native or M\u00e9tis family in town to trade that summer. No source counts or places these families in 1835, so the camp is a declared reconstruction, built on the owner\u2019s ruling. Three tents is a number we chose, not a count, and nobody is named.',
+      'The tents are plain canvas, not a lodge: no source we hold describes the lodges at Chicago that year. As everywhere in the town, no person, flame or smoke is drawn.',
+      'The camp\u2019s card says it is held for review by Native scholars and community organisations, which the project has promised before any scene is called finished. The Liberties page explains it (L395).',
+    ] },
   { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
     items: [
       'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',

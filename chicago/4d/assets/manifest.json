@@ -5722,6 +5722,15 @@
       "phase_id": "stable_1831",
       "structure_id": "wolf_point_tavern_stable"
     },
+    "wolf_point_trading_camp__camp_1835.glb": {
+      "archetype": "camp",
+      "baked_ao": false,
+      "bytes": 42348,
+      "inputs_sha256": "2e584f287b4850d781baa4477a178413e0319a7dfc5a55dcbaf50734df52f8e2",
+      "kind": "generated",
+      "phase_id": "camp_1835",
+      "structure_id": "wolf_point_trading_camp"
+    },
     "wright_building_to_let_a__documented_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,

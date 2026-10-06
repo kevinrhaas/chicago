@@ -21809,3 +21809,42 @@ them back.
 Addition's two blocks and the ceiling on them), **L368**, **L270**, **L271**, **T-1757**.
 
 **Recorded:** 2026-10-05 (T-1746).
+
+### L395 — One trading family's camp at Wolf Point, a declared reconstruction the owner ruled built
+
+**Decision:** `wolf_point_trading_camp` is three canvas wall tents in a ring about one cold
+fire ring, with a woodpile and one heap of packs, on a 16 x 16 m ground at Wolf Point: south
+of the Wolf Point Tavern and its stable, west of Robert A. Kinzie's store, north of Lake
+Street's drawn line (local E −94 to −78, N −85 to −69). It stands for a Native or Métis
+family in town to trade in the summer of 1835. **Everything drawn is invented, and so is
+the family.** It seats nobody, names nobody and moves no count.
+**Why:** T-1214 asked for the camps of Native and Métis families in town to trade or
+awaiting the annuity payment; T-1804 built the land-sale and wagon camps (L355) and not
+these, because T-1177 refused a count for the unnamed Native and Métis people at Chicago on
+1 July 1835 (`1835_native_and_metis.json` § the_counted_but_unnamed). The question went to
+the owner, who ruled on 2026-10-04 (T-1977, answer b): *build one small camp at Wolf Point
+or the Agency as a declared reconstruction (review_required + touches_removal, no figures),
+bounded by a stated figure rather than a count.* **Three tents is that stated figure**: the
+fewest that reads as a camp and not as one household, and not a reading of anybody. Wolf
+Point and not the Agency, because `cobweb_castle` records the Agency House as most likely
+no longer an operating agency by 1835 and its ground is a platted lot, while Wolf Point is
+where Wau-Bun puts Alexander Robinson's household in 1831 and where Robert A. Kinzie,
+listed by Andreas among the Indian traders, kept a store. The spot is the placer's
+(`tools/place_camp_grounds_1835.py`), under L355's tests: level, dry, at least 3 m from
+every drawn roadway, fence run and committed footprint. **The tents are canvas and not a
+lodge** because no committed source describes a Potawatomi, Odawa, Ojibwe or Métis lodge at
+Chicago in 1835, and T-1214 adds a lodge form to the archetype only where a source
+describes one; the canvas is not offered as how these families lived.
+**Consequence:** walking Lake Street past Wolf Point, a visitor sees three tents about a
+fire ring between the tavern and the street. The record carries `review_required` and
+`touches_removal`, so no scene containing it can be marked released until the review by
+Native scholars or community organisations that AGENTS.md commits to has been held. **L1
+stands over every vertex**: no figure, no flame, no smoke. No ceremony, dialogue or trade
+good is drawn or named, and nothing of the August 1835 gathering or the removal is staged.
+**How to resolve:** a source that counts or places the Native and Métis families at or
+about Chicago in the summer of 1835 would size or move the camp; one that describes their
+lodges there would re-form it; the review itself may retire it.
+**Covers:** `wolf_point_trading_camp.camp_1835.position`, `wolf_point_trading_camp.camp_1835.footprint`, `wolf_point_trading_camp.camp_1835.documented_range`, `wolf_point_trading_camp.camp_1835.form.tents`, `wolf_point_trading_camp.camp_1835.form.tent_kind`, `wolf_point_trading_camp.camp_1835.form.wagons`, `wolf_point_trading_camp.camp_1835.form.brush_shelters`, `wolf_point_trading_camp.camp_1835.form.fire_rings`, `wolf_point_trading_camp.camp_1835.form.woodpiles`, `wolf_point_trading_camp.camp_1835.form.baggage_heaps`, `wolf_point_trading_camp.camp_1835.form.arrangement`, `wolf_point_trading_camp.camp_1835.form.canvas_condition`, `wolf_point_trading_camp.function`, `wolf_point_trading_camp.occupants`.
+**Related:** **T-1977** (the owner's ruling), **T-1214**, **T-1804**, **T-1177**, L355, L1,
+AGENTS.md § Standing constraint.
+**Recorded:** 2026-10-05 (T-1977).

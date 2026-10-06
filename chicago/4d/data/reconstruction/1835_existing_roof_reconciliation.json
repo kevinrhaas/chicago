@@ -1358,6 +1358,17 @@
       "substitutes_anonymous_slots": 0,
       "confidence": "moderate",
       "reasoning": "A wagon party's camp at the west approach (T-1804): canvas and wagons, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
+    },
+    {
+      "structure_id": "wolf_point_trading_camp",
+      "district": "west",
+      "roof_count": 0,
+      "inventory_eligible": false,
+      "inventory_roof_count": 0,
+      "likely_family": null,
+      "substitutes_anonymous_slots": 0,
+      "confidence": "moderate",
+      "reasoning": "A trading family's camp at Wolf Point, the one Native or Métis camp the owner ruled built (T-1977): canvas, not a roof. 1835_camp_grounds.json rules that a tent is not a building, so the camp answers no family in the roof programme and fills no anonymous slot."
     }
   ]
 }
