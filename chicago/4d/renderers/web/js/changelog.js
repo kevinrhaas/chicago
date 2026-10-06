@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
+    items: [
+      'Walk south on Clark Street across Madison and both blocks between Madison and Monroe now have houses. There are seven on each side of Clark, one to a lot: frame cottages and frame houses of several sizes, a one-room cabin on the west block and a two-storey house on the east block\u2019s far corner.',
+      'Each block keeps one lot open on its Madison face. On the east side of Clark that is the corner lot, so Clark crosses Madison between an open corner and a built one.',
+      'This ground was sold lot by lot in October 1833, in the School Section beyond the town\u2019s old south line. The town plan still owed the South Division these houses, and every block inside the line was full.',
+      'No source names these houses or says they stood here. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L396).',
+    ] },
   { v: 1507, ts: '2026-10-05T23:12:37.341Z', date: 'Oct 5, 2026, 6:12 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
     items: [
       'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
