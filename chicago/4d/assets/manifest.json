@@ -2368,6 +2368,60 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_school_section_tier_94_d6_06"
     },
+    "recon_1835_blk_school_section_tier_95_d2_02__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 74196,
+      "inputs_sha256": "2970ed594956b734cb5a1aa0220f09f4e33c93178d89a595ec6e0240f565495d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_d2_02"
+    },
+    "recon_1835_blk_school_section_tier_95_d4_04__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 35060,
+      "inputs_sha256": "c994bdaf38dbcc0bd9ed25aefd9416abd6e88cd76422311d6b4678b1a6eb1bd3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_d4_04"
+    },
+    "recon_1835_blk_school_section_tier_95_d5_03__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 37712,
+      "inputs_sha256": "89aa3a2ec88a276ee57c4f98ef7c85afa173f046fe5a24631b3efc0d7b43eaa7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_d5_03"
+    },
+    "recon_1835_blk_school_section_tier_95_d7_06__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 79528,
+      "inputs_sha256": "2b28e3863655caf19955681c30c7029990c0e2dc815e58fa1dbd0e43f96614bc",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_d7_06"
+    },
+    "recon_1835_blk_school_section_tier_95_h1_05__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 58588,
+      "inputs_sha256": "598a7bad19205cd9d709fad0877e5939870996cc1646835e55fa65b5a7f347fc",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_h1_05"
+    },
+    "recon_1835_blk_school_section_tier_95_h2_01__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 89964,
+      "inputs_sha256": "5bd36778e87529da762bf2a58191f85ce362258d99c6f85c5b49e45c3e30c6b7",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_h2_01"
+    },
     "recon_1835_blk_south_water_clark_a3_05__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -2956,8 +3010,8 @@
     "recon_1835_blk_washington_clark_h3_05__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 36324,
-      "inputs_sha256": "0f2eb9746d68fa3096dbae84e6900000e3bf4e2eb724f86e36600978307fed50",
+      "bytes": 37108,
+      "inputs_sha256": "71eaf2aabba827839ef5ab108e4f5ff824d76e381d329683c5664a43d5005f50",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_05"
@@ -3478,8 +3532,8 @@
     "recon_1835_blk_washington_wells_d3_06__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 31140,
-      "inputs_sha256": "8c1649c5b6c308b0be5637f4805755c33ef7a98a8030b26163a10a938802f129",
+      "bytes": 32076,
+      "inputs_sha256": "ae2a8155e9a8ada1c945dc92f851a0050b1c33ed76759352be637c8cfd254121",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_wells_d3_06"
@@ -3523,8 +3577,8 @@
     "recon_1835_blk_washington_wells_h2_07__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 107268,
-      "inputs_sha256": "cdcca7e311c6da3157c8ecd2ecb28fe4b7f43d46a21e45f56a0f485918656a15",
+      "bytes": 113516,
+      "inputs_sha256": "8c83945f38e2022e207a617a91bc001b0c33e31a64b3668cffe872965d02c9a3",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_wells_h2_07"
@@ -4504,8 +4558,8 @@
     "recon_1835_north_h2_030__inferred_1835.glb": {
       "archetype": "frame_tavern",
       "baked_ao": false,
-      "bytes": 27944,
-      "inputs_sha256": "13f4648ed7d550f999a076a8bedd0ab7dbb93bfa461593a9b7953acb181af216",
+      "bytes": 28256,
+      "inputs_sha256": "47fcc1ee0a3ed6b3e9d64df6067eec28618e61cde64c434c95b0adabf9bf5423",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_h2_030"
