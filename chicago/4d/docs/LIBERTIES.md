@@ -14333,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 608 phases (595 until T-2146's thirteen houses on the School Section tier's Wells blocks south of Madison, blk_school_section_tier_94 and _95, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 609 phases (569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -15880,7 +15880,7 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Seventy-seven roofs across six districts now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 86 roofs (81 until T-2146 raised the thirteen houses of the School Section tier's blocks 94 and 95, 2026-10-06, and the seating walked to its fixpoint behind them: 27 roofs change keeper: eleven gain a written keeper, three of them new houses (tier_94_d5_07, tier_95_d4_04, tier_95_d5_03) and eight on the Original Town's blocks, and six lose one; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 86 roofs (81 until T-2145 raised fourteen houses on the School Section tier's Clark blocks, 2026-10-06, and the South seating turned over behind them: six of the new houses carry a written keeper, the other eight going to letter-list households the ruling refuses a roof; nine more roofs north of Madison gain a written keeper, ten lose theirs and six change keeper; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -21889,3 +21889,63 @@ lodges there would re-form it; the review itself may retire it.
 **Related:** **T-1977** (the owner's ruling), **T-1214**, **T-1804**, **T-1177**, L355, L1,
 AGENTS.md § Standing constraint.
 **Recorded:** 2026-10-05 (T-1977).
+
+### L396 — Fourteen invented houses on the School Section tier's two Clark blocks south of Madison
+
+**Decision:** `blk_school_section_tier_118` and `blk_school_section_tier_119` — the School
+Section's blocks 118 and 119, either side of Clark between Madison and Monroe, which T-2144 joined
+to the plat on the owner's 2026-10-05 ruling (T-1755, answer **b**: the town crosses Madison onto
+the Madison–Monroe tier the state sold lot by lot in October 1833) — now carry **fourteen
+anonymous dwellings**, seven to a block, one to a lot. On block 118, west of Clark: on the Madison
+face a larger frame house (D5, lot 2), a tradesman's frame house (D4, lot 4) and a frame house
+(D6) on the Clark corner (lot 6); on the Monroe face a labourer's one-room cabin (D2) on the west
+corner (lot 1), a D4 (lot 3), a one-room cottage (D3, lot 5) and a second D5 on the Clark corner
+(lot 7). On block 119, east of Clark: on the Madison face a D5 (lot 2), a D4 (lot 4) and a second
+D5 on the east corner (lot 6); on the Monroe face a D6 on the Clark corner (lot 1), a D4 (lot 3),
+a D3 (lot 5) and a two-storey frame house (D7) on the east corner (lot 7). Lot 0 of each block,
+its west Madison corner, stays the block's reserved open lot — so on 119 the Madison-and-Clark
+corner is open ground. **Everything below the count is invented** — that any of these buildings
+stood on these blocks in July 1835 (the register records the tier SOLD in 1833, not built on),
+which buildings they were, and where on its lot each sits. No coordinate is authored: every metre
+is read off the committed lot polygon by `tools/generate_block_infill.py` from the recipe entries
+`phase3_platted_block_school_section_tier_118` and `phase3_platted_block_school_section_tier_119`
+in `data/reconstruction/1835_platted_block_parcels.json`. The set-outs (4.0–5.5 m) and lateral
+offsets vary lot to lot, and between the two blocks, so neither Clark face reads as a surveyed
+building line; they are inventions bounded by the lot lines.
+
+**Why seven a block, which is the whole of each block's lot ceiling.** The 665-roof schedule gives
+each block `lot_ceiling_principal` 7 over its eight free lots at one principal roof per lot and no
+party-line row (T-2144's density for the tier), and no yard roof. `1835_platted_seats.json` held
+exactly seven `slot` requests on each with no roof under them: on 118 a D6, two D5s, two D4s, a D3
+and a D2; on 119 a D7, a D6, two D5s, two D4s and a D3 — each the schedule's family list for its
+block to the roof. So the count, the families and the lots are the seating's and the schedule's.
+
+**Which household stands under which roof is the placement policy's** (**L270** carries the
+seating arithmetic and who moved; **L276** the keepers written on these roofs); nothing in this
+entry depends on it, and the roofs would be exactly as invented if nobody stood under them.
+
+**How to resolve:** a deed, tax or assessment record for any of the sixteen lots of blocks 118
+and 119 of section 16 after the October 1833 sale, or any account placing houses on Clark south
+of Madison in 1835. A named discovery substitutes for a compatible anonymous roof and never
+increases the total. Evidence that the tier was still wholly unbuilt in July 1835 would retire all
+fourteen and reopen the owner's T-1755 question rather than re-place them.
+
+**Covers:** `recon_1835_blk_school_section_tier_118_d2_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d2_01.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_118_d5_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d5_02.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_118_d4_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d4_03.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_118_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d4_04.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_118_d3_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d3_05.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_118_d6_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d6_06.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_118_d5_07.inferred_1835.position`, `recon_1835_blk_school_section_tier_118_d5_07.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d6_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d6_01.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d5_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d5_02.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d4_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d4_03.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d4_04.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d3_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d3_05.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d5_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d5_06.inferred_1835.footprint`,
+`recon_1835_blk_school_section_tier_119_d7_07.inferred_1835.position`, `recon_1835_blk_school_section_tier_119_d7_07.inferred_1835.footprint`
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L270** (the
+platted deal these blocks answer), **L276** (the keeper pass, which now runs for the tier),
+**T-2144** (the tier joins the plat), **T-1755** (split; this is its piece **T-2145**; **T-2147**
+builds block 81 and **T-2146** blocks 94 and 95 beside it).
+**Recorded:** 2026-10-06 (T-2145).

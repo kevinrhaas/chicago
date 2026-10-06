@@ -464,17 +464,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 634 -> 635 and 628 -> 629 on 2026-10-06 (T-1977): the trading camp at Wolf Point, one
 # `camp` through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 635 -> 648 and 629 -> 642 on 2026-10-06 (T-2146): the thirteen houses on the School Section
+# 635 -> 649 and 629 -> 643 on 2026-10-06 (T-2145): the School Section tier's fourteen
+# dwellings on its two Clark blocks south of Madison (plat blocks 118 and 119), all through
+# emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 649 -> 662 and 643 -> 656 on 2026-10-06 (T-2146): the thirteen houses on the School Section
 # tier's blocks 94 and 95 — D2 to D7 dwellings, an H1 and an H2, all
 # through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 648,
+    "assets": 662,
     "restales": {
-        "generators/common/*.py": 648,
+        "generators/common/*.py": 662,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 642,
+        "generators/emit.py": 656,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
