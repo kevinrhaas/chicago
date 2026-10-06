@@ -24,7 +24,7 @@
     "data/boats/index.json"
   ],
   "counts": {
-    "present_households_already_housed": 91,
+    "present_households_already_housed": 92,
     "present_households_owed_a_roof": 926,
     "ruled_in_households_already_housed": 51,
     "ruled_in_households_owed_a_roof": 908,
@@ -75,10 +75,10 @@
     "source": "data/reconstruction/1835_town_model.json people_per_dwelling_november_1835 (3,265 people in 398 dwellings)",
     "the_ratio_is": "people under a roof / standing dwellings — the enumerator's own division, every dwelling counted whether this layer links anybody to it or not",
     "standing_dwellings": 321,
-    "people_under_a_roof": 2631,
-    "people_per_dwelling": 8.196,
-    "inhabited_roofs": 240,
-    "people_per_inhabited_roof": 10.963,
+    "people_under_a_roof": 2633,
+    "people_per_dwelling": 8.202,
+    "inhabited_roofs": 241,
+    "people_per_inhabited_roof": 10.925,
     "why_the_two_differ": "documented dwellings no card links and roofs whose record already states its occupants stand in the first count and are refused by this deal; who sleeps in them is T-1966's and T-1615's to settle, not a policy deal's",
     "most_crowded_roof": {
       "structure_id": "recon_1835_blk_washington_wells_h2_07",

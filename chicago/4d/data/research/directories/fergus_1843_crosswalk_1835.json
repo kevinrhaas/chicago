@@ -12,11 +12,11 @@
  "whole_name_rule": ". A printed forename and a reading of 1835 are THE SAME NAME when\nthey set the SAME NUMBER of words and agree word by word — each pair either\nletter for letter, or one of them the single initial the other begins with.\nWhere exactly ONE candidate is the same name in that sense, the page names\nthat one and no other. Where none is, or more than one is, nothing happens\nand the tie stands with the reason filed.",
  "wife_rule": "— the second clause, and it is R6 arriving where it\nwas always true. `tools/consolidate_resident_evidence.py` holds `Mrs Rufus\nBrown` apart from `Rufus Brown` (R6, T-0723) because the honorific strip leaves\nthe husband's forename tokens on both readings and folds a wife onto him. The\ncrosswalks strip titles the same way and had no such rule, so the town layer's\ntwo people met `Brown, Rufus B., warehouseman` together and were filed as a\nCONTEST — a man contesting a printed line with his own wife. Where one\ncandidate of 1835 carries a female honorific, its forename tokens are exactly\nthose of another candidate carried WITHOUT one, and the printed entry sets no\nfemale honorific of its own, the entry is the husband's and she is not named by\nit. The proof is the same proof R6 asks for and it is in the contest itself:\nthe town layer prints both readings, which is what put them here together.",
  "counts": {
-  "residents_considered": 1439,
+  "residents_considered": 1440,
   "matched_one_1843_entry": 137,
   "matched_more_than_one_ambiguous": 15,
   "one_1843_entry_contested_by_two_residents": 4,
-  "surname_present_initial_absent_refused": 350,
+  "surname_present_initial_absent_refused": 351,
   "of_those_an_entry_one_letter_off_the_surname": 15,
   "entries_one_letter_off_a_refused_surname": 12,
   "of_those_overturned": 0,
@@ -37,7 +37,7 @@
   "of_those_contested": 0,
   "of_those_ambiguous": 1,
   "could_carry_occupation": 75,
-  "could_carry_address": 94,
+  "could_carry_address": 93,
   "could_carry_death_note": 92,
   "business_directory_notices_with_a_surname": 106,
   "notices_folded_onto_their_own_roll_entry": 82,
@@ -1751,11 +1751,11 @@
   {
    "resident": "Dr Edmund Stoughton Kimberly",
    "person_id": "kimberly_edmund_s",
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "grade_1835": "attested",
    "occupation_1835": "physician",
    "occupation_1835_confidence": "attested",
-   "lives_at_1835": null,
+   "lives_at_1835": "kimberly_residence",
    "works_at_1835": "pruyne_kimball_drugstore",
    "rule": "Surname 'Kimberly' folds to the same string as the 1843 entry's, and the given name of both begins E.",
    "entries_1843": [
@@ -1771,7 +1771,6 @@
     }
    ],
    "could_carry": [
-    "address",
     "death_note"
    ],
    "carry_rule": "Whatever is carried is carried as 1843 evidence with describes_date 1843 on the note, never as an 1835 fact, and the grade of the person does not move. The death note is T-0574's, not this file's.",
@@ -8087,6 +8086,13 @@
    "surname_in_1843": "Parker",
    "candidates": 1,
    "rule": "The surname 'Parker' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Manson Parker'. A surname-only agreement is a refusal."
+  },
+  {
+   "resident": "Marie Theresa Ellis Kimberly",
+   "person_id": "kimberly_marie_theresa",
+   "surname_in_1843": "Kimberly",
+   "candidates": 1,
+   "rule": "The surname 'Kimberly' is in Fergus 1843 and no entry under it carries the initial 'M' of 'Marie Theresa Ellis Kimberly'. A surname-only agreement is a refusal."
   },
   {
    "resident": "Martha Murray",

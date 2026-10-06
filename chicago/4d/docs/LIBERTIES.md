@@ -12748,8 +12748,8 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 803 people in 240 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2021 GREW IT FROM
+**Scope:** `residents.persons[modelled_families]` — 802 people in 240 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2140 (2026-10-05) took it from 803 to 802** without drawing anyone it had refused before: splitting the Pruyne-Kimberly partnership left Peter Pruyne alone on his card for the first time, and the new refusal 3b (below) keeps a wife off a man the record marries seven weeks after the scene date; Kimberly's own wife, whom the history of medicine names, is a stated-family write and not a draw. The one person fewer is a drawn daughter of 10-14 in the south (`rc_thomas_frederick_child_4`), refused by the order book's female 10-19 south cell when the book re-derived its quota over the moved population. **T-2021 GREW IT FROM
 295 IN 84 TO 803 IN 240 on 2026-10-03**, by ruling on the married houses the order book had
 refused a wife: 156 of them are given the whole family this stage drew for them, 508 people
 (below, THE RULING). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
@@ -12777,15 +12777,17 @@ bucket of `data/reconstruction/1835_reconstruction_order_book.json` and a bucket
 `to_reconstruct` REFUSES the draw instead of overfilling. No servant, apprentice, journeyman or
 lodger is seated — the drawn size is a floor on the house and the record says so, because the
 staffing model is T-1183's and the lodger is T-1175's. Nine refusals keep the stage off evidence
-it must not touch, and the build counts every one of them: a letter-list mint (743, whose own gate
+it must not touch (ten since T-2140), and the build counts every one of them: a letter-list mint (743, whose own gate
 proves no record there ever gained a second member), a household a source already names, counts or
 rules on (147, T-1313's and T-1314's), a head the household model does not seat as a husband (27),
 a woman heading her own household (25, the age pyramid's and so T-1174's), a head the sources do
 not name (11), AN EVIDENCE-ONLY CONTAINER (5, below), a household under a standing review (4,
 T-1177's alone under AGENTS.md's Indigenous-history review), the fort and the country outside the
-town (3, T-1176's), an unsettled presence on the scene date (2, T-1172's roster), and a head whose
+town (3, T-1176's), an unsettled presence on the scene date (2, T-1172's roster), a head whose
 own trade says he kept no wife (1) — which is what stopped this stage giving Father St Cyr a
-family. A tenth refusal is the order book's rather than the rules': 306 married houses stand
+family — and, since T-2140, A HEAD A SOURCE MARRIES AFTER THE SCENE DATE (1): Peter Pruyne, whom
+Andreas marries to Rebecca Sherman on 20 August 1835, and whom this stage drew a wife and three
+sons the day the partnership split left him alone on his card. A further refusal is the order book's rather than the rules': 306 married houses stand
 refused whole because the cell that would seat their wife is spent.
 
 **THE EVIDENCE-ONLY REFUSAL, added 2026-09-21 (T-1369).** The five `hh_inf_*` records are not

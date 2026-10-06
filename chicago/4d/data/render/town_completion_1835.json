@@ -20,7 +20,7 @@
     "data/streets/1835.json"
   ],
   "summary": {
-    "households_housed": 1499,
+    "households_housed": 1500,
     "households_unhoused": 0,
     "households_counted_apart": {
       "absent_on_the_scene_date": 29,
@@ -34,7 +34,7 @@
   },
   "housed": {
     "households": {
-      "housed": 1499,
+      "housed": 1500,
       "unhoused": 0,
       "counted_apart": 507
     },
@@ -48,8 +48,8 @@
     },
     "persons_housed": {
       "attested": 305,
-      "inferred": 657,
-      "reconstructed": 1768
+      "inferred": 658,
+      "reconstructed": 1767
     },
     "persons_unhoused": {
       "attested": 0,
@@ -62,7 +62,7 @@
       "persons_waiting_on_a_roof": 850
     },
     "housed_through": {
-      "lives_at": 56,
+      "lives_at": 57,
       "seated_by_a_structure": 1443
     },
     "unhoused_by_folder": {},
@@ -73,7 +73,7 @@
     "lodged_at_stated": 307
   },
   "at_work": {
-    "working_age": 2266,
+    "working_age": 2267,
     "placed": {
       "attested": 159,
       "inferred": 7,
@@ -91,7 +91,7 @@
     },
     "no_trade_recorded": {
       "attested": 232,
-      "inferred": 971,
+      "inferred": 972,
       "reconstructed": 374
     },
     "owed_by_reason": {
@@ -116,12 +116,12 @@
   "occupied": {
     "structures": 581,
     "occupied": {
-      "attested": 50,
+      "attested": 51,
       "inferred": 9,
       "reconstructed": 251
     },
     "occupants_in_prose_only": {
-      "attested": 9,
+      "attested": 8,
       "inferred": 10,
       "reconstructed": 83
     },
@@ -146,8 +146,8 @@
     "persons": {
       "housed": {
         "attested": 305,
-        "inferred": 657,
-        "reconstructed": 1768
+        "inferred": 658,
+        "reconstructed": 1767
       },
       "waiting_on_a_roof": {
         "attested": 107,
@@ -167,7 +167,7 @@
     },
     "households": {
       "housed": {
-        "attested": 293,
+        "attested": 294,
         "inferred": 642,
         "reconstructed": 564
       },
@@ -206,12 +206,12 @@
     },
     "structures": {
       "occupied": {
-        "attested": 50,
+        "attested": 51,
         "inferred": 9,
         "reconstructed": 251
       },
       "occupants_in_prose_only": {
-        "attested": 9,
+        "attested": 8,
         "inferred": 10,
         "reconstructed": 83
       },

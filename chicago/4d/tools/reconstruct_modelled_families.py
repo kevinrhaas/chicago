@@ -52,6 +52,17 @@ admits one. Seven refusals, each with a reason a reader can check:
      this stage applies are the same rule now. A dwelling these men are DOCUMENTED to have
      kept retires the container, not the refusal; until a source says one did, the trade
      argument is met by naming the man and stops there.
+  3b. A HEAD A SOURCE MARRIES AFTER THE SCENE DATE GETS NOTHING, since 2026-10-05
+     (T-2140). Rule 3 says a head whose family a source names, counts or rules on is not
+     a head the sources leave alone, and it tested that by counting the card's people.
+     Peter Pruyne showed the gap: Andreas marries him to Rebecca Sherman on 20 August
+     1835, `data/residents/stated_family_rulings.json` rules that marriage `later_only`,
+     and he stood alone on no card until T-2140 took Dr Kimberly off his partnership's.
+     The day it did, this stage drew him a wife called Almira and three sons - a wife
+     on 1 July for a man the record marries seven weeks later, which is inventing
+     against the record and not into a gap in it. So a `later_only` marriage ruling
+     refuses the house; the other verdicts do not, because none of them dates the head
+     out of a marriage on the day.
   4. The fort and the country outside the town get nothing. T-1176 musters the garrison
      and the order book never apportions the fort division.
   5. A household under a standing review gets nothing, and neither does a head whose own
@@ -121,6 +132,7 @@ LEDGER = ROOT / "data" / "reconstruction" / "1835_modelled_families.json"
 RULINGS = ROOT / "data" / "reconstruction" / "1835_presence_rulings.json"
 FOLDS = ROOT / "data" / "reconstruction" / "1835_folded_houses.json"
 RULING = ROOT / "data" / "reconstruction" / "1835_family_ruling.json"
+STATED = ROOT / "data" / "residents" / "stated_family_rulings.json"
 ROSTER = ROOT / "data" / "reconstruction" / "1835_borderline_roster.json"
 # The roster classes tools/readmit_borderline_roster.py mints a card from by its read name.
 READMIT_MINTS = ("R2_in_window_single_source", "R3_1834_return_or_muster",
@@ -201,6 +213,22 @@ def value_of(block):
 
 
 _RULED = None
+_MARRIED_LATER = None
+
+
+def married_after_the_scene_date() -> frozenset:
+    """3b. The households whose head a source marries after 1 July 1835.
+
+    Read off the authored stated-family rulings: a `marriage:<household>:<wife>` row at
+    `later_only` is a source dating the head's marriage after the scene date, and a wife
+    drawn for him on the day would contradict it."""
+    global _MARRIED_LATER
+    if _MARRIED_LATER is None:
+        rows = json.loads(STATED.read_text(encoding="utf-8"))["rulings"]
+        _MARRIED_LATER = frozenset(key.split(":")[1] for key, row in rows.items()
+                                   if key.startswith("marriage:")
+                                   and row.get("verdict") == "later_only")
+    return _MARRIED_LATER
 
 
 def ruled_present() -> frozenset:
@@ -300,13 +328,16 @@ def evidence_only(card: dict) -> bool:
             or str(card.get("name") or "").startswith(EVIDENCE_ONLY_NAME))
 
 
-def eligibility(card: dict, ruled=None) -> tuple:
+def eligibility(card: dict, ruled=None, married_later=None) -> tuple:
     """(eligible, the refusal). One rule a line, in the docstring's order.
 
-    `ruled` is the T-1386 ruling set; it defaults to the committed one and is passed
-    explicitly only by the self-test, which owns no household id in the file."""
+    `ruled` is the T-1386 ruling set and `married_later` rule 3b's; each defaults to the
+    committed one and is passed explicitly only by the self-test, which owns no household
+    id in either file."""
     if ruled is None:
         ruled = ruled_present()
+    if married_later is None:
+        married_later = married_after_the_scene_date()
     if not settled_present(card, ruled):
         return False, "presence on the scene date is not settled (T-1172's roster holds it)"
     if str(card.get("source_pass") or "") == "letter_list":
@@ -317,6 +348,8 @@ def eligibility(card: dict, ruled=None) -> tuple:
     persons = card.get("persons") or []
     if len(persons) > 1:
         return False, "a source already names, counts or rules on this household's family"
+    if card.get("id") in married_later:
+        return False, "a source marries the head after the scene date"
     head = head_of(card)
     if head is None:
         return False, "the record carries no single head to draw a family around"
@@ -1924,6 +1957,9 @@ def self_test() -> int:
                if (p_.get("reconstruction") or {}).get("stage") == STAGE])
     fires("a household that already holds a second person is refused",
           eligibility(card(persons=base["persons"] + [dict(base["persons"][0], id="y")]))[0] is False)
+    fires("a head a source marries after the scene date is refused (3b)",
+          eligibility(card(), None, frozenset({"hh_x"}))[0] is False
+          and eligibility(card(), None, frozenset())[0] is True)
     fires("the fort is refused", eligibility(card(division="fort"))[0] is False)
     fires("a household under a standing review is refused",
           eligibility(card(review_required=True))[0] is False

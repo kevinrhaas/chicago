@@ -281,6 +281,21 @@
    ]
   },
   {
+   "business_id": "biz_kimberly_edmund_s_physician",
+   "occupation": "physician",
+   "census_classes": [
+    "physician"
+   ],
+   "keepers": [
+    "kimberly_edmund_s"
+   ],
+   "seated_at": null,
+   "sources": [
+    "andreas_1884_v1",
+    "history_medicine_chicago_kimberly_maxwell"
+   ]
+  },
+  {
    "business_id": "biz_kinzie_james_merchant",
    "occupation": "merchant",
    "census_classes": [
@@ -337,21 +352,6 @@
    "sources": [
     "andreas_1884_v1",
     "drloih_hotels"
-   ]
-  },
-  {
-   "business_id": "biz_kimberly_edmund_s_physician",
-   "occupation": "physician",
-   "census_classes": [
-    "physician"
-   ],
-   "keepers": [
-    "kimberly_edmund_s"
-   ],
-   "seated_at": null,
-   "sources": [
-    "andreas_1884_v1",
-    "history_medicine_chicago_kimberly_maxwell"
    ]
   },
   {
