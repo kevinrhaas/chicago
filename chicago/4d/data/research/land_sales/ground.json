@@ -35,7 +35,7 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 609,
+    "structures_placed": 623,
     "structures_reached": 122,
     "structures_reached_by_grade": {
       "inferred": 25,
@@ -44,7 +44,7 @@
     "structures_unreached_by_section": {
       "09": 484,
       "10": 1,
-      "16": 1,
+      "16": 15,
       "outside the four sections": 1
     },
     "school_section": {
@@ -40347,7 +40347,21 @@
       "south_pier"
     ],
     "16": [
-      "heacock_house_monroe"
+      "heacock_house_monroe",
+      "recon_1835_blk_school_section_tier_94_d2_01",
+      "recon_1835_blk_school_section_tier_94_d3_05",
+      "recon_1835_blk_school_section_tier_94_d4_03",
+      "recon_1835_blk_school_section_tier_94_d4_04",
+      "recon_1835_blk_school_section_tier_94_d5_02",
+      "recon_1835_blk_school_section_tier_94_d5_07",
+      "recon_1835_blk_school_section_tier_94_d6_06",
+      "recon_1835_blk_school_section_tier_95_d2_03",
+      "recon_1835_blk_school_section_tier_95_d4_05",
+      "recon_1835_blk_school_section_tier_95_d5_04",
+      "recon_1835_blk_school_section_tier_95_d7_07",
+      "recon_1835_blk_school_section_tier_95_h1_06",
+      "recon_1835_blk_school_section_tier_95_h2_01",
+      "recon_1835_blk_school_section_tier_95_h3_02"
     ],
     "outside the four sections": [
       "glessner_house"
