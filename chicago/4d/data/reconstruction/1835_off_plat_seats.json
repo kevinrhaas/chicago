@@ -76,8 +76,8 @@
    "farms_and_country_seats": 208,
    "heavy_and_noxious_trades": 1,
    "labourer_dwellings": 63,
-   "merchant_and_professional_dwellings": 370,
-   "tradesman_dwellings": 447
+   "merchant_and_professional_dwellings": 371,
+   "tradesman_dwellings": 446
   },
   "owed_by_district": {
    "north": 237,
@@ -3019,6 +3019,15 @@
    "clause": "heavy_and_noxious_trades",
    "district": "south",
    "why": "the 1 off-plat roof(s) of a family this clause admits in this division all carry a record that states their own occupancy, which a policy deal does not overturn, and no other stands there, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_berger_f_c",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -6376,15 +6385,6 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "why": "every one of the 11 off-plat roof(s) of a family this clause admits in this division is already seated under it, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
-   "id": "hh_democrat_printers",
-   "kind": "household",
-   "band": "south/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
