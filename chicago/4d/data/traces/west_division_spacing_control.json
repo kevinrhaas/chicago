@@ -73,11 +73,11 @@
   {
    "id": "clinton",
    "name_1835": "Clinton Street",
-   "mean_east_local_m": -281.32,
+   "mean_east_local_m": -280.03,
    "measured_over_the_band": {
     "from_northing_m": -506.86,
     "to_northing_m": 1.34,
-    "samples_reached": 316,
+    "samples_reached": 401,
     "of_samples": 401,
     "why": "the northing range of the committed West Division plat blocks — the blocks this line bounds. A trace extended beyond it does not move this figure (T-1549)."
    },
@@ -100,11 +100,11 @@
   {
    "id": "jefferson",
    "name_1835": "Jefferson Street",
-   "mean_east_local_m": -395.96,
+   "mean_east_local_m": -394.67,
    "measured_over_the_band": {
     "from_northing_m": -506.86,
     "to_northing_m": 1.34,
-    "samples_reached": 316,
+    "samples_reached": 401,
     "of_samples": 401,
     "why": "the northing range of the committed West Division plat blocks — the blocks this line bounds. A trace extended beyond it does not move this figure (T-1549)."
    },
@@ -123,11 +123,11 @@
   {
    "id": "des_plaines",
    "name_1835": "Des Plaines Street",
-   "mean_east_local_m": -519.79,
+   "mean_east_local_m": -518.5,
    "measured_over_the_band": {
     "from_northing_m": -506.86,
     "to_northing_m": 1.34,
-    "samples_reached": 316,
+    "samples_reached": 401,
     "of_samples": 401,
     "why": "the northing range of the committed West Division plat blocks — the blocks this line bounds. A trace extended beyond it does not move this figure (T-1549)."
    },
@@ -196,16 +196,17 @@
   {
    "east": "canal",
    "west": "clinton",
-   "committed_m": 125.72,
-   "committed_ft": 412.5,
+   "committed_m": 124.43,
+   "committed_ft": 408.2,
    "the_plat_asks_ft": 458.0,
-   "short_by_ft": 45.5,
-   "short_by_m": 13.88,
+   "short_by_ft": 49.8,
+   "short_by_m": 15.17,
    "the_datum_residual_m": 17.5,
    "inside_the_datum_residual": true,
    "blocks_cut_between_these_lines": [
     "blk_lake_clinton",
     "blk_randolph_clinton",
+    "blk_washington_clinton",
     "blk_west_fulton_clinton"
    ]
   },
@@ -222,7 +223,8 @@
    "blocks_cut_between_these_lines": [
     "blk_west_fulton_jefferson",
     "blk_west_lake_jefferson",
-    "blk_west_randolph_jefferson"
+    "blk_west_randolph_jefferson",
+    "blk_west_washington_jefferson"
    ]
   },
   {
@@ -238,7 +240,8 @@
    "blocks_cut_between_these_lines": [
     "blk_west_fulton_des_plaines",
     "blk_west_lake_des_plaines",
-    "blk_west_randolph_des_plaines"
+    "blk_west_randolph_des_plaines",
+    "blk_west_washington_des_plaines"
    ]
   }
  ],
@@ -248,24 +251,24 @@
   "from": "west_water",
   "to": "des_plaines",
   "intervals": 4,
-  "committed_m": 505.2,
-  "committed_ft": 1657.5,
+  "committed_m": 503.91,
+  "committed_ft": 1653.2,
   "the_plat_asks_m": 558.39,
   "the_plat_asks_ft": 1832.0,
-  "short_by_m": 53.19,
-  "short_by_ft": 174.5,
-  "as_a_share_of_the_plat": 0.0953,
-  "times_the_datum_residual": 3.04,
+  "short_by_m": 54.48,
+  "short_by_ft": 178.8,
+  "as_a_share_of_the_plat": 0.0976,
+  "times_the_datum_residual": 3.11,
   "so": "the whole division is narrower than the plat draws it, by more than the datum's own uncertainty, so the difference is not the georeferencing alone even where a single interval's share of it is.",
   "the_grid_proper": {
    "from": "canal",
    "to": "des_plaines",
    "intervals": 3,
-   "committed_ft": 1194.8,
+   "committed_ft": 1190.6,
    "the_plat_asks_ft": 1374.0,
-   "short_by_ft": 179.2,
-   "as_a_share_of_the_plat": 0.1304,
-   "times_the_datum_residual": 3.12,
+   "short_by_ft": 183.4,
+   "as_a_share_of_the_plat": 0.1335,
+   "times_the_datum_residual": 3.19,
    "so": "holding the riverfront line out does not soften the finding, it sharpens it: the three intervals the plat's module actually governs are shorter together than the four are."
   }
  },
@@ -280,10 +283,10 @@
   "the_grid_proper": {
    "held_out": "west_water",
    "why_held_out": "the division's easternmost line is its riverfront street, seated off the committed 1834 waterline rather than off the grid, so the interval behind it is not evidence about how the grid was cut",
-   "the_widest_ft": 412.5,
+   "the_widest_ft": 408.2,
    "the_narrowest_ft": 376.1,
-   "spread_ft": 36.4,
-   "spread_m": 11.09,
+   "spread_ft": 32.1,
+   "spread_m": 9.78,
    "spread_exceeds_the_residual": false,
    "so": "inside the grid the intervals differ by LESS than the datum's own residual, so their unevenness on its own does not refute a single module — this file will not claim that it does."
   },
@@ -317,31 +320,31 @@
     },
     {
      "id": "clinton",
-     "committed_east_local_m": -281.32,
+     "committed_east_local_m": -280.03,
      "the_plat_wants_east_local_m": -293.79,
-     "moves_m": -12.47,
-     "moves_ft": -40.9,
+     "moves_m": -13.76,
+     "moves_ft": -45.1,
      "direction": "west"
     },
     {
      "id": "jefferson",
-     "committed_east_local_m": -395.96,
+     "committed_east_local_m": -394.67,
      "the_plat_wants_east_local_m": -433.39,
-     "moves_m": -37.43,
-     "moves_ft": -122.8,
+     "moves_m": -38.72,
+     "moves_ft": -127.0,
      "direction": "west"
     },
     {
      "id": "des_plaines",
-     "committed_east_local_m": -519.79,
+     "committed_east_local_m": -518.5,
      "the_plat_wants_east_local_m": -572.98,
-     "moves_m": -53.19,
-     "moves_ft": -174.5,
+     "moves_m": -54.48,
+     "moves_ft": -178.8,
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 104.5,
-   "the_largest_single_move_m": 53.19
+   "total_absolute_movement_m": 108.37,
+   "the_largest_single_move_m": 54.48
   },
   {
    "anchor": "canal",
@@ -365,48 +368,48 @@
     },
     {
      "id": "clinton",
-     "committed_east_local_m": -281.32,
+     "committed_east_local_m": -280.03,
      "the_plat_wants_east_local_m": -295.2,
-     "moves_m": -13.88,
-     "moves_ft": -45.5,
+     "moves_m": -15.17,
+     "moves_ft": -49.8,
      "direction": "west"
     },
     {
      "id": "jefferson",
-     "committed_east_local_m": -395.96,
+     "committed_east_local_m": -394.67,
      "the_plat_wants_east_local_m": -434.8,
-     "moves_m": -38.84,
-     "moves_ft": -127.4,
+     "moves_m": -40.13,
+     "moves_ft": -131.6,
      "direction": "west"
     },
     {
      "id": "des_plaines",
-     "committed_east_local_m": -519.79,
+     "committed_east_local_m": -518.5,
      "the_plat_wants_east_local_m": -574.4,
-     "moves_m": -54.61,
-     "moves_ft": -179.2,
+     "moves_m": -55.9,
+     "moves_ft": -183.4,
      "direction": "west"
     }
    ],
-   "total_absolute_movement_m": 108.73,
-   "the_largest_single_move_m": 54.61
+   "total_absolute_movement_m": 112.6,
+   "the_largest_single_move_m": 55.9
   }
  ],
  "what_is_seated_on_the_short_spacing_today": {
-  "structures_seated_by_block_id": 35,
-  "structures_named_on_those_lots": 52,
-  "lots_reached_by_a_committed_record": 44,
+  "structures_seated_by_block_id": 48,
+  "structures_named_on_those_lots": 65,
+  "lots_reached_by_a_committed_record": 49,
   "rows_seated_on_those_lots": {
-   "data/enclosures/town_lot_line_rails.json": 165,
+   "data/enclosures/town_lot_line_rails.json": 185,
    "data/enclosures/town_lot_line_pickets.json": 19
   },
-  "blocks_cut_between_these_lines": 12,
+  "blocks_cut_between_these_lines": 15,
   "blocks_by_grid": {
-   "original_town": 2,
-   "west_division": 10
+   "original_town": 3,
+   "west_division": 12
   },
-  "blocks_with_their_lot_lines_cut": 7,
-  "lots_cut": 70,
+  "blocks_with_their_lot_lines_cut": 10,
+  "lots_cut": 100,
   "so": "every one of these blocks is bounded by two of the five lines, so its face, its area, its lot lines and everything seated against them are measured off the present spacing. Moving a line re-cuts the blocks on both sides of it, and this is the size of that."
  },
  "what_this_leaves_to_decide": {

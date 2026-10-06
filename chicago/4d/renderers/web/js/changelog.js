@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1515, ts: '2026-10-06T20:50:15.438Z', date: 'Oct 6, 2026, 3:50 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
+  { v: null, ts: '', title: '1835 asks less of a phone while it loads', kind: 'fix',
     items: [
       'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
       'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
       'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
+    ] },
+  { v: 1515, ts: '2026-10-06T21:12:35.904Z', date: 'Oct 6, 2026, 4:12 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+    items: [
+      'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
+      'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
+      'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
+      'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
     ] },
   { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
     items: [
