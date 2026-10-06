@@ -4,14 +4,14 @@
 
 The closeout of the reconstruction (T-1215) asks four joins of the committed data: every household housed, every working person at a workplace, every business roofed or its limit stated, every standing roof occupied or its use stated. This page prints how far each is from total, and every table split by the three tiers — **attested** (a source states it), **inferred** (reasoned from evidence about this particular thing) and **reconstructed** (built within stated bounds because the scene needs it). It is a measurement: nothing here seats, roofs or writes anybody.
 
-## The joins — 1 of 4 closed
+## The joins — 2 of 4 closed
 
 | join | state | what keeps it open |
 |---|---|---|
 | Every household housed | open | 422 households without a roof yet |
 | Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
-| Every standing roof occupied or its use stated | open | 1 standing roofs empty and owed somebody |
+| Every standing roof occupied or its use stated | closed | — |
 
 Dangling ids: **0**. The town is **not yet complete**: the open joins above are the work T-1215's remaining pieces owe.
 
@@ -68,10 +68,10 @@ Of the **2,789** people housed in a standing building: **11.1 % attested** (309)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| occupied | 50 | 9 | 261 | 320 |
-| occupants named in prose only | 9 | 10 | 79 | 98 |
+| occupied | 50 | 9 | 258 | 317 |
+| occupants named in prose only | 9 | 10 | 83 | 102 |
 | a use that needs nobody | 25 | 6 | 139 | 170 |
-| empty, owing somebody | 0 | 0 | 1 | 1 |
+| empty, owing somebody | 0 | 0 | 0 | 0 |
 | **all** | **84** | **25** | **480** | **589** |
 | share | 14.3 % | 4.2 % | 81.5 % | |
 
