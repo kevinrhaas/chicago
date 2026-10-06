@@ -1251,8 +1251,8 @@ export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chi
  * @param {object} opts
  * @param {string} opts.docBase  where a dossier is read — see DOSSIER_BASE
  * @param {function} [opts.onShow]  told each time a card is drawn, so a file
- *   only the card reads (the liberties, T-2058) can be fetched on first need
- *   rather than at boot
+ *   only the card reads (the liberties, T-2058; a record's household notes,
+ *   T-2151) can be fetched on first need rather than at boot
  */
 export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, onShow = null } = {}) {
   let currentId = null;
@@ -1270,6 +1270,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
    *  the claim that no firm traded here. */
   let businessesByStructure = null;
   let currentRecord = null;
+  /** Households fetched whole for a card (T-2151), by record id. */
+  const householdsById = new Map();
   /** Whether the card on screen was opened by aiming at this building's signboard,
    *  kept so a redraw (the liberties, the agencies) does not lose the fact. */
   let currentFromSign = false;
@@ -1368,6 +1370,23 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     },
 
     /**
+     * Hand the popup one record's households whole, once the card that asked for
+     * them has fetched them (T-2151): the boot sidecar carries them slim, with the
+     * reasoning behind each `why` toggle in `sidecars/<scene>/households/<id>.json`.
+     * Held here rather than written onto the registry's record, so the record stays
+     * exactly what was shipped. The card on screen is redrawn on the same terms as
+     * the handles above; a card since moved on is left alone.
+     *
+     * @param {string} id  the record whose households arrived
+     * @param {object[]} list  that record's `residents`, as the source carries them
+     */
+    setHouseholds(id, list) {
+      if (!Array.isArray(list)) return;
+      householdsById.set(id, list);
+      if (currentRecord && currentRecord.id === id) this.show(currentRecord, { fromSign: currentFromSign });
+    },
+
+    /**
      * @param {object} record  a registry entry: { id, sidecar, ... }
      * @param {object} [opts]
      * @param {boolean} [opts.fromSign]  the visitor aimed at this building's
@@ -1456,7 +1475,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         ${leadHtml(s, called, p)}
         ${factsHtml(s, firms, currentFromSign)}
         ${lodgingSection(s)}
-        ${residentsSection(s)}
+        ${residentsSection(householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s)}
         ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}
         ${tabsHtml({ liberties: libertyCount + questionCount })}
         ${paneHtml('evidence', evidencePane)}

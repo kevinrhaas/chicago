@@ -3168,6 +3168,12 @@ selftest "…and its own assertions still fire when broken" \
 # might not have published yet, and it meant exactly that checkout skipped this gate
 # without saying so. The mirror is untracked now and the step at the top of this file
 # publishes it, so the mirror always exists here and the question is always asked.
+selftest "deferred household notes: the card's fields stay, the reasoning leaves (T-2151)" \
+  node tools/defer_household_notes.mjs --self-test
+
+step "the shipped sidecars carry their households, notes beside them (T-2151)" \
+  node tools/defer_household_notes.mjs --check
+
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
