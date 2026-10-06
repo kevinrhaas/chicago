@@ -402,7 +402,11 @@ STRUCTURE_TICKETS = {
     # run that took it split it four ways: T-2144 joins the tier to the grid and the
     # schedule, and T-2145/T-2146/T-2147 build its Clark, Wells and Market blocks. The row
     # waits on the first build piece, the one the tier's dwellings are dealt to next.
-    ("south", "ordinary_dwellings"): "T-2145",
+    #
+    # AND ON TO T-2146 WITH T-2145's OWN PR (2026-10-06). T-2145 builds the Clark blocks
+    # (118, 119) and goes `done` when it merges, so the row moves one piece on to the Wells
+    # blocks (94, 95), the next build piece still open.
+    ("south", "ordinary_dwellings"): "T-2146",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
