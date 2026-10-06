@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1511, ts: '2026-10-06T18:12:51.494Z', date: 'Oct 6, 2026, 1:12 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
+  { v: 1512, ts: '2026-10-06T18:23:18.231Z', date: 'Oct 6, 2026, 1:23 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
     items: [
       'Walk south on Clark Street across Madison and both blocks between Madison and Monroe now have houses. There are seven on each side of Clark, one to a lot: frame cottages and frame houses of several sizes, a one-room cabin on the west block and a two-storey house on the east block\u2019s far corner.',
       'Each block keeps one lot open on its Madison face. On the east side of Clark that is the corner lot, so Clark crosses Madison between an open corner and a built one.',
       'This ground was sold lot by lot in October 1833, in the School Section beyond the town\u2019s old south line. The town plan still owed the South Division these houses, and every block inside the line was full.',
       'No source names these houses or says they stood here. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L396).',
+    ] },
+  { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
+      'The town\u2019s check of which street each house faces did not know Monroe Street, the south edge of the School Section blocks sold in 1833. Every house on a Monroe lot was read as facing no street, so the check would have turned three of them into barns and sheds.',
+      'It now reads Monroe for those lots, because the 1833 lot plan says they face it. Russel E. Heacock\u2019s house on Monroe Street, 30 m back from it, is now read as facing it too.',
     ] },
   { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
     items: [
