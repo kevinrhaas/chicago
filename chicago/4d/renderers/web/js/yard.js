@@ -522,7 +522,30 @@ function paintMark(ctx, x, y, mark, shape, aspect) {
  * timber, which is the layer as T-0040 shipped it and is a degradation rather
  * than a failure.
  */
-function buildMarkAtlas(wanted) {
+/**
+ * A PHONE TAKES THE ATLAS AT HALF SIZE (T-2152). The atlas is painted at full
+ * size, so the layout, every cell and every uv are unchanged, and then drawn
+ * down onto a canvas a quarter of the area, which is what is uploaded; the
+ * full-size canvas is emptied so its backing store goes. On an iPhone the tab
+ * is killed for memory, and this atlas was one of its largest single costs
+ * (the canvas plus the GPU copy with its mip chain). At a phone's screen size a
+ * board seen from the footway samples well below this resolution anyway.
+ */
+function shrinkForPhone(canvas, factor = 2) {
+  const small = document.createElement('canvas');
+  small.width = Math.max(1, Math.round(canvas.width / factor));
+  small.height = Math.max(1, Math.round(canvas.height / factor));
+  const sctx = small.getContext('2d');
+  if (!sctx) return canvas;
+  sctx.imageSmoothingEnabled = true;
+  sctx.imageSmoothingQuality = 'high';
+  sctx.drawImage(canvas, 0, 0, small.width, small.height);
+  canvas.width = 0;
+  canvas.height = 0;
+  return small;
+}
+
+function buildMarkAtlas(wanted, lowSpec = false) {
   if (typeof document === 'undefined') return null;
   const keys = [...wanted.keys()].sort();
   const cells = keys.length + 1;                    // + the blank
@@ -550,7 +573,7 @@ function buildMarkAtlas(wanted) {
       v0: 1 - (r.ry + r.rh) / H, v1: 1 - r.ry / H,
     });
   });
-  const texture = new THREE.CanvasTexture(canvas);
+  const texture = new THREE.CanvasTexture(lowSpec ? shrinkForPhone(canvas) : canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = 4;
   texture.needsUpdate = true;
@@ -3004,6 +3027,8 @@ export async function createYardGoods({
    *  crates in the grass are the only thing left saying it was, which is worse
    *  than an empty lot. See `createSignage` for the whole argument. */
   hostMissing = () => false,
+  /** A touch device: the mark atlas is uploaded at half size (T-2152). */
+  lowSpec = false,
 } = {}) {
   const group = new THREE.Group();
   group.name = 'yard';
@@ -3090,7 +3115,7 @@ export async function createYardGoods({
   const hasWood = loaded.some(([, r]) => (r?.lots ?? []).some(
     (lot) => (lot.items ?? []).some((it) => WOOD_KINDS.has(it.kind))));
   if (hasWood) for (const [key, cell] of woodCells()) markCells.set(key, cell);
-  const atlas = markCells.size ? buildMarkAtlas(markCells) : null;
+  const atlas = markCells.size ? buildMarkAtlas(markCells, lowSpec) : null;
   const woodRects = atlas && hasWood ? {
     end: ENDGRAIN.map((_, i) => atlas.rects.get(`wood|end|${i}`)).filter(Boolean),
     sides: atlas.rects.get('wood|sides') ?? null,

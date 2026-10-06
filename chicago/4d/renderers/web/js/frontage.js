@@ -179,9 +179,44 @@ function boardTone(tone, cx, cz) {
 /** `TIMBER` as the linear triple the vertex stream carries for fences and posts. */
 const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
 
+/**
+ * A GROWING TYPED ARRAY with the two things the builders ask of a plain array,
+ * `push` (of one to three values) and `length` (T-2152). The buffers were JS
+ * number arrays, and growing a town's worth of them by doubling copied about a
+ * gigabyte through the heap while the walks were laid — garbage that held a
+ * phone's heap near 500 MB mid-load. A Float32 stream stores exactly what the
+ * Float32 attribute it becomes stores; the seam offsets keep 64 bits because
+ * `plankGapAttribute` rounds them as they were before.
+ */
+class Grow {
+  constructor(Type) { this.Type = Type; this.a = new Type(1024); this.length = 0; }
+
+  push(x, y, z) {
+    const n = arguments.length;
+    if (this.length + n > this.a.length) {
+      let cap = this.a.length * 2;
+      while (cap < this.length + n) cap *= 2;
+      const b = new this.Type(cap);
+      b.set(this.a.subarray(0, this.length));
+      this.a = b;
+    }
+    const a = this.a;
+    const i = this.length;
+    a[i] = x;
+    if (n > 1) a[i + 1] = y;
+    if (n > 2) a[i + 2] = z;
+    this.length = i + n;
+    return this.length;
+  }
+
+  /** The values pushed, as a view onto the store (no copy). */
+  view() { return this.a.subarray(0, this.length); }
+}
+
 /** An empty timber buffer: positions, normals, confidence and colour. */
-const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], seam: [],
-  walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
+const timberBuf = () => ({ pos: new Grow(Float32Array), nrm: new Grow(Float32Array),
+  conf: new Grow(Float32Array), col: new Grow(Float32Array), uv: new Grow(Float32Array),
+  seam: new Grow(Float64Array), walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
 
 /**
  * DROP A BUFFER'S SCRATCH ONCE ITS GEOMETRY HOLDS A COPY (T-2063). The arrays
@@ -298,6 +333,29 @@ const CORNER = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
   [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
 /** The box axis each of `pushBox`'s six faces looks along. */
 const FACE_AXIS = [0, 0, 1, 1, 2, 2];
+/**
+ * `pushBox`'s faces as fixed tables (T-2152): the two triangles of each face as
+ * six corner indices, and its outward normal as weights on (u, v, up). They
+ * were array literals rebuilt on every call, and with the per-call corner
+ * arrays that was about a gigabyte of short-lived garbage across the town's
+ * walks, fences and posts — enough to hold the heap near 500 MB mid-load on a
+ * phone before the collector caught up. Same faces, same order, same values.
+ */
+const BOX_FACE_TRIS = [[1, 5, 6, 1, 6, 2], [4, 0, 3, 4, 3, 7], [3, 2, 6, 3, 6, 7],
+  [0, 4, 5, 0, 5, 1], [4, 7, 6, 4, 6, 5], [0, 1, 2, 0, 2, 3]];
+const BOX_FACE_NORMAL = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
+const BOX_P = new Float64Array(24);
+const BOX_HALF = [0, 0, 0];
+/** The eight corners of a box into `out` as x,y,z triples, in `CORNER` order. */
+function boxCorners(out, cx, cy, cz, ux, uz, vx, vz, halfLen, halfW, halfH) {
+  for (let i = 0; i < 8; i += 1) {
+    const [a, b, c] = CORNER[i];
+    out[i * 3] = cx + ux * a * halfLen + vx * b * halfW;
+    out[i * 3 + 1] = cy + c * halfH;
+    out[i * 3 + 2] = cz + uz * a * halfLen + vz * b * halfW;
+  }
+  return out;
+}
 
 /**
  * Load the board face's relief and derive its albedo modulation. Resolves to
@@ -576,23 +634,7 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
                  skipUnderside = false, seamHalfM = 0) {
   const vx = -uz;
   const vz = ux;
-  const P = (a, b, c) => [
-    cx + ux * a * halfLen + vx * b * halfW,
-    cy + c * halfH,
-    cz + uz * a * halfLen + vz * b * halfW,
-  ];
-  const p = [
-    P(-1, -1, -1), P(1, -1, -1), P(1, 1, -1), P(-1, 1, -1),
-    P(-1, -1, 1), P(1, -1, 1), P(1, 1, 1), P(-1, 1, 1),
-  ];
-  const faces = [
-    [[1, 5, 6], [1, 6, 2], [ux, 0, uz]],
-    [[4, 0, 3], [4, 3, 7], [-ux, 0, -uz]],
-    [[3, 2, 6], [3, 6, 7], [vx, 0, vz]],
-    [[0, 4, 5], [0, 5, 1], [-vx, 0, -vz]],
-    [[4, 7, 6], [4, 6, 5], [0, 1, 0]],
-    [[0, 1, 2], [0, 2, 3], [0, -1, 0]],
-  ];
+  const p = boxCorners(BOX_P, cx, cy, cz, ux, uz, vx, vz, halfLen, halfW, halfH);
   // `skipUnderside` drops the last pair, which is the buried face of a fence
   // board standing in the ground — the same two triangles `enclosures.js`
   // drops off a pale, for the same reason: at a town's worth of boards it is
@@ -601,7 +643,8 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   // the buffer's one tone.
   const c = buf.vary ? boardTone(buf.tone, cx, cz) : (buf.tone ?? TIMBER_LINEAR);
   // THE GRAIN (T-1815): the longest side is the grain; see `RELIEF_DIR`.
-  const half = [halfLen, halfW, halfH];
+  const half = BOX_HALF;
+  half[0] = halfLen; half[1] = halfW; half[2] = halfH;
   const g = halfLen >= halfW ? (halfLen >= halfH ? 0 : 2) : (halfW >= halfH ? 1 : 2);
   // The board's own place on the tile, seeded on where it lies (to the cm), so
   // a walk cut into pieces differently by a later generator keeps its figure.
@@ -612,25 +655,28 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   const ov = ((h >>> 16) / 0x10000) * 4.48;
   // Full contact on anything up to 0.3 m tall, fading to a third on a post.
   const contact = 1 - CONTACT_K * Math.min(1, Math.max(0.35, 0.15 / halfH));
-  const list = skipUnderside ? faces.slice(0, 5) : faces;
-  for (let f = 0; f < list.length; f += 1) {
-    const [t1, t2, n] = list[f];
+  const faceCount = skipUnderside ? 5 : 6;
+  for (let f = 0; f < faceCount; f += 1) {
+    const tris = BOX_FACE_TRIS[f];
+    const s = BOX_FACE_NORMAL[f];
+    const n0 = s[0] * ux + s[1] * vx;
+    const n1 = s[2];
+    const n2 = s[0] * uz + s[1] * vz;
     const ax = FACE_AXIS[f];
     const endGrain = ax === g;
     const ua = endGrain ? (ax === 0 ? 1 : 0) : g;
     const va = 3 - ax - ua;
     const kFace = (endGrain ? END_GRAIN_K : 1) * (f === 5 ? UNDERSIDE_K : 1);
-    for (const tri of [t1, t2]) {
-      for (const i of tri) {
-        buf.pos.push(p[i][0], p[i][1], p[i][2]);
-        buf.nrm.push(n[0], n[1], n[2]);
-        buf.conf.push(level);
-        buf.seam.push(vx * CORNER[i][1] * seamHalfM, 0,
-          vz * CORNER[i][1] * seamHalfM);
-        buf.uv?.push(CORNER[i][ua] * half[ua] + ou, CORNER[i][va] * half[va] + ov);
-        const k = kFace * (ax < 2 && CORNER[i][2] < 0 ? contact : 1);
-        buf.col?.push(c[0] * k, c[1] * k, c[2] * k);
-      }
+    for (let q = 0; q < 6; q += 1) {
+      const i = tris[q];
+      buf.pos.push(p[i * 3], p[i * 3 + 1], p[i * 3 + 2]);
+      buf.nrm.push(n0, n1, n2);
+      buf.conf.push(level);
+      buf.seam.push(vx * CORNER[i][1] * seamHalfM, 0,
+        vz * CORNER[i][1] * seamHalfM);
+      buf.uv?.push(CORNER[i][ua] * half[ua] + ou, CORNER[i][va] * half[va] + ov);
+      const k = kFace * (ax < 2 && CORNER[i][2] < 0 ? contact : 1);
+      buf.col?.push(c[0] * k, c[1] * k, c[2] * k);
     }
   }
 }
@@ -1825,12 +1871,12 @@ export async function createFrontage({
   }
 
   const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
-  geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm, 3));
-  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
-  geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 3));
-  geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
-  geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam));
+  geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos.view(), 3));
+  geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm.view(), 3));
+  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf.view(), 1));
+  geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col.view(), 3));
+  geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv.view(), 2));
+  geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
   geo.computeBoundingSphere();
   releaseTimberBuf(buf);
 
@@ -1924,12 +1970,12 @@ export async function createFrontage({
   const walkTopSources = [{ mesh, ranges: buf.walkTopRanges }];
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
-    cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
-    cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
-    cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
-    cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
-    cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
-    cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam));
+    cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos.view(), 3));
+    cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm.view(), 3));
+    cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf.view(), 1));
+    cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col.view(), 3));
+    cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv.view(), 2));
+    cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();
     releaseTimberBuf(chunk.buf);
     const cmesh = new THREE.Mesh(cgeo, mat);

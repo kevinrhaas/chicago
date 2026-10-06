@@ -115,8 +115,10 @@ const BED = { width: 0.9, walk: 0.45, most: 4, longest: 7.0, inset: 0.6 };
 function pointInPolygon(pts, e, n) {
   let inside = false;
   for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
-    const [xi, yi] = pts[i];
-    const [xj, yj] = pts[j];
+    const xi = pts[i][0];
+    const yi = pts[i][1];
+    const xj = pts[j][0];
+    const yj = pts[j][1];
     if ((yi > n) !== (yj > n) && e < ((xj - xi) * (n - yi)) / (yj - yi) + xi) inside = !inside;
   }
   return inside;
@@ -127,8 +129,12 @@ function pointInPolygon(pts, e, n) {
 function edgeDistance(pts, e, n) {
   let best = Infinity;
   for (let i = 0, j = pts.length - 1; i < pts.length; j = i++) {
-    const [ax, ay] = pts[j];
-    const [bx, by] = pts[i];
+    // Indexed, not destructured: this runs for every grid point of every yard
+    // and the iterator protocol was a large share of the load's garbage (T-2152).
+    const ax = pts[j][0];
+    const ay = pts[j][1];
+    const bx = pts[i][0];
+    const by = pts[i][1];
     const dx = bx - ax;
     const dy = by - ay;
     const len2 = dx * dx + dy * dy || 1;

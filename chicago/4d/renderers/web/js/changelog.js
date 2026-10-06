@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', title: '1835 asks less of a phone while it loads', kind: 'fix',
+    items: [
+      'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
+      'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
+      'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
+    ] },
   { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
     items: [
       'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
