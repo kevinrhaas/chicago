@@ -6,6 +6,11 @@ export const CHANGELOG = [ // newest first
       'Thirteen of the town\u2019s households move into the new houses.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
     ] },
+  { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
+    items: [
+      'The walkthrough no longer downloads the list of everything we made up before you can step into the street. It arrives the first time you open Evidence or a building\u2019s card, so a first visit is about 0.6 MB lighter.',
+      'Nothing on the list changed. A card that opens before the list has arrived is drawn again with its \u201cWhat we made up here\u201d section a moment later.',
+    ] },
   { v: 1513, ts: '2026-10-06T19:15:30.253Z', date: 'Oct 6, 2026, 2:15 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
     items: [
       'Walk south on Clark Street across Madison and both blocks between Madison and Monroe now have houses. There are seven on each side of Clark, one to a lot: frame cottages and frame houses of several sizes, a one-room cabin on the west block and a two-storey house on the east block\u2019s far corner.',
