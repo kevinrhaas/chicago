@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1513, ts: '2026-10-06T19:11:26.457Z', date: 'Oct 6, 2026, 2:11 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
+  { v: null, ts: '', title: '1835 asks less of a phone while it loads', kind: 'fix',
     items: [
       'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
       'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
       'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
+    ] },
+  { v: 1513, ts: '2026-10-06T19:15:30.253Z', date: 'Oct 6, 2026, 2:15 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
+    items: [
+      'Walk south on Clark Street across Madison and both blocks between Madison and Monroe now have houses. There are seven on each side of Clark, one to a lot: frame cottages and frame houses of several sizes, a one-room cabin on the west block and a two-storey house on the east block\u2019s far corner.',
+      'Each block keeps one lot open on its Madison face. On the east side of Clark that is the corner lot, so Clark crosses Madison between an open corner and a built one.',
+      'This ground was sold lot by lot in October 1833, in the School Section beyond the town\u2019s old south line. The town plan still owed the South Division these houses, and every block inside the line was full.',
+      'No source names these houses or says they stood here. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L396).',
     ] },
   { v: 1512, ts: '2026-10-06T18:29:26.487Z', date: 'Oct 6, 2026, 1:29 PM CT', title: 'Jefferson Street stops at Kinzie, as surveyed', kind: 'fix',
     items: [
