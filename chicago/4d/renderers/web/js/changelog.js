@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1509, ts: '2026-10-06T01:24:03.722Z', date: 'Oct 5, 2026, 8:24 PM CT', title: 'Fourteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Fourteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks either side of Wells, between Madison and Monroe, now have a house on nearly every lot: fourteen in all, from a labourer\u2019s shanty to a merchant\u2019s house and a two-storey boarding house standing at the Madison street line.',
       'West of Wells are seven tradesmen\u2019s and labourers\u2019 houses. East of Wells the houses are larger: a merchant\u2019s house on the Wells corner, a storey-and-a-half house on the far corner, and the boarding house. Each block keeps its west Madison corner lot empty.',
       'Thirteen of the town\u2019s households move into the new houses, and the boarding house takes in lodgers.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
+    items: [
+      'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
+      'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
+      'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
+      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L393).',
     ] },
   { v: 1508, ts: '2026-10-06T00:05:54.393Z', date: 'Oct 5, 2026, 7:05 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
