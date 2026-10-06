@@ -1599,6 +1599,19 @@ for (const [label, viewport, touch] of [
       roll ? `${roll.standing} of ${roll.expected} standing; missing `
         + `${roll.missing.slice(0, 5).join(', ')}` : 'no roll call was taken');
 
+    // T-2058 — THE LIBERTIES ARE NOT ON THE BOOT PATH. `data/liberties.json` is
+    // 0.6 MB that only the Evidence panel and a building card read, so the
+    // walkthrough fetches it on first need. Asserted at ready, before anything
+    // here has opened either reader: a handle already filled means boot paid for
+    // it again. The checks further down that read the list synchronously call
+    // `libertiesLoaded()` first — the same fetch a visitor's first click starts,
+    // awaited rather than raced.
+    const libertiesAtBoot = await page.evaluate(() => window.__chicago4d.liberties);
+    check(`${label}: the liberties wait for their first reader, not for boot (T-2058)`,
+      libertiesAtBoot === null,
+      libertiesAtBoot ? `${libertiesAtBoot.count} loaded at ready` : 'no handle');
+    const libertiesLoaded = () => page.evaluate(() => window.__chicago4d.loadLiberties().then(() => true));
+
     // T-0848 — THE POSE EVERY DELTA CHECK IS CALIBRATED AT, read here because
     // this is the last line before the stage-guarded body, and nothing above it
     // has moved the visitor. A *reaches the render* check winds a shipped value
@@ -7821,6 +7834,7 @@ for (const [label, viewport, touch] of [
     // liberties record. Asserted per-building rather than as a count, because
     // the failure this guards against is the card showing the whole list (or the
     // wrong subset) instead of the ones the markdown attaches to this structure.
+    await libertiesLoaded();
     const popLib = await page.evaluate(() => {
       const read = (id) => {
         window.__chicago4d.pick(id);
@@ -13913,6 +13927,7 @@ for (const [label, viewport, touch] of [
     // ladders are fetched only when this tab opens.
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
     await clickChrome('.panel-tab[data-tab="evidence"]');
+    await libertiesLoaded();
     const hub = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const hubEl = document.getElementById('evidence-hub');
@@ -14247,6 +14262,7 @@ for (const [label, viewport, touch] of [
     // made up. The confidence view covers attributes; these are the decisions
     // that belong to no attribute, and they are only a disclosure if they are
     // reachable from the page rather than from the repository.
+    await libertiesLoaded();
     const lib = await page.evaluate(() => {
       // The what's-new checks above leave the panel open on their tab, and a
       // toggle here would close it — open only if it is shut.

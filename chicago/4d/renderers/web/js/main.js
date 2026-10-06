@@ -1273,6 +1273,12 @@ const api = {
   // and null forever if it could not be read — the smoke asserts the displayed
   // figures against this, so a silent failure reads as one.
   census: null,
+  // T-2058: `mountLiberties`'s handle. Null until the list is first needed —
+  // Evidence opened, or a building card drawn — because 0.6 MB that only those
+  // two read is not a cost every first visit should pay. `loadLiberties()`
+  // starts it (once) and resolves to the handle.
+  liberties: null,
+  loadLiberties: () => Promise.resolve(null),
   welcome: { state: 'arrival', enter: () => false },
   // T-1126: the town's roll call — indexed, expected to draw, and actually
   // standing, with every absentee named. Null until the buildings are batched.
@@ -2267,7 +2273,37 @@ async function boot() {
   // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
   // declared with the business index, several hundred lines below, and only ever
   // runs on a tap.
-  const popup = createPopup(popupRoot, { onBusiness: (id) => openBusiness(id) });
+  const popup = createPopup(popupRoot, {
+    onBusiness: (id) => openBusiness(id),
+    onShow: () => { void ensureLiberties(); },
+  });
+  // The liberties the scene takes, in the Evidence panel and on the card. Not
+  // on the boot path (T-2058): only those two read the list, and it was 0.6 MB
+  // of a first visit's 13 MB budget (docs/SITE-BUDGET.md §4b). Fetched once, on
+  // first need, and the card redraws when it lands. A failure degrades the panel
+  // and records a problem; it does not stop the walkthrough.
+  let libertiesPromise = null;
+  const ensureLiberties = () => {
+    if (!libertiesPromise) {
+      libertiesPromise = mountLiberties({
+        mount: document.getElementById('liberties'),
+        noteMount: document.getElementById('liberties-note'),
+        dataBase: bases.dataBase,
+        registry: loaded.registry,
+        problems,
+      }).then((handle) => {
+        api.liberties = handle;
+        // The same list, filtered to the building being inspected, in the
+        // provenance popup. One fetch feeds both views: the panel says what the
+        // scene made up, the card says what THIS building made up, and neither
+        // can drift from the markdown they are both quoting.
+        popup.setLiberties(handle.liberties);
+        return handle;
+      });
+    }
+    return libertiesPromise;
+  };
+  api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
   });
@@ -2420,11 +2456,6 @@ async function boot() {
     },
   });
 
-  // The liberties the scene takes, in the Evidence panel. Awaited rather than
-  // fired and forgotten: it is one small JSON, and a visitor who opens the panel
-  // in the first second should not find it empty. A failure here degrades the
-  // panel and records a problem; it does not stop the walkthrough.
-
   // The Evidence panel as a hub of topics rather than one scroll; it reorganises
   // the section's own static markup, so the mounts below keep their ids.
   let sourcesPromise = null;
@@ -2442,7 +2473,10 @@ async function boot() {
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,
-    onTopic: id => { if (id === 'sources') openSources(); },
+    onTopic: id => {
+      if (id === 'sources') openSources();
+      if (id === 'liberties') void ensureLiberties();
+    },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
   // The town summary used to be part of the loader. It now costs nothing on a
@@ -2463,23 +2497,11 @@ async function boot() {
   hud.onTabChange((tab) => {
     if (tab === 'evidence') {
       void ensureCityCensus();
+      void ensureLiberties();
       api.evidenceHub?.showHub?.({ keep: true });
     }
     if (tab === 'goto') hud.goTo?.refreshDistances?.();
   });
-
-  api.liberties = await mountLiberties({
-    mount: document.getElementById('liberties'),
-    noteMount: document.getElementById('liberties-note'),
-    dataBase: bases.dataBase,
-    registry: loaded.registry,
-    problems,
-  });
-  // The same list, filtered to the building being inspected, in the provenance
-  // popup. One fetch feeds both views: the panel says what the scene made up,
-  // the card says what THIS building made up, and neither can drift from the
-  // markdown they are both quoting.
-  popup.setLiberties(api.liberties.liberties);
 
   // And the town's own law, which belongs to no attribute either. The 5 August 1835
   // ordinance fenced the ground the Trustees thought was built up closely enough to

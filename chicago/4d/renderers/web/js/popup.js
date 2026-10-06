@@ -1250,8 +1250,11 @@ export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chi
  * @param {HTMLElement} root  the <aside> to render into
  * @param {object} opts
  * @param {string} opts.docBase  where a dossier is read — see DOSSIER_BASE
+ * @param {function} [opts.onShow]  told each time a card is drawn, so a file
+ *   only the card reads (the liberties, T-2058) can be fetched on first need
+ *   rather than at boot
  */
-export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } = {}) {
+export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, onShow = null } = {}) {
   let currentId = null;
   /** Null until the derived list loads; never faked to an empty list. */
   let liberties = null;
@@ -1301,11 +1304,12 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
     close,
 
     /**
-     * Hand the popup the derived liberties once they load. Boot awaits the list
-     * before the gate opens, so in practice a card is never drawn without it —
-     * but a card already on screen is redrawn rather than left stale, because
-     * the one failure mode that matters here is a building quietly showing
-     * fewer admissions than the record holds.
+     * Hand the popup the derived liberties once they load. Boot no longer
+     * waits for them (T-2058): the first card drawn starts the fetch through
+     * `onShow`, so that card is drawn without the section and then redrawn
+     * when the list lands, rather than left stale, because the one failure mode
+     * that matters here is a building quietly showing fewer admissions than the
+     * record holds.
      *
      * @param {object[]|null} list  `data/liberties.json`'s `liberties`
      */
@@ -1373,6 +1377,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
      */
     show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
+      onShow?.(record);
       const s = record.sidecar;
       currentId = record.id;
       currentRecord = record;

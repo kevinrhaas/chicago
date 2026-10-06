@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1514, ts: '2026-10-06T20:04:42.358Z', date: 'Oct 6, 2026, 3:04 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
+  { v: null, ts: '', title: '1835 asks less of a phone while it loads', kind: 'fix',
     items: [
       'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
       'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
       'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
+    ] },
+  { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
+    items: [
+      'The walkthrough no longer downloads the list of everything we made up before you can step into the street. It arrives the first time you open Evidence or a building\u2019s card, so a first visit is about 0.6 MB lighter.',
+      'Nothing on the list changed. A card that opens before the list has arrived is drawn again with its \u201cWhat we made up here\u201d section a moment later.',
     ] },
   { v: 1513, ts: '2026-10-06T19:15:30.253Z', date: 'Oct 6, 2026, 2:15 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
     items: [
