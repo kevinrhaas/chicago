@@ -22,13 +22,13 @@
   ]
  },
  "min_m": -5.3064,
- "max_m": 4.232,
+ "max_m": 5.6366,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
  "water_fraction": 0.1614,
  "relief_ft": {
   "land_min": -3.556,
-  "land_max": 13.884,
+  "land_max": 18.493,
   "channel_min": -17.409
  },
  "gradient_audit_ft_per_300ft": {
@@ -60,8 +60,8 @@
     "cell_max": 135.065
    },
    "dunes": {
-    "cells": 16511,
-    "cell_max": 72.232
+    "cells": 36224,
+    "cell_max": 87.073
    },
    "fort_dearborn_mound": {
     "cells": 2251,
@@ -104,5 +104,5 @@
   "ground": "gltf/terrain__e1830_natural.glb",
   "water": "gltf/water__e1830_natural.glb"
  },
- "inputs_sha256": "2b46527912b3512603102b61c87e69d5f24af4eb0d0af2b004c11d488c7414ae"
+ "inputs_sha256": "29abc1d53d087ac36db0dcdf9e576153ead87aff5154014e140069e07e431afa"
 }

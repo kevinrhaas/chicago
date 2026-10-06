@@ -26,8 +26,8 @@
    "Randolph Street",
    "South Water Street"
   ],
-  "lives_at_real_values": 33,
-  "works_at_real_values": 50
+  "lives_at_real_values": 34,
+  "works_at_real_values": 51
  },
  "rows": [
   {
@@ -1996,6 +1996,27 @@
    "position_local_enu_m": null
   },
   {
+   "household_id": "hh_kimberly_edmund_s",
+   "person_id": "kimberly_edmund_s",
+   "person": "Dr Edmund Stoughton Kimberly",
+   "address_as_printed": "res. N. Water st next Lake House",
+   "describes_date": 1839,
+   "read_back_years": 4,
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "occupation_1835": "physician",
+   "works_at_1835": "pruyne_kimball_drugstore",
+   "outcome": "already_better_placed",
+   "clause": "2",
+   "reason": "An 1835 placement already stands: this household works at `pruyne_kimball_drugstore`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later.",
+   "street_id": null,
+   "face": null,
+   "placement": null,
+   "qualifier_as_printed": null,
+   "position_local_enu_m": null
+  },
+  {
    "household_id": "hh_king_j_d",
    "person_id": "king_j_d",
    "person": "J D King",
@@ -2787,27 +2808,6 @@
    "outcome": "refused",
    "clause": "1",
    "reason": "The 1835 record prints no trade for this person, so there is no 1835 business for a later door to position. Minting one out of a directory printed after the scene date is the one thing this pass may never do.",
-   "street_id": null,
-   "face": null,
-   "placement": null,
-   "qualifier_as_printed": null,
-   "position_local_enu_m": null
-  },
-  {
-   "household_id": "hh_pruyne_kimberly",
-   "person_id": "kimberly_edmund_s",
-   "person": "Dr Edmund Stoughton Kimberly",
-   "address_as_printed": "res. N. Water st next Lake House",
-   "describes_date": 1839,
-   "read_back_years": 4,
-   "sources": [
-    "fergus_chicago_directory_1839"
-   ],
-   "occupation_1835": "physician",
-   "works_at_1835": "pruyne_kimball_drugstore",
-   "outcome": "already_better_placed",
-   "clause": "2",
-   "reason": "An 1835 placement already stands: this household works at `pruyne_kimball_drugstore`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later.",
    "street_id": null,
    "face": null,
    "placement": null,

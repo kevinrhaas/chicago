@@ -456,16 +456,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # blk_west_washington_canal — a D2 shanty and D3 to D7 dwellings, all through emit.py and the
 # common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 608 -> 609 and 602 -> 603 on 2026-10-05 (T-1977): the trading camp at Wolf Point, one
+# 608 -> 634 and 602 -> 628 on 2026-10-05 (T-1746): the North Division's 26 ordinary
+# dwellings carried off Kinzie's Addition into the clusters south of Michigan Street
+# (generate_north_infill rows 68-93), all through emit.py and the common modules.
+# Terrain reach still 6 and pier_crib still 2.
+#
+# 634 -> 635 and 628 -> 629 on 2026-10-06 (T-1977): the trading camp at Wolf Point, one
 # `camp` through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 609,
+    "assets": 635,
     "restales": {
-        "generators/common/*.py": 609,
+        "generators/common/*.py": 635,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 603,
+        "generators/emit.py": 629,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

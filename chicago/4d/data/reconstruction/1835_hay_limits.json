@@ -314,12 +314,12 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 338,
-  "outside": 244,
+  "inside": 351,
+  "outside": 257,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 48,
+   "north_of_the_limit": 61,
    "west_of_canal_street": 83,
    "south_of_washington_street": 84,
    "east_of_the_limit_in_the_water": 1,
@@ -392,14 +392,27 @@
     "recon_1835_north_d1_060",
     "recon_1835_north_d2_014",
     "recon_1835_north_d2_029",
+    "recon_1835_north_d2_085",
     "recon_1835_north_d3_024",
     "recon_1835_north_d3_038",
     "recon_1835_north_d3_055",
+    "recon_1835_north_d3_073",
     "recon_1835_north_d4_015",
     "recon_1835_north_d4_025",
     "recon_1835_north_d4_056",
+    "recon_1835_north_d4_069",
+    "recon_1835_north_d4_072",
+    "recon_1835_north_d4_083",
     "recon_1835_north_d5_057",
+    "recon_1835_north_d5_068",
+    "recon_1835_north_d5_071",
+    "recon_1835_north_d5_074",
+    "recon_1835_north_d5_082",
+    "recon_1835_north_d5_086",
+    "recon_1835_north_d5_092",
     "recon_1835_north_d6_058",
+    "recon_1835_north_d6_070",
+    "recon_1835_north_d6_084",
     "recon_1835_north_h2_030",
     "recon_1835_north_t1_061",
     "recon_1835_north_w3_062",
@@ -591,25 +604,15 @@
   "blocks_with_four_bounding_streets": 69,
   "inside_the_limit": 24,
   "outside_the_limit": 45,
-  "scheduling_roofs_outside_the_limit": 7,
+  "scheduling_roofs_outside_the_limit": 6,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      885.64,
      525.4
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_indiana_north_cass",
-    "state": "open",
-    "roofs_scheduled": 6,
-    "centre_local_enu_m": [
-     997.2,
-     524.49
     ],
     "inside_the_limit": false
    },
@@ -938,7 +941,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -948,7 +951,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      997.2,
      524.49

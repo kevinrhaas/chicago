@@ -58,7 +58,7 @@ SOURCES = ROOT / "data" / "sources"
 TAKES = ("carry", "carry_except", "replace", "drop", "own")
 AUTHORED = ("lake_stage_1812", "water_bodies_1812", "shore_runs_1812", "north_lake_shore_1812",
             "spit_1812", "isthmus_1812", "outlet_channel_1812", "channel_west_bank_ruling",
-            "not_modelled_1812")
+            "not_modelled_1812", "south_lake_sand_hills_1812")
 # The harbour works and the 1835 town, by the block or item that models them. None may
 # survive into the effective 1812 table.
 WORKS = {"approaches", "approaches_note", "street_sections", "islands", "water"}

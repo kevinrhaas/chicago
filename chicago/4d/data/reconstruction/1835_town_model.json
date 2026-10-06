@@ -62,7 +62,7 @@
           "high": 3265,
           "point": 2548,
           "is_a_count": false,
-          "method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.9% of the 1,441 people the layer carries give an arrival year of 1835, so about 1,434 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,548, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
+          "method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.9% of the 1,442 people the layer carries give an arrival year of 1835, so about 1,433 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,548, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
           "comparanda": [
             "andreas_1884_v1"
           ],
@@ -73,11 +73,11 @@
         },
         {
           "figure": "people_the_layer_can_name",
-          "low": 1441,
-          "high": 1441,
+          "low": 1442,
+          "high": 1442,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,441 people — 412 attested, 1,029 inferred, 2,168 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,442 people — 412 attested, 1,030 inferred, 2,167 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -492,11 +492,11 @@
         },
         {
           "figure": "household_records_the_layer_carries",
-          "low": 2006,
-          "high": 2006,
+          "low": 2007,
+          "high": 2007,
           "point": null,
           "is_a_count": true,
-          "method": "2,006 household records for 1,441 people — 0.72 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
+          "method": "2,007 household records for 1,442 people — 0.72 people per record. The layer mints a letter-list or civic name as its own household, so it holds MORE household shells than the town had households. That is a property of the mint, not a reading of the town, and the order book must not count them as families.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -806,7 +806,7 @@
           "high": 0.963,
           "point": null,
           "is_a_count": true,
-          "method": "1,387 of the 1,441 people the layer can NAME give an arrival year of 1833, 1834 or 1835; 54 give an earlier one, and no named person is left without a year. The town of 1 July 1835 is overwhelmingly three years old or less. DENOMINATOR: the named layer — the attested and the inferred — and not the whole one. A reconstructed person's arrival year is DRAWN from this section's own table, so counting it back into this share would be the model reading its own output as a reading.",
+          "method": "1,388 of the 1,442 people the layer can NAME give an arrival year of 1833, 1834 or 1835; 54 give an earlier one, and no named person is left without a year. The town of 1 July 1835 is overwhelmingly three years old or less. DENOMINATOR: the named layer — the attested and the inferred — and not the whole one. A reconstructed person's arrival year is DRAWN from this section's own table, so counting it back into this share would be the model reading its own output as a reading.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -818,7 +818,7 @@
           "high": 0.439,
           "point": null,
           "is_a_count": true,
-          "method": "633 of the same 1,441 named people. This is the figure the population floor is built on — `population_on_1_july_1835` divides this same cohort by this same denominator — and it is the one most exposed to the bias below.",
+          "method": "633 of the same 1,442 named people. This is the figure the population floor is built on — `population_on_1_july_1835` divides this same cohort by this same denominator — and it is the one most exposed to the bias below.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -924,8 +924,8 @@
             },
             {
               "year": 1833,
-              "people": 518,
-              "share": 0.1746
+              "people": 519,
+              "share": 0.1749
             },
             {
               "year": 1834,
@@ -934,8 +934,8 @@
             },
             {
               "year": 1835,
-              "people": 1310,
-              "share": 0.4415
+              "people": 1309,
+              "share": 0.4412
             }
           ]
         },

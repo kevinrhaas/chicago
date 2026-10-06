@@ -39,7 +39,7 @@ b): build one small camp at Wolf Point or the Agency as a declared reconstructio
 review_required and touches_removal, no figures, bounded by a stated figure rather than a
 count. `wolf_point_trading_camp` is that camp: three canvas tents about one fire, a
 figure stated and not derived, seating nobody, with no lodge form because no committed
-source describes one (T-1214's own condition). L392.
+source describes one (T-1214's own condition). L395.
 
 THE STREET LINE. This tool reads `data/streets/1835.json`'s DRAWN centrelines and keeps
 each camp clear of the corridor each draws, because the question is whether canvas would
@@ -595,11 +595,11 @@ def _trading_record(camp: dict, m: dict, datum: dict) -> dict:
         f"of the nearest committed footprint; {m['fence']:.1f} m clear of the nearest "
         "fence run. The point recorded is the camp's south-west corner, the footprint's "
         "origin at rotation 0, so the camp opens north, towards the tavern. Placed by "
-        "tools/place_camp_grounds_1835.py; L392.")
+        "tools/place_camp_grounds_1835.py; L395.")
     ph["footprint"]["note"] = (
         f"The camp's ground, {round(e1 - e0, 2)} x {round(n1 - n0, 2)} m. INVENTED in "
         "its extent: room for a ring of three tents about one fire at the archetype's "
-        "spacing. L392.")
+        "spacing. L395.")
     form = ph["form"]
     form["tents"]["note"] = (
         "THREE, AND THREE IS A FIGURE THIS PROJECT STATES, NOT A COUNT. T-1177 found no "
@@ -608,29 +608,29 @@ def _trading_record(camp: dict, m: dict, datum: dict) -> dict:
         "(1835_native_and_metis.json § the_counted_but_unnamed); the owner then ruled "
         "one small camp built, bounded by a stated figure (T-1977). Three tents is the "
         "fewest that reads as a camp and not as one household. It sizes no population "
-        "and no count moves with it. L392.")
+        "and no count moves with it. L395.")
     form["tent_kind"]["note"] = (
         "NOT A LODGE. The archetype's canvas wall tent is drawn because no committed "
         "source describes a Potawatomi, Odawa, Ojibwe or Métis lodge at Chicago in 1835, "
         "and T-1214 adds a lodge form to the archetype only where a source describes "
         "one. The canvas is not offered as how these families lived; it is the one roof "
-        "this project can draw without inventing a people's building. L392.")
+        "this project can draw without inventing a people's building. L395.")
     form["wagons"]["note"] = (
         "None. A family coming to the forks to trade came by the rivers or on "
         "horseback as readily as by road, and nothing here says which; no wagon is "
-        "drawn rather than one invented. L392.")
-    form["brush_shelters"]["note"] = "None. L392."
+        "drawn rather than one invented. L395.")
+    form["brush_shelters"]["note"] = "None. L395."
     form["fire_rings"]["note"] = (
         "One cooking fire in the ring. Drawn out: no flame, no smoke, nobody at it (L1). "
-        "L392.")
-    form["woodpiles"]["note"] = "Cordwood for the fire. Invented. L392."
+        "L395.")
+    form["woodpiles"]["note"] = "Cordwood for the fire. Invented. L395."
     form["baggage_heaps"]["note"] = (
         "One heap of packs set down by the tents. What was in them is not claimed: "
-        "no trade good is drawn or named. Invented. L392.")
+        "no trade good is drawn or named. Invented. L395.")
     form["arrangement"]["note"] = (
-        "A ring about the one fire, because the camp is one party's. Invented. L392.")
+        "A ring about the one fire, because the camp is one party's. Invented. L395.")
     form["canvas_condition"]["note"] = (
-        "Weathered: canvas that had been used before it was pitched here. L392.")
+        "Weathered: canvas that had been used before it was pitched here. L395.")
     ph["change_note"] = ("A trading family's camp at Wolf Point, flagged for review. "
                          "T-1977.")
     rec["function"] = {
@@ -647,7 +647,7 @@ def _trading_record(camp: dict, m: dict, datum: dict) -> dict:
                 "this is. TRADE is the use because it is the one the owner named and the "
                 "one Wolf Point's committed records support: a trader's store at the "
                 "forks and Alexander Robinson's household beside it. No source says this family "
-                "traded there, camped there or existed. L392.",
+                "traded there, camped there or existed. L395.",
     }
     rec["occupants"] = {
         "value": "Nobody this layer counts or names. The camp stands for a family "
