@@ -148,8 +148,13 @@ def limits_ring():
     # north end T-1490 traced, and is extrapolated only for the 288 m beyond that. The two
     # surveys disagree by 8.3 m at Madison's northing and no line is bent to hide it: the
     # ring takes the dogleg, which is what the committed geometry actually says.
+    #
+    # T-2148 carried the West Division line south to Madison on its own bearing, so the 119 m
+    # neither line drew is gone: both lines now end on Madison's northing and the dogleg is
+    # the 8.3 m jog between them ALONG Madison. A shared northing is therefore allowed; a West
+    # Division line reaching south PAST the School Section line's end is still refused.
     west_south, west_north = street("jefferson")
-    if west_north[1] <= west_south[1] or west_south[1] <= jeff_span[1][1]:
+    if west_north[1] <= west_south[1] or west_south[1] < jeff_span[1][1]:
         raise SystemExit("the West Division's Jefferson no longer runs north from above "
                          "the School Section line's end; the west leg cannot be walked "
                          "on the two committed readings in order")
