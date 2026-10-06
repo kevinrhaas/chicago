@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
 - audited: **496** anonymous roofs
-- keep: **484** (8 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
-- refamily: **12** (8 of them into a band that already fits the committed footprint)
+- keep: **488** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
+- refamily: **8** (5 of them into a band that already fits the committed footprint)
 - retire: **0**
 
 The programme wants 668 roofs and 604 stand, so the town is 64 roofs short before this audit and 64 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
@@ -15,7 +15,7 @@ The programme wants 668 roofs and 604 stand, so the town is 64 roofs short befor
 
 | bucket | target | standing | anonymous | head | after | head after |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `structures/barns_stables/south` | 35 | 33 | 26 | 2 | 35 | 0 |
+| `structures/barns_stables/south` | 35 | 33 | 26 | 2 | 33 | 2 |
 | `structures/barns_stables/west` | 20 | 14 | 11 | 6 | 14 | 6 |
 | `structures/barns_stables/north` | 17 | 11 | 10 | 6 | 17 | 0 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
@@ -29,7 +29,7 @@ The programme wants 668 roofs and 604 stand, so the town is 64 roofs short befor
 | `structures/larger_boarding_houses/south` | 28 | 25 | 24 | 3 | 25 | 3 |
 | `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 3 | 3 | 3 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/ordinary_dwellings/south` | 176 | 150 | 141 | 26 | 150 | 26 |
+| `structures/ordinary_dwellings/south` | 176 | 150 | 141 | 26 | 152 | 24 |
 | `structures/ordinary_dwellings/west` | 75 | 73 | 69 | 2 | 73 | 2 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 78 | 0 | 84 | 0 |
 | `structures/small_outbuildings/south` | 48 | 47 | 46 | 1 | 45 | 3 |
@@ -48,14 +48,10 @@ The programme wants 668 roofs and 604 stand, so the town is 64 roofs short befor
 | `structures/workshops/north` | 7 | 7 | 3 | 0 | 5 | 2 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 12 roofs that change
+## The 8 roofs that change
 
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
-| `recon_1835_blk_school_section_tier_118_d2_01` | south | D2 | D1 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 102.60 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_blk_school_section_tier_118_d3_05` | south | D3 | D1 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 101.51 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_blk_school_section_tier_119_d4_03` | south | D4 | A2 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 99.68 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands |
-| `recon_1835_blk_school_section_tier_119_d7_07` | south | D7 | A2 | refamily | the placement policy refuses this family here — fronts no street (its nearest corridor is 98.97 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a4_12` | south | A4 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_north_c3_064` | north | C3 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
@@ -65,15 +61,11 @@ The programme wants 668 roofs and 604 stand, so the town is 64 roofs short befor
 | `recon_1835_north_w2_065` | north | W2 | A2 | refamily | the placement policy refuses this family here — stands 3.64 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
 | `recon_1835_north_w3_062` | north | W3 | A2 | refamily | the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
 
-## The 8 breaches owed out
+## The 4 breaches owed out
 
 | roof | division | family | why it was kept |
 | --- | --- | --- | --- |
 | `inf_sawpit_shed` | south | W5 | the placement policy refuses this family here — stands on a principal street, which heavy_and_noxious_trades avoids — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
-| `recon_1835_blk_school_section_tier_118_d4_03` | south | D4 | the placement policy refuses this family here — fronts no street (its nearest corridor is 99.66 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
-| `recon_1835_blk_school_section_tier_118_d5_07` | south | D5 | the placement policy refuses this family here — fronts no street (its nearest corridor is 97.05 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
-| `recon_1835_blk_school_section_tier_119_d3_05` | south | D3 | the placement policy refuses this family here — fronts no street (its nearest corridor is 101.69 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
-| `recon_1835_blk_school_section_tier_119_d6_01` | south | D6 | the placement policy refuses this family here — fronts no street (its nearest corridor is 97.82 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_south_c3_040` | south | C3 | the placement policy refuses this family here — stands 14.64 m off the street line (2.71 m), and commercial_front puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_south_f1_038` | south | F1 | the placement policy refuses this family here — stands 12.87 m off the street line (2.71 m), and commercial_front puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_west_020` | west | C2 | the placement policy refuses this family here — stands 8.82 m off the street line (2.71 m), and commercial_front puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
