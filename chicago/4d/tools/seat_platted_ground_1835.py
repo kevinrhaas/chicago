@@ -158,13 +158,7 @@ BUSINESS_DEAL_HOLDS = 44
 # those roofs no longer move when the business deal's roofs are released, and the cascade
 # that vacated recon_1835_blk_washington_lasalle_d7_05 for him does not run. No seat in the
 # deal itself moved (L270).
-# 1 -> 3 on 2026-10-06 (T-2147): block 81's seven houses take the tier's own slot requests as
-# roofs, and with Clark's two blocks already built (T-2145) the tier's only slot room left is on
-# blocks 94 and 95. The seven who asked for block 81 re-slot there, so the six whose slots
-# stood there are handed on. Released, the business deal's roofs move fourteen seated
-# households to better lots, and the slot room that frees seats three of those six again
-# (hh_davis_george, hh_delano_loring, hh_ira_paddock). The hold is unchanged (L270).
-BUSINESS_DEAL_COSTS = 3
+BUSINESS_DEAL_COSTS = 1
 
 TICKET = "T-1613"
 PARENT = "T-1199"

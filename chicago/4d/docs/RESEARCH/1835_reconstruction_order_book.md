@@ -399,14 +399,14 @@ The roster offers 1,812 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 307 — 294 by adopting a roof that already stands, 13 by asking for one
-- still on no ground at all: 1,117
-- of the 631 roofs the town already has, 294 now carry a reconstructed household
+- seated: 308 — 295 by adopting a roof that already stands, 13 by asking for one
+- still on no ground at all: 1,116
+- of the 631 roofs the town already has, 295 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 208 | 195 | 13 | 1,216 |
-| The ground the plat does not draw | T-1614 | 1,216 | 99 | 99 | 0 | 1,117 |
+| The committed plat | T-1613 | 1,424 | 209 | 196 | 13 | 1,215 |
+| The ground the plat does not draw | T-1614 | 1,215 | 99 | 99 | 0 | 1,116 |
 
 13 slot(s) on 2 block(s) — blk_school_section_tier_94, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -414,19 +414,19 @@ Two committed passes have offered every banded household ground: the plat first,
 |---|---|---|---|---|
 | `hh_benton_datas_e` | `blk_school_section_tier_94` | `blk_school_section_tier_94#07` | H1 | `merchant_and_professional_dwellings` |
 | `hh_berger_f_c` | `blk_school_section_tier_95` | `blk_school_section_tier_95#07` | H2 | `merchant_and_professional_dwellings` |
-| `hh_cutler_morris` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D4 | `tradesman_dwellings` |
-| `hh_dailey_thomas` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D4 | `tradesman_dwellings` |
-| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D5 | `tradesman_dwellings` |
-| `hh_darling_daniel` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D5 | `tradesman_dwellings` |
-| `hh_darling_enoch` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | D6 | `tradesman_dwellings` |
-| `hh_dave_john` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D4 | `tradesman_dwellings` |
-| `hh_davis_george` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D4 | `tradesman_dwellings` |
-| `hh_delano_loring` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D5 | `tradesman_dwellings` |
-| `hh_dell_frank` | `blk_school_section_tier_95` | `blk_school_section_tier_95#02` | D5 | `tradesman_dwellings` |
-| `hh_democrat_printers` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | D6 | `tradesman_dwellings` |
+| `hh_dailey_thomas` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D4 | `tradesman_dwellings` |
+| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D4 | `tradesman_dwellings` |
+| `hh_darling_daniel` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D5 | `tradesman_dwellings` |
+| `hh_darling_enoch` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D5 | `tradesman_dwellings` |
+| `hh_dave_john` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | D6 | `tradesman_dwellings` |
+| `hh_davis_george` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D4 | `tradesman_dwellings` |
+| `hh_delano_loring` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D4 | `tradesman_dwellings` |
+| `hh_dell_frank` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D5 | `tradesman_dwellings` |
+| `hh_democrat_printers` | `blk_school_section_tier_95` | `blk_school_section_tier_95#02` | D5 | `tradesman_dwellings` |
+| `hh_dewey_s` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | D6 | `tradesman_dwellings` |
 | `hh_hunt_charles_cotesworth_pinckney` | `blk_school_section_tier_94` | `blk_school_section_tier_94#01` | D2 | `labourer_dwellings` |
 
-1,117 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,116 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
