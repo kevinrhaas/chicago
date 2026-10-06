@@ -1,3 +1,35 @@
+## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
+
+- **Ruled**: the north-division memo stands and the seating gives way. The 26 ordinary
+  dwellings the schedule had dealt to `blk_indiana_north_wolcott` (20) and
+  `blk_indiana_north_cass` (6), both already at the memo's four-roof ceiling, stand instead
+  in the memo's three inner clusters south of Michigan Street: recipe rows 68-93 of
+  `1835_north_division_initial_parcel.json` (`addition_surplus`), family for family.
+  Recorded in the memo's new section and **L393**.
+- **Visible**: 26 new houses north of the river (9 on Kinzie's north face, 5 on its south
+  face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
+  school house were rebaked for the siding re-deal their new neighbours caused.
+- **Seated**: the order book's `structures/ordinary_dwellings/north` reads 84 standing, 0 to
+  build. The platted deal requests no slot on the Addition (it had 13, all on those two blocks);
+  those 13 households and 13 more owed North households are seated by the off-plat deal, and
+  all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
+- **Laid onto dev's T-2062/T-2132/T-1726/T-2144**: a salvage of a cancelled run, finished by
+  merging `dev` and walking the seating chain and the keeper pass to their fixpoint. The
+  liberty was renumbered L391 -> L392 -> **L393** (T-2062 took L391, T-2066 L392). Three of the 26 (rows 76, 90, 93)
+  stood 69-92 m from any street corridor and moved `FRONTAGE_REACH_M`'s measured band from
+  66.06-85.10 m to 142.58-223.16 m (the self-test refuses that); they were re-searched under a
+  fourth predicate, at most 58 m from a corridor, and moved 6, 47 and 45 m. The band reads
+  66.06-85.10 m again, midpoint 75.58 m, 36 streetless rows.
+- **Not measured**: no source places any of these houses; every position is a search result
+  against the placement predicates, stated as such.
+- **Lapped over T-2143 (2026-10-06).** Merged `dev` a third time, after T-2143 raised plat
+  block 51: derived files took dev's side and were rebuilt (`rederive.mjs --run`, then keepers ->
+  the four infill generators -> `reconcile_665` -> the seating chain, settled in two laps, then
+  the scene tail, hay limits, woodpiles, the redeal, the roof-id surface and the Newberry
+  re-parse). Settled at **308 seated** (dev 295 + the 13): **209 platted** (dev 222 less the
+  Addition's 13 slots), **99 off-plat** (73 + 26). L263 595 phases, L270 209, order-book pin
+  295 -> 308, T-0059's figures 634/628. `validate.py --stale` clean: no mesh moved.
+
 ## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
 
 **What a visitor sees.** Canal Street and West Water Street run on south of Washington to

@@ -50,8 +50,8 @@
    "unsubdivided": 22
   },
   "may_raise_a_slot": 5,
-  "carrying_a_roof": 30,
-  "principal_roofs_standing": 141,
+  "carrying_a_roof": 32,
+  "principal_roofs_standing": 167,
   "ground_m2": 7257850.1
  },
  "what_the_roof_programme_does_not_carry": {
@@ -1381,12 +1381,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
+    "recon_1835_north_d2_077",
     "recon_1835_north_d6_021"
    ],
    "standing_families": {
+    "recon_1835_north_d2_077": "D2",
     "recon_1835_north_d6_021": "D6"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_kinzie_wells_north#07",
@@ -1560,9 +1562,13 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0
+   "standing": [
+    "recon_1835_north_d5_078"
+   ],
+   "standing_families": {
+    "recon_1835_north_d5_078": "D5"
+   },
+   "principal_roofs_standing": 1
   },
   {
    "parcel_id": "blk_kinzie_lasalle_north#03",
@@ -1737,12 +1743,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
-    "recon_1835_north_d2_003"
+    "recon_1835_north_d2_003",
+    "recon_1835_north_d4_079"
    ],
    "standing_families": {
-    "recon_1835_north_d2_003": "D2"
+    "recon_1835_north_d2_003": "D2",
+    "recon_1835_north_d4_079": "D4"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_kinzie_lasalle_north#07",
@@ -2099,12 +2107,14 @@
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
    "standing": [
-    "recon_1835_north_d3_006"
+    "recon_1835_north_d3_006",
+    "recon_1835_north_d6_080"
    ],
    "standing_families": {
-    "recon_1835_north_d3_006": "D3"
+    "recon_1835_north_d3_006": "D3",
+    "recon_1835_north_d6_080": "D6"
    },
-   "principal_roofs_standing": 1
+   "principal_roofs_standing": 2
   },
   {
    "parcel_id": "blk_kinzie_clark_north#07",
@@ -2290,9 +2300,13 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0
+   "standing": [
+    "recon_1835_north_d3_081"
+   ],
+   "standing_families": {
+    "recon_1835_north_d3_081": "D3"
+   },
+   "principal_roofs_standing": 1
   },
   {
    "parcel_id": "blk_kinzie_dearborn_north#03",
@@ -5591,15 +5605,23 @@
     "recon_1835_north_c3_064",
     "recon_1835_north_c3_066",
     "recon_1835_north_d2_046",
+    "recon_1835_north_d2_091",
     "recon_1835_north_d3_042",
+    "recon_1835_north_d3_089",
     "recon_1835_north_d4_039",
     "recon_1835_north_d4_043",
+    "recon_1835_north_d4_075",
+    "recon_1835_north_d4_087",
+    "recon_1835_north_d4_090",
     "recon_1835_north_d5_026",
     "recon_1835_north_d5_037",
     "recon_1835_north_d5_041",
     "recon_1835_north_d6_027",
     "recon_1835_north_d6_044",
+    "recon_1835_north_d6_093",
     "recon_1835_north_d7_031",
+    "recon_1835_north_d7_076",
+    "recon_1835_north_d7_088",
     "recon_1835_north_h2_028",
     "recon_1835_north_h2_045",
     "recon_1835_north_w2_065",
@@ -5616,21 +5638,29 @@
     "recon_1835_north_c3_064": "C3",
     "recon_1835_north_c3_066": "C3",
     "recon_1835_north_d2_046": "D2",
+    "recon_1835_north_d2_091": "D2",
     "recon_1835_north_d3_042": "D3",
+    "recon_1835_north_d3_089": "D3",
     "recon_1835_north_d4_039": "D4",
     "recon_1835_north_d4_043": "D4",
+    "recon_1835_north_d4_075": "D4",
+    "recon_1835_north_d4_087": "D4",
+    "recon_1835_north_d4_090": "D4",
     "recon_1835_north_d5_026": "D5",
     "recon_1835_north_d5_037": "D5",
     "recon_1835_north_d5_041": "D5",
     "recon_1835_north_d6_027": "D6",
     "recon_1835_north_d6_044": "D6",
+    "recon_1835_north_d6_093": "D6",
     "recon_1835_north_d7_031": "D7",
+    "recon_1835_north_d7_076": "D7",
+    "recon_1835_north_d7_088": "D7",
     "recon_1835_north_h2_028": "H2",
     "recon_1835_north_h2_045": "H2",
     "recon_1835_north_w2_065": "W2",
     "watkins_school_house": "I2"
    },
-   "principal_roofs_standing": 17
+   "principal_roofs_standing": 25
   },
   {
    "parcel_id": "school_section",
@@ -5757,14 +5787,27 @@
     "recon_1835_north_d1_060",
     "recon_1835_north_d2_014",
     "recon_1835_north_d2_029",
+    "recon_1835_north_d2_085",
     "recon_1835_north_d3_024",
     "recon_1835_north_d3_038",
     "recon_1835_north_d3_055",
+    "recon_1835_north_d3_073",
     "recon_1835_north_d4_015",
     "recon_1835_north_d4_025",
     "recon_1835_north_d4_056",
+    "recon_1835_north_d4_069",
+    "recon_1835_north_d4_072",
+    "recon_1835_north_d4_083",
     "recon_1835_north_d5_057",
+    "recon_1835_north_d5_068",
+    "recon_1835_north_d5_071",
+    "recon_1835_north_d5_074",
+    "recon_1835_north_d5_082",
+    "recon_1835_north_d5_086",
+    "recon_1835_north_d5_092",
     "recon_1835_north_d6_058",
+    "recon_1835_north_d6_070",
+    "recon_1835_north_d6_084",
     "recon_1835_north_h2_030",
     "recon_1835_north_t1_061",
     "recon_1835_north_w3_062",
@@ -5800,14 +5843,27 @@
     "recon_1835_north_d1_060": "D1",
     "recon_1835_north_d2_014": "D2",
     "recon_1835_north_d2_029": "D2",
+    "recon_1835_north_d2_085": "D2",
     "recon_1835_north_d3_024": "D3",
     "recon_1835_north_d3_038": "D3",
     "recon_1835_north_d3_055": "D3",
+    "recon_1835_north_d3_073": "D3",
     "recon_1835_north_d4_015": "D4",
     "recon_1835_north_d4_025": "D4",
     "recon_1835_north_d4_056": "D4",
+    "recon_1835_north_d4_069": "D4",
+    "recon_1835_north_d4_072": "D4",
+    "recon_1835_north_d4_083": "D4",
     "recon_1835_north_d5_057": "D5",
+    "recon_1835_north_d5_068": "D5",
+    "recon_1835_north_d5_071": "D5",
+    "recon_1835_north_d5_074": "D5",
+    "recon_1835_north_d5_082": "D5",
+    "recon_1835_north_d5_086": "D5",
+    "recon_1835_north_d5_092": "D5",
     "recon_1835_north_d6_058": "D6",
+    "recon_1835_north_d6_070": "D6",
+    "recon_1835_north_d6_084": "D6",
     "recon_1835_north_h2_030": "H2",
     "recon_1835_north_t1_061": "T1",
     "recon_1835_north_w3_062": "W3",
@@ -5826,7 +5882,7 @@
     "recon_1835_west_055": "A2",
     "west_approach_wagon_camp": null
    },
-   "principal_roofs_standing": 34
+   "principal_roofs_standing": 47
   },
   {
    "parcel_id": "the_landing_place",
