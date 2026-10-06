@@ -328,6 +328,12 @@ def spec_shore(_spec=None):
 # 2. the effective table, in the shape build_field reads
 # ---------------------------------------------------------------------------
 
+# The figures of south_lake_sand_hills_1812 that build_field's dune pass reads; the same
+# set terrain_inputs.CONSUMED declares for it.
+SAND_HILL_KEYS = ("id", "n_range", "end_fade_m", "west_limit_e_m", "west_fade_m", "ridges",
+                  "hollow", "wander_m", "wander_wavelength_m", "hummock_wavelength_m", "seed")
+
+
 def field_spec(spec, base, eff):
     """The 1834 field's own spec keys, filled from the effective 1812 table."""
     fs = dict(eff)
@@ -375,6 +381,13 @@ def field_spec(spec, base, eff):
         "id": "outlet_channel_1812", "anchor_e": oc["anchor_e"], "anchor_n": oc["anchor_n"],
         "bed_ft": oc["bed_ft"], "e_fold_m": oc["e_fold_m"]}]
     fs["islands"] = []
+    # The sand hills south of Twelfth Street (T-2066) are an 1812 reach of the 1834 dune
+    # machinery, so they join the carried `dunes` list and build_field lays them exactly as
+    # it lays north_lake_dunes. Only the build instructions go in; the block's grade,
+    # sources and note stay on the block, where the Evidence panel reads them.
+    hills = spec["south_lake_sand_hills_1812"]
+    fs["dunes"] = list(fs.get("dunes", [])) + [
+        {k: hills[k] for k in SAND_HILL_KEYS if k in hills}]
     for gone in ("approaches", "street_sections"):
         fs.pop(gone, None)
     return fs

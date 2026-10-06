@@ -21689,3 +21689,46 @@ stables (one reads more like "23", House in Factors Dept.) re-labels them; it do
 **Related:** **T-2062**, **T-2050** (the fort these stand outside, seated on the same frame),
 **T-0469** (the owner's 1812 ask), data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade.
 **Recorded:** 2026-10-05 (T-2062).
+
+### L392 — The 1812 sand hills south of Twelfth Street: a bank and a row of hills behind the beach, placed by us
+
+**Applies to:** `data/terrain/epochs/e1830_natural/terrain_spec.json` § `south_lake_sand_hills_1812`,
+read by `generators/terrain_gen_e1830.py` into the 1812 dune pass of `generators/terrain_gen.py`, and
+so into the committed 1812 heightfield, the ground mesh and the walker's footing in the 1812 scene
+
+**What we invented:** where, how high and in what shape the sand hills stand along the lake from
+Twelfth Street to the box floor (N −2149.4 to −3800), in the 1812 ground only. Three readings fix
+that they existed and roughly where. Moses & Kirkland (1895, pp. 49–50) have the shore "flat about as
+far south as the present Twelfth street, when began the low wave-washed and wind-swept sand-hills".
+The same book (p. 60) has "the shore sand-hills were not high and not continuous", with "the surface of
+the bank, a hundred feet or more back from the water" standing "from ten to twenty feet in height above
+its level". Quaife (1913, p. 226) has "a row of sand hills, or ridges … distant from [the beach] about
+one hundred yards". None of them places a single hill. So: (1) **the bank** — a ridge centred 40 m
+inland of the lake's edge, +5.5 ft on the 9.4 ft plain, crests to 14.9 ft; (2) **Quaife's row** — a
+ridge centred at his hundred yards (91.44 m, the figure the 1812 route's attack zone already uses),
++9.0 ft, crests to 18.4 ft; (3) **a swale** between them at 64 m, up to 1.5 ft below the plain; (4)
+**broken, not continuous** — hummock noise splits every ridge into hills 20–40 m across, and where it
+lets a ridge down the ground is the plain's own 9.4 ft. Measured on the committed heightfield, 30–120 m
+inland the ground runs 7.9 to 18.5 ft (median 10.1). The beach, the 25 m bank face, is left as it was,
+so the column's route on the waterline keeps its ground.
+
+**Why:** the ground the 1812 scene exists for, the evacuation and the attack between the water and the
+ridge, was a flat 2.86 m plateau with no hill to put "between them and their victims" (Moses & Kirkland,
+p. 50). The readings fix the hills' existence, their start, their distance back and the bank's height.
+That is enough to build at the reconstructed tier.
+
+**Omission:** where the noise lets a ridge down, the bank stands at 9.4 ft, 0.6 ft under the low end of
+"ten to twenty". That is inside the 1812 lake stage's own −4 to +2 ft uncertainty (`lake_stage_1812`),
+so the figure is met by the hills and not forced onto every cell. Quaife starts the ridges at the river
+mouth and Moses & Kirkland at Twelfth Street. That disagreement is kept: north of Twelfth the carried
+`south_lake_dunes` reach (L334) stands as before, and this one fades in over the 60 m south of the
+evidence-limit line. The 1835 ground south of Twelfth is unchanged.
+
+**Would replace:** a survey or chart of the lake shore south of Twelfth Street before the 1850s, or an
+1812–1830s account that measures one of the hills or the bank.
+
+**Covers:** `terrain.e1830_natural.south_lake_sand_hills_1812`
+**Ticket:** T-2066.
+**Related:** **L334** (the 1834 dune reaches and the machinery these reuse), data/terrain/1812_evacuation_readings.json
+§ landform (the same three readings, spent on the route).
+**Recorded:** 2026-10-05 (T-2066).
