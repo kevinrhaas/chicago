@@ -1,6 +1,6 @@
 {
-  "id": "recon_1835_blk_washington_wells_h2_07",
-  "name": "Reconstructed H2 merchant or professional house #07",
+  "id": "recon_1835_blk_school_section_tier_95_h2_01",
+  "name": "Reconstructed H2 merchant or professional house #01",
   "archetype": "frame_dwelling",
   "phases": [
     {
@@ -12,12 +12,12 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447504.283,
-        "utm_n": 4636905.445,
-        "rotation_deg": 180.33,
-        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Washington, Lasalle, Madison and Wells; standing back from the Madison Street frontage",
+        "utm_e": 447450.253,
+        "utm_n": 4636768.326,
+        "rotation_deg": 180.0,
+        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Madison, School Section Line 10, Monroe and Wells School Section; standing back from the Monroe Street frontage",
         "confidence": "reconstructed",
-        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 4.5 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 5.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."
@@ -30,20 +30,20 @@
             0
           ],
           [
-            8.814,
+            8.796,
             0
           ],
           [
-            8.814,
-            12.043
+            8.796,
+            11.166
           ],
           [
             0,
-            12.043
+            11.166
           ]
         ],
         "confidence": "reconstructed",
-        "note": "A 8.81 × 12.04 m rectangle sampled deterministically inside the H2 family's authored footprint band; no individual dimensions are documented."
+        "note": "A 8.80 × 11.17 m rectangle sampled deterministically inside the H2 family's authored footprint band; no individual dimensions are documented."
       },
       "form": {
         "stories": {
@@ -55,7 +55,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "wall_height_m": {
-          "value": 6.182,
+          "value": 5.856,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -71,7 +71,7 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the H2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "roof_pitch_deg": {
-          "value": 29.2,
+          "value": 30.0,
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -84,7 +84,7 @@
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
         },
         "plan": {
           "value": "centre_passage",
@@ -127,7 +127,7 @@
           "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: merchant class — the house money built faced the street with a roofed porch over the door and hung board shutters at most of its windows (rule FORM-P)."
         },
         "shutters": {
-          "value": "green",
+          "value": "black",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
@@ -180,28 +180,23 @@
     "family": "H2",
     "district": "south",
     "inventory_class": "principal_functional",
-    "programme_phase": "phase3_platted_block_washington_wells",
+    "programme_phase": "phase3_platted_block_school_section_tier_95",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
-    "block_id": "blk_washington_wells",
-    "lot_index": 7,
+    "block_id": "blk_school_section_tier_95",
+    "lot_index": 1,
     "stands_on": "street",
-    "fronts": "madison",
-    "sequence": 7,
+    "fronts": "monroe",
+    "sequence": 1,
     "finish_key": "ochre",
     "roof_condition": "fresh",
-    "age_state": "recent",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-M",
       "class": "merchant",
       "by": "type",
       "household": null,
-      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 8 × 10 in glass, boxed corners, green shutters and a roofed porch, under a new roof — a merchant's or professional house, a year old (rule F-M: a merchant's or professional man's by its type)"
+      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 8 × 10 in glass, boxed corners, black shutters and a roofed porch, under a new roof — a merchant's or professional house, new-built (rule F-M: a merchant's or professional man's by its type)"
     }
-  },
-  "resident_assignment": {
-    "status": "unassigned",
-    "confidence": "reconstructed",
-    "note": "NO KEEPER, AND NOT FOR WANT OF ONE (T-2136). The placement policy's platted deal seated a household on this roof under its merchant_and_professional_dwellings clause, on blk_washington_wells#07 — a standing anonymous roof of family H2 that clause admits — and T-2136 refused to carry it onto the record: a household minted from the post office's letter lists, which the owner's ruling of 2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not a man with an address. tools/mint_letter_list_residents.py --gate holds it. The placement policy's deal seated this household here anyway, and that disagreement is the deal's to answer, not this pass's to route around. The seat still stands in data/reconstruction/1835_platted_seats.json and the refusal in data/reconstruction/1835_roof_keepers.json § refused, which names the household; this note deliberately does not, because naming it here is the claim the ruling forbids. WHETHER THAT IS A SHORTAGE, MEASURED: 94 unseated household(s) of this same clause and division carry a source for their name and are refused a roof by no ruling (1835_roof_keepers.json § households_left, re-derived from the deal's own owed rows on every commit). So the roof stands empty because the deal does not consult the ruling before it deals, not because the town ran out of people. The roof itself is unchanged: a conjectural count-unit of the 665-roof programme, adopted by nobody, its existence, position and footprint as invented as before."
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive. H-family house massing currently resolves through the frame dwelling archetype; no larger house generator is implemented. TWO OF THIS FAMILY'S NAMED VARIANTS ARE REFUSED AND TWO STAND (T-1686): the hip its roof line offers (\"side gable or hip, 6:12-9:12\") is refused rather than quietly substituted, because a hip, gambrel or mansard roof on a Chicago house in 1835 would be a claim and not a default; the Greek doorway its variants name is refused BY DATE — the earliest Greek Revival house in Chicago is the Clarke House of 1836, which data/exclusions.json keeps out of this scene, so no entablature, corner pilaster or portico stands on a roof of 1835-07-01; and the corner boards and the one-to-two chimneys the same line names already stand: the trim follows the stud module the construction argument picks.",
   "review_required": false
