@@ -1629,13 +1629,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 298,
-    "still_owed": 1126,
-    "roofs_adopted": 277,
+    "seated": 299,
+    "still_owed": 1125,
+    "roofs_adopted": 278,
     "slots_requested": 21,
     "roofs_standing": 622,
-    "roofs_standing_unseated": 345,
-    "share_of_standing_roofs_seated": 0.4453,
+    "roofs_standing_unseated": 344,
+    "share_of_standing_roofs_seated": 0.4469,
     "passes": [
       {
         "key": "platted",
@@ -1644,21 +1644,21 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 199,
-        "handed_on": 1225,
-        "roofs_adopted": 178,
+        "seated": 200,
+        "handed_on": 1224,
+        "roofs_adopted": 179,
         "slots_requested": 21,
         "roofs_offered_for_adoption": 197,
         "roofs_held_back": 60,
-        "ground_taken": 183,
+        "ground_taken": 184,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 153,
+          "south": 154,
           "west": 38
         },
         "by_clause": {
-          "labourer_dwellings": 37,
+          "labourer_dwellings": 38,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 35,
           "tradesman_dwellings": 125
@@ -1670,9 +1670,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1225,
+        "rows_offered": 1224,
         "seated": 99,
-        "handed_on": 1126,
+        "handed_on": 1125,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 105,
@@ -1884,8 +1884,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_humphrey_fre_lemuel",
-        "name": "The Humphrey household — a name from the post office's letter lists",
+        "household_id": "hh_hunt_charles_cotesworth_pinckney",
+        "name": "The Hunt household — a name the town's own records carry",
         "district": "south",
         "clause": "labourer_dwellings",
         "block_id": "blk_school_section_tier_119",
@@ -1894,8 +1894,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_hunt_charles_cotesworth_pinckney",
-        "name": "The Hunt household — a name the town's own records carry",
+        "household_id": "hh_ira_paddock",
+        "name": "The Ira household — a name from the post office's letter lists",
         "district": "south",
         "clause": "labourer_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1910,7 +1910,7 @@
       "blk_school_section_tier_81"
     ],
     "what_the_slots_wait_on": "21 slot(s) on 3 block(s) — blk_school_section_tier_118, blk_school_section_tier_119, blk_school_section_tier_81. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,126 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,125 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
