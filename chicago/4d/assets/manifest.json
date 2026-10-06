@@ -5673,7 +5673,7 @@
       "baked_ao": false,
       "bytes": 30494556,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "e4058332246c97f4dd7c5c78d3a629474264d06cb6f79f7a3cde90d48532b5e1",
+      "inputs_sha256": "14c9eed84d0bea206f2fc76ebbfd64086ec1cc273eb62a4e605ecbb1feed2835",
       "kind": "generated",
       "layer": "ground",
       "mesh_vs_heightfield": {
@@ -5769,7 +5769,7 @@
       "baked_ao": false,
       "bytes": 1376,
       "generator": "generators/terrain_gen.py",
-      "inputs_sha256": "e4058332246c97f4dd7c5c78d3a629474264d06cb6f79f7a3cde90d48532b5e1",
+      "inputs_sha256": "14c9eed84d0bea206f2fc76ebbfd64086ec1cc273eb62a4e605ecbb1feed2835",
       "kind": "generated",
       "layer": "water",
       "terrain_epoch": "e1834_harbor_cut",
