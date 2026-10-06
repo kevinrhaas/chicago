@@ -244,7 +244,15 @@ look: `data/liberties.json` is **0.555 MB** on the wire and awaited at boot
 card read it, and the card already redraws when the list arrives late
 (`popup.setLiberties`). Loading it on first need is a change to how provenance reaches
 the card, and three smoke parts read it synchronously, so it is its own piece of work,
-not a rider on this one. Behind it are the other panel files a first visit fetches before
+not a rider on this one. **Taken by T-2058 (2026-10-06):** the list is fetched on first need now — Evidence
+opened, its liberties topic shown, or a building card drawn (`main.js`
+`ensureLiberties`, through `createPopup`'s `onShow`) — and the card redraws when it
+lands. The smoke asserts at ready that the handle is still empty. Measured on the
+branch, on the steward runner: **13.488 MB across 1446 requests, with no request for
+`liberties.json`**. The cut was real; the budget is still breached, because the town
+grew about 0.97 MB and 140 requests between T-2047's reading (`cb56e2e4`) and this one.
+That remainder is its own ticket, and the budget was not raised to fit it.
+Behind it are the other panel files a first visit fetches before
 any panel is opened: `reconstruction/1835_address_book.json` (0.161 MB),
 `residents/employment_coverage.json`, `reconstruction/1835_population_profile.json`,
 `residents/research_pilot.json` (about 0.04 MB each). Minifying the 547 boot sidecars was
