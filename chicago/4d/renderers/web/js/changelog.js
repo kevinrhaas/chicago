@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: '1835 asks less of a phone while it loads', kind: 'fix',
+  { v: 1516, ts: '2026-10-06T21:44:15.936Z', date: 'Oct 6, 2026, 4:44 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
     items: [
       'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
       'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
