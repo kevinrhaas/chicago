@@ -27,14 +27,14 @@ of it, stay open lots. Changelog v1510.
   end on Madison. The 119 m neither line drew is gone; the ring takes the 8.3 m jog between the
   two surveys along Madison, and the check now refuses only a line reaching PAST that end
   (218.2 ha, 535 inside, 61 outside, no extrapolated leg deciding one).
-- **Fixpoint.** Keepers → infill → `reconcile_665` → seating settled at **225 seated** (222 on
-  dev). The four requesters are seated on standing West roofs and four older West households
+- **Fixpoint.** Keepers → infill → `reconcile_665` → seating settled at **212 seated** (209 on
+  dev, after T-1746). The four requesters are seated on standing West roofs and four older West households
   adopt the new houses; 42 households change roof or lot, among them the School Section tier's
-  slot requests, which shift a lot each, and `hh_blake_levi` is handed on. Mid-walk one lap left
+  slot requests, which shift a lot each, and `hh_democrat_printers` is handed on. Mid-walk one lap left
   `recon_1835_west_046` without its merchant; at the fixpoint `hh_behan_thos` adopts it, so
   `MERCHANT_H2` is unchanged. 13 new and 14 keeper-moved meshes baked, terrain and water rebaked
   (Clinton's track now reaches Madison).
-- **Restated.** L263 569 → 582, L270 222 → 225, L276 81 → 82; new **L394** for block 50.
+- **Restated.** L263 595 → 608, L270 209 → 212, L276 81 → 82; new **L394** for block 50.
 - **Order book.** West dwellings 75 of 75. The one West freight roof left, and the complete
   stores and workshops rows, move to **T-2150**.
 
