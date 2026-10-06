@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 350,
-  "outside": 271,
+  "outside": 257,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 61,
    "west_of_canal_street": 83,
-   "south_of_washington_street": 98,
+   "south_of_washington_street": 84,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -506,20 +506,6 @@
    ],
    "south_of_washington_street": [
     "heacock_house_monroe",
-    "recon_1835_blk_school_section_tier_94_d2_01",
-    "recon_1835_blk_school_section_tier_94_d3_05",
-    "recon_1835_blk_school_section_tier_94_d4_03",
-    "recon_1835_blk_school_section_tier_94_d4_04",
-    "recon_1835_blk_school_section_tier_94_d5_02",
-    "recon_1835_blk_school_section_tier_94_d5_07",
-    "recon_1835_blk_school_section_tier_94_d6_06",
-    "recon_1835_blk_school_section_tier_95_d2_03",
-    "recon_1835_blk_school_section_tier_95_d4_05",
-    "recon_1835_blk_school_section_tier_95_d5_04",
-    "recon_1835_blk_school_section_tier_95_d7_07",
-    "recon_1835_blk_school_section_tier_95_h1_06",
-    "recon_1835_blk_school_section_tier_95_h2_01",
-    "recon_1835_blk_school_section_tier_95_h3_02",
     "recon_1835_blk_washington_clark_a1_07",
     "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a1_12",
@@ -618,7 +604,7 @@
   "blocks_with_four_bounding_streets": 69,
   "inside_the_limit": 24,
   "outside_the_limit": 45,
-  "scheduling_roofs_outside_the_limit": 4,
+  "scheduling_roofs_outside_the_limit": 6,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_indiana_north_wolcott",
@@ -636,6 +622,26 @@
     "roofs_scheduled": 8,
     "centre_local_enu_m": [
      139.86,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_94",
+    "state": "open",
+    "roofs_scheduled": 7,
+    "centre_local_enu_m": [
+     279.89,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_95",
+    "state": "open",
+    "roofs_scheduled": 7,
+    "centre_local_enu_m": [
+     408.24,
      -587.44
     ],
     "inside_the_limit": false
@@ -1064,8 +1070,8 @@
    },
    {
     "id": "blk_school_section_tier_94",
-    "state": "at_capacity",
-    "roofs_scheduled": 0,
+    "state": "open",
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      279.89,
      -587.44
@@ -1074,8 +1080,8 @@
    },
    {
     "id": "blk_school_section_tier_95",
-    "state": "at_capacity",
-    "roofs_scheduled": 0,
+    "state": "open",
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      408.24,
      -587.44

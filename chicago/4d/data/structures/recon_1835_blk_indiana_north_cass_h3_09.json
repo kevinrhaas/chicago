@@ -175,11 +175,11 @@
     },
     "capacity": {
       "beds_ordinary": 12,
-      "beds_crowded": 27,
+      "beds_crowded": 28,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_indiana_north_cass_h3_09]",
       "sizes": {
-        "upper_windows": "ceil(27 crowded beds / 3 to a chamber) = 9, held to the crosswalk's 6-10 = 9, then to the 8 sashes a front of 9.88 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
+        "upper_windows": "ceil(28 crowded beds / 3 to a chamber) = 10, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.88 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
         "stovepipes": "ceil(12 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }

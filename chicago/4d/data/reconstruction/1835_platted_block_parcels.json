@@ -5441,15 +5441,14 @@
         "standing_roofs": 0,
         "free_lots": 8,
         "headroom": 9,
-        "dealt_roofs": 7,
-        "dealt_principal": 7,
+        "dealt_roofs": 6,
+        "dealt_principal": 6,
         "dealt_ancillary": 0,
-        "principal": 7,
+        "principal": 6,
         "ancillary": 0
       },
       "families": {
         "H2": 1,
-        "H3": 1,
         "D2": 1,
         "D5": 1,
         "D4": 1,
@@ -5492,12 +5491,16 @@
             "order_book_draw": "blk_school_section_tier_95 / D7 / south"
           }
         ],
-        "why": "SIX ROOFS ARE ASKED FOR AND THE SCHEDULE HOLDS SEVEN; THE SEVENTH IS ITS BOARDING HOUSE. T-2144 left six `slot` requests on blk_school_section_tier_95 with no structure under them: an H2 merchant's house on lot 1, a D2 on lot 3, a D5 on lot 4, a D4 on lot 5, an H1 on lot 6 and a D7 on lot 7. The 665-roof schedule gives the block `lot_ceiling_principal` 7 and the family list one D2, one D4, one D5, one D7, one H1, one H2 and one H3. The H3 is the one family no banded row of the South admits (`plan_left_unclaimed` in the seating file says so), so no household asks for it; it is raised anyway, on lot 2, the one lot left between the requests and the reserved open lot, because the schedule deals it and a boarding house is filled by the lodging pass rather than by a household's own request. A REQUEST IS NOT EVIDENCE: the seating pass re-runs behind the deal to say which household ends up under which roof."
+        "why": "THE BLOCK'S WHOLE REQUEST, AND NOT THE SCHEDULE'S BOARDING HOUSE. T-2144 left six `slot` requests on blk_school_section_tier_95 with no structure under them: an H2 merchant's house on lot 1, a D2 on lot 3, a D5 on lot 4, a D4 on lot 5, an H1 on lot 6 and a D7 on lot 7, every one a family and lot the schedule's plan for the block holds. The 665-roof schedule gives the block `lot_ceiling_principal` 7 and a seventh family, an H3 boarding house, which no banded South clause admits (`plan_left_unclaimed`), so no household asks for it. It is NOT raised here: measured on this branch, its beds move the lodging model and the boarder stage (tools/seat_lodgers_1835.py) then draws eight lodgers out of persons/male/10_19/south/lodging/trade where the order book holds seven, which that stage refuses by design until the lodger basis is deliberately re-frozen. Raising a boarding house is therefore a lodging decision, and it goes with the South's other owed boarding houses to T-1957. A REQUEST IS NOT EVIDENCE: the seating pass re-runs behind the deal to say which household ends up under which roof."
       },
       "open_lots": [
         {
           "lot": 0,
           "why": "The Madison-and-Wells corner, the block's reserved open lot. The schedule's sizing (T-1623) counts principal room over the free lots less one so that a block is never dealt out of its open lot, and `1835_platted_seats.json` keeps this lot clear of every request; which lot carries the reservation is arbitrary within the block, and this entry takes the one block 81 (T-2147) took."
+        },
+        {
+          "lot": 2,
+          "why": "Left open for the schedule's H3 boarding house, which this deal does not raise: its beds re-cut the boarder stage's frozen basis, a lodging decision owned with the South's other owed boarding houses by T-1957."
         }
       ],
       "slots": [
@@ -5508,15 +5511,6 @@
           "stands_on": "street",
           "fronts": "monroe",
           "setback_m": 5.0,
-          "lateral_m": 0.0
-        },
-        {
-          "family": "H3",
-          "inventory_class": "principal_functional",
-          "lot": 2,
-          "stands_on": "street",
-          "fronts": "madison",
-          "setback_m": 1.55,
           "lateral_m": 0.0
         },
         {
@@ -5565,7 +5559,7 @@
           "lateral_m": 1.5
         }
       ],
-      "arrangement_note": "THE SCHOOL SECTION TIER'S SECOND WELLS BLOCK, BUILT TO ITS LOT CEILING (T-2146, piece 3 of T-1755). Block 95, between Wells and the section's tenth line, is the block the schedule gives the tier's better houses: on the Madison face a two-storey boarding house (H3) standing to the street line on lot 2, a larger frame house (D5) on lot 4 and a larger storey-and-a-half house (H1) on the east corner; on the Monroe face a merchant's or professional man's house (H2) on the Wells corner, a labourer's shanty (D2), a tradesman's frame house (D4) and a two-storey frame house (D7) on the east corner. Lot 0, the Madison-and-Wells corner, stays the block's reserved open lot. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back, and that the schedule's boarding house stood here rather than nearer the landings; all seven are anonymous count-units at the bottom tier toward the schedule's documented aggregate."
+      "arrangement_note": "THE SCHOOL SECTION TIER'S SECOND WELLS BLOCK, BUILT TO ITS LOT CEILING (T-2146, piece 3 of T-1755). Block 95, between Wells and the section's tenth line, is the block the schedule gives the tier's better houses: on the Madison face a larger frame house (D5) on lot 4 and a larger storey-and-a-half house (H1) on the east corner; on the Monroe face a merchant's or professional man's house (H2) on the Wells corner, a labourer's shanty (D2), a tradesman's frame house (D4) and a two-storey frame house (D7) on the east corner. Lot 0, the Madison-and-Wells corner, stays the block's reserved open lot, and lot 2 is left for the schedule's boarding house (T-1957). Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all six are anonymous count-units at the bottom tier toward the schedule's documented aggregate."
     }
   ],
   "redealt": {

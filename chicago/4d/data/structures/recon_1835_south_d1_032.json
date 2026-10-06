@@ -115,12 +115,15 @@
     "note": "INVENTED, NOT DERIVED. A typology value from the reconstruction spec, not a reading of evidence about this particular building — there is no particular building. The spec is cited because the invention is bounded by it. Assigned from the D1 production family to satisfy the aggregate South Division mix; no occupant or individual use is known."
   },
   "occupants": {
-    "value": "The Hunt household — a name the town's own records carry",
+    "value": "The Hubbard household — a name the town's own records carry",
     "confidence": "reconstructed",
     "sources": [
-      "chicago_american_1835",
       "chicago_democrat_1833_1835",
-      "fergus_1843_old_settler_death_notices"
+      "chicago_voter_lists_1833_1835_irad",
+      "fergus_chicago_directory_1839",
+      "fergus_chicago_directory_1843",
+      "isa_public_domain_land_tract_sales",
+      "norris_directory_1844"
     ],
     "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's labourer_dwellings clause answered on the committed plat: blk_lake_clark#07, fronting randolph, a standing roof of family D1 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
   },
@@ -132,22 +135,22 @@
     "programme_phase": "phase1_south_mixed_blocks",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 32,
-    "finish_key": "fresh_timber",
+    "finish_key": "whitewash",
     "roof_condition": "fresh",
-    "age_state": "new",
+    "age_state": "recent",
     "fabric_basis": {
-      "rule": "F-L",
-      "class": "labourer",
+      "rule": "F-M",
+      "class": "merchant",
       "by": "keeper_trade",
-      "household": "hh_hunt_charles_cotesworth_pinckney",
-      "words": "hewn logs under a new roof — The Hunt household's, a domestic, in Chicago since 1835 (rule F-L)"
+      "household": "hh_hubbard_henry_g",
+      "words": "hewn logs under a new roof — The Hubbard household's, a forwarding and commission, in Chicago since 1834 (rule F-M)"
     }
   },
   "resident_assignment": {
     "status": "assigned",
     "confidence": "reconstructed",
     "note": "T-1691: seated by the placement policy's platted deal under its labourer_dwellings clause, on blk_lake_clark#07 fronting randolph — a standing anonymous roof of family D1 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_hunt_charles_cotesworth_pinckney"
+    "household_id": "hh_hubbard_henry_g"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. Family and aggregate district role follow the owner-supplied 2026 specification; exact presence, location, footprint, finish and instance-level form are interpretive.",
   "review_required": false

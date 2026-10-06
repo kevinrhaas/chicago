@@ -1,5 +1,5 @@
 {
-  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp \u2014 mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP \u2014 a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
+  "$note": "ROADMAP K39. sha256 of the MASTER each derivative in assets/web/ was produced from, written by tools/web_derivatives.sh in the same run that produced the bytes, and read by tools/measure_web_derivatives.py assertion 9. It answers 'has the master been rebuilt since?' from CONTENT rather than from a timestamp — mtime cannot, because on a fresh clone every master is older than its derivative by checkout order (K38, measured 334 of 334). DERIVED, and not bankable: the remedy for a mismatch is `tools/web_derivatives.sh --only <name>`, never an edit of this file. It names the MASTER, not the STEP — a derivative made by an older flag set from this same master is recorded correctly here and reproduces nothing (ROADMAP K40).",
   "written_by": "tools/web_derivatives.sh",
   "masters": {
     "agency_striker_log_house__log_1830.glb": "e240c6ae892486771b709a4cc7df1a73c43a748e2d54dcd4bfbe074703200ab3",
@@ -264,13 +264,6 @@
     "recon_1835_blk_school_section_tier_94_d5_02__inferred_1835.glb": "3ec970a8393c3cdf6ba96d31a5bd44883ca5d4c216e2df07ecab79f7a5669c6b",
     "recon_1835_blk_school_section_tier_94_d5_07__inferred_1835.glb": "523047003999f627a565d9f0271550bb90f6b45a42cfc6fa1b7bfe0a36f77c17",
     "recon_1835_blk_school_section_tier_94_d6_06__inferred_1835.glb": "46e002cbfc51b4db12556d30ddf7128b8ff4135683df463e6e561d4494ecda6a",
-    "recon_1835_blk_school_section_tier_95_d2_03__inferred_1835.glb": "288bb8a16c04702b6872f9aede869786f90e979b4aa0e8719282287147644a54",
-    "recon_1835_blk_school_section_tier_95_d4_05__inferred_1835.glb": "c03a6c894bc43c94edfcdd90fe5f0ef9aef695a777e91fd39542494a3a807519",
-    "recon_1835_blk_school_section_tier_95_d5_04__inferred_1835.glb": "ca193c019ee09f2c0cb6468d0083d56bbd0b78f49f8fd83f1cc46e9460055874",
-    "recon_1835_blk_school_section_tier_95_d7_07__inferred_1835.glb": "7931efa08d79d928b1e89b7bd8bb982f8eb35c7b17d60037517ebf7f636c2e4a",
-    "recon_1835_blk_school_section_tier_95_h1_06__inferred_1835.glb": "ab3cd6ab218f6efdc981c287d194cf51316532b40ef18ff388362ad86413529f",
-    "recon_1835_blk_school_section_tier_95_h2_01__inferred_1835.glb": "f8773f28a6ac9f45ad4c7e77162b52cc2e3d1e42243a1ea5dc720ad9d1982f2a",
-    "recon_1835_blk_school_section_tier_95_h3_02__inferred_1835.glb": "e7af11bcb8b81e48d21180d007233c8823295e1d583111cb4671dec3c9050a2b",
     "recon_1835_blk_south_water_clark_a3_05__inferred_1835.glb": "1ebae8ec58a9c7d3d2679129711ff58c82a2f94fbf8f83bad70560d2b964eb54",
     "recon_1835_blk_south_water_clark_a3_07__inferred_1835.glb": "0e09a042894fb4772e5aa008f590cf01a47d64e76cdf603eccadd827cb06416c",
     "recon_1835_blk_south_water_clark_c2_06__inferred_1835.glb": "4594b9f41c631993a953b16e35ab6a0664fda754047be0e270bc315cb70129c9",
