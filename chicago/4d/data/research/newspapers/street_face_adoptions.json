@@ -159,34 +159,34 @@
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
     "faces_with_two_or_more_free_roofs": 18,
-    "free_roof_places": 143,
+    "free_roof_places": 144,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2562,
+      "re_families_tried": 2583,
       "places_changed": 2924,
       "worst_single_re_family": 8,
-      "changed_nothing": 1524
+      "changed_nothing": 1545
      },
      "deal_order": {
-      "re_families_tried": 2562,
+      "re_families_tried": 2583,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2562
+      "changed_nothing": 2583
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 2300,
+      "re_families_tried": 2313,
       "places_changed": 2975,
       "worst_single_re_family": 8,
-      "changed_nothing": 1283
+      "changed_nothing": 1296
      },
      "deal_order": {
-      "re_families_tried": 2300,
-      "places_changed": 15306,
+      "re_families_tried": 2313,
+      "places_changed": 15406,
       "worst_single_re_family": 19,
       "changed_nothing": 192
      }
@@ -227,23 +227,23 @@
   "adopted_into_a_roof_of_no_trade": 14,
   "roofs_free_and_a_house_of_trade": 33,
   "houses_of_trade_left_free": 3,
-  "roofs_reserved_for_a_slot_request": 83,
+  "roofs_reserved_for_a_slot_request": 87,
   "reserved_and_held_by_a_committed_occupancy": 4,
-  "reserved_without_a_committed_occupancy": 79,
+  "reserved_without_a_committed_occupancy": 83,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 22,
-    "roofs_corner_side": 7,
-    "roofs_on_the_adopted_face": 29,
-    "roofs_free": 5,
+    "roofs_lot_front": 35,
+    "roofs_corner_side": 10,
+    "roofs_on_the_adopted_face": 45,
+    "roofs_free": 6,
     "roofs_home": 1,
     "roofs_home_named": 0,
     "roofs_home_inferred": 1,
-    "roofs_yard": 8,
-    "roofs_requested_by_a_seat": 15,
+    "roofs_yard": 18,
+    "roofs_requested_by_a_seat": 20,
     "roofs_in_centreline_band_declined": 4,
     "roofs_free_and_a_house_of_trade": 1,
     "adopted_into_a_house_of_trade": 1
@@ -741,6 +741,50 @@
    "requested_by_seat": "hh_sweet_alanson",
    "order_book_draw": "blk_washington_clark / H3 / south",
    "dealt_by_ticket": "T-1809",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clinton_d4_04",
+   "block_id": "blk_washington_clinton",
+   "programme_phase": "phase3_platted_block_washington_clinton",
+   "family": "D4",
+   "requested_by_seat": "hh_catran_o_p",
+   "order_book_draw": "blk_washington_clinton / D4 / west",
+   "dealt_by_ticket": "T-2148",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clinton_d5_03",
+   "block_id": "blk_washington_clinton",
+   "programme_phase": "phase3_platted_block_washington_clinton",
+   "family": "D5",
+   "requested_by_seat": "hh_chark_john_a",
+   "order_book_draw": "blk_washington_clinton / D5 / west",
+   "dealt_by_ticket": "T-2148",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clinton_h1_05",
+   "block_id": "blk_washington_clinton",
+   "programme_phase": "phase3_platted_block_washington_clinton",
+   "family": "H1",
+   "requested_by_seat": "hh_beaubien_alexandre",
+   "order_book_draw": "blk_washington_clinton / H1 / west",
+   "dealt_by_ticket": "T-2148",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_washington_clinton_h2_01",
+   "block_id": "blk_washington_clinton",
+   "programme_phase": "phase3_platted_block_washington_clinton",
+   "family": "H2",
+   "requested_by_seat": "hh_behan_thos",
+   "order_book_draw": "blk_washington_clinton / H2 / west",
+   "dealt_by_ticket": "T-2148",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   },

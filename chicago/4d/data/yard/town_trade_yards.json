@@ -7,14 +7,14 @@
   "target_date": "1835-07-01",
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/, data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
-    "yards": 33,
-    "objects": 79,
+    "yards": 34,
+    "objects": 80,
     "by_trade": {
       "carpenter_or_joiner_shop": 6,
       "cooperage": 2,
       "packing_house": 2,
       "slaughterhouse_packing": 2,
-      "stable": 18,
+      "stable": 19,
       "stable_and_wagon_yard": 1,
       "tannery": 1,
       "warehouse_and_slaughter_yard": 1
@@ -22,7 +22,7 @@
     "by_kind": {
       "barrel": 52,
       "boards": 6,
-      "hay": 19,
+      "hay": 20,
       "hides": 2
     },
     "wagons": 5,
@@ -1324,6 +1324,46 @@
             -439.07
           ],
           "bearing_deg": 0.4
+        }
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_clinton_a1_06",
+      "name": "Reconstructed A1 stable #06",
+      "belongs_to": "recon_1835_blk_washington_clinton_a1_06",
+      "trade": "stable",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a stable's hay stands in a rick outside it",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          -199.18,
+          -417.32
+        ],
+        [
+          -199.14,
+          -412.12
+        ],
+        [
+          -206.19,
+          -412.07
+        ],
+        [
+          -206.22,
+          -417.27
+        ]
+      ],
+      "items": [
+        {
+          "kind": "hay",
+          "at_local_enu_m": [
+            -196.96,
+            -414.74
+          ],
+          "bearing_deg": 90.4
         }
       ]
     },
