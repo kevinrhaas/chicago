@@ -269,7 +269,9 @@ which holds it beside the record (the record stays as shipped) and redraws. The 
 `defer_household_notes.mjs --check` (in check.sh) holds the shipped form to the source, and
 `check_published.mjs` declares exactly the seated records as transformed. Measured on the
 branch, on the steward runner: **12.780 MB across 1474 requests**, 0.22 MB inside 13 MB, with
-no household file requested at boot. The panel files named above are still the next lever.
+no household file requested at boot; and **12.887 MB across 1500** once T-2148's West blocks
+merged beneath it the same hour, 0.11 MB inside. The town is still growing into this budget
+faster than its cuts come out of it. The panel files named above are the next lever.
 Behind it are the other panel files a first visit fetches before
 any panel is opened: `reconstruction/1835_address_book.json` (0.161 MB),
 `residents/employment_coverage.json`, `reconstruction/1835_population_profile.json`,
