@@ -137,13 +137,9 @@ FAMILIES = families()
 # would mint an invented keeper and boarders into a house the deal had already given to
 # somebody else, and re-cut the beds of every boarding house already standing. Keyed by
 # slot, and refused (below) the moment the deal stops seating a merchant household there.
-#
-# T-2148 took west_rec_046 out (the F1 freight shed T-1445 re-dealt to H2, held for a
-# merchant since T-1827). Plat block 50's new H1 and H2 on Canal gave the West's merchant
-# clause two nearer roofs, its household moved onto a D7 one of them freed, and the deal
-# stopped seating anybody there, so it is a boarding house again and the lodger stage
-# seats it. The table stays: the next H2 the deal holds for a merchant is keyed here.
-MERCHANT_H2: dict[str, str] = {}
+MERCHANT_H2 = {
+    "west_rec_046": "T-1827",   # the F1 freight shed T-1445 re-dealt to H2
+}
 PLATTED_SEATS = ROOT / "data" / "reconstruction" / "1835_platted_seats.json"
 MERCHANT_SIDS = {"recon_1835_west_" + slot.split("_")[-1] for slot in MERCHANT_H2}
 
