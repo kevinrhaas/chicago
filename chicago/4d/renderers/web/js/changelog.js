@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+  { v: 1512, ts: '2026-10-06T18:14:35.433Z', date: 'Oct 6, 2026, 1:14 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
       'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
       'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
       'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
+    ] },
+  { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
+      'The town\u2019s check of which street each house faces did not know Monroe Street, the south edge of the School Section blocks sold in 1833. Every house on a Monroe lot was read as facing no street, so the check would have turned three of them into barns and sheds.',
+      'It now reads Monroe for those lots, because the 1833 lot plan says they face it. Russel E. Heacock\u2019s house on Monroe Street, 30 m back from it, is now read as facing it too.',
     ] },
   { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
     items: [
