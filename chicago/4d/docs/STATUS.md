@@ -13,8 +13,14 @@ lot 0 kept open) with one A2 yard roof.
   `name_the_keepers_1835.py --check` was red. Blocks 94/95/118/119 share the prefix.
 - Seating walked to its fixpoint (four full laps, then 25 inner keeper↔seat laps — the walk moves
   one roof a lap down the household order, as T-2129 saw): **216 seated, held**; adopted
-  169 → 176, slots 47 → 40. The seven who asked re-slot on blocks 94, 118 and 119 (T-2145,
-  T-2146). Keepers 80 → 82. L263 (571), L270 and L276 restated.
+  175 → 182, slots 47 → 40. The seven who asked re-slot on blocks 94, 118 and 119 (T-2145,
+  T-2146). Keepers 81 → 83. L263 (577), L270 and L276 restated.
+- **Lapped over T-2143 (#492).** Merged onto dev after plat block 51 landed: the derived files were
+  taken from dev and rebuilt, the recipe keeps both blocks' entries, and the seating re-walked to
+  the same fixpoint the branch measured before the merge — the same seven move in, the same seven
+  re-slot, 63 change roof, 222 seated. Upstream readers of the moved roofs re-derived (hay limits,
+  land tracts, register, profile, street faces, housing seats, aprons, alley lanes, woodpiles,
+  remedies, roof-id migration, Newberry leads); T-0059's figures 608/602 → 616/610.
 
 ## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
 
