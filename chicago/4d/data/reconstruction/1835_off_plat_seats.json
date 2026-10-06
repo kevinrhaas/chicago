@@ -12,6 +12,7 @@
  "mints_nobody": "every row seated here is a household the address book already holds and T-1613 already handed on. Nobody is invented and no household is moved between divisions: a roof is only ever offered to a row of its own division, tested against the roof's own committed `reconstruction.district`.",
  "the_order": [
   "commercial_front",
+  "bank_landing",
   "professional_row",
   "mechanics_streets",
   "heavy_and_noxious_trades",
@@ -295,7 +296,7 @@
    "structure_id": "recon_1835_bank_freight_f3_001",
    "family": "F3",
    "district": "north",
-   "parcel_id": "blk_kinzie_lasalle_north#07",
+   "parcel_id": "blk_kinzie_wells_north#07",
    "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
   },
   {

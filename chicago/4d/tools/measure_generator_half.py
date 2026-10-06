@@ -468,13 +468,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # dwellings on its two Clark blocks south of Madison (plat blocks 118 and 119), all through
 # emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 649 -> 650 and 643 -> 644 on 2026-10-06 (T-2022): the North Division's river warehouse
+# on the North Water bank at LaSalle, one `frame_storefront` through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 649,
+    "assets": 650,
     "restales": {
-        "generators/common/*.py": 649,
+        "generators/common/*.py": 650,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 643,
+        "generators/emit.py": 644,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

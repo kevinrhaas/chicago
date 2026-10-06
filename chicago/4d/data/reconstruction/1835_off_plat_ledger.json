@@ -1428,9 +1428,13 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0
+   "standing": [
+    "recon_1835_bank_freight_f3_001"
+   ],
+   "standing_families": {
+    "recon_1835_bank_freight_f3_001": "F3"
+   },
+   "principal_roofs_standing": 1
   },
   {
    "parcel_id": "blk_kinzie_lasalle_north#00",
@@ -1790,13 +1794,9 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [
-    "recon_1835_bank_freight_f3_001"
-   ],
-   "standing_families": {
-    "recon_1835_bank_freight_f3_001": "F3"
-   },
-   "principal_roofs_standing": 1
+   "standing": [],
+   "standing_families": {},
+   "principal_roofs_standing": 0
   },
   {
    "parcel_id": "blk_kinzie_clark_north#00",
