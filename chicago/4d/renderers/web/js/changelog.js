@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1509, ts: '2026-10-06T01:23:58.453Z', date: 'Oct 5, 2026, 8:23 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+  { v: 1510, ts: '2026-10-06T01:34:38.715Z', date: 'Oct 5, 2026, 8:34 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
       'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
       'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
-      'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L393).',
+      'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
+    ] },
+  { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
+    items: [
+      'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
+      'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
+      'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
+      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L393).',
     ] },
   { v: 1508, ts: '2026-10-06T00:05:54.393Z', date: 'Oct 5, 2026, 7:05 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
