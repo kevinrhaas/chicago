@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+  { v: 1514, ts: '2026-10-06T21:03:18.666Z', date: 'Oct 6, 2026, 4:03 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
       'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
