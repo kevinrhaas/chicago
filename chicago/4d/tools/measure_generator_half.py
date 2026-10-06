@@ -461,17 +461,20 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # (generate_north_infill rows 68-93), all through emit.py and the common modules.
 # Terrain reach still 6 and pier_crib still 2.
 #
-# 634 -> 647 and 628 -> 641 on 2026-10-06 (T-2146): the thirteen houses on the School Section
+# 634 -> 635 and 628 -> 629 on 2026-10-06 (T-1977): the trading camp at Wolf Point, one
+# `camp` through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 635 -> 648 and 629 -> 642 on 2026-10-06 (T-2146): the thirteen houses on the School Section
 # tier's blocks 94 and 95 — D2 to D7 dwellings, an H1 and an H2, all
 # through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 647,
+    "assets": 648,
     "restales": {
-        "generators/common/*.py": 647,
+        "generators/common/*.py": 648,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 641,
+        "generators/emit.py": 642,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

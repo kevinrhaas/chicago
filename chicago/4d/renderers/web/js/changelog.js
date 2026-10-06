@@ -1,10 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1510, ts: '2026-10-06T02:24:32.448Z', date: 'Oct 5, 2026, 9:24 PM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: null, ts: '', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
       'West of Wells stand seven tradesmen\u2019s and labourers\u2019 houses. East of Wells the houses are larger: a merchant\u2019s house on the Wells corner and a storey-and-a-half house on the far corner. Each block keeps its west Madison corner lot empty.',
       'Thirteen of the town\u2019s households move into the new houses.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1512, ts: '2026-10-06T18:29:26.487Z', date: 'Oct 6, 2026, 1:29 PM CT', title: 'Jefferson Street stops at Kinzie, as surveyed', kind: 'fix',
+    items: [
+      'Almost nothing you can see changes. Jefferson Street, an unopened survey line on the west side, is never drawn as a road. At the doctor\u2019s house north of Kinzie Street, the woodpile and a dooryard planting now face the house\u2019s real front, since no street runs past its side.',
+      'Our map of it ran a block north of Kinzie Street, through a Wabansia block that the 1834 survey draws whole. That stretch came from the modern street, which was extended later. The 1830 plat that names Jefferson ends it at Kinzie, and now so do we.',
+      'The town\u2019s 1833 boundary follows Jefferson \u201cand its continuation\u201d north to Ohio Street. It has not moved, but north of Kinzie it is now a projection, so we no longer say whether the doctor\u2019s house and barn on that block stood inside the town.',
+    ] },
+  { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
+      'The town\u2019s check of which street each house faces did not know Monroe Street, the south edge of the School Section blocks sold in 1833. Every house on a Monroe lot was read as facing no street, so the check would have turned three of them into barns and sheds.',
+      'It now reads Monroe for those lots, because the 1833 lot plan says they face it. Russel E. Heacock\u2019s house on Monroe Street, 30 m back from it, is now read as facing it too.',
+    ] },
+  { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
+    items: [
+      'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
+      'The camp stands for a Native or M\u00e9tis family in town to trade that summer. No source counts or places these families in 1835, so the camp is a declared reconstruction, built on the owner\u2019s ruling. Three tents is a number we chose, not a count, and nobody is named.',
+      'The tents are plain canvas, not a lodge: no source we hold describes the lodges at Chicago that year. As everywhere in the town, no person, flame or smoke is drawn.',
+      'The camp\u2019s card says it is held for review by Native scholars and community organisations, which the project has promised before any scene is called finished. The Liberties page explains it (L395).',
     ] },
   { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
     items: [

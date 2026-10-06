@@ -1,15 +1,20 @@
 {
   "_doc": "The records carrying AGENTS.md's standing constraint, as of the last deliberate change. tools/measure_review_constraint.py fails when one of these has lost its review_required flag: adding the flag is always allowed, clearing it is the claim that the consultation this project has committed to has happened, and that is not a thing to do by accident. Rewrite with --update, in the commit that makes the change.",
   "structures": [
+    "agency_striker_log_house",
     "beaubien_barn",
+    "beaubien_trading_post",
     "blacksmith_shop_state_st",
+    "caldwell_agency_log_house",
     "clybourn_slaughterhouse",
     "cobweb_castle",
     "council_house",
     "jb_beaubien_homestead",
     "madore_beaubien_house",
+    "mckee_log_house",
     "robert_kinzie_store",
-    "robinson_caldwell_cabins"
+    "robinson_caldwell_cabins",
+    "wolf_point_trading_camp"
   ],
   "households": [
     "hh_beaubien_jean_baptiste",

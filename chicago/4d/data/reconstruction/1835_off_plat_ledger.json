@@ -5455,7 +5455,8 @@
     "south_branch_raft_bridge",
     "walker_meeting_house",
     "wolf_point_tavern",
-    "wolf_point_tavern_stable"
+    "wolf_point_tavern_stable",
+    "wolf_point_trading_camp"
    ],
    "standing_families": {
     "brickyard_north_side": "F4",
@@ -5522,7 +5523,8 @@
     "south_branch_raft_bridge": null,
     "walker_meeting_house": "I1",
     "wolf_point_tavern": "T1",
-    "wolf_point_tavern_stable": "A1"
+    "wolf_point_tavern_stable": "A1",
+    "wolf_point_trading_camp": null
    },
    "principal_roofs_standing": 49
   },

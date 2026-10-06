@@ -1,13 +1,21 @@
 #!/usr/bin/env python3
-"""What Wright's 1834 sheet says about the 288.3 m the corporate boundary extrapolates.
+"""What Wright's 1834 sheet says about the 406.6 m the corporate boundary extrapolates.
 
 T-1544. The Trustees' walk of 7 November 1833 runs its west leg *"north along said last
 mentioned street and its continuation to Ohio street"*, and this repository resolves that
 leg on two committed readings of Jefferson Street (T-1490). Both of them stop: the West
-Division's reading ends at local north +381.887, on the surviving Hubbard Street
-intersection, and **modern Jefferson does not survive north of Hubbard**, so there is no
-third node to carry it on. The last 288.3 m to Ohio Street is arithmetic and nothing else,
-and the leg's own note says so.
+Division's reading ends at local north +263.614, on the surviving Kinzie Street
+intersection, which is where Thompson's 1830 plat stops drawing the street (T-2018). The
+last 406.6 m to Ohio Street is arithmetic and nothing else, and the leg's own note says so.
+
+T-2018, 2026-10-06 — WHY KINZIE AND NOT HUBBARD. T-1490 had carried the line to +381.887
+on a second modern junction at Hubbard, and the leg was measured from there (288.3 m).
+That reach ran its whole corridor through Wabansia block 59, which the sheet read below
+draws whole, so T-2018 ruled the modern junction a witness of the street's later
+extension and not of its 1835 line. The ring does not move — the leg is extrapolated on
+the same bearing from the earlier node — and every refusal below still holds over the
+longer stretch. What the leg crosses before it reaches Wabansia is Kinzie's own corridor,
+and the gate now holds that to Kinzie's half-width (`BEFORE_THE_GRID_MAX_M`).
 
 A node is not the only kind of control. The ordinance's "continuation" crosses ground this
 project has already READ — Wabansia, surveyed 1831 and drawn whole on J. S. Wright's 1834
@@ -23,13 +31,13 @@ continuation?**
   columns, about 81 m west of the extrapolation — five times the 16.02 m RMS this sheet's
   own registration admits. No re-seating of this sheet inside its own error can put a
   street where the leg runs.
-- **The leg runs down the middle of Wabansia's easternmost block column**, from Hubbard to
-  Ohio, crossing Owen Street and Hight Street and ending on platted ground of an addition
-  the ordinance never names.
+- **The leg runs down the middle of Wabansia's easternmost block column**, from Kinzie to
+  Ohio, crossing Hubbard Street, Owen Street and Hight Street and ending on platted ground
+  of an addition the ordinance never names.
 - **The one drawn line that could be mistaken for the continuation is the tract's east
   boundary against the North Branch**, and this reading refuses that identification on
-  BEARING rather than on offset: the two stand 16.0 m apart at Hubbard and 23.1 m apart at
-  Ohio. A true identification would close over 288 m; these diverge.
+  BEARING rather than on offset: the two stand 13.2 m apart where the leg enters the grid
+  and 23.1 m apart at Ohio. A true identification would close over 407 m; these diverge.
 
 So the leg stays `inferred` and stays an extrapolation. What changes is that it is now
 extrapolated across ground that has been looked at: the sheet bounds it instead of saying
@@ -45,7 +53,7 @@ nothing about it, and this command is the gate that keeps the bound honest.
 The gate never fails because the leg is an extrapolation — that is a fact about 1833 and
 about what survives. It fails when the refusal above stops being true: when a drawn
 corridor comes within the sheet's own RMS of the leg, when the leg stops standing on
-Wabansia's platted ground, when the tract boundary starts converging on it, or when the
+Wabansia's platted ground once it has crossed Kinzie, when the tract boundary starts converging on it, or when the
 extension grows close enough to a drawn building to decide its side of the line.
 """
 
@@ -78,6 +86,12 @@ TIERS = ("t4", "t5", "t6", "t7")
 
 #: The block column the leg runs in — Wabansia's easternmost, against the water lots.
 COLUMN = "C"
+
+#: T-2018. How far the leg may run north of its committed end before it reaches Wabansia's
+#: seated grid. The end is Kinzie's node, so what lies between is Kinzie's own corridor:
+#: half of the 80 ft platted module, plus a metre for the seating's rounding. Longer than
+#: that and the leg crosses ground no reading here accounts for.
+BEFORE_THE_GRID_MAX_M = 24.384 / 2.0 + 1.0
 
 
 def load(path: Path):
@@ -133,6 +147,23 @@ def leg_segment():
                      "has been renamed or this leg has stopped being extrapolated")
 
 
+def first_crossing(a, b, ring):
+    """Every fraction along a -> b at which the segment crosses an edge of `ring`."""
+    (ax, ay), (bx, by) = a, b
+    out = []
+    for (px, py), (qx, qy) in zip(ring, ring[1:] + ring[:1]):
+        den = (bx - ax) * (qy - py) - (by - ay) * (qx - px)
+        if den == 0:
+            continue
+        t = ((px - ax) * (qy - py) - (py - ay) * (qx - px)) / den
+        u = ((px - ax) * (by - ay) - (py - ay) * (bx - ax)) / den
+        if 0.0 <= t <= 1.0 and 0.0 <= u <= 1.0:
+            out.append(t)
+    if not out:
+        raise SystemExit("the leg never reaches Wabansia's seated grid")
+    return out
+
+
 def crossed_streets(a, b):
     """The committed streets the leg crosses, with the crossing point on each."""
     (ax, ay), (bx, by) = a, b
@@ -159,9 +190,18 @@ def read():
     scale = sheet_scale_m_per_px(numbering)
     east = east_boundary(seating)
 
+    # Where the leg reaches Wabansia's grid: its first crossing of the seated polygon. It
+    # starts on Kinzie's node (T-2018), and the grid's south rule stands on Kinzie's north
+    # kerb, so the first metres are the street.
+    entry_t = 0.0
+    if not limits.inside(a, seating["block_grid_polygon_local_enu_m"]):
+        entry_t = min(first_crossing(a, b, seating["block_grid_polygon_local_enu_m"]))
+    entry = (a[0] + (b[0] - a[0]) * entry_t, a[1] + (b[1] - a[1]) * entry_t)
+    before_grid = math.hypot(entry[0] - a[0], entry[1] - a[1])
+
     # The one drawn line the leg could be confused with: the tract's east rule.
     boundary = []
-    for label, p in (("south end, on Hubbard's line", a), ("north end, on Ohio's line", b)):
+    for label, p in (("south end, entering the grid", entry), ("north end, on Ohio's line", b)):
         e = at_northing(east, p[1])
         boundary.append({"where": label,
                          "leg_local_enu_m": [round(p[0], 3), round(p[1], 3)],
@@ -188,9 +228,13 @@ def read():
             "leg_east_of_corridor_east_rule_m": round(
                 row["leg_local_enu_m"][0] - centre - corridor_w / 2.0, 3)}) 
 
-    # Does the leg stand on Wabansia's platted ground the whole way?
+    # Does the leg stand on Wabansia's platted ground the whole way, once past Kinzie?
     poly = seating["block_grid_polygon_local_enu_m"]
-    stations = [(a[0] + (b[0] - a[0]) * i / 24.0, a[1] + (b[1] - a[1]) * i / 24.0)
+    # Station 0 is the entry itself, ON the grid's south rule by construction, where a
+    # point-in-polygon test has no stable answer; it is stepped a centimetre inside.
+    nudge = 0.01 / math.hypot(b[0] - entry[0], b[1] - entry[1])
+    stations = [(entry[0] + (b[0] - entry[0]) * max(i / 24.0, nudge),
+                 entry[1] + (b[1] - entry[1]) * max(i / 24.0, nudge))
                 for i in range(25)]
     off = [i for i, p in enumerate(stations) if not limits.inside(p, poly)]
     # How much platted ground is left north of the corner before the grid's east side
@@ -201,7 +245,10 @@ def read():
     # And does it decide a building?
     datum = load(DATA / "datum.json")
     nearest = None
+    unstated = limits.unstated()
     for sid, polygon in limits.footprints(datum):
+        if sid in unstated:
+            continue
         hit = limits.beside((a, b), polygon)
         if hit and (nearest is None or hit[0] < nearest[0]):
             nearest = (hit[0], hit[1], sid)
@@ -220,6 +267,9 @@ def read():
             "column": f"the easternmost block column ({COLUMN}) of tiers "
                       + ", ".join(TIERS),
             "column_width_m": round(column_w, 2),
+            "before_the_grid_m": round(before_grid, 2),
+            "before_the_grid_is": "Kinzie Street's own corridor: the leg starts on Kinzie's "
+                                  "node and the grid's south rule stands on its north kerb",
             "stations_off_the_platted_grid": off,
             "corner_south_of_the_grid_east_side_end_m": round(margin, 2),
             "streets_crossed": crossed_streets(a, b)},
@@ -241,21 +291,28 @@ def read():
             "measured": boundary,
             "divergence_over_the_leg_m": round(divergence, 3),
             "bearing_difference_deg": round(math.degrees(math.atan2(divergence, length)), 3),
-            "refused": "The two are 16 m apart at Hubbard and 23 m apart at Ohio. An "
-                       "identification would CLOSE over 288 m; these diverge, so the "
-                       "refusal rests on bearing and not on an offset that could be "
-                       "argued away inside the registration's RMS."},
+            "refused": f"The two are {boundary[0]['leg_west_of_boundary_m']:.0f} m apart where "
+                       f"the leg enters the grid and {boundary[1]['leg_west_of_boundary_m']:.0f}"
+                       f" m apart at Ohio. An identification would CLOSE over {length:.0f} m; "
+                       "these diverge, so the refusal rests on bearing and not on an offset "
+                       "that could be argued away inside the registration's RMS."},
         "it_decides_no_building": {
             "nearest_structure": nearest[2] if nearest else None,
             "clearance_m": round(nearest[0], 2) if nearest else None,
             "along_the_leg_m": round(nearest[1], 2) if nearest else None,
-            "drift_at_that_point_m": round(limits.drift_m(nearest[1]), 2) if nearest else None},
-        "what_would_change_this": "A north-south rule read on Jefferson's line on some "
-                                  "other sheet, or a surviving intersection north of "
-                                  "Hubbard. Neither exists in this corpus: modern "
-                                  "Jefferson does not survive north of Hubbard Street, "
-                                  "and Wright is the only surveyor in this corpus who "
-                                  "draws this ground at all.",
+            "drift_at_that_point_m": round(limits.drift_m(nearest[1]), 2) if nearest else None,
+            "sides_left_unstated": sorted(unstated),
+            "why_unstated": "T-2018. Cut back to Kinzie, the leg is extrapolated past the two "
+                            "Wabansia placements on block 59, and its drift reaches both. "
+                            "data/reconstruction/1835_corporation_limits.json lists them in "
+                            "`sides_unstated`, so this reading prices the leg against the "
+                            "nearest building whose side it would actually be deciding."},
+        "what_would_change_this": "A north-south rule read on Jefferson's line on a "
+                                  "sheet of 1835 or earlier. None exists in this corpus: "
+                                  "Wright is the only surveyor in it who draws this ground "
+                                  "at all. Modern Jefferson does survive to Hubbard, but a "
+                                  "modern junction dates the street's later extension "
+                                  "through Wabansia, not its 1835 line (T-2018).",
     }
 
 
@@ -264,6 +321,12 @@ def read():
 
 def problems(r: dict) -> list[str]:
     found = []
+    before = r["the_ground_it_crosses"]["before_the_grid_m"]
+    if before > BEFORE_THE_GRID_MAX_M:
+        found.append(f"the leg runs {before} m north of its committed end before it reaches "
+                     "Wabansia's grid, more than Kinzie's own half-corridor "
+                     f"({BEFORE_THE_GRID_MAX_M:.1f} m), so it crosses ground no reading here "
+                     "accounts for")
     if r["the_ground_it_crosses"]["stations_off_the_platted_grid"]:
         found.append("the leg no longer stands on Wabansia's platted ground the whole "
                      "way: stations "
@@ -385,6 +448,9 @@ def self_test() -> int:
     broken = json.loads(json.dumps(r))
     broken["the_ground_it_crosses"]["stations_off_the_platted_grid"] = [0, 1]
     cases.append(("a leg that has left Wabansia's platted ground", broken))
+    broken = json.loads(json.dumps(r))
+    broken["the_ground_it_crosses"]["before_the_grid_m"] = 120.0
+    cases.append(("a leg whose end stands a block short of Wabansia", broken))
     broken = json.loads(json.dumps(r))
     for row in broken["no_corridor_is_drawn_here"]["measured"]:
         row["leg_east_of_corridor_east_rule_m"] = 3.0
