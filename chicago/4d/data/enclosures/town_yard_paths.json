@@ -101,6 +101,13 @@
     "recon_1835_blk_school_section_tier_119_d5_06",
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07",
+    "recon_1835_blk_school_section_tier_81_d3_05",
+    "recon_1835_blk_school_section_tier_81_d4_03",
+    "recon_1835_blk_school_section_tier_81_d4_04",
+    "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d5_06",
+    "recon_1835_blk_school_section_tier_81_d6_01",
+    "recon_1835_blk_school_section_tier_81_d7_07",
     "recon_1835_blk_south_water_clark_c2_06",
     "recon_1835_blk_south_water_clark_d1_04",
     "recon_1835_blk_south_water_clark_d3_03",
@@ -5232,6 +5239,150 @@
       ],
       [
         [
+          95.58,
+          -630.19
+        ],
+        [
+          96.44,
+          -629.89
+        ],
+        [
+          83.45,
+          -592.15
+        ],
+        [
+          82.59,
+          -592.45
+        ]
+      ],
+      [
+        [
+          125.46,
+          -546.08
+        ],
+        [
+          124.6,
+          -545.78
+        ],
+        [
+          111.82,
+          -582.44
+        ],
+        [
+          112.68,
+          -582.74
+        ]
+      ],
+      [
+        [
+          124.76,
+          -629.91
+        ],
+        [
+          125.62,
+          -629.61
+        ],
+        [
+          112.68,
+          -592.15
+        ],
+        [
+          111.82,
+          -592.45
+        ]
+      ],
+      [
+        [
+          155.02,
+          -544.36
+        ],
+        [
+          154.16,
+          -544.07
+        ],
+        [
+          141.04,
+          -582.44
+        ],
+        [
+          141.91,
+          -582.74
+        ]
+      ],
+      [
+        [
+          154.41,
+          -632.6
+        ],
+        [
+          155.27,
+          -632.31
+        ],
+        [
+          141.9,
+          -592.16
+        ],
+        [
+          141.04,
+          -592.45
+        ]
+      ],
+      [
+        [
+          183.82,
+          -546.6
+        ],
+        [
+          182.96,
+          -546.3
+        ],
+        [
+          170.28,
+          -582.44
+        ],
+        [
+          171.14,
+          -582.74
+        ]
+      ],
+      [
+        [
+          180.56,
+          -630.14
+        ],
+        [
+          181.44,
+          -629.9
+        ],
+        [
+          171.1,
+          -592.18
+        ],
+        [
+          170.22,
+          -592.43
+        ]
+      ],
+      [
+        [
+          182.6,
+          -629.93
+        ],
+        [
+          183.5,
+          -630.1
+        ],
+        [
+          187.97,
+          -606.94
+        ],
+        [
+          187.07,
+          -606.77
+        ]
+      ],
+      [
+        [
           487.19,
           -633.82
         ],
@@ -6869,6 +7020,46 @@
       "lot": "blk_wabansia_c_t7_lot1",
       "from": "wabansia_doctors_house",
       "to": "wabansia_doctors_barn"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot1",
+      "from": "recon_1835_blk_school_section_tier_81_d6_01",
+      "to": "privy_blk_school_section_tier_81_lot1"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot2",
+      "from": "recon_1835_blk_school_section_tier_81_d5_02",
+      "to": "privy_blk_school_section_tier_81_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot3",
+      "from": "recon_1835_blk_school_section_tier_81_d4_03",
+      "to": "privy_blk_school_section_tier_81_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot4",
+      "from": "recon_1835_blk_school_section_tier_81_d4_04",
+      "to": "privy_blk_school_section_tier_81_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot5",
+      "from": "recon_1835_blk_school_section_tier_81_d3_05",
+      "to": "privy_blk_school_section_tier_81_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot6",
+      "from": "recon_1835_blk_school_section_tier_81_d5_06",
+      "to": "privy_blk_school_section_tier_81_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot7",
+      "from": "recon_1835_blk_school_section_tier_81_d7_07",
+      "to": "privy_blk_school_section_tier_81_lot7"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot7",
+      "from": "recon_1835_blk_school_section_tier_81_d7_07",
+      "to": "recon_1835_blk_school_section_tier_81_a2_08"
     },
     {
       "lot": "blk_school_section_tier_118_lot1",
