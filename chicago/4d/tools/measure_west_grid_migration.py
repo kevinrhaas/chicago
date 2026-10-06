@@ -113,6 +113,9 @@ OWNS_THE_MOVE: tuple[str, ...] = ()
 # out of the same committed file, rather than the block ids being named in either place.
 PARCELS = DATA / "reconstruction" / "1835_platted_block_parcels.json"
 WEST_MODULE = "west_division_thompson_1830"
+# The one cell that prints a depth of its own: plat block 50 reads lots 180 ft deep and
+# withholds the frontage (T-2148), so refusal 2 holds for it on the frontage alone.
+PRINTS_ITS_DEPTH = {50: 180}
 
 
 def load(path: pathlib.Path):
@@ -661,10 +664,14 @@ def self_test() -> int:
         if not cond:
             fail.append(msg)
 
-    # 1. The pair is the two the West Division grid gave up, and only those two.
-    ck(len(d["blocks"]) == 2, "exactly two cells stand in both grids")
-    ck([b["plat_block_number"] for b in d["blocks"]] == [28, 45],
-       "the two cells are plat blocks 28 and 45")
+    # 1. The cells are the ones the West Division grid gave up, and only those. T-2148
+    #    carried Clinton to Madison and so put plat block 50 between Clinton and Canal
+    #    onto the Original Town's west tier, the third such cell; it arrived here on its
+    #    own, as this measurement was written to let it, and it was cut on the West
+    #    module from the start.
+    ck(len(d["blocks"]) == 3, "exactly three cells stand in both grids")
+    ck([b["plat_block_number"] for b in d["blocks"]] == [28, 45, 50],
+       "the three cells are plat blocks 28, 45 and 50")
 
     # 2. The disagreement this ticket exists for: the sheet counts ten, the layer cuts
     #    eight, and the sheet's count is documented. If these ever meet, the ticket is done.
@@ -705,8 +712,11 @@ def self_test() -> int:
     #    dimension, therefore withheld. A figure appearing on the sheet retires it.
     for b in d["blocks"]:
         r = b["refusal_2_this_block_prints_no_dimension"]
-        ck(r["lot_depth_ft"] is None and r["lot_frontage_ft"] is None,
-           f"block {b['plat_block_number']}: neither dimension may be printed")
+        ck(r["lot_frontage_ft"] is None,
+           f"block {b['plat_block_number']}: no frontage may be printed")
+        ck(r["lot_depth_ft"] == PRINTS_ITS_DEPTH.get(b["plat_block_number"]),
+           f"block {b['plat_block_number']}: the depth printed must be the sheet's "
+           f"own ({PRINTS_ITS_DEPTH.get(b['plat_block_number'])}); read {r['lot_depth_ft']}")
 
     # 5. The seating is what makes this a re-seat rather than a layer edit. If it ever
     #    falls to nothing, the move becomes cheap and this measurement is stale.
@@ -732,8 +742,8 @@ def self_test() -> int:
     #     ruling authorised, or a cell held for a deal it does not carry, is a grid saying
     #     one thing and a record saying another.
     states = sorted(b["state"] for b in d["blocks"])
-    ck(states == ["transposed", "transposed"],
-       "BOTH cells must be transposed. T-1733 cut block 28, which carried no deal, and "
+    ck(states == ["transposed"] * 3,
+       "EVERY cell must be transposed (block 50 was never held). T-1733 cut block 28, which carried no deal, and "
        "T-1734 cut block 45 after re-arguing the deal that held it; a cell reading `held` "
        "again means a parcel has come back onto it without `frontage_argued_on`, or one "
        "of the two tickets has been reverted. This is the assertion that was the other "

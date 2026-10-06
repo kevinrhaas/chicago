@@ -39,7 +39,7 @@ The remedy reaches 26% of what it was asked to remedy. The other 74% is not owed
 
 414 people stand in 53 of the 53 refused buckets once every move the rule yields has been made. 0 bucket(s) clear completely.
 
-T-1558 measured the ceilings, each loosening one more axis than the one above it: 3 if only the division changed, 18 if the household kind changed too, 79 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
+T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 16 if the household kind changed too, 77 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else.
 
 | sex | age band | still held |
 |---|---|---:|
@@ -76,17 +76,17 @@ Read from `data/reconstruction/1835_reconstruction_order_book.json § re_family_
 ## What the town converges to
 
 - standing in the layer: 2,926
-- still owed now: 223
-- still owed when the programme is spent: 223
-- converges to now: 3,149
-- converges to when the programme is spent: 3,149
-- 3,149 is inside the model's 2,369-3,265 and 601 above its 2,548 point, against 601 above it today.
+- still owed now: 215
+- still owed when the programme is spent: 215
+- converges to now: 3,141
+- converges to when the programme is spent: 3,141
+- 3,141 is inside the model's 2,369-3,265 and 593 above its 2,548 point, against 593 above it today.
 
-The rule's own projection of 3,007 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
+The rule's own projection of 2,999 is NOT used here, and the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix.
 
 ## What would move the remainder
 
-- **more_orders_in_the_women_and_children_cells** (T-1532, T-1536, T-1538 (the lodging band) and the book itself) — The binding constraint is room, not willingness: the surplus is 238 people under twenty and 112 adult women, and their cells hold 13 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.
+- **more_orders_in_the_women_and_children_cells** (T-1532, T-1536, T-1538 (the lodging band) and the book itself) — The binding constraint is room, not willingness: the surplus is 238 people under twenty and 112 adult women, and their cells hold 13 and 0 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.
 - **a_ruling_that_an_adoption_may_be_RE_SEATED** (the business staffing band (T-1189 and its successors)) — 201 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.
 - **the_22_seated_households** (T-1199) — 73 people are refused because their roof is already placed. A re-family that also re-seats the roof is a placement act, and the placement policy owns it.
 - **and_the_honest_alternative** (T-1560, the programme's report) — What is left standing after the rule is spent is a remainder that NOTHING can move, and T-1459's ruling says it is held rather than clamped. The book will go on naming both numbers per bucket, which is the state the owner's ruling improved on rather than abolished.
