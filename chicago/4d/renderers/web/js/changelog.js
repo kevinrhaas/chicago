@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1507, ts: '2026-10-06T00:32:51.060Z', date: 'Oct 5, 2026, 7:32 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
+  { v: null, ts: '', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
     items: [
       'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
       'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
       'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
-      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L392).',
+      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L393).',
+    ] },
+  { v: 1508, ts: '2026-10-06T00:05:54.393Z', date: 'Oct 5, 2026, 7:05 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+    items: [
+      'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
+      'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
+      'The doctor\u2019s card now says he came from Vermont, as an 1895 history of Chicago records. Pruyne\u2019s card keeps the store, and his own arrival year: early 1833, when the shop opened.',
+      'Pruyne no longer gets an invented wife and children. The record has him marrying Rebecca Sherman on 20 August 1835, seven weeks after the day the town shows.',
+    ] },
+  { v: 1507, ts: '2026-10-05T23:12:37.341Z', date: 'Oct 5, 2026, 6:12 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
+    items: [
+      'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
+      'This is the ground of 15 August 1812. An 1895 history describes the bank there as ten to twenty feet above the water, with sand hills \u201cnot high and not continuous\u201d. A 1913 account puts the row of hills about a hundred yards back from the beach. The column marched on the beach, and the beach is unchanged.',
+      'No source places any single hill, so where each one stands and how high it is are our reconstruction. The Liberties page says so.',
     ] },
   { v: 1506, ts: '2026-10-05T22:21:46.692Z', date: 'Oct 5, 2026, 5:21 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
     items: [

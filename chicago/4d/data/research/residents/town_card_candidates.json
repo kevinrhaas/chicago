@@ -4,7 +4,7 @@
  "generated_by": "tools/consolidate_town_cards.py --apply",
  "ticket": "T-0839",
  "counts": {
-  "town_people": 1441,
+  "town_people": 1442,
   "open_clusters": 21,
   "cards_in_open_clusters": 45,
   "rulings": {
@@ -293,7 +293,7 @@
   {
    "cluster": "kimberley",
    "survivor": "kimberly_edmund_s",
-   "survivor_household": "hh_pruyne_kimberly",
+   "survivor_household": "hh_kimberly_edmund_s",
    "survivor_on_the_cards": true,
    "folded": [
     "kimberley_ed"
@@ -303,7 +303,7 @@
   {
    "cluster": "kimberly",
    "survivor": "kimberly_edmund_s",
-   "survivor_household": "hh_pruyne_kimberly",
+   "survivor_household": "hh_kimberly_edmund_s",
    "survivor_on_the_cards": true,
    "folded": [
     "kimberly_e_s",

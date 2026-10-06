@@ -114,26 +114,26 @@
   "the_town_the_book_counts": "present households only",
   "people_before_this_stage": 894,
   "people_after_this_stage": 1450,
-  "households_before_this_stage": 464,
-  "households_after_this_stage": 588,
+  "households_before_this_stage": 465,
+  "households_after_this_stage": 589,
   "female_headed_households_after": 149,
-  "female_headed_share_after": 0.2534,
+  "female_headed_share_after": 0.253,
   "female_headed_share_1840": "not carried: the committed 1840 extract tallies a household's members by sex and age and records no sex for its head, so no measured share exists to compare this one against",
   "why_the_shares_are_not_yet_in_bracket": "THE COUNTS ARE MET AND THE SHARES ARE NOT, and that is a reading of a town half built rather than a defect of this stage. Every one of this stage's 24 buckets is filled to the number the order book asked for - `this_stage_s_buckets_left_short` is 0 - and those numbers were cut against the model's WHOLE town of 2,535 people. The layer this stage hands on holds about half of it, because the boarders, lodgers, hotel guests and crews (T-1175), the garrison (T-1349), the under-documented cohorts (T-1177) and the transients (T-1178) are not written yet and they are overwhelmingly adult and overwhelmingly male. So the children this stage seated are a larger share of a smaller town than they will be of the finished one, and the adult sex ratio is nearer the model than it was (340.2 -> 161.4) without reaching it. Reporting either as met here would be the invention this programme exists to refuse; T-1179 converges the layer and re-runs the profile.",
   "adults_after_this_stage": {
    "male": 487,
-   "female": 243
+   "female": 244
   },
-  "adult_sex_ratio_before": 409.2,
-  "adult_sex_ratio_after": 200.4,
+  "adult_sex_ratio_before": 405.8,
+  "adult_sex_ratio_after": 199.6,
   "the_model_s_range": [
    120.9,
    150.0
   ],
   "inside_the_model_s_range": false,
   "age_pyramid_after": {
-   "10_19": 302,
-   "20_29": 395,
+   "10_19": 301,
+   "20_29": 396,
    "30_39": 233,
    "40_49": 65,
    "50_plus": 37,

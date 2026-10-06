@@ -41,13 +41,13 @@
   },
   "counts": {
     "records_with_associations": 76,
-    "rows": 81,
-    "undated_rows": 2,
+    "rows": 82,
+    "undated_rows": 3,
     "by_kind": {
       "business_premises": 1,
       "church": 19,
       "civic_seat": 5,
-      "home": 1,
+      "home": 2,
       "land_purchased": 51,
       "lodging": 1,
       "school": 2,
@@ -55,12 +55,12 @@
     },
     "by_resolves_to": {
       "face": 5,
-      "structure": 25,
+      "structure": 26,
       "tract": 51
     },
     "by_tier": {
       "attested": 23,
-      "inferred": 58
+      "inferred": 59
     }
   }
 }

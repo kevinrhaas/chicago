@@ -5,7 +5,7 @@
   `blk_indiana_north_cass` (6), both already at the memo's four-roof ceiling, stand instead
   in the memo's three inner clusters south of Michigan Street: recipe rows 68-93 of
   `1835_north_division_initial_parcel.json` (`addition_surplus`), family for family.
-  Recorded in the memo's new section and **L392**.
+  Recorded in the memo's new section and **L393**.
 - **Visible**: 26 new houses north of the river (9 on Kinzie's north face, 5 on its south
   face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
   school house were rebaked for the siding re-deal their new neighbours caused.
@@ -15,7 +15,7 @@
   all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
 - **Laid onto dev's T-2062/T-2132/T-1726/T-2144**: a salvage of a cancelled run, finished by
   merging `dev` and walking the seating chain and the keeper pass to their fixpoint. The
-  liberty was renumbered L391 -> **L392** (T-2062 took L391). Three of the 26 (rows 76, 90, 93)
+  liberty was renumbered L391 -> L392 -> **L393** (T-2062 took L391, T-2066 L392). Three of the 26 (rows 76, 90, 93)
   stood 69-92 m from any street corridor and moved `FRONTAGE_REACH_M`'s measured band from
   66.06-85.10 m to 142.58-223.16 m (the self-test refuses that); they were re-searched under a
   fourth predicate, at most 58 m from a corridor, and moved 6, 47 and 45 m. The band reads

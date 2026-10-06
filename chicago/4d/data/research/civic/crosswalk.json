@@ -171,15 +171,15 @@
     {
       "pass": "T-0493",
       "a": "Ed. S. Kimberly",
-      "b": "Ira Kimberly",
-      "rule": "The surname agrees and the forenames do not: 'Ed. S. Kimberly' against 'Ira Kimberly'. A surname match is a clue, not an identity.",
+      "b": "Dr Edmund Stoughton Kimberly",
+      "rule": "The surname agrees and the forenames do not: 'Ed. S. Kimberly' against 'Dr Edmund Stoughton Kimberly'. A surname match is a clue, not an identity.",
       "evidence": [
         {
           "source_id": "chicago_voter_lists_1833_1835_irad",
           "locator": "poll_1833 line 37"
         },
         {
-          "resident": "kimberly_ira"
+          "resident": "kimberly_edmund_s"
         }
       ]
     },

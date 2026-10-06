@@ -246,7 +246,7 @@ its trade roofs, and Michigan Street stays a sparse outer edge. Each centre was 
 deterministic search against the generator's own tests and three more, measured at the deal:
 at least 14 m from every committed roof (an open yard between every pair, no street wall), at
 least 25 m from every named structure, and inside the initial occupied envelope. None is a
-reading of a source (L392).
+reading of a source (L393).
 
 A fourth predicate was added when this branch was laid onto T-2132's `dev`: **no more than
 58 m from a street corridor**, the body of the frontage census (`tools/measure_frontage_fabric.py`).

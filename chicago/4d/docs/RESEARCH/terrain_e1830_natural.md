@@ -110,3 +110,10 @@ decide it.
   and wiring that map is the generator's job. The gate refuses the collision until then.
 * **Liberties:** L362 (the isthmus), L363 (the shore north of the root) and L364 (the stage and
   the outlet bed).
+* **The sand hills south of Twelfth Street (T-2066, L392).** That ground was a flat 9.4 ft plateau.
+  It now carries the 1812-only block `south_lake_sand_hills_1812`, a reach of the 1834 dune
+  machinery appended to the carried `dunes` by `terrain_gen_e1830.field_spec`. It has a bank centred
+  40 m back from the water and Quaife's row of hills at a hundred yards, both broken into hills
+  20–40 m across, with a swale between. It rests on Moses & Kirkland pp. 49–50 and 60 and Quaife
+  p. 226, the readings `1812_evacuation_readings.json § landform` already spends on the route.
+  30–120 m inland the ground now runs 7.9–18.5 ft.

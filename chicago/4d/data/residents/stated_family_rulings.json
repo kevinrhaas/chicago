@@ -92,10 +92,6 @@
    "verdict": "not_present",
    "why": "The source that names her supersedes her in the same sentence: 'he married first Mah-naw-bun-no-quah, an Ottawa woman, the mother of his sons Charles Henry and Madore; and in 1812 he married Josette LaFramboise'. The second wife is the wife this household carries on the scene date and she is already seated in it. Nothing this project has read places Mah-naw-bun-no-quah in the household in 1835 and this pass will not seat an Ottawa woman on a 'first wife' clause alone - a reconstruction touching a Native person is confined by the programme to the stage that carries the Indigenous-history review (T-1177), and a reading this thin is not a reason to reach past it. Her sons Charles Henry and Madore both stand on their own cards, so what the sentence documents about this family is in the layer."
   },
-  "marriage:hh_pruyne_kimberly:marie_theresa_ellis_may": {
-   "verdict": "no_seat",
-   "why": "NAMED, REAL, AND THIS LAYER HAS NOWHERE TO PUT HER. 'married Marie Theresa Ellis May 16, 1829' belongs to Dr Edmund Stoughton Kimberly, who is not the head of this household: he is the `partner` inside `hh_pruyne_kimberly`, which is the drug-store partnership's card and whose head is Peter Pruyne. `relationship` states a person's place inside ONE household, so writing her here as 'wife' would read as Pruyne's wife, and there is no Kimberly dwelling in this layer to hold her instead. The finding is recorded rather than forced: a named wife who needs a household the structure and lodging work has not built yet. (The reading is also one token long - 'Marie Theresa Ellis May 16, 1829' runs the name into the date - which is a second reason not to write it as printed.)"
-  },
   "marriage:hh_paddock_jane:jane_paddock": {
    "verdict": "insufficient_identity",
    "why": "The card refuses this bridge in the same breath as it prints it: 'Cook County history says Samuel Mahaffay, a Palos settler of 1834, married Jane Paddock in 1835. Palos geography and absence of a direct Chicago bridge prevent asserting that this is the May 1835 postal person.' The head of this household is Jane Paddock herself, and the husband the sentence names is a man in another settlement whom the card declines to attach to her."
@@ -139,6 +135,20 @@
   "kin:st_marys_bapt_1833_12_3_mother__parent_of__st_marys_bapt_1833_12_1_child": {
    "verdict": "insufficient_identity",
    "why": "The register states the relation plainly — entry 12 of 1833 baptises 'Isabelle[?] daughter of Andrew and Adelaide Bouchard, born the eighth of May eighteen hundred & thirty three' — and the mother is a head this layer carries. What the reading does not reach is the CHILD. The transcriber bracketed her forename: the row is graded `inferred`, its own note says 'the forename is written small and the first syllable is not certain', and the surname is the father's rather than anything the entry writes for her. The civic mint refuses her on exactly that ground — `REFUSE id_bouchard_isabelle: the transcription bracketed the name as uncertain` — and a pass that declines to mint an uncertain forename may not seat the same uncertain forename through the kin door instead. Her brother Louis, baptised on the same day out of the same entry pair with an unbracketed name, stands on his own card, so the household this register documents is in the layer; what is missing is a name this project can assert. A scan reading that settles the first syllable retires this ruling and the person becomes landable."
+  },
+  "marriage:hh_kimberly_edmund_s:marie_theresa_ellis_may": {
+   "verdict": "write",
+   "why": "RE-RULED BY T-2140, BECAUSE THE ONE OBSTACLE THE OLD VERDICT NAMED IS GONE. This was `no_seat`: the marriage 'married Marie Theresa Ellis May 16, 1829' belongs to Dr Edmund Stoughton Kimberly, who was then the `partner` inside the Pruyne-Kimberly drug-store partnership's card, so writing her there as 'wife' would have read as Pruyne's wife and there was no Kimberly household to hold her. T-2140 split the partnership and Kimberly now heads hh_kimberly_edmund_s. She is the named wife of a head this layer carries, which is the person the Welthyan Loomis Harmon ruling writes, and she is written on the same rule and graded the same way. THE READING RUNS THE NAME INTO THE DATE ('Ellis May 16') and the name is written without the month: Marie Theresa Ellis, married Kimberly. Nothing places her at Chicago on 1 July 1835 and the note says so.",
+   "write": {
+    "id": "kimberly_marie_theresa",
+    "name": "Marie Theresa Ellis Kimberly",
+    "relationship": "wife",
+    "sex": "female",
+    "sources": [
+     "history_medicine_chicago_kimberly_maxwell"
+    ],
+    "note": "NAMED AND DATED IN THE SOURCE - the history of medicine in Chicago gives Dr Edmund Stoughton Kimberly's marriage as 'married Marie Theresa Ellis May 16, 1829', three years before he came to Chicago and six before the scene date. The printed line runs her name into the month; 'May' is the month and not a surname. WHAT THE SOURCE DOES NOT SAY: it does not say she came west with him, and nothing in this project places her at Chicago on 1 July 1835. She is written because a named wife of a named head is the person this layer exists to record, and the presence on the day is the reconstruction, not the marriage. Her household was split out of the Pruyne-Kimberly partnership by T-2140 and stands on Bonnell's 'residence of Dr. Kimball' east of the Lake House; she is seated there because her husband is, and no source puts her in that house. No age, no occupation and no arrival is claimed for her."
+   }
   }
  }
 }

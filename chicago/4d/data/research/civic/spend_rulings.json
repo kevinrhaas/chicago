@@ -69,7 +69,7 @@
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1833_016",
       "rule": "the_roll_names_a_person_the_town_does_not_hold",
-      "note": "Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833, entry 16 (1833-08-10) enters 'Kimberly, Ed. S.' read as 'Ed. S. Kimberly', and the town's households hold no one the crosswalk can join it to: no resident of the surname 'Kimberly' agrees with the entry's forenames (3 bearer(s) of the surname considered), and no bridge row carries the entry."
+      "note": "Poll list of the first election of the Board of Trustees of the Town of Chicago, 10 August 1833, entry 16 (1833-08-10) enters 'Kimberly, Ed. S.' read as 'Ed. S. Kimberly', and the town's households hold no one the crosswalk can join it to: no resident of the surname 'Kimberly' agrees with the entry's forenames (4 bearer(s) of the surname considered), and no bridge row carries the entry."
     },
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1833_022",
@@ -249,7 +249,7 @@
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1834_064",
       "rule": "a_roll_agreeing_on_surname_alone_is_never_a_merge",
-      "note": "Election returns — poll list of 1834, filed 11 August 1834, entry 64 (1834-08-11) enters 'Kimberly, Edmund L.' read as 'Edmund L. Kimberly'. The crosswalk calls it a candidate and not a match (candidate {'source': 'census_1835_bridge_candidates.json', 'row': 22, 'preferred_name': 'Edmund S Kimberly', 'tier': 'A — CONFIRMED 1835 VOTER', 'recommendation': 'INCLUDE'}; rivals: no single bearer): no resident of the surname 'Kimberly' agrees with the entry's forenames (3 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
+      "note": "Election returns — poll list of 1834, filed 11 August 1834, entry 64 (1834-08-11) enters 'Kimberly, Edmund L.' read as 'Edmund L. Kimberly'. The crosswalk calls it a candidate and not a match (candidate {'source': 'census_1835_bridge_candidates.json', 'row': 22, 'preferred_name': 'Edmund S Kimberly', 'tier': 'A — CONFIRMED 1835 VOTER', 'recommendation': 'INCLUDE'}; rivals: no single bearer): no resident of the surname 'Kimberly' agrees with the entry's forenames (4 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
     },
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1834_084",
@@ -294,7 +294,7 @@
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1835_039",
       "rule": "a_roll_agreeing_on_surname_alone_is_never_a_merge",
-      "note": "Poll list of 1835, entry 39 (1835) enters 'Kimberly, Edmund L.' read as 'Edmund L. Kimberly'. The crosswalk calls it a candidate and not a match (candidate {'source': 'census_1835_bridge_candidates.json', 'row': 22, 'preferred_name': 'Edmund S Kimberly', 'tier': 'A — CONFIRMED 1835 VOTER', 'recommendation': 'INCLUDE'}; rivals: no single bearer): no resident of the surname 'Kimberly' agrees with the entry's forenames (3 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
+      "note": "Poll list of 1835, entry 39 (1835) enters 'Kimberly, Edmund L.' read as 'Edmund L. Kimberly'. The crosswalk calls it a candidate and not a match (candidate {'source': 'census_1835_bridge_candidates.json', 'row': 22, 'preferred_name': 'Edmund S Kimberly', 'tier': 'A — CONFIRMED 1835 VOTER', 'recommendation': 'INCLUDE'}; rivals: no single bearer): no resident of the surname 'Kimberly' agrees with the entry's forenames (4 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
     },
     {
       "unit": "civic:data/research/civic/records/voter_lists_1833_1835.json#records/poll_1835_057",
