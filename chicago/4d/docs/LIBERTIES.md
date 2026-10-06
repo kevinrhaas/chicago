@@ -21821,7 +21821,7 @@ yard buildings at the alley ends of those five lots: a stable (A1), three barns 
 sheds (A2), two woodsheds (A4) and two small utility sheds (A5). The family mix and the ceiling
 are the 665-roof programme's schedule; **everything below that is invented** — that any building
 stood on these lots in July 1835, which buildings they were, which lot each took, how far back
-from Canal each sits (6.0, 4.5, 7.0, 5.0 and 6.5 m) and how far to one side of its lot. No
+from Canal each sits (6.0, 1.7, 7.0, 5.0 and 6.5 m; the boarding house stands on the street line, where `lodging_near_the_landings` puts every H3) and how far to one side of its lot. No
 coordinate is authored: every metre is read off the committed lot polygon from the recipe entry
 in `data/reconstruction/1835_platted_block_parcels.json`.
 
