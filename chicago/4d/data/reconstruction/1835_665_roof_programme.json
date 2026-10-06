@@ -115,8 +115,8 @@
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 320,
-   "larger_boarding_houses": 41,
+   "ordinary_dwellings": 321,
+   "larger_boarding_houses": 40,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
    "workshops": 31,
@@ -137,10 +137,10 @@
    "C3": 16,
    "C4": 4,
    "D1": 56,
-   "D2": 37,
+   "D2": 36,
    "D3": 65,
    "D4": 71,
-   "D5": 46,
+   "D5": 48,
    "D6": 27,
    "D7": 18,
    "F1": 8,
@@ -148,7 +148,7 @@
    "F3": 0,
    "F4": 1,
    "H1": 18,
-   "H2": 15,
+   "H2": 14,
    "H3": 8,
    "I1": 4,
    "I2": 2,
@@ -199,8 +199,8 @@
   "by_district_group": {
    "south": {
     "barns_stables": 2,
-    "larger_boarding_houses": 1,
-    "ordinary_dwellings": 15,
+    "larger_boarding_houses": 2,
+    "ordinary_dwellings": 14,
     "small_outbuildings": 1,
     "warehouses_freight": 4
    },
@@ -217,7 +217,7 @@
   },
   "by_family": {
    "A1": 1,
-   "A2": 4,
+   "A2": 3,
    "A3": 1,
    "A4": 2,
    "A5": 3,
@@ -226,7 +226,7 @@
    "C3": 1,
    "C4": 1,
    "D1": 0,
-   "D2": 1,
+   "D2": 2,
    "D3": 0,
    "D4": 4,
    "D5": 4,
@@ -254,27 +254,29 @@
   },
   "by_district_family": {
    "south": {
-    "A2": 2,
-    "H3": 1,
-    "D2": 1,
-    "D4": 6,
+    "A1": 1,
+    "A2": 1,
+    "H3": 2,
+    "D2": 2,
+    "D4": 5,
     "D5": 5,
-    "D6": 3,
+    "D6": 2,
     "A5": 1,
     "F2": 1,
     "F3": 2,
     "F4": 1
    },
    "west": {
-    "A2": 2,
+    "A1": 1,
+    "A2": 1,
     "A3": 1,
     "A4": 2,
     "A5": 2,
     "F3": 1
    },
    "north": {
-    "A1": 1,
-    "A2": 5,
+    "A1": 2,
+    "A2": 4,
     "F3": 1
    },
    "fort": {}
@@ -283,13 +285,12 @@
    "C1": 1,
    "C2": 1,
    "D1": 4,
-   "H2": 1,
    "T2": 3,
    "W5": 3
   },
   "absorbed_from": {
-   "D5": 8,
-   "A2": 5
+   "D5": 6,
+   "A2": 6
   },
   "district_group_rows_overshot": {},
   "district_group_slots_shed": {}
@@ -370,7 +371,7 @@
    "state": "open",
    "roofs": 4,
    "families": {
-    "A2": 1,
+    "A1": 1,
     "D4": 1,
     "D5": 1,
     "F3": 1
@@ -452,8 +453,8 @@
    "state": "open",
    "roofs": 4,
    "families": {
-    "A5": 1,
-    "D4": 1,
+    "A2": 1,
+    "D2": 1,
     "D6": 1,
     "F2": 1
    },
@@ -846,8 +847,8 @@
    "state": "open",
    "roofs": 5,
    "families": {
+    "A1": 1,
     "A2": 1,
-    "A3": 1,
     "A4": 1,
     "A5": 1,
     "F3": 1
@@ -1523,8 +1524,8 @@
    "state": "open",
    "roofs": 7,
    "families": {
-    "A1": 1,
-    "A2": 5,
+    "A1": 2,
+    "A2": 4,
     "F3": 1
    },
    "principal": 1,
@@ -2451,11 +2452,9 @@
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
    "roofs": 8,
    "families": {
-    "A2": 1,
-    "D2": 1,
-    "D4": 2,
-    "D5": 2,
-    "D6": 1,
+    "A5": 1,
+    "D4": 3,
+    "D5": 3,
     "H3": 1
    },
    "principal": 7,
@@ -2512,7 +2511,7 @@
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
    "roofs": 1,
    "families": {
-    "D5": 1
+    "D2": 1
    },
    "principal": 1,
    "ancillary": 0,
@@ -2595,11 +2594,12 @@
    "lots_note": "eight lots assumed from the emitted blocks' own subdivision; the block itself is not generated, so it has no measured geometry",
    "roofs": 6,
    "families": {
-    "D4": 2,
+    "D4": 1,
     "D5": 1,
     "D6": 1,
     "F3": 1,
-    "F4": 1
+    "F4": 1,
+    "H3": 1
    },
    "principal": 6,
    "ancillary": 0,
@@ -2676,7 +2676,7 @@
    "surplus_headroom": 20,
    "roofs": 3,
    "families": {
-    "A2": 1,
+    "A3": 1,
     "A4": 1,
     "A5": 1
    },

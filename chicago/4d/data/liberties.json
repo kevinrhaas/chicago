@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 420,
+  "count": 421,
   "liberties": [
     {
       "id": "L1",
@@ -26448,6 +26448,203 @@
         {
           "label": "Recorded",
           "text": "2026-10-06 (T-2145)."
+        }
+      ]
+    },
+    {
+      "id": "L397",
+      "title": "Thirteen invented houses on the School Section tier's Wells blocks south of Madison",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_blk_school_section_tier_94_d3_05",
+        "recon_1835_blk_school_section_tier_94_d4_04",
+        "recon_1835_blk_school_section_tier_94_d5_02",
+        "recon_1835_blk_school_section_tier_95_d4_04"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d2_01",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d2_01",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d3_05",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d3_05",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_03",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_03",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_02",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_02",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_07",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d5_07",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d6_06",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_94_d6_06",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d2_02",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d2_02",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d4_04",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d5_03",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d5_03",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d7_06",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_d7_06",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h1_05",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h1_05",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h2_01",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_school_section_tier_95_h2_01",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-06",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Decision",
+          "text": "the School Section's Madison–Monroe tier, which T-2144 joined to the plat on the owner's T-1755 ruling (cross Madison), now carries **thirteen anonymous houses on its two Wells blocks**, one to a lot. **Block 94** (`blk_school_section_tier_94`, between the section's eighth line and Wells): on the Madison face a larger frame house (D5, lot 2), a tradesman's frame house (D4, lot 4) and a storey-and-a-half cottage (D6) on the Wells corner; on the Monroe face a labourer's shanty (D2) on the west corner, a D4, a one-room cottage (D3) and a second D5 on the Wells corner. **Block 95** (`blk_school_section_tier_95`, between Wells and the section's tenth line): on the Madison face a D5 (lot 4) and a larger storey-and-a-half house (H1) on the east corner; on the Monroe face a merchant's or professional man's house (H2) on the Wells corner, a D2, a D4 and a small two-storey frame house (D7) on the east corner. Lot 0 on each block, the west Madison corner, stays the reserved open lot. **Everything below the count is invented** — that any of these houses stood here in July 1835 (the state sold the tier's lots one by one in October 1833; nothing shows them built on), which houses they were, and where on its lot each sits. No coordinate is authored: every metre is read off the committed lot polygon by `tools/generate_block_infill.py` from the recipe entries `phase3_platted_block_school_section_tier_94` and `_95` in `data/reconstruction/1835_platted_block_parcels.json`. **Why these thirteen.** `1835_platted_seats.json` held thirteen `slot` requests on the two blocks, and every one is a family and a lot the 665-roof schedule's plan holds: on 94 the plan's whole seven (one D2, one D3, two D4, two D5, one D6); on 95 six of its seven (D2, D4, D5, D7, H1, H2). So the count, the families and the lots are the seating's and the schedule's. **What is left unbuilt, and why.** The schedule's seventh roof on block 95 is an H3 boarding house, which no banded South clause admits, so no household asks for it. It was built on this branch first and withdrawn: its beds move the lodging model, and the boarder stage (`tools/seat_lodgers_1835.py`) then draws eight lodgers out of `persons/male/10_19/south/lodging/trade` where the order book holds seven, which that stage refuses by design until its lodger basis is deliberately re-frozen. That is a lodging decision, so lot 2 is left open for it and the roof goes with the South's other owed boarding houses to T-1957."
+        },
+        {
+          "label": "Would replace",
+          "text": "any record that places a house, an owner or an occupant on a School Section lot south of Madison before July 1835 — a deed book entry with a building, a tax list, or a reminiscence naming the block."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_blk_school_section_tier_94_d2_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d2_01.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d3_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d3_05.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d4_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d4_03.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d4_04.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d5_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d5_02.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d5_07.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d5_07.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_94_d6_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_94_d6_06.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d2_02.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d2_02.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d4_04.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d4_04.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d5_03.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d5_03.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_d7_06.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_d7_06.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_h1_05.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_h1_05.inferred_1835.footprint`, `recon_1835_blk_school_section_tier_95_h2_01.inferred_1835.position`, `recon_1835_blk_school_section_tier_95_h2_01.inferred_1835.footprint`"
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2146 (piece 3 of T-1755)."
+        },
+        {
+          "label": "Related",
+          "text": "**L90** (the anonymous roofs the reconstruction programme raises), **L263**, **L270**, **L276**."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-06 (T-2146)."
         }
       ]
     },
