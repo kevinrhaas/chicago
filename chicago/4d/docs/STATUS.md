@@ -9,11 +9,11 @@ list for each block matches them to the roof, with no yard roof.
   the invention.
 - `name_the_keepers_1835.py` carries the tier as a seventh district, `school_section_tier`,
   under the same entry T-2147's branch writes (identical lines, so the two merge cleanly).
-- Seating walked to its fixpoint (tail laps, then six keeper↔seat laps): **222 seated, held**.
-  Adopted went 175 → 189 and slots went 47 → 33. All 14 who asked for these lots adopt standing
-  roofs, and 14 older households move into the new houses. 64 households change roof or lot.
+- Seating walked to its fixpoint (tail laps, then six keeper↔seat laps): **209 seated, held** (on dev after T-1746).
+  Adopted went 175 → 189 and slots went 34 → 20. All 14 who asked for these lots adopt standing
+  roofs, and 14 older households move into the new houses. 62 households change roof or lot.
   Keepers went 81 → 86.
-- Restated: **L263** 569 → 583, **L270** (count held; who moved), **L276** 81 → 86.
+- Restated: **L263** 595 → 609, **L270** (count held; who moved), **L276** 81 → 86.
 - Baked: the 14 new meshes and the 23 the keeper cascade left stale (`bake.sh --only`, pinned
   Blender, web derivatives included).
 

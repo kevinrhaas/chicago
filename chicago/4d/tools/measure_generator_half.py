@@ -461,13 +461,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # (generate_north_infill rows 68-93), all through emit.py and the common modules.
 # Terrain reach still 6 and pier_crib still 2.
 #
+# 634 -> 648 and 628 -> 642 on 2026-10-06 (T-2145): the fourteen houses on the School
+# Section tier's Clark blocks (118, 119) — D2 to D7 dwellings, all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 634,
+    "assets": 648,
     "restales": {
-        "generators/common/*.py": 634,
+        "generators/common/*.py": 648,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 628,
+        "generators/emit.py": 642,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
