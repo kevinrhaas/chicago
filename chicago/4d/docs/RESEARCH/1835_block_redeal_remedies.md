@@ -10,24 +10,32 @@ Each is an A-family yard building standing at a yard setback off its block alley
 
 **What is still not done:** The six are not re-dealt. The recipe stands them as A-family slots, no id has moved and no mesh has been rebaked — T-1611 does that, and this report is what says it now can be.
 
-- outstanding verdicts: **2**
-- refused by the parcel gate: **0**
-- offered families that would leave the inventory class alone: **0** of 12
-- open lots across the three blocks: **1**, against 2 roofs
+- outstanding verdicts: **8**
+- refused by the parcel gate: **4**
+- offered families that would leave the inventory class alone: **5** of 23
+- open lots across the three blocks: **4**, against 8 roofs
 
 ## The six, and what refuses each one
 
 | roof | becomes | stands | was | now | the refusal |
 | --- | --- | --- | --- | --- | --- |
+| `recon_1835_blk_school_section_tier_94_d2_01` | `recon_1835_blk_school_section_tier_94_d1_01` | lot 1, off the street, 4.0 m | D2 (principal_functional) | D1 (principal_functional) | blk_school_section_tier_94: two principal roofs on one lot — lot 1 already carries recon_1835_blk_school_section_tier_94_d2_01 |
+| `recon_1835_blk_school_section_tier_94_d3_05` | `recon_1835_blk_school_section_tier_94_d1_05` | lot 5, off the street, 4.5 m | D3 (principal_functional) | D1 (principal_functional) | blk_school_section_tier_94: two principal roofs on one lot — lot 5 already carries recon_1835_blk_school_section_tier_94_d3_05 |
+| `recon_1835_blk_school_section_tier_94_d4_03` | `recon_1835_blk_school_section_tier_94_a2_03` | lot 3, off the street, 5.0 m | D4 (principal_functional) | A2 (ancillary) | None |
+| `recon_1835_blk_school_section_tier_95_d2_02` | `recon_1835_blk_school_section_tier_95_d1_02` | lot 3, off the street, 4.0 m | D2 (principal_functional) | D1 (principal_functional) | blk_school_section_tier_95: two principal roofs on one lot — lot 3 already carries recon_1835_blk_school_section_tier_95_d2_02 |
+| `recon_1835_blk_school_section_tier_95_d7_06` | `recon_1835_blk_school_section_tier_95_a2_06` | lot 7, off the street, 5.0 m | D7 (principal_functional) | A2 (ancillary) | None |
+| `recon_1835_blk_school_section_tier_95_h2_01` | `recon_1835_blk_school_section_tier_95_d1_01` | lot 1, off the street, 5.0 m | H2 (principal_functional) | D1 (principal_functional) | blk_school_section_tier_95: two principal roofs on one lot — lot 1 already carries recon_1835_blk_school_section_tier_95_h2_01 |
 | `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | lot 3, off the alley, 4.0 m | A3 (ancillary) | D2 (ancillary) | None |
 | `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | lot 2, off the alley, 4.5 m | A4 (ancillary) | D2 (ancillary) | None |
 
-Every one of the 12 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
+Every one of the 23 families the adjudication offers across the six is an ordinary dwelling, so no offered family avoided the promotion by its letter alone. There was no re-deal inside the verdict, which is why the question had to go to the owner rather than being solved here.
 
 ## The ground the other remedy would need
 
 | block | roofs needing a lot | open lots |
 | --- | ---: | ---: |
+| `blk_school_section_tier_94` | 3 | 1 |
+| `blk_school_section_tier_95` | 3 | 2 |
 | `blk_washington_market` | 2 | 1 |
 
 And each of those open lots is declared open in the recipe with a stated reason — the programme's own alternating-vacancy assumption. Taking one is overruling that assumption, not finding space.
@@ -51,13 +59,13 @@ All three change what the town IS, so this tool costed them and asked rather tha
 
 The town gains a building class it had never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard was covered by no clause at all. The adoption gate had to be ruled on too: it refused an ancillary roof an occupant on the reasoning that a yard building is a shed, and a rear cottage is not one.
 
-**Costs:** 2 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23.
+**Costs:** 8 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23.
 
 ### Deal the six onto free lots as principal roofs.
 
-The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 1 open lot(s) against 2 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.
+The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 4 open lot(s) against 8 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.
 
-**Costs:** 1 roof(s) with nowhere to stand even after both open lots are spent.
+**Costs:** 4 roof(s) with nowhere to stand even after both open lots are spent.
 
 ### Let the six stand as the A-family yard buildings they are and record the refusal against the adjudication.
 
