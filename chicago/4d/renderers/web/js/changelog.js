@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1513, ts: '2026-10-06T19:44:00.596Z', date: 'Oct 6, 2026, 2:44 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
       'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
       'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
       'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
+    ] },
+  { v: 1513, ts: '2026-10-06T19:15:30.253Z', date: 'Oct 6, 2026, 2:15 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
+    items: [
+      'Walk south on Clark Street across Madison and both blocks between Madison and Monroe now have houses. There are seven on each side of Clark, one to a lot: frame cottages and frame houses of several sizes, a one-room cabin on the west block and a two-storey house on the east block\u2019s far corner.',
+      'Each block keeps one lot open on its Madison face. On the east side of Clark that is the corner lot, so Clark crosses Madison between an open corner and a built one.',
+      'This ground was sold lot by lot in October 1833, in the School Section beyond the town\u2019s old south line. The town plan still owed the South Division these houses, and every block inside the line was full.',
+      'No source names these houses or says they stood here. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L396).',
     ] },
   { v: 1512, ts: '2026-10-06T18:29:26.487Z', date: 'Oct 6, 2026, 1:29 PM CT', title: 'Jefferson Street stops at Kinzie, as surveyed', kind: 'fix',
     items: [

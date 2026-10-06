@@ -24,7 +24,7 @@
    "it_would_have_cost": 0,
    "it_would_have_cost_ids": []
   },
-  "refused_for_want_of_a_face": 3,
+  "refused_for_want_of_a_face": 2,
   "refused_for_want_of_a_face_note": "The count of businesses REFUSED FOR WANT OF A FACE, which is how many a wider reading would let back into the deal — not how many it would seat. `costed_readings` below deals every reading out in full and reports what each actually stands up (T-0416).",
   "costed_readings": {
    "lot front only": {
@@ -64,9 +64,9 @@
     "would_still_refuse": 22,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
-     "the face holds no roof standing on it": 20,
+     "the face holds no roof standing on it": 19,
      "this face already holds this proprietor": 1,
-     "every roof on the face is spoken for": 1
+     "every roof on the face is spoken for": 2
     }
    },
    "a corner side is a face": {
@@ -100,9 +100,9 @@
     "would_still_refuse": 8,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
-     "the face holds no roof standing on it": 3,
+     "the face holds no roof standing on it": 2,
      "this face already holds this proprietor": 2,
-     "every roof on the face is spoken for": 3
+     "every roof on the face is spoken for": 4
     }
    },
    "a corner side or the band is a face": {
@@ -137,9 +137,9 @@
     "would_still_refuse": 8,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
-     "the face holds no roof standing on it": 1,
+     "the face holds no roof standing on it": 0,
      "this face already holds this proprietor": 2,
-     "every roof on the face is spoken for": 5
+     "every roof on the face is spoken for": 6
     }
    }
   },
@@ -153,34 +153,34 @@
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
     "faces_with_two_or_more_free_roofs": 18,
-    "free_roof_places": 144,
+    "free_roof_places": 143,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2583,
+      "re_families_tried": 2562,
       "places_changed": 2924,
       "worst_single_re_family": 8,
-      "changed_nothing": 1545
+      "changed_nothing": 1524
      },
      "deal_order": {
-      "re_families_tried": 2583,
+      "re_families_tried": 2562,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2583
+      "changed_nothing": 2562
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 2313,
+      "re_families_tried": 2300,
       "places_changed": 2975,
       "worst_single_re_family": 8,
-      "changed_nothing": 1296
+      "changed_nothing": 1283
      },
      "deal_order": {
-      "re_families_tried": 2313,
-      "places_changed": 15406,
+      "re_families_tried": 2300,
+      "places_changed": 15306,
       "worst_single_re_family": 19,
       "changed_nothing": 192
      }
@@ -212,32 +212,32 @@
   "refused": 8,
   "refused_by_reason": {
    "not present at the scene date": 0,
-   "the face holds no roof standing on it": 3,
+   "the face holds no roof standing on it": 2,
    "this face already holds this proprietor": 2,
-   "every roof on the face is spoken for": 3
+   "every roof on the face is spoken for": 4
   },
   "unplaceable_present_at_scene_date": 60,
   "adopted_into_a_house_of_trade": 30,
   "adopted_into_a_roof_of_no_trade": 14,
   "roofs_free_and_a_house_of_trade": 33,
   "houses_of_trade_left_free": 3,
-  "roofs_reserved_for_a_slot_request": 73,
+  "roofs_reserved_for_a_slot_request": 83,
   "reserved_and_held_by_a_committed_occupancy": 4,
-  "reserved_without_a_committed_occupancy": 69,
+  "reserved_without_a_committed_occupancy": 79,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
     "businesses_naming_it": 1,
     "adopted": 1,
-    "roofs_lot_front": 35,
-    "roofs_corner_side": 10,
-    "roofs_on_the_adopted_face": 45,
-    "roofs_free": 6,
+    "roofs_lot_front": 22,
+    "roofs_corner_side": 7,
+    "roofs_on_the_adopted_face": 29,
+    "roofs_free": 5,
     "roofs_home": 1,
     "roofs_home_named": 0,
     "roofs_home_inferred": 1,
-    "roofs_yard": 18,
-    "roofs_requested_by_a_seat": 20,
+    "roofs_yard": 8,
+    "roofs_requested_by_a_seat": 15,
     "roofs_in_centreline_band_declined": 4,
     "roofs_free_and_a_house_of_trade": 1,
     "adopted_into_a_house_of_trade": 1
@@ -297,15 +297,15 @@
     "street_name": "Monroe Street",
     "businesses_naming_it": 1,
     "adopted": 0,
-    "roofs_lot_front": 0,
+    "roofs_lot_front": 8,
     "roofs_corner_side": 0,
-    "roofs_on_the_adopted_face": 0,
+    "roofs_on_the_adopted_face": 8,
     "roofs_free": 0,
     "roofs_home": 0,
     "roofs_home_named": 0,
     "roofs_home_inferred": 0,
     "roofs_yard": 0,
-    "roofs_requested_by_a_seat": 0,
+    "roofs_requested_by_a_seat": 8,
     "roofs_in_centreline_band_declined": 0,
     "roofs_free_and_a_house_of_trade": 0,
     "adopted_into_a_house_of_trade": 0
@@ -497,6 +497,160 @@
    "held_by_a_committed_occupancy": false
   },
   {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d2_01",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D2",
+   "requested_by_seat": "hh_humphrey_fre_lemuel",
+   "order_book_draw": "blk_school_section_tier_118 / D2 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d3_05",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D3",
+   "requested_by_seat": "hh_clarke_h_b",
+   "order_book_draw": "blk_school_section_tier_118 / D3 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d4_03",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D4",
+   "requested_by_seat": "hh_clement_dorcinrk",
+   "order_book_draw": "blk_school_section_tier_118 / D4 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d4_04",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D4",
+   "requested_by_seat": "hh_cleaveland_wm_p",
+   "order_book_draw": "blk_school_section_tier_118 / D4 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d5_02",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D5",
+   "requested_by_seat": "hh_clevinger_d_p",
+   "order_book_draw": "blk_school_section_tier_118 / D5 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d5_07",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D5",
+   "requested_by_seat": "hh_cobb_l_b",
+   "order_book_draw": "blk_school_section_tier_118 / D5 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_118_d6_06",
+   "block_id": "blk_school_section_tier_118",
+   "programme_phase": "phase3_platted_block_school_section_tier_118",
+   "family": "D6",
+   "requested_by_seat": "hh_coleman_edward_b",
+   "order_book_draw": "blk_school_section_tier_118 / D6 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d3_05",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D3",
+   "requested_by_seat": "hh_colewell_m",
+   "order_book_draw": "blk_school_section_tier_119 / D3 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d4_03",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D4",
+   "requested_by_seat": "hh_comstock_h_h",
+   "order_book_draw": "blk_school_section_tier_119 / D4 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d4_04",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D4",
+   "requested_by_seat": "hh_collett_j_a",
+   "order_book_draw": "blk_school_section_tier_119 / D4 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d5_02",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D5",
+   "requested_by_seat": "hh_cone_joseph_c",
+   "order_book_draw": "blk_school_section_tier_119 / D5 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d5_06",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D5",
+   "requested_by_seat": "hh_conter_willard",
+   "order_book_draw": "blk_school_section_tier_119 / D5 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d6_01",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D6",
+   "requested_by_seat": "hh_coslet_elisabeth",
+   "order_book_draw": "blk_school_section_tier_119 / D6 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_school_section_tier_119_d7_07",
+   "block_id": "blk_school_section_tier_119",
+   "programme_phase": "phase3_platted_block_school_section_tier_119",
+   "family": "D7",
+   "requested_by_seat": "hh_bennet_lyman",
+   "order_book_draw": "blk_school_section_tier_119 / D7 / south",
+   "dealt_by_ticket": "T-2145",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
    "structure_id": "recon_1835_blk_south_water_franklin_d3_13",
    "block_id": "blk_south_water_franklin",
    "programme_phase": "phase3_platted_block_south_water_franklin_third_deal",
@@ -581,50 +735,6 @@
    "requested_by_seat": "hh_sweet_alanson",
    "order_book_draw": "blk_washington_clark / H3 / south",
    "dealt_by_ticket": "T-1809",
-   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
-   "held_by_a_committed_occupancy": false
-  },
-  {
-   "structure_id": "recon_1835_blk_washington_clinton_d4_04",
-   "block_id": "blk_washington_clinton",
-   "programme_phase": "phase3_platted_block_washington_clinton",
-   "family": "D4",
-   "requested_by_seat": "hh_catran_o_p",
-   "order_book_draw": "blk_washington_clinton / D4 / west",
-   "dealt_by_ticket": "T-2148",
-   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
-   "held_by_a_committed_occupancy": false
-  },
-  {
-   "structure_id": "recon_1835_blk_washington_clinton_d5_03",
-   "block_id": "blk_washington_clinton",
-   "programme_phase": "phase3_platted_block_washington_clinton",
-   "family": "D5",
-   "requested_by_seat": "hh_chark_john_a",
-   "order_book_draw": "blk_washington_clinton / D5 / west",
-   "dealt_by_ticket": "T-2148",
-   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
-   "held_by_a_committed_occupancy": false
-  },
-  {
-   "structure_id": "recon_1835_blk_washington_clinton_h1_05",
-   "block_id": "blk_washington_clinton",
-   "programme_phase": "phase3_platted_block_washington_clinton",
-   "family": "H1",
-   "requested_by_seat": "hh_beaubien_alexandre",
-   "order_book_draw": "blk_washington_clinton / H1 / west",
-   "dealt_by_ticket": "T-2148",
-   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
-   "held_by_a_committed_occupancy": false
-  },
-  {
-   "structure_id": "recon_1835_blk_washington_clinton_h2_01",
-   "block_id": "blk_washington_clinton",
-   "programme_phase": "phase3_platted_block_washington_clinton",
-   "family": "H2",
-   "requested_by_seat": "hh_behan_thos",
-   "order_book_draw": "blk_washington_clinton / H2 / west",
-   "dealt_by_ticket": "T-2148",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   },
@@ -3064,6 +3174,14 @@
    "detail": "29 roof(s) stand on this street: 7 are a household's dwelling under one layer or the other, 8 are yard buildings the parcels dealt behind a lot, 3 were raised to answer a household's slot request, and 11 are already adopted by a better-evidenced business."
   },
   {
+   "business_id": "business_ebenezer_s_more_attorney_at_law",
+   "business_name": "Ebenezer S. More, attorney at law",
+   "street_id": "monroe",
+   "street_name": "Monroe Street",
+   "refusal": "every roof on the face is spoken for",
+   "detail": "8 roof(s) stand on this street: 0 are a household's dwelling under one layer or the other, 0 are yard buildings the parcels dealt behind a lot, 8 were raised to answer a household's slot request, and 0 are already adopted by a better-evidenced business."
+  },
+  {
    "business_id": "business_j_curtiss_attorney_and_counsellor_at_law",
    "business_name": "J. Curtiss, Attorney and Counsellor at Law",
    "street_id": "south_water",
@@ -3078,14 +3196,6 @@
    "street_name": "South Water Street",
    "refusal": "every roof on the face is spoken for",
    "detail": "38 roof(s) stand on this street: 5 are a household's dwelling under one layer or the other, 10 are yard buildings the parcels dealt behind a lot, 2 were raised to answer a household's slot request, and 21 are already adopted by a better-evidenced business."
-  },
-  {
-   "business_id": "business_ebenezer_s_more_attorney_at_law",
-   "business_name": "Ebenezer S. More, attorney at law",
-   "street_id": "monroe",
-   "street_name": "Monroe Street",
-   "refusal": "the face holds no roof standing on it",
-   "detail": "no roof stands on this street under an adopted reading: 0 has its platted lot on it, 0 end a tier against it, and 0 lie within the centreline band, which the owner declined as a face on 2026-08-30."
   },
   {
    "business_id": "business_john_dave_north_water_street",

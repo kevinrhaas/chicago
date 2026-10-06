@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 351,
-  "outside": 270,
+  "outside": 271,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 61,
-   "west_of_canal_street": 96,
-   "south_of_washington_street": 84,
+   "west_of_canal_street": 83,
+   "south_of_washington_street": 98,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -443,19 +443,6 @@
     "recon_1835_blk_randolph_clinton_d4_09",
     "recon_1835_blk_randolph_clinton_d5_01",
     "recon_1835_blk_randolph_clinton_d7_08",
-    "recon_1835_blk_washington_clinton_a1_06",
-    "recon_1835_blk_washington_clinton_a2_08",
-    "recon_1835_blk_washington_clinton_a2_10",
-    "recon_1835_blk_washington_clinton_a2_12",
-    "recon_1835_blk_washington_clinton_a4_09",
-    "recon_1835_blk_washington_clinton_a4_11",
-    "recon_1835_blk_washington_clinton_a5_07",
-    "recon_1835_blk_washington_clinton_a5_13",
-    "recon_1835_blk_washington_clinton_d4_04",
-    "recon_1835_blk_washington_clinton_d5_03",
-    "recon_1835_blk_washington_clinton_h1_05",
-    "recon_1835_blk_washington_clinton_h2_01",
-    "recon_1835_blk_washington_clinton_h3_02",
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",
@@ -519,6 +506,20 @@
    ],
    "south_of_washington_street": [
     "heacock_house_monroe",
+    "recon_1835_blk_school_section_tier_118_d2_01",
+    "recon_1835_blk_school_section_tier_118_d3_05",
+    "recon_1835_blk_school_section_tier_118_d4_03",
+    "recon_1835_blk_school_section_tier_118_d4_04",
+    "recon_1835_blk_school_section_tier_118_d5_02",
+    "recon_1835_blk_school_section_tier_118_d5_07",
+    "recon_1835_blk_school_section_tier_118_d6_06",
+    "recon_1835_blk_school_section_tier_119_d3_05",
+    "recon_1835_blk_school_section_tier_119_d4_03",
+    "recon_1835_blk_school_section_tier_119_d4_04",
+    "recon_1835_blk_school_section_tier_119_d5_02",
+    "recon_1835_blk_school_section_tier_119_d5_06",
+    "recon_1835_blk_school_section_tier_119_d6_01",
+    "recon_1835_blk_school_section_tier_119_d7_07",
     "recon_1835_blk_washington_clark_a1_07",
     "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a1_12",
@@ -614,21 +615,11 @@
  "block_infill_programme": {
   "counted_from": "data/reconstruction/1835_665_roof_programme.json schedule[]",
   "method": "A block's centre is the mean of the four corners its own four bounding street centrelines make. No block polygon is invented.",
-  "blocks_with_four_bounding_streets": 72,
+  "blocks_with_four_bounding_streets": 69,
   "inside_the_limit": 24,
-  "outside_the_limit": 48,
-  "scheduling_roofs_outside_the_limit": 7,
+  "outside_the_limit": 45,
+  "scheduling_roofs_outside_the_limit": 4,
   "scheduling_roofs_outside_the_limit_rows": [
-   {
-    "id": "blk_washington_clinton",
-    "state": "open",
-    "roofs_scheduled": 5,
-    "centre_local_enu_m": [
-     -212.22,
-     -452.55
-    ],
-    "inside_the_limit": false
-   },
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
@@ -668,26 +659,6 @@
      -587.44
     ],
     "inside_the_limit": false
-   },
-   {
-    "id": "blk_school_section_tier_118",
-    "state": "open",
-    "roofs_scheduled": 7,
-    "centre_local_enu_m": [
-     524.31,
-     -587.44
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_school_section_tier_119",
-    "state": "open",
-    "roofs_scheduled": 7,
-    "centre_local_enu_m": [
-     644.33,
-     -587.44
-    ],
-    "inside_the_limit": false
    }
   ],
   "blocks_outside_the_limit": [
@@ -708,16 +679,6 @@
     "centre_local_enu_m": [
      -215.87,
      -318.38
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_washington_clinton",
-    "state": "open",
-    "roofs_scheduled": 5,
-    "centre_local_enu_m": [
-     -212.22,
-     -452.55
     ],
     "inside_the_limit": false
    },
@@ -1082,26 +1043,6 @@
     "inside_the_limit": false
    },
    {
-    "id": "blk_west_washington_des_plaines",
-    "state": "open",
-    "roofs_scheduled": 0,
-    "centre_local_enu_m": [
-     -451.82,
-     -451.58
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_west_washington_jefferson",
-    "state": "open",
-    "roofs_scheduled": 0,
-    "centre_local_enu_m": [
-     -332.57,
-     -452.07
-    ],
-    "inside_the_limit": false
-   },
-   {
     "id": "blk_west_washington_canal",
     "state": "at_capacity",
     "roofs_scheduled": 0,
@@ -1143,8 +1084,8 @@
    },
    {
     "id": "blk_school_section_tier_118",
-    "state": "open",
-    "roofs_scheduled": 7,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      524.31,
      -587.44
@@ -1153,8 +1094,8 @@
    },
    {
     "id": "blk_school_section_tier_119",
-    "state": "open",
-    "roofs_scheduled": 7,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      644.33,
      -587.44
@@ -1290,8 +1231,8 @@
    {
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
-    "state": "complete",
-    "roofs": 3
+    "state": "gated",
+    "roofs": 21
    },
    {
     "id": "north_division_beyond_modelled_ground",
