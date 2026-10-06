@@ -1,8 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1515, ts: '2026-10-06T20:33:15.976Z', date: 'Oct 6, 2026, 3:33 PM CT', title: 'A lighter first visit, again', kind: 'change',
+  { v: 1516, ts: '2026-10-06T21:47:43.129Z', date: 'Oct 6, 2026, 4:47 PM CT', title: 'A lighter first visit, again', kind: 'change',
     items: [
       'The walkthrough no longer downloads every household\u2019s research notes before you can step into the street. A first visit is about 0.9 MB lighter.',
       'A building\u2019s card still names the people who lived there, with their roles and grades, as soon as it opens. The \u201cwhy\u201d notes beside them arrive a moment later, for that building only.',
+    ] },
+  { v: 1515, ts: '2026-10-06T21:12:35.904Z', date: 'Oct 6, 2026, 4:12 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+    items: [
+      'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
+      'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
+      'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
+      'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
     ] },
   { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
     items: [

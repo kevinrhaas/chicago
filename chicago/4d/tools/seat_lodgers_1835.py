@@ -2073,9 +2073,19 @@ def fill() -> tuple:
                 # cells that still have an order, so every keeper already standing in
                 # an open cell keeps the pick it had; with none open, no keeper is
                 # minted and the house says so.
+                #
+                # T-2148: AND THE HEADS THE RE-FAMILY LEDGER HAS LANDED COUNT AGAINST THE
+                # ORDER HERE TOO, as they already do in `still_open` above and in the book's
+                # own refusal. Without them a house raised when every adult trade cell of
+                # its division is spent finds `shed` empty, falls back to its frozen pick,
+                # and this test passed it on fills alone: plat block 50's boarding house
+                # took a keeper into `male/30_39/west/lodging/trade`, which orders 3 and
+                # holds 3 re-family heads, and `build_order_book_1835.py` refused the book.
+                # Every keeper already standing passed the book's test, so none moves.
                 def has_order(cell_key: str) -> bool:
                     return (open_left.get(cell_key, 0) > 0
-                            and fills[cell_key] < live_by_key.get(cell_key, 0))
+                            and fills[cell_key] + arrivals.get(cell_key, 0)
+                            < live_by_key.get(cell_key, 0))
 
                 if not has_order(key):
                     still_open = [(cell, n) for cell, n in weights

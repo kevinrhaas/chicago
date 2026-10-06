@@ -40,11 +40,11 @@
       "dearborn",
       "state"
     ],
-    "faces_laid": 94,
-    "walk_m": 8785.8,
-    "crossing_m": 2289.0,
+    "faces_laid": 95,
+    "walk_m": 8887.1,
+    "crossing_m": 2311.0,
     "fence_m": 1893.4,
-    "walking_decks": 815,
+    "walking_decks": 824,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
@@ -72,10 +72,10 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 8785.8,
+        "value": 8887.1,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "106 run(s) of sidewalk on 94 platted block face(s), plus 2289.0 m of board crossing at 97 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "107 run(s) of sidewalk on 95 platted block face(s), plus 2311.0 m of board crossing at 98 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
         "value": 1893.4,
@@ -8828,6 +8828,80 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_randolph_clinton's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 98.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_randolph_clinton_south_crossing_over_washington",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_randolph_clinton_south_1",
+      "centreline_local_enu_m": [
+        [
+          -260.37,
+          -374.65
+        ],
+        [
+          -260.35,
+          -396.71
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 22.06,
+      "footway_decks": [
+        {
+          "y": 1.331,
+          "pts": [
+            [
+              -261.28,
+              -374.57
+            ],
+            [
+              -261.28,
+              -385.76
+            ],
+            [
+              -259.45,
+              -385.76
+            ],
+            [
+              -259.45,
+              -374.57
+            ]
+          ],
+          "ground_roll_m": 0.091
+        },
+        {
+          "y": 1.33,
+          "pts": [
+            [
+              -261.28,
+              -385.6
+            ],
+            [
+              -261.27,
+              -396.79
+            ],
+            [
+              -259.44,
+              -396.79
+            ],
+            [
+              -259.45,
+              -385.6
+            ]
+          ],
+          "ground_roll_m": 0.103
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_randolph_clinton_south_walk_1",
@@ -20208,6 +20282,191 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE CLARK STREET FRONTAGE of blk_washington_clark's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Clark Street track. This run is the stretch from 0.0 m to 102.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_clinton_north_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_clinton_north_1",
+      "centreline_local_enu_m": [
+        [
+          -264.35,
+          -396.68
+        ],
+        [
+          -163.03,
+          -397.51
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 7.21,
+      "footway_decks": [
+        {
+          "y": 1.384,
+          "pts": [
+            [
+              -264.44,
+              -397.59
+            ],
+            [
+              -248.28,
+              -397.72
+            ],
+            [
+              -248.27,
+              -395.89
+            ],
+            [
+              -264.42,
+              -395.76
+            ]
+          ],
+          "ground_roll_m": 0.027
+        },
+        {
+          "y": 1.357,
+          "pts": [
+            [
+              -248.44,
+              -397.72
+            ],
+            [
+              -232.28,
+              -397.85
+            ],
+            [
+              -232.27,
+              -396.02
+            ],
+            [
+              -248.43,
+              -395.89
+            ]
+          ],
+          "ground_roll_m": 0.022
+        },
+        {
+          "y": 1.335,
+          "pts": [
+            [
+              -232.44,
+              -397.85
+            ],
+            [
+              -216.28,
+              -397.98
+            ],
+            [
+              -216.27,
+              -396.15
+            ],
+            [
+              -232.43,
+              -396.02
+            ]
+          ],
+          "ground_roll_m": 0.02
+        },
+        {
+          "y": 1.315,
+          "pts": [
+            [
+              -216.44,
+              -397.98
+            ],
+            [
+              -200.29,
+              -398.11
+            ],
+            [
+              -200.27,
+              -396.28
+            ],
+            [
+              -216.43,
+              -396.15
+            ]
+          ],
+          "ground_roll_m": 0.015
+        },
+        {
+          "y": 1.3,
+          "pts": [
+            [
+              -200.45,
+              -398.11
+            ],
+            [
+              -184.29,
+              -398.25
+            ],
+            [
+              -184.27,
+              -396.42
+            ],
+            [
+              -200.43,
+              -396.28
+            ]
+          ],
+          "ground_roll_m": 0.021
+        },
+        {
+          "y": 1.279,
+          "pts": [
+            [
+              -184.45,
+              -398.24
+            ],
+            [
+              -168.29,
+              -398.38
+            ],
+            [
+              -168.28,
+              -396.55
+            ],
+            [
+              -184.43,
+              -396.41
+            ]
+          ],
+          "ground_roll_m": 0.023
+        },
+        {
+          "y": 1.257,
+          "pts": [
+            [
+              -168.45,
+              -398.38
+            ],
+            [
+              -162.96,
+              -398.42
+            ],
+            [
+              -162.94,
+              -396.59
+            ],
+            [
+              -168.44,
+              -396.55
+            ]
+          ],
+          "ground_roll_m": 0.011
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_clinton's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 101.3 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_washington_dearborn_east_crossing_blk_randolph_dearborn_east",
@@ -32196,6 +32455,11 @@
       "structure_id": "blk_washington_clark_west_fences",
       "wall": "blk_washington_clark west face",
       "why": "no fence and no hitching post are laid on this Clark Street frontage: both rules are per-lot, and not one of this block's platted lots fronts a cross street — every lot in the Thompson plat fronts an east-west street, so this face is the END of a lot row rather than a frontage any lot owns. The walk is laid; the fence line behind it belongs to the lots either side, which carry their own on their own frontages."
+    },
+    {
+      "structure_id": "blk_washington_clinton_north_crossing_blk_washington_market_north",
+      "wall": "corner crossing",
+      "why": "the two walks stop 259.4 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
     },
     {
       "structure_id": "blk_washington_dearborn_east_fences",

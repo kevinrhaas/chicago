@@ -468,13 +468,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # dwellings on its two Clark blocks south of Madison (plat blocks 118 and 119), all through
 # emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 649 -> 662 and 643 -> 656 on 2026-10-06 (T-2148): plat block 50, blk_washington_clinton —
+# five principal roofs on the Canal face and eight yard buildings, all through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 649,
+    "assets": 662,
     "restales": {
-        "generators/common/*.py": 649,
+        "generators/common/*.py": 662,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 643,
+        "generators/emit.py": 656,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
