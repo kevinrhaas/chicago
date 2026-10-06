@@ -89,6 +89,20 @@ def load(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def unstated() -> dict[str, str]:
+    """The structures whose side of the line this record declines to state, with why.
+
+    T-2018. The gate's own remedy, when an extrapolated leg comes within its drift of a
+    drawn building, is "trace the street, or leave the structure's side unstated". This
+    is the second half of that sentence, written down: `sides_unstated` in the limits
+    record names each one and the reason. A listed structure is reported as neither
+    inside nor outside, and the gate still fails the day an UNLISTED one comes within
+    drift, or a listed one stops being within it.
+    """
+    entries = load(LIMITS_PATH).get("sides_unstated", {})
+    return {k: v for k, v in entries.items() if not k.startswith("_")}
+
+
 def street(sid: str):
     """A committed centreline's two ends, in local ENU."""
     for s in load(STREETS_PATH)["streets"]:
@@ -289,30 +303,50 @@ def beside(segment, polygon):
     return best
 
 
-def clearances(reach):
-    """One row per extrapolated leg: how long it is, and what stands closest beside it."""
+def clearances(reach, unstated_ids=None):
+    """One row per extrapolated leg: how long it is, and what stands closest beside it.
+
+    A structure whose side is left unstated is not the nearest building any leg is
+    priced against — that is what leaving it unstated means — but it is still measured,
+    into `unstated_within_drift`, so a listed one that the drift no longer reaches shows.
+    """
     datum = load(DATA / "datum.json")
     placed = footprints(datum)
+    skip = set(unstated() if unstated_ids is None else unstated_ids)
     rows = []
     for label, a, b in reach:
         length = ((b[0] - a[0]) ** 2 + (b[1] - a[1]) ** 2) ** 0.5
         nearest = None
+        within = set()
         for sid, polygon in placed:
             hit = beside((a, b), polygon)
-            if hit and (nearest is None or hit[0] < nearest[0]):
+            if not hit:
+                continue
+            if sid in skip:
+                if hit[0] < drift_m(hit[1]):
+                    within.add(sid)
+                continue
+            if nearest is None or hit[0] < nearest[0]:
                 nearest = (hit[0], hit[1], sid)
         rows.append({"leg": label, "length_m": length, "nearest": nearest,
-                     "drift_m": drift_m(nearest[1]) if nearest else None})
+                     "drift_m": drift_m(nearest[1]) if nearest else None,
+                     "unstated_within_drift": sorted(within)})
     return rows
 
 
 def split(ring=None):
-    """(inside, outside) structure ids. A structure is outside only if every phase is."""
+    """(inside, outside) structure ids. A structure is outside only if every phase is.
+
+    A structure in `sides_unstated` is in neither list: its side is not stated (T-2018).
+    """
     if ring is None:
         ring, _ = limits_ring()
     datum = load(DATA / "datum.json")
+    skip = set(unstated())
     verdict: dict[str, bool] = {}
     for sid, polygon in footprints(datum):
+        if sid in skip:
+            continue
         cx = sum(p[0] for p in polygon) / len(polygon)
         cy = sum(p[1] for p in polygon) / len(polygon)
         verdict[sid] = verdict.get(sid, True) and inside((cx, cy), ring)
@@ -320,7 +354,7 @@ def split(ring=None):
             sorted(s for s, ok in verdict.items() if not ok))
 
 
-def problems(ring, reach) -> list[str]:
+def problems(ring, reach, unstated_ids=None) -> list[str]:
     """What must hold for this boundary to keep meaning what it says.
 
     None of these fails because a building stands outside the limits. A building outside
@@ -337,7 +371,15 @@ def problems(ring, reach) -> list[str]:
         found.append(f"the ring measures {area_ha:.1f} ha; the corporation's own extent "
                      "was near seven-eighths of a square mile (226.6 ha), and a ring "
                      "this far from it is a resolution fault, not a finding")
-    for row in clearances(reach):
+    listed = unstated() if unstated_ids is None else dict.fromkeys(unstated_ids, "")
+    rows = clearances(reach, list(listed))
+    reached = {sid for row in rows for sid in row["unstated_within_drift"]}
+    for sid in sorted(set(listed) - reached):
+        found.append(f"{sid} is listed in `sides_unstated`, but no extrapolated leg comes "
+                     f"within its drift of it any more, so the boundary DOES decide its "
+                     f"side. State it: take the entry out of "
+                     f"{LIMITS_PATH.relative_to(ROOT)}.")
+    for row in rows:
         near = row["nearest"]
         if near and near[0] < row["drift_m"]:
             found.append(
@@ -383,6 +425,8 @@ def report(quiet=False) -> int:
                 stands = (f"{near[0]:7.1f} m vs {row['drift_m']:5.1f} m of drift  "
                           f"{verdict}  {near[2]}")
             print(f"  {row['leg']:<38} {row['length_m']:>8.1f} m  {stands}")
+            for sid in row["unstated_within_drift"]:
+                print(f"  {'':<38} {'':>10}  side left unstated: {sid}")
 
         area_ha = ring_area(ring) / 1e4
         print(f"\nthe ring closes on {len(ring)} vertices, {area_ha:.1f} ha "
@@ -394,6 +438,12 @@ def report(quiet=False) -> int:
               f"Chicago reached none of these:")
         for sid in out:
             print(f"    {sid}")
+        listed = unstated()
+        if listed:
+            print(f"NEITHER: {len(listed)} structure(s) whose side an extrapolated leg "
+                  f"would decide, left unstated (sides_unstated):")
+            for sid in sorted(listed):
+                print(f"    {sid}")
         print()
 
     if found:
@@ -449,6 +499,15 @@ def self_test() -> int:
                       bool(problems(ring, reach))))
     finally:
         TRACE_TOLERANCE_M = keep
+
+    # 6. An unstated side must be EARNED. A structure the boundary plainly decides —
+    #    the Sauganash, far inside — listed as unstated must fail, and so must the
+    #    committed list emptied while its structures still stand within drift.
+    cases.append(("a structure listed unstated that no leg reaches is refused",
+                  bool(problems(ring, reach, list(unstated()) + ["sauganash_hotel"]))))
+    if unstated():
+        cases.append(("emptying sides_unstated while its structures stand in drift fails",
+                      bool(problems(ring, reach, []))))
 
     bad = [name for name, ok in cases if not ok]
     for name, ok in cases:
