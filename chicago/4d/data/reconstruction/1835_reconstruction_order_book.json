@@ -1610,8 +1610,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 609,
-    "roofs_to_build": 78,
+    "roofs_standing": 622,
+    "roofs_to_build": 65,
     "persons_standing": 2926,
     "persons_still_owed": 223,
     "persons_when_the_book_is_filled": 3149,
@@ -1631,11 +1631,11 @@
     "rows_offered": 1424,
     "seated": 308,
     "still_owed": 1116,
-    "roofs_adopted": 274,
-    "slots_requested": 34,
-    "roofs_standing": 609,
+    "roofs_adopted": 287,
+    "slots_requested": 21,
+    "roofs_standing": 622,
     "roofs_standing_unseated": 335,
-    "share_of_standing_roofs_seated": 0.4499,
+    "share_of_standing_roofs_seated": 0.4614,
     "passes": [
       {
         "key": "platted",
@@ -1646,9 +1646,9 @@
         "rows_offered": 1424,
         "seated": 209,
         "handed_on": 1215,
-        "roofs_adopted": 175,
-        "slots_requested": 34,
-        "roofs_offered_for_adoption": 183,
+        "roofs_adopted": 188,
+        "slots_requested": 21,
+        "roofs_offered_for_adoption": 196,
         "roofs_held_back": 60,
         "ground_taken": 191,
         "ground_taken_unit": "lots",
@@ -1658,10 +1658,10 @@
           "west": 38
         },
         "by_clause": {
-          "labourer_dwellings": 38,
+          "labourer_dwellings": 39,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 35,
-          "tradesman_dwellings": 134
+          "tradesman_dwellings": 133
         }
       },
       {
@@ -1694,48 +1694,18 @@
     ],
     "requested_slots": [
       {
-        "household_id": "hh_bennet_lyman",
-        "name": "The Bennet household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_school_section_tier_119",
-        "lot_id": "blk_school_section_tier_119#07",
-        "family": "D7",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_bently_wm_t",
-        "name": "The Bently household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#07",
-        "family": "D7",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_benton_datas_e",
-        "name": "The Benton household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#07",
-        "family": "H1",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H1 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_berger_f_c",
         "name": "The Berger household — a name from the post office's letter lists",
         "district": "south",
         "clause": "merchant_and_professional_dwellings",
-        "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#06",
-        "family": "H2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a H2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "block_id": "blk_school_section_tier_118",
+        "lot_id": "blk_school_section_tier_118#07",
+        "family": "D7",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D7 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_clarke_h_b",
-        "name": "The Clarke household — a documented hardware merchant, unplaced in the town",
+        "household_id": "hh_comstock_h_h",
+        "name": "The Comstock household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_118",
@@ -1744,8 +1714,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_cleaveland_wm_p",
-        "name": "The Cleaveland household — a name from the post office's letter lists",
+        "household_id": "hh_cone_joseph_c",
+        "name": "The Cone household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_118",
@@ -1754,8 +1724,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_clement_dorcinrk",
-        "name": "The Clement household — a name from the post office's letter lists",
+        "household_id": "hh_conter_willard",
+        "name": "The Conter household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_118",
@@ -1764,8 +1734,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_clevinger_d_p",
-        "name": "The Clevinger household — a name from the post office's letter lists",
+        "household_id": "hh_coslet_elisabeth",
+        "name": "The Coslet household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_118",
@@ -1774,18 +1744,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_cobb_l_b",
-        "name": "The Cobb household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_118",
-        "lot_id": "blk_school_section_tier_118#07",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_coleman_edward_b",
-        "name": "The Coleman household — a name from the post office's letter lists",
+        "household_id": "hh_coslet_godfrey",
+        "name": "The Coslet household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_118",
@@ -1794,8 +1754,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_colewell_m",
-        "name": "The Colewell household — a name the town's own records carry",
+        "household_id": "hh_cross_oliver",
+        "name": "The Cross household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_119",
@@ -1804,8 +1764,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_collett_j_a",
-        "name": "The Collett household — a documented refectory keeper, unplaced in the town",
+        "household_id": "hh_crull_david",
+        "name": "The Crull household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_119",
@@ -1814,8 +1774,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_comstock_h_h",
-        "name": "The Comstock household — a name from the post office's letter lists",
+        "household_id": "hh_curtin_david",
+        "name": "The Curtin household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_119",
@@ -1824,18 +1784,28 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_cone_joseph_c",
-        "name": "The Cone household — a name from the post office's letter lists",
+        "household_id": "hh_curtin_l_g",
+        "name": "The Curtin household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_119",
         "lot_id": "blk_school_section_tier_119#02",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_cutler_morris",
+        "name": "The Cutler household — a name from the post office's letter lists",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_119",
+        "lot_id": "blk_school_section_tier_119#07",
         "family": "D5",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_conter_willard",
-        "name": "The Conter household — a name from the post office's letter lists",
+        "household_id": "hh_dailey_thomas",
+        "name": "The Dailey household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_119",
@@ -1844,18 +1814,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_coslet_elisabeth",
-        "name": "The Coslet household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_119",
-        "lot_id": "blk_school_section_tier_119#01",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_coslet_godfrey",
-        "name": "The Coslet household — a name the town's own records carry",
+        "household_id": "hh_daniel_b_clevinger_4",
+        "name": "The Daniel household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1864,8 +1824,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_cross_oliver",
-        "name": "The Cross household — a name from the post office's letter lists",
+        "household_id": "hh_darling_daniel",
+        "name": "The Darling household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1874,8 +1834,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_crull_david",
-        "name": "The Crull household — a name from the post office's letter lists",
+        "household_id": "hh_darling_enoch",
+        "name": "The Darling household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1884,8 +1844,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_curtin_david",
-        "name": "The Curtin household — a name the town's own records carry",
+        "household_id": "hh_dave_john",
+        "name": "The Dave household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1894,8 +1854,18 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_curtin_l_g",
-        "name": "The Curtin household — a name from the post office's letter lists",
+        "household_id": "hh_davis_george",
+        "name": "The Davis household — a name the town's own records carry",
+        "district": "south",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_81",
+        "lot_id": "blk_school_section_tier_81#07",
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_delano_loring",
+        "name": "The Delano household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1904,132 +1874,32 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_cutler_morris",
-        "name": "The Cutler household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#01",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_dailey_thomas",
-        "name": "The Dailey household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#05",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_daniel_b_clevinger_4",
-        "name": "The Daniel household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#04",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_darling_daniel",
-        "name": "The Darling household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#03",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_darling_enoch",
-        "name": "The Darling household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#02",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_dave_john",
-        "name": "The Dave household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#07",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_davis_george",
-        "name": "The Davis household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#06",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_delano_loring",
-        "name": "The Delano household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#05",
-        "family": "D3",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_dell_frank",
         "name": "The Dell household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#04",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_democrat_printers",
-        "name": "The Democrat's printers",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#03",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_humphrey_fre_lemuel",
-        "name": "The Humphrey household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "labourer_dwellings",
-        "block_id": "blk_school_section_tier_118",
-        "lot_id": "blk_school_section_tier_118#01",
-        "family": "D2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_hunt_charles_cotesworth_pinckney",
-        "name": "The Hunt household — a name the town's own records carry",
-        "district": "south",
-        "clause": "labourer_dwellings",
-        "block_id": "blk_school_section_tier_94",
-        "lot_id": "blk_school_section_tier_94#01",
-        "family": "D2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_school_section_tier_95#02",
+        "family": "D6",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
         "household_id": "hh_ira_paddock",
         "name": "The Ira household — a name from the post office's letter lists",
         "district": "south",
         "clause": "labourer_dwellings",
-        "block_id": "blk_school_section_tier_95",
-        "lot_id": "blk_school_section_tier_95#02",
+        "block_id": "blk_school_section_tier_119",
+        "lot_id": "blk_school_section_tier_119#01",
+        "family": "D2",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_laframboise_franois",
+        "name": "The Laframboise household — a name the town's own records carry",
+        "district": "south",
+        "clause": "labourer_dwellings",
+        "block_id": "blk_school_section_tier_81",
+        "lot_id": "blk_school_section_tier_81#01",
         "family": "D2",
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       }
@@ -2038,10 +1908,9 @@
       "blk_school_section_tier_118",
       "blk_school_section_tier_119",
       "blk_school_section_tier_81",
-      "blk_school_section_tier_94",
       "blk_school_section_tier_95"
     ],
-    "what_the_slots_wait_on": "34 slot(s) on 5 block(s) — blk_school_section_tier_118, blk_school_section_tier_119, blk_school_section_tier_81, blk_school_section_tier_94, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_the_slots_wait_on": "21 slot(s) on 4 block(s) — blk_school_section_tier_118, blk_school_section_tier_119, blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
     "what_is_left": "1,116 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
@@ -5292,11 +5161,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 609,
-        "standing_with_an_occupant": 244,
-        "standing_without_an_occupant": 365,
-        "to_build_total": 78,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 365 of the 609 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_records": 622,
+        "standing_with_an_occupant": 249,
+        "standing_without_an_occupant": 373,
+        "to_build_total": 65,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 373 of the 622 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5471,13 +5340,13 @@
             "division": "south"
           },
           "target": 28,
-          "standing": 25,
-          "to_build": 3,
+          "standing": 27,
+          "to_build": 1,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-1957",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 3 of them to build"
+          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 1 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5516,13 +5385,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 136,
-          "to_build": 40,
+          "standing": 147,
+          "to_build": 29,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2145",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 40 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 29 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5812,9 +5681,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 51,
+        "roofs_on_committed_ground": 38,
         "roofs_gated_on_coverage": 27,
-        "statement": "51 of the 78 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 27 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "38 of the 65 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 27 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -6144,7 +6013,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "365 of 609 standing records carry no occupants block."
+      "measured_now": "373 of 622 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
