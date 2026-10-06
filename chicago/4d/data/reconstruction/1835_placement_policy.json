@@ -942,6 +942,47 @@
       }
     },
     {
+      "id": "bank_landing",
+      "applies_to": [
+        "F1",
+        "F2",
+        "F3"
+      ],
+      "prefers": [
+        "ground:river_frontage",
+        "street:north_water",
+        "street:west_water",
+        "division:north",
+        "lot:corner"
+      ],
+      "avoids": [],
+      "fronts": "water",
+      "multi_building_lot_rule": "principal_plus_ancillary",
+      "setback_class": "landing",
+      "tier": "inferred",
+      "evidence": [
+        "kinzie_hunter_warehouse",
+        "north_bank_shed_dearborn_w",
+        "north_bank_shed_dearborn_e1",
+        "north_bank_shed_dearborn_e2",
+        "north_bank_shed_dearborn_e3"
+      ],
+      "note": "A forwarding trade fronts the water it loads from, and on a river street the street is only what lies between the door and the landing. Every freight roof the North Division holds stands on the main stem's north bank facing the river across North Water Street, the plate of the reach below the Dearborn drawbridge draws low warehouses on both banks, and in November 1835 the trustees priced the wharfing privileges at $18.75 a front foot on North Water against $18 on West Water and $25 on South Water (wood_1881_chicago_and_its_distinguished_citizens) - the river streets' frontage was sold as landing, whatever their wagon traffic. Inferred, not documented: the five evidence roofs are themselves reconstructions or placements the record calls a plausibility, and the sale is four months after the target date. Scored on the one thing it claims - within bank_landing_reach_m of traced water - and on nothing about the street.",
+      "witness": {
+        "evidence_records": 5,
+        "standing_with_a_street": 5,
+        "by_street_class": {
+          "principal": 0,
+          "ordinary": 0,
+          "light": 5
+        },
+        "fronting_no_street": 0,
+        "on_the_street_line": 1,
+        "setback_m_min": 0.51,
+        "setback_m_max": 20.13
+      }
+    },
+    {
       "id": "professional_row",
       "applies_to": [
         "C1"
@@ -1428,8 +1469,8 @@
   ],
   "coverage": {
     "documented_roofs_with_a_family": 100,
-    "conforming": 76,
-    "outliers": 24,
+    "conforming": 81,
+    "outliers": 19,
     "by_family": {
       "A1": [
         "ancillary_behind_its_own_roof"
@@ -1467,9 +1508,11 @@
         "tradesman_dwellings"
       ],
       "F1": [
+        "bank_landing",
         "commercial_front"
       ],
       "F2": [
+        "bank_landing",
         "commercial_front"
       ],
       "F4": [
@@ -1628,18 +1671,6 @@
       "reason": "inside the unplatted military reservation, 420.22 m from Lake Street's corridor edge: the garrison washed its own linen behind its own palisade. It read Kinzie at 144.13 m until T-1429, across the channel."
     },
     {
-      "id": "kinzie_hunter_warehouse",
-      "family": "F1",
-      "street": "market_north",
-      "class": "light",
-      "setback_m": 4.16,
-      "measured": [
-        "stands 4.16 m off the street line (2.71 m), and commercial_front puts it on the line",
-        "stands on a light street, which commercial_front avoids"
-      ],
-      "reason": "on the north bank of the main river: its frontage is the WATER, which is what a forwarding warehouse wants. Since T-1191 the line beside it is Market Street's north-bank corridor at 4.16 m rather than South Water's across the channel, and standing that close to a light back street is not taking its face."
-    },
-    {
       "id": "miller_house",
       "family": "C4",
       "street": "market_north",
@@ -1672,53 +1703,6 @@
         "stands on a principal street, which ancillary_behind_its_own_roof avoids"
       ],
       "reason": "the same works and the same reading as the salt house above it in this band (T-1709), at the landward end of it. Letter A1, so `ancillary_behind_its_own_roof` again, and again Market Street's corridor is 0.50 m off its east wall and nothing else is within 14 m. It holds the plant's stock, not a household's horse, and there is no platted lot behind anything here for a `yard` setback to be measured from."
-    },
-    {
-      "id": "north_bank_shed_dearborn_e1",
-      "family": "F1",
-      "street": "dearborn_north",
-      "class": "light",
-      "setback_m": 0.51,
-      "measured": [
-        "stands on a light street, which commercial_front avoids"
-      ],
-      "reason": "a north-bank freight shed: its frontage is the water."
-    },
-    {
-      "id": "north_bank_shed_dearborn_e2",
-      "family": "F1",
-      "street": "dearborn_north",
-      "class": "light",
-      "setback_m": 8.46,
-      "measured": [
-        "stands 8.46 m off the street line (2.71 m), and commercial_front puts it on the line",
-        "stands on a light street, which commercial_front avoids"
-      ],
-      "reason": "a north-bank freight shed: its frontage is the water."
-    },
-    {
-      "id": "north_bank_shed_dearborn_e3",
-      "family": "F1",
-      "street": "dearborn_north",
-      "class": "light",
-      "setback_m": 20.13,
-      "measured": [
-        "stands 20.13 m off the street line (2.71 m), and commercial_front puts it on the line",
-        "stands on a light street, which commercial_front avoids"
-      ],
-      "reason": "a north-bank freight shed: its frontage is the water."
-    },
-    {
-      "id": "north_bank_shed_dearborn_w",
-      "family": "F1",
-      "street": "dearborn_north",
-      "class": "light",
-      "setback_m": 6.33,
-      "measured": [
-        "stands 6.33 m off the street line (2.71 m), and commercial_front puts it on the line",
-        "stands on a light street, which commercial_front avoids"
-      ],
-      "reason": "a north-bank freight shed: its frontage is the water."
     },
     {
       "id": "north_side_school_1833",

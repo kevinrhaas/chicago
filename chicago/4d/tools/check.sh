@@ -821,9 +821,9 @@ step "West freight roof at the forks matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
 
-# T-2022: the North Division's seventh freight roof, on the North Water bank at Clark.
+# T-2022: the North Division's seventh freight roof, on the North Water bank at LaSalle.
 # Its own generator because North Water is graded `light` and the block parcels refuse a
-# warehouse there; the recipe argues the bank-landing clause, the record re-derives from
+# warehouse there; it stands on the policy's `bank_landing` clause, the record re-derives from
 # it, and the validator is proved by breaking it.
 step "North freight roof on the North Water bank matches its recipe" \
   python3 tools/generate_north_freight.py --check

@@ -114,6 +114,7 @@
   "physicians_office",
   "pierce_blacksmith_shop",
   "pruyne_kimball_drugstore",
+  "recon_1835_bank_freight_f3_001",
   "recon_1835_blk_indiana_north_cass_a1_08",
   "recon_1835_blk_indiana_north_cass_a1_10",
   "recon_1835_blk_indiana_north_cass_a3_03",
@@ -2014,6 +2015,20 @@
     [630.56, 2.95],
     [630.06, -4.25],
     [626.79, -4.25]
+   ],
+   [
+    [563.84, 122.78],
+    [551.48, 122.88],
+    [551.46, 121.48],
+    [555.92, 121.44],
+    [556.35, 112.74],
+    [556.46, 112.49],
+    [556.7, 112.39],
+    [558.44, 112.37],
+    [558.69, 112.47],
+    [558.79, 112.72],
+    [559.36, 121.41],
+    [563.82, 121.38]
    ],
    [
     [990.38, 518.3],
@@ -9756,6 +9771,16 @@
    "at_local_enu_m": [631.77, -5.65],
    "bearing_deg": 0.0,
    "width_m": 1.02
+  },
+  {
+   "id": "recon_1835_bank_freight_f3_001__door_1",
+   "structure_id": "recon_1835_bank_freight_f3_001",
+   "archetype": "frame_storefront",
+   "kind": "door",
+   "read_by": "facade_openings.frame_storefront",
+   "at_local_enu_m": [557.66, 122.83],
+   "bearing_deg": 180.46,
+   "width_m": 1.04
   },
   {
    "id": "recon_1835_blk_indiana_north_cass_a1_08__door_1",

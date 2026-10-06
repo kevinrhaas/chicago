@@ -5,13 +5,14 @@ The order book left the North's freight row one roof short (7 set, 6 standing), 
 665-roof schedule dealt it to `blk_indiana_north_wolcott`, where the block generator
 refuses a warehouse on a `light` street. This writes that roof from
 `data/reconstruction/1835_north_freight_bank.json` instead: an F3 large river warehouse on
-plat lot 1 of `blk_kinzie_lasalle_north`, the lower tier's corner on the west side of Clark
-Street, its front on the drawn North Water line with the river across the street and its
-rear toward the tier's alley.
+plat lot 1 of `blk_kinzie_wells_north`, the lower tier's LaSalle Street corner, its front on
+the drawn North Water line with the river across the street and its rear toward the
+tier's alley.
 
-THE CLAUSE IS THE BANK LANDING, and the recipe's `basis` argues it: every freight roof the
-North already holds stands on this bank fronting the water, and the placement policy
-records each of them as seated by the water rather than by the light street beside it.
+THE CLAUSE IS THE BANK LANDING (`bank_landing` in tools/placement_policy_1835.py), and the
+recipe's `basis` argues it: every freight roof the North already holds stands on this bank
+fronting the water. The validator holds the roof inside the clause's reach of the traced
+water, so the anonymous-roof audit reads it as conforming rather than refamilying it.
 North Water is not regraded, so a block parcel still cannot deal a store or warehouse
 onto it; this one roof is placed by its own recipe, as T-1773's at the forks is.
 
@@ -47,6 +48,7 @@ from heightfield import Heightfield  # noqa: E402
 from siding_stock import deal_records as deal_siding  # noqa: E402
 import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
 from check_structure_corridors import laps as street_laps  # noqa: E402  (T-1743)
+from placement_policy_1835 import bank_landing_reach_m  # noqa: E402  (the clause it stands on)
 
 CORRIDOR_LINE = "drawn"
 CORRIDOR_LINE_WHY = ("A question about a roof on a lot: the warehouse stands on the tier's own "
@@ -82,7 +84,7 @@ def front_edge(lot: list[tuple[float, float]]) -> tuple[tuple[float, float], tup
 def seat(lot, width: float, depth: float, setback: float,
          side_setback: float, corner_end: str) -> tuple[float, float, float]:
     """Stand the roof `setback` metres inside the lot's North Water line and `side_setback`
-    metres inside its side-street line at `corner_end` (Clark Street, east): on both street
+    metres inside its side-street line at `corner_end` (LaSalle Street, east): on both street
     lines of the corner, which is where the placement policy's `commercial_front` clause
     puts a freight roof."""
     (ae, an), (be, bn) = front_edge(lot)
@@ -131,12 +133,12 @@ def make_record(recipe: dict, datum: dict) -> dict:
                 "utm_e": round(datum["origin_utm_e"] + east, 3),
                 "utm_n": round(datum["origin_utm_n"] + north, 3),
                 "rotation_deg": round(bearing, 6),
-                "symbolic_location": "Reconstructed river warehouse at Clark and North Water Streets, facing the main stem across North Water",
+                "symbolic_location": "Reconstructed river warehouse at LaSalle and North Water Streets, facing the main stem across North Water",
                 "confidence": "reconstructed",
                 "note": (f"The lot is the tier's (Thompson 1830, {row['block_id']} lower-tier "
                          f"lot {row['plat_lot_number']}); this roof on it is not. It stands on "
                          f"the corner, {row['front_setback_m']} m inside the lot's North Water "
-                         f"line and {row['side_setback_m']} m inside its Clark Street line, the "
+                         f"line and {row['side_setback_m']} m inside its LaSalle Street line, the "
                          "rear toward the tier's alley. Chosen under the bank-landing clause "
                          "(T-2022): the North's freight roofs front the water, and this is the "
                          "free lower-tier lot nearest the Dearborn reach's sheds; no source "
@@ -223,6 +225,12 @@ def validate(record: dict, recipe: dict, datum: dict) -> str:
     bank = min(separation(poly, ring) for ring in water)
     if bank < BANK_SETBACK_M:
         raise ValueError(f"{record['id']} is only {bank:.2f} m from traced water")
+    # The clause that admits it: nothing between this roof and the river but the river
+    # street. Beyond the reach it is a warehouse on a light back street, which no clause
+    # takes, and the anonymous-roof audit would refamily it.
+    if bank > bank_landing_reach_m():
+        raise ValueError(f"{record['id']} stands {bank:.2f} m from traced water, beyond "
+                         f"bank_landing's {bank_landing_reach_m():.2f} m")
     field = Heightfield.load(EPOCH)
     if field is None:
         raise ValueError("committed terrain is required")

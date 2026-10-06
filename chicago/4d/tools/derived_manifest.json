@@ -2697,7 +2697,7 @@
       ]
     },
     {
-      "why": "T-2022: the North Division's seventh freight roof, written from its own recipe on the North Water bank at Clark. PLACED BY LAYER beside generate_west_freight.py: it reads the committed North tier, terrain and footprints and writes one structure record nothing else in this order reads back before the scene compiles.",
+      "why": "T-2022: the North Division's seventh freight roof, written from its own recipe on the North Water bank at LaSalle. PLACED BY LAYER beside generate_west_freight.py: it reads the committed North tier, terrain and footprints and writes one structure record nothing else in this order reads back before the scene compiles.",
       "command": [
         "python3",
         "tools/generate_north_freight.py"

@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A river warehouse on North Water Street', kind: 'feature',
+    items: [
+      'Walk west along North Water Street from the Dearborn drawbridge, past the freight sheds, and at the LaSalle Street corner there is now a large two-storey river warehouse: unpainted clapboard, three cargo doors on its end wall, and its front to the river across the street.',
+      'No record names it. It stands for the North Division\u2019s seventh warehouse, which the plan counted and nobody had built because North Water is a back street. The North bank\u2019s other sheds and warehouses all face the water rather than the street, and that is the reason this one is there. Its card says what was made up.',
+    ] },
   { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
     items: [
       'The walkthrough no longer downloads the list of everything we made up before you can step into the street. It arrives the first time you open Evidence or a building\u2019s card, so a first visit is about 0.6 MB lighter.',

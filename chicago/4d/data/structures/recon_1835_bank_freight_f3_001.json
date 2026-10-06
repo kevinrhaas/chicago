@@ -12,12 +12,12 @@
         "note": "An invented count-unit for July 1835, not evidence that this particular building existed."
       },
       "position": {
-        "utm_e": 447636.297,
-        "utm_n": 4637538.849,
-        "rotation_deg": 180.457077,
-        "symbolic_location": "Reconstructed river warehouse at Clark and North Water Streets, facing the main stem across North Water",
+        "utm_e": 447512.734,
+        "utm_n": 4637543.849,
+        "rotation_deg": 180.452385,
+        "symbolic_location": "Reconstructed river warehouse at LaSalle and North Water Streets, facing the main stem across North Water",
         "confidence": "reconstructed",
-        "note": "The lot is the tier's (Thompson 1830, blk_kinzie_lasalle_north lower-tier lot 1); this roof on it is not. It stands on the corner, 3.2 m inside the lot's North Water line and 1.5 m inside its Clark Street line, the rear toward the tier's alley. Chosen under the bank-landing clause (T-2022): the North's freight roofs front the water, and this is the free lower-tier lot nearest the Dearborn reach's sheds; no source seats a building here.",
+        "note": "The lot is the tier's (Thompson 1830, blk_kinzie_wells_north lower-tier lot 1); this roof on it is not. It stands on the corner, 3.0 m inside the lot's North Water line and 1.5 m inside its LaSalle Street line, the rear toward the tier's alley. Chosen under the bank-landing clause (T-2022): the North's freight roofs front the water, and this is the free lower-tier lot nearest the Dearborn reach's sheds; no source seats a building here.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 North Division roof register survives in the supplied evidence."

@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **496** anonymous roofs
+- audited: **497** anonymous roofs
 - keep: **488** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
-- refamily: **8** (5 of them into a band that already fits the committed footprint)
+- refamily: **9** (4 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 604 stand, so the town is 64 roofs short before this audit and 64 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 605 stand, so the town is 63 roofs short before this audit and 63 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -42,16 +42,17 @@ The programme wants 668 roofs and 604 stand, so the town is 64 roofs short befor
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/warehouses_freight/south` | 11 | 7 | 3 | 4 | 7 | 4 |
 | `structures/warehouses_freight/west` | 2 | 1 | 1 | 1 | 1 | 1 |
-| `structures/warehouses_freight/north` | 7 | 6 | 0 | 1 | 6 | 1 |
+| `structures/warehouses_freight/north` | 7 | 7 | 1 | 0 | 6 | 1 |
 | `structures/workshops/south` | 15 | 15 | 12 | 0 | 15 | 0 |
 | `structures/workshops/west` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/workshops/north` | 7 | 7 | 3 | 0 | 5 | 2 |
+| `structures/workshops/north` | 7 | 7 | 3 | 0 | 6 | 1 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 8 roofs that change
+## The 9 roofs that change
 
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
+| `recon_1835_bank_freight_f3_001` | north | F3 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a4_12` | south | A4 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_north_c3_064` | north | C3 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
@@ -59,7 +60,7 @@ The programme wants 668 roofs and 604 stand, so the town is 64 roofs short befor
 | `recon_1835_north_c4_067` | north | C4 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |
 | `recon_1835_north_t1_061` | north | T1 | A2 | refamily | the placement policy refuses this family here — stands 3.58 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line; the slot is wanted and the position stands |
 | `recon_1835_north_w2_065` | north | W2 | A2 | refamily | the placement policy refuses this family here — stands 3.64 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
-| `recon_1835_north_w3_062` | north | W3 | A2 | refamily | the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
+| `recon_1835_north_w3_062` | north | W3 | W5 | refamily | the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands |
 
 ## The 4 breaches owed out
 

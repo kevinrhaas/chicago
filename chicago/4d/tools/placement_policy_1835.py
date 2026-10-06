@@ -166,6 +166,9 @@ CONSTANTS = [
 #   typology      a dwelling's 4.0–7.5 m front yard
 #   yard          behind its own principal roof, off the block alley
 #   unplatted     no street frontage to keep a setback from
+#   landing       fronts the WATER across the river street; the street line beside it
+#                 is not its frontage, and the clause scores its distance from the
+#                 traced water instead (`fronts: water`, T-2022)
 #
 # `multi_building_lot_rule`:
 #   party_line_run        the density standard's party-line units, up to three per lot
@@ -193,6 +196,48 @@ CLAUSES = [
              "stands on the line rather than behind a yard. Not one documented store or "
              "warehouse in this town stands on a light street, and that zero — not a "
              "preference about frontage — is what the clause rests on."},
+
+    # T-2022. THE RIVER FRONT HALF OF THE SENTENCE ABOVE, made reachable. commercial_front
+    # says trade takes "the built streets and the river front", and then avoids every
+    # light street — which on the north bank is every street but Kinzie, so the North's
+    # owed warehouse had no clause that would take it anywhere a warehouse belongs. This
+    # clause does not loosen that one and does not regrade a street: it scores a
+    # different measured fact, the roof's distance from the traced water, and accepts a
+    # freight roof only where nothing stands between it and the river but the river
+    # street itself (`bank_landing_reach_m`). Its evidence is the North bank's own five
+    # freight roofs, which commercial_front refused and the outlier reasons below seated
+    # "by the water" in words; they conform here now, and `seated_by_water` keeps them
+    # out of the face rule's street-frontage witness exactly as their outlier reasons did.
+    # A block parcel still cannot deal a warehouse onto a light street: the block
+    # generator refuses one by LIGHT_STREET_ZERO, which reads trade_letters, not this.
+    # F1-F3 and not F4: a lumber shed — and the north-side brickyard filed under it — is
+    # seated by its material, which is what that outlier's own reason says, not by the
+    # landing.
+    {"id": "bank_landing",
+     "applies_to": ["F1", "F2", "F3"],
+     "prefers": ["ground:river_frontage", "street:north_water", "street:west_water",
+                 "division:north", "lot:corner"],
+     "avoids": [],
+     "fronts": "water",
+     "multi_building_lot_rule": "principal_plus_ancillary",
+     "setback_class": "landing",
+     "tier": "inferred",
+     "evidence": ["kinzie_hunter_warehouse", "north_bank_shed_dearborn_w",
+                  "north_bank_shed_dearborn_e1", "north_bank_shed_dearborn_e2",
+                  "north_bank_shed_dearborn_e3"],
+     "note": "A forwarding trade fronts the water it loads from, and on a river street "
+             "the street is only what lies between the door and the landing. Every "
+             "freight roof the North Division holds stands on the main stem's north bank "
+             "facing the river across North Water Street, the plate of the reach below "
+             "the Dearborn drawbridge draws low warehouses on both banks, and in November "
+             "1835 the trustees priced the wharfing privileges at $18.75 a front foot on "
+             "North Water against $18 on West Water and $25 on South Water "
+             "(wood_1881_chicago_and_its_distinguished_citizens) - the river streets' "
+             "frontage was sold as landing, whatever their wagon traffic. Inferred, not "
+             "documented: the five evidence roofs are themselves reconstructions or "
+             "placements the record calls a plausibility, and the sale is four months "
+             "after the target date. Scored on the one thing it claims - within "
+             "bank_landing_reach_m of traced water - and on nothing about the street."},
 
     {"id": "professional_row",
      "applies_to": ["C1"],
@@ -571,11 +616,6 @@ OUTLIER_REASONS = {
     "fort_dearborn_us_factors_house":
         "inside the unplatted military reservation — see the garrison clause. No street "
         "crossed the reservation in 1835.",
-    "kinzie_hunter_warehouse":
-        "on the north bank of the main river: its frontage is the WATER, which is what "
-        "a forwarding warehouse wants. Since T-1191 the line beside it is Market Street's "
-        "north-bank corridor at 4.16 m rather than South Water's across the channel, and "
-        "standing that close to a light back street is not taking its face.",
     "miller_house":
         "on the north bank, at the forks. It is nearest Market Street's north-bank "
         "corridor at 60.66 m since T-1191 and was nearest South Water's line at 138 m "
@@ -599,10 +639,6 @@ OUTLIER_REASONS = {
         "0.50 m off its east wall and nothing else is within 14 m. It holds the plant's "
         "stock, not a household's horse, and there is no platted lot behind anything here "
         "for a `yard` setback to be measured from.",
-    "north_bank_shed_dearborn_e1": "a north-bank freight shed: its frontage is the water.",
-    "north_bank_shed_dearborn_e2": "a north-bank freight shed: its frontage is the water.",
-    "north_bank_shed_dearborn_e3": "a north-bank freight shed: its frontage is the water.",
-    "north_bank_shed_dearborn_w": "a north-bank freight shed: its frontage is the water.",
     "north_side_school_1833":
         "the north-side school, 4.32 m off Clark Street's north-bank corridor since "
         "T-1191 and 90 m off the South Water line across the river before it. The "
@@ -689,6 +725,91 @@ def clauses_for(family: str) -> list[dict]:
     return [c for c in CLAUSES if family in c["applies_to"]]
 
 
+# ------------------------------------------------------------------ the water (T-2022)
+
+WATER_EPOCH = DATA / "terrain" / "epochs" / "e1834_harbor_cut"
+_WATER: dict | None = None
+
+
+def bank_landing_reach_m() -> float:
+    """How far from the traced water a roof may stand and still front it across a river
+    street: one platted corridor (the 80 ft module `data/streets/1835.json` declares)
+    plus the policy's own street line. Two committed numbers and no third: a roof inside
+    this has nothing between it and the river but the river street and its own street
+    line. Measured 2026-10-06 against the clause's evidence: Kinzie & Hunter's warehouse
+    stands 6.47 m from the water and the four Dearborn-reach sheds 16.41-16.60 m."""
+    streets = json.loads((DATA / "streets" / "1835.json").read_text(encoding="utf-8"))
+    return round(float(streets["corridor_width_m"]) + float(constant("street_line_m")), 3)
+
+
+def water_distance_m(record_id: str) -> float | None:
+    """The least distance in metres from a record's standing footprint to traced water,
+    on the epoch the town is placed on. None for a record with no footprint."""
+    global _WATER
+    if _WATER is None:
+        sys.path.insert(0, str(TOOLS))
+        from plat_occupancy import footprints  # noqa: E402
+        datum = json.loads((DATA / "datum.json").read_text(encoding="utf-8"))
+        rings = []
+        for name in ("river.geojson", "branches.geojson", "shoreline.geojson"):
+            path = WATER_EPOCH / name
+            if not path.exists():
+                continue
+            for feature in json.loads(path.read_text(encoding="utf-8"))["features"]:
+                if (feature["properties"].get("kind") == "water"
+                        and feature["geometry"]["type"] == "Polygon"):
+                    rings.append([(e - datum["origin_utm_e"], n - datum["origin_utm_n"])
+                                  for e, n in feature["geometry"]["coordinates"][0]])
+        _WATER = {"rings": rings, "polys": dict(footprints(datum)), "seen": {}}
+    seen = _WATER["seen"]
+    if record_id not in seen:
+        poly = _WATER["polys"].get(record_id)
+        seen[record_id] = (None if poly is None or not _WATER["rings"] else
+                           round(min(_separation(poly, ring) for ring in _WATER["rings"]), 2))
+    return seen[record_id]
+
+
+def _separation(a: list, b: list) -> float:
+    """Least distance between two polygons' boundaries; 0 where a vertex of one is
+    inside the other."""
+    def inside(pt, poly):
+        x, y, hit = pt[0], pt[1], False
+        for (x1, y1), (x2, y2) in zip(poly, poly[1:] + poly[:1]):
+            if (y1 > y) != (y2 > y) and x < (x2 - x1) * (y - y1) / (y2 - y1) + x1:
+                hit = not hit
+        return hit
+
+    def to_segment(p, q, r):
+        dx, dy = r[0] - q[0], r[1] - q[1]
+        span = dx * dx + dy * dy
+        t = 0.0 if span == 0 else max(0.0, min(1.0, ((p[0] - q[0]) * dx + (p[1] - q[1]) * dy) / span))
+        return ((p[0] - q[0] - t * dx) ** 2 + (p[1] - q[1] - t * dy) ** 2) ** 0.5
+
+    if any(inside(p, b) for p in a) or any(inside(p, a) for p in b):
+        return 0.0
+    return min(to_segment(p, q, r) for x, y in ((a, b), (b, a)) for p in x
+               for q, r in zip(y, y[1:] + y[:1]))
+
+
+def seated_by_water(result: dict | None = None) -> set[str]:
+    """The documented roofs that conform ONLY through a clause that fronts the water.
+
+    They used to be outliers, each with the reason "its frontage is the water", and the
+    face rule left them out of its street-frontage witness on that ground. Conforming to
+    `bank_landing` does not make the street beside them a frontage, so the face rule asks
+    this as well as `outliers` (T-2022)."""
+    result = result or reading()
+    by_id = {c["id"]: c for c in CLAUSES}
+    out = set()
+    for row in result["rows"]:
+        if not row["conforms"]:
+            continue
+        accepting = [cid for cid, breaches in row["breaches"].items() if not breaches]
+        if accepting and all(by_id[cid].get("fronts") == "water" for cid in accepting):
+            out.add(row["id"])
+    return out
+
+
 def _breaches(row: dict, clause_row: dict, street_line_m: float) -> list[str]:
     """Why this clause refuses this record — empty if it does not.
 
@@ -700,6 +821,22 @@ def _breaches(row: dict, clause_row: dict, street_line_m: float) -> list[str]:
     out = []
     if row["class"] and f"class:{row['class']}" in clause_row["avoids"]:
         out.append(f"stands on a {row['class']} street, which {clause_row['id']} avoids")
+
+    # T-2022. A clause that fronts the WATER is scored on the water and on nothing about
+    # the street: no class, no street line. A place this module cannot measure (a caller's
+    # own invented place carries no id) is refused rather than let through by silence.
+    if clause_row.get("fronts") == "water":
+        water_m = row.get("water_m")
+        if water_m is None and row.get("id"):
+            water_m = water_distance_m(row["id"])
+        reach = bank_landing_reach_m()
+        if water_m is None:
+            out.append(f"its distance from the traced water is not measured, and "
+                       f"{clause_row['id']} is scored on nothing else")
+        elif water_m > reach:
+            out.append(f"stands {water_m:.2f} m from the traced water, beyond the "
+                       f"{reach:.2f} m {clause_row['id']} reaches across a river street")
+        return out
 
     # T-1511. A record beyond the frontage reach fronts NO street: there is no class for
     # an `avoids` term to refuse it by — the test above simply cannot speak — and no
