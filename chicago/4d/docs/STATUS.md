@@ -1,3 +1,32 @@
+## T-2146 — the School Section tier's Wells blocks (94, 95) built to their lot ceilings (2026-10-06)
+
+Piece 3 of T-1755, on the owner's ruling (b): the South's owed dwellings cross Madison. T-2144
+opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no roof under them.
+
+- **The deal.** Two recipe entries in `1835_platted_block_parcels.json`, one roof to a lot, lot 0
+  (the west Madison corner) kept open on each: block 94 takes its seven requests (D2, D3, two D4,
+  two D5, D6), which is the schedule's whole plan for it; block 95 takes its six (D2, D4, D5, D7, H1,
+  H2) plus the schedule's **H3 boarding house** on lot 2. No household asks for an H3 because no
+  banded South clause admits the family (`plan_left_unclaimed`), so it is built on the schedule's
+  word and the lodging model fills it (a lodger is housed there at the fixpoint). **L393**.
+- **Keeper district.** `name_the_keepers_1835.py` gains `school_section_tier`, byte-identical to the
+  hunk on T-2145's and T-2147's branches, so whichever merges first carries it and the others merge
+  clean on it.
+- **The fixpoint.** Keepers → the four infill generators → `reconcile_665` → the seating chain,
+  walked eighteen laps (42 s each) until a lap moved nothing, then `rederive.mjs --tail
+  tools/compile_liberties.py` (three laps). **222 seated, held**: adopted 175 → 188, slot requests
+  47 → 34. As on T-2130, adoption runs first, so older households take the thirteen dwellings and
+  the thirteen who asked re-slot on blocks 81, 118 and 119. hh_dell_frank is handed on;
+  hh_laframboise_franois is seated; hh_bennet_lyman, handed on since T-2130, takes the H1, so the
+  business deal's release cost drops 1 → 0. 75 seated households change roof or lot. Keepers 81 → 86.
+- **Out of the manifest, re-run by hand:** the roof re-audit, land tracts, street-face adoptions,
+  population profile, lodging model, reconstructed trades seating, register, entrances, alley lanes,
+  woodpiles, hay limits, and the Newberry leads (all four volumes re-parsed). T-0059's asset counts
+  608/602 → 622/616.
+- **Baked**: the fourteen new meshes and four whose siding stock moved, then the nineteen the keeper
+  cascade left stale, all with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`).
+- Restated: **L263** 569 → 583, **L270** (count held; who moved), **L276** 81 → 86.
+
 ## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
 
 **What a visitor sees.** Canal Street and West Water Street run on south of Washington to
