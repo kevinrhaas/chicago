@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
+  { v: 1513, ts: '2026-10-06T19:15:30.253Z', date: 'Oct 6, 2026, 2:15 PM CT', title: 'Fourteen houses on Clark Street south of Madison', kind: 'feature',
     items: [
       'Walk south on Clark Street across Madison and both blocks between Madison and Monroe now have houses. There are seven on each side of Clark, one to a lot: frame cottages and frame houses of several sizes, a one-room cabin on the west block and a two-storey house on the east block\u2019s far corner.',
       'Each block keeps one lot open on its Madison face. On the east side of Clark that is the corner lot, so Clark crosses Madison between an open corner and a built one.',
