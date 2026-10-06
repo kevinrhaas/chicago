@@ -464,13 +464,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 634 -> 635 and 628 -> 629 on 2026-10-06 (T-1977): the trading camp at Wolf Point, one
 # `camp` through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 635 -> 648 and 629 -> 642 on 2026-10-06 (T-2148): plat block 50, blk_washington_clinton —
+# five principal roofs on the Canal face and eight yard buildings, all through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 635,
+    "assets": 648,
     "restales": {
-        "generators/common/*.py": 635,
+        "generators/common/*.py": 648,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 629,
+        "generators/emit.py": 642,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
