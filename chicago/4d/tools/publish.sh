@@ -318,6 +318,10 @@ fi
 if [ -d data/sidecars ]; then
   rm -rf "$SITE/data/sidecars"
   cp -a data/sidecars "$SITE/data/sidecars"
+  # The household notes off the boot path (T-2151): each seated record ships its
+  # households slim and their reasoning beside it in households/<id>.json, which a
+  # card fetches when it opens. check.sh gates the shipped form against the source.
+  node tools/defer_household_notes.mjs --site "$SITE/data/sidecars"
 fi
 
 # Vegetation: the flora manifest plus every zone and palette file it names. The

@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1515, ts: '2026-10-06T20:33:15.976Z', date: 'Oct 6, 2026, 3:33 PM CT', title: 'A lighter first visit, again', kind: 'change',
+    items: [
+      'The walkthrough no longer downloads every household\u2019s research notes before you can step into the street. A first visit is about 0.9 MB lighter.',
+      'A building\u2019s card still names the people who lived there, with their roles and grades, as soon as it opens. The \u201cwhy\u201d notes beside them arrive a moment later, for that building only.',
+    ] },
   { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
     items: [
       'The walkthrough no longer downloads the list of everything we made up before you can step into the street. It arrives the first time you open Evidence or a building\u2019s card, so a first visit is about 0.6 MB lighter.',

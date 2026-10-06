@@ -252,6 +252,24 @@ branch, on the steward runner: **13.488 MB across 1446 requests, with no request
 `liberties.json`**. The cut was real; the budget is still breached, because the town
 grew about 0.97 MB and 140 requests between T-2047's reading (`cb56e2e4`) and this one.
 That remainder is its own ticket, and the budget was not raised to fit it.
+**Taken by T-2151 (2026-10-06): the household notes are off the boot path.** Dev @
+`08cf2391` measured **13.652 MB across 1474 requests** (the town had grown again since
+T-2058's reading). `measure_boot_payload.mjs` now prints a BY FOLDER table beside the type
+split, and it answered §4b's question at once: `data/sidecars/1835/` was **4.132 MB** of it,
+and the households' `residents[]` were **1.07 MB** of that on the wire. The seat belongs in
+the sidecar; the paragraphs do not. A household's `name` and `relation` title the building and
+feed the Go-to search, and the card draws its people, roles, grades and basis the moment it
+opens, so those stay. The reasoning behind each `why` toggle (each person's `note`, the
+household's `why`, and its `research_note`, which no renderer reads) is 0.87 MB that only
+an open card ever shows. `publish.sh` now runs `tools/defer_household_notes.mjs`, which ships
+each of the 314 seated records slim and writes its households whole to
+`sidecars/<scene>/households/<id>.json`. The card fetches that file when it opens
+(`main.js` `ensureHouseholdNotes`, through `createPopup`'s `onShow`), swaps it in and
+redraws. The source tree is untouched, because two dozen tools read `data/sidecars/` whole.
+`defer_household_notes.mjs --check` (in check.sh) holds the shipped form to the source, and
+`check_published.mjs` declares exactly the seated records as transformed. Measured on the
+branch, on the steward runner: **12.780 MB across 1474 requests**, 0.22 MB inside 13 MB, with
+no household file requested at boot. The panel files named above are still the next lever.
 Behind it are the other panel files a first visit fetches before
 any panel is opened: `reconstruction/1835_address_book.json` (0.161 MB),
 `residents/employment_coverage.json`, `reconstruction/1835_population_profile.json`,

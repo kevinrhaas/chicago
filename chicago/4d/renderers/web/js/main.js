@@ -2274,8 +2274,38 @@ async function boot() {
   // runs on a tap.
   const popup = createPopup(popupRoot, {
     onBusiness: (id) => openBusiness(id),
-    onShow: () => { void ensureLiberties(); },
+    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); },
   });
+  // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
+  // seated record's households slim — names, roles, grades and basis, which the title,
+  // the search and the card draw at once — and the paragraphs behind each `why` toggle
+  // in sidecars/<scene>/households/<id>.json: 0.87 MB a first visit no longer loads.
+  // A household with no `why` is one whose notes were deferred (tools/
+  // defer_household_notes.mjs --check holds that every source household has one).
+  // The full households replace the slim ones on the record and the card redraws. A
+  // failure records a problem and leaves the card as drawn, toggles absent.
+  const householdNotes = new Map();
+  const ensureHouseholdNotes = (record) => {
+    const s = record?.sidecar;
+    const households = Array.isArray(s?.residents) ? s.residents : [];
+    if (!households.some((h) => !Object.hasOwn(h, 'why')) || householdNotes.has(record.id)) return;
+    const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/households/${record.id}.json`, bases.dataBase);
+    householdNotes.set(record.id, fetch(url, { cache: 'no-cache' })
+      .then((res) => {
+        if (!res.ok) throw new Error(`${res.status}`);
+        return res.json();
+      })
+      .then((doc) => {
+        if (!Array.isArray(doc?.residents) || doc.residents.length !== households.length) {
+          throw new Error('does not hold this record\'s households');
+        }
+        s.residents = doc.residents;
+        popup.refresh(record.id);
+      })
+      .catch((err) => {
+        problems.push(`households/${record.id}.json: ${err.message} — this card shows its households without their notes`);
+      }));
+  };
   // The liberties the scene takes, in the Evidence panel and on the card. Not
   // on the boot path (T-2058): only those two read the list, and it was 0.6 MB
   // of a first visit's 13 MB budget (docs/SITE-BUDGET.md §4b). Fetched once, on

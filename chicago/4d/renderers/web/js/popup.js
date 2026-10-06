@@ -1251,8 +1251,8 @@ export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chi
  * @param {object} opts
  * @param {string} opts.docBase  where a dossier is read — see DOSSIER_BASE
  * @param {function} [opts.onShow]  told each time a card is drawn, so a file
- *   only the card reads (the liberties, T-2058) can be fetched on first need
- *   rather than at boot
+ *   only the card reads (the liberties, T-2058; a record's household notes,
+ *   T-2151) can be fetched on first need rather than at boot
  */
 export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, onShow = null } = {}) {
   let currentId = null;
@@ -1365,6 +1365,18 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     setBusinesses(map) {
       businessesByStructure = map ?? null;
       if (currentRecord) this.show(currentRecord, { fromSign: currentFromSign });
+    },
+
+    /**
+     * Redraw the card on screen from its record, which has changed under it: the
+     * household notes a card fetches when it opens (T-2151) are swapped into the
+     * record's own `residents`, and the card that asked for them is redrawn on the
+     * same terms as the handles above.
+     *
+     * @param {string} id  the record whose data arrived; a card since moved on is left alone
+     */
+    refresh(id) {
+      if (currentRecord && currentRecord.id === id) this.show(currentRecord, { fromSign: currentFromSign });
     },
 
     /**
