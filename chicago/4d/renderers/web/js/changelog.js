@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: 1512, ts: '2026-10-06T19:18:00.963Z', date: 'Oct 6, 2026, 2:18 PM CT', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the first of the five blocks there to be built; the other four follow in the next updates.',

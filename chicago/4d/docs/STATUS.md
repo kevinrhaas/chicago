@@ -21,6 +21,16 @@ lot 0 kept open) with one A2 yard roof.
   re-slot, 63 change roof, 222 seated. Upstream readers of the moved roofs re-derived (hay limits,
   land tracts, register, profile, street faces, housing seats, aprons, alley lanes, woodpiles,
   remedies, roof-id migration, Newberry leads); T-0059's figures 608/602 → 616/610.
+- **Lapped again, over T-1746, T-1977, T-2140 and T-2149 (2026-10-06).** T-2149 gave the Monroe
+  face its frontage corridor, so `measure_block_redeal_remedies.py --self-test` — the one red left
+  on the last lap — is green, and the frontage census's streetless count stays at dev's 35 (the
+  four Monroe-face roofs on this block now front Monroe). The derived files took dev's side; the
+  seating chain settled in seventeen laps at the same seven in, the same seven re-slotted, 63
+  changed: **209 seated** (dev's count after T-1746), adopted 175 → 182, slots 34 → 27; keepers
+  81 → 83. Then `rederive.mjs` over the layer, its second pass, woodpiles, the roof-id surface,
+  the remedies report and the Newberry re-parse. The liberty is renumbered **L397** (T-2066 took
+  L392 on dev); L263 595 → 603, L270 209 (held) and L276 83 restated; T-0059's figures
+  635/629 → 643/637. `validate.py --stale` clean: no mesh moved on the lap.
 
 ## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
 
