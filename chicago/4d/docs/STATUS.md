@@ -13,19 +13,19 @@ opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no ro
   hunk on T-2145's and T-2147's branches, so whichever merges first carries it and the others merge
   clean on it.
 - **The fixpoint.** Keepers → the four infill generators → `reconcile_665` → the seating chain,
-  walked eighteen laps (42 s each) until a lap moved nothing, then `rederive.mjs --tail
-  tools/compile_liberties.py` (three laps). **222 seated, held**: adopted 175 → 188, slot requests
-  47 → 34. As on T-2130, adoption runs first, so older households take the thirteen dwellings and
-  the thirteen who asked re-slot on blocks 81, 118 and 119. hh_dell_frank is handed on;
+  walked eighteen laps (42 s each; again eighteen after dev's T-1746 merged in) until a lap moved nothing, then `rederive.mjs --tail
+  tools/compile_liberties.py` (three laps). **209 seated, held** (on dev after T-1746): adopted 175 → 188, slot requests
+  34 → 21. As on T-2130, adoption runs first, so older households take the thirteen dwellings and
+  the thirteen who asked re-slot on blocks 81, 118 and 119. hh_democrat_printers is handed on;
   hh_laframboise_franois is seated; hh_bennet_lyman, handed on since T-2130, takes the H1, so the
   business deal's release cost drops 1 → 0. 75 seated households change roof or lot. Keepers 81 → 86.
 - **Out of the manifest, re-run by hand:** the roof re-audit, land tracts, street-face adoptions,
   population profile, lodging model, reconstructed trades seating, register, entrances, alley lanes,
   woodpiles, hay limits, and the Newberry leads (all four volumes re-parsed). T-0059's asset counts
-  608/602 → 622/616.
+  634/628 → 648/642.
 - **Baked**: the fourteen new meshes and four whose siding stock moved, then the nineteen the keeper
   cascade left stale, all with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`).
-- Restated: **L263** 569 → 583, **L270** (count held; who moved), **L276** 81 → 86.
+- Restated: **L263** 595 → 609, **L270** (count held; who moved), **L276** 81 → 86.
 ## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
 
 - **Ruled**: the north-division memo stands and the seating gives way. The 26 ordinary
