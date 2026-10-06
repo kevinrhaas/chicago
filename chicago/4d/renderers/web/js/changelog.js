@@ -1,10 +1,43 @@
 export const CHANGELOG = [ // newest first
-  { v: 1507, ts: '2026-10-06T00:22:58.167Z', date: 'Oct 5, 2026, 7:22 PM CT', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the first of the five blocks there to be built; the other four follow in the next updates.',
       'Seven households now live in these houses, two of them named on the house itself. The seven who had asked for these lots are given lots on the next blocks south instead, because households already in the town move into new houses first.',
-      'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L392).',
+      'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
+      'The town\u2019s check of which street each house faces did not know Monroe Street, the south edge of the School Section blocks sold in 1833. Every house on a Monroe lot was read as facing no street, so the check would have turned three of them into barns and sheds.',
+      'It now reads Monroe for those lots, because the 1833 lot plan says they face it. Russel E. Heacock\u2019s house on Monroe Street, 30 m back from it, is now read as facing it too.',
+    ] },
+  { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
+    items: [
+      'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
+      'The camp stands for a Native or M\u00e9tis family in town to trade that summer. No source counts or places these families in 1835, so the camp is a declared reconstruction, built on the owner\u2019s ruling. Three tents is a number we chose, not a count, and nobody is named.',
+      'The tents are plain canvas, not a lodge: no source we hold describes the lodges at Chicago that year. As everywhere in the town, no person, flame or smoke is drawn.',
+      'The camp\u2019s card says it is held for review by Native scholars and community organisations, which the project has promised before any scene is called finished. The Liberties page explains it (L395).',
+    ] },
+  { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
+    items: [
+      'Cross a bridge to the north side and there are 26 more frame houses between the river and Michigan Street: a loose run along Kinzie Street, a few on the North Water side of it, and the rest scattered among yards.',
+      'They had been planned for two blocks out on Kinzie\u2019s Addition, which our reading of the 1835 maps keeps almost empty. They now stand where that reading puts the town, with open yard between every pair.',
+      'Twenty-six North Division households who were waiting for a roof now have one. Thirteen of them had been promised lots on the Addition that were never built.',
+      'Every one of these houses is invented: nothing records them. The Liberties page explains it (L393).',
+    ] },
+  { v: 1508, ts: '2026-10-06T00:05:54.393Z', date: 'Oct 5, 2026, 7:05 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
+    items: [
+      'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
+      'Until now the doctor shared one record with his drug-store partner Peter Pruyne, so his house named a man and no household. A newcomer\u2019s walk in August 1835 puts the doctor\u2019s home here and the store across the river on South Water Street, so the two partners are now two households.',
+      'The doctor\u2019s card now says he came from Vermont, as an 1895 history of Chicago records. Pruyne\u2019s card keeps the store, and his own arrival year: early 1833, when the shop opened.',
+      'Pruyne no longer gets an invented wife and children. The record has him marrying Rebecca Sherman on 20 August 1835, seven weeks after the day the town shows.',
+    ] },
+  { v: 1507, ts: '2026-10-05T23:12:37.341Z', date: 'Oct 5, 2026, 6:12 PM CT', title: 'Sand hills rise along the 1812 shore south of Twelfth Street', kind: 'change',
+    items: [
+      'Walk south along the lake in the 1812 scene, past where Twelfth Street would later run, and the ground behind the beach is no longer flat. A broken bank rises 30 to 40 m back from the water. About a hundred yards back stands a row of sand hills up to 18 ft high, with low swales between.',
+      'This is the ground of 15 August 1812. An 1895 history describes the bank there as ten to twenty feet above the water, with sand hills \u201cnot high and not continuous\u201d. A 1913 account puts the row of hills about a hundred yards back from the beach. The column marched on the beach, and the beach is unchanged.',
+      'No source places any single hill, so where each one stands and how high it is are our reconstruction. The Liberties page says so.',
     ] },
   { v: 1506, ts: '2026-10-05T22:21:46.692Z', date: 'Oct 5, 2026, 5:21 PM CT', title: 'Six houses on Canal Street between Washington and Madison', kind: 'feature',
     items: [

@@ -275,6 +275,46 @@
     },
     "mesh_note": "The run is built by generators/terrain_gen_e1830.py from the two committed points the run block names (1834 index 29 and the mouth readings' accretion_bound_first_index); dossier_zone is a record label."
   },
+  "south_lake_sand_hills_1812": {
+    "id": "south_lake_sand_hills_1812",
+    "label": "The sand hills and the bank behind the beach, south of Twelfth Street",
+    "n_range": [
+      -3860.0,
+      -2149.4
+    ],
+    "end_fade_m": 60.0,
+    "ridges": [
+      [
+        40.0,
+        5.5,
+        14.0
+      ],
+      [
+        91.44,
+        9.0,
+        20.0
+      ]
+    ],
+    "hollow": [
+      64.0,
+      1.5,
+      12.0
+    ],
+    "wander_m": 8.0,
+    "wander_wavelength_m": 170.0,
+    "hummock_wavelength_m": 40.0,
+    "seed": 18120815,
+    "dossier_zone": 5,
+    "confidence": "reconstructed",
+    "sources": [
+      "moses_kirkland_history_of_chicago_v1",
+      "quaife_1913"
+    ],
+    "note": "T-2066. South of Twelfth Street the 1812 ground was a flat plateau: every row from the beach's back (25 m inland) to 400 m inland read 9.4 ft (2.86 m), the South Division's carried plain, with no hill and no swale. Three readings say otherwise, and two of them are already in data/terrain/1812_evacuation_readings.json § landform, where the route of 15 August 1812 is drawn from them. Moses & Kirkland (1895, pp. 49-50) put 'the low wave-washed and wind-swept sand-hills' beginning at about Twelfth Street, with the shore flat north of it. The same book (p. 60) says 'the shore sand-hills were not high and not continuous', and that 'the surface of the bank, a hundred feet or more back from the water, varied from ten to twenty feet in height above its level'. Quaife (1913, p. 226) has 'a row of sand hills, or ridges, which ran between the prairie and the beach, parallel to the latter and distant from it about one hundred yards'. Dossier zone 5 sizes the fort's sand hills as hummocks 50-150 ft across with +10 to +14 ft peaks; its own source (chicagology_prefire274) is not cited here, because its rights are unresolved and nothing may be built from it (AGENTS.md rule 6), and no figure below rests on it alone. So the forms are built on the north_lake_dunes machinery (generators/terrain_gen.py § the lakefront dunes), measured inland from the lake's edge, row by row. The bank's near face is a ridge centred 40 m (131 ft) back from the water. It stands +5.5 ft on the 9.4 ft plain, so its crests reach 14.9 ft. Quaife's row is a ridge centred at his hundred yards, 91.44 m, the figure the route's attack zone already uses. It stands +9.0 ft, so its crests reach 18.4 ft. Between them, at 64 m, is a swale up to 1.5 ft below the plain: the low wet ground behind a foredune where a sand prairie stands. Hummock noise breaks every ridge into hills 20-40 m across, inside zone 5's 50-150 ft, because the hills were 'not continuous'. Where the noise lets a ridge down, the ground is the plain's own 9.4 ft. That is 0.6 ft under M&K's low figure and inside lake_stage_1812's own -4 to +2 ft uncertainty, so their ten-to-twenty is met by the hills and not forced onto every cell. The beach (the bank face, 25 m) is left as it was, so the column's route on the waterline keeps its ground. WHAT IS RECONSTRUCTED: every position, height and width. The readings fix that the hills existed, where they began, roughly how far back they stood and how high the bank rose, and they place no single hill. THE DISAGREEMENT IS KEPT, NOT RECONCILED: Quaife starts the ridges at the river mouth, 1.6 km north of M&K's Twelfth Street. North of Twelfth the carried 1834 `south_lake_dunes` reach (N -700 to -2120, L334, built on dossier zone 5's 'white sand hills both to the north and south' of the fort) already stands, and this block adds nothing there. The north end therefore fades in over the 60 m south of the evidence_limit line, and the south end runs past the box floor so it does not fade inside the box. Admitted in docs/LIBERTIES.md L392.",
+    "mesh": {
+      "dossier_zone": "record_only"
+    }
+  },
   "spit_1812": {
     "feature": "baymouth_bar_1812",
     "crest_ft": 4.0,
@@ -419,7 +459,7 @@
       17,
       18
     ],
-    "note": "Zones 5 and 15-18 keep the 1834 spec's reasons, which are about evidence and not about date; zone 5 (the sand hills) is modelled since T-1824 and is carried in `dunes`."
+    "note": "Zones 5 and 15-18 keep the 1834 spec's reasons, which are about evidence and not about date; zone 5 (the sand hills) is modelled since T-1824 and is carried in `dunes`; south of Twelfth Street the 1812 ground adds its own reach, `south_lake_sand_hills_1812` (T-2066)."
   },
   "evidence_limit_note": "Carried, and it matters more here than in 1835: the 1812 scene's whole reason for existing - the evacuation route and the battle ground near Eighteenth Street - lies south of Twelfth, where the record of the ground stops. That ground is built so the scene has a floor, and every vertex of it is conjectural."
 }

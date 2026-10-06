@@ -56,17 +56,17 @@
  "exclusion": null,
  "exclusion_note": null,
  "proprietor_community": {
-  "value": "unknown",
-  "tier": null,
-  "rule": "no_community_on_the_people_named",
-  "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
+  "value": "yankee",
+  "tier": "inferred",
+  "rule": "proprietors_agree",
+  "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read yankee: Dr Edmund Stoughton Kimberly (yankee). A house is not its keeper, so the reading is an inference about the house and is capped there.",
   "from": [
    {
     "person_id": "kimberly_edmund_s",
     "name": "Dr Edmund Stoughton Kimberly",
     "role": "proprietor",
-    "community": "unknown",
-    "tier": null
+    "community": "yankee",
+    "tier": "inferred"
    }
   ]
  },

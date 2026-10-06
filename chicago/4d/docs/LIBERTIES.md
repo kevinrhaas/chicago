@@ -10940,7 +10940,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 103 structures (104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 122 structures (103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -12748,8 +12748,8 @@ instruction — and the size is seated as a wife and children: 84 wives and 212 
 the sources do not name. Thirty-five of the hundred and nineteen drew a house of one and hold no
 kin at all, so the drawn people stand on 84 cards.
 
-**Scope:** `residents.persons[modelled_families]` — 803 people in 240 households, every one of
-them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2021 GREW IT FROM
+**Scope:** `residents.persons[modelled_families]` — 802 people in 240 households, every one of
+them re-derivable from `tools/reconstruct_modelled_families.py --check`. **T-2140 (2026-10-05) took it from 803 to 802** without drawing anyone it had refused before: splitting the Pruyne-Kimberly partnership left Peter Pruyne alone on his card for the first time, and the new refusal 3b (below) keeps a wife off a man the record marries seven weeks after the scene date; Kimberly's own wife, whom the history of medicine names, is a stated-family write and not a draw. The one person fewer is a drawn daughter of 10-14 in the south (`rc_thomas_frederick_child_4`), refused by the order book's female 10-19 south cell when the book re-derived its quota over the moved population. **T-2021 GREW IT FROM
 295 IN 84 TO 803 IN 240 on 2026-10-03**, by ruling on the married houses the order book had
 refused a wife: 156 of them are given the whole family this stage drew for them, 508 people
 (below, THE RULING). **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. One drawn family member gives way to a head the register names.
@@ -12777,15 +12777,17 @@ bucket of `data/reconstruction/1835_reconstruction_order_book.json` and a bucket
 `to_reconstruct` REFUSES the draw instead of overfilling. No servant, apprentice, journeyman or
 lodger is seated — the drawn size is a floor on the house and the record says so, because the
 staffing model is T-1183's and the lodger is T-1175's. Nine refusals keep the stage off evidence
-it must not touch, and the build counts every one of them: a letter-list mint (743, whose own gate
+it must not touch (ten since T-2140), and the build counts every one of them: a letter-list mint (743, whose own gate
 proves no record there ever gained a second member), a household a source already names, counts or
 rules on (147, T-1313's and T-1314's), a head the household model does not seat as a husband (27),
 a woman heading her own household (25, the age pyramid's and so T-1174's), a head the sources do
 not name (11), AN EVIDENCE-ONLY CONTAINER (5, below), a household under a standing review (4,
 T-1177's alone under AGENTS.md's Indigenous-history review), the fort and the country outside the
-town (3, T-1176's), an unsettled presence on the scene date (2, T-1172's roster), and a head whose
+town (3, T-1176's), an unsettled presence on the scene date (2, T-1172's roster), a head whose
 own trade says he kept no wife (1) — which is what stopped this stage giving Father St Cyr a
-family. A tenth refusal is the order book's rather than the rules': 306 married houses stand
+family — and, since T-2140, A HEAD A SOURCE MARRIES AFTER THE SCENE DATE (1): Peter Pruyne, whom
+Andreas marries to Rebecca Sherman on 20 August 1835, and whom this stage drew a wife and three
+sons the day the partnership split left him alone on his card. A further refusal is the order book's rather than the rules': 306 married houses stand
 refused whole because the cell that would seat their wife is spent.
 
 **THE EVIDENCE-ONLY REFUSAL, added 2026-09-21 (T-1369).** The five `hh_inf_*` records are not
@@ -14331,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 577 phases (569 until T-2147's seven houses and carriage shed on the School Section tier's block 81, blk_school_section_tier_81, south of Madison, 2026-10-05; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 595 phases (569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -14922,7 +14924,7 @@ that put these rows in front of it), **T-1335** (the family pass the kinship is 
 
 ### L270 — The plat's 338 lots are enumerated from records this project already held, and then 183 of the town's households are dealt onto them by a policy and not by a source
 
-**Scope:** `platted_seats.seats[dealt]` — 222 households (T-2147 raised the seven houses the deal asked for on the School Section tier's block 81, 2026-10-05, and the count held while the deal turned over under it: adoption runs before the slot step, so the seven who asked (hh_bently_wm_t, hh_coslet_godfrey, hh_cross_oliver, hh_crull_david, hh_curtin_david, hh_curtin_l_g, hh_cutler_morris) re-slot on the tier's blocks 94, 118 and 119, which T-2145 and T-2146 build, while hh_benediet_loma, hh_bradford_harriet, hh_bradley_joseph, hh_brink_john, hh_britain_hiram_z, hh_carter_j and hh_cary_junis_a_or_j_r move onto the new houses from older roofs, and seven slot requests elsewhere (hh_bennet_lyman, hh_clarke_h_b, hh_cleaveland_wm_p, hh_clement_dorcinrk, hh_clevinger_d_p, hh_cobb_l_b, hh_coleman_edward_b) become seats on standing roofs — adopted 175 → 182, slots 47 → 40; 63 seated households change roof or lot, read at the fixpoint of the seating chain and the keeper pass together; 216 until T-2143 carried Canal and West Water to Madison and raised the six roofs the deal asked of plat block 51, blk_west_washington_canal, 2026-10-05, and the count rose by the six who asked: hh_bailey_bennet, hh_bruen_hir, hh_brush_matthias, hh_butterfield_ben, hh_cappy_george and hh_cooley_edward_v are seated on standing West roofs (recon_1835_west_046, _031, _044, _042, _008 and _014), while six older West households adopt the new houses — hh_abbot_8_g, hh_abbott_constant, hh_abbott_titus_h, hh_allan_richard_b, hh_barrows_mary and hh_barry_j_r — and 32 households change roof in all, none handed on; the merge onto T-2144's tier moved none of those West seats. 216 until then: T-2144 joined the School Section's Madison–Monroe tier to the plat, 2026-10-05, on the owner's T-1755 ruling to cross Madison: its five South blocks — 81, 94, 95, 118 and 119, forty lots — are scheduled one house to a lot, keeping a lot open on each, and 34 households the deal had handed on to T-1614 are dealt a slot on them, the requests T-2145, T-2146 and T-2147 build; 182 until then: T-2132 cut plat block 44, blk_west_randolph_canal, on its own two printed depths and raised the four roofs the deal asked of it, 2026-10-05, and the count rose by the four who asked: hh_bronson_arthur, hh_bourassa_mark, hh_brown_hanna_e and hh_brownson_myron_k are seated on standing West roofs (recon_1835_west_044, _031, _042 and _008), while hh_abbott_constant, hh_abbott_titus_h, hh_ballingale_p and hh_barry_william take the four new houses from older roofs nearby, adoption running before the slot step as before; 21 seated households change roof behind them and none is handed on, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2130 raised the nine roofs the deal had asked for on blk_washington_dearborn and blk_washington_clark, 2026-10-05, on top of T-2129's Market block, and the count held while the deal turned over under it: `hh_chiney_ralph`, handed on by T-2129, is seated on the standing recon_1835_south_d5_016, and `hh_bennet_lyman`, whose slot stood at blk_washington_dearborn#04, is handed on, owed to T-1614 in writing. As with T-1751, none of the households that asked took a new roof, because adoption runs before the slot step: hh_ballard_thomas, hh_barrest_wilham, hh_beaubien_monique, hh_bertrand_b_h, hh_blakesley_harvey_a and hh_byam_seth move onto the Dearborn block's six, and hh_boilvin_nicholas and hh_bonn_augustin onto the Clark block's two houses, all from older roofs nearby. 53 seated households change roof or lot behind them, seven of them from a slot to a standing roof, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
+**Scope:** `platted_seats.seats[dealt]` — 209 households (T-1746 carried the 26 dwellings the schedule had dealt to blk_indiana_north_wolcott and blk_indiana_north_cass off them, 2026-10-05, L393, so the schedule plans no roof on either block and the deal requests no slot on either: the thirteen households whose slots stood there, hh_adams_elizabeth and hh_albee_clark_b on wolcott's merchant and professional lots, hh_bailly_joseph, hh_baily_john, hh_barber_beta_l, hh_barnard_j_h, hh_barnes_wheeler, hh_beach_william_h, hh_beadieston_ste, hh_beaubien_john_s, hh_beaubien_susan and hh_bennett_william on tradesmen's lots and hh_barre_john_s on cass's one labourer's lot, are handed to the off-plat deal and each is seated there under a standing North Division roof (L271); 222 until then: T-2143 carried Canal and West Water to Madison and raised the six roofs the deal asked of plat block 51, blk_west_washington_canal, 2026-10-05, and the count rose by the six who asked: hh_bailey_bennet, hh_bruen_hir, hh_brush_matthias, hh_butterfield_ben, hh_cappy_george and hh_cooley_edward_v are seated on standing West roofs (recon_1835_west_046, _031, _044, _042, _008 and _014), while six older West households adopt the new houses — hh_abbot_8_g, hh_abbott_constant, hh_abbott_titus_h, hh_allan_richard_b, hh_barrows_mary and hh_barry_j_r — and 32 households change roof in all, none handed on; the merge onto T-2144's tier moved none of those West seats. 216 until then: T-2144 joined the School Section's Madison–Monroe tier to the plat, 2026-10-05, on the owner's T-1755 ruling to cross Madison: its five South blocks — 81, 94, 95, 118 and 119, forty lots — are scheduled one house to a lot, keeping a lot open on each, and 34 households the deal had handed on to T-1614 are dealt a slot on them, the requests T-2145, T-2146 and T-2147 build; 182 until then: T-2132 cut plat block 44, blk_west_randolph_canal, on its own two printed depths and raised the four roofs the deal asked of it, 2026-10-05, and the count rose by the four who asked: hh_bronson_arthur, hh_bourassa_mark, hh_brown_hanna_e and hh_brownson_myron_k are seated on standing West roofs (recon_1835_west_044, _031, _042 and _008), while hh_abbott_constant, hh_abbott_titus_h, hh_ballingale_p and hh_barry_william take the four new houses from older roofs nearby, adoption running before the slot step as before; 21 seated households change roof behind them and none is handed on, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2130 raised the nine roofs the deal had asked for on blk_washington_dearborn and blk_washington_clark, 2026-10-05, on top of T-2129's Market block, and the count held while the deal turned over under it: `hh_chiney_ralph`, handed on by T-2129, is seated on the standing recon_1835_south_d5_016, and `hh_bennet_lyman`, whose slot stood at blk_washington_dearborn#04, is handed on, owed to T-1614 in writing. As with T-1751, none of the households that asked took a new roof, because adoption runs before the slot step: hh_ballard_thomas, hh_barrest_wilham, hh_beaubien_monique, hh_bertrand_b_h, hh_blakesley_harvey_a and hh_byam_seth move onto the Dearborn block's six, and hh_boilvin_nicholas and hh_bonn_augustin onto the Clark block's two houses, all from older roofs nearby. 53 seated households change roof or lot behind them, seven of them from a slot to a standing roof, read at the fixpoint of the seating chain and the keeper pass together; 178 until then: T-2129 raised the Market block's ten roofs, 2026-10-05, and the count held: the five slot requests that stood on blk_washington_market do not take the new roofs — the adoption pass gives them to standing households, hh_aspam_antoine, hh_aspam_jean_baptiste, hh_beaubien_charles, hh_beeson_william and hh_brookins_david — and four of the five who asked for them, hh_benediet_loma, hh_beech_reuben, hh_chattin_clark and hh_chevalier_joseph, re-slot on blk_washington_dearborn, while hh_chiney_ralph is handed on, owed to T-1614 in writing, the substitution L304 describes; the seating then walked a roof at a time down the household order behind them, hh_bousque_bernard to hh_chevalier_joseph, eighteen passes before it stopped moving; T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the count held: the block's three slot requests became adoptions, hh_borum_richard, hh_bourassa_jean_baptiste and hh_bruno_anne_franoise_apolline are seated on standing West roofs, and 22 more West households step a roof each in the pass's own order, hh_abbott_constant, hh_abbott_titus_h and hh_barry_j_r taking the three new roofs; T-2078 wrote 37 letter-list households, 2026-10-04, and the count held while the deal turned over under it: five of the new households are dealt a lot (hh_bacon_richani, hh_barnes_wheeler, hh_beadieston_ste, hh_crandall_beman, hh_dickinson_alexander), five that held one are handed on, owed to T-1614 in writing (hh_bennet_lyman, hh_bennett_william, hh_bigelow_david, hh_blaisdell_b, hh_guisin_byran), and 38 more step a roof each behind them, hh_austin_w_g among them, from recon_1835_blk_randolph_dearborn_d1_04 to recon_1835_blk_washington_franklin_d7_04; 178 before it, and 179 until T-1679 moved the Mansion House one lot east, 2026-10-04, and the D2 shanty it displaced took the Dearborn corner, where the deal seats no labourer's household: hh_clark_john_k moves from that shanty to recon_1835_blk_lake_market_d1_05, nine more households step down one roof each behind him, and hh_humphrey_fre_lemuel is handed on, owed to T-1614 in writing (L373); 182 until T-1951 raised the South's three remaining planned H3 boarding houses on blk_washington_market#04 and #05 and blk_washington_dearborn#02, 2026-10-02: the slot requests that stood on the market lots go, hh_bently_wm_t's H1, hh_benton_datas_e's H2 and hh_clarke_h_b's D4 are owed to T-1614 in writing, hh_benediet_loma's moves from blk_washington_dearborn#02 to blk_washington_market#06, four more on the Market block shift a lot and hh_beech_reuben's changes family, H1 to H2; 183 until T-1950 raised the third H3 boarding house on blk_washington_clark#00, 2026-10-02: hh_beaubien_monique's D7 request, which stood there, moves to blk_washington_dearborn#06, nine more requests on the Washington blocks shift a lot behind her, and hh_berger_f_c is handed on again, owed to T-1614 in writing; 184 until T-1952 raised the North's boarding house on blk_indiana_north_cass#01, 2026-10-02, and the slot request that stood there, hh_beaubien_john_s's D5, was re-dealt: he re-seats on blk_indiana_north_wolcott#07, the wolcott block's requests step down a lot each, and hh_bourassa_lon is handed on; the schedule's re-apportioned plan moves the South's Washington-tier requests the same way, hh_berger_f_c seated and hh_cleaveland_wm_p handed on) given a lot of the committed plat
 by the placement policy, in `data/reconstruction/1835_platted_seats.json` beside the 1,301
 written refusals, re-derived by `tools/seat_platted_ground_1835.py --build` and gated by its
 `--check`. The companion `data/reconstruction/1835_lot_ledger.json` enumerates the 338 lots
@@ -15023,7 +15025,7 @@ the two blocks hold 21 seats: wolcott's eleven are two `merchant_and_professiona
 slots, four `tradesman_dwellings` households adopted onto the D3 cottages raised there and five
 `tradesman_dwellings` slots; cass's ten are four tradesmen's households adopted onto its D3 and
 D4 cottages, five tradesmen's slots and hh_barre_john_s's labourer's slot, still the one
-labourer's household in the Addition. **The twenty were slots and
+labourer's household in the Addition. **And since T-1746 (2026-10-05, L393) the thirteen slots are gone**: the 26 dwellings the schedule had planned on these two blocks stand south of Michigan Street instead, so the deal requests no roof here, and the two blocks hold the eight tradesmen's households adopted onto their standing cottages, four on each. The thirteen, hh_barre_john_s among them, are seated by the off-plat deal under standing North Division roofs (L271). **The twenty were slots and
 not roofs** when they were dealt, on the same terms as the others above, and they stand on the same invention
 this entry records: which lot a household takes is argued from its clause's stated preferences
 and from nothing else. What the reading changed is that the lots exist and are the sheet's
@@ -15442,7 +15444,7 @@ is what a release could take back from a pass that has already published its kee
 
 ### L271 — The ground the plat does not draw is enumerated from records this project already held, and 72 more of the town's households are dealt onto it by a policy and not by a source
 
-**Scope:** `off_plat_seats.seats[dealt]` — 73 households given a parcel of the committed
+**Scope:** `off_plat_seats.seats[dealt]` — 99 households (73 until T-1746 raised 26 North Division dwellings south of Michigan Street, 2026-10-05, L393: the thirteen households whose platted slots stood on Kinzie's Addition's two subdivided blocks are seated here under standing roofs, and thirteen more owed North tradesmen's and labourers' households with them, the deal stepping a roof at a time down its own order) given a parcel of the committed
 ground the plat's own lot ledger does not draw, in
 `data/reconstruction/1835_off_plat_seats.json` beside the 1,302 written refusals,
 re-derived by `tools/seat_off_plat_ground_1835.py --build` and gated by its `--check`.
@@ -21688,7 +21690,166 @@ stables (one reads more like "23", House in Factors Dept.) re-labels them; it do
 **T-0469** (the owner's 1812 ask), data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade.
 **Recorded:** 2026-10-05 (T-2062).
 
-### L392 — Seven invented houses and a carriage shed on the School Section tier's Market block, the first roofs south of Madison
+### L392 — The 1812 sand hills south of Twelfth Street: a bank and a row of hills behind the beach, placed by us
+
+**Applies to:** `data/terrain/epochs/e1830_natural/terrain_spec.json` § `south_lake_sand_hills_1812`,
+read by `generators/terrain_gen_e1830.py` into the 1812 dune pass of `generators/terrain_gen.py`, and
+so into the committed 1812 heightfield, the ground mesh and the walker's footing in the 1812 scene
+
+**What we invented:** where, how high and in what shape the sand hills stand along the lake from
+Twelfth Street to the box floor (N −2149.4 to −3800), in the 1812 ground only. Three readings fix
+that they existed and roughly where. Moses & Kirkland (1895, pp. 49–50) have the shore "flat about as
+far south as the present Twelfth street, when began the low wave-washed and wind-swept sand-hills".
+The same book (p. 60) has "the shore sand-hills were not high and not continuous", with "the surface of
+the bank, a hundred feet or more back from the water" standing "from ten to twenty feet in height above
+its level". Quaife (1913, p. 226) has "a row of sand hills, or ridges … distant from [the beach] about
+one hundred yards". None of them places a single hill. So: (1) **the bank** — a ridge centred 40 m
+inland of the lake's edge, +5.5 ft on the 9.4 ft plain, crests to 14.9 ft; (2) **Quaife's row** — a
+ridge centred at his hundred yards (91.44 m, the figure the 1812 route's attack zone already uses),
++9.0 ft, crests to 18.4 ft; (3) **a swale** between them at 64 m, up to 1.5 ft below the plain; (4)
+**broken, not continuous** — hummock noise splits every ridge into hills 20–40 m across, and where it
+lets a ridge down the ground is the plain's own 9.4 ft. Measured on the committed heightfield, 30–120 m
+inland the ground runs 7.9 to 18.5 ft (median 10.1). The beach, the 25 m bank face, is left as it was,
+so the column's route on the waterline keeps its ground.
+
+**Why:** the ground the 1812 scene exists for, the evacuation and the attack between the water and the
+ridge, was a flat 2.86 m plateau with no hill to put "between them and their victims" (Moses & Kirkland,
+p. 50). The readings fix the hills' existence, their start, their distance back and the bank's height.
+That is enough to build at the reconstructed tier.
+
+**Omission:** where the noise lets a ridge down, the bank stands at 9.4 ft, 0.6 ft under the low end of
+"ten to twenty". That is inside the 1812 lake stage's own −4 to +2 ft uncertainty (`lake_stage_1812`),
+so the figure is met by the hills and not forced onto every cell. Quaife starts the ridges at the river
+mouth and Moses & Kirkland at Twelfth Street. That disagreement is kept: north of Twelfth the carried
+`south_lake_dunes` reach (L334) stands as before, and this one fades in over the 60 m south of the
+evidence-limit line. The 1835 ground south of Twelfth is unchanged.
+
+**Would replace:** a survey or chart of the lake shore south of Twelfth Street before the 1850s, or an
+1812–1830s account that measures one of the hills or the bank.
+
+**Covers:** `terrain.e1830_natural.south_lake_sand_hills_1812`
+**Ticket:** T-2066.
+**Related:** **L334** (the 1834 dune reaches and the machinery these reuse), data/terrain/1812_evacuation_readings.json
+§ landform (the same three readings, spent on the route).
+**Recorded:** 2026-10-05 (T-2066).
+
+### L393 — Twenty-six invented North Division houses carried off Kinzie's Addition, south of Michigan Street
+
+**Decision:** the 26 ordinary dwellings the order book owed the North Division
+(`structures/ordinary_dwellings/north`, target 84, standing 58) stand as anonymous houses in
+the three inner clusters of `docs/RESEARCH/1835_north_division_extent_and_infill.md`: a loose
+run on the north face of Kinzie Street west of Dearborn and east of Wolcott, a few on its
+south face in the North Water band, and the rest scattered through the Kinzie-Michigan
+interior. They are recipe rows 68-93 of
+`data/reconstruction/1835_north_division_initial_parcel.json` (`addition_surplus`), built by
+`tools/generate_north_infill.py`. **Everything about them is invented**: that any of them
+stood, where, how big and in what form. The families are the programme's, family for family
+as the 665-roof schedule had dealt them (D2 3, D3 3, D4 7, D5 7, D6 4, D7 2); the ground is
+the memo's.
+
+**Why here and not on the Addition.** The schedule had dealt all 26 to Kinzie's Addition's
+two subdivided blocks, 20 to `blk_indiana_north_wolcott` and 6 to `blk_indiana_north_cass`.
+Both already stand at the ceiling the memo's alternation puts on them, four roofs each (L294),
+and the Addition's other lotted cells are apportioned none (T-1757). The memo is this
+project's committed reading of the July 1835 north side, a large platted addition with no
+buildings drawn on it, kept visibly speculative; the seating is a policy deal that reads no
+source about these blocks. So the seating gives way, and the memo, whose own full North
+target is 90 ordinary dwellings, carries the 26 on the ground it calls occupied.
+
+**What bounded the positions.** A deterministic search against the generator's own tests
+(no platted corridor on its drawn line, covered dry ground, at most 0.35 m of relief) and
+three more measured at the deal: at least 14 m from every committed roof, so an open yard
+stands between every pair and no run reads as a street wall; at least 25 m from every named
+structure, the recipe's review buffer; and inside the parcel's initial occupied envelope
+(E 430-1300, N 105-390). Kinzie Street between Dearborn and Wolcott is left as T-1205 dealt
+it (L368), with no house between its trade roofs. And no more than 58 m from a street
+corridor, the body of the frontage census: rows 76, 90 and 93 first stood 69-92 m out, in the
+empty band `FRONTAGE_REACH_M` is measured from, and were re-searched and moved 6, 47 and 45 m
+rather than re-derive the reach for the whole town. No position is a reading of a source.
+
+**Who lives in them.** Nobody is placed by this entry. The off-plat deal (L271) seats owed
+North households under standing roofs, and these are standing roofs: thirteen of the
+households whose platted slots stood on the two Addition blocks (L270) and thirteen more owed
+North tradesmen's and labourers' households are seated in the North Division's houses as a
+result, the deal stepping a roof at a time down its own order.
+
+**How to resolve:** any dated record of a house north of the river in 1835 (a lot sale with
+improvements, a directory address, a reminiscence that places one) substitutes for the
+nearest of these by family; a reading that puts houses on the Addition's blocks would move
+them back.
+
+**Covers:** `recon_1835_north_d5_068.inferred_1835.position`, `recon_1835_north_d5_068.inferred_1835.footprint`,
+`recon_1835_north_d4_069.inferred_1835.position`, `recon_1835_north_d4_069.inferred_1835.footprint`,
+`recon_1835_north_d6_070.inferred_1835.position`, `recon_1835_north_d6_070.inferred_1835.footprint`,
+`recon_1835_north_d5_071.inferred_1835.position`, `recon_1835_north_d5_071.inferred_1835.footprint`,
+`recon_1835_north_d4_072.inferred_1835.position`, `recon_1835_north_d4_072.inferred_1835.footprint`,
+`recon_1835_north_d3_073.inferred_1835.position`, `recon_1835_north_d3_073.inferred_1835.footprint`,
+`recon_1835_north_d5_074.inferred_1835.position`, `recon_1835_north_d5_074.inferred_1835.footprint`,
+`recon_1835_north_d4_075.inferred_1835.position`, `recon_1835_north_d4_075.inferred_1835.footprint`,
+`recon_1835_north_d7_076.inferred_1835.position`, `recon_1835_north_d7_076.inferred_1835.footprint`,
+`recon_1835_north_d2_077.inferred_1835.position`, `recon_1835_north_d2_077.inferred_1835.footprint`,
+`recon_1835_north_d5_078.inferred_1835.position`, `recon_1835_north_d5_078.inferred_1835.footprint`,
+`recon_1835_north_d4_079.inferred_1835.position`, `recon_1835_north_d4_079.inferred_1835.footprint`,
+`recon_1835_north_d6_080.inferred_1835.position`, `recon_1835_north_d6_080.inferred_1835.footprint`,
+`recon_1835_north_d3_081.inferred_1835.position`, `recon_1835_north_d3_081.inferred_1835.footprint`,
+`recon_1835_north_d5_082.inferred_1835.position`, `recon_1835_north_d5_082.inferred_1835.footprint`,
+`recon_1835_north_d4_083.inferred_1835.position`, `recon_1835_north_d4_083.inferred_1835.footprint`,
+`recon_1835_north_d6_084.inferred_1835.position`, `recon_1835_north_d6_084.inferred_1835.footprint`,
+`recon_1835_north_d2_085.inferred_1835.position`, `recon_1835_north_d2_085.inferred_1835.footprint`,
+`recon_1835_north_d5_086.inferred_1835.position`, `recon_1835_north_d5_086.inferred_1835.footprint`,
+`recon_1835_north_d4_087.inferred_1835.position`, `recon_1835_north_d4_087.inferred_1835.footprint`,
+`recon_1835_north_d7_088.inferred_1835.position`, `recon_1835_north_d7_088.inferred_1835.footprint`,
+`recon_1835_north_d3_089.inferred_1835.position`, `recon_1835_north_d3_089.inferred_1835.footprint`,
+`recon_1835_north_d4_090.inferred_1835.position`, `recon_1835_north_d4_090.inferred_1835.footprint`,
+`recon_1835_north_d2_091.inferred_1835.position`, `recon_1835_north_d2_091.inferred_1835.footprint`,
+`recon_1835_north_d5_092.inferred_1835.position`, `recon_1835_north_d5_092.inferred_1835.footprint`,
+`recon_1835_north_d6_093.inferred_1835.position`, `recon_1835_north_d6_093.inferred_1835.footprint`
+
+**Related:** **L90** (the anonymous roofs the reconstruction programme raises), **L294** (the
+Addition's two blocks and the ceiling on them), **L368**, **L270**, **L271**, **T-1757**.
+
+**Recorded:** 2026-10-05 (T-1746).
+
+### L395 — One trading family's camp at Wolf Point, a declared reconstruction the owner ruled built
+
+**Decision:** `wolf_point_trading_camp` is three canvas wall tents in a ring about one cold
+fire ring, with a woodpile and one heap of packs, on a 16 x 16 m ground at Wolf Point: south
+of the Wolf Point Tavern and its stable, west of Robert A. Kinzie's store, north of Lake
+Street's drawn line (local E −94 to −78, N −85 to −69). It stands for a Native or Métis
+family in town to trade in the summer of 1835. **Everything drawn is invented, and so is
+the family.** It seats nobody, names nobody and moves no count.
+**Why:** T-1214 asked for the camps of Native and Métis families in town to trade or
+awaiting the annuity payment; T-1804 built the land-sale and wagon camps (L355) and not
+these, because T-1177 refused a count for the unnamed Native and Métis people at Chicago on
+1 July 1835 (`1835_native_and_metis.json` § the_counted_but_unnamed). The question went to
+the owner, who ruled on 2026-10-04 (T-1977, answer b): *build one small camp at Wolf Point
+or the Agency as a declared reconstruction (review_required + touches_removal, no figures),
+bounded by a stated figure rather than a count.* **Three tents is that stated figure**: the
+fewest that reads as a camp and not as one household, and not a reading of anybody. Wolf
+Point and not the Agency, because `cobweb_castle` records the Agency House as most likely
+no longer an operating agency by 1835 and its ground is a platted lot, while Wolf Point is
+where Wau-Bun puts Alexander Robinson's household in 1831 and where Robert A. Kinzie,
+listed by Andreas among the Indian traders, kept a store. The spot is the placer's
+(`tools/place_camp_grounds_1835.py`), under L355's tests: level, dry, at least 3 m from
+every drawn roadway, fence run and committed footprint. **The tents are canvas and not a
+lodge** because no committed source describes a Potawatomi, Odawa, Ojibwe or Métis lodge at
+Chicago in 1835, and T-1214 adds a lodge form to the archetype only where a source
+describes one; the canvas is not offered as how these families lived.
+**Consequence:** walking Lake Street past Wolf Point, a visitor sees three tents about a
+fire ring between the tavern and the street. The record carries `review_required` and
+`touches_removal`, so no scene containing it can be marked released until the review by
+Native scholars or community organisations that AGENTS.md commits to has been held. **L1
+stands over every vertex**: no figure, no flame, no smoke. No ceremony, dialogue or trade
+good is drawn or named, and nothing of the August 1835 gathering or the removal is staged.
+**How to resolve:** a source that counts or places the Native and Métis families at or
+about Chicago in the summer of 1835 would size or move the camp; one that describes their
+lodges there would re-form it; the review itself may retire it.
+**Covers:** `wolf_point_trading_camp.camp_1835.position`, `wolf_point_trading_camp.camp_1835.footprint`, `wolf_point_trading_camp.camp_1835.documented_range`, `wolf_point_trading_camp.camp_1835.form.tents`, `wolf_point_trading_camp.camp_1835.form.tent_kind`, `wolf_point_trading_camp.camp_1835.form.wagons`, `wolf_point_trading_camp.camp_1835.form.brush_shelters`, `wolf_point_trading_camp.camp_1835.form.fire_rings`, `wolf_point_trading_camp.camp_1835.form.woodpiles`, `wolf_point_trading_camp.camp_1835.form.baggage_heaps`, `wolf_point_trading_camp.camp_1835.form.arrangement`, `wolf_point_trading_camp.camp_1835.form.canvas_condition`, `wolf_point_trading_camp.function`, `wolf_point_trading_camp.occupants`.
+**Related:** **T-1977** (the owner's ruling), **T-1214**, **T-1804**, **T-1177**, L355, L1,
+AGENTS.md § Standing constraint.
+**Recorded:** 2026-10-05 (T-1977).
+
+### L397 — Seven invented houses and a carriage shed on the School Section tier's Market block, the first roofs south of Madison
 
 **Decision:** `blk_school_section_tier_81` — the School Section's block 81, bounded by Madison,
 Monroe, Market and the section's eighth line, which T-2144 joined to the plat on the owner's

@@ -5,7 +5,7 @@
   "source_id": "chicago_voter_lists_1833_1835_irad",
   "publication_source_id": "chicago_genealogist_1993_voter_lists",
   "crosswalk_target": "data/residents/households/*.json",
-  "residents_compared": 1441,
+  "residents_compared": 1442,
   "counts": {
     "entries": 345,
     "matched": 292,
@@ -245,7 +245,7 @@
       "discriminator": null,
       "candidate": null,
       "rivals": [],
-      "rule": "no resident of the surname 'Kimberly' agrees with the entry's forenames (3 bearer(s) of the surname considered), and no bridge row carries the entry."
+      "rule": "no resident of the surname 'Kimberly' agrees with the entry's forenames (4 bearer(s) of the surname considered), and no bridge row carries the entry."
     },
     {
       "record_id": "poll_1833_017",
@@ -1168,11 +1168,11 @@
       "normalized": "Edmund S. Kimberly",
       "outcome": "matched",
       "matched_resident": "kimberly_edmund_s",
-      "household_id": "hh_pruyne_kimberly",
+      "household_id": "hh_kimberly_edmund_s",
       "discriminator": "forenames agree initial for initial: entry 'Edmund S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_058",
@@ -1185,7 +1185,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Ira Kimberly' against resident 'Ira Kimberly'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "tax_1833_059",
@@ -2758,11 +2758,11 @@
       "normalized": "Dr. E. S. Kimberly",
       "outcome": "matched",
       "matched_resident": "kimberly_edmund_s",
-      "household_id": "hh_pruyne_kimberly",
+      "household_id": "hh_kimberly_edmund_s",
       "discriminator": "forenames agree initial for initial: entry 'Dr. E. S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_064",
@@ -2781,7 +2781,7 @@
         "recommendation": "INCLUDE"
       },
       "rivals": [],
-      "rule": "no resident of the surname 'Kimberly' agrees with the entry's forenames (3 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
+      "rule": "no resident of the surname 'Kimberly' agrees with the entry's forenames (4 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
     },
     {
       "record_id": "poll_1834_065",
@@ -2794,7 +2794,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Osa Kimberly' against resident 'Osa Kimberly'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1834_066",
@@ -3984,7 +3984,7 @@
         "recommendation": "INCLUDE"
       },
       "rivals": [],
-      "rule": "no resident of the surname 'Kimberly' agrees with the entry's forenames (3 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
+      "rule": "no resident of the surname 'Kimberly' agrees with the entry's forenames (4 bearer(s) considered), and the v1 workbook's bridge rows carry the entry verbatim."
     },
     {
       "record_id": "poll_1835_040",
@@ -3997,7 +3997,7 @@
       "discriminator": "forenames agree initial for initial: entry 'Ira Kimberly' against resident 'Ira Kimberly'",
       "candidate": null,
       "rivals": [],
-      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered."
+      "rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 4 bearer(s) of the surname were considered."
     },
     {
       "record_id": "poll_1835_041",

@@ -1,17 +1,16 @@
 {
  "id": "hh_pruyne_kimberly",
- "name": "The Pruyne and Kimberly partnership household",
+ "name": "The Pruyne household",
  "division": "south",
  "head": "pruyne_peter",
  "arrival": {
-  "value": "1832",
-  "confidence": "attested",
+  "value": "1833",
+  "confidence": "inferred",
   "sources": [
    "andreas_1884_v1",
-   "history_medicine_chicago_kimberly_maxwell",
-   "moses_kirkland_history_of_chicago_v1"
+   "history_medicine_chicago_kimberly_maxwell"
   ],
-  "note": "Kimberly's year is independently stated as 1832. Pruyne's own arrival is dated only by his shop - 'early in 1833' - and the household takes the earlier of the two because that is when it first existed in the town. THE COMPILER'S 1832 LIST AGREES AND IS COARSER. Moses and Kirkland, History of Chicago, Illinois, vol. 1 (1895), printed page 89 (claim bk_mose1_001) names this man among those who came through Chicago in 1832 and decided to remain. A YEAR AND NOT A MONTH, from an 1895 compilation, so it corroborates this field and does not move it. THE GRADE CEILING IS THE SOURCE'S AND NOT THIS FIELD'S. Moses and Kirkland, History of Chicago, Illinois (1895) is a compiler sixty years after the fact; every claim taken off it is transcription_mediated and none is scan_verified, so nothing drawn from it is graded above `inferred` (the rule T-1322 set for the settlers table, kept here). THE MAN NAMED IS THE PARTNER AND NOT THE HEAD: the compiler writes \"Dr. E. S. Kimberly ... of Vermont\", which is Dr Edmund Stoughton Kimberly, initial for initial, and this household's 1832 is already Kimberly's year — its own note says Pruyne's arrival is dated only by his shop, \"early in 1833\", and the household takes the earlier of the two. HIS VERMONT NATIVITY IS RECORDED HERE AND IS DELIBERATELY NOT WRITTEN INTO `origin`: Peter Pruyne is the head of this household, the field is the household's, and moving it to one partner's stated state would put Kimberly's answer under Pruyne's name. A later run that splits the partnership should carry Vermont to Kimberly.",
+  "note": "PRUYNE'S OWN YEAR, NOW THAT THE PARTNERSHIP IS SPLIT (T-2140). This field held 1832 at `attested`, and that was Kimberly's year: the partnership household took the earlier of its two men's arrivals because that is when it first existed in the town. Kimberly now heads hh_kimberly_edmund_s and carries his 1832 there, with the compiler's 1832 list that named him and the Vermont it gave him. What dates Pruyne is his shop, opened with Kimberly 'early in 1833', and the town's tax list of 1833, which prints him as Pryne, Peter (see his civic_evidence). THE GRADE FALLS TO `inferred` BECAUSE THE SHOP DATES HIS PRESENCE AND NOT HIS ARRIVAL: a man trading by early 1833 may have come in 1832, and nothing reached says which.",
   "precision": "year"
  },
  "party_size_on_arrival": {
@@ -55,7 +54,7 @@
  "lives_at": {
   "value": null,
   "confidence": "reconstructed",
-  "note": "Not attested for either man. Note that this is a BUSINESS household rather than a domestic one - see the research note."
+  "note": "Not attested. Bonnell's walk puts his partner's residence on the north bank, east of the Lake House, and that is Kimberly's own household now (hh_kimberly_edmund_s); it says nothing of where Pruyne lived, and no source this project holds gives him a house."
  },
  "works_at": {
   "value": "pruyne_kimball_drugstore",
@@ -73,7 +72,7 @@
    "andreas_1884_v1",
    "history_medicine_chicago_kimberly_maxwell"
   ],
-  "note": "Pruyne is married at Chicago on 20 August 1835, seven weeks after the scene date; Kimberly is continuously in the town's medical and public life through this period."
+  "note": "Pruyne is married at Chicago on 20 August 1835, seven weeks after the scene date, and he is in the drug store's partnership through the year."
  },
  "persons": [
   {
@@ -434,468 +433,11 @@
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('pruyne_peter:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304). No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    }
-  },
-  {
-   "id": "kimberly_edmund_s",
-   "name": "Dr Edmund Stoughton Kimberly",
-   "relationship": "partner",
-   "grade": "attested",
-   "ladder_rule": "G1a",
-   "associated_with": [
-    {
-     "kind": "land_purchased",
-     "place_or_structure_id": "school_section",
-     "resolves_to": "tract",
-     "from": "1833-10-25",
-     "to": null,
-     "tier": "inferred",
-     "source_id": "isa_public_domain_land_tract_sales",
-     "note": "GROUND HE BOUGHT, WHICH IS NOT GROUND HE STOOD ON — the rung is `tract` for that reason, and `land_purchased` is in neither the home kinds nor the work kinds because a holding is not a place a man was. The federal tract-sale register carries 1 row(s) — ls0263 — to this purchaser, read as 'KIMBERLEY EDMUND S', sorted onto school_section by tools/sort_land_sales_onto_tracts.py and covering about 2.82 acre(s) of it. THE TIER IS INFERRED AND THE TWO HALVES DIFFER: the purchase is documented — the register is a public record and states it — while the tie between that purchaser and THIS card is an identity ruling, upheld under T-1001 on 2026-09-10 by the rule 'KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried.'. The weaker half sets the tier. `to` is null because the register records a sale and not a tenure."
-    }
-   ],
-   "sex": "male",
-   "birth_year": {
-    "value": 1803,
-    "confidence": "attested",
-    "sources": [
-     "history_medicine_chicago_kimberly_maxwell"
-    ],
-    "note": "T-0478 replaces the age-at-death arithmetic with an explicit biographical date: Edmund Stoughton Kimberly was born at Troy, New York, April 7, 1803."
-   },
-   "age_on_scene_date": {
-    "value": 32,
-    "confidence": "attested",
-    "sources": [
-     "history_medicine_chicago_kimberly_maxwell"
-    ],
-    "note": "Born April 7, 1803, so he was 32 on July 1, 1835."
-   },
-   "occupation": {
-    "value": "physician",
-    "confidence": "attested",
-    "sources": [
-     "andreas_1884_v1",
-     "history_medicine_chicago_kimberly_maxwell"
-    ],
-    "note": "Kimberly moved to Chicago in 1832, practiced medicine, and was the other half of the town's second drug store.",
-    "derived_from": "roles",
-    "roles_at_scene_date": [
-     "physician"
-    ]
-   },
-   "sources": [
-    "andreas_1884_v1",
-    "census_1840_chicago_familysearch_images",
-    "chicago_democrat_1833_1835",
-    "chicago_voter_lists_1833_1835_irad",
-    "history_medicine_chicago_kimberly_maxwell",
-    "isa_public_domain_land_tract_sales"
-   ],
-   "dated_bounds": [
-    {
-     "bound_kind": "property",
-     "list": "tax_1833",
-     "list_title": "Tax list of the Town of Chicago, 1833",
-     "record_id": "tax_1833_057",
-     "as_read": "Kimberly, Edmund S.",
-     "locator": "voter_lists_1833_1835.txt line 109",
-     "describes_date": "1833",
-     "date_confidence": "documented",
-     "precision": "year",
-     "reaches": "1833-12-31",
-     "here_by": null,
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_voter_lists_1833_1835_irad"
-     ],
-     "identity_discriminator": "forenames agree initial for initial: entry 'Edmund S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'",
-     "identity_rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
-     "note": "PROPERTY, NOT PRESENCE (T-1117). Tax list of the Town of Chicago, 1833 names the owners of ground inside the town, resident or not — its entry 110 is Alexander Wolcott, who had been dead since 25 October 1830 — so this row bounds what this person was assessed for and says nothing about where the person was. tools/assert_tax_roll_ruling.py holds that ruling on the two readings it rests on. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Edmund S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "presence",
-     "list": "poll_1834",
-     "list_title": "Election returns — poll list of 1834, filed 11 August 1834",
-     "record_id": "poll_1834_063",
-     "as_read": "Kimberly, Dr. E. S.",
-     "locator": "voter_lists_1833_1835.txt line 232",
-     "describes_date": "1834-08-11",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-08-11",
-     "here_by": "1834-08-11",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_voter_lists_1833_1835_irad"
-     ],
-     "identity_discriminator": "forenames agree initial for initial: entry 'Dr. E. S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'",
-     "identity_rule": "one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.",
-     "note": "A BOUND ON PRESENCE, AND NOTHING FURTHER. Election returns — poll list of 1834, filed 11 August 1834 records a man who presented himself and voted, so the entry places a body in Chicago no later than 1834-08-11. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes: a man on a roll of 1833, 1834 or 1835 is not thereby at Chicago on 1 July 1835. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The reading of the roll is documented — the town's own paper, held by the Illinois Regional Archives Depository, twice mediated by Schulz's transcription and Genealogy Trails' republication, which this project has not gone behind. What no source states is that the man on the roll is the person on this card: data/research/civic/voter_crosswalk.json joins them on a name, by its rule “one resident of the surname 'Kimberly' agrees with the entry's forenames; 3 bearer(s) of the surname were considered.”, and forenames agree initial for initial: entry 'Dr. E. S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "appearance",
-     "list": "T39N R14E sec 16",
-     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
-     "record_id": "ls0263",
-     "as_read": "KIMBERLEY EDMUND S",
-     "locator": "purchase 0370813, volume 818 page 008, section 16, T39N R14E",
-     "describes_date": "10/25/1833",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1833-10-25",
-     "here_by": null,
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "isa_public_domain_land_tract_sales"
-     ],
-     "identity_discriminator": "forename_agrees",
-     "identity_rule": "KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried.",
-     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins KIMBERLEY EDMUND S to this card on a name, upheld under T-1001, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "appearance",
-     "list": "T39N R14E sec 32",
-     "list_title": "Illinois Public Domain Land Tract Sales Database — the federal land offices' sale registers, indexed by the Illinois State Archives",
-     "record_id": "ls0479",
-     "as_read": "KIMBERLY EDMUND S",
-     "locator": "purchase 0003303, volume 687 page 269, section 32, T39N R14E",
-     "describes_date": "06/27/1835",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1835-06-27",
-     "here_by": null,
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "isa_public_domain_land_tract_sales"
-     ],
-     "identity_discriminator": "forename_agrees",
-     "identity_rule": "KIMBERLY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 3 people of this surname, and the forename agrees in full.",
-     "note": "A DATED APPEARANCE IN A LAND REGISTER, AND NOTHING FURTHER. The Residence column reads UNKNOWN, which places this purchaser nowhere: the register did not record where the purchaser lived. A purchase is a TRANSACTION and not a RESIDENCE, so `here_by` is null: nothing in this register says this person was at Chicago on or before any day. Its only column that speaks to residence reads a county, a state, or UNKNOWN, and never a town. THE IDENTITY IS INFERRED AND THE REGISTER IS NOT. The date, the tract and the purchase number are the register's own, indexed by the Illinois State Archives from the land offices' sale volumes. What no source states is that the purchaser is the person on this card: data/research/land_sales/resident_crosswalk.json joins KIMBERLY EDMUND S to this card on a name, upheld under T-0990, on the ground “forename_agrees”. A bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_04_23#c007",
-     "claim_kind": "notice",
-     "as_printed": "EDMUND S. KiMBERLY,",
-     "role": "announced candidate for the House of Representatives",
-     "locator": "chicago_democrat_1834_04_23 page 3 column 1",
-     "describes_date": "1834-04-23",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-04-23",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-04-23 names 'EDMUND S. KiMBERLY,' in the claim read as chicago_democrat_1834_04_23#c007, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_08_06#c001",
-     "claim_kind": "event",
-     "as_printed": "id S. Kimberly,",
-     "role": "candidate for Representative to the General Assembly",
-     "locator": "chicago_democrat_1834_08_06 page 3 column 1",
-     "describes_date": "1834-08-06",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-08-06",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-06 names 'id S. Kimberly,' in the claim read as chicago_democrat_1834_08_06#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_08_13#c005",
-     "claim_kind": "event",
-     "as_printed": "Edmund S. Kimberl",
-     "role": "candidate for Representative to the General Assembly",
-     "locator": "chicago_democrat_1834_08_13 page 2 column 5",
-     "describes_date": "1834-08-13",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-08-13",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_edmund_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-08-13 names 'Edmund S. Kimberl' in the claim read as chicago_democrat_1834_08_13#c005, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1834_11_19#c001",
-     "claim_kind": "event",
-     "as_printed": "Doct. E. 8. tly",
-     "role": "committee member",
-     "locator": "chicago_democrat_1834_11_19 page 3 column 2",
-     "describes_date": "1834-11-19",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1834-11-19",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_doct_e_s_kimber_ly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1834-11-19 names 'Doct. E. 8. tly' in the claim read as chicago_democrat_1834_11_19#c001, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1835_07_01#c010",
-     "claim_kind": "event",
-     "as_printed": "E. S. Kimberly",
-     "role": "committee",
-     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
-     "describes_date": "1835-07-01",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1835-07-01",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_s_kimberly, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'E. S. Kimberly' in the claim read as chicago_democrat_1835_07_01#c010, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    },
-    {
-     "bound_kind": "print_appearance",
-     "corpus": "chicago_press_1833_1835",
-     "publication": "The Chicago Democrat",
-     "record_id": "chicago_democrat_1835_07_01#c011",
-     "claim_kind": "event",
-     "as_printed": "E. S. Kimberley",
-     "role": "committee",
-     "locator": "chicago_democrat_1835_07_01 page 3 column 2",
-     "describes_date": "1835-07-01",
-     "date_confidence": "documented",
-     "precision": "day",
-     "reaches": "1835-07-01",
-     "here_by": null,
-     "side_of_scene_date": "earlier",
-     "covers_scene_date": false,
-     "confidence": "inferred",
-     "sources": [
-      "chicago_democrat_1833_1835"
-     ],
-     "identity_rule": "data/research/newspapers/register_1835.json — persons[] person_e_s_kimberley, action `enrich` onto this card. The register states its own reason there and this row cites it rather than transcribing it.",
-     "note": "AN APPEARANCE IN THE TOWN'S PRINT, AND NOTHING FURTHER. The Chicago Democrat of 1835-07-01 names 'E. S. Kimberley' in the claim read as chicago_democrat_1835_07_01#c011, so the reading dates an appearance of this person in the town's press and `here_by` is null: a name in print is not a body in the town, and a notice can be signed elsewhere and reprinted here. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. THE IDENTITY IS INFERRED AND THE PAGE IS NOT: the issue is deposited, dated and numbered in data/research/newspapers/corpus.json, and what no source states is that the name the paper prints is the person on this card — the register joins them under its own written note. No grade moves here and the identity is neither reopened nor hardened."
-    }
-   ],
-   "note": "T-0478 adds exact birth data and independent biography: born April 7, 1803 at Troy, New York; Union College graduate; medical training in New York; married Marie Theresa Ellis May 16, 1829; moved to Chicago in 1832. He was clerk of the August 5, 1833 incorporation meeting and one of the first town trustees. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, NOT A GRADE. The early Chicago voter and tax lists held by the Illinois Regional Archives Depository name this person 2 times: Tax list of the Town of Chicago, 1833 — “Kimberly, Edmund S.” (tax_1833_057, line 109); Election returns — poll list of 1834, filed 11 August 1834 — “Kimberly, Dr. E. S.” (poll_1834_063, line 232). These are the town's own contemporary paper rather than a recollection of it, and each appearance says that a man of that name stood on that roll in that year — no more. The reading is twice mediated (Schulz's transcription, then Genealogy Trails' republication) and this project has not seen the IRAD originals. Under the ratified ladder (T-0513) the 1835 poll with a second independent source is attested, the 1835 poll alone or a 1833/1834 list with another source is inferred, and a single appearance with nothing else is a projected resident. This pass WRITES THE EVIDENCE AND MOVES NO GRADE — T-0515 applies the ladder against every source at once. Identity by the crosswalk's own rule: one resident of the surname 'Kimberly' agrees with the entry's forenames; 1 bearer(s) of the surname were considered. (data/research/civic/voter_crosswalk.json). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 4 times, as “KIMBERLEY EDMUND S”, “KIMBERLY EDMUND S”, “KIMBERLY E S”, 1833-10-25 to 1836-09-05: 1 federal land entry — E2SE sec 32 T39N R14E and 2 lots in the platted town — lot 5 of block 1 in the town the register codes CHI (L5BL1CHI, as printed); lot 9 of block 48 in the town the register codes CHIOTV (L9BL48CHIOTV, as printed) and 1 parcel of the school section — lot 6 of block 119 of the school section (sec 16 T39N R14E), 80.00 acres stated in all, for $5042.00 (ls0263, ls0479, ls1281, ls1282). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $4300.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict. THE 1840 FEDERAL CENSUS — A HEAD FIVE YEARS AFTER THE SCENE, AND NEVER AN 1835 FACT. The 1840 federal census of Chicago, read line by line off the left sheets in this repository, carries 1 head of this name — “Ed. Kimberley” (33S7-9YYJ-99F, printed page 234, line 3). This project has ruled the head a CANDIDATE and no more: the name agrees and is unique on both sides, but nothing independent of the name was found. A candidate is not an identity — nothing is asserted from it, no household of 1840 is carried back, and the ruling is recorded so that a reader can see it was made rather than missed. Under the rule that decided it (L6b reached_through_a_card_merge_caps_at_candidate), by the crosswalk's own ladder (data/research/census_1840/resident_crosswalk.json). LATER EVIDENCE ONLY. The ratified grading ladder binds: an 1839 or 1840 appearance alone is never an 1835 resident, and 1840 household composition is never back-projected to the 1835-07-01 scene. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and an 1840 head is a second source about CONTINUED RESIDENCE rather than about who was living at Chicago on 1 July 1835. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
-   "resident_research": {
-    "programme": "resident-research-2026",
-    "ticket": "T-0493",
-    "outcome": "no_corroboration_yet",
-    "reviewed_on": "",
-    "asserted_identity": false,
-    "evidence_for": "forenames agree initial for initial: entry 'Dr. E. S. Kimberly' against resident 'Dr Edmund Stoughton Kimberly'",
-    "source_ids": [
-     "chicago_voter_lists_1833_1835_irad"
-    ],
-    "refusals": [
-     {
-      "regraded_on": "2026-09-04",
-      "rule": "G2b",
-      "withheld": "the downgrade to inferred",
-      "reason": "This card rests on 3 thing(s) the consolidation did not read — andreas_1884_v1, chicago_democrat_1833_1835, history_medicine_chicago_kimberly_maxwell. G2b fired on the seven domains the ladder reads and says nothing about the evidence outside them, so the grade stands. The same reasoning the ladder's own G5 gives for abstaining (T-0515)."
-     }
-    ]
-   },
-   "civic_evidence": [
-    {
-     "list": "poll_1833",
-     "as_read": "Kimberly, Ed. S.",
-     "locator": "poll_1833",
-     "record_id": "poll_1833_016",
-     "describes_date": "1833",
-     "source": "chicago_voter_lists_1833_1835_irad",
-     "rule": "G3"
-    },
-    {
-     "list": "poll_1834",
-     "as_read": "Kimberly, Edmund L.",
-     "locator": "poll_1834",
-     "record_id": "poll_1834_064",
-     "describes_date": "1834",
-     "source": "chicago_voter_lists_1833_1835_irad",
-     "rule": "G1a"
-    },
-    {
-     "list": "poll_1835",
-     "as_read": "Kimberly, Edmund L.",
-     "locator": "poll_1835",
-     "record_id": "poll_1835_039",
-     "describes_date": "1835",
-     "source": "chicago_voter_lists_1833_1835_irad",
-     "rule": "G1a"
-    }
-   ],
-   "press_evidence": [
-    {
-     "list": "newspaper_1833_1835",
-     "as_read": "E. S. Kimberly",
-     "locator": "chicago_democrat_1835_07_01#c010",
-     "record_id": "person_e_s_kimberly",
-     "describes_date": "1835-07-01",
-     "source": "chicago_democrat_1833_1835",
-     "rule": "G1b"
-    },
-    {
-     "list": "newspaper_1833_1835",
-     "as_read": "E. S. Kimberley",
-     "locator": "chicago_democrat_1835_07_01#c011",
-     "record_id": "person_e_s_kimberley",
-     "describes_date": "1835-07-01",
-     "source": "chicago_democrat_1833_1835",
-     "rule": "G1b"
-    }
-   ],
-   "merged_from": [
-    {
-     "ticket": "T-1001",
-     "rule": "C9",
-     "cluster": "kimberley",
-     "cards": [
-      "kimberley_ed"
-     ],
-     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
-    },
-    {
-     "ticket": "T-0839",
-     "rule": "C0",
-     "cluster": "kimberly",
-     "cards": [
-      "kimberly_e_s",
-      "kimberly_ed_s",
-      "kimberly_edmund_l"
-     ],
-     "note": "THE UNION OF THE CARDS THIS PERSON WAS SPLIT ACROSS. The sources and evidence blocks above include everything the folded cards cited; each folded record is kept whole under data/residents/merged/ and is redirected by index.json's `merged` table. The reasoning for the merge is in data/residents/card_merge_rulings.json."
-    }
-   ],
-   "census_evidence": [
-    {
-     "list": "census_1840",
-     "as_read": "Ed. Kimberley",
-     "locator": "234:3",
-     "record_id": "33S7-9YYJ-99F:3",
-     "describes_date": "1840",
-     "source": "census_1840_chicago_familysearch_images",
-     "rule": "G1b"
-    }
-   ],
-   "roles": [
-    {
-     "role": "physician",
-     "kind": "profession",
-     "as_printed": null,
-     "from": "1673",
-     "to": "1857",
-     "precision": "source_span",
-     "dated_by": "source_describes_date",
-     "covers_scene_date": true,
-     "fills_scene_view": true,
-     "confidence": "attested",
-     "sources": [
-      "andreas_1884_v1",
-      "history_medicine_chicago_kimberly_maxwell"
-     ],
-     "claim": null,
-     "place": "not_stated",
-     "employer_or_body": "not_stated",
-     "note": "THE BOUND IS THE SOURCE'S, NOT THE MAN'S. This role is carried by the card's 1835 occupation block and is dated by what the cited source or sources are ABOUT, which is why `precision` can be no better than the span they cover. The span reaches 1835, so this role stands in the scene-date view. The printing the trade was read off is not on the card and is fetched by T-1254.",
-     "premises": "own_premises"
-    },
-    {
-     "role": null,
-     "kind": "trade",
-     "as_printed": "physician, 101 Lake",
-     "from": "1843",
-     "to": "1843",
-     "precision": "year",
-     "dated_by": "printing_year",
-     "covers_scene_date": false,
-     "fills_scene_view": false,
-     "confidence": "inferred",
-     "sources": [
-      "fergus_chicago_directory_1843"
-     ],
-     "claim": "f1843_e1488",
-     "place": "res 77 State",
-     "employer_or_body": "not_stated",
-     "note": "A TRADE PRINTED IN THE 1843 DIRECTORY, 8 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
-     "premises": null
-    },
-    {
-     "role": "physician",
-     "kind": "profession",
-     "as_printed": "physician",
-     "from": "1844",
-     "to": "1844",
-     "precision": "year",
-     "dated_by": "printing_year",
-     "covers_scene_date": false,
-     "fills_scene_view": false,
-     "confidence": "inferred",
-     "sources": [
-      "norris_directory_1844"
-     ],
-     "claim": "n1844_e1019",
-     "place": "101 Lake st",
-     "employer_or_body": "not_stated",
-     "note": "A TRADE PRINTED IN THE 1844 DIRECTORY, 9 years after the scene, carried here by its crosswalk (T-1254, by tools/derive_resident_roles.py). It is NOT a claim about 1835-07-01 and never becomes one: back-projecting a later volume onto the scene is the defect T-1145 exists to refuse. `place` is the address or place of business the record states in its own column; a firm named only inside the printed line stays in `as_printed` for the business band to rule on.",
-     "premises": "own_premises"
-    }
-   ],
-   "age_band": {
-    "value": "30-39",
-    "low": 30,
-    "high": 39,
-    "confidence": "attested",
-    "tier": "attested",
-    "sources": [
-     "history_medicine_chicago_kimberly_maxwell"
-    ],
-    "note": "THE BAND THIS PERSON'S OWN BIRTH YEAR PUTS THEM IN on 1 July 1835. It is a view of a value already on this card and adds nothing to it; it exists so the age axis can be read across the whole layer at once, beside the bands the model draws for everybody else."
-   }
   }
  ],
  "touches_removal": false,
  "review_required": false,
- "research_note": "A PARTNERSHIP RECORDED AS A HOUSEHOLD, WHICH IS A COMPROMISE AND IS FLAGGED AS ONE. Nothing says Pruyne and Kimberly shared a roof; what is documented is that they opened a shop together. They are grouped because the alternative - two single-person households, each pointing at the same building - would double the household count without adding a person, and because the schema's relationship vocabulary carries 'partner' precisely for this. ANY LATER USE THAT TREATS A HOUSEHOLD AS A DWELLING UNIT MUST READ THIS FIELD: lives_at is null here on purpose, and the household should not be given a dwelling by the inferred phase until the two men are separated. A NAME COLLISION KEPT SEPARATE: the W. Kimball who advertised dry goods at South Water and Clark in the Democrat of 26 November 1833 is a different trade and, on the evidence, a different man; he has his own household here.",
+ "research_note": "SPLIT BY T-2140: THIS WAS A PARTNERSHIP RECORDED AS A HOUSEHOLD, AND IT NOW HOLDS ONE OF THE TWO PARTNERS. Nothing ever said Pruyne and Kimberly shared a roof; what is documented is that they opened a shop together, and the record grouped them, flagged as a compromise, to avoid two one-person households pointing at one building. Its own note asked that it not be given a dwelling until the two men were separated. Bonnell's walk then put Dr Kimberly in a house on the north bank east of the Lake House and the store on South Water Street, so the two are now two records: Kimberly heads hh_kimberly_edmund_s, seated on kimberly_residence, and Peter Pruyne stays here with the store. THE ID IS KEPT and is not the plain hh_<surname>_<given> this layer mints today: household ids are load-bearing across the research ledgers and the folded cards that redirect to this one, and the README's rule is that a filename is not a finding about the people on it.",
  "old_settler_deaths": {
   "the_header_admission": "Names, places * , dates, and ages at death\nof some of Chicago's Old Settlers, prior to 1843, and other well - known citizens who arrived after 1843, together\nwith others prominently connected with Illinois history:",
   "note": "LATER EVIDENCE OF A DEATH, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. Fergus's 1843 directory (1896) prints an obituary list of old settlers, and one of its entries meets somebody of this name. THE HEADER OF THE LIST IS QUOTED ABOVE, and it is the limit the whole reading turns on. It does not mean the person was in Chicago in 1835, and it does not mean they arrived before 1843 — the list's own header, quoted above, says it also names citizens who arrived later and others merely 'prominently connected with Illinois history'. A match means one thing: a name in the 1835 layer and a name in this list agree on surname and first initial, and the list gives that name a death date and an age. The date and the interval are the payload. Whatever is carried is carried as evidence of a DEATH and of an interval the birth falls in, never as an 1835 fact and never as a grade. T-0513 consolidates and T-0514/T-0515 apply; this file changes no record. This pass WRITES THE EVIDENCE AND MOVES NO GRADE. A death notice printed in 1896 says a person of this name died on a day; under the ratified ladder (T-0513) that is later evidence about a DEATH, and it is never an 1835 residence. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict.",
@@ -926,51 +468,11 @@
   ]
  },
  "directories": {
-  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. kimberly_edmund_s, Fergus's Chicago directory of 1839 — f1839_e0850 (a single entry); kimberly_edmund_s, Fergus's Chicago directory of 1843 — f1843_e1488 (a single entry); kimberly_edmund_s, Norris's Chicago directory of 1844 — n1844_e1019 (a single entry); pruyne_peter, Fergus's Chicago directory of 1839 — f1839_e1199 (a single entry).",
+  "note": "LATER EVIDENCE, BESIDE THE 1835 CLAIMS AND NOT INSIDE THEM. A Chicago directory of 1839, 1843 or 1844 meets somebody of this name and this pass records what it prints. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. WHAT THIS PASS RULED ONTO THIS HOUSEHOLD, named so the ruling can be found again: each volume below is followed by the printed entries it set against this person and the status the crosswalk ruled them at — a single entry carries what its own `could_carry` declares, and an ambiguous or contested match carries nothing and is shown so that the silence is legible. pruyne_peter, Fergus's Chicago directory of 1839 — f1839_e1199 (a single entry).",
   "sources": [
-   "fergus_chicago_directory_1839",
-   "fergus_chicago_directory_1843",
-   "norris_directory_1844"
+   "fergus_chicago_directory_1839"
   ],
   "people": [
-   {
-    "person_id": "kimberly_edmund_s",
-    "address_later": {
-     "value": "res. N. Water st next Lake House",
-     "confidence": "attested",
-     "describes_date": 1839,
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ],
-     "note": "Fergus's Chicago directory of 1839 prints this address against this person, in the entry quoted on the card: 'Kimberly, Dr. Edmund S., res. N. Water st next Lake House'. It is evidence about 1839, written here as 1839's and read back onto no 1835 claim. Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry. The value is the volume's own line, split by its crosswalk on the entry's punctuation. These volumes set the trade first and its qualifiers after it on the same line, so the split may carry an employer, a market or a corner along with the trade. The printed entry is quoted beside the value for exactly that reason: the split is checkable against it, and neither is read into an 1835 claim."
-    },
-    "back_projection": {
-     "outcome": "already_better_placed",
-     "clause": "2",
-     "value": null,
-     "describes_date": 1839,
-     "read_back_years": 4,
-     "placement": null,
-     "position_local_enu_m": null,
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ],
-     "note": "NOT READ BACK, BECAUSE SOMETHING BETTER ALREADY STANDS. Fergus's Chicago directory of 1839 prints an address against this name in 1839, and it is left where it is. An 1835 placement already stands: this household works at `pruyne_kimball_drugstore`, and clause 2 says an attested 1835 placement always beats a door printed 4 years later. The later address stays on the record as 1839's evidence and moves nothing."
-    },
-    "residence_back_projection": {
-     "outcome": "refused",
-     "clause": "R4",
-     "kind": "resides",
-     "value": null,
-     "describes_date": 1839,
-     "read_back_years": 4,
-     "placement": null,
-     "sources": [
-      "fergus_chicago_directory_1839"
-     ],
-     "note": "REFUSED, AND THE REFUSAL IS THE RECORD. Fergus's Chicago directory of 1839 prints where this person lived in 1839 and this pass will not carry it back to 1835. The entry names a public house by its sign — where this person boarded, not a street they lived on. A house of 1843 is a building, and resolving a building printed eight years after the scene onto 1835 ground is a second reading this pass does not make: it would have to identify the house, date it to 1835 and place it, and each of those is its own source question. A refusal is written here rather than dropped so that a later run can see the address was read and ruled on, not missed (docs/RESIDENCE-BACK-PROJECTION.md, clause R4)."
-    }
-   },
    {
     "person_id": "pruyne_peter",
     "address_later": {

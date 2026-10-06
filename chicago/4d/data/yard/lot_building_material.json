@@ -14,14 +14,14 @@
       "timber": 3,
       "stone": 2
     },
-    "refused": 21
+    "refused": 22
   },
   "census": {
-    "standing": 589,
-    "anonymous_refused": 463,
-    "named_examined": 126,
-    "named_with_1835_start_refused": 21,
-    "state_not_stated_refused": 125,
+    "standing": 608,
+    "anonymous_refused": 481,
+    "named_examined": 127,
+    "named_with_1835_start_refused": 22,
+    "state_not_stated_refused": 126,
     "qualified": 1
   },
   "existence": {
@@ -394,6 +394,13 @@
       "structure_id": "west_approach_wagon_camp",
       "name": "The emigrants' wagon camp at the west approach",
       "function": "emigrant_camp",
+      "documented_range_from": "1835-06-01",
+      "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
+    },
+    {
+      "structure_id": "wolf_point_trading_camp",
+      "name": "The trading camp at Wolf Point",
+      "function": "trading_camp",
       "documented_range_from": "1835-06-01",
       "why": "its documented range opens inside 1835, which is the nearest thing to a start date this dataset carries and is NOT one: it is the date the record is first attested — a first issue, a directory line, a deed — and the record nowhere says the building was going up on the scene date. Clause 2 asks the record to SAY it, and this one does not."
     },

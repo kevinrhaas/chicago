@@ -14,8 +14,8 @@
   "placed": 12,
   "placed_as_a_face": 12,
   "placed_with_no_1835_trade": 8,
-  "already_better_placed": 0,
-  "refused": 47,
+  "already_better_placed": 1,
+  "refused": 46,
   "faces_reached": [
    "Clark Street",
    "Dearborn Street",
@@ -26,8 +26,8 @@
    "Washington Street",
    "Wells Street"
   ],
-  "lives_at_real_values": 33,
-  "works_at_real_values": 50
+  "lives_at_real_values": 34,
+  "works_at_real_values": 51
  },
  "rows": [
   {
@@ -757,6 +757,28 @@
    "placement": null
   },
   {
+   "household_id": "hh_kimberly_edmund_s",
+   "person_id": "kimberly_edmund_s",
+   "person": "Dr Edmund Stoughton Kimberly",
+   "address_as_printed": "res. N. Water st next Lake House",
+   "address_read_as_the_home": null,
+   "kind": "resides",
+   "describes_date": 1839,
+   "read_back_years": 4,
+   "sources": [
+    "fergus_chicago_directory_1839"
+   ],
+   "occupation_1835": "physician",
+   "trade_not_required": true,
+   "lives_at_1835": "kimberly_residence",
+   "outcome": "already_better_placed",
+   "clause": "R3",
+   "reason": "An 1835 placement already stands: this household lives at `kimberly_residence`, and clause R3 says an attested 1835 placement beats a door printed 4 years later.",
+   "street_id": null,
+   "face": null,
+   "placement": null
+  },
+  {
    "household_id": "hh_king_j_d",
    "person_id": "king_j_d",
    "person": "J D King",
@@ -1040,28 +1062,6 @@
    "reason": "The face resolves — Clark Street is 1835's — but the entry sets the house against a second street the town does not have: Adams Street is south of Madison, outside the platted town of 1835. Taking the face and dropping the qualifier would put the home somewhere the address does not say it was.",
    "street_id": "clark",
    "face": "Clark Street",
-   "placement": null
-  },
-  {
-   "household_id": "hh_pruyne_kimberly",
-   "person_id": "kimberly_edmund_s",
-   "person": "Dr Edmund Stoughton Kimberly",
-   "address_as_printed": "res. N. Water st next Lake House",
-   "address_read_as_the_home": null,
-   "kind": "resides",
-   "describes_date": 1839,
-   "read_back_years": 4,
-   "sources": [
-    "fergus_chicago_directory_1839"
-   ],
-   "occupation_1835": "physician",
-   "trade_not_required": true,
-   "lives_at_1835": null,
-   "outcome": "refused",
-   "clause": "R4",
-   "reason": "The entry names a public house by its sign — where this person boarded, not a street they lived on. A house of 1843 is a building, and resolving a building printed eight years after the scene onto 1835 ground is a second reading this pass does not make: it would have to identify the house, date it to 1835 and place it, and each of those is its own source question.",
-   "street_id": null,
-   "face": null,
    "placement": null
   },
   {

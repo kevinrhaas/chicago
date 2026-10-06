@@ -12,15 +12,15 @@
   "data/reconstruction/1835_presence_rulings.json"
  ],
  "buildings": {
-  "standing": 572,
+  "standing": 590,
   "target": 668,
-  "records_in_scene": 589,
+  "records_in_scene": 608,
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
  },
  "people": {
-  "housed": 190,
-  "households_housed": 33,
+  "housed": 192,
+  "households_housed": 34,
   "group_entries": 3,
   "households_without_a_dwelling": 1425,
   "town_total": 3265,
@@ -29,11 +29,11 @@
   "town_total_note": "The town census of November 1835 — four months after the scene date — counts 3,265 people in 398 dwellings (Andreas vol. 1, printed p. 180). Quoted as the town's recorded size, never as the scene's population on 1 July: it is the HIGH END of the town model's range for the scene date, and `scene.target` below is the figure the gate screen and the reconstruction programme both fill toward.",
   "scene": {
    "persons": 1052,
-   "households": 497,
+   "households": 498,
    "by_grade": {
     "attested": 133,
-    "inferred": 341,
-    "reconstructed": 578
+    "inferred": 342,
+    "reconstructed": 577
    },
    "cards_total": 2928,
    "cards_not_established": 1876,
@@ -42,17 +42,17 @@
    "target_high": 3265,
    "target_figure": "population_on_1_july_1835",
    "target_source": "data/reconstruction/1835_town_model.json",
-   "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.9% of the 1,441 people the layer carries give an arrival year of 1835, so about 1,434 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,548, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
+   "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.9% of the 1,442 people the layer carries give an arrival year of 1835, so about 1,433 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,548, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
    "target_note": "The town model's point reading for 1 July 1835 within 2,369–3,265, and the same number the reconstruction order book quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
    "basis": "Persons in households the layer records `present` on the scene date — the order book's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; `cards_not_established` is how many those are.",
    "question": "How many people does a record establish in Chicago on 1 July 1835? It is the strictest reading the layer supports and it is NOT the town's population: it leaves out every person the research left unadjudicated.",
    "population": {
     "persons": 2926,
-    "households": 1456,
+    "households": 1457,
     "by_grade": {
      "attested": 411,
-     "inferred": 1028,
-     "reconstructed": 1487
+     "inferred": 1029,
+     "reconstructed": 1486
     },
     "question": "How many people did the project's evidence put in the town on 1 July 1835? This is the population — the established people plus the ones the research left `uncertain` and T-1386 has ruled in, each at the tier its own dated readings reach.",
     "established": 1052,

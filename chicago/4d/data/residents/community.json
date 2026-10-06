@@ -16,16 +16,16 @@
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
   "persons": 3461,
-  "households": 1983,
-  "known": 3324,
-  "unknown": 137,
+  "households": 1984,
+  "known": 3325,
+  "unknown": 136,
   "by_community": {
-   "yankee": 1681,
+   "yankee": 1683,
    "new_york": 558,
-   "irish": 479,
+   "irish": 478,
    "french_canadian": 185,
    "other": 137,
-   "unknown": 137,
+   "unknown": 136,
    "british": 111,
    "native": 89,
    "southern": 67,
@@ -33,21 +33,21 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3266,
-   "null": 137,
-   "inferred": 55,
+   "reconstructed": 3265,
+   "null": 136,
+   "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1899,
-   "origin_region": 1400,
+   "reconstruction_community": 1898,
+   "origin_region": 1402,
    "no_origin_recorded": 121,
    "stated_community": 25,
-   "origin_does_not_speak_for_this_person": 12,
+   "origin_does_not_speak_for_this_person": 11,
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 690,
+   "yankee": 691,
    "new_york": 557,
    "irish": 138,
    "other": 137,
@@ -4297,13 +4297,18 @@
    "rule": "origin_region"
   },
   "kimberly_edmund_s": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "origin_does_not_speak_for_this_person"
+   "value": "yankee",
+   "tier": "inferred",
+   "rule": "origin_region"
   },
   "kimberly_ira": {
    "value": "new_york",
    "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "kimberly_marie_theresa": {
+   "value": "yankee",
+   "tier": "inferred",
    "rule": "origin_region"
   },
   "kimberly_osa": {
@@ -14261,11 +14266,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_thomas_frederick_child_4": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_thomas_frederick_wife": {
    "value": "irish",
    "tier": "reconstructed",
@@ -23100,6 +23100,13 @@
    "rule": "origin_region",
    "head": "kimball_walter",
    "file": "households/hh_kimball_walter.json"
+  },
+  "hh_kimberly_edmund_s": {
+   "value": "yankee",
+   "tier": "inferred",
+   "rule": "origin_region",
+   "head": "kimberly_edmund_s",
+   "file": "households/hh_kimberly_edmund_s.json"
   },
   "hh_kimberly_ira": {
    "value": "new_york",

@@ -14,7 +14,7 @@
  "counts": {
   "matched_rulings": 143,
   "people_written": 106,
-  "households_touched": 104,
+  "households_touched": 105,
   "grades_changed": 0,
   "entries_carried": 541,
   "acres_carried": 15456.23,
@@ -4972,7 +4972,7 @@
    "written": "THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “KIMBALL WALTER”, 1833-10-25: 1 parcel of the school section — lot 2 of block 49 of the school section (sec 16 T39N R14E), 0.00 acres stated in all, for $88.00 (ls0262). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE SCHOOL-SECTION ROWS ARE GROUND INSIDE THE TOWN, NOT FARMLAND: section 16 of T39N R14E was platted and sold off by lot and by block at the sale of 1833, which is why the register states 0000.00 acres against most of them. Ground inside the town is nearer to this reconstruction than a quarter-section is, and it is still a purchase: the register names a purchaser and never an occupant, and nothing here puts this person on that ground. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: KIMBALL WALTER matches W. Kimball: the forename names W. Kimball of the 1 person of this surname, and the forename agrees as an initial only. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
   },
   {
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "person_id": "kimberly_edmund_s",
    "name": "Dr Edmund Stoughton Kimberly",
    "source_id": "isa_public_domain_land_tract_sales",
@@ -4983,8 +4983,8 @@
    ],
    "rules": [
     "KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried.",
-    "KIMBERLY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 3 people of this surname, and the forename agrees in full.",
-    "KIMBERLY E S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 3 people of this surname, and the forename agrees as an initial only."
+    "KIMBERLY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 4 people of this surname, and the forename agrees in full.",
+    "KIMBERLY E S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 4 people of this surname, and the forename agrees as an initial only."
    ],
    "totals": {
     "entries": 4,

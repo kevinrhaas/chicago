@@ -137,7 +137,10 @@ from generate_plat_lots import point_in_polygon, point_to_ring_m  # noqa: E402
 from measure_corridor_intrusion import is_street_furniture  # noqa: E402
 from measure_street_frontage import layer_of, layer_of_record  # noqa: E402
 from placement_policy_1835 import constant  # noqa: E402
-from plat_corridors import corridors, sampled  # noqa: E402
+from generate_plat_lots import (  # noqa: E402
+    SCHOOL_SECTION_TIER_PATH, school_section_tier_joins,
+)
+from plat_corridors import corridors, omitted_corridors, sampled  # noqa: E402
 from town_year import touches_year  # noqa: E402  (T-1732)
 
 # WHICH LINE THIS READER'S ANSWER STANDS ON (T-0419, the owner's ruling of
@@ -490,6 +493,55 @@ def nearest_frontage(polygon: list[tuple[float, float]], lanes: dict,
     return best_id, best
 
 
+def tier_frontage_streets() -> set[str]:
+    """The streets a lot of the School Section tier FRONTS, out of the committed cut.
+
+    T-2149. Read from `school_section_tier_lots.json` — each lot's own `fronts` — on the
+    blocks `generate_plat_lots.school_section_tier_joins` builds on, and never authored as
+    a list: a block joining the platted layer brings the streets its lots face with it.
+    On 2026-10-06 that is Madison (already a platted corridor) and Monroe (not one).
+    """
+    doc = load(SCHOOL_SECTION_TIER_PATH)
+    return {lot["fronts"] for block in doc["blocks"] if school_section_tier_joins(block)
+            for lot in block["lots"] if lot.get("fronts")}
+
+
+def frontage_corridors() -> dict:
+    """The corridors a footprint may FRONT: the platted layer, plus the tier's own streets.
+
+    ## THE RULING (T-2149), and why it is the narrow one
+
+    The School Section tier's blocks 81, 94, 95, 118 and 119 join the platted layer
+    (T-1755, T-2144), and half their lots face Monroe — but Monroe is the School Section's
+    survey, not the module's, so `corridors()` does not carry it and every Monroe-face roof
+    read `street: None`, its nearest corridor Madison 98 m off across its own block. The
+    placement policy then refused it a dwelling clause and the redeal audit re-familied it.
+    A lot the plat says fronts Monroe fronts Monroe; that is not a measurement, it is the
+    cut (`tools/fronting_street.py` reads the plat first on the same principle).
+
+    So the census reads `corridors()` plus the DRAWN corridor (`omitted_corridors`) of every
+    street a joined tier lot fronts. It does NOT read `every_corridor()`, and that was
+    measured rather than assumed: on dev at 3affc239e the wide reading moves 68 of 603
+    buildings — the whole garrison onto `fort_road` and `fort_bank_track` (the reservation
+    holds no street, which is what the garrison clause and its outlier reasons say), 32
+    north-bank roofs onto the bank line `north_water`, ten West roofs onto `jefferson`, whose
+    1835 reach is an open question (T-2018). Each of those streets is out of the plat for a
+    stated reason that bears on frontage too, and none of them is this ticket. The narrow
+    reading moves one: `heacock_house_monroe`, a documented house on Monroe that read as
+    fronting no street at 142.58 m, now fronts Monroe at 30.18 m (behind the line).
+
+    The tier's cross lines (`clark_school_section` and the rest) are not added: no lot of
+    the cut fronts one. A drawn corridor carries no separate control, so its `centre` is
+    its drawn line — which is what CORRIDOR_LINE below already declares.
+    """
+    lanes = corridors()
+    omitted = omitted_corridors()
+    for sid in sorted(tier_frontage_streets()):
+        if sid not in lanes and sid in omitted:
+            lanes[sid] = {**omitted[sid], "centre": omitted[sid]["points"]}
+    return lanes
+
+
 def census(records: list[dict] | None = None,
            streets: dict[str, str] | None = None,
            reach: float | None = None) -> dict:
@@ -502,7 +554,7 @@ def census(records: list[dict] | None = None,
     `principal` are False, which is what a caller asking about a frontage should get from
     a building that has none. Pass `reach=math.inf` for the unbounded reading.
     """
-    lanes = corridors()
+    lanes = frontage_corridors()
     water = water_rings()
     principal = principal_streets() if streets is None else streets
     rows = []
@@ -713,8 +765,9 @@ def reach_band(unbounded: dict) -> dict:
 
     ## Which gap, and why it is not the widest one
 
-    The WIDEST gap in this distribution is 46.43 m, between two buildings 223 m and 270 m
-    from any corridor — and it means nothing. A tail of thirty-five buildings spread over
+    The WIDEST gap in this distribution was 46.43 m when this was written, between two
+    buildings 223 m and 270 m from any corridor (since T-2149 it is 87.21 m, 135.95 m to
+    223.16 m) — and it means nothing. A tail of thirty-five buildings spread over
     four hundred metres has wide gaps everywhere by construction; picking the widest picks
     a feature of the tail's sparseness, not the edge of the town's fabric.
 
@@ -724,27 +777,53 @@ def reach_band(unbounded: dict) -> dict:
     the smaller half outside is a break inside the tail, not the edge of the body. The
     measure is a ratio, so it is scale-free and there is no length anybody chose in it.
 
-    Today that is 4.76 — a 13.86 m band above a body whose own widest gap is 2.91 m —
-    against 1.36 for the widest gap in the tail.
+    Today that is 4.56 — a 19.04 m band above a body whose own widest gap is 4.18 m.
+
+    ## The FIRST edge, not the strongest break in the tail (T-2149)
+
+    Continuity ends where it first ends. Once the body has ended, the rows beyond it are a
+    tail, and a tail can hold a break of its own as abrupt as the body's edge — measured
+    against the widest gap below it, which by then is the body's edge itself. On
+    2026-10-06 it did: with `heacock_house_monroe` fronting Monroe (30.18 m) instead of
+    reading 142.58 m off Madison, the void between the far-West prairie roofs (85-136 m off
+    Des Plaines) and the reservation (223 m on) stood unbroken at 87.21 m, 4.58 times the
+    19.04 m band, against the band's own 4.56. Taking the strongest break would have moved
+    the reach to 179.56 m and put a camp 134 m out on the prairie on Des Plaines Street.
+    The old answer had stood on a misreading: Heacock's house was what broke that void up.
+
+    So the most abrupt break is only the starting point. If a qualifying break below it is
+    more abrupt than every gap lying between the two, the body ended THERE, and the band
+    steps in to it; the step repeats until no such break remains. "Between" means at least
+    one gap: a break that shares its edge row with the band is part of the band's own
+    edge, not an earlier one. Nothing in this is a length or a ratio anybody chose — the
+    comparison is the same abruptness, read on the gaps the two breaks enclose.
     """
     rows = sorted(((r["setback_m"], r["id"]) for r in unbounded["rows"]
                    if r["setback_m"] is not None))
-    best = None
+    gaps, widest = [], 0.0
     for index in range(len(rows) - 1):
         (low, _), (high, label) = rows[index], rows[index + 1]
         below, above = index + 1, len(rows) - index - 1
-        if below <= above:
-            continue
-        body = max((b - a for (a, _), (b, _) in zip(rows, rows[1:])
-                    if b <= low), default=0.0)
-        if body <= 0:
-            continue
-        ratio = (high - low) / body
-        if best is None or ratio > best["abruptness"]:
-            best = {"inner": low, "outer": high, "outer_id": label,
-                    "band_m": high - low, "body_gap_m": body, "abruptness": ratio,
-                    "in_the_body": below, "midpoint_m": round((low + high) / 2, 2)}
-    return best
+        gaps.append({"index": index, "inner": low, "outer": high, "outer_id": label,
+                     "band_m": high - low, "body_gap_m": widest,
+                     "abruptness": (high - low) / widest if widest > 0 else None,
+                     "in_the_body": below, "qualifies": below > above and widest > 0,
+                     "midpoint_m": round((low + high) / 2, 2)})
+        widest = max(widest, high - low)
+    candidates = [g for g in gaps if g["qualifies"]]
+    if not candidates:
+        return None
+    best = max(candidates, key=lambda g: g["abruptness"])
+    while True:
+        earlier = [g for g in candidates if g["index"] < best["index"] - 1]
+        if not earlier:
+            break
+        inner = max(earlier, key=lambda g: g["abruptness"])
+        between = [g["abruptness"] for g in gaps[inner["index"] + 1:best["index"]]]
+        if not (between and inner["abruptness"] > max(between)):
+            break
+        best = inner
+    return {k: v for k, v in best.items() if k not in ("index", "qualifies")}
 
 
 def _reach_band(unbounded: dict) -> str:
@@ -957,19 +1036,33 @@ def self_test() -> int:
     # 37 -> 36 on 2026-10-03 (T-1743): `beaubien_new_residence` is withdrawn and folded into
     # the Beaubien homestead on the owner's ruling. The trading post moved west of the house
     # and still fronts no street, so it stays in this count.
-    # 36 -> 40 on 2026-10-05 (T-2147): the four Monroe-face roofs on the School Section tier's
-    # block 81 (recon_1835_blk_school_section_tier_81_d6_01, _d4_03, _d3_05 and _d7_07). They
-    # DO stand on a street — Monroe, which data/streets/1835.json draws — but Monroe bounds the
-    # School Section, not the Original Town, and tools/plat_corridors.py carries no corridor for
-    # it, so this census reads them as fronting none and reports them here rather than dropping
-    # them. The three Madison-face roofs front `madison`, the town's south line, which it does
-    # carry. They leave this count when the tier's streets enter the corridor layer.
+    # 36 -> 35 on 2026-10-06 (T-2149): `heacock_house_monroe` now fronts Monroe, 30.18 m
+    # back, because the census reads the School Section tier's own frontage streets — see
+    # `frontage_corridors`. Its id named the street the census could not see.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 40 and all(
+                   "leaving it out", len(absent) == 35 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))
+    # THE TIER'S FRONTAGE (T-2149), on the lots that earned it: every lot of the School
+    # Section tier's cut, read as a footprint, fronts the street the cut says it faces.
+    # Before the ruling the Monroe face read `None` (Madison, 98 m off, was the nearest).
+    tier = load(SCHOOL_SECTION_TIER_PATH)
+    tier_lanes = frontage_corridors()
+    lots = [(block["id"], lot) for block in tier["blocks"]
+            if school_section_tier_joins(block) for lot in block["lots"]]
+    wrong = [f"{bid} lot {lot['lot']}: {street}"
+             for bid, lot in lots
+             for street, _ in [nearest_frontage([tuple(p) for p in lot["polygon"]],
+                                                tier_lanes, water)]
+             if street != lot["fronts"]]
+    checks.append(("every lot of the School Section tier's joined blocks fronts the "
+                   "street its cut names — Monroe included",
+                   bool(lots) and not wrong and any(l["fronts"] == "monroe" for _, l in lots),
+                   f"{len(lots) - len(wrong)} of {len(lots)}"
+                   + (f"; {'; '.join(wrong[:4])}" if wrong else "")))
+
     # and the ray clause on its own, which is the half the fort case does not exercise:
     # a straight line from the reservation to the north bank crosses the water
     reservation = by_id.get("fort_dearborn_blockhouse")

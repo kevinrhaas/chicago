@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "4e649a137d9eecc79ad0cfacd9bcf4076db5ca52f8535b36e7355a42118a3ddc",
+    "fingerprint": "45b8c7811a7bd2e832d8a2b8d3ed4ff336138f19faa98d06374a7fe4f7710136",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
-      "residents": 1441,
-      "structures": 590,
+      "residents": 1442,
+      "structures": 609,
       "voters": 345
     }
   },
@@ -17645,6 +17645,16 @@
       "layer": "residents",
       "candidates": [
         {
+          "id": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "rule": "OCR variant (0.88 similarity to 'kimberly')"
+        },
+        {
+          "id": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "rule": "OCR variant (0.88 similarity to 'kimberly')"
+        },
+        {
           "id": "kimberly_ira",
           "name": "Ira Kimberly",
           "rule": "OCR variant (0.88 similarity to 'kimberly')"
@@ -17652,11 +17662,6 @@
         {
           "id": "kimberly_osa",
           "name": "Osa Kimberly",
-          "rule": "OCR variant (0.88 similarity to 'kimberly')"
-        },
-        {
-          "id": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
           "rule": "OCR variant (0.88 similarity to 'kimberly')"
         }
       ],

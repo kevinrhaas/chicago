@@ -18,18 +18,19 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 
 | verdict | statements |
 |---|---|
-| `write` | 3 |
+| `write` | 4 |
 | `already_held` | 4 |
 | `later_only` | 2 |
 | `not_present` | 1 |
-| `no_seat` | 2 |
+| `no_seat` | 1 |
 | `insufficient_identity` | 11 |
 
-## The 3 people ruled onto a card
+## The 4 people ruled onto a card
 
 | person | relation | household | source says | grade | seated |
 |---|---|---|---|---|---|
 | Welthyan Loomis Harmon | wife | `hh_harmon_elijah_d` | Welthyan Loomis | inferred | yes |
+| Marie Theresa Ellis Kimberly | wife | `hh_kimberly_edmund_s` | Marie Theresa Ellis May | inferred | yes |
 | Ellen Hamilton | daughter | `hh_hamilton_richard_j` | Mrs Ellen Hamilton Keenon | inferred | yes |
 | The Harmon daughter later known as Mrs A. G. Burley | daughter | `hh_harmon_elijah_d` | Mrs A. G. Burley | inferred | yes |
 
@@ -75,6 +76,14 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 
 > Jesse Hobson was living in Cook County in 1835 and married Catherine Daugherty at Naperville on April 6, 1835.
 
+### `marriage:hh_kimberly_edmund_s:marie_theresa_ellis_may`
+
+- **read as** Marie Theresa Ellis May — spouse of `kimberly_edmund_s` in `hh_kimberly_edmund_s`
+- **from** `.persons[0].note`
+- **verdict** `write` — RE-RULED BY T-2140, BECAUSE THE ONE OBSTACLE THE OLD VERDICT NAMED IS GONE. This was `no_seat`: the marriage 'married Marie Theresa Ellis May 16, 1829' belongs to Dr Edmund Stoughton Kimberly, who was then the `partner` inside the Pruyne-Kimberly drug-store partnership's card, so writing her there as 'wife' would have read as Pruyne's wife and there was no Kimberly household to hold her. T-2140 split the partnership and Kimberly now heads hh_kimberly_edmund_s. She is the named wife of a head this layer carries, which is the person the Welthyan Loomis Harmon ruling writes, and she is written on the same rule and graded the same way. THE READING RUNS THE NAME INTO THE DATE ('Ellis May 16') and the name is written without the month: Marie Theresa Ellis, married Kimberly. Nothing places her at Chicago on 1 July 1835 and the note says so.
+
+> T-0478 adds exact birth data and independent biography: born April 7, 1803 at Troy, New York; Union College graduate; medical training in New York; married Marie Theresa Ellis May 16, 1829; moved to Chicago in 1832. He was clerk of the August 5, 1833 incorporation meeting and one of the first town trustees. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, N
+
 ### `marriage:hh_paddock_jane:jane_paddock`
 
 - **read as** Jane Paddock — spouse of `paddock_jane` in `hh_paddock_jane`
@@ -82,14 +91,6 @@ Seating is **open** (T-1313 — the seat T-1170's reading left held; see tickets
 - **verdict** `insufficient_identity` — The card refuses this bridge in the same breath as it prints it: 'Cook County history says Samuel Mahaffay, a Palos settler of 1834, married Jane Paddock in 1835. Palos geography and absence of a direct Chicago bridge prevent asserting that this is the May 1835 postal person.' The head of this household is Jane Paddock herself, and the husband the sentence names is a man in another settlement whom the card declines to attach to her.
 
 > Cook County history says Samuel Mahaffay, a Palos settler of 1834, married Jane Paddock in 1835. Palos geography and absence of a direct Chicago bridge prevent asserting that this is the May 1835 postal person.
-
-### `marriage:hh_pruyne_kimberly:marie_theresa_ellis_may`
-
-- **read as** Marie Theresa Ellis May — spouse of `pruyne_peter` in `hh_pruyne_kimberly`
-- **from** `.persons[1].note`
-- **verdict** `no_seat` — NAMED, REAL, AND THIS LAYER HAS NOWHERE TO PUT HER. 'married Marie Theresa Ellis May 16, 1829' belongs to Dr Edmund Stoughton Kimberly, who is not the head of this household: he is the `partner` inside `hh_pruyne_kimberly`, which is the drug-store partnership's card and whose head is Peter Pruyne. `relationship` states a person's place inside ONE household, so writing her here as 'wife' would read as Pruyne's wife, and there is no Kimberly dwelling in this layer to hold her instead. The finding is recorded rather than forced: a named wife who needs a household the structure and lodging work has not built yet. (The reading is also one token long - 'Marie Theresa Ellis May 16, 1829' runs the name into the date - which is a second reason not to write it as printed.)
-
-> T-0478 adds exact birth data and independent biography: born April 7, 1803 at Troy, New York; Union College graduate; medical training in New York; married Marie Theresa Ellis May 16, 1829; moved to Chicago in 1832. He was clerk of the August 5, 1833 incorporation meeting and one of the first town trustees. THE TOWN'S OWN ROLLS, 1833-1835 — CORROBORATION, N
 
 ### `marriage:hh_pruyne_kimberly:rebecca`
 
