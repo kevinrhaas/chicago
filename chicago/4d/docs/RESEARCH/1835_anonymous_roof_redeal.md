@@ -16,7 +16,7 @@ The programme wants 668 roofs and 617 stand, so the town is 51 roofs short befor
 | bucket | target | standing | anonymous | head | after | head after |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | `structures/barns_stables/south` | 35 | 33 | 26 | 2 | 33 | 2 |
-| `structures/barns_stables/west` | 20 | 14 | 11 | 6 | 14 | 6 |
+| `structures/barns_stables/west` | 20 | 18 | 15 | 2 | 18 | 2 |
 | `structures/barns_stables/north` | 17 | 11 | 10 | 6 | 17 | 0 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/fort_principal/fort` | 10 | 10 | 0 | 0 | 10 | 0 |
@@ -26,14 +26,14 @@ The programme wants 668 roofs and 617 stand, so the town is 51 roofs short befor
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 27 | 26 | 1 | 27 | 1 |
-| `structures/larger_boarding_houses/west` | 6 | 3 | 3 | 3 | 3 | 3 |
+| `structures/larger_boarding_houses/south` | 28 | 25 | 24 | 3 | 25 | 3 |
+| `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/ordinary_dwellings/south` | 176 | 161 | 152 | 15 | 163 | 13 |
-| `structures/ordinary_dwellings/west` | 75 | 73 | 69 | 2 | 73 | 2 |
+| `structures/ordinary_dwellings/south` | 176 | 150 | 141 | 26 | 152 | 24 |
+| `structures/ordinary_dwellings/west` | 75 | 75 | 71 | 0 | 75 | 0 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 78 | 0 | 84 | 0 |
 | `structures/small_outbuildings/south` | 48 | 47 | 46 | 1 | 45 | 3 |
-| `structures/small_outbuildings/west` | 14 | 5 | 5 | 9 | 5 | 9 |
+| `structures/small_outbuildings/west` | 14 | 9 | 9 | 5 | 9 | 5 |
 | `structures/small_outbuildings/north` | 20 | 20 | 17 | 0 | 20 | 0 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | 3 | 0 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 26 | 0 | 42 | 0 |

@@ -5850,6 +5850,217 @@
         }
       ],
       "arrangement_note": "THE SCHOOL SECTION TIER'S CLARK BLOCK EAST OF THE STREET, BUILT TO ITS LOT CEILING (T-2145, piece 2 of T-1755). The owner ruled on 2026-10-05 that the South's owed dwellings cross Madison onto the School Section's Madison-Monroe tier, whose lots the state sold one by one in October 1833, and T-2144 put the tier's five dry South blocks on the grid at one principal roof per lot. This deal builds the seven houses the seating asks for on block 119, between Clark and the section's twelfth line: on the Madison face a larger frame house (D5) on lot 2, a tradesman's frame house (D4) on lot 4 and a second D5 on the east corner; on the Monroe face a frame house (D6) on the Clark corner, a D4, a one-room cottage (D3) and a two-storey frame house (D7) on the east corner. Lot 0, the Madison-and-Clark corner, stays the block's reserved open lot, so Clark crosses Madison between an open corner and a built one. The schedule deals no yard roof here. The set-outs (4.0-5.5 m) and lateral offsets are varied within the lot lines and differ from block 118's across Clark. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all seven are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+    },
+    {
+      "block_id": "blk_washington_clinton",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_washington_clinton",
+      "claimed": "2026-10-06",
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "clinton",
+        "east": "canal"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 39,
+        "standing_roofs": 0,
+        "free_lots": 10,
+        "headroom": 35,
+        "dealt_roofs": 14,
+        "dealt_principal": 6,
+        "dealt_ancillary": 8,
+        "principal": 5,
+        "ancillary": 8
+      },
+      "families": {
+        "H2": 1,
+        "H3": 1,
+        "D5": 1,
+        "D4": 1,
+        "H1": 1,
+        "A1": 1,
+        "A2": 3,
+        "A4": 2,
+        "A5": 2
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2148",
+        "parent": "T-1208",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_behan_thos",
+            "family": "H2",
+            "order_book_draw": "blk_washington_clinton / H2 / west"
+          },
+          {
+            "seat": "hh_chark_john_a",
+            "family": "D5",
+            "order_book_draw": "blk_washington_clinton / D5 / west"
+          },
+          {
+            "seat": "hh_catran_o_p",
+            "family": "D4",
+            "order_book_draw": "blk_washington_clinton / D4 / west"
+          },
+          {
+            "seat": "hh_beaubien_alexandre",
+            "family": "H1",
+            "order_book_draw": "blk_washington_clinton / H1 / west"
+          }
+        ],
+        "why": "THE BLOCK'S FOUR REQUESTS, RAISED ON THE LOTS THEY ASKED FOR. Once plat block 50 is on the layer (T-2148: Clinton, Jefferson and Des Plaines carried to Madison, the plat's south town line, as T-2143 carried Canal and West Water), the seating file asks four roofs of it, all on the Canal face: hh_behan_thos's H2 on lot index 5 (the Washington corner) and hh_beaubien_alexandre's H1 on lot index 9 (the Madison corner), both under the merchant_and_professional_dwellings clause, and hh_chark_john_a's D5 on lot index 7 and hh_catran_o_p's D4 on lot index 8 under the tradesman_dwellings clause. The schedule deals the block the rest of the West balance it inherits from west_division_beyond_committed_control -- an H3 boarding house, eight yard buildings and the F3 freight roof -- and the H3 takes the one Canal lot the requests leave, lot index 6. A REQUEST IS NOT EVIDENCE: every roof here is an anonymous count-unit at the bottom tier, standing on an invented position on a conjectural side lot line, and the seating pass re-runs behind the deal to say which household ends up under which roof."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Clinton column's Washington corner (plat lot 2), left open: Clinton reads `light` in the lot ledger and the schedule's five principal roofs are all reached on the Canal face, where the four requests stand."
+        },
+        {
+          "lot": 1,
+          "why": "The Clinton column's second lot (plat lot 3), left open with the rest of the Clinton face."
+        },
+        {
+          "lot": 2,
+          "why": "The Clinton column's middle lot (plat lot 6), left open with the rest of the Clinton face."
+        },
+        {
+          "lot": 3,
+          "why": "The Clinton column's fourth lot (plat lot 7), left open with the rest of the Clinton face."
+        },
+        {
+          "lot": 4,
+          "why": "The Clinton column's Madison corner (plat lot 10), left open: the block keeps its whole west face as open ground, so this tier reads as the edge of the built West Division and not a second built row."
+        }
+      ],
+      "deferred": [
+        {
+          "family": "F3",
+          "why": "The large river warehouse the West balance carries, and the reason it is not built here is the ground rather than the anonymity, as on blk_lake_franklin. F3's own crosswalk entry makes water access a precondition of the form -- 'Landing apron and cargo-door arrangement must follow site access and cannot extend into water or duplicate a counted pier' -- and this block is bounded by Washington, Madison, Clinton and Canal, four platted streets, a full plat module west of the South Branch with West Water and plat block 51 between it and the bank. tools/reconcile_665.py already HOLDS the roof on the plat for that reason (waterside, T-0316, L203), and tools/generate_block_infill.py refuses F3 by name. The slot is NOT dropped: the roof is still owed in the order book's warehouses_freight/west row, which moves with the rest of the West remainder to the ticket that owns it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "H2",
+          "inventory_class": "principal_functional",
+          "lot": 5,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 6.0,
+          "lateral_m": 1.0
+        },
+        {
+          "family": "H3",
+          "inventory_class": "principal_functional",
+          "lot": 6,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 1.7,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 7,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 7.0,
+          "lateral_m": 1.5
+        },
+        {
+          "family": "D4",
+          "inventory_class": "principal_functional",
+          "lot": 8,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 5.0,
+          "lateral_m": -1.5
+        },
+        {
+          "family": "H1",
+          "inventory_class": "principal_functional",
+          "lot": 9,
+          "stands_on": "street",
+          "fronts": "canal",
+          "setback_m": 6.5,
+          "lateral_m": -1.0
+        },
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A5",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.0,
+          "lateral_m": -6.5
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.0,
+          "lateral_m": 5.5
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 7,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": 5.0
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 8,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.0,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 9,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A5",
+          "inventory_class": "ancillary",
+          "lot": 9,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.0,
+          "lateral_m": 5.5
+        }
+      ],
+      "arrangement_note": "THE FIRST ROOFS ON PLAT BLOCK 50, AND THE FOURTH PIECE OF THE WEST DIVISION'S REMAINDER (T-2148). Until T-2148 this block was not on the layer: Clinton stopped at local N -400, the old south edge of the modelled field, and the omission read 'Clinton Street's committed centreline stops 107 m short of this block'. T-2148 carried Clinton, Jefferson and Des Plaines to Madison on their own straight bearings, keeping each old end as a vertex (generate_plat_lots.CARRIED_REACHES), and the block is cut on the Original Town's west tier like blk_randolph_clinton and blk_lake_clinton north of it. It is the first block of that tier the schedule reaches EMPTY, so it takes the Original Town's density (39 roofs of capacity) and with it the West balance that had stood gated beyond the committed control: 14 roofs, of which 13 are built here and the F3 is deferred. The five principal roofs all front Canal, the street the lot ledger reads `ordinary`: an H2 merchant's house on the Washington corner (plat lot 1), an H3 boarding house (plat lot 4), a D5 and a D4 cottage (plat lots 5 and 8) and an H1 house on the Madison corner (plat lot 9). Eight yard buildings -- a stable, three barns or carriage sheds, two woodsheds and two small utility sheds -- stand at the alley ends of those five lots. The whole Clinton face stays open, so the tier reads as the thin western edge of the built town. The set-outs (6.0, 4.5, 7.0, 5.0 and 6.5 m) and lateral offsets are inventions bounded by the lot lines, staggered so the face does not read as a surveyed building line. WHAT IS INVENTED: that any building stood on these lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals are read off the sheet; neither is evidence about these buildings.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {

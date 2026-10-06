@@ -6,6 +6,13 @@ export const CHANGELOG = [ // newest first
       'Thirteen of the town\u2019s households move into the new houses.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
     ] },
+  { v: 1515, ts: '2026-10-06T21:12:35.904Z', date: 'Oct 6, 2026, 4:12 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+    items: [
+      'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
+      'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
+      'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
+      'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
+    ] },
   { v: 1514, ts: '2026-10-06T19:58:39.347Z', date: 'Oct 6, 2026, 2:58 PM CT', title: 'A lighter first visit', kind: 'change',
     items: [
       'The walkthrough no longer downloads the list of everything we made up before you can step into the street. It arrives the first time you open Evidence or a building\u2019s card, so a first visit is about 0.6 MB lighter.',

@@ -12,12 +12,12 @@
   "place_name": "Reconstructed H3 boarding house #01",
   "class": "boarding_house",
   "beds_ordinary": 10,
-  "beds_crowded": 24,
+  "beds_crowded": 23,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [
-   "laird_william",
-   "roberts_edmund",
-   "whistler_john_harrison"
+   "laughton_david",
+   "shatttuck_walter",
+   "rc_mccarthy_ellen"
   ],
   "minted_here": 8,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
@@ -45,7 +45,7 @@
   "basis": {
    "kind": "model",
    "id": "1835_lodging_model",
-   "note": "THE BED IS THE CLAIM. The lodging model puts 10 people in this house on an ordinary night and 24 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
+   "note": "THE BED IS THE CLAIM. The lodging model puts 10 people in this house on an ordinary night and 23 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason."
   },
   "seed": "lodgers:recon_1835_blk_washington_market_h3_01:lives_at",
   "replaceable_by": {

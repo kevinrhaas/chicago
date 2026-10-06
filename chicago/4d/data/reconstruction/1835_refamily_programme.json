@@ -117,23 +117,23 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 3 if only the division changed, 18 if the household kind changed too, 79 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 1 if only the division changed, 16 if the household kind changed too, 77 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
-    "still_owed_now": 223,
-    "still_owed_when_the_programme_is_spent": 223,
+    "still_owed_now": 215,
+    "still_owed_when_the_programme_is_spent": 215,
     "persons_standing_in_the_layer": 2926,
-    "converges_to_now": 3149,
-    "converges_to_when_the_programme_is_spent": 3149,
+    "converges_to_now": 3141,
+    "converges_to_when_the_programme_is_spent": 3141,
     "the_model_point": 2548,
     "the_model_range": [
       2369,
       3265
     ],
-    "reading": "3,149 is inside the model's 2,369-3,265 and 601 above its 2,548 point, against 601 above it today.",
+    "reading": "3,141 is inside the model's 2,369-3,265 and 593 above its 2,548 point, against 593 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 3007,
-      "this_report_says": 3149,
+      "the_rule_says": 2999,
+      "this_report_says": 3141,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },
@@ -161,7 +161,7 @@
   "what_would_move_the_remainder": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 238 people under twenty and 112 adult women, and their cells hold 13 and 2 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 238 people under twenty and 112 adult women, and their cells hold 13 and 0 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {

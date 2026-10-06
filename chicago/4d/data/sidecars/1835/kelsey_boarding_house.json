@@ -146,7 +146,7 @@
   "review_required": false,
   "lodging": {
     "class": "boarding_house",
-    "beds_ordinary": 4,
+    "beds_ordinary": 3,
     "beds_crowded": 8,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
@@ -156,9 +156,9 @@
     "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
     "occupancy": {
       "people": 0,
-      "beds_ordinary": 4,
-      "empty": 4,
-      "statement": "0 on this card against an ordinary night's 4 beds.",
+      "beds_ordinary": 3,
+      "empty": 3,
+      "statement": "0 on this card against an ordinary night's 3 beds.",
       "empty_note": "This house has a division and empty beds, and the order book has nothing left to draw them out of: every adult `lodging/none` cell of the north division is filled to what the book orders there. A person minted past that would be a person the town never ordered, so the beds stand empty and the order rather than the roof is what is short (T-1535).",
       "keeper_persons": 0,
       "keeper_owed": "NOBODY KEEPS THIS HOUSE IN THIS DATASET. It is a documented building and no source this project holds names its keeper on 1 July 1835. A reconstructed proprietor is not written into a documented house: that is a research question, not a draw."

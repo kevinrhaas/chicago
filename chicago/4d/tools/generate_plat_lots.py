@@ -1399,9 +1399,16 @@ def block_edges(lines: dict, half_width: float) -> dict:
 # as a vertex by the carry — rather than the vertex itself, so a line moved sideways as a
 # whole (which tools/measure_canal_control_spread.py's self-test does, to prove it can see
 # it) still says where its own carry began.
+#
+# T-2148 carried the three columns west of Canal the same way: each on its own straight
+# bearing from the old edge at N -400 to Madison, so blocks 48-50 come onto the layer and
+# no block north of Washington moves.
 CARRIED_REACHES = {
     "canal": -400.0,
     "west_water": -404.02,
+    "clinton": -400.0,
+    "jefferson": -400.0,
+    "des_plaines": -400.0,
 }
 
 
