@@ -1468,7 +1468,7 @@
     },
     {
       "ticket": "T-1371",
-      "records": 129,
+      "records": 138,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
@@ -1487,6 +1487,7 @@
         "persons/female/30_39/south/lodging/none",
         "persons/female/30_39/west/lodging/none",
         "persons/female/40_49/south/lodging/none",
+        "persons/female/40_49/west/lodging/none",
         "persons/male/10_19/north/lodging/trade",
         "persons/male/10_19/south/lodging/none",
         "persons/male/10_19/south/lodging/trade",
@@ -1503,7 +1504,8 @@
         "persons/male/40_49/south/lodging/trade",
         "persons/male/40_49/west/lodging/none",
         "persons/male/50_plus/north/lodging/none",
-        "persons/male/50_plus/south/lodging/none"
+        "persons/male/50_plus/south/lodging/none",
+        "persons/male/50_plus/west/lodging/none"
       ]
     },
     {
@@ -1613,14 +1615,14 @@
     "roofs_standing": 622,
     "roofs_to_build": 65,
     "persons_standing": 2926,
-    "persons_still_owed": 223,
-    "persons_when_the_book_is_filled": 3149,
+    "persons_still_owed": 215,
+    "persons_when_the_book_is_filled": 3141,
     "persons_target_range": [
       2369,
       3265
     ],
     "households_standing": 127,
-    "households_still_owed": 507
+    "households_still_owed": 506
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -2050,14 +2052,14 @@
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2926,
-      "persons_still_owed": 223,
-      "converges_to": 3149,
+      "persons_still_owed": 215,
+      "converges_to": 3141,
       "model_point": 2548,
       "model_range": [
         2369,
         3265
       ],
-      "measured": "2,926 standing plus 223 still owed is 3,149, inside the model's 2,369-3,265. Before the re-cut the same sum was 2,926 + 843 = 3,769, and the book was ordering a replacement for 826 people already in the layer. It is 601 above the model's 2,548 point, and that surplus is the 414 people drawn into 53 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,926 standing plus 215 still owed is 3,141, inside the model's 2,369-3,265. Before the re-cut the same sum was 2,926 + 843 = 3,769, and the book was ordering a replacement for 826 people already in the layer. It is 593 above the model's 2,548 point, and that surplus is the 414 people drawn into 53 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -2544,10 +2546,10 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 5,
-          "filled": 4,
+          "filled": 5,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household",
-          "drawn_here": 2,
+          "drawn_here": 3,
           "refamilied_in": 2
         },
         {
@@ -3021,7 +3023,7 @@
           "known_attested": 0,
           "known_inferred": 1,
           "to_reconstruct": 1,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -3779,7 +3781,7 @@
           "known_attested": 3,
           "known_inferred": 7,
           "to_reconstruct": 8,
-          "filled": 6,
+          "filled": 8,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4005,7 +4007,7 @@
           "known_attested": 2,
           "known_inferred": 4,
           "to_reconstruct": 5,
-          "filled": 2,
+          "filled": 5,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4451,7 +4453,7 @@
           "known_attested": 0,
           "known_inferred": 0,
           "to_reconstruct": 1,
-          "filled": 0,
+          "filled": 1,
           "owning_ticket": "T-2023",
           "basis": "a boarder, a bed rather than a household"
         },
@@ -4664,7 +4666,7 @@
           "target": 9,
           "known": 1,
           "to_reconstruct": 8,
-          "filled": 2,
+          "filled": 3,
           "owning_ticket": "T-2023",
           "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the west division"
         },
@@ -6220,7 +6222,7 @@
       "bucket": "persons/female/20_29/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6253,6 +6255,13 @@
     },
     {
       "bucket": "persons/female/40_49/south/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/female/40_49/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 1,
@@ -6311,7 +6320,7 @@
       "bucket": "persons/male/20_29/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 6,
+      "records": 8,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6332,7 +6341,7 @@
       "bucket": "persons/male/30_39/west/lodging/none",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 5,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6375,6 +6384,13 @@
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 2,
+      "by": "tools/seat_lodgers_1835.py --build"
+    },
+    {
+      "bucket": "persons/male/50_plus/west/lodging/none",
+      "ticket": "T-1371",
+      "stage": "lodgers",
+      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -6472,7 +6488,7 @@
       "bucket": "households/boarding_house/west",
       "ticket": "T-1371",
       "stage": "lodgers",
-      "records": 2,
+      "records": 3,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {
@@ -9703,11 +9719,11 @@
       "buckets_refused": 53,
       "people_held": 414,
       "people_still_held": 414,
-      "open_headroom_in_person_buckets": 223,
+      "open_headroom_in_person_buckets": 215,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 223,
+      "still_owed_now": 215,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
