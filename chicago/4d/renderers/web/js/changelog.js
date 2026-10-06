@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1512, ts: '2026-10-06T18:14:35.433Z', date: 'Oct 6, 2026, 1:14 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
       'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
       'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
       'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
+    ] },
+  { v: 1512, ts: '2026-10-06T18:29:26.487Z', date: 'Oct 6, 2026, 1:29 PM CT', title: 'Jefferson Street stops at Kinzie, as surveyed', kind: 'fix',
+    items: [
+      'Almost nothing you can see changes. Jefferson Street, an unopened survey line on the west side, is never drawn as a road. At the doctor\u2019s house north of Kinzie Street, the woodpile and a dooryard planting now face the house\u2019s real front, since no street runs past its side.',
+      'Our map of it ran a block north of Kinzie Street, through a Wabansia block that the 1834 survey draws whole. That stretch came from the modern street, which was extended later. The 1830 plat that names Jefferson ends it at Kinzie, and now so do we.',
+      'The town\u2019s 1833 boundary follows Jefferson \u201cand its continuation\u201d north to Ohio Street. It has not moved, but north of Kinzie it is now a projection, so we no longer say whether the doctor\u2019s house and barn on that block stood inside the town.',
     ] },
   { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
     items: [
