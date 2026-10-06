@@ -27,10 +27,16 @@ opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no ro
 - **Re-run by hand, outside the manifest:** the roof re-audit, land tracts, street-face adoptions,
   population profile, lodging model, reconstructed-trades seating, register, entrances, alley lanes,
   woodpiles, hay limits, and the Newberry leads (all four volumes re-parsed). T-0059's asset counts
-  go 634/628 → 647/641.
+  go 635/629 → 648/642 (dev's T-1977 camp is the one between).
 - **Baked** with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`): the
   thirteen new meshes, the four whose siding stock moved, and the meshes the keeper cascade staled.
 - Restated: **L263** 595 → 608, **L270** (the count held; who moved), **L276** 81 → 86.
+- **Lapped onto dev's T-1977, T-2149 and T-2018 (2026-10-06)**, finishing salvage draft #498.
+  Generated files took dev's side; `rederive.mjs --run` (twice — the first stopped at
+  `rebuild_closing_set.py` until the mirror was published), and one walk of keepers → the four
+  infill generators → the seating chain moved nothing: the fixpoint held. Then the redeal re-audit
+  (487/8/0 keep/refamily/retire), the block remedies report, the roof-id surface and the
+  Newberry re-parse over all four volumes. L394 stands beside dev's L395 (the Wolf Point camp).
 
 ## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
 

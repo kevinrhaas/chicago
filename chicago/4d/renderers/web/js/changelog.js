@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: 1513, ts: '2026-10-06T19:59:04.792Z', date: 'Oct 6, 2026, 2:59 PM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
       'West of Wells stand seven tradesmen\u2019s and labourers\u2019 houses. East of Wells the houses are larger: a merchant\u2019s house on the Wells corner and a storey-and-a-half house on the far corner. Each block keeps its west Madison corner lot empty.',

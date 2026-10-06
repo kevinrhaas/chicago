@@ -25,14 +25,14 @@
   },
   "counts": {
     "audited": 495,
-    "keep": 481,
-    "refamily": 14,
+    "keep": 487,
+    "refamily": 8,
     "retire": 0,
-    "kept_occupied": 6,
+    "kept_occupied": 4,
     "breach_owed_out": 0,
     "seated": 178,
     "raised_for_a_trade": 31,
-    "band_already_fits": 9,
+    "band_already_fits": 5,
     "roof_target": 668,
     "standing_before": 603,
     "standing_after": 603,
@@ -48,8 +48,8 @@
       "standing": 33,
       "anonymous": 26,
       "head_before": 2,
-      "standing_after": 35,
-      "head_after": 0
+      "standing_after": 33,
+      "head_after": 2
     },
     {
       "bucket": "structures/barns_stables/west",
@@ -169,8 +169,8 @@
       "standing": 27,
       "anonymous": 26,
       "head_before": 1,
-      "standing_after": 26,
-      "head_after": 2
+      "standing_after": 27,
+      "head_after": 1
     },
     {
       "bucket": "structures/larger_boarding_houses/west",
@@ -202,8 +202,8 @@
       "standing": 147,
       "anonymous": 138,
       "head_before": 29,
-      "standing_after": 148,
-      "head_after": 28
+      "standing_after": 149,
+      "head_after": 27
     },
     {
       "bucket": "structures/ordinary_dwellings/west",
@@ -2853,28 +2853,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 312.9,
-      "street": null,
-      "street_class": null,
-      "setback_m": 102.59,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 4.0,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 102.59 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "D1",
-      "to_group": "ordinary_dwellings",
-      "to_bucket": "structures/ordinary_dwellings/south",
-      "to_band_ft": [
-        16,
-        20,
-        20,
-        26
-      ],
-      "band_already_fits": false,
-      "families_offered": [
-        "D1",
-        "A2"
-      ]
+      "reason": "the order book has an occupant class for a D2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_94_d3_05",
@@ -2885,28 +2871,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 371.9,
-      "street": null,
-      "street_class": null,
-      "setback_m": 101.45,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 4.5,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 101.45 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "D1",
-      "to_group": "ordinary_dwellings",
-      "to_bucket": "structures/ordinary_dwellings/south",
-      "to_band_ft": [
-        16,
-        20,
-        20,
-        26
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "D1",
-        "A2"
-      ]
+      "reason": "the order book has an occupant class for a D3 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_94_d4_03",
@@ -2917,28 +2889,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 574.4,
-      "street": null,
-      "street_class": null,
-      "setback_m": 98.71,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 5.0,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.71 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "to_bucket": "structures/barns_stables/south",
-      "to_band_ft": [
-        18,
-        26,
-        28,
-        44
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "A2",
-        "D1"
-      ]
+      "reason": "the order book has an occupant class for a D4 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_94_d4_04",
@@ -2985,16 +2943,14 @@
       "occupied": true,
       "raised_for": null,
       "footprint_ft2": 685.9,
-      "street": null,
-      "street_class": null,
-      "setback_m": 98.34,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 5.0,
       "on_the_street_line": false,
-      "conforms": false,
+      "conforms": true,
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.34 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets",
-      "families_offered": [],
-      "kept_occupied": true
+      "reason": "the order book has an occupant class for a D5 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_94_d6_06",
@@ -3023,28 +2979,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 341.7,
-      "street": null,
-      "street_class": null,
-      "setback_m": 102.23,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 4.0,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 102.23 m away, beyond the frontage reach), and labourer_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "D1",
-      "to_group": "ordinary_dwellings",
-      "to_bucket": "structures/ordinary_dwellings/south",
-      "to_band_ft": [
-        16,
-        20,
-        20,
-        26
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "D1",
-        "A2"
-      ]
+      "reason": "the order book has an occupant class for a D2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_95_d4_04",
@@ -3055,16 +2997,14 @@
       "occupied": true,
       "raised_for": null,
       "footprint_ft2": 553.2,
-      "street": null,
-      "street_class": null,
-      "setback_m": 98.74,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 5.0,
       "on_the_street_line": false,
-      "conforms": false,
+      "conforms": true,
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.74 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets",
-      "families_offered": [],
-      "kept_occupied": true
+      "reason": "the order book has an occupant class for a D4 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_95_d5_03",
@@ -3093,28 +3033,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 601.7,
-      "street": null,
-      "street_class": null,
-      "setback_m": 98.81,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 5.0,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.81 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "to_bucket": "structures/barns_stables/south",
-      "to_band_ft": [
-        18,
-        26,
-        28,
-        44
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "A2",
-        "D1"
-      ]
+      "reason": "the order book has an occupant class for a D7 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_school_section_tier_95_h1_05",
@@ -3143,27 +3069,14 @@
       "occupied": false,
       "raised_for": null,
       "footprint_ft2": 1057.2,
-      "street": null,
-      "street_class": null,
-      "setback_m": 96.23,
+      "street": "monroe",
+      "street_class": "none",
+      "setback_m": 5.0,
       "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "refamily",
+      "conforms": true,
+      "verdict": "keep",
       "bucket": "structures/larger_boarding_houses/south",
-      "reason": "the placement policy refuses this family here — fronts no street (its nearest corridor is 96.23 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands",
-      "to_family": "D1",
-      "to_group": "ordinary_dwellings",
-      "to_bucket": "structures/ordinary_dwellings/south",
-      "to_band_ft": [
-        16,
-        20,
-        20,
-        26
-      ],
-      "band_already_fits": false,
-      "families_offered": [
-        "D1"
-      ]
+      "reason": "the order book has an occupant class for a H2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_south_water_clark_a3_05",
