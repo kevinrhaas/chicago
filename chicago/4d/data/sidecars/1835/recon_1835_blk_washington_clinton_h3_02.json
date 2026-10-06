@@ -125,7 +125,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. A kitchen wing's back door rather than the carriage door the archetype gives an inn's ell: the crosswalk's evidence note warns that frame_tavern \"implies tavern features that a boarding house should not inherit\", and a wagon door into a kitchen is one."
     },
     "upper_windows": {
-      "value": 7,
+      "value": 8,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -133,7 +133,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. SIZED FROM THE HOUSE'S MODELLED BEDS rather than chosen, and still not a reading of any source about this house: the count is re-derivable from this record's `reconstruction.capacity` block, which names the lodging-model row it read and the rule that turned beds into this number. The H3 crosswalk entry's variants line asks for it in as many words, and its assumption note says the count indicates capacity and is not a recovered interior plan; docs/LIBERTIES.md owns the ratio."
     },
     "stovepipes": {
-      "value": 3,
+      "value": 4,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -374,13 +374,13 @@
       "words": "whitewashed clapboard on a balloon frame under a new roof — a boarding house, new-built (rule F-B: a boarding-house or tavern keeper's by its type)"
     },
     "capacity": {
-      "beds_ordinary": 9,
-      "beds_crowded": 21,
+      "beds_ordinary": 12,
+      "beds_crowded": 27,
       "from": "data/reconstruction/1835_lodging_model.json",
-      "row": "classes[class=boarding_house] per-place figure: the house is not yet a place in the model, which apportions only buildings that stand",
+      "row": "places[id=recon_1835_blk_washington_clinton_h3_02]",
       "sizes": {
-        "upper_windows": "ceil(21 crowded beds / 3 to a chamber) = 7, held to the crosswalk's 6-10 = 7: 7 across the upper storey of the front and of the rear",
-        "stovepipes": "ceil(9 ordinary beds / 3 to a stove) = 3, held to 2-6: 3",
+        "upper_windows": "ceil(27 crowded beds / 3 to a chamber) = 9, held to the crosswalk's 6-10 = 9, then to the 8 sashes a front of 9.35 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
+        "stovepipes": "ceil(12 ordinary beds / 3 to a stove) = 4, held to 2-6: 4",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
     }
@@ -393,5 +393,17 @@
     "weather_rate": 0.75,
     "lay_m": 0.004,
     "confidence": "reconstructed"
+  },
+  "lodging": {
+    "class": "boarding_house",
+    "beds_ordinary": 12,
+    "beds_crowded": 27,
+    "ceiling": 35,
+    "clamped_at_1840_maximum": false,
+    "enclosed_floor_m2": 255.16,
+    "confidence": "reconstructed",
+    "note": "The town model puts a boarding house at 9 people on an ordinary night and 21 when full, from the 1840 household tail (p90 and p99 of 964 Chicago households). This building takes the share of its class's total that its 255 m² of enclosed floor (128 m² × 2 storeys) is of the class's floor area.",
+    "replaceable_by": "Any source that states this house's rooms, beds or lodgers on a dated day: an advertisement counting its rooms, a traveller's account of how many it slept, a licence return. A stated capacity retires the apportioned one outright.",
+    "occupancy": null
   }
 }

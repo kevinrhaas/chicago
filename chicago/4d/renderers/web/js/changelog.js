@@ -1,10 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1510, ts: '2026-10-06T01:34:38.715Z', date: 'Oct 5, 2026, 8:34 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
       'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
       'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
       'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L394).',
+    ] },
+  { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
+    items: [
+      'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
+      'The camp stands for a Native or M\u00e9tis family in town to trade that summer. No source counts or places these families in 1835, so the camp is a declared reconstruction, built on the owner\u2019s ruling. Three tents is a number we chose, not a count, and nobody is named.',
+      'The tents are plain canvas, not a lodge: no source we hold describes the lodges at Chicago that year. As everywhere in the town, no person, flame or smoke is drawn.',
+      'The camp\u2019s card says it is held for review by Native scholars and community organisations, which the project has promised before any scene is called finished. The Liberties page explains it (L395).',
     ] },
   { v: 1509, ts: '2026-10-06T00:55:37.284Z', date: 'Oct 5, 2026, 7:55 PM CT', title: 'Twenty-six more houses on the north side of the river', kind: 'change',
     items: [

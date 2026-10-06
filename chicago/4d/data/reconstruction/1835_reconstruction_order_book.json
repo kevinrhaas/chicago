@@ -1610,7 +1610,7 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 621,
+    "roofs_standing": 622,
     "roofs_to_build": 65,
     "persons_standing": 2926,
     "persons_still_owed": 223,
@@ -1633,9 +1633,9 @@
     "still_owed": 1113,
     "roofs_adopted": 278,
     "slots_requested": 33,
-    "roofs_standing": 621,
-    "roofs_standing_unseated": 343,
-    "share_of_standing_roofs_seated": 0.4477,
+    "roofs_standing": 622,
+    "roofs_standing_unseated": 344,
+    "share_of_standing_roofs_seated": 0.4469,
     "passes": [
       {
         "key": "platted",
@@ -5282,11 +5282,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 621,
-        "standing_with_an_occupant": 244,
+        "standing_records": 622,
+        "standing_with_an_occupant": 245,
         "standing_without_an_occupant": 377,
         "to_build_total": 65,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 377 of the 621 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 377 of the 622 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -6124,7 +6124,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "377 of 621 standing records carry no occupants block."
+      "measured_now": "377 of 622 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
