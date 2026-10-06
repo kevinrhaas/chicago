@@ -94,6 +94,11 @@
      "why": "south has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
     },
     {
+     "unit": "blk_washington_clinton",
+     "family": "F3",
+     "why": "west has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
+    },
+    {
      "unit": "blk_indiana_north_wolcott",
      "family": "F3",
      "why": "north has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
@@ -320,11 +325,11 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 77,
-  "gated_on_coverage": 27,
-  "statement": "77 of the 104 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 27 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
-  "platted_lots": 398,
-  "blocks_named": 86,
+  "schedulable_on_committed_ground": 91,
+  "gated_on_coverage": 6,
+  "statement": "91 of the 104 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "platted_lots": 428,
+  "blocks_named": 89,
   "southern_ground": {
    "field_south_edge_n_m": -3800.0,
    "madison_line_n_m_at_state": -525.2,
@@ -849,6 +854,44 @@
    "principal": 0,
    "ancillary": 0,
    "lot_ceiling_principal": 0,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_washington_clinton",
+   "kind": "platted_block",
+   "district": "west",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "clinton",
+    "east": "canal"
+   },
+   "lots": 10,
+   "capacity_roofs": 39,
+   "standing_roofs": 0,
+   "free_lots": 10,
+   "principal_room": 27,
+   "ancillary_room": 8,
+   "headroom": 35,
+   "state": "open",
+   "roofs": 14,
+   "families": {
+    "A1": 1,
+    "A2": 3,
+    "A4": 2,
+    "A5": 2,
+    "D4": 1,
+    "D5": 1,
+    "F3": 1,
+    "H1": 1,
+    "H2": 1,
+    "H3": 1
+   },
+   "principal": 6,
+   "ancillary": 8,
+   "trade_roofs": 1,
+   "frontage_weight": 0.3028,
+   "lot_ceiling_principal": 9,
    "row_lots_required": 0
   },
   {
@@ -1953,6 +1996,58 @@
    "row_lots_required": 0
   },
   {
+   "id": "blk_west_washington_des_plaines",
+   "kind": "platted_block",
+   "district": "west",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "des_plaines",
+    "east": "jefferson"
+   },
+   "lots": 10,
+   "capacity_roofs": 6,
+   "standing_roofs": 0,
+   "free_lots": 10,
+   "principal_room": 6,
+   "ancillary_room": 0,
+   "headroom": 6,
+   "state": "open",
+   "density": "6 roofs per 10 lots, the reviewed West recipe on blk_west_lake_des_plaines (T-1783)",
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 9,
+   "row_lots_required": 0
+  },
+  {
+   "id": "blk_west_washington_jefferson",
+   "kind": "platted_block",
+   "district": "west",
+   "bounded_by": {
+    "north": "washington",
+    "south": "madison",
+    "west": "jefferson",
+    "east": "clinton"
+   },
+   "lots": 10,
+   "capacity_roofs": 6,
+   "standing_roofs": 0,
+   "free_lots": 10,
+   "principal_room": 6,
+   "ancillary_room": 0,
+   "headroom": 6,
+   "state": "open",
+   "density": "6 roofs per 10 lots, the reviewed West recipe on blk_west_lake_des_plaines (T-1783)",
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 9,
+   "row_lots_required": 0
+  },
+  {
    "id": "blk_west_washington_canal",
    "kind": "platted_block",
    "district": "west",
@@ -2653,27 +2748,21 @@
    "id": "west_division_beyond_committed_control",
    "kind": "district_balance",
    "district": "west",
-   "capacity_roofs": 21,
+   "capacity_roofs": 7,
    "standing_roofs": 0,
-   "headroom": 21,
-   "state": "gated",
-   "waiting_on": "West Division ground beyond the Wolf Point approaches: no committed street control west of Clinton and Canal, and no unified terrain, hydrology or map coverage past the recipe's own gate at local E -700 m.",
-   "roofs": 21,
+   "headroom": 7,
+   "state": "complete",
+   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 73 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 47 roofs of headroom against 21 left to build — a surplus of 26 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
+   "surplus_headroom": 26,
+   "roofs": 7,
    "families": {
-    "A1": 1,
-    "A2": 5,
+    "A2": 2,
     "A3": 1,
-    "A4": 4,
-    "A5": 4,
-    "D4": 1,
-    "D5": 1,
-    "F3": 1,
-    "H1": 1,
-    "H2": 1,
-    "H3": 1
+    "A4": 2,
+    "A5": 2
    },
-   "principal": 6,
-   "ancillary": 15
+   "principal": 0,
+   "ancillary": 7
   },
   {
    "id": "north_division_beyond_modelled_ground",
