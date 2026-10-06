@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
+    items: [
+      'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
+      'The town\u2019s check of which street each house faces did not know Monroe Street, the south edge of the School Section blocks sold in 1833. Every house on a Monroe lot was read as facing no street, so the check would have turned three of them into barns and sheds.',
+      'It now reads Monroe for those lots, because the 1833 lot plan says they face it. Russel E. Heacock\u2019s house on Monroe Street, 30 m back from it, is now read as facing it too.',
+    ] },
   { v: 1510, ts: '2026-10-06T15:00:18.815Z', date: 'Oct 6, 2026, 10:00 AM CT', title: 'A trading camp at Wolf Point', kind: 'feature',
     items: [
       'Walk Lake Street past Wolf Point and three canvas tents now stand in a ring round a cold fire, between the Wolf Point Tavern and the street, west of Robert A. Kinzie\u2019s store.',
