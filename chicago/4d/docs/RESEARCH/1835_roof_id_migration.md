@@ -5,8 +5,8 @@ DERIVED — regenerate with `tools/measure_roof_id_migration.py --build`. T-1483
 T-1445 returned 32 refamily verdicts; T-1451 carried out the 6 whose record id does not encode its family. These are the other 26. Each becomes a new id the moment its family moves, and the id is named across the tree. NOTHING IS MOVED HERE: this is the measurement the three carry-out tickets (T-1481 south, T-1482 the platted blocks, T-1484 north) each stand on.
 
 - roofs whose id moves: **11**
-- files that name one: **53**
-- of those, **1** hold a reference a rename would falsify, **1** rename, **50** are re-derived by their own tool, **1** are frozen records of a past run
+- files that name one: **54**
+- of those, **1** hold a reference a rename would falsify, **2** rename, **50** are re-derived by their own tool, **1** are frozen records of a past run
 
 ## The rows that cost judgement
 
@@ -23,7 +23,7 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
 | `recon_1835_blk_school_section_tier_81_d4_03` | `recon_1835_blk_school_section_tier_81_a2_03` | 0 | 27 | 1 | 0 |
-| `recon_1835_blk_school_section_tier_81_d6_01` | `recon_1835_blk_school_section_tier_81_d1_01` | 0 | 27 | 1 | 0 |
+| `recon_1835_blk_school_section_tier_81_d6_01` | `recon_1835_blk_school_section_tier_81_d1_01` | 1 | 27 | 1 | 0 |
 | `recon_1835_blk_school_section_tier_81_d7_07` | `recon_1835_blk_school_section_tier_81_d1_07` | 0 | 26 | 1 | 0 |
 | `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 0 | 18 | 1 | 0 |
 | `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 0 | 18 | 1 | 0 |
@@ -34,12 +34,13 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 | `recon_1835_north_w2_065` | `recon_1835_north_d6_065` | 1 | 18 | 1 | 0 |
 | `recon_1835_north_w3_062` | `recon_1835_north_d6_062` | 1 | 17 | 1 | 0 |
 
-## Renamed — 1 file(s)
+## Renamed — 2 file(s)
 
 A plain pointer at the record. The migration rewrites the string and nothing else is owed.
 
 | file | roofs | why |
 | --- | ---: | --- |
+| `tools/measure_frontage_fabric.py` | 1 | a plain pointer at the record |
 | `tools/seat_trade_roofs_1835.py` | 6 | a plain pointer at the record |
 
 ## Re-derived — 50 file(s)
