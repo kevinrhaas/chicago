@@ -101,19 +101,19 @@
     "recon_1835_blk_school_section_tier_119_d5_06",
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07",
-    "recon_1835_blk_school_section_tier_94_d2_01",
     "recon_1835_blk_school_section_tier_94_d3_05",
-    "recon_1835_blk_school_section_tier_94_d4_03",
     "recon_1835_blk_school_section_tier_94_d4_04",
+    "recon_1835_blk_school_section_tier_94_d5_01",
     "recon_1835_blk_school_section_tier_94_d5_02",
-    "recon_1835_blk_school_section_tier_94_d5_07",
-    "recon_1835_blk_school_section_tier_94_d6_06",
-    "recon_1835_blk_school_section_tier_95_d2_02",
+    "recon_1835_blk_school_section_tier_94_d5_03",
+    "recon_1835_blk_school_section_tier_94_d7_07",
+    "recon_1835_blk_school_section_tier_94_h1_06",
+    "recon_1835_blk_school_section_tier_95_d2_05",
+    "recon_1835_blk_school_section_tier_95_d4_03",
     "recon_1835_blk_school_section_tier_95_d4_04",
-    "recon_1835_blk_school_section_tier_95_d5_03",
-    "recon_1835_blk_school_section_tier_95_d7_06",
-    "recon_1835_blk_school_section_tier_95_h1_05",
-    "recon_1835_blk_school_section_tier_95_h2_01",
+    "recon_1835_blk_school_section_tier_95_d5_01",
+    "recon_1835_blk_school_section_tier_95_d5_02",
+    "recon_1835_blk_school_section_tier_95_d6_06",
     "recon_1835_blk_south_water_clark_c2_06",
     "recon_1835_blk_south_water_clark_d1_04",
     "recon_1835_blk_south_water_clark_d3_03",
@@ -1506,38 +1506,20 @@
       ],
       [
         [
-          352.4,
+          352.42,
           -151.4
         ],
         [
-          351.57,
-          -151.77
+          351.59,
+          -151.78
         ],
         [
-          363.73,
-          -179.37
+          363.98,
+          -179.52
         ],
         [
-          364.57,
-          -179.0
-        ]
-      ],
-      [
-        [
-          350.18,
-          -151.64
-        ],
-        [
-          349.28,
-          -151.48
-        ],
-        [
-          344.7,
-          -176.49
-        ],
-        [
-          345.6,
-          -176.66
+          364.82,
+          -179.15
         ]
       ],
       [
@@ -1996,16 +1978,16 @@
           -136.52
         ],
         [
-          667.51,
-          -136.4
+          667.52,
+          -136.41
         ],
         [
-          661.83,
-          -181.7
+          661.92,
+          -181.55
         ],
         [
-          662.74,
-          -181.81
+          662.83,
+          -181.66
         ]
       ],
       [
@@ -5394,20 +5376,20 @@
       ],
       [
         [
-          235.71,
-          -633.57
+          236.39,
+          -628.34
         ],
         [
-          236.59,
-          -633.81
+          237.27,
+          -628.6
         ],
         [
-          248.13,
-          -592.28
+          248.01,
+          -592.43
         ],
         [
-          247.25,
-          -592.04
+          247.14,
+          -592.17
         ]
       ],
       [
@@ -5430,20 +5412,20 @@
       ],
       [
         [
-          266.9,
-          -629.68
+          267.07,
+          -628.62
         ],
         [
-          267.78,
-          -629.94
+          267.95,
+          -628.88
         ],
         [
-          278.75,
+          278.74,
           -592.43
         ],
         [
           277.87,
-          -592.18
+          -592.17
         ]
       ],
       [
@@ -5484,102 +5466,102 @@
       ],
       [
         [
-          326.01,
-          -546.59
+          325.75,
+          -548.66
         ],
         [
-          325.15,
-          -546.28
+          324.9,
+          -548.33
         ],
         [
-          311.83,
+          311.99,
           -582.43
         ],
         [
-          312.69,
+          312.84,
           -582.75
         ]
       ],
       [
         [
-          325.35,
-          -629.6
+          329.47,
+          -548.38
         ],
         [
-          326.21,
-          -629.29
+          328.59,
+          -548.62
+        ],
+        [
+          337.17,
+          -580.26
+        ],
+        [
+          338.06,
+          -580.03
+        ]
+      ],
+      [
+        [
+          325.26,
+          -629.14
+        ],
+        [
+          326.12,
+          -628.83
         ],
         [
           312.68,
           -592.14
         ],
         [
-          311.82,
+          311.83,
           -592.46
         ]
       ],
       [
         [
-          374.12,
-          -627.22
+          397.14,
+          -545.88
         ],
         [
-          375.0,
-          -627.44
+          396.26,
+          -545.64
         ],
         [
-          383.6,
-          -592.41
+          385.98,
+          -582.46
         ],
         [
-          382.71,
-          -592.2
+          386.86,
+          -582.71
         ]
       ],
       [
         [
-          371.5,
-          -627.42
+          398.68,
+          -628.41
         ],
         [
-          372.39,
-          -627.23
+          399.57,
+          -628.59
         ],
         [
-          365.51,
-          -594.65
+          407.17,
+          -592.4
         ],
         [
-          364.62,
-          -594.84
+          406.27,
+          -592.21
         ]
       ],
       [
         [
-          398.23,
-          -633.24
+          420.79,
+          -544.19
         ],
         [
-          399.13,
-          -633.41
-        ],
-        [
-          407.26,
-          -592.25
-        ],
-        [
-          406.37,
-          -592.07
-        ]
-      ],
-      [
-        [
-          420.58,
-          -545.54
-        ],
-        [
-          419.7,
-          -545.3
+          419.9,
+          -543.95
         ],
         [
           409.37,
@@ -5610,55 +5592,37 @@
       ],
       [
         [
-          443.78,
-          -547.67
+          444.46,
+          -541.39
         ],
         [
-          442.9,
-          -547.42
+          443.57,
+          -541.16
         ],
         [
-          432.92,
-          -582.46
+          432.66,
+          -582.62
         ],
         [
-          433.79,
-          -582.71
+          433.54,
+          -582.86
         ]
       ],
       [
         [
-          446.19,
-          -547.47
+          445.46,
+          -628.42
         ],
         [
-          445.29,
-          -547.63
-        ],
-        [
-          451.03,
-          -580.22
-        ],
-        [
-          451.93,
-          -580.06
-        ]
-      ],
-      [
-        [
-          445.3,
-          -629.81
-        ],
-        [
-          446.19,
-          -629.99
+          446.35,
+          -628.6
         ],
         [
           453.95,
           -592.4
         ],
         [
-          453.06,
+          453.05,
           -592.21
         ]
       ],
@@ -6266,11 +6230,6 @@
       "lot": "blk_lake_wells_lot0",
       "from": "recon_1835_south_d2_005",
       "to": "privy_blk_lake_wells_lot0"
-    },
-    {
-      "lot": "blk_lake_wells_lot0",
-      "from": "recon_1835_south_d2_005",
-      "to": "stable_blk_lake_wells_lot0"
     },
     {
       "lot": "blk_lake_wells_lot0",
@@ -7344,7 +7303,7 @@
     },
     {
       "lot": "blk_school_section_tier_94_lot1",
-      "from": "recon_1835_blk_school_section_tier_94_d2_01",
+      "from": "recon_1835_blk_school_section_tier_94_d5_01",
       "to": "privy_blk_school_section_tier_94_lot1"
     },
     {
@@ -7354,7 +7313,7 @@
     },
     {
       "lot": "blk_school_section_tier_94_lot3",
-      "from": "recon_1835_blk_school_section_tier_94_d4_03",
+      "from": "recon_1835_blk_school_section_tier_94_d5_03",
       "to": "privy_blk_school_section_tier_94_lot3"
     },
     {
@@ -7369,32 +7328,32 @@
     },
     {
       "lot": "blk_school_section_tier_94_lot6",
-      "from": "recon_1835_blk_school_section_tier_94_d6_06",
+      "from": "recon_1835_blk_school_section_tier_94_h1_06",
       "to": "privy_blk_school_section_tier_94_lot6"
     },
     {
+      "lot": "blk_school_section_tier_94_lot6",
+      "from": "recon_1835_blk_school_section_tier_94_h1_06",
+      "to": "stable_blk_school_section_tier_94_lot6"
+    },
+    {
       "lot": "blk_school_section_tier_94_lot7",
-      "from": "recon_1835_blk_school_section_tier_94_d5_07",
+      "from": "recon_1835_blk_school_section_tier_94_d7_07",
       "to": "privy_blk_school_section_tier_94_lot7"
     },
     {
-      "lot": "blk_school_section_tier_95_lot1",
-      "from": "recon_1835_blk_school_section_tier_95_h2_01",
-      "to": "privy_blk_school_section_tier_95_lot1"
-    },
-    {
-      "lot": "blk_school_section_tier_95_lot1",
-      "from": "recon_1835_blk_school_section_tier_95_h2_01",
-      "to": "stable_blk_school_section_tier_95_lot1"
+      "lot": "blk_school_section_tier_95_lot2",
+      "from": "recon_1835_blk_school_section_tier_95_d5_01",
+      "to": "privy_blk_school_section_tier_95_lot2"
     },
     {
       "lot": "blk_school_section_tier_95_lot3",
-      "from": "recon_1835_blk_school_section_tier_95_d2_02",
+      "from": "recon_1835_blk_school_section_tier_95_d5_02",
       "to": "privy_blk_school_section_tier_95_lot3"
     },
     {
       "lot": "blk_school_section_tier_95_lot4",
-      "from": "recon_1835_blk_school_section_tier_95_d5_03",
+      "from": "recon_1835_blk_school_section_tier_95_d4_03",
       "to": "privy_blk_school_section_tier_95_lot4"
     },
     {
@@ -7404,17 +7363,12 @@
     },
     {
       "lot": "blk_school_section_tier_95_lot6",
-      "from": "recon_1835_blk_school_section_tier_95_h1_05",
+      "from": "recon_1835_blk_school_section_tier_95_d2_05",
       "to": "privy_blk_school_section_tier_95_lot6"
     },
     {
-      "lot": "blk_school_section_tier_95_lot6",
-      "from": "recon_1835_blk_school_section_tier_95_h1_05",
-      "to": "stable_blk_school_section_tier_95_lot6"
-    },
-    {
       "lot": "blk_school_section_tier_95_lot7",
-      "from": "recon_1835_blk_school_section_tier_95_d7_06",
+      "from": "recon_1835_blk_school_section_tier_95_d6_06",
       "to": "privy_blk_school_section_tier_95_lot7"
     },
     {
