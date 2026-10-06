@@ -1,3 +1,43 @@
+## T-2148 — Clinton, Jefferson and Des Plaines carried to Madison; plat block 50's thirteen roofs; the West's last freight roof handed to T-2150 (2026-10-06)
+
+**What a visitor sees.** Clinton, Jefferson and Des Plaines run on south of Washington to
+Madison, as Canal and West Water have since T-2143. The block between Clinton and Canal (plat
+block 50, `blk_washington_clinton`) is built along its Canal face: an H2 merchant's house on the
+Washington corner, an H3 boarding house, a D5 and a D4 cottage and an H1 house on the Madison
+corner, with eight yard buildings behind them. Its Clinton face, and plat blocks 49 and 48 west
+of it, stay open lots. Changelog v1509.
+
+- **The carry.** Each line is extended from its old end at local N -400 to Madison on its own
+  straight bearing, the old end kept as a vertex: Clinton to [-273.65, -519.05], Jefferson to
+  [-388.29, -519.05], Des Plaines to [-512.12, -519.05], with full precision so Jefferson and Des
+  Plaines still carry Clinton's bearing to 1e-9 (`measure_west_division_streets.py`). All three
+  join `generate_plat_lots.CARRIED_REACHES`, and every pre-existing block re-derives
+  byte-identical.
+- **Three blocks on the layer.** 50 is cut on the Original Town's west tier (twin of the West
+  Division cell, as `blk_randolph_clinton` and `blk_lake_clinton` north of it); 49
+  (`blk_west_washington_jefferson`) and 48 (`blk_west_washington_des_plaines`) on the West
+  Division module. 87 blocks, 428 lots; all ground samples dry.
+- **The deal.** Block 50 is the first empty block of the Original Town's west tier the schedule
+  reaches, so it takes that tier's density and 14 of the 21 roofs that stood gated as
+  `west_division_beyond_committed_control`. 13 are built; the F3 is deferred (inland; waterside
+  T-0316, L203). The seating's four requests (H2, D5, D4, H1) stand on Canal and the H3 takes the
+  last Canal lot. Blocks 48 and 49 are dealt nothing at the West density, and asked nothing.
+- **The corporate boundary.** `measure_corporation_limits.py` refused the new Jefferson: the
+  West Division line no longer started north of the School Section line's end, because both now
+  end on Madison. The 119 m neither line drew is gone; the ring takes the 8.3 m jog between the
+  two surveys along Madison, and the check now refuses only a line reaching PAST that end
+  (218.2 ha, 535 inside, 61 outside, no extrapolated leg deciding one).
+- **Fixpoint.** Keepers → infill → `reconcile_665` → seating settled at **225 seated** (222 on
+  dev). The four requesters are seated on standing West roofs and four older West households
+  adopt the new houses; 42 households change roof or lot, among them the School Section tier's
+  slot requests, which shift a lot each, and `hh_blake_levi` is handed on. Mid-walk one lap left
+  `recon_1835_west_046` without its merchant; at the fixpoint `hh_behan_thos` adopts it, so
+  `MERCHANT_H2` is unchanged. 13 new and 14 keeper-moved meshes baked, terrain and water rebaked
+  (Clinton's track now reaches Madison).
+- **Restated.** L263 569 → 582, L270 222 → 225, L276 81 → 82; new **L393** for block 50.
+- **Order book.** West dwellings 75 of 75. The one West freight roof left, and the complete
+  stores and workshops rows, move to **T-2150**.
+
 ## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
 
 **What a visitor sees.** Canal Street and West Water Street run on south of Washington to

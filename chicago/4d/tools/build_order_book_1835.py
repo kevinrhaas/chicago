@@ -555,7 +555,11 @@ STRUCTURE_TICKETS = {
     # T-2143 carried Canal and West Water to Madison, brought plat block 51 onto the layer
     # and built its six (2026-10-05), and handed the 2 left here, and the West rows below,
     # to T-2148: blocks 48-50 on the same tier print 180 ft and wait only on three lines.
-    ("west", "ordinary_dwellings"): "T-2148",
+    # T-2148 carried Clinton, Jefferson and Des Plaines to Madison and built plat block 50's
+    # thirteen roofs (2026-10-06): West dwellings read 75 of 75, and the one freight roof
+    # left (block 50's F3, deferred because the block is inland) goes with these rows to
+    # T-2150, filed for exactly that.
+    ("west", "ordinary_dwellings"): "T-2150",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -579,10 +583,10 @@ STRUCTURE_TICKETS = {
     # which closes the West's books and hands T-1208 "the West's exact remainder".
     # Both read complete (6 of 6, 8 of 8) when T-1774 split, and move with the remainder to
     # T-1829 so the row names a live ticket.
-    ("west", "stores_mixed_use"): "T-2148",
+    ("west", "stores_mixed_use"): "T-2150",
     ("west", "larger_boarding_houses"): "T-1953",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-2148",
+    ("west", "workshops"): "T-2150",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind. When T-1774 split
@@ -590,7 +594,7 @@ STRUCTURE_TICKETS = {
     # verdict, which T-1827 carries out, takes a roof out of this row. T-1827 did (046 is
     # an H2 house now), so the row reads 1 of 2 and the freight roof it orders goes with the
     # rest of the West's remainder to T-1829, which already holds stores and workshops.
-    ("west", "warehouses_freight"): "T-2148",
+    ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
     ("west", "barns_stables"): "T-1983",  # moved with the South's, above

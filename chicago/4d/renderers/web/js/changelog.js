@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1509, ts: '2026-10-06T01:23:58.453Z', date: 'Oct 5, 2026, 8:23 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
+    items: [
+      'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
+      'The block between Clinton and Canal is now built along its Canal Street side: a merchant\u2019s house on the Washington corner, a boarding house, two frame cottages and a larger house on the Madison corner. Behind them stand a stable, barns, woodsheds and small sheds.',
+      'The Clinton Street side of the block is left as open lots, and so are the two blocks farther west, between Clinton, Jefferson and Des Plaines. They read as the thin edge of the town.',
+      'No source names these buildings or who lived in them. They fill the number of homes the town needs, and each card says so. The Liberties page explains it (L393).',
+    ] },
   { v: 1508, ts: '2026-10-06T00:05:54.393Z', date: 'Oct 5, 2026, 7:05 PM CT', title: 'Dr Kimberly gets his own household, in the house he was seen in', kind: 'change',
     items: [
       'In 1835, open Dr Kimberly\u2019s house east of the Lake House on the north bank. It now names the household living there: Dr Edmund Kimberly and his wife Marie Theresa.',
