@@ -22,9 +22,9 @@ A reference is not always a pointer. These assert what the roof IS, and the verd
 
 | roof | becomes | renamed | re-derived | frozen | adjudicated |
 | --- | --- | ---: | ---: | ---: | ---: |
-| `recon_1835_blk_school_section_tier_81_d4_03` | `recon_1835_blk_school_section_tier_81_a2_03` | 0 | 25 | 1 | 0 |
-| `recon_1835_blk_school_section_tier_81_d6_01` | `recon_1835_blk_school_section_tier_81_d1_01` | 0 | 25 | 1 | 0 |
-| `recon_1835_blk_school_section_tier_81_d7_07` | `recon_1835_blk_school_section_tier_81_d1_07` | 0 | 24 | 1 | 0 |
+| `recon_1835_blk_school_section_tier_81_d4_03` | `recon_1835_blk_school_section_tier_81_a2_03` | 0 | 27 | 1 | 0 |
+| `recon_1835_blk_school_section_tier_81_d6_01` | `recon_1835_blk_school_section_tier_81_d1_01` | 0 | 27 | 1 | 0 |
+| `recon_1835_blk_school_section_tier_81_d7_07` | `recon_1835_blk_school_section_tier_81_d1_07` | 0 | 26 | 1 | 0 |
 | `recon_1835_blk_washington_market_a3_15` | `recon_1835_blk_washington_market_d2_15` | 0 | 18 | 1 | 0 |
 | `recon_1835_blk_washington_market_a4_12` | `recon_1835_blk_washington_market_d2_12` | 0 | 18 | 1 | 0 |
 | `recon_1835_north_c3_064` | `recon_1835_north_a2_064` | 1 | 15 | 1 | 0 |
@@ -57,7 +57,7 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | `data/flora/plantings/town_dooryard_plantings.json` | 3 | A PLANTING RECORD, in the shape T-0091 established and its research_note asked the dooryard pass to reuse: woody stems whose position is STATED rather than dealt from the land |
 | `data/liberties.json` | 11 | compiled from docs/LIBERTIES.md by tools/compile_liberties.py |
 | `data/reconstruction/1835_address_book.json` | 3 | Derived |
-| `data/reconstruction/1835_block_redeal_remedies.json` | 2 | Derived |
+| `data/reconstruction/1835_block_redeal_remedies.json` | 5 | Derived |
 | `data/reconstruction/1835_business_reconstruction.json` | 1 | DERIVED from the reconstruction order book and the resident band's trade heads by tools/reconstruct_businesses_1835 |
 | `data/reconstruction/1835_hay_limits.json` | 8 | Derived |
 | `data/reconstruction/1835_housing_seats.json` | 3 | DERIVED — regenerate with tools/house_the_present_1835 |
@@ -97,7 +97,7 @@ Written by a tool, which `check.sh` re-runs. The migration must NOT hand-edit th
 | `data/yard/town_woodpiles.json` | 3 | A woodpile at every dwelling, by whose house it is (T-1959, piece 2 of T-1212) |
 | `data/yard/town_yard_outbuildings.json` | 3 | generated_by tools/generate_yard_outbuildings.py |
 | `docs/RESEARCH/1835_anonymous_roof_redeal.md` | 11 | DERIVED — regenerate with `tools/redeal_anonymous_roofs |
-| `docs/RESEARCH/1835_block_redeal_remedies.md` | 2 | DERIVED — regenerate with `tools/measure_block_redeal_remedies |
+| `docs/RESEARCH/1835_block_redeal_remedies.md` | 5 | DERIVED — regenerate with `tools/measure_block_redeal_remedies |
 
 ## Frozen — 1 file(s)
 

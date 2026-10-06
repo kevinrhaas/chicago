@@ -957,9 +957,16 @@ def self_test() -> int:
     # 37 -> 36 on 2026-10-03 (T-1743): `beaubien_new_residence` is withdrawn and folded into
     # the Beaubien homestead on the owner's ruling. The trading post moved west of the house
     # and still fronts no street, so it stays in this count.
+    # 36 -> 40 on 2026-10-05 (T-2147): the four Monroe-face roofs on the School Section tier's
+    # block 81 (recon_1835_blk_school_section_tier_81_d6_01, _d4_03, _d3_05 and _d7_07). They
+    # DO stand on a street — Monroe, which data/streets/1835.json draws — but Monroe bounds the
+    # School Section, not the Original Town, and tools/plat_corridors.py carries no corridor for
+    # it, so this census reads them as fronting none and reports them here rather than dropping
+    # them. The three Madison-face roofs front `madison`, the town's south line, which it does
+    # carry. They leave this count when the tier's streets enter the corridor layer.
     absent = no_street(census())
     checks.append(("the census reports a building that fronts no street instead of "
-                   "leaving it out", len(absent) == 36 and all(
+                   "leaving it out", len(absent) == 40 and all(
                        r["street"] is None and not r["on_line"] and not r["principal"]
                        for r in absent),
                    f"{len(absent)} row(s) with street None"))
