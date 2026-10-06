@@ -454,11 +454,11 @@
     },
     "capacity": {
       "beds_ordinary": 13,
-      "beds_crowded": 30,
+      "beds_crowded": 31,
       "from": "data/reconstruction/1835_lodging_model.json",
       "row": "places[id=recon_1835_blk_washington_clark_h3_06]",
       "sizes": {
-        "upper_windows": "ceil(30 crowded beds / 3 to a chamber) = 10, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.96 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
+        "upper_windows": "ceil(31 crowded beds / 3 to a chamber) = 11, held to the crosswalk's 6-10 = 10, then to the 8 sashes a front of 9.96 m carries at 1.15 m a bay: 8 across the upper storey of the front and of the rear",
         "stovepipes": "ceil(13 ordinary beds / 3 to a stove) = 5, held to 2-6: 5",
         "chimneys": "not sized by the beds: the two brick stacks are the family's kitchen and common-room hearths, and the stoves the beds add go out through the roof as stovepipes"
       }
@@ -476,7 +476,7 @@
   "lodging": {
     "class": "boarding_house",
     "beds_ordinary": 13,
-    "beds_crowded": 30,
+    "beds_crowded": 31,
     "ceiling": 35,
     "clamped_at_1840_maximum": false,
     "enclosed_floor_m2": 289.89,
