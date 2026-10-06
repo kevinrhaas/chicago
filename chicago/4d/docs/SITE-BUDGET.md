@@ -264,8 +264,8 @@ household's `why`, and its `research_note`, which no renderer reads) is 0.87 MB 
 an open card ever shows. `publish.sh` now runs `tools/defer_household_notes.mjs`, which ships
 each of the 314 seated records slim and writes its households whole to
 `sidecars/<scene>/households/<id>.json`. The card fetches that file when it opens
-(`main.js` `ensureHouseholdNotes`, through `createPopup`'s `onShow`), swaps it in and
-redraws. The source tree is untouched, because two dozen tools read `data/sidecars/` whole.
+(`main.js` `ensureHouseholdNotes`, through `createPopup`'s `onShow`), hands it to the popup,
+which holds it beside the record (the record stays as shipped) and redraws. The source tree is untouched, because two dozen tools read `data/sidecars/` whole.
 `defer_household_notes.mjs --check` (in check.sh) holds the shipped form to the source, and
 `check_published.mjs` declares exactly the seated records as transformed. Measured on the
 branch, on the steward runner: **12.780 MB across 1474 requests**, 0.22 MB inside 13 MB, with

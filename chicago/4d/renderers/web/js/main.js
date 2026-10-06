@@ -2282,8 +2282,8 @@ async function boot() {
   // in sidecars/<scene>/households/<id>.json: 0.87 MB a first visit no longer loads.
   // A household with no `why` is one whose notes were deferred (tools/
   // defer_household_notes.mjs --check holds that every source household has one).
-  // The full households replace the slim ones on the record and the card redraws. A
-  // failure records a problem and leaves the card as drawn, toggles absent.
+  // The popup holds the full households beside the record, which stays as shipped, and
+  // redraws. A failure records a problem and leaves the card as drawn, toggles absent.
   const householdNotes = new Map();
   const ensureHouseholdNotes = (record) => {
     const s = record?.sidecar;
@@ -2299,8 +2299,7 @@ async function boot() {
         if (!Array.isArray(doc?.residents) || doc.residents.length !== households.length) {
           throw new Error('does not hold this record\'s households');
         }
-        s.residents = doc.residents;
-        popup.refresh(record.id);
+        popup.setHouseholds(record.id, doc.residents);
       })
       .catch((err) => {
         problems.push(`households/${record.id}.json: ${err.message} — this card shows its households without their notes`);

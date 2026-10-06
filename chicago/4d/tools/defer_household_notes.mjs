@@ -23,7 +23,8 @@
  *                                                exactly as the source carries them
  *
  * and the card (main.js `ensureHouseholdNotes`, through `createPopup`'s `onShow`)
- * fetches the second file when a card with households opens, swaps it in and redraws.
+ * fetches the second file when a card with households opens; the popup holds it beside
+ * the record, which stays as shipped (the smoke hashes it, T-1727), and redraws.
  * The source tree is untouched: two dozen Python tools read `data/sidecars/` and keep
  * reading it whole.
  *

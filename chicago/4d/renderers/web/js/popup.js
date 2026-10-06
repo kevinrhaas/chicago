@@ -1270,6 +1270,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
    *  the claim that no firm traded here. */
   let businessesByStructure = null;
   let currentRecord = null;
+  /** Households fetched whole for a card (T-2151), by record id. */
+  const householdsById = new Map();
   /** Whether the card on screen was opened by aiming at this building's signboard,
    *  kept so a redraw (the liberties, the agencies) does not lose the fact. */
   let currentFromSign = false;
@@ -1368,14 +1370,19 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
     },
 
     /**
-     * Redraw the card on screen from its record, which has changed under it: the
-     * household notes a card fetches when it opens (T-2151) are swapped into the
-     * record's own `residents`, and the card that asked for them is redrawn on the
-     * same terms as the handles above.
+     * Hand the popup one record's households whole, once the card that asked for
+     * them has fetched them (T-2151): the boot sidecar carries them slim, with the
+     * reasoning behind each `why` toggle in `sidecars/<scene>/households/<id>.json`.
+     * Held here rather than written onto the registry's record, so the record stays
+     * exactly what was shipped. The card on screen is redrawn on the same terms as
+     * the handles above; a card since moved on is left alone.
      *
-     * @param {string} id  the record whose data arrived; a card since moved on is left alone
+     * @param {string} id  the record whose households arrived
+     * @param {object[]} list  that record's `residents`, as the source carries them
      */
-    refresh(id) {
+    setHouseholds(id, list) {
+      if (!Array.isArray(list)) return;
+      householdsById.set(id, list);
       if (currentRecord && currentRecord.id === id) this.show(currentRecord, { fromSign: currentFromSign });
     },
 
@@ -1468,7 +1475,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, o
         ${leadHtml(s, called, p)}
         ${factsHtml(s, firms, currentFromSign)}
         ${lodgingSection(s)}
-        ${residentsSection(s)}
+        ${residentsSection(householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s)}
         ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}
         ${tabsHtml({ liberties: libertyCount + questionCount })}
         ${paneHtml('evidence', evidencePane)}
