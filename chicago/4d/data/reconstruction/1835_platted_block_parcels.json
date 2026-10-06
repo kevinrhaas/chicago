@@ -5303,11 +5303,11 @@
         "ancillary": 0
       },
       "families": {
-        "D2": 1,
-        "D5": 2,
-        "D4": 2,
+        "D5": 3,
+        "D4": 1,
         "D3": 1,
-        "D6": 1
+        "H1": 1,
+        "D7": 1
       },
       "dealt_against_a_request": {
         "ticket": "T-2146",
@@ -5315,42 +5315,42 @@
         "from": "data/reconstruction/1835_platted_seats.json",
         "requests": [
           {
-            "seat": "hh_hunt_charles_cotesworth_pinckney",
-            "family": "D2",
-            "order_book_draw": "blk_school_section_tier_94 / D2 / south"
-          },
-          {
             "seat": "hh_darling_enoch",
             "family": "D5",
             "order_book_draw": "blk_school_section_tier_94 / D5 / south"
           },
           {
             "seat": "hh_darling_daniel",
-            "family": "D4",
-            "order_book_draw": "blk_school_section_tier_94 / D4 / south"
+            "family": "D5",
+            "order_book_draw": "blk_school_section_tier_94 / D5 / south"
           },
           {
             "seat": "hh_daniel_b_clevinger_4",
+            "family": "D5",
+            "order_book_draw": "blk_school_section_tier_94 / D5 / south"
+          },
+          {
+            "seat": "hh_dailey_thomas",
             "family": "D4",
             "order_book_draw": "blk_school_section_tier_94 / D4 / south"
           },
           {
-            "seat": "hh_dailey_thomas",
+            "seat": "hh_cutler_morris",
             "family": "D3",
             "order_book_draw": "blk_school_section_tier_94 / D3 / south"
           },
           {
-            "seat": "hh_davis_george",
-            "family": "D6",
-            "order_book_draw": "blk_school_section_tier_94 / D6 / south"
+            "seat": "hh_benton_datas_e",
+            "family": "H1",
+            "order_book_draw": "blk_school_section_tier_94 / H1 / south"
           },
           {
-            "seat": "hh_dave_john",
-            "family": "D5",
-            "order_book_draw": "blk_school_section_tier_94 / D5 / south"
+            "seat": "hh_bently_wm_t",
+            "family": "D7",
+            "order_book_draw": "blk_school_section_tier_94 / D7 / south"
           }
         ],
-        "why": "THE SEATING ASKED FOR SEVEN ROOFS ON THIS BLOCK AND THE SCHEDULE HOLDS EXACTLY SEVEN. T-2144 joined the School Section's Madison-Monroe tier to the plat on the owner's T-1755 ruling (cross Madison) and walked the seating to its fixpoint, which left seven `slot` requests on blk_school_section_tier_94 with no structure under them: a D2 on lot 1, a D5 on lot 2, a D4 on lot 3, a D4 on lot 4, a D3 on lot 5, a D6 on lot 6 and a D5 on lot 7. The 665-roof schedule (data/reconstruction/1835_665_roof_programme.json) gives the block `lot_ceiling_principal` 7 over its eight free lots, the eighth being the reserved open one, and its family list is exactly one D2, one D3, two D4, two D5 and one D6, with no yard roof. So the count, the families and the lots are the seating's and the schedule's, and nothing in this deal chooses them. A REQUEST IS NOT EVIDENCE: the seating pass re-runs behind the deal to say which household ends up under which roof."
+        "why": "THE SEATING ASKED FOR SEVEN ROOFS ON THIS BLOCK AND THE SCHEDULE HOLDS EXACTLY SEVEN. T-2144 joined the School Section's Madison-Monroe tier to the plat on the owner's T-1755 ruling (cross Madison) and walked the seating to its fixpoint, which left seven `slot` requests on blk_school_section_tier_94 with no structure under them: a D5 on lot 1, a D5 on lot 2, a D5 on lot 3, a D4 on lot 4, a D3 on lot 5, an H1 on lot 6 and a D7 on lot 7. The 665-roof schedule (data/reconstruction/1835_665_roof_programme.json) gives the block `lot_ceiling_principal` 7 over its eight free lots, the eighth being the reserved open one, and its family list is exactly one D3, one D4, three D5, one D7 and one H1, with no yard roof. So the count, the families and the lots are the seating's and the schedule's, and nothing in this deal chooses them. A REQUEST IS NOT EVIDENCE: the seating pass re-runs behind the deal to say which household ends up under which roof. RE-DEALT ON THE T-2148 MERGE (2026-10-06): this entry first claimed the schedule as it stood after T-2144; when T-2148 raised plat block 50 the schedule re-apportioned the South's remainder, and the town's H2 ceiling (14) was then reached without this block, so the entry was re-cut to the requests dev's own fixpoint makes of the block."
       },
       "open_lots": [
         {
@@ -5360,12 +5360,12 @@
       ],
       "slots": [
         {
-          "family": "D2",
+          "family": "D5",
           "inventory_class": "principal_functional",
           "lot": 1,
           "stands_on": "street",
           "fronts": "monroe",
-          "setback_m": 4.0,
+          "setback_m": 5.0,
           "lateral_m": 1.5
         },
         {
@@ -5378,7 +5378,7 @@
           "lateral_m": -1.5
         },
         {
-          "family": "D4",
+          "family": "D5",
           "inventory_class": "principal_functional",
           "lot": 3,
           "stands_on": "street",
@@ -5405,16 +5405,16 @@
           "lateral_m": 1.5
         },
         {
-          "family": "D6",
+          "family": "H1",
           "inventory_class": "principal_functional",
           "lot": 6,
           "stands_on": "street",
           "fronts": "madison",
-          "setback_m": 5.0,
+          "setback_m": 6.0,
           "lateral_m": -1.5
         },
         {
-          "family": "D5",
+          "family": "D7",
           "inventory_class": "principal_functional",
           "lot": 7,
           "stands_on": "street",
@@ -5423,7 +5423,7 @@
           "lateral_m": 1.5
         }
       ],
-      "arrangement_note": "THE SCHOOL SECTION TIER'S FIRST WELLS BLOCK, BUILT TO ITS LOT CEILING (T-2146, piece 3 of T-1755). The owner ruled on 2026-10-05 that the South's owed dwellings cross Madison onto the School Section's Madison-Monroe tier, whose lots the state sold one by one in October 1833, and T-2144 put the tier's five dry South blocks on the grid at one principal roof per lot. This deal builds the seven houses the seating asks for on block 94, between the section's eighth line and Wells: on the Madison face a larger frame house (D5) on lot 2, a tradesman's frame house (D4) on lot 4 and a storey-and-a-half cottage (D6) on the Wells corner; on the Monroe face a labourer's shanty (D2) on the west corner, a D4, a one-room cottage (D3) and a second D5 on the Wells corner. Lot 0, the Madison corner at the west end, stays the block's reserved open lot. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all seven are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
+      "arrangement_note": "THE SCHOOL SECTION TIER'S FIRST WELLS BLOCK, BUILT TO ITS LOT CEILING (T-2146, piece 3 of T-1755). The owner ruled on 2026-10-05 that the South's owed dwellings cross Madison onto the School Section's Madison-Monroe tier, whose lots the state sold one by one in October 1833, and T-2144 put the tier's five dry South blocks on the grid at one principal roof per lot. This deal builds the seven houses the seating asks for on block 94, between the section's eighth line and Wells: on the Madison face a larger frame house (D5) on lot 2, a tradesman's frame house (D4) on lot 4 and a larger storey-and-a-half house (H1) on the Wells corner; on the Monroe face two more D5s on the west corner and lot 3, a one-room cottage (D3) and a two-storey frame house (D7) on the Wells corner. Lot 0, the Madison corner at the west end, stays the block's reserved open lot. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all seven are anonymous count-units at the bottom tier toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
     },
     {
       "block_id": "blk_school_section_tier_95",
@@ -5448,12 +5448,10 @@
         "ancillary": 0
       },
       "families": {
-        "H2": 1,
+        "D5": 2,
+        "D4": 2,
         "D2": 1,
-        "D5": 1,
-        "D4": 1,
-        "H1": 1,
-        "D7": 1
+        "D6": 1
       },
       "dealt_against_a_request": {
         "ticket": "T-2146",
@@ -5461,9 +5459,24 @@
         "from": "data/reconstruction/1835_platted_seats.json",
         "requests": [
           {
-            "seat": "hh_blake_levi",
-            "family": "H2",
-            "order_book_draw": "blk_school_section_tier_95 / H2 / south"
+            "seat": "hh_dell_frank",
+            "family": "D5",
+            "order_book_draw": "blk_school_section_tier_95 / D5 / south"
+          },
+          {
+            "seat": "hh_delano_loring",
+            "family": "D5",
+            "order_book_draw": "blk_school_section_tier_95 / D5 / south"
+          },
+          {
+            "seat": "hh_davis_george",
+            "family": "D4",
+            "order_book_draw": "blk_school_section_tier_95 / D4 / south"
+          },
+          {
+            "seat": "hh_dave_john",
+            "family": "D4",
+            "order_book_draw": "blk_school_section_tier_95 / D4 / south"
           },
           {
             "seat": "hh_ira_paddock",
@@ -5471,27 +5484,12 @@
             "order_book_draw": "blk_school_section_tier_95 / D2 / south"
           },
           {
-            "seat": "hh_dell_frank",
-            "family": "D5",
-            "order_book_draw": "blk_school_section_tier_95 / D5 / south"
-          },
-          {
-            "seat": "hh_delano_loring",
-            "family": "D4",
-            "order_book_draw": "blk_school_section_tier_95 / D4 / south"
-          },
-          {
-            "seat": "hh_berger_f_c",
-            "family": "H1",
-            "order_book_draw": "blk_school_section_tier_95 / H1 / south"
-          },
-          {
-            "seat": "hh_benton_datas_e",
-            "family": "D7",
-            "order_book_draw": "blk_school_section_tier_95 / D7 / south"
+            "seat": "hh_democrat_printers",
+            "family": "D6",
+            "order_book_draw": "blk_school_section_tier_95 / D6 / south"
           }
         ],
-        "why": "THE BLOCK'S WHOLE REQUEST, AND NOT THE SCHEDULE'S BOARDING HOUSE. T-2144 left six `slot` requests on blk_school_section_tier_95 with no structure under them: an H2 merchant's house on lot 1, a D2 on lot 3, a D5 on lot 4, a D4 on lot 5, an H1 on lot 6 and a D7 on lot 7, every one a family and lot the schedule's plan for the block holds. The 665-roof schedule gives the block `lot_ceiling_principal` 7 and a seventh family, an H3 boarding house, which no banded South clause admits (`plan_left_unclaimed`), so no household asks for it. It is NOT raised here: measured on this branch, its beds move the lodging model and the boarder stage (tools/seat_lodgers_1835.py) then draws eight lodgers out of persons/male/10_19/south/lodging/trade where the order book holds seven, which that stage refuses by design until the lodger basis is deliberately re-frozen. Raising a boarding house is therefore a lodging decision, and it goes with the South's other owed boarding houses to T-1957. A REQUEST IS NOT EVIDENCE: the seating pass re-runs behind the deal to say which household ends up under which roof."
+        "why": "THE BLOCK'S WHOLE REQUEST, AND NOT THE SCHEDULE'S BOARDING HOUSE. T-2144 left six `slot` requests on blk_school_section_tier_95 with no structure under them: a D5 on lot 2, a D5 on lot 3, a D4 on lot 4, a D4 on lot 5, a D2 on lot 6 and a D6 on lot 7, every one a family and lot the schedule's plan for the block holds. The 665-roof schedule gives the block `lot_ceiling_principal` 7 and a seventh family, an H3 boarding house, which no banded South clause admits (`plan_left_unclaimed`), so no household asks for it. It is NOT raised here: measured on this branch, its beds move the lodging model and the boarder stage (tools/seat_lodgers_1835.py) then draws eight lodgers out of persons/male/10_19/south/lodging/trade where the order book holds seven, which that stage refuses by design until the lodger basis is deliberately re-frozen. Raising a boarding house is therefore a lodging decision, and it goes with the South's other owed boarding houses to T-1957. A REQUEST IS NOT EVIDENCE: the seating pass re-runs behind the deal to say which household ends up under which roof. RE-DEALT ON THE T-2148 MERGE (2026-10-06): this entry first claimed the schedule as it stood after T-2144; when T-2148 raised plat block 50 the schedule re-apportioned the South's remainder, and the town's H2 ceiling (14) was then reached without this block, so the entry was re-cut to the requests dev's own fixpoint makes of the block."
       },
       "open_lots": [
         {
@@ -5499,31 +5497,31 @@
           "why": "The Madison-and-Wells corner, the block's reserved open lot. The schedule's sizing (T-1623) counts principal room over the free lots less one so that a block is never dealt out of its open lot, and `1835_platted_seats.json` keeps this lot clear of every request; which lot carries the reservation is arbitrary within the block, and this entry takes the one block 81 (T-2147) took."
         },
         {
-          "lot": 2,
+          "lot": 1,
           "why": "Left open for the schedule's H3 boarding house, which this deal does not raise: its beds re-cut the boarder stage's frozen basis, a lodging decision owned with the South's other owed boarding houses by T-1957."
         }
       ],
       "slots": [
         {
-          "family": "H2",
+          "family": "D5",
           "inventory_class": "principal_functional",
-          "lot": 1,
+          "lot": 2,
           "stands_on": "street",
-          "fronts": "monroe",
+          "fronts": "madison",
           "setback_m": 5.0,
-          "lateral_m": 0.0
+          "lateral_m": -1.5
         },
         {
-          "family": "D2",
+          "family": "D5",
           "inventory_class": "principal_functional",
           "lot": 3,
           "stands_on": "street",
           "fronts": "monroe",
-          "setback_m": 4.0,
+          "setback_m": 5.0,
           "lateral_m": 1.5
         },
         {
-          "family": "D5",
+          "family": "D4",
           "inventory_class": "principal_functional",
           "lot": 4,
           "stands_on": "street",
@@ -5541,16 +5539,16 @@
           "lateral_m": 1.5
         },
         {
-          "family": "H1",
+          "family": "D2",
           "inventory_class": "principal_functional",
           "lot": 6,
           "stands_on": "street",
           "fronts": "madison",
-          "setback_m": 6.0,
+          "setback_m": 4.0,
           "lateral_m": -1.5
         },
         {
-          "family": "D7",
+          "family": "D6",
           "inventory_class": "principal_functional",
           "lot": 7,
           "stands_on": "street",
@@ -5559,7 +5557,7 @@
           "lateral_m": 1.5
         }
       ],
-      "arrangement_note": "THE SCHOOL SECTION TIER'S SECOND WELLS BLOCK, BUILT TO ITS LOT CEILING (T-2146, piece 3 of T-1755). Block 95, between Wells and the section's tenth line, is the block the schedule gives the tier's better houses: on the Madison face a larger frame house (D5) on lot 4 and a larger storey-and-a-half house (H1) on the east corner; on the Monroe face a merchant's or professional man's house (H2) on the Wells corner, a labourer's shanty (D2), a tradesman's frame house (D4) and a two-storey frame house (D7) on the east corner. Lot 0, the Madison-and-Wells corner, stays the block's reserved open lot, and lot 2 is left for the schedule's boarding house (T-1957). Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all six are anonymous count-units at the bottom tier toward the schedule's documented aggregate."
+      "arrangement_note": "THE SCHOOL SECTION TIER'S SECOND WELLS BLOCK, BUILT TO ITS LOT CEILING (T-2146, piece 3 of T-1755). Block 95, between Wells and the section's tenth line: on the Madison face a larger frame house (D5) on lot 2, a tradesman's frame house (D4) on lot 4 and a labourer's shanty (D2) on the east corner; on the Monroe face a second D5, a second D4 and a storey-and-a-half cottage (D6) on the east corner. Lot 0, the Madison-and-Wells corner, stays the block's reserved open lot, and lot 1 is left for the schedule's boarding house (T-1957). Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that these houses stood on this block in 1835 (the tier was sold, not shown built), where on the lot they sat and how far back; all six are anonymous count-units at the bottom tier toward the schedule's documented aggregate."
     },
     {
       "block_id": "blk_school_section_tier_118",
