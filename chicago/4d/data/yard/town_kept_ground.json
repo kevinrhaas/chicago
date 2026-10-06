@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "305 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "306 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 238,
     "refused": 0,
-    "refuges": 321,
-    "paths": 305
+    "refuges": 322,
+    "paths": 306
   },
   "lots": [
     {
@@ -3401,20 +3401,38 @@
       "refuges_local_enu_m": [
         [
           [
-            363.55,
-            -181.15
+            363.1,
+            -181.14
           ],
           [
             365.84,
             -181.16
           ],
           [
-            365.85,
-            -178.87
+            365.86,
+            -178.72
           ],
           [
-            363.56,
-            -178.86
+            363.12,
+            -178.7
+          ]
+        ],
+        [
+          [
+            341.73,
+            -180.97
+          ],
+          [
+            347.83,
+            -181.01
+          ],
+          [
+            347.85,
+            -176.13
+          ],
+          [
+            341.75,
+            -176.09
           ]
         ],
         [
@@ -4666,19 +4684,19 @@
         [
           [
             661.05,
-            -183.57
+            -183.58
           ],
           [
-            663.49,
+            663.34,
             -183.59
           ],
           [
-            663.51,
-            -181.15
+            663.35,
+            -181.3
           ],
           [
-            661.07,
-            -181.13
+            661.06,
+            -181.29
           ]
         ],
         [
