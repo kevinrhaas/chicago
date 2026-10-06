@@ -30,19 +30,23 @@ that crowd's ground, not for any of those 77 men. The wagon party is not a row o
 transient model at all (it counts the lake arrivals the papers describe), and its camp
 seats nobody either. Both records say this in `occupants`.
 
-WHAT IS NOT PLACED HERE. The Native and Métis camps T-1804 also names are not built:
-T-1177's own reading (1835_native_and_metis.json § the_counted_but_unnamed) REFUSED a
-bracket for the unnamed Native and Métis people at Chicago on 1 July 1835 because the
-corpus holds no count, and a camp sized with no count would be the population that
-refusal declined to invent, on the one subject AGENTS.md says is not a gap to fill by
-inference. That is put to the owner as a question on its own ticket.
+AND A FOURTH, THE ONE NATIVE OR MÉTIS CAMP (T-1977). T-1804 built no Native or Métis
+camp: T-1177's own reading (1835_native_and_metis.json § the_counted_but_unnamed) REFUSED
+a bracket for the unnamed Native and Métis people at Chicago on 1 July 1835 because the
+corpus holds no count, and a camp sized with no count would have been the population that
+refusal declined to invent. The owner was asked and ruled on 2026-10-04 (T-1977, answer
+b): build one small camp at Wolf Point or the Agency as a declared reconstruction,
+review_required and touches_removal, no figures, bounded by a stated figure rather than a
+count. `wolf_point_trading_camp` is that camp: three canvas tents about one fire, a
+figure stated and not derived, seating nobody, with no lodge form because no committed
+source describes one (T-1214's own condition). L395.
 
 THE STREET LINE. This tool reads `data/streets/1835.json`'s DRAWN centrelines and keeps
 each camp clear of the corridor each draws, because the question is whether canvas would
 stand in a road a visitor sees (AGENTS.md rule 10). It does not call `corridors`,
 `control_offsets`, `intrusion` or `block_edges`.
 
-    python3 tools/place_camp_grounds_1835.py           # write the two records
+    python3 tools/place_camp_grounds_1835.py           # write the records
     python3 tools/place_camp_grounds_1835.py --check   # re-derive; fail on drift
 """
 
@@ -150,6 +154,31 @@ CAMPS = (
                       "two before going on west was gone before anybody could write it "
                       "down. What the range says is that on 1 July 1835 a party stood "
                       "here. T-1804.",
+    },
+    {
+        "id": "wolf_point_trading_camp",
+        "name": "The trading camp at Wolf Point",
+        "aka": ["the canvas at the forks"],
+        # No candidate in 1835_camp_grounds.json: that file lists the grounds of the
+        # transient crowd, and this camp is not theirs (T-1977, the owner's ruling).
+        "ground": None,
+        "on_reservation": False,
+        "native": True,
+        # Between Wentworth's tavern stable, Robert A. Kinzie's store and Lake Street,
+        # opening north towards the tavern and the Robinson cabins beyond it.
+        "e": (-94.0, -78.0), "n": (-85.0, -69.0),
+        "tents": 3, "tent_kind": "wall", "wagons": 0, "brush_shelters": 0,
+        "fire_rings": 1, "woodpiles": 1, "baggage_heaps": 1,
+        "arrangement": "ring", "canvas_condition": "weathered",
+        "function": "trading_camp",
+        "range": ("1835-06-01", "1835-07-31"),
+        "range_sources": [],
+        "range_note": "A SEASON STATED, NOT READ. No committed source dates a Native or "
+                      "Métis camp at Chicago in 1835 or says there was one. The range "
+                      "opens with the navigation summer and closes before the August "
+                      "gathering and the removal, which this camp does not stage. What "
+                      "the range says is that on 1 July 1835 a family's canvas stood "
+                      "here. T-1977.",
     },
 )
 
@@ -271,6 +300,8 @@ def measure(camp: dict, field: Heightfield, streets: list, walls: list, prints: 
 
 
 def record(camp: dict, m: dict, datum: dict, ground: dict, hh: list) -> dict:
+    if camp.get("native"):
+        return _trading_record(camp, m, datum)
     rec = _record(camp, m, datum, ground)
     if not camp.get("seats"):
         return rec
@@ -538,6 +569,112 @@ def _record(camp: dict, m: dict, datum: dict, ground: dict) -> dict:
     }
 
 
+def _trading_record(camp: dict, m: dict, datum: dict) -> dict:
+    """The one Native or Métis camp the owner ruled built (T-1977, answer (b) of
+    2026-10-04): a declared reconstruction at Wolf Point, bounded by a figure this
+    project states and not by a count, flagged for the review AGENTS.md commits to."""
+    rec = _record(camp, m, datum, {"why": ""})
+    (e0, e1), (n0, n1) = camp["e"], camp["n"]
+    ph = rec["phases"][0]
+    ph["position"]["symbolic_location"] = (
+        f"At Wolf Point, between local E {e0:.0f} and E {e1:.0f} and N {n0:.0f} to "
+        f"{n1:.0f}: south of the Wolf Point Tavern and its stable, west of Robert A. "
+        f"Kinzie's store, and north of Lake Street's drawn line.")
+    ph["position"]["note"] = (
+        "THE GROUND IS OURS AND SO IS THE SPOT. No committed source puts a Native or "
+        "Métis camp anywhere at Chicago in 1835. The owner ruled one built at Wolf Point "
+        "or the Agency (T-1977); Wolf Point is taken because the Agency House was most "
+        "likely no longer an operating agency by 1835 (cobweb_castle, function) and its "
+        "ground is a platted lot, while Wolf Point is where Wau-Bun puts Alexander "
+        "Robinson's household in 1831 (robinson_caldwell_cabins) and where Robert A. "
+        "Kinzie, whom Andreas lists among the Indian traders, kept a store "
+        "(robert_kinzie_store). The ground is open and on no traced lot line: "
+        f"every sampled point of it between {m['lo']:.2f} and {m['hi']:.2f} m above "
+        f"the water plane on the committed heightfield; {m['road']:.1f} m clear of the "
+        f"drawn edge of the nearest roadway ({m['road_id']}); {m['built']:.1f} m clear "
+        f"of the nearest committed footprint; {m['fence']:.1f} m clear of the nearest "
+        "fence run. The point recorded is the camp's south-west corner, the footprint's "
+        "origin at rotation 0, so the camp opens north, towards the tavern. Placed by "
+        "tools/place_camp_grounds_1835.py; L395.")
+    ph["footprint"]["note"] = (
+        f"The camp's ground, {round(e1 - e0, 2)} x {round(n1 - n0, 2)} m. INVENTED in "
+        "its extent: room for a ring of three tents about one fire at the archetype's "
+        "spacing. L395.")
+    form = ph["form"]
+    form["tents"]["note"] = (
+        "THREE, AND THREE IS A FIGURE THIS PROJECT STATES, NOT A COUNT. T-1177 found no "
+        "roll, census, annuity schedule or estimate that counts the Native and Métis "
+        "people at Chicago on 1 July 1835 and refused to invent one "
+        "(1835_native_and_metis.json § the_counted_but_unnamed); the owner then ruled "
+        "one small camp built, bounded by a stated figure (T-1977). Three tents is the "
+        "fewest that reads as a camp and not as one household. It sizes no population "
+        "and no count moves with it. L395.")
+    form["tent_kind"]["note"] = (
+        "NOT A LODGE. The archetype's canvas wall tent is drawn because no committed "
+        "source describes a Potawatomi, Odawa, Ojibwe or Métis lodge at Chicago in 1835, "
+        "and T-1214 adds a lodge form to the archetype only where a source describes "
+        "one. The canvas is not offered as how these families lived; it is the one roof "
+        "this project can draw without inventing a people's building. L395.")
+    form["wagons"]["note"] = (
+        "None. A family coming to the forks to trade came by the rivers or on "
+        "horseback as readily as by road, and nothing here says which; no wagon is "
+        "drawn rather than one invented. L395.")
+    form["brush_shelters"]["note"] = "None. L395."
+    form["fire_rings"]["note"] = (
+        "One cooking fire in the ring. Drawn out: no flame, no smoke, nobody at it (L1). "
+        "L395.")
+    form["woodpiles"]["note"] = "Cordwood for the fire. Invented. L395."
+    form["baggage_heaps"]["note"] = (
+        "One heap of packs set down by the tents. What was in them is not claimed: "
+        "no trade good is drawn or named. Invented. L395.")
+    form["arrangement"]["note"] = (
+        "A ring about the one fire, because the camp is one party's. Invented. L395.")
+    form["canvas_condition"]["note"] = (
+        "Weathered: canvas that had been used before it was pitched here. L395.")
+    ph["change_note"] = ("A trading family's camp at Wolf Point, flagged for review. "
+                         "T-1977.")
+    rec["function"] = {
+        "value": camp["function"],
+        "confidence": "reconstructed",
+        "sources": [],
+        "note": "A DECLARED RECONSTRUCTION, ON THE OWNER'S RULING. T-1214 asked for the "
+                "camps of Native and Métis families in town to trade or awaiting the "
+                "annuity payment; T-1804 built the other camps and not these, because "
+                "T-1177 could put no count on them; and the owner answered T-1977 on "
+                "2026-10-04: build one small camp at Wolf Point or the Agency as a "
+                "declared reconstruction, review_required and touches_removal, no "
+                "figures, bounded by a stated figure rather than a count. That is what "
+                "this is. TRADE is the use because it is the one the owner named and the "
+                "one Wolf Point's committed records support: a trader's store at the "
+                "forks and Alexander Robinson's household beside it. No source says this family "
+                "traded there, camped there or existed. L395.",
+    }
+    rec["occupants"] = {
+        "value": "Nobody this layer counts or names. The camp stands for a family "
+                 "nobody recorded; no household card is minted for it, no resident or "
+                 "transient count moves, and no name, nation or person is given to "
+                 "it. No figure is drawn (L1).",
+        "confidence": "reconstructed",
+        "note": "Seats nobody: see the value. T-1977.",
+    }
+    rec["research_note"] = (
+        "THIS RECORD IS FLAGGED review_required, AND touches_removal, because it "
+        "reconstructs a Native or Métis presence at Chicago five weeks before the "
+        "August 1835 gathering and the removal of the Potawatomi that followed it. "
+        "AGENTS.md § Standing constraint commits the project to review by Native "
+        "scholars or community organisations before any scene carrying such a record "
+        "is marked released, and that review has not been held. NOTHING IS STAGED: no "
+        "figure, no flame, no smoke, no ceremony, no dialogue, no trade good, and "
+        "nothing of the August gathering, which is weeks after the scene date. Built "
+        "on the owner's ruling of 2026-10-04 (T-1977, answer b). WHAT WOULD REPLACE "
+        "THIS: a source that counts or places the Native and Métis families at or "
+        "about Chicago in the summer of 1835, or one that describes their lodges "
+        "there; either would move, re-form or retire this camp.")
+    rec["review_required"] = True
+    rec["touches_removal"] = True
+    return rec
+
+
 def derive() -> list:
     datum = load(DATUM)
     field = Heightfield.load(EPOCH)
@@ -549,8 +686,8 @@ def derive() -> list:
     g = grounds()
     out = []
     for camp in CAMPS:
-        ground = g.get(camp["ground"])
-        if ground is None:
+        ground = g.get(camp["ground"]) if camp["ground"] else None
+        if ground is None and not camp.get("native"):
             raise SystemExit(f"{camp['id']}: 1835_camp_grounds.json has no ground "
                              f"'{camp['ground']}'")
         m = measure(camp, field, streets, walls, prints, rings)

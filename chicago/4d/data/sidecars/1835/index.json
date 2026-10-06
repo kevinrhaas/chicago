@@ -14228,6 +14228,12 @@
       "asset": "gltf/wolf_point_tavern_stable__stable_1831.glb"
     },
     {
+      "id": "wolf_point_trading_camp",
+      "name": "The trading camp at Wolf Point",
+      "sidecar": "sidecars/1835/wolf_point_trading_camp.json",
+      "asset": "gltf/wolf_point_trading_camp__camp_1835.glb"
+    },
+    {
       "id": "wright_building_to_let_a",
       "name": "John Wright's Building to Let (a)",
       "sidecar": "sidecars/1835/wright_building_to_let_a.json",
