@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Jefferson Street stops at Kinzie, as surveyed', kind: 'fix',
+    items: [
+      'Almost nothing you can see changes. Jefferson Street, an unopened survey line on the west side, is never drawn as a road. At the doctor\u2019s house north of Kinzie Street, the woodpile and a dooryard planting now face the house\u2019s real front, since no street runs past its side.',
+      'Our map of it ran a block north of Kinzie Street, through a Wabansia block that the 1834 survey draws whole. That stretch came from the modern street, which was extended later. The 1830 plat that names Jefferson ends it at Kinzie, and now so do we.',
+      'The town\u2019s 1833 boundary follows Jefferson \u201cand its continuation\u201d north to Ohio Street. It has not moved, but north of Kinzie it is now a projection, so we no longer say whether the doctor\u2019s house and barn on that block stood inside the town.',
+    ] },
   { v: 1511, ts: '2026-10-06T17:27:39.121Z', date: 'Oct 6, 2026, 12:27 PM CT', title: 'Houses south of Madison can face Monroe Street', kind: 'fix',
     items: [
       'Nothing you can see changes yet. This clears the way for the houses south of Madison Street that are still waiting to be built.',
