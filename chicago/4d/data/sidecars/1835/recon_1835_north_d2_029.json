@@ -143,25 +143,6 @@
   },
   "residents": [
     {
-      "household": "hh_allan_b_freeman",
-      "name": "The Freeman household — a name the roster offered back",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the town's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Allan B. Freeman",
-          "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RE-ADMITTED FROM THE BORDERLINE ROSTER (T-1172). One dated appearance inside the window under a read name, withheld from the town for want of corroboration or of identity, and carried on no card. The research READ this name and WITHHELD it, and that refusal is not overturned: this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence, and it says so on its face. The reading, the source and the refusal stand at `books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_005#14` in data/reconstruction/1835_borderline_roster.json. No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "WRITTEN BY tools/readmit_borderline_roster.py (T-1172), the `readmissions` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a re-admission lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
-    },
-    {
       "household": "hh_chadwick_joseph",
       "name": "The Chadwick household — a name from the post office's letter lists",
       "division": "unplaced",
@@ -181,23 +162,42 @@
       "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
     },
     {
-      "household": "hh_rc_dufresne_francois",
-      "name": "The Dufresne household — a trade the rosters never printed",
-      "division": "north",
+      "household": "hh_damels_samuel",
+      "name": "The Damels household — a name from the post office's letter lists",
+      "division": "unplaced",
       "relation": "boarded here",
       "why": "boarding in the division's least crowded dwelling",
       "sources": [],
       "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "Francois Dufresne",
+          "name": "Samuel Damels",
           "relationship": "head",
-          "grade": "reconstructed",
-          "occupation": "builder",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says the town of 1 July 1835 employed more people than its rosters print, and the whole of what is claimed is that: an adult of this sex and band, in the north division, at builder. The trade is dealt from the 1839 directory's shares and the person is reproducible from the seeds printed above. A real name retires them. No figure is drawn (L1)."
+          "grade": "inferred",
+          "occupation": "none_recorded",
+          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Damels, Samuel' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 4 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
         }
       ],
-      "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
+      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+    },
+    {
+      "household": "hh_justin_butterfield",
+      "name": "The Butterfield household — a name the roster offered back",
+      "division": "unplaced",
+      "relation": "boarded here",
+      "why": "boarding in the town's least crowded dwelling",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "Justin Butterfield",
+          "relationship": "head",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RE-ADMITTED FROM THE BORDERLINE ROSTER (T-1172). One dated appearance inside the window under a read name, withheld from the town for want of corroboration or of identity, and carried on no card. The research READ this name and WITHHELD it, and that refusal is not overturned: this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence, and it says so on its face. The reading, the source and the refusal stand at `books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_020#2` in data/reconstruction/1835_borderline_roster.json. No figure is drawn (L1)."
+        }
+      ],
+      "research_note": "WRITTEN BY tools/readmit_borderline_roster.py (T-1172), the `readmissions` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a re-admission lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
       "household": "hh_rice_john",

@@ -37,6 +37,14 @@ opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no ro
   infill generators → the seating chain moved nothing: the fixpoint held. Then the redeal re-audit
   (487/8/0 keep/refamily/retire), the block remedies report, the roof-id surface and the
   Newberry re-parse over all four volumes. L394 stands beside dev's L395 (the Wolf Point camp).
+- **Lapped onto dev's T-2145 (2026-10-06), NOT YET GATE-GREEN.** The recipe merged by `block_id`
+  (94/95 beside 118/119), generated files took dev's side, and the keeper/seating walk took fourteen
+  laps. **The count now FALLS: 209 → 199 platted (298 seated in all, dev 308).** Older households
+  adopt the thirteen new roofs first, and with 118/119 built and block 81's lots requested, ten of the
+  thirteen who asked find no lot to re-slot on and are handed on to T-1614 (named in L270). L263 is
+  622. Still owed: one more keeper walk (the closing `rederive --run` moved the seating once more),
+  the redeal / block-remedies / roof-id / Newberry steps, the order-book seated pin, the bake of the
+  meshes the keeper cascade staled, then check.sh and smoke part 1.
 
 ## T-2145 — the School Section tier's Clark blocks (118, 119) built to their lot ceilings (2026-10-06)
 

@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 0,
+    "structures_empty_owing_somebody": 26,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -114,16 +114,16 @@
     "open": []
   },
   "occupied": {
-    "structures": 622,
+    "structures": 635,
     "occupied": {
       "attested": 51,
       "inferred": 9,
-      "reconstructed": 294
+      "reconstructed": 284
     },
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 81
+      "reconstructed": 78
     },
     "use_stated": {
       "camp_ground": 3,
@@ -139,8 +139,37 @@
       "the_printed_count_is_held": 5,
       "vacant_to_let": 1
     },
-    "empty_owing_somebody": {},
-    "empty": []
+    "empty_owing_somebody": {
+      "dwelling": 26
+    },
+    "empty": [
+      "recon_1835_blk_randolph_wells_d3_05",
+      "recon_1835_blk_school_section_tier_118_d4_03",
+      "recon_1835_blk_school_section_tier_119_d6_01",
+      "recon_1835_blk_school_section_tier_94_d2_01",
+      "recon_1835_blk_school_section_tier_94_d3_05",
+      "recon_1835_blk_school_section_tier_94_d4_03",
+      "recon_1835_blk_school_section_tier_94_d4_04",
+      "recon_1835_blk_school_section_tier_94_d5_02",
+      "recon_1835_blk_school_section_tier_94_d6_06",
+      "recon_1835_blk_school_section_tier_95_d2_02",
+      "recon_1835_blk_school_section_tier_95_d7_06",
+      "recon_1835_blk_school_section_tier_95_h1_05",
+      "recon_1835_blk_school_section_tier_95_h2_01",
+      "recon_1835_blk_south_water_wells_d3_04",
+      "recon_1835_blk_washington_lasalle_d3_07",
+      "recon_1835_blk_washington_market_d4_11",
+      "recon_1835_south_d1_033",
+      "recon_1835_south_d2_024",
+      "recon_1835_south_d3_001",
+      "recon_1835_south_d3_013",
+      "recon_1835_south_d4_006",
+      "recon_1835_south_d4_019",
+      "recon_1835_south_d5_004",
+      "recon_1835_south_d5_011",
+      "recon_1835_south_d5_016",
+      "recon_1835_south_d6_012"
+    ]
   },
   "tiers": {
     "persons": {
@@ -208,12 +237,12 @@
       "occupied": {
         "attested": 51,
         "inferred": 9,
-        "reconstructed": 294
+        "reconstructed": 284
       },
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 81
+        "reconstructed": 78
       },
       "use_stated": {
         "attested": 25,
@@ -223,7 +252,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 0
+        "reconstructed": 26
       }
     },
     "streets": {
@@ -262,7 +291,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 0,
+      "open": 26,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]
