@@ -5056,8 +5056,13 @@ def cmd_self_test() -> int:
     # slots stood on its two blocks are seated off the plat under standing North roofs, and
     # thirteen more owed North households beside them (222 -> 209 platted seats, 73 -> 99
     # off-plat, L270, L271, L393).
+    # 308 -> 311 on 2026-10-06 (T-2148, merged over T-1746): Clinton, Jefferson and Des
+    # Plaines are carried to Madison, plat blocks 48-50 come onto the layer and block 50's
+    # thirteen roofs are raised; the four households that asked for its houses are seated
+    # on standing West roofs, older households adopt the new ones, and the platted pass
+    # seats three more at its fixpoint (209 -> 212 platted seats, 99 off-plat, L270, L394).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 308
+        data["inventory"], data["programme"], occ))["seated"] == 311
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
