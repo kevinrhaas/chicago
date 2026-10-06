@@ -19,112 +19,17 @@
     "nothing_is_written_to": "No verdict is rewritten, no recipe slot moves, no record or asset is touched and no confidence changes. These roofs are inferred_anonymous before and after. The six are NOT yet carried out — the recipe still stands them as A-family slots and nothing has been rebaked. That is T-1611."
   },
   "counts": {
-    "outstanding_verdicts": 5,
-    "refused_by_the_parcel_gate": 2,
-    "inventory_class_moves": 1,
-    "families_offered": 16,
-    "ancillary_families_offered": 1,
-    "open_lots_across_the_three_blocks": 2,
+    "outstanding_verdicts": 2,
+    "refused_by_the_parcel_gate": 0,
+    "inventory_class_moves": 0,
+    "families_offered": 12,
+    "ancillary_families_offered": 0,
+    "open_lots_across_the_three_blocks": 1,
     "clause_evidence_records": 4,
     "clause_evidence_breaching_their_own_clause": 1,
     "clause_evidence_fronting_no_street": 2
   },
   "roofs": [
-    {
-      "id": "recon_1835_blk_school_section_tier_81_d4_03",
-      "would_become": "recon_1835_blk_school_section_tier_81_a2_03",
-      "sequence": 3,
-      "block_id": "blk_school_section_tier_81",
-      "programme_phase": "phase3_platted_block_school_section_tier_81",
-      "stands_on": "street",
-      "lot": 3,
-      "fronts": "monroe",
-      "setback_m": 5.0,
-      "setback_class": "yard",
-      "was_family": "D4",
-      "was_group": "ordinary_dwellings",
-      "was_inventory_class": "principal_functional",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "implied_inventory_class": "ancillary",
-      "class_moves": true,
-      "lot_already_carries": "recon_1835_blk_school_section_tier_81_d4_03",
-      "refused_by_the_parcel_gate": null,
-      "families_offered": [
-        {
-          "family": "A2",
-          "group": "barns_stables",
-          "inventory_class": "ancillary"
-        },
-        {
-          "family": "D1",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        }
-      ],
-      "ancillary_families_offered": 1,
-      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.66 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands"
-    },
-    {
-      "id": "recon_1835_blk_school_section_tier_81_d6_01",
-      "would_become": "recon_1835_blk_school_section_tier_81_d1_01",
-      "sequence": 1,
-      "block_id": "blk_school_section_tier_81",
-      "programme_phase": "phase3_platted_block_school_section_tier_81",
-      "stands_on": "street",
-      "lot": 1,
-      "fronts": "monroe",
-      "setback_m": 5.0,
-      "setback_class": "yard",
-      "was_family": "D6",
-      "was_group": "ordinary_dwellings",
-      "was_inventory_class": "principal_functional",
-      "to_family": "D1",
-      "to_group": "ordinary_dwellings",
-      "implied_inventory_class": "principal_functional",
-      "class_moves": false,
-      "lot_already_carries": "recon_1835_blk_school_section_tier_81_d6_01",
-      "refused_by_the_parcel_gate": "blk_school_section_tier_81: two principal roofs on one lot — lot 1 already carries recon_1835_blk_school_section_tier_81_d6_01",
-      "families_offered": [
-        {
-          "family": "D1",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        }
-      ],
-      "ancillary_families_offered": 0,
-      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.94 m away, beyond the frontage reach), and rear_dwelling_behind_its_own_roof seats it by a `yard` setback, which is measured from one; the slot is wanted and the position stands"
-    },
-    {
-      "id": "recon_1835_blk_school_section_tier_81_d7_07",
-      "would_become": "recon_1835_blk_school_section_tier_81_d1_07",
-      "sequence": 7,
-      "block_id": "blk_school_section_tier_81",
-      "programme_phase": "phase3_platted_block_school_section_tier_81",
-      "stands_on": "street",
-      "lot": 7,
-      "fronts": "monroe",
-      "setback_m": 5.0,
-      "setback_class": "yard",
-      "was_family": "D7",
-      "was_group": "ordinary_dwellings",
-      "was_inventory_class": "principal_functional",
-      "to_family": "D1",
-      "to_group": "ordinary_dwellings",
-      "implied_inventory_class": "principal_functional",
-      "class_moves": false,
-      "lot_already_carries": "recon_1835_blk_school_section_tier_81_d7_07",
-      "refused_by_the_parcel_gate": "blk_school_section_tier_81: two principal roofs on one lot — lot 7 already carries recon_1835_blk_school_section_tier_81_d7_07",
-      "families_offered": [
-        {
-          "family": "D1",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        }
-      ],
-      "ancillary_families_offered": 0,
-      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — fronts no street (its nearest corridor is 98.92 m away, beyond the frontage reach), and merchant_and_professional_dwellings seats it by a `typology` setback, which is measured from one; the slot is wanted and the position stands"
-    },
     {
       "id": "recon_1835_blk_washington_market_a3_15",
       "would_become": "recon_1835_blk_washington_market_d2_15",
@@ -237,15 +142,6 @@
     }
   ],
   "ground": {
-    "blk_school_section_tier_81": {
-      "roofs_needing_ground": 3,
-      "open_lots": [
-        {
-          "lot": 0,
-          "declared_open_because": "The Madison-and-Market corner, the block's reserved open lot. The schedule's sizing (T-1623) counts principal room over the free lots less one so that a block is never dealt out of its open lot, and `1835_platted_seats.json` keeps this lot clear of every request; which lot carries the reservation is arbitrary within the block, and this entry takes the one the seating already names."
-        }
-      ]
-    },
     "blk_washington_market": {
       "roofs_needing_ground": 2,
       "open_lots": [
@@ -328,14 +224,14 @@
       "taken": true,
       "what": "Admit a dwelling-family roof at a yard setback behind its lot's principal roof — a rear cottage — as ANCILLARY, and write the clause that covers it.",
       "what_it_changes": "The town gains a building class it had never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard was covered by no clause at all. The adoption gate had to be ruled on too: it refused an ancillary roof an occupant on the reasoning that a yard building is a shed, and a rear cottage is not one.",
-      "costs": "5 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23."
+      "costs": "2 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23."
     },
     {
       "id": "move_them_onto_open_ground",
       "taken": false,
       "what": "Deal the six onto free lots as principal roofs.",
-      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 2 open lot(s) against 5 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
-      "costs": "3 roof(s) with nowhere to stand even after both open lots are spent."
+      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 1 open lot(s) against 2 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
+      "costs": "1 roof(s) with nowhere to stand even after both open lots are spent."
     },
     {
       "id": "leave_them_where_they_are",
