@@ -38,7 +38,7 @@ const frontageSource=await readFile(path.join(sourceRoot,'renderers/web/js/front
 const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '${threeURL}'`)
  .replace("import { resolveBases } from './scene-loader.js';","const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
  .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
- +'\nexport {timberBuf,buildWalk,buildCrossing};'));
+ +'\nexport {timberBuf,plainTimber,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
  return {ok:true,json:async()=>JSON.parse(await readFile(file,'utf8'))};};
 globalThis.document={createElement:()=>({getContext:()=>null})};
@@ -98,6 +98,7 @@ const rows=[];
 for(const walk of allWalks){
  const buf=frontage.timberBuf(),problems=[];
  (walk.kind==='board_crossing'?frontage.buildCrossing:frontage.buildWalk)(buf,walk,terrain,1,problems);
+ frontage.plainTimber(buf);
  assert.deepEqual(problems,[]);
  // The draw uploads Float32 positions. Test those, not higher-precision JS arrays.
  const positions=Float32Array.from(buf.pos);

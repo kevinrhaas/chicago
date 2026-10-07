@@ -1659,7 +1659,7 @@ async function boot() {
   // measured from the same wall base `buildings.js` anchors them at.
   const signage = await createSignage({
     dataBase: layerBase('signage'), terrain, confidence, problems: layerProblems('signage'), hostMissing,
-    assetBase: bases.assetBase,
+    assetBase: bases.assetBase, lowSpec: coarse,
   });
   scene3d.add(signage.group);
   api.signage = signage;
@@ -1674,6 +1674,7 @@ async function boot() {
   // than on the building's wall base — it is resting on the ground it is on.
   const yard = await createYardGoods({
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
+    lowSpec: coarse,
   });
   scene3d.add(yard.group);
   api.yard = yard;

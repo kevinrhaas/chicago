@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1517, ts: '2026-10-06T22:43:43.965Z', date: 'Oct 6, 2026, 5:43 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
+    items: [
+      'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
+      'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
+      'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
+    ] },
   { v: 1516, ts: '2026-10-06T21:47:43.129Z', date: 'Oct 6, 2026, 4:47 PM CT', title: 'A lighter first visit, again', kind: 'change',
     items: [
       'The walkthrough no longer downloads every household\u2019s research notes before you can step into the street. A first visit is about 0.9 MB lighter.',
