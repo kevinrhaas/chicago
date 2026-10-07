@@ -1360,6 +1360,15 @@
       "phase_id": "frame_1830s",
       "structure_id": "pruyne_kimball_drugstore"
     },
+    "recon_1835_bank_freight_f3_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 60160,
+      "inputs_sha256": "87716b2d6f768ffac763f2dcbbac0c7e0a6a8973031caf34cd9b990137983daa",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_bank_freight_f3_001"
+    },
     "recon_1835_blk_indiana_north_cass_a1_08__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

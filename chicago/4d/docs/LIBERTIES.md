@@ -14333,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 622 phases (609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 623 phases (622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -16189,14 +16189,17 @@ and **L277** on the store-residences.
 
 ### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
 
-**Scope:** `structures.phases[cargo_rhythm]` — 3 phases built with a cargo-door
+**Scope:** `structures.phases[cargo_rhythm]` — 4 phases built with a cargo-door
 rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01`,
 `recon_1835_blk_south_water_lasalle_f2_10` and, since T-1773,
-`recon_1835_forks_freight_f2_001` at Lake and West Water — the town's three **F2** roofs. The rhythm itself is `goods_door_bays` and
+`recon_1835_forks_freight_f2_001` at Lake and West Water — the town's three **F2** roofs —
+and, since T-2022 (L399), `recon_1835_bank_freight_f3_001` on the North Water bank at LaSalle,
+the town's first and only **F3**, built with three. The rhythm itself is `goods_door_bays` and
 `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
 `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
 families **F2** and **F3** — so every F2 or F3 roof dealt after this stands on it too. No
-F3 stands in this town (`phase1_instantiated: 0`), so nothing is baked for F3 here.
+F3 stood in this town when this was written (`phase1_instantiated: 0`); T-2022's river
+warehouse is the first to be baked, and it takes the three the band's argument below gives.
 
 **What the crosswalk asks for, in its own words.**
 
@@ -21965,3 +21968,63 @@ platted deal these blocks answer), **L276** (the keeper pass, which now runs for
 **T-2144** (the tier joins the plat), **T-1755** (split; this is its piece **T-2145**; **T-2147**
 builds block 81 and **T-2146** blocks 94 and 95 beside it).
 **Recorded:** 2026-10-06 (T-2145).
+
+### L399 — The North Division's seventh freight roof: a river warehouse on the North Water bank at LaSalle that no source seats
+
+**Applies to:** `recon_1835_bank_freight_f3_001` (`data/structures/`), written by
+`tools/generate_north_freight.py` from `data/reconstruction/1835_north_freight_bank.json`.
+
+**What we invented:** The whole building. The order book's `structures/warehouses_freight/north`
+row sets seven freight roofs for the North Division and found six standing, so it ordered one
+more; the 665-roof schedule dealt that F3 to `blk_indiana_north_wolcott`, where the block
+generator refuses it (Wolcott is graded `light`), and T-1205 left it owed. This is that roof: an
+**F3** large river warehouse, two storeys, unpainted clapboard on a braced frame, three cargo
+doors on its loading end (L280), on lower-tier plat lot 1 of `blk_kinzie_wells_north`, the
+tier's LaSalle Street corner. Its side wall stands 1.5 m inside the lot's LaSalle line and its
+front 3.0 m inside the lot's North Water line, 1.29 m clear of North Water as
+`data/streets/1835.json` draws it; its rear runs toward the tier's alley. Footprint, storeys,
+eave, pitch, finish and the shingle exposure (L263) are type-level values from the
+reconstruction specification, sampled deterministically from the F3 band. No owner, forwarder,
+cargo or occupant is claimed.
+
+**Why here — the bank-landing clause:** `bank_landing` (tools/placement_policy_1835.py, tier
+`inferred`) is the river-front half of `commercial_front`'s own sentence — "trade takes the
+built streets and the river front" — made reachable on a bank whose every street but Kinzie is
+graded `light`. It does not regrade North Water (the wharfing prices below put it level with
+West Water, which is light too) and it does not loosen `commercial_front`; it scores a
+different measured fact, a roof's distance from the traced water, and admits F1-F3 within one
+platted corridor plus the street line (27.09 m) — nothing between roof and river but the river
+street. Its evidence is the North bank's own: (1) every freight roof the North holds — Kinzie &
+Hunter's warehouse (6.47 m from the water) and the four Dearborn-reach sheds (16.4-16.6 m) —
+fronts the water, and the policy had carried each as an outlier for exactly that reason; (2) the
+plate those sheds are built from, image 3 of the owner's brief of 2026-08-18, draws low
+warehouses on the banks of the reach below the Dearborn drawbridge (tier-5 pictorial: it decides
+the type, never a coordinate); (3) the trustees' November 1835 sale of the wharfing privileges
+priced North Water's river face at $18.75 a front foot against West Water's $18 and South
+Water's $25 (`wood_1881_chicago_and_its_distinguished_citizens`). That sale is four months after
+the target date and dates no building; it is read for the frontage's character only. F4 is left
+out: a lumber shed, and the north-side brickyard filed under it, is seated by its material.
+
+**Why this lot:** every lower-tier lot of the Dearborn reach is held; the one free lot east of
+Clark (`blk_kinzie_clark_north` lot 4) has the 1833 north-side school on the North Water
+frontage directly in front of it, 5.7 m from where the cargo doors would be, and the North
+parcel keeps the named school-house and its yard; the free lots of `blk_kinzie_lasalle_north`
+stand 29-30 m from the water, beyond the clause's reach, where the bank bows south. Lot 1 of the
+Wells-LaSalle block is the nearest free corner inside it, between Kinzie & Hunter's at the forks
+and the Dearborn reach. The lot is the tier's; the building on it is nobody's reading.
+
+**Bounds held by the generator:** wholly on its lot; out of every platted corridor, every street
+`data/streets/1835.json` draws at its declared width (the T-1743 gate's own reading) and refused
+ground; 25.42 m from traced water, inside `bank_landing`'s 27.09 m and outside the 8 m anonymous
+setback; 37.3 m from the nearest footprint; dry modelled ground at every corner with 0.03 m of
+relief; facade toward North Water. `--self-test` refuses a roof moved into the street, one
+straddling the next lot, one turned to face the alley and a family the recipe did not order.
+
+**Would replace:** Any reading that seats a named forwarder or warehouse on the North bank in
+July 1835 substitutes for this roof rather than standing beside it.
+
+**Covers:** `recon_1835_bank_freight_f3_001.inferred_1835.position`, `recon_1835_bank_freight_f3_001.inferred_1835.footprint`.
+
+**Ticket:** T-2022 (the remainder of T-1205's North trade roofs).
+
+**Recorded:** 2026-10-06 (T-2022).

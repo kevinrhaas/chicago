@@ -217,6 +217,21 @@ joiner's shop and a second C3. All six are reconstructed (L368).
 graded `light`, and no committed clause seats a warehouse on a light street. Seating it needs a
 bank-landing clause or a regrade of North Water argued on its own evidence.
 
+**It stands since T-2022 (2026-10-06), on a bank-landing clause.** `bank_landing` in
+`tools/placement_policy_1835.py` admits a freight roof (F1–F3) within one platted corridor plus
+the street line of the traced water (27.09 m) — nothing between it and the river but the river
+street — and scores nothing about the street, so North Water keeps its `light` grade (the
+November 1835 wharfing sale priced it at $18.75 a front foot, level with West Water's $18, which
+is light too). Its evidence is this bank's own: Kinzie & Hunter's warehouse and the four
+Dearborn-reach sheds all front the water, and the plate of the reach below the drawbridge draws
+low warehouses on its banks. The roof is `recon_1835_bank_freight_f3_001`, an F3 large river
+warehouse on lower-tier lot 1 of `blk_kinzie_wells_north`, the LaSalle Street corner, 25.4 m from
+the water, written by `tools/generate_north_freight.py` from
+`data/reconstruction/1835_north_freight_bank.json` (L399). It went there and not nearer the
+Dearborn reach because every lower-tier lot of that reach is held, the free Clark corner has the
+1833 school in front of it, and the LaSalle–Clark block's free lots stand 29–30 m from the
+water, beyond the clause's reach.
+
 ## The Addition's 26 dwellings come south of Michigan Street (T-1746, 2026-10-05)
 
 The order book owed the North 26 ordinary dwellings (`structures/ordinary_dwellings/north`:

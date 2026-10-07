@@ -37,6 +37,10 @@
    "face_m": 2.015,
    "reason": "DRAWN INSIDE THE TRACK by 0.99 m. Placed 2026-08-11 from Andreas's 'just east of Clark Street' on the north bank, against a book that contradicts itself about which side of Clark the school stood on; the record's own note admits about 110 m of along-street uncertainty. The documented reading holds and the frontage rule does not reach it."
   },
+  "recon_1835_bank_freight_f3_001__inferred_1835": {
+   "face_m": 13.48,
+   "reason": "CLEAR OF THE DRAWN CORRIDOR by 1.29 m, and 8.48 m behind the frontage line ON PURPOSE (T-2022). It is a reconstruction placed after T-1743, whose gate refuses any new roof inside a street as data/streets/1835.json draws it, and North Water is drawn at the 80 ft module (12.19 m half-width): the 5.00 m frontage line lies inside that corridor, so a new roof cannot stand on it. The sheds that hold the rule stand inside the drawn corridor as banked laps. It stands instead on its tier lot's own street line, 3.0 m inside the lot, the nearest it can come to the water while clear of the drawn street (L399)."
+  },
   "recon_1835_north_d3_020__inferred_1835": {
    "reason": "UNEXPLAINED — write the reason.",
    "face_m": 17.062

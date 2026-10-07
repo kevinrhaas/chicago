@@ -11300,6 +11300,12 @@
       "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb"
     },
     {
+      "id": "recon_1835_bank_freight_f3_001",
+      "name": "Reconstructed F3 large river warehouse #001",
+      "sidecar": "sidecars/1835/recon_1835_bank_freight_f3_001.json",
+      "asset": "gltf/recon_1835_bank_freight_f3_001__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_cass_a1_08",
       "name": "Reconstructed A1 stable #08",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a1_08.json",

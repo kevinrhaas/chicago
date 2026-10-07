@@ -133,7 +133,7 @@ sys.path.insert(0, str(ROOT / "tools"))
 from measure_frontage_fabric import (  # noqa: E402
     STREET_LINE_M, census, documented_families, street_traffic,
 )
-from placement_policy_1835 import constant, outliers as policy_outliers  # noqa: E402
+from placement_policy_1835 import constant, outliers as policy_outliers, seated_by_water  # noqa: E402
 
 # The family letters that are not a dwelling. `A` is excluded on purpose: a yard building
 # is placed by the ancillary clause — off the block alley, behind its own principal roof —
@@ -200,7 +200,10 @@ def not_a_frontage() -> set[str]:
     """
     global _OUTLIERS
     if _OUTLIERS is None:
-        _OUTLIERS = {row["id"] for row in policy_outliers()}
+        # T-2022: the north bank's freight roofs conform to `bank_landing` now rather
+        # than standing as outliers, and that clause is scored on the WATER — so they are
+        # still not a reading of the street beside them, and they stay out on that ground.
+        _OUTLIERS = {row["id"] for row in policy_outliers()} | seated_by_water()
     return _OUTLIERS
 
 

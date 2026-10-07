@@ -253,6 +253,8 @@ WORKS_TRADES = {
                                "delivering to it",
     "narrow_two_story_warehouse": "a warehouse names its firm for the shipper on "
                                   "the river",
+    "large_river_warehouse": "a river warehouse names its firm for the shipper "
+                             "on the river",
     "carpenter_or_joiner_shop": "a joiner's shop, named on its front for the "
                                 "builder who orders from it",
     "cooper_wagon_or_wheelwright_shop": "a wright's shop, named on its front for "

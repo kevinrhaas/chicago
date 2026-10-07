@@ -714,6 +714,7 @@ const FUNCTION_WORDS = {
   small_two_story_frame_house: 'small two-story frame house',
   narrow_two_story_store: 'narrow two-story store',
   narrow_two_story_warehouse: 'narrow two-story warehouse',
+  large_river_warehouse: 'large river warehouse',
   cooper_wagon_or_wheelwright_shop: 'cooper, wagon or wheelwright shop',
   parade_and_drill_ground: 'parade and drill ground',
   block_house: 'block-house',

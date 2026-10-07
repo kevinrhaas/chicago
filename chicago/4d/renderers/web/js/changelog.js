@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
+    items: [
+      'Walk west along North Water Street from the Dearborn drawbridge, past the freight sheds, and at the LaSalle Street corner there is now a large two-storey river warehouse: unpainted clapboard, three cargo doors on its end wall, and its front to the river across the street.',
+      'No record names it. It stands for the North Division\u2019s seventh warehouse, which the plan counted and nobody had built because North Water is a back street. The North bank\u2019s other sheds and warehouses all face the water rather than the street, and that is the reason this one is there. Its card says what was made up.',
+    ] },
   { v: 1517, ts: '2026-10-06T22:43:43.965Z', date: 'Oct 6, 2026, 5:43 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
     items: [
       'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
