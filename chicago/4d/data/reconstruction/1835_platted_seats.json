@@ -634,13 +634,6 @@
  ],
  "plan_left_unclaimed": [
   {
-   "block_id": "blk_indiana_north_wolcott",
-   "family": "F3",
-   "roofs": 1,
-   "district": "north",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
    "block_id": "blk_school_section_tier_81",
    "family": "H3",
    "roofs": 1,
@@ -663,7 +656,7 @@
   },
   {
    "block_id": "blk_south_water_dearborn",
-   "family": "F2",
+   "family": "F3",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -684,14 +677,14 @@
   },
   {
    "block_id": "blk_south_water_wells",
-   "family": "F3",
+   "family": "F2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   },
   {
    "block_id": "blk_washington_clinton",
-   "family": "F3",
+   "family": "F2",
    "roofs": 1,
    "district": "west",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"

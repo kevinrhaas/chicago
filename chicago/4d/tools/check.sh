@@ -821,6 +821,15 @@ step "West freight roof at the forks matches its recipe" \
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
 
+# T-2022: the North Division's seventh freight roof, on the North Water bank at LaSalle.
+# Its own generator because North Water is graded `light` and the block parcels refuse a
+# warehouse there; it stands on the policy's `bank_landing` clause, the record re-derives from
+# it, and the validator is proved by breaking it.
+step "North freight roof on the North Water bank matches its recipe" \
+  python3 tools/generate_north_freight.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_north_freight.py --self-test
+
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
 selftest "Canal trade placement refuses collisions and missing ground" \
@@ -3168,6 +3177,12 @@ selftest "…and its own assertions still fire when broken" \
 # might not have published yet, and it meant exactly that checkout skipped this gate
 # without saying so. The mirror is untracked now and the step at the top of this file
 # publishes it, so the mirror always exists here and the question is always asked.
+selftest "deferred household notes: the card's fields stay, the reasoning leaves (T-2151)" \
+  node tools/defer_household_notes.mjs --self-test
+
+step "the shipped sidecars carry their households, notes beside them (T-2151)" \
+  node tools/defer_household_notes.mjs --check
+
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 

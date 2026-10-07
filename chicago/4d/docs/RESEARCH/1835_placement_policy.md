@@ -36,11 +36,12 @@ the setbacks they keep. `tools/placement_policy_1835.py --check` rebuilds the fi
 the tree and refuses any drift, which is what makes a clause a reading of the record
 rather than a preference about frontage. `tools/check.sh` runs it.
 
-## 2. The twelve clauses, and what the record puts behind each
+## 2. The thirteen clauses, and what the record puts behind each
 
 ```
 clause                               tier          applies to             n  prin  ord  light  on-line
 commercial_front                     documented    C1 C2 C3 C4 F1–F4     12    12    0      0       11
+bank_landing                         inferred      F1 F2 F3               5     0    0      5       —
 professional_row                     inferred      C1                     4     1    3      0        4
 mechanics_streets                    documented    W1 W2 W3 W4            4     2    2      0        3
 heavy_and_noxious_trades             documented    W5                     4     1    3      0        1
@@ -80,6 +81,19 @@ house inside the fort's fence.
 
 - **commercial_front** — trade takes the built streets and the river front, corners first,
   on the line. C and F.
+- **bank_landing** (T-2022) — the river-front half of that sentence, made reachable. A
+  freight roof (F1–F3) fronts the water it loads from, and on a river street the street is
+  only what lies between the door and the landing. Scored on ONE measured fact, the roof's
+  distance from the traced water, against one platted corridor plus the street line
+  (27.09 m): nothing between it and the river but the river street. Nothing about the
+  street is scored, so the light-street zero is untouched and North Water is not regraded;
+  the block generator still refuses a warehouse on a light street by its own constant.
+  Evidence: the North bank's five freight roofs, which were outliers until this clause for
+  exactly that reason, the plate of the Dearborn reach, and the November 1835 wharfing sale
+  ($18.75 a front foot on North Water, $18 on West Water). *Inferred*: the five are
+  reconstructions or placements the record calls a plausibility. `seated_by_water` keeps
+  them out of the face rule's street witness, as their outlier reasons did. The column `—`
+  is because the clause has no street line to be on.
 - **professional_row** — offices sit by the public square and the hotels rather than the
   river front, because their traffic is the town's own and not the lake's. *Inferred*,
   and the evidence is thin: the two printing offices and the auction room are on Clark
@@ -148,11 +162,13 @@ for a quarter of this town that centreline is not a frontage at all**:
    288 m and the out buildings at 312 and 323 m are not standing badly — they have nothing
    to stand on. The council house on the lakefront reservation and the lighthouse on the
    harbour reserve are the same case on different ground.
-2. **Wolf Point and the north bank** (13 records). Robert Kinzie's store is 27 m from
-   Lake's line because Lake ENDS at the river; the north-bank freight sheds, the brickyard,
-   the tannery, the north-side school and Kinzie & Hunter's warehouse all front the WATER,
-   which is what a forwarding trade wants, and the street class beside them is the
-   south-side line across the channel.
+2. **Wolf Point and the north bank** (13 records until T-2022, 8 since). Robert Kinzie's
+   store is 27 m from Lake's line because Lake ENDS at the river; the north-bank freight
+   sheds, the brickyard, the tannery, the north-side school and Kinzie & Hunter's warehouse
+   all front the WATER, which is what a forwarding trade wants, and the street class beside
+   them is the south-side line across the channel. The four sheds and Kinzie & Hunter's
+   conform to `bank_landing` since T-2022 and left this group; the brickyard stays, seated
+   by its clay rather than its landing.
 3. **The north and west divisions' absent street control** (3 records). The Steamboat
    Hotel at
    203 m and the Watkins school house at 390 m from the State Street centreline front

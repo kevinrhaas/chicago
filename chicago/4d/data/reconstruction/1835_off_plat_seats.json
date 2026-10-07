@@ -12,6 +12,7 @@
  "mints_nobody": "every row seated here is a household the address book already holds and T-1613 already handed on. Nobody is invented and no household is moved between divisions: a roof is only ever offered to a row of its own division, tested against the roof's own committed `reconstruction.district`.",
  "the_order": [
   "commercial_front",
+  "bank_landing",
   "professional_row",
   "mechanics_streets",
   "heavy_and_noxious_trades",
@@ -84,10 +85,10 @@
    "south": 662,
    "west": 213
   },
-  "roofs_offered_for_adoption": 105,
+  "roofs_offered_for_adoption": 106,
   "roofs_held_back": 19,
   "roofs_standing_on_no_committed_parcel": 4,
-  "roofs_offered_and_unspent": 6
+  "roofs_offered_and_unspent": 7
  },
  "what_this_ground_could_not_hold": {
   "rows": 1112,
@@ -96,7 +97,7 @@
  },
  "the_south_division_has_no_off_plat_roof": {
   "free_roofs_off_the_plat": {
-   "north": 76,
+   "north": 77,
    "west": 29
   },
   "rows_owed_by_district": {
@@ -291,6 +292,13 @@
   }
  ],
  "roofs_offered_and_unspent": [
+  {
+   "structure_id": "recon_1835_bank_freight_f3_001",
+   "family": "F3",
+   "district": "north",
+   "parcel_id": "blk_kinzie_wells_north#07",
+   "why": "no clause of the placement policy that any handed-on band names admits this roof's family, so no household in scope could be seated under it"
+  },
   {
    "structure_id": "recon_1835_north_c3_064",
    "family": "C3",

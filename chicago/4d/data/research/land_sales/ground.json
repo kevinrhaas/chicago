@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 650,
+    "structures_placed": 651,
     "structures_reached": 122,
     "structures_reached_by_grade": {
       "inferred": 25,
       "reconstructed": 97
     },
     "structures_unreached_by_section": {
-      "09": 498,
+      "09": 499,
       "10": 1,
       "16": 28,
       "outside the four sections": 1
@@ -39953,6 +39953,7 @@
       "physicians_office",
       "pierce_blacksmith_shop",
       "pruyne_kimball_drugstore",
+      "recon_1835_bank_freight_f3_001",
       "recon_1835_blk_lake_clark_a3_04",
       "recon_1835_blk_lake_clark_c1_01",
       "recon_1835_blk_lake_clark_c2_02",

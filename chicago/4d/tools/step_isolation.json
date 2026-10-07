@@ -1,7 +1,7 @@
 {
   "schema": 2,
   "_doc": "MEASURED by tools/measure_step_isolation.mjs --build (T-1339). One row per tool the gate ran, listing every file it opened for writing INSIDE the repo. A row with an empty `wrote` was measured and wrote nothing here; a tool absent from this file was never measured, which is what the coverage half of tools/audit_step_isolation.mjs refuses. Writes to a tempdir are not recorded and are not findings — that is the distinction the measurement turns on. Each in-repo write is then CLASSIFIED by `git check-ignore` at measure time (T-2075): an ignored path is a build product and is listed under `wrote_ignored`; any other path is a tree mutation and is listed under `wrote`, which the audit refuses. A tracked path is never ignored, so no write to one is excused. An ignored build product is still SHARED STATE a concurrent step can read mid-write, and its regeneration is idempotent rather than atomic: classifying it says which question the gate may ask, not that it is safe. Regenerate when a tool changes; this is too slow for a per-commit gate and does not belong in one, the same call T-1302 made for writer_inventory.json. WHAT THIS DOES NOT PROVE: it is one tree state, so a CONDITIONAL writer is invisible to it. ticket.mjs check was one — it wrote nothing on a consistent tree and REPAIRED tickets.json on a stale one — until T-1341 made it compare instead of write (probed both ways: wrote [] on each). So this file says no tool wrote on the tree it was measured on, which is weaker than saying no tool writes, and the difference is the conditional case.",
-  "measured": "2026-10-05",
+  "measured": "2026-10-06",
   "gate_verdict": "CHECK FAIL",
   "declared_steps": 743,
   "classified": "2026-10-04",
@@ -2830,11 +2830,19 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/defer_household_notes.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/derive_evacuation_1812.py": {
       "wrote": [],
       "wrote_ignored": []
     },
     "tools/derive_hay_limits.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/derive_lot_remnant.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2851,10 +2859,6 @@
       "wrote_ignored": []
     },
     "tools/derive_resident_roles.py": {
-      "wrote": [],
-      "wrote_ignored": []
-    },
-    "tools/derive_lot_remnant.py": {
       "wrote": [],
       "wrote_ignored": []
     },
@@ -2995,6 +2999,10 @@
       "wrote_ignored": []
     },
     "tools/generate_trade_yards.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/generate_north_freight.py": {
       "wrote": [],
       "wrote_ignored": []
     },
