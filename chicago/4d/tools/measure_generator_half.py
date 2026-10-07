@@ -468,17 +468,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # dwellings on its two Clark blocks south of Madison (plat blocks 118 and 119), all through
 # emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 649 -> 650 and 643 -> 644 on 2026-10-06 (T-2022): the North Division's river warehouse
-# on the North Water bank at LaSalle, one `frame_storefront` through emit.py and the
-# common modules. Terrain reach still 6 and pier_crib still 2.
+# 649 -> 662 and 643 -> 656 on 2026-10-06 (T-2148): plat block 50, blk_washington_clinton —
+# five principal roofs on the Canal face and eight yard buildings, all through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 662 -> 663 and 656 -> 657 on 2026-10-07 (T-2022): the North Water river warehouse
+# adds one frame_storefront through emit.py and the common modules. The lap preserves
+# T-2148's thirteen assets; terrain reach stays 6 and pier_crib stays 2.
 #
 STATED = {
-    "assets": 650,
+    "assets": 663,
     "restales": {
-        "generators/common/*.py": 650,
+        "generators/common/*.py": 663,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 644,
+        "generators/emit.py": 657,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

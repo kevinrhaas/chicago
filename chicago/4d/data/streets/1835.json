@@ -594,6 +594,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          -273.647760417,
+          -519.05
+        ],
+        [
           -276.5,
           -400
         ],
@@ -621,7 +625,7 @@
       "name_1835": "Jefferson Street",
       "name_2026": "N/S Jefferson Street",
       "name_changed": false,
-      "path_local_enu_m": [[-391.143, -400], [-407.042085416667, 263.614]],
+      "path_local_enu_m": [[-388.290760417, -519.05], [-391.143, -400], [-407.042085416667, 263.614]],
       "corridor_width_m": 24.384,
       "track_width_m": 0,
       "opened": false,
@@ -642,7 +646,7 @@
       "name_1835": "Des Plaines Street",
       "name_2026": "N/S Des Plaines Street",
       "name_changed": false,
-      "path_local_enu_m": [[-514.968, -400], [-526.468, 80]],
+      "path_local_enu_m": [[-512.115760417, -519.05], [-514.968, -400], [-526.468, 80]],
       "corridor_width_m": 24.384,
       "track_width_m": 0,
       "opened": false,

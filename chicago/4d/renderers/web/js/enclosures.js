@@ -218,6 +218,14 @@ const PARTS = {
   plank: [2, 3],
 };
 
+const BOX_CORNER = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
+  [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
+const BOX_FACE_TRIS = [[1, 5, 6, 1, 6, 2], [4, 0, 3, 4, 3, 7], [3, 2, 6, 3, 6, 7],
+  [0, 4, 5, 0, 5, 1], [4, 7, 6, 4, 6, 5], [0, 1, 2, 0, 2, 3]];
+/** Each face's outward normal as weights on (u, v, up). */
+const BOX_FACE_NORMAL = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
+const BOX_P = new Float64Array(24);
+
 function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
                  part = 'box') {
   const plank = part === 'plank';
@@ -230,31 +238,29 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   // faces below land exactly on the line the pale's centre is authored on —
   // which is where the prism's own centre stood.
   const w = plank ? 0 : halfW;
-  const P = (a, b, c) => [
-    cx + ux * a * halfLen + vx * b * w,
-    cy + c * halfH,
-    cz + uz * a * halfLen + vz * b * w,
-  ];
-  const p = [
-    P(-1, -1, -1), P(1, -1, -1), P(1, 1, -1), P(-1, 1, -1),
-    P(-1, -1, 1), P(1, -1, 1), P(1, 1, 1), P(-1, 1, 1),
-  ];
-  const faces = [
-    [[1, 5, 6], [1, 6, 2], [ux, 0, uz]],
-    [[4, 0, 3], [4, 3, 7], [-ux, 0, -uz]],
-    [[3, 2, 6], [3, 6, 7], [vx, 0, vz]],
-    [[0, 4, 5], [0, 5, 1], [-vx, 0, -vz]],
-    [[4, 7, 6], [4, 6, 5], [0, 1, 0]],
-    [[0, 1, 2], [0, 2, 3], [0, -1, 0]],
-  ];
-  const wanted = (PARTS[part] ?? PARTS.box).map((i) => faces[i]);
-  for (const [t1, t2, n] of wanted) {
-    for (const tri of [t1, t2]) {
-      for (const i of tri) {
-        buf.pos.push(p[i][0], p[i][1], p[i][2]);
-        buf.nrm.push(n[0], n[1], n[2]);
-        buf.conf.push(level);
-      }
+  // The corners into a scratch array and the faces from fixed tables (T-2152):
+  // these were fresh arrays on every call, a few hundred MB of garbage across
+  // the town's pales and rails. Same corners, faces, order and values.
+  const p = BOX_P;
+  for (let i = 0; i < 8; i += 1) {
+    const [a, b, c] = BOX_CORNER[i];
+    p[i * 3] = cx + ux * a * halfLen + vx * b * w;
+    p[i * 3 + 1] = cy + c * halfH;
+    p[i * 3 + 2] = cz + uz * a * halfLen + vz * b * w;
+  }
+  const wanted = PARTS[part] ?? PARTS.box;
+  for (let k = 0; k < wanted.length; k += 1) {
+    const f = wanted[k];
+    const tris = BOX_FACE_TRIS[f];
+    const s = BOX_FACE_NORMAL[f];
+    const n0 = s[0] * ux + s[1] * vx;
+    const n1 = s[2];
+    const n2 = s[0] * uz + s[1] * vz;
+    for (let q = 0; q < 6; q += 1) {
+      const i = tris[q];
+      buf.pos.push(p[i * 3], p[i * 3 + 1], p[i * 3 + 2]);
+      buf.nrm.push(n0, n1, n2);
+      buf.conf.push(level);
     }
   }
 }
@@ -332,8 +338,38 @@ function stretches(path, s, gaps) {
  * whose bounding sphere is bigger than its own fence is a mesh the frustum
  * cannot cull.
  */
+/**
+ * A growing Float32 stream with an array's `push` (one to three values) and
+ * `length` — the same helper `frontage.js` lays its timber into, for the same
+ * reason (T-2152): JS number arrays grown by doubling across every pale in the
+ * town were a large share of the garbage that spiked a phone's heap mid-load.
+ */
+class Grow {
+  constructor() { this.a = new Float32Array(1024); this.length = 0; }
+
+  push(x, y, z) {
+    const n = arguments.length;
+    if (this.length + n > this.a.length) {
+      let cap = this.a.length * 2;
+      while (cap < this.length + n) cap *= 2;
+      const b = new Float32Array(cap);
+      b.set(this.a.subarray(0, this.length));
+      this.a = b;
+    }
+    const a = this.a;
+    const i = this.length;
+    a[i] = x;
+    if (n > 1) a[i + 1] = y;
+    if (n > 2) a[i + 2] = z;
+    this.length = i + n;
+    return this.length;
+  }
+
+  view() { return this.a.subarray(0, this.length); }
+}
+
 function newChunk() {
-  return { pos: [], nrm: [], conf: [],
+  return { pos: new Grow(), nrm: new Grow(), conf: new Grow(),
     minE: Infinity, maxE: -Infinity, minN: Infinity, maxN: -Infinity };
 }
 function cover(chunk, e, n) {
@@ -776,9 +812,10 @@ export async function createEnclosures({
     flushChunk(ch);
     for (const chunk of ch.chunks) {
       const geo = new THREE.BufferGeometry();
-      geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.pos, 3));
-      geo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.nrm, 3));
-      geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.conf, 1));
+      geo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.pos.view(), 3));
+      geo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.nrm.view(), 3));
+      geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.conf.view(), 1));
+      chunk.pos = chunk.nrm = chunk.conf = null;   // scratch from here (T-2152)
       // The whole point of the chunk: its own bounding sphere, around its own
       // fence, so the frustum can leave it out.
       geo.computeBoundingSphere();

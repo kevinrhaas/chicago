@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "291 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "299 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 225,
+    "lots": 230,
     "refused": 0,
-    "refuges": 307,
-    "paths": 291
+    "refuges": 316,
+    "paths": 299
   },
   "lots": [
     {
@@ -2067,19 +2067,19 @@
         [
           [
             -226.49,
-            -122.47
+            -122.63
           ],
           [
-            -226.48,
-            -120.18
+            -226.47,
+            -120.19
           ],
           [
-            -228.77,
+            -228.91,
             -120.17
           ],
           [
-            -228.78,
-            -122.46
+            -228.93,
+            -122.61
           ]
         ]
       ]
@@ -2172,19 +2172,19 @@
         [
           [
             -223.99,
-            -193.68
+            -193.52
           ],
           [
-            -223.97,
-            -191.24
+            -223.98,
+            -191.23
           ],
           [
-            -226.41,
+            -226.27,
             -191.22
           ],
           [
-            -226.43,
-            -193.66
+            -226.28,
+            -193.51
           ]
         ],
         [
@@ -7839,6 +7839,364 @@
       ]
     },
     {
+      "lot": "blk_washington_clinton_lot5",
+      "structures": [
+        "recon_1835_blk_washington_clinton_a1_06",
+        "recon_1835_blk_washington_clinton_a5_07",
+        "recon_1835_blk_washington_clinton_h2_01"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -207.19,
+          -419.25
+        ],
+        [
+          -163.17,
+          -419.53
+        ],
+        [
+          -163.78,
+          -399.43
+        ],
+        [
+          -207.74,
+          -399.07
+        ],
+        [
+          -210.11,
+          -401.49
+        ],
+        [
+          -209.69,
+          -416.8
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -210.26,
+            -417.11
+          ],
+          [
+            -210.28,
+            -419.85
+          ],
+          [
+            -207.84,
+            -419.87
+          ],
+          [
+            -207.82,
+            -417.13
+          ]
+        ],
+        [
+          [
+            -199.8,
+            -416.71
+          ],
+          [
+            -199.75,
+            -423.13
+          ],
+          [
+            -191.49,
+            -423.07
+          ],
+          [
+            -191.53,
+            -416.65
+          ]
+        ],
+        [
+          [
+            -203.73,
+            -403.63
+          ],
+          [
+            -203.69,
+            -407.94
+          ],
+          [
+            -198.96,
+            -407.91
+          ],
+          [
+            -198.99,
+            -403.59
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_washington_clinton_lot6",
+      "structures": [
+        "recon_1835_blk_washington_clinton_a2_08",
+        "recon_1835_blk_washington_clinton_a4_09",
+        "recon_1835_blk_washington_clinton_h3_02"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -206.6,
+          -440.96
+        ],
+        [
+          -162.51,
+          -441.17
+        ],
+        [
+          -163.12,
+          -421.06
+        ],
+        [
+          -207.15,
+          -420.77
+        ],
+        [
+          -209.52,
+          -423.19
+        ],
+        [
+          -209.1,
+          -438.51
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -210.18,
+            -420.13
+          ],
+          [
+            -210.2,
+            -422.87
+          ],
+          [
+            -207.76,
+            -422.89
+          ],
+          [
+            -207.74,
+            -420.15
+          ]
+        ],
+        [
+          [
+            -203.67,
+            -436.95
+          ],
+          [
+            -203.65,
+            -440.51
+          ],
+          [
+            -199.38,
+            -440.49
+          ],
+          [
+            -199.4,
+            -436.93
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_washington_clinton_lot7",
+      "structures": [
+        "recon_1835_blk_washington_clinton_a2_10",
+        "recon_1835_blk_washington_clinton_d5_03"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -206.0,
+          -462.68
+        ],
+        [
+          -161.85,
+          -462.82
+        ],
+        [
+          -162.46,
+          -442.7
+        ],
+        [
+          -206.56,
+          -442.49
+        ],
+        [
+          -208.93,
+          -444.91
+        ],
+        [
+          -208.51,
+          -460.23
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -209.08,
+            -460.86
+          ],
+          [
+            -209.08,
+            -463.3
+          ],
+          [
+            -206.64,
+            -463.3
+          ],
+          [
+            -206.64,
+            -460.86
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_washington_clinton_lot8",
+      "structures": [
+        "recon_1835_blk_washington_clinton_a4_11",
+        "recon_1835_blk_washington_clinton_d4_04"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -205.41,
+          -484.38
+        ],
+        [
+          -161.2,
+          -484.46
+        ],
+        [
+          -161.8,
+          -464.34
+        ],
+        [
+          -205.96,
+          -464.2
+        ],
+        [
+          -208.33,
+          -466.63
+        ],
+        [
+          -207.91,
+          -481.94
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -209.0,
+            -463.57
+          ],
+          [
+            -209.0,
+            -466.01
+          ],
+          [
+            -206.56,
+            -466.01
+          ],
+          [
+            -206.56,
+            -463.57
+          ]
+        ],
+        [
+          [
+            -200.4,
+            -469.96
+          ],
+          [
+            -200.39,
+            -473.72
+          ],
+          [
+            -194.09,
+            -473.7
+          ],
+          [
+            -194.1,
+            -469.95
+          ]
+        ]
+      ]
+    },
+    {
+      "lot": "blk_washington_clinton_lot9",
+      "structures": [
+        "recon_1835_blk_washington_clinton_a2_12",
+        "recon_1835_blk_washington_clinton_a5_13",
+        "recon_1835_blk_washington_clinton_h1_05"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -204.81,
+          -506.1
+        ],
+        [
+          -160.54,
+          -506.1
+        ],
+        [
+          -161.15,
+          -485.98
+        ],
+        [
+          -205.37,
+          -485.91
+        ],
+        [
+          -207.74,
+          -488.34
+        ],
+        [
+          -207.32,
+          -503.66
+        ]
+      ],
+      "refuges_local_enu_m": [
+        [
+          [
+            -207.89,
+            -504.28
+          ],
+          [
+            -207.89,
+            -506.72
+          ],
+          [
+            -205.45,
+            -506.72
+          ],
+          [
+            -205.45,
+            -504.28
+          ]
+        ],
+        [
+          [
+            -200.52,
+            -502.06
+          ],
+          [
+            -200.52,
+            -505.62
+          ],
+          [
+            -194.91,
+            -505.61
+          ],
+          [
+            -194.91,
+            -502.06
+          ]
+        ]
+      ]
+    },
+    {
       "lot": "blk_washington_market_lot0",
       "structures": [
         "recon_1835_blk_washington_market_h1_07"
@@ -11252,18 +11610,18 @@
         [
           [
             -459.89,
-            -236.43
+            -236.42
           ],
           [
-            -459.87,
-            -233.99
+            -459.88,
+            -234.13
           ],
           [
-            -462.31,
-            -233.97
+            -462.17,
+            -234.12
           ],
           [
-            -462.33,
+            -462.18,
             -236.41
           ]
         ]
@@ -11751,38 +12109,20 @@
       "refuges_local_enu_m": [
         [
           [
-            -457.64,
-            -330.41
+            -457.65,
+            -330.11
           ],
           [
-            -457.62,
+            -457.63,
             -327.67
           ],
           [
-            -460.06,
+            -460.07,
             -327.65
           ],
           [
-            -460.08,
-            -330.39
-          ]
-        ],
-        [
-          [
-            -457.25,
-            -349.57
-          ],
-          [
-            -457.2,
-            -343.47
-          ],
-          [
-            -462.07,
-            -343.43
-          ],
-          [
-            -462.12,
-            -349.53
+            -460.09,
+            -330.09
           ]
         ]
       ]
@@ -11907,18 +12247,18 @@
         [
           [
             -451.34,
-            -349.91
+            -349.9
           ],
           [
-            -451.35,
-            -352.2
+            -451.36,
+            -352.34
           ],
           [
-            -449.06,
-            -352.21
+            -448.92,
+            -352.36
           ],
           [
-            -449.05,
+            -448.9,
             -349.92
           ]
         ]

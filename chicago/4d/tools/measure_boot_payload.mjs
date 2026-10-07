@@ -137,6 +137,20 @@ function report(m) {
   for (const [ext, b] of Object.entries(byExt).sort((a, b) => b[1] - a[1])) {
     console.log(`  ${fmt(b)}  .${ext}`);
   }
+  // T-2151: the type split cannot say WHICH records grew — 547 sidecars and a
+  // dozen panel files all read as `.json`. The folder split does.
+  const byDir = {};
+  for (const e of m.entries) {
+    if (e.status !== 200) continue;
+    const dir = e.url.split('?')[0].split('/').slice(1, -1).slice(0, 3).join('/') || '(root)';
+    (byDir[dir] ||= { bytes: 0, n: 0 }).bytes += e.bytes;
+    byDir[dir].n += 1;
+  }
+  console.log('');
+  console.log('BY FOLDER (the 15 heaviest)');
+  for (const [dir, v] of Object.entries(byDir).sort((a, b) => b[1].bytes - a[1].bytes).slice(0, 15)) {
+    console.log(`  ${fmt(v.bytes)}  ${String(v.n).padStart(4)}  /${dir}/`);
+  }
   console.log('');
   console.log('THE 15 LARGEST');
   for (const e of [...m.entries].filter((e) => e.status === 200).sort((a, b) => b.bytes - a.bytes).slice(0, 15)) {

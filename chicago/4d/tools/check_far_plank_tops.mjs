@@ -17,7 +17,7 @@ const mod = await import(moduleURL(source.replace("from 'three'", `from '${three
   .replace("import { resolveBases } from './scene-loader.js';",
     "const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
-  + '\nexport { timberBuf, inWalkTone, laySegment, pushBox, plankGapAttribute, createFarWalkTops };'));
+  + '\nexport { timberBuf, plainTimber, inWalkTone, laySegment, pushBox, plankGapAttribute, createFarWalkTops };'));
 const checks = [];
 function check(name, run) { run(); checks.push(name); }
 const material = new THREE.MeshStandardMaterial({ transparent: true, vertexColors: true });
@@ -32,6 +32,7 @@ function fixture(name, x, z, level = 1) {
   // A top face of standing furniture in the same buffer must not become deck.
   mod.inWalkTone(buf, { belongs_to: name }, () =>
     mod.pushBox(buf, x + 3, 4, z, 1, 0, .2, .2, .5, level));
+  mod.plainTimber(buf);
   const geo = new THREE.BufferGeometry();
   for (const [name, stream, size] of [['position', 'pos', 3], ['normal', 'nrm', 3],
     ['_confidence', 'conf', 1], ['color', 'col', 3], ['uv', 'uv', 2]]) {

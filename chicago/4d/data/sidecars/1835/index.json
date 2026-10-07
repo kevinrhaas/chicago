@@ -1678,6 +1678,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          -273.647760417,
+          -519.05
+        ],
+        [
           -276.5,
           -400
         ],
@@ -1776,6 +1780,10 @@
       "name_2026": "N/S Jefferson Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          -388.290760417,
+          -519.05
+        ],
         [
           -391.143,
           -400
@@ -1878,6 +1886,10 @@
       "name_2026": "N/S Des Plaines Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          -512.115760417,
+          -519.05
+        ],
         [
           -514.968,
           -400
@@ -12414,6 +12426,84 @@
       "name": "Reconstructed H3 boarding house #11",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_h3_11.json",
       "asset": "gltf/recon_1835_blk_washington_clark_h3_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a1_06",
+      "name": "Reconstructed A1 stable #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a1_06.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a1_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_08",
+      "name": "Reconstructed A2 barn or carriage shed #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_08.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_10",
+      "name": "Reconstructed A2 barn or carriage shed #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_10.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_12",
+      "name": "Reconstructed A2 barn or carriage shed #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_12.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_12__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a4_09",
+      "name": "Reconstructed A4 woodshed or storage shed #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_09.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a4_11",
+      "name": "Reconstructed A4 woodshed or storage shed #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_11.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_07",
+      "name": "Reconstructed A5 small utility building #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_07.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_13",
+      "name": "Reconstructed A5 small utility building #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_13.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_13__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_d4_04.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_d5_03",
+      "name": "Reconstructed D5 deep-plan frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_d5_03.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_d5_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_h1_05",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_h1_05.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_h1_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_h2_01",
+      "name": "Reconstructed H2 merchant or professional house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_h2_01.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_h2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_h3_02",
+      "name": "Reconstructed H3 boarding house #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_h3_02.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_h3_02__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_dearborn_a1_02",
