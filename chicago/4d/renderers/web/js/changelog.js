@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1546, ts: '2026-10-08T19:58:47.393Z', date: 'Oct 8, 2026, 2:58 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
+    items: [
+      'The courtyard tower’s main windows now share the adjoining first-floor height. The upper wing windows are shorter, matching the tower’s upper band.',
+      'The rear eave projects continuously into the tower roof, with joined copper, tile and gutters. These proportions are declared reconstructions based on the courtyard photographs and measured house plan.',
+      'Glessner’s glass stays dark at every Scene detail setting, including Full. The glass comparison links still work.',
+    ] },
   { v: 1545, ts: '2026-10-08T19:35:25.683Z', date: 'Oct 8, 2026, 2:35 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
     items: [
       'The plan of who still has to be added to the 1835 town was asking for 202 more grown men in family houses. The people cards already name 1,190 men aged twenty or over, and the plan wants 943 in all, so the town has more than enough.',
