@@ -520,7 +520,11 @@ STRUCTURE_TICKETS = {
     # and the street line carries the whole order, on T-1673. This entry is what a banded
     # cell falls back to if its bands are ever taken out of the inventory, so it names the
     # half that would still owe. It is not read while the bands stand.
-    ("south", "warehouses_freight"): "T-1673",
+    #
+    # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
+    # street line's F2 and goes `done` when it merges, so the order moves to the piece that
+    # carries the rest of the line, as the band in the inventory does.
+    ("south", "warehouses_freight"): "T-2175",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
     # civic roofs the matrix sets all stand, and T-1202 raised none of them, so its id here
