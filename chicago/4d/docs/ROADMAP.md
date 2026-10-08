@@ -1,3 +1,10 @@
+## T-2172 — courtyard tower window and roof proportions (2026-10-08)
+
+Raise the divided upper glazing to align its head with the north-wing upper
+windows; retain the ridge and shorten the copper cap. Source complete; baked
+assets, published desktop/mobile checks and gate pending.
+See `RESEARCH/glessner-tower-proportions-2172/README.md`.
+
 ## T-2035 / T-2037 / T-2038 - continuity while moving (2026-10-03)
 
 Held frames did not establish continuity: the owner still sees whole clumps appear

@@ -22141,3 +22141,18 @@ never increases the total.
 **Ticket:** T-2167.
 **Related:** **L263**, **L394**, **T-2148**, **T-2166**, **T-2168**.
 **Recorded:** 2026-10-08 (T-2167).
+
+
+### L-glessner-tower-proportions-2172 — raised courtyard glazing
+
+The upper dining-tower band is reconstructed at 20.9–24 ft above north grade,
+retaining its 3.1-ft height and period divided sash but lifting it 3.5 ft to align
+its head with the north-court upper-window heads. The 34.1-ft ridge stays fixed,
+shortening the copper rise from 13.6 to 10.1 ft. Masonry continues to the raised
+sill; other openings stay fixed. Bounded by the owner photograph of 8 October
+2026 and HABS courtyard photograph 5; uncertainty about +/-1 ft. Modern glazing
+is not copied. This supersedes the prior low-band proportional reading, not the
+HABS measured plan. A measured original bay elevation would replace the estimate.
+
+**Covers:** `glessner_house.as_built_1887.bay_dining_elevation`.
+**Recorded:** 2026-10-08 (T-2172).
