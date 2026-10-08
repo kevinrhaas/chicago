@@ -1652,9 +1652,20 @@ def arrival_stage_self_test() -> int:
         # a card's quantile shifts by at most 3/total of the table, so the expected
         # mover count is ~1196 * 3 / total; allow 4x for the seeds' own scatter
         ceiling = max(4, round(4 * len(cohort) * 3 / total))
-        stray = [m for m in moved if {m[1], m[2]} != {1834, 1835}]
+        # Moving three people between two years leaves the total alone, so only the
+        # 1834/1835 boundary moves. Taking three off 1835 shrinks the total, which shifts
+        # EVERY boundary below it by up to 3/total, so a card sitting on the 1833/1834
+        # edge may cross it too (T-2179 met one, hh_test_400, after a model rebuild that
+        # moved the table under the fixed cohort). What must hold there is the
+        # neighbouring year; what must hold everywhere is the ceiling below.
+        if sum(moves.values()) == 0:
+            stray = [m for m in moved if {m[1], m[2]} != {1834, 1835}]
+            rule = "only across the 1834/1835 boundary"
+        else:
+            stray = [m for m in moved if abs(m[1] - m[2]) != 1]
+            rule = "only to the neighbouring year"
         if stray:
-            bad(f"{label} moves cards only across the 1834/1835 boundary",
+            bad(f"{label} moves cards {rule}",
                 f"{len(stray)} moved elsewhere, e.g. {stray[0]}")
         elif len(moved) > ceiling:
             bad(f"{label} moves only the cards near the boundary",
