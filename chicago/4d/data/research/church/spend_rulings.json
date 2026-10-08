@@ -11,7 +11,7 @@
     "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 10,
     "the_register_appearance_identity_was_refused_in_the_crosswalk": 27,
     "the_register_appearance_names_nobody_this_town_holds": 13,
-    "the_register_entry_names_kin": 46,
+    "the_register_entry_names_kin": 47,
     "the_register_reading_is_about_the_town_and_not_a_person": 6,
     "the_roll_is_beyond_the_reading_window": 26
   },
@@ -661,6 +661,11 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_4_witness",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_03_4_witness: Bourrasso stands as witness at a register entry dated 1835-06-06 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
+    },
+    {
+      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_2_father",
+      "rule": "the_register_entry_names_kin",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_04_2_father: Léon Bourassa is the father of a register entry dated 1835-06-29 at Chicago. Father of baptism entry 4 of 1835, Chicago, Cook County, Illinois. Written 'Bourassa' in 1834 entry 23 and 'Bourrasso' here. A baptism documents a person at a …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_05_4_godfather",

@@ -527,7 +527,7 @@
     "nearest": 0,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
-    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 57 of 2158 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
+    "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 57 of 2159 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
   },
   "by_trade": {
     "attorney": {
@@ -971,7 +971,7 @@
     {
       "person_id": "rc_bacon_phebe",
       "person_name": "Phebe Bacon",
-      "household_id": "hh_franchere_l",
+      "household_id": "hh_rider_eli_a",
       "kind": "keeps_their_own_house",
       "trade": "milliner",
       "premises": "own_premises",
@@ -1198,7 +1198,7 @@
     {
       "person_id": "rc_bardwell_phebe",
       "person_name": "Phebe Bardwell",
-      "household_id": "hh_foster_amos",
+      "household_id": "hh_franchere_l",
       "kind": "seated",
       "trade": "domestic",
       "premises": "no_fixed_premises",
@@ -1228,7 +1228,7 @@
     {
       "person_id": "rc_barnes_almira",
       "person_name": "Almira Barnes",
-      "household_id": "hh_forester_thomas",
+      "household_id": "hh_foster_amos",
       "kind": "seated",
       "trade": "domestic",
       "premises": "no_fixed_premises",
@@ -1258,7 +1258,7 @@
     {
       "person_id": "rc_barnes_emily",
       "person_name": "Emily Barnes",
-      "household_id": "hh_forbes_stephen",
+      "household_id": "hh_forester_thomas",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -1658,7 +1658,7 @@
     {
       "person_id": "rc_bourassa_madeleine",
       "person_name": "Madeleine Bourassa",
-      "household_id": "hh_finley_clement_a",
+      "household_id": "hh_fisher_pitman",
       "kind": "seated",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
@@ -2006,7 +2006,7 @@
     {
       "person_id": "rc_carroll_johanna",
       "person_name": "Johanna Carroll",
-      "household_id": "hh_faraher_thomas",
+      "household_id": "hh_finley_clement_a",
       "kind": "seated",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
@@ -2400,7 +2400,7 @@
     {
       "person_id": "rc_chapin_harriet",
       "person_name": "Harriet Chapin",
-      "household_id": "hh_dewey_d_s",
+      "household_id": "hh_douglas_calvin",
       "kind": "keeps_their_own_house",
       "trade": "milliner",
       "premises": "own_premises",
@@ -3066,7 +3066,7 @@
     {
       "person_id": "rc_crandall_almira",
       "person_name": "Almira Crandall",
-      "household_id": "hh_david_john",
+      "household_id": "hh_dewey_d_s",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -3445,7 +3445,7 @@
     {
       "person_id": "rc_dolan_alice",
       "person_name": "Alice Dolan",
-      "household_id": "hh_clybourn_s",
+      "household_id": "hh_curtis_jacob_s",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -4587,7 +4587,7 @@
     {
       "person_id": "rc_fairbanks_lydia",
       "person_name": "Lydia Fairbanks",
-      "household_id": "hh_clay_william",
+      "household_id": "hh_clybourn_s",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -5395,11 +5395,11 @@
     {
       "person_id": "rc_fitzgerald_honora",
       "person_name": "Honora Fitzgerald",
-      "household_id": "hh_choulet_michel_alexandre",
+      "household_id": "hh_church_thomas",
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
-      "division_of_the_person": "unplaced",
+      "division_of_the_person": "south",
       "business_id": null,
       "business_name": null,
       "role": null,
@@ -5537,7 +5537,7 @@
     {
       "person_id": "rc_flynn_margaret",
       "person_name": "Margaret Flynn",
-      "household_id": "hh_chapley_m_s",
+      "household_id": "hh_choulet_michel_alexandre",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -5686,7 +5686,7 @@
     {
       "person_id": "rc_gagnier_therese",
       "person_name": "Therese Gagnier",
-      "household_id": "hh_burke_james",
+      "household_id": "hh_chapley_m_s",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -6457,7 +6457,7 @@
     {
       "person_id": "rc_hale_almira",
       "person_name": "Almira Hale",
-      "household_id": "hh_burdick_morgan",
+      "household_id": "hh_burke_james",
       "kind": "keeps_their_own_house",
       "trade": "milliner",
       "premises": "own_premises",
@@ -6515,7 +6515,7 @@
     {
       "person_id": "rc_hastings_almira",
       "person_name": "Almira Hastings",
-      "household_id": "hh_brown_hanna_e",
+      "household_id": "hh_bruno_jean_baptiste",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -7416,7 +7416,7 @@
     {
       "person_id": "rc_ingalls_mary",
       "person_name": "Mary Ingalls",
-      "household_id": "hh_bristol_charles_l",
+      "household_id": "hh_brown_hanna_e",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -7916,7 +7916,7 @@
     {
       "person_id": "rc_laframboise_archange",
       "person_name": "Archange Laframboise",
-      "household_id": "hh_braxton_lewis",
+      "household_id": "hh_bristol_charles_l",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -8214,7 +8214,7 @@
     {
       "person_id": "rc_leland_almira",
       "person_name": "Almira Leland",
-      "household_id": "hh_borland_andrew_w",
+      "household_id": "hh_braxton_lewis",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -8603,7 +8603,7 @@
     {
       "person_id": "rc_lyman_clarissa",
       "person_name": "Clarissa Lyman",
-      "household_id": "hh_bonn_augustin",
+      "household_id": "hh_borland_andrew_w",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -9327,7 +9327,7 @@
     {
       "person_id": "rc_mccarthy_johanna",
       "person_name": "Johanna McCarthy",
-      "household_id": "hh_blanchard_w_g",
+      "household_id": "hh_blanshard_f_g",
       "kind": "seated",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
@@ -10424,7 +10424,7 @@
     {
       "person_id": "rc_newell_ruth",
       "person_name": "Ruth Newell",
-      "household_id": "hh_blaisdell_b",
+      "household_id": "hh_blanchard_w_g",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -10956,7 +10956,7 @@
     {
       "person_id": "rc_nolan_johanna",
       "person_name": "Johanna Nolan",
-      "household_id": "hh_lewis_thomas",
+      "household_id": "hh_weaver_d",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -12618,7 +12618,7 @@
     {
       "person_id": "rc_ryan_mary",
       "person_name": "Mary Ryan",
-      "household_id": "hh_beaubien_charles",
+      "household_id": "hh_bennett_william",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -12906,7 +12906,7 @@
     {
       "person_id": "rc_shea_margaret",
       "person_name": "Margaret Shea",
-      "household_id": "hh_baptist_john",
+      "household_id": "hh_beaubien_charles",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -13488,7 +13488,7 @@
     {
       "person_id": "rc_stebbins_maria",
       "person_name": "Maria Stebbins",
-      "household_id": "hh_bourrassa_leon",
+      "household_id": "hh_goodrich_c",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
