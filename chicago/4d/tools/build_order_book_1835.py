@@ -608,8 +608,10 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
-    ("west", "small_outbuildings"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
+    # T-2168 split again (2026-10-08): T-2169 builds the West residual three;
+    # T-2170 owns the North barns. The parent no longer owns claimable work.
+    ("west", "barns_stables"): "T-2169",  # live successor of T-2168
+    ("west", "small_outbuildings"): "T-2169",  # live successor of T-2168
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -687,7 +689,7 @@ STRUCTURE_TICKETS = {
     # warehouse there. T-2022 is filed for exactly that cell.
     ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
+    ("north", "barns_stables"): "T-2170",  # live successor of T-2168
     ("north", "small_outbuildings"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
