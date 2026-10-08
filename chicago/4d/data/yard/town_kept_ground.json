@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "324 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "325 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 250,
     "refused": 0,
-    "refuges": 340,
-    "paths": 324
+    "refuges": 341,
+    "paths": 325
   },
   "lots": [
     {
@@ -1647,7 +1647,8 @@
       "lot": "blk_south_water_dearborn_lot0",
       "structures": [
         "chicago_american_office",
-        "john_holbrook_store"
+        "john_holbrook_store",
+        "recon_1835_blk_south_water_dearborn_f2_11"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -1675,7 +1676,26 @@
           -48.47
         ]
       ],
-      "refuges_local_enu_m": []
+      "refuges_local_enu_m": [
+        [
+          [
+            719.38,
+            -33.3
+          ],
+          [
+            728.31,
+            -33.25
+          ],
+          [
+            728.21,
+            -18.22
+          ],
+          [
+            719.29,
+            -18.27
+          ]
+        ]
+      ]
     },
     {
       "lot": "blk_south_water_dearborn_lot1",

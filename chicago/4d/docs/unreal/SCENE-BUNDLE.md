@@ -5,8 +5,8 @@ an Unreal or server worker can consume later. It was split in two: **T-2067** (t
 document and `tools/scene_bundle.py`) is the contract, the packer, the fresh-consumer
 verifier and the reproducibility check; **T-2068** attaches packing to the scheduled
 content build (`chicago-4d-bake.yml`) and its manual dispatch, publishes it, and keeps a
-latest-good pointer. That second half is a workflow change. Until it lands, a bundle is
-something you make by hand from a commit, and nothing publishes one.
+latest-good pointer. That second half is a workflow change; § Publication below is what it
+does. A bundle can still be made by hand from any commit, as below.
 
 ## Making one, checking one
 
@@ -19,8 +19,8 @@ python3 tools/scene_bundle.py --self-test                            # check.sh 
 ```
 
 `pack` takes a **validated** commit, meaning one whose gate passed. Choosing that commit
-is the caller's job: BUILD-AND-RELEASE.md § "latest best" is the rule by hand, and T-2068
-makes the content build pack the commit its own gate just passed.
+is the caller's job: BUILD-AND-RELEASE.md § "latest best" is the rule by hand, and the
+content build packs the commit its own gate just passed (§ Publication).
 
 First reading, 2026-10-04, dev at `f5542e3c9fa1`: 1,431 files, 544 structures, 87.3 MB of
 payload in a 23.0 MB archive. It packs in about 3 s. Two builds gave the same archive
@@ -90,6 +90,57 @@ A forger who re-hashes the whole manifest gets past every check except the last 
 consumer downloads by digest for that reason**, and T-2068's discovery manifest is where
 it gets the digest. The self-test demonstrates each refusal on a real packed bundle.
 
+## Publication (T-2068)
+
+The owner chose GitHub **Release assets** on 2026-10-08, because Actions artifacts expire
+(90 days at most) and a pointer or a receipt that names an expired download is a broken link.
+
+**When.** `chicago-4d-bake.yml` packs a bundle on every bake of `dev` that came from the
+nightly schedule (06:17 UTC) or a manual dispatch. A bake started by a push, or dispatched
+against another branch, packs nothing. The nightly runs the workflow file on `main`, so it
+publishes only once this change has been promoted. Until then, a dispatch on `dev` publishes.
+
+**What is packed.** The `bake` job packs the commit its own `check.sh` just passed. That is
+the bake branch's commit when the bake changed content, and the baked `dev` commit when it
+did not. The job then runs `verify --expect-digest` on the archive before anything leaves the
+runner, so a bundle a consumer would refuse is never released. A pack or verify refusal is
+logged and costs the bake nothing else: its branch and PR go ahead as before.
+
+**Where.** Only after the smoke has passed at both viewports, `publish-bundle` publishes:
+
+| release (tag) | assets | changes? |
+|---|---|---|
+| `chicago4d-scene-<scene>-<commit12>-<digest12>` (the archive's own name), pointing at the packed commit | the archive, `pack-receipt.json` (with the build instant), `fresh-download-receipt.json` | never. A repeat of the same tag is the same bytes, so only a missing asset is uploaded. |
+| `scene-bundle-index` | `scene-bundle-index.json`, the discovery manifest | replaced each time the pointer moves |
+
+Both are marked pre-release and never "latest", so they do not compete with any other
+release of the repository.
+
+**The discovery manifest** (`chicago4d-scene-bundle-index/1`) holds, per scene, a
+`latest_good` entry and up to 20 `previous` entries, newest first. Each entry gives the tag,
+archive name, download URL, archive sha256 and bytes, payload digest, source commit, the
+`dev` commit it was baked from (`base_commit`), file and structure counts, the build instant
+and the run URL.
+
+**What moves the pointer.** A bake that fails the smoke is never published. A bake that
+passes is always published under its own tag, but the pointer moves only when its
+`base_commit` equals or descends from the current latest-good's (GitHub's compare status
+`identical` or `ahead`). A dispatch and the nightly are in different concurrency groups, so
+an older bake can finish last. That bake stays downloadable by its tag and is not pointed at.
+The bundle the pointer leaves becomes `previous[0]`. `scene_bundle.py advance` is the rule,
+and its self-test in `check.sh` covers it.
+
+**Retention.** Release assets do not expire. Every published bundle stays until somebody
+deletes its release. The manifest's `previous` list is the supported rollback window (20
+bundles); older releases are still downloadable by tag. A bundle is about 26 MB (1,683 files,
+670 structures on 2026-10-08), so a bake a day adds about 0.8 GB a month.
+
+**The fresh-download receipt.** After every publish, `fresh-consumer` runs on a new runner
+that has not seen the bake. It downloads the discovery manifest, takes the latest-good digest
+for 1835, downloads that archive, runs `verify --expect-digest`, and prints the source commit,
+scene and coverage. Its `fresh-download-receipt.json` (run URL, download instant, archive
+sha256, the verifier's output) goes onto that bundle's release and into the run summary.
+
 ## Reproducibility, and where the timestamps went
 
 The archive holds no wall-clock time. Each member's mtime is the commit's time, owner
@@ -102,7 +153,8 @@ deliberately kept out of the archive.
 
 ## How T-1358 consumes it
 
-1. Read the latest-good digest from T-2068's discovery manifest. Download the archive and
+1. Read the latest-good digest from the discovery manifest (`scene-bundle-index.json` on the
+   `scene-bundle-index` release). Download the archive and
    run `verify --expect-digest`. Refuse the update on any failure, and keep the current
    import.
 2. Extract the archive into a NEW directory named by digest. Point `CHICAGO_SOURCE` at

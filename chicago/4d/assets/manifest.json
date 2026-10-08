@@ -2764,6 +2764,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_d2_04"
     },
+    "recon_1835_blk_south_water_dearborn_f2_11__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 94352,
+      "inputs_sha256": "d554a74e688a918f8a95f22ba6d01cae40675462e9edd01ec55e57d1ee522de0",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_dearborn_f2_11"
+    },
     "recon_1835_blk_south_water_dearborn_h1_03__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,

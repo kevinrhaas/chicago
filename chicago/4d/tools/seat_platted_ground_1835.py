@@ -147,7 +147,10 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # workshops as yard buildings, since each stands on the street line, and seats firms in all
 # four. They are workshops this deal never seats a household in, so no seat moved and the
 # cost below is unchanged (L270).
-BUSINESS_DEAL_HOLDS = 44
+# 44 -> 45 on 2026-10-08 (T-2174): the F2 warehouse behind the stores at South Water and
+# Dearborn fronts South Water, so the street-face adoption seats a firm on it. A warehouse
+# seats no household in this deal, so the cost below is unchanged (L270).
+BUSINESS_DEAL_HOLDS = 45
 # 1 -> 2 on 2026-10-05 (T-2130): the nine roofs it raised on blk_washington_dearborn and
 # blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
 # standing beside T-2129's Market block the deal hands hh_bennet_lyman on, and a release would

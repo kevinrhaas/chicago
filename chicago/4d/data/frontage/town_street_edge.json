@@ -44,16 +44,16 @@
     "walk_m": 8902.6,
     "crossing_m": 2311.0,
     "fence_m": 1893.4,
-    "walking_decks": 826,
+    "walking_decks": 827,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
       "stoop": 37,
       "tie_rail": 1,
-      "wagon_apron": 5
+      "wagon_apron": 6
     },
-    "decked_walks": 5,
-    "decked_walk_m": 53.5,
+    "decked_walks": 6,
+    "decked_walk_m": 61.5,
     "bare_fronts": 7,
     "fronts_only_faces": 5,
     "fronts_only_runs": 5,
@@ -90,10 +90,10 @@
         "note": "51 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
       },
       "fittings": {
-        "value": 49,
+        "value": 50,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 5 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 6 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -16198,6 +16198,64 @@
       "note": "THE PLANK SIDEWALK ON THE STATE STREET FRONTAGE of blk_south_water_dearborn's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.11 m of verge between its outer edge and the State Street track. This run is the stretch from 58.4 m to 79.7 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_south_water_dearborn_north_decked_walk_recon_1835_blk_south_water_dearborn_f2_11",
+      "belongs_to": "town_street_edge",
+      "kind": "decked_walk",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_dearborn_north_1",
+      "serves": "recon_1835_blk_south_water_dearborn_f2_11",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #11",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "centreline_local_enu_m": [
+        [
+          720.52,
+          -3.12
+        ],
+        [
+          728.52,
+          -3.34
+        ]
+      ],
+      "width_m": 1.22,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.075,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 2.69,
+      "verge_to_track_m": 3.64,
+      "footway_decks": [
+        {
+          "y": 0.741,
+          "pts": [
+            [
+              720.42,
+              -3.72
+            ],
+            [
+              728.59,
+              -3.96
+            ],
+            [
+              728.62,
+              -2.74
+            ],
+            [
+              720.46,
+              -2.51
+            ]
+          ],
+          "ground_roll_m": 0.029
+        }
+      ],
+      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #11, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_south_water_dearborn's north face, 9.4 m to 17.4 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.03 m and leaving 3.64 m to the South Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
       "id": "blk_south_water_dearborn_north_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -30541,6 +30599,129 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #07. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.66 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.75 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
+      "id": "blk_south_water_dearborn_north_wagon_apron_recon_1835_blk_south_water_dearborn_f2_11",
+      "belongs_to": "town_street_edge",
+      "kind": "wagon_apron",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_dearborn_north_1",
+      "serves": "recon_1835_blk_south_water_dearborn_f2_11",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #11",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "at_local_enu_m": [
+        724.58,
+        -1.12
+      ],
+      "facade_bearing_deg": 1.6,
+      "along_frontage_frac": 0.5,
+      "parts": [
+        {
+          "part": "plank_1",
+          "at_local_enu_m": [
+            724.55,
+            -2.47
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_2",
+          "at_local_enu_m": [
+            724.55,
+            -2.17
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_3",
+          "at_local_enu_m": [
+            724.56,
+            -1.87
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_4",
+          "at_local_enu_m": [
+            724.57,
+            -1.57
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_5",
+          "at_local_enu_m": [
+            724.58,
+            -1.27
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_6",
+          "at_local_enu_m": [
+            724.59,
+            -0.97
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_7",
+          "at_local_enu_m": [
+            724.6,
+            -0.67
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_8",
+          "at_local_enu_m": [
+            724.6,
+            -0.37
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_9",
+          "at_local_enu_m": [
+            724.61,
+            -0.07
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_10",
+          "at_local_enu_m": [
+            724.62,
+            0.23
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        }
+      ],
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #11. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the South Water Street track, on committed ground at +0.37 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
       "id": "blk_south_water_dearborn_south_mounting_block_mansion_house",
       "belongs_to": "town_street_edge",
       "kind": "mounting_block",
@@ -32895,6 +33076,11 @@
       "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
       "wall": "blk_south_water_dearborn north face, lot 4",
       "why": "no stoop at recon_1835_blk_south_water_dearborn_c3_02: no walk is laid at 69.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
+      "wall": "blk_south_water_dearborn north face, lot 0",
+      "why": "recon_1835_blk_south_water_dearborn_f2_11 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",

@@ -505,13 +505,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # of the Wolcott-Kinzie core's houses (recon_1835_north_a2_094..098), through emit.py and the
 # common modules; terrain reach stays 6 and pier_crib stays 2.
 #
+# 698 -> 699 and 692 -> 693 on 2026-10-08 (T-2174, of T-1673, on top of T-2170): one F2
+# two-storey warehouse behind the stores on blk_south_water_dearborn lot 0, a
+# frame_storefront through emit.py and the common modules. Terrain reach stays 6 and
+# pier_crib stays 2.
+#
 STATED = {
-    "assets": 698,
+    "assets": 699,
     "restales": {
-        "generators/common/*.py": 698,
+        "generators/common/*.py": 699,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 692,
+        "generators/emit.py": 693,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
