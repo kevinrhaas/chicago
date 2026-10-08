@@ -8,6 +8,7 @@ contract is docs/unreal/SCENE-BUNDLE.md; this is its one implementation.
     python3 tools/scene_bundle.py pack   --scene 1835 [--commit SHA] [--out DIR]
     python3 tools/scene_bundle.py verify ARCHIVE [--expect-digest HEX]
     python3 tools/scene_bundle.py repro  --scene 1835 [--commit SHA]
+    python3 tools/scene_bundle.py advance --index OLD --receipt R --tag T ... --out NEW
     python3 tools/scene_bundle.py --self-test
 
 ONE COMMIT, NEVER THE WORKING TREE. `pack` reads every byte it ships out of the
@@ -441,6 +442,69 @@ def repro(scene_id: str, commit: str, only: list[str] | None = None, gz: bool = 
                          and first["archive_sha256"] == second["archive_sha256"]}
 
 
+# ---------------------------------------------------------------- the discovery manifest
+
+INDEX_SCHEMA = "chicago4d-scene-bundle-index/1"
+INDEX_HISTORY = 20
+# GitHub's compare status of the NEW bundle's base against the latest-good's base
+# (`compare/<latest base>...<new base>`): `ahead` means the new base descends from it.
+ADVANCES = ("ahead", "identical")
+
+
+def index_entry(receipt: dict, tag: str, archive_url: str, release_url: str,
+                run_url: str, base_commit: str) -> dict:
+    """One published bundle, as the discovery manifest lists it. Refused if it may not be listed."""
+    for key in ("payload_digest", "archive_sha256"):
+        if not HEX64.match(str(receipt.get(key, ""))):
+            raise Refused(f"the pack receipt's {key} is not a sha256: {receipt.get(key)!r}")
+    for key, value in (("source_commit", receipt.get("source_commit")), ("base_commit", base_commit)):
+        if not HEX40.match(str(value or "")):
+            raise Refused(f"{key} is not a full commit sha: {value!r}")
+    if receipt.get("partial"):
+        raise Refused("a partial bundle (--only) is never published")
+    return {"scene": receipt["scene"], "tag": tag, "archive": Path(receipt["archive"]).name,
+            "archive_url": archive_url, "release_url": release_url,
+            "archive_sha256": receipt["archive_sha256"], "archive_bytes": receipt["archive_bytes"],
+            "payload_digest": receipt["payload_digest"], "source_commit": receipt["source_commit"],
+            "base_commit": base_commit, "files": receipt["files"],
+            "structures": receipt["structures"], "built_at": receipt.get("built_at"),
+            "run_url": run_url}
+
+
+def advance(index: dict | None, entry: dict, compare: str | None) -> tuple[dict, bool, str]:
+    """Fold a published bundle into the discovery manifest: (index, moved, why).
+
+    The latest-good pointer moves only to a bundle baked from the same `dev` commit as
+    the current one or a descendant of it. Two bakes can finish out of order (a dispatch
+    and the nightly do not share a concurrency group), so an older bake that finishes
+    last is still published under its own tag but is never pointed at. The bundle the
+    pointer leaves goes to the head of `previous`, which keeps INDEX_HISTORY of them.
+    """
+    if index is None:
+        index = {"schema": INDEX_SCHEMA, "scenes": {}}
+    if index.get("schema") != INDEX_SCHEMA:
+        raise Refused(f"the discovery manifest is {index.get('schema')!r}, not {INDEX_SCHEMA}")
+    slot = index["scenes"].setdefault(entry["scene"], {"latest_good": None, "previous": []})
+    current = slot["latest_good"]
+    if current is None:
+        why = "the first bundle published for this scene"
+    elif current["payload_digest"] == entry["payload_digest"] \
+            and current["source_commit"] == entry["source_commit"]:
+        return index, False, "already the latest-good bundle"
+    elif compare in ADVANCES:
+        why = f"base {entry['base_commit'][:12]} is {compare} of the latest-good's base {current['base_commit'][:12]}"
+    else:
+        return index, False, (f"base {entry['base_commit'][:12]} is {compare or 'not compared'} against "
+                               f"the latest-good's base {current['base_commit'][:12]}: a stale or "
+                               f"diverged bake does not move the pointer")
+    if current is not None:
+        slot["previous"] = ([current] + [p for p in slot["previous"]
+                                         if p["tag"] not in (current["tag"], entry["tag"])])[:INDEX_HISTORY]
+    slot["latest_good"] = entry
+    index["updated_at"] = entry.get("built_at")
+    return index, True, why
+
+
 # ---------------------------------------------------------------- self-test
 
 def self_test() -> int:
@@ -551,6 +615,34 @@ def self_test() -> int:
     refused("a contract that lost its layer table refuses rather than claiming full coverage",
             lambda: omitted_layers("no table here"), "lost its T-0252 layer table")
 
+    def published(n: int, partial: bool = False) -> dict:
+        receipt = {"scene": "1835", "archive": f"/tmp/b{n}.tar.gz", "archive_sha256": f"{n:064x}",
+                   "archive_bytes": 1, "payload_digest": f"{n + 100:064x}", "source_commit": f"{n:040x}",
+                   "files": 1, "structures": 1, "partial": partial, "built_at": f"2026-10-0{n % 9 + 1}T06:00:00Z"}
+        return index_entry(receipt, f"tag{n}", "u", "r", "run", f"{n + 200:040x}")
+    idx, moved, _ = advance(None, published(1), None)
+    expect("the first published bundle becomes the latest-good", moved
+           and idx["scenes"]["1835"]["latest_good"]["tag"] == "tag1")
+    idx, moved, _ = advance(idx, published(1), "identical")
+    expect("the same bundle again moves nothing", not moved)
+    idx, moved, _ = advance(idx, published(2), "ahead")
+    slot = idx["scenes"]["1835"]
+    expect("a bake of a newer dev commit moves the pointer and keeps the old one as previous-good",
+           moved and slot["latest_good"]["tag"] == "tag2" and slot["previous"][0]["tag"] == "tag1")
+    for status in ("behind", "diverged", None):
+        idx, moved, why = advance(idx, published(3), status)
+        expect(f"a bake whose base is {status or 'not compared'} does not move the pointer",
+               not moved and idx["scenes"]["1835"]["latest_good"]["tag"] == "tag2", why)
+    for n in range(4, 4 + INDEX_HISTORY + 3):
+        idx, _, _ = advance(idx, published(n), "ahead")
+    expect(f"previous-good keeps {INDEX_HISTORY} bundles, newest first",
+           len(idx["scenes"]["1835"]["previous"]) == INDEX_HISTORY
+           and idx["scenes"]["1835"]["previous"][0]["tag"] == f"tag{3 + INDEX_HISTORY + 2}")
+    refused("a partial bundle is never listed",
+            lambda: published(9, partial=True), "partial")
+    refused("a manifest of another schema is refused, not overwritten",
+            lambda: advance({"schema": "something/0", "scenes": {}}, published(1), None), "not " + INDEX_SCHEMA)
+
     print(f"scene_bundle self-test: {'PASS' if not failures else 'FAIL ' + ', '.join(failures)}")
     return 1 if failures else 0
 
@@ -571,6 +663,16 @@ def main(argv: list[str]) -> int:
     r = sub.add_parser("repro", help="pack the same commit twice and compare")
     r.add_argument("--scene", default="1835")
     r.add_argument("--commit", default="HEAD")
+    a = sub.add_parser("advance", help="fold a published bundle into the discovery manifest")
+    a.add_argument("--index", required=True, help="the current manifest (absent: a new one)")
+    a.add_argument("--receipt", required=True, help="the pack receipt of the published bundle")
+    a.add_argument("--tag", required=True)
+    a.add_argument("--archive-url", required=True)
+    a.add_argument("--release-url", required=True)
+    a.add_argument("--run-url", required=True)
+    a.add_argument("--base-commit", required=True, help="the dev commit the bake was built from")
+    a.add_argument("--compare", default="", help="GitHub compare status of the new base against the latest-good's")
+    a.add_argument("--out", required=True)
     args = ap.parse_args(argv)
     try:
         if args.self_test:
@@ -594,6 +696,15 @@ def main(argv: list[str]) -> int:
             print(json.dumps(out, indent=1, ensure_ascii=False))
             print("REPRODUCIBLE" if out["identical"] else "NOT REPRODUCIBLE")
             return 0 if out["identical"] else 1
+        if args.cmd == "advance":
+            old = Path(args.index)
+            entry = index_entry(json.loads(Path(args.receipt).read_text()), args.tag, args.archive_url,
+                                args.release_url, args.run_url, args.base_commit)
+            index, moved, why = advance(json.loads(old.read_text()) if old.is_file() else None,
+                                        entry, args.compare or None)
+            Path(args.out).write_text(json.dumps(index, indent=1, ensure_ascii=False) + "\n")
+            print(json.dumps({"advanced": moved, "why": why, "tag": args.tag}, ensure_ascii=False))
+            return 0
         ap.print_help()
         return 2
     except Refused as exc:
