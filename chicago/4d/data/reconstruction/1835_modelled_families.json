@@ -14,12 +14,12 @@
   "a letter-list mint argues for a person and not for a household": 780,
   "a source already names, counts or rules on this household's family": 147,
   "a source marries the head after the scene date": 1,
-  "a woman heading her own household is the age pyramid's, T-1174": 31,
+  "a woman heading her own household is the age pyramid's, T-1174": 46,
   "an evidence-only container holds read evidence and not a household to draw a family into": 5,
   "presence on the scene date is not settled (T-1172's roster holds it)": 8,
   "the fort and the country outside the town are not this stage's": 3,
   "the head is not a person the sources name": 11,
-  "the head is not an adult the household model seats as a husband": 65,
+  "the head is not an adult the household model seats as a husband": 50,
   "the head's own trade says he kept no wife": 1,
   "the household carries a standing review, and only T-1177's stage may reconstruct within one": 4,
   "the order book has no woman left in this house's cell": 366
@@ -4090,15 +4090,15 @@
   "women_left_heading_their_own_house": 34,
   "female_headed_households": {
    "before": [
-    204,
+    219,
     1540
    ],
    "after": [
-    114,
+    129,
     1450
    ],
-   "share_before": 0.1325,
-   "share_after": 0.0786,
+   "share_before": 0.1422,
+   "share_after": 0.089,
    "note": "Present households, as the order book counts the town. A move folds one house into another, so the town loses a household for every pair and the female-headed share falls on both ends of the fraction."
   },
   "pairs": [
@@ -4577,7 +4577,7 @@
   "inside_the_model_s_range": false,
   "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 366 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 366, 90 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 276 could take no woman the town holds. T-2021 ruled on those: 156 are given the whole family drawn for them, 156 wives among 508 people, and 120 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
   "female_headed_households_after_the_moves": [
-   114,
+   129,
    1450
   ],
   "age_pyramid_after": {

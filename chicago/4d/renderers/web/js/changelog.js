@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1548, ts: '2026-10-08T20:50:36.022Z', date: 'Oct 8, 2026, 3:50 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+  { v: 1549, ts: '2026-10-08T21:10:13.013Z', date: 'Oct 8, 2026, 4:10 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
       'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
       'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
       'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
+    ] },
+  { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
+    items: [
+      'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
+      'The 34 fathers and godfathers in the register now show a sex read from their place in the entry, with the register cited, instead of one drawn at random. The register\u2019s mothers and godmothers come next, because several were given an invented wife when they were guessed male.',
     ] },
   { v: 1547, ts: '2026-10-08T20:22:59.659Z', date: 'Oct 8, 2026, 3:22 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
     items: [
