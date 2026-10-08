@@ -42,8 +42,10 @@ fixed. These principal-window heights are reconstructed (+/-1 ft).
   were refreshed and passed their unchanged direct checks. The closing-set
   report, changelog contract, PR changelog check and ticket-ID check also pass.
   The full required CI verdict is recorded on the pull request.
-- Broader published part-13 browser checks are recorded on the pull request;
-  this is not a claim that every part of the whole-site browser suite was run.
+- Published part-13 browser smoke passes at both sizes: 250 checks, zero failures
+  and zero page errors, including the 1904 Glessner scene. The standing smoke
+  record retains the result. This software-rendered run took 21m55s, exceeding
+  the runner's 10-minute target; it is not a whole-site smoke or FPS claim.
 
 Branch: steward/glessner-tower-proportions. Recovery checkpoints f08f65e4
 (study), a2205615 (band/assets), 9eeaf4a7 (final sash/assets and six app views).
