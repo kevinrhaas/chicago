@@ -21,7 +21,12 @@
  *    of anything whose position is dynamic;
  *  - every bounding volume, computed before the position can go, so the
  *    frustum never needs it again;
- *  - a BatchedMesh's index, whose element size three reads on every draw.
+ *  - a BatchedMesh's index, whose element size three reads on every draw;
+ *  - a geometry flagged `userData.rereadBeforeRelease`, which its layer will
+ *    rebuild from its own arrays after this upload — the terrain's far base,
+ *    which `batchDistantGround()` cuts into pieces once the frontage has
+ *    protected it (T-2180). Its replacement is not flagged, so the next pass
+ *    lets that one go as usual.
  *
  * The far merge reads chunk arrays to build a cluster; a cluster of released
  * chunks refuses and stays chunked (far-merge.js), which at `light` — the
@@ -78,6 +83,7 @@ function markLayer(layer, keep) {
   layer.traverse((o) => {
     const geo = o.geometry;
     if (!geo || o.isInstancedMesh || geo.userData.uploadReleased) return;
+    if (geo.userData.rereadBeforeRelease) return;
     const pos = geo.attributes.position;
     if (!pos || pos.usage !== THREE.StaticDrawUsage) return;
     geo.userData.uploadReleased = true;
