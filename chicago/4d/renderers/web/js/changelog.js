@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1547, ts: '2026-10-08T20:22:59.659Z', date: 'Oct 8, 2026, 3:22 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
+    items: [
+      'Wm. H. Frazer, Joshua Pruvis and John Vandine are names from the post office\u2019s list of uncalled-for letters for 1 January 1834. Their cards wear the spelling read off the page image of the list\u2019s last printing, but their notes still said the papers printed Fraser, Provis and Vandino.',
+      'Each note now names both readings and where each comes from: the page image of the 4 March 1834 printing, and a transcription of the 28 January one. It says which spelling the card wears and why.',
+    ] },
   { v: 1546, ts: '2026-10-08T19:58:47.393Z', date: 'Oct 8, 2026, 2:58 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
     items: [
       'The courtyard tower’s main windows now share the adjoining first-floor height. The upper wing windows are shorter, matching the tower’s upper band.',
