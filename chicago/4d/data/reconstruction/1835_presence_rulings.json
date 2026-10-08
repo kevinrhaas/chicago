@@ -32,7 +32,7 @@
   },
   "counts": {
     "households_ruled": 955,
-    "persons_ruled": 1865,
+    "persons_ruled": 1860,
     "households_by_leg": {
       "on_the_day": 60,
       "spans": 49,
@@ -43,7 +43,7 @@
       "on_the_day": 177,
       "spans": 130,
       "bracketed": 49,
-      "carried": 1509
+      "carried": 1504
     },
     "households_by_tier": {
       "reconstructed": 814,
@@ -51,14 +51,14 @@
       "attested": 60
     },
     "persons_by_tier": {
-      "reconstructed": 1509,
+      "reconstructed": 1504,
       "inferred": 179,
       "attested": 177
     },
     "persons_by_residence_grade": {
       "inferred": 683,
       "attested": 278,
-      "reconstructed": 904
+      "reconstructed": 899
     },
     "rulings_above_t1172_blanket_reconstructed": 141,
     "evidenced_absences_left_out": 2
@@ -13037,10 +13037,9 @@
       "household_id": "hh_guy_josphine",
       "name": "The Guy household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 6,
+      "persons": 1,
       "grades": {
-        "inferred": 1,
-        "reconstructed": 5
+        "inferred": 1
       },
       "leg": "carried",
       "present_on_scene_date": {

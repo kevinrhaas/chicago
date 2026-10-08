@@ -31,28 +31,28 @@
   "data/research/newspapers/street_face_adoptions.json (the business deal, which goes first — T-1669)"
  ],
  "counts": {
-  "rows_in_scope": 1424,
-  "seated": 214,
+  "rows_in_scope": 1423,
+  "seated": 213,
   "owed": 1210,
   "by_how": {
-   "adopted": 212,
+   "adopted": 211,
    "slot": 2
   },
   "by_clause": {
    "labourer_dwellings": 38,
    "lodging_near_the_landings": 2,
    "merchant_and_professional_dwellings": 36,
-   "tradesman_dwellings": 138
+   "tradesman_dwellings": 137
   },
   "by_district": {
    "north": 8,
-   "south": 164,
+   "south": 163,
    "west": 42
   },
   "by_family": {
    "D1": 21,
    "D2": 17,
-   "D3": 44,
+   "D3": 43,
    "D4": 44,
    "D5": 34,
    "D6": 16,
@@ -61,15 +61,15 @@
    "H2": 9,
    "H3": 2
   },
-  "lots_taken": 196,
-  "roofs_adopted": 212,
+  "lots_taken": 195,
+  "roofs_adopted": 211,
   "slots_requested": 2,
   "owed_by_band_clause": {
-   "division_ground": 24,
+   "division_ground": 25,
    "farms_and_country_seats": 210,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 90,
-   "merchant_and_professional_dwellings": 381,
+   "merchant_and_professional_dwellings": 380,
    "tradesman_dwellings": 503
   },
   "roofs_offered_for_adoption": 222,
@@ -80,7 +80,7 @@
  "what_the_plat_could_not_hold": {
   "rows": 1210,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 214 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 213 of the 1423 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
@@ -2406,9 +2406,9 @@
    "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
   },
   {
-   "id": "hh_baptist_john",
+   "id": "hh_barbour_timothy",
    "kind": "household",
-   "name": "The Baptist household — a name the town's own records carry",
+   "name": "The Barbour household — a name from the post office's letter lists",
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
@@ -2420,30 +2420,6 @@
    "corner": true,
    "how": "adopted",
    "structure_id": "recon_1835_blk_randolph_dearborn_d3_01",
-   "family": "D3",
-   "stands_on": "lot",
-   "setback_class": "typology",
-   "multi_building_rule": "one_principal_roof",
-   "policy_rule": "tradesman_dwellings",
-   "order_book_draw": null,
-   "seed": "hh_baptist_john|T-1522|division:8ebb03ba4058|class:98b7aa3b9c82",
-   "why": "a standing anonymous roof of a family this clause admits, on a lot of this household's own division: the roof is already raised, so nothing is drawn off the order book"
-  },
-  {
-   "id": "hh_barbour_timothy",
-   "kind": "household",
-   "name": "The Barbour household — a name from the post office's letter lists",
-   "clause": "tradesman_dwellings",
-   "district": "south",
-   "band": "south/tradesman_dwellings",
-   "lot_id": "blk_lake_lasalle#01",
-   "block_id": "blk_lake_lasalle",
-   "lot_index": 1,
-   "fronts": "randolph",
-   "street_class": "ordinary",
-   "corner": true,
-   "how": "adopted",
-   "structure_id": "recon_1835_south_d3_027",
    "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
@@ -2556,15 +2532,15 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_lake_franklin#01",
-   "block_id": "blk_lake_franklin",
+   "lot_id": "blk_lake_lasalle#01",
+   "block_id": "blk_lake_lasalle",
    "lot_index": 1,
    "fronts": "randolph",
    "street_class": "ordinary",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_south_d6_036",
-   "family": "D6",
+   "structure_id": "recon_1835_south_d3_027",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2604,15 +2580,15 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_lake_clark#01",
-   "block_id": "blk_lake_clark",
+   "lot_id": "blk_lake_franklin#01",
+   "block_id": "blk_lake_franklin",
    "lot_index": 1,
    "fronts": "randolph",
    "street_class": "ordinary",
    "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_south_d4_030",
-   "family": "D4",
+   "structure_id": "recon_1835_south_d6_036",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -2628,15 +2604,15 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_washington_wells#05",
-   "block_id": "blk_washington_wells",
-   "lot_index": 5,
-   "fronts": "madison",
-   "street_class": "none",
-   "corner": false,
+   "lot_id": "blk_lake_clark#01",
+   "block_id": "blk_lake_clark",
+   "lot_index": 1,
+   "fronts": "randolph",
+   "street_class": "ordinary",
+   "corner": true,
    "how": "adopted",
-   "structure_id": "recon_1835_blk_washington_wells_d3_06",
-   "family": "D3",
+   "structure_id": "recon_1835_south_d4_030",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
@@ -8758,15 +8734,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_stephenson_james_w",
-   "kind": "household",
-   "band": "south/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_stewart_r",
    "kind": "household",
    "band": "west/merchant_and_professional_dwellings",
@@ -9362,15 +9329,6 @@
   },
   {
    "id": "hh_blodgett_tyler_k",
-   "kind": "household",
-   "band": "north/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_bourassa_lon",
    "kind": "household",
    "band": "north/tradesman_dwellings",
    "clause": "tradesman_dwellings",
@@ -13024,6 +12982,15 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_stephenson_james_w",
+   "kind": "household",
+   "band": "south/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_stevens_l",
    "kind": "household",
    "band": "north/tradesman_dwellings",
@@ -15627,9 +15594,9 @@
   {
    "id": "hh_laframboise_thrse",
    "kind": "household",
-   "band": "west/farms_and_country_seats",
+   "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "west",
+   "district": "south",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },
@@ -16049,6 +16016,15 @@
   },
   {
    "id": "hh_rc_barnes_nancy",
+   "kind": "household",
+   "band": "south/division_ground",
+   "clause": "division_ground",
+   "district": "south",
+   "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_rc_chevalier_angelique",
    "kind": "household",
    "band": "south/division_ground",
    "clause": "division_ground",

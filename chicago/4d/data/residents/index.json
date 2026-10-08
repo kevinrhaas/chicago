@@ -9893,10 +9893,9 @@
    "head": "guy_josphine",
    "division": "unplaced",
    "division_reconstructed": "south",
-   "persons": 6,
+   "persons": 1,
    "grades": {
-    "inferred": 1,
-    "reconstructed": 5
+    "inferred": 1
    },
    "lives_at": null,
    "works_at": null,
@@ -19097,9 +19096,10 @@
    "head": "rider_eli_a",
    "division": "unplaced",
    "division_reconstructed": "west",
-   "persons": 1,
+   "persons": 6,
    "grades": {
-    "attested": 1
+    "attested": 1,
+    "reconstructed": 5
    },
    "lives_at": null,
    "works_at": null,

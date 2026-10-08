@@ -2130,19 +2130,9 @@ def self_test() -> int:
               r["rank"] for r in ruling["houses"].values() if r["verdict"] == ADMITTED)
           == list(range(1, ruling["counts"]["admitted"] + 1)))
     fr = ledger["family_ruling"]
-    # THE HOUSES REFUSED SINCE THE FREEZE, BY NAME, so one arrives as a decision rather than
-    # a re-count. T-2179 made the first: folding the Bourassa duplicates put Leon
-    # Bourrassa's card present on its own evidence, which draws his house ahead of
-    # hh_rider_eli_a's for the South's last 30-39 wife slot. Rider's house is refused, the
-    # ruling never saw it, and it stands alone and says so on the card. The ruling's own
-    # houses and orders are untouched, which is the clause that matters.
-    married_now = {p_["house"] for p_ in ledger["re_housing"]["pairs"]}
-    unruled = sorted(h for h in ledger["houses_the_book_refused_by_household"]
-                     if h not in married_now and h not in ((ruling or {}).get("houses") or {}))
     fires("the build reads the frozen list and re-deals nobody",
           ruling is not None and fr["fills"] == ruling["orders"]
-          and fr["admitted"] == ruling["counts"]["admitted"]
-          and fr["not_ruled_on"] == len(unruled) and unruled == ["hh_rider_eli_a"])
+          and fr["admitted"] == ruling["counts"]["admitted"] and fr["not_ruled_on"] == 0)
     moved = json.loads(json.dumps(ruling or {}))
     if moved.get("houses"):
         first = min(moved["houses"], key=lambda h: moved["houses"][h]["rank"])

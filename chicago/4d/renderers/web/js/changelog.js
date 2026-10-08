@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+  { v: 1539, ts: '2026-10-08T15:56:36.421Z', date: 'Oct 8, 2026, 10:56 AM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
       'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
       'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',

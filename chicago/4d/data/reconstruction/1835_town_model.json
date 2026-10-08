@@ -148,9 +148,9 @@
           ]
         },
         "known_by_presence": {
-          "present": 3065,
+          "present": 3070,
           "absent": 126,
-          "uncertain": 424
+          "uncertain": 419
         }
       }
     },
@@ -929,13 +929,13 @@
             },
             {
               "year": 1834,
-              "people": 1049,
-              "share": 0.3538
+              "people": 1054,
+              "share": 0.3555
             },
             {
               "year": 1835,
-              "people": 1306,
-              "share": 0.4405
+              "people": 1301,
+              "share": 0.4388
             }
           ]
         },
