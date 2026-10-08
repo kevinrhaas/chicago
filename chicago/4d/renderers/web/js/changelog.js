@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1544, ts: '2026-10-08T18:59:57.299Z', date: 'Oct 8, 2026, 1:59 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
+    items: [
+      'Wm. H. Frazer, Joshua Pruvis and John Vandine are names from the post office\u2019s list of uncalled-for letters for 1 January 1834. Their cards wear the spelling read off the page image of the list\u2019s last printing, but their notes still said the papers printed Fraser, Provis and Vandino.',
+      'Each note now names both readings and where each comes from: the page image of the 4 March 1834 printing, and a transcription of the 28 January one. It says which spelling the card wears and why.',
+    ] },
   { v: 1543, ts: '2026-10-08T17:49:39.051Z', date: 'Oct 8, 2026, 12:49 PM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
       'St Mary\u2019s baptism register gives six children a birth date, or an age at baptism, that falls after 1 July 1835. Until now they were counted in the town that day. Now they are not.',
