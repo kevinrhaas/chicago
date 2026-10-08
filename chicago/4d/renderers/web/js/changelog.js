@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1535, ts: '2026-10-08T13:51:28.556Z', date: 'Oct 8, 2026, 8:51 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
+  { v: 1536, ts: '2026-10-08T14:00:57.742Z', date: 'Oct 8, 2026, 9:00 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
     items: [
       'Nothing you can see changes. The project measures the town from fixed spots, and two of them inside the town stood a metre from a wall.',
       'Two new spots look across the back yards on Washington Street and at the South Water Street shop fronts from the street, so their pictures show what they are meant to check.',
+    ] },
+  { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
+      'With these three, every yard building the town plan counted for the West Division now stands.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
     ] },
   { v: 1534, ts: '2026-10-08T12:37:03.823Z', date: 'Oct 8, 2026, 7:37 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
     items: [
