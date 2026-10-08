@@ -1,6 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1529, ts: '2026-10-08T10:25:53.932Z', date: 'Oct 8, 2026, 5:25 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: null, ts: '', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
+  { v: 1529, ts: '2026-10-08T10:24:03.249Z', date: 'Oct 8, 2026, 5:24 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',
+      'Five recent builds added walks, fences, a wagon apron and bare workshop fronts, and the checks still expected the old numbers. They now count what those builds laid, and each new number is traced to the build that added it.',
+      'A cart on the newly extended West Water Street was being counted as part of the raft bridge\u2019s timber pile beside it. The check now measures that pile by its own footprint.',
+    ] },
   { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
     items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
