@@ -1,10 +1,18 @@
 #!/usr/bin/env python3
-"""Build T-1773's one reconstructed West Division freight roof at the forks.
+"""Build the West Division's reconstructed freight roofs on West Water Street.
 
-The order book left the West's freight row one roof short (2 set, 1 standing), and this
-writes that roof from `data/reconstruction/1835_west_freight_forks.json`: an F2 narrow
-two-storey warehouse on plat lot 1 of `blk_west_lake_canal`, the Lake and West Water
-corner, its front on the lot's West Water line and its rear toward the alley.
+One record per recipe, and each recipe is a ticket's argument for one lot:
+
+  `data/reconstruction/1835_west_freight_forks.json` (T-1773): an F2 narrow two-storey
+  warehouse on plat lot 1 of `blk_west_lake_canal`, the Lake and West Water corner,
+  facing the forks.
+  `data/reconstruction/1835_west_freight_bank.json` (T-2150): an F2 on plat lot 1 of
+  `blk_west_washington_canal`, the Washington and West Water corner, where the South
+  Branch comes closest to the street; it stands on the placement policy's `bank_landing`
+  clause.
+
+Each roof's front is on its lot's West Water line, its side on the corner street's line
+and its rear toward the alley.
 
 It authors NO coordinate of its own. The lot is read from the committed plat
 (`data/traces/vectors/thompson_lots.json`), the footprint from the family band, the form
@@ -37,11 +45,13 @@ from plat_occupancy import world_polygon, footprints, overlap_area  # noqa: E402
 from heightfield import Heightfield  # noqa: E402
 from siding_stock import deal_records as deal_siding  # noqa: E402
 import fabric_rule_1835  # noqa: E402  (T-1816: the finish says whose house it is)
+from placement_policy_1835 import bank_landing_reach_m  # noqa: E402  (T-2150)
 
 CORRIDOR_LINE = "drawn"
 CORRIDOR_LINE_WHY = ("A question about a roof on a lot: the warehouse stands on the plat's own "
                      "lot and is checked against the drawn street corridors it must stay out of.")
-RECIPE = DATA / "reconstruction" / "1835_west_freight_forks.json"
+RECIPES = (DATA / "reconstruction" / "1835_west_freight_forks.json",
+           DATA / "reconstruction" / "1835_west_freight_bank.json")
 LOTS = DATA / "traces" / "vectors" / "thompson_lots.json"
 EPOCH = DATA / "terrain" / "epochs" / "e1834_harbor_cut"
 SOURCE = "owner_chicago_1835_reconstruction_spec_2026"
@@ -86,8 +96,9 @@ def front_edge(lot: list[tuple[float, float]]) -> tuple[tuple[float, float], tup
 def seat(lot, width: float, depth: float, setback: float,
          side_setback: float) -> tuple[float, float, float]:
     """Stand the roof `setback` metres inside the lot's West Water line and `side_setback`
-    metres inside its northern (Lake Street) line: on both street lines of the corner, which
-    is where the placement policy's `commercial_front` clause puts a freight roof."""
+    metres inside its northern line (Lake Street at the forks, Washington Street on the
+    bank): on both street lines of the corner, where the placement policy puts a freight
+    roof."""
     (ae, an), (be, bn) = front_edge(lot)
     if an < bn:                       # walk the frontage from its Lake Street end
         (ae, an), (be, bn) = (be, bn), (ae, an)
@@ -109,8 +120,9 @@ def seat(lot, width: float, depth: float, setback: float,
 
 
 def make_record(recipe: dict, datum: dict) -> dict:
-    row = recipe["placement"]
+    row, text = recipe["placement"], recipe["record"]
     family, seed = row["family"], row["geometry_seed"]
+    sequence = int(row.get("sequence", 1))
     spec = families()[family]
     width, depth = dimensions_m(family, spec["band_ft"], seed)
     lot = lot_polygon(row["block_id"], row["lot_column"], row["lot_row"])
@@ -123,7 +135,7 @@ def make_record(recipe: dict, datum: dict) -> dict:
         # The anonymous programme's production name, which display-name.js reads into the
         # title a visitor sees ("A vacant narrow two-story warehouse"); any other shape is
         # shown verbatim and the smoke refuses it.
-        "name": f"Reconstructed {family} {spec['label'].lower()} #001",
+        "name": f"Reconstructed {family} {spec['label'].lower()} #{sequence:03d}",
         "archetype": spec["archetype"],
         "phases": [{
             "id": "inferred_1835",
@@ -134,15 +146,9 @@ def make_record(recipe: dict, datum: dict) -> dict:
                 "utm_e": round(datum["origin_utm_e"] + east, 3),
                 "utm_n": round(datum["origin_utm_n"] + north, 3),
                 "rotation_deg": round(bearing, 6),
-                "symbolic_location": "Reconstructed warehouse at Lake and West Water Streets, facing the forks of the river",
+                "symbolic_location": text["symbolic_location"],
                 "confidence": "reconstructed",
-                "note": (f"The lot is the plat's (Thompson 1830, {row['block_id']} lot "
-                         f"{row['plat_lot_number']}); this roof on it is not. It stands on the "
-                         f"corner, {row['front_setback_m']} m inside the lot's West Water line "
-                         f"and {row['side_setback_m']} m inside its Lake Street line, the rear "
-                         "toward the block's alley. Chosen as the one platted West "
-                         "Division lot facing the South Branch at the forks; no source seats "
-                         "a building here."),
+                "note": text["position_note"],
                 "derivation": {"method": "not_derivable",
                                "reason": "No parcel-by-parcel July 1835 West Division roof register survives in the supplied evidence."}},
             "footprint": {
@@ -151,22 +157,16 @@ def make_record(recipe: dict, datum: dict) -> dict:
                 "note": f"Deterministically sampled {width:.3f} by {depth:.3f} metre rectangle inside the {family} typology band; neither dimension is attested for this invented roof."},
             "form": fabric_rule_1835.apply_form(
                 form_for(family, spec, seed, width, depth, paint), fabric),
-            "change_note": "T-1773 adds the West Division's second freight roof without moving an existing building."}],
-        "function": invented(FUNCTIONS[family],
-                             f"The {family} type fills the West Division's freight row in the order book. No forwarder, owner or cargo is recovered for it."),
+            "change_note": text["change_note"]}],
+        "function": invented(FUNCTIONS[family], text["function_note"]),
         "reconstruction": {
             "status": "inferred_anonymous", "family": family, "district": "west",
             "inventory_class": "principal_functional",
-            "programme_phase": "west_freight_forks_1835", "source_id": SOURCE,
-            "sequence": 1, "finish_key": finish,
+            "programme_phase": recipe["id"], "source_id": SOURCE,
+            "sequence": sequence, "finish_key": finish,
             "roof_condition": fabric["roof_condition"], "age_state": fabric["age_state"],
             "fabric_basis": fabric["fabric_basis"]},
-        "research_note": ("RECONSTRUCTED, NOT A RECOVERED ADDRESS. The order book's West freight "
-                          "row sets two roofs and one stood; this is the second. The family, the "
-                          "lot, the dimensions, the finish and every form value are inventions "
-                          "bounded by the reconstruction specification and recorded in "
-                          "docs/LIBERTIES.md. A named West Division warehouse, if one is ever "
-                          "read, replaces it."),
+        "research_note": text["research_note"],
         "review_required": False,
     }
 
@@ -218,6 +218,13 @@ def validate(record: dict, recipe: dict, datum: dict) -> str:
     bank = min(separation(poly, ring) for ring in water)
     if bank < BANK_SETBACK_M:
         raise ValueError(f"{record['id']} is only {bank:.2f} m from traced water")
+    # T-2150: a roof the recipe stands on `bank_landing` must be inside that clause's reach,
+    # read from the policy itself, or the policy refuses the roof this validator passed.
+    if recipe.get("clause") == "bank_landing":
+        reach = bank_landing_reach_m()
+        if bank > reach:
+            raise ValueError(f"{record['id']} is {bank:.2f} m from traced water, beyond the "
+                             f"{reach:.2f} m bank_landing reaches")
     field = Heightfield.load(EPOCH)
     if field is None:
         raise ValueError("committed terrain is required")
@@ -239,44 +246,52 @@ def validate(record: dict, recipe: dict, datum: dict) -> str:
             f"relief {max(heights) - min(heights):.2f} m")
 
 
-def record_from_inputs() -> tuple[dict, str]:
-    recipe, datum = load(RECIPE), load(DATA / "datum.json")
-    record = make_record(recipe, datum)
-    deal_siding([record])
-    return record, validate(record, recipe, datum)
+def records_from_inputs() -> list[tuple[dict, dict, str]]:
+    datum = load(DATA / "datum.json")
+    out = []
+    for path in RECIPES:
+        recipe = load(path)
+        record = make_record(recipe, datum)
+        deal_siding([record])
+        out.append((recipe, record, validate(record, recipe, datum)))
+    return out
 
 
 def self_test() -> int:
-    record, _ = record_from_inputs()
-    recipe, datum = load(RECIPE), load(DATA / "datum.json")
-    cases = []
-    roadway = copy.deepcopy(record)
-    roadway["phases"][0]["position"]["utm_e"] += 30
-    cases.append(("a roof moved into West Water Street", roadway))
-    off = copy.deepcopy(record)
-    off["phases"][0]["position"]["utm_n"] -= 12
-    cases.append(("a roof straddling the next lot", off))
-    backwards = copy.deepcopy(record)
-    phase = backwards["phases"][0]
-    poly = world_polygon(phase, datum)
-    centre = [sum(p[i] for p in poly) / 4 for i in (0, 1)]
-    width, depth = phase["footprint"]["polygon"][2]
-    bearing = (phase["position"]["rotation_deg"] + 180) % 360
-    east, north = footprint_origin(*centre, width, depth, bearing)
-    phase["position"].update(utm_e=datum["origin_utm_e"] + east,
-                             utm_n=datum["origin_utm_n"] + north, rotation_deg=bearing)
-    cases.append(("a warehouse turned to face the alley", backwards))
-    wrong = copy.deepcopy(record)
-    wrong["reconstruction"]["family"] = "F1"
-    cases.append(("a family the recipe did not order", wrong))
-    for label, mutated in cases:
-        try:
-            validate(mutated, recipe, datum)
-        except (ValueError, SystemExit):
-            print("PASS self-test: refuses " + label)
-        else:
-            print("FAIL self-test: did not refuse " + label)
-            return 1
+    datum = load(DATA / "datum.json")
+    for recipe, record, _ in records_from_inputs():
+        cases = []
+        roadway = copy.deepcopy(record)
+        roadway["phases"][0]["position"]["utm_e"] += 30
+        cases.append(("a roof moved into West Water Street", roadway))
+        off = copy.deepcopy(record)
+        off["phases"][0]["position"]["utm_n"] -= 12
+        cases.append(("a roof straddling the next lot", off))
+        backwards = copy.deepcopy(record)
+        phase = backwards["phases"][0]
+        poly = world_polygon(phase, datum)
+        centre = [sum(p[i] for p in poly) / 4 for i in (0, 1)]
+        width, depth = phase["footprint"]["polygon"][2]
+        bearing = (phase["position"]["rotation_deg"] + 180) % 360
+        east, north = footprint_origin(*centre, width, depth, bearing)
+        phase["position"].update(utm_e=datum["origin_utm_e"] + east,
+                                 utm_n=datum["origin_utm_n"] + north, rotation_deg=bearing)
+        cases.append(("a warehouse turned to face the alley", backwards))
+        wrong = copy.deepcopy(record)
+        wrong["reconstruction"]["family"] = "F1"
+        cases.append(("a family the recipe did not order", wrong))
+        if recipe.get("clause") == "bank_landing":
+            inland = copy.deepcopy(record)
+            inland["phases"][0]["position"]["utm_e"] -= 4
+            cases.append(("a bank-landing roof set back beyond the clause's reach", inland))
+        for label, mutated in cases:
+            try:
+                validate(mutated, recipe, datum)
+            except (ValueError, SystemExit):
+                print(f"PASS self-test: {record['id']} refuses {label}")
+            else:
+                print(f"FAIL self-test: {record['id']} did not refuse {label}")
+                return 1
     return 0
 
 
@@ -288,19 +303,21 @@ def main() -> int:
     args = parser.parse_args()
     if args.self_test:
         return self_test()
-    record, report = record_from_inputs()
-    path = DATA / "structures" / (record["id"] + ".json")
-    content = json.dumps(record, indent=2, ensure_ascii=False) + "\n"
-    print(report)
-    if args.check:
-        if not path.exists() or path.read_text(encoding="utf-8") != content:
-            print(f"FAIL: {path.relative_to(ROOT)} does not re-derive")
-            return 1
-        print("PASS: the West freight roof re-derives exactly")
-        return 0
-    path.write_text(content, encoding="utf-8")
-    print(f"PASS: wrote {path.relative_to(ROOT)}")
-    return 0
+    failed = 0
+    for _, record, report in records_from_inputs():
+        path = DATA / "structures" / (record["id"] + ".json")
+        content = json.dumps(record, indent=2, ensure_ascii=False) + "\n"
+        print(report)
+        if args.check:
+            if not path.exists() or path.read_text(encoding="utf-8") != content:
+                print(f"FAIL: {path.relative_to(ROOT)} does not re-derive")
+                failed = 1
+            continue
+        path.write_text(content, encoding="utf-8")
+        print(f"PASS: wrote {path.relative_to(ROOT)}")
+    if args.check and not failed:
+        print(f"PASS: the West freight roofs re-derive exactly ({len(RECIPES)})")
+    return failed
 
 
 if __name__ == "__main__":

@@ -72,7 +72,7 @@
    "merchant_and_professional_dwellings": 381,
    "tradesman_dwellings": 505
   },
-  "roofs_offered_for_adoption": 202,
+  "roofs_offered_for_adoption": 203,
   "roofs_held_back": 60,
   "roofs_held_by_the_business_deal": 44,
   "seats_the_business_deal_costs": 1
@@ -672,7 +672,7 @@
   },
   {
    "block_id": "blk_south_water_dearborn",
-   "family": "F3",
+   "family": "F2",
    "roofs": 1,
    "district": "south",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
@@ -693,16 +693,9 @@
   },
   {
    "block_id": "blk_south_water_wells",
-   "family": "F2",
+   "family": "F3",
    "roofs": 1,
    "district": "south",
-   "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
-  },
-  {
-   "block_id": "blk_washington_clinton",
-   "family": "F2",
-   "roofs": 1,
-   "district": "west",
    "why": "the plan offers this family and no banded row of this division is admitted by a clause that takes it"
   }
  ],

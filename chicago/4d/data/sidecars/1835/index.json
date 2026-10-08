@@ -12974,6 +12974,12 @@
       "asset": "gltf/recon_1835_blk_west_washington_canal_d7_05__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_branch_freight_f2_001",
+      "name": "Reconstructed F2 narrow two-story warehouse #002",
+      "sidecar": "sidecars/1835/recon_1835_branch_freight_f2_001.json",
+      "asset": "gltf/recon_1835_branch_freight_f2_001__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_canal_trade_c3_001",
       "name": "Reconstructed Canal Street narrow two-story store",
       "sidecar": "sidecars/1835/recon_1835_canal_trade_c3_001.json",

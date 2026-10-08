@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1521, ts: '2026-10-08T05:39:06.691Z', date: 'Oct 8, 2026, 12:39 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
+  { v: 1522, ts: '2026-10-08T06:12:35.994Z', date: 'Oct 8, 2026, 1:12 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [
       'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',
       'Two new lines under it: the 489 people still waiting on a roof the town does not stand yet, and the 661 more the reconstruction houses \u2014 trades, lodgers and others it seats \u2014 that the population figure does not count. Hover either for why.',
+    ] },
+  { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
+    items: [
+      'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
+      'No record names it. It is the West Division\u2019s second warehouse, which the plan counted and nobody had built. The plan first put it a block inland, where no river reaches. Here the river runs closer to West Water Street than anywhere else on the west side, so a warehouse can face its landing.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L400).',
     ] },
   { v: 1520, ts: '2026-10-08T05:18:21.664Z', date: 'Oct 8, 2026, 12:18 AM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
     items: [
