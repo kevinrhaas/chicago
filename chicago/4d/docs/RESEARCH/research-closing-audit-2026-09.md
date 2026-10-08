@@ -56,9 +56,9 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
-| absent | 2 |
+| absent | 8 |
 | present | 498 |
-| uncertain | 959 |
+| uncertain | 953 |
 
 | Division | Households |
 | --- | ---: |

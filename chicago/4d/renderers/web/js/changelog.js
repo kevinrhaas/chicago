@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
+  { v: 1540, ts: '2026-10-08T16:39:04.819Z', date: 'Oct 8, 2026, 11:39 AM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
       'St Mary\u2019s baptism register gives six children a birth date, or an age at baptism, that falls after 1 July 1835. Until now they were counted in the town that day. Now they are not.',
       'One of them, Bridget O\u2019Marra, was born on 19 August. The others were born between July and December. Their cards in the People directory now say they were not yet born on the day, and quote the register\u2019s own words.',
