@@ -17,3 +17,10 @@ PREFLIGHT PASS — CI has nothing left to ask. Open the PR.
 CHECK PASS — 790 steps, none red.
   322 of them are self-tests that prove a gate by breaking it; their
   assertions fire on purpose and every line of it is prefixed 'self-test |'.
+
+Final integration with dev 525abde (T-2187, PR #538)
+Command: C4D_GATE_REQUIRE_READERS=1 CHECK_JOBS=5 bash tools/check.sh
+
+CHECK PASS — 790 steps, none red.
+  322 of them are self-tests that prove a gate by breaking it; their
+  assertions fire on purpose and every line of it is prefixed 'self-test |'.

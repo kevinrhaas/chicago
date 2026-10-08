@@ -14,7 +14,7 @@ Canonical full/light assets and the recovery package are rebuilt. The 3,000
 roof checks and seven glass checks pass. Six published-app views on desktop
 Full and mobile Light pass with no page, resource or loader errors and within
 existing budgets; switching all three detail levels retains dark glass.
-Final preflight after integrating dev `2649aaf` passes all 790 repository checks. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
+Final preflight after integrating dev `2649aaf` passes all 790 repository checks; the combined tree is checked again after dev `525abde` lands and all 790 still pass. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
 
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 
@@ -947,7 +947,15 @@ the household model drew for them (508 people), and 121 stand alone with a card 
 - **Measured:** town converges 2,605 → 3,113; under-ten share 0.1894 → 0.2699; adult sex ratio
   435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
 - **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
-  T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
+  T-2021, counted apart from the re-cut. The family rows still owed named **T-2043**, which split
+  on 2026-10-08: the 392 family and store households are **T-2188**'s (form them around the
+  1,244 present head records awaiting a household), and the adult men were **T-2187**'s ruling.
+- **The adult men (T-2187).** The book credits the known people to its cells pro rata, so the
+  named heads (men, nearly all) were counted partly as women and children and the adult-male
+  family cells read 202 short. Read off the present cards: the model's civil town wants 943 men
+  aged twenty and over, the cards name 1,190 and the stages drew 276, so the town holds 1,466,
+  523 over. The 202 are discharged in the book (`adult_men_ruling`); it converges 3,135 → 2,933.
+  The same credit holds the women's and children's orders down; that is not touched here.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first

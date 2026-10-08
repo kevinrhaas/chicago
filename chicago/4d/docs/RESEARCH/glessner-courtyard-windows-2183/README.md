@@ -106,3 +106,10 @@ repoint, plus a bounded wait for the welcome screen in the smoke helper. The
 recovery takes dev's owner-book implementation and generated reports verbatim;
 none of that bookkeeping remains in the final diff against dev. Glessner's
 models and renderer behavior are unchanged by this integration.
+
+Recovery PR: https://github.com/kevinrhaas/chicago/pull/540. Dev moved to
+`525abde` (T-2187) after submission. Its 1835 population-plan ruling is
+integrated verbatim; no Glessner geometry or rendering changes. The combined
+tree again passes all 790 checks, including the strict source readers. The
+browser receipts predate this population-plan integration and are labelled
+with their original conditions; they are not new measurements of 1835 quotas.
