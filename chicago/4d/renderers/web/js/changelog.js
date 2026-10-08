@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1526, ts: '2026-10-08T08:46:36.948Z', date: 'Oct 8, 2026, 3:46 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+  { v: 1527, ts: '2026-10-08T09:16:55.949Z', date: 'Oct 8, 2026, 4:16 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [
       'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
       'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
+    ] },
+  { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+    items: [
+      'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
+      'The ground is stored about four times smaller on every device. It draws exactly the same.',
+      'The town looks exactly the same, and tapping a building, fence or yard still opens its card. Nothing changes on a computer apart from the smaller ground.',
     ] },
   { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [

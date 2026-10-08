@@ -2309,9 +2309,11 @@ export async function createTrees({
   // one — so ~11 floods settle a 1 969-row field. Each is the same typed-array
   // pass that runs below.
   let divideFloorRow = 0;
+  // One stack for every flood: it is scratch, and a fresh one per flood was
+  // ~8 MB a time, a dozen times over, while the phone was mid-load (T-2158).
+  const st = new Int32Array(cells);
   const floodSeparates = (cutRow) => {
     const d = new Int8Array(cells).fill(-1);
-    const st = new Int32Array(cells);
     let lab = 0;
     for (let s = cutRow * cols; s < cells; s++) {
       if (data[s] < CHANNEL_Y || d[s] >= 0) continue;
@@ -2417,12 +2419,16 @@ export async function createTrees({
     return false;
   }
   function clearedFactor(e, n) {
-    let f = 1;
+    // The factor only rises with distance, so the nearest building decides it:
+    // the same value as taking the least over every building, without boxing
+    // a number per building per sample — about 4 GB of garbage over a load
+    // (T-2158).
+    let nearest = Infinity;
     for (const p of fps) {
       const d = Math.hypot(e - p.e, n - p.n);
-      f = Math.min(f, lerp(0.20, 1, smoothstep(50, 135, d)));
+      if (d < nearest) nearest = d;
     }
-    return f;
+    return nearest === Infinity ? 1 : Math.min(1, lerp(0.20, 1, smoothstep(50, 135, nearest)));
   }
 
   /**
