@@ -53,8 +53,8 @@
    "D1": 21,
    "D2": 17,
    "D3": 44,
-   "D4": 44,
-   "D5": 32,
+   "D4": 43,
+   "D5": 33,
    "D6": 16,
    "D7": 15,
    "H1": 12,
@@ -4791,18 +4791,18 @@
    "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D6",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_94",
-    "family": "D6",
+    "family": "D5",
     "district": "south"
    },
    "seed": "hh_dave_john|T-1522|division:4d8a46092910|class:c18cb235dd2a",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_davis_george",
@@ -4847,18 +4847,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_95",
-    "family": "D4",
+    "family": "D5",
     "district": "south"
    },
    "seed": "hh_delano_loring|T-1522|division:c63b53339586|class:8c6caab49df9",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_dell_frank",
@@ -4903,18 +4903,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_95",
-    "family": "D5",
+    "family": "D6",
     "district": "south"
    },
    "seed": "hh_democrat_printers|south|printer|T-1512",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_alden_ebenozer",
