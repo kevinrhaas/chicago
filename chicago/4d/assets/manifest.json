@@ -2494,6 +2494,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_school_section_tier_81_d5_02"
     },
+    "recon_1835_blk_school_section_tier_81_d5_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 39584,
+      "inputs_sha256": "abcea819af4d4e2440b3c93d5bed829371d619c359e3777b76f2c71706e1018d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_81_d5_07"
+    },
     "recon_1835_blk_school_section_tier_81_d6_06__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
@@ -2619,6 +2628,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_school_section_tier_95_d6_06"
+    },
+    "recon_1835_blk_school_section_tier_95_d6_07__inferred_1835.glb": {
+      "archetype": "frame_dwelling",
+      "baked_ao": false,
+      "bytes": 45824,
+      "inputs_sha256": "c55866956dc9acc6c8e4a9fc7513e51cc7f2a522b669b3d820b3f9df66257882",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_school_section_tier_95_d6_07"
     },
     "recon_1835_blk_south_water_clark_a3_05__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -3042,6 +3060,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_wells_a2_09"
+    },
+    "recon_1835_blk_south_water_wells_a2_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 168056,
+      "inputs_sha256": "4b7e0ff896924c6f19b2fe6b19689f1190caadfd396b109c467c0bcf606acbdf",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_wells_a2_10"
     },
     "recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb": {
       "archetype": "outbuilding",
