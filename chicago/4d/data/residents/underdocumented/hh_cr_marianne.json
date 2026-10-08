@@ -40,7 +40,7 @@
   "role_on_the_entry": "mother",
   "reading_grade": "documented",
   "stands_on": "Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries.",
-  "the_research_layers_own_ruling": "unresolved",
+  "the_research_layers_own_ruling": "asserted",
   "handed_to_the_family_pass": {
    "ticket": "T-2191",
    "named_on_the_same_entries": [
@@ -69,7 +69,7 @@
      "normalised": "Monique Nadeau"
     }
    ],
-   "what_is_handed": "The kinship these entries state — who is whose child, whose wife, whose godparent — is NOT joined here and no tie is written onto this card. The roster's own ledger hands every one of these rows to T-2191, the family pass proper, and that is where the tie belongs. What this stage takes off the same line is the spouse's name, used once, as a discriminator that tells two printings of one woman from two women."
+   "what_is_handed": "The one tie these entries state outright — she is the mother of the child baptised — is written onto this card as a `kin` row by T-2191's derivation (tools/generated_card_kin.py), from the entry and the households/ card that carries the child's row. Nothing else is joined: not the husband, not the godparents. What this stage takes off the same line is the spouse's name, used once, as a discriminator that tells two printings of one woman from two women."
   },
   "withdrawn_if": "a ruling that this reading is a duplicate of a card the town already holds; the retirement runs through tools/consolidate_town_cards.py, never by hand"
  },
@@ -112,6 +112,30 @@
    "match": "any source naming this person at Chicago on or after 1 July 1835"
   }
  },
+ "kin": [
+  {
+   "person": "marianne",
+   "relation": "mother",
+   "household": "hh_aspam_jean_baptiste",
+   "value": "aspam_jean_baptiste",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 14 of 1833: Le [quatre?] octobre mil huit cent trente trois, je soussigné ai baptisé Jean Baptiste fils d'Antoine Aspam et de Marianne (sauvage) né le 15 octobre 1831. Parrain et marraine ont été Augustin Bonné et Monique Nodeau. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_14_3_mother, st_marys_bapt_1833_14_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fils'. hh_cr_marianne is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  },
+  {
+   "person": "marianne",
+   "relation": "mother",
+   "household": "hh_aspam_magdeleine",
+   "value": "aspam_magdeleine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 17 of 1833: Le huit october mil huit cent trente trois, je soussigné ai baptisé Magdelene fille d'Antoine Aspam et de Marianne (sauvage) née le vingt neuf mars[?] mil huit cent trente trois. Parrain et marraine ont été Jean Baptiste Lavigne et Josette Aspam. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_17_3_mother, st_marys_bapt_1833_17_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fille'. hh_cr_marianne is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  }
+ ],
  "persons": [
   {
    "id": "marianne",
@@ -152,7 +176,7 @@
    "sources": [
     "st_marys_baptismal_register_1833_1835"
    ],
-   "note": "CARDED FROM THE BORDERLINE ROSTER'S R6 (T-1504, stage `underdocumented`, sub-stage `church_register`). Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries. The register prints her as `Marianne (sauvage)`, in the mother's place of entry 14 of 1833, at `Chicago, Cook County, Illinois`, in the hand of J. M. I. Saint Cyr, dated 1833-10. NO SURNAME IS INVENTED: the book gives her a forename and the priest's parenthesis and nothing else, and her husband's surname is his. A baptism documents a person at a font on a day. It is not a residence, an address, an occupation or an arrival, and this card asserts none of them. What the dated appearance bounds is that she was at Chicago on that day; what it does not bound is where she slept, whose roof it was, or whether she was still here on 1 July 1835 — that last is what the persistence draw prices and says out loud. The research READ this row and left it `unresolved`, handing the kinship on to T-2191; that ruling is not overturned, and this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence. The reading, the source and the ruling stand at `church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother#0` in data/reconstruction/1835_borderline_roster.json. REVIEW REQUIRED: this card is a record of a Native woman at Chicago in the three years of the removal, and AGENTS.md's standing constraint holds it for review by Native scholars or community organisations before any scene carrying it may be marked released. No figure is drawn (L1).",
+   "note": "CARDED FROM THE BORDERLINE ROSTER'S R6 (T-1504, stage `underdocumented`, sub-stage `church_register`). Named in St Mary's baptismal register at Chicago in 1833, with the priest's own word for an Indigenous woman written onto her name and onto no other name on the line. No 1835 corroboration and no card. The licence is R3's — a dated appearance inside the window, priced against the persistence model — and the husband and the children named on the same entries the town already carries. The register prints her as `Marianne (sauvage)`, in the mother's place of entry 14 of 1833, at `Chicago, Cook County, Illinois`, in the hand of J. M. I. Saint Cyr, dated 1833-10. NO SURNAME IS INVENTED: the book gives her a forename and the priest's parenthesis and nothing else, and her husband's surname is his. A baptism documents a person at a font on a day. It is not a residence, an address, an occupation or an arrival, and this card asserts none of them. What the dated appearance bounds is that she was at Chicago on that day; what it does not bound is where she slept, whose roof it was, or whether she was still here on 1 July 1835 — that last is what the persistence draw prices and says out loud. The research READ this row and left it `asserted`, handing the kinship on to T-2191; that ruling is not overturned, and this record is a reconstruction of what the town looks like if the name is admitted at the limit of its own evidence. The reading, the source and the ruling stand at `church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother#0` in data/reconstruction/1835_borderline_roster.json. REVIEW REQUIRED: this card is a record of a Native woman at Chicago in the three years of the removal, and AGENTS.md's standing constraint holds it for review by Native scholars or community organisations before any scene carrying it may be marked released. No figure is drawn (L1).",
    "resident_subtype": "underdocumented_resident"
   }
  ],

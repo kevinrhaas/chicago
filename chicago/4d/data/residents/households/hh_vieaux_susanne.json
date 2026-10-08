@@ -123,6 +123,17 @@
   {
    "person": "vieaux_susanne",
    "relation": "daughter",
+   "household": "hh_cr_jaespquaa",
+   "value": "jaespquaa",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 18 of 1833: Le 10 d'octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de Paul Vieaux et de Jaespquaa (sauvage de Green Bay), née le dix mai mil huit cent trente un. Parrain et marraine ont été Joseph Beaubien et Monique Nadeau. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_18_3_mother, st_marys_bapt_1833_18_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fille'. hh_cr_jaespquaa is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  },
+  {
+   "person": "vieaux_susanne",
+   "relation": "daughter",
    "household": "hh_vieau_paul",
    "value": "vieau_paul",
    "confidence": "attested",

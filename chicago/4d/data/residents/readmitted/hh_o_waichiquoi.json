@@ -47,6 +47,19 @@
    "match": "any source naming this person at Chicago on or after 1 July 1835"
   }
  },
+ "kin": [
+  {
+   "person": "o_waichiquoi",
+   "relation": "mother",
+   "household": "hh_ltendre_joseph",
+   "value": "ltendre_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 10 of 1833: Le 26 juillet mil huit cent trente trois, je soussigné ai baptisé Joseph Létendre fils de Baptiste Létendre et [de] O'Waichiquoi, né le vingt huit de mai mil huit cent trente [trois]. Parrain et marraine ont été Solomon Juneau et Josette Vieau. The two cards are the ones that carry this entry's rows (st_marys_bapt_1833_10_3_mother, st_marys_bapt_1833_10_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fils'. hh_o_waichiquoi is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
+  }
+ ],
  "persons": [
   {
    "id": "o_waichiquoi",

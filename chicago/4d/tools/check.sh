@@ -1187,6 +1187,16 @@ step "every stated kinship the corpus offers has been ruled on" \
 selftest "…and its own assertions still fire when broken" \
   python3 tools/survey_stated_kin.py --self-test
 
+# T-2191. The survey above reads households/ only, so the register's parent ties whose
+# other end is a card a BUILD writes whole (a readmission, the register's own
+# underdocumented cards) are derived here instead: the generator writes its own row, and
+# --land writes the mirror on households/. Both ends from one entry, or neither.
+step "the register's parent ties onto generated cards stand on both ends (T-2191)" \
+  python3 tools/generated_card_kin.py --check
+
+selftest "…and a duplicate, a two-card far end and a two-word entry still write no tie" \
+  python3 tools/generated_card_kin.py --self-test
+
 # The inferred-household layer (K1 phase two) is the same shape of thing: an
 # authored recipe — an occupation census, a roof-adoption table and a placement
 # list — expanded into households, occupancy blocks and structure records. It also
