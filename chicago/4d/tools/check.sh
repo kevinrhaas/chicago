@@ -815,8 +815,10 @@ step "West Division approaches parcel matches its recipe" \
 # T-1773: the West Division's second freight roof, at Lake and West Water. Its own
 # generator because the West grid is unscheduled (reconcile_665.py, T-1455) and the
 # block parcels cannot deal onto it; the record re-derives from its recipe and the
-# validator is proved by breaking it.
-step "West freight roof at the forks matches its recipe" \
+# validator is proved by breaking it. T-2150 adds the second recipe: the F2 the schedule
+# dealt to plat block 50, seated on block 51's West Water corner at Washington Street on
+# the policy's `bank_landing` clause, and the validator refuses it beyond that reach.
+step "West freight roofs on West Water match their recipes" \
   python3 tools/generate_west_freight.py --check
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
