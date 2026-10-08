@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1535, ts: '2026-10-08T13:51:28.556Z', date: 'Oct 8, 2026, 8:51 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The project measures the town from fixed spots, and two of them inside the town stood a metre from a wall.',
+      'Two new spots look across the back yards on Washington Street and at the South Water Street shop fronts from the street, so their pictures show what they are meant to check.',
+    ] },
   { v: 1534, ts: '2026-10-08T12:37:03.823Z', date: 'Oct 8, 2026, 7:37 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
     items: [
       'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',
