@@ -178,6 +178,11 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
   const standing = Number(census?.buildings?.standing);
   const target = Number(census?.buildings?.target);
   const housed = Number(census?.people?.housed);
+  // T-2155: the people the housing deal holds for a roof not yet standing, and the ones
+  // the completion audit seats on cards outside the residents index — said, not summed.
+  const waiting = Number(census?.people?.waiting_on_a_roof);
+  const beyond = census?.beyond_the_index;
+  const beyondHoused = Number(beyond?.persons_present_housed);
 
   // Row one: the roofs. One segment, because a building either stands or it does not.
   if (Number.isFinite(standing)) {
@@ -293,6 +298,15 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
           + `${group(Number(population.absent_on_evidence))} name someone a source places `
           + 'outside the town that day</p>'
         : '')
+      + (Number.isFinite(housed) && waiting > 0
+        ? `<p class="gc-note"${titleAttr(census?.people?.waiting_note)}>`
+          + `${group(waiting)} wait on a roof the town does not stand yet</p>`
+        : '')
+      + (beyondHoused > 0
+        ? `<p class="gc-note"${titleAttr(beyond?.why_apart)}>`
+          + `${group(beyondHoused)} more the reconstruction houses — trades, lodgers and `
+          + 'others it seats — are not counted in this figure</p>'
+        : '')
       + '</section>',
     );
     aria.push(`${group(named)} ${rowLabel}${of ? ` ${of}` : ''}`
@@ -313,6 +327,12 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
       aria.push(`${group(cardsHeld)} cards are held in all; `
         + `${group(Number(population.absent_on_evidence))} name someone a source places `
         + 'outside the town that day');
+    }
+    if (Number.isFinite(housed) && waiting > 0) {
+      aria.push(`${group(waiting)} wait on a roof the town does not stand yet`);
+    }
+    if (beyondHoused > 0) {
+      aria.push(`${group(beyondHoused)} more the reconstruction houses are not counted in this figure`);
     }
   } else if (Number.isFinite(housed)) {
     // The residents manifest could not be read, so there is no named count to hang the

@@ -1,9 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1525, ts: '2026-10-08T08:15:56.957Z', date: 'Oct 8, 2026, 3:15 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+  { v: 1527, ts: '2026-10-08T09:03:38.122Z', date: 'Oct 8, 2026, 4:03 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
       'With these three, every yard building the town plan counted for the West Division now stands.',
       'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
+  { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+    items: [
+      'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
+      'The ground is stored about four times smaller on every device. It draws exactly the same.',
+      'The town looks exactly the same, and tapping a building, fence or yard still opens its card. Nothing changes on a computer apart from the smaller ground.',
+    ] },
+  { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
+    items: [
+      'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',
+      'Two new lines under it: the 489 people still waiting on a roof the town does not stand yet, and the 661 more the reconstruction houses \u2014 trades, lodgers and others it seats \u2014 that the population figure does not count. Hover either for why.',
     ] },
   { v: 1524, ts: '2026-10-08T07:19:29.922Z', date: 'Oct 8, 2026, 2:19 AM CT', title: 'Glessner’s courtyard tower roof joins the north wing', kind: 'fix',
     items: ['The copper roof over the central courtyard tower now meets a raised tiled ridge with matching terracotta crests. The main roof continues cleanly on both sides, and the copper cap has a flared lower edge.'] },
