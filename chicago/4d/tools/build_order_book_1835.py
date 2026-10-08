@@ -540,8 +540,12 @@ STRUCTURE_TICKETS = {
     # T-1983 WAS SPLIT on 2026-10-08 (T-2154..T-2156) and its roofs went to T-2156, "build
     # or re-budget the barns_stables and small_outbuildings roofs" — the piece that answers
     # for these cells, here and in the West and North rows below.
-    ("south", "barns_stables"): "T-2156",
-    ("south", "small_outbuildings"): "T-2156",
+    # T-2156 and then T-2166 split while T-2157 was gating (2026-10-08).
+    # T-2165 takes the South yard roofs and the North A1. T-2167 takes the
+    # platted West four; T-2168 owns the North A2s and unplaced West balance,
+    # so it keeps the aggregate North/West rows live after those first deals.
+    ("south", "barns_stables"): "T-2165",
+    ("south", "small_outbuildings"): "T-2165",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -605,8 +609,8 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-2156",  # moved with the South's, above
-    ("west", "small_outbuildings"): "T-2156",  # moved with the South's, above
+    ("west", "barns_stables"): "T-2168",  # moved with the South's, above
+    ("west", "small_outbuildings"): "T-2168",  # moved with the South's, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -684,7 +688,7 @@ STRUCTURE_TICKETS = {
     # warehouse there. T-2022 is filed for exactly that cell.
     ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-2156",  # moved with the South's, above
+    ("north", "barns_stables"): "T-2168",  # moved with the South's, above
     ("north", "small_outbuildings"): "T-2156",  # moved with the South's, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
