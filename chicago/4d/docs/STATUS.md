@@ -34,6 +34,40 @@ that face's firms. The business deal holds 45 roofs, at the same cost.
 
 **Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
 here, and the warehouse itself seats no household.
+## T-2060 — boot-weights.js re-measured, calibrated to the reference machine (2026-10-08)
+
+- **The machine question, answered by measuring both trees here.** The weights were read on
+  the owner's Apple M5 Max (T-1246, 2026-09-20, tree `custom@e53e46c3b`), and a run reaches
+  only a software-WebGL runner. So the runner was not asked how long the boot takes. It was
+  asked how much each phase GREW: it published and measured the reference reading's own
+  tree and dev `1ab737cb4`, all 12 cells each, and every weight is now the Mac's reading
+  times that phase's growth in that cell. On the same tree the runner reads each phase
+  slower by a different factor (medians 2.1× for interaction to 7.3× for buildings, and
+  buildings 14.6× in one warm cell), so one machine-wide factor would have been wrong too.
+- **What grew**: terrain 2.8-5.3× and ground 2.7-5.6× in every cell; scene 1.3-1.7×,
+  interaction 1.3-2.0×; flora 0.7-1.6×. The essential boot's expected total goes from
+  3.3-4.9 s to 5.3-7.9 s. Terrain + ground were 9-12 % of the bar and are now 15-41 %
+  (cold mobile light: 12 % → 41 %). The bar used to stall there.
+- **Why it mattered beyond pacing**: a returning visitor's own timings are clamped to
+  0.25-4× the committed default. Terrain and ground grew past 4× in nine of twelve cells,
+  so the stale defaults were clipping visitors' real histories.
+- **Derived, not hand-written**: `tools/calibrate_boot_weights.mjs` writes `boot-weights.js`
+  from `tools/boot_phase_measurements.json` (the Mac's receipt, unchanged) and the new
+  `tools/boot_weights_calibration.json` (both runner readings, compact); `check.sh` re-derives
+  it with `--check`.
+- **Kept in reference-machine seconds on purpose.** T-2164's forecast clock (#514, merged
+  while this was in flight) reads each weight as CPU seconds on the reference machine and
+  multiplies it by a learned `pace` for the visitor's own device (`PACE_PRIOR` 1.5 desktop,
+  2.5 mobile). Raw runner seconds would have been counted that slowdown twice; calibrated
+  ones fit unchanged.
+- **What this is not.** One reading per tree per cell, on one runner. The method assumes a
+  phase's growth is the same on both machines. That is weakest where the work changed in
+  kind: terrain now opens with a ~2.9 s main-thread task. The census phase no longer runs at
+  boot. It is optional, so it paces nothing and keeps its Mac reading. Re-reading on the Mac
+  (`measure_boot_phases.mjs --published --json`, then `--write` with that output as TODAY
+  and the receipt's tree as THEN) would replace the inference. The terrain long task itself
+  is unowned work and is not fixed here. The mobile flora heartbeat stays T-2059's.
+
 ## PR #498 — Wells integrated onto current dev and browser failures repaired (2026-10-07)
 
 This integration supersedes the older T-2146 checkpoints below. The current deal

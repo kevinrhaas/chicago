@@ -1,0 +1,334 @@
+{
+ "ticket": "T-2060",
+ "method": "weight = reference x (today / then) per cell and phase; then and today read on one machine",
+ "then": {
+  "tree": "custom@e53e46c3b",
+  "measuredAt": "2026-10-08T06:58:49.016Z",
+  "machine": "Linux 6.17.0-1022-azure x64 / AMD EPYC 7763 64-Core Processor",
+  "browser": "156.0.8078.4",
+  "conditions": "Headless Chromium; 390×780 touch and 1280×800; no CPU throttle; fresh context cold, repeat navigation warm.",
+  "cells": {
+   "mobile/light/cold": {
+    "readySeconds": 13.8458,
+    "phases": {
+     "scene": 1.0509,
+     "terrain": 0.7409,
+     "buildings": 0.386,
+     "ground": 0.7726,
+     "flora": 8.9584,
+     "people": 0.3467,
+     "census": 0.0236,
+     "interaction": 1.7558
+    }
+   },
+   "mobile/light/warm": {
+    "readySeconds": 11.5979,
+    "phases": {
+     "scene": 0.9837,
+     "terrain": 1.2216,
+     "buildings": 1.4898,
+     "ground": 1.3,
+     "flora": 4.2972,
+     "people": 0.3213,
+     "census": 0.0176,
+     "interaction": 2.0885
+    }
+   },
+   "mobile/balanced/cold": {
+    "readySeconds": 13.4375,
+    "phases": {
+     "scene": 0.9994,
+     "terrain": 0.7264,
+     "buildings": 0.3754,
+     "ground": 0.7464,
+     "flora": 8.3762,
+     "people": 0.3194,
+     "census": 0.0224,
+     "interaction": 2.0169
+    }
+   },
+   "mobile/balanced/warm": {
+    "readySeconds": 12.7014,
+    "phases": {
+     "scene": 0.984,
+     "terrain": 1.4026,
+     "buildings": 1.3332,
+     "ground": 1.2661,
+     "flora": 5.5777,
+     "people": 0.2875,
+     "census": 0.0202,
+     "interaction": 1.9456
+    }
+   },
+   "mobile/full/cold": {
+    "readySeconds": 15.276,
+    "phases": {
+     "scene": 0.9564,
+     "terrain": 0.717,
+     "buildings": 0.4394,
+     "ground": 0.8124,
+     "flora": 10.1322,
+     "people": 0.3107,
+     "census": 0.0246,
+     "interaction": 2.0123
+    }
+   },
+   "mobile/full/warm": {
+    "readySeconds": 14.0037,
+    "phases": {
+     "scene": 0.8944,
+     "terrain": 1.3499,
+     "buildings": 1.3293,
+     "ground": 1.3667,
+     "flora": 6.9421,
+     "people": 0.3227,
+     "census": 0.0219,
+     "interaction": 1.9673
+    }
+   },
+   "desktop/light/cold": {
+    "readySeconds": 16.4083,
+    "phases": {
+     "scene": 1.0394,
+     "terrain": 0.7549,
+     "buildings": 0.6485,
+     "ground": 0.7807,
+     "flora": 10.5375,
+     "people": 0.3513,
+     "census": 0.0238,
+     "interaction": 2.4393
+    }
+   },
+   "desktop/light/warm": {
+    "readySeconds": 17.2569,
+    "phases": {
+     "scene": 0.962,
+     "terrain": 0.8006,
+     "buildings": 0.9297,
+     "ground": 0.6869,
+     "flora": 11.6186,
+     "people": 0.2978,
+     "census": 0.0182,
+     "interaction": 2.0077
+    }
+   },
+   "desktop/balanced/cold": {
+    "readySeconds": 18.0035,
+    "phases": {
+     "scene": 1.1123,
+     "terrain": 0.7689,
+     "buildings": 0.942,
+     "ground": 0.758,
+     "flora": 12.15,
+     "people": 0.3309,
+     "census": 0.0244,
+     "interaction": 2.0792
+    }
+   },
+   "desktop/balanced/warm": {
+    "readySeconds": 18.1958,
+    "phases": {
+     "scene": 1.0418,
+     "terrain": 0.78,
+     "buildings": 0.9115,
+     "ground": 0.6767,
+     "flora": 12.5437,
+     "people": 0.3268,
+     "census": 0.0183,
+     "interaction": 2.0674
+    }
+   },
+   "desktop/full/cold": {
+    "readySeconds": 23.3404,
+    "phases": {
+     "scene": 1.1552,
+     "terrain": 0.7739,
+     "buildings": 0.6873,
+     "ground": 0.8096,
+     "flora": 17.5912,
+     "people": 0.3249,
+     "census": 0.0252,
+     "interaction": 2.0998
+    }
+   },
+   "desktop/full/warm": {
+    "readySeconds": 20.9737,
+    "phases": {
+     "scene": 1.0516,
+     "terrain": 0.7469,
+     "buildings": 0.7353,
+     "ground": 0.7377,
+     "flora": 15.4346,
+     "people": 0.2848,
+     "census": 0.0147,
+     "interaction": 2.0895
+    }
+   }
+  }
+ },
+ "today": {
+  "tree": "1ab737cb4",
+  "measuredAt": "2026-10-08T07:03:20.976Z",
+  "machine": "Linux 6.17.0-1022-azure x64 / AMD EPYC 7763 64-Core Processor",
+  "browser": "156.0.8078.4",
+  "conditions": "Headless Chromium; 390×780 touch and 1280×800; no CPU throttle; fresh context cold, repeat navigation warm.",
+  "cells": {
+   "mobile/light/cold": {
+    "readySeconds": 18.456,
+    "phases": {
+     "scene": 1.5162,
+     "terrain": 3.7921,
+     "buildings": 0.7505,
+     "ground": 3.6163,
+     "flora": 6.2391,
+     "people": 0.3839,
+     "census": null,
+     "interaction": 2.3226
+    }
+   },
+   "mobile/light/warm": {
+    "readySeconds": 19.5564,
+    "phases": {
+     "scene": 1.4009,
+     "terrain": 3.7881,
+     "buildings": 0.8484,
+     "ground": 3.4655,
+     "flora": 6.5303,
+     "people": 0.3819,
+     "census": null,
+     "interaction": 3.2704
+    }
+   },
+   "mobile/balanced/cold": {
+    "readySeconds": 22.3998,
+    "phases": {
+     "scene": 1.574,
+     "terrain": 3.8212,
+     "buildings": 0.8472,
+     "ground": 4.1076,
+     "flora": 8.5118,
+     "people": 0.4085,
+     "census": null,
+     "interaction": 3.3076
+    }
+   },
+   "mobile/balanced/warm": {
+    "readySeconds": 22.4595,
+    "phases": {
+     "scene": 1.3265,
+     "terrain": 3.8745,
+     "buildings": 0.7783,
+     "ground": 3.8781,
+     "flora": 9.1716,
+     "people": 0.3479,
+     "census": null,
+     "interaction": 3.2165
+    }
+   },
+   "mobile/full/cold": {
+    "readySeconds": 25.0428,
+    "phases": {
+     "scene": 1.458,
+     "terrain": 3.7953,
+     "buildings": 0.7774,
+     "ground": 4.1183,
+     "flora": 11.3045,
+     "people": 0.3839,
+     "census": null,
+     "interaction": 3.3746
+    }
+   },
+   "mobile/full/warm": {
+    "readySeconds": 24.9874,
+    "phases": {
+     "scene": 1.5212,
+     "terrain": 3.7763,
+     "buildings": 0.7743,
+     "ground": 4.0139,
+     "flora": 11.4175,
+     "people": 0.3537,
+     "census": null,
+     "interaction": 3.2546
+    }
+   },
+   "desktop/light/cold": {
+    "readySeconds": 22.637,
+    "phases": {
+     "scene": 1.485,
+     "terrain": 3.8299,
+     "buildings": 1.4723,
+     "ground": 3.4607,
+     "flora": 7.8487,
+     "people": 0.4043,
+     "census": null,
+     "interaction": 4.2858
+    }
+   },
+   "desktop/light/warm": {
+    "readySeconds": 26.1496,
+    "phases": {
+     "scene": 1.5567,
+     "terrain": 3.8808,
+     "buildings": 1.3883,
+     "ground": 3.3009,
+     "flora": 11.7284,
+     "people": 0.374,
+     "census": null,
+     "interaction": 3.9182
+    }
+   },
+   "desktop/balanced/cold": {
+    "readySeconds": 25.1882,
+    "phases": {
+     "scene": 1.4134,
+     "terrain": 3.8658,
+     "buildings": 1.4092,
+     "ground": 3.9331,
+     "flora": 10.3681,
+     "people": 0.433,
+     "census": null,
+     "interaction": 3.9601
+    }
+   },
+   "desktop/balanced/warm": {
+    "readySeconds": 28.9946,
+    "phases": {
+     "scene": 1.5461,
+     "terrain": 3.8377,
+     "buildings": 1.2893,
+     "ground": 3.8008,
+     "flora": 14.4026,
+     "people": 0.3969,
+     "census": null,
+     "interaction": 3.8487
+    }
+   },
+   "desktop/full/cold": {
+    "readySeconds": 29.5666,
+    "phases": {
+     "scene": 1.5398,
+     "terrain": 3.833,
+     "buildings": 1.053,
+     "ground": 4.1292,
+     "flora": 14.7843,
+     "people": 0.3772,
+     "census": null,
+     "interaction": 3.9673
+    }
+   },
+   "desktop/full/warm": {
+    "readySeconds": 32.9637,
+    "phases": {
+     "scene": 1.5335,
+     "terrain": 3.8584,
+     "buildings": 1.184,
+     "ground": 3.8926,
+     "flora": 18.2686,
+     "people": 0.3941,
+     "census": null,
+     "interaction": 3.9426
+    }
+   }
+  }
+ }
+}

@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1533, ts: '2026-10-08T12:23:34.978Z', date: 'Oct 8, 2026, 7:23 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
+  { v: 1534, ts: '2026-10-08T12:45:16.535Z', date: 'Oct 8, 2026, 7:45 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [
       'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',
       'No record names this building. The town\u2019s plan counted four warehouses missing from the South Water and Lake Street blocks, and this is the one with ground for it today. The other three wait on river access and on the survey line at Market Street.',
       'Its card says the building is reconstructed, not recovered. The Liberties page explains it (L406).',
+    ] },
+  { v: 1533, ts: '2026-10-08T12:18:00.475Z', date: 'Oct 8, 2026, 7:18 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+    items: [
+      'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
+      'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
     ] },
   { v: 1532, ts: '2026-10-08T11:44:45.896Z', date: 'Oct 8, 2026, 6:44 AM CT', title: 'A clearer Glessner House package check', kind: 'fix',
     items: [
