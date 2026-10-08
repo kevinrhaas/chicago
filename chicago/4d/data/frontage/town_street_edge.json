@@ -40,24 +40,24 @@
       "dearborn",
       "state"
     ],
-    "faces_laid": 95,
-    "walk_m": 8887.1,
+    "faces_laid": 96,
+    "walk_m": 8902.6,
     "crossing_m": 2311.0,
     "fence_m": 1893.4,
-    "walking_decks": 824,
+    "walking_decks": 826,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
       "stoop": 37,
       "tie_rail": 1,
-      "wagon_apron": 4
+      "wagon_apron": 5
     },
-    "decked_walks": 4,
-    "decked_walk_m": 46.8,
+    "decked_walks": 5,
+    "decked_walk_m": 53.5,
     "bare_fronts": 7,
-    "fronts_only_faces": 4,
-    "fronts_only_runs": 4,
-    "fronts_only_walk_m": 67.7
+    "fronts_only_faces": 5,
+    "fronts_only_runs": 5,
+    "fronts_only_walk_m": 83.1
   },
   "card": {
     "id": "town_street_edge",
@@ -72,10 +72,10 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 8887.1,
+        "value": 8902.6,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "107 run(s) of sidewalk on 95 platted block face(s), plus 2311.0 m of board crossing at 98 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "108 run(s) of sidewalk on 96 platted block face(s), plus 2311.0 m of board crossing at 98 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
         "value": 1893.4,
@@ -90,10 +90,10 @@
         "note": "51 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
       },
       "fittings": {
-        "value": 48,
+        "value": 49,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 4 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 5 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -24633,6 +24633,117 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE CLINTON STREET FRONTAGE of blk_west_randolph_jefferson's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Clinton Street track. This run is the stretch from 84.6 m to 100.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed C2 store-residence #024 (store_residence, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
+    },
+    {
+      "id": "blk_west_washington_canal_east_decked_walk_recon_1835_branch_freight_f2_001",
+      "belongs_to": "town_street_edge",
+      "kind": "decked_walk",
+      "confidence": "reconstructed",
+      "street": "west_water",
+      "street_name": "West Water Street",
+      "chunk": "blk_west_washington_canal_east_1",
+      "serves": "recon_1835_branch_freight_f2_001",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #002",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "centreline_local_enu_m": [
+        [
+          -30.61,
+          -410.19
+        ],
+        [
+          -29.73,
+          -403.55
+        ]
+      ],
+      "width_m": 1.22,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.075,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 2.69,
+      "verge_to_track_m": 5.97,
+      "footway_decks": [
+        {
+          "y": 1.12,
+          "pts": [
+            [
+              -31.22,
+              -410.19
+            ],
+            [
+              -30.33,
+              -403.39
+            ],
+            [
+              -29.12,
+              -403.55
+            ],
+            [
+              -30.01,
+              -410.35
+            ]
+          ],
+          "ground_roll_m": 0.002
+        }
+      ],
+      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #002, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_west_washington_canal's east face, 97.9 m to 104.6 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.00 m and leaving 5.97 m to the West Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
+      "id": "blk_west_washington_canal_east_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "west_water",
+      "street_name": "West Water Street",
+      "chunk": "blk_west_washington_canal_east_1",
+      "centreline_local_enu_m": [
+        [
+          -32.81,
+          -415.19
+        ],
+        [
+          -30.79,
+          -399.88
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 4.88,
+      "footway_decks": [
+        {
+          "y": 1.122,
+          "pts": [
+            [
+              -33.73,
+              -415.15
+            ],
+            [
+              -31.68,
+              -399.68
+            ],
+            [
+              -29.87,
+              -399.92
+            ],
+            [
+              -31.91,
+              -415.39
+            ]
+          ],
+          "ground_roll_m": 0.007
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WEST WATER STREET FRONTAGE of blk_west_washington_canal's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.88 m of verge between its outer edge and the West Water Street track. This run is the stretch from 92.6 m to 108.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed F2 narrow two-story warehouse #002 (narrow_two_story_warehouse, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
     }
   ],
   "fences": [
@@ -31676,6 +31787,130 @@
       ],
       "note": "A mounting block in the verge, between the inn's two posts, at Western Hotel. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_randolph_canal's north face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +1.12 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
       "standing_chunk": "town_street_edge__fronts_only__standing"
+    },
+    {
+      "id": "blk_west_washington_canal_east_wagon_apron_recon_1835_branch_freight_f2_001",
+      "belongs_to": "town_street_edge",
+      "kind": "wagon_apron",
+      "confidence": "reconstructed",
+      "street": "west_water",
+      "street_name": "West Water Street",
+      "chunk": "blk_west_washington_canal_east_1",
+      "serves": "recon_1835_branch_freight_f2_001",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #002",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "at_local_enu_m": [
+        -28.08,
+        -407.15
+      ],
+      "facade_bearing_deg": 97.5,
+      "along_frontage_frac": 0.5,
+      "parts": [
+        {
+          "part": "plank_1",
+          "at_local_enu_m": [
+            -29.42,
+            -406.97
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_2",
+          "at_local_enu_m": [
+            -29.12,
+            -407.01
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_3",
+          "at_local_enu_m": [
+            -28.82,
+            -407.05
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_4",
+          "at_local_enu_m": [
+            -28.52,
+            -407.09
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_5",
+          "at_local_enu_m": [
+            -28.23,
+            -407.13
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_6",
+          "at_local_enu_m": [
+            -27.93,
+            -407.17
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_7",
+          "at_local_enu_m": [
+            -27.63,
+            -407.21
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_8",
+          "at_local_enu_m": [
+            -27.34,
+            -407.25
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_9",
+          "at_local_enu_m": [
+            -27.04,
+            -407.28
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_10",
+          "at_local_enu_m": [
+            -26.74,
+            -407.32
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        }
+      ],
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #002. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_washington_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 2.98 m to the West Water Street track, on committed ground at +1.01 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
+      "standing_chunk": "town_street_edge__fronts_only__standing"
     }
   ],
   "bare_fronts": [
@@ -32537,6 +32772,11 @@
       "why": "no stretch of this face 10.4 m long passed the march (first refusal: bare ground in front of recon_1835_blk_west_randolph_des_plaines_w2_01, a carpenter_or_joiner_shop — FRONTAGE_BY_BUSINESS lays a works no walk) — no walk is laid."
     },
     {
+      "structure_id": "blk_west_washington_canal_east_crossing_blk_west_lake_canal_east",
+      "wall": "corner crossing",
+      "why": "the two walks stop 262.8 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+    },
+    {
       "structure_id": "brown_boarding_house",
       "wall": "blk_south_water_wells north face, lot 6",
       "why": "no stoop at brown_boarding_house: the front wall stands 19.51 m back from the lot line, behind the street fence this layer lines that lot with; the door is reached through the yard, not off the walk."
@@ -32710,6 +32950,11 @@
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01_walk",
       "wall": "blk_west_randolph_des_plaines north face, at its door",
       "why": "no plank walk in front of recon_1835_blk_west_randolph_des_plaines_w2_01, a carpenter_or_joiner_shop (held `reconstructed`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_randolph_des_plaines's north face stops either side of it, from 0.0 m to 5.2 m along the face (5.2 m, the march steps whose middle lies in front of its 5.9 m frontage)."
+    },
+    {
+      "structure_id": "recon_1835_branch_freight_f2_001",
+      "wall": "blk_west_washington_canal east face, at its door",
+      "why": "recon_1835_branch_freight_f2_001 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
     },
     {
       "structure_id": "recon_1835_forks_freight_f2_001",

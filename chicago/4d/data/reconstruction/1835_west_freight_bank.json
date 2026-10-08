@@ -1,0 +1,33 @@
+{
+  "id": "west_freight_bank_1835",
+  "target_date": "1835-07-01",
+  "owning_ticket": "T-2150",
+  "parent_ticket": "T-2148",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "research_memo": "docs/RESEARCH/west_division_infill_1835.md",
+  "tier": "reconstructed",
+  "clause": "bank_landing",
+  "basis": "The order book's structures/warehouses_freight/west row sets 2 and finds 1 standing (T-1773's F2 at the forks), so it orders one more freight roof for the West Division. tools/reconcile_665.py deals it to blk_washington_clinton (plat block 50) as an F2, the West's share of the family mix since T-2022 built the town's first F3; T-2148 had deferred it there as an F3 because block 50 is bounded by four platted streets a full plat module from the South Branch, and a warehouse the river does not reach is not a river warehouse. THE GROUND. The placement policy's bank_landing clause (T-2022) seats a freight roof by the one measured fact that it fronts the water it loads from: within bank_landing_reach_m (one platted corridor plus the street line, 27.09 m) of traced water, with nothing between it and the river but the river street. Measured with this roof's own F2 footprint, 1.5 m inside the West Water line of each open West Water lot: plat block 29 (blk_west_lake_canal) stands 32.42-38.07 m from the water, plat block 44 (blk_west_randolph_canal) 27.21-32.18 m, and plat block 51 (blk_west_washington_canal) 25.35-25.90 m on the lots a roof fits. The South Branch has taken thirty feet off block 51's river column (the sheet prints 88 ft under it against 150 ft under block 44's), so block 51's West Water lots are the only West Division lots inside the clause's reach, and block 51 is the block that stands between block 50 and the bank: the roof moves one module east from where the schedule dealt it, across Canal, onto that block's river face. THE LOT. Of block 51's open West Water lots, plat lot 1 is the Washington corner, and a corner is where both freight clauses put a freight roof (lot:corner). The front stands 1.5 m inside the lot's West Water line, as T-1773's warehouse does on the same street; the side stands 3.5 m inside the plat's Washington line because the drawn Washington corridor overlaps that line by about three metres. In November 1835 the trustees sold the wharfing privileges on West Water at a minimum of $18 a front foot (wood_1881_chicago_and_its_distinguished_citizens): read for the frontage's character only, four months after the target date, and dating no building.",
+  "replaceable_by": "Any reading that seats a named forwarder or warehouse on the West Division's South Branch bank in July 1835 substitutes for this roof rather than adding beside it; the order book's West freight row is the count it fills.",
+  "placement": {
+    "structure_id": "recon_1835_branch_freight_f2_001",
+    "family": "F2",
+    "sequence": 2,
+    "block_id": "blk_west_washington_canal",
+    "lot_row": 1,
+    "lot_column": "east",
+    "plat_lot_number": 1,
+    "fronts": "west_water",
+    "side_street": "washington",
+    "front_setback_m": 1.5,
+    "side_setback_m": 3.5,
+    "geometry_seed": "recon_1835_branch_freight_f2"
+  },
+  "record": {
+    "symbolic_location": "Reconstructed warehouse at Washington and West Water Streets, on the South Branch bank",
+    "position_note": "The lot is the plat's (Thompson 1830, blk_west_washington_canal lot 1); this roof on it is not. It stands on the corner, 1.5 m inside the lot's West Water line and 3.5 m inside its Washington Street line (the drawn Washington corridor overlaps the plat's line by about three metres), the rear toward the block's alley. Chosen because block 51's West Water lots are the only West Division lots within the bank_landing clause's reach of the South Branch, and this is their Washington corner; no source seats a building here.",
+    "change_note": "T-2150 adds the West Division's second freight roof of the order book's two without moving an existing building: the F2 the schedule dealt to plat block 50, a module inland, seated on the river face of the block between it and the bank.",
+    "function_note": "The F2 type fills the West Division's freight row in the order book, on the river street where a forwarder lands goods. No forwarder, owner or cargo is recovered for it.",
+    "research_note": "RECONSTRUCTED, NOT A RECOVERED ADDRESS. The order book's West freight row sets two roofs and T-1773's at the forks was the only one standing; this is the second. The family, the lot, the dimensions, the finish and every form value are inventions bounded by the reconstruction specification and recorded in docs/LIBERTIES.md. A named West Division warehouse on the South Branch bank, if one is ever read, replaces it."
+  }
+}

@@ -158,37 +158,37 @@
   "re_family_stability": {
    "_doc": "DERIVED. One roof re-familied, the face re-ordered, and the count of PLACES IN THE FREE LIST that changed hands — under the id order this pass dealt by until T-1651 and under `deal_order`, which replaced it. The place is the allocation: the deal walks the businesses in evidence order and hands each the next free roof, so a roof that changes place changes which business gets which building. Split by whether the re-family CROSSES the C/W/F bands, because those are different questions — a D4 that becomes a D5 has not changed what it is and the deal should not notice, while a D4 that becomes a C2 has, and a deal that reads the family is supposed to move it.",
    "measured_over": {
-    "faces_with_two_or_more_free_roofs": 18,
-    "free_roof_places": 144,
+    "faces_with_two_or_more_free_roofs": 20,
+    "free_roof_places": 148,
     "families_in_the_schedule": 35
    },
    "places_changed_by_one_roof_s_re_family": {
     "within the bands": {
      "id_order": {
-      "re_families_tried": 2583,
+      "re_families_tried": 2631,
       "places_changed": 2924,
       "worst_single_re_family": 8,
-      "changed_nothing": 1545
+      "changed_nothing": 1593
      },
      "deal_order": {
-      "re_families_tried": 2583,
+      "re_families_tried": 2631,
       "places_changed": 0,
       "worst_single_re_family": 0,
-      "changed_nothing": 2583
+      "changed_nothing": 2631
      }
     },
     "across the bands": {
      "id_order": {
-      "re_families_tried": 2313,
+      "re_families_tried": 2401,
       "places_changed": 2975,
       "worst_single_re_family": 8,
-      "changed_nothing": 1296
+      "changed_nothing": 1384
      },
      "deal_order": {
-      "re_families_tried": 2313,
-      "places_changed": 15406,
+      "re_families_tried": 2401,
+      "places_changed": 15494,
       "worst_single_re_family": 19,
-      "changed_nothing": 192
+      "changed_nothing": 236
      }
     }
    }
@@ -225,8 +225,8 @@
   "unplaceable_present_at_scene_date": 60,
   "adopted_into_a_house_of_trade": 30,
   "adopted_into_a_roof_of_no_trade": 14,
-  "roofs_free_and_a_house_of_trade": 33,
-  "houses_of_trade_left_free": 3,
+  "roofs_free_and_a_house_of_trade": 34,
+  "houses_of_trade_left_free": 4,
   "roofs_reserved_for_a_slot_request": 87,
   "reserved_and_held_by_a_committed_occupancy": 4,
   "reserved_without_a_committed_occupancy": 83,
