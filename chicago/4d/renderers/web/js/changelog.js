@@ -1,6 +1,8 @@
 export const CHANGELOG = [ // newest first
-  { v: 1528, ts: '2026-10-08T09:27:10.618Z', date: 'Oct 8, 2026, 4:27 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: 1529, ts: '2026-10-08T10:25:53.932Z', date: 'Oct 8, 2026, 5:25 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
+  { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
+    items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
