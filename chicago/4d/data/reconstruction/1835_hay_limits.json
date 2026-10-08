@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 358,
-  "outside": 307,
+  "inside": 354,
+  "outside": 312,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 63,
+   "north_of_the_limit": 62,
    "west_of_canal_street": 103,
-   "south_of_washington_street": 112,
+   "south_of_washington_street": 118,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -385,7 +385,6 @@
     "recon_1835_blk_indiana_north_wolcott_d3_06",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
-    "recon_1835_north_a2_098",
     "recon_1835_north_c4_067",
     "recon_1835_north_d1_013",
     "recon_1835_north_d1_023",
@@ -542,6 +541,12 @@
     "recon_1835_blk_school_section_tier_119_d5_06",
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07",
+    "recon_1835_blk_school_section_tier_81_d2_05",
+    "recon_1835_blk_school_section_tier_81_d4_03",
+    "recon_1835_blk_school_section_tier_81_d4_04",
+    "recon_1835_blk_school_section_tier_81_d5_01",
+    "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d6_06",
     "recon_1835_blk_school_section_tier_94_d3_05",
     "recon_1835_blk_school_section_tier_94_d4_04",
     "recon_1835_blk_school_section_tier_94_d5_01",
@@ -654,12 +659,22 @@
   "blocks_with_four_bounding_streets": 72,
   "inside_the_limit": 24,
   "outside_the_limit": 48,
-  "scheduling_roofs_outside_the_limit": 2,
+  "scheduling_roofs_outside_the_limit": 3,
   "scheduling_roofs_outside_the_limit_rows": [
+   {
+    "id": "blk_indiana_north_wolcott",
+    "state": "open",
+    "roofs_scheduled": 5,
+    "centre_local_enu_m": [
+     885.64,
+     525.4
+    ],
+    "inside_the_limit": false
+   },
    {
     "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 7,
+    "roofs_scheduled": 1,
     "centre_local_enu_m": [
      139.86,
      -587.44
@@ -961,7 +976,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 0,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -1101,7 +1116,7 @@
    {
     "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 7,
+    "roofs_scheduled": 1,
     "centre_local_enu_m": [
      139.86,
      -587.44

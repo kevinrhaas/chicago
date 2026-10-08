@@ -1612,8 +1612,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 666,
-    "roofs_to_build": 21,
+    "roofs_standing": 667,
+    "roofs_to_build": 20,
     "persons_standing": 2926,
     "persons_still_owed": 215,
     "persons_when_the_book_is_filled": 3141,
@@ -1631,13 +1631,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 312,
-    "still_owed": 1112,
-    "roofs_adopted": 305,
-    "slots_requested": 7,
-    "roofs_standing": 666,
-    "roofs_standing_unseated": 361,
-    "share_of_standing_roofs_seated": 0.458,
+    "seated": 313,
+    "still_owed": 1111,
+    "roofs_adopted": 311,
+    "slots_requested": 2,
+    "roofs_standing": 667,
+    "roofs_standing_unseated": 356,
+    "share_of_standing_roofs_seated": 0.4663,
     "passes": [
       {
         "key": "platted",
@@ -1646,24 +1646,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 213,
-        "handed_on": 1211,
-        "roofs_adopted": 206,
-        "slots_requested": 7,
-        "roofs_offered_for_adoption": 216,
+        "seated": 214,
+        "handed_on": 1210,
+        "roofs_adopted": 212,
+        "slots_requested": 2,
+        "roofs_offered_for_adoption": 222,
         "roofs_held_back": 60,
-        "ground_taken": 195,
+        "ground_taken": 196,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 163,
+          "south": 164,
           "west": 42
         },
         "by_clause": {
           "labourer_dwellings": 38,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 137
+          "tradesman_dwellings": 138
         }
       },
       {
@@ -1672,9 +1672,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1211,
+        "rows_offered": 1210,
         "seated": 99,
-        "handed_on": 1112,
+        "handed_on": 1111,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 106,
@@ -1696,82 +1696,32 @@
     ],
     "requested_slots": [
       {
-        "household_id": "hh_dave_john",
-        "name": "The Dave household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#05",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_davis_george",
-        "name": "The Davis household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#04",
-        "family": "D4",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_delano_loring",
-        "name": "The Delano household — a name from the post office's letter lists",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#03",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_dell_frank",
-        "name": "The Dell household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#02",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
-        "household_id": "hh_democrat_printers",
-        "name": "The Democrat's printers",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#07",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      },
-      {
         "household_id": "hh_dewey_s",
         "name": "The Dewey household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
-        "lot_id": "blk_school_section_tier_81#06",
-        "family": "D6",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "lot_id": "blk_school_section_tier_81#01",
+        "family": "D4",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_ira_paddock",
-        "name": "The Ira household — a name from the post office's letter lists",
+        "household_id": "hh_dickson_david",
+        "name": "The Dickson household — a name from the post office's letter lists",
         "district": "south",
-        "clause": "labourer_dwellings",
+        "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_95",
         "lot_id": "blk_school_section_tier_95#01",
-        "family": "D2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       }
     ],
     "slot_blocks": [
       "blk_school_section_tier_81",
       "blk_school_section_tier_95"
     ],
-    "what_the_slots_wait_on": "7 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,112 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_the_slots_wait_on": "2 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,111 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -5021,11 +4971,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 666,
-        "standing_with_an_occupant": 255,
-        "standing_without_an_occupant": 411,
-        "to_build_total": 21,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 411 of the 666 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_records": 667,
+        "standing_with_an_occupant": 259,
+        "standing_without_an_occupant": 408,
+        "to_build_total": 20,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 408 of the 667 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5039,7 +4989,7 @@
           "to_build": 1,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2147",
+          "owning_ticket": "T-2176",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 1 of them to build"
         },
@@ -5065,13 +5015,13 @@
             "division": "north"
           },
           "target": 17,
-          "standing": 17,
-          "to_build": 0,
+          "standing": 12,
+          "to_build": 5,
           "to_retire_or_redeal": 0,
           "filled": 0,
           "owning_ticket": "T-2170",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 17; the 668-roof programme leaves 0 of them to build"
+          "basis": "the inventory's district/group matrix sets 17; the 668-roof programme leaves 5 of them to build"
         },
         {
           "key": "structures/barns_stables/fort",
@@ -5245,13 +5195,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 162,
-          "to_build": 14,
+          "standing": 168,
+          "to_build": 8,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2147",
+          "owning_ticket": "T-2176",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 14 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 8 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5294,7 +5244,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2147",
+          "owning_ticket": "T-2176",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 0 of them to build"
         },
@@ -5541,9 +5491,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 15,
+        "roofs_on_committed_ground": 14,
         "roofs_gated_on_coverage": 6,
-        "statement": "15 of the 21 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "statement": "14 of the 20 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5863,7 +5813,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "411 of 666 standing records carry no occupants block."
+      "measured_now": "408 of 667 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

@@ -1,6 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1536, ts: '2026-10-08T13:53:28.150Z', date: 'Oct 8, 2026, 8:53 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: 1539, ts: '2026-10-08T15:09:52.689Z', date: 'Oct 8, 2026, 10:09 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
+  { v: 1538, ts: '2026-10-08T14:46:44.080Z', date: 'Oct 8, 2026, 9:46 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+    items: [
+      'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
+      'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
+      'The two Market corner lots stay open.',
+      'Six households now live in these houses, one of them named on the house itself.',
+      'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1537, ts: '2026-10-08T14:27:39.677Z', date: 'Oct 8, 2026, 9:27 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The project measures the town from fixed spots, and two of them inside the town stood a metre from a wall.',
+      'Two new spots look across the back yards on Washington Street and at the South Water Street shop fronts from the street, so their pictures show what they are meant to check.',
+    ] },
+  { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Before taking a ticket, the build loop now checks whether an open pull request already carries it, even one opened from a branch that doesn\'t name the ticket, so the same work isn\'t built twice.',
+    ] },
   { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',

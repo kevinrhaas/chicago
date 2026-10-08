@@ -1,3 +1,85 @@
+## T-2147 — the School Section tier's Market block (81): six ordinary dwellings, the first roofs south of Madison on Market (2026-10-05, re-dealt 2026-10-08)
+
+Piece 4 of T-1755, on the ground T-2144 opened. The seating held seven `slot` requests on
+`blk_school_section_tier_81` and the schedule gives it `lot_ceiling_principal` 7 (one roof a lot,
+lot 0 kept open) with one A2 yard roof.
+
+- Recipe entry `phase3_platted_block_school_section_tier_81`: D6@1, D5@2, D4@3, D4@4, D3@5, D5@6,
+  D7@7 and an A2 carriage shed behind the D7 — the schedule's family list to the roof. Baked with
+  the pinned Blender (`bake.sh --only`, nine meshes: the eight plus `blk_washington_market_d4_11`,
+  whose siding stock the parcel deal advanced). **L397** records the invention (renumbered from L392 on the lap over T-1746: T-2066 took L392).
+- The keeper pass gains a seventh district, `school_section_tier` (carried by T-2147); without
+  it the block's two writable keepers were owed to T-2136, which is done, and
+  `name_the_keepers_1835.py --check` was red. Blocks 94/95/118/119 share the prefix.
+- Seating walked to its fixpoint (four full laps, then 25 inner keeper↔seat laps — the walk moves
+  one roof a lap down the household order, as T-2129 saw): **216 seated, held**; adopted
+  175 → 182, slots 47 → 40. The seven who asked re-slot on blocks 94, 118 and 119 (T-2145,
+  T-2146). Keepers 81 → 83. L263 (577), L270 and L276 restated.
+- **Lapped over T-2143 (#492).** Merged onto dev after plat block 51 landed: the derived files were
+  taken from dev and rebuilt, the recipe keeps both blocks' entries, and the seating re-walked to
+  the same fixpoint the branch measured before the merge — the same seven move in, the same seven
+  re-slot, 63 change roof, 222 seated. Upstream readers of the moved roofs re-derived (hay limits,
+  land tracts, register, profile, street faces, housing seats, aprons, alley lanes, woodpiles,
+  remedies, roof-id migration, Newberry leads); T-0059's figures 608/602 → 616/610.
+- **Lapped again, over T-1746, T-1977, T-2140 and T-2149 (2026-10-06).** T-2149 gave the Monroe
+  face its frontage corridor, so `measure_block_redeal_remedies.py --self-test` — the one red left
+  on the last lap — is green, and the frontage census's streetless count stays at dev's 35 (the
+  four Monroe-face roofs on this block now front Monroe). The derived files took dev's side; the
+  seating chain settled in seventeen laps at the same seven in, the same seven re-slotted, 63
+  changed: **209 seated** (dev's count after T-1746), adopted 175 → 182, slots 34 → 27; keepers
+  81 → 83. Then `rederive.mjs` over the layer, its second pass, woodpiles, the roof-id surface,
+  the remedies report and the Newberry re-parse. The liberty is renumbered **L397** (T-2066 took
+  L392 on dev); L263 595 → 603, L270 209 (held) and L276 83 restated; T-0059's figures
+  635/629 → 643/637. `validate.py --stale` clean: no mesh moved on the lap.
+- **Lapped over T-2148, T-2058, T-2022, T-2151, T-2152 and T-2154 (2026-10-08).** Derived files
+  re-derived (`rederive.mjs --run`, its second pass, the settled tail); the seating chain walked
+  with `generate_west_infill` inside the lap (without it the keepers never settle) to its fixpoint
+  at pass nine: 212 seated (200 adopted, 12 slots), keepers 87 → 89, three on block 81. Five of
+  the six slot requests on block 81 adopt standing roofs north of Madison; the sixth re-slots on
+  block 94. Fifteen meshes rebaked. L263 623 → 631, L276 87 → 89; L397's slot count restated.
+  T-1983 was split mid-lap, so the order book's yard rows move to T-2156 (as #508 does).
+- **Lapped over T-2157, T-2158, T-2155, then T-2165, T-2172 and T-2093 (2026-10-08).** The
+  derived files took dev's side and were rebuilt: the seating lap (adopt_street_faces →
+  reconcile_665 → redeal → name_the_keepers → generate_west_infill → `rederive.mjs --tail
+  seat_platted_ground`) settled with a second lap moving nothing, then hay limits, land tracts,
+  the register, the population profile and the Newberry leads re-derived above it. L263 is 639
+  phases with T-2165's three yard roofs below T-2147's eight; the generator half is stated at
+  679/673. T-1673 was split mid-lap (T-2174, T-2175), so the South's street-line warehouse band
+  and its fallback row now name T-2175, which holds three of its four roofs.
+
+- **Re-dealt over T-2146 (#511), 2026-10-08.** T-2146 landed on dev while this PR waited and
+  spent the town's last D3 and D7 against their family targets (65 and 18), so the old deal (D6,
+  two D5, two D4, a D3, a D7 and an A2 carriage shed) no longer fit: `generate_block_infill.py`
+  refused it (`D3: 66 anonymous roofs against a programme target of 65`). The merge took dev's
+  side of every generated file and the recipe was re-dealt to dev's schedule and seating: six
+  `slot` requests (D5 lot 2, D5 lot 3, D4 lot 4, D4 lot 5, D2 lot 6, D6 lot 7) and a schedule
+  list of those six plus an H3, no yard roof. The H3 is not raised, as T-2146 left block 95's
+  (lodging model, T-1957). Seating lap (adopt_street_faces → reconcile_665 → redeal → keepers →
+  the four infill generators → reconcile_665 → the seating chain) walked 33 laps to a repeat:
+  **214 seated** (212 adopted, 2 slots — a D4 on this block's lot 1 and a D5 on block 95's lot 1,
+  the next deal's), keepers 92 → 96. Six older households adopt the six houses; one keeper
+  (hh_burke_james) is written on them. 38 meshes baked (`bake.sh --only`, pinned Blender): the six
+  new houses and 32 roofs the walk moved. Then `rederive --tail` from the seating, the completion
+  audit, the tail from town_census, hay limits, land tracts, register, profile, the Newberry
+  re-parse and the tail from compile_liberties. L263 644 → 650, L270 212 → 214, L276 92 → 96;
+  L397 rewritten for the six. Generator half 684/678 → 690/684.
+
+## T-2100 — two in-town measurement stands re-posed to show the yard and the shop front (2026-10-08)
+
+- **What changed:** `tools/measure_detail_ceilings.mjs` (and the copy in
+  `tools/measure_still_frame.mjs`) gain `town_yard` (388, -440, looking north at the backs of
+  two Washington Street houses across their yards) and `town_store_front` (501, 12, looking
+  south at the South Water Street fronts from the street). `town_backyard` and
+  `town_south_water_store` keep their ids and coordinates, because T-2091/T-2092/T-2099's
+  numbers and the still-frame gate's ceilings were read there; their captures remain a wall
+  and a door.
+- **Measured on dev @ 12cb2f3d4, every tier, both viewports** (`docs/measurements/T-2100-town-stands.md`):
+  the yard stand costs within 2 % of the wall stand, the store stand 1-2 % more; all inside
+  dev's ceilings, the nearest desktop `balanced` at the yard (98.8 %), the margin the old stand
+  already ran at.
+- **Not verified:** nothing in the scene changed, so no visual parcel was re-judged at the new
+  stands in this run; T-2085..T-2087's own acceptances were judged at the old poses.
+
 ## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
 
 Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
