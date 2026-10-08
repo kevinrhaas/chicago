@@ -36,6 +36,26 @@ business deal holds 45 roofs (was 44).
 **Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
 here, and the warehouse itself seats no household.
 
+## T-2068 — the scene bundle is published from the content build (2026-10-08)
+
+Piece 2 of T-1357, made in an owner-visible PR because it edits `chicago-4d-bake.yml` (the owner's
+ruling on the ticket, 2026-10-04). The owner chose GitHub Release assets for storage on 2026-10-08.
+On a nightly or dispatched bake of `dev`, the bake job packs the commit its own gate just passed
+and verifies the archive. After the smoke passes, `publish-bundle` releases it under its own tag
+and moves the latest-good pointer in the `scene-bundle-index` release, but only to a bake of the
+same or a newer `dev` commit. `fresh-consumer` then downloads by digest on a new runner, verifies,
+and attaches a receipt. `docs/unreal/SCENE-BUNDLE.md` § Publication is the page.
+
+- **Not yet demonstrated on GitHub.** The logic is self-tested (`scene_bundle.py advance`), and the
+  publish and consumer scripts were run end to end against a stand-in `gh`. The first real
+  publication needs a bake of `dev` on this workflow file. The nightly runs `main`'s copy, so it
+  publishes only after a promotion.
+- **Dev today would not publish as it stands.** Three committed GLBs disagree in size with
+  `assets/manifest.json` (`recon_1835_blk_south_water_clark_d4_02`, `…_dearborn_h1_03`,
+  `recon_1835_blk_washington_dearborn_d4_09`), so `verify` refuses a bundle packed from dev's own
+  commit. A full bake rewrites both the meshes and the record, so the commit it packs should agree;
+  if it does not, the bundle is refused before it is published, which is what the check is for.
+
 ## T-2170 — five barns in the yards of the Wolcott-Kinzie core's houses (2026-10-08)
 
 The order book still owed the North five A2 barns or carriage sheds (`structures/barns_stables/north`).
