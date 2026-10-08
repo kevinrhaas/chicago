@@ -73,6 +73,9 @@ step "A patched plain lit material cannot be handed another layer's shader progr
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
+step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
+  node tools/calibrate_boot_weights.mjs --check
+
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
 step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \

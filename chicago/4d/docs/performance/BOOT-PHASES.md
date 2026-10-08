@@ -52,6 +52,15 @@ emulations on the recorded Mac, not measurements of a physical phone. No CPU
 throttling or network shaping was used. Values are planning estimates, not a
 promise of load time on another device.
 
+**T-2060 recalibration (2026-10-08).** The boot grew after September 20, so the weights were
+re-measured on a software-WebGL runner and calibrated back to the Mac. The runner measured the
+Mac's own tree (`custom@e53e46c3b`) and dev, and each weight is the Mac's reading times that
+phase's growth in that cell. `tools/calibrate_boot_weights.mjs --write THEN.json TODAY.json
+--then-tree SHA --today-tree SHA` writes `tools/boot_weights_calibration.json` and
+regenerates `boot-weights.js`; `--check` (in `check.sh`) refuses a hand edit. Re-read the
+weights when the boot moves more than 10 %: run `measure_boot_phases.mjs --published --json`
+on dev and with `--root` on the THEN tree's mirror, on the same machine, then `--write`.
+
 Mobile/light's flora repaint gap was 974.5 ms cold before slicing; it is 123.8 ms
 cold and 116.5 ms warm afterward. All twelve comparisons are byte-identical.
 The full long-task reading includes software WebGL/compositor work at first
