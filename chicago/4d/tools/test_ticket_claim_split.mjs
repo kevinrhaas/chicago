@@ -85,13 +85,14 @@ function sandbox() {
   return { tmp, APP, bare };
 }
 
-// `split` asks GitHub for the open pull requests on its parent (T-1344). The gate never
-// reaches the network for that: every split here reads an empty list unless the case
-// hands it a fixture of its own.
+// `split` asks GitHub for the open pull requests on its parent (T-1344), and `claim` for
+// the open pull requests carrying its ticket (T-2138). The gate never reaches the network
+// for either: every split and claim here reads an empty list unless the case hands it a
+// fixture of its own.
 const NO_PULLS = path.join(mkdtempSync(path.join(tmpdir(), 'c4d-pulls-')), 'none.json');
 writeFileSync(NO_PULLS, '[]');
 const run = (APP, ...args) => {
-  if (args[0] === 'split' && !args.includes('--pr-json')) args = [...args, '--pr-json', NO_PULLS];
+  if (['split', 'claim'].includes(args[0]) && !args.includes('--pr-json')) args = [...args, '--pr-json', NO_PULLS];
   const r = spawnSync('node', [path.join(APP, 'tools', 'ticket.mjs'), ...args],
     { cwd: APP, encoding: 'utf8', env: { ...process.env, GITHUB_RUN_ID: '' } });
   return { status: r.status, out: `${r.stdout ?? ''}${r.stderr ?? ''}` };
