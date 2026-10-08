@@ -25,26 +25,26 @@
     ]
   },
   "counts": {
-    "cards": 1459,
-    "blocks": 22219,
-    "tiers_written_on_the_card": 10908,
+    "cards": 1458,
+    "blocks": 22201,
+    "tiers_written_on_the_card": 10900,
     "by_tier": {
-      "attested": 713,
-      "inferred": 3708,
-      "reconstructed": 10915,
-      "unknown": 6883
+      "attested": 711,
+      "inferred": 3703,
+      "reconstructed": 10909,
+      "unknown": 6878
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
-        "inferred": 1360,
-        "reconstructed": 48,
+        "inferred": 1358,
+        "reconstructed": 49,
         "unknown": 0
       },
       "arrival_year": {
         "attested": 0,
         "inferred": 19,
-        "reconstructed": 1375,
+        "reconstructed": 1374,
         "unknown": 0
       },
       "directories.people[].address_later": {
@@ -74,11 +74,11 @@
       "division_reconstructed": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1342,
+        "reconstructed": 1340,
         "unknown": 0
       },
       "kin[]": {
-        "attested": 136,
+        "attested": 134,
         "inferred": 12,
         "reconstructed": 0,
         "unknown": 0
@@ -87,24 +87,24 @@
         "attested": 8,
         "inferred": 15,
         "reconstructed": 11,
-        "unknown": 1425
+        "unknown": 1424
       },
       "origin": {
         "attested": 11,
         "inferred": 41,
-        "reconstructed": 1407,
+        "reconstructed": 1406,
         "unknown": 0
       },
       "party_size_on_arrival": {
         "attested": 3,
         "inferred": 9,
         "reconstructed": 0,
-        "unknown": 1447
+        "unknown": 1446
       },
       "persons[].age_band": {
         "attested": 7,
         "inferred": 53,
-        "reconstructed": 2861,
+        "reconstructed": 2859,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -147,7 +147,7 @@
         "attested": 118,
         "inferred": 20,
         "reconstructed": 203,
-        "unknown": 2587
+        "unknown": 2585
       },
       "persons[].profile_facts[]": {
         "attested": 1,
@@ -157,34 +157,34 @@
       },
       "persons[].sex_basis": {
         "attested": 0,
-        "inferred": 666,
-        "reconstructed": 667,
+        "inferred": 665,
+        "reconstructed": 666,
         "unknown": 6
       },
       "present_on_scene_date": {
         "attested": 25,
-        "inferred": 1385,
-        "reconstructed": 49,
+        "inferred": 1383,
+        "reconstructed": 50,
         "unknown": 0
       },
       "reason_for_coming": {
         "attested": 12,
         "inferred": 13,
-        "reconstructed": 1434,
+        "reconstructed": 1433,
         "unknown": 0
       },
       "works_at": {
         "attested": 32,
         "inferred": 19,
         "reconstructed": 0,
-        "unknown": 1408
+        "unknown": 1407
       }
     },
     "reconstructed_by_basis": {
       "address_back_projection": 23,
       "arrival_bound_from_the_record": 1,
-      "arrival_earliest_year_forced": 47,
-      "inferred_household_hypothesis": 38,
+      "arrival_earliest_year_forced": 48,
+      "inferred_household_hypothesis": 39,
       "origin_uncited_literature": 1,
       "residence_back_projection": 12
     }
@@ -1216,6 +1216,41 @@
       "replaceable_by": {
         "kind": "person",
         "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_chevalier_angelique",
+      "attribute": "arrival",
+      "value": "1835-07-01",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_chevalier_angelique",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
       }
     },
     {
@@ -2651,11 +2686,11 @@
         "kind": "person",
         "match": "a dated source that says which year this household came to Chicago"
       },
-      "values": 1375,
+      "values": 1374,
       "by_value": {
-        "1834": 566,
-        "1833": 414,
-        "1835": 317,
+        "1834": 575,
+        "1833": 408,
+        "1835": 313,
         "1832": 46,
         "1831": 17,
         "1818": 4,
@@ -2679,11 +2714,11 @@
         "kind": "household",
         "match": "any source that places this household in a division or nearer"
       },
-      "values": 1342,
+      "values": 1340,
       "by_value": {
         "south": 767,
-        "north": 300,
-        "west": 275
+        "north": 299,
+        "west": 274
       },
       "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
       "a_card": "hh_abbot_8_g"
@@ -2751,8 +2786,8 @@
       },
       "values": 1377,
       "by_value": {
-        "New York State": 559,
-        "New England": 484,
+        "New York State": 560,
+        "New England": 483,
         "The Mid-Atlantic states": 121,
         "England": 114,
         "The Southern states": 59,
@@ -2772,9 +2807,9 @@
         "kind": "person",
         "match": "a source that says where this household came from"
       },
-      "values": 29,
+      "values": 28,
       "by_value": {
-        "The French colonial settlements of the Detroit and Milwaukee country": 21,
+        "The French colonial settlements of the Detroit and Milwaukee country": 20,
         "Ireland": 8
       },
       "a_seed": null,
@@ -2790,17 +2825,17 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2858,
+      "values": 2856,
       "by_value": {
-        "20-29": 981,
-        "0-4": 484,
-        "30-39": 469,
+        "20-29": 980,
+        "0-4": 483,
+        "30-39": 468,
         "10-19": 239,
         "0-9": 221,
         "40-49": 145,
-        "15-19": 125,
-        "5-9": 71,
-        "10-14": 43,
+        "15-19": 126,
+        "5-9": 72,
+        "10-14": 42,
         "50-59": 42,
         "60-69": 17,
         "50+": 13,
@@ -2935,6 +2970,7 @@
         "Alice Wickham": 1,
         "Almira Barnes": 1,
         "Almira Beaubien": 1,
+        "Almira Bourrassa": 1,
         "Almira Byram": 1,
         "Almira Crandall": 1,
         "Almira Dickinson": 1,
@@ -3153,6 +3189,7 @@
         "Catherine Sct": 1,
         "Catherine Sherman": 1,
         "Catherine Stoer": 1,
+        "Catherine Thomas": 1,
         "Catherine Trowbridge": 1,
         "Catherine Vanderbogart": 1,
         "Catherine Vieau": 1,
@@ -3186,6 +3223,7 @@
         "Clarissa Barnard": 1,
         "Clarissa Barnes": 1,
         "Clarissa Barry": 1,
+        "Clarissa Bourrassa": 1,
         "Clarissa Chapin": 1,
         "Clarissa Cobb": 1,
         "Clarissa Collins": 1,
@@ -3207,7 +3245,6 @@
         "Clarissa Murray": 1,
         "Clarissa Newell": 1,
         "Clarissa Price": 1,
-        "Clarissa Rider": 1,
         "Clarissa Riffe": 1,
         "Clarissa Rollins": 1,
         "Clarissa Sherman": 1,
@@ -3355,6 +3392,7 @@
         "Emily Stiles": 1,
         "Emily Wilcox": 1,
         "Emily Woodruff": 1,
+        "Erastus Bourrassa": 1,
         "Erastus Coslet": 1,
         "Erastus Draper": 1,
         "Erastus Fairbanks": 1,
@@ -3483,7 +3521,6 @@
         "Henry Nicole": 1,
         "Henry Stebbins": 1,
         "Henry Thayer": 1,
-        "Henry Wellmaker": 1,
         "Hiram Barnes": 1,
         "Hiram Clark": 1,
         "Hiram Collins": 1,
@@ -3755,7 +3792,6 @@
         "Lydia Panster": 1,
         "Lydia Pratt": 1,
         "Lydia Rice": 1,
-        "Lydia Rider": 1,
         "Lydia Smith": 1,
         "Lydia Spence": 1,
         "Lydia Spring": 1,
@@ -3820,7 +3856,6 @@
         "Maria Nash": 1,
         "Maria Ogleby": 1,
         "Maria Parmelee": 1,
-        "Maria Rider": 1,
         "Maria Spalding": 1,
         "Maria Stebbins": 1,
         "Maria Stevens": 1,
@@ -3854,6 +3889,7 @@
         "Martha Thayer": 1,
         "Martha Tucker": 1,
         "Martha Vaughan": 1,
+        "Martha Whitlock": 1,
         "Martha Wilcox": 1,
         "Martin Carroll": 1,
         "Martin Cavanagh": 1,
@@ -3976,6 +4012,7 @@
         "Nathaniel Rider": 1,
         "Nathaniel Smith": 1,
         "Nathaniel Sweet": 1,
+        "Orrin Bourrassa": 1,
         "Orrin Crandall": 1,
         "Orrin Davis": 1,
         "Orrin Gilbert": 1,
@@ -3999,7 +4036,6 @@
         "Owen Mahoney": 1,
         "Owen More": 1,
         "Owen Steele": 1,
-        "Owen Thomas": 1,
         "Owen Walsh": 1,
         "Owen Wickham": 1,
         "Patrick Kelly": 1,
@@ -4061,7 +4097,6 @@
         "Polly Preman": 1,
         "Polly Reed": 1,
         "Polly Rice": 1,
-        "Polly Rider": 1,
         "Polly Sherman": 1,
         "Polly Smith": 1,
         "Polly Thayer": 1,
@@ -4070,6 +4105,7 @@
         "Polly Wight": 1,
         "Polly Wilcox": 1,
         "Reuben Barry": 1,
+        "Reuben Bourrassa": 1,
         "Reuben Bradley": 1,
         "Reuben Bronson": 1,
         "Reuben Cobb": 1,
@@ -4294,7 +4330,6 @@
         "Willard Mulford": 1,
         "Willard Thayer": 1,
         "Willard Walter": 1,
-        "Willard Wesencraft": 1,
         "William Barnes": 1,
         "William Fairbanks": 1,
         "William Ingalls": 1,
@@ -4365,9 +4400,9 @@
         "kind": "person",
         "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
       },
-      "values": 667,
+      "values": 666,
       "by_value": {
-        "male": 626,
+        "male": 625,
         "female": 41
       },
       "a_seed": "abbot_8_g:sex_ratio",
@@ -4400,11 +4435,11 @@
         "kind": "person",
         "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
       },
-      "values": 1331,
+      "values": 1330,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 543,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 398,
-        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 315,
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 552,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 392,
+        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 311,
         "The trading post, the fort and the country trade — the town before the boom": 75
       },
       "a_seed": null,
