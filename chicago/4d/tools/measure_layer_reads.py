@@ -976,6 +976,8 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "associated_with[].tier": ("shown", 'swatch(link.tier)'),
     "associated_with[].source_id": ("shown", 'citationsById.get(link.source_id)'),
     "associated_with[].note": ("shown", 'escapeHtml(link.note)'),
+    # T-1273: a copied home or workplace claim's second and later sources.
+    "associated_with[].also_sources": ("shown", '(link.also_sources || [])'),
     "persons[].associated_with[].kind": ("shown", 'escapeHtml(words(link.kind))'),
     "persons[].associated_with[].place_or_structure_id": ("shown", 'escapeHtml(words(link.place_or_structure_id))'),
     "persons[].associated_with[].resolves_to": ("shown", 'escapeHtml(words(link.resolves_to))'),

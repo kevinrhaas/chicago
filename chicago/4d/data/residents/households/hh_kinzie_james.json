@@ -55,6 +55,22 @@
   "confidence": "reconstructed",
   "note": "NOT ATTESTED AT THE SCENE DATE. He built the Green Tree and Chester Ingersoll kept it; he built a tavern on the west side of the South Branch and a Mr Crook kept it. This dataset holds james_kinzie_house as his residence and that is a lives_at, not a works_at."
  },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "james_kinzie_house",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "inferred",
+   "source_id": "andreas_1884_v1",
+   "note": "Andreas's residents list places 'James Kinzie and family' near Wentworth's tavern and this dataset's james_kinzie_house sits in that row, south of the tavern, on the strength of the same clause. Inferred rather than documented because the building record itself calls its evidence 'a single clause' and grades its own position inferred. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_kinzie_james#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "also_sources": [
+    "kinzie_waubun_1856"
+   ]
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "inferred",

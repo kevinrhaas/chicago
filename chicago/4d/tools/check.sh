@@ -6589,6 +6589,19 @@ step "the person associations still re-derive, and are still on their cards" \
 selftest "…and its own refusals still fire when broken" \
   python3 tools/person_associations.py --self-test
 
+# T-1273. The home and workplace half of the same migration: every reconciliation row
+# that reaches a roof (`tools/location_reconciliation.py`) copied onto its household as an
+# `associated_with` row, with no value, confidence or source changed. The same two holds
+# as T-1405's: the report re-derives, and every copied row is still on its card byte for
+# byte — plus a third, because a household's `lives_at` CAN change under it: a copied
+# row that no longer derives is refused, so a moved home cannot leave its old roof
+# standing in the plural list where `singular_drift` would never look.
+step "the household home and workplace rows still re-derive, and are still on their cards" \
+  python3 tools/household_associations.py --check
+
+selftest "…and its own refusals still fire when broken" \
+  python3 tools/household_associations.py --self-test
+
 # T-1158. The per-attribute tier, and the three things that can go wrong with it.
 #
 # The first is DRIFT. The tier of an existing value is DERIVED from the confidence and the
