@@ -12,8 +12,8 @@ Clause 4 says the 61 street-only and 62 unplaceable counts may fall only when a 
 |---|---:|---|---:|---|
 | structure | 64 | `structure_committed` | 53 | the anchor resolves to a roof the dataset holds |
 | structure | 64 | `structure_pending` | 11 | the anchor reaches a roof the town has not built |
-| street_only | 52 | `street_only_adopted` | 44 | seated on an existing roof by the 2026-08-29 ruling; substitutable |
-| street_only | 52 | `street_only_unseated` | 8 | the face could not be adopted |
+| street_only | 52 | `street_only_adopted` | 45 | seated on an existing roof by the 2026-08-29 ruling; substitutable |
+| street_only | 52 | `street_only_unseated` | 7 | the face could not be adopted |
 | unplaceable | 60 | `unplaceable` | 60 | no street the model holds |
 
 **0 businesses moved between the published limits.** The three counts T-1157 reads as the sign-off's location axis are unchanged at 64 / 52 / 60.
@@ -24,7 +24,7 @@ The register's `new_building` action means the advertisement's anchor is good en
 
 ### Why an adopted roof is not a claim
 
-Clause 3 says a street-only business claims no lot or roof, and 44 of them stand under one — because the owner's street-face adoption ruling of 2026-08-29 seats them there. Two facts were wearing one field. They are separated here: `evidence_reach` is the street the paper named and never becomes the roof, `model_seat` is what the town did about it, and all 44 adopted seats are marked `seat_is_substitutable`. An adopted roof that acquires an anchor target, or a lot, or stops matching the committed adoption ledger, fails the gate.
+Clause 3 says a street-only business claims no lot or roof, and 45 of them stand under one — because the owner's street-face adoption ruling of 2026-08-29 seats them there. Two facts were wearing one field. They are separated here: `evidence_reach` is the street the paper named and never becomes the roof, `model_seat` is what the town did about it, and all 45 adopted seats are marked `seat_is_substitutable`. An adopted roof that acquires an anchor target, or a lot, or stops matching the committed adoption ledger, fails the gate.
 
 ## Households, by seating class
 

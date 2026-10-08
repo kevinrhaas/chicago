@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1542, ts: '2026-10-08T17:21:43.998Z', date: 'Oct 8, 2026, 12:21 PM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
+    items: [
+      'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',
+      'No record names this building. The town\u2019s plan counted four warehouses missing from the South Water and Lake Street blocks, and this is the one with ground for it today. The other three wait on river access and on the survey line at Market Street.',
+      'Its card says the building is reconstructed, not recovered. The Liberties page explains it (L406).',
+    ] },
   { v: 1541, ts: '2026-10-08T16:45:15.153Z', date: 'Oct 8, 2026, 11:45 AM CT', title: 'The 1904 Prairie Avenue scene opens on a phone again', kind: 'fix',
     items: [
       'Opening the 1904 scene on a phone stopped partway through loading and showed an error instead of Prairie Avenue. It now loads as it does on a computer.',
