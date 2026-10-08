@@ -10940,7 +10940,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 122 structures (103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 123 structures (122 until T-2165's stable on blk_indiana_north_wolcott, 2026-10-08; 103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -14333,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 626 phases (623 until T-2156's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 627 phases (624 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -16189,11 +16189,12 @@ and **L277** on the store-residences.
 
 ### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
 
-**Scope:** `structures.phases[cargo_rhythm]` — 4 phases built with a cargo-door
+**Scope:** `structures.phases[cargo_rhythm]` — 5 phases built with a cargo-door
 rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01`,
-`recon_1835_blk_south_water_lasalle_f2_10` and, since T-1773,
-`recon_1835_forks_freight_f2_001` at Lake and West Water — the town's three **F2** roofs —
-and, since T-2022 (L399), `recon_1835_bank_freight_f3_001` on the North Water bank at LaSalle,
+`recon_1835_blk_south_water_lasalle_f2_10`, since T-1773
+`recon_1835_forks_freight_f2_001` at Lake and West Water and, since T-2150 (L400),
+`recon_1835_branch_freight_f2_001` at Washington and West Water — the town's four **F2**
+roofs — and, since T-2022 (L399), `recon_1835_bank_freight_f3_001` on the North Water bank at LaSalle,
 the town's first and only **F3**, built with three. The rhythm itself is `goods_door_bays` and
 `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
 `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
@@ -22028,3 +22029,100 @@ July 1835 substitutes for this roof rather than standing beside it.
 **Ticket:** T-2022 (the remainder of T-1205's North trade roofs).
 
 **Recorded:** 2026-10-06 (T-2022).
+
+### L400 — The West Division's second freight roof: a narrow warehouse on the West Water bank at Washington Street that no source seats
+
+**Applies to:** `recon_1835_branch_freight_f2_001` (`data/structures/`), written by
+`tools/generate_west_freight.py` from `data/reconstruction/1835_west_freight_bank.json`.
+
+**What we invented:** The whole building. The order book's `structures/warehouses_freight/west`
+row sets two freight roofs for the West Division and found one standing (T-1773's at the forks),
+so it ordered one more; `tools/reconcile_665.py` deals it to `blk_washington_clinton` (plat
+block 50) as an **F2**, the West's share of the family mix since T-2022 built the town's first
+F3. T-2148 had deferred it there, as an F3, because block 50 is bounded by four platted streets
+a full plat module from the South Branch. This is that roof: an **F2** narrow two-storey
+warehouse with a hoist and two cargo doors (L280) on plat lot 1 of `blk_west_washington_canal`
+(plat block 51), the West Water column's Washington Street corner. Its front stands 1.5 m inside
+the lot's West Water line, as T-1773's does on the same street; its side stands 3.5 m inside the
+plat's Washington line, because the drawn Washington corridor overlaps that line by about three
+metres; its rear runs toward the block's alley. Footprint, storeys, eave, pitch, finish and the
+shingle exposure (L263) are type-level values from the reconstruction specification, sampled
+deterministically from the F2 band. No owner, forwarder, cargo or occupant is claimed.
+
+**Why the bank, and why block 51:** the roof stands on the placement policy's `bank_landing`
+clause (L399's argument, unchanged: a freight roof fronts the water it loads from, within one
+platted corridor plus the street line, 27.09 m, of traced water). Measured with this roof's own
+footprint 1.5 m inside the West Water line of every open West Water lot: plat block 29
+(`blk_west_lake_canal`) stands 32.42-38.07 m from the water, plat block 44
+(`blk_west_randolph_canal`) 27.21-32.18 m, and plat block 51 25.35-25.90 m on the lots a roof
+fits. The South Branch has taken thirty feet off block 51's river column (the sheet prints 88 ft
+under it against 150 ft under block 44's), so its West Water lots are the only West Division
+lots inside the clause's reach; and block 51 is the block that stands between block 50 and the
+bank, so the roof moves one module east from where the schedule dealt it. Plat lot 1 is the
+corner of that face, where both freight clauses put a freight roof. The trustees' November 1835
+sale priced the wharfing privileges on West Water at $18 a front foot
+(`wood_1881_chicago_and_its_distinguished_citizens`); it is four months after the target date,
+dates no building and is read for the frontage's character only.
+
+**What it costs:** `tools/reconcile_665.py` sizes block 51's ten lots at six roofs (the reviewed
+West recipe), and T-2143's six houses already fill them; this roof is a seventh, so the block
+reads `at_capacity` one over its density. It is counted against the West freight row and the
+West's remainder, not against that block's houses, and the block's four open West Water lots
+become three.
+
+**Bounds held by the generator:** wholly on its lot; out of every platted corridor, the drawn
+street corridors and refused ground; 25.90 m from traced water, inside `bank_landing`'s 27.09 m
+(read from the policy, not copied) and outside the 8 m anonymous setback; 57.6 m from the nearest
+footprint; dry modelled ground at every corner with 0.02 m of relief; facade toward West Water.
+`--self-test` refuses a roof moved into the street, one straddling the next lot, one turned to
+face the alley, a family the recipe did not order and a bank-landing roof set back beyond the
+clause's reach.
+
+**Would replace:** Any reading that seats a named forwarder or warehouse on the West Division's
+South Branch bank in July 1835 substitutes for this roof rather than standing beside it.
+
+**Covers:** `recon_1835_branch_freight_f2_001.inferred_1835.position`, `recon_1835_branch_freight_f2_001.inferred_1835.footprint`.
+
+**Ticket:** T-2150 (the West freight roof T-2148 handed on).
+
+**Recorded:** 2026-10-08 (T-2150).
+
+### L401 — Three yard buildings the order book counted and nobody had built: a stable in Kinzie's Addition, a barn on South Water–Wells, a smokehouse on South Water–Dearborn
+
+**Applies to:** `recon_1835_blk_indiana_north_wolcott_a1_09`,
+`recon_1835_blk_south_water_wells_a2_09` and `recon_1835_blk_south_water_dearborn_a5_10`
+(`data/structures/`), written by `tools/generate_block_infill.py` from the three
+`*_yard_deal` entries in `data/reconstruction/1835_platted_block_parcels.json`.
+
+**What we invented:** All three buildings. The order book's `barns_stables` and
+`small_outbuildings` rows count yard buildings the inventory's district matrix sets and the
+town did not yet stand: before this, 6 in the North, 2 in the South's barns and 1 in its small
+outbuildings (and 7 in the West, left to T-2166). `tools/reconcile_665.py` places them block by
+block. This builds the three that stand where the schedule puts them on ground that holds them:
+an **A1** stable behind the D3 cottage on lot 9 of `blk_indiana_north_wolcott`, an **A2** barn or
+carriage shed behind the D4 house on lot 5 of `blk_south_water_wells`, and an **A5** smokehouse
+or small utility building behind the D2 house on lot 1 of `blk_south_water_dearborn`. Each
+stands 4.0 m off its block's alley, behind a house an earlier deal raised on the same lot.
+Footprint, storeys, eave, pitch, finish and the shingle exposure (L263) are type-level values
+from the reconstruction specification, sampled deterministically from the family's band. No
+owner, use beyond the family's, animal or occupant is claimed, and none seats a household.
+
+**What was refused, and why it is recorded here:** the schedule puts five more A2 barns on the
+Wolcott block. Its lots are 14.71 m × 31.33 m, each cottage lot already keeps a woodshed or a
+privy, and the generator holds a footprint 1.5 m off its lot line and 3.0 m off every other
+building, which leaves 4.85-5.55 m beside the existing yard building against an A2's 5.49 m
+narrowest band (every A2 the recipe would deal there samples 6.2-7.9 m). They stay owed, to
+T-2166. On `blk_south_water_dearborn` the smokehouse was tried first behind the boarding house
+on lot 5 and refused: that lot carries a printed address (`lot_address_block_16_lot_7`), and an
+address on a lot with two roofs names neither (`tools/lot_addresses.py`).
+
+**Covers:** `recon_1835_blk_indiana_north_wolcott_a1_09.inferred_1835.position`,
+`recon_1835_blk_indiana_north_wolcott_a1_09.inferred_1835.footprint`,
+`recon_1835_blk_south_water_wells_a2_09.inferred_1835.position`,
+`recon_1835_blk_south_water_wells_a2_09.inferred_1835.footprint`,
+`recon_1835_blk_south_water_dearborn_a5_10.inferred_1835.position`,
+`recon_1835_blk_south_water_dearborn_a5_10.inferred_1835.footprint`.
+
+**Ticket:** T-2165 (of T-2156, "build or re-budget the barns_stables and small_outbuildings roofs").
+
+**Recorded:** 2026-10-08 (T-2165).

@@ -1,3 +1,27 @@
+## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
+
+**What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in
+`data/reconstruction/1835_platted_block_parcels.json` behind houses earlier deals raised: an A1
+stable on `blk_indiana_north_wolcott` lot 9, an A2 barn or carriage shed on
+`blk_south_water_wells` lot 5, an A5 smokehouse on `blk_south_water_dearborn` lot 1. Baked
+(`tools/bake.sh --only`), L401 records them. Order book: North `barns_stables` 12/17 (5 owed),
+South `barns_stables` 34/35 (the last is T-2147's block 81), South `small_outbuildings` 48/48.
+
+**What it found (T-1692's question, half answered).** The schedule places the North's whole
+remainder — an A1 and five A2 — on the Wolcott block because it is the North's only platted block
+with ancillary room. That room is counted in roofs, not ground: its lots are 14.71 × 31.33 m, each
+cottage lot already keeps a woodshed or privy, and the generator's 1.5 m lot margin and 3.0 m
+separation leave 4.85-5.55 m beside it, narrower than any A2 (5.49 m at the band's floor; the
+recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this deal: North 31 yard
+roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
+divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
+split: T-2165 is this, T-2166 owns the North's five, the West's seven and the re-budget question,
+and the order book's yard rows (and the South's civic row) now name T-2166.
+
+**Unverified.** The positions are invented on generated lots (L401); no source seats any of the
+three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
+move one School Section request's family (blk 94, D5 to D4), which T-2146's open PR will meet.
+
 ## T-2154 — Evidence → City sets the town against the November census: dwellings standing, and the people split (2026-10-08)
 
 T-1983 ("the programme reconciled") was split three ways on claim: this piece (its
