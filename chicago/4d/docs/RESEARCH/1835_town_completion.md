@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,267** people housed in a standing building: **11.3 % attested** (368), **28.8 % inferred** (942), **59.9 % reconstructed** (1,957).
+Of the **3,265** people housed in a standing building: **11.3 % attested** (368), **28.8 % inferred** (940), **59.9 % reconstructed** (1,957).
 
 ## Every table by tier
 
@@ -25,23 +25,23 @@ Of the **3,267** people housed in a standing building: **11.3 % attested** (368)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 368 | 942 | 1,957 | 3,267 |
+| housed | 368 | 940 | 1,957 | 3,265 |
 | counted apart — waiting on a roof | 44 | 81 | 191 | 316 |
 | counted apart — absent on the scene date | 0 | 7 | 28 | 35 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **412** | **1,030** | **2,176** | **3,618** |
-| share | 11.4 % | 28.5 % | 60.1 % | |
+| **all** | **412** | **1,028** | **2,176** | **3,616** |
+| share | 11.4 % | 28.4 % | 60.2 % | |
 
 ### Households (by the head's grade)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 357 | 926 | 566 | 1,849 |
+| housed | 357 | 924 | 567 | 1,848 |
 | counted apart — waiting on a roof | 44 | 81 | 0 | 125 |
 | counted apart — absent on the scene date | 0 | 7 | 28 | 35 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **401** | **1,014** | **594** | **2,009** |
-| share | 20.0 % | 50.5 % | 29.6 % | |
+| **all** | **401** | **1,012** | **595** | **2,008** |
+| share | 20.0 % | 50.4 % | 29.6 % | |
 
 ### Working-age persons
 
@@ -50,9 +50,9 @@ Of the **3,267** people housed in a standing building: **11.3 % attested** (368)
 | at a workplace | 159 | 7 | 160 | 326 |
 | no fixed premises (stated) | 20 | 0 | 317 | 337 |
 | owed a workplace | 1 | 0 | 26 | 27 |
-| no trade recorded | 232 | 972 | 382 | 1,586 |
-| **all** | **412** | **979** | **885** | **2,276** |
-| share | 18.1 % | 43.0 % | 38.9 % | |
+| no trade recorded | 232 | 970 | 383 | 1,585 |
+| **all** | **412** | **977** | **886** | **2,275** |
+| share | 18.1 % | 42.9 % | 38.9 % | |
 
 ### Businesses (by the primary location's tier)
 
@@ -68,8 +68,8 @@ Of the **3,267** people housed in a standing building: **11.3 % attested** (368)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| occupied | 51 | 9 | 322 | 382 |
-| occupants named in prose only | 8 | 10 | 80 | 98 |
+| occupied | 51 | 9 | 323 | 383 |
+| occupants named in prose only | 8 | 10 | 79 | 97 |
 | a use that needs nobody | 25 | 6 | 162 | 193 |
 | empty, owing somebody | 0 | 0 | 2 | 2 |
 | **all** | **84** | **25** | **566** | **675** |

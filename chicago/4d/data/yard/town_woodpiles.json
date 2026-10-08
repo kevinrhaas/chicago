@@ -10,17 +10,17 @@
   "dwellings": 391,
   "by_row": {
    "cabin": 41,
-   "cottage": 170,
-   "house": 93,
+   "cottage": 168,
+   "house": 94,
    "keeper": 19,
    "merchant": 35,
-   "shanty": 32
+   "shanty": 33
   },
   "by_class": {
    "keeper": 19,
-   "labourer": 85,
+   "labourer": 84,
    "merchant": 35,
-   "tradesman": 251
+   "tradesman": 252
   },
   "by_basis": {
    "default": 16,
@@ -30,10 +30,10 @@
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 358,
+   "chopping_block": 357,
    "cordwood": 410,
    "log_heap": 41,
-   "slab_heap": 32
+   "slab_heap": 33
   },
   "piled": 390,
   "refused": 1
@@ -2957,7 +2957,7 @@
    "structure_id": "recon_1835_blk_randolph_dearborn_d3_01",
    "name": "Reconstructed D3 one-room frame cottage #01",
    "function": "one_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -3523,36 +3523,23 @@
    "structure_id": "recon_1835_blk_randolph_market_d2_06",
    "name": "Reconstructed D2 rough plank dwelling or shanty #06",
    "function": "rough_plank_dwelling_or_shanty",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "shanty",
-   "row": "cottage",
-   "rule": "Y-W3",
+   "row": "shanty",
+   "rule": "Y-W1",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
-     "kind": "cordwood",
+     "kind": "slab_heap",
      "at_local_enu_m": [
-      131.49,
-      -309.54
+      131.83,
+      -309.47
      ],
      "bearing_deg": 270.34,
-     "length_m": 1.86,
-     "depth_m": 0.61,
-     "height_m": 0.93,
-     "stick": "stove",
+     "pieces": 11,
      "seed": 1952874569
-    },
-    {
-     "kind": "chopping_block",
-     "at_local_enu_m": [
-      132.89,
-      -310.03
-     ],
-     "bearing_deg": 270.34,
-     "billets": 3,
-     "seed": 993852972
     }
    ]
   },
@@ -3695,7 +3682,7 @@
    "structure_id": "recon_1835_blk_randolph_market_d4_12",
    "name": "Reconstructed D4 two-room frame cottage #12",
    "function": "two_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -3782,36 +3769,49 @@
    "structure_id": "recon_1835_blk_randolph_market_d5_11",
    "name": "Reconstructed D5 deep-plan frame cottage #11",
    "function": "deep_plan_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "larger",
-   "row": "cottage",
-   "rule": "Y-W3",
+   "row": "house",
+   "rule": "Y-W4",
    "confidence": "reconstructed",
-   "wall": "back",
+   "wall": "side",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      109.47,
-      -364.79
+      115.3,
+      -371.19
      ],
-     "bearing_deg": 180.46,
-     "length_m": 2.48,
+     "bearing_deg": 270.46,
+     "length_m": 3.26,
      "depth_m": 0.61,
-     "height_m": 0.72,
+     "height_m": 0.82,
      "stick": "stove",
      "seed": 922250460
     },
     {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      115.33,
+      -367.58
+     ],
+     "bearing_deg": 270.46,
+     "length_m": 3.26,
+     "depth_m": 0.61,
+     "height_m": 0.71,
+     "stick": "stove",
+     "seed": 1127436207
+    },
+    {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      110.27,
-      -363.4
+      116.7,
+      -372.38
      ],
-     "bearing_deg": 180.46,
+     "bearing_deg": 270.46,
      "billets": 1,
-     "seed": 1127436207
+     "seed": 555718544
     }
    ]
   },
@@ -6090,7 +6090,7 @@
    "structure_id": "recon_1835_blk_south_water_franklin_d4_12",
    "name": "Reconstructed D4 two-room frame cottage #12",
    "function": "two_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -6680,7 +6680,7 @@
    "structure_id": "recon_1835_blk_washington_clark_d4_14",
    "name": "Reconstructed D4 two-room frame cottage #14",
    "function": "two_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -8359,7 +8359,7 @@
    "structure_id": "recon_1835_blk_washington_wells_d3_05",
    "name": "Reconstructed D3 one-room frame cottage #05",
    "function": "one_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",

@@ -12,7 +12,7 @@
     "structures": 676,
     "structures_sharing_a_name": 82,
     "streets": 80,
-    "resident_persons": 1442
+    "resident_persons": 1440
   },
   "counts": {
     "businesses": {
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 1020,
+        "none_recorded": 1018,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 1026,
+      "households_total": 1024,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -35059,8 +35059,8 @@
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
       "action": "enrich",
-      "action_target": "bourassa_lon",
-      "action_note": "data/residents/ already holds this person as bourassa_lon (hh_bourassa_lon, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "bourrassa_leon",
+      "action_note": "data/residents/ already holds this person as bourrassa_leon (hh_bourrassa_leon, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_loon_bowrassa",

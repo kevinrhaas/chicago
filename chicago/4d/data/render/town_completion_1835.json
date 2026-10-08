@@ -20,7 +20,7 @@
     "data/streets/1835.json"
   ],
   "summary": {
-    "households_housed": 1849,
+    "households_housed": 1848,
     "households_unhoused": 0,
     "households_counted_apart": {
       "absent_on_the_scene_date": 35,
@@ -34,7 +34,7 @@
   },
   "housed": {
     "households": {
-      "housed": 1849,
+      "housed": 1848,
       "unhoused": 0,
       "counted_apart": 160
     },
@@ -48,7 +48,7 @@
     },
     "persons_housed": {
       "attested": 368,
-      "inferred": 942,
+      "inferred": 940,
       "reconstructed": 1957
     },
     "persons_unhoused": {
@@ -57,13 +57,13 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3266,
+      "persons_housed": 3264,
       "persons_unhoused": 0,
       "persons_waiting_on_a_roof": 316
     },
     "housed_through": {
       "lives_at": 58,
-      "seated_by_a_structure": 1791
+      "seated_by_a_structure": 1790
     },
     "unhoused_by_folder": {},
     "unhoused_present_households": []
@@ -73,7 +73,7 @@
     "lodged_at_stated": 307
   },
   "at_work": {
-    "working_age": 2276,
+    "working_age": 2275,
     "placed": {
       "attested": 159,
       "inferred": 7,
@@ -91,8 +91,8 @@
     },
     "no_trade_recorded": {
       "attested": 232,
-      "inferred": 972,
-      "reconstructed": 382
+      "inferred": 970,
+      "reconstructed": 383
     },
     "owed_by_reason": {
       "held_on_an_identity_question": 1,
@@ -118,12 +118,12 @@
     "occupied": {
       "attested": 51,
       "inferred": 9,
-      "reconstructed": 322
+      "reconstructed": 323
     },
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 80
+      "reconstructed": 79
     },
     "use_stated": {
       "camp_ground": 3,
@@ -151,7 +151,7 @@
     "persons": {
       "housed": {
         "attested": 368,
-        "inferred": 942,
+        "inferred": 940,
         "reconstructed": 1957
       },
       "waiting_on_a_roof": {
@@ -173,8 +173,8 @@
     "households": {
       "housed": {
         "attested": 357,
-        "inferred": 926,
-        "reconstructed": 566
+        "inferred": 924,
+        "reconstructed": 567
       },
       "waiting_on_a_roof": {
         "attested": 44,
@@ -213,12 +213,12 @@
       "occupied": {
         "attested": 51,
         "inferred": 9,
-        "reconstructed": 322
+        "reconstructed": 323
       },
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 80
+        "reconstructed": 79
       },
       "use_stated": {
         "attested": 25,

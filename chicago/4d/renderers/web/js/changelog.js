@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1549, ts: '2026-10-08T21:54:11.280Z', date: 'Oct 8, 2026, 4:54 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+  { v: 1550, ts: '2026-10-08T22:59:09.322Z', date: 'Oct 8, 2026, 5:59 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
       'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
       'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
       'Behind the cottage on the Lake Street side of the block between Wells and LaSalle, a barn or carriage shed stands in the yard. Every barn the town plan counted for the South Division now stands.',
       'The two households who had asked for a roof here are now housed, and every household the plan seats on the town\u2019s lots now has a house.',
       'No source shows these buildings in 1835 or names them. Each card says it is reconstructed, and the Liberties page explains it (L408).',
+    ] },
+  { v: 1549, ts: '2026-10-08T21:10:13.013Z', date: 'Oct 8, 2026, 4:10 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+    items: [
+      'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
+      'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
+      'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
     ] },
   { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [
