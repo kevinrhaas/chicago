@@ -649,9 +649,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `structures/barns_stables/south` | 35 | 33 | 2 | 0 | T-2156 |
-| `structures/barns_stables/west` | 20 | 18 | 2 | 0 | T-2156 |
-| `structures/barns_stables/north` | 17 | 11 | 6 | 0 | T-2156 |
+| `structures/barns_stables/south` | 35 | 33 | 2 | 0 | T-2165 |
+| `structures/barns_stables/west` | 20 | 18 | 2 | 0 | T-2168 |
+| `structures/barns_stables/north` | 17 | 11 | 6 | 0 | T-2168 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/fort_principal/fort` | 10 | 10 | 0 | 0 | T-1204 |
 | `structures/inns_taverns/south` | 5 | 5 | 0 | 0 | T-1683 |
@@ -666,9 +666,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/ordinary_dwellings/south` | 176 | 150 | 26 | 0 | T-2146 |
 | `structures/ordinary_dwellings/west` | 75 | 75 | 0 | 0 | T-2150 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 0 | 0 | T-1746 |
-| `structures/small_outbuildings/south` | 48 | 47 | 1 | 0 | T-2156 |
-| `structures/small_outbuildings/west` | 14 | 9 | 5 | 0 | T-2156 |
-| `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2156 |
+| `structures/small_outbuildings/south` | 48 | 47 | 1 | 0 | T-2165 |
+| `structures/small_outbuildings/west` | 14 | 9 | 5 | 0 | T-2168 |
+| `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2168 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 0 | 0 | T-1694 |
 | `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2150 |
