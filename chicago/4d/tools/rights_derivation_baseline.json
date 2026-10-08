@@ -63,7 +63,7 @@
         "habs_glessner_photo_05_court_c1923"
       ],
       "sole_support": false,
-      "confidence": "inferred"
+      "confidence": "reconstructed"
     },
     "glessner_house/as_built_1887/form.brick_tint": {
       "kind": "structure",
@@ -179,6 +179,14 @@
       "sole_support": false,
       "confidence": "inferred"
     },
+    "glessner_house/as_built_1887/form.opening_heights": {
+      "kind": "structure",
+      "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923"
+      ],
+      "sole_support": false,
+      "confidence": "reconstructed"
+    },
     "glessner_house/as_built_1887/form.openings_18th": {
       "kind": "structure",
       "blocked_sources": [
@@ -265,10 +273,11 @@
     "glessner_house/as_built_1887/form.ridge_north_range": {
       "kind": "structure",
       "blocked_sources": [
+        "habs_glessner_photo_05_court_c1923",
         "inland_architect_1888_02_glessner_exterior"
       ],
       "sole_support": false,
-      "confidence": "attested"
+      "confidence": "reconstructed"
     },
     "glessner_house/as_built_1887/form.ridge_west_wing": {
       "kind": "structure",

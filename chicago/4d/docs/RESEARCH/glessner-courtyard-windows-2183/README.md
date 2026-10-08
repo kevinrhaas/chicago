@@ -4,7 +4,7 @@
 
 The research repository is part of `kevinrhaas/chicago`, under
 `chicago/prairie_1904_v1/research/public/`. Reviewed the index of all 17 HABS
-photographs and 10 Houghton design drawings. HABS photo 05 is the relevant
+photographs, all six HABS sheets and 10 Houghton design drawings. HABS photo 05 is the relevant
 courtyard evidence; photos 01, 04 and 14 concern street elevations and do not
 supply a courtyard-window height. Sheet 4 supplies the section and floor levels.
 The Houghton drawings are design intent, not as-built evidence.
@@ -15,6 +15,18 @@ not redistributed or used as textures. Modern replacement upper tower panes
 are not copied: the circa-1923 HABS photograph supports the divided sash.
 Carrying the surviving exterior to 1904 remains an inference, not direct
 photographic attestation of that year.
+
+## Source-use record
+
+Photo 05 retains `rights_status: check_required` and `asset_use: cross_check`.
+This change does not claim that the HABS photocopy is automatically cleared,
+redistribute a new copy, or derive a texture from it. The owner requested a
+comparison of architectural facts; HABS measured sections and the owner
+reconstruction brief also support the edited attributes. The rights-derivation
+baseline explicitly records the new `opening_heights` and `ridge_north_range`
+photo citations, both with other support, and the reconstructed confidence.
+This is a recorded use decision under the existing cross-check route, not a
+rights clearance or a removal of the unresolved-source warning.
 
 ## Corrections
 
@@ -58,7 +70,13 @@ and the recovery archive is repacked from these exact bytes. Actual published
 zero page/HTTP/loader errors, dark glass active, all views within render budgets.
 The six PNGs and two browser-validation JSON reports beside this note record it.
 Animation is paused for repeatable images, so these are not FPS measurements.
-Full repository checks, broader stage-13 smoke and dev integration remain in progress.
+Published stage-13 smoke passes both viewports: **250 passed, 0 failed**, zero
+page errors; 124 mobile and 126 desktop checks. It took 40 minutes with software
+rendering. This is stage 13 of 14, not a full unfiltered smoke. The log is saved
+beside this note. The mirror was built from checkpoint 72b0cd61; dev integration
+began while the lengthy run continued, so the standing ledger explicitly claims
+no exact tree digest for that reading. Glessner geometry and renderer code did
+not change. Full repository preflight and dev merge remain in progress.
 
 Rebuild from `chicago/4d` with pinned Blender 4.5.3:
 `generators/build.py --only glessner_house`, then
@@ -67,3 +85,18 @@ Rebuild any comparison derivatives named by the bake; compile scenes,
 compile liberties/source-use, publish, and run `tools/qa_glessner_t2183.mjs`.
 The canonical derivative producer repacks the three GLBs for GitHub recovery.
 Never repack stale materialized assets over a new bake.
+
+## Integration repairs
+
+Dev advanced to `a8ac1213` during review. Its authored research is preserved;
+shared generated source-use records are regenerated from the combined inputs.
+The independent T-2043 ticket split left the repository gate red: the family
+household rows now name its seating child T-2188, and adult-men rows its
+reconciliation child T-2187. This changes work ownership only, not quotas,
+fills, people or geometry. The order-book writer and its declared downstream
+derivations rebuild these references.
+
+The previous worktree backing metadata became unavailable during integration.
+It was recovered from GitHub checkpoint `72b0cd61`; the existing working files
+and the completed merge of dev `a8ac1213` were preserved. Repository metadata
+now lives in this checkout rather than depending on the earlier scratch tree.
