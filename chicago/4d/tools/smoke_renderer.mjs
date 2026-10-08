@@ -2357,7 +2357,10 @@ for (const [label, viewport, touch] of [
     // loudly instead of quietly costing a phone its frame.
     const encl = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
-      const meshes = (e?.group?.children ?? []).filter((c) => c.isMesh);
+      // Far batches intentionally span several source chunks. Their sphere is
+      // not a source chunk's culling bound; the far-merge gate verifies them.
+      const meshes = (e?.group?.children ?? [])
+        .filter((c) => c.isMesh && !c.userData?.farMerged);
       const box = { minE: Infinity, maxE: -Infinity, minN: Infinity, maxN: -Infinity };
       for (const r of e?.records ?? []) {
         for (const run of r.runs ?? []) {
@@ -3816,24 +3819,15 @@ for (const [label, viewport, touch] of [
         }
         return null;
       };
-      // The piles are nine objects on one lot 130 m from the nearest wagon and
-      // further still from the nearest cask, so a plain radius claims them with
-      // nothing to collide with. The radius is the widest pile's own reach — a
-      // timber stick 3.66 m long lying across its pile — plus a margin.
-      // It returns the NEAREST pile and not the first one inside the radius: the
-      // brick stacks stand 3.2 m apart, so a vertex at the near end of one falls
-      // inside its neighbour's radius too, and taking the first match measured
-      // it against the wrong anchor and reported 2.49 m of stray on geometry
-      // that is exactly where the record puts it.
-      const pileNear = (e, n) => {
-        let best = null;
-        let bestD = 2.6;
-        for (const pl of piles) {
-          const d = Math.hypot(e - pl.e, n - pl.n);
-          if (d <= bestD) { bestD = d; best = pl; }
-        }
-        return best;
-      };
+      // Measure the exact vertices emitted for each lot item. The old radius
+      // classifier absorbed nearby wagons/trade goods into bridge repair piles.
+      // Ownership includes every emitted vertex, so a displaced pile fails its
+      // bound instead of disappearing outside a search radius.
+      const lotOwners = new Map(meshes.map((m) => [m.geometry,
+        (m.userData.lotItemSpans ?? []).map((span) => ({ ...span,
+          pile: piles.find((pl) => pl.structure_id === span.id
+            && pl.e === span.at[0] && pl.n === span.at[1]) }))]));
+      const unknownLotOwners = [...lotOwners.values()].flat().filter((s) => !s.pile).length;
       const inQuad = (e, n, quad) => {
         let inside = false;
         for (let i = 0, j = quad.length - 1; i < quad.length; j = i, i += 1) {
@@ -3846,12 +3840,39 @@ for (const [label, viewport, touch] of [
       };
       for (const geo of (items.length ? geos : [])) {
         const pos = geo.getAttribute('position');
+        const owners = lotOwners.get(geo) ?? [];
+        let ownerIndex = 0;
         for (let i = 0; i < pos.count; i++) {
+          while (ownerIndex < owners.length && i >= owners[ownerIndex].to * 3) ownerIndex++;
+          const owner = owners[ownerIndex];
+          const pl = owner && i >= owner.from * 3 && i < owner.to * 3 ? owner.pile : null;
           // world is (E, up, -N)
           const e = pos.getX(i);
           const n = -pos.getZ(i);
           lowest = Math.min(lowest, pos.getY(i));
           highest = Math.max(highest, pos.getY(i));
+          // T-0057's piles, claimed before the wagons: a pile is measured for how
+          // far it reaches from its own anchor and for the one thing that would
+          // make it wrong, which is a stack of brick standing inside the building
+          // it was delivered for.
+          if (pl) {
+            pileVerts++;
+            pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
+            if (inQuad(e, n, pl.quad)) pileInLot++;
+            if (pl.bridge) {
+              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
+              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
+              pl.vertices++;
+              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              pl.minAlong = Math.min(pl.minAlong, along);
+              pl.maxAlong = Math.max(pl.maxAlong, along);
+              pl.minAcross = Math.min(pl.minAcross, across);
+              pl.maxAcross = Math.max(pl.maxAcross, across);
+              pl.minY = Math.min(pl.minY, pos.getY(i));
+              pl.maxY = Math.max(pl.maxY, pos.getY(i));
+            }
+            continue;
+          }
           // The shed's bay first: along the wall and out of it, in the shed's own
           // frame. The wagon's tongue reaches past the bay and is left to the
           // wagon bound below, which is exactly where it belongs.
@@ -3883,29 +3904,6 @@ for (const [label, viewport, touch] of [
             break;
           }
           if (inBay) continue;
-          // T-0057's piles, claimed before the wagons: a pile is measured for how
-          // far it reaches from its own anchor and for the one thing that would
-          // make it wrong, which is a stack of brick standing inside the building
-          // it was delivered for.
-          const pl = pileNear(e, n);
-          if (pl) {
-            pileVerts++;
-            pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
-            if (inQuad(e, n, pl.quad)) pileInLot++;
-            if (pl.bridge) {
-              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
-              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
-              pl.vertices++;
-              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
-              pl.minAlong = Math.min(pl.minAlong, along);
-              pl.maxAlong = Math.max(pl.maxAlong, along);
-              pl.minAcross = Math.min(pl.minAcross, across);
-              pl.maxAcross = Math.max(pl.maxAcross, across);
-              pl.minY = Math.min(pl.minY, pos.getY(i));
-              pl.maxY = Math.max(pl.maxY, pos.getY(i));
-            }
-            continue;
-          }
           // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
           // own bound rather than lumped in with the casks.
           const w = wagonNear(e, n);
@@ -3980,6 +3978,8 @@ for (const [label, viewport, touch] of [
         benchInside,
         benches,
         pileVerts,
+        unknownLotOwners,
+        lotSpans: [...lotOwners.values()].flat().length,
         pileStray,
         pileInLot,
         lots,
@@ -4217,6 +4217,9 @@ for (const [label, viewport, touch] of [
       `${goods.census?.piles} pile(s) on ${goods.census?.lots} lot(s) `
       + `(${JSON.stringify(goods.census?.byMaterial ?? {})}), ${goods.pileVerts} `
       + `vertices, lot ${goods.lots?.[0]?.structure_id ?? 'MISSING'}`);
+    check(`${label}: every lot item has an exact rendered ownership span`,
+      goods.lotSpans === goods.piles && goods.unknownLotOwners === 0,
+      `${goods.lotSpans} spans for ${goods.piles} items, ${goods.unknownLotOwners} unknown owners`);
     // T-1765: the bridge stock uses the existing stack renderer. Check its
     // rendered boxes, not just the manifest's declared counts.
     check(`${label}: both branch bridges carry four reconstructed repair piles`,
@@ -5040,6 +5043,10 @@ for (const [label, viewport, touch] of [
         problems: (a?.problems ?? []).filter((x) => /frontage/.test(x)),
       };
     });
+    // PR #498 integration, 2026-10-07: the canonical records on f899a73d
+    // carry 119 walks, 100 crossings, 53 posts, 37 fences and 184 refusals.
+    // Authored meshes 124, derived top faces 108376, laid faces 95, bare fronts 7.
+    // These are exact scope readings, not relaxed minima; geometry bars remain.
     check(`${label}: the frontage layer lays all five records' walks and stands their posts`,
       // T-0241 laid Washington's seven block faces on top of Randolph's
       // thirteen: 42 walks to 49, 28 crossings to 33, 26 fence runs to 35 and
@@ -5205,8 +5212,14 @@ for (const [label, viewport, touch] of [
       // Randolph (+1); its Lake face was already one fronts-only run and stays one
       // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
       // retires and nothing new is refused. ID-set deltas, read off the record.
-      frontage.census?.records === 5 && frontage.census?.walks === 114
-        && frontage.census?.crossings === 99
+      // T-2093 — five merged PRs moved town_street_edge.json and not this line, so
+      // dev read 121 / 100 against 114 / 99. Read commit by commit off the record:
+      // T-2134 (#481) +4 walks, the four Dearborn corner workshops' fronts; T-2148
+      // (af5988ec) +1 walk and +1 crossing, the face the Madison jog brings inside
+      // the boundary; T-2150 (#510) +1 walk and +1 decked walk, the West Water
+      // warehouse's: 114 + 4 + 1 + 2 = 121 walks, 99 + 1 = 100 crossings.
+      frontage.census?.records === 5 && frontage.census?.walks === 121
+        && frontage.census?.crossings === 100
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5268,7 +5281,11 @@ for (const [label, viewport, touch] of [
         // T-1679 (#396) moved Haddock's Tavern one lot east on blk_south_water_dearborn,
         // and the Lake Street face it left now takes a street fence
         // (blk_south_water_dearborn_south_fence_6): 32 to 33. Restated in T-2102 for T-2093.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 33
+        // T-2093 — the plat's last Washington tier built to its seats: T-2129 (#465)
+        // fences the Market block's two improved north faces (+2, the Washington
+        // north fences renumbered round them) and T-2130 (#466) the Dearborn
+        // block's two (blk_washington_dearborn_north_fence_36/_37, +2): 33 to 37.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 37
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -5343,7 +5360,12 @@ for (const [label, viewport, touch] of [
         // 172 — each cross face states why it takes no fence and no post (the
         // end of a lot row), and the one clause that refused the seven on the
         // frame budget retires. dev's own reading was 134 against this 128.
-        && frontage.census?.refused === 182
+        // T-2093 — the town record's refusal list, commit by commit: T-2129 -3 and
+        // T-2130 -4 (unimproved-lot refusals retire as the houses rise), T-2134 +8
+        // (the workshops' fronts refuse a fence and a post each), T-2148 +1 (the new
+        // face's end of a lot row), T-2150 +2 (the warehouse's fence and post):
+        // 172 to 176 in the record, 182 to 186 on the layer.
+        && frontage.census?.refused === 186
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5534,7 +5556,10 @@ for (const [label, viewport, touch] of [
       // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
       // block's standing timber rides a west-bank mesh of its own rather than
       // Lake's and Randolph's (+1): 119.
-      frontage.authored === (frontage.census?.lettered === 1 ? 120 : 119)
+      // T-2093 — and the walks those five PRs laid name SIX chunks of their own
+      // (the record's named chunks go 102 to 108: T-2134 +4, T-2148 +1, T-2150 +1):
+      // 125, read on dev with no board lettered.
+      frontage.authored === (frontage.census?.lettered === 1 ? 126 : 125)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5551,7 +5576,8 @@ for (const [label, viewport, touch] of [
         && frontage.farWalkTops.every((m) => m.name === 'frontage-far-walk-tops'
           && m.sharedMaterial && !m.castsShadow && m.groundHugging
           && m.candidates === frontage.farWalkState?.candidateTriangles
-          && m.candidates === 107532
+          // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
+          && m.candidates === 108554
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -5774,6 +5800,10 @@ for (const [label, viewport, touch] of [
     // stand, no taller than a tie rail's 1.07 m. The counts are exact for the
     // same reason the posts' are: a fitting appearing or vanishing is worth
     // failing over, and a run that moves one updates them here.
+    // T-2093 — T-2150 (#510) moved one and did not: the West Water warehouse is a
+    // forwarding house, so its front takes a wagon apron
+    // (blk_west_washington_canal_east_wagon_apron_recon_1835_branch_freight_f2_001),
+    // 48 to 49 and four aprons to five.
     const fitKinds = frontage.census?.fittingKinds ?? {};
     // A part is good when it was drawn and its highest vertex stands within its
     // recorded top, give or take what the ground does under it: the top is
@@ -5785,10 +5815,10 @@ for (const [label, viewport, touch] of [
         && p.top <= p.recorded + 0.25)));
     // T-1823 — the Western Hotel's mounting block and the West Water freight
     // house's wagon apron, 46 to 48.
-    check(`${label}: the forty-eight business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 48 && (frontage.fittings ?? []).length === 48
+    check(`${label}: the forty-nine business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 49 && (frontage.fittings ?? []).length === 49
         && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
-        && fitKinds.wagon_apron === 4 && fitKinds.tie_rail === 1
+        && fitKinds.wagon_apron === 5 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
@@ -6282,7 +6312,10 @@ for (const [label, viewport, touch] of [
         // `faces_laid` (dev's record already read 47 against the 45 pinned here).
         // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
         // fronts-only and is laid as a street face, and its Randolph face is new: 94.
-        && edge.faces === 94 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-2093 — T-2148 lays the face the Madison jog brings inside the
+        // boundary (95) and T-2150 the West Water warehouse's (96): faces_laid,
+        // read off the record at each commit.
+        && edge.faces === 96 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6297,11 +6330,14 @@ for (const [label, viewport, touch] of [
     check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
       // T-1823 — the West Water freight house's deck makes four, and two West
       // Division works front bare ground (the Pierce smithy, a joiner on Randolph).
-      edge.byBusiness.records === 4 && edge.byBusiness.drawn === 4
-        && edge.byBusiness.onDeck === 4
+      // T-2093 — T-2150's warehouse is the fifth forwarding house with a decked
+      // walk (4 to 5), and T-2134's four Dearborn corner workshops each keep a
+      // bare front (3 to 7). Both read off the record at each commit.
+      edge.byBusiness.records === 5 && edge.byBusiness.drawn === 5
+        && edge.byBusiness.onDeck === 5
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
         && edge.byBusiness.bareLift <= 0.04
-        && edge.byBusiness.bareRecs === 3 && edge.byBusiness.bareKept === 3,
+        && edge.byBusiness.bareRecs === 7 && edge.byBusiness.bareKept === 7,
       `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
       + `${edge.byBusiness.onDeck} stood on; the smith's gap `
       + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
@@ -6313,8 +6349,10 @@ for (const [label, viewport, touch] of [
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
       // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
       // walk the whole face rather than the store's front.
-      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
-        && edge.byBusiness.frontsOn === 4,
+      // T-2093 — T-2150 lays the warehouse's West Water face fronts-only: 4 to 5
+      // (the record's fronts_only_runs, 67.7 m to 83.1).
+      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
+        && edge.byBusiness.frontsOn === 5,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
@@ -9214,9 +9252,12 @@ for (const [label, viewport, touch] of [
     // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
     // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
     // T-2015: combined six-stand maximum 277 at narrow prairie, +15 -> 295.
+    // PR #498: all six published stands at both widths after exact ground
+    // batching peak at 313 (mobile West prairie, full); +15, rounded to five,
+    // moves the general ceiling to 330. Light still has its own 90-call gate.
     // The measured argument is beside BUDGET in main.js; light stays at 90.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 295,
+      stats.budget.drawCalls === 330,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -11420,15 +11461,24 @@ for (const [label, viewport, touch] of [
           if (z && !spots[z] && a.flora.plantableAt(e, n)) spots[z] = [e, n];
         }
       }
+      // A scene-wide absence cannot be inferred from north-facing views alone.
+      // Keep every original plantable station and survey all four cardinal
+      // bearings there. Sampling is fixed independently of the species; the
+      // original north-facing samples and the owed/drawn bar stay in the census.
+      const stations = Object.entries(spots).flatMap(([zone, at]) =>
+        [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
       const started = a.detail;
       const levels = [];
       for (const level of a.detailOrder) {
         await a.setDetail(level);
         const rows = [];
-        for (const [zone, [e, n]] of Object.entries(spots)) {
+        for (const { zone, at: [e, n], bearing } of stations) {
           const camera = {
             getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
-            getWorldDirection: (v) => { v.set(0, 0, -1); return v; },
+            getWorldDirection: (v) => {
+              const angle = bearing * Math.PI / 180;
+              v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
+            },
           };
           a.flora.update(0.016, camera);
           a.flora.update(0.016, camera);
@@ -11454,7 +11504,7 @@ for (const [label, viewport, touch] of [
         a.flora.update(0.016, a.camera);
         a.flora.update(0.016, a.camera);
       }
-      return { spots: Object.keys(spots), levels };
+      return { spots: Object.keys(spots), stationCount: stations.length, levels };
     });
     // Summed over every station, per (community, list, species) — the scene's
     // answer, at one detail level.
@@ -11483,7 +11533,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: no sward species its own list owes a plant to is drawn nowhere, `
       + `in ANY community`,
       everywhere.spots.length >= 2 && richest.pairs >= 2 && richest.nowhere.length === 0,
-      `${everywhere.spots.length} communities stood in, ${richest.lists} populated list(s), `
+      `${everywhere.spots.length} communities stood in at ${everywhere.stationCount} cardinal views, ${richest.lists} populated list(s), `
       + `${richest.pairs} (list, species) pairs, ${richest.slots} slots dealt at detail `
       + `'${richest.level}'`
       + `${richest.nowhere.length ? `; DRAWN NOWHERE: ${richest.nowhere.join(', ')}` : ''}`);
@@ -14849,14 +14899,17 @@ for (const [label, viewport, touch] of [
         overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       };
     });
-    // T-2157: the committed lot-remnant community adds 11 species to the
-    // former 10/155 catalog. Pin the complete current 11/166 roster; the
-    // clamp and worst-case assertions below remain exact.
+    const floraIndex = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/flora/index.json'), 'utf8'));
+    const plantZones = floraIndex.zones.filter((z) => !z.scenes || z.scenes.includes('1835'));
+    const plantSpecies = plantZones.reduce((n, z) => {
+      const record = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/flora', z.file), 'utf8'));
+      return n + (record.species ?? []).length;
+    }, 0);
     check(`${label}: the plant list loads every community`,
-      plants.zones === 11 && plants.renderedZones === 11 && !plants.busy,
+      plants.zones === plantZones.length && plants.renderedZones === plantZones.length && !plants.busy,
       `${plants.zones} loaded / ${plants.renderedZones} rendered (${plants.error})`);
-    check(`${label}: every species in the eleven communities is on the card`,
-      plants.species === 166 && plants.renderedSpecies === 166,
+    check(`${label}: every species in the committed communities is on the card`,
+      plants.species === plantSpecies && plants.renderedSpecies === plantSpecies,
       `${plants.species} counted / ${plants.renderedSpecies} rendered`);
     // The finding, asserted as numbers so it cannot quietly go away: ten
     // (community, stratum, side) layers are over the lattice's ceiling, across
@@ -14879,7 +14932,7 @@ for (const [label, viewport, touch] of [
       + `"${plants.denseText.slice(Math.max(0, plants.denseText.indexOf('records ask')), 
         Math.max(240, plants.denseText.indexOf('records ask') + 240))}"`);
     check(`${label}: the note names the worst case rather than only the total`,
-      /166 plants across 11 communities/.test(plants.note)
+      plants.note.includes(`${plantSpecies} plants across ${plantZones.length} communities`)
       && /dense forest/.test(plants.note) && /0\.5 %/.test(plants.note),
       plants.note.slice(0, 220));
     check(`${label}: the plant records quote their sources, not their source ids`,

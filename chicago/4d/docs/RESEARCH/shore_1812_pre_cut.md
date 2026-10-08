@@ -161,3 +161,30 @@ disagree; this ticket does not choose between them, and it does not move the lin
 is filed on **T-1243**, the ticket that lays the 1812 ground along this channel, which has to
 say which of them it is before it grades that ground (the queue was over its ceiling, so the
 finding went to the ticket that owns the question rather than to a new one).
+
+
+## T-2171 — remove the lake-facing notch (2026-10-08)
+
+The owner identified a V-shaped inlet at the north attachment of the sand spit.
+It is not a digitised feature: T-2003 joined a 100 ft ribbon to a straight chord
+from the river-bank root to the carried north shore. That construction made the notch.
+
+Images inspected: Whistler's 1808 draught (the Quaife 1913 reproduction,
+`whistler_1808_fort_dearborn_draught`); the retrospective **Chicago in 1812** map
+in Andreas 1884 (`pre_fire_v1/media/images/buildings/chicago_1812_map_andreas.png`,
+MEDIA-MAP-CHICAGO-1812-ANDREAS); Harrison's 1830 mouth plan as reengraved in Andreas
+(`harrison_1830_river_mouth`); and the Wright 1834 map (`wright_1834`). The first
+three support a continuous outer shore rather than this large angular inlet.
+Whistler's landscape outside the garrison is not uniformly scaled; Andreas's 1812
+map is retrospective, and Harrison depicts a later channel cut by soldiers in 1828.
+Wright postdates the harbor cut and piers. None establishes a precise 1812 curve.
+
+The adopted correction is **reconstructed**, not an upgraded historical reading.
+A monotone cubic E(N) joins carried bar vertex 3 (E1449.35 N192.99) to carried
+north-shore vertex 39 (E1372.66 N405.91), with slopes taken from adjacent retained
+segments and clamped to prevent overshoot. Its 24 segments replace only the lake
+face. The river-side offset, lower spit, southward channel and outlet stay fixed.
+The wider attachment fills the previous artificial indentation without introducing
+an 1828 or 1834 opening. Existing uncertainty about the longer carried 1834 shore
+and the west-bank comparison remains. L403 records the superseded construction
+and what evidence would replace this curve.
