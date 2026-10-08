@@ -7,12 +7,12 @@
 
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
-| Persons | 2,548 | 1,434 | 2,037 |
+| Persons | 2,548 | 1,434 | 1,835 |
 | Households | 644 | 163 | 483 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 673 | 14 |
 
-**2,920 people stand in the layer today** and **215** are still owed after the counters, so the town this book converges to is **3,135** — inside the model's 2,369-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,920 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,933** — inside the model's 2,369-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 392. The person leg is PART artifact: 374 before, 202 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 392. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -31,7 +31,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,920 standing plus 215 still owed is 3,135, inside the model's 2,369-3,265. Before the re-cut the same sum was 2,920 + 843 = 3,763, and the book was ordering a replacement for 826 people already in the layer. It is 587 above the model's 2,548 point, and that surplus is the 409 people drawn into 52 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,920 standing plus 13 still owed is 2,933, inside the model's 2,369-3,265. Before the re-cut the same sum was 2,920 + 843 = 3,763, and the book was ordering a replacement for 826 people already in the layer. It is 385 above the model's 2,548 point, and that surplus is the 409 people drawn into 52 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
@@ -114,9 +114,9 @@ the owner's ruling of 2026-09-24 on T-1530, carried in T-1556: the surplus the r
 
 **A move is not** a retirement (nobody is un-written, which is T-1459's ruling of 2026-09-20) and a draw (no stranger enters the town, so the population does not move — only what is still OWED does).
 
-409 held head(s) stand across 52 refused bucket(s), and 215 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
+409 held head(s) stand across 52 refused bucket(s), and 13 slot(s) of order stand open elsewhere in the persons ladder. A held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town.
 
-**142 move(s) have been made**, carrying 0 adoption(s) out of 41 bucket(s) and into 43. The book is owed 215 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
+**142 move(s) have been made**, carrying 0 adoption(s) out of 41 bucket(s) and into 43. The book is owed 13 people now, and would be owed 0 if every held head moved. The model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range.
 
 Which heads move is T-1558's (settled): T-1558 modelled it against the adoption layers and published the cost ladder there, with the tier of every held person and the ceilings the axes impose. `refamily_shape` above refuses a move whose `rule` is not one of the movable rungs, so the naming T-1557 required is now checked rather than trusted. The moves themselves are T-1559's.
 
@@ -501,51 +501,51 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/10_19/west/lodging/trade` | 0 | 0 | 1 | 1 | T-2023 |
 | `persons/male/10_19/west/lodging/none` | 11 | 6 | 5 | 5 | T-2023 |
 | `persons/male/20_29/north/family/trade` | 31 | 17 | 22 | 22 | T-2187 |
-| `persons/male/20_29/north/family/none` | 58 | 32 | 26 | 0 | T-2187 |
+| `persons/male/20_29/north/family/none` | 58 | 32 | 0 | 0 | T-2187 |
 | `persons/male/20_29/north/lodging/trade` | 7 | 6 | 1 | 1 | T-2023 |
 | `persons/male/20_29/north/lodging/none` | 24 | 11 | 13 | 13 | T-2023 |
 | `persons/male/20_29/south/family/trade` | 73 | 42 | 52 | 52 | T-2187 |
-| `persons/male/20_29/south/family/none` | 140 | 81 | 59 | 0 | T-2187 |
+| `persons/male/20_29/south/family/none` | 140 | 81 | 0 | 0 | T-2187 |
 | `persons/male/20_29/south/lodging/trade` | 26 | 15 | 11 | 11 | T-2023 |
 | `persons/male/20_29/south/lodging/none` | 49 | 28 | 22 | 22 | T-2023 |
 | `persons/male/20_29/west/family/trade` | 27 | 14 | 18 | 18 | T-2187 |
-| `persons/male/20_29/west/family/none` | 52 | 28 | 24 | 0 | T-2187 |
+| `persons/male/20_29/west/family/none` | 52 | 28 | 0 | 0 | T-2187 |
 | `persons/male/20_29/west/lodging/trade` | 10 | 6 | 5 | 5 | T-2023 |
 | `persons/male/20_29/west/lodging/none` | 18 | 10 | 8 | 8 | T-2023 |
 | `persons/male/30_39/north/family/trade` | 18 | 10 | 14 | 14 | T-2187 |
-| `persons/male/30_39/north/family/none` | 34 | 18 | 16 | 0 | T-2187 |
+| `persons/male/30_39/north/family/none` | 34 | 18 | 0 | 0 | T-2187 |
 | `persons/male/30_39/north/lodging/trade` | 6 | 3 | 3 | 3 | T-2023 |
 | `persons/male/30_39/north/lodging/none` | 12 | 7 | 6 | 6 | T-2023 |
 | `persons/male/30_39/south/family/trade` | 43 | 25 | 27 | 27 | T-2187 |
-| `persons/male/30_39/south/family/none` | 82 | 47 | 35 | 0 | T-2187 |
+| `persons/male/30_39/south/family/none` | 82 | 47 | 0 | 0 | T-2187 |
 | `persons/male/30_39/south/lodging/trade` | 15 | 9 | 6 | 6 | T-2023 |
 | `persons/male/30_39/south/lodging/none` | 29 | 16 | 13 | 13 | T-2023 |
 | `persons/male/30_39/west/family/trade` | 16 | 9 | 10 | 10 | T-2187 |
-| `persons/male/30_39/west/family/none` | 30 | 16 | 14 | 0 | T-2187 |
+| `persons/male/30_39/west/family/none` | 30 | 16 | 0 | 0 | T-2187 |
 | `persons/male/30_39/west/lodging/trade` | 5 | 2 | 3 | 3 | T-2023 |
 | `persons/male/30_39/west/lodging/none` | 11 | 6 | 5 | 5 | T-2023 |
 | `persons/male/40_49/north/family/trade` | 5 | 3 | 3 | 3 | T-2187 |
-| `persons/male/40_49/north/family/none` | 10 | 5 | 5 | 0 | T-2187 |
+| `persons/male/40_49/north/family/none` | 10 | 5 | 0 | 0 | T-2187 |
 | `persons/male/40_49/north/lodging/trade` | 2 | 1 | 1 | 1 | T-2023 |
 | `persons/male/40_49/north/lodging/none` | 3 | 2 | 2 | 2 | T-2023 |
 | `persons/male/40_49/south/family/trade` | 12 | 7 | 8 | 8 | T-2187 |
-| `persons/male/40_49/south/family/none` | 24 | 14 | 10 | 0 | T-2187 |
+| `persons/male/40_49/south/family/none` | 24 | 14 | 0 | 0 | T-2187 |
 | `persons/male/40_49/south/lodging/trade` | 4 | 2 | 2 | 2 | T-2023 |
 | `persons/male/40_49/south/lodging/none` | 9 | 6 | 3 | 3 | T-2023 |
 | `persons/male/40_49/west/family/trade` | 4 | 2 | 3 | 3 | T-2187 |
-| `persons/male/40_49/west/family/none` | 9 | 5 | 4 | 0 | T-2187 |
+| `persons/male/40_49/west/family/none` | 9 | 5 | 0 | 0 | T-2187 |
 | `persons/male/40_49/west/lodging/trade` | 2 | 1 | 1 | 1 | T-2023 |
 | `persons/male/40_49/west/lodging/none` | 3 | 2 | 1 | 1 | T-2023 |
 | `persons/male/50_plus/north/family/trade` | 2 | 1 | 1 | 1 | T-2187 |
-| `persons/male/50_plus/north/family/none` | 5 | 3 | 2 | 0 | T-2187 |
+| `persons/male/50_plus/north/family/none` | 5 | 3 | 0 | 0 | T-2187 |
 | `persons/male/50_plus/north/lodging/trade` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/male/50_plus/north/lodging/none` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/male/50_plus/south/family/trade` | 6 | 4 | 3 | 3 | T-2187 |
-| `persons/male/50_plus/south/family/none` | 11 | 6 | 5 | 0 | T-2187 |
+| `persons/male/50_plus/south/family/none` | 11 | 6 | 0 | 0 | T-2187 |
 | `persons/male/50_plus/south/lodging/trade` | 2 | 1 | 1 | 1 | T-2023 |
 | `persons/male/50_plus/south/lodging/none` | 4 | 2 | 2 | 2 | T-2023 |
 | `persons/male/50_plus/west/family/trade` | 2 | 1 | 2 | 2 | T-2187 |
-| `persons/male/50_plus/west/family/none` | 4 | 2 | 2 | 0 | T-2187 |
+| `persons/male/50_plus/west/family/none` | 4 | 2 | 0 | 0 | T-2187 |
 | `persons/male/50_plus/west/lodging/trade` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/male/50_plus/west/lodging/none` | 1 | 0 | 1 | 1 | T-2023 |
 | `persons/male/under_10/north/family/none` | 62 | 34 | 84 | 84 | T-1174 |

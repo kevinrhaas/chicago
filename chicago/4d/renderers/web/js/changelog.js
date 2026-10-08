@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1545, ts: '2026-10-08T19:45:54.615Z', date: 'Oct 8, 2026, 2:45 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
+  { v: 1546, ts: '2026-10-08T20:07:14.297Z', date: 'Oct 8, 2026, 3:07 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
     items: [
       'Wm. H. Frazer, Joshua Pruvis and John Vandine are names from the post office\u2019s list of uncalled-for letters for 1 January 1834. Their cards wear the spelling read off the page image of the list\u2019s last printing, but their notes still said the papers printed Fraser, Provis and Vandino.',
       'Each note now names both readings and where each comes from: the page image of the 4 March 1834 printing, and a transcription of the 28 January one. It says which spelling the card wears and why.',
+    ] },
+  { v: 1545, ts: '2026-10-08T19:35:25.683Z', date: 'Oct 8, 2026, 2:35 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 202 more grown men in family houses. The people cards already name 1,190 men aged twenty or over, and the plan wants 943 in all, so the town has more than enough.',
+      'The 202 are taken off the list. Nobody in the town is changed or removed. The count the town is heading for falls from 3,135 to 2,933, inside the 1835 range.',
     ] },
   { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
     items: [
