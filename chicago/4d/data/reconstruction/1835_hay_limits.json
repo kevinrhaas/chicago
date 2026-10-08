@@ -315,12 +315,12 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 352,
-  "outside": 285,
+  "outside": 289,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 61,
-   "west_of_canal_street": 96,
+   "west_of_canal_street": 100,
    "south_of_washington_street": 99,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -447,10 +447,14 @@
     "recon_1835_blk_washington_clinton_a2_08",
     "recon_1835_blk_washington_clinton_a2_10",
     "recon_1835_blk_washington_clinton_a2_12",
+    "recon_1835_blk_washington_clinton_a2_15",
+    "recon_1835_blk_washington_clinton_a3_16",
     "recon_1835_blk_washington_clinton_a4_09",
     "recon_1835_blk_washington_clinton_a4_11",
+    "recon_1835_blk_washington_clinton_a4_14",
     "recon_1835_blk_washington_clinton_a5_07",
     "recon_1835_blk_washington_clinton_a5_13",
+    "recon_1835_blk_washington_clinton_a5_17",
     "recon_1835_blk_washington_clinton_d4_04",
     "recon_1835_blk_washington_clinton_d5_03",
     "recon_1835_blk_washington_clinton_h1_05",
@@ -637,7 +641,7 @@
    {
     "id": "blk_washington_clinton",
     "state": "open",
-    "roofs_scheduled": 4,
+    "roofs_scheduled": 3,
     "centre_local_enu_m": [
      -212.22,
      -452.55
@@ -709,7 +713,7 @@
    {
     "id": "blk_washington_clinton",
     "state": "open",
-    "roofs_scheduled": 4,
+    "roofs_scheduled": 3,
     "centre_local_enu_m": [
      -212.22,
      -452.55
@@ -1286,7 +1290,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "complete",
-    "roofs": 3
+    "roofs": 0
    },
    {
     "id": "north_division_beyond_modelled_ground",
