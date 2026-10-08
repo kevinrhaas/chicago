@@ -275,26 +275,29 @@ def read_church() -> list[dict]:
             loc = r.get("locator") or {}
             key = (loc.get("year_series"), loc.get("entry"))
             role = loc.get("role")
-            if role in ("child", "father", "mother"):
+            # EVERY CHILD OF THE ENTRY, not the first (T-1335). Entry 9 of 1833 baptises
+            # twins, Mary and Catherine Wode, on one line; reading one child per entry
+            # proposed Mary's father and never Catherine's.
+            if role == "child":
+                entries[key].setdefault("children", []).append(r)
+            elif role in ("father", "mother"):
                 entries[key].setdefault(role, r)
         for key, roles in sorted(entries.items(), key=lambda kv: (str(kv[0][0]), str(kv[0][1]))):
-            child = roles.get("child")
-            if not child:
-                continue
-            for parent_role, child_side in (("father", "son"), ("mother", "son")):
-                parent = roles.get(parent_role)
-                if not parent:
-                    continue
-                # The register names the parent; the child's sex is not stated by the
-                # role, so the CHILD end is proposed as the parent's relation only and
-                # the ruling names the child's term. Proposed from the parent's side.
-                out.append(_statement(
-                    f"{parent['id']}__parent_of__{child['id']}",
-                    src, f"{parent['id']}", (parent.get("cells") or {}).get("entry_as_read", "")[:300],
-                    parent.get("normalized") or parent.get("as_read"),
-                    parent_role,
-                    child.get("normalized") or child.get("as_read"),
-                    parent["id"], child["id"]))
+            for child in roles.get("children") or []:
+                for parent_role, child_side in (("father", "son"), ("mother", "son")):
+                    parent = roles.get(parent_role)
+                    if not parent:
+                        continue
+                    # The register names the parent; the child's sex is not stated by the
+                    # role, so the CHILD end is proposed as the parent's relation only and
+                    # the ruling names the child's term. Proposed from the parent's side.
+                    out.append(_statement(
+                        f"{parent['id']}__parent_of__{child['id']}",
+                        src, f"{parent['id']}", (parent.get("cells") or {}).get("entry_as_read", "")[:300],
+                        parent.get("normalized") or parent.get("as_read"),
+                        parent_role,
+                        child.get("normalized") or child.get("as_read"),
+                        parent["id"], child["id"]))
 
     marriages = CHURCH / "st_cyr_marriages_1834_1839.json"
     if marriages.exists():
