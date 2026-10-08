@@ -157,11 +157,10 @@ HOUSEHOLD_TYPES = (
 # households these rows still order: those are a reconciliation against the head records
 # awaiting a household, which is T-2043's. A row that still owes work may not name a
 # ticket that is finished.
-# SWEPT AGAIN ON T-2043's SPLIT (2026-10-08, carried by T-2179, whose rebuild this
-# blocked). T-2043 split into T-2187 (rule on the adult men the book still orders into
-# family houses) and T-2188 (seat the family and store households around the head
-# records awaiting one), so the person rows go to the first and the household rows to
-# the second. Neither ticket's order changes; only the name it is owed to.
+# SWEPT AGAIN ON T-2043's SPLIT (2026-10-08, ported by T-2186 so every branch's gate
+# stops reading a split owner). T-2043 split into T-2187 (rule on the adult men the book
+# still orders into family houses) and T-2188 (seat the family and store households), so
+# the person rows go to the first and the household rows to the second.
 FAMILY_OWNER = "T-2187"
 FAMILY_HOUSEHOLD_OWNER = "T-2188"
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).

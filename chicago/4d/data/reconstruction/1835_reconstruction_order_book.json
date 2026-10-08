@@ -1384,7 +1384,7 @@
   "spent_by": [
     {
       "ticket": "T-1174",
-      "records": 590,
+      "records": 589,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1651,7 +1651,7 @@
       3265
     ],
     "households_standing": 206,
-    "households_still_owed": 428
+    "households_still_owed": 429
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1758,10 +1758,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 395,
+      "household_leg_now": 396,
       "person_leg_before": 374,
       "person_leg_now": 203,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 395. The person leg is PART artifact: 374 before, 203 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 396. The person leg is PART artifact: 374 before, 203 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -4409,7 +4409,7 @@
           "target": 258,
           "known": 72,
           "to_reconstruct": 186,
-          "filled": 16,
+          "filled": 15,
           "owning_ticket": "T-2188",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
@@ -6513,7 +6513,7 @@
       "bucket": "households/family_dwelling/south",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 16,
+      "records": 15,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {

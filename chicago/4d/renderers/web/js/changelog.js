@@ -1,9 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1544, ts: '2026-10-08T19:50:27.391Z', date: 'Oct 8, 2026, 2:50 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+  { v: 1545, ts: '2026-10-08T19:50:44.990Z', date: 'Oct 8, 2026, 2:50 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
       'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
       'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
       'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
+    ] },
+  { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated check that walks into the town now waits for the welcome screen before stepping in, so a slow test machine no longer reports the version label as missing when it was there all along.',
     ] },
   { v: 1543, ts: '2026-10-08T17:49:39.051Z', date: 'Oct 8, 2026, 12:49 PM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
