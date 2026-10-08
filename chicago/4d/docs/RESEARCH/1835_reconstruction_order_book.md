@@ -399,27 +399,27 @@ The roster offers 1,812 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 307 — 301 by adopting a roof that already stands, 6 by asking for one
-- still on no ground at all: 1,117
-- of the 658 roofs the town already has, 301 now carry a reconstructed household
+- seated: 308 — 302 by adopting a roof that already stands, 6 by asking for one
+- still on no ground at all: 1,116
+- of the 658 roofs the town already has, 302 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,424 | 208 | 202 | 6 | 1,216 |
-| The ground the plat does not draw | T-1614 | 1,216 | 99 | 99 | 0 | 1,117 |
+| The committed plat | T-1613 | 1,424 | 209 | 203 | 6 | 1,215 |
+| The ground the plat does not draw | T-1614 | 1,215 | 99 | 99 | 0 | 1,116 |
 
 6 slot(s) on 1 block(s) — blk_school_section_tier_81. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
-| `hh_dailey_thomas` | `blk_school_section_tier_81` | `blk_school_section_tier_81#05` | D4 | `tradesman_dwellings` |
-| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_81` | `blk_school_section_tier_81#04` | D4 | `tradesman_dwellings` |
-| `hh_darling_daniel` | `blk_school_section_tier_81` | `blk_school_section_tier_81#03` | D5 | `tradesman_dwellings` |
-| `hh_darling_enoch` | `blk_school_section_tier_81` | `blk_school_section_tier_81#02` | D5 | `tradesman_dwellings` |
-| `hh_dave_john` | `blk_school_section_tier_81` | `blk_school_section_tier_81#07` | D6 | `tradesman_dwellings` |
+| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_81` | `blk_school_section_tier_81#05` | D4 | `tradesman_dwellings` |
+| `hh_darling_daniel` | `blk_school_section_tier_81` | `blk_school_section_tier_81#04` | D4 | `tradesman_dwellings` |
+| `hh_darling_enoch` | `blk_school_section_tier_81` | `blk_school_section_tier_81#03` | D5 | `tradesman_dwellings` |
+| `hh_dave_john` | `blk_school_section_tier_81` | `blk_school_section_tier_81#02` | D5 | `tradesman_dwellings` |
+| `hh_davis_george` | `blk_school_section_tier_81` | `blk_school_section_tier_81#07` | D6 | `tradesman_dwellings` |
 | `hh_ira_paddock` | `blk_school_section_tier_81` | `blk_school_section_tier_81#06` | D2 | `labourer_dwellings` |
 
-1,117 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,116 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
