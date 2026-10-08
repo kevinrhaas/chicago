@@ -543,6 +543,8 @@ STRUCTURE_TICKETS = {
     # T-2156 WAS SPLIT on 2026-10-08 too: T-2165 builds the South's barn and smokehouse
     # where the schedule puts them, and T-2166 (split again the same day into T-2167, the
     # West's four on blk_washington_clinton, and T-2168) took the North's and West's rest.
+    # T-2168 WAS SPLIT on 2026-10-08 as well: T-2169 builds the West's last three yard
+    # roofs and T-2170 the North's five barns.
     ("south", "barns_stables"): "T-2165",
     ("south", "small_outbuildings"): "T-2165",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
@@ -608,8 +610,8 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
-    ("west", "small_outbuildings"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
+    ("west", "barns_stables"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
+    ("west", "small_outbuildings"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -687,8 +689,8 @@ STRUCTURE_TICKETS = {
     # warehouse there. T-2022 is filed for exactly that cell.
     ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
-    ("north", "small_outbuildings"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
+    ("north", "barns_stables"): "T-2170",  # T-2156 -> T-2166 -> T-2168 -> T-2170, above
+    ("north", "small_outbuildings"): "T-2170",  # T-2156 -> T-2166 -> T-2168 -> T-2170, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",
