@@ -15,7 +15,12 @@
  *     `pickAt` the walk calls;
  *  3. a chunk the reach held back at boot still has its arrays, and walking up
  *     to it uploads it and lets them go, without an error;
- *  4. a desktop (1280x800, mouse) releases nothing.
+ *  4. a desktop (1280x800, mouse) releases nothing;
+ *  5. a phone boots the /1904/ door too, and its far ground is batched. 1835
+ *     hides a re-read of released arrays that 1904 does not: the frontage there
+ *     hands the far base a fresh geometry before `batchDistantGround()` cuts it,
+ *     and 1904 has nothing to protect, so the base it cut was the one already
+ *     uploaded and let go (T-2180).
  *
  *   node tools/check_upload_release.mjs [siteRoot]    (default ../../site/4d)
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
@@ -69,12 +74,12 @@ const browser = await chromium.launch({
   args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
 });
 
-async function boot(profile) {
+async function boot(profile, door = '/walk/?year=1835') {
   const ctx = await browser.newContext(profile);
   const page = await ctx.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(`http://127.0.0.1:${PORT}/walk/?year=1835${process.env.CHECK_QUERY || ""}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`http://127.0.0.1:${PORT}${door}${process.env.CHECK_QUERY || ""}`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.__chicago4d?.ready || window.__chicago4d?.error,
     null, { timeout: 600000 });
   await page.waitForTimeout(1500);
@@ -231,6 +236,32 @@ async function boot(profile) {
   const census = await page.evaluate(() => window.__chicago4d.uploadRelease);
   check('desktop: 1835 boots with no page error', errors.length === 0, errors.slice(0, 3).join(' | '));
   check('desktop: nothing is released', census?.attributes === 0, JSON.stringify(census));
+  await ctx.close();
+}
+
+/* ---- 5: the phone at the 1904 door ------------------------------------ */
+{
+  const { ctx, page, errors } = await boot({ viewport: { width: 390, height: 780 },
+    deviceScaleFactor: 2, isMobile: true, hasTouch: true }, '/1904/');
+  const state = await page.evaluate(() => {
+    const a = window.__chicago4d;
+    let base = null;
+    a.scene3d?.getObjectByName('terrain')?.traverse((o) => {
+      if (o.name.startsWith('terrain_base__')) {
+        base = { batched: !!o.isBatchedMesh,
+          pieces: o.userData.spatialBatch?.pieces ?? 0 };
+      }
+    });
+    return { scene: a.scene?.id ?? null, error: a.error ? String(a.error) : null,
+      census: a.uploadRelease, base };
+  });
+  check('phone: /1904/ boots the 1904 scene with no page error',
+    state.scene === '1904' && !state.error && errors.length === 0,
+    state.error || errors.slice(0, 3).join(' | '));
+  check('phone: /1904/ lets go of its page arrays', state.census?.attributes > 0,
+    JSON.stringify(state.census));
+  check('phone: /1904/ batches the far ground it has already uploaded',
+    state.base?.batched && state.base.pieces > 1, JSON.stringify(state.base));
   await ctx.close();
 }
 
