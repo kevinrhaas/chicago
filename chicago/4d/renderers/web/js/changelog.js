@@ -4,6 +4,11 @@ export const CHANGELOG = [ // newest first
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
       'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
     ] },
+  { v: 1545, ts: '2026-10-08T19:35:25.683Z', date: 'Oct 8, 2026, 2:35 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 202 more grown men in family houses. The people cards already name 1,190 men aged twenty or over, and the plan wants 943 in all, so the town has more than enough.',
+      'The 202 are taken off the list. Nobody in the town is changed or removed. The count the town is heading for falls from 3,135 to 2,933, inside the 1835 range.',
+    ] },
   { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
     items: [
       'Nothing you can see changes. The automated check that walks into the town now waits for the welcome screen before stepping in, so a slow test machine no longer reports the version label as missing when it was there all along.',
