@@ -58,6 +58,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from migrate_attribute_tiers import check_tier_block  # noqa: E402
+from death_readings import church_deaths, latest_day  # noqa: E402  (T-2189)
 from reconstruct_residents_1835 import (  # noqa: E402
     READMISSION_PASS, RECONSTRUCTED, check_reconstructed_person, draw, load_programme,
     seed_for, stages)
@@ -470,6 +471,23 @@ def derive() -> tuple[dict, dict]:
         if cls not in SPENDS:
             continue
         rule_id = SPENDS[cls]
+
+        # A BURIAL IS A DEPARTURE, NOT A SIGHTING (T-2189). The register row's own role
+        # says this name is the DEAD one, and a death before the scene date is the one
+        # reading the persistence model may not price: it does not say how likely the
+        # person was still here, it says they were not. So it readmits nobody.
+        died = church_deaths().get(row.get("claim_or_record_id")) \
+            if row.get("domain") == "church" else None
+        if died is not None:
+            last = latest_day(row.get("describes_date"))
+            if last is not None and last < SCENE_DATE.isoformat():
+                withhold(row, "the_reading_is_a_death_before_the_day",
+                         f"The register's own entry makes this name the decedent — "
+                         f"\"{(died.get('cells') or {}).get('entry_as_printed')}\" — dated "
+                         f"{row.get('describes_date')}, before 1 July 1835. A death is not "
+                         f"an appearance a persistence draw can price: the person was not "
+                         f"in the town on the day, and no card is minted for them.")
+                continue
 
         if cls == "R1_in_window_uncertain":
             when, refusal = dated_evidence(row)
