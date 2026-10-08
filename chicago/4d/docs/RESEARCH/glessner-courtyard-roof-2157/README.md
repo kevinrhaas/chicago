@@ -34,8 +34,24 @@ The renderer images retain the scene's existing lighting and materials. The
 animation loop is paused after normal boot only to make the review cameras
 repeatable; these captures do not measure interactive frame rate.
 
-Integration: the dev-wide order-book gate became red when T-2156 and T-2166
-were split during validation. Five still-owed rows now follow T-2165 (South)
-and T-2168 (North/West residuals), with T-2167’s platted West work stated in
-the owner-table comment. Counts, budgets and geometry are unchanged by this
-bookkeeping repair. The derived JSON and report are rebuilt from that table.
+Integration: after merging the current dev changes, the order-book gate found
+T-2168 had also been split. The West residual rows now follow T-2169, and the
+North barn row follows T-2170. The reports are rebuilt from the owner table;
+this bookkeeping update changes no counts, budgets or geometry.
+
+The browser gate also retained the pre-lot-remnant flora totals (10 communities,
+155 species). The committed catalog independently sums to 11 communities and
+166 species. Its three exact count assertions now reflect that catalog; the
+clamped-layer, worst-case, source and overflow assertions retain their bounds.
+
+Broader published browser coverage also reports existing 1835 bridge-pile,
+frontage-count and scene-detail-budget failures. The desktop 1–6 leg reached
+265 passes and ten assertion failures before its browser target crashed; part
+14 passes on both viewports (46 checks). These runs are recorded honestly in
+`tools/dev-smoke-state.json`; they are not a claim of a green whole-site smoke.
+The roof patch changes no 1835 renderer or model geometry.
+
+After integration with dev `f5a99ae5`, the published 1904 app was checked again:
+desktop/full and mobile/light each passed three roof views, with zero page,
+resource or loader errors and every draw/triangle budget satisfied. The full
+readings are in `integration-validation.json`.

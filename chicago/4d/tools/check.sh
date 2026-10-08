@@ -72,6 +72,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
+  node tools/test_boot_forecast.mjs
 step "The welcome draws the town only when the town changed (T-2113)" \
   node tools/test_gate_frame.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
