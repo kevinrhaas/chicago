@@ -476,13 +476,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # adds one frame_storefront through emit.py and the common modules. The lap preserves
 # T-2148's thirteen assets; terrain reach stays 6 and pier_crib stays 2.
 #
+# 663 -> 664 and 657 -> 658 on 2026-10-08 (T-2150): the West Water river warehouse at
+# Washington Street adds one frame_storefront through emit.py and the common modules;
+# terrain reach stays 6 and pier_crib stays 2.
+#
 STATED = {
-    "assets": 663,
+    "assets": 664,
     "restales": {
-        "generators/common/*.py": 663,
+        "generators/common/*.py": 664,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 657,
+        "generators/emit.py": 658,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

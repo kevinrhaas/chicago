@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1519, ts: '2026-10-08T05:05:56.253Z', date: 'Oct 8, 2026, 12:05 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
+    items: [
+      'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
+      'No record names it. It is the West Division\u2019s second warehouse, which the plan counted and nobody had built. The plan first put it a block inland, where no river reaches. Here the river runs closer to West Water Street than anywhere else on the west side, so a warehouse can face its landing.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L400).',
+    ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
     items: [
       'Walk west along North Water Street from the Dearborn drawbridge, past the freight sheds, and at the LaSalle Street corner there is now a large two-storey river warehouse: unpainted clapboard, three cargo doors on its end wall, and its front to the river across the street.',
