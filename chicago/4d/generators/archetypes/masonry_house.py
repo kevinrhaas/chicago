@@ -311,7 +311,8 @@ def _range(b, r) -> None:
     slope_lo = (zb_ - za) / max(cb - ca, 1e-6)
     (cy_, zy), (cz, zz) = prof[-2], prof[-1]
     slope_hi = (zz - zy) / max(cz - cy_, 1e-6)
-    ov_prof[0] = (c0 - EAVE_OVERHANG, za - EAVE_OVERHANG * slope_lo)
+    low_overhang = r.get("eave_lo_overhang", EAVE_OVERHANG)
+    ov_prof[0] = (c0 - low_overhang, za - low_overhang * slope_lo)
     ov_prof[-1] = (c1 + EAVE_OVERHANG, zz + EAVE_OVERHANG * slope_hi)
 
     def P(c, l, z):

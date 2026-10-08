@@ -1,0 +1,26 @@
+2026-10-08 — recovery integrated with dev 2649aaf
+Command: C4D_GATE_REQUIRE_READERS=1 CHECK_JOBS=3 bash tools/preflight.sh
+
+
+1/3  the gate a run already runs
+  ok    check.sh
+
+2/3  does this change carry a changelog entry? (PR-event only in CI)
+  ok    changelog entry: present — 25 watched file(s) changed and changelog.js changed with them
+
+3/3  did a sibling slice take a ticket id this branch minted?
+  ok    ticket ids: not applicable — tickets/ is a repository of its own (kevinrhaas/chicago-tickets). Ids are allocated on the tickets repository's main by ticket.mjs, which renumbers a collision as it pushes; a code branch carries no ticket file, so there is nothing here to renumber.
+
+PREFLIGHT PASS — CI has nothing left to ask. Open the PR.
+
+
+CHECK PASS — 790 steps, none red.
+  322 of them are self-tests that prove a gate by breaking it; their
+  assertions fire on purpose and every line of it is prefixed 'self-test |'.
+
+Final integration with dev 525abde (T-2187, PR #538)
+Command: C4D_GATE_REQUIRE_READERS=1 CHECK_JOBS=5 bash tools/check.sh
+
+CHECK PASS — 790 steps, none red.
+  322 of them are self-tests that prove a gate by breaking it; their
+  assertions fire on purpose and every line of it is prefixed 'self-test |'.

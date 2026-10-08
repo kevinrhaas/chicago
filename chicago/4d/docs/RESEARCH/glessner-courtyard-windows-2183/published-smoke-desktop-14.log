@@ -1,0 +1,37 @@
+serving /workspace/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "desktop"
+
+NOT THE FULL GATE — stages filtered to "14" of 14
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: the liberties wait for their first reader, not for boot (T-2058)
+  pass  desktop 1280x800: the arrival counts down from the present and never reads 1835 before the scene is ready — 2026· 2025· 2024· 2023· 2022· 2021· 2020· 2019· 2018· 2017· 2016· 2015· 2014· 2013· 2010· 1978· 1926· 1924· 1911· 1909· 1908· 1907· 1906· 1905· 1904· 1903· 1902· 1901· 1900· 1895· 1884· 1883· 1879· 1876· 1872· 1871· 1870· 1869· 1868· 1867· 1866· 1865· 1864· 1863· 1862· 1861· 1860· 1859· 1858· 1857· 1856· 1855· 1854· 1853· 1852· 1851· 1850· 1849· 1848· 1847· 1846· 1845· 1844· 1835
+  pass  desktop 1280x800: the welcome shows no count and no percentage
+  pass  desktop 1280x800: a place picked under Starting At… enters the town without taking the pointer
+  pass  desktop 1280x800: a jaunt started from the menu stands at its first stop, Previous disabled
+  pass  desktop 1280x800: the stop's place card opens, and Return comes back to the same stop
+  pass  desktop 1280x800: the stop's source opens in Sources, whose count is the published catalog's — 330 rows, data-count 330; index.json 330
+  pass  desktop 1280x800: Return from the source comes back to the same stop with the drawer shut
+  pass  desktop 1280x800: changing the travel mode changes the estimate, and the next ride goes at that mode — horse "about 4 min remaining" -> walk "about 9.5 min remaining"; ride {"phase":"travelling","travel":"travelling","mode":"walk"}
+  pass  desktop 1280x800: Next and Previous move between stops 1 and 2
+  pass  desktop 1280x800: the Jaunts menu pauses the outing and Resume returns to the same stop
+  pass  desktop 1280x800: End Jaunt returns to the menu in under 200 ms — 20.3 ms
+  pass  desktop 1280x800: a second jaunt starts at its own first stop
+  pass  desktop 1280x800: Explore on my own clears a paused jaunt
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+24 passed, 0 failed
+13 staged-section check(s) (stage 14 of 14), 11 always-on check(s)
+7 m 01 s for stage 14 at desktop — the ceiling on a steward run's single foreground command is 10 m 00 s
+SMOKE PASS

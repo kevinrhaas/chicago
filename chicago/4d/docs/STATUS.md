@@ -1,3 +1,21 @@
+## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
+
+Recovered the source checkpoint `c497167` on the owner's request. Principal
+bay openings share the north-wing first-floor sill and head; upper courtyard
+openings share the short tower band. The projecting rear eave, copper apron,
+tiled connector and gutters meet continuously. Dark glass defaults at every
+scene detail level; explicit comparisons remain available.
+
+L-glessner-courtyard-windows-2183 records the reconstructed dimensions and
+supersedes the earlier principal-window ratio. Research and validation receipts:
+`RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
+Canonical full/light assets and the recovery package are rebuilt. The 3,000
+roof checks and seven glass checks pass. Six published-app views on desktop
+Full and mobile Light pass with no page, resource or loader errors and within
+existing budgets; switching all three detail levels retains dark glass.
+Final preflight after integrating dev `2649aaf` passes all 790 repository checks; the combined tree is checked again after dev `525abde` lands and all 790 still pass. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
+
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 
 **What changed in the scene.** One F2 narrow two-storey warehouse,
