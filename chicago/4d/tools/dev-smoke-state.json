@@ -1965,6 +1965,68 @@
         ]
       },
       "source": "/tmp/t2171-smoke-mobile.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 124,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-08T10:08:18.260Z",
+      "ref": "steward/glessner-tower-proportions",
+      "commit": "54434f13be4d",
+      "devCommit": "7ec114a8db82",
+      "treeHash": "sha256:6c572d8bc4ad6ac1",
+      "treeDirty": false,
+      "changelogHash": "sha256:54df5d9960ea7499",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          5.4,
+          9.6,
+          10.9
+        ]
+      },
+      "source": "/tmp/t2172-smoke13.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 126,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-08T10:08:18.260Z",
+      "ref": "steward/glessner-tower-proportions",
+      "commit": "54434f13be4d",
+      "devCommit": "7ec114a8db82",
+      "treeHash": "sha256:6c572d8bc4ad6ac1",
+      "treeDirty": false,
+      "changelogHash": "sha256:54df5d9960ea7499",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          5.4,
+          9.6,
+          10.9
+        ]
+      },
+      "source": "/tmp/t2172-smoke13.log"
     }
   ]
 }

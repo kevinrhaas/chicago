@@ -7,6 +7,21 @@ map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed asset
 1812 checks pass with zero page errors or failed requests. The PR records the final
 repository and smoke gates; docs/measurements/t2171 holds the visual proof.
 
+## T-2172 — courtyard tower window and roof proportions (2026-10-08)
+
+The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
+upper windows. The cap rise falls from 13.6 to 10.1 ft at the unchanged ridge.
+Principal sash heads rise 2 ft, retaining their sills and historical divisions.
+These are declared proportional reconstructions, about +/-1 ft.
+
+Canonical full/light assets and recovery archive rebuilt; 3,000 independent roof
+samples pass. Six published desktop/full and mobile/light app views load without
+page, HTTP or loader errors and remain inside their rendering budgets. The local
+repository gate passed 786 checks; its two stale generated outputs were rebuilt
+and passed unchanged direct rechecks. Required CI and broader smoke are recorded
+on the pull request.
+See `RESEARCH/glessner-tower-proportions-2172/README.md`.
+
 ## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
 
 **What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in
