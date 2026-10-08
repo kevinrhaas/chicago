@@ -17,10 +17,127 @@ no Wolcott lot can hold.
   it stood 2.97 m from the barn beside it, 15 m and beyond clears both.
 - **Order book.** The West's `barns_stables` and `small_outbuildings` cells owe nothing now.
   `build_order_book_1835.OWNERS`: West → T-2169, North → T-2170 (T-2168 is split).
-- **Seating.** No household moves onto a yard building. `measure_generator_half` 671 → 674 /
-  665 → 668 (on top of T-2165's three); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
+- **Seating.** No household moves onto a yard building. `measure_generator_half` 684 → 687 /
+  678 → 681 (on top of T-2165's three and T-2146's thirteen); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
   redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
   register, population profile, hay limits and the Newberry parse re-derived.
+
+## PR #498 — Wells integrated onto current dev and browser failures repaired (2026-10-07)
+
+This integration supersedes the older T-2146 checkpoints below. The current deal
+raises thirteen houses, one to a requested lot: west block 94 has D3, D4, three
+D5, D7 and H1; east block 95 has D2, two D4, two D5 and D6. Both west Madison
+corner lots remain open. Block 95 also reserves its second lot for the unbuilt
+H3, still owned by T-1957. The town's H2 ceiling is already met elsewhere.
+L405 covers the reconstructed deal (renumbered from L401 when dev's T-2165 took that number;
+T-2167 holds L402 and two open siblings L403 and L404); no source is promoted to a historical address.
+
+**Lapped onto dev's T-2165, T-2167, T-2155, T-2158, T-2157 and T-2164 (2026-10-08).** Generated
+files took dev's side; the keeper → four infill generators → `reconcile_665` → seating chain walk
+settled after twenty-one laps at **212 platted and 99 off-plat seats (311 total, the same as dev)** and
+92 named keepers (dev 87). The same thirteen older households adopt the new houses; of the thirteen
+whose slots stood on the two blocks, seven are seated on standing roofs and six re-slot on block 81
+(T-2147). L263 records 644 phases (dev 631 + 13); generator-half counts 684/678. The derived layer
+(`rederive --tail`, settled), the completion audit, the redeal re-audit (523/8/0), the population
+profile and the Newberry re-parse over all four volumes were re-run. T-2165 noted that the schedule
+had moved one block-94 request from a D5 to a D4; at this fixpoint every one of the thirteen houses
+is adopted as built and no slot request is left on either Wells block, so the deal stands unchanged.
+
+Before that lap: the keeper/seating cycle settled at 213 platted and 99 off-plat seats (312 total)
+and 92 named keepers. L263 records 636 phases. Forty-four models were rebuilt
+from the settled records, and all 676 master/web pairs passed the derivative gate.
+The pre-browser integration passed all 786 source checks with no stale assets.
+
+Review found that the bridge census was assigning nearby trade goods to a pile
+by radius; meshes now expose exact lot-item triangle spans. Frontage and plant
+panel counts are pinned to the current canonical records. The scene-wide flora
+census retains its original stations and surveys all cardinal bearings, because
+one north-facing sample cannot establish absence from the scene.
+
+The desktop road drape exposed an end-line correction evaluated before its final
+Float32 coordinates: a cut could extrapolate the preceding half-cell plane by
+11 micrometres. The drape now reads its final coordinates and actual field/ridge
+bounds, with a folded-cell regression; the original 10-micrometre gate remains.
+
+Roads, yard surfaces and terrain are partitioned into fixed world pieces in
+BatchedMesh, retaining the original triangles, material and attribute bytes.
+The terrain reach operates on those pieces; its 240 m Light reach, authoritative
+heightfield, protected crossing clearance, plant population and 90-call floor
+are unchanged. CPU checks exercise actual Three culling, restoration, bounding
+corners, indexed/nonindexed attributes and repeated protected-base disposal.
+The final full source gate and all 14 browser parts at both viewports are required
+before this draft may merge; exact receipts are recorded on PR #498.
+
+## T-2146 — the School Section tier's Wells blocks (94, 95): thirteen houses on their requested lots (2026-10-06)
+
+Piece 3 of T-1755, on the owner's ruling (b): the South's owed dwellings cross Madison. T-2144
+opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no roof under them.
+
+- **The deal.** Two recipe entries in `1835_platted_block_parcels.json`, one roof to a lot, lot 0
+  (the west Madison corner) kept open on each. Block 94 takes its seven requests (D2, D3, two D4,
+  two D5, D6), the schedule's whole plan for it. Block 95 takes its six (D2, D4, D5, D7, H1, H2).
+  **L394**.
+- **The H3 that was withdrawn.** The schedule also plans an H3 boarding house on block 95. No
+  household asks for it, because no banded South clause admits the family. It was built here first.
+  Its beds then moved the lodging model, and `seat_lodgers_1835.py` refused the result: it would draw
+  8 lodgers out of `persons/male/10_19/south/lodging/trade`, and the book holds 7 there. That stage
+  stops on purpose until its basis is deliberately re-frozen, so raising the H3 is a lodging decision.
+  Lot 2 is left open for it, and the roof goes to **T-1957** with the South's other owed boarding houses.
+- **Keeper district.** `name_the_keepers_1835.py` gains `school_section_tier`. The hunk is
+  byte-identical to the one on T-2145's and T-2147's branches, so whichever merges first carries it.
+- **The fixpoint.** The lap is keepers → the four infill generators → `reconcile_665` → the
+  seating chain, about 42 s each. It settled after eighteen laps on each of three trees: before and
+  after dev's T-1746 merged in, and again without the H3. Then `rederive.mjs --tail
+  tools/compile_liberties.py` ran (three laps). **209 seated, held** (dev's figure after T-1746):
+  adopted 175 → 188, slot requests 34 → 21. As on T-2130, adoption runs first, so 13 older
+  households take the new houses and the 13 who asked re-slot on blocks 81, 118 and 119.
+  - hh_democrat_printers is handed on, and hh_laframboise_franois is seated.
+  - hh_bennet_lyman, handed on since T-2130, takes the H1, so the business deal's release cost drops 1 → 0.
+  - 75 seated households change roof or lot. Keepers go 81 → 86.
+- **Re-run by hand, outside the manifest:** the roof re-audit, land tracts, street-face adoptions,
+  population profile, lodging model, reconstructed-trades seating, register, entrances, alley lanes,
+  woodpiles, hay limits, and the Newberry leads (all four volumes re-parsed). T-0059's asset counts
+  go 635/629 → 648/642 (dev's T-1977 camp is the one between).
+- **Baked** with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`): the
+  thirteen new meshes, the four whose siding stock moved, and the meshes the keeper cascade staled.
+- Restated: **L263** 595 → 608, **L270** (the count held; who moved), **L276** 81 → 86.
+- **Lapped onto dev's T-1977, T-2149 and T-2018 (2026-10-06)**, finishing salvage draft #498.
+  Generated files took dev's side; `rederive.mjs --run` (twice — the first stopped at
+  `rebuild_closing_set.py` until the mirror was published), and one walk of keepers → the four
+  infill generators → the seating chain moved nothing: the fixpoint held. Then the redeal re-audit
+  (487/8/0 keep/refamily/retire), the block remedies report, the roof-id surface and the
+  Newberry re-parse over all four volumes. L394 stands beside dev's L395 (the Wolf Point camp).
+- **Lapped onto dev's T-2145 (2026-10-06), NOT YET GATE-GREEN.** The recipe merged by `block_id`
+  (94/95 beside 118/119), generated files took dev's side, and the keeper/seating walk took fourteen
+  laps. **The count now FALLS: 209 → 199 platted (298 seated in all, dev 308).** Older households
+  adopt the thirteen new roofs first, and with 118/119 built and block 81's lots requested, ten of the
+  thirteen who asked find no lot to re-slot on and are handed on to T-1614 (named in L270). L263 is
+  622. Still owed: one more keeper walk (the closing `rederive --run` moved the seating once more),
+  the redeal / block-remedies / roof-id / Newberry steps, the order-book seated pin, the bake of the
+  meshes the keeper cascade staled, then check.sh and smoke part 1.
+## T-2171 — continuous 1812 lake shore (2026-10-08)
+
+The unsupported notch at the sand-spit attachment is replaced by a smooth,
+continuous lake face. The river-side bend, lower spit and southern outlet keep
+their coordinates. The curve is explicitly reconstructed (L403), based on the
+map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
+1812 checks pass with zero page errors or failed requests. The PR records the final
+repository and smoke gates; docs/measurements/t2171 holds the visual proof.
+
+## T-2172 — courtyard tower window and roof proportions (2026-10-08)
+
+The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
+upper windows. The cap rise falls from 13.6 to 10.1 ft at the unchanged ridge.
+Principal sash heads rise 2 ft, retaining their sills and historical divisions.
+These are declared proportional reconstructions, about +/-1 ft.
+
+Canonical full/light assets and recovery archive rebuilt; 3,000 independent roof
+samples pass. Six published desktop/full and mobile/light app views load without
+page, HTTP or loader errors and remain inside their rendering budgets. The local
+repository gate passed 786 checks; its two stale generated outputs were rebuilt
+and passed unchanged direct rechecks. Required CI and broader smoke are recorded
+on the pull request.
+See `RESEARCH/glessner-tower-proportions-2172/README.md`.
 
 ## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
 

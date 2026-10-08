@@ -1,10 +1,29 @@
 export const CHANGELOG = [ // newest first
-  { v: 1528, ts: '2026-10-08T10:01:46.239Z', date: 'Oct 8, 2026, 5:01 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+  { v: 1532, ts: '2026-10-08T12:05:52.135Z', date: 'Oct 8, 2026, 7:05 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
       'With these three, every yard building the town plan counted for the West Division now stands.',
       'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
     ] },
+  { v: 1531, ts: '2026-10-08T11:16:48.172Z', date: 'Oct 8, 2026, 6:16 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+    items: [
+      'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
+      'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
+      'Thirteen of the town\u2019s households move into the new houses.',
+      'Light detail now has more room on a weaker machine as you look across the town.',
+      'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
+    items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
+      'The corrected curve is labelled reconstructed: early maps support a continuous shore, but do not establish its exact outline.'] },
+  { v: 1529, ts: '2026-10-08T10:24:03.249Z', date: 'Oct 8, 2026, 5:24 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',
+      'Five recent builds added walks, fences, a wagon apron and bare workshop fronts, and the checks still expected the old numbers. They now count what those builds laid, and each new number is traced to the build that added it.',
+      'A cart on the newly extended West Water Street was being counted as part of the raft bridge\u2019s timber pile beside it. The check now measures that pile by its own footprint.',
+    ] },
+  { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
+    items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
