@@ -18,11 +18,11 @@
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading.",
   "dwellings": {
-   "standing_low": 309,
-   "standing_high": 358,
+   "standing_low": 321,
+   "standing_high": 371,
    "by_group": {
-    "ordinary_dwellings": 309,
-    "larger_boarding_houses": 39,
+    "ordinary_dwellings": 321,
+    "larger_boarding_houses": 40,
     "inns_taverns": 10
    },
    "ordered_low": 335,
