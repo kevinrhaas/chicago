@@ -47,13 +47,12 @@
    "moved": [
     {
      "district": "south",
-     "blocks": 6,
+     "blocks": 5,
      "trade_roofs": 4,
-     "blocks_redealt": 6,
+     "blocks_redealt": 5,
      "quota": {
       "blk_south_water_wells": 1,
       "blk_south_water_dearborn": 1,
-      "blk_school_section_tier_81": 0,
       "blk_school_section_tier_94": 0,
       "blk_school_section_tier_95": 0,
       "blk_south_water_market": 2
@@ -87,26 +86,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 638,
+  "structure_records": 646,
   "physical_roofs": {
-   "min": 619,
-   "max": 620,
+   "min": 627,
+   "max": 628,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 480,
+   "generated": 488,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 329,
+   "south": 337,
    "west": 128,
    "north": 146,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 309,
+   "ordinary_dwellings": 316,
    "larger_boarding_houses": 39,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
@@ -114,12 +113,12 @@
    "warehouses_freight": 16,
    "institutional_public": 9,
    "fort_principal": 10,
-   "barns_stables": 63,
+   "barns_stables": 64,
    "small_outbuildings": 79
   },
   "by_family": {
    "A1": 41,
-   "A2": 22,
+   "A2": 23,
    "A3": 39,
    "A4": 26,
    "A5": 14,
@@ -129,11 +128,11 @@
    "C4": 4,
    "D1": 56,
    "D2": 35,
-   "D3": 64,
-   "D4": 68,
-   "D5": 43,
-   "D6": 26,
-   "D7": 17,
+   "D3": 65,
+   "D4": 70,
+   "D5": 45,
+   "D6": 27,
+   "D7": 18,
    "F1": 8,
    "F2": 6,
    "F3": 1,
@@ -179,19 +178,19 @@
   ]
  },
  "remaining": {
-  "roofs": 49,
+  "roofs": 41,
   "of_target": 668,
   "by_district": {
-   "south": 36,
+   "south": 28,
    "west": 7,
    "north": 6,
    "fort": 0
   },
   "by_district_group": {
    "south": {
-    "barns_stables": 2,
+    "barns_stables": 1,
     "larger_boarding_houses": 3,
-    "ordinary_dwellings": 26,
+    "ordinary_dwellings": 19,
     "small_outbuildings": 1,
     "warehouses_freight": 4
    },
@@ -206,7 +205,7 @@
   },
   "by_family": {
    "A1": 1,
-   "A2": 6,
+   "A2": 4,
    "A3": 1,
    "A4": 2,
    "A5": 3,
@@ -216,11 +215,11 @@
    "C4": 1,
    "D1": 0,
    "D2": 3,
-   "D3": 1,
-   "D4": 6,
-   "D5": 7,
-   "D6": 3,
-   "D7": 1,
+   "D3": 0,
+   "D4": 5,
+   "D5": 5,
+   "D6": 2,
+   "D7": 0,
    "F1": 0,
    "F2": 1,
    "F3": 2,
@@ -243,15 +242,13 @@
   },
   "by_district_family": {
    "south": {
-    "A2": 2,
+    "A2": 1,
     "H1": 1,
     "H3": 2,
     "D2": 4,
-    "D3": 1,
-    "D4": 7,
-    "D5": 9,
-    "D6": 4,
-    "D7": 1,
+    "D4": 6,
+    "D5": 6,
+    "D6": 3,
     "A5": 1,
     "F2": 1,
     "F3": 2,
@@ -278,16 +275,15 @@
   },
   "absorbed_from": {
    "D5": 8,
-   "A2": 3,
-   "D4": 1
+   "A2": 4
   },
   "district_group_rows_overshot": {},
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 40,
+  "schedulable_on_committed_ground": 32,
   "gated_on_coverage": 6,
-  "statement": "40 of the 49 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "statement": "32 of the 41 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 428,
   "blocks_named": 89,
   "southern_ground": {
@@ -2430,27 +2426,18 @@
    },
    "lots": 8,
    "capacity_roofs": 10,
-   "standing_roofs": 0,
-   "free_lots": 8,
-   "principal_room": 7,
-   "ancillary_room": 2,
-   "headroom": 9,
-   "state": "open",
+   "standing_roofs": 8,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
-   "roofs": 8,
-   "families": {
-    "A2": 1,
-    "D2": 1,
-    "D4": 2,
-    "D5": 2,
-    "D6": 1,
-    "H3": 1
-   },
-   "principal": 7,
-   "ancillary": 1,
-   "frontage_weight": 0.0,
-   "trade_roofs": 0,
-   "lot_ceiling_principal": 7,
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
+   "ancillary": 0,
+   "lot_ceiling_principal": 0,
    "row_lots_required": 0
   },
   {
@@ -2474,11 +2461,11 @@
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
    "roofs": 7,
    "families": {
-    "D3": 1,
-    "D4": 1,
-    "D5": 3,
-    "D7": 1,
-    "H1": 1
+    "D2": 1,
+    "D4": 2,
+    "D5": 2,
+    "D6": 1,
+    "H3": 1
    },
    "principal": 7,
    "ancillary": 0,
@@ -2511,7 +2498,7 @@
     "D2": 1,
     "D4": 2,
     "D5": 2,
-    "D6": 1,
+    "H1": 1,
     "H3": 1
    },
    "principal": 7,
@@ -2658,8 +2645,8 @@
    "standing_roofs": 0,
    "headroom": 0,
    "state": "complete",
-   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 88 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 62 roofs of headroom against 36 left to build — a surplus of 26 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
-   "surplus_headroom": 26,
+   "waiting_on": "NOTHING, AND THAT IS A CHANGE OF KIND RATHER THAN OF DEGREE. This unit held 78 roofs waiting on street control; the control is carried and the ground it opened is named block by block. The district's named ground now holds 53 roofs of headroom against 28 left to build — a surplus of 25 — so nothing in this district is beyond committed control any more and this unit holds nothing. What limits the district from here is its own remainder, not its ground: the named blocks are where the next parcel builds, and a block's `capacity_roofs` is a ceiling rather than a claim on the remainder.",
+   "surplus_headroom": 25,
    "roofs": 0,
    "families": {},
    "principal": 0,
