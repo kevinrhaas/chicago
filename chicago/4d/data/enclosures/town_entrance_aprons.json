@@ -126,6 +126,7 @@
   "recon_1835_blk_indiana_north_cass_d4_05",
   "recon_1835_blk_indiana_north_cass_d4_06",
   "recon_1835_blk_indiana_north_cass_h3_09",
+  "recon_1835_blk_indiana_north_wolcott_a1_09",
   "recon_1835_blk_indiana_north_wolcott_a3_04",
   "recon_1835_blk_indiana_north_wolcott_a3_08",
   "recon_1835_blk_indiana_north_wolcott_a4_03",
@@ -243,6 +244,7 @@
   "recon_1835_blk_south_water_clark_f2_01",
   "recon_1835_blk_south_water_dearborn_a1_09",
   "recon_1835_blk_south_water_dearborn_a3_06",
+  "recon_1835_blk_south_water_dearborn_a5_10",
   "recon_1835_blk_south_water_dearborn_c1_08",
   "recon_1835_blk_south_water_dearborn_c2_07",
   "recon_1835_blk_south_water_dearborn_c3_01",
@@ -278,6 +280,7 @@
   "recon_1835_blk_south_water_lasalle_d4_02",
   "recon_1835_blk_south_water_lasalle_d5_01",
   "recon_1835_blk_south_water_lasalle_f2_10",
+  "recon_1835_blk_south_water_wells_a2_09",
   "recon_1835_blk_south_water_wells_a3_08",
   "recon_1835_blk_south_water_wells_c2_01",
   "recon_1835_blk_south_water_wells_c3_02",
@@ -2194,6 +2197,20 @@
     [965.07, 492.78]
    ],
    [
+    [902.56, 519.01],
+    [908.07, 518.97],
+    [908.08, 520.37],
+    [907.2, 520.38],
+    [906.71, 522.03],
+    [906.61, 522.28],
+    [906.36, 522.38],
+    [904.31, 522.4],
+    [904.07, 522.29],
+    [903.96, 522.05],
+    [903.45, 520.4],
+    [902.57, 520.41]
+   ],
+   [
     [910.5, 518.95],
     [912.93, 518.94],
     [912.94, 520.34],
@@ -3802,6 +3819,20 @@
     [781.66, -49.27]
    ],
    [
+    [718.65, -61.35],
+    [722.67, -61.37],
+    [722.68, -59.97],
+    [722.29, -59.97],
+    [721.8, -58.32],
+    [721.7, -58.07],
+    [721.46, -57.97],
+    [719.9, -57.96],
+    [719.65, -58.06],
+    [719.54, -58.31],
+    [719.03, -59.95],
+    [718.65, -59.95]
+   ],
+   [
     [738.89, -7.83],
     [744.99, -8.0],
     [745.03, -6.6],
@@ -4284,6 +4315,20 @@
     [487.71, 3.2],
     [487.26, -4.01],
     [484.77, -4.03]
+   ],
+   [
+    [401.85, -59.41],
+    [410.77, -59.46],
+    [410.77, -58.06],
+    [408.96, -58.05],
+    [408.47, -56.4],
+    [408.37, -56.15],
+    [408.13, -56.05],
+    [404.53, -56.03],
+    [404.28, -56.13],
+    [404.17, -56.37],
+    [403.66, -58.02],
+    [401.85, -58.01]
    ],
    [
     [409.52, -44.97],
@@ -10084,6 +10129,16 @@
    "width_m": 1.2
   },
   {
+   "id": "recon_1835_blk_indiana_north_wolcott_a1_09__door_1",
+   "structure_id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [905.32, 518.99],
+   "bearing_deg": 0.38,
+   "width_m": 1.35
+  },
+  {
    "id": "recon_1835_blk_indiana_north_wolcott_a3_04__door_1",
    "structure_id": "recon_1835_blk_indiana_north_wolcott_a3_04",
    "archetype": "outbuilding",
@@ -11254,6 +11309,16 @@
    "width_m": 0.86
   },
   {
+   "id": "recon_1835_blk_south_water_dearborn_a5_10__door_1",
+   "structure_id": "recon_1835_blk_south_water_dearborn_a5_10",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [720.66, -61.36],
+   "bearing_deg": 0.35,
+   "width_m": 0.86
+  },
+  {
    "id": "recon_1835_blk_south_water_dearborn_c1_08__shop_door_1",
    "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
    "archetype": "frame_storefront",
@@ -11602,6 +11667,16 @@
    "at_local_enu_m": [488.99, -5.39],
    "bearing_deg": 359.54,
    "width_m": 1.04
+  },
+  {
+   "id": "recon_1835_blk_south_water_wells_a2_09__door_1",
+   "structure_id": "recon_1835_blk_south_water_wells_a2_09",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [406.31, -59.44],
+   "bearing_deg": 0.34,
+   "width_m": 2.9
   },
   {
    "id": "recon_1835_blk_south_water_wells_a3_08__door_1",

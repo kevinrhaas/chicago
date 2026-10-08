@@ -35,14 +35,14 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 638,
-    "structures_reached": 122,
+    "structures_placed": 641,
+    "structures_reached": 123,
     "structures_reached_by_grade": {
       "inferred": 25,
-      "reconstructed": 97
+      "reconstructed": 98
     },
     "structures_unreached_by_section": {
-      "09": 499,
+      "09": 501,
       "10": 1,
       "16": 15,
       "outside the four sections": 1
@@ -2767,6 +2767,10 @@
           "margin_m": 118.8
         },
         {
+          "id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+          "margin_m": 56.9
+        },
+        {
           "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
           "margin_m": 64.8
         },
@@ -3034,6 +3038,10 @@
         {
           "id": "recon_1835_blk_indiana_north_cass_h3_09",
           "margin_m": 118.8
+        },
+        {
+          "id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+          "margin_m": 56.9
         },
         {
           "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
@@ -40049,6 +40057,7 @@
       "recon_1835_blk_south_water_clark_f2_01",
       "recon_1835_blk_south_water_dearborn_a1_09",
       "recon_1835_blk_south_water_dearborn_a3_06",
+      "recon_1835_blk_south_water_dearborn_a5_10",
       "recon_1835_blk_south_water_dearborn_c1_08",
       "recon_1835_blk_south_water_dearborn_c2_07",
       "recon_1835_blk_south_water_dearborn_c3_01",
@@ -40084,6 +40093,7 @@
       "recon_1835_blk_south_water_lasalle_d4_02",
       "recon_1835_blk_south_water_lasalle_d5_01",
       "recon_1835_blk_south_water_lasalle_f2_10",
+      "recon_1835_blk_south_water_wells_a2_09",
       "recon_1835_blk_south_water_wells_a3_08",
       "recon_1835_blk_south_water_wells_c2_01",
       "recon_1835_blk_south_water_wells_c3_02",

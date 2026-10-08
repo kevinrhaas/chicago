@@ -314,12 +314,12 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 352,
-  "outside": 284,
+  "inside": 354,
+  "outside": 285,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 61,
+   "north_of_the_limit": 62,
    "west_of_canal_street": 96,
    "south_of_washington_street": 98,
    "east_of_the_limit_in_the_water": 1,
@@ -374,6 +374,7 @@
     "recon_1835_blk_indiana_north_cass_d4_05",
     "recon_1835_blk_indiana_north_cass_d4_06",
     "recon_1835_blk_indiana_north_cass_h3_09",
+    "recon_1835_blk_indiana_north_wolcott_a1_09",
     "recon_1835_blk_indiana_north_wolcott_a3_04",
     "recon_1835_blk_indiana_north_wolcott_a3_08",
     "recon_1835_blk_indiana_north_wolcott_a4_03",
@@ -646,7 +647,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -656,7 +657,7 @@
    {
     "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      139.86,
      -587.44
@@ -968,7 +969,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -1108,7 +1109,7 @@
    {
     "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      139.86,
      -587.44

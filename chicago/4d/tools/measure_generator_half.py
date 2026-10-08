@@ -476,13 +476,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # adds one frame_storefront through emit.py and the common modules. The lap preserves
 # T-2148's thirteen assets; terrain reach stays 6 and pier_crib stays 2.
 #
+# 663 -> 666 and 657 -> 660 on 2026-10-08 (T-2156): three yard buildings — a stable on
+# blk_indiana_north_wolcott, a barn on blk_south_water_wells and a smokehouse on
+# blk_south_water_dearborn — through emit.py and the common modules. Terrain reach
+# stays 6 and pier_crib stays 2.
+#
 STATED = {
-    "assets": 663,
+    "assets": 666,
     "restales": {
-        "generators/common/*.py": 663,
+        "generators/common/*.py": 666,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 657,
+        "generators/emit.py": 660,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
