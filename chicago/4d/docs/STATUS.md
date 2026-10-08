@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2147 — the School Section tier's Market block (81) built to its lot ceiling: the first roofs south of Madison (2026-10-05)
 
 Piece 4 of T-1755, on the ground T-2144 opened. The seating held seven `slot` requests on
@@ -47,7 +46,7 @@ lot 0 kept open) with one A2 yard roof.
   phases with T-2165's three yard roofs below T-2147's eight; the generator half is stated at
   679/673. T-1673 was split mid-lap (T-2174, T-2175), so the South's street-line warehouse band
   and its fallback row now name T-2175, which holds three of its four roofs.
-=======
+
 ## T-2171 — continuous 1812 lake shore (2026-10-08)
 
 The unsupported notch at the sand-spit attachment is replaced by a smooth,
@@ -56,7 +55,6 @@ their coordinates. The curve is explicitly reconstructed (L403), based on the
 map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
 1812 checks pass with zero page errors or failed requests. The PR records the final
 repository and smoke gates; docs/measurements/t2171 holds the visual proof.
->>>>>>> origin/dev
 
 ## T-2172 — courtyard tower window and roof proportions (2026-10-08)
 
