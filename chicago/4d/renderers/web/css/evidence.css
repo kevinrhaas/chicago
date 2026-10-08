@@ -97,6 +97,39 @@
 [data-theme="light"] .city-census .gc-seg-inf,
 [data-theme="light"] .city-census .gc-sw-inf { background: color-mix(in srgb, var(--inf) 78%, var(--ink)); }
 [data-theme="light"] .city-census .gc-seg-rec { background: color-mix(in srgb, var(--con) 62%, var(--ink)); }
+/* T-2154: the dwellings against the November census, inside the buildings row, and the
+   people split into townspeople and garrison, inside the people row. The dwellings bar is
+   the census's 398: solid for the dwelling houses, hatched for the boarding houses and
+   taverns only one reading of the census counts. */
+.city-census .gc-dw {
+  display: grid; gap: 5px; margin-top: 4px; padding-top: 10px;
+  border-top: 1px dashed var(--edge); min-width: 0;
+}
+.city-census .gc-dw-head { margin: 0; display: flex; align-items: baseline; gap: 7px; flex-wrap: wrap; }
+.city-census .gc-dw-n {
+  font-size: 18px; font-weight: 640; line-height: 1.1; letter-spacing: -0.01em;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+}
+.city-census .gc-dw-bar {
+  height: 4px; border-radius: 2px; overflow: hidden; display: flex;
+  background: color-mix(in srgb, var(--ink) 10%, transparent);
+}
+.city-census .gc-dw-seg { display: block; height: 100%; }
+.city-census .gc-dw-house { background: var(--accent); }
+.city-census .gc-dw-lodge {
+  background: repeating-linear-gradient(135deg, var(--accent) 0 2px, transparent 2px 4px);
+  opacity: .8;
+}
+.city-census .gc-dw-of,
+.city-census .gc-dw-why,
+.city-census .gc-apart {
+  margin: 0; font-size: 11px; line-height: 1.4; color: var(--ink-dim); overflow-wrap: anywhere;
+}
+.city-census .gc-split {
+  margin: 2px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 3px 14px;
+  font-size: 12px; color: var(--ink); font-variant-numeric: tabular-nums;
+}
+.city-census .gc-split b { font-weight: 640; color: var(--accent); }
 /* The completion row (T-1967): the four joins as a checklist, and the tiers' shares of
    the households with a home on a bar of their own. */
 .city-census .gc-done-n {

@@ -657,7 +657,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/inns_taverns/south` | 5 | 5 | 0 | 0 | T-1683 |
 | `structures/inns_taverns/west` | 3 | 3 | 0 | 0 | T-1762 |
 | `structures/inns_taverns/north` | 2 | 2 | 0 | 0 | T-1205 |
-| `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-1983 |
+| `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-2156 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
 | `structures/larger_boarding_houses/south` | 28 | 25 | 3 | 0 | T-1957 |
