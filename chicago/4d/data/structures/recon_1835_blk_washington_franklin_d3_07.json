@@ -79,12 +79,12 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D3 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "construction": {
-          "value": "braced_frame",
+          "value": "balloon_frame",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
         },
         "plan": {
           "value": "single_pen",
@@ -167,6 +167,14 @@
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
+  "occupants": {
+    "value": "The Chandler household — a name the town's own records carry",
+    "confidence": "reconstructed",
+    "sources": [
+      "st_marys_baptismal_register_1833_1835"
+    ],
+    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2136; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_washington_franklin#07, fronting madison, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
+  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "D3",
@@ -179,16 +187,22 @@
     "stands_on": "street",
     "fronts": "madison",
     "sequence": 7,
-    "finish_key": "weathered_timber",
-    "roof_condition": "darkened",
-    "age_state": "established",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "type",
-      "household": null,
-      "words": "silvered clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weather-darkened roof — a one-room frame cottage, from the 1832–33 town (rule F-T: a tradesman's by its type)"
+      "by": "keeper",
+      "household": "hh_chandler_catherine",
+      "words": "new-sawn clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Chandler household's, in Chicago since 1835 (rule F-T)"
     }
+  },
+  "resident_assignment": {
+    "status": "assigned",
+    "confidence": "reconstructed",
+    "note": "T-2136: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_washington_franklin#07 fronting madison — a standing anonymous roof of family D3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
+    "household_id": "hh_chandler_catherine"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false
