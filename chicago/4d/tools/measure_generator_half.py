@@ -489,18 +489,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # blk_south_water_dearborn — through emit.py and the common modules. Terrain reach
 # stays 6 and pier_crib stays 2.
 #
-# 671 -> 679 and 665 -> 673 on 2026-10-08 (T-2147, lapped over T-2165): the eight roofs on
-# the School Section tier's block 81, blk_school_section_tier_81 — seven dwellings (D3 to D7)
-# and an A2 carriage shed, all through emit.py and the common modules. Terrain reach still 6
-# and pier_crib still 2.
+# 671 -> 684 and 665 -> 678 on 2026-10-08 (T-2146): thirteen School Section Wells-block
+# houses, D2 to D7 dwellings and an H1, through the common modules and emit.py; terrain
+# reach stays 6 and pier_crib stays 2.
+#
+# 684 -> 690 and 678 -> 684 on 2026-10-08 (T-2147, re-dealt over T-2146): the six houses on
+# the School Section tier's block 81, blk_school_section_tier_81 — D2, two D4, two D5 and a D6,
+# all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 679,
+    "assets": 690,
     "restales": {
-        "generators/common/*.py": 679,
+        "generators/common/*.py": 690,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 673,
+        "generators/emit.py": 684,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

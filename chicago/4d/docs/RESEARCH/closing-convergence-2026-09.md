@@ -33,11 +33,11 @@ That one is a property of the mirror rather than an oversight — it is the one 
 | member | tracked files written | claimed by the manifest | unowned |
 |---|---:|---:|---:|
 | `data/residents/index.json` and its `merged` redirect table | 1 | 1 | 0 |
-| the 1835 sidecars, `data/sidecars/1835/` | 660 | 1 | 659 |
+| the 1835 sidecars, `data/sidecars/1835/` | 671 | 1 | 670 |
 | the town census, `data/town_census.json` | 1 | 1 | 0 |
 | the final resident audit, `chicago/reference/resident-research/final/audit/` | 3 | 3 | 0 |
 
-659 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
+670 tracked closing-set file(s) are written by a manifest step and not claimed by it — in `sidecars_1835`. Widening `resolves` to the whole sidecar directory is a decision about what the lap may overwrite, not a bookkeeping fix, and the manifest is explicit that "being run by the manifest and owning your outputs are separate decisions" — so this states the number rather than taking that decision. The row moves the moment the count does.
 
 ## 3. The deltas
 
@@ -53,11 +53,11 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | persons graded `attested` | 410 | 412 | +2 |
 | persons graded `inferred` | 875 | 1030 | +155 |
 | persons graded `reconstructed` | 3 | 1486 | +1483 |
-| 1835 sidecar files | 391 | 660 | +269 |
+| 1835 sidecar files | 391 | 671 | +280 |
 | people in the 1835 people sidecar | 1288 | 3924 | +2636 |
-| buildings standing in the town census | 371 | 634 | +263 |
-| people housed in the town census | 34 | 2489 | +2455 |
-| households housed in the town census | 20 | 1296 | +1276 |
+| buildings standing in the town census | 371 | 645 | +274 |
+| people housed in the town census | 34 | 2590 | +2556 |
+| households housed in the town census | 20 | 1323 | +1303 |
 | rows in the final resident audit | 1288 | 2928 | +1640 |
 | published resident files in the mirror | 1336 | 1426 | +90 |
 

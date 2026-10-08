@@ -406,7 +406,11 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2146 WITH T-2145's OWN PR (2026-10-06). T-2145 builds the Clark blocks
     # (118, 119) and goes `done` when it merges, so the row moves one piece on to the Wells
     # blocks (94, 95), the next build piece still open.
-    ("south", "ordinary_dwellings"): "T-2146",
+    #
+    # AND ON TO T-2147 WITH T-2146's OWN PR (2026-10-06). T-2146 builds the Wells blocks
+    # and goes `done` when it merges, so the row moves to the Market block (81), the last
+    # build piece of the tier still live.
+    ("south", "ordinary_dwellings"): "T-2147",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -516,7 +520,10 @@ STRUCTURE_TICKETS = {
     # and the street line carries the whole order, on T-1673. This entry is what a banded
     # cell falls back to if its bands are ever taken out of the inventory, so it names the
     # half that would still owe. It is not read while the bands stand.
-    # T-1673 WAS SPLIT on 2026-10-08 (T-2174, T-2175); the fallback follows the band to T-2175.
+    #
+    # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
+    # street line's F2 and goes `done` when it merges, so the order moves to the piece that
+    # carries the rest of the line, as the band in the inventory does.
     ("south", "warehouses_freight"): "T-2175",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
@@ -618,8 +625,6 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    # T-2168 WAS SPLIT on 2026-10-08 (T-2169, T-2170): the West's last three yard roofs are
-    # T-2169's and the North's five A2 barns T-2170's, so each row follows its own piece.
     ("west", "barns_stables"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
     ("west", "small_outbuildings"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
@@ -5084,6 +5089,10 @@ def cmd_self_test() -> int:
     # thirteen roofs are raised; the four households that asked for its houses are seated
     # on standing West roofs, older households adopt the new ones, and the platted pass
     # seats three more at its fixpoint (209 -> 212 platted seats, 99 off-plat, L270, L394).
+    # 311 holds on 2026-10-08 (T-2146, merged over T-2165 and T-2167): thirteen Wells-block
+    # houses dealt to the post-T-2148 requests; older households adopt them, the requesters
+    # are seated on standing roofs or re-slot on block 81, and the settled pass seats 212 on
+    # the plat and 99 off it, as before.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 311
     fires("a seating pass whose seated and owed miss its own scope",

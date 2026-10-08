@@ -101,13 +101,25 @@
     "recon_1835_blk_school_section_tier_119_d5_06",
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07",
-    "recon_1835_blk_school_section_tier_81_d3_05",
+    "recon_1835_blk_school_section_tier_81_d2_05",
     "recon_1835_blk_school_section_tier_81_d4_03",
     "recon_1835_blk_school_section_tier_81_d4_04",
+    "recon_1835_blk_school_section_tier_81_d5_01",
     "recon_1835_blk_school_section_tier_81_d5_02",
-    "recon_1835_blk_school_section_tier_81_d5_06",
-    "recon_1835_blk_school_section_tier_81_d6_01",
-    "recon_1835_blk_school_section_tier_81_d7_07",
+    "recon_1835_blk_school_section_tier_81_d6_06",
+    "recon_1835_blk_school_section_tier_94_d3_05",
+    "recon_1835_blk_school_section_tier_94_d4_04",
+    "recon_1835_blk_school_section_tier_94_d5_01",
+    "recon_1835_blk_school_section_tier_94_d5_02",
+    "recon_1835_blk_school_section_tier_94_d5_03",
+    "recon_1835_blk_school_section_tier_94_d7_07",
+    "recon_1835_blk_school_section_tier_94_h1_06",
+    "recon_1835_blk_school_section_tier_95_d2_05",
+    "recon_1835_blk_school_section_tier_95_d4_03",
+    "recon_1835_blk_school_section_tier_95_d4_04",
+    "recon_1835_blk_school_section_tier_95_d5_01",
+    "recon_1835_blk_school_section_tier_95_d5_02",
+    "recon_1835_blk_school_section_tier_95_d6_06",
     "recon_1835_blk_south_water_clark_c2_06",
     "recon_1835_blk_south_water_clark_d1_04",
     "recon_1835_blk_south_water_clark_d3_03",
@@ -1536,20 +1548,38 @@
       ],
       [
         [
-          352.42,
+          352.4,
           -151.4
         ],
         [
-          351.59,
-          -151.78
+          351.57,
+          -151.77
         ],
         [
-          363.98,
-          -179.52
+          363.73,
+          -179.37
         ],
         [
-          364.82,
-          -179.15
+          364.57,
+          -179.0
+        ]
+      ],
+      [
+        [
+          350.18,
+          -151.64
+        ],
+        [
+          349.28,
+          -151.48
+        ],
+        [
+          344.7,
+          -176.49
+        ],
+        [
+          345.6,
+          -176.66
         ]
       ],
       [
@@ -2077,37 +2107,19 @@
       [
         [
           724.11,
-          -190.08
+          -190.07
         ],
         [
           724.06,
-          -191.0
+          -190.98
         ],
         [
-          733.35,
-          -191.56
+          733.81,
+          -191.5
         ],
         [
-          733.41,
-          -190.65
-        ]
-      ],
-      [
-        [
-          718.73,
-          -191.42
-        ],
-        [
-          718.54,
-          -190.53
-        ],
-        [
-          715.56,
-          -191.18
-        ],
-        [
-          715.76,
-          -192.08
+          733.86,
+          -190.59
         ]
       ],
       [
@@ -5478,30 +5490,12 @@
       ],
       [
         [
-          95.58,
-          -630.19
+          125.53,
+          -545.76
         ],
         [
-          96.44,
-          -629.89
-        ],
-        [
-          83.45,
-          -592.15
-        ],
-        [
-          82.59,
-          -592.45
-        ]
-      ],
-      [
-        [
-          125.46,
-          -546.08
-        ],
-        [
-          124.6,
-          -545.78
+          124.66,
+          -545.46
         ],
         [
           111.82,
@@ -5514,12 +5508,12 @@
       ],
       [
         [
-          124.76,
-          -629.91
+          124.6,
+          -629.11
         ],
         [
-          125.62,
-          -629.61
+          125.46,
+          -628.81
         ],
         [
           112.68,
@@ -5532,15 +5526,15 @@
       ],
       [
         [
-          155.02,
-          -544.36
+          154.85,
+          -545.28
         ],
         [
-          154.16,
-          -544.07
+          153.99,
+          -544.98
         ],
         [
-          141.04,
+          141.05,
           -582.44
         ],
         [
@@ -5550,16 +5544,16 @@
       ],
       [
         [
-          154.41,
-          -632.6
+          154.16,
+          -630.82
         ],
         [
-          155.27,
-          -632.31
+          155.02,
+          -630.53
         ],
         [
-          141.9,
-          -592.16
+          141.91,
+          -592.15
         ],
         [
           141.04,
@@ -5568,30 +5562,30 @@
       ],
       [
         [
-          183.82,
-          -546.6
+          184.73,
+          -541.3
         ],
         [
-          182.96,
-          -546.3
+          183.86,
+          -541.02
         ],
         [
-          170.28,
-          -582.44
+          170.17,
+          -582.6
         ],
         [
-          171.14,
-          -582.74
+          171.04,
+          -582.89
         ]
       ],
       [
         [
-          180.56,
-          -630.14
+          180.55,
+          -630.03
         ],
         [
-          181.44,
-          -629.9
+          181.43,
+          -629.79
         ],
         [
           171.1,
@@ -5604,20 +5598,254 @@
       ],
       [
         [
-          182.6,
-          -629.93
+          236.39,
+          -628.34
         ],
         [
-          183.5,
-          -630.1
+          237.27,
+          -628.6
         ],
         [
-          187.97,
-          -606.94
+          248.01,
+          -592.43
         ],
         [
-          187.07,
-          -606.77
+          247.14,
+          -592.17
+        ]
+      ],
+      [
+        [
+          267.82,
+          -545.22
+        ],
+        [
+          266.94,
+          -545.48
+        ],
+        [
+          277.87,
+          -582.71
+        ],
+        [
+          278.75,
+          -582.46
+        ]
+      ],
+      [
+        [
+          267.07,
+          -628.62
+        ],
+        [
+          267.95,
+          -628.88
+        ],
+        [
+          278.74,
+          -592.43
+        ],
+        [
+          277.87,
+          -592.17
+        ]
+      ],
+      [
+        [
+          298.36,
+          -544.05
+        ],
+        [
+          297.48,
+          -544.31
+        ],
+        [
+          308.6,
+          -582.71
+        ],
+        [
+          309.48,
+          -582.46
+        ]
+      ],
+      [
+        [
+          297.26,
+          -632.42
+        ],
+        [
+          298.14,
+          -632.67
+        ],
+        [
+          309.49,
+          -592.43
+        ],
+        [
+          308.61,
+          -592.18
+        ]
+      ],
+      [
+        [
+          325.75,
+          -548.66
+        ],
+        [
+          324.9,
+          -548.33
+        ],
+        [
+          311.99,
+          -582.43
+        ],
+        [
+          312.84,
+          -582.75
+        ]
+      ],
+      [
+        [
+          329.47,
+          -548.38
+        ],
+        [
+          328.59,
+          -548.62
+        ],
+        [
+          337.17,
+          -580.26
+        ],
+        [
+          338.06,
+          -580.03
+        ]
+      ],
+      [
+        [
+          325.26,
+          -629.14
+        ],
+        [
+          326.12,
+          -628.83
+        ],
+        [
+          312.68,
+          -592.14
+        ],
+        [
+          311.83,
+          -592.46
+        ]
+      ],
+      [
+        [
+          397.14,
+          -545.88
+        ],
+        [
+          396.26,
+          -545.64
+        ],
+        [
+          385.98,
+          -582.46
+        ],
+        [
+          386.86,
+          -582.71
+        ]
+      ],
+      [
+        [
+          398.68,
+          -628.41
+        ],
+        [
+          399.57,
+          -628.59
+        ],
+        [
+          407.17,
+          -592.4
+        ],
+        [
+          406.27,
+          -592.21
+        ]
+      ],
+      [
+        [
+          420.79,
+          -544.19
+        ],
+        [
+          419.9,
+          -543.95
+        ],
+        [
+          409.37,
+          -582.46
+        ],
+        [
+          410.25,
+          -582.71
+        ]
+      ],
+      [
+        [
+          419.76,
+          -629.96
+        ],
+        [
+          420.64,
+          -629.71
+        ],
+        [
+          410.25,
+          -592.18
+        ],
+        [
+          409.37,
+          -592.43
+        ]
+      ],
+      [
+        [
+          444.46,
+          -541.39
+        ],
+        [
+          443.57,
+          -541.16
+        ],
+        [
+          432.66,
+          -582.62
+        ],
+        [
+          433.54,
+          -582.86
+        ]
+      ],
+      [
+        [
+          445.46,
+          -628.42
+        ],
+        [
+          446.35,
+          -628.6
+        ],
+        [
+          453.95,
+          -592.4
+        ],
+        [
+          453.05,
+          -592.21
         ]
       ],
       [
@@ -6237,6 +6465,11 @@
     },
     {
       "lot": "blk_lake_wells_lot0",
+      "from": "recon_1835_south_d2_005",
+      "to": "stable_blk_lake_wells_lot0"
+    },
+    {
+      "lot": "blk_lake_wells_lot0",
       "from": "inf_shoemaker_shop",
       "to": "recon_1835_south_d2_005"
     },
@@ -6384,11 +6617,6 @@
       "lot": "blk_lake_dearborn_lot1",
       "from": "recon_1835_south_d1_033",
       "to": "privy_blk_lake_dearborn_lot1"
-    },
-    {
-      "lot": "blk_lake_dearborn_lot1",
-      "from": "recon_1835_south_d1_033",
-      "to": "stable_blk_lake_dearborn_lot1"
     },
     {
       "lot": "blk_lake_dearborn_lot1",
@@ -7326,44 +7554,104 @@
       "to": "wabansia_doctors_barn"
     },
     {
-      "lot": "blk_school_section_tier_81_lot1",
-      "from": "recon_1835_blk_school_section_tier_81_d6_01",
-      "to": "privy_blk_school_section_tier_81_lot1"
-    },
-    {
       "lot": "blk_school_section_tier_81_lot2",
-      "from": "recon_1835_blk_school_section_tier_81_d5_02",
+      "from": "recon_1835_blk_school_section_tier_81_d5_01",
       "to": "privy_blk_school_section_tier_81_lot2"
     },
     {
       "lot": "blk_school_section_tier_81_lot3",
-      "from": "recon_1835_blk_school_section_tier_81_d4_03",
+      "from": "recon_1835_blk_school_section_tier_81_d5_02",
       "to": "privy_blk_school_section_tier_81_lot3"
     },
     {
       "lot": "blk_school_section_tier_81_lot4",
-      "from": "recon_1835_blk_school_section_tier_81_d4_04",
+      "from": "recon_1835_blk_school_section_tier_81_d4_03",
       "to": "privy_blk_school_section_tier_81_lot4"
     },
     {
       "lot": "blk_school_section_tier_81_lot5",
-      "from": "recon_1835_blk_school_section_tier_81_d3_05",
+      "from": "recon_1835_blk_school_section_tier_81_d4_04",
       "to": "privy_blk_school_section_tier_81_lot5"
     },
     {
       "lot": "blk_school_section_tier_81_lot6",
-      "from": "recon_1835_blk_school_section_tier_81_d5_06",
+      "from": "recon_1835_blk_school_section_tier_81_d2_05",
       "to": "privy_blk_school_section_tier_81_lot6"
     },
     {
       "lot": "blk_school_section_tier_81_lot7",
-      "from": "recon_1835_blk_school_section_tier_81_d7_07",
+      "from": "recon_1835_blk_school_section_tier_81_d6_06",
       "to": "privy_blk_school_section_tier_81_lot7"
     },
     {
-      "lot": "blk_school_section_tier_81_lot7",
-      "from": "recon_1835_blk_school_section_tier_81_d7_07",
-      "to": "recon_1835_blk_school_section_tier_81_a2_08"
+      "lot": "blk_school_section_tier_94_lot1",
+      "from": "recon_1835_blk_school_section_tier_94_d5_01",
+      "to": "privy_blk_school_section_tier_94_lot1"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot2",
+      "from": "recon_1835_blk_school_section_tier_94_d5_02",
+      "to": "privy_blk_school_section_tier_94_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot3",
+      "from": "recon_1835_blk_school_section_tier_94_d5_03",
+      "to": "privy_blk_school_section_tier_94_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot4",
+      "from": "recon_1835_blk_school_section_tier_94_d4_04",
+      "to": "privy_blk_school_section_tier_94_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot5",
+      "from": "recon_1835_blk_school_section_tier_94_d3_05",
+      "to": "privy_blk_school_section_tier_94_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot6",
+      "from": "recon_1835_blk_school_section_tier_94_h1_06",
+      "to": "privy_blk_school_section_tier_94_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot6",
+      "from": "recon_1835_blk_school_section_tier_94_h1_06",
+      "to": "stable_blk_school_section_tier_94_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot7",
+      "from": "recon_1835_blk_school_section_tier_94_d7_07",
+      "to": "privy_blk_school_section_tier_94_lot7"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot2",
+      "from": "recon_1835_blk_school_section_tier_95_d5_01",
+      "to": "privy_blk_school_section_tier_95_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot3",
+      "from": "recon_1835_blk_school_section_tier_95_d5_02",
+      "to": "privy_blk_school_section_tier_95_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot4",
+      "from": "recon_1835_blk_school_section_tier_95_d4_03",
+      "to": "privy_blk_school_section_tier_95_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot5",
+      "from": "recon_1835_blk_school_section_tier_95_d4_04",
+      "to": "privy_blk_school_section_tier_95_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot6",
+      "from": "recon_1835_blk_school_section_tier_95_d2_05",
+      "to": "privy_blk_school_section_tier_95_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot7",
+      "from": "recon_1835_blk_school_section_tier_95_d6_06",
+      "to": "privy_blk_school_section_tier_95_lot7"
     },
     {
       "lot": "blk_school_section_tier_118_lot1",

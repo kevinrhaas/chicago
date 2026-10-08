@@ -9,15 +9,15 @@
   "counts": {
     "frontages": 29,
     "objects": 160,
-    "wagons": 80,
+    "wagons": 79,
     "wagons_by_kind": {
       "farm_box": 24,
       "covered": 17,
-      "cart": 39
+      "cart": 38
     },
-    "wagons_at_street_verges": 71,
+    "wagons_at_street_verges": 70,
     "wagons_in_yards": 6,
-    "wagon_stands_refused": 64,
+    "wagon_stands_refused": 65,
     "benches": 1,
     "sheds": 1,
     "marked_objects": 160,
@@ -4892,26 +4892,6 @@
       "note": "A two-wheeled cart standing at the verge of Randolph Street, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 90 m along this street's committed centreline (its traffic class is 'ordinary'), at the verge 1.05 m clear of the travelled track, drawn up square to the road and facing the way traffic on this side of it goes — and then slewed 12.0 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 12 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
     },
     {
-      "id": "town_wagon_school_section_line_8_1",
-      "kind": "cart",
-      "stands_on": "school_section_line_8",
-      "belongs_to": null,
-      "tilt": false,
-      "yoke": false,
-      "confidence": "reconstructed",
-      "at_local_enu_m": [
-        202.99,
-        -589.05
-      ],
-      "bearing_deg": 358.5,
-      "drawn_up": "along the road",
-      "slew_deg": -1.5,
-      "slew_envelope_deg": 6.0,
-      "slew_steps": 9,
-      "clear_of_track_m": 1.05,
-      "note": "A two-wheeled cart standing at the verge of school_section_line_8, and it is HERE because the rule put it here. The owner asked for the town's wagons, 2026-08-18: 'there can be more wagons! of course there would be more wagons all over the place in a frontier town.' He gave no place, so the place is derived: a stand is offered every 140 m along this street's committed centreline (its traffic class is 'none'), at the verge 1.05 m clear of the travelled track, drawn up along the road and facing the way traffic on this side of it goes — and then slewed 1.5 degrees off that square to the left, because nobody squared an unhitched wagon to a verge that was mud and grass: the angle is dealt from this wagon's own id inside an envelope of 6 degrees, which is a claim about how the town looked and is written down at docs/LIBERTIES.md L230. THE TEAM IS NOT DRAWN and never will be: this project models no animal in the scene, so the wagon stands unhitched with its shafts down on the ground. Everything about it is invented — that it stood here at noon on 1 July 1835, whose it was, and what it was carrying, which is why it carries no mark of any kind: docs/LIBERTIES.md L162."
-    },
-    {
       "id": "town_wagon_south_water_14",
       "kind": "covered",
       "stands_on": "south_water",
@@ -5566,6 +5546,11 @@
       "stand": "michigan_north 4",
       "street": "Michigan Street",
       "why": "on the right verge, it reaches into the Cass Street travelled track, which is where a visitor walks. Nothing on this layer is drawn in a roadway."
+    },
+    {
+      "stand": "monroe 9",
+      "street": "Monroe Street",
+      "why": "on the left verge, it stands on the trodden ground in front of a door (town_entrance_aprons, T-1984): the way in and out of a building is kept clear, and a wagon left across it is the thing the owner walked into."
     },
     {
       "stand": "north_water 8",

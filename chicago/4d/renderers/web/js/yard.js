@@ -3195,6 +3195,7 @@ export async function createYardGoods({
         buf: { pos: [], nrm: [], conf: [], col: [], uv: [], uv1: [], ...tones,
           tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects },
         spans: [],
+        lotItemSpans: [],
       };
       chunks.set(key, chunk);
     }
@@ -3225,6 +3226,7 @@ export async function createYardGoods({
           tint: tones.timber, blank: atlas ? atlas.blank : [0, 0], wood: woodRects,
           grainOn: false },
         spans: [],
+        lotItemSpans: [],
       };
       woodChunks.set(key, chunk);
     }
@@ -3302,8 +3304,14 @@ export async function createYardGoods({
         // hands them to `buildWood`.
         const draw = STACK_KINDS.has(item.kind) || WOOD_KINDS.has(item.kind)
           ? buildStack : buildItem;
+        const itemFrom = chunk.buf.pos.length / 9;
         if (!draw(chunk.buf, item, form, terrain,
           LEVEL[lot.confidence] ?? level, problems, lot.structure_id)) continue;
+        // Bank actual ownership alongside the picking spans. Nearby wagons and
+        // goods must not be measured as a bridge pile merely because they share
+        // its radius; every emitted lot vertex belongs to this exact item.
+        chunk.lotItemSpans.push({ id: lot.structure_id, at: item.at_local_enu_m,
+          from: itemFrom, to: chunk.buf.pos.length / 9 });
         drew += 1;
         out.census.objects += 1;
         const tally = woodpile ? out.census.woodByKind : out.census.byMaterial;
@@ -3474,6 +3482,7 @@ export async function createYardGoods({
     mesh.castShadow = true;
     mesh.receiveShadow = true;
     mesh.userData.spans = chunk.spans;
+    mesh.userData.lotItemSpans = chunk.lotItemSpans;
     if (woodChunks.has(chunk.key)) {
       mesh.name = 'yard-woodpile-chunk';
       woodGroup.add(mesh);

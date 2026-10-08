@@ -1,10 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1531, ts: '2026-10-08T11:14:40.685Z', date: 'Oct 8, 2026, 6:14 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Six houses on the Market block south of Madison', kind: 'feature',
     items: [
-      'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
-      'This block was sold lot by lot in October 1833, in the School Section. It is the third of the five blocks there to be built, after the two on Clark Street; the two on Wells Street follow.',
-      'Seven households now live in these houses, three of them named on the house itself. Five of the six who had been waiting for a lot on this block move instead into empty houses already standing north of Madison, which the town fills first; the sixth waits for a lot on the Wells Street blocks.',
+      'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
+      'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
+      'The two Market corner lots stay open.',
+      'Six households now live in these houses, one of them named on the house itself.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1531, ts: '2026-10-08T11:16:48.172Z', date: 'Oct 8, 2026, 6:16 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+    items: [
+      'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
+      'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
+      'Thirteen of the town\u2019s households move into the new houses.',
+      'Light detail now has more room on a weaker machine as you look across the town.',
+      'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
     ] },
   { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
     items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
