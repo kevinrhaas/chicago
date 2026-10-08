@@ -64,6 +64,22 @@ lot 0 kept open) with one A2 yard roof.
   re-parse and the tail from compile_liberties. L263 644 → 650, L270 212 → 214, L276 92 → 96;
   L397 rewritten for the six. Generator half 684/678 → 690/684.
 
+## T-2100 — two in-town measurement stands re-posed to show the yard and the shop front (2026-10-08)
+
+- **What changed:** `tools/measure_detail_ceilings.mjs` (and the copy in
+  `tools/measure_still_frame.mjs`) gain `town_yard` (388, -440, looking north at the backs of
+  two Washington Street houses across their yards) and `town_store_front` (501, 12, looking
+  south at the South Water Street fronts from the street). `town_backyard` and
+  `town_south_water_store` keep their ids and coordinates, because T-2091/T-2092/T-2099's
+  numbers and the still-frame gate's ceilings were read there; their captures remain a wall
+  and a door.
+- **Measured on dev @ 12cb2f3d4, every tier, both viewports** (`docs/measurements/T-2100-town-stands.md`):
+  the yard stand costs within 2 % of the wall stand, the store stand 1-2 % more; all inside
+  dev's ceilings, the nearest desktop `balanced` at the yard (98.8 %), the margin the old stand
+  already ran at.
+- **Not verified:** nothing in the scene changed, so no visual parcel was re-judged at the new
+  stands in this run; T-2085..T-2087's own acceptances were judged at the old poses.
+
 ## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
 
 Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
