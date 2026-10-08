@@ -3,6 +3,37 @@
   "readings": [
     {
       "viewport": "mobile",
+      "stage": "1",
+      "parts": [
+        1
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 83,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 139,
+      "takenAt": "2026-10-08T11:16:36.517Z",
+      "ref": "steward/t2146-school-section-wells-blocks",
+      "commit": "84c56d9e890b",
+      "devCommit": "8c399c77d64d",
+      "treeHash": "sha256:73fa1333d568efea",
+      "treeDirty": false,
+      "changelogHash": "sha256:45674ffbf0593da1",
+      "host": {
+        "kind": "steward-runner",
+        "cpus": 4,
+        "memGB": 15.6,
+        "loadavg": [
+          3.6,
+          4.7,
+          4.2
+        ]
+      },
+      "source": "/tmp/smoke_m1.log"
+    },
+    {
+      "viewport": "mobile",
       "stage": "13",
       "parts": [
         13
@@ -1843,34 +1874,6 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36899419433 https://github.com/kevinrhaas/chicago/actions/runs/36899419433"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1,5",
-      "parts": [
-        1,
-        5
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 96,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 844,
-      "takenAt": "2026-10-01T17:25:23.8177391Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "e0c9d3e1cbf3ed3fb59b2494b519f11ed079e459",
-      "devCommit": "21acac92f184a6eed5a41b37f920150cd0812feb",
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36899248098 https://github.com/kevinrhaas/chicago/actions/runs/36899248098"
     }
   ]
 }
