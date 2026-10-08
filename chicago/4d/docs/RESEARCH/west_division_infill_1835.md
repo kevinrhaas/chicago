@@ -222,3 +222,19 @@ Before generating any of the 55 anonymous records:
 | E −700 model edge | Inferred implementation boundary | Clears the outer recommended roofs and preserves visible open prairie |
 
 This is therefore a serious build recipe, not a claim to have found 55 missing buildings.
+
+## The river warehouses on West Water (T-1773, T-2150)
+
+The order book's `structures/warehouses_freight/west` row sets two freight roofs. T-1773 built
+the first on the Lake and West Water corner facing the forks
+(`data/reconstruction/1835_west_freight_forks.json`). T-2150 built the second
+(`data/reconstruction/1835_west_freight_bank.json`, L400): the F2 `tools/reconcile_665.py` deals
+to plat block 50, a module inland, where T-2148 deferred it because the river does not reach
+that block. It stands on the placement policy's `bank_landing` clause (T-2022), which admits a
+freight roof within 27.09 m of traced water. Measured with the roof's own footprint 1.5 m inside
+each open West Water lot line: plat block 29 stands 32.42-38.07 m from the water, plat block 44
+27.21-32.18 m, plat block 51 25.35-25.90 m. Only block 51's river column, where the South Branch
+has taken thirty feet off the printed depth, lies inside the reach, and block 51 stands between
+block 50 and the bank. The roof takes that column's Washington corner (plat lot 1). It is a
+seventh roof on a block `reconcile_665.py` sizes at six; the six are houses and this is the West's
+freight. `tools/generate_west_freight.py` writes both warehouses, one per recipe.

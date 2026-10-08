@@ -19,5 +19,12 @@
     "front_setback_m": 1.5,
     "side_setback_m": 1.5,
     "geometry_seed": "recon_1835_forks_freight_f2"
+  },
+  "record": {
+    "symbolic_location": "Reconstructed warehouse at Lake and West Water Streets, facing the forks of the river",
+    "position_note": "The lot is the plat's (Thompson 1830, blk_west_lake_canal lot 1); this roof on it is not. It stands on the corner, 1.5 m inside the lot's West Water line and 1.5 m inside its Lake Street line, the rear toward the block's alley. Chosen as the one platted West Division lot facing the South Branch at the forks; no source seats a building here.",
+    "change_note": "T-1773 adds the West Division's second freight roof without moving an existing building.",
+    "function_note": "The F2 type fills the West Division's freight row in the order book. No forwarder, owner or cargo is recovered for it.",
+    "research_note": "RECONSTRUCTED, NOT A RECOVERED ADDRESS. The order book's West freight row sets two roofs and one stood; this is the second. The family, the lot, the dimensions, the finish and every form value are inventions bounded by the reconstruction specification and recorded in docs/LIBERTIES.md. A named West Division warehouse, if one is ever read, replaces it."
   }
 }

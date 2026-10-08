@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "307 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "299 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 237,
+    "lots": 231,
     "refused": 0,
-    "refuges": 324,
-    "paths": 307
+    "refuges": 316,
+    "paths": 299
   },
   "lots": [
     {
@@ -12836,6 +12836,39 @@
       ]
     },
     {
+      "lot": "blk_west_washington_canal_lot5",
+      "structures": [
+        "recon_1835_branch_freight_f2_001"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -63.5,
+          -420.2
+        ],
+        [
+          -35.44,
+          -420.39
+        ],
+        [
+          -32.81,
+          -400.48
+        ],
+        [
+          -61.87,
+          -400.25
+        ],
+        [
+          -64.51,
+          -402.66
+        ],
+        [
+          -65.74,
+          -417.75
+        ]
+      ],
+      "refuges_local_enu_m": []
+    },
+    {
       "lot": "blk_west_washington_canal_lot8",
       "structures": [
         "recon_1835_blk_west_washington_canal_d2_06"
@@ -12954,389 +12987,6 @@
           [
             -403.62,
             309.72
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot1",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_d6_01"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          82.16,
-          -642.88
-        ],
-        [
-          109.87,
-          -642.88
-        ],
-        [
-          109.87,
-          -593.39
-        ],
-        [
-          107.43,
-          -590.95
-        ],
-        [
-          84.6,
-          -590.95
-        ],
-        [
-          82.16,
-          -593.39
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            83.98,
-            -590.33
-          ],
-          [
-            81.54,
-            -590.33
-          ],
-          [
-            81.54,
-            -592.77
-          ],
-          [
-            83.98,
-            -592.77
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot2",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_d5_02"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          113.83,
-          -583.94
-        ],
-        [
-          136.66,
-          -583.94
-        ],
-        [
-          139.1,
-          -581.5
-        ],
-        [
-          139.1,
-          -532.01
-        ],
-        [
-          111.39,
-          -532.01
-        ],
-        [
-          111.39,
-          -581.5
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            110.77,
-            -584.56
-          ],
-          [
-            113.21,
-            -584.56
-          ],
-          [
-            113.21,
-            -582.12
-          ],
-          [
-            110.77,
-            -582.12
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot3",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_d4_03"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          111.39,
-          -642.88
-        ],
-        [
-          139.1,
-          -642.88
-        ],
-        [
-          139.1,
-          -593.39
-        ],
-        [
-          136.66,
-          -590.95
-        ],
-        [
-          113.83,
-          -590.95
-        ],
-        [
-          111.39,
-          -593.39
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            113.21,
-            -590.33
-          ],
-          [
-            110.77,
-            -590.33
-          ],
-          [
-            110.77,
-            -592.77
-          ],
-          [
-            113.21,
-            -592.77
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot4",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_d4_04"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          143.06,
-          -583.94
-        ],
-        [
-          165.89,
-          -583.94
-        ],
-        [
-          168.33,
-          -581.5
-        ],
-        [
-          168.33,
-          -532.01
-        ],
-        [
-          140.62,
-          -532.01
-        ],
-        [
-          140.62,
-          -581.5
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            140.0,
-            -584.56
-          ],
-          [
-            142.44,
-            -584.56
-          ],
-          [
-            142.44,
-            -582.12
-          ],
-          [
-            140.0,
-            -582.12
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot5",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_d3_05"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          140.62,
-          -642.88
-        ],
-        [
-          168.33,
-          -642.88
-        ],
-        [
-          168.33,
-          -593.39
-        ],
-        [
-          165.89,
-          -590.95
-        ],
-        [
-          143.06,
-          -590.95
-        ],
-        [
-          140.62,
-          -593.39
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            142.44,
-            -590.33
-          ],
-          [
-            140.0,
-            -590.33
-          ],
-          [
-            140.0,
-            -592.77
-          ],
-          [
-            142.44,
-            -592.77
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot6",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_d5_06"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          172.29,
-          -583.94
-        ],
-        [
-          195.12,
-          -583.94
-        ],
-        [
-          197.56,
-          -581.5
-        ],
-        [
-          197.56,
-          -532.01
-        ],
-        [
-          169.85,
-          -532.01
-        ],
-        [
-          169.85,
-          -581.5
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            169.23,
-            -584.56
-          ],
-          [
-            171.67,
-            -584.56
-          ],
-          [
-            171.67,
-            -582.12
-          ],
-          [
-            169.23,
-            -582.12
-          ]
-        ]
-      ]
-    },
-    {
-      "lot": "blk_school_section_tier_81_lot7",
-      "structures": [
-        "recon_1835_blk_school_section_tier_81_a2_08",
-        "recon_1835_blk_school_section_tier_81_d7_07"
-      ],
-      "kept_ring_local_enu_m": [
-        [
-          169.85,
-          -642.88
-        ],
-        [
-          197.56,
-          -642.88
-        ],
-        [
-          197.56,
-          -593.39
-        ],
-        [
-          195.12,
-          -590.95
-        ],
-        [
-          172.29,
-          -590.95
-        ],
-        [
-          169.85,
-          -593.39
-        ]
-      ],
-      "refuges_local_enu_m": [
-        [
-          [
-            171.67,
-            -590.33
-          ],
-          [
-            169.23,
-            -590.33
-          ],
-          [
-            169.23,
-            -592.77
-          ],
-          [
-            171.67,
-            -592.77
-          ]
-        ],
-        [
-          [
-            184.78,
-            -607.32
-          ],
-          [
-            192.63,
-            -607.32
-          ],
-          [
-            192.63,
-            -594.08
-          ],
-          [
-            184.78,
-            -594.08
           ]
         ]
       ]

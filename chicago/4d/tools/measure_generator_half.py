@@ -476,17 +476,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # adds one frame_storefront through emit.py and the common modules. The lap preserves
 # T-2148's thirteen assets; terrain reach stays 6 and pier_crib stays 2.
 #
-# 663 -> 671 and 657 -> 665 on 2026-10-06 (T-2147): the eight roofs on the School Section
+# 663 -> 664 and 657 -> 658 on 2026-10-08 (T-2150): the West Water river warehouse at
+# Washington Street adds one frame_storefront through emit.py and the common modules;
+# terrain reach stays 6 and pier_crib stays 2.
+#
+# 664 -> 672 and 658 -> 666 on 2026-10-06 (T-2147): the eight roofs on the School Section
 # tier's block 81, blk_school_section_tier_81 — seven dwellings (D3 to D7) and an A2 carriage
 # shed, all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 671,
+    "assets": 672,
     "restales": {
-        "generators/common/*.py": 671,
+        "generators/common/*.py": 672,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 665,
+        "generators/emit.py": 666,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
