@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
+  { v: 1546, ts: '2026-10-08T20:07:46.510Z', date: 'Oct 8, 2026, 3:07 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [
       'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
       'The 34 fathers and godfathers in the register now show a sex read from their place in the entry, with the register cited, instead of one drawn at random. The register\u2019s mothers and godmothers come next, because several were given an invented wife when they were guessed male.',
