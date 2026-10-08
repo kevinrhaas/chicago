@@ -831,6 +831,10 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].sex_basis.value": ("shown", "claimRow('Sex', words(basis.value)"),
     "persons[].sex_basis.confidence": ("shown", "tierOf(block) || block.confidence"),
     "persons[].sex_basis.note": ("shown", "escapeHtml(block.note)"),
+    # T-2177. A sex read off St Mary's register cites it, and `claimRow` prints the
+    # citation under the row like any other block's `sources`.
+    "persons[].sex_basis.sources": (
+        "shown", "(block.sources || []).map((id) => citationsById.get(id))"),
     # T-1304. THE SAME ROW, ONE TIER DOWN, AND THAT IS THE POINT. A sex the model DREW
     # goes through `claimRow` exactly as a read one does, so `tier`, `basis` and
     # `replaceable_by` reach the card through `basisHtml` — the collapsed "Drawn from a

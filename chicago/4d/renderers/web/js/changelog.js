@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1548, ts: '2026-10-08T21:01:32.100Z', date: 'Oct 8, 2026, 4:01 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+  { v: 1549, ts: '2026-10-08T21:21:29.601Z', date: 'Oct 8, 2026, 4:21 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
       'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
+    ] },
+  { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
+    items: [
+      'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
+      'The 34 fathers and godfathers in the register now show a sex read from their place in the entry, with the register cited, instead of one drawn at random. The register\u2019s mothers and godmothers come next, because several were given an invented wife when they were guessed male.',
     ] },
   { v: 1547, ts: '2026-10-08T20:22:59.659Z', date: 'Oct 8, 2026, 3:22 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
     items: [
