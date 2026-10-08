@@ -1,3 +1,37 @@
+## PR #498 — Wells integrated onto current dev and browser failures repaired (2026-10-07)
+
+This integration supersedes the older T-2146 checkpoints below. The current deal
+raises thirteen houses, one to a requested lot: west block 94 has D3, D4, three
+D5, D7 and H1; east block 95 has D2, two D4, two D5 and D6. Both west Madison
+corner lots remain open. Block 95 also reserves its second lot for the unbuilt
+H3, still owned by T-1957. The town's H2 ceiling is already met elsewhere.
+L400 covers the reconstructed deal; no source is promoted to a historical address.
+
+The keeper/seating cycle settled at 213 platted and 99 off-plat seats (312 total)
+and 92 named keepers. L263 records 636 phases. Forty-four models were rebuilt
+from the settled records, and all 676 master/web pairs passed the derivative gate.
+The pre-browser integration passed all 786 source checks with no stale assets.
+
+Review found that the bridge census was assigning nearby trade goods to a pile
+by radius; meshes now expose exact lot-item triangle spans. Frontage and plant
+panel counts are pinned to the current canonical records. The scene-wide flora
+census retains its original stations and surveys all cardinal bearings, because
+one north-facing sample cannot establish absence from the scene.
+
+The desktop road drape exposed an end-line correction evaluated before its final
+Float32 coordinates: a cut could extrapolate the preceding half-cell plane by
+11 micrometres. The drape now reads its final coordinates and actual field/ridge
+bounds, with a folded-cell regression; the original 10-micrometre gate remains.
+
+Roads, yard surfaces and terrain are partitioned into fixed world pieces in
+BatchedMesh, retaining the original triangles, material and attribute bytes.
+The terrain reach operates on those pieces; its 240 m Light reach, authoritative
+heightfield, protected crossing clearance, plant population and 90-call floor
+are unchanged. CPU checks exercise actual Three culling, restoration, bounding
+corners, indexed/nonindexed attributes and repeated protected-base disposal.
+The final full source gate and all 14 browser parts at both viewports are required
+before this draft may merge; exact receipts are recorded on PR #498.
+
 ## T-2146 — the School Section tier's Wells blocks (94, 95): thirteen houses on their requested lots (2026-10-06)
 
 Piece 3 of T-1755, on the owner's ruling (b): the South's owed dwellings cross Madison. T-2144

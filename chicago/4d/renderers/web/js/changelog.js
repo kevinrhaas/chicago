@@ -2,8 +2,9 @@ export const CHANGELOG = [ // newest first
   { v: 1519, ts: '2026-10-07T19:44:41.864Z', date: 'Oct 7, 2026, 2:44 PM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
-      'West of Wells stand seven tradesmen\u2019s and labourers\u2019 houses. East of Wells the houses are larger: a merchant\u2019s house on the Wells corner and a storey-and-a-half house on the far corner. Each block keeps its west Madison corner lot empty.',
+      'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
       'Thirteen of the town\u2019s households move into the new houses.',
+      'Light detail now has more room on a weaker machine as you look across the town.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
     ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',

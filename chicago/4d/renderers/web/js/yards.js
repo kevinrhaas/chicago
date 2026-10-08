@@ -68,6 +68,7 @@ import { GRIT_TILE_M } from './ground-strip-mask.js';
 import { DIRT_TONES, linearTone, roadGrit } from './streets.js';
 import { swardTexture, swardUniforms } from './terrain.js';
 import { ditherHash } from './lakeshore.js';
+import { spatialBatch } from './spatial-batch.js';
 
 /** attested · inferred · reconstructed, as the confidence view reads them. */
 const LEVEL = { attested: 0, inferred: 0.5, reconstructed: 1 };
@@ -992,7 +993,8 @@ export function createFencedGround({
     // materials that agree on their other program parameters share a compiled
     // program and one of them is drawn by the other's shader.
     mat.customProgramCacheKey = () => `chicago4d-yard-${surface}`;
-    const mesh = new THREE.Mesh(geo, mat);
+    const mesh = spatialBatch(geo, mat);
+    geo.dispose();
     mesh.name = `yard-${surface}`;
     // A ground treatment lies ON the ground: it receives what the town casts
     // over it and casts nothing itself, which is also why it is not in the
@@ -1001,7 +1003,7 @@ export function createFencedGround({
     mesh.receiveShadow = true;
     mesh.renderOrder = surface === 'garden_bed' ? 2 : (surface === 'worn_earth' ? 1 : 0);
     group.add(mesh);
-    disposables.push(geo, mat);
+    disposables.push(mesh, mat);
     if (map) disposables.push(map);
   }
   group.userData.census = out.census;
