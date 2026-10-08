@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1549, ts: '2026-10-08T21:21:29.601Z', date: 'Oct 8, 2026, 4:21 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+  { v: 1550, ts: '2026-10-08T22:00:45.811Z', date: 'Oct 8, 2026, 5:00 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
       'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
+    ] },
+  { v: 1549, ts: '2026-10-08T21:10:13.013Z', date: 'Oct 8, 2026, 4:10 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+    items: [
+      'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
+      'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
+      'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
     ] },
   { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [

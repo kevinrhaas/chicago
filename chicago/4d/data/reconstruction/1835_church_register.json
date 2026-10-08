@@ -165,8 +165,8 @@
   "tier": "reconstructed"
  },
  "counts": {
-  "r6_rows_citing_the_register": 25,
-  "already_on_a_card": 21,
+  "r6_rows_citing_the_register": 23,
+  "already_on_a_card": 19,
   "cards_minted": 2,
   "minted_present": 1,
   "minted_absent": 1,
@@ -288,22 +288,6 @@
   }
  ],
  "already_on_a_card": [
-  {
-   "row_id": "card:hh_bourassa_jean_baptiste",
-   "name_as_read": "Jean Baptiste Bourassa",
-   "household_id": "hh_bourassa_jean_baptiste",
-   "community_term": "metis",
-   "rule": "community_term_on_the_card",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
-  {
-   "row_id": "card:hh_bourassa_lon",
-   "name_as_read": "Lon Bourassa",
-   "household_id": "hh_bourassa_lon",
-   "community_term": "metis",
-   "rule": "community_term_on_the_card",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
   {
    "row_id": "card:hh_bourassa_noel",
    "name_as_read": "Noel Bourassa",

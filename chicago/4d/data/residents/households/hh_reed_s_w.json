@@ -187,6 +187,19 @@
      "premises": null
     }
    ],
+   "merge_ruling": [
+    {
+     "ticket": "T-2078",
+     "verdict": "distinct",
+     "rule": "D7",
+     "cluster": "reed-weed",
+     "weighed_against": [
+      "weed_sally"
+     ],
+     "for_merge": "R against W is one letter, and the initial S of 'S. W. Reed' is the initial of 'Sally'.",
+     "against_merge": "REED IS A POPULATED SURNAME AND THE TWO BODIES OF EVIDENCE NEVER MEET. 'S. W. Reed' is read from the Democrat of 25 March 1834 (#c005), and the town already holds three other Reeds (reed_thomas, reed_william, a joiner's household); the corpus sets 'Reed' 117 times in 35 deposited texts and the reading index holds 14 Reed identities. 'Sally Weed' is the letter return of 4 March 1834 (#c027), reprinted 'Weed, Sal[ly]' on the return of 19 August 1835 (#c021): two returns, both setting Weed and never Reed. No single locator sets both readings, and no title reached sets both spellings of this name; an initial is not a forename, so the fold would rest on the one letter alone. D7, and the cards stay two."
+    }
+   ],
    "sex": "male",
    "sex_basis": {
     "value": "male",
