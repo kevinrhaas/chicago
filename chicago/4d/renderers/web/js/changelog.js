@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1548, ts: '2026-10-08T20:58:16.676Z', date: 'Oct 8, 2026, 3:58 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
       'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
+    ] },
+  { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
+    items: [
+      'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
+      'The 34 fathers and godfathers in the register now show a sex read from their place in the entry, with the register cited, instead of one drawn at random. The register\u2019s mothers and godmothers come next, because several were given an invented wife when they were guessed male.',
     ] },
   { v: 1547, ts: '2026-10-08T20:22:59.659Z', date: 'Oct 8, 2026, 3:22 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
     items: [
