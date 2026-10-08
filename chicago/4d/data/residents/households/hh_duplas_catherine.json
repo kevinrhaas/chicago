@@ -29,7 +29,7 @@
   "sources": [
    "st_marys_baptismal_register_1833_1835"
   ],
-  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 18 October 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason.",
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 18 October 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. And the register's own entry dates the birth after the day as well, so present_on_scene_date is `absent` (T-2178).",
   "precision": "not_later_than"
  },
  "arrival_year": {
@@ -98,24 +98,12 @@
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
  },
  "present_on_scene_date": {
-  "value": "uncertain",
+  "value": "absent",
   "confidence": "inferred",
   "sources": [
    "st_marys_baptismal_register_1833_1835"
   ],
-  "last_dated_appearance": {
-   "as_read": null,
-   "precision": null,
-   "reaches": null,
-   "includes_scene_date": false,
-   "days_before_scene_date": null,
-   "leg": "none",
-   "person": null,
-   "record": null,
-   "sources": [],
-   "note": "NO DATED EVIDENCE AT OR BEFORE 1835-07-01. The earliest date this card carries is 1835-10-18, which is after the scene, so it is a later appearance rather than the leg under this verdict — T-1159 class R5 is where a later record is back-projected, and it is not done here."
-  },
-  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+  "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-18 (st_marys_bapt_1835_12_1_child), and the entry's own words — 'two months old' — put the birth between 1835-07-19 and 1835-08-18, after the scene date of 1 July 1835. An age at the font, read as 2 completed month(s): born after 1835-07-18 and by 1835-08-18. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
  "persons": [
   {
@@ -133,7 +121,7 @@
    "sources": [
     "st_marys_baptismal_register_1833_1835"
    ],
-   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 18 October 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1).",
+   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 18 October 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. And the register's own entry dates the birth after the day as well, so present_on_scene_date is `absent` (T-2178). No figure is drawn (L1).",
    "church_evidence": [
     {
      "list": "church_1833_1835",

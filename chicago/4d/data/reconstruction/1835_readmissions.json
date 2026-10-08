@@ -71,7 +71,7 @@
  },
  "counts": {
   "offered": {
-   "R1_in_window_uncertain": 904,
+   "R1_in_window_uncertain": 898,
    "R2_in_window_single_source": 207,
    "R3_1834_return_or_muster": 28,
    "R5_later_only_backprojectable": 53
@@ -83,7 +83,7 @@
    "R5_later_only_backprojectable": 39
   },
   "withheld": {
-   "R1_in_window_uncertain": 109,
+   "R1_in_window_uncertain": 103,
    "R2_in_window_single_source": 145,
    "R3_1834_return_or_muster": 8,
    "R5_later_only_backprojectable": 14
@@ -25213,13 +25213,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_duplas_catherine",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Catherine Duplas",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_duplas_joseph",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Joseph Duplas",
@@ -25430,13 +25423,6 @@
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
   {
-   "row_id": "card:hh_molony_denis",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Denis Molony",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
    "row_id": "card:hh_molony_john",
    "class": "R1_in_window_uncertain",
    "name_as_read": "John Molony",
@@ -25475,20 +25461,6 @@
    "row_id": "card:hh_murray_john",
    "class": "R1_in_window_uncertain",
    "name_as_read": "John Murray",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_murray_martha",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Martha Murray",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_omarra_bridget",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Bridget Omarra",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
@@ -25538,13 +25510,6 @@
    "row_id": "card:hh_roi_george_david",
    "class": "R1_in_window_uncertain",
    "name_as_read": "George David Roi",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_roi_joseph_claude",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Joseph Claude Roi",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },
@@ -25650,13 +25615,6 @@
    "row_id": "card:hh_tony_jacob",
    "class": "R1_in_window_uncertain",
    "name_as_read": "Jacob Tony",
-   "reason": "undated_reading",
-   "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
-  },
-  {
-   "row_id": "card:hh_tony_louisa",
-   "class": "R1_in_window_uncertain",
-   "name_as_read": "Louisa Tony",
    "reason": "undated_reading",
    "why": "the card holds no dated appearance at or before the scene date So the persistence model has no lag to price, and the card keeps the research's `uncertain` with nothing beside it."
   },

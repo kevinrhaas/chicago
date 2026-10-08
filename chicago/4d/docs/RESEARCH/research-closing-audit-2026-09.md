@@ -9,18 +9,18 @@ Registered reading units: **23,716**, as of 2026-09-15. Unclassified: **0**. Ass
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 373 |
-| asserted | 1,398 |
+| asserted | 1,404 |
 | later_only | 12,615 |
 | outside_chicago | 119 |
 | refused | 8,734 |
-| unresolved | 477 |
+| unresolved | 471 |
 
 Every asserted unit names the record and field it wrote to. Grouped by the layer that file belongs to:
 
 | Layer | Asserted units landed |
 | --- | ---: |
 | residents | 0 |
-| households | 812 |
+| households | 818 |
 | businesses | 542 |
 | structures | 41 |
 | outside the four layers | 3 |
@@ -56,9 +56,9 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
-| absent | 2 |
+| absent | 8 |
 | present | 498 |
-| uncertain | 959 |
+| uncertain | 953 |
 
 | Division | Households |
 | --- | ---: |
@@ -117,7 +117,7 @@ An unresolved unit is research that has been read and not yet spent. The ledger'
 | Owner | Units | Live |
 | --- | ---: | ---: |
 | T-1315 | 3 | yes |
-| T-1335 | 169 | yes |
+| T-1335 | 163 | yes |
 | T-1543 | 1 | yes |
 | T-1552 | 26 | yes |
 | T-1569 | 12 | yes |
@@ -136,7 +136,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check`.
 
 ## 7. The gaps, stated
 
-1. **Every layer is reached at unit level.** 812 asserted units land on residents and households, 542 on businesses and 41 on structures.
+1. **Every layer is reached at unit level.** 818 asserted units land on residents and households, 542 on businesses and 41 on structures.
 2. **28 of the 176 firms standing on 1 July 1835 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits this and T-1189 staffs it.
 3. **60 firms are unplaceable and 52 reach a street and no further.** Those 112 are the location limits the research preserved rather than guessed past; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 4. **1,425 of 1,459 households have no `lives_at`.** Most are letter-list-only names (773) whose whole evidence is that a letter waited for them; where they live is T-1159's roster question, not a hole in the reading.

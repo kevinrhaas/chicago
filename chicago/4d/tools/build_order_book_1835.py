@@ -240,7 +240,12 @@ PERSON_TICKET_RULES = (
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
-    ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
+    # SWEPT ON T-2178 (2026-10-08). T-1347 drew the trade heads and is done; its cells sat
+    # at their order until six St Mary's infants, carded as heads and counted in them,
+    # were ruled not yet born on the day and left one owing. Every cell that reaches this
+    # rule is a FAMILY cell (the fort, transient and lodging rows are taken above), so
+    # what is left in it is the family reconciliation, which is FAMILY_OWNER's.
+    ("an adult at a trade", lambda a: a["trade"] == "trade", FAMILY_OWNER),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
     ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_OWNER),
 )

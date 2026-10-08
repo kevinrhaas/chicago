@@ -92,6 +92,7 @@ RESIDENTS = ROOT / "data" / "residents"
 HOUSEHOLDS = RESIDENTS / "households"
 READMITTED = RESIDENTS / "readmitted"
 LODGERS = RESIDENTS / "lodgers"
+TRANSIENTS = RESIDENTS / "transients"
 MINTED = RESIDENTS / "reconstructed_trades"
 MODEL = ROOT / "data" / "reconstruction" / "1835_town_model.json"
 POOLS = ROOT / "data" / "reconstruction" / "1835_invented_name_pools.json"
@@ -418,7 +419,11 @@ def layer() -> tuple:
     # Reconstructed H3 boarding house #05 already held, so the People directory carried one
     # id for two people. Reading the lodgers here costs no card a draw it already had: no
     # head this stage drew bears a lodger's name, which is the lodgers stage's own rule.
-    for directory in (HOUSEHOLDS, READMITTED, LODGERS):
+    # AND THE TRANSIENTS (T-2178), for the same reason one stage further on. The frozen
+    # deal's first top-up drew `rc_mcguire_alice`, which a woman of the transient cohort
+    # already held. No head drawn before it bears a transient's name or id, so this too
+    # costs no card a draw it had.
+    for directory in (HOUSEHOLDS, READMITTED, LODGERS, TRANSIENTS):
         if not directory.exists():
             continue
         for path in sorted(directory.glob("hh_*.json")):
@@ -539,7 +544,85 @@ def trade_plan() -> dict:
             "business_floors": floors}
 
 
+def committed_slots() -> list:
+    """The slots this stage has already drawn a head on, read off its committed cards.
+
+    A slot is written on every card as `trade_households:<bucket>:<trade>:<n>`, so the
+    deal a card was drawn from can be read back without keeping a second copy of it."""
+    out = []
+    for path in sorted(MINTED.glob("*.json")):
+        th = json.loads(path.read_text(encoding="utf-8")).get("trade_household") or {}
+        parts = str(th.get("slot") or "").split(":")
+        if th.get("stage") != STAGE or len(parts) != 4 or parts[0] != STAGE:
+            continue
+        _stage, key, trade, n = parts
+        axes = key.split("/")
+        out.append(((key, axes[1], axes[2], axes[3], trade, int(n)),
+                    (th.get("top_up") or {}).get("ordinal")))
+    return out
+
+
+# {slot: its top-up ordinal}, for the slots `deal` dealt after the first draw. Filled by
+# `deal` and read by `card_for`, which writes the ordinal onto the card so the next build
+# deals that slot in the same place: LAST, after every slot of the first draw.
+TOPPED_UP: dict = {}
+
+
 def deal() -> list:
+    """The slots, in order — and NOTHING ALREADY DRAWN MOVES WHEN THE ORDER DOES (T-2178).
+
+    `fresh_deal` spreads each trade across a sex's buckets in proportion to what each
+    ordered, so ONE head more or fewer in any bucket re-rounds every trade dealt after it:
+    measured on T-2178, six St Mary's infants ruled not yet born opened one woman's slot
+    in the west, and the re-deal moved six already-drawn women to a different trade,
+    renamed their cards, and stranded the re-family moves T-1563 wrote onto them. That
+    is the re-drawing the owner's ruling of 2026-09-20 (T-1459) forbids, so the deal is
+    FROZEN once drawn, the way T-1529 froze the floors and T-1538 the lodgers' top-up:
+
+      * every committed slot stands, in the order it was dealt, while its bucket still
+        orders it; a bucket that now orders fewer gives up its LAST-dealt slots;
+      * a bucket that orders more is TOPPED UP after every standing slot, each new head
+        dealt the trade the plan is furthest short of for that sex (the residual where
+        none is short), numbered past the bucket's last slot so no id is reused.
+
+    With no committed card at all the fresh deal is the deal, which is how the stage
+    was first drawn and is still what `--self-test` proves."""
+    TOPPED_UP.clear()
+    held = committed_slots()
+    if not held:
+        return fresh_deal()
+    capacity = {key: cap for key, _sex, _band, _division, cap in buckets()}
+    plan = trade_plan()["by_sex"]
+    # The first draw in the order it was dealt, then the top-ups in the order they were.
+    held.sort(key=lambda h: (h[1] is not None, h[1] or 0, h[0][1], h[0][0], h[0][5]))
+    standing, per_bucket = [], Counter()
+    for slot, ordinal in held:
+        if per_bucket[slot[0]] < capacity.get(slot[0], 0):
+            standing.append(slot)
+            per_bucket[slot[0]] += 1
+            if ordinal is not None:
+                TOPPED_UP[slot] = ordinal
+    dealt = Counter((slot[1], slot[4]) for slot in standing)
+    last = Counter()
+    for slot, _ordinal in held:
+        last[slot[0]] = max(last[slot[0]], slot[5])
+    ordinal = max((o for _s, o in held if o is not None), default=0)
+    topped = []
+    for key, sex, band, division, cap in buckets():
+        for _ in range(cap - per_bucket[key]):
+            short = sorted(((dealt[(sex, t)] - n, t) for t, n in plan[sex].items()
+                            if n > dealt[(sex, t)]))
+            trade = short[0][1] if short else RESIDUAL[sex]
+            dealt[(sex, trade)] += 1
+            last[key] += 1
+            ordinal += 1
+            slot = (key, sex, band, division, trade, last[key])
+            TOPPED_UP[slot] = ordinal
+            topped.append(slot)
+    return standing + topped
+
+
+def fresh_deal() -> list:
     """The slots, in order: (bucket, sex, band, division, trade, n). Each trade is spread
     across that sex's buckets in proportion to what each bucket ordered — the refusal of
     a seniority rule, done as arithmetic rather than asserted in a comment."""
@@ -857,6 +940,12 @@ def card_for(slot, pool, sizes, caps, taken_names: set, taken_ids: set,
             "stage": STAGE,
             "bucket": bucket,
             "slot": slot_id,
+            **({"top_up": {"ordinal": TOPPED_UP[slot],
+                           "note": "Dealt after the first draw, when the order book ordered "
+                                   "this bucket one head more than the stage had drawn; it "
+                                   "is dealt last on every build so no head drawn before it "
+                                   "moves (T-2178)."}}
+               if slot in TOPPED_UP else {}),
             "trade": trade,
             "stands_on": "The order book's `family/trade` bucket for this sex, band and "
                          "division is short by the number of people this stage drew, and "
@@ -1320,14 +1409,23 @@ def self_test() -> int:
           all(plan["by_sex"]["male"].get(t, 0) >= min(n, caps.get(t, n))
               for t, n in plan["business_floors"].items()))
 
-    slots = deal()
+    slots = fresh_deal()
     global business_floors
     floored, business_floors = business_floors, dict
     try:
-        unfloored = deal()
+        unfloored = fresh_deal()
     finally:
         business_floors = floored
     changed = [(a, b) for a, b in zip(unfloored, slots) if a != b]
+    # T-2178: once drawn, the deal is frozen — a standing slot is never re-dealt and a
+    # topped-up one never reuses an id.
+    frozen, ids = deal(), [f"{s[0]}:{s[5]}" for s in deal()]
+    room = {k: c for k, _s, _b, _d, c in buckets()}
+    held = [s for s, _o in committed_slots() if room.get(s[0])]
+    fires("the frozen deal keeps every drawn slot its bucket still orders (T-2178)",
+          len(frozen) == sum(room.values()) and len(set(ids)) == len(ids)
+          and all(s in frozen for s in held
+                  if sum(1 for h in held if h[0] == s[0]) <= room[s[0]]))
     fires("a floor takes residual slots and moves no other card (T-1529)",
           len(unfloored) == len(slots)
           and len(changed) == sum(sum(w["raised_to_a_business_order"].values())
@@ -1337,7 +1435,7 @@ def self_test() -> int:
     fires("the deal fills every bucket to its capacity and no further",
           Counter(s[0] for s in slots)
           == Counter({k: c for k, _s, _b, _d, c in buckets() if c}))
-    fires("the deal is stable across two runs", deal() == slots)
+    fires("the deal is stable across two runs", fresh_deal() == slots and deal() == frozen)
 
     cards, ledger = fill()
     fires("every drawn head is a head of their own household",

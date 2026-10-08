@@ -11,7 +11,7 @@
     "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 10,
     "the_register_appearance_identity_was_refused_in_the_crosswalk": 27,
     "the_register_appearance_names_nobody_this_town_holds": 13,
-    "the_register_entry_names_kin": 147,
+    "the_register_entry_names_kin": 141,
     "the_register_reading_is_about_the_town_and_not_a_person": 6,
     "the_roll_is_beyond_the_reading_window": 26
   },
@@ -1068,11 +1068,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_06_4_godfather: Michel Choulet stands as godfather at a register entry dated 1835-07-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused_surname_only': REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_07_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_07_1_child: Bridget O'Marra is the child of a register entry dated 1835-08-20 at Chicago. Child of baptism entry 7 of 1835, Chicago, Cook County, Illinois. Born 19 August 1835 — a scene-year birth, the day before her baptism. A baptism documents a …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_07_2_father",
       "rule": "the_register_entry_names_kin",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_07_2_father: James O'Marra is the father of a register entry dated 1835-08-20 at Chicago. Father of baptism entry 7 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
@@ -1108,11 +1103,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_08_5_godmother: Marie Delacher stands as godmother at a register entry dated 1835-08-24 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_1_child: Martha Murray is the child of a register entry dated 1835-09-25 at Chicago. Child of baptism entry 9 of 1835, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Fifteen days old, so born about …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_2_father",
       "rule": "the_register_entry_names_kin",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_2_father: John Murray is the father of a register entry dated 1835-09-25 at Chicago. Father of baptism entry 9 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
@@ -1126,11 +1116,6 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_4_godmother",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_4_godmother: Catherine Murray stands as godmother at a register entry dated 1835-09-25 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_10_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_10_1_child: Joseph Claude Roi is the child of a register entry dated 1835-10-04 at Chicago. Child of baptism entry 10 of 1835, Chicago, Cook County, Illinois. Aged some days — the figure is struck through and unread — so born in 1835, a scene-year …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_10_2_father",
@@ -1163,11 +1148,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_11_3_mother: Anne Françoise Apolline Bruno is the mother of a register entry dated 1835-10-04 at Chicago. Mother of baptism entry 11 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_12_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_12_1_child: Catherine Duplas is the child of a register entry dated 1835-10-18 at Chicago. Child of baptism entry 12 of 1835, Chicago, Cook County, Illinois. Two months old, so born about August 1835 — a scene-year birth. The surname is written …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_12_2_father",
       "rule": "the_register_entry_names_kin",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_12_2_father: Joseph Duplas is the father of a register entry dated 1835-10-18 at Chicago. Father of baptism entry 12 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
@@ -1178,11 +1158,6 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_12_3_mother: Catherine Miller is the mother of a register entry dated 1835-10-18 at Chicago. Mother of baptism entry 12 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_13_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_13_1_child: Louisa Tony is the child of a register entry dated 1835-11-09 at Chicago. Child of baptism entry 13 of 1835, Chicago, Cook County, Illinois. Forename only in the body; the margin heads the entry 'Baptism of Louisa Tony'. Born 30 …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_13_2_father",
       "rule": "the_register_entry_names_kin",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_13_2_father: Jacob Tony is the father of a register entry dated 1835-11-09 at Chicago. Father of baptism entry 13 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
@@ -1191,11 +1166,6 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_13_3_mother",
       "rule": "the_register_entry_names_kin",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_13_3_mother: Catherine Chandler is the mother of a register entry dated 1835-11-09 at Chicago. Mother of baptism entry 13 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_14_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_14_1_child: Denis Molony is the child of a register entry dated 1835-12-25 at Chicago. Child of baptism entry 14 of 1835, Chicago, Cook County, Illinois. Born 20 December 1835 — a scene-year birth, five days before his baptism. A baptism …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_14_2_father",

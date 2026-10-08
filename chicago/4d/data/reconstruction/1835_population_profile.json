@@ -284,13 +284,13 @@
       ],
       [
        "absent",
-       2,
-       "0.1%"
+       8,
+       "0.5%"
       ],
       [
        "uncertain",
-       959,
-       "65.7%"
+       953,
+       "65.3%"
       ]
      ],
      "note": ""
@@ -316,12 +316,12 @@
       ],
       [
        "reconstructed",
-       1508,
-       "80.5%"
+       1502,
+       "80.4%"
       ],
       [
        "TOTAL",
-       1874,
+       1868,
        "100.0%"
       ]
      ],
@@ -1074,7 +1074,7 @@
     }
    ],
    "notes": [
-    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 959 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1874 of their people are ruled into the town, each at the tier its own readings reach. Exactly 2 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
+    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 953 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1868 of their people are ruled into the town, each at the tier its own readings reach. Exactly 8 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
     "No PERSON carries the `reconstructed` grade (1486) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 122 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
    ]
   },
@@ -1169,8 +1169,8 @@
        "household",
        2928,
        "100.0%",
-       58,
-       2582,
+       61,
+       2579,
        288,
        0,
        0
@@ -11835,7 +11835,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "2544 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1310 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 382 wait on a roof not yet standing; 148 households have no dwelling. The table below reads `lives_at` alone. 642 roofs stand against a programme of 668.",
+   "lead": "2543 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1309 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 377 wait on a roof not yet standing; 149 households have no dwelling. The table below reads `lives_at` alone. 642 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",

@@ -15697,24 +15697,24 @@
     },
     {
       "id": "L248",
-      "title": "308 people are given a trade the town needed and no roster printed, and their shares come from a directory four years late",
+      "title": "309 people are given a trade the town needed and no roster printed, and their shares come from a directory four years late",
       "section": "per_subject",
       "subjects": [],
       "covers": [],
       "scope": {
         "enumeration": "residents.persons[trade_households]",
-        "count": 308
+        "count": 309
       },
       "recorded": "2026-09-19",
       "revised": null,
       "fields": [
         {
           "label": "Decision",
-          "text": "`tools/reconstruct_trade_households.py` (T-1347, of T-1173) writes 308 reconstructed heads into `data/residents/reconstructed_trades/`, one per person the reconstruction order book counts the town of 1 July 1835 short of in its twenty-four `family/trade` buckets — 197 men and 111 women, by sex, age band and division. Each is a head of their own household, carries an invented name from the pools, an age band the bucket set, and **a trade dealt from the Fergus 1839 directory's printed shares** (T-1346's table: 1,377 mapped entries over 88 trades)."
+          "text": "`tools/reconstruct_trade_households.py` (T-1347, of T-1173) writes 309 reconstructed heads into `data/residents/reconstructed_trades/`, one per person the reconstruction order book counts the town of 1 July 1835 short of in its twenty-four `family/trade` buckets — 197 men and 112 women, by sex, age band and division. Each is a head of their own household, carries an invented name from the pools, an age band the bucket set, and **a trade dealt from the Fergus 1839 directory's printed shares** (T-1346's table: 1,377 mapped entries over 88 trades). The deal is FROZEN once drawn (T-2178): a head already dealt keeps their slot, trade and name when the book's order moves, and a bucket that orders more is topped up with the trade the plan is furthest short of — the 309th, a West boarding-house keeper, came that way when six St Mary's infants were ruled not yet born on the day."
         },
         {
           "label": "Scope",
-          "text": "`residents.persons[trade_households]` — 308 people in 308 cards, one head apiece, re-derivable from `tools/reconstruct_trade_households.py --check`."
+          "text": "`residents.persons[trade_households]` — 309 people in 309 cards, one head apiece, re-derivable from `tools/reconstruct_trade_households.py --check`."
         },
         {
           "label": "Why",
