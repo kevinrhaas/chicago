@@ -497,13 +497,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # buildings on plat block 50, blk_washington_clinton (A2, A4, A5), through emit.py and the
 # common modules; terrain reach stays 6 and pier_crib stays 2.
 #
+# 687 -> 693 and 681 -> 687 on 2026-10-08 (T-2147, re-dealt over T-2146, on top of T-2169): the six houses on
+# the School Section tier's block 81, blk_school_section_tier_81 — D2, two D4, two D5 and a D6,
+# all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
 STATED = {
-    "assets": 687,
+    "assets": 693,
     "restales": {
-        "generators/common/*.py": 687,
+        "generators/common/*.py": 693,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 681,
+        "generators/emit.py": 687,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

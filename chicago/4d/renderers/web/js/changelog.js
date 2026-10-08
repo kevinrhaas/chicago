@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1538, ts: '2026-10-08T15:17:26.592Z', date: 'Oct 8, 2026, 10:17 AM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
       'St Mary\u2019s baptism register gives six children a birth date, or an age at baptism, that falls after 1 July 1835. Until now they were counted in the town that day. Now they are not.',
       'One of them, Bridget O\u2019Marra, was born on 19 August. The others were born between July and December. Their cards in the People directory now say they were not yet born on the day, and quote the register\u2019s own words.',
       'The town makes up the count with one more household, a West Side boarding-house keeper we reconstructed. Everyone already in the town keeps their name and trade.',
+    ] },
+  { v: 1538, ts: '2026-10-08T14:46:44.080Z', date: 'Oct 8, 2026, 9:46 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+    items: [
+      'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
+      'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
+      'The two Market corner lots stay open.',
+      'Six households now live in these houses, one of them named on the house itself.',
+      'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
     ] },
   { v: 1537, ts: '2026-10-08T14:27:39.677Z', date: 'Oct 8, 2026, 9:27 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
     items: [
