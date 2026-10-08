@@ -186,3 +186,15 @@ if p.detail.get('dining_crested_connection'):
         assert len(hits)==1,(i,x,y,hits)
         assert hits[0]>=host_z(y)-1e-6,(i,x,y,hits[0],host_z(y))
     print('PASS: 1200 courtyard roof rays have one surface, never recessed below the host; forward copper peak, level connector ridge and uncut masonry eave hold.')
+
+# T-2172: independent elevation relationship requested by the owner.
+# A shorter cap must come from a raised band, not a lowered host ridge.
+f=record['phases'][0]['form']
+b=f['bay_dining_elevation']['value']
+wing=f['opening_heights']['value']['openings_court_north']['second']
+assert abs(b['glazed_band_top'][0]-wing[1])<1e-8
+assert abs(b['glazed_band_top'][0]-b['wall_top'][0]-3.1)<1e-8
+assert abs(b['roof_apex'][2][0]-f['ridge_north_range']['value']['ridge'][0])<1e-8
+assert 9.5 < b['roof_apex'][2][0]-b['glazed_band_top'][0] < 10.7
+assert 2.0 < (b['light_row'][1]-b['light_row'][0])/3.1 < 2.5
+print('PASS: tower band head aligns with north-wing upper windows; band height and ridge retained; copper cap rise reduced to 10.1 ft.')
