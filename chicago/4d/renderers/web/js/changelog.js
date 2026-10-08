@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1534, ts: '2026-10-08T12:45:16.535Z', date: 'Oct 8, 2026, 7:45 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
+  { v: 1535, ts: '2026-10-08T13:03:53.398Z', date: 'Oct 8, 2026, 8:03 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [
       'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',
       'No record names this building. The town\u2019s plan counted four warehouses missing from the South Water and Lake Street blocks, and this is the one with ground for it today. The other three wait on river access and on the survey line at Market Street.',
       'Its card says the building is reconstructed, not recovered. The Liberties page explains it (L406).',
+    ] },
+  { v: 1534, ts: '2026-10-08T12:37:03.823Z', date: 'Oct 8, 2026, 7:37 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
+    items: [
+      'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',
+      'Nothing in the town changes: every tree, leaf and blade of grass is drawn exactly as before.',
     ] },
   { v: 1533, ts: '2026-10-08T12:18:00.475Z', date: 'Oct 8, 2026, 7:18 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [
