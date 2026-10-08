@@ -141,11 +141,12 @@ function spray(ctx, family, seed) {
  * family is rescaled independently so a willow cannot inherit an oak's density.
  * This is filtered coverage, never camera-distance dither or a geometry switch.
  */
-function foliageMipmaps(source) {
+function* foliageMipmaps(source) {
   const levels = [source];
   const base = source.getContext('2d').getImageData(0, 0, SIZE, SIZE).data;
   const coverage = [];
   for (let tile = 0; tile < 14; tile++) {
+    yield;
     let covered = 0;
     const bx = tile % GRID * TILE, by = Math.floor(tile / GRID) * TILE;
     for (let y = 0; y < TILE; y++) for (let x = 0; x < TILE; x++) {
@@ -159,6 +160,7 @@ function foliageMipmaps(source) {
     const pixels = ctx.getImageData(0, 0, size, size);
     const tileSize = size / GRID;
     if (tileSize >= 2) for (let tile = 0; tile < 14; tile++) {
+      if (size >= 512) yield;
       const bx = tile % GRID * tileSize, by = Math.floor(tile / GRID) * tileSize;
       const hist = new Uint32Array(256);
       for (let y = 0; y < tileSize; y++) for (let x = 0; x < tileSize; x++) {
@@ -174,15 +176,21 @@ function foliageMipmaps(source) {
       }
     }
     ctx.putImageData(pixels, 0, 0); levels.push(canvas);
+    yield;
   }
   return levels;
 }
 
-export function createTreeAtlas() {
+/** T-2059: the atlas is painted as a generator so the boot can hand the frame
+ * back between its pieces — painted in one go it held the phone's flora phase
+ * for 270 ms. Each `yield` is a place to pause, never a change in what is
+ * painted: the sliced and the unsliced atlas are the same pixels. */
+function* paintTreeAtlas() {
   const canvas = document.createElement('canvas');
   canvas.width = canvas.height = SIZE;
   const ctx = canvas.getContext('2d');
   for (let tile = 0; tile < 14; tile++) {
+    yield;
     ctx.save(); ctx.translate((tile % GRID) * TILE, Math.floor(tile / GRID) * TILE);
     ctx.beginPath(); ctx.rect(7, 7, TILE - 14, TILE - 14); ctx.clip();
     spray(ctx, tile % 7, 8801 + tile * 7919); ctx.restore();
@@ -210,13 +218,29 @@ export function createTreeAtlas() {
   ctx.fillStyle = '#fff'; ctx.fillRect(3 * TILE, 3 * TILE, TILE, TILE);
   const texture = new THREE.CanvasTexture(canvas);
   texture.name = 'procedural-species-leaf-and-bark-atlas';
-  texture.mipmaps = foliageMipmaps(canvas);
+  texture.mipmaps = yield* foliageMipmaps(canvas);
   texture.generateMipmaps = false;
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.minFilter = THREE.LinearMipmapLinearFilter;
   texture.magFilter = THREE.LinearFilter;
   texture.anisotropy = 4;
   return texture;
+}
+
+export function createTreeAtlas() {
+  const paint = paintTreeAtlas();
+  let step;
+  do step = paint.next(); while (!step.done);
+  return step.value;
+}
+
+/** The same atlas, pausing at `checkpoint` (boot-phases.js) between pieces. */
+export async function createTreeAtlasSliced(checkpoint = () => null) {
+  const paint = paintTreeAtlas();
+  for (let step = paint.next(); ; step = paint.next()) {
+    if (step.done) return step.value;
+    const pause = checkpoint(); if (pause) await pause;
+  }
 }
 
 /** Colour AND depth use exactly this deformation; cutout shadows cannot lag. */
