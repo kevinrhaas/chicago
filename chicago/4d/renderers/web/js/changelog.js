@@ -1,4 +1,12 @@
 export const CHANGELOG = [ // newest first
+  { v: 1549, ts: '2026-10-08T21:54:11.280Z', date: 'Oct 8, 2026, 4:54 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+    items: [
+      'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
+      'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
+      'Behind the cottage on the Lake Street side of the block between Wells and LaSalle, a barn or carriage shed stands in the yard. Every barn the town plan counted for the South Division now stands.',
+      'The two households who had asked for a roof here are now housed, and every household the plan seats on the town\u2019s lots now has a house.',
+      'No source shows these buildings in 1835 or names them. Each card says it is reconstructed, and the Liberties page explains it (L408).',
+    ] },
   { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [
       'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
