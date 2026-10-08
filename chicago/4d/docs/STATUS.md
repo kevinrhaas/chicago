@@ -37,6 +37,31 @@ that face's firms. The business deal holds 45 roofs (was 44).
 **Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
 here, and the warehouse itself seats no household.
 
+## T-2170 — five barns in the yards of the Wolcott-Kinzie core's houses (2026-10-08)
+
+The order book still owed the North five A2 barns or carriage sheds (`structures/barns_stables/north`).
+The 668-roof schedule dealt all five to `blk_indiana_north_wolcott`, whose lots T-2165 measured too
+narrow for them, so they stand behind the houses they serve: recipe rows 94-98 of
+`1835_north_division_initial_parcel.json` (`kinzie_core_barns`), built by `generate_north_infill.py` —
+`recon_1835_north_a2_094` behind D5 `_d5_026`, `_095` behind D6 `_d6_027`, `_096` behind D7 `_d7_076`,
+`_097` behind D7 `_d7_088`, `_098` behind D5 `_d5_092`. Houses chosen by a rule (largest families
+first), positions by a deterministic search against the generator's own tests; **L407** records it.
+North `barns_stables` reads 17 ordered / 17 standing / 0 owed. The five meshes are baked.
+
+- **Lapped over T-2147 (#493), 2026-10-08.** Generated files took dev's side; dev's own tree is its own
+  fixpoint under the same walk (checked on a clean worktree). Keepers → the four infill generators →
+  `reconcile_665` → the seating chain settled in two laps; then `rederive.mjs --tail` from
+  `adopt_street_faces` (one lap, nothing moved), and by hand the redeal re-audit (543/2/0), roof-id
+  surface, land tracts, Newberry leads (all four volumes re-parsed), register, population profile and
+  hay limits.
+- **The count fell by one, and this says so.** With the five barns built, the schedule re-apportions
+  the roofs it held for them and the South's owed family list moves (D2 1→2, D4 3→2, D5 3→2, D6 1→2).
+  The two slot requests T-2147 left — hh_dewey_s's D4 on block 81 lot 1 and hh_dickson_david's D5 on
+  block 95 lot 1 — are no longer planned and both are handed on (owed to T-1614 in writing);
+  hh_laframboise_franois is dealt the new D2 slot on block 95 lot 1. **214 → 213 platted, 99 off-plat;**
+  no adopted roof changes hands. L270 and L407 restated; the order book's seated pin 313 → 312; L263
+  653 → 658; generator-half 698/692. T-2176 (the South's still-owed dwellings) now builds to this plan.
+
 ## T-2147 — the School Section tier's Market block (81): six ordinary dwellings, the first roofs south of Madison on Market (2026-10-05, re-dealt 2026-10-08)
 
 Piece 4 of T-1755, on the ground T-2144 opened. The seating held seven `slot` requests on
