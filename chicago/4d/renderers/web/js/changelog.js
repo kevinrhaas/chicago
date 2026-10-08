@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+  { v: 1526, ts: '2026-10-08T09:01:57.492Z', date: 'Oct 8, 2026, 4:01 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
       'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
