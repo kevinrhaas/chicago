@@ -1,11 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1530, ts: '2026-10-08T11:05:26.670Z', date: 'Oct 8, 2026, 6:05 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: 1531, ts: '2026-10-08T11:14:40.685Z', date: 'Oct 8, 2026, 6:14 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the third of the five blocks there to be built, after the two on Clark Street; the two on Wells Street follow.',
       'Seven households now live in these houses, three of them named on the house itself. Five of the six who had been waiting for a lot on this block move instead into empty houses already standing north of Madison, which the town fills first; the sixth waits for a lot on the Wells Street blocks.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
     ] },
+  { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
+    items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
+      'The corrected curve is labelled reconstructed: early maps support a continuous shore, but do not establish its exact outline.'] },
   { v: 1529, ts: '2026-10-08T10:24:03.249Z', date: 'Oct 8, 2026, 5:24 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
     items: [
       'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',
