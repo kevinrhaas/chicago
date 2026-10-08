@@ -1,8 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1522, ts: '2026-10-08T07:13:20.407Z', date: 'Oct 8, 2026, 2:13 AM CT', title: 'A loading bar that keeps time again', kind: 'fix',
+  { v: 1524, ts: '2026-10-08T07:23:36.685Z', date: 'Oct 8, 2026, 2:23 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [
-      'On your first visit, the bar under the rolling years moves at the pace the town actually loads. Laying the ground and the river now counts for about a third of the wait instead of a tenth, so the bar no longer races ahead and then sits still while the ground is laid.',
-      'On later visits the bar learns from your own device, as before. It can now learn the full time that step takes on a slow device, because its starting guesses are no longer several times too small.',
+      'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
+      'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
+    ] },
+  { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
+    items: [
+      'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
+      'The machine stays the same size the whole time. Long statuses are cut to fit their line instead of stretching the box.',
+      'On a slow connection the year no longer stops on one number while the town downloads. The machine measures your connection and how much is left, and rolls the year back at that pace.',
+      'A strip under the screen shows how much has downloaded, your connection speed and the time left. Your next visit is timed from this one.',
+    ] },
+  { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington and look between the houses: the back yards are fuller. There is a barn behind the cottage fourth from Washington, a woodshed behind its neighbour, and mid-yard, nearer the houses, a privy behind the merchant\u2019s house on the Washington corner and a smokehouse behind the boarding house.',
+      'The town plan counted four more yard buildings for the West Division than stood there. These are those four, set behind houses already on the block.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L402).',
     ] },
   { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [

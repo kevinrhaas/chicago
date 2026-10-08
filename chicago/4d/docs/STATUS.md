@@ -19,6 +19,11 @@
   from `tools/boot_phase_measurements.json` (the Mac's receipt, unchanged) and the new
   `tools/boot_weights_calibration.json` (both runner readings, compact); `check.sh` re-derives
   it with `--check`.
+- **Kept in reference-machine seconds on purpose.** T-2164's forecast clock (#514, merged
+  while this was in flight) reads each weight as CPU seconds on the reference machine and
+  multiplies it by a learned `pace` for the visitor's own device (`PACE_PRIOR` 1.5 desktop,
+  2.5 mobile). Raw runner seconds would have been counted that slowdown twice; calibrated
+  ones fit unchanged.
 - **What this is not.** One reading per tree per cell, on one runner. The method assumes a
   phase's growth is the same on both machines. That is weakest where the work changed in
   kind: terrain now opens with a ~2.9 s main-thread task. The census phase no longer runs at
@@ -26,6 +31,32 @@
   (`measure_boot_phases.mjs --published --json`, then `--write` with that output as TODAY
   and the receipt's tree as THEN) would replace the inference. The terrain long task itself
   is unowned work and is not fixed here. The mobile flora heartbeat stays T-2059's.
+## T-2167 — four more yard buildings behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2166, itself piece 2 of T-2156 (the yard-building roofs built or re-budgeted,
+priced against the dwellings, T-1692). T-2168 keeps the rest: the North's five A2 barns no
+Wolcott lot can hold and the West's three yard roofs still on
+`west_division_beyond_committed_control`.
+
+- **Visible.** `blk_washington_clinton` (plat block 50) gains four yard buildings from a second
+  recipe entry (`phase3_platted_block_washington_clinton_yard_deal`, `seq_start` 14): a woodshed
+  (A4) beside the barn in the D5's yard on plat lot 5, a barn or carriage shed (A2) beside the
+  woodshed in the D4's yard on plat lot 8, and a privy (A3) and smokehouse (A5) mid-yard, 20 m off
+  the alley, behind the H2 and the H3, whose yards already kept two outbuildings each. Baked
+  (`bake.sh --only`, web derivatives). **L402**; L263 624 → 628.
+- **Schedule.** The 668-roof schedule gave this block `ancillary_room` 4 after T-2148's deal; the
+  order book's West `barns_stables` reads 1 owed and `small_outbuildings` 2 owed after it (the
+  three on the balance). The yard layer's drawn privy on lot 5 gives way to the standing one.
+- **The entry must say `frontage_argued_on: west_division_thompson_1830`.** Without it
+  `generate_plat_lots` reads the block as dealt on the South module's faces and holds it off the
+  West arrangement, re-cutting the lots under T-2148's thirteen roofs. The first run of this deal
+  did exactly that; the field is now on the entry.
+- **Owners moved.** `build_order_book_1835.OWNERS`: the South's barn and outbuilding rows →
+  T-2165 (building them), the North's and West's → T-2168; T-2156 and T-2166 are split.
+- **Seating.** No household moves onto a yard building. One slot request re-families D5 → D4 as
+  the schedule re-apportions. `measure_generator_half` 664 → 668 / 658 → 662; entrances, alley
+  lanes, redeal, land tracts, street-face adoptions, register, profile, hay limits and the
+  Newberry parse re-derived.
 
 ## T-2154 — Evidence → City sets the town against the November census: dwellings standing, and the people split (2026-10-08)
 
