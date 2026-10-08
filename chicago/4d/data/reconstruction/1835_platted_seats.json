@@ -53,8 +53,8 @@
    "D1": 21,
    "D2": 17,
    "D3": 44,
-   "D4": 43,
-   "D5": 33,
+   "D4": 44,
+   "D5": 32,
    "D6": 16,
    "D7": 15,
    "H1": 12,
@@ -4742,18 +4742,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_94",
-    "family": "D5",
+    "family": "D4",
     "district": "south"
    },
    "seed": "hh_daniel_b_clevinger_4|T-1522|division:954c79596051|class:e21fe6002f4c",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_darling_daniel",
