@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
+    items: [
+      'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',
+      'Two new lines under it: the 489 people still waiting on a roof the town does not stand yet, and the 661 more the reconstruction houses \u2014 trades, lodgers and others it seats \u2014 that the population figure does not count. Hover either for why.',
+    ] },
   { v: 1524, ts: '2026-10-08T07:19:29.922Z', date: 'Oct 8, 2026, 2:19 AM CT', title: 'Glessner’s courtyard tower roof joins the north wing', kind: 'fix',
     items: ['The copper roof over the central courtyard tower now meets a raised tiled ridge with matching terracotta crests. The main roof continues cleanly on both sides, and the copper cap has a flared lower edge.'] },
   { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
