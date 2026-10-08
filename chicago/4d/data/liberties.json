@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 425,
+  "count": 426,
   "liberties": [
     {
       "id": "L1",
@@ -14369,14 +14369,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.land_owner[constructed_section_grid]",
-        "count": 122
+        "count": 123
       },
       "recorded": "2026-09-04",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.land_owner[constructed_section_grid]` — 122 structures (103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)"
+          "text": "`structures.land_owner[constructed_section_grid]` — 123 structures (122 until T-2165's stable on blk_indiana_north_wolcott, 2026-10-08; 103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)"
         },
         {
           "label": "Decision",
@@ -16337,14 +16337,14 @@
       "covers": [],
       "scope": {
         "enumeration": "structures.phases[roof_type_stated]",
-        "count": 631
+        "count": 634
       },
       "recorded": "2026-09-20",
       "revised": null,
       "fields": [
         {
           "label": "Scope",
-          "text": "`structures.phases[roof_type_stated]` — 631 phases (628 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
+          "text": "`structures.phases[roof_type_stated]` — 634 phases (631 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is why the population is counted here rather than described. It was 403 until five changes landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch works buildings, T-1714's three agency log buildings at the foot of State Street, T-1715's second garrison root-house and T-1716's keeper's quarters at the Chicago light — each of the thirteen states a roof type. The root-house is the least of them: a flat earth bank states a roof type and carries no shingle at all. T-1717's two Lake House neighbours make 418, and they are the first frame dwellings on the north bank east end to take this exposure — both gable, both shingled, neither pitch stated by a source. T-1736's first deal on blk_washington_clark makes 422: two frame cottages on the plat's last tier and the privy and woodshed in their yards, all four of them shingled by this exposure like every other frame roof the block recipe raises. T-1747's first deal on `blk_indiana_north_wolcott` makes 426, and they are the first roofs anywhere in Kinzie's Addition to take it: two single-room frame cottages and the woodshed and privy off the alley behind them, on lot lines read off Wright's sheet only the day before. T-1708's deal on `blk_washington_wells` makes 437: seven principal roofs — two D7 houses, two H1 houses, two D3 cottages and an H2 — with two privies, a woodshed and a stable behind them, eleven roofs on one block of the same last tier the Clark four stand on, every one of them shingled by this exposure for the same reason they are. T-1756's second deal on `blk_indiana_north_wolcott` makes 441 — two more single-room frame cottages on that block's Indiana and Illinois faces with a woodshed and a privy off the alley behind them, the same four archetypes T-1747 raised there and shingled by the same exposure. T-1735's deal on `blk_washington_lasalle` makes **452** — seven dwellings and four yard buildings on the south-west block of that same tier, every one of them shingled — so the tier has now taken this exposure onto three of its blocks in three days and the two elevens are the largest additions this entry has had. T-1753's first deal on `blk_indiana_north_cass` makes **456**, the same four shapes T-1747 and T-1756 raised one block west, on the next cell east across Cass Street, and by then the exposure on an Addition roof is the ordinary case rather than a new one. T-1751's deal on `blk_washington_franklin` makes **469**, and it is the largest single move this count has taken from one parcel: seven dwellings — two small two-story frame houses, a merchant's house, a larger one-and-a-half-story house and three one-room cottages — with a stable, a carriage shed, two woodsheds, a privy and a small utility building in their yards (two stables until T-1802 corrected the yard mix to the block's plan, which moved no count), thirteen roofs that each state a roof type and thirteen more the exposure reaches. T-1757's second deal on the Cass cell makes **473**, and it is the first addition to this entry that is not four of the same four shapes: two TWO-ROOM cottages rather than one-room ones, a woodshed, and the Addition's first stable — a wider and deeper roof plane than anything the recipe has raised north of the river, taking the same exposure across more of it. T-1760's first deal on `blk_lake_clinton` makes **476**: a two-room frame cottage on Canal Street, a one-room cottage on Clinton Street, and a stable off the alley behind the first. All three state a roof type and are shingled by this exposure. T-1773's warehouse at Lake and West Water makes **477** — one F2 roof, the West Division's second freight roof (L308). T-1761's second deal on `blk_randolph_clinton`, one block south of the Clinton cottages, makes **481** — a two-storey frame house and a two-room cottage on the same Canal teamster approach with a privy and a woodshed behind them, all four shingled by this exposure for the same reason every frame roof the block recipe raises is. T-1785's house and barn in Wabansia make 483: the first roofs the exposure reaches in that survey, a story-and-a-half house with its kitchen ell and a plank barn, both named records rather than recipe roofs. T-1783's deal on `blk_west_randolph_des_plaines` makes **487**, and they are the first roofs this entry reaches on the West Division's outer platted blocks: a two-room cottage, a deep-plan cottage, a storey-and-a-half cottage and a carpenter's shop on the Randolph corner, out on the Des Plaines edge where the reviewed West recipe had stood only two roofs. T-1778's boarding house on `blk_washington_clark` makes **488** — one H3 roof, the town's first, gable-end to Madison Street (**L318**). T-1809's third deal on the same block makes **493** — the second H3, facing Washington Street, and a stable and a privy behind each of the two (**L321**). No record's `roof_type` or pitch moves: this entry is about the SURFACE drawn on a roof already argued elsewhere."
         },
         {
           "label": "Scope revision, 2026-10-01 (T-1766)",
@@ -26618,6 +26618,82 @@
         {
           "label": "Recorded",
           "text": "2026-10-08 (T-2150)."
+        }
+      ]
+    },
+    {
+      "id": "L401",
+      "title": "Three yard buildings the order book counted and nobody had built: a stable in Kinzie's Addition, a barn on South Water–Wells, a smokehouse on South Water–Dearborn",
+      "section": "per_subject",
+      "subjects": [
+        "recon_1835_blk_indiana_north_wolcott_a1_09",
+        "recon_1835_blk_south_water_dearborn_a5_10",
+        "recon_1835_blk_south_water_wells_a2_09"
+      ],
+      "covers": [
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_indiana_north_wolcott_a1_09",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_indiana_north_wolcott_a1_09",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_south_water_dearborn_a5_10",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_south_water_dearborn_a5_10",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_south_water_wells_a2_09",
+          "phase": "inferred_1835",
+          "aspect": "footprint"
+        },
+        {
+          "domain": "structure",
+          "structure": "recon_1835_blk_south_water_wells_a2_09",
+          "phase": "inferred_1835",
+          "aspect": "position"
+        }
+      ],
+      "recorded": "2026-10-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "Applies to",
+          "text": "`recon_1835_blk_indiana_north_wolcott_a1_09`, `recon_1835_blk_south_water_wells_a2_09` and `recon_1835_blk_south_water_dearborn_a5_10` (`data/structures/`), written by `tools/generate_block_infill.py` from the three `*_yard_deal` entries in `data/reconstruction/1835_platted_block_parcels.json`."
+        },
+        {
+          "label": "What we invented",
+          "text": "All three buildings. The order book's `barns_stables` and `small_outbuildings` rows count yard buildings the inventory's district matrix sets and the town did not yet stand: before this, 6 in the North, 2 in the South's barns and 1 in its small outbuildings (and 7 in the West, left to T-2167 and T-2169). `tools/reconcile_665.py` places them block by block. This builds the three that stand where the schedule puts them on ground that holds them: an **A1** stable behind the D3 cottage on lot 9 of `blk_indiana_north_wolcott`, an **A2** barn or carriage shed behind the D4 house on lot 5 of `blk_south_water_wells`, and an **A5** smokehouse or small utility building behind the D2 house on lot 1 of `blk_south_water_dearborn`. Each stands 4.0 m off its block's alley, behind a house an earlier deal raised on the same lot. Footprint, storeys, eave, pitch, finish and the shingle exposure (L263) are type-level values from the reconstruction specification, sampled deterministically from the family's band. No owner, use beyond the family's, animal or occupant is claimed, and none seats a household."
+        },
+        {
+          "label": "What was refused, and why it is recorded here",
+          "text": "the schedule puts five more A2 barns on the Wolcott block. Its lots are 14.71 m × 31.33 m, each cottage lot already keeps a woodshed or a privy, and the generator holds a footprint 1.5 m off its lot line and 3.0 m off every other building, which leaves 4.85-5.55 m beside the existing yard building against an A2's 5.49 m narrowest band (every A2 the recipe would deal there samples 6.2-7.9 m). They stay owed, to T-2170. On `blk_south_water_dearborn` the smokehouse was tried first behind the boarding house on lot 5 and refused: that lot carries a printed address (`lot_address_block_16_lot_7`), and an address on a lot with two roofs names neither (`tools/lot_addresses.py`)."
+        },
+        {
+          "label": "Covers",
+          "text": "`recon_1835_blk_indiana_north_wolcott_a1_09.inferred_1835.position`, `recon_1835_blk_indiana_north_wolcott_a1_09.inferred_1835.footprint`, `recon_1835_blk_south_water_wells_a2_09.inferred_1835.position`, `recon_1835_blk_south_water_wells_a2_09.inferred_1835.footprint`, `recon_1835_blk_south_water_dearborn_a5_10.inferred_1835.position`, `recon_1835_blk_south_water_dearborn_a5_10.inferred_1835.footprint`."
+        },
+        {
+          "label": "Ticket",
+          "text": "T-2165 (of T-2156, \"build or re-budget the barns_stables and small_outbuildings roofs\")."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-08 (T-2165)."
         }
       ]
     },

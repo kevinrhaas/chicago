@@ -11,16 +11,42 @@ no Wolcott lot can hold.
   house or small utility shed (A5, `_a5_18`) mid-yard behind the D5 on plat lot 7, a barn or
   carriage shed (A2, `_a2_19`) on the woodshed's side of the D4's yard on plat lot 8, 16 m off the
   alley, and a woodshed (A4, `_a4_20`) mid-yard behind the H1 on the Madison corner. Baked
-  (`bake.sh --only`, web derivatives). **L404**; L263 628 → 631.
+  (`bake.sh --only`, web derivatives). **L404**; L263 631 → 634 (on top of T-2165's 628 → 631).
 - **Where the barn could go.** Mid-yard in the D5's yard it stood 1.98 m from the house (the
   generator holds 3.0 m), so it went to the D4's yard, the deepest of the three; 14 m off the alley
   it stood 2.97 m from the barn beside it, 15 m and beyond clears both.
 - **Order book.** The West's `barns_stables` and `small_outbuildings` cells owe nothing now.
   `build_order_book_1835.OWNERS`: West → T-2169, North → T-2170 (T-2168 is split).
-- **Seating.** No household moves onto a yard building. `measure_generator_half` 668 → 671 /
-  662 → 665; the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
+- **Seating.** No household moves onto a yard building. `measure_generator_half` 671 → 674 /
+  665 → 668 (on top of T-2165's three); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
   redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
   register, population profile, hay limits and the Newberry parse re-derived.
+
+## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
+
+**What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in
+`data/reconstruction/1835_platted_block_parcels.json` behind houses earlier deals raised: an A1
+stable on `blk_indiana_north_wolcott` lot 9, an A2 barn or carriage shed on
+`blk_south_water_wells` lot 5, an A5 smokehouse on `blk_south_water_dearborn` lot 1. Baked
+(`tools/bake.sh --only`), L401 records them. Order book: North `barns_stables` 12/17 (5 owed),
+South `barns_stables` 34/35 (the last is T-2147's block 81), South `small_outbuildings` 48/48.
+
+**What it found (T-1692's question, half answered).** The schedule places the North's whole
+remainder — an A1 and five A2 — on the Wolcott block because it is the North's only platted block
+with ancillary room. That room is counted in roofs, not ground: its lots are 14.71 × 31.33 m, each
+cottage lot already keeps a woodshed or privy, and the generator's 1.5 m lot margin and 3.0 m
+separation leave 4.85-5.55 m beside it, narrower than any A2 (5.49 m at the band's floor; the
+recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this deal: North 31 yard
+roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
+divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
+split: T-2165 is this, and T-2166 — split again the same day — went to T-2167 (the West's four
+on blk_washington_clinton) and T-2168, itself split into T-2169 (the West's last three) and T-2170 (the North's five barns
+and the re-budget question). The order book's yard rows now name T-2170 (North), T-2169 (West)
+and T-2147 (the South's last barn, on its block 81); the South's civic row names T-2170.
+
+**Unverified.** The positions are invented on generated lots (L401); no source seats any of the
+three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
+move one School Section request's family (blk 94, D5 to D4), which T-2146's open PR will meet.
 
 ## T-2157 — courtyard dining-tower roof connection (2026-10-08)
 

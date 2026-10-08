@@ -52,8 +52,8 @@
   "by_family": {
    "D1": 21,
    "D2": 17,
-   "D3": 44,
-   "D4": 44,
+   "D3": 45,
+   "D4": 43,
    "D5": 32,
    "D6": 16,
    "D7": 15,
@@ -109,7 +109,7 @@
     "district": "south",
     "how": "slot",
     "would_take": null,
-    "lot_id": "blk_school_section_tier_95#06"
+    "lot_id": "blk_school_section_tier_94#01"
    }
   ],
   "households_that_would_change_roof": 34,
@@ -4539,18 +4539,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_81",
-    "family": "D4",
+    "family": "D3",
     "district": "south"
    },
    "seed": "hh_coslet_godfrey|T-1522|division:8a02aa268a4a|class:ccced879f700",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_cross_oliver",
@@ -4595,18 +4595,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_81",
-    "family": "D5",
+    "family": "D4",
     "district": "south"
    },
    "seed": "hh_crull_david|T-1522|division:cd61edbc61d3|class:ef7ab3866b89",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_curtin_david",
@@ -4651,18 +4651,18 @@
    "corner": true,
    "how": "slot",
    "structure_id": null,
-   "family": "D6",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_81",
-    "family": "D6",
+    "family": "D5",
     "district": "south"
    },
    "seed": "hh_curtin_l_g|T-1522|division:773eed0a2ae5|class:907ca68c9f5f",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_cutler_morris",
@@ -4679,18 +4679,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D3",
+   "family": "D4",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_94",
-    "family": "D3",
+    "family": "D4",
     "district": "south"
    },
    "seed": "hh_cutler_morris|T-1522|division:5845a097006d|class:bf791a89aac8",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_dailey_thomas",
@@ -4707,18 +4707,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_94",
-    "family": "D4",
+    "family": "D5",
     "district": "south"
    },
    "seed": "hh_dailey_thomas|T-1522|division:b91576008b5f|class:e7c79ccc0f73",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_daniel_b_clevinger_4",
@@ -4735,18 +4735,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D4",
+   "family": "D5",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_94",
-    "family": "D4",
+    "family": "D5",
     "district": "south"
    },
    "seed": "hh_daniel_b_clevinger_4|T-1522|division:954c79596051|class:e21fe6002f4c",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D4 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_darling_daniel",
@@ -4763,18 +4763,18 @@
    "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D6",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
     "block_id": "blk_school_section_tier_94",
-    "family": "D5",
+    "family": "D6",
     "district": "south"
    },
    "seed": "hh_darling_daniel|T-1522|division:94fe2e395cf5|class:e373c52479be",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_darling_enoch",
@@ -4783,26 +4783,26 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_school_section_tier_94#01",
-   "block_id": "blk_school_section_tier_94",
-   "lot_index": 1,
+   "lot_id": "blk_school_section_tier_95#05",
+   "block_id": "blk_school_section_tier_95",
+   "lot_index": 5,
    "fronts": "monroe",
    "street_class": "none",
-   "corner": true,
+   "corner": false,
    "how": "slot",
    "structure_id": null,
-   "family": "D5",
+   "family": "D3",
    "stands_on": "lot",
    "setback_class": "typology",
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "tradesman_dwellings",
    "order_book_draw": {
-    "block_id": "blk_school_section_tier_94",
-    "family": "D5",
+    "block_id": "blk_school_section_tier_95",
+    "family": "D3",
     "district": "south"
    },
    "seed": "hh_darling_enoch|T-1522|division:96032d8b74d1|class:beaea9b2f40d",
-   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+   "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D3 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
   },
   {
    "id": "hh_dave_john",
@@ -4811,10 +4811,10 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_school_section_tier_95#05",
+   "lot_id": "blk_school_section_tier_95#04",
    "block_id": "blk_school_section_tier_95",
-   "lot_index": 5,
-   "fronts": "monroe",
+   "lot_index": 4,
+   "fronts": "madison",
    "street_class": "none",
    "corner": false,
    "how": "slot",
@@ -4839,10 +4839,10 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_school_section_tier_95#04",
+   "lot_id": "blk_school_section_tier_95#03",
    "block_id": "blk_school_section_tier_95",
-   "lot_index": 4,
-   "fronts": "madison",
+   "lot_index": 3,
+   "fronts": "monroe",
    "street_class": "none",
    "corner": false,
    "how": "slot",
@@ -4867,10 +4867,10 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_school_section_tier_95#03",
+   "lot_id": "blk_school_section_tier_95#02",
    "block_id": "blk_school_section_tier_95",
-   "lot_index": 3,
-   "fronts": "monroe",
+   "lot_index": 2,
+   "fronts": "madison",
    "street_class": "none",
    "corner": false,
    "how": "slot",
@@ -4895,12 +4895,12 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_school_section_tier_95#02",
+   "lot_id": "blk_school_section_tier_95#07",
    "block_id": "blk_school_section_tier_95",
-   "lot_index": 2,
-   "fronts": "madison",
+   "lot_index": 7,
+   "fronts": "monroe",
    "street_class": "none",
-   "corner": false,
+   "corner": true,
    "how": "slot",
    "structure_id": null,
    "family": "D5",
@@ -4923,10 +4923,10 @@
    "clause": "tradesman_dwellings",
    "district": "south",
    "band": "south/tradesman_dwellings",
-   "lot_id": "blk_school_section_tier_95#07",
+   "lot_id": "blk_school_section_tier_95#06",
    "block_id": "blk_school_section_tier_95",
-   "lot_index": 7,
-   "fronts": "monroe",
+   "lot_index": 6,
+   "fronts": "madison",
    "street_class": "none",
    "corner": true,
    "how": "slot",
@@ -5843,10 +5843,10 @@
    "clause": "labourer_dwellings",
    "district": "south",
    "band": "south/labourer_dwellings",
-   "lot_id": "blk_school_section_tier_95#06",
-   "block_id": "blk_school_section_tier_95",
-   "lot_index": 6,
-   "fronts": "madison",
+   "lot_id": "blk_school_section_tier_94#01",
+   "block_id": "blk_school_section_tier_94",
+   "lot_index": 1,
+   "fronts": "monroe",
    "street_class": "none",
    "corner": true,
    "how": "slot",
@@ -5857,7 +5857,7 @@
    "multi_building_rule": "one_principal_roof",
    "policy_rule": "labourer_dwellings",
    "order_book_draw": {
-    "block_id": "blk_school_section_tier_95",
+    "block_id": "blk_school_section_tier_94",
     "family": "D2",
     "district": "south"
    },

@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1527, ts: '2026-10-08T09:03:38.122Z', date: 'Oct 8, 2026, 4:03 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+  { v: 1528, ts: '2026-10-08T10:01:46.239Z', date: 'Oct 8, 2026, 5:01 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
       'With these three, every yard building the town plan counted for the West Division now stands.',
       'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
+  { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+    items: [
+      'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
+      'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
+      'No record names these buildings. The town\u2019s plan counted them as missing, and the North now has every roof it counted except five barns. Its cottage yards are too narrow for a barn beside the sheds they already have, so those wait for a better place.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L401).',
     ] },
   { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
     items: [
