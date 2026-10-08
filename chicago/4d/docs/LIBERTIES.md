@@ -13095,17 +13095,21 @@ What changed is the 91 houses, which are no longer dwellings the book counts.
 Related: tickets **T-1174**, from **T-1167**; **L244** is the stage before it, **T-1161**'s town
 model and **T-1166**'s order book are the two files it draws against. **Recorded:** 2026-09-19.
 
-### L248 — 308 people are given a trade the town needed and no roster printed, and their shares come from a directory four years late
+### L248 — 309 people are given a trade the town needed and no roster printed, and their shares come from a directory four years late
 
-**Decision:** `tools/reconstruct_trade_households.py` (T-1347, of T-1173) writes 308
+**Decision:** `tools/reconstruct_trade_households.py` (T-1347, of T-1173) writes 309
 reconstructed heads into `data/residents/reconstructed_trades/`, one per person the
 reconstruction order book counts the town of 1 July 1835 short of in its twenty-four
-`family/trade` buckets — 197 men and 111 women, by sex, age band and division. Each is a
+`family/trade` buckets — 197 men and 112 women, by sex, age band and division. Each is a
 head of their own household, carries an invented name from the pools, an age band the
 bucket set, and **a trade dealt from the Fergus
 1839 directory's printed shares** (T-1346's table: 1,377 mapped entries over 88 trades).
+The deal is FROZEN once drawn (T-2178): a head already dealt keeps their slot, trade and
+name when the book's order moves, and a bucket that orders more is topped up with the trade
+the plan is furthest short of — the 309th, a West boarding-house keeper, came that way when
+six St Mary's infants were ruled not yet born on the day.
 
-**Scope:** `residents.persons[trade_households]` — 308 people in 308 cards, one head apiece, re-derivable from `tools/reconstruct_trade_households.py --check`.
+**Scope:** `residents.persons[trade_households]` — 309 people in 309 cards, one head apiece, re-derivable from `tools/reconstruct_trade_households.py --check`.
 
 **Why:** because the order book is the quota and the quota was empty. The town model reads
 1835 Chicago as employing around 506 people and the rosters this project can read name 457
