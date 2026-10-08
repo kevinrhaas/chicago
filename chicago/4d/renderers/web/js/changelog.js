@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1520, ts: '2026-10-08T05:22:16.170Z', date: 'Oct 8, 2026, 12:22 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: 1521, ts: '2026-10-08T05:54:36.876Z', date: 'Oct 8, 2026, 12:54 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
       'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
       'Thirteen of the town\u2019s households move into the new houses.',
       'Light detail now has more room on a weaker machine as you look across the town.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1520, ts: '2026-10-08T05:18:21.664Z', date: 'Oct 8, 2026, 12:18 AM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
+    items: [
+      'Nothing you can see changes. While the welcome or the menu is open, the town behind it is no longer redrawn sixty times a second when nothing in it has moved.',
+      'It is drawn again the moment something does change: a part of the town finishing loading, a setting you change, the window turning or resizing, or a jaunt preview moving the view.',
+      'On a phone that means less heat and battery spent sitting on the menu, and a menu that scrolls more smoothly over the town.',
     ] },
   { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
     items: [

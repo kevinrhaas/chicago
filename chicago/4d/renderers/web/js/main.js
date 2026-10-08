@@ -24,6 +24,7 @@ const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
+import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset } from './scene-loader.js';
@@ -1448,6 +1449,9 @@ async function boot() {
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
+  // T-2113. While the welcome is up the walk is held, so the town under it is
+  // drawn only when something it is made of has changed — see gate-frame.js.
+  const gateFrame = createGateFrame({ renderer, scene: scene3d, camera });
 
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
@@ -2474,8 +2478,11 @@ async function boot() {
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => confidence.setHidden(level, hide),
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); },
     onSetting: (key, value) => {
+      // A setting can write a value no material owns (a patched shader's
+      // uniform), which the gate's signature cannot see: draw once regardless.
+      gateFrame.invalidate();
       if (key === 'speed' || key === 'wagonSpeed' || key === 'horseSpeed' || key === 'eyeHeight' || key === 'pace') {
         // The slider values and the pace compose into WALK in one place —
         // travel.applyPace() — so a wagon seat and a raised eye-height slider
@@ -3251,6 +3258,7 @@ async function boot() {
     pause: () => {
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;
+      gateFrame.reset();
       backends.activate(null);
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
@@ -3330,7 +3338,7 @@ async function boot() {
   const FLORA_SLICE_MS = 4;
   let stepFloraSpread = false;
 
-  function tick(floraBudget = FLORA_SLICE_MS) {
+  function tick(floraBudget = FLORA_SLICE_MS, force = false) {
     // Keep visual simulation stable, but do not make a visitor crawl in direct
     // proportion to a slow renderer. At 2 fps the former 0.05 s clamp advanced
     // walking by only 0.10 s per real second. Movement now consumes up to a
@@ -3380,9 +3388,14 @@ async function boot() {
     trees.update(dt, camera, scene3d.fog?.color);
     flags.update(dt);
 
-    renderer.render(scene3d, camera);
-    bootController.frameRendered();
-    resolveFirstFrame();
+    // T-2113. Under the gate, draw only a frame that differs from the last one
+    // drawn: the first, one a capture or a test asked for, or one in which
+    // something the renderer reads has moved. Out in the town, every frame.
+    if (!gateOpen || force || pendingCapture || gateFrame.due()) {
+      renderer.render(scene3d, camera);
+      bootController.frameRendered();
+      resolveFirstFrame();
+    }
 
     // Read back inside the frame that drew it. Outside the loop the drawing
     // buffer has already been composited and cleared, and readPixels quietly
@@ -3593,7 +3606,7 @@ async function boot() {
       return state;
     },
     /** Force one frame — for tests that must not race the animation loop. */
-    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity); },
+    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
     /** T-2106. Let `step()` spread the flora rebuild as the animation loop
      *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
@@ -3711,6 +3724,8 @@ async function boot() {
      */
     farMerge: { get: () => farMerge.state, enumerable: true },
     confidenceView: { get: () => confidence.enabled, enumerable: true },
+    /** T-2113. Ticks the welcome let pass without drawing an unchanged town. */
+    gateFramesHeld: { get: () => gateFrame.held, enumerable: true },
     controlBackend: { get: () => backends.name, enumerable: true },
     footprints: { get: () => footprints, enumerable: false },
     decks: { get: () => decks, enumerable: false },

@@ -75,6 +75,8 @@ step "Boot phase readiness, failure and history contract (T-1246)" \
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "The welcome draws the town only when the town changed (T-2113)" \
+  node tools/test_gate_frame.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
