@@ -3,6 +3,111 @@
   "readings": [
     {
       "viewport": "desktop",
+      "stage": "1-6",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "fail",
+      "target": "published",
+      "passed": 265,
+      "failed": 11,
+      "failures": [
+        "desktop 1280x800: both branch bridges carry four reconstructed repair piles — 2 bridge lots; [{\"kind\":\"timber\",\"e\":-123.5,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1781520051955736,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240020751953125,\"maxAlong\":1.5240020751953125,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.1781519651412964,\"maxY\":1.7781519889831543},{\"kind\":\"timber\",\"e\":-39.67,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.2165267045287709,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240002441406233,\"maxAlong\":1.524000091552736,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.216526746749878,\"maxY\":1.8165266513824463},{\"kind\":\"timber\",\"e\":0.82,\"n\":-170.58,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1450201781234548,\"wet\":false,\"vertices\":1052,\"badConfidence\":0,\"minAlong\":-1.524000036384618,\"maxAlong\":1.5240001408065185,\"minAcross\":-0.4000051246909315,\"maxAcross\":2.5169742976094263,\"minY\":1.1450201272964478,\"maxY\":3.113241672515869},{\"kind\":\"timber\",\"e\":68.84,\"n\":-182.23,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":0.9666105766963522,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240025237696244,\"maxAlong\":1.5240028721910412,\"minAcross\":-0.39999596751948713,\"maxAcross\":0.4000026828453231,\"minY\":0.9666105508804321,\"maxY\":1.56661057472229}]",
+        "desktop 1280x800: bridge piles have their stated dimensions and stand on dry ground — [{\"kind\":\"timber\",\"e\":-123.5,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1781520051955736,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240020751953125,\"maxAlong\":1.5240020751953125,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.1781519651412964,\"maxY\":1.7781519889831543},{\"kind\":\"timber\",\"e\":-39.67,\"n\":256.02,\"b\":0,\"quad\":[],\"bridge\":true,\"structure_id\":\"north_branch_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.2165267045287709,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240002441406233,\"maxAlong\":1.524000091552736,\"minAcross\":-0.4000134277343932,\"maxAcross\":0.4000048828124818,\"minY\":1.216526746749878,\"maxY\":1.8165266513824463},{\"kind\":\"timber\",\"e\":0.82,\"n\":-170.58,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"west\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":1.1450201781234548,\"wet\":false,\"vertices\":1052,\"badConfidence\":0,\"minAlong\":-1.524000036384618,\"maxAlong\":1.5240001408065185,\"minAcross\":-0.4000051246909315,\"maxAcross\":2.5169742976094263,\"minY\":1.1450201272964478,\"maxY\":3.113241672515869},{\"kind\":\"timber\",\"e\":68.84,\"n\":-182.23,\"b\":6.278123852348803,\"quad\":[],\"bridge\":true,\"structure_id\":\"south_branch_raft_bridge\",\"end\":\"east\",\"courses\":3,\"confidence\":\"reconstructed\",\"ground\":0.9666105766963522,\"wet\":false,\"vertices\":396,\"badConfidence\":0,\"minAlong\":-1.5240025237696244,\"maxAlong\":1.5240028721910412,\"minAcross\":-0.39999596751948713,\"maxAcross\":0.4000026828453231,\"minY\":0.9666105508804321,\"maxY\":1.56661057472229}]",
+        "desktop 1280x800: no pile of material stands inside the building it is for — furthest vertex 2.60 m from its own pile's anchor, 0 vertex/vertices inside the lot's own footprint",
+        "desktop 1280x800: the frontage layer lays all five records' walks and stands their posts — 5 record(s) [green_tree_frontage, sauganash_frontage, river_walk_frontage, lasalle_crossing_frontage, town_street_edge], 121 walk(s), 100 crossing(s), 53 post(s), 37 fence run(s), 1900104 vertices, 186 wall(s) refused, problems [none]",
+        "desktop 1280x800: the frontage layer draws the meshes it authored — 125 authored mesh(es) (frontage, frontage-chunk x124), 10 far-merge artefact(s) [frontage-far-merge x10], 136 drawn in all",
+        "desktop 1280x800: the distant walk draw is one exact derived top-face batch — {\"meshes\":[{\"name\":\"frontage-far-walk-tops\",\"sharedMaterial\":true,\"castsShadow\":false,\"groundHugging\":true,\"candidates\":108554,\"drawn\":0}],\"state\":{\"candidateChunks\":119,\"candidateTriangles\":108554,\"eligibleChunks\":119,\"eligibleTriangles\":108554,\"activeChunks\":0,\"triangles\":0,\"drawCalls\":0,\"indexUpdates\":0}}"
+      ],
+      "wallSeconds": 1011,
+      "takenAt": "2026-10-08T07:24:59.092Z",
+      "ref": "steward/t-2157-validation",
+      "commit": "b3515147c382",
+      "devCommit": "1ab737cb4ff7",
+      "treeHash": "sha256:72bf73a190cba101",
+      "treeDirty": true,
+      "changelogHash": "sha256:72c127e049132ad1",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          16.1,
+          15.3,
+          13.8
+        ]
+      },
+      "source": "/tmp/t2157-final-smoke-desktop-1-6.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 22,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-08T07:23:34.258Z",
+      "ref": "steward/t-2157-validation",
+      "commit": "b3515147c382",
+      "devCommit": "1ab737cb4ff7",
+      "treeHash": "sha256:72bf73a190cba101",
+      "treeDirty": true,
+      "changelogHash": "sha256:72c127e049132ad1",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          15.8,
+          14.8,
+          13.4
+        ]
+      },
+      "source": "/tmp/t2157-smoke-both-14.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "14",
+      "parts": [
+        14
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 24,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": null,
+      "takenAt": "2026-10-08T07:23:34.258Z",
+      "ref": "steward/t-2157-validation",
+      "commit": "b3515147c382",
+      "devCommit": "1ab737cb4ff7",
+      "treeHash": "sha256:72bf73a190cba101",
+      "treeDirty": true,
+      "changelogHash": "sha256:72c127e049132ad1",
+      "host": {
+        "kind": "local",
+        "cpus": 9,
+        "memGB": 9.7,
+        "loadavg": [
+          15.8,
+          14.8,
+          13.4
+        ]
+      },
+      "source": "/tmp/t2157-smoke-both-14.log"
+    },
+    {
+      "viewport": "desktop",
       "stage": "14",
       "parts": [
         14
@@ -1765,93 +1870,6 @@
         "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
       },
       "source": "gh-run:36896083944 https://github.com/kevinrhaas/chicago/actions/runs/36896083944"
-    },
-    {
-      "viewport": "desktop",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 160,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T17:00:50.0462918Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36895945825 https://github.com/kevinrhaas/chicago/actions/runs/36895945825"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "1-2",
-      "parts": [
-        1,
-        2
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 158,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": null,
-      "takenAt": "2026-10-01T17:00:50.0462918Z",
-      "ref": "steward/glessner-west-roof-repair",
-      "commit": "6d40da4d60a967f147b22f9819d19ed294cad33e",
-      "devCommit": null,
-      "treeHash": null,
-      "treeDirty": false,
-      "changelogHash": null,
-      "host": {
-        "kind": "ci",
-        "cpus": null,
-        "loadavg": null,
-        "note": "GitHub-hosted ubuntu-latest; load and smoke tree digest not recoverable from this older log."
-      },
-      "source": "gh-run:36895945825 https://github.com/kevinrhaas/chicago/actions/runs/36895945825"
-    },
-    {
-      "viewport": "mobile",
-      "stage": "7",
-      "parts": [
-        7
-      ],
-      "verdict": "pass",
-      "target": "published",
-      "passed": 33,
-      "failed": 0,
-      "failures": [],
-      "wallSeconds": 291,
-      "takenAt": "2026-10-01T16:59:56.852Z",
-      "ref": "steward/t1811-worked-roadway-surface",
-      "commit": "806cf765670f",
-      "devCommit": "f9aacb4d77e8",
-      "treeHash": "sha256:45782dfe73715536",
-      "treeDirty": true,
-      "changelogHash": "sha256:697317fa947af335",
-      "host": {
-        "kind": "steward-runner",
-        "cpus": 4,
-        "memGB": 15.6,
-        "loadavg": [
-          3.9,
-          4.3,
-          4.2
-        ]
-      },
-      "source": "/tmp/t1811/smoke-m7.log"
     }
   ]
 }

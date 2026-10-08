@@ -769,6 +769,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
+        p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")
