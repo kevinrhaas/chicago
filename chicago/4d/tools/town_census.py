@@ -85,6 +85,21 @@ TOWN_TOTAL_PEOPLE = 3265
 TOWN_TOTAL_DWELLINGS = 398
 TOWN_TOTAL_SOURCE = "andreas_1884_v1"
 
+# T-2154. WHAT THE NOVEMBER CENSUS'S 398 IS SET AGAINST. The roof programme's groups that
+# a household lives under as its home: the dwelling houses always, and the boarding houses
+# and taverns only on one reading — the town model's own open question is whether the
+# enumerator's "dwelling" took them in (1835_town_model.json, lodging `open_questions`).
+# So the standing count is a bracket and never one number. A store with rooms over it is
+# counted with the stores, on both readings, because nothing the project holds says the
+# enumerator counted it as a dwelling.
+DWELLING_GROUPS = ("ordinary_dwellings",)
+LODGING_GROUPS = ("larger_boarding_houses", "inns_taverns")
+
+# T-2154. The garrison, read off the household's own `division` — Fort Dearborn is a
+# division of its own in the residents layer, and every household seated in the fort's
+# roofs carries it. Garrison means the officers, the companies and their families.
+GARRISON_DIVISION = "fort"
+
 # T-1353. The visitors, read from the ledger that mints them. Absent file, absent block:
 # this census reports what the dataset carries and never a figure typed here.
 TRANSIENTS = DATA / "reconstruction" / "1835_transient_persons.json"
@@ -260,6 +275,29 @@ def census_document() -> dict:
     population_grades = {g: scene_grades[g] + ruled_grades[g] for g in scene_grades}
     absences = len((rulings.get("evidenced_absences") or []))
 
+    # THE DWELLINGS STANDING (T-2154), as a bracket against the November count.
+    by_group = programme["standing"].get("by_group") or {}
+    owed = programme["remaining"].get("by_district_group") or {}
+
+    def standing_in(groups) -> int:
+        return sum(int(by_group.get(g) or 0) for g in groups)
+
+    def ordered_in(groups) -> int:
+        return standing_in(groups) + sum(int((row or {}).get(g) or 0)
+                                         for row in owed.values() for g in groups)
+
+    dwellings_low = standing_in(DWELLING_GROUPS)
+    dwellings_high = dwellings_low + standing_in(LODGING_GROUPS)
+
+    # THE POPULATION, SPLIT (T-2154): the garrison out of the same households the
+    # population counts, and the townspeople as the rest. The visitors are NOT a part of
+    # it — the transient block says why — and the split carries them only to say so.
+    garrison_persons = sum(int(h.get("persons") or 0) for h in residents["households"]
+                           if h.get("present_on_scene_date") == "present"
+                           and h.get("division") == GARRISON_DIVISION)
+    garrison_persons += sum(int(row.get("persons") or 0) for row in rulings.get("rulings", [])
+                            if row.get("division") == GARRISON_DIVISION)
+
     figure = scene_population_figure()
     point = int(figure["point"])
     low = int(figure["low"])
@@ -292,6 +330,26 @@ def census_document() -> dict:
                      "structure records: a bridge, a pier, a palisade and a parade "
                      "ground are records that are not buildings.",
             "range_note": roofs["range_note"],
+            "dwellings": {
+                "standing_low": dwellings_low,
+                "standing_high": dwellings_high,
+                "by_group": {g: int(by_group.get(g) or 0)
+                             for g in DWELLING_GROUPS + LODGING_GROUPS},
+                "ordered_low": ordered_in(DWELLING_GROUPS),
+                "ordered_high": ordered_in(DWELLING_GROUPS + LODGING_GROUPS),
+                "census": TOWN_TOTAL_DWELLINGS,
+                "census_source": TOWN_TOTAL_SOURCE,
+                "question": "How many of the town's dwellings stand, against the 398 the "
+                            "November 1835 census counted? The low end counts dwelling "
+                            "houses; the high end adds the boarding houses and taverns, "
+                            "because whether the enumerator's 'dwelling' took them in is "
+                            "not known (1835_town_model.json, lodging open questions).",
+                "basis": "Roofs standing in the roof programme's ordinary_dwellings group, "
+                         "and in larger_boarding_houses and inns_taverns for the high end. "
+                         "Stores with rooms over them are counted with the stores on both "
+                         "readings. The census is four months after the scene date, so "
+                         "the scene is not expected to reach it.",
+            },
         },
         "people": {
             "housed": people,
@@ -364,6 +422,17 @@ def census_document() -> dict:
             "floor_note": "A FLOOR, not an estimate: some entries counted here stand for "
                           "a group a source counts but does not name (see group_entries).",
             "dangling_lives_at": dangling,
+            "split": {
+                "residents": population_persons - garrison_persons,
+                "garrison": garrison_persons,
+                "transients_apart": (transient_block() or {}).get("persons"),
+                "garrison_division": GARRISON_DIVISION,
+                "basis": "The population above, split by the household's `division`: the "
+                         "Fort Dearborn garrison — officers, companies and their families "
+                         "— is every household the layer seats in the fort, and the "
+                         "residents are everyone else. The summer's visitors are counted "
+                         "apart and are in neither figure (see `transients`).",
+            },
         },
         "transients": transient_block(),
     }
