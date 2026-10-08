@@ -152,3 +152,37 @@ assert entry['east_x']>entry['x'][1]
 assert entry['threshold_z']>entry['landing_z']>0
 assert any(o.get('style')=='north_entry_alcove' for o in p.openings)
 print('PASS: 1800 independent roof rays see one planar envelope; west silhouette, solid south gable, continuous joins, matching court roof and left-turn porch dimensions hold.')
+
+# T-2157: a roof ray beside the dining hip must never fall below the original
+# north-wing plane. This independently rejects the former recessed rectangle.
+if p.detail.get('dining_crested_connection'):
+    from _glessner_lod import _geometry_modules
+    _geometry_modules(ROOT)
+    from archetypes.masonry_house_v4_courtyard_roof import dining, clip_host, wall_profile
+    n=next(r for r in p.ranges if r['name']=='north_range')
+    bay=p.bays[0];ap=bay['apex']
+    assert bay['pts'][1][1]-1e-4<=ap[1]<=bay['pts'][0][1]
+    assert abs(ap[2]-n['ridge_z'])<1e-5 and n['ridge_at']-ap[1]>3.5
+    assert wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])==[(n['x0'],n['eave_lo_z']),(n['x1'],n['eave_lo_z'])]
+    low_y=n['y0']-.20
+    def host_z(y):
+        return n['eave_lo_z']+(y-n['y0'])*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
+    host=[(n['x0'],low_y,host_z(low_y)),(n['x1'],low_y,host_z(low_y)),
+          (n['x1'],n['ridge_at'],n['ridge_z']),(n['x0'],n['ridge_at'],n['ridge_z'])]
+    surfaces=clip_host(host,p)+dining(p)[0]
+    def surface_z(poly,x,y):
+        for j in range(1,len(poly)-1):
+            a,b,c=poly[0],poly[j],poly[j+1]
+            den=(b[1]-c[1])*(a[0]-c[0])+(c[0]-b[0])*(a[1]-c[1])
+            if abs(den)<1e-10:continue
+            u=((b[1]-c[1])*(x-c[0])+(c[0]-b[0])*(y-c[1]))/den
+            v=((c[1]-a[1])*(x-c[0])+(a[0]-c[0])*(y-c[1]))/den
+            if min(u,v,1-u-v)>1e-8:return u*a[2]+v*b[2]+(1-u-v)*c[2]
+    rng=random.Random(2157)
+    for i in range(1200):
+        x=rng.uniform(bay['pts'][0][0]-.3,bay['pts'][-1][0]+.3)
+        y=rng.uniform(low_y+1e-5,n['ridge_at']-1e-5)
+        hits=[zz for poly in surfaces if (zz:=surface_z(poly,x,y)) is not None]
+        assert len(hits)==1,(i,x,y,hits)
+        assert hits[0]>=host_z(y)-1e-6,(i,x,y,hits[0],host_z(y))
+    print('PASS: 1200 courtyard roof rays have one surface, never recessed below the host; forward copper peak, level connector ridge and uncut masonry eave hold.')
