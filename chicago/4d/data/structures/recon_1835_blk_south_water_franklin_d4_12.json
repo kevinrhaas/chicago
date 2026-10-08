@@ -163,6 +163,7 @@
     "value": "The Bourrassa household — a name the town's own records carry",
     "confidence": "reconstructed",
     "sources": [
+      "isa_public_domain_land_tract_sales",
       "st_cyr_register_ichr_v4",
       "st_marys_baptismal_register_1833_1835"
     ],

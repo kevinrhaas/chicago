@@ -131,6 +131,30 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 2 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 221, so none of its 1 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "roi_george_david",
+   "relation": "father",
+   "household": "hh_roi_anne_franoise_virginie",
+   "value": "roi_anne_franoise_virginie",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts. Both cards were minted from this entry's rows (st_marys_bapt_1835_11_2_father, st_marys_bapt_1835_11_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  },
+  {
+   "person": "roi_george_david",
+   "relation": "father",
+   "household": "hh_roi_joseph_claude",
+   "value": "roi_joseph_claude",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy. Both cards were minted from this entry's rows (st_marys_bapt_1835_10_2_father, st_marys_bapt_1835_10_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "roi_george_david",

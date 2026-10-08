@@ -114,16 +114,16 @@
     "open": []
   },
   "occupied": {
-    "structures": 666,
+    "structures": 671,
     "occupied": {
       "attested": 51,
       "inferred": 9,
-      "reconstructed": 321
+      "reconstructed": 320
     },
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 78
+      "reconstructed": 79
     },
     "use_stated": {
       "camp_ground": 3,
@@ -131,7 +131,7 @@
       "no_keeper_of_its_trade": 2,
       "occupancy_unattested": 2,
       "occupant_named_seat_refused": 2,
-      "outbuilding_of_a_yard": 120,
+      "outbuilding_of_a_yard": 125,
       "part_of_an_establishment": 14,
       "stated_use_of_an_anonymous_roof": 13,
       "storage_operator_unrecorded": 5,
@@ -213,17 +213,17 @@
       "occupied": {
         "attested": 51,
         "inferred": 9,
-        "reconstructed": 321
+        "reconstructed": 320
       },
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 78
+        "reconstructed": 79
       },
       "use_stated": {
         "attested": 25,
         "inferred": 6,
-        "reconstructed": 156
+        "reconstructed": 161
       },
       "empty_owing_somebody": {
         "attested": 0,

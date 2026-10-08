@@ -132,6 +132,19 @@
    "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Rhoda Nichols headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 3 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Joseph Duplas married anybody."
   }
  },
+ "kin": [
+  {
+   "person": "duplas_joseph",
+   "relation": "father",
+   "household": "hh_duplas_catherine",
+   "value": "duplas_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_12_2_father, st_marys_bapt_1835_12_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "duplas_joseph",

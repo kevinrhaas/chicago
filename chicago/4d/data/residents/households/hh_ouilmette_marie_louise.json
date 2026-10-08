@@ -133,6 +133,30 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 2 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 31 of 277 in that order, before the walk stopped. The 1 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "ouilmette_marie_louise",
+   "relation": "mother",
+   "household": "hh_welsh_catharine",
+   "value": "welsh_catharine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the same day eighteen hundred and thirty four I, the undersigned baptised Cattarine daughter of John Welsh and of Mary Louis Wimette, born the ninth of June. Sponsors were Salomon Juneau and Claudia Pierrette Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1834_17_3_mother, st_marys_bapt_1834_17_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "ouilmette_marie_louise",
+   "relation": "mother",
+   "household": "hh_welsh_joseph",
+   "value": "welsh_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf juin, je soussigné ai conféré les cérémonies du baptême à Joseph fils de John Welsh et de Marie Louise Wimette né le dix huit mars mil huit cent trente trois. Parrain et marraine ont été N. Thob[?] et Louise Caroline Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1834_16_3_mother, st_marys_bapt_1834_16_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "ouilmette_marie_louise",

@@ -117,6 +117,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "roi_anne_franoise_virginie",
+   "relation": "daughter",
+   "household": "hh_bruno_anne_franoise_apolline",
+   "value": "bruno_anne_franoise_apolline",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts. Both cards were minted from this entry's rows (st_marys_bapt_1835_11_3_mother, st_marys_bapt_1835_11_1_child), so no identification is made here. The daughter term is the entry's: 'Anne Françoise Virginie Roy fille de George David Roi'."
+  },
+  {
+   "person": "roi_anne_franoise_virginie",
+   "relation": "daughter",
+   "household": "hh_roi_george_david",
+   "value": "roi_george_david",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts. Both cards were minted from this entry's rows (st_marys_bapt_1835_11_2_father, st_marys_bapt_1835_11_1_child), so no identification is made here. The daughter term is the entry's: 'Anne Françoise Virginie Roy fille de George David Roi'."
+  }
+ ],
  "persons": [
   {
    "id": "roi_anne_franoise_virginie",

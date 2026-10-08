@@ -165,6 +165,7 @@
       "value": "The Bourrassa household — a name the town's own records carry",
       "confidence": "reconstructed",
       "sources": [
+        "isa_public_domain_land_tract_sales",
         "st_cyr_register_ichr_v4",
         "st_marys_baptismal_register_1833_1835"
       ],
@@ -186,7 +187,7 @@
           "relationship": "head",
           "grade": "inferred",
           "occupation": "none_recorded",
-          "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 29 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
+          "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 29 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1). THE FEDERAL LAND TRACT SALES — A PURCHASE, AND NEVER A RESIDENCE. The Illinois State Archives' Public Domain Land Tract Sales register enters this person 1 time, as “BOURASSA LEON”, 1836-06-27: 1 lot in the platted town — lot 1 of block 49 in the town the register codes CHIOT (L1BL49CHIOT, as printed), 0.00 acres stated in all, for $1890.00 (ls1001). THE REGISTER'S OWN RESIDENCE COLUMN READS UNKNOWN on these rows: a county, a state or nothing, and never a town, which is why a purchase here places nobody. THE TOWN LOTS ARE THE PLAT ITSELF, AND THEY ARE NOT ACRES: Cook County's register describes them by lot and block in a platted town and gives them no section, no township and no acreage at all, so they add nothing to the acre figure above and $1890.00 to the money. This project does not expand the register's town codes, so which addition a lot stands in is carried as the code and not as a name. It is still a purchase and it still places nobody. A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints. Identity by the crosswalk's own rule: BOURASSA LEON matches Leon Bourrassa: the forename names Leon Bourrassa of the 4 people of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held bourassa_lon until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried. (data/research/land_sales/resident_crosswalk.json). This pass WRITES THE EVIDENCE AND MOVES NO GRADE. Under the ratified ladder (T-0513) a second independent source is what lifts a projected resident, and a land entry is a second source about a TRANSACTION rather than about who was living at Chicago on 1 July 1835 — a man may buy a quarter-section he never sees. T-0515 applies the ladder against every source at once; this pass hands it the evidence and not the verdict."
         },
         {
           "name": "Almira Bourrassa",
@@ -228,6 +229,14 @@
     }
   ],
   "citations": [
+    {
+      "source_id": "isa_public_domain_land_tract_sales",
+      "citation": "Illinois State Archives, Illinois Public Domain Land Tract Sales Database (Springfield: Office of the Secretary of State).",
+      "url": "https://apps.ilsos.gov/isa/landSalesSearch.do",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness"
+    },
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",

@@ -118,6 +118,17 @@
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "THE BURIAL ENTRY NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. Death entry 5 of Father St Cyr's page, Chicago, 2 July 1835: 'On the 2nd of July 1835, I performed the ecclesiastical burial according to the rites of the Catholic Church on the corpse of John Baptist, son of Leon Bourrassa, 28 days old.' Filed as st_cyr_death_05_1 (decedent) and st_cyr_death_05_2 (parent), and the cards minted from those two rows carry their record ids, so no identification is being made by name here. THE CHILD WAS ALIVE ON THE SCENE DATE: 28 days old at a burial on 2 July 1835 puts his birth about 4 June 1835 and his death the day AFTER 1 July 1835, so the father and son of this row are father and son in the scene. WHO THE CHILD WAS IS NOW SETTLED (T-2179): 'John Baptist' is the forename Jean Baptiste standing where a surname was expected, and he is the Jean Baptiste, son of Léon Bourrasso and Marguerite [Laframboise], whom the same priest baptised at St Mary's on 29 June 1835, born 4 June 1835 — 2 July less 28 days. The burial's card is folded onto the baptism's (card_merge_rulings.json, cluster baptist-bourassa, C15), and the father's two cards onto this one (cluster bourassa-bourrassa, C16)."
+  },
+  {
+   "person": "bourassa_jean_baptiste",
+   "relation": "son",
+   "household": "hh_laframboise_marguerite",
+   "value": "laframboise_marguerite",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet. Both cards were minted from this entry's rows (st_marys_bapt_1835_04_3_mother, st_marys_bapt_1835_04_1_child), so no identification is made here. The son term is the entry's: 'Jean Baptiste fils de Léon Bourrasso'."
   }
  ],
  "persons": [

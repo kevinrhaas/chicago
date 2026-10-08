@@ -133,6 +133,19 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 8 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 56 of 277 in that order, before the walk stopped. The 7 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "coslet_godfrey",
+   "relation": "father",
+   "household": "hh_coslet_elisabeth",
+   "value": "coslet_elisabeth",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 10th December eighteen hundred and thirty four I, the undersigned, baptised Elisabeth daughter of Godfrey Coslet and of Marian Eberling, born the 9th of December eighteen hundred and thirty four. Godmother was Marian Mouch[?]; no godfather. Both cards were minted from this entry's rows (st_marys_bapt_1834_20_2_father, st_marys_bapt_1834_20_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "coslet_godfrey",

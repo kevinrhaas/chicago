@@ -134,6 +134,30 @@
    "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Ellen Carroll headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 2 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Victoire Madera married anybody."
   }
  },
+ "kin": [
+  {
+   "person": "madera_victoire",
+   "relation": "mother",
+   "household": "hh_pottier_augustin",
+   "value": "pottier_augustin",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 3 juin mil huit cent trente trois, je soussigné ai baptisé Augustin Pottier fils de Jean Potier et de Victoire Madera, né le 26 de mai 1832. Parrain a été Augustin Bonné, marraine Monique Nadeau. Both cards were minted from this entry's rows (st_marys_bapt_1833_03_3_mother, st_marys_bapt_1833_03_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "madera_victoire",
+   "relation": "mother",
+   "household": "hh_pottier_joseph",
+   "value": "pottier_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le seize juin mil huit cent trente quatre, je soussigné ai baptisé Joseph Pottier fils de Jean Pottier et de Victoire Medero, né [le] huit de mars mil huit [cent] trente quatre. Parrain et marraine ont été Joseph Pallet et Josette Chevalier. Both cards were minted from this entry's rows (st_marys_bapt_1834_12_3_mother, st_marys_bapt_1834_12_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "madera_victoire",

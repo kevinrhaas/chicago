@@ -26,10 +26,10 @@
   },
   "counts": {
     "cards": 1458,
-    "blocks": 22079,
+    "blocks": 22199,
     "tiers_written_on_the_card": 10976,
     "by_tier": {
-      "attested": 586,
+      "attested": 706,
       "inferred": 3630,
       "reconstructed": 10985,
       "unknown": 6878
@@ -78,7 +78,7 @@
         "unknown": 0
       },
       "kin[]": {
-        "attested": 12,
+        "attested": 132,
         "inferred": 12,
         "reconstructed": 0,
         "unknown": 0
@@ -2716,9 +2716,9 @@
       },
       "values": 1340,
       "by_value": {
-        "south": 766,
+        "south": 767,
         "north": 299,
-        "west": 275
+        "west": 274
       },
       "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
       "a_card": "hh_abbot_8_g"

@@ -118,6 +118,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "laframboise_franois",
+   "relation": "son",
+   "household": "hh_laframboise_joseph",
+   "value": "laframboise_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le trente [unième] d'août mil huit cent trente trois, je soussigné ai baptisé François Lafambise fils de Joseph Laframboise et de Jacquet Peltier, né le 1er août mil huit cent trente trois. Parrain et marraine ont été Mark Beaubien et Josette Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1833_13_2_father, st_marys_bapt_1833_13_1_child), so no identification is made here. The son term is the entry's: 'François Lafambise fils de Joseph Laframboise'."
+  },
+  {
+   "person": "laframboise_franois",
+   "relation": "son",
+   "household": "hh_peltier_jacquette",
+   "value": "peltier_jacquette",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le trente [unième] d'août mil huit cent trente trois, je soussigné ai baptisé François Lafambise fils de Joseph Laframboise et de Jacquet Peltier, né le 1er août mil huit cent trente trois. Parrain et marraine ont été Mark Beaubien et Josette Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1833_13_3_mother, st_marys_bapt_1833_13_1_child), so no identification is made here. The son term is the entry's: 'François Lafambise fils de Joseph Laframboise'."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_franois",

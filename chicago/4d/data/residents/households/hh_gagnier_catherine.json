@@ -118,6 +118,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "gagnier_catherine",
+   "relation": "daughter",
+   "household": "hh_gagnier_alexis",
+   "value": "gagnier_alexis",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 4 octobre mil huit cent trente trois, je soussigné ai baptisé Catherine fille d'Alexis Gagnier et d'Angel[ique] Aspam, née le 1er décembre mil huit cent trente. Parrain et marraine ont été Augustin Bonné et Monique Nodeau. Both cards were minted from this entry's rows (st_marys_bapt_1833_15_2_father, st_marys_bapt_1833_15_1_child), so no identification is made here. The daughter term is the entry's: 'Catherine fille d'Alexis Gagnier'."
+  }
+ ],
  "persons": [
   {
    "id": "gagnier_catherine",

@@ -3,12 +3,12 @@
  "name": "The Laframboise household — a name the town's own records carry",
  "division": "unplaced",
  "division_reconstructed": {
-  "value": "west",
+  "value": "south",
   "confidence": "reconstructed",
   "tier": "reconstructed",
-  "band": "west/farms_and_country_seats",
+  "band": "south/farms_and_country_seats",
   "clause": "farms_and_country_seats",
-  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+  "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
   "basis": {
    "kind": "model",
    "id": "policy_only_deal",
@@ -118,6 +118,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "laframboise_thrse",
+   "relation": "daughter",
+   "household": "hh_laframboise_joseph",
+   "value": "laframboise_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans. Both cards were minted from this entry's rows (st_marys_bapt_1834_15_2_father, st_marys_bapt_1834_15_1_child), so no identification is made here. The daughter term is the entry's: 'Thérèse fille de Joseph Laframboise'."
+  },
+  {
+   "person": "laframboise_thrse",
+   "relation": "daughter",
+   "household": "hh_peltier_jacquette",
+   "value": "peltier_jacquette",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans. Both cards were minted from this entry's rows (st_marys_bapt_1834_15_3_mother, st_marys_bapt_1834_15_1_child), so no identification is made here. The daughter term is the entry's: 'Thérèse fille de Joseph Laframboise'."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_thrse",

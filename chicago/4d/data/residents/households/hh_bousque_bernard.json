@@ -133,6 +133,19 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 4 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 60 of 277 in that order, before the walk stopped. The 3 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "bousque_bernard",
+   "relation": "father",
+   "household": "hh_bousque_catherine_henrietta",
+   "value": "bousque_catherine_henrietta",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?]. Both cards were minted from this entry's rows (st_marys_bapt_1835_02_2_father, st_marys_bapt_1835_02_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "bousque_bernard",

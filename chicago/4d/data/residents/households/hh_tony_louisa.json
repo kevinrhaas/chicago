@@ -117,6 +117,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "tony_louisa",
+   "relation": "daughter",
+   "household": "hh_chandler_catherine",
+   "value": "chandler_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_3_mother, st_marys_bapt_1835_13_1_child), so no identification is made here. The daughter term is the entry's: 'daughter of Jacob Tony'."
+  },
+  {
+   "person": "tony_louisa",
+   "relation": "daughter",
+   "household": "hh_tony_jacob",
+   "value": "tony_jacob",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_2_father, st_marys_bapt_1835_13_1_child), so no identification is made here. The daughter term is the entry's: 'daughter of Jacob Tony'."
+  }
+ ],
  "persons": [
   {
    "id": "tony_louisa",

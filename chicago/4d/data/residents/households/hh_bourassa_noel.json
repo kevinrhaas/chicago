@@ -118,6 +118,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "bourassa_noel",
+   "relation": "son",
+   "household": "hh_bourrassa_leon",
+   "value": "bourrassa_leon",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_23_2_father, st_marys_bapt_1834_23_1_child), so no identification is made here. The son term is the entry's: 'Noel Bourassa fils de Léon Bourassa'."
+  },
+  {
+   "person": "bourassa_noel",
+   "relation": "son",
+   "household": "hh_laframboise_marguerite",
+   "value": "laframboise_marguerite",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_23_3_mother, st_marys_bapt_1834_23_1_child), so no identification is made here. The son term is the entry's: 'Noel Bourassa fils de Léon Bourassa'."
+  }
+ ],
  "persons": [
   {
    "id": "bourassa_noel",

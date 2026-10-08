@@ -40,9 +40,9 @@ It is an adjudication over committed derived files — no page of any source is 
 
 ### known by presence
 
-- **present** — 3070
+- **present** — 3071
 - **absent** — 126
-- **uncertain** — 419
+- **uncertain** — 418
 
 **Open questions.** These are recorded here and do not become tickets.
 
