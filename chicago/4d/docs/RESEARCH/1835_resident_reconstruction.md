@@ -192,7 +192,7 @@ turned out not to be in the register at all: `### L-rc-sex-rate` and
 | `named_families` | persons | 3 | 2 | **L242** |
 | `modelled_families` | persons | 802 | 240 | **L244** |
 | `readmissions` | persons | 121 | 121 | **L246** |
-| `trade_households` | persons | 308 | 308 | **L248** |
+| `trade_households` | persons | 309 | 309 | **L248** |
 | `women_and_children` | persons | 556 | 124 | **L247** |
 | `lodgers` | persons | 155 | 23 | **L252** |
 | `garrison` | persons | 125 | 11 | **L251** |

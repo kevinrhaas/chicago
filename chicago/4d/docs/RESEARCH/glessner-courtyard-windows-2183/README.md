@@ -76,7 +76,7 @@ rendering. This is stage 13 of 14, not a full unfiltered smoke. The log is saved
 beside this note. The mirror was built from checkpoint 72b0cd61; dev integration
 began while the lengthy run continued, so the standing ledger explicitly claims
 no exact tree digest for that reading. Glessner geometry and renderer code did
-not change. Full repository preflight and dev merge remain in progress.
+not change. The PR CI gate supplies the final clean-clone repository verdict.
 
 Rebuild from `chicago/4d` with pinned Blender 4.5.3:
 `generators/build.py --only glessner_house`, then
@@ -88,15 +88,21 @@ Never repack stale materialized assets over a new bake.
 
 ## Integration repairs
 
-Dev advanced to `a8ac1213` during review. Its authored research is preserved;
-shared generated source-use records are regenerated from the combined inputs.
-The independent T-2043 ticket split left the repository gate red: the family
-household rows now name its seating child T-2188, and adult-men rows its
-reconciliation child T-2187. This changes work ownership only, not quotas,
-fills, people or geometry. The order-book writer and its declared downstream
-derivations rebuild these references.
+Dev advanced through `a8ac1213` and `2649aaf0` to `525abdee` during review. The final integration
+preserves dev's T-2187 adult-men ruling, the live work-order owner repair, its
+matching derived reports, and its smoke arrival wait. Shared generated source-use
+records are rebuilt from the combined inputs. This PR adds no population or quota
+change beyond the incorporated dev baseline.
 
 The previous worktree backing metadata became unavailable during integration.
 It was recovered from GitHub checkpoint `72b0cd61`; the existing working files
 and the completed merge of dev `a8ac1213` were preserved. Repository metadata
 now lives in this checkout rather than depending on the earlier scratch tree.
+
+Local preflight completed all 790 steps: 787 passed and three reported errors.
+The re-familying report is now taken with its corrected writer and inputs from
+current dev. Two local publish readbacks saw stale duplicate cohort files; they
+now pass after serial mirror recovery (1,403 loose resident files and 773
+packed records). All three failing steps pass individually; the full local run
+is still reported as 787/790. PR CI will verify the unmodified publisher on a
+clean checkout. Changelog-entry and ticket-collision preflight checks passed.

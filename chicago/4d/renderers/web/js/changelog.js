@@ -1,8 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1543, ts: '2026-10-08T18:03:19.390Z', date: 'Oct 8, 2026, 1:03 PM CT', title: 'Glessner courtyard windows and roof edge corrected', kind: 'fix',
+  { v: 1546, ts: '2026-10-08T19:59:45.992Z', date: 'Oct 8, 2026, 2:59 PM CT', title: 'Glessner courtyard windows and roof edge corrected', kind: 'fix',
     items: [
       'The courtyard tower windows now match the first-floor windows beside them. The upper windows are shorter, and the projecting roof edge joins the tower roof continuously.',
       'Dark glass is now the default at every scene detail setting, including Full.',
+    ] },
+  { v: 1545, ts: '2026-10-08T19:35:25.683Z', date: 'Oct 8, 2026, 2:35 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 202 more grown men in family houses. The people cards already name 1,190 men aged twenty or over, and the plan wants 943 in all, so the town has more than enough.',
+      'The 202 are taken off the list. Nobody in the town is changed or removed. The count the town is heading for falls from 3,135 to 2,933, inside the 1835 range.',
+    ] },
+  { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated check that walks into the town now waits for the welcome screen before stepping in, so a slow test machine no longer reports the version label as missing when it was there all along.',
+    ] },
+  { v: 1543, ts: '2026-10-08T17:49:39.051Z', date: 'Oct 8, 2026, 12:49 PM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
+    items: [
+      'St Mary\u2019s baptism register gives six children a birth date, or an age at baptism, that falls after 1 July 1835. Until now they were counted in the town that day. Now they are not.',
+      'One of them, Bridget O\u2019Marra, was born on 19 August. The others were born between July and December. Their cards in the People directory now say they were not yet born on the day, and quote the register\u2019s own words.',
+      'The town makes up the count with one more household, a West Side boarding-house keeper we reconstructed. Everyone already in the town keeps their name and trade.',
     ] },
   { v: 1542, ts: '2026-10-08T17:21:43.998Z', date: 'Oct 8, 2026, 12:21 PM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [

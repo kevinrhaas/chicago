@@ -7,8 +7,8 @@ HABS photo 05, the research image inventory, section 4 and the owner's
 photographs were reviewed. Exact proportional dimensions remain reconstructed.
 
 Numerical roof/window and glass checks pass. Canonical bake, compressed derivatives
-and published 1904 app review pass on desktop Full and mobile Light. Full gate
-and dev integration are in progress; completion evidence belongs in
+and published 1904 app review pass on desktop Full and mobile Light. Published
+stage-13 smoke passes both viewports (250 checks, zero failures). The final repository verdict is carried by the PR CI gate; evidence belongs in
 `docs/RESEARCH/glessner-courtyard-windows-2183/README.md`.
 
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
@@ -942,7 +942,15 @@ the household model drew for them (508 people), and 121 stand alone with a card 
 - **Measured:** town converges 2,605 → 3,113; under-ten share 0.1894 → 0.2699; adult sex ratio
   435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
 - **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
-  T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
+  T-2021, counted apart from the re-cut. The family rows still owed named **T-2043**, which split
+  on 2026-10-08: the 392 family and store households are **T-2188**'s (form them around the
+  1,244 present head records awaiting a household), and the adult men were **T-2187**'s ruling.
+- **The adult men (T-2187).** The book credits the known people to its cells pro rata, so the
+  named heads (men, nearly all) were counted partly as women and children and the adult-male
+  family cells read 202 short. Read off the present cards: the model's civil town wants 943 men
+  aged twenty and over, the cards name 1,190 and the stages drew 276, so the town holds 1,466,
+  523 over. The 202 are discharged in the book (`adult_men_ruling`); it converges 3,135 → 2,933.
+  The same credit holds the women's and children's orders down; that is not touched here.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first

@@ -157,7 +157,20 @@ HOUSEHOLD_TYPES = (
 # households these rows still order: those are a reconciliation against the head records
 # awaiting a household, which is T-2043's. A row that still owes work may not name a
 # ticket that is finished.
-FAMILY_OWNER = "T-2043"
+# SWEPT AGAIN ON T-2043's SPLIT (2026-10-08, ported by T-2186 so every branch's gate
+# stops reading a split owner). T-2043 split into T-2187 (rule on the adult men the book
+# still orders into family houses) and T-2188 (seat the family and store households), so
+# the person rows go to the first and the household rows to the second.
+# The two halves were never one question. The MEN are a counting artifact, measured and ruled by
+# T-2187 (`ADULT_MEN_OWNER`, `adult_men_ruling` below): the known people are credited to the
+# cells PRO RATA, so the town's named heads — men, nearly every one — were counted partly
+# as women and children, and the adult-male family cells read short of men the cards hold
+# several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
+# wants, and 1,244 present head records with no reading about a dwelling to form them
+# around. That is T-2188's.
+FAMILY_OWNER = "T-2187"
+FAMILY_HOUSEHOLD_OWNER = "T-2188"
+ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
 
@@ -240,9 +253,19 @@ PERSON_TICKET_RULES = (
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
-    ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
+    # SWEPT ON T-2178 (2026-10-08). T-1347 drew the trade heads and is done; its cells sat
+    # at their order until six St Mary's infants, carded as heads and counted in them,
+    # were ruled not yet born on the day and left one owing. Every cell that reaches this
+    # rule is a FAMILY cell (the fort, transient and lodging rows are taken above), so
+    # what is left in it is the family reconciliation, which is FAMILY_OWNER's.
+    # Repointed on T-2043's split: what reaches the two rules below is an adult man in a
+    # family house, at a trade or not (women and the young are taken by T-1174's rule
+    # first), so it is T-2187's ruling on the adult men, which discharges what the cards
+    # already hold. A row that owes again once it has closed is a re-ruling, and the
+    # live-ticket gate says so.
+    ("an adult at a trade", lambda a: a["trade"] == "trade", ADULT_MEN_OWNER),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
-    ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_OWNER),
+    ("otherwise: a family drawn from the household model", lambda a: True, ADULT_MEN_OWNER),
 )
 
 # The roster's classes, and the ticket each class is offered to. A roster class is
@@ -260,8 +283,8 @@ ROSTER_TICKETS = {
 # Household types against the roof groups that hold them, and the ticket that
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
-    ("family_dwelling", "ordinary_dwellings", FAMILY_OWNER),
-    ("store_residence", "stores_mixed_use", FAMILY_OWNER),
+    ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", FAMILY_HOUSEHOLD_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -945,7 +968,121 @@ def load(root: Path = ROOT) -> dict:
     ruling = root / "data" / "reconstruction" / "1835_family_ruling.json"
     out["family_ruling"] = (json.loads(ruling.read_text(encoding="utf-8"))
                             if ruling.exists() else {})
+    # T-2187's MEASURE, read off the cards the index points at. Only the committed tree
+    # carries it; a fixture book has none, and orders as it always did.
+    out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
+                                              root / "data" / "residents")
     return out
+
+
+def adult_men_on_the_cards(residents: dict, rulings: dict, folder: Path) -> dict:
+    """THE MEN THE TOWN ALREADY HOLDS, BY THEIR OWN CARDS (T-2187).
+
+    `known_layer` reads the index, which counts people and not who they are, and
+    `person_buckets` spreads them over the cells PRO RATA (rule 2). For most purposes that
+    is the honest thing to do with a count. For the adult men it is not, because the named
+    town is not a cross-section of the model: two records in three are a letter-list name,
+    and that roll is 94.3% male. Spread pro rata, the named heads are credited mostly to
+    women's and children's cells, and the adult-male family cells read short of men.
+
+    So this reads each present card — the same test `known_layer` applies: `present`, or
+    `uncertain` and ruled in — and counts the NAMED persons (never a reconstructed one,
+    whose cell is `filled`) the card itself gives as male and aged twenty or more. The fort
+    and the man outside the town are not the civil town the cells apportion. A man whose
+    card carries no age is not counted, and the count of them is said."""
+    ruled = ruled_present(rulings)
+    men, unaged = Counter(), 0
+    for hh in residents.get("households", []):
+        presence = hh.get("present_on_scene_date")
+        if not (presence == "present" or (presence == "uncertain" and hh.get("id") in ruled)):
+            continue
+        division = hh.get("division")
+        if division not in CIVIL_DIVISIONS + ("unplaced",):
+            continue
+        card = json.loads((folder / hh["file"]).read_text(encoding="utf-8"))
+        for person in card.get("persons") or []:
+            if person.get("grade") == "reconstructed":
+                continue
+            basis = person.get("sex_basis")
+            sex = (basis.get("value") if isinstance(basis, dict) else basis) or person.get("sex")
+            if sex != "male":
+                continue
+            band = person.get("age_band")
+            low = band.get("low") if isinstance(band, dict) else None
+            if low is None:
+                unaged += 1
+            elif int(low) >= ADULT_FROM:
+                men[division] += 1
+    return {"named_adult_men": sum(men.values()),
+            "by_division": {d: men[d] for d in CIVIL_DIVISIONS + ("unplaced",)},
+            "named_men_with_no_age_not_counted": unaged}
+
+
+def adult_men_ruling(buckets: list, measure: dict) -> dict:
+    """T-2187: the adult men the family cells order, set against the men the town holds. In place.
+
+    The model's civil town wants a number of men aged twenty and over; the town holds its
+    NAMED adult men (read off the cards, `adult_men_on_the_cards`) and the adult men the
+    stages DREW (`filled` in the adult-male cells). Whatever the town still lacks of the
+    model's figure is all the men it can be owed. The family cells' remainder above that is
+    the pro-rata credit's artifact, and it is DISCHARGED here: the cell's order falls to its
+    own `filled`, and `discharged_by_the_men_ruling` carries what it was ordering, so the
+    discharge is read rather than clamped in silence. Cells are walked in key order, so a
+    partial discharge is the same discharge on every build. Nobody is retired, moved or
+    drawn; a cell that would owe again when the town stops holding the men reopens on the
+    next build."""
+    def adult_man(a: dict) -> bool:
+        return (a.get("sex") == "male" and a.get("division") in CIVIL_DIVISIONS
+                and a.get("household_type") in ("family", "lodging")
+                and a.get("age_band") not in ("under_10", "10_19"))
+    men = [b for b in buckets if adult_man(b["axes"])]
+    target = sum(b["target"] for b in men)
+    drawn = sum(b["filled"] for b in men)
+    named = measure["named_adult_men"]
+    lacking = max(0, target - named - drawn)
+    cells = [b for b in sorted(men, key=lambda b: b["key"])
+             if b["axes"]["household_type"] == "family"
+             and b.get("owning_ticket") == ADULT_MEN_OWNER
+             and (b["to_reconstruct"] or 0) > b["filled"]]
+    ordered = sum((b["to_reconstruct"] or 0) - b["filled"] for b in cells)
+    left = max(0, ordered - lacking)
+    discharged = {}
+    for b in cells:
+        if not left:
+            break
+        take = min(left, (b["to_reconstruct"] or 0) - b["filled"])
+        b["discharged_by_the_men_ruling"] = take
+        b["to_reconstruct"] -= take
+        discharged[b["key"]] = take
+        left -= take
+    credited = sum(b.get("known_attested", 0) + b.get("known_inferred", 0) for b in men)
+    return {
+        "ticket": ADULT_MEN_OWNER,
+        "asks": "The family cells order adult men the town does not hold. Does it hold them?",
+        "model_civil_adult_men": target,
+        "named_adult_men_on_the_cards": named,
+        "named_by_division": measure["by_division"],
+        "named_men_with_no_age_not_counted": measure["named_men_with_no_age_not_counted"],
+        "adult_men_drawn": drawn,
+        "the_town_holds": named + drawn,
+        "the_pro_rata_credit_gave_these_cells": credited,
+        "the_family_cells_ordered": ordered,
+        "the_town_still_lacks": lacking,
+        "discharged": sum(discharged.values()),
+        "discharged_by_cell": discharged,
+        "measured": (f"The model's civil town wants {target:,} men aged twenty and over. The "
+                     f"present cards name {named:,} and the stages drew {drawn:,}, so the town "
+                     f"holds {named + drawn:,}"
+                     + (f", {named + drawn - target:,} over the model's figure"
+                        if named + drawn >= target else f", {lacking:,} short of it")
+                     + f". The pro-rata credit gave these cells {credited:,} of the named; the "
+                     f"rest were counted in women's and children's cells. The family cells "
+                     f"ordered {ordered:,} more and {sum(discharged.values()):,} are discharged."),
+        "what_this_does_not_do": "It moves nobody, retires nobody and draws nobody, and it "
+                                 "does not touch the women's or children's cells, whose orders "
+                                 "the same credit holds down: that is T-1174's and T-2021's "
+                                 "ground, and their own ratio and under-ten gates bound it.",
+    }
 
 
 def figure(model: dict, section_key: str, name: str) -> dict:
@@ -3211,6 +3348,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                     raise Fault(f"the bucket {b['key']} is overfilled: {b['filled']} of {todo}")
 
     family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills)
+    men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
+                  if data.get("adult_men") else None)
 
     spent = Counter()
     for fill in fills:
@@ -3375,6 +3514,9 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # re-derives (T-1463). Two of these are adjudications the ticket asked for out
         # loud, and the third is a collision this run declines to rule on.
         "what_the_re_cut_found": recut_findings(known, before, families, recut_refusals),
+        # THE ADULT MEN, RULED ON THEIR CARDS (T-2187). Absent from a book built without
+        # the measure, so a fixture book is byte-identical to one built before it.
+        **({"adult_men_ruling": men_ruling} if men_ruling else {}),
         "bucket_families": families,
         "programme_deltas": programme_deltas(data["model"], data["inventory"],
                                              data["programme"], persons, households),
@@ -3686,7 +3828,7 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
+    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_HOUSEHOLD_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -5147,6 +5289,25 @@ def cmd_self_test() -> int:
         "a filler that built nothing kept its rows"
     once = splice_fills(ledger, {"T-B"}, new_b)
     assert splice_fills(once, {"T-B"}, new_b) == once, "splicing is not a fixed point"
+
+    # T-2187: the men ruling discharges only what the town already holds of the model's
+    # adult men — a town short of them keeps that much on order, and the walk is the same
+    # walk on every build.
+    def man_cell(key, division, target, order, filled=0, htype="family"):
+        return {"key": key, "target": target, "to_reconstruct": order, "filled": filled,
+                "owning_ticket": ADULT_MEN_OWNER,
+                "axes": {"sex": "male", "age_band": "20_29", "division": division,
+                         "household_type": htype, "trade": "none"}}
+    short = [man_cell("m/a", "south", 60, 30), man_cell("m/b", "west", 40, 20)]
+    ruled = adult_men_ruling(short, {"named_adult_men": 80, "by_division": {},
+                                     "named_men_with_no_age_not_counted": 0})
+    assert ruled["the_town_still_lacks"] == 20 and ruled["discharged"] == 30, ruled
+    assert [b["to_reconstruct"] for b in short] == [0, 20], "the walk is not in key order"
+    held = [man_cell("m/a", "south", 60, 30), man_cell("m/b", "west", 40, 20, htype="lodging")]
+    assert adult_men_ruling(held, {"named_adult_men": 500, "by_division": {},
+                                   "named_men_with_no_age_not_counted": 0})["discharged"] == 30
+    assert held[1]["to_reconstruct"] == 20, "the men ruling discharged a lodging cell"
+    assert "adult_men_ruling" in doc, "the committed book carries no ruling on the adult men"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

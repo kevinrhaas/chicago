@@ -37,9 +37,9 @@ A person inherits his household's `home` and `workplace` rows — the claim is m
 
 | Household presence on the scene date | People |
 | --- | ---: |
-| `absent` | 2 |
+| `absent` | 8 |
 | `present` | 1,052 |
-| `uncertain` | 1,874 |
+| `uncertain` | 1,868 |
 
 Presence is not a fifth axis. It is the household's verdict (T-1144 acceptance 9, with the last dated sighting under it) and it is carried here only so a row can be read without a second file open. A man whose household is `uncertain` may still hold a role that reaches the day: the role is bounded by its own source, and the two bounds are different questions.
 

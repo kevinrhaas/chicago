@@ -29,11 +29,11 @@
 # (`chicago-4d-pr-stuck-${{ github.ref }}`) rather than to drop cancellation. Then a
 # sweep is only ever cancelled by a newer push to THE SAME branch, whose old head is
 # no longer the PR's head and whose cancelled check no longer matters; the
-# newest-wins economy the workflow's own comment defends survives on each ref. It is
-# a workflow change, which needs an owner-visible PR, so it is filed as T-2069
-# and NOT made here. Until it lands, this shape is how the reporter covers
-# the state its own trigger creates — and it would be needed after it, too, for any
-# other non-required check that is cancelled or fails and is never re-run.
+# newest-wins economy the workflow's own comment defends survives on each ref. That
+# workflow change landed as T-2069 (2026-10-08), so this reporter no longer cancels
+# its own sibling's check on another PR. This shape stays: it is still how a PR
+# held `unstable` is reported for any other non-required check that is cancelled
+# or fails and is never re-run.
 #
 # THE DEADLOCK IT REPORTS, stated as the cycle it is:
 #

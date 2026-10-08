@@ -43,6 +43,8 @@ the marriage page set, and the reason `data/research/church/README.md` warns abo
 """
 
 import argparse
+import calendar
+import datetime
 import json
 import sys
 from pathlib import Path as _ToolsPath
@@ -1107,6 +1109,95 @@ def slug(text):
     return s.strip("_")
 
 
+# --------------------------------------------------------------------------- #
+# WHEN THE SCENE YEAR'S CHILDREN WERE BORN, read off their own entries (T-2178).
+#
+# The priest writes a birth on most lines — a day ("born the nineteenth of August"),
+# or an age at the font ("fifteen days old", "âgé de six mois"). Until T-2178 that
+# reading lived in each row's prose note and nowhere a tool could stand on, so the
+# mint dated six children by their BAPTISM, found no record reaching 1 July 1835,
+# and carded them `uncertain` — and the presence stage then carried all six into the
+# town, months before they were born. A presence rule may not read prose, so the
+# birth is held here as structure: the words it is read from (a substring of `read`,
+# refused otherwise), and the EARLIEST and LATEST day those words permit.
+#
+# ONLY 1835. A birth in 1833 or 1834 cannot fall after the scene date, so nothing
+# downstream turns on it; the scene-year series is read whole, all thirteen children.
+#
+#   stated   the entry gives the day. Documented: the window is that day.
+#   age      the entry gives an age at baptism. "N months old" is read as N completed
+#            months, so the window runs from N+1 months to N months before the font,
+#            and the same for years. Inferred, because the priest's ages are round.
+#   days     entry 10 alone: "âgé de [?] jours", the count illegible. The register
+#            counts in DAYS only for a newborn — it writes "fifteen days old" (entry
+#            9) and moves to months by two (entry 12: "two months old"; entries 5
+#            and 8: 16 and six months). The window is bounded at THREE months before
+#            the font, a month wider than that practice, and is inferred.
+# --------------------------------------------------------------------------- #
+
+BORN_1835 = {
+    # entry: (the words, how they are read, number, unit)
+    1: ("born the twenty first of instant 1835", "stated", "1835-02-21"),
+    2: ("born the fifth of march 1835", "stated", "1835-03-05"),
+    4: ("Né the quatre juin 1835", "stated", "1835-06-04"),
+    5: ("âgé de 16 mois", "age", (16, "month")),
+    6: ("âgée d'un an", "age", (1, "year")),
+    7: ("born the nineteenth of August eighteen hundred thirty five", "stated", "1835-08-19"),
+    8: ("âgé de six mois", "age", (6, "month")),
+    9: ("fifteen days old", "age", (15, "day")),
+    10: ("âgé de [?] jours", "days", (3, "month")),
+    11: ("âgée d'un an", "age", (1, "year")),
+    12: ("two months old", "age", (2, "month")),
+    13: ("born the thirtieth of October", "stated", "1835-10-30"),
+    14: ("born the twentieth of december 1835", "stated", "1835-12-20"),
+}
+
+
+def _months_before(day, months):
+    y, m = divmod(day.year * 12 + day.month - 1 - months, 12)
+    return day.replace(year=y, month=m + 1,
+                       day=min(day.day, calendar.monthrange(y, m + 1)[1]))
+
+
+def born_cell(e):
+    """The window of birth days the 1835 entry's own words permit, or None."""
+    if e["year"] != 1835 or e["no"] not in BORN_1835:
+        return None
+    words, how, what = BORN_1835[e["no"]]
+    if words not in e["read"]:
+        raise SystemExit("BORN_1835[%d]: %r is not in the entry as read — a birth is read "
+                         "off the page or not at all" % (e["no"], words))
+    font = datetime.date.fromisoformat(e["date"])
+    if how == "stated":
+        earliest = latest = what
+        conf = D
+        note = "The entry states the day of birth."
+    elif how == "age":
+        n, unit = what
+        if unit == "day":
+            earliest = latest = (font - datetime.timedelta(days=n)).isoformat()
+            note = "%d days before the baptism of %s." % (n, e["date"])
+        else:
+            k = n * (12 if unit == "year" else 1)
+            step = 12 if unit == "year" else 1
+            earliest = (_months_before(font, k + step) + datetime.timedelta(days=1)).isoformat()
+            latest = _months_before(font, k).isoformat()
+            note = ("An age at the font, read as %d completed %s(s): born after %s and by "
+                    "%s." % (n, unit, _months_before(font, k + step).isoformat(), latest))
+        conf = I
+    else:
+        n, unit = what
+        earliest = _months_before(font, n).isoformat()
+        latest = e["date"]
+        note = ("An age in days whose count nobody can read. The register counts in days "
+                "only for a newborn and has moved to months by two, so the window is "
+                "bounded at three months before the font — a month wider than that practice.")
+        conf = I
+    return {"earliest": earliest, "latest": latest,
+            "precision": "day" if earliest == latest else "range",
+            "read_from": how, "as_read": words, "confidence": conf, "note": note}
+
+
 def build_records():
     rows = []
     for e in ENTRIES:
@@ -1146,6 +1237,7 @@ def build_records():
                     "language": e["lang"],
                     "priest": PRIEST,
                     "entry_as_read": e["read"],
+                    **({"born": born} if role == "child" and (born := born_cell(e)) else {}),
                 },
                 "at_chicago": e["chi"],
                 "beyond_ticket_window": False,

@@ -259,7 +259,9 @@ being told.
 `steward/**` branch — the loop's own heartbeat, and the one trigger that still fires when
 the queue has stopped and nothing is pushing to `dev` — labels such a PR `stuck`, and
 comments once per stuck head with the recipe below. It takes the label back off when
-something moves the PR.
+something moves the PR. Its concurrency group is scoped per branch (T-2069): a newer push
+cancels only the older sweep on the SAME branch, never the `report` check on another PR's
+live head, which `pr-automerge` would read as red.
 
 A sweep that cannot SEE the queue fails the job on `dev` and on a dispatch, and only
 annotates on a steward-branch push — because a run started by a push creates a check run on
