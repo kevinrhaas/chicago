@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1532, ts: '2026-10-08T11:44:45.896Z', date: 'Oct 8, 2026, 6:44 AM CT', title: 'A clearer Glessner House package check', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The Glessner House package check now explains how to refresh an out-of-date local copy instead of suggesting a repack that could undo a newer bake.',
+    ] },
   { v: 1531, ts: '2026-10-08T11:16:48.172Z', date: 'Oct 8, 2026, 6:16 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
