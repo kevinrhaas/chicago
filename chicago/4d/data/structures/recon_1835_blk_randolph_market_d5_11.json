@@ -79,12 +79,12 @@
           "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the D5 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
         },
         "construction": {
-          "value": "braced_frame",
+          "value": "balloon_frame",
           "confidence": "reconstructed",
           "sources": [
             "owner_chicago_1835_reconstruction_spec_2026"
           ],
-          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+          "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
         },
         "plan": {
           "value": "hall_parlour",
@@ -167,14 +167,6 @@
     ],
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D5 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
-  "occupants": {
-    "value": "The Colewell household — a name the town's own records carry",
-    "confidence": "reconstructed",
-    "sources": [
-      "st_cyr_register_ichr_v4"
-    ],
-    "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1685; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_randolph_market#01, fronting washington, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
-  },
   "reconstruction": {
     "status": "inferred_anonymous",
     "family": "D5",
@@ -186,15 +178,15 @@
     "stands_on": "frontage",
     "fronts": "washington",
     "sequence": 11,
-    "finish_key": "weathered_timber",
-    "roof_condition": "darkened",
-    "age_state": "established",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "keeper",
-      "household": "hh_colewell_m",
-      "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weather-darkened roof — The Colewell household's, in Chicago since 1833 (rule F-T)"
+      "by": "type",
+      "household": null,
+      "words": "new-sawn clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — a deep-plan frame cottage, new-built (rule F-T: a tradesman's by its type)"
     },
     "frontage": {
       "block": "blk_randolph_market",
@@ -203,12 +195,6 @@
       "abuts": "recon_1835_blk_randolph_market_d1_10",
       "why": "T-0317, the successor T-0028's programme owes, and the first parcel in this project where the core density standard's corner clause and the end rule point in OPPOSITE directions. THE FACE IS MEASURED RATHER THAN ASSUMED, by the command T-A14 made of it — tools/measure_street_frontage.py randolph washington market franklin — and on the committed dataset Randolph carries 7 documented records and 7 inferred households against Washington's 1 and 0, Market's 2 and 1, and Franklin's 2 and 1. Randolph is this block's business face by the town's own record and it is FULL: the first deal took lots 0 and 2 and the inferred-household layer's two sawyer dwellings hold 4 and 6, so every lot on that face carries a roof and the two lots this block has left are both on the Washington tier. WHAT BINDS IS THE STANDARD'S THIRD CLAUSE. Lot 1 is the block's one free CORNER lot, the south-west one, fronting Washington along its long edge and Market Street along its short one, and a corner lot BUILDS TO THE CORNER — an east-anchored run packs back toward the middle of the face and stops wherever its roofs run out, so the corner is the one piece of frontage a row can never reach. The run is packed WEST to it. AND THE GRADING RUNS THE OTHER WAY, which is the finding here. On blk_randolph_dearborn's third deal the free corner was at Dearborn — the only crossing of the main stem in July 1835 — so building to the corner and standing the best roof nearest the crossing were the same act, and the parcel could not tell the two clauses apart. This corner is at MARKET, the far end of the face from that bridge, so they separate: the corner clause fixes WHERE THE ROW STANDS and the end rule fixes WHICH ROOF STANDS WHERE IN IT, and on this block they are demonstrably different questions. THE END RULE IS READ, NOT ASSERTED: tools/measure_end_rule.py reads this face at a spread of 71.03 m and a unit step of 6.07 m under the walked criterion and grades on it, while the same face under T-A11's straight line reads 4.82 m and is BELOW THE FLOOR — so the walk is what makes a grading possible here at all, and the straight line would have been grading this parcel's own declared setback invention. The row is therefore graded EAST, toward Franklin and the bridge beyond it: the meanest dwelling stands on the corner and the best closes the run at the east end. NO COORDINATE IS AUTHORED: the line, its bearing, the lot's own stretch of it and the end the run packs toward are all read from the committed block boundary in data/traces/vectors/thompson_lots.json, and the 1.5 m setback is the plat module's own lot margin rather than a measurement of this frontage. The Washington face carries no committed street wall for the run to adopt — the two roofs already standing on that tier are one-per-lot placements set back inside their own lots — so this run is the first line on the face and states the margin rather than adopting one."
     }
-  },
-  "resident_assignment": {
-    "status": "assigned",
-    "confidence": "reconstructed",
-    "note": "T-1685: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_randolph_market#01 fronting washington — a standing anonymous roof of family D5 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_colewell_m"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false
