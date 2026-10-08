@@ -14834,11 +14834,14 @@ for (const [label, viewport, touch] of [
         overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       };
     });
+    // T-2157: the committed lot-remnant community adds 11 species to the
+    // former 10/155 catalog. Pin the complete current 11/166 roster; the
+    // clamp and worst-case assertions below remain exact.
     check(`${label}: the plant list loads every community`,
-      plants.zones === 10 && plants.renderedZones === 10 && !plants.busy,
+      plants.zones === 11 && plants.renderedZones === 11 && !plants.busy,
       `${plants.zones} loaded / ${plants.renderedZones} rendered (${plants.error})`);
-    check(`${label}: every species in the ten communities is on the card`,
-      plants.species === 155 && plants.renderedSpecies === 155,
+    check(`${label}: every species in the eleven communities is on the card`,
+      plants.species === 166 && plants.renderedSpecies === 166,
       `${plants.species} counted / ${plants.renderedSpecies} rendered`);
     // The finding, asserted as numbers so it cannot quietly go away: ten
     // (community, stratum, side) layers are over the lattice's ceiling, across
@@ -14861,7 +14864,7 @@ for (const [label, viewport, touch] of [
       + `"${plants.denseText.slice(Math.max(0, plants.denseText.indexOf('records ask')), 
         Math.max(240, plants.denseText.indexOf('records ask') + 240))}"`);
     check(`${label}: the note names the worst case rather than only the total`,
-      /155 plants across 10 communities/.test(plants.note)
+      /166 plants across 11 communities/.test(plants.note)
       && /dense forest/.test(plants.note) && /0\.5 %/.test(plants.note),
       plants.note.slice(0, 220));
     check(`${label}: the plant records quote their sources, not their source ids`,
