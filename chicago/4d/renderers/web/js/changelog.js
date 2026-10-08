@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Before taking a ticket, the build loop now checks whether an open pull request already carries it, even one opened from a branch that doesn\'t name the ticket, so the same work isn\'t built twice.',
+    ] },
   { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',

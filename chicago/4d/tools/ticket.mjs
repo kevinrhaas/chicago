@@ -2199,6 +2199,44 @@ function claimIsDead(t) {
 }
 
 /**
+ * T-2138. THE OPEN PULL REQUESTS THAT CARRY A TICKET, BY TITLE OR BY BRANCH.
+ *
+ * A branch name is a convention and a PR title is another, and a session working by
+ * hand keeps only the second: the owner's project-thread session opened #449 on
+ * `claude/project-thread-gfksyy`, titled `T-2122: …`. Every instrument that read
+ * branches saw nothing, T-2122's claim aged past RUN_HOURS, `claim` stole it, and a
+ * slice rebuilt the whole fix — gated it green at both viewports — before finding #449
+ * merged on top of it (2026-10-05, run 37307506107). So the open-PR question reads the
+ * title (`prTicketIds`, the id in the one position the convention reserves) as well as
+ * the branch, and `claim`, `split` and `inflight` all ask it here.
+ *
+ * OWN is a PR on the branch this checkout stands on — finishing your own PR is not a
+ * rival to it. `open` null (the list was unreadable) answers nothing either way; the
+ * caller says so rather than concluding anything from it.
+ */
+function openPullsCarrying(t, open, here = currentBranch()) {
+  const rival = []; const own = [];
+  for (const p of open ?? []) {
+    if (!p || (p.state && p.state !== 'open')) continue;
+    const ref = p.head?.ref ?? '';
+    if (!prTicketIds(p.title).includes(t.id) && !branchCarries(ref, t.id)) continue;
+    ((ref && ref === here) ? own : rival).push(p);
+  }
+  return { rival, own };
+}
+
+/** `--pr-json <file>`: a constructed PR list, `[pull]` or `{ pulls: [pull] }`, read
+ *  through `normalizePull` exactly as the API's answer is (T-1427). Undefined when the
+ *  flag is absent, so the caller asks GitHub; null when the file holds no list. */
+function pullsFromFlag() {
+  const prJson = flag('pr-json');
+  if (typeof prJson !== 'string') return undefined;
+  const raw = JSON.parse(readFileSync(prJson, 'utf8'));
+  const list = Array.isArray(raw) ? raw : raw?.pulls;
+  return Array.isArray(list) ? list.map(normalizePull) : null;
+}
+
+/**
  * T-1344. WHO IS ALREADY ON A TICKET THAT IS ABOUT TO BE SPLIT.
  *
  * The claim lock is per id, and a split mints NEW ids out of an old one. So a parent
@@ -2248,13 +2286,11 @@ function liveWorkOn(t, { pulls = undefined, lockless = false } = {}) {
   const open = pulls !== undefined ? pulls : restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
   if (open === null) notes.push('the open pull requests could not be read, so only the claim was checked');
   else {
-    for (const p of open) {
-      if (p.state && p.state !== 'open') continue;
-      const ref = p.head?.ref ?? '';
-      if (!prTicketIds(p.title).includes(t.id) && !branchCarries(ref, t.id)) continue;
-      if (t.state === 'review' && String(p.number) === String(t.pr)) continue;   // said above
-      ((ref && ref === here) ? own : rival).push(`PR #${p.number} on ${ref || 'an unknown branch'} — ${p.title}`);
-    }
+    const carrying = openPullsCarrying(t, open, here);
+    const line = (p) => `PR #${p.number} on ${p.head?.ref || 'an unknown branch'} — ${p.title}`;
+    own.push(...carrying.own.map(line));
+    // The review ticket's own PR was said above.
+    rival.push(...carrying.rival.filter((p) => !(t.state === 'review' && String(p.number) === String(t.pr))).map(line));
   }
   const branches = remoteBranches()
     .filter((b) => b.name !== here && !isClaimMarker(b.name) && !isIdLock(b.name) && branchCarries(b.name, t.id))
@@ -2629,6 +2665,33 @@ switch (cmd) {
         + `  node tools/ticket.mjs claim ${t.id} --force`);
       process.exit(1);
     }
+    // AN OPEN PULL REQUEST WHOSE TITLE CARRIES THE TICKET IS WORK IN FLIGHT, whatever
+    // its branch is called and however old its claim (T-2138). The scan above reads
+    // branch names only, so #449 on `claude/project-thread-*` was invisible to it and
+    // T-2122's dead claim was stolen and rebuilt in full. Asked before any claim is
+    // stolen, so a dead claim whose work sits in a PR is refused rather than taken.
+    // Best-effort like the scan: an unreadable list is a note, never a stop.
+    if (!has('force')) {
+      const pulls = pullsFromFlag();
+      const open = pulls !== undefined ? pulls : restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
+      if (open === null) {
+        console.error(`  note: the open pull requests could not be read, so ${t.id} was checked against branches and its claim only`);
+      } else {
+        const { rival: carrying } = openPullsCarrying(t, open);
+        if (carrying.length) {
+          console.error(`${t.id} HAS AN OPEN PULL REQUEST already carrying it:\n`
+            + carrying.map((p) => `  PR #${p.number} on ${p.head?.ref || 'an unknown branch'}`
+              + `${(p.labels ?? []).length ? ` [${p.labels.join(', ')}]` : ''} — ${p.title}\n`
+              + `    ${REPO_URL}/pull/${p.number}`).join('\n')
+            + `\nRead it before you start. A \`resume\` PR is finished on its own branch, not rebuilt;\n`
+            + `anything else is somebody's work in flight. Take the next workable ticket:\n`
+            + `  node tools/ticket.mjs list --workable\n`
+            + `If that PR is dead, or you are coordinating with it, claim anyway:\n`
+            + `  node tools/ticket.mjs claim ${t.id} --force`);
+          process.exit(1);
+        }
+      }
+    }
     // A ticket waiting on the owner is not work yet: its question is on the board.
     if (t.decision === 'pending' && !has('force')) {
       console.error(`${t.id} is waiting on an owner decision — see its "## Decision needed" section.\n`
@@ -2920,14 +2983,7 @@ switch (cmd) {
 
     // A SPLIT MUST NOT PUT TWO RUNS ON ONE ACCEPTANCE (T-1344) — see `liveWorkOn`.
     // A rival claim or an open PR refuses, unless the splitter says why it knows better.
-    let pulls;
-    const prJson = flag('pr-json');
-    if (typeof prJson === 'string') {
-      const raw = JSON.parse(readFileSync(prJson, 'utf8'));
-      const list = Array.isArray(raw) ? raw : raw?.pulls;
-      pulls = Array.isArray(list) ? list.map(normalizePull) : null;
-    }
-    const live = liveWorkOn(t, { pulls, lockless: has('no-lock') });
+    const live = liveWorkOn(t, { pulls: pullsFromFlag(), lockless: has('no-lock') });
     for (const n of live.notes) console.error(`  note: ${n}`);
     const why = typeof flag('why') === 'string' ? flag('why').trim() : '';
     if (live.rival.length && !(has('anyway') && why)) {
@@ -3378,6 +3434,18 @@ switch (cmd) {
         if (landedIds.has(r.t.id) || hadPr.has(r.b)) continue;
         r.how = 'recoverable';
       }
+      // AN OPEN PULL REQUEST WHOSE TITLE NAMES A TICKET ITS BRANCH DOES NOT (T-2138).
+      // Every row above came from a branch name, so #449 — `T-2122: …` on
+      // `claude/project-thread-gfksyy` — printed nothing under T-2122 while it sat open
+      // with the whole fix. It is listed under its ticket by the title instead.
+      for (const [ref, pr] of openPrByRef) {
+        for (const id of prTicketIds(pr.title)) {
+          const t = tickets.find((x) => x.id === id);
+          if (!t || !WORKABLE.includes(t.state) || branchCarries(ref, id)) continue;
+          if (rows.some((r) => r.b === ref && r.t.id === id)) continue;
+          rows.push({ b: ref, t, age: branches.find((x) => x.name === ref)?.age ?? null, how: 'open_pr', byTitle: true });
+        }
+      }
     }
 
     // Live work first, then the claims that outlived the window, then work nobody can
@@ -3415,6 +3483,7 @@ switch (cmd) {
       console.log(JSON.stringify(rows.map((r) => ({
         id: r.t.id, state: r.t.state, branch: r.b, age_hours: r.age, reading: r.how,
         open_pr: openPrByRef.get(r.b)?.number ?? null,
+        by_title: !!r.byTitle,
         lap: lapOf.get(r.b)?.reading ?? null,
       })), null, 2));
       break;
@@ -3443,7 +3512,7 @@ switch (cmd) {
         const pr = openPrByRef.get(r.b);
         const labels = (pr.labels ?? []);
         console.log(`  ${r.t.id}  ${String(r.t.state).padEnd(9)} ${r.t.requested_by === 'owner' ? 'OWNER ' : '      '}${r.t.title}`);
-        console.log(`          ↳ ${r.b}   ${age(r)}`);
+        console.log(`          ↳ ${r.b}   ${age(r)}${r.byTitle ? '   (the branch names no ticket — its PR title does)' : ''}`);
         console.log(`          PR #${pr.number} is OPEN${labels.length ? ` and labelled ${labels.join(', ')}` : ''}: ${REPO_URL}/pull/${pr.number}`);
         if (labels.includes('hold')) {
           console.log(`          \`hold\` means a run PARKED it for the owner on purpose. Do not rebuild it,`);
@@ -3451,9 +3520,9 @@ switch (cmd) {
         }
         console.log('');
       }
-      console.log('The branch is older than a run, so every age reading here calls it cold — but the');
-      console.log('work is visible, somebody put it up, and deleting the branch would shut the pull');
-      console.log('request. Read the PR before you touch the ticket.\n');
+      console.log('The branch is older than a run, or names no ticket at all, so every branch reading');
+      console.log('here calls it cold or misses it — but the work is visible, somebody put it up, and');
+      console.log('deleting the branch would shut the pull request. Read the PR before you touch the ticket.\n');
     }
 
     if (lapOf.size) {
