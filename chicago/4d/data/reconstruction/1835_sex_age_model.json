@@ -12,20 +12,20 @@
   "the_bias_runs_one_way": "The forename table T-1303 derived was built mostly on this layer's men, so a woman's forename is likelier than a man's to be missing from it and to fall into the unsettled group being drawn for. Every rate here is therefore a CEILING on its roll's male share rather than a point reading, and every draw made from it leans male by an amount this pass cannot bound. Stated, not smoothed; docs/LIBERTIES.md L-rc-sex-rate.",
   "floor": 50,
   "pooled": {
-   "settled_by_the_evidence": 696,
-   "of_those_male": 648,
-   "male_rate": 0.931
+   "settled_by_the_evidence": 695,
+   "of_those_male": 647,
+   "male_rate": 0.9309
   },
   "rolls": [
    {
     "roll": "civic",
-    "settled_by_the_evidence": 208,
-    "of_those_male": 197,
-    "own_male_rate": 0.9471,
+    "settled_by_the_evidence": 207,
+    "of_those_male": 196,
+    "own_male_rate": 0.9469,
     "measured_on_its_own": true,
-    "drawn_at": 0.9471,
-    "drawn_for": 224,
-    "why": "its own 208 settled names are enough to measure it"
+    "drawn_at": 0.9469,
+    "drawn_for": 223,
+    "why": "its own 207 settled names are enough to measure it"
    },
    {
     "roll": "documented",
@@ -33,7 +33,7 @@
     "of_those_male": 14,
     "own_male_rate": 0.9333,
     "measured_on_its_own": false,
-    "drawn_at": 0.931,
+    "drawn_at": 0.9309,
     "drawn_for": 24,
     "why": "only 15 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
    },
@@ -53,7 +53,7 @@
     "of_those_male": 2,
     "own_male_rate": 1.0,
     "measured_on_its_own": false,
-    "drawn_at": 0.931,
+    "drawn_at": 0.9309,
     "drawn_for": 3,
     "why": "only 2 of its names are settled - below the floor of 50, so it draws at the pooled rate of every roll"
    },
@@ -334,7 +334,7 @@
  "counts": {
   "sex_drawn": {
    "letter_list": 408,
-   "civic": 224,
+   "civic": 223,
    "documented": 24,
    "placed": 3,
    "unclaimed": 5
@@ -343,14 +343,14 @@
    "a_group_not_a_person": 6
   },
   "sex_already": {
-   "civic": 286,
+   "civic": 285,
    "unclaimed": 97,
    "letter_list": 372,
    "documented": 15,
    "placed": 2
   },
   "age_drawn": {
-   "named_on_a_roll_15_and_over": 1137,
+   "named_on_a_roll_15_and_over": 1135,
    "civic_list_20_and_over": 194,
    "dependent_child_under_15": 44
   },
@@ -364,12 +364,12 @@
    "a_married_style_over_a_kinship_word": 1
   },
   "drawn_sex_is": {
-   "male": 623,
+   "male": 622,
    "female": 41
   },
   "drawn_band_is": {
-   "20-29": 659,
-   "30-39": 364,
+   "20-29": 658,
+   "30-39": 363,
    "15-19": 117,
    "40-49": 124,
    "50-59": 42,

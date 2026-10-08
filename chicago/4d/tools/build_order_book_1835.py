@@ -168,8 +168,12 @@ HOUSEHOLD_TYPES = (
 # several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
 # wants, and 1,244 present head records with no reading about a dwelling to form them
 # around. That is T-2188's.
+# SWEPT AGAIN ON T-2188's SPLIT (2026-10-08, ported by T-2190 so its gate stops reading a
+# split owner): the family dwellings go to T-2193, which counts the ones the town already
+# forms around held heads, and the store residences to T-2194.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2188"
+FAMILY_HOUSEHOLD_OWNER = "T-2193"
+STORE_RESIDENCE_OWNER = "T-2194"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -284,7 +288,7 @@ ROSTER_TICKETS = {
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
     ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
-    ("store_residence", "stores_mixed_use", FAMILY_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", STORE_RESIDENCE_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -502,7 +506,10 @@ STRUCTURE_TICKETS = {
     # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
     # schedule re-apportions to blk_washington_market once those three stand, the one on
     # the gated blk_south_water_market, and three the plan holds no roof for at all.
-    ("south", "larger_boarding_houses"): "T-1957",
+    # T-1957 SPLIT on 2026-10-08 (ported by T-2190 so its gate stops reading a split
+    # owner): T-2195 cuts the Market wedge into lots and T-2196 raises the South's two owed
+    # boarding houses on them, so the cell moves to T-2196.
+    ("south", "larger_boarding_houses"): "T-2196",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -3828,7 +3835,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_HOUSEHOLD_OWNER)
+    p_1171 = owed(persons, FAMILY_OWNER)
+    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]

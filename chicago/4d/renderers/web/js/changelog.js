@@ -1,8 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1549, ts: '2026-10-08T22:13:37.536Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
       'The paper\u2019s \u201cMiss\u201d now sets her card to female, quoting the column. She is seated in his house as his wife, in place of the invented one, and the house card quotes the marriage notice. His six children are still reconstructed, not named by any source, and are unchanged.',
+    ] },
+  { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
+    items: [
+      'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
+      'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
+    ] },
+  { v: 1549, ts: '2026-10-08T21:10:13.013Z', date: 'Oct 8, 2026, 4:10 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+    items: [
+      'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
+      'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
+      'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
     ] },
   { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [

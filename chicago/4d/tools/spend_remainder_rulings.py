@@ -282,43 +282,6 @@ RULES = {
             "cards, so a presence that moves out from under one of these rulings turns the "
             "gate red."),
     },
-    "the_enrichment_names_kin_no_field_carries": {
-        "disposition": "unresolved",
-        # WAS T-1170 UNTIL T-1313 CLOSED ON 2026-09-18. That ticket was SPLIT into
-        # T-1312 (read and rule the named relatives), T-1313 (seat them) and T-1314
-        # (reconstruct the ones only counted), and with the last of the three done the
-        # parent is spent work — a unit deferred to it is stranded exactly as it would
-        # be behind a closed ticket (T-1237). The three children do not cover these
-        # units: they answered the relatives who are NOBODY in this dataset, and each
-        # of these names a relative who is HERSELF A HELD RESIDENT — Josette as Jean
-        # Baptiste Beaubien's wife, Catherine Chevalier as Robinson's. That is a tie
-        # between two cards rather than a person to seat, which was T-1320.
-        #
-        # AND IT MOVED AGAIN TO T-1335 ON 2026-09-18, for the same reason one step out.
-        # T-1320 is scoped to the BOOK corpus by its own title — the ties whose relative
-        # is ALSO a held resident, and the book-corpus relatives who are nobody here —
-        # and the retarget above pointed ALL FOUR domains at it, which it never covered.
-        # Its pass (tools/spend_book_kin.py, PR #1464) did the book job and the ticket
-        # closed, stranding 168 units: 147 church, 12 newspapers, 7 residents, and 2 book
-        # units its own pass left unruled. T-1335 is the family pass proper and owns all
-        # of them. This is the T-1237 rule reached from the other side — not a split
-        # parent going quiet, but a handoff aimed at a ticket narrower than the line
-        # pointing at it.
-        "ticket": "T-1335",
-        "statement": (
-            "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
-            "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
-            "extends the card and that no exact source-bearing structured field on that card "
-            "carries today. It is not refused, because it is true research; it is not written here, "
-            "because writing one attribute at a time, out of one pass and without the other sources "
-            "beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them "
-            "one at a time and handed each to the OPEN ticket whose acceptance owns the kind of "
-            "fact it names; this unit's own note says which field that is. This one names KIN -- a "
-            "spouse, a marriage, a child, a parent or a household the source distinguishes -- and "
-            "T-1170 is the pass that gives the attested and inferred heads the families the sources "
-            "name."
-            " THE HANDOFF WAS T-1170, THEN T-1320, AND IS T-1335 SINCE 2026-09-18: T-1170's split is spent, and T-1320 is scoped to the BOOK corpus by its own title, so it never covered this domain. T-1335 is the family pass proper."),
-    },
     "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": {
         "disposition": "unresolved",
         # AND T-1189 IS SPENT SINCE 2026-09-25, so the pointer moves a third time. This is
@@ -571,70 +534,6 @@ RULES = {
             "named T-1172, the ticket that re-admits the roster's single-source names, "
             "because T-1159 closes with the roster it builds." + HANDED_ON),
     },
-    "the_family_column_names_kin": {
-        "disposition": "unresolved",
-        # WAS T-1170 UNTIL T-1313 CLOSED ON 2026-09-18. That ticket was SPLIT into
-        # T-1312 (read and rule the named relatives), T-1313 (seat them) and T-1314
-        # (reconstruct the ones only counted), and with the last of the three done the
-        # parent is spent work — a unit deferred to it is stranded exactly as it would
-        # be behind a closed ticket (T-1237). The three children do not cover these
-        # units: they answered the relatives who are NOBODY in this dataset, and each
-        # of these names a relative who is HERSELF A HELD RESIDENT — Josette as Jean
-        # Baptiste Beaubien's wife, Catherine Chevalier as Robinson's. That is a tie
-        # between two cards rather than a person to seat, which was T-1320.
-        #
-        # AND IT MOVED AGAIN TO T-1335 ON 2026-09-18, for the same reason one step out.
-        # T-1320 is scoped to the BOOK corpus by its own title — the ties whose relative
-        # is ALSO a held resident, and the book-corpus relatives who are nobody here —
-        # and the retarget above pointed ALL FOUR domains at it, which it never covered.
-        # Its pass (tools/spend_book_kin.py, PR #1464) did the book job and the ticket
-        # closed, stranding 168 units: 147 church, 12 newspapers, 7 residents, and 2 book
-        # units its own pass left unruled. T-1335 is the family pass proper and owns all
-        # of them. This is the T-1237 rule reached from the other side — not a split
-        # parent going quiet, but a handoff aimed at a ticket narrower than the line
-        # pointing at it.
-        "ticket": "T-1335",
-        "statement": (
-            "The unit is the paper's own MARRIED or DIED column, printed under that "
-            "heading: it names a bride and a groom, or a decedent and the survivor they "
-            "are named by, and the magistrate or minister who officiated. A marriage names "
-            "a spouse and creates nobody; T-1170 gives the attested and inferred heads the "
-            "families the sources name, from exactly these ruled kin ties. No household "
-            "member is minted here and no kin tie is written here."
-            " THE HANDOFF WAS T-1170, THEN T-1320, AND IS T-1335 SINCE 2026-09-18: T-1170's split is spent, and T-1320 is scoped to the BOOK corpus by its own title, so it never covered this domain. T-1335 is the family pass proper."),
-    },
-    "the_register_entry_names_kin": {
-        "disposition": "unresolved",
-        # WAS T-1170 UNTIL T-1313 CLOSED ON 2026-09-18. That ticket was SPLIT into
-        # T-1312 (read and rule the named relatives), T-1313 (seat them) and T-1314
-        # (reconstruct the ones only counted), and with the last of the three done the
-        # parent is spent work — a unit deferred to it is stranded exactly as it would
-        # be behind a closed ticket (T-1237). The three children do not cover these
-        # units: they answered the relatives who are NOBODY in this dataset, and each
-        # of these names a relative who is HERSELF A HELD RESIDENT — Josette as Jean
-        # Baptiste Beaubien's wife, Catherine Chevalier as Robinson's. That is a tie
-        # between two cards rather than a person to seat, which was T-1320.
-        #
-        # AND IT MOVED AGAIN TO T-1335 ON 2026-09-18, for the same reason one step out.
-        # T-1320 is scoped to the BOOK corpus by its own title — the ties whose relative
-        # is ALSO a held resident, and the book-corpus relatives who are nobody here —
-        # and the retarget above pointed ALL FOUR domains at it, which it never covered.
-        # Its pass (tools/spend_book_kin.py, PR #1464) did the book job and the ticket
-        # closed, stranding 168 units: 147 church, 12 newspapers, 7 residents, and 2 book
-        # units its own pass left unruled. T-1335 is the family pass proper and owns all
-        # of them. This is the T-1237 rule reached from the other side — not a split
-        # parent going quiet, but a handoff aimed at a ticket narrower than the line
-        # pointing at it.
-        "ticket": "T-1335",
-        "statement": (
-            "The entry's own `cells.role` puts this person in the KIN of a dated "
-            "sacrament at Chicago -- the child, the father, the mother, the groom, the "
-            "bride, the spouse or the decedent of a baptism, a marriage or a death. "
-            "T-1170's field is the spouses, children, kin and dependants the baptism and "
-            "marriage registers name. The tie is handed on whole; nobody is minted, no "
-            "household is edited, and the entry's `confidence` is untouched."
-            " THE HANDOFF WAS T-1170, THEN T-1320, AND IS T-1335 SINCE 2026-09-18: T-1170's split is spent, and T-1320 is scoped to the BOOK corpus by its own title, so it never covered this domain. T-1335 is the family pass proper."),
-    },
     # ---- T-1343: THE PRESS APPEARANCES THE REGISTER COULD NOT IDENTIFY ---------------
     #
     # `a_dated_appearance_bounds_a_presence` STOOD HERE AND HANDED 147 PRESS UNITS ON, for
@@ -787,6 +686,16 @@ from spend_trade_premises import (BOUNDED as TRADE_BOUNDED,  # noqa: E402
 
 RULES.update(TRADE_RULES)
 
+# T-1335: THE FAMILY PASS RULES THE KIN, and these three corpora's kin units close under its
+# rules. Three hand-off rules stood here -- `the_register_entry_names_kin`,
+# `the_family_column_names_kin`, `the_enrichment_names_kin_no_field_carries` -- pointing
+# every kin unit at "T-1170's field" through T-1320 and then T-1335, for 168 units. They
+# are gone because the pass ran: tools/spend_family_pass.py derives the church verdicts
+# from the register and the cards, and reads the papers', the enrichments' and the books'
+# out of data/research/family_pass_rulings.json, authored one unit at a time.
+import spend_family_pass as FAMILY  # noqa: E402
+RULES.update({k: v for k, v in FAMILY.RULES.items() if k not in FAMILY.BOOK_ONLY})
+
 
 def read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -836,7 +745,9 @@ AGE = "the_enrichment_names_a_birth_or_age_no_field_carries"
 WRITTEN = "the_enrichment_is_written_onto_the_card_it_names"
 CARRIED = "the_enrichment_dates_an_appearance_the_card_already_carries"
 DEPARTURE = "the_enrichment_names_a_departure_from_chicago_no_field_carries"
-KIN = "the_enrichment_names_kin_no_field_carries"
+# KIN IS A ROUTING MARKER AND NO LONGER A RULE (T-1335): the family pass reads each of
+# these and rules it, in data/research/family_pass_rulings.json.
+KIN = "routed_to_the_family_pass"
 # TRADE IS A ROUTING MARKER AND NO LONGER A RULE. The rule a trade enrichment falls
 # under is decided by tools/spend_trade_premises.py, which reads the card; this
 # constant only says which of the 96 enrichments go to it (T-1469).
@@ -1002,6 +913,10 @@ def rule_residents(unit: dict, finding: dict | None, preamble: str) -> tuple[str
         # found, and its note prints the finding beside the field that answers it.
         from spend_trade_premises import carrier_sentence, rule_for
         return (rule_for(key), carrier_sentence(key))
+    if rule == KIN:
+        return FAMILY.authored_rule(
+            unit, f"The pass on {unit['source_record_id']} returned: “{summary}” "
+                  f"Sources as recorded: {clip(sources, 180)}. T-1301 reads that as {field}.")
     if rule == LAND:
         # A SPENT UNIT'S NOTE SAYS WHERE IT WENT, not which ticket it was routed to
         # (T-1588). The routing sentence below was right while these two were waiting;
@@ -1129,8 +1044,8 @@ def rule_newspapers(unit: dict, printed: str | None,
             "still arrives here, no business record claims it, which is T-1468's.")
     if kind == "person":
         if FAMILY_COLUMN.match(str(row.get("normalized") or "")):
-            return ("the_family_column_names_kin",
-                    f"{where}: the family column of {printed} reads: “{line}”")
+            return FAMILY.authored_rule(
+                unit, f"{where}: the family column of {printed} reads: “{line}”")
         return press_appearance_rule(
             unit, cache,
             f"{where}: a person notice of {printed} naming "
@@ -1239,9 +1154,8 @@ def rule_church(unit: dict, cache: dict | None = None) -> tuple[str, str]:
                 f"“{clip((row.get('cells') or {}).get('entry_as_printed') or row.get('as_read'), 140)}”")
     role = str((row.get("cells") or {}).get("role") or "")
     if role in KIN_ROLES:
-        return ("the_register_entry_names_kin",
-                f"{where}: {clip(row.get('normalized'), 80)} is the {role} of a register entry "
-                f"dated {dated} at Chicago. {clip(row.get('notes'), 160)}")
+        rule, note = FAMILY.church_rule(unit)
+        return rule, f"{where}: {note}"
     ruled = church_identification(str(row.get("id") or ""), cache)
     if role in ATTENDANCE_ROLES:
         seen = (f"{clip(row.get('normalized'), 80)} stands as {role} at a register entry "
@@ -1620,10 +1534,17 @@ def self_test() -> int:
         failures.append("the probe on a firm notice raised instead of answering — "
                         "spend_press_bounds asks this of every unit and cannot be refused")
         print("  FAIL: the probe on a firm notice raised instead of answering")
-    held("the married column",
-         {**paper, "record": {**paper["record"], "kind": "person",
-                              "normalized": "MARRIED, In this town, on the 12th inst."}},
-         "the_family_column_names_kin", fn=lambda u: rule_newspapers(u, "1834-01-07"))
+    # T-1335: A FAMILY COLUMN NOBODY HAS READ IS NOT ROUTED BY DEFAULT. The family pass
+    # rules each one by hand, so a column it has no ruling for has to stop the build.
+    try:
+        rule_newspapers({**paper, "unit_id": "newspapers:x#c_unread",
+                         "record": {**paper["record"], "kind": "person",
+                                    "normalized": "MARRIED, In this town, on the 12th inst."}},
+                        "1834-01-07")
+        failures.append("an unread family column was ruled by default")
+        print("  FAIL: an unread family column was ruled by default")
+    except SystemExit:
+        print("  ok:   an unread family column stops the build rather than taking a rule")
     # T-1343: A PRESS APPEARANCE'S RULE IS THE REGISTER'S ANSWER, so these fixtures carry a
     # pre-seeded register index rather than reading the committed one — the point of each
     # case is the MAPPING, and a fixture standing on a real claim would move the day the
@@ -1687,8 +1608,10 @@ def self_test() -> int:
         held(label, {**church, "record": row}, want,
              fn=lambda u: rule_church(u, church_cache))
 
-    held("a register child", church, "the_register_entry_names_kin",
-         fn=lambda u: rule_church(u, church_cache))
+    held("a register child named alone on its line",
+         {"source_file": "data/research/church/records/st_marys_baptisms_1833_1835.json",
+          "record": {**church["record"], "locator": {"year_series": 1833, "entry": "none"}}},
+         "the_register_entry_names_no_relative", fn=lambda u: rule_church(u, church_cache))
     churched("a sponsor the crosswalk merged", "merged", None,
              cells={"role": "godmother"})
     churched("a sponsor the town does not hold", "no_candidate",
@@ -1809,15 +1732,19 @@ def self_test() -> int:
     # so the seven rules are held over the units they actually rule rather than over a
     # synthetic id that would route by default -- which this tool no longer allows.
     def enrichment(pass_no, person):
+        # The real unit id rides along, because the family pass looks its ruling up by it.
         return {"source_file": f"data/research/residents/pass_{pass_no}_x_cohort.json",
-                "source_record_id": person}
+                "source_record_id": person,
+                "unit_id": f"residents:data/research/residents/pass_{pass_no}_75_cohort.json"
+                           f"#people/{person}"}
 
     for label, pass_no, person, want in (
             ("a birth date", "04", "kimberly_edmund_s", "the_enrichment_names_a_birth_or_age_no_field_carries"),
             ("an arrival the card already carries", "04", "norton_nelson_r", "the_enrichment_dates_an_appearance_the_card_already_carries"),
             ("an arrival written onto the card", "02", "peck_philip", "the_enrichment_is_written_onto_the_card_it_names"),
             ("a departure", "04", "sweet_alanson", "the_enrichment_names_a_departure_from_chicago_no_field_carries"),
-            ("a marriage", "08", "hobson_jesse", "the_enrichment_names_kin_no_field_carries"),
+            ("a marriage", "08", "hobson_jesse",
+             "the_family_pass_finds_the_relative_is_nobody_this_town_holds"),
             # T-1469: one probe per outcome the trade pass can reach, because the rule a
             # trade enrichment falls under is now a reading of the card rather than a
             # constant, and a router that collapsed them all to one would look fine here.
