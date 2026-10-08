@@ -1,4 +1,7 @@
 export const CHANGELOG = [ // newest first
+  { v: 1528, ts: '2026-10-08T09:53:48.499Z', date: 'Oct 8, 2026, 4:53 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
+    items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
+      'The corrected curve is labelled reconstructed: early maps support a continuous shore, but do not establish its exact outline.'] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',

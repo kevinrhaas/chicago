@@ -1,3 +1,12 @@
+## T-2171 — continuous 1812 lake shore (2026-10-08)
+
+The unsupported notch at the sand-spit attachment is replaced by a smooth,
+continuous lake face. The river-side bend, lower spit and southern outlet keep
+their coordinates. The curve is explicitly reconstructed (L403), based on the
+map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
+1812 checks pass with zero page errors or failed requests. The PR records the final
+repository and smoke gates; docs/measurements/t2171 holds the visual proof.
+
 ## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
 
 **What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in

@@ -19,6 +19,25 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# T-2171 TEMPORARY BRANCH-ONLY TRANSFER RECEIPT; removed before dev merge.
+# The connector cannot send the 30 MB master in one call. This lossless package
+# carries the local pinned Blender output; verify its bytes, then run the full
+# gate. The existing CI workflow pushes the resulting ordinary terrain blob.
+if [ -f tools/t2171-terrain.glb.xz ]; then
+  python3 - <<'PYTRANSFER'
+from pathlib import Path
+import hashlib, json, lzma
+raw = lzma.decompress(Path('tools/t2171-terrain.glb.xz').read_bytes())
+expected = '7355878e618d7ed37dcbd65fab5c99fe64c9599b6c83ba2066e683d1465e48cf'
+assert hashlib.sha256(raw).hexdigest() == expected, 'terrain transfer corrupted'
+assert json.loads(Path('assets/manifest.web.json').read_text())['masters']['terrain__e1830_natural.glb'] == expected
+Path('assets/gltf/terrain__e1830_natural.glb').write_bytes(raw)
+print('T-2171: recovered the exact locally baked terrain master')
+PYTRANSFER
+  tools/check.sh
+  exit 0
+fi
+
 # shellcheck disable=SC1091
 source generators/blender.pin
 
