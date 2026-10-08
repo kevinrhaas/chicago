@@ -1,8 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1544, ts: '2026-10-08T18:30:41.261Z', date: 'Oct 8, 2026, 1:30 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
+  { v: null, ts: '', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [
       'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
       'The 34 fathers and godfathers in the register now show a sex read from their place in the entry, with the register cited, instead of one drawn at random. The register\u2019s mothers and godmothers come next, because several were given an invented wife when they were guessed male.',
+    ] },
+  { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated check that walks into the town now waits for the welcome screen before stepping in, so a slow test machine no longer reports the version label as missing when it was there all along.',
     ] },
   { v: 1543, ts: '2026-10-08T17:49:39.051Z', date: 'Oct 8, 2026, 12:49 PM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
