@@ -79,6 +79,74 @@ opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no ro
   622. Still owed: one more keeper walk (the closing `rederive --run` moved the seating once more),
   the redeal / block-remedies / roof-id / Newberry steps, the order-book seated pin, the bake of the
   meshes the keeper cascade staled, then check.sh and smoke part 1.
+## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
+
+**What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in
+`data/reconstruction/1835_platted_block_parcels.json` behind houses earlier deals raised: an A1
+stable on `blk_indiana_north_wolcott` lot 9, an A2 barn or carriage shed on
+`blk_south_water_wells` lot 5, an A5 smokehouse on `blk_south_water_dearborn` lot 1. Baked
+(`tools/bake.sh --only`), L401 records them. Order book: North `barns_stables` 12/17 (5 owed),
+South `barns_stables` 34/35 (the last is T-2147's block 81), South `small_outbuildings` 48/48.
+
+**What it found (T-1692's question, half answered).** The schedule places the North's whole
+remainder — an A1 and five A2 — on the Wolcott block because it is the North's only platted block
+with ancillary room. That room is counted in roofs, not ground: its lots are 14.71 × 31.33 m, each
+cottage lot already keeps a woodshed or privy, and the generator's 1.5 m lot margin and 3.0 m
+separation leave 4.85-5.55 m beside it, narrower than any A2 (5.49 m at the band's floor; the
+recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this deal: North 31 yard
+roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
+divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
+split: T-2165 is this, and T-2166 — split again the same day — went to T-2167 (the West's four
+on blk_washington_clinton) and T-2168, itself split into T-2169 (the West's last three) and T-2170 (the North's five barns
+and the re-budget question). The order book's yard rows now name T-2170 (North), T-2169 (West)
+and T-2147 (the South's last barn, on its block 81); the South's civic row names T-2170.
+
+**Unverified.** The positions are invented on generated lots (L401); no source seats any of the
+three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
+move one School Section request's family (blk 94, D5 to D4), which T-2146's open PR will meet.
+
+## T-2157 — courtyard dining-tower roof connection (2026-10-08)
+
+The copper hip now ends over the bay shoulders and meets a raised, tiled cross
+ridge carrying the same terracotta collars as the north wing. The host eave is
+continuous; only the exact triangular valley intersection is removed. Copper
+and tile share the flared apron profile. Existing materials and the northeast
+courtyard copper return are retained. This is a declared reconstruction from
+the owner reference, bounded by the existing HABS-derived plan and roof heights.
+
+Validation: 1,200 independent courtyard roof rays prove one roof surface in the
+former cut, never below the original host plane; 1,800 stable-roof samples also
+pass. The canonical bake, full/light derivatives and recovery package are rebuilt.
+Desktop/full and mobile/light load the actual 1904 scene without page, resource
+or loader errors, and remain within the existing draw/triangle budgets. Review
+images and measurements: `docs/RESEARCH/glessner-courtyard-roof-2157/`.
+
+## T-2167 — four more yard buildings behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2166, itself piece 2 of T-2156 (the yard-building roofs built or re-budgeted,
+priced against the dwellings, T-1692). T-2168 keeps the rest: the North's five A2 barns no
+Wolcott lot can hold and the West's three yard roofs still on
+`west_division_beyond_committed_control`.
+
+- **Visible.** `blk_washington_clinton` (plat block 50) gains four yard buildings from a second
+  recipe entry (`phase3_platted_block_washington_clinton_yard_deal`, `seq_start` 14): a woodshed
+  (A4) beside the barn in the D5's yard on plat lot 5, a barn or carriage shed (A2) beside the
+  woodshed in the D4's yard on plat lot 8, and a privy (A3) and smokehouse (A5) mid-yard, 20 m off
+  the alley, behind the H2 and the H3, whose yards already kept two outbuildings each. Baked
+  (`bake.sh --only`, web derivatives). **L402**; L263 624 → 628.
+- **Schedule.** The 668-roof schedule gave this block `ancillary_room` 4 after T-2148's deal; the
+  order book's West `barns_stables` reads 1 owed and `small_outbuildings` 2 owed after it (the
+  three on the balance). The yard layer's drawn privy on lot 5 gives way to the standing one.
+- **The entry must say `frontage_argued_on: west_division_thompson_1830`.** Without it
+  `generate_plat_lots` reads the block as dealt on the South module's faces and holds it off the
+  West arrangement, re-cutting the lots under T-2148's thirteen roofs. The first run of this deal
+  did exactly that; the field is now on the entry.
+- **Owners moved.** `build_order_book_1835.OWNERS`: the South's barn and outbuilding rows →
+  T-2165 (building them), the North's and West's → T-2168; T-2156 and T-2166 are split.
+- **Seating.** No household moves onto a yard building. One slot request re-families D5 → D4 as
+  the schedule re-apportions. `measure_generator_half` 664 → 668 / 658 → 662; entrances, alley
+  lanes, redeal, land tracts, street-face adoptions, register, profile, hay limits and the
+  Newberry parse re-derived.
 
 ## T-2154 — Evidence → City sets the town against the November census: dwellings standing, and the people split (2026-10-08)
 

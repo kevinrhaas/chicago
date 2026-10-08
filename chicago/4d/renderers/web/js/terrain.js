@@ -952,14 +952,33 @@ function tileGround(mesh, grid) {
   const tiles = [];
   const built = [...buckets.entries()].sort((x, y) => x[0] - y[0]);
   if (thin.length) built.push(['thin', thin]);
+  // T-2158: an indexed ground stays indexed in its tiles. Copying three vertices
+  // per triangle made each tile about six times the vertices the grid shares —
+  // 98 MB of ground, held once in the page and again on the GPU, which is what a
+  // phone ran out of. A tile's corners are the source's own vertices, renumbered,
+  // so every triangle reads exactly the values it read before.
+  const local = index ? new Int32Array(pos.count).fill(-1) : null;
   for (const [key, verts] of built) {
     const tileGeo = new THREE.BufferGeometry();
+    let picks = verts;
+    if (local) {
+      picks = [];
+      const tileIndex = new Uint32Array(verts.length);
+      for (let i = 0; i < verts.length; i++) {
+        const v = verts[i];
+        if (local[v] < 0) { local[v] = picks.length; picks.push(v); }
+        tileIndex[i] = local[v];
+      }
+      for (const v of picks) local[v] = -1;
+      tileGeo.setIndex(new THREE.BufferAttribute(
+        picks.length <= 65535 ? Uint16Array.from(tileIndex) : tileIndex, 1));
+    }
     for (const name of names) {
       const src = geo.attributes[name];
       const size = src.itemSize;
-      const out = new Float32Array(verts.length * size);
-      for (let i = 0; i < verts.length; i++) {
-        const v = verts[i];
+      const out = new Float32Array(picks.length * size);
+      for (let i = 0; i < picks.length; i++) {
+        const v = picks[i];
         for (let k = 0; k < size; k++) out[i * size + k] = src.array[v * size + k];
       }
       tileGeo.setAttribute(name, new THREE.BufferAttribute(out, size));

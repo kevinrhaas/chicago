@@ -184,9 +184,14 @@ const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
  * `push` (of one to three values) and `length` (T-2152). The buffers were JS
  * number arrays, and growing a town's worth of them by doubling copied about a
  * gigabyte through the heap while the walks were laid — garbage that held a
- * phone's heap near 500 MB mid-load. The store is 64-bit, so every value is the
- * same double the plain array held and the Float32 attribute it becomes is
- * unchanged to the bit; `plainTimber` hands a harness the plain arrays back.
+ * phone's heap near 500 MB mid-load. `plainTimber` hands a harness the plain
+ * arrays back.
+ *
+ * T-2158: the store is 32-bit, the width of the attribute it becomes, so the
+ * geometry is built straight from it (`float32()`) rather than copied out of a
+ * 64-bit store twice its size — a town's walks held about 290 MB of 64-bit
+ * scratch at once while they were laid. Each value is rounded to float32 when
+ * it is pushed instead of when it is uploaded, which is the same rounding.
  */
 class Grow {
   constructor(Type) { this.Type = Type; this.a = new Type(1024); this.length = 0; }
@@ -211,12 +216,24 @@ class Grow {
 
   /** The values pushed, as a view onto the store (no copy). */
   view() { return this.a.subarray(0, this.length); }
+
+  /** The values pushed as an exactly sized Float32Array, handed over: the
+   *  store itself when it is already that, so nothing is copied twice. */
+  float32() {
+    const a = this.a;
+    const out = a instanceof Float32Array
+      ? (a.length === this.length ? a : a.slice(0, this.length))
+      : Float32Array.from(this.view());
+    this.a = out;
+    return out;
+  }
 }
 
-/** An empty timber buffer: positions, normals, confidence and colour. */
-const timberBuf = () => ({ pos: new Grow(Float64Array), nrm: new Grow(Float64Array),
-  conf: new Grow(Float64Array), col: new Grow(Float64Array), uv: new Grow(Float64Array),
-  seam: new Grow(Float64Array), walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
+/** An empty timber buffer: positions, normals, confidence and colour. A check
+ *  that asserts the builders' arithmetic below float32 asks for Float64Array. */
+const timberBuf = (Type = Float32Array) => ({ pos: new Grow(Type), nrm: new Grow(Type),
+  conf: new Grow(Type), col: new Grow(Type), uv: new Grow(Type),
+  seam: new Grow(Type), walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
 
 /** The streams of a built buffer as plain arrays, for a check that indexes them. */
 function plainTimber(buf) {
@@ -1879,11 +1896,11 @@ export async function createFrontage({
   }
 
   const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos.view(), 3));
-  geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm.view(), 3));
-  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf.view(), 1));
-  geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col.view(), 3));
-  geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv.view(), 2));
+  geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
+  geo.setAttribute('normal', new THREE.BufferAttribute(buf.nrm.float32(), 3));
+  geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
+  geo.setAttribute('color', new THREE.BufferAttribute(buf.col.float32(), 3));
+  geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
   geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
   geo.computeBoundingSphere();
   releaseTimberBuf(buf);
@@ -1978,11 +1995,11 @@ export async function createFrontage({
   const walkTopSources = [{ mesh, ranges: buf.walkTopRanges }];
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
-    cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos.view(), 3));
-    cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm.view(), 3));
-    cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf.view(), 1));
-    cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col.view(), 3));
-    cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv.view(), 2));
+    cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
+    cgeo.setAttribute('normal', new THREE.BufferAttribute(chunk.buf.nrm.float32(), 3));
+    cgeo.setAttribute('_confidence', new THREE.BufferAttribute(chunk.buf.conf.float32(), 1));
+    cgeo.setAttribute('color', new THREE.BufferAttribute(chunk.buf.col.float32(), 3));
+    cgeo.setAttribute('uv', new THREE.BufferAttribute(chunk.buf.uv.float32(), 2));
     cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();
     releaseTimberBuf(chunk.buf);

@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 352,
-  "outside": 298,
+  "inside": 354,
+  "outside": 290,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 61,
-   "west_of_canal_street": 96,
-   "south_of_washington_street": 112,
+   "north_of_the_limit": 62,
+   "west_of_canal_street": 100,
+   "south_of_washington_street": 99,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -374,6 +374,7 @@
     "recon_1835_blk_indiana_north_cass_d4_05",
     "recon_1835_blk_indiana_north_cass_d4_06",
     "recon_1835_blk_indiana_north_cass_h3_09",
+    "recon_1835_blk_indiana_north_wolcott_a1_09",
     "recon_1835_blk_indiana_north_wolcott_a3_04",
     "recon_1835_blk_indiana_north_wolcott_a3_08",
     "recon_1835_blk_indiana_north_wolcott_a4_03",
@@ -447,10 +448,14 @@
     "recon_1835_blk_washington_clinton_a2_08",
     "recon_1835_blk_washington_clinton_a2_10",
     "recon_1835_blk_washington_clinton_a2_12",
+    "recon_1835_blk_washington_clinton_a2_15",
+    "recon_1835_blk_washington_clinton_a3_16",
     "recon_1835_blk_washington_clinton_a4_09",
     "recon_1835_blk_washington_clinton_a4_11",
+    "recon_1835_blk_washington_clinton_a4_14",
     "recon_1835_blk_washington_clinton_a5_07",
     "recon_1835_blk_washington_clinton_a5_13",
+    "recon_1835_blk_washington_clinton_a5_17",
     "recon_1835_blk_washington_clinton_d4_04",
     "recon_1835_blk_washington_clinton_d5_03",
     "recon_1835_blk_washington_clinton_h1_05",
@@ -533,19 +538,6 @@
     "recon_1835_blk_school_section_tier_119_d5_06",
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07",
-    "recon_1835_blk_school_section_tier_94_d3_05",
-    "recon_1835_blk_school_section_tier_94_d4_04",
-    "recon_1835_blk_school_section_tier_94_d5_01",
-    "recon_1835_blk_school_section_tier_94_d5_02",
-    "recon_1835_blk_school_section_tier_94_d5_03",
-    "recon_1835_blk_school_section_tier_94_d7_07",
-    "recon_1835_blk_school_section_tier_94_h1_06",
-    "recon_1835_blk_school_section_tier_95_d2_05",
-    "recon_1835_blk_school_section_tier_95_d4_03",
-    "recon_1835_blk_school_section_tier_95_d4_04",
-    "recon_1835_blk_school_section_tier_95_d5_01",
-    "recon_1835_blk_school_section_tier_95_d5_02",
-    "recon_1835_blk_school_section_tier_95_d6_06",
     "recon_1835_blk_washington_clark_a1_07",
     "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a1_12",
@@ -645,12 +637,12 @@
   "blocks_with_four_bounding_streets": 72,
   "inside_the_limit": 24,
   "outside_the_limit": 48,
-  "scheduling_roofs_outside_the_limit": 4,
+  "scheduling_roofs_outside_the_limit": 5,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_washington_clinton",
     "state": "open",
-    "roofs_scheduled": 4,
+    "roofs_scheduled": 3,
     "centre_local_enu_m": [
      -212.22,
      -452.55
@@ -660,7 +652,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -670,7 +662,7 @@
    {
     "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      139.86,
      -587.44
@@ -678,9 +670,19 @@
     "inside_the_limit": false
    },
    {
+    "id": "blk_school_section_tier_94",
+    "state": "open",
+    "roofs_scheduled": 7,
+    "centre_local_enu_m": [
+     279.89,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
     "id": "blk_school_section_tier_95",
     "state": "open",
-    "roofs_scheduled": 1,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      408.24,
      -587.44
@@ -712,7 +714,7 @@
    {
     "id": "blk_washington_clinton",
     "state": "open",
-    "roofs_scheduled": 4,
+    "roofs_scheduled": 3,
     "centre_local_enu_m": [
      -212.22,
      -452.55
@@ -972,7 +974,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -1112,7 +1114,7 @@
    {
     "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      139.86,
      -587.44
@@ -1121,8 +1123,8 @@
    },
    {
     "id": "blk_school_section_tier_94",
-    "state": "at_capacity",
-    "roofs_scheduled": 0,
+    "state": "open",
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      279.89,
      -587.44
@@ -1132,7 +1134,7 @@
    {
     "id": "blk_school_section_tier_95",
     "state": "open",
-    "roofs_scheduled": 1,
+    "roofs_scheduled": 7,
     "centre_local_enu_m": [
      408.24,
      -587.44
@@ -1289,7 +1291,7 @@
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
     "state": "complete",
-    "roofs": 3
+    "roofs": 0
    },
    {
     "id": "north_division_beyond_modelled_ground",

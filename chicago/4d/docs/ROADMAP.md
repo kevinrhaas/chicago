@@ -5162,3 +5162,12 @@ north courtyard eave. See RESEARCH/glessner-south-gable/work.md for evidence and
 Owner repair, 2026-10-02. Implementation and comparisons are recorded in
 [the elevation dossier](RESEARCH/glessner-elevation-rebuild/work.md).
 Operational state is in chicago-tickets/T-1999.
+
+
+## T-2157 — courtyard dining roof continuation
+
+The owner-requested correction replaces the T-2016 rectangular recessed return
+with an intersecting tiled cross roof. Its copper hip ends over the bay, and the
+level ridge meets the north wing with matching terracotta collars. See
+`docs/RESEARCH/glessner-courtyard-roof-2157/README.md` for scope and validation,
+and `docs/LIBERTIES.md` for the reconstructed dimensions. Work state is in T-2157.

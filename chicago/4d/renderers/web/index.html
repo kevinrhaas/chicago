@@ -61,10 +61,46 @@
   <div class="gate-card">
     <p class="gate-eyebrow">4D Chicago · Arrival</p>
     <h1 id="gate-title" tabindex="-1">Preparing your arrival</h1>
+    <!-- T-2164: the arrival as a portable machine — the front door's console in a
+         handheld case. Every row below is a fixed height, so the device never grows or
+         shrinks as statuses cycle. The year window, lamps, log and readout are
+         presentation over the real boot (arrival.js); only #arrival-card speaks. -->
     <div class="arrival-instrument">
-      <p class="arrival-label">Year</p>
-      <div id="arrival-year" class="arrival-year" aria-hidden="true">—</div>
-      <p id="arrival-card" class="arrival-card" aria-live="polite">Drawing on previously researched sources</p>
+      <div class="arrival-deck">
+        <div class="arrival-window">
+          <p class="arrival-label">Destination year</p>
+          <div id="arrival-year" class="arrival-year" aria-hidden="true">—</div>
+          <!-- T-2164: the window shows the present year from first paint; on a slow link the
+               app's modules take seconds to arrive, and an empty window read as stuck, and
+               the device grew when the key row swapped to its touch wording.
+               Same tiles as arrival.js setDigits, which takes them over. -->
+          <script>(function () { var h = document.getElementById('arrival-year'), y = String(new Date().getFullYear()).slice(-4);
+            h.textContent = ''; for (var i = 0; i < 4; i++) { var d = document.createElement('span'); d.className = 'arrival-digit'; d.dataset.value = y[i];
+            d.innerHTML = '<span class="arrival-digit-half arrival-digit-top"><span>' + y[i] + '</span></span><span class="arrival-digit-half arrival-digit-bottom"><span>' + y[i] + '</span></span><span class="arrival-digit-half arrival-digit-flap"><span>' + y[i] + '</span></span>';
+            h.appendChild(d); } h.dataset.year = y;
+            // The key row follows the device from first paint too (prefersTouch, controls/touch.js).
+            if (window.matchMedia && matchMedia('(pointer: coarse)').matches || navigator.maxTouchPoints > 0 && innerWidth < 900) document.body.classList.add('touch-first'); })();</script>
+        </div>
+        <ul id="arrival-lamps" class="arrival-lamps" aria-hidden="true">
+          <li data-phase="scene"><i></i>Scene</li>
+          <li data-phase="terrain"><i></i>Terrain</li>
+          <li data-phase="buildings"><i></i>Struct</li>
+          <li data-phase="ground"><i></i>Ground</li>
+          <li data-phase="flora"><i></i>Flora</li>
+          <li data-phase="interaction"><i></i>Sync</li>
+        </ul>
+      </div>
+      <div class="arrival-screen">
+        <div class="arrival-screen-head" aria-hidden="true"><span>Screen 01 · Arrival sequence</span><span class="arrival-live"><i></i>Link</span></div>
+        <p id="arrival-headline" class="arrival-headline" aria-hidden="true">Preparing your arrival</p>
+        <ol id="arrival-log" class="arrival-log" aria-hidden="true"><li></li><li></li><li></li></ol>
+        <p id="arrival-card" class="arrival-card" aria-live="polite">Drawing on previously researched sources</p>
+      </div>
+      <dl id="arrival-readout" class="arrival-readout" aria-hidden="true">
+        <div><dt>Payload</dt><dd data-read="bytes">— MB</dd></div>
+        <div><dt>Link</dt><dd data-read="rate">— MB/s</dd></div>
+        <div><dt>ETA</dt><dd data-read="eta">T-··:··</dd></div>
+      </dl>
     </div>
     <p class="gate-sub" id="gate-sub" aria-live="polite" hidden>Loading the scene…</p>
     <div class="gate-bar" id="gate-bar" role="progressbar" aria-label="Preparing the selected scene"

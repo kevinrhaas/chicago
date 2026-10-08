@@ -1807,10 +1807,12 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
+    "recon_1835_blk_indiana_north_wolcott_a1_09",
     "recon_1835_blk_indiana_north_wolcott_a3_04",
     "recon_1835_blk_indiana_north_wolcott_d3_02"
    ],
    "standing_families": {
+    "recon_1835_blk_indiana_north_wolcott_a1_09": "A1",
     "recon_1835_blk_indiana_north_wolcott_a3_04": "A3",
     "recon_1835_blk_indiana_north_wolcott_d3_02": "D3"
    },
@@ -8071,9 +8073,11 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_blk_south_water_dearborn_a5_10",
     "recon_1835_blk_south_water_dearborn_d2_04"
    ],
    "standing_families": {
+    "recon_1835_blk_south_water_dearborn_a5_10": "A5",
     "recon_1835_blk_south_water_dearborn_d2_04": "D2"
    },
    "principal_roofs_standing": 1,
@@ -9051,9 +9055,11 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_blk_south_water_wells_a2_09",
     "recon_1835_blk_south_water_wells_d4_03"
    ],
    "standing_families": {
+    "recon_1835_blk_south_water_wells_a2_09": "A2",
     "recon_1835_blk_south_water_wells_d4_03": "D4"
    },
    "principal_roofs_standing": 1,
@@ -10162,11 +10168,13 @@
    "principal_roofs_max": 1,
    "standing": [
     "recon_1835_blk_washington_clinton_a1_06",
+    "recon_1835_blk_washington_clinton_a3_16",
     "recon_1835_blk_washington_clinton_a5_07",
     "recon_1835_blk_washington_clinton_h2_01"
    ],
    "standing_families": {
     "recon_1835_blk_washington_clinton_a1_06": "A1",
+    "recon_1835_blk_washington_clinton_a3_16": "A3",
     "recon_1835_blk_washington_clinton_a5_07": "A5",
     "recon_1835_blk_washington_clinton_h2_01": "H2"
    },
@@ -10200,11 +10208,13 @@
    "standing": [
     "recon_1835_blk_washington_clinton_a2_08",
     "recon_1835_blk_washington_clinton_a4_09",
+    "recon_1835_blk_washington_clinton_a5_17",
     "recon_1835_blk_washington_clinton_h3_02"
    ],
    "standing_families": {
     "recon_1835_blk_washington_clinton_a2_08": "A2",
     "recon_1835_blk_washington_clinton_a4_09": "A4",
+    "recon_1835_blk_washington_clinton_a5_17": "A5",
     "recon_1835_blk_washington_clinton_h3_02": "H3"
    },
    "principal_roofs_standing": 1,
@@ -10236,10 +10246,12 @@
    "principal_roofs_max": 1,
    "standing": [
     "recon_1835_blk_washington_clinton_a2_10",
+    "recon_1835_blk_washington_clinton_a4_14",
     "recon_1835_blk_washington_clinton_d5_03"
    ],
    "standing_families": {
     "recon_1835_blk_washington_clinton_a2_10": "A2",
+    "recon_1835_blk_washington_clinton_a4_14": "A4",
     "recon_1835_blk_washington_clinton_d5_03": "D5"
    },
    "principal_roofs_standing": 1,
@@ -10270,10 +10282,12 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
+    "recon_1835_blk_washington_clinton_a2_15",
     "recon_1835_blk_washington_clinton_a4_11",
     "recon_1835_blk_washington_clinton_d4_04"
    ],
    "standing_families": {
+    "recon_1835_blk_washington_clinton_a2_15": "A2",
     "recon_1835_blk_washington_clinton_a4_11": "A4",
     "recon_1835_blk_washington_clinton_d4_04": "D4"
    },

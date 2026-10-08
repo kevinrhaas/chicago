@@ -1015,6 +1015,8 @@ def bay(b,y,params):
                 aa=(x-tangent[0]*.025+want[0]*.035,y1-tangent[1]*.025+want[1]*.035)
                 cc=(x+tangent[0]*.025+want[0]*.035,y1+tangent[1]*.025+want[1]*.035)
                 b.raw([(*aa,zt),(*cc,zt),(*cc,zb),(*aa,zb)],conf,PAINTED_WOOD,want)
+        if params.detail.get('dining_crested_connection'):
+            continue  # The joined hip/apron/cross ridge is emitted together below.
         ap=y['apex'];roof=[(*p,zb),(*q,zb),tuple(ap)]
         b.raw(roof,y['conf_roof'],COPPER,(0,0,1))
         # Standing seams subdivide the hipped cap while its top runs into the main roof.
@@ -1477,7 +1479,10 @@ def supplemental(b,p):
         b.raw([(r['x0'],r['y0'],z-.055),(r['x1'],r['y0'],z-.055),(r['x1'],r['y0'],z),(r['x0'],r['y0'],z)],r['conf'],COPPER,(0,-1,0))
 
 
-    if p.detail.get('dining_roof_junction'):
+    if p.detail.get('dining_crested_connection'):
+        from archetypes.masonry_house_v4_courtyard_roof import add_dining_roof
+        add_dining_roof(b,p)
+    elif p.detail.get('dining_roof_junction'):
         from archetypes.masonry_house_v4_courtyard_roof import dining
         for tri in dining(p)[0]:
             legacy._two_sided_roof(b,list(tri),1.0,ROOF)

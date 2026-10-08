@@ -320,8 +320,10 @@ def s_town(index, records, audit):
     t = json.loads((ROOT / "data" / "town_census.json").read_text())
     p, b = t["people"], t["buildings"]
     table(["measure", "value"], [
-        ["persons in a household whose lives_at resolves into the scene", p["housed"]],
+        ["persons in the town housed by a standing roof (lives_at, or a roof's residents[])",
+         p["housed"]],
         ["households so housed", p["households_housed"]],
+        ["persons waiting on a roof not yet standing", p.get("waiting_on_a_roof", 0)],
         ["households without a dwelling", p["households_without_a_dwelling"]],
         ["roofs standing in the scene", b["standing"]],
         ["roofs the programme targets", b["target"]],
