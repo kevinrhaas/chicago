@@ -1,11 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1550, ts: '2026-10-08T22:59:09.322Z', date: 'Oct 8, 2026, 5:59 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
       'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
       'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
       'Behind the cottage on the Lake Street side of the block between Wells and LaSalle, a barn or carriage shed stands in the yard. Every barn the town plan counted for the South Division now stands.',
       'The two households who had asked for a roof here are now housed, and every household the plan seats on the town\u2019s lots now has a house.',
       'No source shows these buildings in 1835 or names them. Each card says it is reconstructed, and the Liberties page explains it (L408).',
+    ] },
+  { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
+    items: [
+      'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
+      'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
     ] },
   { v: 1549, ts: '2026-10-08T21:10:13.013Z', date: 'Oct 8, 2026, 4:10 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [

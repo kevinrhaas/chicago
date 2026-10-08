@@ -14912,8 +14912,9 @@ woman a forename and the priest's parenthesis, and her husband's surname is his.
 husband, not to the children, not to the sponsors. The father named on the same line is
 read once, as a discriminator that tells two printings of one woman from two women (entries
 14 and 17 name the same Marianne and the same Antoine Aspam, so they are one card), and for
-nothing else; the kinship itself is handed to **T-1335**, the family pass, which the
-roster's own ledger reason already names on every one of these rows. It asserts **no
+nothing else; the kinship itself was handed to **T-1335**, the family pass, which ruled
+it on 2026-10-08 and handed these ties on to **T-2191**: a kin row typed onto a card this
+stage writes is gone on the next build, so the build is what has to carry it. It asserts **no
 residence, no address, no occupation and no arrival**: a baptism documents a person at a
 font on a day. And it draws **no remainder** off the book, for the reason L250 refused the
 same thing for the muster — a bracket needs a count, and a register of sacraments is not a
@@ -14941,7 +14942,7 @@ past what one parenthesis in one register can hold — each record says so in it
 **Related:** **L250** (the muster cohort of the same stage, whose refusal this entry
 answers), **L255** (the free Black cohort beside it), **L83** (the inferred-residents
 programme), tickets **T-1504** (this entry), **T-1177** (the stage), **T-1383** (the reading
-that put these rows in front of it), **T-1335** (the family pass the kinship is handed to),
+that put these rows in front of it), **T-1335** (the family pass that ruled the kinship), **T-2191** (which writes it through this build),
 **T-1562** (two printings are one sighting).
 **Recorded:** 2026-09-25.
 
