@@ -1,9 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1537, ts: '2026-10-08T14:54:14.934Z', date: 'Oct 8, 2026, 9:54 AM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
       'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
       'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
       'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
+    ] },
+  { v: 1538, ts: '2026-10-08T14:46:44.080Z', date: 'Oct 8, 2026, 9:46 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+    items: [
+      'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
+      'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
+      'The two Market corner lots stay open.',
+      'Six households now live in these houses, one of them named on the house itself.',
+      'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1537, ts: '2026-10-08T14:27:39.677Z', date: 'Oct 8, 2026, 9:27 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The project measures the town from fixed spots, and two of them inside the town stood a metre from a wall.',
+      'Two new spots look across the back yards on Washington Street and at the South Water Street shop fronts from the street, so their pictures show what they are meant to check.',
     ] },
   { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
     items: [
