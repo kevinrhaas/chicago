@@ -290,6 +290,8 @@ jobs:
       sha: ${{ steps.baseref.outputs.sha }}
       base: ${{ steps.baseref.outputs.branch }}
       base_live: ${{ steps.baseref.outputs.base_live }}
+      bundle: ${{ steps.bundle.outputs.packed }}
+      bundle_commit: ${{ steps.bundle.outputs.commit }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -521,6 +523,55 @@ jobs:
         with:
           name: published-mirror
           path: site/4d
+          retention-days: 3
+          if-no-files-found: error
+
+      # T-2068 — PACK THE SCENE BUNDLE FROM THE COMMIT THIS BAKE JUST GATED.
+      #
+      # HEAD here is that commit: the bake branch's own commit when the bake changed
+      # content, and the baked ref itself when it did not. Either way `check.sh` has
+      # just passed on exactly that tree (bake.sh runs it last), and scene_bundle.py
+      # reads every byte out of that one commit's git objects, never the working
+      # tree, so the build stamps the bake left behind cannot leak in
+      # (docs/unreal/SCENE-BUNDLE.md).
+      #
+      # Only dev's bakes, and only the two the owner named: the nightly and a manual
+      # dispatch. A bake dispatched against a branch is healing that branch (T-0454)
+      # and is not a release of anything. The bundle is packed here, where the tree
+      # already is, and PUBLISHED only by `publish-bundle`, after the smoke has
+      # passed both viewports, so a bake that fails the smoke never reaches the
+      # latest-good pointer.
+      #
+      # continue-on-error: a pack that refuses (a rights refusal, a file the scene
+      # names and the commit lacks) must not cost the bake its PR. It says why in the
+      # log, and `publish-bundle` is skipped because `packed` was never written.
+      - name: Pack the scene bundle (T-2068)
+        id: bundle
+        if: steps.baseref.outputs.branch == 'dev' && github.event_name != 'push'
+        continue-on-error: true
+        working-directory: chicago/4d
+        run: |
+          set -euo pipefail
+          OUT="$RUNNER_TEMP/scene-bundle"
+          mkdir -p "$OUT"
+          python3 tools/scene_bundle.py pack --scene 1835 --commit HEAD \
+            --out "$OUT" --receipt "$OUT/pack-receipt.json"
+          # Verified here, as a consumer will verify it, before anything is published:
+          # `pack` refuses what may not ship, `verify` refuses what does not hold
+          # together (a mesh whose bytes disagree with the build record beside it).
+          # A bundle a consumer would refuse is never released.
+          ARCHIVE=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["archive"])' "$OUT/pack-receipt.json")
+          DIGEST=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["payload_digest"])' "$OUT/pack-receipt.json")
+          python3 tools/scene_bundle.py verify "$ARCHIVE" --expect-digest "$DIGEST" | tail -n 1
+          echo "commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "packed=1" >> "$GITHUB_OUTPUT"
+
+      - name: Keep the scene bundle for publication
+        if: steps.bundle.outputs.packed == '1'
+        uses: actions/upload-artifact@v4
+        with:
+          name: scene-bundle
+          path: ${{ runner.temp }}/scene-bundle
           retention-days: 3
           if-no-files-found: error
 
@@ -801,3 +852,191 @@ jobs:
           fi
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  # T-2068 — PUBLISH THE SCENE BUNDLE, AND MOVE THE LATEST-GOOD POINTER.
+  #
+  # The owner ruled on 2026-10-08 that bundles are published as GitHub RELEASE
+  # ASSETS, not Actions artifacts: an artifact expires (90 days at most), and a
+  # latest-good pointer or a consumer's receipt that names an expired download is
+  # a broken link. docs/unreal/SCENE-BUNDLE.md § Publication is the page.
+  #
+  #   one release per bundle   tag = the archive's own name,
+  #                            chicago4d-scene-<scene>-<commit12>-<digest12>, pointing
+  #                            at the packed commit. Never edited: the same commit
+  #                            and digest is the same bytes, so a repeat is skipped.
+  #   one fixed release        tag `scene-bundle-index`, whose one asset
+  #                            scene-bundle-index.json is the discovery manifest:
+  #                            per scene, `latest_good` and up to 20 `previous`.
+  #
+  # `needs: smoke` is what keeps a failed bake off the pointer; the compare below
+  # is what keeps a STALE one off it. A dispatch and the nightly are in different
+  # concurrency groups (the nightly's ref is main), so two bakes can finish out of
+  # order, and the pointer moves only to a bake whose dev commit descends from the
+  # current latest-good's (scene_bundle.py advance, with its self-test in check.sh).
+  # Both are published either way; only the pointer refuses.
+  #
+  # Every GitHub call is REST (`gh api`, `gh release upload|download`), per T-0234.
+  publish-bundle:
+    needs: [bake, smoke]
+    if: needs.bake.outputs.bundle == '1'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    # One writer of the discovery manifest at a time, and never cancelled halfway.
+    concurrency:
+      group: chicago-4d-scene-bundle-index
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.bake.outputs.sha }}
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /chicago/4d/tools/scene_bundle.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Take the bundle the bake packed
+        uses: actions/download-artifact@v4
+        with:
+          name: scene-bundle
+          path: ${{ runner.temp }}/scene-bundle
+      - name: Publish the bundle and move the latest-good pointer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          COMMIT: ${{ needs.bake.outputs.bundle_commit }}
+          BASE_COMMIT: ${{ needs.bake.outputs.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DL: ${{ github.server_url }}/${{ github.repository }}/releases
+        run: |
+          set -euo pipefail
+          D="$RUNNER_TEMP/scene-bundle"
+          INDEX_TAG=scene-bundle-index
+          INDEX=scene-bundle-index.json
+          ARCHIVE=$(python3 -c 'import json,sys,os; print(os.path.basename(json.load(open(sys.argv[1]))["archive"]))' "$D/pack-receipt.json")
+          TAG="${ARCHIVE%.tar.gz}"
+          DIGEST=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["payload_digest"])' "$D/pack-receipt.json")
+
+          # The immutable named bundle. A tag that already exists is the same commit and
+          # the same payload digest, so the same bytes: only a missing asset (an upload
+          # that died last time) is uploaded again, and nothing is ever replaced.
+          if ! gh api "repos/$REPO/releases/tags/$TAG" >/dev/null 2>&1; then
+            printf '%s\n' \
+              "Chicago 4D scene bundle, contract \`chicago4d-scene-bundle/1\` (chicago/4d/docs/unreal/SCENE-BUNDLE.md)." \
+              "" \
+              "- payload digest: \`$DIGEST\`" \
+              "- source commit: \`$COMMIT\` (baked from dev at \`$BASE_COMMIT\`)" \
+              "- built by: $RUN_URL" \
+              "" \
+              "Verify before use: \`python3 chicago/4d/tools/scene_bundle.py verify $ARCHIVE --expect-digest $DIGEST\`." \
+              "The current latest-good bundle is named in the \`$INDEX_TAG\` release." > "$D/notes.md"
+            gh api -X POST "repos/$REPO/releases" -f tag_name="$TAG" -f target_commitish="$COMMIT" \
+              -f name="Scene bundle 1835 @ ${COMMIT:0:12}" -F body=@"$D/notes.md" \
+              -F prerelease=true -f make_latest=false >/dev/null
+          fi
+          HAVE=$(gh api "repos/$REPO/releases/tags/$TAG" --jq '.assets[].name')
+          for f in "$ARCHIVE" pack-receipt.json; do
+            if printf '%s\n' "$HAVE" | grep -qxF "$f"; then
+              echo "::notice::$TAG already carries $f; not replacing it"
+            else
+              gh release upload "$TAG" "$D/$f" --repo "$REPO"
+            fi
+          done
+          echo "::notice::published $TAG"
+
+          # The discovery manifest and its latest-good pointer.
+          if ! gh api "repos/$REPO/releases/tags/$INDEX_TAG" >/dev/null 2>&1; then
+            printf '%s\n' \
+              "The discovery manifest for Chicago 4D scene bundles. Its one asset, \`$INDEX\`, names the" \
+              "latest-good bundle per scene and the previous-good ones (chicago/4d/docs/unreal/SCENE-BUNDLE.md)." \
+              "This release's tag never moves; the asset is replaced by each bake that advances the pointer." > "$D/index-notes.md"
+            gh api -X POST "repos/$REPO/releases" -f tag_name="$INDEX_TAG" -f target_commitish="$COMMIT" \
+              -f name="Scene bundles: discovery manifest" -F body=@"$D/index-notes.md" \
+              -F prerelease=true -f make_latest=false >/dev/null
+          fi
+          mkdir -p "$D/old"
+          gh release download "$INDEX_TAG" --repo "$REPO" -p "$INDEX" -D "$D/old" 2>/dev/null \
+            || echo "::notice::no discovery manifest yet; this bundle starts one"
+          COMPARE=""
+          if [ -f "$D/old/$INDEX" ]; then
+            OLD_BASE=$(python3 -c 'import json,sys; s=json.load(open(sys.argv[1]))["scenes"].get("1835") or {}; print((s.get("latest_good") or {}).get("base_commit",""))' "$D/old/$INDEX")
+            if [ -n "$OLD_BASE" ]; then
+              COMPARE=$(gh api "repos/$REPO/compare/$OLD_BASE...$BASE_COMMIT?per_page=1" --jq .status 2>/dev/null || echo "")
+            fi
+          fi
+          VERDICT=$(python3 chicago/4d/tools/scene_bundle.py advance --index "$D/old/$INDEX" \
+            --receipt "$D/pack-receipt.json" --tag "$TAG" \
+            --archive-url "$DL/download/$TAG/$ARCHIVE" --release-url "$DL/tag/$TAG" \
+            --run-url "$RUN_URL" --base-commit "$BASE_COMMIT" --compare "$COMPARE" \
+            --out "$D/$INDEX")
+          echo "$VERDICT"
+          if [ "$(python3 -c 'import json,sys; print(json.loads(sys.argv[1])["advanced"])' "$VERDICT")" = "True" ]; then
+            gh release upload "$INDEX_TAG" "$D/$INDEX" --clobber --repo "$REPO"
+            echo "::notice::latest-good for 1835 is now $TAG"
+          else
+            echo "::notice::latest-good pointer not moved: $VERDICT"
+          fi
+          {
+            echo "### Scene bundle"
+            echo "- release: $DL/tag/$TAG"
+            echo "- payload digest: \`$DIGEST\`"
+            echo "- pointer: \`$VERDICT\`"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  # T-2068 — THE FRESH-DOWNLOAD RECEIPT. A new runner, which has never seen the bake,
+  # does what a consumer does (SCENE-BUNDLE.md § How T-1358 consumes it, step 1):
+  # reads the latest-good digest from the discovery manifest, downloads that archive,
+  # and verifies it against the digest. It prints the source commit, the scene and
+  # the coverage, and the receipt goes onto the bundle's own release beside it. An
+  # archive that exists only on the worker is not published delivery; this is the
+  # proof that it left the worker.
+  fresh-consumer:
+    needs: [bake, publish-bundle]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.bake.outputs.sha }}
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /chicago/4d/tools/scene_bundle.py
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download the latest-good bundle by digest and verify it
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          W=$(mktemp -d)
+          gh release download scene-bundle-index --repo "$REPO" -p scene-bundle-index.json -D "$W"
+          read -r TAG ARCHIVE DIGEST < <(python3 -c 'import json,sys; g=json.load(open(sys.argv[1]))["scenes"]["1835"]["latest_good"]; print(g["tag"], g["archive"], g["payload_digest"])' "$W/scene-bundle-index.json")
+          gh release download "$TAG" --repo "$REPO" -p "$ARCHIVE" -D "$W"
+          python3 chicago/4d/tools/scene_bundle.py verify "$W/$ARCHIVE" --expect-digest "$DIGEST" > "$W/verify.txt"
+          cat "$W/verify.txt"
+          python3 - "$W" "$TAG" "$ARCHIVE" "$DIGEST" "$RUN_URL" <<'PY'
+          import datetime, hashlib, json, sys
+          from pathlib import Path
+          w, tag, archive, digest, run = sys.argv[1:]
+          lines = (Path(w) / "verify.txt").read_text().splitlines()
+          receipt = {
+              "what": "a fresh runner downloaded the latest-good bundle named by the discovery manifest and verified it against that digest",
+              "tag": tag, "archive": archive, "expected_payload_digest": digest,
+              "downloaded_archive_sha256": hashlib.sha256((Path(w) / archive).read_bytes()).hexdigest(),
+              "verified": json.loads("\n".join(lines[:-1])), "verdict": lines[-1],
+              "run_url": run,
+              "downloaded_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+          }
+          (Path(w) / "fresh-download-receipt.json").write_text(json.dumps(receipt, indent=1, ensure_ascii=False) + "\n")
+          PY
+          gh release upload "$TAG" "$W/fresh-download-receipt.json" --clobber --repo "$REPO"
+          {
+            echo "### Fresh-download receipt"
+            echo "- bundle: \`$TAG\`"
+            echo "- $(tail -n 1 "$W/verify.txt")"
+          } >> "$GITHUB_STEP_SUMMARY"
