@@ -22,6 +22,9 @@
  *  - every bounding volume, computed before the position can go, so the
  *    frustum never needs it again;
  *  - a BatchedMesh's index, whose element size three reads on every draw.
+ *  - every array of an object flagged `userData.keepPageArrays`, because its
+ *    layer re-reads them after boot has uploaded it (the terrain's base, which
+ *    `batchDistantGround` re-cuts once the frontage is in).
  *
  * The far merge reads chunk arrays to build a cluster; a cluster of released
  * chunks refuses and stays chunked (far-merge.js), which at `light` — the
@@ -77,7 +80,7 @@ function release(attr) {
 function markLayer(layer, keep) {
   layer.traverse((o) => {
     const geo = o.geometry;
-    if (!geo || o.isInstancedMesh || geo.userData.uploadReleased) return;
+    if (!geo || o.isInstancedMesh || o.userData.keepPageArrays || geo.userData.uploadReleased) return;
     const pos = geo.attributes.position;
     if (!pos || pos.usage !== THREE.StaticDrawUsage) return;
     geo.userData.uploadReleased = true;

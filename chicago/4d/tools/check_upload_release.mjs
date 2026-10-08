@@ -15,7 +15,10 @@
  *     `pickAt` the walk calls;
  *  3. a chunk the reach held back at boot still has its arrays, and walking up
  *     to it uploads it and lets them go, without an error;
- *  4. a desktop (1280x800, mouse) releases nothing.
+ *  4. a desktop (1280x800, mouse) releases nothing;
+ *  5. every other year boots on a phone too, because each year's layers re-read
+ *     their own geometry at different moments of the boot (1904's ground base
+ *     is re-cut into a batch after the frontage is in — T-2181).
  *
  *   node tools/check_upload_release.mjs [siteRoot]    (default ../../site/4d)
  *   PW_EXECUTABLE=/opt/pw-browsers/chromium-1194/chrome-linux/chrome
@@ -69,12 +72,12 @@ const browser = await chromium.launch({
   args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader'],
 });
 
-async function boot(profile) {
+async function boot(profile, year = 1835) {
   const ctx = await browser.newContext(profile);
   const page = await ctx.newPage();
   const errors = [];
   page.on('pageerror', (e) => errors.push(e.message));
-  await page.goto(`http://127.0.0.1:${PORT}/walk/?year=1835${process.env.CHECK_QUERY || ""}`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`http://127.0.0.1:${PORT}/walk/?year=${year}${process.env.CHECK_QUERY || ""}`, { waitUntil: 'domcontentloaded' });
   await page.waitForFunction(() => window.__chicago4d?.ready || window.__chicago4d?.error,
     null, { timeout: 600000 });
   await page.waitForTimeout(1500);
@@ -231,6 +234,17 @@ async function boot(profile) {
   const census = await page.evaluate(() => window.__chicago4d.uploadRelease);
   check('desktop: 1835 boots with no page error', errors.length === 0, errors.slice(0, 3).join(' | '));
   check('desktop: nothing is released', census?.attributes === 0, JSON.stringify(census));
+  await ctx.close();
+}
+
+/* ---- 5: the other years, on a phone ------------------------------------ */
+const PHONE = { viewport: { width: 390, height: 780 }, deviceScaleFactor: 2, isMobile: true, hasTouch: true };
+for (const year of [1812, 1904]) {
+  const { ctx, page, errors } = await boot(PHONE, year);
+  const state = await page.evaluate(() => ({ error: window.__chicago4d.error ?? null,
+    ready: !!window.__chicago4d.ready, census: window.__chicago4d.uploadRelease }));
+  check(`phone: ${year} boots with no error`, state.ready && !state.error && errors.length === 0,
+    state.error || errors.slice(0, 3).join(' | ') || JSON.stringify(state.census));
   await ctx.close();
 }
 

@@ -547,6 +547,10 @@ export async function createTerrain({
     groundBase.receiveShadow = true;
     groundBase.castShadow = false;
     groundBase.frustumCulled = true;
+    // batchDistantGround() re-cuts this mesh's triangles from its page arrays
+    // after a phone has handed the rest of the ground to the GPU, so it keeps
+    // them (upload-release.js); the batch it becomes lets go as usual.
+    groundBase.userData.keepPageArrays = true;
     group.add(groundBase);
     disposables.push(groundBase.geometry);
   }

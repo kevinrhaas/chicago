@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1540, ts: '2026-10-08T16:49:21.952Z', date: 'Oct 8, 2026, 11:49 AM CT', title: '1904 and 1812 open on a phone again', kind: 'fix',
+    items: [
+      'On a phone, 1904 and 1812 stopped at the ground while loading with "Could not load the scene". The ground was being redrawn into a lighter form after the phone had already let go of its own copy. It now keeps that copy until the redraw is done. Nothing changes on a computer.',
+    ] },
   { v: 1539, ts: '2026-10-08T15:08:49.538Z', date: 'Oct 8, 2026, 10:08 AM CT', title: 'Forty church-register children now linked to their parents', kind: 'feature',
     items: [
       'Open the card of a child baptised at St Mary\u2019s between 1833 and 1835, such as George Beaubien or Caroline Beaubien. It now names the child\u2019s father or mother, and the parent\u2019s card names the child back.',
