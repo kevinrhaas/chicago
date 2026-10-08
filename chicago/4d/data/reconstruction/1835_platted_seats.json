@@ -72,9 +72,9 @@
    "merchant_and_professional_dwellings": 381,
    "tradesman_dwellings": 506
   },
-  "roofs_offered_for_adoption": 204,
-  "roofs_held_back": 60,
-  "roofs_held_by_the_business_deal": 44,
+  "roofs_offered_for_adoption": 203,
+  "roofs_held_back": 61,
+  "roofs_held_by_the_business_deal": 45,
   "seats_the_business_deal_costs": 1
  },
  "what_the_plat_could_not_hold": {
@@ -84,8 +84,8 @@
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
-  "roofs_held": 44,
-  "roofs_held_that_are_houses_of_trade": 30,
+  "roofs_held": 45,
+  "roofs_held_that_are_houses_of_trade": 31,
   "roofs_a_release_would_fill": [
    "recon_1835_blk_lake_franklin_d1_02",
    "recon_1835_blk_lake_market_d2_04",
@@ -113,7 +113,7 @@
    }
   ],
   "households_that_would_change_roof": 35,
-  "reading": "the business deal holds 44 roofs on the plat, 30 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 35 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
+  "reading": "the business deal holds 45 roofs on the plat, 31 of them raised as houses of trade. Released, this deal would adopt 14 of them — 0 by a household seated nowhere today and 14 by households already seated, moving to a better-scored lot — and seat 1 more household(s) in all, counting any the moves leave a roof or a slot for; 35 seated household(s) would change roof or lot. So the precedence costs the households 1 seat(s), and that number is a tripwire in this file: a re-order of either deal that moves it is red until it is restated and argued for."
  },
  "roofs_held_back": [
   {
@@ -462,12 +462,21 @@
    "business_id": "business_george_holsman"
   },
   {
+   "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
+   "lot_id": "blk_south_water_dearborn#00",
+   "family": "F2",
+   "held_by": "street_face_business_deal",
+   "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
+   "occupants": "Briggs & Humphrey — carriage and sleigh making",
+   "business_id": "business_briggs_humphrey"
+  },
+  {
    "structure_id": "recon_1835_blk_south_water_franklin_c2_08",
    "lot_id": "blk_south_water_franklin#02",
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "J. H. Mulford — watches, jewelry, engravings and fancy goods",
+   "occupants": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail",
    "business_id": "business_jones_king_co"
   },
   {
@@ -476,7 +485,7 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Jones, King & Co. — hardware, cutlery, nails, iron, steel, stoves, stove furniture, iron ware and saw mill gearing, wholesale and retail",
+   "occupants": "H. Doty & Co. — dry goods and groceries",
    "business_id": "business_h_doty_co"
   },
   {
@@ -485,7 +494,7 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "H. Doty & Co. — dry goods and groceries",
+   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture",
    "business_id": "business_rockwell_cabinet_furniture_warehouse"
   },
   {
@@ -494,7 +503,7 @@
    "family": "C4",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Briggs & Humphrey — carriage and sleigh making",
+   "occupants": "J. H. Mulford — watches, jewelry, engravings and fancy goods",
    "business_id": "business_j_h_mulford"
   },
   {
@@ -503,7 +512,7 @@
    "family": "D4",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "A. Garrett — auction and commission",
+   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery",
    "business_id": "business_the_new_store_at_the_corner_of_water_and_clark_streets"
   },
   {
@@ -512,7 +521,7 @@
    "family": "C1",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Rockwell, cabinet furniture warehouse — cabinet furniture",
+   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes",
    "business_id": "business_samuel_lewis"
   },
   {
@@ -521,7 +530,7 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Samuel Lewis — vocal and instrumental music school, and the repair and tuning of piano fortes",
+   "occupants": "Hiram Pearsons — storage and commission merchant",
    "business_id": "business_hiram_pearsons"
   },
   {
@@ -530,7 +539,7 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Hiram Pearsons — storage and commission merchant",
+   "occupants": "Chicago Democrat printing office — newspaper and job printing",
    "business_id": "business_chicago_democrat_printing_office"
   },
   {
@@ -539,7 +548,7 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Chicago Democrat printing office — newspaper and job printing",
+   "occupants": "A. Filer & Co. — cabinet and chair manufactory",
    "business_id": "business_a_filer_co"
   },
   {
@@ -548,7 +557,7 @@
    "family": "D2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant",
+   "occupants": "[uncertain: J. I. Mulford], carriage and sleigh maker — carriage and sleigh making, and repairing",
    "business_id": "business_uncertain_j_i_mulford_carriage_and_sleigh_maker"
   },
   {
@@ -557,7 +566,7 @@
    "family": "D4",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "E. L. Thrall — tailoring and ready made clothing",
+   "occupants": "[uncertain: DATID GAD], auction and commission merchant, South Water Street — auction and commission merchant",
    "business_id": "business_uncertain_datid_gad_auction_and_commission_merchant_south_water_street"
   },
   {
@@ -566,7 +575,7 @@
    "family": "D5",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "the New Store at the corner of Water and Clark streets — dry goods, crockery, hardware and cutlery",
+   "occupants": "E. L. Thrall — tailoring and ready made clothing",
    "business_id": "business_e_l_thrall"
   },
   {
@@ -584,7 +593,7 @@
    "family": "C2",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "A. Filer & Co. — cabinet and chair manufactory",
+   "occupants": "Chicago Bakery — baker",
    "business_id": "business_chicago_bakery"
   },
   {
@@ -593,7 +602,7 @@
    "family": "C3",
    "held_by": "street_face_business_deal",
    "why": "the street-face business deal (L212) stood a documented business here, and it deals first: its placement is one street face where a banded household's is a whole division (T-1669)",
-   "occupants": "Chicago Bakery — baker",
+   "occupants": "A. Garrett — auction and commission",
    "business_id": "business_a_garrett"
   },
   {

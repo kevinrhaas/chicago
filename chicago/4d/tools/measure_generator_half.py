@@ -489,13 +489,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # blk_south_water_dearborn — through emit.py and the common modules. Terrain reach
 # stays 6 and pier_crib stays 2.
 #
+# 671 -> 672 and 665 -> 666 on 2026-10-08 (T-2174, of T-1673): one F2 two-storey
+# warehouse behind the stores on blk_south_water_dearborn lot 0, a frame_storefront
+# through emit.py and the common modules. Terrain reach stays 6 and pier_crib stays 2.
+#
 STATED = {
-    "assets": 671,
+    "assets": 672,
     "restales": {
-        "generators/common/*.py": 671,
+        "generators/common/*.py": 672,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 665,
+        "generators/emit.py": 666,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

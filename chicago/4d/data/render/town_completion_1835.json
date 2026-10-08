@@ -28,7 +28,7 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 3,
+    "structures_empty_owing_somebody": 2,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
@@ -123,7 +123,7 @@
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 81
+      "reconstructed": 82
     },
     "use_stated": {
       "camp_ground": 3,
@@ -140,11 +140,10 @@
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
-      "dwelling": 3
+      "dwelling": 2
     },
     "empty": [
       "recon_1835_bank_freight_f3_001",
-      "recon_1835_blk_south_water_dearborn_f2_11",
       "recon_1835_branch_freight_f2_001"
     ]
   },
@@ -219,7 +218,7 @@
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 81
+        "reconstructed": 82
       },
       "use_stated": {
         "attested": 25,
@@ -229,7 +228,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 3
+        "reconstructed": 2
       }
     },
     "streets": {
@@ -268,7 +267,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 3,
+      "open": 2,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]

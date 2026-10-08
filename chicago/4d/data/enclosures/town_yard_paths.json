@@ -15,6 +15,7 @@
     "data/yard/town_yard_outbuildings.json"
   ],
   "belongs_to": [
+    "chicago_american_office",
     "harmon_log_cabin",
     "inf_artisan_dwelling_west_a",
     "inf_sawyer_dwelling_a",
@@ -877,6 +878,24 @@
         [
           677.74,
           -31.46
+        ]
+      ],
+      [
+        [
+          719.37,
+          -14.95
+        ],
+        [
+          718.54,
+          -15.33
+        ],
+        [
+          720.18,
+          -18.93
+        ],
+        [
+          721.01,
+          -18.55
         ]
       ],
       [
@@ -5898,6 +5917,11 @@
       "lot": "blk_south_water_clark_lot6",
       "from": "madore_beaubien_house",
       "to": "bates_auction_room"
+    },
+    {
+      "lot": "blk_south_water_dearborn_lot0",
+      "from": "chicago_american_office",
+      "to": "recon_1835_blk_south_water_dearborn_f2_11"
     },
     {
       "lot": "blk_south_water_dearborn_lot1",
