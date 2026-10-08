@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+    items: [
+      'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
+      'The ground is stored about four times smaller on every device. It draws exactly the same.',
+      'The town looks exactly the same, and tapping a building, fence or yard still opens its card. Nothing changes on a computer apart from the smaller ground.',
+    ] },
   { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [
       'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',
