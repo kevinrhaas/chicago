@@ -314,7 +314,11 @@ is the contract. The short form:
   as silence rather than as proof.
 - **Claim** in your first commit: `node tools/ticket.mjs claim T-NNNN`. `ticket.mjs
   inflight` shows what other branches are already carrying a ticket number, which is the
-  only live view of work the merged files cannot show yet. It reads each branch as
+  only live view of work the merged files cannot show yet. Both also read the OPEN PULL
+  REQUESTS by title (T-2138): a PR titled `T-NNNN: …` carries its ticket whatever its
+  branch is called, so `claim` refuses it — a dead claim included — and `inflight` lists
+  it under the ticket; #449 on `claude/project-thread-*` was invisible to both, and a
+  slice rebuilt T-2122 in full beside it. It reads each branch as
   **live**, **held**, **open_pr**, **recoverable** or **cold**. A branch under
   **open_pr** has a pull request up right now and is printed with its number and labels
   — `hold` there means THE OWNER is deciding, so do not rebuild it, do not take the ticket
