@@ -8,12 +8,12 @@
     "upheld": 134,
     "named": 2,
     "refused": 68,
-    "unruled": 7
+    "unruled": 8
   },
   "counts": {
     "purchasers": 647,
-    "matched": 143,
-    "refused": 504,
+    "matched": 144,
+    "refused": 503,
     "firms": 2,
     "bodies": 3
   },
@@ -5526,6 +5526,60 @@
         ],
         "reasoning": "UPHELD on the discriminator that carried BOTSFORD JABEZ K, running the other way: there it was the register that spelled the forename out and the card that held only initials, and here it is the register that abbreviates and the town that prints the man as he signed. Norris 1844 has 'Botsford, J. K. of B. & Beers, 109 Lake st.' — this string letter for letter — while Fergus 1839 gives 'Jabez K.' and Fergus 1843 'Jabez Kent'. The register writes JABEZ K on two rows and J K on this one, the abbreviate-and-expand habit T-0990's cohort A named. The only other Botsford any volume prints is 'Botsford, I., tailor', a different initial, so nothing of this surname competes for a J K. Lot 8 of block 3, 28 June 1836, $1,025, carried as an entry and not as a dwelling."
       },
+      "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
+    },
+    {
+      "purchaser_as_read": "BOURASSA LEON",
+      "record_ids": [
+        "ls1001"
+      ],
+      "resident_id": "bourrassa_leon",
+      "resident_name": "Leon Bourrassa",
+      "household_id": "hh_bourrassa_leon",
+      "match": "forename_agrees",
+      "rule": "BOURASSA LEON matches Leon Bourrassa: the forename names Leon Bourrassa of the 4 people of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held bourassa_lon until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried.",
+      "via_card_merge": "bourassa_lon",
+      "rivals": [
+        {
+          "key": "bourassa_jean_baptiste",
+          "name": "Jean Baptiste Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "B",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourassa_mark",
+          "name": "Mark Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourassa_noel",
+          "name": "Noel Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourrassa_leon",
+          "name": "Leon Bourrassa",
+          "forename_agrees": true,
+          "why": "the forenames agree in full — same (M1)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "survives"
+        }
+      ],
+      "residence_column": "UNKNOWN",
+      "evidence_grade": "inferred",
+      "ruling": null,
       "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
@@ -15917,55 +15971,6 @@
       "rule": "BOONE L D is refused against 0 residents named Boone: the residents layer holds nobody of the surname.",
       "record_ids": [
         "ls0999"
-      ],
-      "evidence": [
-        "data/residents/index.json"
-      ]
-    },
-    {
-      "a": "BOURASSA LEON",
-      "b": "4 residents named Bourassa",
-      "rule": "BOURASSA LEON is refused against 4 residents named Bourassa: the forename names 0 of the 4 people of this surname, and a reading is named onto exactly one or onto none.",
-      "rivals": [
-        {
-          "key": "bourassa_jean_baptiste",
-          "name": "Jean Baptiste Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": "B",
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "bourassa_lon",
-          "name": "Lon Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "bourassa_mark",
-          "name": "Mark Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "bourassa_noel",
-          "name": "Noel Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        }
-      ],
-      "record_ids": [
-        "ls1001"
       ],
       "evidence": [
         "data/residents/index.json"

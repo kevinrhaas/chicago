@@ -25,31 +25,6 @@
  },
  "proposals": [
   {
-   "id": "hh_baptist_john__son__leon_bourrassa",
-   "source": "card_prose",
-   "locator": "hh_baptist_john",
-   "as_read": " drawn (L1).\", \"church_evidence\": [{\"list\": \"church_1833_1835\", \"as_read\": \"John Baptist, son of Leon Bourrassa\", \"locator\": \"decedent\", \"record_id\": \"st_cyr_death_05_1\", ",
-   "subject_as_read": "John Baptist",
-   "relation": "son",
-   "other_as_read": "Leon Bourrassa",
-   "subject_record": null,
-   "other_record": null,
-   "other_read_with_subject_surname": true,
-   "subject": [
-    {
-     "household": "hh_baptist_john",
-     "person": "baptist_john"
-    }
-   ],
-   "other": [
-    {
-     "household": "hh_bourrassa_leon",
-     "person": "bourrassa_leon"
-    }
-   ],
-   "outcome": "landable"
-  },
-  {
    "id": "hh_beaubien_jean_baptiste__son__charles_henry",
    "source": "card_prose",
    "locator": "hh_beaubien_jean_baptiste",
@@ -124,6 +99,31 @@
     {
      "household": "hh_beaubien_jean_baptiste",
      "person": "beaubien_jean_baptiste"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "hh_bourassa_jean_baptiste__son__leon_bourrassa",
+   "source": "card_prose",
+   "locator": "hh_bourassa_jean_baptiste",
+   "as_read": "gister_1833_1835\", \"rule\": \"G2c\"}, {\"list\": \"church_1833_1835\", \"as_read\": \"John Baptist, son of Leon Bourrassa\", \"locator\": \"decedent\", \"record_id\": \"st_cyr_death_05_1\", ",
+   "subject_as_read": "Jean Baptiste Bourassa",
+   "relation": "son",
+   "other_as_read": "Leon Bourrassa",
+   "subject_record": null,
+   "other_record": null,
+   "other_read_with_subject_surname": true,
+   "subject": [
+    {
+     "household": "hh_bourassa_jean_baptiste",
+     "person": "bourassa_jean_baptiste"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_bourrassa_leon",
+     "person": "bourrassa_leon"
     }
    ],
    "outcome": "landable"
@@ -433,8 +433,8 @@
    ],
    "other": [
     {
-     "household": "hh_baptist_john",
-     "person": "baptist_john"
+     "household": "hh_bourassa_jean_baptiste",
+     "person": "bourassa_jean_baptiste"
     }
    ],
    "outcome": "landable"
@@ -1679,8 +1679,8 @@
    "other_record": "st_marys_bapt_1834_23_1_child",
    "subject": [
     {
-     "household": "hh_bourassa_lon",
-     "person": "bourassa_lon"
+     "household": "hh_bourrassa_leon",
+     "person": "bourrassa_leon"
     }
    ],
    "other": [
@@ -1847,8 +1847,8 @@
    "other_record": "st_marys_bapt_1835_04_1_child",
    "subject": [
     {
-     "household": "hh_bourassa_lon",
-     "person": "bourassa_lon"
+     "household": "hh_bourrassa_leon",
+     "person": "bourrassa_leon"
     }
    ],
    "other": [
