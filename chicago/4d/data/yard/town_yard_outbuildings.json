@@ -1034,7 +1034,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1256,7 +1256,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1434,7 +1434,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1478,7 +1478,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1568,7 +1568,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -1766,7 +1766,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -2682,7 +2682,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -3154,7 +3154,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4140,7 +4140,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4162,7 +4162,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4184,7 +4184,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4272,7 +4272,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "grey",
+      "weather": "weathered",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4360,7 +4360,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "seasoned",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4426,7 +4426,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "grey",
       "confidence": "reconstructed",
       "finish": "board"
     },
@@ -4470,7 +4470,7 @@
       "eave_m": 1.95,
       "head_m": 2.2,
       "roof": "shed",
-      "weather": "weathered",
+      "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "board"
     },
