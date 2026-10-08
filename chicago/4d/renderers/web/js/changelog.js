@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+  { v: 1550, ts: '2026-10-08T22:01:13.077Z', date: 'Oct 8, 2026, 5:01 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
       'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
