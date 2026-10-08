@@ -13,12 +13,12 @@
   "data/reconstruction/1835_town_model.json",
   "data/reconstruction/1835_invented_name_pools.json"
  ],
- "heads_ordered": 308,
- "heads_drawn": 308,
+ "heads_ordered": 309,
+ "heads_drawn": 309,
  "the_plan": {
   "by_sex": {
    "female": {
-    "boarding_house_keeper": 34,
+    "boarding_house_keeper": 35,
     "domestic": 57,
     "dressmaker": 1,
     "hardware_merchant": 7,
@@ -82,7 +82,7 @@
   },
   "workings": {
    "female": {
-    "heads_ordered": 111,
+    "heads_ordered": 112,
     "weighted_by": "the trades this layer's own women are recorded at, and the three the programme names, weighted by the 1839 directory's count where the table carries the row and by one where it does not — a trade the directory never printed for anyone is not thereby impossible, it is unprinted, and it draws at the table's floor",
     "residual_trade": "domestic",
     "refused_by_a_census_ceiling": {
@@ -136,7 +136,7 @@
  },
  "by_trade": {
   "domestic": 58,
-  "boarding_house_keeper": 38,
+  "boarding_house_keeper": 39,
   "labourer": 25,
   "clerk": 24,
   "carpenter": 21,
@@ -193,22 +193,22 @@
  "by_division": {
   "north": 72,
   "south": 171,
-  "west": 65
+  "west": 66
  },
  "by_age_band": {
   "20_29": 171,
-  "30_39": 91,
+  "30_39": 92,
   "40_49": 29,
   "50_plus": 17
  },
  "by_community": {
   "french_colonial": 39,
-  "irish": 91,
+  "irish": 92,
   "yankee": 178
  },
  "household_size_owed": {
   "1": 14,
-  "2": 40,
+  "2": 41,
   "3": 62,
   "4": 54,
   "5": 43,
@@ -230,7 +230,7 @@
   "26": 1
  },
  "kin_seated": 0,
- "kin_owed": 1241,
+ "kin_owed": 1242,
  "the_kin_hand_off": "Every head above is owed the family the 1840 size histogram drew for them and none of it is seated here: the kin of a family household are `family/none` in the order book and that quota is T-1174's and T-1171's. T-1179 converges the two.",
  "trades_this_stage_may_not_write": {
   "army_officer": "the garrison's — the fort is read, not apportioned (T-1176, T-1349)",
@@ -1812,6 +1812,13 @@
    "division": "south"
   },
   {
+   "id": "hh_rc_reilly_bridget",
+   "file": "reconstructed_trades/hh_rc_reilly_bridget.json",
+   "bucket": "persons/female/30_39/west/family/trade",
+   "trade": "boarding_house_keeper",
+   "division": "west"
+  },
+  {
    "id": "hh_rc_reilly_johanna",
    "file": "reconstructed_trades/hh_rc_reilly_johanna.json",
    "bucket": "persons/female/40_49/west/family/trade",
@@ -2413,7 +2420,7 @@
   "persons/female/20_29/west/family/trade": 13,
   "persons/female/30_39/north/family/trade": 6,
   "persons/female/30_39/south/family/trade": 16,
-  "persons/female/30_39/west/family/trade": 6,
+  "persons/female/30_39/west/family/trade": 7,
   "persons/female/40_49/north/family/trade": 3,
   "persons/female/40_49/south/family/trade": 6,
   "persons/female/40_49/west/family/trade": 3,
@@ -2487,15 +2494,15 @@
  },
  "measurement": {
   "buckets_ordered": 24,
-  "heads_ordered": 308,
-  "heads_drawn": 308,
+  "heads_ordered": 309,
+  "heads_drawn": 309,
   "every_bucket_filled": true,
   "buckets_still_short": {},
   "distinct_trades": 54,
   "trade_shape_against_1839": {
    "attorney": {
     "drawn": 4,
-    "drawn_share": 0.013,
+    "drawn_share": 0.0129,
     "share_1839": 0.0366
    },
    "auctioneer": {
@@ -2515,12 +2522,12 @@
    },
    "blacksmith": {
     "drawn": 8,
-    "drawn_share": 0.026,
+    "drawn_share": 0.0259,
     "share_1839": 0.039
    },
    "boarding_house_keeper": {
-    "drawn": 38,
-    "drawn_share": 0.1234,
+    "drawn": 39,
+    "drawn_share": 0.1262,
     "share_1839": 0.0203
    },
    "boatman": {
@@ -2540,7 +2547,7 @@
    },
    "builder": {
     "drawn": 9,
-    "drawn_share": 0.0292,
+    "drawn_share": 0.0291,
     "share_1839": 0.0439
    },
    "butcher": {
@@ -2550,7 +2557,7 @@
    },
    "carpenter": {
     "drawn": 21,
-    "drawn_share": 0.0682,
+    "drawn_share": 0.068,
     "share_1839": 0.1081
    },
    "carriage_maker": {
@@ -2560,7 +2567,7 @@
    },
    "clerk": {
     "drawn": 24,
-    "drawn_share": 0.0779,
+    "drawn_share": 0.0777,
     "share_1839": 0.1236
    },
    "confectioner": {
@@ -2575,7 +2582,7 @@
    },
    "domestic": {
     "drawn": 58,
-    "drawn_share": 0.1883,
+    "drawn_share": 0.1877,
     "share_1839": 0.0041
    },
    "dressmaker": {
@@ -2595,7 +2602,7 @@
    },
    "farmer": {
     "drawn": 4,
-    "drawn_share": 0.013,
+    "drawn_share": 0.0129,
     "share_1839": 0.0211
    },
    "forwarding_and_commission": {
@@ -2605,12 +2612,12 @@
    },
    "grocer": {
     "drawn": 10,
-    "drawn_share": 0.0325,
+    "drawn_share": 0.0324,
     "share_1839": 0.0528
    },
    "hardware_merchant": {
     "drawn": 8,
-    "drawn_share": 0.026,
+    "drawn_share": 0.0259,
     "share_1839": 0.0041
    },
    "harness_maker": {
@@ -2630,12 +2637,12 @@
    },
    "labourer": {
     "drawn": 25,
-    "drawn_share": 0.0812,
+    "drawn_share": 0.0809,
     "share_1839": 0.0593
    },
    "land_agent": {
     "drawn": 4,
-    "drawn_share": 0.013,
+    "drawn_share": 0.0129,
     "share_1839": 0.0203
    },
    "laundress": {
@@ -2685,7 +2692,7 @@
    },
    "milliner": {
     "drawn": 9,
-    "drawn_share": 0.0292,
+    "drawn_share": 0.0291,
     "share_1839": 0.0049
    },
    "music_teacher": {
@@ -2725,7 +2732,7 @@
    },
    "shoemaker": {
     "drawn": 4,
-    "drawn_share": 0.013,
+    "drawn_share": 0.0129,
     "share_1839": 0.022
    },
    "soap_and_candle_maker": {
@@ -2768,6 +2775,6 @@
    "female": 57,
    "male": 25
   },
-  "kin_owed_and_not_seated": 1241
+  "kin_owed_and_not_seated": 1242
  }
 }

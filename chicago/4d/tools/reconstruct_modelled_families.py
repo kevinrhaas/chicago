@@ -1975,8 +1975,12 @@ def self_test() -> int:
     # T-2179 RESTATED IT FROM 959 TO 955: it folded two duplicate cards (hh_baptist_john
     # onto hh_bourassa_jean_baptiste, hh_bourassa_lon onto hh_bourrassa_leon), and the two
     # survivors, each now carrying a baptism and a burial, read present on their own cards.
+    # T-2178 RESTATED IT FROM 959 TO 953: six St Mary's children whose own baptismal entries
+    # put their births after 1 July 1835 are carded `absent` by the civic mint now, so they
+    # reach the presence stage as evidenced absences and not as households to rule on.
+    # Merged, the two read 949 together: four folded and six absent, and no card is both.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 955)
+          len(ruled_present()) == 949)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",

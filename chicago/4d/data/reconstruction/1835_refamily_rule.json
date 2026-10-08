@@ -523,96 +523,6 @@
       }
     },
     {
-      "person": "rc_bourrassa_leon_wife",
-      "household": "hh_bourrassa_leon",
-      "relationship": "wife",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/female/30_39/south/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_bourrassa_leon:rc_bourrassa_leon_wife",
-      "axes": {
-        "sex": "female",
-        "age_band": "30_39",
-        "division": "south",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_bourrassa_leon_child_1",
-      "household": "hh_bourrassa_leon",
-      "relationship": "son",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/male/under_10/south/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_bourrassa_leon:rc_bourrassa_leon_child_1",
-      "axes": {
-        "sex": "male",
-        "age_band": "under_10",
-        "division": "south",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_bourrassa_leon_child_2",
-      "household": "hh_bourrassa_leon",
-      "relationship": "son",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/male/under_10/west/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_bourrassa_leon:rc_bourrassa_leon_child_2",
-      "axes": {
-        "sex": "male",
-        "age_band": "under_10",
-        "division": "west",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_bourrassa_leon_child_3",
-      "household": "hh_bourrassa_leon",
-      "relationship": "daughter",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/female/under_10/south/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_bourrassa_leon:rc_bourrassa_leon_child_3",
-      "axes": {
-        "sex": "female",
-        "age_band": "under_10",
-        "division": "south",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_bourrassa_leon_child_4",
-      "household": "hh_bourrassa_leon",
-      "relationship": "son",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/male/10_19/south/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_bourrassa_leon:rc_bourrassa_leon_child_4",
-      "axes": {
-        "sex": "male",
-        "age_band": "10_19",
-        "division": "south",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
       "person": "rc_bowen_erastus_selden_wife",
       "household": "hh_bowen_erastus_selden",
       "relationship": "wife",
@@ -23071,6 +22981,78 @@
       }
     },
     {
+      "person": "rc_rider_eli_a_wife",
+      "household": "hh_rider_eli_a",
+      "relationship": "wife",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/female/30_39/south/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_rider_eli_a:rc_rider_eli_a_wife",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "south",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_rider_eli_a_child_1",
+      "household": "hh_rider_eli_a",
+      "relationship": "daughter",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/female/under_10/west/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_rider_eli_a:rc_rider_eli_a_child_1",
+      "axes": {
+        "sex": "female",
+        "age_band": "under_10",
+        "division": "west",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_rider_eli_a_child_2",
+      "household": "hh_rider_eli_a",
+      "relationship": "daughter",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/female/under_10/south/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_rider_eli_a:rc_rider_eli_a_child_2",
+      "axes": {
+        "sex": "female",
+        "age_band": "under_10",
+        "division": "south",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
+      "person": "rc_rider_eli_a_child_3",
+      "household": "hh_rider_eli_a",
+      "relationship": "daughter",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/female/10_19/south/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_rider_eli_a:rc_rider_eli_a_child_3",
+      "axes": {
+        "sex": "female",
+        "age_band": "10_19",
+        "division": "south",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_sherman_silas_w_wife",
       "household": "hh_sherman_silas_w",
       "relationship": "wife",
@@ -23701,6 +23683,24 @@
       }
     },
     {
+      "person": "rc_thomas_frederick_child_1",
+      "household": "hh_thomas_frederick",
+      "relationship": "son",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/male/10_19/south/family/none",
+      "rung": "R_division_is_a_reading",
+      "adoptions": [],
+      "deal_key": "hh_thomas_frederick:rc_thomas_frederick_child_1",
+      "axes": {
+        "sex": "male",
+        "age_band": "10_19",
+        "division": "south",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_thomas_frederick_child_2",
       "household": "hh_thomas_frederick",
       "relationship": "daughter",
@@ -23731,24 +23731,6 @@
       "axes": {
         "sex": "female",
         "age_band": "under_10",
-        "division": "south",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_thomas_frederick_child_4",
-      "household": "hh_thomas_frederick",
-      "relationship": "daughter",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/female/10_19/south/family/none",
-      "rung": "R_division_is_a_reading",
-      "adoptions": [],
-      "deal_key": "hh_thomas_frederick:rc_thomas_frederick_child_4",
-      "axes": {
-        "sex": "female",
-        "age_band": "10_19",
         "division": "south",
         "household": "family",
         "trade": "none"
@@ -24007,6 +23989,24 @@
       }
     },
     {
+      "person": "rc_wellmaker_john_child_3",
+      "household": "hh_wellmaker_john",
+      "relationship": "son",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/male/under_10/south/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_wellmaker_john:rc_wellmaker_john_child_3",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "south",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_wellmaker_john_child_4",
       "household": "hh_wellmaker_john",
       "relationship": "daughter",
@@ -24061,6 +24061,24 @@
       }
     },
     {
+      "person": "rc_wesencraft_charles_child_4",
+      "household": "hh_wesencraft_charles",
+      "relationship": "son",
+      "stage": "modelled_families",
+      "ticket": "T-1171",
+      "bucket": "persons/male/under_10/west/family/none",
+      "rung": "C0",
+      "adoptions": [],
+      "deal_key": "hh_wesencraft_charles:rc_wesencraft_charles_child_4",
+      "axes": {
+        "sex": "male",
+        "age_band": "under_10",
+        "division": "west",
+        "household": "family",
+        "trade": "none"
+      }
+    },
+    {
       "person": "rc_whitlock_james_wife",
       "household": "hh_whitlock_james",
       "relationship": "wife",
@@ -24073,24 +24091,6 @@
       "axes": {
         "sex": "female",
         "age_band": "20_29",
-        "division": "west",
-        "household": "family",
-        "trade": "none"
-      }
-    },
-    {
-      "person": "rc_whitlock_james_child_1",
-      "household": "hh_whitlock_james",
-      "relationship": "daughter",
-      "stage": "modelled_families",
-      "ticket": "T-1171",
-      "bucket": "persons/female/under_10/west/family/none",
-      "rung": "C0",
-      "adoptions": [],
-      "deal_key": "hh_whitlock_james:rc_whitlock_james_child_1",
-      "axes": {
-        "sex": "female",
-        "age_band": "under_10",
         "division": "west",
         "household": "family",
         "trade": "none"
@@ -26631,12 +26631,12 @@
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
     {
-      "person": "rc_whitlock_james_child_1",
+      "person": "rc_wesencraft_charles_wife",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
     {
-      "person": "rc_wesencraft_charles_wife",
+      "person": "rc_wesencraft_charles_child_4",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
@@ -26652,6 +26652,11 @@
     },
     {
       "person": "rc_wellmaker_john_child_4",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_wellmaker_john_child_3",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
@@ -26827,6 +26832,26 @@
     },
     {
       "person": "rc_sherman_silas_w_child_1",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_rider_eli_a_wife",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_rider_eli_a_child_3",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_rider_eli_a_child_2",
+      "rung": "C0",
+      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
+    },
+    {
+      "person": "rc_rider_eli_a_child_1",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
@@ -27572,31 +27597,6 @@
     },
     {
       "person": "rc_bowen_erastus_selden_child_1",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_bourrassa_leon_wife",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_bourrassa_leon_child_4",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_bourrassa_leon_child_3",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_bourrassa_leon_child_2",
-      "rung": "C0",
-      "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
-    },
-    {
-      "person": "rc_bourrassa_leon_child_1",
       "rung": "C0",
       "why": "no open order anywhere holds his sex, age band and trade in a household kind this rule may move him to"
     },
@@ -30165,7 +30165,7 @@
   ],
   "counts": {
     "people_in_the_refused_buckets": 1181,
-    "the_surplus_those_buckets_hold": 412,
+    "the_surplus_those_buckets_hold": 409,
     "by_rung": {
       "C0": 220,
       "C1": 535,
@@ -30182,37 +30182,37 @@
     "buckets_moved_out_of": 41,
     "buckets_moved_into": 43,
     "adoptions_carried": 0,
-    "the_roster_is_reconciled": "all 53 refused buckets accounted for, 1,181 people named"
+    "the_roster_is_reconciled": "all 52 refused buckets accounted for, 1,181 people named"
   },
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
     "if_only_the_division_changed": 0,
-    "if_the_household_kind_changed_too": 17,
-    "if_the_trade_could_change_as_well": 78,
-    "and_then_with_movability_applied_but_a_house_free_to_split": 14,
+    "if_the_household_kind_changed_too": 16,
+    "if_the_trade_could_change_as_well": 76,
+    "and_then_with_movability_applied_but_a_house_free_to_split": 13,
     "under_this_rule": 142,
-    "what_the_whole_house_condition_costs": -128,
-    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -128 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
+    "what_the_whole_house_condition_costs": -129,
+    "and_why_that_is_the_right_price": "A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -129 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.",
     "the_number_T_1556_named": 265,
-    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 78: 202 of the 216 open slots stand in adult-MALE cells while the surplus holds 237 people under twenty and 111 adult women, whose cells hold 14 slots between them.",
-    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 18 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
+    "why_265_cannot_be_made": "T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 76: 202 of the 215 open slots stand in adult-MALE cells while the surplus holds 236 people under twenty and 110 adult women, whose cells hold 13 slots between them.",
+    "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 17 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
-    "persons_standing_in_the_layer": 2924,
-    "still_owed_now": 216,
-    "converges_to_now": 3140,
-    "converges_to_if_the_rule_is_spent": 2998,
-    "the_model_point": 2550,
+    "persons_standing_in_the_layer": 2920,
+    "still_owed_now": 215,
+    "converges_to_now": 3135,
+    "converges_to_if_the_rule_is_spent": 2993,
+    "the_model_point": 2548,
     "the_model_range": [
-      2371,
+      2369,
       3265
     ],
-    "reading": "2,998 is inside the model's 2,371-3,265 and 448 above its 2,550 point, against 590 above it today."
+    "reading": "2,993 is inside the model's 2,369-3,265 and 445 above its 2,548 point, against 587 above it today."
   },
   "what_would_raise_the_ceiling": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 237 people under twenty and 111 adult women, and their cells hold 14 and 0 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 236 people under twenty and 110 adult women, and their cells hold 13 and 0 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {

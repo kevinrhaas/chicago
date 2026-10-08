@@ -6160,7 +6160,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "On twenty third of February eighteen hundred thirty five I, the undersigned, baptised Mary Elisabeth daughter of Thomas Forester and of Brigitt Finegan, born the twenty first of instant 1835. Sponsors were Patrick Carroll and Mary Murphy."
+        "entry_as_read": "On twenty third of February eighteen hundred thirty five I, the undersigned, baptised Mary Elisabeth daughter of Thomas Forester and of Brigitt Finegan, born the twenty first of instant 1835. Sponsors were Patrick Carroll and Mary Murphy.",
+        "born": {
+          "earliest": "1835-02-21",
+          "latest": "1835-02-21",
+          "precision": "day",
+          "read_from": "stated",
+          "as_read": "born the twenty first of instant 1835",
+          "confidence": "documented",
+          "note": "The entry states the day of birth."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -6310,7 +6319,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?]."
+        "entry_as_read": "On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?].",
+        "born": {
+          "earliest": "1835-03-05",
+          "latest": "1835-03-05",
+          "precision": "day",
+          "read_from": "stated",
+          "as_read": "born the fifth of march 1835",
+          "confidence": "documented",
+          "note": "The entry states the day of birth."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -6580,7 +6598,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "fr",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet."
+        "entry_as_read": "Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet.",
+        "born": {
+          "earliest": "1835-06-04",
+          "latest": "1835-06-04",
+          "precision": "day",
+          "read_from": "stated",
+          "as_read": "Né the quatre juin 1835",
+          "confidence": "documented",
+          "note": "The entry states the day of birth."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -6730,7 +6757,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "fr",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Joseph Arquat fils de Michel Arquot et de Marguerite Robi, âgé de 16 mois. Parrain a été Louis Trombere[?]."
+        "entry_as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Joseph Arquat fils de Michel Arquot et de Marguerite Robi, âgé de 16 mois. Parrain a été Louis Trombere[?].",
+        "born": {
+          "earliest": "1834-02-06",
+          "latest": "1834-03-05",
+          "precision": "range",
+          "read_from": "age",
+          "as_read": "âgé de 16 mois",
+          "confidence": "inferred",
+          "note": "An age at the font, read as 16 completed month(s): born after 1834-02-05 and by 1834-03-05."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -6850,7 +6886,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "fr",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Marguerite [struck: Lafambre] fille de François Tranche[?] et de Josette Aspam, âgée d'un an. Parrain a été Michel Choulet."
+        "entry_as_read": "Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Marguerite [struck: Lafambre] fille de François Tranche[?] et de Josette Aspam, âgée d'un an. Parrain a été Michel Choulet.",
+        "born": {
+          "earliest": "1833-07-06",
+          "latest": "1834-07-05",
+          "precision": "range",
+          "read_from": "age",
+          "as_read": "âgée d'un an",
+          "confidence": "inferred",
+          "note": "An age at the font, read as 1 completed year(s): born after 1833-07-05 and by 1834-07-05."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -6970,7 +7015,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife."
+        "entry_as_read": "On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife.",
+        "born": {
+          "earliest": "1835-08-19",
+          "latest": "1835-08-19",
+          "precision": "day",
+          "read_from": "stated",
+          "as_read": "born the nineteenth of August eighteen hundred thirty five",
+          "confidence": "documented",
+          "note": "The entry states the day of birth."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -7120,7 +7174,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "fr",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Le 24 août 1835, je soussigné ai administré les cérémonies du baptême à Pierre Adam Schwartz fils de Adam Schwartz et de Marie Dalbau[?], âgé de six mois. Parrain et marraine ont été M. Pierre Riffe et Marie Delacher[?]."
+        "entry_as_read": "Le 24 août 1835, je soussigné ai administré les cérémonies du baptême à Pierre Adam Schwartz fils de Adam Schwartz et de Marie Dalbau[?], âgé de six mois. Parrain et marraine ont été M. Pierre Riffe et Marie Delacher[?].",
+        "born": {
+          "earliest": "1835-01-25",
+          "latest": "1835-02-24",
+          "precision": "range",
+          "read_from": "age",
+          "as_read": "âgé de six mois",
+          "confidence": "inferred",
+          "note": "An age at the font, read as 6 completed month(s): born after 1835-01-24 and by 1835-02-24."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -7270,7 +7333,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr."
+        "entry_as_read": "On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr.",
+        "born": {
+          "earliest": "1835-09-10",
+          "latest": "1835-09-10",
+          "precision": "day",
+          "read_from": "age",
+          "as_read": "fifteen days old",
+          "confidence": "inferred",
+          "note": "15 days before the baptism of 1835-09-25."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -7420,7 +7492,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "fr",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy."
+        "entry_as_read": "Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy.",
+        "born": {
+          "earliest": "1835-07-04",
+          "latest": "1835-10-04",
+          "precision": "range",
+          "read_from": "days",
+          "as_read": "âgé de [?] jours",
+          "confidence": "inferred",
+          "note": "An age in days whose count nobody can read. The register counts in days only for a newborn and has moved to months by two, so the window is bounded at three months before the font — a month wider than that practice."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -7570,7 +7651,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "fr",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts."
+        "entry_as_read": "Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts.",
+        "born": {
+          "earliest": "1833-10-05",
+          "latest": "1834-10-04",
+          "precision": "range",
+          "read_from": "age",
+          "as_read": "âgée d'un an",
+          "confidence": "inferred",
+          "note": "An age at the font, read as 1 completed year(s): born after 1833-10-04 and by 1834-10-04."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -7720,7 +7810,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar."
+        "entry_as_read": "Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar.",
+        "born": {
+          "earliest": "1835-07-19",
+          "latest": "1835-08-18",
+          "precision": "range",
+          "read_from": "age",
+          "as_read": "two months old",
+          "confidence": "inferred",
+          "note": "An age at the font, read as 2 completed month(s): born after 1835-07-18 and by 1835-08-18."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -7870,7 +7969,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar."
+        "entry_as_read": "On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar.",
+        "born": {
+          "earliest": "1835-10-30",
+          "latest": "1835-10-30",
+          "precision": "day",
+          "read_from": "stated",
+          "as_read": "born the thirtieth of October",
+          "confidence": "documented",
+          "note": "The entry states the day of birth."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
@@ -8020,7 +8128,16 @@
         "place": "Chicago, Cook County, Illinois",
         "language": "en",
         "priest": "J. M. I. Saint Cyr",
-        "entry_as_read": "Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster."
+        "entry_as_read": "Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster.",
+        "born": {
+          "earliest": "1835-12-20",
+          "latest": "1835-12-20",
+          "precision": "day",
+          "read_from": "stated",
+          "as_read": "born the twentieth of december 1835",
+          "confidence": "documented",
+          "note": "The entry states the day of birth."
+        }
       },
       "at_chicago": true,
       "beyond_ticket_window": false,
