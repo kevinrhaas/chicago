@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1544, ts: '2026-10-08T18:54:54.354Z', date: 'Oct 8, 2026, 1:54 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 202 more grown men in family houses. The people cards already name 1,190 men aged twenty or over, and the plan wants 943 in all, so the town has more than enough.',
+      'The 202 are taken off the list. Nobody in the town is changed or removed. The count the town is heading for falls from 3,135 to 2,933, inside the 1835 range.',
+    ] },
   { v: 1543, ts: '2026-10-08T17:49:39.051Z', date: 'Oct 8, 2026, 12:49 PM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
       'St Mary\u2019s baptism register gives six children a birth date, or an age at baptism, that falls after 1 July 1835. Until now they were counted in the town that day. Now they are not.',
