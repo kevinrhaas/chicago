@@ -1,0 +1,24 @@
+{
+  "id": "north_freight_bank_1835",
+  "target_date": "1835-07-01",
+  "owning_ticket": "T-2022",
+  "parent_ticket": "T-1205",
+  "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+  "research_memo": "docs/RESEARCH/1835_north_division_extent_and_infill.md",
+  "tier": "reconstructed",
+  "basis": "The order book's structures/warehouses_freight/north row sets 7 and finds 6 standing, so it orders one more freight roof for the North Division. The 665-roof schedule dealt that F3 to blk_indiana_north_wolcott, where the block generator refuses it (Wolcott is graded light, and commercial_front avoids light streets), and T-1205 left it owed rather than force it onto Kinzie Street. THE BANK-LANDING CLAUSE, committed as `bank_landing` in tools/placement_policy_1835.py and argued on the North bank's own evidence rather than on the street hierarchy: (1) every freight roof the North already holds stands on the main stem's north bank and fronts the WATER — Kinzie & Hunter's warehouse and the four sheds on the Dearborn reach — and until this clause the placement policy carried each of them as an outlier with the reason 'its frontage is the water'; (2) the plate those sheds are built from, image 3 of the owner's brief of 2026-08-18, draws low warehouses on the banks of the reach below the Dearborn drawbridge (tier-5 pictorial: it decides the type, never a coordinate); (3) in November 1835 the trustees sold the wharfing privileges for 999 years at a minimum of $25 a front foot on South Water, $18.75 on North Water and $18 on West Water (wood_1881_chicago_and_its_distinguished_citizens), so the river streets' frontage was sold as landing whatever their wagon traffic. That sale is four months after the target date and dates no building; it is read for the frontage's character only. The clause is scored on one measured fact, the roof's distance from the traced water, and accepts F1-F3 within one platted corridor plus the policy's street line (27.09 m): nothing between the roof and the river but the river street. North Water is NOT regraded — the wharfing prices put it level with West Water, which is light too — and the block generator still refuses a warehouse on a light street by its own constant. THE LOT. Every lower-tier lot of the Dearborn reach is held (lots 1-4 of blk_kinzie_dearborn_north, lots 1-3 of blk_kinzie_clark_north). The one free lot east of Clark, blk_kinzie_clark_north lot 4, has the 1833 north-side school on the North Water frontage directly in front of it, 5.7 m from where the cargo doors would be, and the North parcel keeps the named school-house and its yard. The free lots of blk_kinzie_lasalle_north stand 29-30 m from the water, beyond the clause's reach, because the bank bows south there. So the roof takes plat lot 1 of blk_kinzie_wells_north, the lower tier's LaSalle Street corner, between Kinzie & Hunter's at the forks and the Dearborn reach: 25.42 m from the traced water. A corner is where commercial_front puts any freight roof; the side wall stands 1.5 m inside the lot's LaSalle line and the front 3.0 m inside its North Water line, 1.29 m clear of North Water as data/streets/1835.json draws it.",
+  "replaceable_by": "Any reading that seats a named forwarder or warehouse on the North bank in July 1835 substitutes for this roof rather than adding beside it; the order book's North freight row is the count it fills.",
+  "placement": {
+    "structure_id": "recon_1835_bank_freight_f3_001",
+    "family": "F3",
+    "block_id": "blk_kinzie_wells_north",
+    "lot_tier": "lower",
+    "plat_lot_number": 1,
+    "fronts": "north_water",
+    "side_street": "lasalle_north",
+    "corner_end": "east",
+    "front_setback_m": 3.0,
+    "side_setback_m": 1.5,
+    "geometry_seed": "recon_1835_bank_freight_f3"
+  }
+}

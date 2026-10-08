@@ -19,8 +19,10 @@
    "reading": "centreline band",
    "ruled": "The owner, 2026-08-30 (T-0416): the band is NOT added.",
    "why": "A band is a distance from a centreline and not an orientation. A roof within 25 m of a street's platted line may show it a wall, a gable end or nothing at all, and no reading of the plat can say which. The corner side adopted above is an orientation the plat does state.",
-   "it_would_have_seated": 0,
-   "it_would_have_seated_ids": [],
+   "it_would_have_seated": 1,
+   "it_would_have_seated_ids": [
+    "business_wm_sabine_storage_forwarding_and_commission_merchant"
+   ],
    "it_would_have_cost": 0,
    "it_would_have_cost_ids": []
   },
@@ -112,10 +114,10 @@
      "centreline band"
     ],
     "in_force": false,
-    "would_seat": 44,
-    "would_seat_on_distinct_roofs": 44,
+    "would_seat": 45,
+    "would_seat_on_distinct_roofs": 45,
     "deals_a_roof_twice": {},
-    "per_face_ledger_would_seat": 45,
+    "per_face_ledger_would_seat": 46,
     "per_face_ledger_would_deal_twice": {
      "recon_1835_blk_randolph_clark_c2_01": [
       "business_j_l_wilson_co",
@@ -130,16 +132,20 @@
       "business_hubbard_co"
      ]
     },
-    "against_the_reading_in_force": 0,
-    "seats_that_the_reading_in_force_does_not": [],
-    "seats_that_the_reading_in_force_does_not_by_street": {},
+    "against_the_reading_in_force": 1,
+    "seats_that_the_reading_in_force_does_not": [
+     "business_wm_sabine_storage_forwarding_and_commission_merchant"
+    ],
+    "seats_that_the_reading_in_force_does_not_by_street": {
+     "north_water": 1
+    },
     "loses_against_the_reading_in_force": [],
-    "would_still_refuse": 8,
+    "would_still_refuse": 7,
     "would_still_refuse_by_reason": {
      "not present at the scene date": 0,
      "the face holds no roof standing on it": 0,
      "this face already holds this proprietor": 2,
-     "every roof on the face is spoken for": 6
+     "every roof on the face is spoken for": 5
     }
    }
   },
@@ -323,7 +329,7 @@
     "roofs_home_inferred": 0,
     "roofs_yard": 0,
     "roofs_requested_by_a_seat": 0,
-    "roofs_in_centreline_band_declined": 1,
+    "roofs_in_centreline_band_declined": 2,
     "roofs_free_and_a_house_of_trade": 0,
     "adopted_into_a_house_of_trade": 0
    },
@@ -3247,7 +3253,7 @@
    "street_id": "north_water",
    "street_name": "North Water Street",
    "refusal": "the face holds no roof standing on it",
-   "detail": "no roof stands on this street under an adopted reading: 0 has its platted lot on it, 0 end a tier against it, and 1 lie within the centreline band, which the owner declined as a face on 2026-08-30."
+   "detail": "no roof stands on this street under an adopted reading: 0 has its platted lot on it, 0 end a tier against it, and 2 lie within the centreline band, which the owner declined as a face on 2026-08-30."
   },
   {
    "business_id": "business_wm_sabine_storage_forwarding_and_commission_merchant",
@@ -3255,7 +3261,7 @@
    "street_id": "north_water",
    "street_name": "North Water Street",
    "refusal": "the face holds no roof standing on it",
-   "detail": "no roof stands on this street under an adopted reading: 0 has its platted lot on it, 0 end a tier against it, and 1 lie within the centreline band, which the owner declined as a face on 2026-08-30."
+   "detail": "no roof stands on this street under an adopted reading: 0 has its platted lot on it, 0 end a tier against it, and 2 lie within the centreline band, which the owner declined as a face on 2026-08-30."
   },
   {
    "business_id": "business_peter_cohen_s_store",

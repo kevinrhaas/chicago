@@ -50,8 +50,8 @@
    "unsubdivided": 22
   },
   "may_raise_a_slot": 5,
-  "carrying_a_roof": 32,
-  "principal_roofs_standing": 167,
+  "carrying_a_roof": 33,
+  "principal_roofs_standing": 168,
   "ground_m2": 7257850.1
  },
  "what_the_roof_programme_does_not_carry": {
@@ -1428,9 +1428,13 @@
    "slot_headroom": 0,
    "may_raise_a_slot": false,
    "why_no_slot": "the 665-roof programme's schedule carries no row for this ground, so there is no committed family plan to raise a roof inside and no headroom to draw on",
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0
+   "standing": [
+    "recon_1835_bank_freight_f3_001"
+   ],
+   "standing_families": {
+    "recon_1835_bank_freight_f3_001": "F3"
+   },
+   "principal_roofs_standing": 1
   },
   {
    "parcel_id": "blk_kinzie_lasalle_north#00",

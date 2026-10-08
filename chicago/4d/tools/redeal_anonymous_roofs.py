@@ -252,7 +252,8 @@ def positions() -> dict[str, dict]:
     traffic = frontage.street_traffic()
     out = {}
     for row in frontage.census()["rows"]:
-        out.setdefault(row["id"], {"street": row["street"], "setback_m": row["setback_m"],
+        out.setdefault(row["id"], {"id": row["id"],
+                                   "street": row["street"], "setback_m": row["setback_m"],
                                    "on_line": row["on_line"],
                                    "class": traffic.get(row["street"])})
     return out

@@ -345,6 +345,7 @@ FUNCTIONS = {
     "W1": "blacksmith_shop", "W2": "carpenter_or_joiner_shop",
     "W3": "cooper_wagon_or_wheelwright_shop", "W4": "small_artisan_shop",
     "F1": "freight_or_storage_shed", "F2": "narrow_two_story_warehouse",
+    "F3": "large_river_warehouse",
     "A1": "stable", "A2": "barn_or_carriage_shed", "A3": "privy",
     "A4": "woodshed_or_storage_shed", "A5": "small_utility_building",
 }

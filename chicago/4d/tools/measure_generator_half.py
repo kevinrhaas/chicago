@@ -472,17 +472,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # five principal roofs on the Canal face and eight yard buildings, all through emit.py and
 # the common modules. Terrain reach still 6 and pier_crib still 2.
 #
-# 662 -> 670 and 656 -> 664 on 2026-10-06 (T-2147): the eight roofs on the School Section
+# 662 -> 663 and 656 -> 657 on 2026-10-07 (T-2022): the North Water river warehouse
+# adds one frame_storefront through emit.py and the common modules. The lap preserves
+# T-2148's thirteen assets; terrain reach stays 6 and pier_crib stays 2.
+#
+# 663 -> 671 and 657 -> 665 on 2026-10-06 (T-2147): the eight roofs on the School Section
 # tier's block 81, blk_school_section_tier_81 — seven dwellings (D3 to D7) and an A2 carriage
 # shed, all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 670,
+    "assets": 671,
     "restales": {
-        "generators/common/*.py": 670,
+        "generators/common/*.py": 671,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 664,
+        "generators/emit.py": 665,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

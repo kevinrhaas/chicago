@@ -31,7 +31,7 @@ const mod = await import(moduleURL(source
   .replace("import { resolveBases } from './scene-loader.js';",
     "const resolveBases = () => { throw new Error('scene loading outside this check'); };")
   .replace("from './gates.js'", `from '${pathToFileURL(path.join(web, 'js/gates.js')).href}'`)
-  + '\nexport { timberBuf, laySegment, pushBox, plankGapAttribute, filterPlankGaps, PLANK_GAP_M };'));
+  + '\nexport { timberBuf, plainTimber, laySegment, pushBox, plankGapAttribute, filterPlankGaps, PLANK_GAP_M };'));
 const confidenceSource = await readFile(path.join(web, 'js/confidence.js'), 'utf8');
 const { createConfidenceView } = await import(moduleURL(
   confidenceSource.replace("from 'three'", `from '${threeURL}'`)));
@@ -56,6 +56,7 @@ for (const [name, angle, slope, bare] of [
   const buf = mod.timberBuf();
   const boards = mod.laySegment(buf, walk, 0, 0, rx * length, rn * length,
     { surfaceHeight: (e, n) => 0.7 + (e * rx + n * rn) * slope }, 1);
+  mod.plainTimber(buf);
   const verticesPerBoard = (bare ? 10 : 12) * 3;
   const stride = verticesPerBoard + 2 * 10 * 3;
   check(`${name}: unchanged triangle cost and complete seam stream`, () => {
@@ -101,6 +102,7 @@ for (const [name, angle, slope, bare] of [
 check('standing timber has zero seam displacement', () => {
   const buf = mod.timberBuf();
   mod.pushBox(buf, 0, 1, 0, 1, 0, 0.1, 0.1, 1, 1);
+  mod.plainTimber(buf);
   assert.ok(buf.seam.every((v) => v === 0));
 });
 check('compact displacement retains XZ direction to sub-micrometre accuracy', () => {
@@ -169,6 +171,7 @@ check('far merging retains every seam displacement and the shared material', () 
     const buf = mod.timberBuf();
     mod.laySegment(buf, { width_m: 1.83 }, i * 3, 500, i * 3 + 2.6, 500,
       { surfaceHeight: () => 0.7 }, 1);
+    mod.plainTimber(buf);
     const geometry = new THREE.BufferGeometry();
     for (const [key, values, size] of [['position', buf.pos, 3], ['normal', buf.nrm, 3]]) {
       geometry.setAttribute(key, new THREE.Float32BufferAttribute(values, size));

@@ -6,6 +6,22 @@ export const CHANGELOG = [ // newest first
       'Seven households now live in these houses, two of them named on the house itself. The seven who had asked for these lots are given lots on the next blocks south instead, because households already in the town move into new houses first.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
     ] },
+  { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
+    items: [
+      'Walk west along North Water Street from the Dearborn drawbridge, past the freight sheds, and at the LaSalle Street corner there is now a large two-storey river warehouse: unpainted clapboard, three cargo doors on its end wall, and its front to the river across the street.',
+      'No record names it. It stands for the North Division\u2019s seventh warehouse, which the plan counted and nobody had built because North Water is a back street. The North bank\u2019s other sheds and warehouses all face the water rather than the street, and that is the reason this one is there. Its card says what was made up.',
+    ] },
+  { v: 1517, ts: '2026-10-06T22:43:43.965Z', date: 'Oct 6, 2026, 5:43 PM CT', title: '1835 asks less of a phone while it loads', kind: 'fix',
+    items: [
+      'On a phone, 1835 could still close the browser tab just as loading finished. It now asks for less memory at that moment, so it has more room to spare.',
+      'On a phone, signboards and the marks on yard goods are drawn from images half as wide. They read the same at phone size, and nothing changes on a computer.',
+      'Laying the plank walks and fences no longer leaves a large pile of scratch memory behind for the browser to clear while the town opens.',
+    ] },
+  { v: 1516, ts: '2026-10-06T21:47:43.129Z', date: 'Oct 6, 2026, 4:47 PM CT', title: 'A lighter first visit, again', kind: 'change',
+    items: [
+      'The walkthrough no longer downloads every household\u2019s research notes before you can step into the street. A first visit is about 0.9 MB lighter.',
+      'A building\u2019s card still names the people who lived there, with their roles and grades, as soon as it opens. The \u201cwhy\u201d notes beside them arrive a moment later, for that building only.',
+    ] },
   { v: 1515, ts: '2026-10-06T21:12:35.904Z', date: 'Oct 6, 2026, 4:12 PM CT', title: 'Five houses and a boarding house on Canal Street toward Madison', kind: 'feature',
     items: [
       'Clinton, Jefferson and Des Plaines Streets now run south past Washington Street to Madison Street, the south edge of the 1830 town, as Canal Street already does. Before, all three stopped short at Washington.',
