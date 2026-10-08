@@ -406,7 +406,11 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2146 WITH T-2145's OWN PR (2026-10-06). T-2145 builds the Clark blocks
     # (118, 119) and goes `done` when it merges, so the row moves one piece on to the Wells
     # blocks (94, 95), the next build piece still open.
-    ("south", "ordinary_dwellings"): "T-2146",
+    #
+    # AND ON TO T-2147 WITH T-2146's OWN PR (2026-10-06). T-2146 builds the Wells blocks
+    # and goes `done` when it merges, so the row moves to the Market block (81), the last
+    # build piece of the tier still live.
+    ("south", "ordinary_dwellings"): "T-2147",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -516,9 +520,10 @@ STRUCTURE_TICKETS = {
     # and the street line carries the whole order, on T-1673. This entry is what a banded
     # cell falls back to if its bands are ever taken out of the inventory, so it names the
     # half that would still owe. It is not read while the bands stand.
-    # T-1673 WAS SPLIT on 2026-10-08: T-2174 raised the F2 on blk_south_water_dearborn,
-    # and the street line's other three (the Wells F3 the generator refuses on a platted
-    # lot, the F3 and F4 on gated blk_south_water_market) went to T-2175, so this follows.
+    #
+    # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
+    # street line's F2 and goes `done` when it merges, so the order moves to the piece that
+    # carries the rest of the line, as the band in the inventory does.
     ("south", "warehouses_freight"): "T-2175",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
@@ -5084,6 +5089,10 @@ def cmd_self_test() -> int:
     # thirteen roofs are raised; the four households that asked for its houses are seated
     # on standing West roofs, older households adopt the new ones, and the platted pass
     # seats three more at its fixpoint (209 -> 212 platted seats, 99 off-plat, L270, L394).
+    # 311 holds on 2026-10-08 (T-2146, merged over T-2165 and T-2167): thirteen Wells-block
+    # houses dealt to the post-T-2148 requests; older households adopt them, the requesters
+    # are seated on standing roofs or re-slot on block 81, and the settled pass seats 212 on
+    # the plat and 99 off it, as before.
     assert seats_against_roofs(data, structure_buckets(
         data["inventory"], data["programme"], occ))["seated"] == 311
     fires("a seating pass whose seated and owed miss its own scope",

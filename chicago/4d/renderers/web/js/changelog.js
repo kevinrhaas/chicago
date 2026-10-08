@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1531, ts: '2026-10-08T11:08:56.450Z', date: 'Oct 8, 2026, 6:08 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [
       'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
       'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
+    ] },
+  { v: 1531, ts: '2026-10-08T11:16:48.172Z', date: 'Oct 8, 2026, 6:16 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+    items: [
+      'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
+      'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
+      'Thirteen of the town\u2019s households move into the new houses.',
+      'Light detail now has more room on a weaker machine as you look across the town.',
+      'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
     ] },
   { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
     items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',

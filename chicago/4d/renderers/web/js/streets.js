@@ -23,6 +23,7 @@
  */
 
 import * as THREE from 'three';
+import { spatialBatch } from './spatial-batch.js';
 import { GRIT_TILE_PX, GRIT_TILE_M, gritTilePixels } from './ground-strip-mask.js';
 
 const STEP_M = 2.25;
@@ -1002,13 +1003,22 @@ function ridgeDrape(terrain, polygon, attrOf, onEnd = null) {
           }
           const [u, t] = attrOf(e, n);
           if (onEnd) [e, n] = onEnd(e, n, t);
+          // The end-line correction is double precision. The GPU stores these
+          // coordinates as Float32, which can put a cut onto the neighbouring
+          // cell; drape at the position that will actually be drawn.
+          e = Math.fround(e);
+          n = Math.fround(n);
           if (!terrain.inBounds(e, n) || terrain.isWater(e, n)) return null;
           const fx = (e - p00[0]) / g.cellM;
           const fy = (n - p00[1]) / g.cellM;
           // Same half as the centroid: evaluate that half's plane directly. A
           // nudged vertex may have left the cell, so it reads the ridge where
           // it now stands — every piece sharing it reads the same.
-          const ridge = nudged ? ridgeHeight(terrain, e, n) : halfPlane(h, fx, fy, fxC, fyC);
+          const plane = nudged ? ridgeHeight(terrain, e, n) : halfPlane(h, fx, fy, fxC, fyC);
+          // An end-line/Float32 step past the clipped half-cell must not
+          // extrapolate its plane below the field or above the actual ridge.
+          const ridge = Math.max(terrain.surfaceHeight(e, n),
+            Math.min(ridgeHeight(terrain, e, n), plane));
           verts.push([e, n, ridge + LIFT_M, u, t]);
         }
         // Wound as the panels are — clockwise in plan (e, n) — so the normals
@@ -1920,12 +1930,13 @@ ${ROAD_HEAD}${graded ? 'varying float vTrackConfidence;\n' : ''}${shader.fragmen
     );
   };
   confidence?.patch(mat);
-  const mesh = new THREE.Mesh(geo, mat);
+  const mesh = spatialBatch(geo, mat);
+  geo.dispose();
   mesh.name = `streets-${surface}`;
   mesh.receiveShadow = true;
   mesh.castShadow = false;
   mesh.renderOrder = 0;
-  return { mesh, geo, mat };
+  return { mesh, geo: mesh.geometry, mat };
 }
 
 export function createStreets({ terrain, records = [], confidence = null, detail = 'full' } = {}) {
@@ -2102,16 +2113,25 @@ export function createStreets({ terrain, records = [], confidence = null, detail
         const buf = next.buffers.get(r.surface);
         if (!buf?.idx.length) continue;
         const geo = geometryOf(r.surface, buf);
-        r.mesh.geometry = geo;
-        r.geo.dispose();
-        r.geo = geo;
+        const mesh = spatialBatch(geo, r.mat);
+        mesh.name = r.mesh.name;
+        mesh.receiveShadow = r.mesh.receiveShadow;
+        mesh.castShadow = r.mesh.castShadow;
+        mesh.renderOrder = r.mesh.renderOrder;
+        mesh.visible = r.mesh.visible;
+        group.remove(r.mesh);
+        r.mesh.dispose();
+        geo.dispose();
+        group.add(mesh);
+        r.mesh = mesh;
+        r.geo = mesh.geometry;
       }
       Object.assign(stats, next.counts);
       return true;
     },
     dispose() {
       for (const r of resources) {
-        r.geo.dispose();
+        r.mesh.dispose();
         r.mat.dispose();
       }
       grit?.texture.dispose();
