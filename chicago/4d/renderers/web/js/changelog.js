@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1531, ts: '2026-10-08T11:08:15.344Z', date: 'Oct 8, 2026, 6:08 AM CT', title: 'Building checks unblocked after a ticket split', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan for the four warehouses still owed on the South Water and Lake street line now points at the work item that will build them, so the town\u2019s automated checks pass again and waiting changes can land.',
+      'The Glessner House package check now explains how to refresh an out-of-date local copy instead of suggesting a repack that could undo a newer bake.',
+    ] },
   { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
     items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
       'The corrected curve is labelled reconstructed: early maps support a continuous shore, but do not establish its exact outline.'] },
