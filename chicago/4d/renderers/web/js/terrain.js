@@ -549,6 +549,9 @@ export async function createTerrain({
     groundBase.frustumCulled = true;
     group.add(groundBase);
     disposables.push(groundBase.geometry);
+    // batchDistantGround() re-reads these arrays after a phone has already
+    // uploaded the terrain layer, so they must outlive that upload (T-2180).
+    groundBase.geometry.userData.rereadBeforeRelease = true;
   }
 
   // ---- the water --------------------------------------------------------- //
@@ -682,6 +685,7 @@ export async function createTerrain({
         return geometry.userData.adaptiveGround;
       }
       const previous = groundBase.geometry;
+      geometry.userData.rereadBeforeRelease = true;
       const slot = disposables.indexOf(previous);
       if (slot >= 0) disposables[slot] = geometry;
       else disposables.push(geometry);
