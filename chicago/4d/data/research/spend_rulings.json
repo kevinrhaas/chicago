@@ -19,11 +19,6 @@
       "disposition": "refused",
       "statement": "The books crosswalk has already refused this row by name, under this domain's standing rule that a merge needs a rule naming both spellings verbatim and that a surname-only merge is always a refusal. The ledger now carries that refusal instead of reading the row as work nobody has looked at."
     },
-    "handed_to_the_family_pass": {
-      "disposition": "unresolved",
-      "ticket": "T-1335",
-      "statement": "The unit names kin — a wife, a marriage, a household member — of a head this town holds. WAS T-1170 UNTIL T-1313 CLOSED ON 2026-09-18: that ticket was split into T-1312, T-1313 and T-1314, and with the last of the three done the parent is spent work a unit cannot defer to. The three read the relatives named in the CARDS' own prose; these two are book claims that reading never saw, so they go to T-1320 with the seven kin enrichments in the same position. A marriage names a spouse and creates nobody; a marriage names a spouse and creates nobody, and no household member is minted here. THE HANDOFF MOVED FROM T-1320 TO T-1335 ON 2026-09-18. T-1320 was scoped to the BOOK corpus alone — its title is the ties whose relative is ALSO a held resident, and the book-corpus relatives who are nobody here — and the retarget off T-1170's split pointed ALL FOUR domains at it, which it never covered. Its pass (tools/spend_book_kin.py, PR #1464) did the book job and closed, and 168 units read as deferring to spent work: 147 church, 12 newspapers, 7 residents, and 2 book units its own pass left unruled. T-1335 is the family pass proper and owns all of them. A closed ticket cannot own unresolved units, so the line hands on to live work rather than reading as spent."
-    },
     "handed_to_the_dated_role_pass": {
       "disposition": "unresolved",
       "ticket": "T-1543",
@@ -232,6 +227,14 @@
     "the_reading_describes_the_site_before_the_town_and_places_nothing": {
       "disposition": "aggregate_only",
       "statement": "THE GROUND THIS TOWN WAS BUILT ON WAS INHABITED, AND SAYING SO IS NOT PLACING ANYTHING. The reading describes the site before the platted town — settlement along both branches of the river rather than at a point, and the meaning the name of the stream carried — and it is recorded because the reconstruction's own divisions sit on top of that pattern. It places no street, no corridor and no dwelling: it names no corner, no reach, no distance and no side of a branch, and the compiler who wrote it down was writing in 1884 about a time before 1833. IT IS ALSO SUBJECT TO THIS PROJECT'S STANDING CONSTRAINT and this ruling takes no step under it. AGENTS.md: Indigenous presence at Chicago is not a research gap to be filled by inference, nothing is improvised, and the 1835 DATA layer reconstructs Native and Métis people through one ticket and its writer's stage only. So the disposition is the aggregate on purpose: the finding is kept, named and left for the ticket that owns it, and this register neither places a village, draws a dwelling, nor promotes a confidence toward one. The etymology is recorded as the compiler ordered it and is not adjudicated here."
+    },
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and one end of it is a person this town holds while the other is not: a relative named in the source who has no card here. The source is not doubted; the tie has no far end to land on, and this pass does not mint one to give it somewhere. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and the source dates it to the scene's own YEAR and no closer: 1 July 1835 sits inside the span and the sentence cannot say which side. A kin row carries no date, so writing it would state in the present tense a tie that may not yet have stood. Reopened by any source that dates it to the month. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     }
   },
   "rulings": [
@@ -262,8 +265,8 @@
     },
     {
       "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_024",
-      "rule": "handed_to_the_family_pass",
-      "note": "Beckwith names Billy Caldwell's wife as the sister of Min-ne-mung, the Yellow Head. Caldwell is a head this town holds and the crosswalk merges the naming; the kin tie itself is a family fact and belongs to the pass that gives the attested heads the families the sources name."
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "Beckwith names Billy Caldwell's wife as the sister of Min-ne-mung, the Yellow Head. Caldwell is a card here (hh_caldwell_billy) and holds nobody else: his wife is not a person this town holds, and the tie between him and Min-ne-mung (readmitted off this claim as hh_min_ne_mung) runs THROUGH her, as a brother-in-law relation validate.py declares no inverse for. With the wife off the layer the tie has no far end. THE FAMILY PASS (T-1335) rules it; nobody is minted."
     },
     {
       "unit": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_042",
@@ -357,8 +360,8 @@
     },
     {
       "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v1.json#claims/bk_mose1_012",
-      "rule": "handed_to_the_family_pass",
-      "note": "John Dean Caton married Laura Adelaide, daughter of Jacob Sherrill, in 1835 — the year only. The scene date sits inside it and the sentence cannot say which side, so the marriage is a family fact for the pass that draws spouses and not an 1835 household of two."
+      "rule": "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene",
+      "note": "John Dean Caton (hh_caton_john_dean) married Laura Adelaide, daughter of Jacob Sherrill, in 1835 -- the year only. Laura Adelaide and Jacob Sherrill are both readmitted off this claim (hh_laura_adelaide_sherrill, hh_jacob_sherrill), so the marriage has two held ends, but the scene date sits inside the year and the sentence cannot say which side of it the wedding fell; a kin row carries no date. The father-daughter tie lies on two cards the readmission build writes whole, which is T-2191's shape. THE FAMILY PASS (T-1335) rules it."
     },
     {
       "unit": "books:data/research/books/claims/moses_kirkland_history_of_chicago_v2.json#claims/bk_mose2_011",

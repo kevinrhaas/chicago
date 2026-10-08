@@ -13,14 +13,14 @@
   "the_1840_census_households": "The densest kinship the corpus holds, and its crosswalk is 235 named heads stale on dev (T-0714) and derived against 849 residents where the town now holds 1,404 (T-0698). Kin read off it would land on the wrong people. Deliberately out of this pass."
  },
  "counts": {
-  "statements_read": 265,
-  "both_ends_in_town": 100,
-  "landable": 77,
+  "statements_read": 267,
+  "both_ends_in_town": 101,
+  "landable": 78,
   "same_household": 3,
   "ambiguous": 3,
   "identity_not_asserted": 17,
   "other_not_in_town": 14,
-  "subject_unresolved": 151,
+  "subject_unresolved": 152,
   "relation_undeclared": 0
  },
  "proposals": [
@@ -1006,6 +1006,30 @@
     {
      "household": "hh_wode_mary",
      "person": "wode_mary"
+    }
+   ],
+   "outcome": "landable"
+  },
+  {
+   "id": "st_marys_bapt_1833_09_3_father__parent_of__st_marys_bapt_1833_09_2_child",
+   "source": "st_marys_baptismal_register_1833_1835",
+   "locator": "st_marys_bapt_1833_09_3_father",
+   "as_read": "On the fourteenth of July eighteen hundred & thirty three I, the undersigned, baptised Mary and Catherine daughters of John Wode and Mariana Kamenwith[?] born the 16th July 1833. Sponsors were Jacob Jolly and Catherine Harrington.",
+   "subject_as_read": "John Wode",
+   "relation": "father",
+   "other_as_read": "Catherine Wode",
+   "subject_record": "st_marys_bapt_1833_09_3_father",
+   "other_record": "st_marys_bapt_1833_09_2_child",
+   "subject": [
+    {
+     "household": "hh_wode_john",
+     "person": "wode_john"
+    }
+   ],
+   "other": [
+    {
+     "household": "hh_wode_catherine",
+     "person": "wode_catherine"
     }
    ],
    "outcome": "landable"

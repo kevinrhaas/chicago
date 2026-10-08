@@ -15,7 +15,9 @@
     "the_enrichment_names_a_birth_or_age_no_field_carries": 3,
     "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": 12,
     "the_enrichment_names_a_departure_from_chicago_no_field_carries": 6,
-    "the_enrichment_names_kin_no_field_carries": 7,
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 2,
+    "the_family_pass_finds_the_tie_begins_after_the_scene": 1,
+    "the_family_pass_finds_the_tie_is_the_household_itself": 4,
     "the_landholding_is_written_onto_the_card_as_what_the_person_held": 2,
     "the_later_volume_enriches_a_biography_and_names_no_1835_field": 7,
     "the_manifest_is_a_reservation_and_not_a_reading": 75,
@@ -60,10 +62,17 @@
       "disposition": "refused",
       "statement": "The completed pass returned `corroborated_enrichment` naming a DEPARTURE from Chicago -- a removal, a migration to another town, a prospecting journey that ended somewhere else -- for a person this town holds a card for. T-1330 read all thirty arrival-and-origin enrichments one at a time and these six name a going rather than a coming. No field on a resident card carries a departure: the only thing a removal bears on is `present_on_scene_date`. T-1354 SPENT ALL SIX, one at a time, each read beside the other sources on its card -- because a removal read alone, out of the single late compiler that carries it, is how a layer loses a resident it had evidence for. FIVE DO NOT REACH THE SCENE DATE, and they miss in three different ways: Caldwell's removal and Jones's Manitowoc settlement are dated AFTER 1 July 1835, Sweet's removal to Milwaukee is dated only to the year the scene falls in and stands on both sides of the day, and Pugsley's return to Paw Paw and Cleland's move to Niles carry no departure date at all -- Pugsley's volume in fact dates a journey TO Chicago in the month of the card's own bound. THE SIXTH REACHES IT AND WAS ALREADY WRITTEN: Porthier left with Horace Chase on 27 February 1835 and reached Milwaukee on 23 March, and T-0478 had already moved his presence to `absent` at `attested` citing this volume. So no presence moves under this rule, no grade moves and no card is retired, which is the answer and not a deferral. The six rulings, what each was read beside, and the presence each stands on are in data/research/residents/departure_rulings.json, re-derived by tools/spend_departure_rulings.py -- whose --check re-reads every one of the six cards, so a presence that moves out from under one of these rulings turns the gate red."
     },
-    "the_enrichment_names_kin_no_field_carries": {
-      "disposition": "unresolved",
-      "ticket": "T-1335",
-      "statement": "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a person this town holds -- a trade, an address, an origin, a kinship, a date -- that extends the card and that no exact source-bearing structured field on that card carries today. It is not refused, because it is true research; it is not written here, because writing one attribute at a time, out of one pass and without the other sources beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them one at a time and handed each to the OPEN ticket whose acceptance owns the kind of fact it names; this unit's own note says which field that is. This one names KIN -- a spouse, a marriage, a child, a parent or a household the source distinguishes -- and T-1170 is the pass that gives the attested and inferred heads the families the sources name. THE HANDOFF WAS T-1170, THEN T-1320, AND IS T-1335 SINCE 2026-09-18: T-1170's split is spent, and T-1320 is scoped to the BOOK corpus by its own title, so it never covered this domain. T-1335 is the family pass proper."
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and one end of it is a person this town holds while the other is not: a relative named in the source who has no card here. The source is not doubted; the tie has no far end to land on, and this pass does not mint one to give it somewhere. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_tie_begins_after_the_scene": {
+      "disposition": "later_only",
+      "statement": "The family pass (T-1335) read the tie and the source dates it AFTER 1 July 1835, or describes a household of a later year: on the scene date the tie did not yet stand. `later_only` is an answer, not a deferral. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_tie_is_the_household_itself": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and it is already the STRUCTURE of the card: the two people are members of one household record and the person's own `relationship` states it. `kin` is the link that crosses two records (T-0597); writing it inside one would say the same thing twice. Any other relative the reading names is ruled in the note. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     },
     "the_landholding_is_written_onto_the_card_as_what_the_person_held": {
       "disposition": "asserted",
@@ -116,8 +125,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/beaubien_josette",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on beaubien_josette returned: “Citizen Potawatomi Nation identifies Josette LaFromboise as Francis LaFromboise's daughter and Jean Baptiste Beaubien's wife. The relationship is corroborated; her exact roof on 1 July 1835 remains inferred.” Sources as recorded: cpn_beaubien_family. T-1301 reads that as a daughter and a wife the source names."
+      "rule": "the_family_pass_finds_the_tie_is_the_household_itself",
+      "note": "The pass on beaubien_josette returned: “Citizen Potawatomi Nation identifies Josette LaFromboise as Francis LaFromboise's daughter and Jean Baptiste Beaubien's wife. The relationship is corroborated; her exact roof on 1 July 1835 remains inferred.” Sources as recorded: cpn_beaubien_family. T-1301 reads that as a daughter and a wife the source names. THE FAMILY PASS: Josette LaFramboise is Jean Baptiste Beaubien's wife and is a member of his household record (hh_beaubien_jean_baptiste) with relationship 'wife', so that tie IS the card's structure. The father the source names, Francis LaFromboise, folds by name onto hh_laframboise_franois, which the layer records as Joseph Laframboise's SON; no crosswalk identifies the two, and a name is not that identification. The layer also holds a separate hh_laframboise_josette, mother of three Beaubien children — a card-merge question, not a kinship."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/brooks_gardner",
@@ -246,8 +255,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/owen_thomas_jv",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on owen_thomas_jv returned: “A primary Abraham Lincoln payment record attests Owen's Chicago house; institutional papers and a county biography identify wife Emeline Hotchkiss and four sons. The sources do not fix their address or occupancy on the …” Sources as recorded: pal_thomas_owen_house, chm_thomas_owen_papers. T-1301 reads that as a wife and four sons the sources name."
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "The pass on owen_thomas_jv returned: “A primary Abraham Lincoln payment record attests Owen's Chicago house; institutional papers and a county biography identify wife Emeline Hotchkiss and four sons. The sources do not fix their address or occupancy on the …” Sources as recorded: pal_thomas_owen_house, chm_thomas_owen_papers. T-1301 reads that as a wife and four sons the sources name. THE FAMILY PASS: The sources name Thomas J. V. Owen's wife, Emeline Hotchkiss, and four sons. His card (hh_owen_thomas_jv) holds him and one unnamed household member, and none of the named relatives is a person this town holds, so no tie has a far end. They are evidence for the prose of his card; nobody is minted."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/parcel_aaron",
@@ -277,13 +286,13 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/porter_eliza_chappel",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on porter_eliza_chappel returned: “Chicago Historical Society and school records corroborate Eliza Chappel's publicly funded school work and 1835 marriage. The separate 'Eliza Mir Chappel' letter record is a merge candidate pending inspection of the …” Sources as recorded: chm_eliza_chappel, rochester_porter_chappel_marriage. T-1301 reads that as an 1835 marriage."
+      "rule": "the_family_pass_finds_the_tie_is_the_household_itself",
+      "note": "The pass on porter_eliza_chappel returned: “Chicago Historical Society and school records corroborate Eliza Chappel's publicly funded school work and 1835 marriage. The separate 'Eliza Mir Chappel' letter record is a merge candidate pending inspection of the …” Sources as recorded: chm_eliza_chappel, rochester_porter_chappel_marriage. T-1301 reads that as an 1835 marriage. THE FAMILY PASS: The 1835 marriage the pass corroborates is to Jeremiah Porter, and Eliza Chappel Porter is a member of his household record (hh_porter_jeremiah) with relationship 'wife': the tie is the card's structure. The marriage of 15 June 1835 falls before the scene, so the household stands as drawn. The separate 'Eliza Mir Chappel' card is a merge candidate the pass itself left pending, not a kinship."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/porter_jeremiah",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on porter_jeremiah returned: “Presbyterian Historical Society corroborates Porter's 1833 Chicago mission and church organization; a Rochester notice records his 15 June 1835 marriage to Eliza Chappel. Their 1 July whereabouts remain uncertain.” Sources as recorded: presbyterian_history_jeremiah_porter, rochester_porter_chappel_marriage. T-1301 reads that as a marriage dated 15 June 1835."
+      "rule": "the_family_pass_finds_the_tie_is_the_household_itself",
+      "note": "The pass on porter_jeremiah returned: “Presbyterian Historical Society corroborates Porter's 1833 Chicago mission and church organization; a Rochester notice records his 15 June 1835 marriage to Eliza Chappel. Their 1 July whereabouts remain uncertain.” Sources as recorded: presbyterian_history_jeremiah_porter, rochester_porter_chappel_marriage. T-1301 reads that as a marriage dated 15 June 1835. THE FAMILY PASS: The Rochester notice records Porter's marriage to Eliza Chappel on 15 June 1835, before the scene, and she is a member of his household record (hh_porter_jeremiah) with relationship 'wife'. The tie is already the card's structure; a kin row inside one record would say it twice."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_alexander",
@@ -292,8 +301,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_catherine",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on robinson_catherine returned: “Indigenous Chicago identifies Catherine Chevalier as Robinson's Potawatomi wife, married in 1826, and records her parents and grandfather. These relationships are used because sourced, not inferred from names.” Sources as recorded: indigenous_chicago_alexander_robinson. T-1301 reads that as a husband, a marriage year, parents and a grandfather."
+      "rule": "the_family_pass_finds_the_tie_is_the_household_itself",
+      "note": "The pass on robinson_catherine returned: “Indigenous Chicago identifies Catherine Chevalier as Robinson's Potawatomi wife, married in 1826, and records her parents and grandfather. These relationships are used because sourced, not inferred from names.” Sources as recorded: indigenous_chicago_alexander_robinson. T-1301 reads that as a husband, a marriage year, parents and a grandfather. THE FAMILY PASS: Catherine Chevalier is Alexander Robinson's wife and a member of his household record (hh_robinson_alexander) with relationship 'wife', married 1826: the tie is the card's structure. The parents and the grandfather Indigenous Chicago records for her are not persons this town holds by any identification the layer has made, so they stay evidence for the card's prose."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/sen_elijah_wentworth",
@@ -474,8 +483,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/heacock_russel_e",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on heacock_russel_e returned: “An edited Illinois act identifies Russel E. Heacock through a Chicago subdivision plat, and the 1843 directory distinguishes Russel Easton Heacock and his household. These records corroborate the exact person while …” Sources as recorded: jsp_russel_heacock_plat, norris_chicago_directory_1843. T-1301 reads that as a household the 1843 directory distinguishes."
+      "rule": "the_family_pass_finds_the_tie_begins_after_the_scene",
+      "note": "The pass on heacock_russel_e returned: “An edited Illinois act identifies Russel E. Heacock through a Chicago subdivision plat, and the 1843 directory distinguishes Russel Easton Heacock and his household. These records corroborate the exact person while …” Sources as recorded: jsp_russel_heacock_plat, norris_chicago_directory_1843. T-1301 reads that as a household the 1843 directory distinguishes. THE FAMILY PASS: The kin the pass found is the household the 1843 directory distinguishes for Russel Easton Heacock: a household of a year eight years after the scene, which says nothing about who lived with him on 1 July 1835."
     },
     {
       "unit": "residents:data/research/residents/pass_03_75_cohort.json#people/ingersoll_chester",
@@ -832,8 +841,8 @@
     },
     {
       "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/hobson_jesse",
-      "rule": "the_enrichment_names_kin_no_field_carries",
-      "note": "The pass on hobson_jesse returned: “Jesse Hobson was living in Cook County in 1835 and married Catherine Daugherty at Naperville on April 6, 1835.” Sources as recorded: resident_research_hobson_pioneer, resident_research_hobson_woodruff. T-1301 reads that as a marriage at Naperville dated 6 April 1835."
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "The pass on hobson_jesse returned: “Jesse Hobson was living in Cook County in 1835 and married Catherine Daugherty at Naperville on April 6, 1835.” Sources as recorded: resident_research_hobson_pioneer, resident_research_hobson_woodruff. T-1301 reads that as a marriage at Naperville dated 6 April 1835. THE FAMILY PASS: Jesse Hobson married Catherine Daugherty at Naperville on 6 April 1835, before the scene. His card (hh_hobson_jesse) holds only him, and Catherine Daugherty is nobody this town holds, so the marriage has no far end. Seating her would be a household gaining a member, which this pass does not do."
     },
     {
       "unit": "residents:data/research/residents/pass_08_75_cohort.json#people/lucas_robert",
