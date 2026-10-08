@@ -22241,3 +22241,21 @@ HABS measured plan. A measured original bay elevation would replace the estimate
 
 **Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`.
 **Recorded:** 2026-10-08 (T-2172).
+
+### L403 — continuous outer lake shore at the 1812 spit
+
+**What:** Supersedes T-2003's narrow outer ribbon and root-to-shore
+chord at the attachment only. That construction created a V-shaped lake inlet
+unsupported by the checked Whistler 1808, retrospective Andreas 1812 and Harrison
+1830 maps. We reconstruct a continuous outer face with a monotone cubic between
+Wright-carried bar vertex 3 and north-shore vertex 39. Adjacent retained trace
+segments bound its tangents; 24 subdivisions resolve the curve. These endpoints,
+tangents and interpolation are modelling choices, not a measured 1812 survey.
+The river-side edge, lower spit and outlet retain their prior coordinates; the
++4 ft crest and 12 m shore faces retain their reconstructed heights. `width_ft`
+now controls the old reference ribbon's river-side offset, not total land width.
+A scaled pre-1833 lake-edge survey would replace this choice; later accretion in
+the carried north shore remains unresolved. See `RESEARCH/shore_1812_pre_cut.md`.
+
+**Covers:** `terrain.e1830_natural.north_lake_shore_1812`, `terrain.e1830_natural.isthmus_1812`.
+**Recorded:** 2026-10-08 (T-2171).

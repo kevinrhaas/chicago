@@ -91,6 +91,15 @@ opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no ro
   622. Still owed: one more keeper walk (the closing `rederive --run` moved the seating once more),
   the redeal / block-remedies / roof-id / Newberry steps, the order-book seated pin, the bake of the
   meshes the keeper cascade staled, then check.sh and smoke part 1.
+## T-2171 — continuous 1812 lake shore (2026-10-08)
+
+The unsupported notch at the sand-spit attachment is replaced by a smooth,
+continuous lake face. The river-side bend, lower spit and southern outlet keep
+their coordinates. The curve is explicitly reconstructed (L403), based on the
+map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
+1812 checks pass with zero page errors or failed requests. The PR records the final
+repository and smoke gates; docs/measurements/t2171 holds the visual proof.
+
 ## T-2172 — courtyard tower window and roof proportions (2026-10-08)
 
 The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
