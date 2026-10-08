@@ -306,10 +306,14 @@
   "recon_1835_blk_washington_clinton_a2_08",
   "recon_1835_blk_washington_clinton_a2_10",
   "recon_1835_blk_washington_clinton_a2_12",
+  "recon_1835_blk_washington_clinton_a2_15",
+  "recon_1835_blk_washington_clinton_a3_16",
   "recon_1835_blk_washington_clinton_a4_09",
   "recon_1835_blk_washington_clinton_a4_11",
+  "recon_1835_blk_washington_clinton_a4_14",
   "recon_1835_blk_washington_clinton_a5_07",
   "recon_1835_blk_washington_clinton_a5_13",
+  "recon_1835_blk_washington_clinton_a5_17",
   "recon_1835_blk_washington_clinton_d4_04",
   "recon_1835_blk_washington_clinton_d5_03",
   "recon_1835_blk_washington_clinton_h1_05",
@@ -4665,6 +4669,32 @@
     [-205.19, -494.92]
    ],
    [
+    [-204.4, -482.76],
+    [-204.39, -475.83],
+    [-205.79, -475.82],
+    [-205.79, -476.64],
+    [-207.44, -477.14],
+    [-207.69, -477.24],
+    [-207.79, -477.49],
+    [-207.8, -481.09],
+    [-207.7, -481.33],
+    [-207.45, -481.44],
+    [-205.8, -481.94],
+    [-205.8, -482.76]
+   ],
+   [
+    [-190.67, -410.38],
+    [-190.66, -408.19],
+    [-192.06, -408.18],
+    [-193.71, -408.13],
+    [-193.95, -408.23],
+    [-194.06, -408.48],
+    [-194.07, -410.04],
+    [-193.97, -410.28],
+    [-193.72, -410.39],
+    [-192.07, -410.36]
+   ],
+   [
     [-206.12, -437.94],
     [-206.1, -434.8],
     [-207.5, -434.8],
@@ -4691,6 +4721,20 @@
     [-206.28, -470.96]
    ],
    [
+    [-205.47, -449.29],
+    [-205.45, -445.88],
+    [-206.85, -445.87],
+    [-206.85, -445.95],
+    [-208.51, -446.44],
+    [-208.75, -446.55],
+    [-208.86, -446.79],
+    [-208.86, -448.35],
+    [-208.76, -448.6],
+    [-208.51, -448.7],
+    [-206.87, -449.21],
+    [-206.87, -449.29]
+   ],
+   [
     [-206.63, -404.61],
     [-206.6, -400.72],
     [-208.0, -400.71],
@@ -4715,6 +4759,20 @@
     [-207.59, -502.52],
     [-207.35, -502.63],
     [-205.7, -503.07]
+   ],
+   [
+    [-190.09, -432.8],
+    [-190.06, -429.12],
+    [-191.46, -429.12],
+    [-191.47, -429.32],
+    [-193.12, -429.82],
+    [-193.36, -429.92],
+    [-193.47, -430.16],
+    [-193.48, -431.72],
+    [-193.38, -431.97],
+    [-193.13, -432.08],
+    [-191.48, -432.58],
+    [-191.49, -432.79]
    ],
    [
     [-165.73, -472.52],
@@ -11899,6 +11957,26 @@
    "width_m": 2.9
   },
   {
+   "id": "recon_1835_blk_washington_clinton_a2_15__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a2_15",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-204.4, -479.3],
+   "bearing_deg": 270.14,
+   "width_m": 2.9
+  },
+  {
+   "id": "recon_1835_blk_washington_clinton_a3_16__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a3_16",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-190.67, -409.28],
+   "bearing_deg": 270.42,
+   "width_m": 0.86
+  },
+  {
    "id": "recon_1835_blk_washington_clinton_a4_09__door_1",
    "structure_id": "recon_1835_blk_washington_clinton_a4_09",
    "archetype": "outbuilding",
@@ -11919,6 +11997,16 @@
    "width_m": 0.86
   },
   {
+   "id": "recon_1835_blk_washington_clinton_a4_14__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a4_14",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-205.46, -447.59],
+   "bearing_deg": 270.23,
+   "width_m": 0.86
+  },
+  {
    "id": "recon_1835_blk_washington_clinton_a5_07__door_1",
    "structure_id": "recon_1835_blk_washington_clinton_a5_07",
    "archetype": "outbuilding",
@@ -11936,6 +12024,16 @@
    "read_by": "facade_openings.outbuilding",
    "at_local_enu_m": [-204.29, -501.5],
    "bearing_deg": 270.05,
+   "width_m": 0.86
+  },
+  {
+   "id": "recon_1835_blk_washington_clinton_a5_17__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a5_17",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-190.07, -430.96],
+   "bearing_deg": 270.32,
    "width_m": 0.86
   },
   {

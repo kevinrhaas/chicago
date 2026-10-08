@@ -11835,7 +11835,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "2437 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1253 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 489 wait on a roof not yet standing; 205 households have no dwelling. The table below reads `lives_at` alone. 619 roofs stand against a programme of 668.",
+   "lead": "2437 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1253 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 489 wait on a roof not yet standing; 205 households have no dwelling. The table below reads `lives_at` alone. 623 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",
@@ -11918,7 +11918,7 @@
       ],
       [
        "roofs standing in the scene",
-       619
+       623
       ],
       [
        "roofs the programme targets",

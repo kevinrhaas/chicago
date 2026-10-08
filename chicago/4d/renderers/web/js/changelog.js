@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1522, ts: '2026-10-08T06:12:35.994Z', date: 'Oct 8, 2026, 1:12 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
+  { v: 1523, ts: '2026-10-08T07:02:47.200Z', date: 'Oct 8, 2026, 2:02 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [
       'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',
       'Two new lines under it: the 489 people still waiting on a roof the town does not stand yet, and the 661 more the reconstruction houses \u2014 trades, lodgers and others it seats \u2014 that the population figure does not count. Hover either for why.',
+    ] },
+  { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington and look between the houses: the back yards are fuller. There is a barn behind the cottage fourth from Washington, a woodshed behind its neighbour, and mid-yard, nearer the houses, a privy behind the merchant\u2019s house on the Washington corner and a smokehouse behind the boarding house.',
+      'The town plan counted four more yard buildings for the West Division than stood there. These are those four, set behind houses already on the block.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L402).',
     ] },
   { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
