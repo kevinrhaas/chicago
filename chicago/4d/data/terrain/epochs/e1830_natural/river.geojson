@@ -9,7 +9,7 @@
     "kind": "water",
     "name": "The 1812 river: the main stem, the channel behind the spit, the mouth and the lake margin",
     "confidence": "inferred",
-    "derivation": "1834 harbor_reach_water's outer ring, less the north shore from the cut on the north bank to the pier head (1834 index 39), which becomes the neck's south-west face, the spit's ring and the neck's north-east face; the 1834 interior ring (the bar) is gone because the bar is no longer an island",
+    "derivation": "1834 harbor_reach_water's outer ring, less the north shore from the cut on the north bank to the pier head (1834 index 39), which becomes the neck's south-west face, the spit's ring and the neck's north-east lake-facing curve; the 1834 interior ring (the bar) is gone because the bar is no longer an island",
     "opens_between_local": "[[1163.84, -426.75], [1346.94, -435.95]]",
     "sources": [
      "wright_1834",
@@ -19,7 +19,7 @@
      "derived_by": "generators/terrain_gen_e1830.py",
      "spec": "data/terrain/epochs/e1830_natural/terrain_spec.json",
      "base_trace": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson",
-     "ticket": "T-2003"
+     "ticket": "T-2171"
     }
    },
    "geometry": {
@@ -567,24 +567,96 @@
        4637588.79
       ],
       [
-       448513.63,
-       4637595.86
+       448518.17,
+       4637597.662
       ],
       [
-       448501.03,
-       4637599.95
+       448514.184,
+       4637606.533
       ],
       [
-       448408.02,
-       4637621.22
+       448510.115,
+       4637615.405
       ],
       [
-       448404.434,
-       4637620.286
+       448505.985,
+       4637624.277
       ],
       [
-       448320.427,
-       4637718.929
+       448501.816,
+       4637633.148
+      ],
+      [
+       448497.631,
+       4637642.02
+      ],
+      [
+       448493.453,
+       4637650.892
+      ],
+      [
+       448489.304,
+       4637659.763
+      ],
+      [
+       448485.208,
+       4637668.635
+      ],
+      [
+       448481.186,
+       4637677.507
+      ],
+      [
+       448477.261,
+       4637686.378
+      ],
+      [
+       448473.456,
+       4637695.25
+      ],
+      [
+       448469.793,
+       4637704.122
+      ],
+      [
+       448466.295,
+       4637712.993
+      ],
+      [
+       448462.985,
+       4637721.865
+      ],
+      [
+       448459.885,
+       4637730.737
+      ],
+      [
+       448457.018,
+       4637739.608
+      ],
+      [
+       448454.405,
+       4637748.48
+      ],
+      [
+       448452.071,
+       4637757.352
+      ],
+      [
+       448450.038,
+       4637766.223
+      ],
+      [
+       448448.327,
+       4637775.095
+      ],
+      [
+       448446.962,
+       4637783.967
+      ],
+      [
+       448445.966,
+       4637792.838
       ],
       [
        448445.36,
@@ -1437,8 +1509,8 @@
     "kind": "spit",
     "name": "The baymouth spit and the neck that joined it to the north shore",
     "confidence": "reconstructed",
-    "derivation": "the neck: a ribbon isthmus_1812.width_ft wide on spit_attachment_gap_1812, its faces carried back to the north bank and the chord and forward to the spit's ring; the spit: baymouth_bar_1812 less the north-west corner the neck covers; closed against the mainland along the 1834 shore",
-    "width_m": 30.48,
+    "derivation": "river-side neck offset by half isthmus_1812.width_ft from the gap line; the long spit arc to north_lake_shore_1812.curve.spit_vertex_index; a reconstructed monotone curve to the carried north shore; closed against the mainland. width_ft controls the river face, not full land width",
+    "river_side_offset_m": 15.24,
     "sources": [
      "wright_1834",
      "quaife_1913_swearingen"
@@ -1447,7 +1519,7 @@
      "derived_by": "generators/terrain_gen_e1830.py",
      "spec": "data/terrain/epochs/e1830_natural/terrain_spec.json",
      "base_trace": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson",
-     "ticket": "T-2003"
+     "ticket": "T-2171"
     }
    },
    "geometry": {
@@ -1611,24 +1683,100 @@
        4637588.79
       ],
       [
-       448513.63,
-       4637595.86
+       448518.17,
+       4637597.662
       ],
       [
-       448501.03,
-       4637599.95
+       448514.184,
+       4637606.533
       ],
       [
-       448408.02,
-       4637621.22
+       448510.115,
+       4637615.405
       ],
       [
-       448404.434,
-       4637620.286
+       448505.985,
+       4637624.277
       ],
       [
-       448320.427,
-       4637718.929
+       448501.816,
+       4637633.148
+      ],
+      [
+       448497.631,
+       4637642.02
+      ],
+      [
+       448493.453,
+       4637650.892
+      ],
+      [
+       448489.304,
+       4637659.763
+      ],
+      [
+       448485.208,
+       4637668.635
+      ],
+      [
+       448481.186,
+       4637677.507
+      ],
+      [
+       448477.261,
+       4637686.378
+      ],
+      [
+       448473.456,
+       4637695.25
+      ],
+      [
+       448469.793,
+       4637704.122
+      ],
+      [
+       448466.295,
+       4637712.993
+      ],
+      [
+       448462.985,
+       4637721.865
+      ],
+      [
+       448459.885,
+       4637730.737
+      ],
+      [
+       448457.018,
+       4637739.608
+      ],
+      [
+       448454.405,
+       4637748.48
+      ],
+      [
+       448452.071,
+       4637757.352
+      ],
+      [
+       448450.038,
+       4637766.223
+      ],
+      [
+       448448.327,
+       4637775.095
+      ],
+      [
+       448446.962,
+       4637783.967
+      ],
+      [
+       448445.966,
+       4637792.838
+      ],
+      [
+       448445.36,
+       4637801.71
       ],
       [
        448307.63,
@@ -1653,9 +1801,9 @@
     "kind": "shore",
     "name": "The waterline round the neck and the spit",
     "confidence": "reconstructed",
-    "derivation": "the neck's south-west face from the north bank, the spit's ring the long way round, the neck's north-east face back to the chord",
+    "derivation": "the neck's south-west face from the north bank, the spit's ring the long way round to the outer join, then the reconstructed lake curve to the north shore",
     "meets_north_bank_local": "[1209.19, 321.37]",
-    "meets_chord_local": "[1247.73, 323.13]",
+    "meets_north_lake_shore_local": "[1372.66, 405.91]",
     "sources": [
      "wright_1834",
      "quaife_1913_swearingen"
@@ -1664,7 +1812,7 @@
      "derived_by": "generators/terrain_gen_e1830.py",
      "spec": "data/terrain/epochs/e1830_natural/terrain_spec.json",
      "base_trace": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson",
-     "ticket": "T-2003"
+     "ticket": "T-2171"
     }
    },
    "geometry": {
@@ -1827,24 +1975,100 @@
       4637588.79
      ],
      [
-      448513.63,
-      4637595.86
+      448518.17,
+      4637597.662
      ],
      [
-      448501.03,
-      4637599.95
+      448514.184,
+      4637606.533
      ],
      [
-      448408.02,
-      4637621.22
+      448510.115,
+      4637615.405
      ],
      [
-      448404.434,
-      4637620.286
+      448505.985,
+      4637624.277
      ],
      [
-      448320.427,
-      4637718.929
+      448501.816,
+      4637633.148
+     ],
+     [
+      448497.631,
+      4637642.02
+     ],
+     [
+      448493.453,
+      4637650.892
+     ],
+     [
+      448489.304,
+      4637659.763
+     ],
+     [
+      448485.208,
+      4637668.635
+     ],
+     [
+      448481.186,
+      4637677.507
+     ],
+     [
+      448477.261,
+      4637686.378
+     ],
+     [
+      448473.456,
+      4637695.25
+     ],
+     [
+      448469.793,
+      4637704.122
+     ],
+     [
+      448466.295,
+      4637712.993
+     ],
+     [
+      448462.985,
+      4637721.865
+     ],
+     [
+      448459.885,
+      4637730.737
+     ],
+     [
+      448457.018,
+      4637739.608
+     ],
+     [
+      448454.405,
+      4637748.48
+     ],
+     [
+      448452.071,
+      4637757.352
+     ],
+     [
+      448450.038,
+      4637766.223
+     ],
+     [
+      448448.327,
+      4637775.095
+     ],
+     [
+      448446.962,
+      4637783.967
+     ],
+     [
+      448445.966,
+      4637792.838
+     ],
+     [
+      448445.36,
+      4637801.71
      ]
     ]
    }
@@ -1856,26 +2080,24 @@
     "kind": "shore",
     "name": "The lake shore north of the spit root",
     "confidence": "reconstructed",
-    "derivation": "the chord from the spit root to 1834 north_shore_harbor_reach index 39 (1812_mouth_readings.json accretion_bound_first_index), taken from where the neck's north-east face meets it, then the 1834 line to its end",
-    "chord_from_local": "[1234.93, 314.65]",
-    "chord_to_local": "[1372.66, 405.91]",
+    "derivation": "1834 north_shore_harbor_reach from index 39 north; the reconstructed outer curve meets this run at its first vertex",
+    "curve_from_local": "[1449.35, 192.99]",
+    "curve_to_local": "[1372.66, 405.91]",
     "sources": [
-     "wright_1834"
+     "wright_1834",
+     "whistler_1808_fort_dearborn_draught",
+     "harrison_1830_river_mouth"
     ],
     "provenance": {
      "derived_by": "generators/terrain_gen_e1830.py",
      "spec": "data/terrain/epochs/e1830_natural/terrain_spec.json",
      "base_trace": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson",
-     "ticket": "T-2003"
+     "ticket": "T-2171"
     }
    },
    "geometry": {
     "type": "LineString",
     "coordinates": [
-     [
-      448320.427,
-      4637718.929
-     ],
      [
       448445.36,
       4637801.71

@@ -2530,6 +2530,10 @@
       "wrote": [],
       "wrote_ignored": []
     },
+    "tools/calibrate_boot_weights.mjs": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
     "tools/canal_approach_occupancy.py": {
       "wrote": [],
       "wrote_ignored": []
@@ -2671,6 +2675,10 @@
       "wrote_ignored": []
     },
     "tools/check_shoreline_states.py": {
+      "wrote": [],
+      "wrote_ignored": []
+    },
+    "tools/check_spatial_batch.mjs": {
       "wrote": [],
       "wrote_ignored": []
     },

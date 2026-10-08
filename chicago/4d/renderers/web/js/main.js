@@ -704,7 +704,24 @@ const DETAIL_DECLARED = {
   // T-0672 was written, so the later ruling stands and this takes back only
   // the slack the town no longer uses. Nothing in the renderer moves. The
   // draw-call caps are unchanged (worst 275 at `full`, 81 at `light`).
-  full:     { triangles: 2685000, shadowReachM: 240, furnitureCastsShadow: true,
+  // PR #498 integration, 2026-10-07: conscious re-budget under AGENTS.md's
+  // 2026-08-21 owner ruling. The 2026-10-04 ceilings above described dev
+  // 7504e4fc, before the subsequent requested parcels. Current dev dbc788b2
+  // itself fails all three triangle gates and the call gate on mobile; Wells
+  // f899a73d adds the requested thirteen houses, not a reason to shrink them.
+  // First retain Light's floor by batching ORIGINAL ground triangles and
+  // applying its unchanged 240 m reach to small pieces. Then measure all six
+  // published stands at both release viewports, through production setDetail
+  // and two production steps plus GPU finish (Chrome headless shell 151).
+  // docs/measurements/pr498-ground-batching.json retains the instrument,
+  // pre-budget source hashes, full readings and its stored-Light boot choice.
+  // No consumer FPS claim; the complete normal-loop smoke remains the gate.
+  //
+  // full:     3,139,013 (desktop West prairie) + 18,059 = 3,157,072 -> 3,160,000
+  // balanced: 2,270,978 (desktop West prairie) + 16,806 = 2,287,784 -> 2,290,000
+  // These are T-0672's original absolute margins, rounded up to 5,000; no
+  // room is priced for a future parcel. Light remains 1,005,000 and 90 calls.
+  full:     { triangles: 3160000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -713,7 +730,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '2,685,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+              measured: '3,160,000 set 2026-10-07 (PR #498 integration): published Wells '
+                + 'f899a73d plus exact ground batching, six stands at both viewports: '
+                + 'worst 3,139,013 at desktop West prairie; +18,059 rounded up to '
+                + '5,000. docs/measurements/pr498-ground-batching.json. Previously '
+                + '2,685,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
                 + 'six published stands, worst 2,665,994 and 250 calls at west prairie, '
                 + '1280x800 (390x780 read 2,433,217); +18,059 rounded up to 5,000. '
                 + 'Previously 2,840,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
@@ -832,11 +853,14 @@ const DETAIL_DECLARED = {
   // same rule — the reading is in the block above `full`.
   // T-0672, 2026-10-04: 2,145,000 -> 2,090,000, the return — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2090000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2290000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+              measured: '2,290,000 set 2026-10-07 (PR #498 integration): same published '
+                + 'six-stand, two-viewport sweep, worst 2,270,978 at desktop West '
+                + 'prairie; +16,806 rounded up to 5,000. Previously '
+                + '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
                 + 'six published stands, worst 2,072,747 and 233 calls at Lake Street '
                 + 'at Canal, 1280x800 (390x780 read 1,913,781); +16,806 rounded up to '
                 + '5,000. Previously 2,145,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
@@ -1153,7 +1177,11 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // T-2015: the six-stand integration sweep includes west prairie, where the
 // narrow viewport reaches 277 calls (desktop 276). The defended 15-call margin,
 // rounded up to five, gives 295. Light peaks at 74 and keeps its 90-call cap.
-const BUDGET = { drawCalls: 295, triangles: DETAIL.full.triangles };
+// PR #498 integration, 2026-10-07: six stands at both viewports after exact
+// ground batching peak at 313 calls (mobile West prairie, full). The defended
+// 15-call margin, rounded up to five, moves 295 -> 330. Light's separate 90
+// remains unchanged; the complete normal-loop smoke rechecks both ceilings.
+const BUDGET = { drawCalls: 330, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
@@ -1740,6 +1768,7 @@ async function boot() {
   scene3d.add(frontage.group);
   settleOnGpu(frontage.group);
   api.frontage = frontage;
+  terrain.batchDistantGround();
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the

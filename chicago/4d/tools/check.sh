@@ -46,6 +46,9 @@ STRICT=""
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
 source "$_check_tools/check_harness.sh"
 
+step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
+  node tools/check_spatial_batch.mjs
+
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
 
@@ -69,6 +72,9 @@ step "A patched plain lit material cannot be handed another layer's shader progr
 
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
+
+step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
+  node tools/calibrate_boot_weights.mjs --check
 
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
