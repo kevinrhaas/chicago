@@ -40,9 +40,9 @@
    "whole_block": 20
   },
   "by_state": {
-   "at_capacity": 195,
+   "at_capacity": 196,
    "free": 183,
-   "room": 50
+   "room": 49
   },
   "by_multi_building_rule": {
    "one_principal_roof": 364,
@@ -50,9 +50,9 @@
   },
   "corner_lots": 178,
   "lots_with_a_roof": 251,
-  "lots_barring_another_roof": 249,
-  "shared_business_fronts": 2,
-  "principal_roofs_standing": 313,
+  "lots_barring_another_roof": 250,
+  "shared_business_fronts": 1,
+  "principal_roofs_standing": 314,
   "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
@@ -8048,7 +8048,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 4,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -8063,18 +8063,20 @@
    "principal_roofs_max": 3,
    "standing": [
     "chicago_american_office",
-    "john_holbrook_store"
+    "john_holbrook_store",
+    "recon_1835_blk_south_water_dearborn_f2_11"
    ],
    "standing_families": {
     "chicago_american_office": "C1",
-    "john_holbrook_store": "C1"
+    "john_holbrook_store": "C1",
+    "recon_1835_blk_south_water_dearborn_f2_11": "F2"
    },
-   "principal_roofs_standing": 2,
-   "bars_another_roof": false,
-   "shared_business_front": true,
+   "principal_roofs_standing": 3,
+   "bars_another_roof": true,
+   "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "room"
+   "state": "at_capacity"
   },
   {
    "lot_id": "blk_south_water_dearborn#01",
@@ -8083,7 +8085,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 5,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -8118,7 +8120,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 3,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -8157,7 +8159,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 6,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -8192,7 +8194,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 2,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -8231,7 +8233,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 7,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -8264,7 +8266,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 1,
    "plat_lot_confidence": "conjectural",
    "face": "north",
@@ -8299,7 +8301,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 8,
    "plat_lot_confidence": "conjectural",
    "face": "south",

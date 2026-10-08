@@ -22,6 +22,12 @@ export function spatialBatch(geometry, material) {
         || a.isInstancedBufferAttribute)) {
     throw new Error('spatialBatch requires plain, single-material triangles');
   }
+  if (!position.array || (index && !index.array)
+      || Object.values(geometry.attributes).some((a) => !a.array)) {
+    // upload-release.js let a phone drop these after upload; flag the geometry
+    // `userData.rereadBeforeRelease` where it is built (T-2180).
+    throw new Error('spatialBatch needs page arrays a phone has already released');
+  }
   const chunks = new Map();
   for (let i = 0; i < count; i += 3) {
     const ids = [0, 1, 2].map((j) => index ? index.getX(i + j) : i + j);

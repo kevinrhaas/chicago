@@ -1,3 +1,61 @@
+## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
+
+**What changed in the scene.** One F2 narrow two-storey warehouse,
+`recon_1835_blk_south_water_dearborn_f2_11`, dealt as the
+`phase3_platted_block_south_water_dearborn_warehouse_deal` entry in
+`data/reconstruction/1835_platted_block_parcels.json`. It stands on lot 0, the South Water and
+Dearborn corner, 13.0 m back from the South Water lot line and 3.4-3.5 m behind the Chicago
+American office and John Holbrook's store, facing the 2.84 m gap between them. Baked
+(`tools/bake.sh --only`), L406 records it. Order book: South `warehouses_freight/street_line`
+7/10, 3 owed, now to T-2175.
+
+**What it found (T-1673, split into T-2174 and T-2175).** Of the four street-line warehouses
+the 668-roof schedule deals, only this one has ground today. The F3 on `blk_south_water_wells`
+is refused on any platted lot by `generate_block_infill.py` (`REFUSED_FAMILIES`: a river
+warehouse that does not reach the river, T-0275), and the F3 and F4 on `blk_south_water_market`
+wait on that block's street control. On this block the placement was narrowed by the
+generator's own rules. A non-dwelling must take the better face (Dearborn is ordinary,
+South Water and Lake principal). Lot 6's South Water frontage has 12 m clear between the C3
+row and the bank shed, but the Chappel infant school on its State Street side exhausts the
+lot. Every Lake lot but the reserved lot 7 is held. Lot 0's street line is full. So the
+warehouse stands behind the stores rather than on the street. That is the one way the scene
+differs from the row the owner's reference draws, and it is a choice about this lot, not a
+claim about 1835.
+
+**What it moved.** Lot 0 was the block's last unreserved free lot, so the schedule returns the
+block's other two scheduled roofs (a D2 and a D6) to the South's balance and re-apportions it,
+and the block itself goes to capacity. Merged over T-2147's six houses on School Section block 81
+and T-2170's five Kinzie-core barns, the re-deal seats one more household on the plat (213 -> 214,
+L270): hh_dewey_s is dealt a D5 slot on block 81 lot 1 and hh_dickson_david a D6 slot on block 95
+lot 1, while hh_laframboise_franois, who held the D2 slot on block 95 lot 1 after T-2170, is
+handed on, owed to T-1614 in writing. So T-2176's slots read a D5 on block 81 lot 1 and a D6 on
+block 95 lot 1. The street-face adoption gives the warehouse Briggs & Humphrey (carriage and
+sleigh making, South Water Street, no narrower address) and reshuffles that face's firms. The
+business deal holds 45 roofs (was 44).
+
+**Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
+here, and the warehouse itself seats no household.
+
+## T-2068 — the scene bundle is published from the content build (2026-10-08)
+
+Piece 2 of T-1357, made in an owner-visible PR because it edits `chicago-4d-bake.yml` (the owner's
+ruling on the ticket, 2026-10-04). The owner chose GitHub Release assets for storage on 2026-10-08.
+On a nightly or dispatched bake of `dev`, the bake job packs the commit its own gate just passed
+and verifies the archive. After the smoke passes, `publish-bundle` releases it under its own tag
+and moves the latest-good pointer in the `scene-bundle-index` release, but only to a bake of the
+same or a newer `dev` commit. `fresh-consumer` then downloads by digest on a new runner, verifies,
+and attaches a receipt. `docs/unreal/SCENE-BUNDLE.md` § Publication is the page.
+
+- **Not yet demonstrated on GitHub.** The logic is self-tested (`scene_bundle.py advance`), and the
+  publish and consumer scripts were run end to end against a stand-in `gh`. The first real
+  publication needs a bake of `dev` on this workflow file. The nightly runs `main`'s copy, so it
+  publishes only after a promotion.
+- **Dev today would not publish as it stands.** Three committed GLBs disagree in size with
+  `assets/manifest.json` (`recon_1835_blk_south_water_clark_d4_02`, `…_dearborn_h1_03`,
+  `recon_1835_blk_washington_dearborn_d4_09`), so `verify` refuses a bundle packed from dev's own
+  commit. A full bake rewrites both the meshes and the record, so the commit it packs should agree;
+  if it does not, the bundle is refused before it is published, which is what the check is for.
+
 ## T-2170 — five barns in the yards of the Wolcott-Kinzie core's houses (2026-10-08)
 
 The order book still owed the North five A2 barns or carriage sheds (`structures/barns_stables/north`).

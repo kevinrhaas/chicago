@@ -406,7 +406,8 @@
           "lot": "blk_south_water_dearborn_lot0",
           "structures": [
             "chicago_american_office",
-            "john_holbrook_store"
+            "john_holbrook_store",
+            "recon_1835_blk_south_water_dearborn_f2_11"
           ],
           "households": [
             {
@@ -499,7 +500,8 @@
           "lot": "blk_south_water_dearborn_lot0",
           "structures": [
             "chicago_american_office",
-            "john_holbrook_store"
+            "john_holbrook_store",
+            "recon_1835_blk_south_water_dearborn_f2_11"
           ],
           "households": [
             {
@@ -529,7 +531,8 @@
           "lot": "blk_south_water_dearborn_lot0",
           "structures": [
             "chicago_american_office",
-            "john_holbrook_store"
+            "john_holbrook_store",
+            "recon_1835_blk_south_water_dearborn_f2_11"
           ],
           "households": [
             {
@@ -540,7 +543,7 @@
           ]
         }
       ],
-      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds chicago_american_office, john_holbrook_store — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot0, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds chicago_american_office, john_holbrook_store, recon_1835_blk_south_water_dearborn_f2_11 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_south_water_dearborn_lot2",

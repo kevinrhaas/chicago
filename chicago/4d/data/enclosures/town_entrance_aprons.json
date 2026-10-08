@@ -270,6 +270,7 @@
   "recon_1835_blk_south_water_dearborn_c3_02",
   "recon_1835_blk_south_water_dearborn_d1_05",
   "recon_1835_blk_south_water_dearborn_d2_04",
+  "recon_1835_blk_south_water_dearborn_f2_11",
   "recon_1835_blk_south_water_dearborn_h1_03",
   "recon_1835_blk_south_water_franklin_a1_06",
   "recon_1835_blk_south_water_franklin_a3_07",
@@ -4213,6 +4214,20 @@
     [725.99, -110.49],
     [726.56, -98.79],
     [727.71, -98.8]
+   ],
+   [
+    [719.68, -18.88],
+    [728.18, -18.93],
+    [728.19, -17.53],
+    [725.66, -17.52],
+    [725.17, -15.86],
+    [725.06, -15.62],
+    [724.82, -15.51],
+    [723.08, -15.5],
+    [722.83, -15.6],
+    [722.73, -15.85],
+    [722.22, -17.49],
+    [719.68, -17.48]
    ],
    [
     [777.68, -98.31],
@@ -12042,6 +12057,16 @@
    "at_local_enu_m": [724.94, -97.38],
    "bearing_deg": 180.35,
    "width_m": 0.86
+  },
+  {
+   "id": "recon_1835_blk_south_water_dearborn_f2_11__door_1",
+   "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
+   "archetype": "frame_storefront",
+   "kind": "door",
+   "read_by": "facade_openings.frame_storefront",
+   "at_local_enu_m": [723.93, -18.9],
+   "bearing_deg": 0.36,
+   "width_m": 1.04
   },
   {
    "id": "recon_1835_blk_south_water_dearborn_h1_03__door_1",
