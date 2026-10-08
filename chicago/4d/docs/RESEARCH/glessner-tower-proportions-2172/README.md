@@ -15,7 +15,12 @@ The photograph has perspective and is not used as a survey or photographic textu
 HABS IL-1015 photograph 5 (courtyard view, circa 1923) shows a continuous band
 with two pane rows and several vertical lights per facet. Retain those period
 divisions rather than adopting the modern photograph's replacement broad panes.
-The first-floor and basement openings, plan footprint and main roof remain fixed.
+The principal sash keep their 9.3-ft sills but their heads rise from 14.5 to
+16.5 ft. This yields 7.2-ft lights, 2.32 times the 3.1-ft upper band; both supplied
+and historical views show approximately 2–2.5 times, rather than the former
+1.68. It also avoids extending an oversized brick spandrel beneath the raised
+band. Facet positions, sash layout, basement openings, plan and main ridge remain
+fixed. These principal-window heights are reconstructed (+/-1 ft).
 
 ## Recovery and validation
 

@@ -1,6 +1,6 @@
 export const CHANGELOG = [ // newest first
   { v: 1527, ts: '2026-10-08T09:15:50.059Z', date: 'Oct 8, 2026, 4:15 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
-    items: ['The tower’s divided upper windows now align with the north-wing window heads. Its taller masonry body supports a shorter copper cap, retaining the tiled ridge connection.'] },
+    items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
   { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
     items: [
       'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
