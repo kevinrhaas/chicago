@@ -13,6 +13,7 @@
   already ran at.
 - **Not verified:** nothing in the scene changed, so no visual parcel was re-judged at the new
   stands in this run; T-2085..T-2087's own acceptances were judged at the old poses.
+
 ## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
 
 Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
