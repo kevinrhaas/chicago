@@ -22,13 +22,31 @@ and historical views show approximately 2–2.5 times, rather than the former
 band. Facet positions, sash layout, basement openings, plan and main ridge remain
 fixed. These principal-window heights are reconstructed (+/-1 ft).
 
-## Recovery and validation
+## Validation and recovery
 
-Branch: steward/glessner-tower-proportions. Canonical parameters live in
-data/structures/glessner_house.json. Source change complete; bake, full/light
-derivatives, published desktop/mobile review and repository gate pending.
-Build with the existing pinned Blender using generators/build.py --only
-glessner_house, then tools/web_derivatives.sh --only glessner_house__as_built_1887.glb.
-The derivative producer repacks the canonical recovery archive. Run
-python3 tools/compile_scene.py --all and tools/publish.sh, then the roof envelope
-check and tools/preflight.sh. Review using the fixed dining-roof cameras.
+- Pinned Blender 4.5.3 rebuilt the canonical master. The full/light derivatives
+  and the verified three-file recovery archive are rebuilt. Comparison versions
+  retain their original geometry.
+- 1,800 independent stable-roof samples and 1,200 courtyard roof samples pass.
+  The band head equals the north-wing window head; its height and ridge stay fixed.
+- The actual published 1904 app boots at desktop 1280x800/full and mobile
+  390x780/light. Six fixed cameras have zero page, HTTP or loader errors.
+  Desktop: 93–99 draws, 3,385,565–3,408,061 rendered triangles.
+  Mobile: 52–53 draws, 469,004–471,698 rendered triangles. All existing budgets pass.
+  The light asset itself has fewer than 200,000 triangles.
+- PNGs and browser-validation.json retain the camera coordinates and observations.
+  These are normal application materials, lighting and geometry; the animation
+  loop is paused after entry for reproducible views. This is not an FPS benchmark.
+- Repository preflight and newer-dev integration are pending. An initial gate
+  caught concurrent local publishing, missing derived liberties, the browser
+  path environment convention and a newly closed dev ticket. Those are being
+  corrected before merge; no claim of a green whole-site browser suite is made.
+
+Branch: steward/glessner-tower-proportions. Recovery checkpoints f08f65e4
+(study), a2205615 (band/assets), 9eeaf4a7 (final sash/assets and six app views).
+Canonical parameters: data/structures/glessner_house.json. Rebuild with the
+pinned Blender using generators/build.py --only glessner_house, then
+tools/web_derivatives.sh --only glessner_house__as_built_1887.glb.
+The derivative producer repacks the recovery archive. Compile sidecars and
+publish sequentially before running tools/qa_glessner_t2172.mjs, which accepts
+PW_EXECUTABLE. Complete tools/preflight.sh before merging into dev.

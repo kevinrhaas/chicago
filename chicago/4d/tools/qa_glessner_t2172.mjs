@@ -8,7 +8,7 @@ const site=path.resolve(root,'../../site/4d'),out=path.join(root,'docs/RESEARCH/
 const types={'.html':'text/html','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.png':'image/png','.jpg':'image/jpeg','.glb':'model/gltf-binary','.svg':'image/svg+xml'};
 const server=http.createServer((req,res)=>{let p=path.join(site,decodeURIComponent(req.url.split('?')[0]));try{if(fs.statSync(p).isDirectory())p=path.join(p,'index.html');res.writeHead(200,{'Content-Type':types[path.extname(p)]||'application/octet-stream'});fs.createReadStream(p).pipe(res)}catch{res.writeHead(404);res.end('missing')}});
 await new Promise(r=>server.listen(0,'127.0.0.1',r));
-const browser=await chromium.launch({...(process.env.CHROME_BIN?{executablePath:process.env.CHROME_BIN}:{}),args:['--no-sandbox','--enable-unsafe-swiftshader']});
+const browser=await chromium.launch({executablePath:process.env.PW_EXECUTABLE || undefined,args:['--no-sandbox','--enable-unsafe-swiftshader']});
 const results=[];
 try{
 for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full'],['mobile',{width:390,height:780},'light']]){
@@ -35,7 +35,7 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   await page.screenshot({path:path.join(out,`${label}-${name}.png`)});stands.push({name,...observation});
  }
  results.push({label,viewport,detail,boot,errors,bad,assets,stands});
- if(errors.length||bad.length||stands.some(x=>x.problems.length))throw Error(JSON.stringify(results.at(-1)));
+ if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget))throw Error(JSON.stringify(results.at(-1)));
  await context.close();console.log(label+' actual published 1904 app: PASS');
 }
 }finally{fs.writeFileSync(path.join(out,'browser-validation.json'),JSON.stringify({method:'Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness for deterministic review cameras. Unchanged scene geometry, materials, lighting and shadows.',results},null,2)+'\n');await browser.close();server.close();}

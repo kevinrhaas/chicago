@@ -1,6 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1527, ts: '2026-10-08T09:15:50.059Z', date: 'Oct 8, 2026, 4:15 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
+  { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
     items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
+  { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+    items: [
+      'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
+      'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
+      'No record names these buildings. The town\u2019s plan counted them as missing, and the North now has every roof it counted except five barns. Its cottage yards are too narrow for a barn beside the sheds they already have, so those wait for a better place.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L401).',
+    ] },
   { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
     items: [
       'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
