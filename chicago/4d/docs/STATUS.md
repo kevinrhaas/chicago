@@ -5,9 +5,21 @@ raises thirteen houses, one to a requested lot: west block 94 has D3, D4, three
 D5, D7 and H1; east block 95 has D2, two D4, two D5 and D6. Both west Madison
 corner lots remain open. Block 95 also reserves its second lot for the unbuilt
 H3, still owned by T-1957. The town's H2 ceiling is already met elsewhere.
-L401 covers the reconstructed deal; no source is promoted to a historical address.
+L405 covers the reconstructed deal (renumbered from L401 when dev's T-2165 took that number;
+T-2167 holds L402 and two open siblings L403 and L404); no source is promoted to a historical address.
 
-The keeper/seating cycle settled at 213 platted and 99 off-plat seats (312 total)
+**Lapped onto dev's T-2165, T-2167, T-2155, T-2158, T-2157 and T-2164 (2026-10-08).** Generated
+files took dev's side; the keeper → four infill generators → `reconcile_665` → seating chain walk
+settled after twenty-one laps at **212 platted and 99 off-plat seats (311 total, the same as dev)** and
+92 named keepers (dev 87). The same thirteen older households adopt the new houses; of the thirteen
+whose slots stood on the two blocks, seven are seated on standing roofs and six re-slot on block 81
+(T-2147). L263 records 644 phases (dev 631 + 13); generator-half counts 684/678. The derived layer
+(`rederive --tail`, settled), the completion audit, the redeal re-audit (523/8/0), the population
+profile and the Newberry re-parse over all four volumes were re-run. T-2165 noted that the schedule
+had moved one block-94 request from a D5 to a D4; at this fixpoint every one of the thirteen houses
+is adopted as built and no slot request is left on either Wells block, so the deal stands unchanged.
+
+Before that lap: the keeper/seating cycle settled at 213 platted and 99 off-plat seats (312 total)
 and 92 named keepers. L263 records 636 phases. Forty-four models were rebuilt
 from the settled records, and all 676 master/web pairs passed the derivative gate.
 The pre-browser integration passed all 786 source checks with no stale assets.
