@@ -25,14 +25,14 @@
   },
   "counts": {
     "audited": 519,
-    "keep": 510,
-    "refamily": 9,
+    "keep": 511,
+    "refamily": 8,
     "retire": 0,
-    "kept_occupied": 4,
+    "kept_occupied": 5,
     "breach_owed_out": 0,
-    "seated": 179,
+    "seated": 180,
     "raised_for_a_trade": 31,
-    "band_already_fits": 5,
+    "band_already_fits": 4,
     "roof_target": 668,
     "standing_before": 627,
     "standing_after": 627,
@@ -169,8 +169,8 @@
       "standing": 25,
       "anonymous": 24,
       "head_before": 3,
-      "standing_after": 26,
-      "head_after": 2
+      "standing_after": 25,
+      "head_after": 3
     },
     {
       "bucket": "structures/larger_boarding_houses/west",
@@ -323,8 +323,8 @@
       "standing": 8,
       "anonymous": 4,
       "head_before": 3,
-      "standing_after": 7,
-      "head_after": 4
+      "standing_after": 8,
+      "head_after": 3
     },
     {
       "bucket": "structures/warehouses_freight/west",
@@ -3426,7 +3426,7 @@
       "family": "F2",
       "group": "warehouses_freight",
       "programme_phase": "phase3_platted_block_south_water_dearborn_warehouse_deal",
-      "occupied": false,
+      "occupied": true,
       "raised_for": null,
       "footprint_ft2": 1145.2,
       "street": "dearborn",
@@ -3434,27 +3434,11 @@
       "setback_m": 9.11,
       "on_the_street_line": false,
       "conforms": false,
-      "verdict": "refamily",
+      "verdict": "keep",
       "bucket": "structures/warehouses_freight/south",
-      "reason": "the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street; the slot is wanted and the position stands",
-      "to_family": "H2",
-      "to_group": "larger_boarding_houses",
-      "to_bucket": "structures/larger_boarding_houses/south",
-      "to_band_ft": [
-        24,
-        32,
-        30,
-        42
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "H2",
-        "A2",
-        "H1",
-        "D6",
-        "D7",
-        "D5"
-      ]
+      "reason": "the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets",
+      "families_offered": [],
+      "kept_occupied": true
     },
     {
       "id": "recon_1835_blk_south_water_dearborn_h1_03",
