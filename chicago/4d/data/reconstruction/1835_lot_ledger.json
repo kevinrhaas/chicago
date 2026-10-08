@@ -1807,10 +1807,12 @@
    "multi_building_rule": "one_principal_roof",
    "principal_roofs_max": 1,
    "standing": [
+    "recon_1835_blk_indiana_north_wolcott_a1_09",
     "recon_1835_blk_indiana_north_wolcott_a3_04",
     "recon_1835_blk_indiana_north_wolcott_d3_02"
    ],
    "standing_families": {
+    "recon_1835_blk_indiana_north_wolcott_a1_09": "A1",
     "recon_1835_blk_indiana_north_wolcott_a3_04": "A3",
     "recon_1835_blk_indiana_north_wolcott_d3_02": "D3"
    },
@@ -8049,9 +8051,11 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_blk_south_water_dearborn_a5_10",
     "recon_1835_blk_south_water_dearborn_d2_04"
    ],
    "standing_families": {
+    "recon_1835_blk_south_water_dearborn_a5_10": "A5",
     "recon_1835_blk_south_water_dearborn_d2_04": "D2"
    },
    "principal_roofs_standing": 1,
@@ -9029,9 +9033,11 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
+    "recon_1835_blk_south_water_wells_a2_09",
     "recon_1835_blk_south_water_wells_d4_03"
    ],
    "standing_families": {
+    "recon_1835_blk_south_water_wells_a2_09": "A2",
     "recon_1835_blk_south_water_wells_d4_03": "D4"
    },
    "principal_roofs_standing": 1,

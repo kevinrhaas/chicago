@@ -753,6 +753,59 @@
       }
     },
     {
+      "block_id": "blk_south_water_wells",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_south_water_wells_yard_deal",
+      "claimed": "2026-10-08",
+      "seq_start": 9,
+      "bounded_by": {
+        "north": "south_water",
+        "south": "lake",
+        "west": "wells",
+        "east": "lasalle"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 12,
+        "free_lots": 2,
+        "headroom": 4,
+        "dealt_roofs": 1,
+        "dealt_principal": 0,
+        "dealt_ancillary": 1,
+        "principal": 0,
+        "ancillary": 1
+      },
+      "families": {
+        "A2": 1
+      },
+      "dealt_against_the_order_book": {
+        "ticket": "T-2156",
+        "parent": "T-1983",
+        "cells": [
+          "structures/barns_stables/south"
+        ],
+        "why": "ONE OF THE SOUTH'S TWO OWED BARNS, WHERE THE SCHEDULE PUTS IT. The order book's South `barns_stables` cell reads 35 ordered, 33 standing, 2 owed; the 668-roof schedule deals one A2 to this block and one to the School Section's block 81, which T-2147 is building with its houses. This deal takes this block's. The block's other scheduled roofs (a D4, a D5 and the F2) are dwellings and a freight roof owed to other tickets, so this entry deals the yard building alone, behind a house the block's first deal already raised — the shape T-1779 used for a boarding house's stable. A yard building seats nobody, so no household asks for it."
+      },
+      "open_lots": [
+        {
+          "lot": 1,
+          "why": "The Lake-and-Wells corner, left open. Wells is the end of this block that runs back toward the lumber yards and the wharves and Lake is its back street, so the corner where the two meet is the least attractive residential lot the block has — the same tier reasoning the South Water and Franklin parcel applied to its own back-street corner one block west, and the Randolph and Market parcel before it. Which lot within the tier is arbitrary; that a block on the business front is not a completed terrace one street back is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target."
+        }
+      ],
+      "slots": [
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "lake",
+          "setback_m": 4.0,
+          "lateral_m": -3.0
+        }
+      ],
+      "arrangement_note": "A BARN OR CARRIAGE SHED IN THE YARD OF THE LAKE STREET HOUSE ON LOT 5. That lot carries the first deal's D4 house and nothing behind it; its lots are 24 m wide and 45 m deep, so the barn stands off the alley with the whole yard between it and the house. Lot 5 is an interior lot, so the barn backs onto no cross street. Which house keeps it is this file's choice; nothing states it."
+    },
+    {
       "block_id": "blk_south_water_lasalle",
       "district": "south",
       "programme_phase": "phase3_platted_block_south_water_lasalle",
@@ -2403,6 +2456,59 @@
       }
     },
     {
+      "block_id": "blk_south_water_dearborn",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_south_water_dearborn_yard_deal",
+      "claimed": "2026-10-08",
+      "seq_start": 10,
+      "bounded_by": {
+        "north": "south_water",
+        "south": "lake",
+        "west": "dearborn",
+        "east": "state"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 31,
+        "standing_roofs": 16,
+        "free_lots": 2,
+        "headroom": 4,
+        "dealt_roofs": 1,
+        "dealt_principal": 0,
+        "dealt_ancillary": 1,
+        "principal": 0,
+        "ancillary": 1
+      },
+      "families": {
+        "A5": 1
+      },
+      "dealt_against_the_order_book": {
+        "ticket": "T-2156",
+        "parent": "T-1983",
+        "cells": [
+          "structures/small_outbuildings/south"
+        ],
+        "why": "THE SOUTH'S ONE OWED SMALL OUTBUILDING, WHERE THE SCHEDULE PUTS IT. The order book's South `small_outbuildings` cell reads 48 ordered, 47 standing, 1 owed, and the 668-roof schedule deals that one A5 (a smokehouse, chicken house or small utility building) to this block. Its other scheduled roofs (a D2, a D6 and the F3) are owed to other tickets, so this entry deals the yard building alone, behind a house the block's first deal already raised. A yard building seats nobody, so no household asks for it."
+      },
+      "open_lots": [
+        {
+          "lot": 7,
+          "why": "The Lake-and-State corner, left open, and the first open lot of this row chosen against a criterion that points the other way down the street. The three parcels before this one left a back-street corner open at the end farthest from the town centre and named that end by compass; T-A11 replaced the compass with a distance to the Dearborn Street drawbridge, the only crossing of the main stem in July 1835. On this block the two readings separate, because the bridge stands at the WEST end of it, at the foot of Dearborn: lot 7 is 161.1 m from the bridge, the farthest of the eight lots exactly as the open lot has been on every block of the row, but it is now the east corner rather than the west one. State Street is the platted town's eastern limit and the fort's reservation lies beyond it, so the lot the criterion leaves open is also the one with the least town around it. That a block on the business front is not a completed terrace one street back is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target; which lot within the tier is still a choice, and this is the first block of the row on which a stated criterion made it rather than a direction."
+        }
+      ],
+      "slots": [
+        {
+          "family": "A5",
+          "inventory_class": "ancillary",
+          "lot": 1,
+          "stands_on": "alley",
+          "fronts": "lake",
+          "setback_m": 4.0,
+          "lateral_m": 3.0
+        }
+      ],
+      "arrangement_note": "A SMOKEHOUSE OR SMALL UTILITY BUILDING BEHIND THE LAKE STREET HOUSE ON LOT 1. The first deal raised a D2 house there and left its yard empty. The boarding house on lot 5 was the likelier keeper, and it was tried first: that lot carries a printed address (`lot_address_block_16_lot_7`, `data/reconstruction/1835_address_book.json`'s ledger), and an address that lands on a lot with two roofs on it names neither, so `tools/lot_addresses.py` refuses a yard building there. Lot 1 has no address and an empty yard. Which lot takes it is this file's choice; nothing states it."
+    },
+    {
       "block_id": "blk_south_water_franklin",
       "district": "south",
       "programme_phase": "phase3_platted_block_south_water_franklin_third_deal",
@@ -3562,6 +3668,87 @@
         }
       ],
       "arrangement_note": "FOUR ROOFS ON TWELVE LOTS, AND THE ALTERNATION IS NOW COMPLETE ON BOTH FACES. The block stood at two principal roofs and two yard buildings; it stands at four and four, which leaves eight of its twelve lots open and 31 of the 35 roofs its schedule still apportions unbuilt. That ratio is the deal's whole argument and not a shortfall. This is speculative subdivision two tiers north of the settled town: the north-division memo requires `most legal frontage` to stay empty and at least half of the Kinzie-Michigan interior open, and two-thirds of this block's frontage is open after this deal.\n\nTHE TWO COTTAGES TAKE OPPOSITE FACES, WHICH IS THE SEATING'S ARRANGEMENT AND NOT THIS FILE'S. Both of the block's faces — Indiana Street on the north and Illinois Street on the south — are graded `none` in the committed street hierarchy, unworn prairie with no through movement modelled on either, so the face rule that ranks dwellings by street class has nothing to separate them and did not choose between the two requests. What the pair does is sit diagonally across the block's ruled alley rather than back to back: the Indiana cottage is on lot 4 and the Illinois cottage on lot 5, and the alley between them carries one yard building apiece rather than a facing pair.\n\nTHE TWO YARD BUILDINGS ARE ONE A LOT, AS THEY WERE ON THE FIRST DEAL. A woodshed stands off the alley behind the Indiana Street cottage and a privy off the alley behind the Illinois Street one, each serving the lot it stands on. They are the last A4 and one of the two remaining A3 the block's plan holds. The plan also holds three stables, two barns or carriage sheds and a smokehouse; every one of them would have to stand in the yard of one of these four cottages, and a stable AND a barn AND a smokehouse behind a one-room cottage is a claim about how these households lived that nothing supports, so the rest stay in the plan for the roofs that come after them.\n\nWHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that any building stood on these two lots in 1835, which buildings they were, that they were dwellings, where on their lots they sat and how far back from the street. The block faces and the alley line are committed; the lot lines are T-1741's `inferred` reading of Wright's rules and the side lines within them are this grid's even cut, which is not the same thing and is graded as such; no lot is numbered, because the sheet's lot numerals have never been transcribed."
+    },
+    {
+      "block_id": "blk_indiana_north_wolcott",
+      "district": "north",
+      "programme_phase": "phase3_platted_block_indiana_north_wolcott_yard_deal",
+      "claimed": "2026-10-08",
+      "seq_start": 9,
+      "bounded_by": {
+        "north": "indiana_north",
+        "south": "illinois_north",
+        "west": "wolcott",
+        "east": "cass"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 47,
+        "standing_roofs": 8,
+        "free_lots": 8,
+        "headroom": 27,
+        "dealt_roofs": 1,
+        "dealt_principal": 0,
+        "dealt_ancillary": 1,
+        "principal": 0,
+        "ancillary": 1
+      },
+      "families": {
+        "A1": 1
+      },
+      "dealt_against_the_order_book": {
+        "ticket": "T-2156",
+        "parent": "T-1983",
+        "cells": [
+          "structures/barns_stables/north"
+        ],
+        "why": "THE NORTH DIVISION'S ONE OWED STABLE, AND WHY IT IS ONE ROOF OF THE SIX THE SCHEDULE PLACES HERE. The order book's North `barns_stables` cell reads 17 ordered, 11 standing, 6 owed, and those six are the whole of the North's remainder. The 668-roof schedule places all six on this block — one A1 stable and five A2 barns or carriage sheds — because it is the North's only platted block with ancillary room left. That room is counted in roofs and not in ground, and measured on the ground it is not there for the barns. Every lot here is 14.71 m wide and 31.33 m deep (`data/traces/vectors/thompson_lots.json`), each of the four cottage lots already keeps a woodshed or a privy off the alley, and the generator holds a footprint 1.5 m off its own lot line and 3.0 m off every other building. Beside the yard building each lot already has, that leaves 4.85-5.55 m of width; an A2 is 18 ft (5.49 m) wide at the narrow end of its band and every A2 this recipe would deal here samples 6.2-7.9 m. Between the yard building and the cottage there is 7.6 m of depth at most, against an A2's 26 ft (7.9 m) minimum. So no lot on this block can hold a barn without a second cottage lot being built or an open lot being given a yard with no house — which the north-division memo and this block's own open-lot reasons refuse. The A1 stable fits, on lot 9 behind hh_baily_john's cottage on the Illinois face, on the side of the yard the privy leaves free. The five barns stay owed and go to the piece of T-2156 that prices the yard buildings against the dwellings they serve: before this deal the North stood at 31 yard roofs against 84 ordinary dwellings (0.37 to a house) where the South stands at 80 against 150 (0.53), so the North is the short division, and its barns belong behind the houses of the Kinzie core rather than stacked on the speculative edge of town. A yard building seats nobody, so no household asks for this one and it is dealt against the order book's cell instead."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Indiana-and-Wolcott corner, and still the lot the block reserves open. The schedule's own sizing reserves one — principal room is counted over the free lots LESS ONE, precisely so a block can never be dealt out of its open lot — and the first deal named this corner as the reservation. Nothing about this deal moves it. It is also the west end of the Indiana face's alternation, which reads open here before the first roof on lot 4."
+        },
+        {
+          "lot": 1,
+          "why": "The Illinois-and-Wolcott corner, open because this deal has no roof for it. The seating asks a D7 house here under the merchant-and-professional clause; a two-storey frame house is the most substantial thing the addition's plan holds, and standing one on the speculative edge of town while the block's ordinary cottages number four would invert what the primary maps show. The request stands."
+        },
+        {
+          "lot": 2,
+          "why": "An interior lot on the Indiana face, immediately west of the cottage this deal stands on lot 4, and open for the reason lot 6 was and is: a roof on the adjoining lot is the difference between scattered houses and a built street, and only the first of those is what the 1835 maps carry. The seating asks a D4 cottage here and the request is left standing."
+        },
+        {
+          "lot": 3,
+          "why": "An interior lot on the Illinois face, immediately west of the cottage on lot 5, open for the same reason as lot 2 and with the same effect. The seating asks a D4 cottage here. Lot 2 and lot 3 sit back to back across the Addition's ruled alley, so leaving both open keeps the block's west third open through its whole depth rather than only on one face."
+        },
+        {
+          "lot": 6,
+          "why": "An interior lot on the Indiana face, and after this deal it is the gap BETWEEN two roofs — the first deal's cottage on lot 8 to its east and this deal's on lot 4 to its west. That is what it is for. The first deal left it open so the roof on lot 8 would not be one of a row; this deal needs it open for the same sentence read from the other side, and building the D3 the seating asks here would close the alternation on this face in one move. It is the block's most consequential open lot and the request on it is the one this deal most deliberately refuses."
+        },
+        {
+          "lot": 7,
+          "why": "An interior lot on the Illinois face, the gap between the cottage on lot 9 and this deal's on lot 5, and open for exactly the reason lot 6 is. The seating asks hh_beach_william_h's D3 here — the topmost unbuilt tradesman request on the block — and it is refused by position rather than by rank: it is the higher of the two requests this deal declined, and it is declined because its lot adjoins a standing roof and the memo will not carry the wall that would make."
+        },
+        {
+          "lot": 10,
+          "why": "The Indiana-and-Cass corner, open because this deal has no roof for it and because a corner at the block's east end is the ground a later deal will want first — the seating already asks a D7 house on it. It is also the east end of the Indiana face's alternation, which reads open here after the roof on lot 8. Nothing this run knows argues for spending the corner on a cottage now."
+        },
+        {
+          "lot": 11,
+          "why": "The Illinois-and-Cass corner, the last of the block's twelve and open on the plainest reason of all: nothing was dealt to it. The seating asks a D7 house here too, and the block's schedule still apportions it part of the 31 roofs beyond the eight now standing. A later deal takes it off this list with its own argument."
+        }
+      ],
+      "slots": [
+        {
+          "family": "A1",
+          "inventory_class": "ancillary",
+          "lot": 9,
+          "stands_on": "alley",
+          "fronts": "illinois_north",
+          "setback_m": 4.0,
+          "lateral_m": 2.9
+        }
+      ],
+      "arrangement_note": "ONE STABLE IN ONE COTTAGE'S YARD, AND NO NEW FRONTAGE. The stable stands off the block's ruled alley inside lot 9, which the first deal built a cottage on, so the alternation the first two deals completed on both street faces is untouched: eight of the twelve lots are still open and no lot gains a street front. It takes the side of the yard the privy leaves free, 2.9 m off the lot's centre line toward the side it does not share with the privy. Which cottage keeps the horse is this file's choice and is recorded as such; nothing states it."
     },
     {
       "block_id": "blk_indiana_north_cass",

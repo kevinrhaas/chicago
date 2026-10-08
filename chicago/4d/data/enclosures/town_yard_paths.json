@@ -510,6 +510,24 @@
       ],
       [
         [
+          401.6,
+          -85.9
+        ],
+        [
+          402.5,
+          -86.08
+        ],
+        [
+          405.56,
+          -70.51
+        ],
+        [
+          404.66,
+          -70.33
+        ]
+      ],
+      [
+        [
           432.92,
           -13.83
         ],
@@ -884,6 +902,24 @@
         [
           711.81,
           -59.28
+        ]
+      ],
+      [
+        [
+          724.14,
+          -91.98
+        ],
+        [
+          725.04,
+          -91.85
+        ],
+        [
+          721.38,
+          -65.61
+        ],
+        [
+          720.48,
+          -65.74
         ]
       ],
       [
@@ -4830,6 +4866,24 @@
       ],
       [
         [
+          905.86,
+          503.28
+        ],
+        [
+          906.77,
+          503.37
+        ],
+        [
+          906.08,
+          510.81
+        ],
+        [
+          905.17,
+          510.72
+        ]
+      ],
+      [
+        [
           907.15,
           503.45
         ],
@@ -5892,6 +5946,11 @@
       "to": "privy_blk_south_water_wells_lot5"
     },
     {
+      "lot": "blk_south_water_wells_lot5",
+      "from": "recon_1835_blk_south_water_wells_d4_03",
+      "to": "recon_1835_blk_south_water_wells_a2_09"
+    },
+    {
       "lot": "blk_south_water_wells_lot6",
       "from": "peck_store",
       "to": "privy_blk_south_water_wells_lot6"
@@ -5995,6 +6054,11 @@
       "lot": "blk_south_water_dearborn_lot1",
       "from": "recon_1835_blk_south_water_dearborn_d2_04",
       "to": "privy_blk_south_water_dearborn_lot1"
+    },
+    {
+      "lot": "blk_south_water_dearborn_lot1",
+      "from": "recon_1835_blk_south_water_dearborn_d2_04",
+      "to": "recon_1835_blk_south_water_dearborn_a5_10"
     },
     {
       "lot": "blk_south_water_dearborn_lot2",
@@ -7090,6 +7154,11 @@
       "lot": "blk_indiana_north_wolcott_lot8",
       "from": "recon_1835_blk_indiana_north_wolcott_d3_01",
       "to": "recon_1835_blk_indiana_north_wolcott_a4_03"
+    },
+    {
+      "lot": "blk_indiana_north_wolcott_lot9",
+      "from": "recon_1835_blk_indiana_north_wolcott_d3_02",
+      "to": "recon_1835_blk_indiana_north_wolcott_a1_09"
     },
     {
       "lot": "blk_indiana_north_wolcott_lot9",
