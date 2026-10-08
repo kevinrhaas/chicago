@@ -3,7 +3,7 @@ export const CHANGELOG = [ // newest first
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the third of the five blocks there to be built, after the two on Clark Street; the two on Wells Street follow.',
-      'Seven households now live in these houses, two of them named on the house itself. The seven who had asked for these lots are given lots on the next blocks south instead, because households already in the town move into new houses first.',
+      'Seven households now live in these houses, three of them named on the house itself. Five of the six who had been waiting for a lot on this block move instead into empty houses already standing north of Madison, which the town fills first; the sixth waits for a lot on the Wells Street blocks.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
     ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',

@@ -15880,7 +15880,7 @@ disagreement **docs/CORRIDOR-LINES.md** (T-0419).
 **Recorded:** 2026-09-26.
 ### L276 — Seventy-seven roofs across six districts now NAME the household the placement policy dealt them, and the rest do not because a ruling refuses them one
 
-**Scope:** `roof_keepers.written[named]` — 87 roofs (86 until T-2148 raised plat block 50's thirteen roofs, 2026-10-06, and the West seating turned over behind them, so one more West roof now carries a written keeper; 81 until T-2145 raised fourteen houses on the School Section tier's Clark blocks, 2026-10-06, and the South seating turned over behind them: six of the new houses carry a written keeper, the other eight going to letter-list households the ruling refuses a roof; nine more roofs north of Madison gain a written keeper, ten lose theirs and six change keeper; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
+**Scope:** `roof_keepers.written[named]` — 89 roofs (87 until T-2147 raised eight roofs on the School Section tier's Market block 81, 2026-10-06, and the South seating turned over behind them: three of the new houses carry a written keeper; ten more South roofs gain a written keeper, eleven lose theirs and eight change keeper; 86 until T-2148 raised plat block 50's thirteen roofs, 2026-10-06, and the West seating turned over behind them, so one more West roof now carries a written keeper; 81 until T-2145 raised fourteen houses on the School Section tier's Clark blocks, 2026-10-06, and the South seating turned over behind them: six of the new houses carry a written keeper, the other eight going to letter-list households the ruling refuses a roof; nine more roofs north of Madison gain a written keeper, ten lose theirs and six change keeper; 80 until T-2143 raised plat block 51's six houses, 2026-10-05, and the West seating turned over behind them: 17 roofs change keeper and one more West roof now carries a written keeper; 77 until T-2132 raised plat block 44's four houses, 2026-10-05, and the West seating turned over behind them, so three more West roofs now carry a written keeper; 50 until T-2136 ran the pass over the last three districts the deal seats in, 2026-10-05, below; 51 until T-2129 raised the Market block's ten roofs, 2026-10-05, and the South's seating walked a roof at a time behind them: 26 roofs change keeper, recon_1835_south_d4_006 passing from hh_bourrassa_leon to hh_boyer_j_k among them, and one more is left without a named household than gained one; 49 until T-1829 raised blk_west_lake_canal's three requested roofs, 2026-10-05, and the West seating turned over behind them, so two more West roofs now carry a written keeper) given the name of the household the
 placement policy dealt them, in `data/reconstruction/1835_roof_keepers.json` beside the 80
 refusals, written onto each record's `occupants` and `resident_assignment` and re-derived by
 `tools/name_the_keepers_1835.py --build`, gated by its `--check`. Nine of the 23 are on the
@@ -21410,7 +21410,7 @@ each sits. No coordinate is authored: every metre is read off the committed lot 
 block `lot_ceiling_principal` 5 over its six free lots, the sixth being the open one its own
 sizing rule keeps, and `1835_platted_seats.json` held exactly five `slot` requests here with no
 roof under them — an H1, a D7, a D3 and two D4s, every one a family the schedule's plan for the
-block holds. So the count, the families and the lots are the seating's and the schedule's. The
+block holds. So the count and the families are the schedule's, and the lots the plat's. The
 other principal roofs the schedule still apportions this block would have to stand two to a lot
 along a frontage run, and a party-wall row on the town's outermost platted tier in July 1835 is a
 claim nothing supports.
@@ -21989,11 +21989,11 @@ recipe entry `phase3_platted_block_school_section_tier_81` in
 
 **Why seven, which is the whole of the block's lot ceiling.** The 665-roof schedule gives this
 block `lot_ceiling_principal` 7 over its eight free lots at one principal roof per lot and no
-party-line row (T-2144's density for the tier), and `1835_platted_seats.json` held exactly seven
-`slot` requests here with no roof under them — a D7, a D6, two D5s, two D4s and a D3, which is the
-schedule's family list for the block to the roof. Its one ancillary roof is an A2, dealt behind
-the D7 as **L384** dealt the Market block's carriage shed north of Madison. So the count, the
-families and the lots are the seating's and the schedule's.
+party-line row (T-2144's density for the tier), and `1835_platted_seats.json` held `slot`
+requests here with no roof under them (six on the tree this was last merged over); the schedule's
+family list for the block is a D7, a D6, two D5s, two D4s and a D3, and that is what stands. Its one ancillary roof is an A2, dealt behind
+the D7 as **L384** dealt the Market block's carriage shed north of Madison. So the count and the
+families are the schedule's, and the lots the plat's.
 
 **Which household stands under which roof is the placement policy's** (**L270** carries the
 seating arithmetic and who moved; **L276** the three keepers written on these roofs); nothing in this
