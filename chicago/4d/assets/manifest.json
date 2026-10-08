@@ -3871,6 +3871,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_west_washington_canal_d7_05"
     },
+    "recon_1835_branch_freight_f2_001__inferred_1835.glb": {
+      "archetype": "frame_storefront",
+      "baked_ao": false,
+      "bytes": 91836,
+      "inputs_sha256": "8cc313ecc59c1f63524c141043b3d3f84968d595ad5043462b7467399500ce18",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_branch_freight_f2_001"
+    },
     "recon_1835_canal_trade_c3_001__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -5670,15 +5679,6 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_west_055"
-    },
-    "recon_1835_west_bank_freight_f2_001__inferred_1835.glb": {
-      "archetype": "frame_storefront",
-      "baked_ao": false,
-      "bytes": 89348,
-      "inputs_sha256": "c41d919fe91a3efd2baee04795c4806ba190977c4eb8960ba20d5e17168625c4",
-      "kind": "generated",
-      "phase_id": "inferred_1835",
-      "structure_id": "recon_1835_west_bank_freight_f2_001"
     },
     "robert_kinzie_store__store_1830.glb": {
       "archetype": "log_dwelling",

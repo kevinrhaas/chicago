@@ -1,10 +1,10 @@
 {
-  "id": "recon_1835_west_bank_freight_f2_001",
+  "id": "recon_1835_branch_freight_f2_001",
   "phase": "inferred_1835",
   "name": "Reconstructed F2 narrow two-story warehouse #002",
   "aka": [],
   "archetype": "frame_storefront",
-  "asset": "gltf/recon_1835_west_bank_freight_f2_001__inferred_1835.glb",
+  "asset": "gltf/recon_1835_branch_freight_f2_001__inferred_1835.glb",
   "scene": "1835",
   "target_date": "1835-07-01",
   "documented_range": {
@@ -16,8 +16,8 @@
   },
   "change_note": "T-2150 adds the West Division's second freight roof of the order book's two without moving an existing building: the F2 the schedule dealt to plat block 50, a module inland, seated on the river face of the block between it and the bank.",
   "placement": {
-    "local_e": -46.896,
-    "local_n": -401.285,
+    "local_e": -47.782,
+    "local_n": -401.168,
     "rotation_deg": 97.522829,
     "position_confidence": "reconstructed",
     "position_sources": [],
@@ -35,21 +35,21 @@
         0
       ],
       [
-        6.808,
+        6.693,
         0
       ],
       [
-        6.808,
-        13.124
+        6.693,
+        14.017
       ],
       [
         0,
-        13.124
+        14.017
       ]
     ],
     "confidence": "reconstructed",
     "sources": [],
-    "note": "Deterministically sampled 6.808 by 13.124 metre rectangle inside the F2 typology band; neither dimension is attested for this invented roof."
+    "note": "Deterministically sampled 6.693 by 14.017 metre rectangle inside the F2 typology band; neither dimension is attested for this invented roof."
   },
   "attributes": {
     "stories": {
@@ -61,7 +61,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "wall_height_m": {
-      "value": 6.118,
+      "value": 6.248,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -77,7 +77,7 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the F2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
     },
     "roof_pitch_deg": {
-      "value": 26.7,
+      "value": 32.4,
       "confidence": "reconstructed",
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
@@ -98,7 +98,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'recent'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'new'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "cladding": {
       "value": "vertical_board",
@@ -214,22 +214,22 @@
     "programme_phase": "west_freight_bank_1835",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "sequence": 2,
-    "finish_key": "weathered_timber",
-    "roof_condition": "weathered",
-    "age_state": "recent",
+    "finish_key": "fresh_timber",
+    "roof_condition": "fresh",
+    "age_state": "new",
     "fabric_basis": {
       "rule": "F-F",
       "class": "freight",
       "by": "type",
       "household": null,
-      "words": "silvered clapboard on a balloon frame under a weathered roof — a two-story warehouse, a year old (rule F-F: the freight trade's by its type)"
+      "words": "new-sawn clapboard on a balloon frame under a new roof — a two-story warehouse, new-built (rule F-F: the freight trade's by its type)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "freight",
-    "age_state": "recent",
-    "weather_years": 1.5,
+    "age_state": "new",
+    "weather_years": 0.5,
     "weather_rate": 1.0,
     "lay_m": 0.008,
     "confidence": "reconstructed"
