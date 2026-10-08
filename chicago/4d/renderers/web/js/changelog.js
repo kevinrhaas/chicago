@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: 1534, ts: '2026-10-08T13:08:52.378Z', date: 'Oct 8, 2026, 8:08 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
   { v: 1533, ts: '2026-10-08T12:18:00.475Z', date: 'Oct 8, 2026, 7:18 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [

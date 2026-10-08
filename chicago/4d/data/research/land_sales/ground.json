@@ -35,11 +35,11 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 659,
-    "structures_reached": 123,
+    "structures_placed": 664,
+    "structures_reached": 128,
     "structures_reached_by_grade": {
       "inferred": 25,
-      "reconstructed": 98
+      "reconstructed": 103
     },
     "structures_unreached_by_section": {
       "09": 506,
@@ -2233,6 +2233,10 @@
           "margin_m": 73.8
         },
         {
+          "id": "recon_1835_north_a2_098",
+          "margin_m": 36.4
+        },
+        {
           "id": "recon_1835_north_c4_067",
           "margin_m": 7.3
         },
@@ -2815,6 +2819,22 @@
           "margin_m": 27.4
         },
         {
+          "id": "recon_1835_north_a2_094",
+          "margin_m": 9.2
+        },
+        {
+          "id": "recon_1835_north_a2_095",
+          "margin_m": 59.3
+        },
+        {
+          "id": "recon_1835_north_a2_096",
+          "margin_m": 45.3
+        },
+        {
+          "id": "recon_1835_north_a2_097",
+          "margin_m": 106.6
+        },
+        {
           "id": "recon_1835_north_a3_051",
           "margin_m": 54.1
         },
@@ -3086,6 +3106,22 @@
         {
           "id": "recon_1835_north_a2_048",
           "margin_m": 27.4
+        },
+        {
+          "id": "recon_1835_north_a2_094",
+          "margin_m": 9.2
+        },
+        {
+          "id": "recon_1835_north_a2_095",
+          "margin_m": 59.3
+        },
+        {
+          "id": "recon_1835_north_a2_096",
+          "margin_m": 45.3
+        },
+        {
+          "id": "recon_1835_north_a2_097",
+          "margin_m": 106.6
         },
         {
           "id": "recon_1835_north_a3_051",

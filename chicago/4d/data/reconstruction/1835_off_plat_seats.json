@@ -76,8 +76,8 @@
    "division_ground": 24,
    "farms_and_country_seats": 208,
    "heavy_and_noxious_trades": 1,
-   "labourer_dwellings": 63,
-   "merchant_and_professional_dwellings": 370,
+   "labourer_dwellings": 62,
+   "merchant_and_professional_dwellings": 371,
    "tradesman_dwellings": 447
   },
   "owed_by_district": {
@@ -3027,6 +3027,15 @@
    "clause": "heavy_and_noxious_trades",
    "district": "south",
    "why": "the 1 off-plat roof(s) of a family this clause admits in this division all carry a record that states their own occupancy, which a policy deal does not overturn, and no other stands there, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
+   "handed_to": "T-1615"
+  },
+  {
+   "id": "hh_berger_f_c",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
+   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
@@ -10398,15 +10407,6 @@
    "clause": "labourer_dwellings",
    "district": "west",
    "why": "the roof this clause's deal reaches for this household, recon_1835_west_052, is a farmhouse — a D1 cabin with the A2 barn recon_1835_west_055 126.5 m from it — and the farmstead rule (T-1794) keeps it for farms_and_country_seats; no other roof of a family this clause admits is free for it here without moving a household already seated, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
-   "handed_to": "T-1615"
-  },
-  {
-   "id": "hh_laframboise_franois",
-   "kind": "household",
-   "band": "south/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "south",
-   "why": "no roof of a family this clause admits stands off the plat in this division at all, and no parcel of this ledger may raise one: the 665-roof programme carries a schedule row for 27 of its 137 parcels and marks every one of them `unsubdivided` with no headroom, waiting on that plat's own lot rule",
    "handed_to": "T-1615"
   },
   {
