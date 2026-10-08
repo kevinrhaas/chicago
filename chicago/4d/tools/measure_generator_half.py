@@ -501,13 +501,17 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # the School Section tier's block 81, blk_school_section_tier_81 — D2, two D4, two D5 and a D6,
 # all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 693 -> 698 and 687 -> 692 on 2026-10-08 (T-2170, lapped over T-2147): five barns in the yards
+# of the Wolcott-Kinzie core's houses (recon_1835_north_a2_094..098), through emit.py and the
+# common modules; terrain reach stays 6 and pier_crib stays 2.
+#
 STATED = {
-    "assets": 693,
+    "assets": 698,
     "restales": {
-        "generators/common/*.py": 693,
+        "generators/common/*.py": 698,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 687,
+        "generators/emit.py": 692,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
