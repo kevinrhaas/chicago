@@ -31,6 +31,36 @@ lot 0 kept open) with one A2 yard roof.
   the remedies report and the Newberry re-parse. The liberty is renumbered **L397** (T-2066 took
   L392 on dev); L263 595 → 603, L270 209 (held) and L276 83 restated; T-0059's figures
   635/629 → 643/637. `validate.py --stale` clean: no mesh moved on the lap.
+- **Lapped over T-2148, T-2058, T-2022, T-2151, T-2152 and T-2154 (2026-10-08).** Derived files
+  re-derived (`rederive.mjs --run`, its second pass, the settled tail); the seating chain walked
+  with `generate_west_infill` inside the lap (without it the keepers never settle) to its fixpoint
+  at pass nine: 212 seated (200 adopted, 12 slots), keepers 87 → 89, three on block 81. Five of
+  the six slot requests on block 81 adopt standing roofs north of Madison; the sixth re-slots on
+  block 94. Fifteen meshes rebaked. L263 623 → 631, L276 87 → 89; L397's slot count restated.
+  T-1983 was split mid-lap, so the order book's yard rows move to T-2156 (as #508 does).
+## T-2154 — Evidence → City sets the town against the November census: dwellings standing, and the people split (2026-10-08)
+
+T-1983 ("the programme reconciled") was split three ways on claim: this piece (its
+acceptance item 2), T-2155 (the census's `people.housed` against the completion audit,
+item 3) and T-2156 (the yard-building roofs built or re-budgeted, item 1 with T-1692).
+
+- **Dwellings standing, as a bracket.** `tools/town_census.py` writes
+  `buildings.dwellings`: 309 roofs in the programme's `ordinary_dwellings` group, 358 with
+  the 39 `larger_boarding_houses` and 10 `inns_taverns`, against the November census's 398
+  (Andreas vol. 1, p. 180). It is a bracket because the town model's own open question —
+  whether the enumerator's "dwelling" took in boarding houses and taverns — is unanswered.
+  Stores with rooms over them are counted with the stores on both readings; nothing the
+  project holds says the enumerator counted them as dwellings. The programme's own order
+  for the same groups is 335–387, so even the finished programme sits below 398 on the
+  low reading. That is expected (the census is four months later) and it is not a target.
+- **The people, split.** `people.split`: 2,799 townspeople and 127 garrison (every
+  present household the layer files in the `fort` division — two officers and eleven
+  reconstructed company and family households), summing to the population rung's 2,926.
+  The 307 transients stay outside both, said so on the card.
+- **What is not verified.** The garrison figure is the layer's fort households, not a
+  roster: T-1176's pieces own the garrison's real strength. If a soldier's household is
+  ever filed outside the `fort` division, it reads as a townsperson here.
+
 ## T-2148 — Clinton, Jefferson and Des Plaines carried to Madison; plat block 50's thirteen roofs; the West's last freight roof handed to T-2150 (2026-10-06)
 
 **What a visitor sees.** Clinton, Jefferson and Des Plaines run on south of Washington to

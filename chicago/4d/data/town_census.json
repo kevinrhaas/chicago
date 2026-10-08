@@ -16,7 +16,22 @@
   "target": 668,
   "records_in_scene": 644,
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
-  "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
+  "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading.",
+  "dwellings": {
+   "standing_low": 309,
+   "standing_high": 358,
+   "by_group": {
+    "ordinary_dwellings": 309,
+    "larger_boarding_houses": 39,
+    "inns_taverns": 10
+   },
+   "ordered_low": 335,
+   "ordered_high": 387,
+   "census": 398,
+   "census_source": "andreas_1884_v1",
+   "question": "How many of the town's dwellings stand, against the 398 the November 1835 census counted? The low end counts dwelling houses; the high end adds the boarding houses and taverns, because whether the enumerator's 'dwelling' took them in is not known (1835_town_model.json, lodging open questions).",
+   "basis": "Roofs standing in the roof programme's ordinary_dwellings group, and in larger_boarding_houses and inns_taverns for the high end. Stores with rooms over them are counted with the stores on both readings. The census is four months after the scene date, so the scene is not expected to reach it."
+  }
  },
  "people": {
   "housed": 192,
@@ -75,7 +90,14 @@
   },
   "basis": "Person entries in households whose `lives_at` names a structure that resolves into the scene. A person counts when the building they live in stands, so this grows as the town builds out.",
   "floor_note": "A FLOOR, not an estimate: some entries counted here stand for a group a source counts but does not name (see group_entries).",
-  "dangling_lives_at": []
+  "dangling_lives_at": [],
+  "split": {
+   "residents": 2799,
+   "garrison": 127,
+   "transients_apart": 307,
+   "garrison_division": "fort",
+   "basis": "The population above, split by the household's `division`: the Fort Dearborn garrison — officers, companies and their families — is every household the layer seats in the fort, and the residents are everyone else. The summer's visitors are counted apart and are in neither figure (see `transients`)."
+  }
  },
  "transients": {
   "persons": 307,
