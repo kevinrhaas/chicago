@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+  { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
     items: [
       'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
       'The ground is stored about four times smaller on every device. It draws exactly the same.',
