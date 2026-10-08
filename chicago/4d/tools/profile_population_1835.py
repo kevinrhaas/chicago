@@ -815,10 +815,12 @@ def sec_buildings(L) -> dict:
     grid = defaultdict(Counter)
     for h in records:
         d = h["division"]
-        grid[d]["housed" if value(h.get("lives_at")) else "no dwelling"] += 1
+        # The card's own `lives_at` only — the table's question. The lead's housed count
+        # also reads the roofs that seat a household under `residents[]` (T-2155).
+        grid[d]["lives_at named" if value(h.get("lives_at")) else "no lives_at"] += 1
         if value(h.get("works_at")):
             grid[d]["roofed workplace"] += 1
-    cols = ["housed", "roofed workplace", "no dwelling"]
+    cols = ["lives_at named", "roofed workplace", "no lives_at"]
     rows = [[d, sum(1 for h in records if h["division"] == d)] + [grid[d][c] for c in cols]
             for d in L.index["vocabulary"]["divisions"]]
     rows.append(["TOTAL", len(records)]
@@ -826,10 +828,13 @@ def sec_buildings(L) -> dict:
     return {
         "id": "buildings",
         "title": "Where they meet the buildings",
-        "lead": ("%d persons resolve into a dwelling that stands in the scene, in %d "
-                 "households; %d households have no dwelling. %d roofs stand against a "
-                 "programme of %d."
+        "lead": ("%d persons in the town on 1 July resolve into a dwelling that stands in "
+                 "the scene, in %d households — %d of them through their card's `lives_at`, the "
+                 "rest seated by a roof's `residents[]` — and %d wait on a roof not yet "
+                 "standing; %d households have no dwelling. The table below reads "
+                 "`lives_at` alone. %d roofs stand against a programme of %d."
                  % (people["housed"], people["households_housed"],
+                    people["housed_through"]["lives_at"], people["waiting_on_a_roof"],
                     people["households_without_a_dwelling"],
                     buildings["standing"], buildings["target"])),
         "tables": [
