@@ -43,7 +43,21 @@ def dining_connection(params):
     """
     bay=params.bays[0];n=north(params);ap=tuple(bay['apex'])
     back=(ap[0],n['ridge_at'],n['ridge_z'])
-    eave_y=n['y0']-.20;eave_z=north_height(params,eave_y)
+    eave_y=n['y0']-n.get('eave_lo_overhang',.20);eave_z=north_height(params,eave_y)
+    # T-2183: at the extended eave, the tile and copper have the same front
+    # section (apex -> apron fold -> shoulder). Intersect BOTH pitches with
+    # the host. One triangle here would bridge the lower copper fold.
+    if n.get('eave_lo_overhang',.20)>.21:
+        polygons=[];shoulders=[];folds=[]
+        for pt in (bay['pts'][1],bay['pts'][-2]):
+            shoulder=(pt[0],ap[1],bay['band_top_z'])
+            ring=(pt[0]+(ap[0]-pt[0])*.18,ap[1],
+                  shoulder[2]+(ap[2]-shoulder[2])*.11)
+            slope=(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
+            valley=(ring[0],n['y0']+(ring[2]-n['eave_lo_z'])/slope,ring[2])
+            polygons.extend([[ap,ring,valley,back],[ring,shoulder,valley]])
+            shoulders.append(shoulder[:2]);folds.append(valley[:2])
+        return polygons,[shoulders[0],shoulders[1],folds[1],back[:2],folds[0]]
     polygons=[];valleys=[]
     for pt in (bay['pts'][1],bay['pts'][-2]):
         shoulder=(pt[0],ap[1],bay['band_top_z'])
@@ -137,7 +151,8 @@ def copper(params):
     arc.sort(key=lambda p:p[0])
     # Short continuous return joins the fan's north end. The outside boundary
     # follows the host plane, so subtracting the tile cannot leave a roof gap.
-    front=(ret['x0'],n['y0']-.20,north_height(params,n['y0']-.20))
+    front_y=n['y0']-n.get('eave_lo_overhang',.20)
+    front=(ret['x0'],front_y,north_height(params,front_y))
     upper=(ret['x0'],back,north_height(params,back))
     tris=[(upper,front,arc[0]),(upper,arc[0],anchor)]
     tris += [(a,b,anchor) for a,b in zip(arc,arc[1:])]
@@ -150,7 +165,12 @@ def clip_host(pts,params):
     from archetypes.masonry_house_v4_detail import subtract
     from archetypes.masonry_house import _normal
     holes=[]
-    if params.detail.get('dining_roof_junction'):holes.append(dining(params)[1])
+    if params.detail.get('dining_roof_junction'):
+        if north(params).get('eave_lo_overhang',.20)>.21:
+            # The apron makes the whole footprint concave: subtract its
+            # convex pieces, never hand a concave cut to the convex clipper.
+            holes.extend([[(v[0],v[1]) for v in poly] for poly in dining(params)[0]])
+        else:holes.append(dining(params)[1])
     if params.detail.get('continuous_copper_corner'):holes.extend(copper(params)[1])
     normal=_normal(pts);a=pts[0]
     def point(p):
@@ -163,7 +183,22 @@ def clip_host(pts,params):
 
 def wall_profile(params,lo,hi,z):
     if params.detail.get('dining_crested_connection'):
-        return [(lo,z),(hi,z)]
+        if north(params).get('eave_lo_overhang',.20)<=.21:
+            return [(lo,z),(hi,z)]
+        # The copper return rises from the new projecting eave to the higher
+        # bow. Close the masonry to its ACTUAL underside at the wall; keeping
+        # a flat wall here opens a dark slit below the sloping return.
+        y=north(params)['y0'];points=[(lo,z),(hi,z)]
+        for tri in copper(params)[0]:
+            for a,b in zip(tri,tri[1:]+tri[:1]):
+                if abs(b[1]-a[1])<1e-9:continue
+                t=(y-a[1])/(b[1]-a[1])
+                if 0<=t<=1:
+                    x=a[0]+(b[0]-a[0])*t
+                    if lo<x<hi:points.append((x,max(z,a[2]+(b[2]-a[2])*t)))
+        merged={}
+        for x,h in points:merged[round(x,7)]=max(h,merged.get(round(x,7),z))
+        return sorted(merged.items())
     bay=params.bays[0];a,c=sorted((bay['pts'][0][0],bay['pts'][-1][0]))
     return [(lo,z),(a-.24,z),(a,bay['band_top_z']),
             (c,bay['band_top_z']),(c+.24,z),(hi,z)]

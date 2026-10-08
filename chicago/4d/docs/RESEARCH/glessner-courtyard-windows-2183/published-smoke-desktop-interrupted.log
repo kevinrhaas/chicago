@@ -1,0 +1,136 @@
+serving /workspace/chicago/site/4d on 4187 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "desktop"
+
+NOT THE FULL GATE — stages filtered to "13-14" of 14
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  pass  desktop 1280x800: scene reaches ready
+  pass  desktop 1280x800: the scene declares its exact consultation blockers
+  pass  desktop 1280x800: no unexpected loader problems
+  pass  desktop 1280x800: scene has structures
+  pass  desktop 1280x800: every structure that should draw, drew
+  pass  desktop 1280x800: the liberties wait for their first reader, not for boot (T-2058)
+  pass  desktop 1280x800: the liberties list loads
+  pass  desktop 1280x800: every loaded liberty is rendered
+  pass  desktop 1280x800: the list names a scene-wide liberty
+  pass  desktop 1280x800: the Evidence panel does not overflow
+  pass  desktop 1280x800: a man who held an agency says so on his own card
+  pass  desktop 1280x800: the person's card carries the same caveat as the house's
+  pass  desktop 1280x800: every household in the layer is on the card
+  pass  desktop 1280x800: every person entry in the manifest is counted
+  pass  desktop 1280x800: the letter-list cohort is held apart from the evidenced town
+  pass  desktop 1280x800: the group says what that evidence is worth before it is opened
+  pass  desktop 1280x800: the households no building card can reach are marked
+  pass  desktop 1280x800: the researched non-residents are published too
+  pass  desktop 1280x800: opening a household fetches its record
+  pass  desktop 1280x800: a graded claim carries its reasoning, not just its value
+  pass  desktop 1280x800: the household records quote their sources, not their source ids
+  pass  desktop 1280x800: the households start collapsed, like every other disclosure here
+  pass  desktop 1280x800: the people section does not overflow the panel
+  pass  desktop 1280x800: no figure reaches a person's row as [object Object]
+  pass  desktop 1280x800: an evidence-only household's row says what its roof is not
+  pass  desktop 1280x800: a dated person carries an age and a birth year, both graded
+  pass  desktop 1280x800: a letter-list name says on its own row how thin that evidence is
+  pass  desktop 1280x800: the count sentence says how many people are known only that way
+  pass  desktop 1280x800: a letter-list name carries no invented trade
+  pass  desktop 1280x800: every resident research review reaches a resident card
+  pass  desktop 1280x800: candidate identities are visibly unmerged
+  pass  desktop 1280x800: a negative search is published without denying existence
+  pass  desktop 1280x800: the section says plainly that nobody is drawn
+  pass  desktop 1280x800: the wildlife list loads every habitat
+  pass  desktop 1280x800: every animal record in the layer is on the card
+  pass  desktop 1280x800: the card names what the records name
+  pass  desktop 1280x800: the card carries the July presence modes, not a species list
+  pass  desktop 1280x800: the animal records quote their sources, not their source ids
+  pass  desktop 1280x800: the animals start collapsed, like every other disclosure here
+  pass  desktop 1280x800: the wildlife section does not overflow the panel
+  pass  desktop 1280x800: the section says plainly that none of them is in the scene
+  pass  desktop 1280x800: the plant list loads every community
+  pass  desktop 1280x800: every species in the committed communities is on the card
+  pass  desktop 1280x800: the communities the sward lattice cannot draw say so
+  pass  desktop 1280x800: the share a visitor is standing in comes off the declaration
+  pass  desktop 1280x800: the note names the worst case rather than only the total
+  pass  desktop 1280x800: the plant records quote their sources, not their source ids
+  pass  desktop 1280x800: no figure reaches a plant's row as [object Object]
+  pass  desktop 1280x800: the communities start collapsed, like every other disclosure here
+  pass  desktop 1280x800: the plants section wraps inside the panel rather than clipping
+  pass  desktop 1280x800: the plants section does not overflow the panel
+  pass  desktop 1280x800: all eight evidence mounts wrap inside their panel rather than clipping
+  pass  desktop 1280x800: a run longer than the column breaks inside all eight mounts, not past them
+  pass  desktop 1280x800: the liberties list says what it is, in the document's words
+  pass  desktop 1280x800: the panel states it once — the hand-written paraphrase is gone
+  pass  desktop 1280x800: an entry shows the inventions it admits to
+  pass  desktop 1280x800: a claim over several buildings names each of them
+  pass  desktop 1280x800: an entry that invented nothing drawn claims nothing
+  pass  desktop 1280x800: an invented roof and height are admitted like an outline
+  pass  desktop 1280x800: a decision made by default is admitted in two buildings
+  pass  desktop 1280x800: the ground admits to what it invented, and says it is the ground
+  pass  desktop 1280x800: the chip carries the epoch the admission is about
+  pass  desktop 1280x800: the invention the gate found is on the page, not only in the repo
+  pass  desktop 1280x800: expanding a liberty on its topic page reveals its reasoning
+  pass  desktop 1280x800: the researched exclusions load
+  pass  desktop 1280x800: an exclusion gives its reason and the source it rests on
+  pass  desktop 1280x800: a later building says when, and a vanished one says why instead
+  pass  desktop 1280x800: a building standing in the scene is not on the not-here list
+  pass  desktop 1280x800: the not-here list withholds what its sources reprint
+  pass  desktop 1280x800: the list says it is not everything missing
+  pass  desktop 1280x800: the not-here list says what it is, in the compiled document's words
+  pass  desktop 1280x800: the panel states it once — the paraphrase is gone
+  pass  desktop 1280x800: the Evidence panel still does not overflow
+  pass  desktop 1280x800: the open questions load
+  pass  desktop 1280x800: the standing ones say they are standing and the unbuilt one does not
+  pass  desktop 1280x800: the standing one names the claim on its record that carries the doubt
+  pass  desktop 1280x800: an uncited open question says why it is uncited
+  pass  desktop 1280x800: the panel says what the third category is
+  pass  desktop 1280x800: the open questions say what they are, in the compiled document's words
+  pass  desktop 1280x800: the panel states that once too — and counts nothing by hand
+  pass  desktop 1280x800: the Evidence panel still does not overflow with it
+  pass  desktop 1280x800: the open question reaches the building it is about
+  pass  desktop 1280x800: it says what settling it would change
+  pass  desktop 1280x800: the card grades the doubt the same way the claim above it is graded
+  pass  desktop 1280x800: it starts collapsed like every other disclosure on the card
+  pass  desktop 1280x800: only tracked in-scene buildings carry open questions
+  pass  desktop 1280x800: the ground's claims load
+  pass  desktop 1280x800: the ground is graded per claim, not stamped
+  pass  desktop 1280x800: no land elevation claims to be documented
+  pass  desktop 1280x800: the ground says which ground these claims are about
+  pass  desktop 1280x800: the panel quotes the spec's caveat that no survey exists
+  pass  desktop 1280x800: a land claim shows its figures and its citation
+  pass  desktop 1280x800: every claim that calls itself an inference records its reasoning
+  pass  desktop 1280x800: the soil claim that is graded too high says so where it is graded
+  pass  desktop 1280x800: a claim with no reasoning would still say so
+  pass  desktop 1280x800: a soil the ground is not made of says so, and the figures that are do not
+  pass  desktop 1280x800: the mark is the declaration's, not the row's
+  pass  desktop 1280x800: the Evidence panel still does not overflow with the ground on it
+  pass  desktop 1280x800: the aerial anchor arrives in the air, looking down
+  pass  desktop 1280x800: the view from above renders
+  pass  desktop 1280x800: the near plane opens with altitude
+  pass  desktop 1280x800: on foot the near plane is the walking value
+  pass  desktop 1280x800: free-fly cannot sink through the terrain
+  pass  desktop 1280x800: leaving free-fly puts the visitor back on the ground
+  pass  desktop 1280x800: Space inspects on foot instead of lifting off
+  pass  desktop 1280x800: Escape closes the inspection card
+  pass  desktop 1280x800: the inspect key closes the card it opened
+  pass  desktop 1280x800: neither key fires while typing in Go-to
+  pass  desktop 1280x800: a building can be inspected from the air
+  pass  desktop 1280x800: a click under the crosshair inspects
+  pass  desktop 1280x800: /1904/ boots the 1904 scene on its own ground (T-1739)
+  pass  desktop 1280x800: the 1904 door lands on Prairie's east sidewalk at 18th, facing the spawn bearing, and glessner_house is the same pose (T-1739) — stood at E 1410.12 N -3218.01 bearing 264.94, eye 1.68 m; spawn {"local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}; anchor {"id":"glessner_house","label":"Prairie at Eighteenth, facing the Glessner lot at 1800 Prairie","local_e":1410.12,"local_n":-3218.01,"yaw_deg":264.94}
+  pass  desktop 1280x800: the Glessner lot is in front of the camera, its centroid on screen left of centre (T-1739) — lot centroid E 1365.37 N -3229.04 at NDC (-0.186, -0.029, z 0.9957); street corner at NDC x 0.185
+  pass  desktop 1280x800: the 1904 scene draws none of the 1835 town's layers, and places no 1835 structure (T-1739, T-1732)
+  pass  desktop 1280x800: Glessner's 1946 phase end is not presented as demolition
+  pass  desktop 1280x800: the Glessner House draws at the 1904 spawn — its Prairie front on screen, and aiming at it opens glessner_house (T-1732)
+  pass  desktop 1280x800: the 1904 scene draws its street grid, the Glessner lot is parcel prairie_1800, and the door lands on Prairie's east walk (T-0474)
+  pass  desktop 1280x800: the 1904 streets wear their sourced materials — Prairie at 18th attested asphalt, 18th Street attested macadam, the walk reconstructed cement (T-1728)
+  pass  desktop 1280x800: the 1904 drawer offers none of the 1835 town's sections — no People, no Firms, no 1835 Evidence topic, no 1835 firm in Go to (T-1740)
+  pass  desktop 1280x800: the 1904 boot raises no loader problem (T-1739)
+  pass  desktop 1280x800: the frame at the 1904 spawn is inside the draw budget (T-1739) — 54 draw calls, 2200963 triangles against {"drawCalls":330,"triangles":3800000}, 0 fps
+  pass  desktop 1280x800: the arrival counts down from the present and never reads 1835 before the scene is ready — 2026· 2025· 2024· 2023· 2022· 2021· 2020· 2019· 2018· 2017· 2016· 2013· 1982· 1931· 1930· 1917· 1916· 1915· 1914· 1913· 1912· 1911· 1910· 1909· 1908· 1907· 1906· 1901· 1886· 1881· 1880· 1877· 1874· 1873· 1872· 1871· 1870· 1869· 1868· 1867· 1866· 1865· 1864· 1863· 1862· 1861· 1860· 1859· 1858· 1857· 1856· 1855· 1854· 1853· 1852· 1851· 1850· 1849· 1848· 1847· 1846· 1845· 1844· 1843· 1842· 1835
+  pass  desktop 1280x800: the welcome shows no count and no percentage
+  pass  desktop 1280x800: a place picked under Starting At… enters the town without taking the pointer
+  pass  desktop 1280x800: a jaunt started from the menu stands at its first stop, Previous disabled
+  pass  desktop 1280x800: the stop's place card opens, and Return comes back to the same stop
+  pass  desktop 1280x800: the stop's source opens in Sources, whose count is the published catalog's — 330 rows, data-count 330; index.json 330
+  pass  desktop 1280x800: Return from the source comes back to the same stop with the drawer shut
