@@ -12590,6 +12590,12 @@
       "asset": "gltf/recon_1835_blk_washington_clinton_a2_15__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a2_19",
+      "name": "Reconstructed A2 barn or carriage shed #19",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_19.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_19__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a3_16",
       "name": "Reconstructed A3 privy #16",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a3_16.json",
@@ -12614,6 +12620,12 @@
       "asset": "gltf/recon_1835_blk_washington_clinton_a4_14__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a4_20",
+      "name": "Reconstructed A4 woodshed or storage shed #20",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_20.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_20__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a5_07",
       "name": "Reconstructed A5 small utility building #07",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_07.json",
@@ -12630,6 +12642,12 @@
       "name": "Reconstructed A5 small utility building #17",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_17.json",
       "asset": "gltf/recon_1835_blk_washington_clinton_a5_17__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_18",
+      "name": "Reconstructed A5 small utility building #18",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_18.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_18__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_clinton_d4_04",

@@ -64,6 +64,82 @@ lot 0 kept open) with one A2 yard roof.
   re-parse and the tail from compile_liberties. L263 644 → 650, L270 212 → 214, L276 92 → 96;
   L397 rewritten for the six. Generator half 684/678 → 690/684.
 
+## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
+re-budgeted, priced against the dwellings, T-1692). T-2170 keeps the North's five A2 barns that
+no Wolcott lot can hold.
+
+- **Visible.** After T-2167's deal the 668-roof schedule re-apportioned the West's three yard roofs
+  from `west_division_beyond_committed_control` (a district balance with no block) onto
+  `blk_washington_clinton` (`ancillary_room` 4). A third recipe entry
+  (`phase3_platted_block_washington_clinton_yard_deal_2`, `seq_start` 18) deals them: a chicken
+  house or small utility shed (A5, `_a5_18`) mid-yard behind the D5 on plat lot 7, a barn or
+  carriage shed (A2, `_a2_19`) on the woodshed's side of the D4's yard on plat lot 8, 16 m off the
+  alley, and a woodshed (A4, `_a4_20`) mid-yard behind the H1 on the Madison corner. Baked
+  (`bake.sh --only`, web derivatives). **L404**; L263 631 → 634 (on top of T-2165's 628 → 631).
+- **Where the barn could go.** Mid-yard in the D5's yard it stood 1.98 m from the house (the
+  generator holds 3.0 m), so it went to the D4's yard, the deepest of the three; 14 m off the alley
+  it stood 2.97 m from the barn beside it, 15 m and beyond clears both.
+- **Order book.** The West's `barns_stables` and `small_outbuildings` cells owe nothing now.
+  `build_order_book_1835.OWNERS`: West → T-2169, North → T-2170 (T-2168 is split).
+- **Seating.** No household moves onto a yard building. `measure_generator_half` 684 → 687 /
+  678 → 681 (on top of T-2165's three and T-2146's thirteen); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
+  redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
+  register, population profile, hay limits and the Newberry parse re-derived.
+
+## T-2059 — the mobile flora heartbeat back under 250 ms (2026-10-08)
+
+**What a visitor sees:** a phone's loading screen keeps moving while the trees and grass are
+planted. The town itself is unchanged.
+
+- **Two tasks held the frame**, found with a CPU profile of the two longest gaps in the flora
+  phase (mobile/light on dev @ a2def24a: 396 ms cold, 315 ms warm). (1) T-2015's leaf-and-bark
+  atlas: fourteen sprays plus the coverage-preserving mipmaps, about 270 ms in one task.
+  (2) The turf mask (`handTurfToGround`): T-2125's four finder questions a texel, about 200 ms.
+- **The fix.** The atlas is painted by a generator. The boot drains it through
+  `bootCheckpoint` (`createTreeAtlasSliced`), and `createTreeAtlas()` still drains it in one go
+  for `tree_surface_review.mjs`. The turf mask yields once a row. Neither changes what is drawn.
+- **Measured** (`measure_boot_phases.mjs --published`, one steward runner): mobile/light
+  161 ms cold and 192 ms warm. All twelve cells read 149-204 ms under `--check` (they were
+  320-427 ms). The flora phase did not get longer (4.71 → 4.64 s cold). `--compare` against
+  dev's run matches every flora/tree geometry digest, the roll, the stats and the placement
+  census, and the sliced atlas matches dev's unsliced one on all 12 mip levels.
+
+## T-2060 — boot-weights.js re-measured, calibrated to the reference machine (2026-10-08)
+
+- **The machine question, answered by measuring both trees here.** The weights were read on
+  the owner's Apple M5 Max (T-1246, 2026-09-20, tree `custom@e53e46c3b`), and a run reaches
+  only a software-WebGL runner. So the runner was not asked how long the boot takes. It was
+  asked how much each phase GREW: it published and measured the reference reading's own
+  tree and dev `1ab737cb4`, all 12 cells each, and every weight is now the Mac's reading
+  times that phase's growth in that cell. On the same tree the runner reads each phase
+  slower by a different factor (medians 2.1× for interaction to 7.3× for buildings, and
+  buildings 14.6× in one warm cell), so one machine-wide factor would have been wrong too.
+- **What grew**: terrain 2.8-5.3× and ground 2.7-5.6× in every cell; scene 1.3-1.7×,
+  interaction 1.3-2.0×; flora 0.7-1.6×. The essential boot's expected total goes from
+  3.3-4.9 s to 5.3-7.9 s. Terrain + ground were 9-12 % of the bar and are now 15-41 %
+  (cold mobile light: 12 % → 41 %). The bar used to stall there.
+- **Why it mattered beyond pacing**: a returning visitor's own timings are clamped to
+  0.25-4× the committed default. Terrain and ground grew past 4× in nine of twelve cells,
+  so the stale defaults were clipping visitors' real histories.
+- **Derived, not hand-written**: `tools/calibrate_boot_weights.mjs` writes `boot-weights.js`
+  from `tools/boot_phase_measurements.json` (the Mac's receipt, unchanged) and the new
+  `tools/boot_weights_calibration.json` (both runner readings, compact); `check.sh` re-derives
+  it with `--check`.
+- **Kept in reference-machine seconds on purpose.** T-2164's forecast clock (#514, merged
+  while this was in flight) reads each weight as CPU seconds on the reference machine and
+  multiplies it by a learned `pace` for the visitor's own device (`PACE_PRIOR` 1.5 desktop,
+  2.5 mobile). Raw runner seconds would have been counted that slowdown twice; calibrated
+  ones fit unchanged.
+- **What this is not.** One reading per tree per cell, on one runner. The method assumes a
+  phase's growth is the same on both machines. That is weakest where the work changed in
+  kind: terrain now opens with a ~2.9 s main-thread task. The census phase no longer runs at
+  boot. It is optional, so it paces nothing and keeps its Mac reading. Re-reading on the Mac
+  (`measure_boot_phases.mjs --published --json`, then `--write` with that output as TODAY
+  and the receipt's tree as THEN) would replace the inference. The terrain long task itself
+  is unowned work and is not fixed here. The mobile flora heartbeat stays T-2059's.
+
 ## PR #498 — Wells integrated onto current dev and browser failures repaired (2026-10-07)
 
 This integration supersedes the older T-2146 checkpoints below. The current deal

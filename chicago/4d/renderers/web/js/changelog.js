@@ -1,11 +1,31 @@
 export const CHANGELOG = [ // newest first
-  { v: 1532, ts: '2026-10-08T13:22:05.832Z', date: 'Oct 8, 2026, 8:22 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Six houses on the Market block south of Madison', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
       'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
       'The two Market corner lots stay open.',
       'Six households now live in these houses, one of them named on the house itself.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
+      'With these three, every yard building the town plan counted for the West Division now stands.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
+  { v: 1534, ts: '2026-10-08T12:37:03.823Z', date: 'Oct 8, 2026, 7:37 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
+    items: [
+      'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',
+      'Nothing in the town changes: every tree, leaf and blade of grass is drawn exactly as before.',
+    ] },
+  { v: 1533, ts: '2026-10-08T12:18:00.475Z', date: 'Oct 8, 2026, 7:18 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+    items: [
+      'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
+      'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
+    ] },
+  { v: 1532, ts: '2026-10-08T11:44:45.896Z', date: 'Oct 8, 2026, 6:44 AM CT', title: 'A clearer Glessner House package check', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The Glessner House package check now explains how to refresh an out-of-date local copy instead of suggesting a repack that could undo a newer bake.',
     ] },
   { v: 1531, ts: '2026-10-08T11:16:48.172Z', date: 'Oct 8, 2026, 6:16 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [

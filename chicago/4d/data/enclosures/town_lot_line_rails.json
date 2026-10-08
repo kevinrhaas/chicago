@@ -7004,6 +7004,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
             "recon_1835_blk_washington_clinton_a4_14",
+            "recon_1835_blk_washington_clinton_a5_18",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -7083,6 +7084,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
             "recon_1835_blk_washington_clinton_a4_14",
+            "recon_1835_blk_washington_clinton_a5_18",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -8239,13 +8241,14 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
             "recon_1835_blk_washington_clinton_a4_14",
+            "recon_1835_blk_washington_clinton_a5_18",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_10, recon_1835_blk_washington_clinton_a4_14, recon_1835_blk_washington_clinton_d5_03 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_10, recon_1835_blk_washington_clinton_a4_14, recon_1835_blk_washington_clinton_a5_18, recon_1835_blk_washington_clinton_d5_03 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot7_blk_washington_clinton_lot8_s",
@@ -8265,6 +8268,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
             "recon_1835_blk_washington_clinton_a4_14",
+            "recon_1835_blk_washington_clinton_a5_18",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -8275,6 +8279,7 @@
           "lot": "blk_washington_clinton_lot8",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_15",
+            "recon_1835_blk_washington_clinton_a2_19",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -8302,6 +8307,7 @@
           "lot": "blk_washington_clinton_lot8",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_15",
+            "recon_1835_blk_washington_clinton_a2_19",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -8309,7 +8315,7 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot8, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_15, recon_1835_blk_washington_clinton_a4_11, recon_1835_blk_washington_clinton_d4_04 — and the yard behind those buildings is 12.19 m deep by 21.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot8, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_15, recon_1835_blk_washington_clinton_a2_19, recon_1835_blk_washington_clinton_a4_11, recon_1835_blk_washington_clinton_d4_04 — and the yard behind those buildings is 12.19 m deep by 21.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot7_blk_washington_clinton_lot8_s_1",
@@ -8329,6 +8335,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
             "recon_1835_blk_washington_clinton_a4_14",
+            "recon_1835_blk_washington_clinton_a5_18",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -8339,6 +8346,7 @@
           "lot": "blk_washington_clinton_lot8",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_15",
+            "recon_1835_blk_washington_clinton_a2_19",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -9573,6 +9581,7 @@
           "lot": "blk_washington_clinton_lot8",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_15",
+            "recon_1835_blk_washington_clinton_a2_19",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -9584,6 +9593,7 @@
           "lot": "blk_washington_clinton_lot9",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_12",
+            "recon_1835_blk_washington_clinton_a4_20",
             "recon_1835_blk_washington_clinton_a5_13",
             "recon_1835_blk_washington_clinton_h1_05"
           ],
@@ -9611,6 +9621,7 @@
           "lot": "blk_washington_clinton_lot9",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_12",
+            "recon_1835_blk_washington_clinton_a4_20",
             "recon_1835_blk_washington_clinton_a5_13",
             "recon_1835_blk_washington_clinton_h1_05"
           ],
@@ -9618,7 +9629,7 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot9, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_12, recon_1835_blk_washington_clinton_a5_13, recon_1835_blk_washington_clinton_h1_05 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot9, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_12, recon_1835_blk_washington_clinton_a4_20, recon_1835_blk_washington_clinton_a5_13, recon_1835_blk_washington_clinton_h1_05 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot9_s",
@@ -9637,6 +9648,7 @@
           "lot": "blk_washington_clinton_lot9",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_12",
+            "recon_1835_blk_washington_clinton_a4_20",
             "recon_1835_blk_washington_clinton_a5_13",
             "recon_1835_blk_washington_clinton_h1_05"
           ],
@@ -9663,6 +9675,7 @@
           "lot": "blk_washington_clinton_lot8",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_15",
+            "recon_1835_blk_washington_clinton_a2_19",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -9674,6 +9687,7 @@
           "lot": "blk_washington_clinton_lot9",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_12",
+            "recon_1835_blk_washington_clinton_a4_20",
             "recon_1835_blk_washington_clinton_a5_13",
             "recon_1835_blk_washington_clinton_h1_05"
           ],
