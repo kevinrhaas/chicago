@@ -624,21 +624,21 @@
     "glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 125028268,
-      "inputs_sha256": "34cd4ff61f3f88a8c2bb408a2b12d7af21548c18701cdf162f34ffaf7d60ccab",
+      "bytes": 125318748,
+      "inputs_sha256": "b0ac6fe1e32f9ed17233c1e8e39b3103e2f0e6c5d11a8519fee01c2603ef8e01",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "b2e6b557c726613af3f30664a3865eeaf9a2488103674fe66ebff91258e2af3c",
-          "output_sha256": "92118ddbd25cd67379b876c2e4d100c55b7faaa3b20f59996ec742504bea1273",
-          "recipe_sha256": "8aa3147cf089b2a522bb95c6d02b6b0fb9c2134003482a781f1c439b01c86710",
-          "triangles": 193679
+          "master_sha256": "b472d994411a2110a6756f316c3bcee1bb76abae02ef6d96bc639bb92ee672bf",
+          "output_sha256": "b57017047032e2cf05666633a5934971edc408518bb79605acfd326faba150e3",
+          "recipe_sha256": "762571c6ca0df93fabd97d7cd0fe34c961131f3a31c13696109934278bf4ff52",
+          "triangles": 196335
         }
       },
-      "web_master_sha256": "b2e6b557c726613af3f30664a3865eeaf9a2488103674fe66ebff91258e2af3c"
+      "web_master_sha256": "b472d994411a2110a6756f316c3bcee1bb76abae02ef6d96bc639bb92ee672bf"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",
@@ -1467,6 +1467,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
+    },
+    "recon_1835_blk_indiana_north_wolcott_a1_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 96704,
+      "inputs_sha256": "a2d5e49d018a7b310d3286b659b21c581e44d7265064af6f3a2fbea8861e0e15",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_a1_09"
     },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -2521,6 +2530,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_a3_06"
     },
+    "recon_1835_blk_south_water_dearborn_a5_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 52664,
+      "inputs_sha256": "752e5dec4d44ee18ff7e3faad495672f3b5ead0a3b0875ffdad5e79a32415a9d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_dearborn_a5_10"
+    },
     "recon_1835_blk_south_water_dearborn_c1_08__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -2836,6 +2854,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_f2_10"
     },
+    "recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 176168,
+      "inputs_sha256": "b849aa957a2528408cdba036ceca2ac1b5d9587751ff4ac01cd80272fb427941",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_wells_a2_09"
+    },
     "recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -3088,6 +3115,24 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clinton_a2_12"
     },
+    "recon_1835_blk_washington_clinton_a2_15__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 156820,
+      "inputs_sha256": "94208b34d154ae78a4080cd7e09f735887e2ca2129b7b262cdaeea56dd03da22",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clinton_a2_15"
+    },
+    "recon_1835_blk_washington_clinton_a3_16__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 30788,
+      "inputs_sha256": "169a4d705625c1a2426306148c9073a14860520118043c3a0181d56eee55993d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clinton_a3_16"
+    },
     "recon_1835_blk_washington_clinton_a4_09__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -3106,6 +3151,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clinton_a4_11"
     },
+    "recon_1835_blk_washington_clinton_a4_14__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 51404,
+      "inputs_sha256": "3867f08a67bcf2fd869d74addaca57757a580be348e45fe6655b6362aaf6ec7d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clinton_a4_14"
+    },
     "recon_1835_blk_washington_clinton_a5_07__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -3123,6 +3177,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clinton_a5_13"
+    },
+    "recon_1835_blk_washington_clinton_a5_17__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 49228,
+      "inputs_sha256": "1088e0df8e2d023a57d5d4d029576fbbdefad44bca0466ca3491388bdea7e1e9",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_washington_clinton_a5_17"
     },
     "recon_1835_blk_washington_clinton_d4_04__inferred_1835.glb": {
       "archetype": "frame_dwelling",

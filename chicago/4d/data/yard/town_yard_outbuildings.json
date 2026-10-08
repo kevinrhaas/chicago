@@ -132,9 +132,9 @@
   "wells": "None dealt. docs/RESEARCH/wells.md § 4 refuses a well class for the town — July 1835 Chicago drank from the lake by cart — and that ruling stands; data/wells/ draws only the wells a source places.",
   "counts": {
     "dwelling_lots": 210,
-    "privies": 167,
+    "privies": 166,
     "stables": 20,
-    "privy_standing": 35,
+    "privy_standing": 36,
     "stable_standing": 17,
     "horse_households": 37,
     "refused": 8,
@@ -2463,28 +2463,6 @@
       "weather": "fresh",
       "confidence": "reconstructed",
       "finish": "slab"
-    },
-    {
-      "id": "privy_blk_washington_clinton_lot5",
-      "kind": "privy",
-      "lot": "blk_washington_clinton_lot5",
-      "belongs_to": "recon_1835_blk_washington_clinton_h2_01",
-      "households": [],
-      "household_class": "merchant",
-      "class_read_from": "fabric_basis.class (L330)",
-      "at_local_enu_m": [
-        -209.05,
-        -418.49
-      ],
-      "bearing_deg": 90.42,
-      "along_m": 1.52,
-      "depth_m": 1.22,
-      "eave_m": 2.0,
-      "head_m": 2.3,
-      "roof": "shed",
-      "weather": "fresh",
-      "confidence": "reconstructed",
-      "finish": "whitewash"
     },
     {
       "id": "privy_blk_washington_clinton_lot6",

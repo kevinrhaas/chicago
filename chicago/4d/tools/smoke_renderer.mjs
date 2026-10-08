@@ -1204,7 +1204,10 @@ const server = http.createServer((req, res) => {
 });
 
 await new Promise((r) => server.listen(PORT, r));
-const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}`;
+// T-2158: a phone lets go of its geometry's page arrays once uploaded; the
+// probes below read vertices back, so they ask it to keep them. The release
+// itself is held to account by tools/check_upload_release.mjs.
+const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}&keep-geometry=1`;
 console.log(`serving ${ROOT} on ${PORT} — ${wantPublished ? 'PUBLISHED mirror '
   + '(compressed assets, visitor layout)' : 'source tree (uncompressed masters)'}\n`);
 if (wantPublished && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
@@ -14084,6 +14087,18 @@ for (const [label, viewport, touch] of [
       && citySplit.residents + citySplit.garrison === (cityPopulation ? cityPopulation.persons : cityScene?.persons)
       && (!(citySplit.transients_apart > 0) || hub.city.apart.startsWith(`${grouped(citySplit.transients_apart)} summer visitors are counted apart`)),
       JSON.stringify({ split: hub.city.split, apart: hub.city.apart, data: citySplit }));
+    // T-2155: housed is read by the audit's two joins, so the census and the completion
+    // audit must sum to the same people present, and the screen says what it leaves out.
+    const cityWaiting = Number(hub.city.data?.people?.waiting_on_a_roof);
+    const cityBeyond = Number(hub.city.data?.beyond_the_index?.persons_present_housed);
+    check(`${label}: City states who waits on a roof and who is housed beyond the index`,
+      (!(cityWaiting > 0) || hub.city.note.includes(
+        `${grouped(cityWaiting)} wait on a roof the town does not stand yet`))
+      && (!(cityBeyond > 0) || hub.city.note.includes(
+        `${grouped(cityBeyond)} more the reconstruction houses — trades, lodgers and `
+        + 'others it seats — are not counted in this figure'))
+      && Number.isFinite(cityWaiting) && Number.isFinite(cityBeyond),
+      JSON.stringify({ notes: hub.city.note, cityWaiting, cityBeyond }));
     let residentCounts = null;
     try {
       residentCounts = JSON.parse(
@@ -14834,11 +14849,14 @@ for (const [label, viewport, touch] of [
         overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       };
     });
+    // T-2157: the committed lot-remnant community adds 11 species to the
+    // former 10/155 catalog. Pin the complete current 11/166 roster; the
+    // clamp and worst-case assertions below remain exact.
     check(`${label}: the plant list loads every community`,
-      plants.zones === 10 && plants.renderedZones === 10 && !plants.busy,
+      plants.zones === 11 && plants.renderedZones === 11 && !plants.busy,
       `${plants.zones} loaded / ${plants.renderedZones} rendered (${plants.error})`);
-    check(`${label}: every species in the ten communities is on the card`,
-      plants.species === 155 && plants.renderedSpecies === 155,
+    check(`${label}: every species in the eleven communities is on the card`,
+      plants.species === 166 && plants.renderedSpecies === 166,
       `${plants.species} counted / ${plants.renderedSpecies} rendered`);
     // The finding, asserted as numbers so it cannot quietly go away: ten
     // (community, stratum, side) layers are over the lattice's ceiling, across
@@ -14861,7 +14879,7 @@ for (const [label, viewport, touch] of [
       + `"${plants.denseText.slice(Math.max(0, plants.denseText.indexOf('records ask')), 
         Math.max(240, plants.denseText.indexOf('records ask') + 240))}"`);
     check(`${label}: the note names the worst case rather than only the total`,
-      /155 plants across 10 communities/.test(plants.note)
+      /166 plants across 11 communities/.test(plants.note)
       && /dense forest/.test(plants.note) && /0\.5 %/.test(plants.note),
       plants.note.slice(0, 220));
     check(`${label}: the plant records quote their sources, not their source ids`,

@@ -888,10 +888,14 @@
      "recon_1835_blk_washington_clinton_a2_08",
      "recon_1835_blk_washington_clinton_a2_10",
      "recon_1835_blk_washington_clinton_a2_12",
+     "recon_1835_blk_washington_clinton_a2_15",
+     "recon_1835_blk_washington_clinton_a3_16",
      "recon_1835_blk_washington_clinton_a4_09",
      "recon_1835_blk_washington_clinton_a4_11",
+     "recon_1835_blk_washington_clinton_a4_14",
      "recon_1835_blk_washington_clinton_a5_07",
      "recon_1835_blk_washington_clinton_a5_13",
+     "recon_1835_blk_washington_clinton_a5_17",
      "recon_1835_blk_washington_clinton_d4_04",
      "recon_1835_blk_washington_clinton_d5_03",
      "recon_1835_blk_washington_clinton_h1_05",
@@ -906,17 +910,21 @@
      "blk_washington_clinton_lot9"
     ],
     "rows_seated_on_those_lots": {
-     "data/enclosures/town_lot_line_rails.json": 20
+     "data/enclosures/town_lot_line_rails.json": 21
     },
     "structures_named_on_those_lots": [
      "recon_1835_blk_washington_clinton_a1_06",
      "recon_1835_blk_washington_clinton_a2_08",
      "recon_1835_blk_washington_clinton_a2_10",
      "recon_1835_blk_washington_clinton_a2_12",
+     "recon_1835_blk_washington_clinton_a2_15",
+     "recon_1835_blk_washington_clinton_a3_16",
      "recon_1835_blk_washington_clinton_a4_09",
      "recon_1835_blk_washington_clinton_a4_11",
+     "recon_1835_blk_washington_clinton_a4_14",
      "recon_1835_blk_washington_clinton_a5_07",
      "recon_1835_blk_washington_clinton_a5_13",
+     "recon_1835_blk_washington_clinton_a5_17",
      "recon_1835_blk_washington_clinton_d4_04",
      "recon_1835_blk_washington_clinton_d5_03",
      "recon_1835_blk_washington_clinton_h1_05",
@@ -942,7 +950,8 @@
    "the_re_seat": {
     "rule": "every committed record on this block holds the lot it now stands on — the lot nearest its present spot, which after a re-cut that fills the same block boundary is the lot it lies in.",
     "carries_a_dealt_parcel": [
-     "phase3_platted_block_washington_clinton"
+     "phase3_platted_block_washington_clinton",
+     "phase3_platted_block_washington_clinton_yard_deal"
     ],
     "so_the_positions_are": "RE-DERIVED. A dealt roof stands where its parcel's slot puts it off its own lot's street or alley edge, so every position on this block comes out of a lot line and the re-cut re-computes all of them; the deal that decides WHICH lot had to be re-argued first, which is what held this block while its twin moved. The meshes do not change and nothing is rebaked even so: a re-seat moves a record's position and rotation and leaves its footprint, form and asset exactly as they were.",
     "every_seating_on_this_block_moved_lot": true,
@@ -1010,8 +1019,10 @@
       "structures": [
        "recon_1835_blk_washington_clinton_a1_06",
        "recon_1835_blk_washington_clinton_a2_08",
+       "recon_1835_blk_washington_clinton_a3_16",
        "recon_1835_blk_washington_clinton_a4_09",
        "recon_1835_blk_washington_clinton_a5_07",
+       "recon_1835_blk_washington_clinton_a5_17",
        "recon_1835_blk_washington_clinton_h2_01",
        "recon_1835_blk_washington_clinton_h3_02"
       ]
@@ -1034,8 +1045,11 @@
        "recon_1835_blk_washington_clinton_a1_06",
        "recon_1835_blk_washington_clinton_a2_08",
        "recon_1835_blk_washington_clinton_a2_10",
+       "recon_1835_blk_washington_clinton_a3_16",
        "recon_1835_blk_washington_clinton_a4_09",
+       "recon_1835_blk_washington_clinton_a4_14",
        "recon_1835_blk_washington_clinton_a5_07",
+       "recon_1835_blk_washington_clinton_a5_17",
        "recon_1835_blk_washington_clinton_d5_03",
        "recon_1835_blk_washington_clinton_h2_01",
        "recon_1835_blk_washington_clinton_h3_02"
@@ -1058,8 +1072,11 @@
       "structures": [
        "recon_1835_blk_washington_clinton_a2_08",
        "recon_1835_blk_washington_clinton_a2_10",
+       "recon_1835_blk_washington_clinton_a2_15",
        "recon_1835_blk_washington_clinton_a4_09",
        "recon_1835_blk_washington_clinton_a4_11",
+       "recon_1835_blk_washington_clinton_a4_14",
+       "recon_1835_blk_washington_clinton_a5_17",
        "recon_1835_blk_washington_clinton_d4_04",
        "recon_1835_blk_washington_clinton_d5_03",
        "recon_1835_blk_washington_clinton_h3_02"
@@ -1076,12 +1093,15 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_washington_clinton_lot8_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot7_blk_washington_clinton_lot8_s",
        "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot7_blk_washington_clinton_lot8_s_1",
-       "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot8_blk_washington_clinton_lot9_s"
+       "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot8_blk_washington_clinton_lot9_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot8_blk_washington_clinton_lot9_s_1"
       ],
       "structures": [
        "recon_1835_blk_washington_clinton_a2_10",
        "recon_1835_blk_washington_clinton_a2_12",
+       "recon_1835_blk_washington_clinton_a2_15",
        "recon_1835_blk_washington_clinton_a4_11",
+       "recon_1835_blk_washington_clinton_a4_14",
        "recon_1835_blk_washington_clinton_a5_13",
        "recon_1835_blk_washington_clinton_d4_04",
        "recon_1835_blk_washington_clinton_d5_03",
@@ -1098,10 +1118,12 @@
        "data/enclosures/town_lot_line_rails.json:rear_blk_washington_clinton_lot9",
        "data/enclosures/town_lot_line_rails.json:rear_blk_washington_clinton_lot9_gate",
        "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot8_blk_washington_clinton_lot9_s",
+       "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot8_blk_washington_clinton_lot9_s_1",
        "data/enclosures/town_lot_line_rails.json:side_blk_washington_clinton_lot9_s"
       ],
       "structures": [
        "recon_1835_blk_washington_clinton_a2_12",
+       "recon_1835_blk_washington_clinton_a2_15",
        "recon_1835_blk_washington_clinton_a4_11",
        "recon_1835_blk_washington_clinton_a5_13",
        "recon_1835_blk_washington_clinton_d4_04",
@@ -1270,6 +1292,50 @@
       "plat_lot_number": 9,
       "column": "east",
       "row": 5,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A4",
+      "inventory_class": "ancillary",
+      "lot_index": 7,
+      "plat_lot_number": 5,
+      "column": "east",
+      "row": 3,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A2",
+      "inventory_class": "ancillary",
+      "lot_index": 8,
+      "plat_lot_number": 8,
+      "column": "east",
+      "row": 4,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A3",
+      "inventory_class": "ancillary",
+      "lot_index": 5,
+      "plat_lot_number": 1,
+      "column": "east",
+      "row": 1,
+      "stands_on": "alley",
+      "fronts": "canal",
+      "that_face_is_graded": "ordinary"
+     },
+     {
+      "family": "A5",
+      "inventory_class": "ancillary",
+      "lot_index": 6,
+      "plat_lot_number": 4,
+      "column": "east",
+      "row": 2,
       "stands_on": "alley",
       "fronts": "canal",
       "that_face_is_graded": "ordinary"

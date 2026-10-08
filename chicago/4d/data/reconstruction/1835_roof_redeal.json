@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 511,
-    "keep": 503,
+    "audited": 518,
+    "keep": 510,
     "refamily": 8,
     "retire": 0,
     "kept_occupied": 4,
     "breach_owed_out": 0,
     "seated": 179,
     "raised_for_a_trade": 31,
-    "band_already_fits": 5,
+    "band_already_fits": 4,
     "roof_target": 668,
-    "standing_before": 619,
-    "standing_after": 619,
-    "short_of_the_programme_before": 49,
-    "short_of_the_programme_after": 49
+    "standing_before": 626,
+    "standing_after": 626,
+    "short_of_the_programme_before": 42,
+    "short_of_the_programme_after": 42
   },
   "ledger": [
     {
@@ -45,31 +45,31 @@
       "group": "barns_stables",
       "division": "south",
       "target": 35,
-      "standing": 33,
-      "anonymous": 26,
-      "head_before": 2,
-      "standing_after": 33,
-      "head_after": 2
+      "standing": 34,
+      "anonymous": 27,
+      "head_before": 1,
+      "standing_after": 34,
+      "head_after": 1
     },
     {
       "bucket": "structures/barns_stables/west",
       "group": "barns_stables",
       "division": "west",
       "target": 20,
-      "standing": 18,
-      "anonymous": 15,
-      "head_before": 2,
-      "standing_after": 18,
-      "head_after": 2
+      "standing": 19,
+      "anonymous": 16,
+      "head_before": 1,
+      "standing_after": 19,
+      "head_after": 1
     },
     {
       "bucket": "structures/barns_stables/north",
       "group": "barns_stables",
       "division": "north",
       "target": 17,
-      "standing": 11,
-      "anonymous": 10,
-      "head_before": 6,
+      "standing": 12,
+      "anonymous": 11,
+      "head_before": 5,
       "standing_after": 17,
       "head_after": 0
     },
@@ -232,22 +232,22 @@
       "group": "small_outbuildings",
       "division": "south",
       "target": 48,
-      "standing": 47,
-      "anonymous": 46,
-      "head_before": 1,
-      "standing_after": 45,
-      "head_after": 3
+      "standing": 48,
+      "anonymous": 47,
+      "head_before": 0,
+      "standing_after": 46,
+      "head_after": 2
     },
     {
       "bucket": "structures/small_outbuildings/west",
       "group": "small_outbuildings",
       "division": "west",
       "target": 14,
-      "standing": 9,
-      "anonymous": 9,
-      "head_before": 5,
-      "standing_after": 9,
-      "head_after": 5
+      "standing": 12,
+      "anonymous": 12,
+      "head_before": 2,
+      "standing_after": 12,
+      "head_after": 2
     },
     {
       "bucket": "structures/small_outbuildings/north",
@@ -378,8 +378,8 @@
       "standing": 7,
       "anonymous": 3,
       "head_before": 0,
-      "standing_after": 5,
-      "head_after": 2
+      "standing_after": 6,
+      "head_after": 1
     },
     {
       "bucket": "structures/workshops/fort",
@@ -1169,6 +1169,24 @@
       "verdict": "keep",
       "bucket": "structures/larger_boarding_houses/north",
       "reason": "the order book has an occupant class for a H3 roof in the north division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+      "division": "north",
+      "family": "A1",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_indiana_north_wolcott_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 411.1,
+      "street": "illinois_north",
+      "street_class": "none",
+      "setback_m": 19.21,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/north",
+      "reason": "the order book has an occupant class for a A1 roof in the north division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
@@ -3277,6 +3295,24 @@
       "reason": "the order book has an occupant class for a A3 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_south_water_dearborn_a5_10",
+      "division": "south",
+      "family": "A5",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_south_water_dearborn_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 145.2,
+      "street": "dearborn",
+      "street_class": "ordinary",
+      "setback_m": 8.35,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/south",
+      "reason": "the order book has an occupant class for a A5 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_south_water_dearborn_c1_08",
       "division": "south",
       "family": "C1",
@@ -3907,6 +3943,24 @@
       "reason": "the order book has an occupant class for a F2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_south_water_wells_a2_09",
+      "division": "south",
+      "family": "A2",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_south_water_wells_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 950.9,
+      "street": "lasalle",
+      "street_class": "ordinary",
+      "setback_m": 29.55,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/south",
+      "reason": "the order book has an occupant class for a A2 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_south_water_wells_a3_08",
       "division": "south",
       "family": "A3",
@@ -4411,6 +4465,42 @@
       "reason": "the order book has an occupant class for a A2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a2_15",
+      "division": "west",
+      "family": "A2",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 616.3,
+      "street": "madison",
+      "street_class": "none",
+      "setback_m": 24.47,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/west",
+      "reason": "the order book has an occupant class for a A2 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a3_16",
+      "division": "west",
+      "family": "A3",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 28.3,
+      "street": "washington",
+      "street_class": "light",
+      "setback_m": 10.14,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A3 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a4_09",
       "division": "west",
       "family": "A4",
@@ -4447,6 +4537,24 @@
       "reason": "the order book has an occupant class for a A4 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a4_14",
+      "division": "west",
+      "family": "A4",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 132.4,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 39.15,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A4 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a5_07",
       "division": "west",
       "family": "A5",
@@ -4476,6 +4584,24 @@
       "street": "madison",
       "street_class": "none",
       "setback_m": 4.18,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A5 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_17",
+      "division": "west",
+      "family": "A5",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 110.1,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 24.4,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",
@@ -7827,19 +7953,17 @@
       "verdict": "refamily",
       "bucket": "structures/workshops/north",
       "reason": "the placement policy refuses this family here — stands 3.54 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "to_bucket": "structures/barns_stables/north",
+      "to_family": "W5",
+      "to_group": "workshops",
+      "to_bucket": "structures/workshops/north",
       "to_band_ft": [
-        18,
-        26,
-        28,
-        44
+        22,
+        36,
+        36,
+        60
       ],
-      "band_already_fits": true,
+      "band_already_fits": false,
       "families_offered": [
-        "A2",
-        "A1",
         "W5"
       ]
     },
