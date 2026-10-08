@@ -5931,6 +5931,107 @@
       ],
       "arrangement_note": "THE FIRST ROOFS ON PLAT BLOCK 50, AND THE FOURTH PIECE OF THE WEST DIVISION'S REMAINDER (T-2148). Until T-2148 this block was not on the layer: Clinton stopped at local N -400, the old south edge of the modelled field, and the omission read 'Clinton Street's committed centreline stops 107 m short of this block'. T-2148 carried Clinton, Jefferson and Des Plaines to Madison on their own straight bearings, keeping each old end as a vertex (generate_plat_lots.CARRIED_REACHES), and the block is cut on the Original Town's west tier like blk_randolph_clinton and blk_lake_clinton north of it. It is the first block of that tier the schedule reaches EMPTY, so it takes the Original Town's density (39 roofs of capacity) and with it the West balance that had stood gated beyond the committed control: 14 roofs, of which 13 are built here and the F3 is deferred. The five principal roofs all front Canal, the street the lot ledger reads `ordinary`: an H2 merchant's house on the Washington corner (plat lot 1), an H3 boarding house (plat lot 4), a D5 and a D4 cottage (plat lots 5 and 8) and an H1 house on the Madison corner (plat lot 9). Eight yard buildings -- a stable, three barns or carriage sheds, two woodsheds and two small utility sheds -- stand at the alley ends of those five lots. The whole Clinton face stays open, so the tier reads as the thin western edge of the built town. The set-outs (6.0, 4.5, 7.0, 5.0 and 6.5 m) and lateral offsets are inventions bounded by the lot lines, staggered so the face does not read as a surveyed building line. WHAT IS INVENTED: that any building stood on these lots in July 1835, which buildings they were, which lot each took, where on its lot each sat and how far back from the street. The block faces come from the committed street centrelines and the ten lot numerals are read off the sheet; neither is evidence about these buildings.",
       "frontage_argued_on": "west_division_thompson_1830"
+    },
+    {
+      "block_id": "blk_washington_clinton",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "claimed": "2026-10-08",
+      "seq_start": 14,
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "clinton",
+        "east": "canal"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 39,
+        "standing_roofs": 13,
+        "free_lots": 5,
+        "headroom": 16,
+        "dealt_roofs": 4,
+        "dealt_principal": 0,
+        "dealt_ancillary": 4,
+        "principal": 0,
+        "ancillary": 4
+      },
+      "families": {
+        "A2": 1,
+        "A3": 1,
+        "A4": 1,
+        "A5": 1
+      },
+      "dealt_against_the_order_book": {
+        "ticket": "T-2166",
+        "parent": "T-2156",
+        "cells": [
+          "structures/barns_stables/west",
+          "structures/small_outbuildings/west"
+        ],
+        "why": "FOUR OF THE WEST'S SEVEN OWED YARD ROOFS, WHERE THE SCHEDULE PUTS THEM. The 668-roof schedule deals this block four more ancillary roofs after T-2148's first deal (A2, A3, A4 and A5; ancillary_room 4), and the other three the West owes (A2, A4, A5) stay on `west_division_beyond_committed_control`, a district balance with no block. This entry deals the four yard buildings alone, behind the Canal Street houses the first deal raised: the Canal lots are 21.8 m wide and 48 m deep, so each yard still has room off the alley and between the house and its first outbuilding. A yard building seats nobody, so no household asks for it."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Clinton column's Washington corner, left open as the first deal left it: the block keeps its whole Clinton face as open ground, and a yard building needs a dealt principal roof on its own lot."
+        },
+        {
+          "lot": 1,
+          "why": "The Clinton column's second lot, left open with the rest of the Clinton face as the first deal left it."
+        },
+        {
+          "lot": 2,
+          "why": "The Clinton column's middle lot, left open with the rest of the Clinton face as the first deal left it."
+        },
+        {
+          "lot": 3,
+          "why": "The Clinton column's fourth lot, left open with the rest of the Clinton face as the first deal left it."
+        },
+        {
+          "lot": 4,
+          "why": "The Clinton column's Madison corner, left open with the rest of the Clinton face as the first deal left it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 7,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.0,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 8,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 4.5,
+          "lateral_m": 5.0
+        },
+        {
+          "family": "A3",
+          "inventory_class": "ancillary",
+          "lot": 5,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 20.0,
+          "lateral_m": 0.0
+        },
+        {
+          "family": "A5",
+          "inventory_class": "ancillary",
+          "lot": 6,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 20.0,
+          "lateral_m": 0.0
+        }
+      ],
+      "arrangement_note": "A SECOND OUTBUILDING ON EACH CANAL YARD THAT HAD ONE, AND ONE NEARER THE HOUSE ON TWO THAT HAD TWO. The D5 on lot 7 had only a barn off the alley, so a woodshed takes the other side of the yard; the D4 on lot 8 had only a woodshed, so a barn or carriage shed takes the other side. The merchant's H2 on lot 5 and the boarding house on lot 6 already keep two outbuildings off the alley each, so the privy and the smokehouse stand mid-yard, between those and the house, the position a privy and a smokehouse took in a town lot so that neither was at the house door nor across the yard from it. Which yard takes which is this file's choice; nothing states it.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {

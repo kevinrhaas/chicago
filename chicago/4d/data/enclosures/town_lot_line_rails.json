@@ -29,9 +29,9 @@
     "confidence": "derived",
     "counts": {
       "runs_joined_to_a_household": 62,
-      "runs_bounding_structures_only": 552,
+      "runs_bounding_structures_only": 537,
       "households_that_gained_a_fence": 27,
-      "lots_named": 229,
+      "lots_named": 222,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -6789,6 +6789,7 @@
           "lot": "blk_washington_clinton_lot5",
           "structures": [
             "recon_1835_blk_washington_clinton_a1_06",
+            "recon_1835_blk_washington_clinton_a3_16",
             "recon_1835_blk_washington_clinton_a5_07",
             "recon_1835_blk_washington_clinton_h2_01"
           ],
@@ -6796,7 +6797,7 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a1_06, recon_1835_blk_washington_clinton_a5_07, recon_1835_blk_washington_clinton_h2_01 — and the yard behind those buildings is 12.19 m deep by 21.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot5, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a1_06, recon_1835_blk_washington_clinton_a3_16, recon_1835_blk_washington_clinton_a5_07, recon_1835_blk_washington_clinton_h2_01 — and the yard behind those buildings is 12.19 m deep by 21.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot5_n",
@@ -6815,6 +6816,7 @@
           "lot": "blk_washington_clinton_lot5",
           "structures": [
             "recon_1835_blk_washington_clinton_a1_06",
+            "recon_1835_blk_washington_clinton_a3_16",
             "recon_1835_blk_washington_clinton_a5_07",
             "recon_1835_blk_washington_clinton_h2_01"
           ],
@@ -6841,6 +6843,7 @@
           "lot": "blk_washington_clinton_lot5",
           "structures": [
             "recon_1835_blk_washington_clinton_a1_06",
+            "recon_1835_blk_washington_clinton_a3_16",
             "recon_1835_blk_washington_clinton_a5_07",
             "recon_1835_blk_washington_clinton_h2_01"
           ],
@@ -6916,13 +6919,14 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_08",
             "recon_1835_blk_washington_clinton_a4_09",
+            "recon_1835_blk_washington_clinton_a5_17",
             "recon_1835_blk_washington_clinton_h3_02"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot6, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_08, recon_1835_blk_washington_clinton_a4_09, recon_1835_blk_washington_clinton_h3_02 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot6, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_08, recon_1835_blk_washington_clinton_a4_09, recon_1835_blk_washington_clinton_a5_17, recon_1835_blk_washington_clinton_h3_02 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot5_blk_washington_clinton_lot6_s",
@@ -6941,6 +6945,7 @@
           "lot": "blk_washington_clinton_lot5",
           "structures": [
             "recon_1835_blk_washington_clinton_a1_06",
+            "recon_1835_blk_washington_clinton_a3_16",
             "recon_1835_blk_washington_clinton_a5_07",
             "recon_1835_blk_washington_clinton_h2_01"
           ],
@@ -6953,6 +6958,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_08",
             "recon_1835_blk_washington_clinton_a4_09",
+            "recon_1835_blk_washington_clinton_a5_17",
             "recon_1835_blk_washington_clinton_h3_02"
           ],
           "households": [],
@@ -6980,6 +6986,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_08",
             "recon_1835_blk_washington_clinton_a4_09",
+            "recon_1835_blk_washington_clinton_a5_17",
             "recon_1835_blk_washington_clinton_h3_02"
           ],
           "households": [],
@@ -6990,6 +6997,7 @@
           "lot": "blk_washington_clinton_lot7",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
+            "recon_1835_blk_washington_clinton_a4_14",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -7016,6 +7024,7 @@
           "lot": "blk_washington_clinton_lot5",
           "structures": [
             "recon_1835_blk_washington_clinton_a1_06",
+            "recon_1835_blk_washington_clinton_a3_16",
             "recon_1835_blk_washington_clinton_a5_07",
             "recon_1835_blk_washington_clinton_h2_01"
           ],
@@ -7028,6 +7037,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_08",
             "recon_1835_blk_washington_clinton_a4_09",
+            "recon_1835_blk_washington_clinton_a5_17",
             "recon_1835_blk_washington_clinton_h3_02"
           ],
           "households": [],
@@ -7055,6 +7065,7 @@
           "structures": [
             "recon_1835_blk_washington_clinton_a2_08",
             "recon_1835_blk_washington_clinton_a4_09",
+            "recon_1835_blk_washington_clinton_a5_17",
             "recon_1835_blk_washington_clinton_h3_02"
           ],
           "households": [],
@@ -7065,6 +7076,7 @@
           "lot": "blk_washington_clinton_lot7",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
+            "recon_1835_blk_washington_clinton_a4_14",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -8220,13 +8232,14 @@
           "lot": "blk_washington_clinton_lot7",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
+            "recon_1835_blk_washington_clinton_a4_14",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_10, recon_1835_blk_washington_clinton_d5_03 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot7, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_10, recon_1835_blk_washington_clinton_a4_14, recon_1835_blk_washington_clinton_d5_03 — and the yard behind those buildings is 12.19 m deep by 21.73 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot7_blk_washington_clinton_lot8_s",
@@ -8245,6 +8258,7 @@
           "lot": "blk_washington_clinton_lot7",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
+            "recon_1835_blk_washington_clinton_a4_14",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -8254,6 +8268,7 @@
         {
           "lot": "blk_washington_clinton_lot8",
           "structures": [
+            "recon_1835_blk_washington_clinton_a2_15",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -8280,6 +8295,7 @@
         {
           "lot": "blk_washington_clinton_lot8",
           "structures": [
+            "recon_1835_blk_washington_clinton_a2_15",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -8287,7 +8303,7 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_washington_clinton_lot8, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a4_11, recon_1835_blk_washington_clinton_d4_04 — and the yard behind those buildings is 12.19 m deep by 21.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_washington_clinton_lot8, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_washington_clinton_a2_15, recon_1835_blk_washington_clinton_a4_11, recon_1835_blk_washington_clinton_d4_04 — and the yard behind those buildings is 12.19 m deep by 21.72 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_washington_clinton_lot7_blk_washington_clinton_lot8_s_1",
@@ -8306,6 +8322,7 @@
           "lot": "blk_washington_clinton_lot7",
           "structures": [
             "recon_1835_blk_washington_clinton_a2_10",
+            "recon_1835_blk_washington_clinton_a4_14",
             "recon_1835_blk_washington_clinton_d5_03"
           ],
           "households": [],
@@ -8315,6 +8332,7 @@
         {
           "lot": "blk_washington_clinton_lot8",
           "structures": [
+            "recon_1835_blk_washington_clinton_a2_15",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
@@ -9540,19 +9558,20 @@
           -485.14
         ],
         [
-          -160.41,
-          -485.22
+          -195.36,
+          -485.16
         ]
       ],
       "belongs_to": [
         {
           "lot": "blk_washington_clinton_lot8",
           "structures": [
+            "recon_1835_blk_washington_clinton_a2_15",
             "recon_1835_blk_washington_clinton_a4_11",
             "recon_1835_blk_washington_clinton_d4_04"
           ],
           "households": [],
-          "side": "north",
+          "side": "north-east",
           "refused": "no_household_names_this_ground"
         },
         {
@@ -9563,7 +9582,7 @@
             "recon_1835_blk_washington_clinton_h1_05"
           ],
           "households": [],
-          "side": "south",
+          "side": "south-east",
           "refused": "no_household_names_this_ground"
         }
       ],
@@ -9620,6 +9639,44 @@
         }
       ],
       "note": "A SIDE LOT LINE — the south side of blk_washington_clinton_lot9 — and the fence on it is built ONCE: blk_washington_clinton_lot9 claims this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
+    },
+    {
+      "id": "side_blk_washington_clinton_lot8_blk_washington_clinton_lot9_s_1",
+      "path_local_enu_m": [
+        [
+          -185.62,
+          -485.18
+        ],
+        [
+          -160.41,
+          -485.22
+        ]
+      ],
+      "belongs_to": [
+        {
+          "lot": "blk_washington_clinton_lot8",
+          "structures": [
+            "recon_1835_blk_washington_clinton_a2_15",
+            "recon_1835_blk_washington_clinton_a4_11",
+            "recon_1835_blk_washington_clinton_d4_04"
+          ],
+          "households": [],
+          "side": "north-west",
+          "refused": "no_household_names_this_ground"
+        },
+        {
+          "lot": "blk_washington_clinton_lot9",
+          "structures": [
+            "recon_1835_blk_washington_clinton_a2_12",
+            "recon_1835_blk_washington_clinton_a5_13",
+            "recon_1835_blk_washington_clinton_h1_05"
+          ],
+          "households": [],
+          "side": "south-west",
+          "refused": "no_household_names_this_ground"
+        }
+      ],
+      "note": "A SIDE LOT LINE — the south side of blk_washington_clinton_lot8 — and the fence on it is built ONCE: blk_washington_clinton_lot8 and blk_washington_clinton_lot9 both claim this line and a party fence between two yards is one fence. THE LINE IS THE COMMITTED PLAT'S, corner to corner out of data/traces/vectors/thompson_lots.json; what is derived is only WHERE ALONG IT the timber runs — the whole line, street corner to rear corner, since T-2102 closed the lot (L379) — and it stops 0.30 m short of any committed footprint standing on the line, because a wall on a lot line is not a hole in the fence, it IS the fence there."
     },
     {
       "id": "side_blk_west_washington_canal_lot3_blk_west_washington_canal_lot4_s",
@@ -13485,8 +13542,8 @@
       "blk_west_washington_canal_lot4",
       "blk_west_washington_canal_lot8"
     ],
-    "runs": 371,
-    "note": "229 of the 238 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 9 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 58 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "runs": 372,
+    "note": "222 of the 231 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 9 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 58 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",

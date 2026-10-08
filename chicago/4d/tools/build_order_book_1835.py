@@ -525,9 +525,7 @@ STRUCTURE_TICKETS = {
     # the programme's remainders is T-1983, "the programme reconciled", the same owner the
     # South's stable and outbuilding rows below were moved to for the same reason. T-1983
     # was split on 2026-10-08 and its roof re-budget went to T-2156, so this row follows.
-    # T-2156 was split the same day (T-2165, T-2166 -> T-2167, T-2168); the piece that may
-    # still "re-budget the rows" is T-2168, so this empty cell follows it.
-    ("south", "institutional_public"): "T-2168",
+    ("south", "institutional_public"): "T-2156",
     # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies were
     # T-1960's, "wells, privies and stables by household", in all three divisions.
     # MOVED TO T-1215, THEN T-1967, by the pull request that closed T-1960. T-1960 dealt its privies and
@@ -542,10 +540,9 @@ STRUCTURE_TICKETS = {
     # T-1983 WAS SPLIT on 2026-10-08 (T-2154..T-2156) and its roofs went to T-2156, "build
     # or re-budget the barns_stables and small_outbuildings roofs" — the piece that answers
     # for these cells, here and in the West and North rows below.
-    # T-2156 WAS SPLIT the same day (T-2165, T-2166; T-2166 then into T-2167, T-2168), so
-    # each row follows the piece that deals its roofs: the South's barn and smokehouse are
-    # T-2165's, the West's yard roofs behind the Canal houses T-2167's, and the North's
-    # barns no Wolcott lot can hold T-2168's (it also takes the North stable T-2165 leaves).
+    # T-2156 WAS SPLIT on 2026-10-08 too: T-2165 builds the South's barn and smokehouse
+    # where the schedule puts them, and T-2166 (split again the same day into T-2167, the
+    # West's four on blk_washington_clinton, and T-2168) took the North's and West's rest.
     ("south", "barns_stables"): "T-2165",
     ("south", "small_outbuildings"): "T-2165",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
@@ -611,8 +608,10 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-2167",  # moved with the South's, above
-    ("west", "small_outbuildings"): "T-2167",  # moved with the South's, above
+    # T-2168 WAS SPLIT on 2026-10-08 (T-2169, T-2170): the West's last three yard roofs are
+    # T-2169's and the North's five A2 barns T-2170's, so each row follows its own piece.
+    ("west", "barns_stables"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
+    ("west", "small_outbuildings"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -690,8 +689,8 @@ STRUCTURE_TICKETS = {
     # warehouse there. T-2022 is filed for exactly that cell.
     ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-2168",  # moved with the South's, above
-    ("north", "small_outbuildings"): "T-2168",  # moved with the South's, above
+    ("north", "barns_stables"): "T-2170",  # T-2156 -> T-2166 -> T-2168 -> T-2170, above
+    ("north", "small_outbuildings"): "T-2170",  # T-2156 -> T-2166 -> T-2168 -> T-2170, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",

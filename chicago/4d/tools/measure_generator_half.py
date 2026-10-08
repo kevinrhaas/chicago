@@ -480,17 +480,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Washington Street adds one frame_storefront through emit.py and the common modules;
 # terrain reach stays 6 and pier_crib stays 2.
 #
-# 664 -> 672 and 658 -> 666 on 2026-10-06 (T-2147): the eight roofs on the School Section
+# 664 -> 668 and 658 -> 662 on 2026-10-08 (T-2167): four more yard buildings on plat block
+# 50, blk_washington_clinton (A2, A3, A4, A5), through emit.py and the common modules;
+# terrain reach stays 6 and pier_crib stays 2.
+#
+# 668 -> 676 and 662 -> 670 on 2026-10-06 (T-2147): the eight roofs on the School Section
 # tier's block 81, blk_school_section_tier_81 — seven dwellings (D3 to D7) and an A2 carriage
 # shed, all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
 STATED = {
-    "assets": 672,
+    "assets": 676,
     "restales": {
-        "generators/common/*.py": 672,
+        "generators/common/*.py": 676,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 666,
+        "generators/emit.py": 670,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

@@ -1,10 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1522, ts: '2026-10-08T07:28:59.643Z', date: 'Oct 8, 2026, 2:28 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the third of the five blocks there to be built, after the two on Clark Street; the two on Wells Street follow.',
       'Seven households now live in these houses, three of them named on the house itself. Five of the six who had been waiting for a lot on this block move instead into empty houses already standing north of Madison, which the town fills first; the sixth waits for a lot on the Wells Street blocks.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
+    items: [
+      'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
+      'The machine stays the same size the whole time. Long statuses are cut to fit their line instead of stretching the box.',
+      'On a slow connection the year no longer stops on one number while the town downloads. The machine measures your connection and how much is left, and rolls the year back at that pace.',
+      'A strip under the screen shows how much has downloaded, your connection speed and the time left. Your next visit is timed from this one.',
+    ] },
+  { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington and look between the houses: the back yards are fuller. There is a barn behind the cottage fourth from Washington, a woodshed behind its neighbour, and mid-yard, nearer the houses, a privy behind the merchant\u2019s house on the Washington corner and a smokehouse behind the boarding house.',
+      'The town plan counted four more yard buildings for the West Division than stood there. These are those four, set behind houses already on the block.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L402).',
     ] },
   { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
