@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A steadier loading screen on a phone', kind: 'fix',
+  { v: 1528, ts: '2026-10-08T09:36:28.055Z', date: 'Oct 8, 2026, 4:36 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
     items: [
       'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',
       'Nothing in the town changes: every tree, leaf and blade of grass is drawn exactly as before.',
