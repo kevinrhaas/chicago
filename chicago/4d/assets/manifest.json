@@ -1468,6 +1468,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_indiana_north_cass_h3_09"
     },
+    "recon_1835_blk_indiana_north_wolcott_a1_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 96704,
+      "inputs_sha256": "a2d5e49d018a7b310d3286b659b21c581e44d7265064af6f3a2fbea8861e0e15",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_a1_09"
+    },
     "recon_1835_blk_indiana_north_wolcott_a3_04__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,
@@ -2521,6 +2530,15 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_dearborn_a3_06"
     },
+    "recon_1835_blk_south_water_dearborn_a5_10__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 52664,
+      "inputs_sha256": "752e5dec4d44ee18ff7e3faad495672f3b5ead0a3b0875ffdad5e79a32415a9d",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_dearborn_a5_10"
+    },
     "recon_1835_blk_south_water_dearborn_c1_08__inferred_1835.glb": {
       "archetype": "frame_storefront",
       "baked_ao": false,
@@ -2835,6 +2853,15 @@
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_lasalle_f2_10"
+    },
+    "recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 176168,
+      "inputs_sha256": "b849aa957a2528408cdba036ceca2ac1b5d9587751ff4ac01cd80272fb427941",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_wells_a2_09"
     },
     "recon_1835_blk_south_water_wells_a3_08__inferred_1835.glb": {
       "archetype": "outbuilding",

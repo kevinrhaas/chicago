@@ -138,6 +138,13 @@ function mergeGeometries(members, group) {
   const first = members[0].geometry;
   const names = Object.keys(first.attributes);
   const indexed = !!first.index;
+  // A phone lets go of a chunk's arrays once they are on the GPU
+  // (upload-release.js); a cluster holding any such chunk refuses and stays
+  // chunked.
+  for (const m of members) {
+    const g = m.geometry;
+    if (names.some((n) => !g.attributes[n]?.array) || (indexed && !g.index?.array)) return null;
+  }
   let verts = 0;
   let indices = 0;
   for (const m of members) {

@@ -11372,6 +11372,12 @@
       "asset": "gltf/recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+      "name": "Reconstructed A1 stable #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a1_09.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_wolcott_a1_09__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
       "name": "Reconstructed A3 privy #04",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a3_04.json",
@@ -12074,6 +12080,12 @@
       "asset": "gltf/recon_1835_blk_south_water_dearborn_a3_06__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_dearborn_a5_10",
+      "name": "Reconstructed A5 small utility building #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_a5_10.json",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_a5_10__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_dearborn_c1_08",
       "name": "Reconstructed C1 small shop or office #08",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_c1_08.json",
@@ -12282,6 +12294,12 @@
       "name": "Reconstructed F2 narrow two-story warehouse #10",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_lasalle_f2_10.json",
       "asset": "gltf/recon_1835_blk_south_water_lasalle_f2_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_a2_09",
+      "name": "Reconstructed A2 barn or carriage shed #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a2_09.json",
+      "asset": "gltf/recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_wells_a3_08",

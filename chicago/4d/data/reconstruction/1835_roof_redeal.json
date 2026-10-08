@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 520,
-    "keep": 517,
-    "refamily": 3,
+    "audited": 523,
+    "keep": 521,
+    "refamily": 2,
     "retire": 0,
     "kept_occupied": 4,
-    "breach_owed_out": 5,
+    "breach_owed_out": 6,
     "seated": 179,
     "raised_for_a_trade": 31,
-    "band_already_fits": 1,
+    "band_already_fits": 0,
     "roof_target": 668,
-    "standing_before": 628,
-    "standing_after": 628,
-    "short_of_the_programme_before": 40,
-    "short_of_the_programme_after": 40
+    "standing_before": 631,
+    "standing_after": 631,
+    "short_of_the_programme_before": 37,
+    "short_of_the_programme_after": 37
   },
   "ledger": [
     {
@@ -45,11 +45,11 @@
       "group": "barns_stables",
       "division": "south",
       "target": 35,
-      "standing": 33,
-      "anonymous": 26,
-      "head_before": 2,
-      "standing_after": 33,
-      "head_after": 2
+      "standing": 34,
+      "anonymous": 27,
+      "head_before": 1,
+      "standing_after": 34,
+      "head_after": 1
     },
     {
       "bucket": "structures/barns_stables/west",
@@ -67,9 +67,9 @@
       "group": "barns_stables",
       "division": "north",
       "target": 17,
-      "standing": 16,
-      "anonymous": 15,
-      "head_before": 1,
+      "standing": 17,
+      "anonymous": 16,
+      "head_before": 0,
       "standing_after": 17,
       "head_after": 0
     },
@@ -232,11 +232,11 @@
       "group": "small_outbuildings",
       "division": "south",
       "target": 48,
-      "standing": 47,
-      "anonymous": 46,
-      "head_before": 1,
-      "standing_after": 45,
-      "head_after": 3
+      "standing": 48,
+      "anonymous": 47,
+      "head_before": 0,
+      "standing_after": 46,
+      "head_after": 2
     },
     {
       "bucket": "structures/small_outbuildings/west",
@@ -301,8 +301,8 @@
       "standing": 4,
       "anonymous": 3,
       "head_before": 0,
-      "standing_after": 3,
-      "head_after": 1
+      "standing_after": 4,
+      "head_after": 0
     },
     {
       "bucket": "structures/stores_mixed_use/fort",
@@ -1169,6 +1169,24 @@
       "verdict": "keep",
       "bucket": "structures/larger_boarding_houses/north",
       "reason": "the order book has an occupant class for a H3 roof in the north division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+      "division": "north",
+      "family": "A1",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_indiana_north_wolcott_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 411.1,
+      "street": "illinois_north",
+      "street_class": "none",
+      "setback_m": 19.21,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/north",
+      "reason": "the order book has an occupant class for a A1 roof in the north division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
@@ -3277,6 +3295,24 @@
       "reason": "the order book has an occupant class for a A3 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_south_water_dearborn_a5_10",
+      "division": "south",
+      "family": "A5",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_south_water_dearborn_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 145.2,
+      "street": "dearborn",
+      "street_class": "ordinary",
+      "setback_m": 8.35,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/south",
+      "reason": "the order book has an occupant class for a A5 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_south_water_dearborn_c1_08",
       "division": "south",
       "family": "C1",
@@ -3905,6 +3941,24 @@
       "verdict": "keep",
       "bucket": "structures/warehouses_freight/south",
       "reason": "the order book has an occupant class for a F2 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_south_water_wells_a2_09",
+      "division": "south",
+      "family": "A2",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_south_water_wells_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 950.9,
+      "street": "lasalle",
+      "street_class": "ordinary",
+      "setback_m": 29.55,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/south",
+      "reason": "the order book has an occupant class for a A2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_blk_south_water_wells_a3_08",
@@ -6584,23 +6638,11 @@
       "setback_m": 1.43,
       "on_the_street_line": true,
       "conforms": false,
-      "verdict": "refamily",
+      "verdict": "keep",
       "bucket": "structures/stores_mixed_use/north",
-      "reason": "the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands",
-      "to_family": "A2",
-      "to_group": "barns_stables",
-      "to_bucket": "structures/barns_stables/north",
-      "to_band_ft": [
-        18,
-        26,
-        28,
-        44
-      ],
-      "band_already_fits": true,
-      "families_offered": [
-        "A2",
-        "A1"
-      ]
+      "reason": "the placement policy refuses this family here — stands on a light street, which commercial_front avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away",
+      "families_offered": [],
+      "breach_owed_out": true
     },
     {
       "id": "recon_1835_north_c3_066",

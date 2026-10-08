@@ -1204,7 +1204,10 @@ const server = http.createServer((req, res) => {
 });
 
 await new Promise((r) => server.listen(PORT, r));
-const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}`;
+// T-2158: a phone lets go of its geometry's page arrays once uploaded; the
+// probes below read vertices back, so they ask it to keep them. The release
+// itself is held to account by tools/check_upload_release.mjs.
+const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}&keep-geometry=1`;
 console.log(`serving ${ROOT} on ${PORT} — ${wantPublished ? 'PUBLISHED mirror '
   + '(compressed assets, visitor layout)' : 'source tree (uncompressed masters)'}\n`);
 if (wantPublished && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {

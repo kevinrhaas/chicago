@@ -277,6 +277,7 @@
         {
           "lot": "blk_indiana_north_wolcott_lot9",
           "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a1_09",
             "recon_1835_blk_indiana_north_wolcott_a3_04",
             "recon_1835_blk_indiana_north_wolcott_d3_02"
           ],
@@ -284,7 +285,7 @@
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_indiana_north_wolcott_lot9, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_indiana_north_wolcott_a3_04, recon_1835_blk_indiana_north_wolcott_d3_02 — and the yard behind those buildings is 12.19 m deep by 14.71 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_indiana_north_wolcott_lot9, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_indiana_north_wolcott_a1_09, recon_1835_blk_indiana_north_wolcott_a3_04, recon_1835_blk_indiana_north_wolcott_d3_02 — and the yard behind those buildings is 12.19 m deep by 14.71 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "side_blk_indiana_north_wolcott_lot5_w",
@@ -352,6 +353,7 @@
         {
           "lot": "blk_indiana_north_wolcott_lot9",
           "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a1_09",
             "recon_1835_blk_indiana_north_wolcott_a3_04",
             "recon_1835_blk_indiana_north_wolcott_d3_02"
           ],
@@ -377,6 +379,7 @@
         {
           "lot": "blk_indiana_north_wolcott_lot9",
           "structures": [
+            "recon_1835_blk_indiana_north_wolcott_a1_09",
             "recon_1835_blk_indiana_north_wolcott_a3_04",
             "recon_1835_blk_indiana_north_wolcott_d3_02"
           ],
@@ -587,13 +590,14 @@
         {
           "lot": "blk_south_water_dearborn_lot1",
           "structures": [
+            "recon_1835_blk_south_water_dearborn_a5_10",
             "recon_1835_blk_south_water_dearborn_d2_04"
           ],
           "households": [],
           "refused": "no_household_names_this_ground"
         }
       ],
-      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_dearborn_d2_04 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
+      "note": "THE REAR LOT LINE of blk_south_water_dearborn_lot1, which in this grid is the ALLEY line: the plat drives a service alley through the middle of every block and the back of a lot opens onto it. The lot is improved — it holds recon_1835_blk_south_water_dearborn_a5_10, recon_1835_blk_south_water_dearborn_d2_04 — and the yard behind those buildings is 12.19 m deep by 25.92 m wide, which is the room the committed footprints leave inside the committed lot. EVERY COORDINATE IS THE PLAT'S; the invention is that the line carries a fence at all, and which one."
     },
     {
       "id": "rear_blk_south_water_dearborn_lot3",
@@ -820,6 +824,7 @@
         {
           "lot": "blk_south_water_dearborn_lot1",
           "structures": [
+            "recon_1835_blk_south_water_dearborn_a5_10",
             "recon_1835_blk_south_water_dearborn_d2_04"
           ],
           "households": [],
@@ -844,6 +849,7 @@
         {
           "lot": "blk_south_water_dearborn_lot1",
           "structures": [
+            "recon_1835_blk_south_water_dearborn_a5_10",
             "recon_1835_blk_south_water_dearborn_d2_04"
           ],
           "households": [],

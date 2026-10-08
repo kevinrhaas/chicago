@@ -1,6 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1526, ts: '2026-10-08T09:16:24.005Z', date: 'Oct 8, 2026, 4:16 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: 1528, ts: '2026-10-08T09:27:10.618Z', date: 'Oct 8, 2026, 4:27 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
+  { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+    items: [
+      'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
+      'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
+      'No record names these buildings. The town\u2019s plan counted them as missing, and the North now has every roof it counted except five barns. Its cottage yards are too narrow for a barn beside the sheds they already have, so those wait for a better place.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L401).',
+    ] },
+  { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+    items: [
+      'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
+      'The ground is stored about four times smaller on every device. It draws exactly the same.',
+      'The town looks exactly the same, and tapping a building, fence or yard still opens its card. Nothing changes on a computer apart from the smaller ground.',
+    ] },
   { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [
       'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',

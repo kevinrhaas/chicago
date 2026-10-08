@@ -484,17 +484,22 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 50, blk_washington_clinton (A2, A3, A4, A5), through emit.py and the common modules;
 # terrain reach stays 6 and pier_crib stays 2.
 #
-# 668 -> 673 and 662 -> 667 on 2026-10-08 (T-2170): five barns in the yards of the
+# 668 -> 671 and 662 -> 665 on 2026-10-08 (T-2165, of T-2156): three yard buildings — a
+# stable on blk_indiana_north_wolcott, a barn on blk_south_water_wells and a smokehouse on
+# blk_south_water_dearborn — through emit.py and the common modules. Terrain reach
+# stays 6 and pier_crib stays 2.
+#
+# 671 -> 676 and 665 -> 670 on 2026-10-08 (T-2170): five barns in the yards of the
 # Wolcott-Kinzie core's houses (recon_1835_north_a2_094..098), through emit.py and the
 # common modules; terrain reach stays 6 and pier_crib stays 2.
 #
 STATED = {
-    "assets": 673,
+    "assets": 676,
     "restales": {
-        "generators/common/*.py": 673,
+        "generators/common/*.py": 676,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 667,
+        "generators/emit.py": 670,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
