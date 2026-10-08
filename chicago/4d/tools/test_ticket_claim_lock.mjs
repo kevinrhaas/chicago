@@ -45,7 +45,8 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const HERE = path.dirname(new URL(import.meta.url).pathname);
-// `split` asks GitHub for open pull requests on its parent (T-1344); the gate never does.
+// `split` asks GitHub for open pull requests on its parent (T-1344), and `claim` for the
+// open pull requests carrying its ticket (T-2138); the gate never does.
 const NO_PULLS = path.join(mkdtempSync(path.join(tmpdir(), 'c4d-pulls-')), 'none.json');
 writeFileSync(NO_PULLS, '[]');
 
@@ -118,7 +119,7 @@ function sandbox({ runs = 2, id = 'T-0001', identity = true } = {}) {
 /** Run the tool as one of the clones. Returns { code, out }. */
 function claim(repo, id, extra = [], env) {
   const r = spawnSync('node', [path.join(repo, 'chicago', '4d', 'tools', 'ticket.mjs'),
-    'claim', id, ...extra], { cwd: repo, encoding: 'utf8', env: { ...process.env, ...env } });
+    'claim', id, ...(extra.includes('--pr-json') ? [] : ['--pr-json', NO_PULLS]), ...extra], { cwd: repo, encoding: 'utf8', env: { ...process.env, ...env } });
   return { code: r.status, out: `${r.stdout ?? ''}${r.stderr ?? ''}` };
 }
 

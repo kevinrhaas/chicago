@@ -143,8 +143,23 @@ try {
     /1 claim\(s\) above are older than the 3h run window[\s\S]*WORKABLE[\s\S]*steals a dead claim/.test(listed), listed);
   r = tool(B, 'claim', 'T-1502');
   check('the fresh claim is still protected: claim refuses it', r.status === 1 && /ALREADY CLAIMED/.test(r.stderr), r.stderr);
+  // T-2138: T-2122's shape. The dead claim's work is sitting in an OPEN pull request on a
+  // branch that names no ticket — only the title does — and `claim` must not steal it.
+  const titled = path.join(root, 'titled-pulls.json');
+  writeFileSync(titled, JSON.stringify([
+    { number: 449, title: 'T-1503: the whole fix', state: 'open', merged_at: null,
+      labels: [], head: { ref: 'claude/project-thread-gfksyy' } },
+    { number: 450, title: 'Rank T-1503 under the drain band', state: 'open', merged_at: null,
+      labels: [], head: { ref: 'steward/queue-keeping' } },
+  ]));
+  r = tool(A, 'claim', 'T-1503', '--pr-json', titled);
+  check('a dead claim whose work sits in an open PR titled with it is REFUSED, naming the PR (T-2138)',
+    r.status === 1 && /HAS AN OPEN PULL REQUEST/.test(r.stderr) && /PR #449 on claude\/project-thread-gfksyy/.test(r.stderr)
+    && !/#450/.test(r.stderr), r.stdout + r.stderr);
+  check('…and the dead claim is left where it was, not stolen',
+    /claimed_by: run 9\/1\/2026/.test(remote('T-1500-1749/T-1503-third.md')));
   r = tool(A, 'claim', 'T-1503');
-  check('a claim from three weeks ago is stolen', r.status === 0 && /stealing a dead claim/.test(r.stdout), r.stdout + r.stderr);
+  check('a claim from three weeks ago is stolen',r.status === 0 && /stealing a dead claim/.test(r.stdout), r.stdout + r.stderr);
 
   console.log('3. done is review until the PR merges');
   r = tool(A, 'done', 'T-1501', '--pr', '41');
