@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1537, ts: '2026-10-08T14:27:39.677Z', date: 'Oct 8, 2026, 9:27 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The project measures the town from fixed spots, and two of them inside the town stood a metre from a wall.',
+      'Two new spots look across the back yards on Washington Street and at the South Water Street shop fronts from the street, so their pictures show what they are meant to check.',
+    ] },
   { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
     items: [
       'Nothing you can see changes. Before taking a ticket, the build loop now checks whether an open pull request already carries it, even one opened from a branch that doesn\'t name the ticket, so the same work isn\'t built twice.',
