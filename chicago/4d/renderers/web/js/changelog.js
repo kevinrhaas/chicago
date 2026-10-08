@@ -1,6 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1535, ts: '2026-10-08T13:18:09.797Z', date: 'Oct 8, 2026, 8:18 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
+  { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
+      'With these three, every yard building the town plan counted for the West Division now stands.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
   { v: 1534, ts: '2026-10-08T12:37:03.823Z', date: 'Oct 8, 2026, 7:37 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
     items: [
       'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',

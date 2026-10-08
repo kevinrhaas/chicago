@@ -314,13 +314,13 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 358,
-  "outside": 304,
+  "inside": 354,
+  "outside": 306,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 63,
-   "west_of_canal_street": 100,
+   "north_of_the_limit": 62,
+   "west_of_canal_street": 103,
    "south_of_washington_street": 112,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
@@ -385,7 +385,6 @@
     "recon_1835_blk_indiana_north_wolcott_d3_06",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
-    "recon_1835_north_a2_098",
     "recon_1835_north_c4_067",
     "recon_1835_north_d1_013",
     "recon_1835_north_d1_023",
@@ -450,13 +449,16 @@
     "recon_1835_blk_washington_clinton_a2_10",
     "recon_1835_blk_washington_clinton_a2_12",
     "recon_1835_blk_washington_clinton_a2_15",
+    "recon_1835_blk_washington_clinton_a2_19",
     "recon_1835_blk_washington_clinton_a3_16",
     "recon_1835_blk_washington_clinton_a4_09",
     "recon_1835_blk_washington_clinton_a4_11",
     "recon_1835_blk_washington_clinton_a4_14",
+    "recon_1835_blk_washington_clinton_a4_20",
     "recon_1835_blk_washington_clinton_a5_07",
     "recon_1835_blk_washington_clinton_a5_13",
     "recon_1835_blk_washington_clinton_a5_17",
+    "recon_1835_blk_washington_clinton_a5_18",
     "recon_1835_blk_washington_clinton_d4_04",
     "recon_1835_blk_washington_clinton_d5_03",
     "recon_1835_blk_washington_clinton_h1_05",
@@ -654,12 +656,12 @@
   "scheduling_roofs_outside_the_limit": 3,
   "scheduling_roofs_outside_the_limit_rows": [
    {
-    "id": "blk_washington_clinton",
+    "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 3,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
-     -212.22,
-     -452.55
+     885.64,
+     525.4
     ],
     "inside_the_limit": false
    },
@@ -708,7 +710,7 @@
    {
     "id": "blk_washington_clinton",
     "state": "open",
-    "roofs_scheduled": 3,
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      -212.22,
      -452.55
@@ -968,7 +970,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 0,
+    "roofs_scheduled": 5,
     "centre_local_enu_m": [
      885.64,
      525.4
