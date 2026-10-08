@@ -2204,9 +2204,8 @@ async function boot() {
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
-          // T-2109: the glass changes exactly where the asset does (transmission
-          // on the full model, the dark plate on the shared `.light` one), so
-          // this rebuild is also the one that changes the glass.
+          // Reapply the requested glass when swapping the full/light asset.
+          // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
             glass: glassForDetail(level, GLASS_REQUEST) });
