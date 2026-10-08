@@ -8,7 +8,7 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,548 | 1,434 | 1,835 |
-| Households | 644 | 163 | 483 |
+| Households | 644 | 164 | 482 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 673 | 14 |
 
@@ -37,7 +37,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *The model wants 643 households and the layer holds 1,451 records. Are those the same thing?*
 
-Of the 1,407 records the layer holds present, 163 carry a reading about a dwelling and 1,244 do not. The quota is taken against the 163, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
+Of the 1,407 records the layer holds present, 164 carry a reading about a dwelling and 1,243 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
 ### a documented reading shrank an order the town had drawn
 
@@ -564,9 +564,9 @@ The households the model wants, by kind and division.
 - `households_target`: 644
 - `households_target_basis`: the midpoint of the model's 472-816, rounded half up
 - `households_target_range`: 472, 816
-- `known_present`: 163
+- `known_present`: 164
 - `known_present_records`: 1,407
-- `known_present_awaiting_a_household`: 1,244
+- `known_present_awaiting_a_household`: 1,243
 - `known_uncertain_in_the_index_ruled_in_by_T-1386`: 953
 
 | bucket | target | known | to do | filled | ticket |
@@ -579,7 +579,7 @@ The households the model wants, by kind and division.
 | `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2188 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
-| `households/inn_tavern/west` | 4 | 0 | 4 | 1 | T-2023 |
+| `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
 | `households/store_residence/north` | 6 | 2 | 4 | 0 | T-2188 |
 | `households/store_residence/south` | 61 | 18 | 43 | 0 | T-2188 |

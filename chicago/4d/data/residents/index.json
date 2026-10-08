@@ -420,8 +420,8 @@
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 511,
   "merged_away": 67,
-  "houses": 214,
-  "awaiting_a_household": 1245
+  "houses": 215,
+  "awaiting_a_household": 1244
  },
  "households": [
   {
@@ -24432,7 +24432,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_wode_john",
