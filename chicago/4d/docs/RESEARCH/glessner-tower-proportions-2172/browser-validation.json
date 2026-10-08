@@ -1,0 +1,357 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness for deterministic review cameras. Unchanged scene geometry, materials, lighting and shadows.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:44231/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "front",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 95,
+            "triangles": 3385565,
+            "programs": 33,
+            "geometries": 43,
+            "textures": 96,
+            "batches": 18,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 47980824,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.3181165550725,
+            -3240.0973924685736,
+            7.840440280685425
+          ],
+          "target": [
+            1366.1546527316932,
+            -3226.0983468018703,
+            11.940440280685426
+          ]
+        },
+        {
+          "name": "oblique",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 99,
+            "triangles": 3408061,
+            "programs": 33,
+            "geometries": 46,
+            "textures": 96,
+            "batches": 18,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 47980824,
+            "fps": 0,
+            "cameraNear": 0.4,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1357.6186489090776,
+            -3234.198565239684,
+            14.340440280685424
+          ],
+          "target": [
+            1366.1394739480936,
+            -3224.7984354185337,
+            12.840440280685424
+          ]
+        },
+        {
+          "name": "overhead",
+          "detail": "full",
+          "problems": [],
+          "stats": {
+            "drawCalls": 93,
+            "triangles": 3392937,
+            "programs": 33,
+            "geometries": 46,
+            "textures": 96,
+            "batches": 18,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 47980824,
+            "fps": 0,
+            "cameraNear": 1,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.2247086559985,
+            -3232.097937801886,
+            29.340440280685424
+          ],
+          "target": [
+            1366.142976744309,
+            -3225.098414968534,
+            12.740440280685426
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:44231/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "front",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 53,
+            "triangles": 471698,
+            "programs": 13,
+            "geometries": 45,
+            "textures": 93,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25228480,
+            "fps": 1,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.3181165550725,
+            -3240.0973924685736,
+            7.840440280685425
+          ],
+          "target": [
+            1366.1546527316932,
+            -3226.0983468018703,
+            11.940440280685426
+          ]
+        },
+        {
+          "name": "oblique",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 52,
+            "triangles": 469004,
+            "programs": 13,
+            "geometries": 45,
+            "textures": 93,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25228480,
+            "fps": 0,
+            "cameraNear": 0.4,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1357.6186489090776,
+            -3234.198565239684,
+            14.340440280685424
+          ],
+          "target": [
+            1366.1394739480936,
+            -3224.7984354185337,
+            12.840440280685424
+          ]
+        },
+        {
+          "name": "overhead",
+          "detail": "light",
+          "problems": [],
+          "stats": {
+            "drawCalls": 53,
+            "triangles": 471306,
+            "programs": 13,
+            "geometries": 45,
+            "textures": 93,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25228480,
+            "fps": 0,
+            "cameraNear": 1,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.2247086559985,
+            -3232.097937801886,
+            29.340440280685424
+          ],
+          "target": [
+            1366.142976744309,
+            -3225.098414968534,
+            12.740440280685426
+          ]
+        }
+      ]
+    }
+  ]
+}

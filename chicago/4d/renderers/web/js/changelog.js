@@ -1,9 +1,11 @@
 export const CHANGELOG = [ // newest first
-  { v: 1528, ts: '2026-10-08T09:36:28.055Z', date: 'Oct 8, 2026, 4:36 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'A steadier loading screen on a phone', kind: 'fix',
     items: [
       'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',
       'Nothing in the town changes: every tree, leaf and blade of grass is drawn exactly as before.',
     ] },
+  { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
+    items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
