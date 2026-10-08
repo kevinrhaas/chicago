@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
+    items: [
+      'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
+      'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
+    ] },
   { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
     items: [
       'Nothing you can see changes. The automated check that walks into the town now waits for the welcome screen before stepping in, so a slow test machine no longer reports the version label as missing when it was there all along.',

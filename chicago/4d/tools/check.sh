@@ -4382,6 +4382,16 @@ step "the remainder rulings re-derive from their five corpora (T-1298)" \
 selftest "…and each of its rules still fires, and hands on only to live work" \
   python3 tools/spend_remainder_rulings.py --self-test
 
+# T-1335. The family pass rules the kin those registers route to it: the church verdicts
+# derived from the register's roles and the cards that claim its rows, the papers' family
+# columns and the kin enrichments read one at a time. A ruling that no live unit reaches is
+# a ruling on work something else closed, and fails here.
+step "the family pass answers every kin unit, and no ruling outlives its unit (T-1335)" \
+  python3 tools/spend_family_pass.py --check --quiet
+
+selftest "…and its church derivation still tells a lone burial, a missing far end and an unruled tie apart" \
+  python3 tools/spend_family_pass.py --self-test
+
 # T-1330. THE SPEND ITSELF, where the two steps above only ROUTE. Thirty of T-1301's
 # `corroborated_enrichment` findings named an arrival, an origin, a departure or a dated
 # appearance, and they had been handed from arrival ticket to arrival ticket without being

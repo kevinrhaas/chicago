@@ -1,0 +1,87 @@
+{
+ "schema": "chicago4d.family_pass_rulings.v1",
+ "ticket": "T-1335",
+ "_doc": "AUTHORED, T-1335. The family pass's ruling on every kin unit whose source speaks in prose: the papers' MARRIED and DIED columns and the completed resident enrichments that name kin no field carries. The church units are not here: their verdicts are DERIVED by tools/spend_family_pass.py from the register's own roles and the cards that claim its rows, and the two book units are ruled in the hand-authored data/research/spend_rulings.json beside the other book units. tools/spend_remainder_rulings.py reads this file where a family column or a kin enrichment would otherwise be routed by default, and `spend_family_pass.py --check` fails on a ruling no live unit reaches. Identities are the press register's (data/research/newspapers/register_1835.json) and the cards' own, never a name match. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER: a verdict here writes nothing onto a card; the one tie this pass found writable from the register is landed by tools/survey_stated_kin.py.",
+ "rulings": {
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_11_26.json#claims/c005": {
+   "verdict": "relative_not_held",
+   "why": "Miles Holcombe of Kaskaskia is a card here (hh_holcombe_miles, which the press register links to this very issue), and the tie the column states is his daughter's marriage. Neither Miss Holcombe nor her groom — '[an officer] of the Indian Department', his name lost to the column's damage — is a person this town holds, so neither the father-daughter tie nor the marriage has a far end."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007": {
+   "verdict": "a_family_whole",
+   "why": "The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. Two parent ties are writable between held cards, but both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the unit goes whole to T-2192."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001": {
+   "verdict": "household_contradicts",
+   "why": "Chester Ingersoll (hh_ingersoll_chester) married Betsy Weaver (hh_weaver_betsy) on 12 December 1833; the press register links both cards to this column. On 1 July 1835 she is his wife, but his house already holds a MODELLED wife, 'Martha Ingersoll', and six modelled children. Writing husband/wife across the two cards would state two wives, so the unit is handed to T-2190, which seats the printed bride and withdraws the draw."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_01_14.json#claims/c001": {
+   "verdict": "relative_not_held",
+   "why": "Nathaniel Carpenter of the U.S. Army is a card here (hh_carpenter_nathaniel, linked by the press register), and the bride the column names, Rosice Hunter 'of this place', is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Harriet Carpenter': a draw standing where the paper names a real woman the town does not hold, which is the modelled-families stage's to answer and not a tie this pass can write."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_01_28.json#claims/c004": {
+   "verdict": "neither_end_held",
+   "why": "The groom's surname is lost to the column ('Mr. Jo[h]n W[…]') and the bride, Esther M. Bailey, is nobody this town holds; the town's Baileys are Amos and Bennet. Neither party can be put on a card, so there is no tie to write."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_02_04.json#claims/c005": {
+   "verdict": "neither_end_held",
+   "why": "Samuel Bailey and Clarissa Hoyt, 'all of this place', married 2 February 1834. Neither is a person this town holds — the town's Baileys are Amos and Bennet and its Hoyts are Thomas and L. G. — so the marriage joins nobody here."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_06.json#claims/c004": {
+   "verdict": "identity_not_asserted",
+   "why": "The groom's forename is lost ('[Mr. …] WHITEHEAD'), and the town holds a readmitted Henry Whitehead (hh_henry_whitehead) off the press register's 'uncertain Whitehead'; that the readmitted card is THIS groom is asserted nowhere, and a surname alone identifies nobody. The bride, Elizabeth Jerkies, is nobody here."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c001": {
+   "verdict": "neither_end_held",
+   "why": "A death notice: Mr. James [—]ey, a merchant aged 22, died 11 September 1834. The surname is lost to the column and the notice names no survivor, so it states no tie between two people at all, let alone two the town holds."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c002": {
+   "verdict": "ended_before_the_scene",
+   "why": "Charles Rollins, 'only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months', died 7 September 1834. Both are cards here (hh_rollins_charles, hh_rollins_john, each minted from this notice), but the son was buried ten months before the scene, so the father-son tie did not stand on 1 July 1835. That his card is still ruled present, heading a modelled household of six, is T-2189's."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c001": {
+   "verdict": "relative_not_held",
+   "why": "Augustus Bonin (hh_bonin_augustus, linked by the press register) married 'Miss Jos[…] Fras[ch]e' on 20 September 1834; the bride's name is half lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Ellen Quinn': a draw standing where the paper names a real woman, which is the modelled-families stage's to answer."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c002": {
+   "verdict": "ended_before_the_scene",
+   "why": "Mrs. Sarah Hoit, 'wife of Mr. Thomas Hoit', died 16 September 1834 in her forty-third year. Both are cards here (hh_hoit_sarah, hh_hoit_thomas), but she was buried before the scene, so the husband/wife tie did not stand on 1 July 1835. That her card is still ruled present is T-2189's."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c003": {
+   "verdict": "relative_not_held",
+   "why": "John S. C. Hogan, postmaster (hh_hogan_john_s_c, linked by the press register), married 'Miss Anne Maria […]' at Sugar Creek Meadows near Lewiston on 27 April 1835, before the scene. Her surname is lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Polly Hogan', where the paper names Anne Maria: a draw the modelled-families stage owns, not a tie this pass can write."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_24.json#claims/c011": {
+   "verdict": "neither_end_held",
+   "why": "'[…] B. Hubbard, of D[u]page Settle[ment]' married '[Miss …] Peck, [dau. of …] Esq. Merchant of this [town]' on 20 June 1835. The groom is of the DuPage settlement, not Chicago, and matches none of the town's five Hubbards; the bride's forename and her father's name are lost, so 'Peck' alone identifies nobody. Neither end is a person this town holds."
+  },
+  "residents:data/research/residents/pass_02_75_cohort.json#people/beaubien_josette": {
+   "verdict": "same_household",
+   "why": "Josette LaFramboise is Jean Baptiste Beaubien's wife and is a member of his household record (hh_beaubien_jean_baptiste) with relationship 'wife', so that tie IS the card's structure. The father the source names, Francis LaFromboise, folds by name onto hh_laframboise_franois, which the layer records as Joseph Laframboise's SON; no crosswalk identifies the two, and a name is not that identification. The layer also holds a separate hh_laframboise_josette, mother of three Beaubien children — a card-merge question, not a kinship."
+  },
+  "residents:data/research/residents/pass_02_75_cohort.json#people/owen_thomas_jv": {
+   "verdict": "relative_not_held",
+   "why": "The sources name Thomas J. V. Owen's wife, Emeline Hotchkiss, and four sons. His card (hh_owen_thomas_jv) holds him and one unnamed household member, and none of the named relatives is a person this town holds, so no tie has a far end. They are evidence for the prose of his card; nobody is minted."
+  },
+  "residents:data/research/residents/pass_02_75_cohort.json#people/porter_eliza_chappel": {
+   "verdict": "same_household",
+   "why": "The 1835 marriage the pass corroborates is to Jeremiah Porter, and Eliza Chappel Porter is a member of his household record (hh_porter_jeremiah) with relationship 'wife': the tie is the card's structure. The marriage of 15 June 1835 falls before the scene, so the household stands as drawn. The separate 'Eliza Mir Chappel' card is a merge candidate the pass itself left pending, not a kinship."
+  },
+  "residents:data/research/residents/pass_02_75_cohort.json#people/porter_jeremiah": {
+   "verdict": "same_household",
+   "why": "The Rochester notice records Porter's marriage to Eliza Chappel on 15 June 1835, before the scene, and she is a member of his household record (hh_porter_jeremiah) with relationship 'wife'. The tie is already the card's structure; a kin row inside one record would say it twice."
+  },
+  "residents:data/research/residents/pass_02_75_cohort.json#people/robinson_catherine": {
+   "verdict": "same_household",
+   "why": "Catherine Chevalier is Alexander Robinson's wife and a member of his household record (hh_robinson_alexander) with relationship 'wife', married 1826: the tie is the card's structure. The parents and the grandfather Indigenous Chicago records for her are not persons this town holds by any identification the layer has made, so they stay evidence for the card's prose."
+  },
+  "residents:data/research/residents/pass_03_75_cohort.json#people/heacock_russel_e": {
+   "verdict": "after_the_scene",
+   "why": "The kin the pass found is the household the 1843 directory distinguishes for Russel Easton Heacock: a household of a year eight years after the scene, which says nothing about who lived with him on 1 July 1835."
+  },
+  "residents:data/research/residents/pass_08_75_cohort.json#people/hobson_jesse": {
+   "verdict": "relative_not_held",
+   "why": "Jesse Hobson married Catherine Daugherty at Naperville on 6 April 1835, before the scene. His card (hh_hobson_jesse) holds only him, and Catherine Daugherty is nobody this town holds, so the marriage has no far end. Seating her would be a household gaining a member, which this pass does not do."
+  }
+ }
+}
