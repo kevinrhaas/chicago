@@ -1,8 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1546, ts: '2026-10-08T20:37:02.394Z', date: 'Oct 8, 2026, 3:37 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
+  { v: 1548, ts: '2026-10-08T20:58:16.676Z', date: 'Oct 8, 2026, 3:58 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
       'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
+    ] },
+  { v: 1547, ts: '2026-10-08T20:22:59.659Z', date: 'Oct 8, 2026, 3:22 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
+    items: [
+      'Wm. H. Frazer, Joshua Pruvis and John Vandine are names from the post office\u2019s list of uncalled-for letters for 1 January 1834. Their cards wear the spelling read off the page image of the list\u2019s last printing, but their notes still said the papers printed Fraser, Provis and Vandino.',
+      'Each note now names both readings and where each comes from: the page image of the 4 March 1834 printing, and a transcription of the 28 January one. It says which spelling the card wears and why.',
+    ] },
+  { v: 1546, ts: '2026-10-08T19:58:47.393Z', date: 'Oct 8, 2026, 2:58 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
+    items: [
+      'The courtyard tower’s main windows now share the adjoining first-floor height. The upper wing windows are shorter, matching the tower’s upper band.',
+      'The rear eave projects continuously into the tower roof, with joined copper, tile and gutters. These proportions are declared reconstructions based on the courtyard photographs and measured house plan.',
+      'Glessner’s glass stays dark at every Scene detail setting, including Full. The glass comparison links still work.',
     ] },
   { v: 1545, ts: '2026-10-08T19:35:25.683Z', date: 'Oct 8, 2026, 2:35 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
     items: [

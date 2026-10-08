@@ -59,3 +59,9 @@ Scene detail setting: `GLASS_BY_DETAIL` is `full` → `transmission`, `balanced`
 Glessner asset does (the master GLB at `full`, the shared `.light` GLB below it), so the detail
 switch's own rebuild is what changes the glass. `tools/check_glass_modes.mjs` holds the mapping
 and the override. The dark plate is Liberty L383.
+
+## Extended owner choice (2026-10-08, T-2183)
+
+Dark glass now defaults at Full, Balanced and Light. The earlier measurements
+and recommendation above remain historical; `?glass=transmission|clear|dark`
+still overrides every setting. See `../RESEARCH/glessner-courtyard-windows-2183/`.

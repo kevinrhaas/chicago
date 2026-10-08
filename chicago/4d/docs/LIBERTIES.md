@@ -22404,3 +22404,33 @@ compatible anonymous roof and never increases the total.
 **Ticket:** T-2170.
 **Related:** **L393**, **L294**, **T-2165**, **T-2168**.
 **Recorded:** 2026-10-08 (T-2170).
+
+
+### L-glessner-courtyard-windows-2183 — aligned courtyard openings and projecting eave
+
+**Decision:** Supersedes T-2172's perspective-based enlargement of the principal
+bay windows: their sill/head return to 9.3–14.5 ft above north grade, matching
+the north courtyard first floor. The upper north-wing openings shorten to
+20.9–24.0 ft, sharing the existing tower band. These are reconstructed
+alignments (about +/-1 ft), bounded by HABS courtyard photograph 05 and the
+owner photographs reviewed in the recovered T-2183 work; they are not surveyed
+1904 dimensions. The period divided sash is retained.
+
+The north courtyard roof projects 2.36 ft beyond its wall to meet the bay
+shoulders at 24 ft above north grade. Its wall-line ordinate is 25.633722 ft
+at the existing 34.1-ft ridge. This continuous eave interpretation replaces
+the prior extrapolated 26.5-ft wall ordinate; overhang and junction height are
+reconstructed within about half a foot. The copper apron, tiled connector,
+corner return and gutter meet this edge. The street eave is unchanged.
+The full source reasoning and the earlier readings remain in the structure
+record and `RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
+Dark opaque glass is now the default at Full as well as Balanced and Light,
+extending L383 at the owner's request. This is a rendering choice, not a
+historical claim about the glass. The explicit glass comparison override remains.
+No photographic pixels are used and the owner attachments are not republished.
+
+**How to resolve:** a measured original courtyard elevation or dated roof
+section would replace these reconstructed heights and overhang.
+**Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.ridge_north_range`.
+**Recorded:** 2026-10-08 (T-2183).
