@@ -14087,6 +14087,18 @@ for (const [label, viewport, touch] of [
       && citySplit.residents + citySplit.garrison === (cityPopulation ? cityPopulation.persons : cityScene?.persons)
       && (!(citySplit.transients_apart > 0) || hub.city.apart.startsWith(`${grouped(citySplit.transients_apart)} summer visitors are counted apart`)),
       JSON.stringify({ split: hub.city.split, apart: hub.city.apart, data: citySplit }));
+    // T-2155: housed is read by the audit's two joins, so the census and the completion
+    // audit must sum to the same people present, and the screen says what it leaves out.
+    const cityWaiting = Number(hub.city.data?.people?.waiting_on_a_roof);
+    const cityBeyond = Number(hub.city.data?.beyond_the_index?.persons_present_housed);
+    check(`${label}: City states who waits on a roof and who is housed beyond the index`,
+      (!(cityWaiting > 0) || hub.city.note.includes(
+        `${grouped(cityWaiting)} wait on a roof the town does not stand yet`))
+      && (!(cityBeyond > 0) || hub.city.note.includes(
+        `${grouped(cityBeyond)} more the reconstruction houses — trades, lodgers and `
+        + 'others it seats — are not counted in this figure'))
+      && Number.isFinite(cityWaiting) && Number.isFinite(cityBeyond),
+      JSON.stringify({ notes: hub.city.note, cityWaiting, cityBeyond }));
     let residentCounts = null;
     try {
       residentCounts = JSON.parse(
