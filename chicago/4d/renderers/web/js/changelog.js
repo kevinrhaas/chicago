@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1551, ts: '2026-10-08T22:40:56.935Z', date: 'Oct 8, 2026, 5:40 PM CT', title: 'The town stops ordering 338 houses it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 338 more family houses. 424 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
+      'They are counted now, up to what each part of town needs: 89 on the North Side, 170 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The houses still owed fall from 427 to 89. The shop-front households are next.',
+    ] },
   { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',

@@ -1441,6 +1441,15 @@
       ]
     },
     {
+      "ticket": "T-2193",
+      "records": 338,
+      "buckets": [
+        "households/family_dwelling/north",
+        "households/family_dwelling/south",
+        "households/family_dwelling/west"
+      ]
+    },
+    {
       "ticket": "T-1347",
       "records": 309,
       "buckets": [
@@ -1651,7 +1660,7 @@
       3265
     ],
     "households_standing": 207,
-    "households_still_owed": 427
+    "households_still_owed": 89
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1758,10 +1767,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 394,
+      "household_leg_now": 56,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 394. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 56. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -4443,8 +4452,8 @@
           "target": 123,
           "known": 26,
           "to_reconstruct": 97,
-          "filled": 8,
-          "owning_ticket": "T-2188",
+          "filled": 97,
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
@@ -4456,8 +4465,8 @@
           "target": 258,
           "known": 72,
           "to_reconstruct": 186,
-          "filled": 16,
-          "owning_ticket": "T-2188",
+          "filled": 186,
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
@@ -4469,8 +4478,8 @@
           "target": 110,
           "known": 21,
           "to_reconstruct": 89,
-          "filled": 10,
-          "owning_ticket": "T-2188",
+          "filled": 89,
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
@@ -4535,7 +4544,7 @@
           "known": 2,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
@@ -4548,7 +4557,7 @@
           "known": 18,
           "to_reconstruct": 44,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
@@ -4561,7 +4570,7 @@
           "known": 1,
           "to_reconstruct": 8,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
@@ -6905,6 +6914,27 @@
       "stage": "trade_households",
       "records": 2,
       "by": "tools/reconstruct_trade_households.py --build"
+    },
+    {
+      "bucket": "households/family_dwelling/north",
+      "ticket": "T-2193",
+      "stage": "held_head_dwellings",
+      "records": 89,
+      "by": "tools/count_held_head_dwellings_1835.py --build"
+    },
+    {
+      "bucket": "households/family_dwelling/south",
+      "ticket": "T-2193",
+      "stage": "held_head_dwellings",
+      "records": 170,
+      "by": "tools/count_held_head_dwellings_1835.py --build"
+    },
+    {
+      "bucket": "households/family_dwelling/west",
+      "ticket": "T-2193",
+      "stage": "held_head_dwellings",
+      "records": 79,
+      "by": "tools/count_held_head_dwellings_1835.py --build"
     }
   ],
   "re_family_ledger": {

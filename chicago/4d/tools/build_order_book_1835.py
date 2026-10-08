@@ -168,8 +168,16 @@ HOUSEHOLD_TYPES = (
 # several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
 # wants, and 1,244 present head records with no reading about a dwelling to form them
 # around. That is T-2188's.
+# AND T-2188 SPLIT TOO (2026-10-08), because the two household rows are not one job either.
+# The FAMILY DWELLINGS are formed already: the address book's dealt roofs (T-1613/T-1614)
+# and the housing seats' family rung (T-1971/T-1972) put hundreds of those head records
+# under a standing dwelling as its household, and only this book had not counted them.
+# T-2193 counts them (`tools/count_held_head_dwellings_1835.py`). The STORE RESIDENCES
+# are not: the housing seats refuse every store roof, so no held head stands over a shop,
+# and what the 56 are is T-2194's ruling.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2188"
+FAMILY_HOUSEHOLD_OWNER = "T-2193"
+STORE_HOUSEHOLD_OWNER = "T-2194"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -284,7 +292,7 @@ ROSTER_TICKETS = {
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
     ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
-    ("store_residence", "stores_mixed_use", FAMILY_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", STORE_HOUSEHOLD_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -1293,6 +1301,35 @@ def ruled_present(rulings: dict | None) -> dict:
     return out
 
 
+def household_standing(hh: dict, ruled) -> str:
+    """Where one manifest row stands in the book's count, as `known_layer` reads it.
+
+    `not_in_the_town` (absent, or `uncertain` with no ruling), `reconstructed` (a house
+    nobody in it is named in — the order being filled), `a_house` (present, with a clause
+    that makes the record a house) or `awaiting_a_household` (present, with none). One
+    function, because T-2193 counts houses for exactly the last set and a second copy of
+    this test would be free to drift from the one the quota is cut against.
+    """
+    presence = hh.get("present_on_scene_date")
+    if presence == "uncertain":
+        if hh.get("id") not in ruled:
+            return "not_in_the_town"
+    elif presence != "present":
+        return "not_in_the_town"
+    persons = int(hh.get("persons") or 0)
+    named = persons - int((hh.get("grades") or {}).get("reconstructed") or 0)
+    if persons and named == 0:
+        return "reconstructed"
+    return "a_house" if hh.get("dwelling_evidence") else "awaiting_a_household"
+
+
+def records_awaiting_a_household(residents: dict, rulings: dict | None) -> list[str]:
+    """The ids `known_layer` counts as `records_awaiting_a_household`, in manifest order."""
+    ruled = ruled_present(rulings)
+    return [hh["id"] for hh in residents.get("households", [])
+            if household_standing(hh, ruled) == "awaiting_a_household"]
+
+
 def known_layer(residents: dict, rulings: dict | None = None) -> dict:
     """The known people and households, read off the committed resident index AND
     off T-1386's presence rulings.
@@ -1353,12 +1390,12 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
         out["persons_total"] += persons
         presence = hh.get("present_on_scene_date")
         from_a_ruling = presence == "uncertain" and hh.get("id") in ruled
+        standing = household_standing(hh, ruled)
         if presence == "uncertain":
             out["households_uncertain"] += 1
-            if not from_a_ruling:
-                continue
-        elif presence != "present":
-            out["households_evidenced_absent"] += 1
+        if standing == "not_in_the_town":
+            if presence != "uncertain":
+                out["households_evidenced_absent"] += 1
             continue
         # EVERY PERSON PAST THIS LINE IS STANDING IN THE TOWN, named or drawn. It is the
         # figure the landing card prints and the one the remainder is measured against
@@ -1374,12 +1411,12 @@ def known_layer(residents: dict, rulings: dict | None = None) -> dict:
         # every house it made — so the second build of the same stage derived 65 houses
         # where the first derived 124, and `--check` could never have held it. A wholly
         # reconstructed house is the order being filled; `filled` is its counter.
-        if persons and named == 0:
+        if standing == "reconstructed":
             out["households_reconstructed"] += 1
             continue
         out["households_present"] += 1
         clause = hh.get("dwelling_evidence")
-        a_house = bool(clause)
+        a_house = standing == "a_house"
         if a_house:
             out["houses_present"] += 1
             out["houses_present_by_clause"][clause] = (
@@ -3828,7 +3865,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_HOUSEHOLD_OWNER)
+    p_1171 = owed(persons, FAMILY_OWNER)
+    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_HOUSEHOLD_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]

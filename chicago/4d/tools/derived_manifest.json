@@ -2070,6 +2070,22 @@
       ]
     },
     {
+      "why": "THE FAMILY DWELLINGS THE TOWN ALREADY FORMS (T-2193, of T-2188). Counts the held head records the order book reads as awaiting a household that the housing seats put under a standing dwelling (the dealt rung and the family rung), and writes them into the book as households/family_dwelling fills. BELOW house_the_present_1835.py, because it reads the seats that step writes, and BELOW build_order_book_1835.py, whose fills it splices and which it re-derives. Nothing above it reads its ledger: seat_known_1835.py reads only the household TARGETS, which a fill does not move, and reconstruct_women_children.py adds this stage's fills back to its house quota, so neither chases it. Measured 2026-10-08: a repeat --build on the built tree changed no committed byte.",
+      "command": [
+        "python3",
+        "tools/count_held_head_dwellings_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_held_head_dwellings.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/count_held_head_dwellings_1835.py",
+        "--check"
+      ]
+    },
+    {
       "why": "T-1989: the trade-roof deal offers the empty trade roofs to the keepers the employment ledger owes a house of their own, nearest to the roof the housing deal gave them. It reads the housing seats, so it runs after the housing deal; it reads the town through compile_residents with the housing overlays switched off, so it never reads itself back; and compile_scene reads its ledger, so it runs before the scene compiles.",
       "command": [
         "python3",

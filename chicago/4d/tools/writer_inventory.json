@@ -7,6 +7,12 @@
     "not_a_writer": "gated with --check and declares no write mode; recorded so the audit stops reporting it"
   },
   "tools": {
+    "count_held_head_dwellings_1835.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-08",
+      "finding": "In the manifest immediately after house_the_present_1835.py, whose seats it reads: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate. With --build it writes data/reconstruction/1835_held_head_dwellings.json and splices its fills into the order book; a second run changes no byte (T-2193)."
+    },
     "derive_lot_remnant.py": {
       "placement": "manifest",
       "write_mode": "--write",
