@@ -1,11 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1524, ts: '2026-10-08T08:03:42.330Z', date: 'Oct 8, 2026, 3:03 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the third of the five blocks there to be built, after the two on Clark Street; the two on Wells Street follow.',
       'Seven households now live in these houses, three of them named on the house itself. Five of the six who had been waiting for a lot on this block move instead into empty houses already standing north of Madison, which the town fills first; the sixth waits for a lot on the Wells Street blocks.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
     ] },
+  { v: 1524, ts: '2026-10-08T07:19:29.922Z', date: 'Oct 8, 2026, 2:19 AM CT', title: 'Glessner’s courtyard tower roof joins the north wing', kind: 'fix',
+    items: ['The copper roof over the central courtyard tower now meets a raised tiled ridge with matching terracotta crests. The main roof continues cleanly on both sides, and the copper cap has a flared lower edge.'] },
   { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
     items: [
       'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
