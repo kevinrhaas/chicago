@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1547, ts: '2026-10-08T20:21:54.801Z', date: 'Oct 8, 2026, 3:21 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+  { v: 1548, ts: '2026-10-08T20:50:36.022Z', date: 'Oct 8, 2026, 3:50 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
       'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
       'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
       'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
+    ] },
+  { v: 1547, ts: '2026-10-08T20:22:59.659Z', date: 'Oct 8, 2026, 3:22 PM CT', title: 'Three letter-list cards now agree with their own names', kind: 'fix',
+    items: [
+      'Wm. H. Frazer, Joshua Pruvis and John Vandine are names from the post office\u2019s list of uncalled-for letters for 1 January 1834. Their cards wear the spelling read off the page image of the list\u2019s last printing, but their notes still said the papers printed Fraser, Provis and Vandino.',
+      'Each note now names both readings and where each comes from: the page image of the 4 March 1834 printing, and a transcription of the 28 January one. It says which spelling the card wears and why.',
     ] },
   { v: 1546, ts: '2026-10-08T19:58:47.393Z', date: 'Oct 8, 2026, 2:58 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
     items: [
