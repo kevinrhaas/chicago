@@ -26,6 +26,7 @@ on:
       - 'chicago/4d/renderers/web/js/**'
       - 'chicago/4d/data/flora/**'
       - 'chicago/4d/tools/measure_walk_frames.mjs'
+      - 'chicago/4d/tools/check_upload_release.mjs'
       - '.github/workflows/chicago-4d-moving-frames.yml'
   workflow_dispatch:
 
@@ -56,3 +57,13 @@ jobs:
       - name: Walk, turn, fly and ride; hold the flora frame to its ceilings
         working-directory: chicago/4d
         run: node tools/measure_walk_frames.mjs --only desktop --verify --gate
+
+      # T-2158. A phone lets go of its geometry's page arrays once the GPU has
+      # them, and the smoke keeps them (its probes read vertices back), so this
+      # is the run that holds the release to account: a phone boots 1835, lets
+      # go, still answers a tap on every layer that keeps a position for one,
+      # walks to a held-back chunk, raises the detail, and a desktop releases
+      # nothing. About three minutes, on the mirror published above.
+      - name: A phone keeps the town on the GPU, not twice
+        working-directory: chicago/4d
+        run: node tools/check_upload_release.mjs

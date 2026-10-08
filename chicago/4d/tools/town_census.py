@@ -16,12 +16,23 @@ neither is typed here:
   records that are not buildings — and where a record's source reads as two or three
   cabins the ledger takes the low reading. This takes the same low reading, for the same
   reason: the two figures must not be able to disagree.
-* **People housed** is `data/residents/` joined through `lives_at`. A person counts when
-  the building they live in STANDS: the household's `lives_at` must name a structure that
-  resolves into the scene (`data/sidecars/<year>/index.json`, which is what the renderer
-  actually loads). So the number grows as the town builds out, by construction, exactly
-  as the ask describes — a household whose dwelling has not been built yet is in the
-  dataset and not in this count.
+* **People housed** is the population below joined to the roofs that stand, by the
+  SAME two joins the completion audit makes (T-2155): a household is housed when its
+  `lives_at` names a structure that resolves into the scene
+  (`data/sidecars/<year>/index.json`, which is what the renderer actually loads), OR
+  when a standing structure's sidecar seats it under `residents[]` — the lodging houses
+  and the reconstructed roofs carry their people that way and name nobody's `lives_at`.
+  Until T-2155 only the first join was read, so the screen said 192 of 2,926 were placed
+  while the audit seated 1,253 of the same households. A household the housing deal
+  counts apart as WAITING on a roof the scene does not stand yet is reported on its own
+  line (`waiting_on_a_roof`), and the number grows as the town builds out.
+* **The two files agree on who is present on 1 July, or this one says why not.** The
+  population is the residents INDEX — `data/residents/index.json` and the presence
+  rulings over it. The completion audit also reads the resident folders the index does
+  not carry (the reconstructed trades, lodgers, readmitted, underdocumented and
+  institutional cards), so `beyond_the_index` counts those here, by folder, and
+  `--check` refuses the moment the census and `data/render/town_completion_1835.json`
+  stop summing to the same people.
 
 **Why a derived file and not a constant in the page.** `data/reconstruction`'s own
 build.json lesson: a number written once by hand goes stale silently, and a stale number
@@ -99,6 +110,63 @@ LODGING_GROUPS = ("larger_boarding_houses", "inns_taverns")
 # division of its own in the residents layer, and every household seated in the fort's
 # roofs carries it. Garrison means the officers, the companies and their families.
 GARRISON_DIVISION = "fort"
+
+# T-2155. The resident folders the completion audit reads that the residents index does
+# not carry. Named here rather than imported so the census stays a reader of committed
+# files; `--check`'s reconciliation with the audit's output is what notices a folder
+# added to one and not the other.
+BEYOND_THE_INDEX = ("reconstructed_trades", "lodgers", "readmitted", "underdocumented",
+                    "institutional")
+COMPLETION = DATA / "render" / "town_completion_1835.json"
+HOUSING_SEATS = DATA / "reconstruction" / "1835_housing_seats.json"
+
+
+def value_of(field):
+    """A card field's value, whether it is written bare or as a {value, ...} block."""
+    return field.get("value") if isinstance(field, dict) else field
+
+
+def seated_households(sidecars: dict) -> set[str]:
+    """Every household a standing structure seats under its sidecar's `residents[]`."""
+    seated = set()
+    for row in sidecars["structures"]:
+        sidecar = json.loads((DATA / row["sidecar"]).read_text(encoding="utf-8"))
+        for entry in sidecar.get("residents") or []:
+            if entry.get("household"):
+                seated.add(entry["household"])
+    return seated
+
+
+def beyond_the_index(in_scene: set[str], seated: set[str], ruled_present: set[str],
+                     apart: dict[str, str]) -> dict:
+    """The people on resident cards outside the index, read as the audit reads them."""
+    by_folder = {}
+    for folder in BEYOND_THE_INDEX:
+        row = {"households": 0, "persons_present": 0, "persons_present_housed": 0,
+               "persons_present_waiting_on_a_roof": 0, "persons_present_unhoused": 0,
+               "persons_not_present": 0}
+        for path in sorted((DATA / "residents" / folder).glob("*.json")):
+            card = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(card, dict) or not card.get("id"):
+                continue
+            hid = card["id"]
+            n = len(card.get("persons") or [])
+            row["households"] += 1
+            if not (value_of(card.get("present_on_scene_date")) == "present"
+                    or hid in ruled_present):
+                row["persons_not_present"] += n
+                continue
+            row["persons_present"] += n
+            if value_of(card.get("lives_at")) in in_scene or hid in seated:
+                row["persons_present_housed"] += n
+            elif apart.get(hid) == "waiting_on_a_roof":
+                row["persons_present_waiting_on_a_roof"] += n
+            elif hid not in apart:
+                row["persons_present_unhoused"] += n
+        by_folder[folder] = row
+    total = {k: sum(r[k] for r in by_folder.values()) for k in next(iter(by_folder.values()))}
+    return {**total, "by_folder": by_folder}
+
 
 # T-1353. The visitors, read from the ledger that mints them. Absent file, absent block:
 # this census reports what the dataset carries and never a figure typed here.
@@ -219,14 +287,30 @@ def census_document() -> dict:
     in_scene = {s["id"] for s in sidecars["structures"]}
     roofs = programme["standing"]["physical_roofs"]
 
-    housed = [h for h in residents["households"] if h.get("lives_at") in in_scene]
+    # THE TWO JOINS (T-2155), the audit's own: `lives_at`, or a standing roof that seats
+    # the household under `residents[]`. Counted over the POPULATION the screen shows —
+    # established on the day, or ruled in — so "N of them are placed" is a share of it.
+    seated = seated_households(sidecars)
+    ruled_ids = {r["household_id"] for r in rulings.get("rulings", [])}
+    seats = (json.loads(HOUSING_SEATS.read_text(encoding="utf-8"))
+             if HOUSING_SEATS.exists() else {})
+    apart = {r["household"]: r["why"] for r in seats.get("counted_apart") or []}
+
+    def in_population(h: dict) -> bool:
+        return h.get("present_on_scene_date") == "present" or h["id"] in ruled_ids
+
+    def is_housed(h: dict) -> bool:
+        return h.get("lives_at") in in_scene or h["id"] in seated
+
+    housed = [h for h in residents["households"] if in_population(h) and is_housed(h)]
     housed_ids = {h["id"] for h in housed}
     people = sum(int(h["persons"]) for h in housed)
-    # A household in the dataset whose dwelling is not yet built. Not an error — it is
-    # the headroom the ask is about — but if it ever goes negative-shaped (a lives_at
-    # naming a structure the scene does not carry) that is a broken link, so both halves
-    # are reported and they must sum to the layer's own household count.
-    unhoused = [h for h in residents["households"] if not h.get("lives_at")]
+    waiting = [h for h in residents["households"] if in_population(h) and not is_housed(h)
+               and apart.get(h["id"]) == "waiting_on_a_roof"]
+    # A household in the dataset that neither join houses. Not an error — it is the
+    # headroom the ask is about — but if it ever goes negative-shaped (a lives_at naming
+    # a structure the scene does not carry) that is a broken link, so it is reported.
+    unhoused = [h for h in residents["households"] if not is_housed(h)]
     dangling = sorted(h["lives_at"] for h in residents["households"]
                       if h.get("lives_at") and h["lives_at"] not in in_scene)
 
@@ -354,6 +438,14 @@ def census_document() -> dict:
         "people": {
             "housed": people,
             "households_housed": len(housed),
+            "housed_through": {
+                "lives_at": sum(int(h["persons"]) for h in housed
+                                if h.get("lives_at") in in_scene),
+                "seated_by_a_structure": sum(int(h["persons"]) for h in housed
+                                             if h.get("lives_at") not in in_scene),
+            },
+            "waiting_on_a_roof": sum(int(h["persons"]) for h in waiting),
+            "households_waiting_on_a_roof": len(waiting),
             "group_entries": group_entry_count(housed_ids),
             "households_without_a_dwelling": len(unhoused),
             "town_total": TOWN_TOTAL_PEOPLE,
@@ -416,9 +508,14 @@ def census_document() -> dict:
                     "generated_by": "tools/rule_presence_1835.py",
                 },
             },
-            "basis": "Person entries in households whose `lives_at` names a structure "
-                     "that resolves into the scene. A person counts when the building "
-                     "they live in stands, so this grows as the town builds out.",
+            "basis": "People in the town on 1 July whose household a standing building "
+                     "holds — its card's `lives_at` names the building, or the building "
+                     "seats the household among its residents, as the completion audit "
+                     "reads it. A person counts when the building they live in stands, "
+                     "so this grows as the town builds out.",
+            "waiting_note": "People in the town on 1 July whose household the housing "
+                            "deal holds for a roof the scene does not stand yet "
+                            "(data/reconstruction/1835_housing_seats.json).",
             "floor_note": "A FLOOR, not an estimate: some entries counted here stand for "
                           "a group a source counts but does not name (see group_entries).",
             "dangling_lives_at": dangling,
@@ -433,6 +530,23 @@ def census_document() -> dict:
                          "residents are everyone else. The summer's visitors are counted "
                          "apart and are in neither figure (see `transients`).",
             },
+        },
+        "beyond_the_index": {
+            **beyond_the_index(in_scene, seated,
+                               {r["household_id"] for r in rulings.get("rulings", [])
+                                if value_of(r.get("present_on_scene_date")) == "present"},
+                               apart),
+            "why_apart": "The population above is the residents index "
+                         "(data/residents/index.json) and the presence rulings over it. "
+                         "The completion audit also seats the cards the reconstruction "
+                         "writes outside that index — the trades that staff the town's "
+                         "businesses, the lodgers, the readmitted, the underdocumented and "
+                         "the institutional households — so it counts more people present "
+                         "on 1 July than this figure does. They are not added here: counted "
+                         "in, the town would hold more people on 1 July than the November "
+                         "census counted four months later, and whether the order book "
+                         "over-minted or the index is short is T-2043's reconciliation, "
+                         "not a sum this file may settle by adding.",
         },
         "transients": transient_block(),
     }
@@ -478,6 +592,26 @@ def main() -> int:
               f"town model's own ceiling of {scene['target_high']:,}. One of the two is "
               "wrong and the gate screen shows both.")
         return 1
+    # THE TWO FILES AGREE (T-2155). The census's housed and waiting people, plus the ones
+    # it counts beyond the index, are exactly the people the completion audit reads as
+    # present and housed or waiting. A drift is a join one file makes and the other does
+    # not, and the screen shows both files side by side.
+    if COMPLETION.exists():
+        audit = json.loads(COMPLETION.read_text(encoding="utf-8"))["housed"]
+        audit = audit["present_on_scene_date"]
+        beyond = census["beyond_the_index"]
+        pairs = [("housed", census["people"]["housed"] + beyond["persons_present_housed"],
+                  audit["persons_housed"]),
+                 ("waiting on a roof", census["people"]["waiting_on_a_roof"]
+                  + beyond["persons_present_waiting_on_a_roof"],
+                  audit["persons_waiting_on_a_roof"])]
+        drift = [f"{what}: census {mine:,}, audit {theirs:,}"
+                 for what, mine, theirs in pairs if mine != theirs]
+        if drift:
+            print("TOWN CENSUS DISAGREES WITH THE COMPLETION AUDIT\n  - present on 1 July, "
+                  + "; ".join(drift) + ". Re-run tools/audit_town_completion_1835.py if "
+                  "its output is stale; otherwise one file makes a join the other does not.")
+            return 1
     if args.check:
         if not OUT_PATH.exists():
             print(f"TOWN CENSUS DRIFT\n  - {OUT_PATH.relative_to(ROOT)} is missing")
@@ -499,7 +633,10 @@ def main() -> int:
           f"{scene['target']} modelled "
           f"({scene['persons']} of them established by a record that spans the day, "
           f"{scene['population']['ruled_in']} ruled in by T-1386), "
-          f"{census['people']['housed']} of them housed{visitors_line}")
+          f"{census['people']['housed']} of them housed, "
+          f"{census['people']['waiting_on_a_roof']} waiting on a roof, "
+          f"{census['beyond_the_index']['persons_present']} present beyond the index"
+          f"{visitors_line}")
     return 0
 
 

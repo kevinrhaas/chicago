@@ -1204,7 +1204,10 @@ const server = http.createServer((req, res) => {
 });
 
 await new Promise((r) => server.listen(PORT, r));
-const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}`;
+// T-2158: a phone lets go of its geometry's page arrays once uploaded; the
+// probes below read vertices back, so they ask it to keep them. The release
+// itself is held to account by tools/check_upload_release.mjs.
+const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}&keep-geometry=1`;
 console.log(`serving ${ROOT} on ${PORT} — ${wantPublished ? 'PUBLISHED mirror '
   + '(compressed assets, visitor layout)' : 'source tree (uncompressed masters)'}\n`);
 if (wantPublished && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
@@ -14084,6 +14087,18 @@ for (const [label, viewport, touch] of [
       && citySplit.residents + citySplit.garrison === (cityPopulation ? cityPopulation.persons : cityScene?.persons)
       && (!(citySplit.transients_apart > 0) || hub.city.apart.startsWith(`${grouped(citySplit.transients_apart)} summer visitors are counted apart`)),
       JSON.stringify({ split: hub.city.split, apart: hub.city.apart, data: citySplit }));
+    // T-2155: housed is read by the audit's two joins, so the census and the completion
+    // audit must sum to the same people present, and the screen says what it leaves out.
+    const cityWaiting = Number(hub.city.data?.people?.waiting_on_a_roof);
+    const cityBeyond = Number(hub.city.data?.beyond_the_index?.persons_present_housed);
+    check(`${label}: City states who waits on a roof and who is housed beyond the index`,
+      (!(cityWaiting > 0) || hub.city.note.includes(
+        `${grouped(cityWaiting)} wait on a roof the town does not stand yet`))
+      && (!(cityBeyond > 0) || hub.city.note.includes(
+        `${grouped(cityBeyond)} more the reconstruction houses — trades, lodgers and `
+        + 'others it seats — are not counted in this figure'))
+      && Number.isFinite(cityWaiting) && Number.isFinite(cityBeyond),
+      JSON.stringify({ notes: hub.city.note, cityWaiting, cityBeyond }));
     let residentCounts = null;
     try {
       residentCounts = JSON.parse(
