@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **518** anonymous roofs
+- audited: **519** anonymous roofs
 - keep: **510** (4 kept over a policy breach because they are seated, 0 because nothing they could become is wanted here)
-- refamily: **8** (4 of them into a band that already fits the committed footprint)
+- refamily: **9** (5 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 626 stand, so the town is 42 roofs short before this audit and 42 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 627 stand, so the town is 41 roofs short before this audit and 41 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -26,7 +26,7 @@ The programme wants 668 roofs and 626 stand, so the town is 42 roofs short befor
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 25 | 24 | 3 | 25 | 3 |
+| `structures/larger_boarding_houses/south` | 28 | 25 | 24 | 3 | 26 | 2 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
 | `structures/ordinary_dwellings/south` | 176 | 150 | 141 | 26 | 152 | 24 |
@@ -40,7 +40,7 @@ The programme wants 668 roofs and 626 stand, so the town is 42 roofs short befor
 | `structures/stores_mixed_use/west` | 6 | 6 | 5 | 0 | 6 | 0 |
 | `structures/stores_mixed_use/north` | 4 | 4 | 3 | 0 | 1 | 3 |
 | `structures/stores_mixed_use/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
-| `structures/warehouses_freight/south` | 11 | 7 | 3 | 4 | 7 | 4 |
+| `structures/warehouses_freight/south` | 11 | 8 | 4 | 3 | 7 | 4 |
 | `structures/warehouses_freight/west` | 2 | 2 | 2 | 0 | 2 | 0 |
 | `structures/warehouses_freight/north` | 7 | 7 | 1 | 0 | 7 | 0 |
 | `structures/workshops/south` | 15 | 15 | 12 | 0 | 15 | 0 |
@@ -48,10 +48,11 @@ The programme wants 668 roofs and 626 stand, so the town is 42 roofs short befor
 | `structures/workshops/north` | 7 | 7 | 3 | 0 | 6 | 1 |
 | `structures/workshops/fort` | 1 | 1 | 0 | 0 | 1 | 0 |
 
-## The 8 roofs that change
+## The 9 roofs that change
 
 | roof | division | from | to | verdict | why |
 | --- | --- | --- | --- | --- | --- |
+| `recon_1835_blk_south_water_dearborn_f2_11` | south | F2 | H2 | refamily | the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a4_12` | south | A4 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_north_c3_064` | north | C3 | A2 | refamily | the placement policy refuses this family here — stands on a light street, which commercial_front avoids; the slot is wanted and the position stands |

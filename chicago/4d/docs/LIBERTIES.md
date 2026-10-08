@@ -14352,7 +14352,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 631 phases (628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 632 phases (631 until T-2174's two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge on blk_south_water_dearborn, 2026-10-08, L406; 628 until T-2165's three yard buildings — a stable on blk_indiana_north_wolcott, a barn or carriage shed on blk_south_water_wells and a smokehouse on blk_south_water_dearborn, 2026-10-08, L401; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -16208,12 +16208,13 @@ and **L277** on the store-residences.
 
 ### L280 — The warehouse's cargo-door rhythm: two openings on an F2, three on an F3, and no source counts them
 
-**Scope:** `structures.phases[cargo_rhythm]` — 5 phases built with a cargo-door
+**Scope:** `structures.phases[cargo_rhythm]` — 6 phases built with a cargo-door
 rhythm and a hoist over it: `recon_1835_blk_south_water_clark_f2_01`,
 `recon_1835_blk_south_water_lasalle_f2_10`, since T-1773
-`recon_1835_forks_freight_f2_001` at Lake and West Water and, since T-2150 (L400),
-`recon_1835_branch_freight_f2_001` at Washington and West Water — the town's four **F2**
-roofs — and, since T-2022 (L399), `recon_1835_bank_freight_f3_001` on the North Water bank at LaSalle,
+`recon_1835_forks_freight_f2_001` at Lake and West Water, since T-2150 (L400)
+`recon_1835_branch_freight_f2_001` at Washington and West Water and, since T-2174 (L406),
+`recon_1835_blk_south_water_dearborn_f2_11` behind the stores at South Water and Dearborn — the
+town's five **F2** roofs — and, since T-2022 (L399), `recon_1835_bank_freight_f3_001` on the North Water bank at LaSalle,
 the town's first and only **F3**, built with three. The rhythm itself is `goods_door_bays` and
 `goods_door_spans_m` in `generators/archetypes/frame_storefront_params.py`; the count is
 `tools/family_bands.cargo_door_bays`, which the block and inferred-infill parcels deal to
@@ -22198,3 +22199,42 @@ HABS measured plan. A measured original bay elevation would replace the estimate
 
 **Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`.
 **Recorded:** 2026-10-08 (T-2172).
+### L406 — A two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge that no source seats
+
+**Applies to:** `recon_1835_blk_south_water_dearborn_f2_11` (`data/structures/`), written by
+`tools/generate_block_infill.py` from the `phase3_platted_block_south_water_dearborn_warehouse_deal`
+entry in `data/reconstruction/1835_platted_block_parcels.json`.
+
+**What we invented:** The whole building. The order book's
+`structures/warehouses_freight/south/street_line` band (T-1672's cut) orders 10 warehouses on
+the South Water and Lake street line and the town stood 6. `tools/reconcile_665.py` deals the
+four to blocks, and this is the one of them that has ground today: an **F2** narrow two-storey
+warehouse on lot 0 of `blk_south_water_dearborn`, the South Water and Dearborn corner. It
+stands 13.0 m back from the South Water lot line, centred on the lot, 3.4-3.5 m behind the
+rear walls of the Chicago American office and John Holbrook's store, and faces the 2.84 m gap
+between them. Footprint (7.70 × 13.81 m), storeys, eave, pitch, finish and the hoist door are
+type-level values from the reconstruction specification, sampled deterministically from the
+family's band. No owner, merchant, cargo or occupant is claimed, and it seats no household.
+
+**What bounded the choice:** a non-dwelling takes the block's better face (T-0024), so the
+warehouse fronts South Water or Lake, both principal, and not Dearborn (ordinary) or State
+(light). Every Lake lot carries a principal roof except lot 7, which every deal on this block
+keeps open. On South Water, lots 2 and 4 are at the ledger's three-roof ceiling and lot 6
+carries the Chappel infant school, which the generator will not build beside. Lot 0 is free
+under the owner's 2026-08-27 business-front clause, but its street line is full: the two
+documented stores leave 2.84 m between them against an F2 band that starts at 20 ft. So the
+warehouse stands behind them. The one reading the position leans on is that the corner is at
+the Dearborn drawbridge, the only crossing of the main stem in July 1835.
+
+**What was refused:** the street line's other three warehouses. The schedule's F3 on
+`blk_south_water_wells` is refused on any platted lot by the generator, because a river
+warehouse there would not reach the river (T-0275), and the F3 and F4 on
+`blk_south_water_market` wait on South Water Street's control at Market. They stay owed, to
+T-2175.
+
+**Covers:** `recon_1835_blk_south_water_dearborn_f2_11.inferred_1835.position`,
+`recon_1835_blk_south_water_dearborn_f2_11.inferred_1835.footprint`.
+
+**Ticket:** T-2174 (of T-1673, "the four warehouses the South Water and Lake street line still owes").
+
+**Recorded:** 2026-10-08 (T-2174).

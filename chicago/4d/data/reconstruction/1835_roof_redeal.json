@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 518,
+    "audited": 519,
     "keep": 510,
-    "refamily": 8,
+    "refamily": 9,
     "retire": 0,
     "kept_occupied": 4,
     "breach_owed_out": 0,
     "seated": 179,
     "raised_for_a_trade": 31,
-    "band_already_fits": 4,
+    "band_already_fits": 5,
     "roof_target": 668,
-    "standing_before": 626,
-    "standing_after": 626,
-    "short_of_the_programme_before": 42,
-    "short_of_the_programme_after": 42
+    "standing_before": 627,
+    "standing_after": 627,
+    "short_of_the_programme_before": 41,
+    "short_of_the_programme_after": 41
   },
   "ledger": [
     {
@@ -169,8 +169,8 @@
       "standing": 25,
       "anonymous": 24,
       "head_before": 3,
-      "standing_after": 25,
-      "head_after": 3
+      "standing_after": 26,
+      "head_after": 2
     },
     {
       "bucket": "structures/larger_boarding_houses/west",
@@ -320,9 +320,9 @@
       "group": "warehouses_freight",
       "division": "south",
       "target": 11,
-      "standing": 7,
-      "anonymous": 3,
-      "head_before": 4,
+      "standing": 8,
+      "anonymous": 4,
+      "head_before": 3,
       "standing_after": 7,
       "head_after": 4
     },
@@ -3419,6 +3419,42 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
       "reason": "the order book has an occupant class for a D2 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_f2_11",
+      "division": "south",
+      "family": "F2",
+      "group": "warehouses_freight",
+      "programme_phase": "phase3_platted_block_south_water_dearborn_warehouse_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 1145.2,
+      "street": "dearborn",
+      "street_class": "ordinary",
+      "setback_m": 9.11,
+      "on_the_street_line": false,
+      "conforms": false,
+      "verdict": "refamily",
+      "bucket": "structures/warehouses_freight/south",
+      "reason": "the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street; the slot is wanted and the position stands",
+      "to_family": "H2",
+      "to_group": "larger_boarding_houses",
+      "to_bucket": "structures/larger_boarding_houses/south",
+      "to_band_ft": [
+        24,
+        32,
+        30,
+        42
+      ],
+      "band_already_fits": true,
+      "families_offered": [
+        "H2",
+        "A2",
+        "H1",
+        "D6",
+        "D7",
+        "D5"
+      ]
     },
     {
       "id": "recon_1835_blk_south_water_dearborn_h1_03",

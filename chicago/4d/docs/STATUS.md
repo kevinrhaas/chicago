@@ -1,3 +1,30 @@
+## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
+
+**What changed in the scene.** One F2 narrow two-storey warehouse,
+`recon_1835_blk_south_water_dearborn_f2_11`, dealt as the
+`phase3_platted_block_south_water_dearborn_warehouse_deal` entry in
+`data/reconstruction/1835_platted_block_parcels.json`. It stands on lot 0, the South Water and
+Dearborn corner, 13.0 m back from the South Water lot line and 3.4-3.5 m behind the Chicago
+American office and John Holbrook's store, facing the 2.84 m gap between them. Baked
+(`tools/bake.sh --only`), L406 records it. Order book: South `warehouses_freight/street_line`
+7/10, 3 owed, now to T-2175.
+
+**What it found (T-1673, split into T-2174 and T-2175).** Of the four street-line warehouses
+the 668-roof schedule deals, only this one has ground today. The F3 on `blk_south_water_wells`
+is refused on any platted lot by `generate_block_infill.py` (`REFUSED_FAMILIES`: a river
+warehouse that does not reach the river, T-0275), and the F3 and F4 on `blk_south_water_market`
+wait on that block's street control. On this block the placement was narrowed by the
+generator's own rules. A non-dwelling must take the better face (Dearborn is ordinary,
+South Water and Lake principal). Lot 6's South Water frontage has 12 m clear between the C3
+row and the bank shed, but the Chappel infant school on its State Street side exhausts the
+lot. Every Lake lot but the reserved lot 7 is held. Lot 0's street line is full. So the
+warehouse stands behind the stores rather than on the street. That is the one way the scene
+differs from the row the owner's reference draws, and it is a choice about this lot, not a
+claim about 1835.
+
+**Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
+here. It seats nobody, so no household moved.
+
 ## T-2172 — courtyard tower window and roof proportions (2026-10-08)
 
 The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
