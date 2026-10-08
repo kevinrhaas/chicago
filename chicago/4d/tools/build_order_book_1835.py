@@ -523,8 +523,9 @@ STRUCTURE_TICKETS = {
     # was never the provenance of a fill that the gate's own rule would have kept. A sixth
     # civic roof in the South would be the programme re-budgeted, and the ticket that owns
     # the programme's remainders is T-1983, "the programme reconciled", the same owner the
-    # South's stable and outbuilding rows below were moved to for the same reason.
-    ("south", "institutional_public"): "T-1983",
+    # South's stable and outbuilding rows below were moved to for the same reason. T-1983
+    # was split on 2026-10-08 and its roof re-budget went to T-2156, so this row follows.
+    ("south", "institutional_public"): "T-2156",
     # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies were
     # T-1960's, "wells, privies and stables by household", in all three divisions.
     # MOVED TO T-1215, THEN T-1967, by the pull request that closed T-1960. T-1960 dealt its privies and
@@ -536,9 +537,9 @@ STRUCTURE_TICKETS = {
     # T-1967 shipped the completion report and the City card's completion row and handed
     # "the programme reconciled" — these roofs with it — to T-1983, which answers now.
     # Naming the closed T-1960 or the split T-1215 would order work nobody can claim.
-    # T-1983 was SPLIT on 2026-10-08; its yard-building half is T-2156 ("build or re-budget
-    # the order book's barns_stables and small_outbuildings roofs"), and these six rows
-    # follow it (swept by T-2150, whose rebuild the stale owner refused).
+    # T-1983 WAS SPLIT on 2026-10-08 (T-2154..T-2156) and its roofs went to T-2156, "build
+    # or re-budget the barns_stables and small_outbuildings roofs" — the piece that answers
+    # for these cells, here and in the West and North rows below.
     ("south", "barns_stables"): "T-2156",
     ("south", "small_outbuildings"): "T-2156",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West

@@ -1,9 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1519, ts: '2026-10-08T05:05:56.253Z', date: 'Oct 8, 2026, 12:05 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
+  { v: 1520, ts: '2026-10-08T05:36:00.960Z', date: 'Oct 8, 2026, 12:36 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
       'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
       'No record names it. It is the West Division\u2019s second warehouse, which the plan counted and nobody had built. The plan first put it a block inland, where no river reaches. Here the river runs closer to West Water Street than anywhere else on the west side, so a warehouse can face its landing.',
       'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L400).',
+  { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
+    items: [
+      'Evidence \u2192 City now shows how many homes stand against the 398 dwellings the town\u2019s census counted that November: 309 houses, or 358 if the census also counted the boarding houses and taverns. Nobody knows which way it counted, so the figure is a range and the bar shows both.',
+      'The people figure is now split into townspeople and the Fort Dearborn garrison (127 soldiers, officers and their families). The summer\u2019s 307 visitors are named as counted separately rather than added in.',
     ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
     items: [
