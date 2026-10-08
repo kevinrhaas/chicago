@@ -40,7 +40,7 @@ export function dwellMs(entry, expectedSeconds = 2.4) {
 }
 export function createLoadingContent({ boot, cardEl, seed = Math.random(),
   now = () => performance.now(), schedule = setTimeout, cancel = clearTimeout,
-  entries = EARLY_ENTRIES, arrivalLine = ARRIVAL_LINE, warm = false } = {}) {
+  entries = EARLY_ENTRIES, arrivalLine = ARRIVAL_LINE, warm = false, onPaint = () => {} } = {}) {
   const bags = createBags(entries, seed);
   let phase = 'assess', bootPhase = 'scene', stopped = false, landed = false, failed = false;
   let timer = null, shownAt = -Infinity, current = null, count = 0, renderedBoot = null;
@@ -50,6 +50,8 @@ export function createLoadingContent({ boot, cardEl, seed = Math.random(),
     cardEl.textContent = entry.text + (entry.source_label ? ` — ${entry.source_label}` : '');
     cardEl.dataset.loadingId = entry.id; cardEl.dataset.loadingKind = entry.kind;
     cardEl.dataset.loadingPhase = entry.phase;
+    // T-2164: the arrival screen keeps the last few as a status log. Presentation only.
+    try { onPaint(entry); } catch { /* a log can never stop the cards */ }
   }
   function tick() {
     timer = null;

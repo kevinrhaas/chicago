@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1522, ts: '2026-10-08T06:43:34.379Z', date: 'Oct 8, 2026, 1:43 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
+    items: [
+      'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
+      'The machine stays the same size the whole time. Long statuses are cut to fit their line instead of stretching the box.',
+      'On a slow connection the year no longer stops on one number while the town downloads. The machine measures your connection and how much is left, and rolls the year back at that pace.',
+      'A strip under the screen shows how much has downloaded, your connection speed and the time left. Your next visit is timed from this one.',
+    ] },
   { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
       'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',

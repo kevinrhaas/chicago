@@ -82,6 +82,18 @@ function setDigits(host, year, animate) {
   host.dataset.year = text;
 }
 
+const MB = 1e6;
+/** The readout's figures: fixed-width, so the device never reflows as they change. */
+export function formatReadout({ bytes = 0, total = 0, rate = null, eta = null } = {}, ready = false) {
+  const mb = n => (n / MB).toFixed(n >= 100 * MB ? 0 : 1);
+  const secs = Math.max(0, Math.round(Number.isFinite(eta) ? eta : 0));
+  return {
+    bytes: `${mb(bytes)} / ${mb(Math.max(bytes, total))} MB`,
+    rate: rate == null ? '— MB/s' : `${(rate / MB).toFixed(rate >= 10 * MB ? 0 : 1)} MB/s`,
+    eta: ready ? 'LOCKED' : `T-${String(Math.floor(secs / 60)).padStart(2, '0')}:${String(secs % 60).padStart(2, '0')}`,
+  };
+}
+
 function setBar(bar, progress) {
   if (!bar) return;
   const pct = progress >= 1 ? 100 : Math.min(99, Math.round(clamp01(progress) * 100));
@@ -108,6 +120,13 @@ export function createArrival({
   reload = () => location.reload(),
   requestFrame = typeof requestAnimationFrame === 'function' ? requestAnimationFrame : null,
   cancelFrame = typeof cancelAnimationFrame === 'function' ? cancelAnimationFrame : () => {},
+  // T-2164: the portable machine. All optional; without a forecast the clock runs on
+  // the CPU weights alone, exactly as before.
+  forecast = null,
+  headlineEl = null,
+  logEl = null,
+  lampsEl = null,
+  readoutEl = null,
 } = {}) {
   if (!boot) throw new Error('createArrival requires api.boot');
   const presentation = scenePresentation(targetYear);
@@ -115,8 +134,38 @@ export function createArrival({
   const titles = arrivalTitles(targetYear);
   let titleIndex = 0, titleAt = now();
   if (titleEl) titleEl.textContent = titles[0];
+  if (headlineEl) headlineEl.textContent = titles[0];
+  // The status log: a fixed number of rows made once, so a long line is clipped on
+  // its row and the device's box never grows or shrinks as statuses cycle.
+  const logRows = logEl ? [...logEl.children] : [];
+  let previousEntry = null;
+  const pushLog = entry => {
+    if (previousEntry && logRows.length && entry?.phase !== 'land') {
+      for (let i = 0; i < logRows.length - 1; i++) {
+        logRows[i].textContent = logRows[i + 1].textContent;
+        logRows[i].className = logRows[i + 1].className;
+      }
+      const last = logRows.at(-1);
+      last.textContent = previousEntry.text;
+      last.className = 'ok fresh';
+    }
+    previousEntry = entry;
+  };
   const content = cardEl ? createLoadingContent({ boot, cardEl, now,
-    entries: presentation.entries, arrivalLine: presentation.arrivalLine, ...contentOptions }) : null;
+    entries: presentation.entries, arrivalLine: presentation.arrivalLine, onPaint: pushLog,
+    ...contentOptions }) : null;
+  const lamp = id => lampsEl?.querySelector(`[data-phase="${id}"]`);
+  const setLamp = (id, state) => { const el = lamp(id); if (el) el.dataset.state = state; };
+  let readoutAt = -Infinity;
+  const readoutFields = readoutEl ? Object.fromEntries([...readoutEl.querySelectorAll('[data-read]')]
+    .map(el => [el.dataset.read, el])) : {};
+  function paintReadout(at, done = false) {
+    if (!readoutEl || !forecast || (!done && at - readoutAt < 250)) return;
+    readoutAt = at;
+    const text = formatReadout(forecast.readout(at), done);
+    for (const [key, el] of Object.entries(readoutFields)) if (el.textContent !== text[key]) el.textContent = text[key];
+  }
+  let forecastProgress = 0;
   let failed = false;
   let ready = false;
   let settleRaf = null;
@@ -149,7 +198,8 @@ export function createArrival({
     // Optional work cannot replace the essential phase's announcement.
     const label = event?.phase?.essential !== false && event?.phase?.label;
     if (label && phaseEl && phaseEl.textContent !== label) phaseEl.textContent = label;
-    progress = Math.max(progress, bootProgress(boot.phases, boot.expected, now()));
+    progress = Math.max(progress, bootProgress(boot.phases,
+      forecast ? forecast.durations(now()) : boot.expected, now()));
     setBar(barEl, progress);
     if (reducedMotion) showYear(yearForProgress(reducedProgress(progress), currentYear, false, targetYear), false);
     else if (!requestFrame) showYear(yearForProgress(progress, currentYear, false, targetYear), false);
@@ -161,6 +211,18 @@ export function createArrival({
     if (titleEl && !reducedMotion && at - titleAt >= 3000) {
       titleIndex = (titleIndex + 1) % titles.length; titleAt = at;
       titleEl.textContent = titles[titleIndex];
+      if (headlineEl) headlineEl.textContent = titles[titleIndex];
+    }
+    if (forecast) {
+      // T-2164. Move at the forecast's pace rather than waiting on events: each frame
+      // covers its share of what is left, so the year lands as the forecast does, and
+      // a forecast that grows only slows the roll — it never stops or reverses it.
+      const dt = Math.max(0, at - lastFrame) / 1000;
+      const left = Math.max(0.25, forecast.remaining(at));
+      forecastProgress = Math.max(forecastProgress, progress);
+      forecastProgress = Math.min(0.985, forecastProgress + (1 - forecastProgress) * Math.min(1, dt / left));
+      progress = Math.max(progress, forecastProgress);
+      paintReadout(at);
     }
     sync();
     const target = yearForProgress(progress, currentYear, false, targetYear);
@@ -189,6 +251,7 @@ export function createArrival({
     const msg = message || (error ? `Could not finish the reconstruction — ${String(error.message || error)}`
       : 'Could not finish the reconstruction.');
     if (phaseEl) phaseEl.textContent = msg;
+    lampsEl?.querySelectorAll('[data-state="active"]').forEach(el => { el.dataset.state = 'fault'; });
     if (buttonEl) {
       buttonEl.disabled = false;
       buttonEl.textContent = 'Retry';
@@ -213,6 +276,7 @@ export function createArrival({
       content?.land();
       setBar(barEl, 1);
       barEl?.classList.add('done');
+      paintReadout(now(), true);
       if (phaseEl) phaseEl.textContent = content ? 'Ready to explore.'
         : presentation.arrivalLine;
       if (buttonEl) {
@@ -238,6 +302,8 @@ export function createArrival({
   }
 
   for (const type of ['phasestart', 'phaseprogress', 'phaseend']) boot.on(type, sync);
+  boot.on('phasestart', ({ phase }) => { if (phase?.essential) setLamp(phase.id, 'active'); });
+  boot.on('phaseend', ({ phase }) => { if (phase?.essential) setLamp(phase.id, phase.error ? 'fault' : 'done'); });
   boot.on('error', event => {
     if (event.phase?.essential !== false) fail(event.phase?.error || 'Boot failed',
       { message: `${event.phase?.label || 'Reconstruction'} failed — ${event.phase?.error || 'unknown error'}` });

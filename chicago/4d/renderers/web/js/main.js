@@ -24,6 +24,7 @@ const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
+import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.js';
 import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
@@ -1295,13 +1296,18 @@ window.__chicago4d = api;
 document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
-const bootController = createBoot({
+const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
   build: document.getElementById('gate-build')?.textContent || VERSION,
-  storage: bootStorage, problems,
-});
+  storage: bootStorage,
+};
+const bootController = createBoot({ ...bootCell, problems });
 api.boot = bootController;
+// T-2164: the arrival clock forecasts the downloads too — bytes over the measured link.
+const bootForecast = createForecast({ ...bootCell, boot: bootController,
+  meter: createNetMeter(), bytes: expectedBytes(bootCell) });
+bootController.forecast = bootForecast;
 const arrival = createArrival({
   boot: bootController,
   targetYear: YEAR,
@@ -1315,6 +1321,11 @@ const arrival = createArrival({
   cardEl: document.getElementById('arrival-card'),
   barEl: gateBar,
   buttonEl: gateBtn,
+  forecast: bootForecast,
+  headlineEl: document.getElementById('arrival-headline'),
+  logEl: document.getElementById('arrival-log'),
+  lampsEl: document.getElementById('arrival-lamps'),
+  readoutEl: document.getElementById('arrival-readout'),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
