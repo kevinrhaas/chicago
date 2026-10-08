@@ -15,8 +15,9 @@ separation leave 4.85-5.55 m beside it, narrower than any A2 (5.49 m at the band
 recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this deal: North 31 yard
 roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
 divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
-split: T-2165 is this, T-2166 owns the North's five, the West's seven and the re-budget question,
-and the order book's yard rows (and the South's civic row) now name T-2166.
+split: T-2165 is this, and T-2166 — split again the same day — went to T-2167 (the West's four
+on blk_washington_clinton) and T-2168 (the North's five, the West balance's three and the
+re-budget question); the order book's yard rows (and the South's civic row) now name T-2168.
 
 **Unverified.** The positions are invented on generated lots (L401); no source seats any of the
 three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
