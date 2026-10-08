@@ -54,6 +54,7 @@ import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
@@ -1507,6 +1508,30 @@ async function boot() {
   });
   if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
   scene3d.add(terrain.group);
+  /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
+   *  and lets go of its page arrays (upload-release.js), keeping back what this
+   *  tier never shows. */
+  const settleOnGpu = (layer) => {
+    if (!coarse) return;
+    const want = DETAIL[detailLevel] ?? DETAIL.full;
+    // What the reach will hold back from where the visitor stands is left for
+    // the walk to upload when it comes near, as it always was.
+    const reach = layer.name === 'terrain' ? want.groundDetailReachM
+      : FURNITURE_LAYERS.includes(layer.name) ? want.furnitureReachM : null;
+    const eye = camera.position;
+    const sphere = new THREE.Sphere();
+    const beyond = (o) => {
+      if (typeof reach !== 'number' || !o.isMesh || !o.geometry?.attributes.position) return false;
+      if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
+      sphere.copy(o.geometry.boundingSphere).applyMatrix4(o.matrixWorld);
+      return eye.distanceTo(sphere.center) - sphere.radius > reach;
+    };
+    layer.updateWorldMatrix(true, true);
+    uploadLayerNow(renderer, scene3d, camera, layer, {
+      hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
+        || (want.woodpiles === false && !!o.userData.woodpiles) || beyond(o),
+    });
+  };
   // T-1154 — the ground's reach, set from the fog the world just made rather
   // than from a literal here, so a scene that changes its haze moves the reach
   // with it and the two can never drift apart. See terrain.js hazeReachM().
@@ -1523,6 +1548,7 @@ async function boot() {
   });
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
+  settleOnGpu(buildings.group);
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -1579,6 +1605,8 @@ async function boot() {
     ?? groundProof?.STRIP_ANCHORS[0] ?? loaded.scene.spawn ?? {};
   const walker = createWalker({ camera, terrain, footprints, decks, spawn });
   walker.apply();
+  // From where the visitor will stand, so the ground's reach can be read.
+  settleOnGpu(terrain.group);
 
   // The dated street layer is a skin on the heightfield, never a replacement
   // for it.  Mount it before vegetation so the travelled strips can clear only
@@ -1590,6 +1618,7 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(streets.group);
+  settleOnGpu(streets.group);
   if (groundProof) {
     api.groundStrip = await groundProof.createGroundStrip({
       terrain, assetBase: bases.assetBase, problems,
@@ -1629,6 +1658,7 @@ async function boot() {
     dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
   });
   scene3d.add(enclosures.group);
+  settleOnGpu(enclosures.group);
   api.enclosures = enclosures;
 
   /**
@@ -1650,6 +1680,7 @@ async function boot() {
     records: enclosures.records, terrain, confidence, problems,
   });
   scene3d.add(yards.group);
+  settleOnGpu(yards.group);
   api.yards = yards;
 
   // The boards the businesses hung out over the footway. Like a fence, a
@@ -1677,6 +1708,7 @@ async function boot() {
     lowSpec: coarse,
   });
   scene3d.add(yard.group);
+  settleOnGpu(yard.group);
   api.yard = yard;
 
   // The frontage works — the plank walks along a building's street walls, the
@@ -1691,6 +1723,7 @@ async function boot() {
     dataBase: layerBase('frontage'), terrain, confidence, problems: layerProblems('frontage'), hostMissing,
   });
   scene3d.add(frontage.group);
+  settleOnGpu(frontage.group);
   api.frontage = frontage;
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
@@ -2095,6 +2128,7 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(trees.group);
+  settleOnGpu(trees.group);
   await flora.prepare?.(camera, bootCheckpoint, plantingProgress);
   bootController.end('flora');
   bootController.start('interaction');
@@ -2190,6 +2224,7 @@ async function boot() {
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
+      if (coarse) releaseAfterUpload(scene3d, renderer);
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -2257,6 +2292,7 @@ async function boot() {
         ...detailOpts(),
       });
       scene3d.add(trees.group);
+      if (coarse) releaseAfterUpload(scene3d, renderer);
       api.flora = flora;
       api.trees = trees;
       confidence.set(confidence.enabled);
@@ -3388,6 +3424,9 @@ async function boot() {
       fpsMark = now;
     }
   }
+  // T-2158: before anything is uploaded, a phone marks the layers that may let
+  // go of their page arrays once the GPU has them (upload-release.js).
+  if (coarse) releaseAfterUpload(scene3d, renderer);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
@@ -3689,6 +3728,7 @@ async function boot() {
     brightness: { get: () => world.brightness, enumerable: true },
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
+    uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.
