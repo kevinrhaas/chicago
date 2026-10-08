@@ -157,7 +157,12 @@ HOUSEHOLD_TYPES = (
 # households these rows still order: those are a reconciliation against the head records
 # awaiting a household, which is T-2043's. A row that still owes work may not name a
 # ticket that is finished.
-FAMILY_OWNER = "T-2043"
+# SWEPT AGAIN ON T-2043's SPLIT (2026-10-08, ported by T-2186 so every branch's gate
+# stops reading a split owner). T-2043 split into T-2187 (rule on the adult men the book
+# still orders into family houses) and T-2188 (seat the family and store households), so
+# the person rows go to the first and the household rows to the second.
+FAMILY_OWNER = "T-2187"
+FAMILY_HOUSEHOLD_OWNER = "T-2188"
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
 
@@ -265,8 +270,8 @@ ROSTER_TICKETS = {
 # Household types against the roof groups that hold them, and the ticket that
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
-    ("family_dwelling", "ordinary_dwellings", FAMILY_OWNER),
-    ("store_residence", "stores_mixed_use", FAMILY_OWNER),
+    ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", FAMILY_HOUSEHOLD_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -3691,7 +3696,7 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
+    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_HOUSEHOLD_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
