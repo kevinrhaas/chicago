@@ -1612,8 +1612,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 672,
-    "roofs_to_build": 15,
+    "roofs_standing": 673,
+    "roofs_to_build": 14,
     "persons_standing": 2926,
     "persons_still_owed": 215,
     "persons_when_the_book_is_filled": 3141,
@@ -1631,13 +1631,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 312,
-    "still_owed": 1112,
+    "seated": 313,
+    "still_owed": 1111,
     "roofs_adopted": 311,
-    "slots_requested": 1,
-    "roofs_standing": 672,
-    "roofs_standing_unseated": 361,
-    "share_of_standing_roofs_seated": 0.4628,
+    "slots_requested": 2,
+    "roofs_standing": 673,
+    "roofs_standing_unseated": 362,
+    "share_of_standing_roofs_seated": 0.4621,
     "passes": [
       {
         "key": "platted",
@@ -1646,24 +1646,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 213,
-        "handed_on": 1211,
+        "seated": 214,
+        "handed_on": 1210,
         "roofs_adopted": 212,
-        "slots_requested": 1,
+        "slots_requested": 2,
         "roofs_offered_for_adoption": 222,
-        "roofs_held_back": 60,
-        "ground_taken": 195,
+        "roofs_held_back": 61,
+        "ground_taken": 196,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 163,
+          "south": 164,
           "west": 42
         },
         "by_clause": {
-          "labourer_dwellings": 39,
+          "labourer_dwellings": 38,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 136
+          "tradesman_dwellings": 138
         }
       },
       {
@@ -1672,9 +1672,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1211,
+        "rows_offered": 1210,
         "seated": 99,
-        "handed_on": 1112,
+        "handed_on": 1111,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 106,
@@ -1696,21 +1696,32 @@
     ],
     "requested_slots": [
       {
-        "household_id": "hh_laframboise_franois",
-        "name": "The Laframboise household — a name the town's own records carry",
+        "household_id": "hh_dewey_s",
+        "name": "The Dewey household — a name the town's own records carry",
         "district": "south",
-        "clause": "labourer_dwellings",
+        "clause": "tradesman_dwellings",
+        "block_id": "blk_school_section_tier_81",
+        "lot_id": "blk_school_section_tier_81#01",
+        "family": "D5",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+      },
+      {
+        "household_id": "hh_dickson_david",
+        "name": "The Dickson household — a name from the post office's letter lists",
+        "district": "south",
+        "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_95",
         "lot_id": "blk_school_section_tier_95#01",
-        "family": "D2",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D2 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
+        "family": "D6",
+        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D6 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       }
     ],
     "slot_blocks": [
+      "blk_school_section_tier_81",
       "blk_school_section_tier_95"
     ],
-    "what_the_slots_wait_on": "1 slot(s) on 1 block(s) — blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,112 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_the_slots_wait_on": "2 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "what_is_left": "1,111 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -4960,11 +4971,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 672,
-        "standing_with_an_occupant": 259,
+        "standing_records": 673,
+        "standing_with_an_occupant": 260,
         "standing_without_an_occupant": 413,
-        "to_build_total": 15,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 413 of the 672 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "to_build_total": 14,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 413 of the 673 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5480,9 +5491,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 9,
-        "roofs_gated_on_coverage": 6,
-        "statement": "9 of the 15 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 6,
+        "roofs_gated_on_coverage": 8,
+        "statement": "6 of the 14 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5802,7 +5813,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "413 of 672 standing records carry no occupants block."
+      "measured_now": "413 of 673 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

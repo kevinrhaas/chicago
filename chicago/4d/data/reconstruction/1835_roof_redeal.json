@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 545,
-    "keep": 543,
+    "audited": 546,
+    "keep": 544,
     "refamily": 2,
     "retire": 0,
-    "kept_occupied": 4,
+    "kept_occupied": 5,
     "breach_owed_out": 6,
-    "seated": 188,
+    "seated": 189,
     "raised_for_a_trade": 31,
     "band_already_fits": 0,
     "roof_target": 668,
-    "standing_before": 653,
-    "standing_after": 653,
-    "short_of_the_programme_before": 15,
-    "short_of_the_programme_after": 15
+    "standing_before": 654,
+    "standing_after": 654,
+    "short_of_the_programme_before": 14,
+    "short_of_the_programme_after": 14
   },
   "ledger": [
     {

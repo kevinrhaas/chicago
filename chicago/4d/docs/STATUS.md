@@ -24,15 +24,14 @@ claim about 1835.
 
 **What it moved.** Lot 0 was the block's last unreserved free lot, so the schedule returns the
 block's other two scheduled roofs (a D2 and a D6) to the South's balance and re-apportions it,
-and the block itself goes to capacity. Merged over T-2147's six houses on School Section block 81,
-the re-deal costs the plat one seat (214 -> 213, L270): the D4 slot hh_dewey_s held on block 81
-lot 1 and the D5 slot hh_dickson_david held on block 95 lot 1 go, both owed to T-1614 in
-writing, and hh_laframboise_franois is dealt a D2 slot on block 95 lot 1 instead. So T-2176's
-two named slots are now one, a D2 on block 95 lot 1. Of the 19 roofs still to build, 11 stand on
-committed ground and 8 wait on coverage (14 and 6 before, as the re-apportionment sends roofs
-to gated `blk_south_water_market`). The street-face adoption gives the warehouse Briggs &
-Humphrey (carriage and sleigh making, South Water Street, no narrower address) and reshuffles
-that face's firms. The business deal holds 45 roofs (was 44).
+and the block itself goes to capacity. Merged over T-2147's six houses on School Section block 81
+and T-2170's five Kinzie-core barns, the re-deal seats one more household on the plat (213 -> 214,
+L270): hh_dewey_s is dealt a D5 slot on block 81 lot 1 and hh_dickson_david a D6 slot on block 95
+lot 1, while hh_laframboise_franois, who held the D2 slot on block 95 lot 1 after T-2170, is
+handed on, owed to T-1614 in writing. So T-2176's slots read a D5 on block 81 lot 1 and a D6 on
+block 95 lot 1. The street-face adoption gives the warehouse Briggs & Humphrey (carriage and
+sleigh making, South Water Street, no narrower address) and reshuffles that face's firms. The
+business deal holds 45 roofs (was 44).
 
 **Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
 here, and the warehouse itself seats no household.

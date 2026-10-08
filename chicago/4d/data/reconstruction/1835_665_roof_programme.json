@@ -47,9 +47,9 @@
    "moved": [
     {
      "district": "south",
-     "blocks": 5,
-     "trade_roofs": 4,
-     "blocks_redealt": 5,
+     "blocks": 4,
+     "trade_roofs": 3,
+     "blocks_redealt": 3,
      "quota": {
       "blk_south_water_wells": 1,
       "blk_school_section_tier_81": 0,
@@ -70,7 +70,12 @@
    "swapped": [],
    "held": [
     {
-     "unit": "blk_south_water_dearborn",
+     "unit": "blk_south_water_wells",
+     "family": "F3",
+     "why": "south has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
+    },
+    {
+     "unit": "blk_south_water_market",
      "family": "F3",
      "why": "south has no unbounded balance holding a dry principal roof to exchange, so the roof stays on the block and the block generator defers it (L203)"
     }
@@ -80,14 +85,14 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 672,
+  "structure_records": 673,
   "physical_roofs": {
-   "min": 653,
-   "max": 654,
+   "min": 654,
+   "max": 655,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 514,
+   "generated": 515,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
@@ -172,7 +177,7 @@
   ]
  },
  "remaining": {
-  "roofs": 15,
+  "roofs": 14,
   "of_target": 668,
   "by_district": {
    "south": 14,
@@ -209,7 +214,7 @@
    "D6": 1,
    "D7": 0,
    "F1": 0,
-   "F2": 1,
+   "F2": 0,
    "F3": 1,
    "F4": 1,
    "H1": 0,
@@ -236,8 +241,7 @@
     "D4": 2,
     "D5": 2,
     "D6": 2,
-    "F2": 2,
-    "F3": 1,
+    "F3": 2,
     "F4": 1
    },
    "west": {},
@@ -262,9 +266,9 @@
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 9,
-  "gated_on_coverage": 6,
-  "statement": "9 of the 15 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "schedulable_on_committed_ground": 6,
+  "gated_on_coverage": 8,
+  "statement": "6 of the 14 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 428,
   "blocks_named": 89,
   "southern_ground": {
@@ -340,7 +344,7 @@
     "A2": 1,
     "D2": 1,
     "D4": 1,
-    "F2": 1
+    "F3": 1
    },
    "principal": 3,
    "ancillary": 1,
@@ -411,19 +415,15 @@
    },
    "lots": 8,
    "capacity_roofs": 31,
-   "standing_roofs": 17,
-   "free_lots": 2,
-   "principal_room": 3,
-   "ancillary_room": 1,
-   "headroom": 4,
-   "state": "open",
-   "roofs": 3,
-   "families": {
-    "D5": 1,
-    "D6": 1,
-    "F3": 1
-   },
-   "principal": 3,
+   "standing_roofs": 18,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0,
    "lot_ceiling_principal": 0,
    "row_lots_required": 0
@@ -2401,7 +2401,7 @@
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
    "roofs": 1,
    "families": {
-    "H3": 1
+    "D5": 1
    },
    "principal": 1,
    "ancillary": 0,
@@ -2457,7 +2457,7 @@
    "density": "one principal roof per lot and no party-line row, the block keeping one lot open — the School Section tier south of Madison (T-2144, on the T-1755 ruling)",
    "roofs": 1,
    "families": {
-    "D2": 1
+    "D6": 1
    },
    "principal": 1,
    "ancillary": 0,
@@ -2540,12 +2540,13 @@
    "lots_note": "eight lots assumed from the emitted blocks' own subdivision; the block itself is not generated, so it has no measured geometry",
    "roofs": 8,
    "families": {
-    "D4": 2,
-    "D5": 2,
+    "D2": 1,
+    "D4": 1,
+    "D5": 1,
     "D6": 1,
-    "F2": 1,
+    "F3": 1,
     "F4": 1,
-    "H3": 1
+    "H3": 2
    },
    "principal": 8,
    "ancillary": 0,
