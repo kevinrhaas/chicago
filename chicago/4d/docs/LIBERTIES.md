@@ -13095,17 +13095,21 @@ What changed is the 91 houses, which are no longer dwellings the book counts.
 Related: tickets **T-1174**, from **T-1167**; **L244** is the stage before it, **T-1161**'s town
 model and **T-1166**'s order book are the two files it draws against. **Recorded:** 2026-09-19.
 
-### L248 — 308 people are given a trade the town needed and no roster printed, and their shares come from a directory four years late
+### L248 — 309 people are given a trade the town needed and no roster printed, and their shares come from a directory four years late
 
-**Decision:** `tools/reconstruct_trade_households.py` (T-1347, of T-1173) writes 308
+**Decision:** `tools/reconstruct_trade_households.py` (T-1347, of T-1173) writes 309
 reconstructed heads into `data/residents/reconstructed_trades/`, one per person the
 reconstruction order book counts the town of 1 July 1835 short of in its twenty-four
-`family/trade` buckets — 197 men and 111 women, by sex, age band and division. Each is a
+`family/trade` buckets — 197 men and 112 women, by sex, age band and division. Each is a
 head of their own household, carries an invented name from the pools, an age band the
 bucket set, and **a trade dealt from the Fergus
 1839 directory's printed shares** (T-1346's table: 1,377 mapped entries over 88 trades).
+The deal is FROZEN once drawn (T-2178): a head already dealt keeps their slot, trade and
+name when the book's order moves, and a bucket that orders more is topped up with the trade
+the plan is furthest short of — the 309th, a West boarding-house keeper, came that way when
+six St Mary's infants were ruled not yet born on the day.
 
-**Scope:** `residents.persons[trade_households]` — 308 people in 308 cards, one head apiece, re-derivable from `tools/reconstruct_trade_households.py --check`.
+**Scope:** `residents.persons[trade_households]` — 309 people in 309 cards, one head apiece, re-derivable from `tools/reconstruct_trade_households.py --check`.
 
 **Why:** because the order book is the quota and the quota was empty. The town model reads
 1835 Chicago as employing around 506 people and the rosters this project can read name 457
@@ -22399,3 +22403,33 @@ compatible anonymous roof and never increases the total.
 **Ticket:** T-2170.
 **Related:** **L393**, **L294**, **T-2165**, **T-2168**.
 **Recorded:** 2026-10-08 (T-2170).
+
+
+### L-glessner-courtyard-windows-2183 — aligned courtyard openings and projecting eave
+
+**Decision:** Supersedes T-2172's perspective-based enlargement of the principal
+bay windows: their sill/head return to 9.3–14.5 ft above north grade, matching
+the north courtyard first floor. The upper north-wing openings shorten to
+20.9–24.0 ft, sharing the existing tower band. These are reconstructed
+alignments (about +/-1 ft), bounded by HABS courtyard photograph 05 and the
+owner photographs reviewed in the recovered T-2183 work; they are not surveyed
+1904 dimensions. The period divided sash is retained.
+
+The north courtyard roof projects 2.36 ft beyond its wall to meet the bay
+shoulders at 24 ft above north grade. Its wall-line ordinate is 25.633722 ft
+at the existing 34.1-ft ridge. This continuous eave interpretation replaces
+the prior extrapolated 26.5-ft wall ordinate; overhang and junction height are
+reconstructed within about half a foot. The copper apron, tiled connector,
+corner return and gutter meet this edge. The street eave is unchanged.
+The full source reasoning and the earlier readings remain in the structure
+record and `RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
+Dark opaque glass is now the default at Full as well as Balanced and Light,
+extending L383 at the owner's request. This is a rendering choice, not a
+historical claim about the glass. The explicit glass comparison override remains.
+No photographic pixels are used and the owner attachments are not republished.
+
+**How to resolve:** a measured original courtyard elevation or dated roof
+section would replace these reconstructed heights and overhang.
+**Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`, `glessner_house.as_built_1887.form.opening_heights`, `glessner_house.as_built_1887.form.ridge_north_range`.
+**Recorded:** 2026-10-08 (T-2183).

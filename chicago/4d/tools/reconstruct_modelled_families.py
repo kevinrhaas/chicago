@@ -1939,8 +1939,11 @@ def self_test() -> int:
     # (38 and 961 until T-2071's concordance read hh_crissy_william onto hh_crisey_william;
     # 960 until T-2076 read hh_palmer_n_h's 1 July 1835 printing onto his card, which
     # settles him present on the card itself and leaves no uncertainty to rule on).
+    # T-2178 RESTATED IT FROM 959 TO 953: six St Mary's children whose own baptismal entries
+    # put their births after 1 July 1835 are carded `absent` by the civic mint now, so they
+    # reach the presence stage as evidenced absences and not as households to rule on.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 959)
+          len(ruled_present()) == 953)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",

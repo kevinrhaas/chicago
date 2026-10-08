@@ -36,7 +36,17 @@ for(const [label,viewport,detail] of [['desktop',{width:1280,height:800},'full']
   },{pos,target});
   await page.screenshot({path:path.join(out,`${label}-${name}.png`)});stands.push({name,...observation});
  }
- results.push({label,viewport,detail,boot,errors,bad,assets,stands});
+ const switches=[];
+ for(const level of ['balanced','light','full']){
+  const observation=await page.evaluate(async level=>{const a=__chicago4d;await a.setDetail(level);a.step();
+   const modes=new Set();a.scene3d.traverse(o=>{for(const m of (Array.isArray(o.material)?o.material:[o.material]))if(m?.userData.glassMode)modes.add(m.userData.glassMode)});
+   return {detail:a.detail,glassModes:[...modes],problems:a.problems};
+  },level);
+  switches.push(observation);
+  if(observation.detail!==level||observation.problems.length||observation.glassModes.length!==1||observation.glassModes[0]!=='dark')throw Error(JSON.stringify({label,switches}));
+ }
+ if(!assets.some(a=>a.url.endsWith('.light.glb'))||!assets.some(a=>a.url.endsWith('__as_built_1887.glb')))throw Error('Both canonical detail assets must load');
+ results.push({label,viewport,detail,boot,errors,bad,assets,stands,switches});
  if(errors.length||bad.length||stands.some(x=>x.problems.length||!x.stats.withinBudget||!x.glassModes.includes('dark')))throw Error(JSON.stringify(results.at(-1)));
  await context.close();console.log(label+' actual published 1904 app: PASS');
 }

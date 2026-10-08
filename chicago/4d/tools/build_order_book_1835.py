@@ -157,7 +157,11 @@ HOUSEHOLD_TYPES = (
 # households these rows still order: those are a reconciliation against the head records
 # awaiting a household, which is T-2043's. A row that still owes work may not name a
 # ticket that is finished.
-FAMILY_OWNER = "T-2043"
+# T-2043 split on 2026-10-08: its adult-person reconciliation belongs to
+# T-2187; seating the already-present family/store households belongs to T-2188.
+# Only the current work owners move. Historical fills keep the ticket that made them.
+FAMILY_PERSON_OWNER = "T-2187"
+FAMILY_OWNER = "T-2188"
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
 
@@ -240,9 +244,14 @@ PERSON_TICKET_RULES = (
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
-    ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
+    # SWEPT ON T-2178 (2026-10-08). T-1347 drew the trade heads and is done; its cells sat
+    # at their order until six St Mary's infants, carded as heads and counted in them,
+    # were ruled not yet born on the day and left one owing. Every cell that reaches this
+    # rule is a FAMILY cell (the fort, transient and lodging rows are taken above), so
+    # what is left in it is the family-person reconciliation, now FAMILY_PERSON_OWNER's.
+    ("an adult at a trade", lambda a: a["trade"] == "trade", FAMILY_PERSON_OWNER),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
-    ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_OWNER),
+    ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_PERSON_OWNER),
 )
 
 # The roster's classes, and the ticket each class is offered to. A roster class is
@@ -3686,7 +3695,7 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
+    p_1171, h_1171 = owed(persons, FAMILY_PERSON_OWNER), owed(households, FAMILY_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]

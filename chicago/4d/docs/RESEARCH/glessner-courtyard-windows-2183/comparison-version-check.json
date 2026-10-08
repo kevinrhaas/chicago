@@ -1,0 +1,53 @@
+{
+  "method": "Compare rebuilt pinned-Blender GLBs against source checkpoint c497167. All glTF JSON and every non-UV buffer view must be byte-identical. UV packing may vary between machines.",
+  "results": [
+    {
+      "version": "pre-v4",
+      "bytes_before": 96496,
+      "bytes_after": 96496,
+      "gltf_json_identical": true,
+      "all_non_uv_buffers_identical": true,
+      "changed_uv_accessors": [
+        3,
+        13,
+        18,
+        23,
+        28,
+        33,
+        38
+      ]
+    },
+    {
+      "version": "v2",
+      "bytes_before": 98832,
+      "bytes_after": 98832,
+      "gltf_json_identical": true,
+      "all_non_uv_buffers_identical": true,
+      "changed_uv_accessors": [
+        3,
+        13,
+        18,
+        23,
+        28
+      ]
+    },
+    {
+      "version": "v3",
+      "bytes_before": 95728,
+      "bytes_after": 95728,
+      "gltf_json_identical": true,
+      "all_non_uv_buffers_identical": true,
+      "changed_uv_accessors": [
+        3,
+        8,
+        13,
+        18,
+        23,
+        28,
+        33,
+        38,
+        43
+      ]
+    }
+  ]
+}

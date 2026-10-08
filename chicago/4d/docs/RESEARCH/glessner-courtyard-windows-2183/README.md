@@ -49,9 +49,25 @@ The numerical check passes 1,800 stable-roof rays and 1,200 courtyard rays,
 plus explicit window-datum and eave-to-bay alignment checks. The existing
 seven glass-mode checks pass with the new full-detail default.
 
-Pending: pinned Blender bake, web derivatives and package, published desktop
-and mobile captures, full repository gate, PR and dev merge. This checkpoint
-is not a claim of completed visual validation.
+Recovered from source checkpoint `c497167`; the original process subsequently
+saved `72b0cd6`. An independent pinned Blender 4.5.3 rebuild produced the same
+canonical master/full/light hashes as that later checkpoint. The derivative
+producer repacked the verified recovery archive. Full is 47,959,092 bytes;
+Light is 25,229,272 bytes and 197,682 triangles (below the 200,000 model cap).
+
+The actual published `/1904/` app passes six review views: desktop 1280×800 at
+Full and mobile 390×780 at Light, with zero page, HTTP or loader errors. All
+views meet the existing rendering budgets. Both viewports also switch through
+Balanced, Light and Full, retaining dark glass and loading both canonical
+assets. `browser-validation.json` records these observations. Animation is
+paused only for repeatable review cameras; these are not FPS measurements.
+The normal-animation published smoke is recorded separately.
+
+The three comparison models retain identical geometry, indices, normals,
+materials and metadata. Their pinned rebuilds differ only in UV packing;
+`comparison-version-check.json` records the independent buffer comparison.
+
+The recovered working tree passes all 790 repository checks (322 negative self-tests included). Mobile published stage 13–14 passes 137 assertions with zero page errors. The first desktop attempt timed out at boot under concurrent checks; its separate rerun is in progress. Current-dev integration, final desktop smoke and PR completion remain pending.
 
 Rebuild from `chicago/4d` with pinned Blender 4.5.3:
 `generators/build.py --only glessner_house`, then
@@ -60,3 +76,25 @@ Rebuild any comparison derivatives named by the bake; compile scenes,
 compile liberties/source-use, publish, and run `tools/qa_glessner_t2183.mjs`.
 The canonical derivative producer repacks the three GLBs for GitHub recovery.
 Never repack stale materialized assets over a new bake.
+
+## Source-use accounting on recovery
+
+The checkpoint added HABS photo 05 to the opening heights and north-range eave
+records without updating the geometry citation register. Recovery records those
+two entries explicitly, continuing the owner-requested courtyard reconstruction
+and the existing decision to retain the courtyard-photo references with rights
+unresolved (see `../glessner-v4-qa/default-promotion.md`). No rights clearance is
+claimed: the source remains `check_required`, the photograph is not a texture,
+and no attachment is redistributed. This is a recorded project-policy decision,
+not a change to the source's license.
+
+## Integration gate repair
+
+The first repository check passed 789 of 790 steps. Its only failure was the
+shared 1835 order book still assigning work to T-2043, split earlier on
+8 October. Current person rows now name T-2187 and family/store household
+rows name T-2188, according to those child tickets. Regenerated book/report
+differences are work-owner references only: counts, quotas and placements
+are unchanged. The dependent re-familying programme report is rebuilt as well; its differences are also work-owner references only. Both strict checks and their existing negative fixtures pass.
+This repair unblocks the visible Glessner parcel; it does not implement either
+1835 ticket.
