@@ -1,9 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1523, ts: '2026-10-08T07:49:50.303Z', date: 'Oct 8, 2026, 2:49 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+  { v: 1524, ts: '2026-10-08T07:50:02.721Z', date: 'Oct 8, 2026, 2:50 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
       'With these three, every yard building the town plan counted for the West Division now stands.',
       'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
+  { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
+    items: [
+      'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
+      'The machine stays the same size the whole time. Long statuses are cut to fit their line instead of stretching the box.',
+      'On a slow connection the year no longer stops on one number while the town downloads. The machine measures your connection and how much is left, and rolls the year back at that pace.',
+      'A strip under the screen shows how much has downloaded, your connection speed and the time left. Your next visit is timed from this one.',
     ] },
   { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
     items: [

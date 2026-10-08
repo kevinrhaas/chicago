@@ -55,7 +55,13 @@
     const d = event.target.closest && event.target.closest('.machine-dial');
     if (d) apply(keys[(keys.indexOf(skin) + 1) % keys.length]);
   });
-  document.addEventListener('DOMContentLoaded', () => {
+  // T-2164: mount as soon as the document is parsed ('interactive'), not at
+  // DOMContentLoaded — on a page with module scripts that waits for the whole module
+  // graph, so on a slow link the arrival card grew a row seconds after first paint.
+  let mounted = false;
+  const mount = () => {
+    if (mounted || document.readyState === 'loading') return;
+    mounted = true;
     const card = document.querySelector('.gate-card');
     if (card && !card.querySelector('.skin-tools')) {
       const tools = document.createElement('div'); tools.className = 'skin-tools';
@@ -69,5 +75,7 @@
       group.append(label, dial()); settings.prepend(group);
     }
     sync();
-  });
+  };
+  document.addEventListener('readystatechange', mount);
+  document.addEventListener('DOMContentLoaded', mount);
 })();
