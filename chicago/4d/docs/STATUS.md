@@ -22,6 +22,24 @@ no Wolcott lot can hold.
   redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
   register, population profile, hay limits and the Newberry parse re-derived.
 
+## T-2059 — the mobile flora heartbeat back under 250 ms (2026-10-08)
+
+**What a visitor sees:** a phone's loading screen keeps moving while the trees and grass are
+planted. The town itself is unchanged.
+
+- **Two tasks held the frame**, found with a CPU profile of the two longest gaps in the flora
+  phase (mobile/light on dev @ a2def24a: 396 ms cold, 315 ms warm). (1) T-2015's leaf-and-bark
+  atlas: fourteen sprays plus the coverage-preserving mipmaps, about 270 ms in one task.
+  (2) The turf mask (`handTurfToGround`): T-2125's four finder questions a texel, about 200 ms.
+- **The fix.** The atlas is painted by a generator. The boot drains it through
+  `bootCheckpoint` (`createTreeAtlasSliced`), and `createTreeAtlas()` still drains it in one go
+  for `tree_surface_review.mjs`. The turf mask yields once a row. Neither changes what is drawn.
+- **Measured** (`measure_boot_phases.mjs --published`, one steward runner): mobile/light
+  161 ms cold and 192 ms warm. All twelve cells read 149-204 ms under `--check` (they were
+  320-427 ms). The flora phase did not get longer (4.71 → 4.64 s cold). `--compare` against
+  dev's run matches every flora/tree geometry digest, the roll, the stats and the placement
+  census, and the sliced atlas matches dev's unsliced one on all 12 mip levels.
+
 ## T-2060 — boot-weights.js re-measured, calibrated to the reference machine (2026-10-08)
 
 - **The machine question, answered by measuring both trees here.** The weights were read on
