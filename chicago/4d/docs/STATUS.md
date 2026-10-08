@@ -16,8 +16,9 @@ recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this de
 roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
 divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
 split: T-2165 is this, and T-2166 — split again the same day — went to T-2167 (the West's four
-on blk_washington_clinton) and T-2168 (the North's five, the West balance's three and the
-re-budget question); the order book's yard rows (and the South's civic row) now name T-2168.
+on blk_washington_clinton) and T-2168, itself split into T-2169 (the West's last three) and T-2170 (the North's five barns
+and the re-budget question). The order book's yard rows now name T-2170 (North), T-2169 (West)
+and T-2147 (the South's last barn, on its block 81); the South's civic row names T-2170.
 
 **Unverified.** The positions are invented on generated lots (L401); no source seats any of the
 three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did

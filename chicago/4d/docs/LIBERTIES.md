@@ -22097,7 +22097,7 @@ South Branch bank in July 1835 substitutes for this roof rather than standing be
 **What we invented:** All three buildings. The order book's `barns_stables` and
 `small_outbuildings` rows count yard buildings the inventory's district matrix sets and the
 town did not yet stand: before this, 6 in the North, 2 in the South's barns and 1 in its small
-outbuildings (and 7 in the West, left to T-2167 and T-2168). `tools/reconcile_665.py` places them block by
+outbuildings (and 7 in the West, left to T-2167 and T-2169). `tools/reconcile_665.py` places them block by
 block. This builds the three that stand where the schedule puts them on ground that holds them:
 an **A1** stable behind the D3 cottage on lot 9 of `blk_indiana_north_wolcott`, an **A2** barn or
 carriage shed behind the D4 house on lot 5 of `blk_south_water_wells`, and an **A5** smokehouse
@@ -22112,7 +22112,7 @@ Wolcott block. Its lots are 14.71 m × 31.33 m, each cottage lot already keeps a
 privy, and the generator holds a footprint 1.5 m off its lot line and 3.0 m off every other
 building, which leaves 4.85-5.55 m beside the existing yard building against an A2's 5.49 m
 narrowest band (every A2 the recipe would deal there samples 6.2-7.9 m). They stay owed, to
-T-2168. On `blk_south_water_dearborn` the smokehouse was tried first behind the boarding house
+T-2170. On `blk_south_water_dearborn` the smokehouse was tried first behind the boarding house
 on lot 5 and refused: that lot carries a printed address (`lot_address_block_16_lot_7`), and an
 address on a lot with two roofs names neither (`tools/lot_addresses.py`).
 
