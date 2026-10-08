@@ -22399,3 +22399,31 @@ compatible anonymous roof and never increases the total.
 **Ticket:** T-2170.
 **Related:** **L393**, **L294**, **T-2165**, **T-2168**.
 **Recorded:** 2026-10-08 (T-2170).
+
+### L-glessner-courtyard-windows-2183 — aligned openings and projecting courtyard eave
+
+**Decision:** Supersede T-2172's enlarged 7.2-ft principal tower lights with
+5.2-ft lights at 9.3–14.5 ft ng, sharing the adjoining first-floor datums.
+Shorten the north-court upper lights to 20.9–24 ft ng, retaining their heads
+and the raised, divided tower band. HABS courtyard photo 05 and the owner's
+8 October 2026 photographs bound these proportions; exact upper height is
+reconstructed within about 0.5 ft. The earlier perspective-based ratio was
+mistaken and no longer governs these openings.
+
+Reconstruct a continuous projecting eave at the bay shoulders, 2.36 ft beyond
+the courtyard wall, at 24 ft ng. Its planar connection to the unchanged
+34.1-ft ridge puts the wall ordinate at 25.634 ft ng, replacing the earlier
+26.5-ft section extrapolation at this junction. Exact projection and height
+are reconstructed (+/-0.5 ft), not printed HABS measurements. It is a roof
+eave, not an invented fabric canopy. The gutter follows that edge. Source:
+`habs_glessner_photo_05_court_c1923`, bounded in plan by
+`habs_glessner_house_il_1015_drawings`. No source pixels are reused.
+
+The owner's dark-glass drawing choice (L383) now includes Full detail;
+`?glass=transmission|clear|dark` still overrides it. This is an appearance
+choice, not a claim about glass opacity in 1904.
+
+**Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`,
+`glessner_house.as_built_1887.form.opening_heights`,
+`glessner_house.as_built_1887.form.ridge_north_range`.
+**Recorded:** 2026-10-08 (T-2183).

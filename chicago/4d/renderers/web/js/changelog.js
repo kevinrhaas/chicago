@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1543, ts: '2026-10-08T18:03:19.390Z', date: 'Oct 8, 2026, 1:03 PM CT', title: 'Glessner courtyard windows and roof edge corrected', kind: 'fix',
+    items: [
+      'The courtyard tower windows now match the first-floor windows beside them. The upper windows are shorter, and the projecting roof edge joins the tower roof continuously.',
+      'Dark glass is now the default at every scene detail setting, including Full.',
+    ] },
   { v: 1542, ts: '2026-10-08T17:21:43.998Z', date: 'Oct 8, 2026, 12:21 PM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [
       'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',

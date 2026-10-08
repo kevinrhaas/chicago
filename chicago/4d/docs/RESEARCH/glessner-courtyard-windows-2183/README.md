@@ -49,9 +49,16 @@ The numerical check passes 1,800 stable-roof rays and 1,200 courtyard rays,
 plus explicit window-datum and eave-to-bay alignment checks. The existing
 seven glass-mode checks pass with the new full-detail default.
 
-Pending: pinned Blender bake, web derivatives and package, published desktop
-and mobile captures, full repository gate, PR and dev merge. This checkpoint
-is not a claim of completed visual validation.
+Source checkpoint: `c497167b`. Pinned Blender rebuilt the canonical master
+and unchanged comparison versions. First desktop app review caught a slit
+beneath the rising copper return: the wall now follows the actual roof
+underside and a gutter joins the return to the bow. Final derivatives are rebuilt
+and the recovery archive is repacked from these exact bytes. Actual published
+1904 app review passes at 1280×800 Full and 390×780 Light: three fixed views each,
+zero page/HTTP/loader errors, dark glass active, all views within render budgets.
+The six PNGs and two browser-validation JSON reports beside this note record it.
+Animation is paused for repeatable images, so these are not FPS measurements.
+Full repository checks, broader stage-13 smoke and dev integration remain in progress.
 
 Rebuild from `chicago/4d` with pinned Blender 4.5.3:
 `generators/build.py --only glessner_house`, then

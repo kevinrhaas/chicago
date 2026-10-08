@@ -1,3 +1,16 @@
+## T-2183 — Glessner courtyard openings and eave (2026-10-08)
+
+Source corrections restore the tower principal windows to the wing's first-floor
+datums, shorten the upper courtyard row, and extend the rear eave to meet the
+bay roof and gutter. Full detail now defaults to dark glass as requested.
+HABS photo 05, the research image inventory, section 4 and the owner's
+photographs were reviewed. Exact proportional dimensions remain reconstructed.
+
+Numerical roof/window and glass checks pass. Canonical bake, compressed derivatives
+and published 1904 app review pass on desktop Full and mobile Light. Full gate
+and dev integration are in progress; completion evidence belongs in
+`docs/RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 
 **What changed in the scene.** One F2 narrow two-storey warehouse,
