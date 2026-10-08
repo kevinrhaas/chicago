@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1528, ts: '2026-10-08T10:13:04.951Z', date: 'Oct 8, 2026, 5:13 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',
+      'Five recent builds added walks, fences, a wagon apron and bare workshop fronts, and the checks still expected the old numbers. They now count what those builds laid, and each new number is traced to the build that added it.',
+      'A cart on the newly extended West Water Street was being counted as part of the raft bridge\u2019s timber pile beside it. The check now measures that pile by its own footprint.',
+    ] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
