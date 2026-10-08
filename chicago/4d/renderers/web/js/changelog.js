@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1533, ts: '2026-10-08T12:28:50.095Z', date: 'Oct 8, 2026, 7:28 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+  { v: 1534, ts: '2026-10-08T12:36:30.566Z', date: 'Oct 8, 2026, 7:36 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
       'With these three, every yard building the town plan counted for the West Division now stands.',
       'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
+  { v: 1533, ts: '2026-10-08T12:18:00.475Z', date: 'Oct 8, 2026, 7:18 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+    items: [
+      'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
+      'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
     ] },
   { v: 1532, ts: '2026-10-08T11:44:45.896Z', date: 'Oct 8, 2026, 6:44 AM CT', title: 'A clearer Glessner House package check', kind: 'fix',
     items: [
