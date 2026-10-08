@@ -1,11 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1524, ts: '2026-10-08T07:41:25.609Z', date: 'Oct 8, 2026, 2:41 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+  { v: 1525, ts: '2026-10-08T08:23:14.352Z', date: 'Oct 8, 2026, 3:23 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
       'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
       'No record names these buildings. The town\u2019s plan counted them as missing, and the North now has every roof it counted except five barns. Its cottage yards are too narrow for a barn beside the sheds they already have, so those wait for a better place.',
       'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L401).',
     ] },
+  { v: 1524, ts: '2026-10-08T07:19:29.922Z', date: 'Oct 8, 2026, 2:19 AM CT', title: 'Glessner’s courtyard tower roof joins the north wing', kind: 'fix',
+    items: ['The copper roof over the central courtyard tower now meets a raised tiled ridge with matching terracotta crests. The main roof continues cleanly on both sides, and the copper cap has a flared lower edge.'] },
   { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
     items: [
       'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',

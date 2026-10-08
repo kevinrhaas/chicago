@@ -273,6 +273,25 @@ anchored on a crossing, one on a corner — now reads two, one and fifteen.
 
 ---
 
+
+### L-glessner-courtyard-roof-2157 — courtyard dining-tower roof junction
+
+**Decision:** The owner supplied an aerial and a March 2023 close-up of the surviving roof on
+7 October local time. The copper hip now ends over the bay shoulders (S29.19),
+with a level tiled ridge returning to the north-wing ridge at S14.6/z34.1 ft.
+The existing HABS-derived plan and ridge/eave heights bound the reconstruction;
+the precise apex setback, flared apron (18% plan inset / 11% rise), seam stock,
+and copper terminal profile are reconstructed. Modern patina is not copied.
+The terracotta collar section matches the existing north ridge. No photo pixels
+or third-party screenshot assets are redistributed. This supersedes T-2016's
+recessed rectangular cut and copper point placed on the north ridge.
+
+**Basis:** Owner's 7 October 2026 reference images and correction; existing HABS-derived bay plan and north-wing heights. Modern roof arrangement is a qualitative cross-check, not proof of 1904 dimensions.
+**How to resolve:** A measured original roof section or dated restoration record would replace these proportional choices.
+**Applies to:** `glessner_house`, canonical model and its light derivative.
+**Covers:** `glessner_house.as_built_1887.form.bay_dining_elevation`.
+**Recorded:** 2026-10-08 (T-2157).
+
 ## Resolved
 
 Entries here were true when they were written and are kept verbatim, with a **Resolved:**
