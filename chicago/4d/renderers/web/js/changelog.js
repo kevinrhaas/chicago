@@ -1,4 +1,6 @@
 export const CHANGELOG = [ // newest first
+  { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
+    items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
   { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
