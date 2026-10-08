@@ -315,13 +315,13 @@
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
   "inside": 354,
-  "outside": 290,
+  "outside": 298,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 62,
    "west_of_canal_street": 100,
-   "south_of_washington_street": 99,
+   "south_of_washington_street": 107,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -538,6 +538,14 @@
     "recon_1835_blk_school_section_tier_119_d5_06",
     "recon_1835_blk_school_section_tier_119_d6_01",
     "recon_1835_blk_school_section_tier_119_d7_07",
+    "recon_1835_blk_school_section_tier_81_a2_08",
+    "recon_1835_blk_school_section_tier_81_d3_05",
+    "recon_1835_blk_school_section_tier_81_d4_03",
+    "recon_1835_blk_school_section_tier_81_d4_04",
+    "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d5_06",
+    "recon_1835_blk_school_section_tier_81_d6_01",
+    "recon_1835_blk_school_section_tier_81_d7_07",
     "recon_1835_blk_washington_clark_a1_07",
     "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a1_12",
@@ -637,7 +645,7 @@
   "blocks_with_four_bounding_streets": 72,
   "inside_the_limit": 24,
   "outside_the_limit": 48,
-  "scheduling_roofs_outside_the_limit": 5,
+  "scheduling_roofs_outside_the_limit": 4,
   "scheduling_roofs_outside_the_limit_rows": [
    {
     "id": "blk_washington_clinton",
@@ -656,16 +664,6 @@
     "centre_local_enu_m": [
      885.64,
      525.4
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_school_section_tier_81",
-    "state": "open",
-    "roofs_scheduled": 7,
-    "centre_local_enu_m": [
-     139.86,
-     -587.44
     ],
     "inside_the_limit": false
    },
@@ -1113,8 +1111,8 @@
    },
    {
     "id": "blk_school_section_tier_81",
-    "state": "open",
-    "roofs_scheduled": 7,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      139.86,
      -587.44

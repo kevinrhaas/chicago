@@ -38,6 +38,14 @@ lot 0 kept open) with one A2 yard roof.
   the six slot requests on block 81 adopt standing roofs north of Madison; the sixth re-slots on
   block 94. Fifteen meshes rebaked. L263 623 → 631, L276 87 → 89; L397's slot count restated.
   T-1983 was split mid-lap, so the order book's yard rows move to T-2156 (as #508 does).
+- **Lapped over T-2157, T-2158, T-2155, then T-2165, T-2172 and T-2093 (2026-10-08).** The
+  derived files took dev's side and were rebuilt: the seating lap (adopt_street_faces →
+  reconcile_665 → redeal → name_the_keepers → generate_west_infill → `rederive.mjs --tail
+  seat_platted_ground`) settled with a second lap moving nothing, then hay limits, land tracts,
+  the register, the population profile and the Newberry leads re-derived above it. L263 is 639
+  phases with T-2165's three yard roofs below T-2147's eight; the generator half is stated at
+  679/673. T-1673 was split mid-lap (T-2174, T-2175), so the South's street-line warehouse band
+  and its fallback row now name T-2175, which holds three of its four roofs.
 
 ## T-2172 — courtyard tower window and roof proportions (2026-10-08)
 
