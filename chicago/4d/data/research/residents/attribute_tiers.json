@@ -27,11 +27,11 @@
   "counts": {
     "cards": 1459,
     "blocks": 22217,
-    "tiers_written_on_the_card": 10984,
+    "tiers_written_on_the_card": 10908,
     "by_tier": {
       "attested": 711,
-      "inferred": 3632,
-      "reconstructed": 10991,
+      "inferred": 3708,
+      "reconstructed": 10915,
       "unknown": 6883
     },
     "by_attribute": {
@@ -157,8 +157,8 @@
       },
       "persons[].sex_basis": {
         "attested": 0,
-        "inferred": 590,
-        "reconstructed": 743,
+        "inferred": 666,
+        "reconstructed": 667,
         "unknown": 6
       },
       "present_on_scene_date": {
@@ -4365,10 +4365,10 @@
         "kind": "person",
         "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
       },
-      "values": 743,
+      "values": 667,
       "by_value": {
-        "male": 697,
-        "female": 46
+        "male": 626,
+        "female": 41
       },
       "a_seed": "abbot_8_g:sex_ratio",
       "a_card": "hh_abbot_8_g"
