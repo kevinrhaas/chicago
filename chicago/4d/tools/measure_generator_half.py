@@ -493,17 +493,21 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # houses, D2 to D7 dwellings and an H1, through the common modules and emit.py; terrain
 # reach stays 6 and pier_crib stays 2.
 #
-# 684 -> 685 and 678 -> 679 on 2026-10-08 (T-2174, of T-1673): one F2 two-storey
+# 687 -> 688 and 681 -> 682 on 2026-10-08 (T-2174, of T-1673): one F2 two-storey
 # warehouse behind the stores on blk_south_water_dearborn lot 0, a frame_storefront
 # through emit.py and the common modules. Terrain reach stays 6 and pier_crib stays 2.
 #
+# 684 -> 687 and 678 -> 681 on 2026-10-08 (T-2169, of T-2168, on top of T-2146): the West's last three yard
+# buildings on plat block 50, blk_washington_clinton (A2, A4, A5), through emit.py and the
+# common modules; terrain reach stays 6 and pier_crib stays 2.
+#
 STATED = {
-    "assets": 685,
+    "assets": 688,
     "restales": {
-        "generators/common/*.py": 685,
+        "generators/common/*.py": 688,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 679,
+        "generators/emit.py": 682,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

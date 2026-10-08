@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 532,
-    "keep": 524,
+    "audited": 534,
+    "keep": 526,
     "refamily": 8,
     "retire": 0,
-    "kept_occupied": 5,
+    "kept_occupied": 4,
     "breach_owed_out": 0,
-    "seated": 185,
+    "seated": 184,
     "raised_for_a_trade": 31,
     "band_already_fits": 4,
     "roof_target": 668,
-    "standing_before": 640,
-    "standing_after": 640,
-    "short_of_the_programme_before": 28,
-    "short_of_the_programme_after": 28
+    "standing_before": 642,
+    "standing_after": 642,
+    "short_of_the_programme_before": 26,
+    "short_of_the_programme_after": 26
   },
   "ledger": [
     {
@@ -56,11 +56,11 @@
       "group": "barns_stables",
       "division": "west",
       "target": 20,
-      "standing": 19,
-      "anonymous": 16,
-      "head_before": 1,
-      "standing_after": 19,
-      "head_after": 1
+      "standing": 20,
+      "anonymous": 17,
+      "head_before": 0,
+      "standing_after": 20,
+      "head_after": 0
     },
     {
       "bucket": "structures/barns_stables/north",
@@ -243,11 +243,11 @@
       "group": "small_outbuildings",
       "division": "west",
       "target": 14,
-      "standing": 12,
-      "anonymous": 12,
-      "head_before": 2,
-      "standing_after": 12,
-      "head_after": 2
+      "standing": 14,
+      "anonymous": 14,
+      "head_before": 0,
+      "standing_after": 14,
+      "head_after": 0
     },
     {
       "bucket": "structures/small_outbuildings/north",
@@ -320,11 +320,11 @@
       "group": "warehouses_freight",
       "division": "south",
       "target": 11,
-      "standing": 8,
-      "anonymous": 4,
-      "head_before": 3,
-      "standing_after": 8,
-      "head_after": 3
+      "standing": 7,
+      "anonymous": 3,
+      "head_before": 4,
+      "standing_after": 7,
+      "head_after": 4
     },
     {
       "bucket": "structures/warehouses_freight/west",
@@ -3655,26 +3655,6 @@
       "reason": "the order book has an occupant class for a D2 roof in the south division and the placement policy accepts the family where it stands"
     },
     {
-      "id": "recon_1835_blk_south_water_dearborn_f2_11",
-      "division": "south",
-      "family": "F2",
-      "group": "warehouses_freight",
-      "programme_phase": "phase3_platted_block_south_water_dearborn_warehouse_deal",
-      "occupied": true,
-      "raised_for": null,
-      "footprint_ft2": 1145.2,
-      "street": "dearborn",
-      "street_class": "ordinary",
-      "setback_m": 9.11,
-      "on_the_street_line": false,
-      "conforms": false,
-      "verdict": "keep",
-      "bucket": "structures/warehouses_freight/south",
-      "reason": "the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets",
-      "families_offered": [],
-      "kept_occupied": true
-    },
-    {
       "id": "recon_1835_blk_south_water_dearborn_h1_03",
       "division": "south",
       "family": "H1",
@@ -4737,6 +4717,24 @@
       "reason": "the order book has an occupant class for a A2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a2_19",
+      "division": "west",
+      "family": "A2",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal_2",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 786.8,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 22.63,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/west",
+      "reason": "the order book has an occupant class for a A2 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a3_16",
       "division": "west",
       "family": "A3",
@@ -4809,6 +4807,24 @@
       "reason": "the order book has an occupant class for a A4 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a4_20",
+      "division": "west",
+      "family": "A4",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal_2",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 82.8,
+      "street": "madison",
+      "street_class": "none",
+      "setback_m": 9.6,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A4 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a5_07",
       "division": "west",
       "family": "A5",
@@ -4856,6 +4872,24 @@
       "street": "canal",
       "street_class": "ordinary",
       "setback_m": 24.4,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A5 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_18",
+      "division": "west",
+      "family": "A5",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal_2",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 79.2,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 24.83,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",

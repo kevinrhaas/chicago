@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1535, ts: '2026-10-08T13:03:53.398Z', date: 'Oct 8, 2026, 8:03 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [
       'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',
       'No record names this building. The town\u2019s plan counted four warehouses missing from the South Water and Lake Street blocks, and this is the one with ground for it today. The other three wait on river access and on the survey line at Market Street.',
       'Its card says the building is reconstructed, not recovered. The Liberties page explains it (L406).',
+    ] },
+  { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
+      'With these three, every yard building the town plan counted for the West Division now stands.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
     ] },
   { v: 1534, ts: '2026-10-08T12:37:03.823Z', date: 'Oct 8, 2026, 7:37 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
     items: [

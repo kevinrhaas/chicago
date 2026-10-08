@@ -324,13 +324,16 @@
   "recon_1835_blk_washington_clinton_a2_10",
   "recon_1835_blk_washington_clinton_a2_12",
   "recon_1835_blk_washington_clinton_a2_15",
+  "recon_1835_blk_washington_clinton_a2_19",
   "recon_1835_blk_washington_clinton_a3_16",
   "recon_1835_blk_washington_clinton_a4_09",
   "recon_1835_blk_washington_clinton_a4_11",
   "recon_1835_blk_washington_clinton_a4_14",
+  "recon_1835_blk_washington_clinton_a4_20",
   "recon_1835_blk_washington_clinton_a5_07",
   "recon_1835_blk_washington_clinton_a5_13",
   "recon_1835_blk_washington_clinton_a5_17",
+  "recon_1835_blk_washington_clinton_a5_18",
   "recon_1835_blk_washington_clinton_d4_04",
   "recon_1835_blk_washington_clinton_d5_03",
   "recon_1835_blk_washington_clinton_h1_05",
@@ -4938,6 +4941,20 @@
     [-205.8, -482.76]
    ],
    [
+    [-192.88, -473.69],
+    [-192.86, -464.95],
+    [-194.26, -464.95],
+    [-194.27, -466.67],
+    [-195.92, -467.17],
+    [-196.16, -467.27],
+    [-196.27, -467.51],
+    [-196.28, -471.11],
+    [-196.17, -471.36],
+    [-195.93, -471.47],
+    [-194.28, -471.97],
+    [-194.28, -473.69]
+   ],
+   [
     [-190.67, -410.38],
     [-190.66, -408.19],
     [-192.06, -408.18],
@@ -4990,6 +5007,19 @@
     [-206.87, -449.29]
    ],
    [
+    [-188.29, -497.65],
+    [-188.29, -494.38],
+    [-189.69, -494.38],
+    [-189.69, -494.39],
+    [-191.34, -494.88],
+    [-191.58, -494.99],
+    [-191.69, -495.23],
+    [-191.69, -496.79],
+    [-191.59, -497.04],
+    [-191.34, -497.14],
+    [-189.69, -497.65]
+   ],
+   [
     [-206.63, -404.61],
     [-206.6, -400.72],
     [-208.0, -400.71],
@@ -5028,6 +5058,18 @@
     [-193.13, -432.08],
     [-191.48, -432.58],
     [-191.49, -432.79]
+   ],
+   [
+    [-189.49, -454.2],
+    [-189.47, -451.1],
+    [-190.87, -451.09],
+    [-192.53, -451.51],
+    [-192.77, -451.61],
+    [-192.88, -451.86],
+    [-192.88, -453.42],
+    [-192.78, -453.66],
+    [-192.53, -453.77],
+    [-190.89, -454.19]
    ],
    [
     [-165.73, -472.52],
@@ -12392,6 +12434,16 @@
    "width_m": 2.9
   },
   {
+   "id": "recon_1835_blk_washington_clinton_a2_19__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a2_19",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-192.87, -469.32],
+   "bearing_deg": 270.14,
+   "width_m": 2.9
+  },
+  {
    "id": "recon_1835_blk_washington_clinton_a3_16__door_1",
    "structure_id": "recon_1835_blk_washington_clinton_a3_16",
    "archetype": "outbuilding",
@@ -12432,6 +12484,16 @@
    "width_m": 0.86
   },
   {
+   "id": "recon_1835_blk_washington_clinton_a4_20__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a4_20",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-188.29, -496.02],
+   "bearing_deg": 270.05,
+   "width_m": 0.86
+  },
+  {
    "id": "recon_1835_blk_washington_clinton_a5_07__door_1",
    "structure_id": "recon_1835_blk_washington_clinton_a5_07",
    "archetype": "outbuilding",
@@ -12459,6 +12521,16 @@
    "read_by": "facade_openings.outbuilding",
    "at_local_enu_m": [-190.07, -430.96],
    "bearing_deg": 270.32,
+   "width_m": 0.86
+  },
+  {
+   "id": "recon_1835_blk_washington_clinton_a5_18__door_1",
+   "structure_id": "recon_1835_blk_washington_clinton_a5_18",
+   "archetype": "outbuilding",
+   "kind": "door",
+   "read_by": "facade_openings.outbuilding",
+   "at_local_enu_m": [-189.48, -452.65],
+   "bearing_deg": 270.23,
    "width_m": 0.86
   },
   {
