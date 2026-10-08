@@ -22,7 +22,7 @@
     "bracketed": "inferred — the corpus reads this person at Chicago on both sides of the day.",
     "carried": "reconstructed — the corpus stops before the day; the project's standing rule carries the presence and the persistence model prices it."
   },
-  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 955 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
+  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 949 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
   "nothing_is_drawn_here": "T-1172 drew against the persistence model and ruled 37 cards `absent` on the losing side. This stage does not draw: an absence with no evidence under it is not a finding, and the two evidenced absences below are the shape of a correct exclusion. `basis.kind` is `rule` and a rule owes no seed.",
   "persistence_model": {
     "id": "persistence_1835",
@@ -31,43 +31,73 @@
     "used_for": "pricing a `carried` ruling, never for deciding one"
   },
   "counts": {
-    "households_ruled": 955,
-    "persons_ruled": 1860,
+    "households_ruled": 949,
+    "persons_ruled": 1854,
     "households_by_leg": {
       "on_the_day": 60,
       "spans": 49,
       "bracketed": 32,
-      "carried": 814
+      "carried": 808
     },
     "persons_by_leg": {
       "on_the_day": 177,
       "spans": 130,
       "bracketed": 49,
-      "carried": 1504
+      "carried": 1498
     },
     "households_by_tier": {
-      "reconstructed": 814,
+      "reconstructed": 808,
       "inferred": 81,
       "attested": 60
     },
     "persons_by_tier": {
-      "reconstructed": 1504,
+      "reconstructed": 1498,
       "inferred": 179,
       "attested": 177
     },
     "persons_by_residence_grade": {
-      "inferred": 683,
+      "inferred": 677,
       "attested": 278,
       "reconstructed": 899
     },
     "rulings_above_t1172_blanket_reconstructed": 141,
-    "evidenced_absences_left_out": 2
+    "evidenced_absences_left_out": 8
   },
   "evidenced_absences": [
+    {
+      "household_id": "hh_duplas_catherine",
+      "name": "The Duplas household — a name the town's own records carry",
+      "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-18 (st_marys_bapt_1835_12_1_child), and the entry's own words — 'two months old' — put the birth between 1835-07-19 and 1835-08-18, after the scene date of 1 July 1835. An age at the font, read as 2 completed month(s): born after 1835-07-18 and by 1835-08-18. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
+    {
+      "household_id": "hh_molony_denis",
+      "name": "The Molony household — a name the town's own records carry",
+      "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-12-25 (st_marys_bapt_1835_14_1_child), and the entry's own words — 'born the twentieth of december 1835' — put the birth on 1835-12-20, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
+    {
+      "household_id": "hh_murray_martha",
+      "name": "The Murray household — a name the town's own records carry",
+      "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-09-25 (st_marys_bapt_1835_09_1_child), and the entry's own words — 'fifteen days old' — put the birth on 1835-09-10, after the scene date of 1 July 1835. 15 days before the baptism of 1835-09-25. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
+    {
+      "household_id": "hh_omarra_bridget",
+      "name": "The Omarra household — a name the town's own records carry",
+      "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-08-20 (st_marys_bapt_1835_07_1_child), and the entry's own words — 'born the nineteenth of August eighteen hundred thirty five' — put the birth on 1835-08-19, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
     {
       "household_id": "hh_porthier_joseph",
       "name": "The Porthier household",
       "note": "T-0478 resolves the earlier uncertainty. Pioneer History of Milwaukee dates Joseph Porthier leaving Chicago with Horace Chase on February 27, 1835; after a brief return to Chicago for means, Porthier left again March 21 and reached Milwaukee March 23. That dated migration is before the July 1 scene date."
+    },
+    {
+      "household_id": "hh_roi_joseph_claude",
+      "name": "The Roi household — a name the town's own records carry",
+      "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-04 (st_marys_bapt_1835_10_1_child), and the entry's own words — 'âgé de [?] jours' — put the birth between 1835-07-04 and 1835-10-04, after the scene date of 1 July 1835. An age in days whose count nobody can read. The register counts in days only for a newborn and has moved to months by two, so the window is bounded at three months before the font — a month wider than that practice. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
+    {
+      "household_id": "hh_tony_louisa",
+      "name": "The Tony household — a name the town's own records carry",
+      "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-11-09 (st_marys_bapt_1835_13_1_child), and the entry's own words — 'born the thirtieth of October' — put the birth on 1835-10-30, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
     },
     {
       "household_id": "hh_wolcott_alexander",
@@ -9854,43 +9884,6 @@
           "lambda_per_year": 0.063541,
           "years_before_the_scene": 0.115,
           "persistence": 0.9927
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_duplas_catherine",
-      "name": "The Duplas household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-10-18, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. No lag can be priced, so the rule carries the ruling unpriced."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": -0.2984,
-          "persistence": null
         },
         "residence_grade_this_stands_beside": "inferred"
       },
@@ -20910,43 +20903,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_molony_denis",
-      "name": "The Molony household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-12-25, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. No lag can be priced, so the rule carries the ruling unpriced."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": -0.4846,
-          "persistence": null
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_molony_john",
       "name": "The Molony household — a name the town's own records carry",
       "division": "unplaced",
@@ -21930,43 +21886,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_murray_martha",
-      "name": "The Murray household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-09-25, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. No lag can be priced, so the rule carries the ruling unpriced."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": -0.2355,
-          "persistence": null
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_murray_patrick",
       "name": "The Murray household — a name the town's own records carry",
       "division": "unplaced",
@@ -22744,43 +22663,6 @@
           "lambda_per_year": 0.063541,
           "years_before_the_scene": 0.9966,
           "persistence": 0.9386
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_omarra_bridget",
-      "name": "The Omarra household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-08-20, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. No lag can be priced, so the rule carries the ruling unpriced."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": -0.1369,
-          "persistence": null
         },
         "residence_grade_this_stands_beside": "inferred"
       },
@@ -25656,43 +25538,6 @@
     },
     {
       "household_id": "hh_roi_george_david",
-      "name": "The Roi household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-10-04, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. No lag can be priced, so the rule carries the ruling unpriced."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": -0.2601,
-          "persistence": null
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_roi_joseph_claude",
       "name": "The Roi household — a name the town's own records carry",
       "division": "unplaced",
       "persons": 1,
@@ -29676,43 +29521,6 @@
     },
     {
       "household_id": "hh_tony_jacob",
-      "name": "The Tony household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_marys_baptismal_register_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-11-09, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. No lag can be priced, so the rule carries the ruling unpriced."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": -0.3587,
-          "persistence": null
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_tony_louisa",
       "name": "The Tony household — a name the town's own records carry",
       "division": "unplaced",
       "persons": 1,

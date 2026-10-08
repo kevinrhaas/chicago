@@ -29,8 +29,8 @@
     "blocks": 22199,
     "tiers_written_on_the_card": 10976,
     "by_tier": {
-      "attested": 706,
-      "inferred": 3630,
+      "attested": 709,
+      "inferred": 3627,
       "reconstructed": 10985,
       "unknown": 6878
     },
@@ -162,8 +162,8 @@
         "unknown": 6
       },
       "present_on_scene_date": {
-        "attested": 22,
-        "inferred": 1386,
+        "attested": 25,
+        "inferred": 1383,
         "reconstructed": 50,
         "unknown": 0
       },

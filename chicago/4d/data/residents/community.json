@@ -15,14 +15,14 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3459,
-  "households": 1983,
-  "known": 3323,
+  "persons": 3460,
+  "households": 1984,
+  "known": 3324,
   "unknown": 136,
   "by_community": {
    "yankee": 1682,
    "new_york": 558,
-   "irish": 478,
+   "irish": 479,
    "french_canadian": 184,
    "other": 137,
    "unknown": 136,
@@ -33,13 +33,13 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3263,
+   "reconstructed": 3264,
    "null": 136,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1898,
+   "reconstruction_community": 1899,
    "origin_region": 1401,
    "no_origin_recorded": 121,
    "stated_community": 24,
@@ -49,7 +49,7 @@
   "households_by_community": {
    "yankee": 690,
    "new_york": 557,
-   "irish": 138,
+   "irish": 139,
    "other": 137,
    "unknown": 124,
    "british": 111,
@@ -12883,6 +12883,11 @@
   },
   "rc_reed_thomas_wife": {
    "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_reilly_bridget": {
+   "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -27262,6 +27267,13 @@
    "rule": "reconstruction_community",
    "head": "rc_quinn_terence",
    "file": "reconstructed_trades/hh_rc_quinn_terence.json"
+  },
+  "hh_rc_reilly_bridget": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_reilly_bridget",
+   "file": "reconstructed_trades/hh_rc_reilly_bridget.json"
   },
   "hh_rc_reilly_catherine": {
    "value": "irish",

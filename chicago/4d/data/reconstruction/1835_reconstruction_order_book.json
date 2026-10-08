@@ -28,18 +28,18 @@
     "real_names_first": "The roster (T-1159) offers every name the corpus printed and withheld. It is a licence on WHICH name a filler uses and never a quota, so it is counted against its ticket rather than smeared across cells that cannot hold it."
   },
   "known_layer": {
-    "households_total": 1459,
-    "households_present": 1407,
-    "households_uncertain": 953,
-    "households_ruled_present": 953,
+    "households_total": 1458,
+    "households_present": 1405,
+    "households_uncertain": 949,
+    "households_ruled_present": 949,
     "households_evidenced_absent": 8,
-    "households_reconstructed": 44,
-    "persons_total": 2928,
-    "persons_standing": 2920,
-    "persons_ruled_present": 959,
-    "persons_present": 1434,
+    "households_reconstructed": 45,
+    "persons_total": 2926,
+    "persons_standing": 2918,
+    "persons_ruled_present": 955,
+    "persons_present": 1432,
     "persons_present_attested": 411,
-    "persons_present_inferred": 1023,
+    "persons_present_inferred": 1021,
     "persons_present_by_division": {
       "south": 71,
       "west": 9,
@@ -52,19 +52,19 @@
       "north": 11,
       "fort": 2
     },
-    "persons_present_unplaced": 1336,
-    "households_present_unplaced": 1336,
-    "houses_present": 163,
+    "persons_present_unplaced": 1334,
+    "households_present_unplaced": 1334,
+    "houses_present": 161,
     "houses_present_by_division": {
       "south": 52,
       "west": 6,
       "north": 11,
       "fort": 2
     },
-    "houses_present_unplaced": 92,
+    "houses_present_unplaced": 90,
     "records_awaiting_a_household": 1244,
     "houses_present_by_clause": {
-      "a_stated_kinship": 91,
+      "a_stated_kinship": 89,
       "a_stated_premises": 33,
       "a_stated_dwelling": 22,
       "a_stated_division": 14,
@@ -78,23 +78,23 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 1868,
-    "households_ruled_present": 953,
+    "persons_ruled_present": 1854,
+    "households_ruled_present": 949,
     "by_presence_tier": {
-      "reconstructed": 1502,
-      "inferred": 183,
-      "attested": 183
+      "reconstructed": 1498,
+      "inferred": 179,
+      "attested": 177
     },
     "by_residence_grade": {
-      "inferred": 681,
+      "inferred": 677,
       "attested": 278,
-      "reconstructed": 909
+      "reconstructed": 899
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
-    "persons_known_before_the_rulings": 475,
-    "persons_known_now": 1434,
-    "households_known_before_the_rulings": 454,
-    "households_known_now": 1407,
+    "persons_known_before_the_rulings": 477,
+    "persons_known_now": 1432,
+    "households_known_before_the_rulings": 456,
+    "households_known_now": 1405,
     "the_roster_is_not_double_counted": "R1 offers these names to T-1172 as a LICENCE to use a real read name, never as a quota (rule `real_names_first`), and T-1386 has already re-admitted them into the layer. Counting them known orders nobody twice; it stops ordering them once.",
     "what_re_cuts_the_quotas": [
       "T-1196",
@@ -144,7 +144,7 @@
     },
     {
       "bucket": "persons/female/20_29/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 15,
       "the_re_cut_would_have_ordered": 8,
@@ -170,15 +170,15 @@
     },
     {
       "bucket": "persons/female/20_29/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 35,
-      "the_re_cut_would_have_ordered": 18,
+      "the_re_cut_would_have_ordered": 19,
       "already_drawn": 30,
       "held_at": 30,
       "drawn_here": 35,
       "refamilied_out": 5,
-      "surplus_still_held": 12,
+      "surplus_still_held": 11,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -196,7 +196,7 @@
     },
     {
       "bucket": "persons/female/20_29/west/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 13,
       "the_re_cut_would_have_ordered": 7,
@@ -222,7 +222,7 @@
     },
     {
       "bucket": "persons/female/30_39/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 6,
       "the_re_cut_would_have_ordered": 3,
@@ -248,7 +248,7 @@
     },
     {
       "bucket": "persons/female/30_39/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 16,
       "the_re_cut_would_have_ordered": 9,
@@ -287,6 +287,19 @@
       "why": "the town read a practitioner it can name and this bucket's order fell under the records already drawn against it. The town over-supplies this class by the difference, and the surplus is retired by the ticket that owns the bucket rather than by this one. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
+      "bucket": "persons/female/30_39/west/family/trade",
+      "owning_ticket": "T-2187",
+      "cause": "the_re_cut_reached_work_already_drawn",
+      "quota_it_was_drawn_against": 7,
+      "the_re_cut_would_have_ordered": 3,
+      "already_drawn": 4,
+      "held_at": 4,
+      "drawn_here": 7,
+      "refamilied_out": 3,
+      "surplus_still_held": 1,
+      "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
+    },
+    {
       "bucket": "persons/female/30_39/west/family/none",
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
@@ -301,7 +314,7 @@
     },
     {
       "bucket": "persons/female/40_49/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 3,
       "the_re_cut_would_have_ordered": 1,
@@ -341,33 +354,33 @@
     },
     {
       "bucket": "persons/female/40_49/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
-      "quota_it_was_drawn_against": 5,
-      "the_re_cut_would_have_ordered": 3,
+      "quota_it_was_drawn_against": 6,
+      "the_re_cut_would_have_ordered": 4,
       "already_drawn": 5,
       "held_at": 5,
       "drawn_here": 6,
       "refamilied_out": 1,
-      "surplus_still_held": 2,
+      "surplus_still_held": 1,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
       "bucket": "persons/female/40_49/south/family/none",
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
-      "quota_it_was_drawn_against": 12,
-      "the_re_cut_would_have_ordered": 7,
+      "quota_it_was_drawn_against": 11,
+      "the_re_cut_would_have_ordered": 6,
       "already_drawn": 9,
       "held_at": 9,
       "drawn_here": 11,
       "refamilied_out": 2,
-      "surplus_still_held": 2,
+      "surplus_still_held": 3,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
       "bucket": "persons/female/40_49/west/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 3,
       "the_re_cut_would_have_ordered": 1,
@@ -394,7 +407,7 @@
     },
     {
       "bucket": "persons/female/50_plus/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 2,
       "the_re_cut_would_have_ordered": 1,
@@ -550,7 +563,7 @@
     },
     {
       "bucket": "persons/male/20_29/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 25,
       "the_re_cut_would_have_ordered": 14,
@@ -563,7 +576,7 @@
     },
     {
       "bucket": "persons/male/20_29/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 59,
       "the_re_cut_would_have_ordered": 31,
@@ -589,7 +602,7 @@
     },
     {
       "bucket": "persons/male/20_29/west/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 22,
       "the_re_cut_would_have_ordered": 13,
@@ -616,7 +629,7 @@
     },
     {
       "bucket": "persons/male/30_39/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 15,
       "the_re_cut_would_have_ordered": 8,
@@ -642,20 +655,20 @@
     },
     {
       "bucket": "persons/male/30_39/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 35,
-      "the_re_cut_would_have_ordered": 18,
+      "the_re_cut_would_have_ordered": 19,
       "already_drawn": 27,
       "held_at": 27,
       "drawn_here": 35,
       "refamilied_out": 8,
-      "surplus_still_held": 9,
+      "surplus_still_held": 8,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
       "bucket": "persons/male/30_39/west/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 13,
       "the_re_cut_would_have_ordered": 7,
@@ -668,7 +681,7 @@
     },
     {
       "bucket": "persons/male/40_49/north/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 4,
       "the_re_cut_would_have_ordered": 2,
@@ -694,7 +707,7 @@
     },
     {
       "bucket": "persons/male/40_49/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 10,
       "the_re_cut_would_have_ordered": 5,
@@ -707,7 +720,7 @@
     },
     {
       "bucket": "persons/male/40_49/west/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 3,
       "the_re_cut_would_have_ordered": 2,
@@ -719,8 +732,22 @@
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
+      "bucket": "persons/male/50_plus/north/lodging/trade",
+      "owning_ticket": "T-2023",
+      "cause": "a_documented_reading_shrank_the_order",
+      "quota_it_was_drawn_against": 1,
+      "the_re_cut_would_have_ordered": 0,
+      "already_drawn": 1,
+      "held_at": 1,
+      "drawn_here": 0,
+      "refamilied_out": 0,
+      "surplus_still_held": 1,
+      "refamilied_in": 1,
+      "why": "the town read more people it can name, the known layer's share of this cell grew, and its order fell under the head(s) the re-family ledger had already landed in it against an open order (T-2078). Nobody is moved back; the surplus is the owning ticket's to retire. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
+    },
+    {
       "bucket": "persons/male/50_plus/south/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 5,
       "the_re_cut_would_have_ordered": 2,
@@ -733,7 +760,7 @@
     },
     {
       "bucket": "persons/male/50_plus/west/family/trade",
-      "owning_ticket": "T-2043",
+      "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 2,
       "the_re_cut_would_have_ordered": 1,
@@ -762,12 +789,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 119,
-      "the_re_cut_would_have_ordered": 63,
+      "the_re_cut_would_have_ordered": 64,
       "already_drawn": 109,
       "held_at": 109,
       "drawn_here": 119,
       "refamilied_out": 10,
-      "surplus_still_held": 46,
+      "surplus_still_held": 45,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -853,7 +880,7 @@
       {
         "cell": "persons/female/10_19/north/family",
         "direction": "into",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 24,
@@ -867,7 +894,7 @@
       {
         "cell": "persons/female/10_19/south/family",
         "direction": "into",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 7,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 54,
@@ -892,7 +919,7 @@
       {
         "cell": "persons/female/10_19/west/family",
         "direction": "into",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 21,
@@ -918,7 +945,7 @@
       {
         "cell": "persons/male/10_19/north/family",
         "direction": "into",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 28,
@@ -943,7 +970,7 @@
       {
         "cell": "persons/male/10_19/south/family",
         "direction": "into",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 8,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 65,
@@ -957,7 +984,7 @@
       {
         "cell": "persons/male/10_19/west/family",
         "direction": "into",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 23,
@@ -984,11 +1011,11 @@
       {
         "cell": "persons/female/20_29/north/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 15,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -997,11 +1024,11 @@
       {
         "cell": "persons/female/20_29/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 30,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1023,11 +1050,11 @@
       {
         "cell": "persons/female/20_29/west/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 9,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1036,11 +1063,11 @@
       {
         "cell": "persons/female/30_39/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 2,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 15,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1049,11 +1076,24 @@
       {
         "cell": "persons/female/30_39/west/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 4,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
+        "the_unaudited_stages_that_drew_here": [
+          "T-1347"
+        ],
+        "why": "the re-cut wanted more out of this cell than it has undrawn, or than a stage not yet stable under a quota change will let go. It is held where it stands, and the slots it could not give up were sought from cells with a remainder to spend."
+      },
+      {
+        "cell": "persons/female/40_49/south/family",
+        "direction": "out of",
+        "owning_ticket": "T-2187",
+        "the_re_cut_wanted": 1,
+        "the_remainder_could_pay": 0,
+        "already_drawn_in_the_way": 5,
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1062,11 +1102,11 @@
       {
         "cell": "persons/female/40_49/west/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 2,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1075,11 +1115,11 @@
       {
         "cell": "persons/female/50_plus/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 2,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1088,11 +1128,11 @@
       {
         "cell": "persons/male/20_29/north/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 22,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1101,11 +1141,11 @@
       {
         "cell": "persons/male/20_29/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 5,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 52,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1127,11 +1167,11 @@
       {
         "cell": "persons/male/20_29/west/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 2,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 18,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1153,11 +1193,11 @@
       {
         "cell": "persons/male/30_39/north/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
-        "the_re_cut_wanted": 2,
+        "owning_ticket": "T-2187",
+        "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 14,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1166,11 +1206,11 @@
       {
         "cell": "persons/male/30_39/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 3,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 27,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1192,11 +1232,11 @@
       {
         "cell": "persons/male/30_39/west/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 10,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1205,11 +1245,11 @@
       {
         "cell": "persons/male/40_49/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 8,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1218,11 +1258,11 @@
       {
         "cell": "persons/male/50_plus/south/family",
         "direction": "out of",
-        "owning_ticket": "T-2043",
+        "owning_ticket": "T-2187",
         "the_re_cut_wanted": 1,
         "the_remainder_could_pay": 0,
         "already_drawn_in_the_way": 3,
-        "drawn_by": "T-2043",
+        "drawn_by": "T-2187",
         "the_unaudited_stages_that_drew_here": [
           "T-1347"
         ],
@@ -1267,6 +1307,9 @@
         "T-1347"
       ],
       "persons/female/30_39/west/family/trade": [
+        "T-1347"
+      ],
+      "persons/female/40_49/south/family/trade": [
         "T-1347"
       ],
       "persons/female/40_49/west/family/trade": [
@@ -1341,7 +1384,7 @@
   "spent_by": [
     {
       "ticket": "T-1174",
-      "records": 589,
+      "records": 590,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1567,14 +1610,14 @@
     }
   ],
   "roster_offered": {
-    "total": 1806,
+    "total": 1808,
     "by_class": {
-      "R1_in_window_uncertain": 898,
+      "R1_in_window_uncertain": 902,
       "R2_in_window_single_source": 207,
       "R3_1834_return_or_muster": 28,
       "R4_surname_only_census": 438,
       "R5_later_only_backprojectable": 53,
-      "R6_native_metis_black": 182
+      "R6_native_metis_black": 180
     },
     "tickets": {
       "R1_in_window_uncertain": "T-1172",
@@ -1586,29 +1629,29 @@
     }
   },
   "totals": {
-    "persons_target": 2548,
-    "persons_known": 1434,
-    "persons_to_reconstruct": 2037,
-    "households_target": 644,
-    "households_known": 163,
-    "households_known_records": 1407,
+    "persons_target": 2550,
+    "persons_known": 1432,
+    "persons_to_reconstruct": 2039,
+    "households_target": 645,
+    "households_known": 161,
+    "households_known_records": 1405,
     "households_awaiting_a_household": 1244,
-    "households_to_reconstruct": 483,
+    "households_to_reconstruct": 486,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
     "roofs_standing": 673,
     "roofs_to_build": 14,
-    "persons_standing": 2920,
-    "persons_still_owed": 215,
+    "persons_standing": 2918,
+    "persons_still_owed": 217,
     "persons_when_the_book_is_filled": 3135,
     "persons_target_range": [
-      2369,
+      2371,
       3265
     ],
-    "households_standing": 207,
-    "households_still_owed": 426
+    "households_standing": 206,
+    "households_still_owed": 428
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1616,9 +1659,9 @@
       "tools/seat_platted_ground_1835.py --build",
       "tools/seat_off_plat_ground_1835.py --build"
     ],
-    "rows_offered": 1424,
+    "rows_offered": 1423,
     "seated": 313,
-    "still_owed": 1111,
+    "still_owed": 1110,
     "roofs_adopted": 311,
     "slots_requested": 2,
     "roofs_standing": 673,
@@ -1631,9 +1674,9 @@
         "title": "The committed plat",
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
-        "rows_offered": 1424,
+        "rows_offered": 1423,
         "seated": 214,
-        "handed_on": 1210,
+        "handed_on": 1209,
         "roofs_adopted": 212,
         "slots_requested": 2,
         "roofs_offered_for_adoption": 222,
@@ -1658,9 +1701,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1210,
+        "rows_offered": 1209,
         "seated": 99,
-        "handed_on": 1111,
+        "handed_on": 1110,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 106,
@@ -1682,8 +1725,8 @@
     ],
     "requested_slots": [
       {
-        "household_id": "hh_dewey_s",
-        "name": "The Dewey household — a name the town's own records carry",
+        "household_id": "hh_dickson_david",
+        "name": "The Dickson household — a name from the post office's letter lists",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_81",
@@ -1692,8 +1735,8 @@
         "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
       },
       {
-        "household_id": "hh_dickson_david",
-        "name": "The Dickson household — a name from the post office's letter lists",
+        "household_id": "hh_dird_john_david",
+        "name": "The Dird household — a name the town's own records carry",
         "district": "south",
         "clause": "tradesman_dwellings",
         "block_id": "blk_school_section_tier_95",
@@ -1707,7 +1750,7 @@
       "blk_school_section_tier_95"
     ],
     "what_the_slots_wait_on": "2 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
-    "what_is_left": "1,111 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,110 of the 1,423 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -1715,54 +1758,54 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 392,
+      "household_leg_now": 395,
       "person_leg_before": 374,
-      "person_leg_now": 202,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 392. The person leg is PART artifact: 374 before, 202 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "person_leg_now": 203,
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 395. The person leg is PART artifact: 374 before, 203 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
-      "persons_standing_in_the_layer": 2920,
-      "persons_still_owed": 215,
+      "persons_standing_in_the_layer": 2918,
+      "persons_still_owed": 217,
       "converges_to": 3135,
-      "model_point": 2548,
+      "model_point": 2550,
       "model_range": [
-        2369,
+        2371,
         3265
       ],
-      "measured": "2,920 standing plus 215 still owed is 3,135, inside the model's 2,369-3,265. Before the re-cut the same sum was 2,920 + 843 = 3,763, and the book was ordering a replacement for 826 people already in the layer. It is 587 above the model's 2,548 point, and that surplus is the 409 people drawn into 52 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,918 standing plus 217 still owed is 3,135, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,918 + 843 = 3,761, and the book was ordering a replacement for 826 people already in the layer. It is 585 above the model's 2,550 point, and that surplus is the 408 people drawn into 54 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
-      "asks": "The model wants 643 households and the layer holds 1,451 records. Are those the same thing?",
+      "asks": "The model wants 643 households and the layer holds 1,450 records. Are those the same thing?",
       "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
-      "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,451 against 643 is a BACKLOG, not a contradiction.",
-      "households_known_before_the_rulings": 454,
-      "records_known_now": 1407,
-      "houses_known_now": 163,
+      "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,450 against 643 is a BACKLOG, not a contradiction.",
+      "households_known_before_the_rulings": 456,
+      "records_known_now": 1405,
+      "houses_known_now": 161,
       "records_awaiting_a_household": 1244,
       "houses_by_clause": {
-        "a_stated_kinship": 91,
+        "a_stated_kinship": 89,
         "a_stated_premises": 33,
         "a_stated_dwelling": 22,
         "a_stated_division": 14,
         "more_than_one_named_person": 3
       },
-      "model_target": 644,
+      "model_target": 645,
       "model_range": [
-        472,
+        473,
         816
       ],
-      "measured": "Of the 1,407 records the layer holds present, 163 carry a reading about a dwelling and 1,244 do not. The quota is taken against the 163, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
+      "measured": "Of the 1,405 records the layer holds present, 161 carry a reading about a dwelling and 1,244 do not. The quota is taken against the 161, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
       "the_test_is_the_evidence_not_the_head_count": "A one-person record is not held out because it holds one person; a man may well have lived alone. It is held out where its whole evidence is a name on a list. The clause that lets a record stand as a house is written on its own manifest row as `dwelling_evidence` and is tallied above — so which of the records are which is readable off the layer and not asserted here.",
       "what_this_does_not_do": "Nothing is retired, nothing is re-graded and nobody is downgraded. Every record stays as it is, with its evidence and its grade; what changes is which question it answers. A record answers both the moment something seats him, and the derivation picks that up on the next rebuild."
     },
     {
       "id": "a_documented_reading_shrank_an_order_the_town_had_drawn",
       "asks": "The parish register's 120 documented residents (T-0841) land in buckets the town had already reconstructed strangers into. Where did reading a person the town can name put a bucket's order UNDER what was drawn against it, and by how many people?",
-      "the_answer_is": "7 bucket(s), over-supplied by 11 in all.",
+      "the_answer_is": "8 bucket(s), over-supplied by 12 in all.",
       "buckets": [
         {
           "bucket": "persons/female/30_39/south/lodging/none",
@@ -1812,10 +1855,17 @@
           "already_drawn": 5,
           "the_re_cut_would_have_ordered": 4,
           "over_supplied_by": 1
+        },
+        {
+          "bucket": "persons/male/50_plus/north/lodging/trade",
+          "owning_ticket": "T-2023",
+          "already_drawn": 1,
+          "the_re_cut_would_have_ordered": 0,
+          "over_supplied_by": 1
         }
       ],
-      "over_supplied_by": 11,
-      "measured": "`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/female/40_49/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/20_29/west/lodging/trade` holds 5 drawn against an order of 4 — over-supplied by 1. That is 11 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.",
+      "over_supplied_by": 12,
+      "measured": "`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/female/40_49/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/20_29/west/lodging/trade` holds 5 drawn against an order of 4 — over-supplied by 1; `persons/male/50_plus/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 12 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.",
       "declined": "RETIRING a reconstructed card is the bucket owner's work and not this book's: a book that deleted people to make its own arithmetic close would be reconstructing backwards. T-1347, which drew the trade band, has closed, so T-1530 is filed for the south-side 20-29 surplus and T-1506 owns the surplus lawyer."
     }
   ],
@@ -1825,14 +1875,14 @@
       "title": "Persons",
       "lead": "Who the town still has to be given, by sex, age, division, household and trade.",
       "summary": {
-        "town_target": 2548,
-        "town_target_basis": "the model's own point within 2,369-3,265",
+        "town_target": 2550,
+        "town_target_basis": "the model's own point within 2,371-3,265",
         "town_target_range": [
-          2369,
+          2371,
           3265
         ],
-        "employed_target": 507,
-        "employed_basis": "the midpoint of the model's 426-588, rounded half up",
+        "employed_target": 508,
+        "employed_basis": "the midpoint of the model's 427-588, rounded half up",
         "lodging_share": 0.26,
         "lodging_share_range": [
           0.143,
@@ -1991,7 +2041,7 @@
           "known_inferred": 7,
           "to_reconstruct": 15,
           "filled": 15,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 17,
           "recut_refused": true
@@ -2067,10 +2117,10 @@
           },
           "target": 43,
           "known_attested": 7,
-          "known_inferred": 18,
+          "known_inferred": 17,
           "to_reconstruct": 30,
           "filled": 30,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 40,
           "drawn_here": 35,
@@ -2151,7 +2201,7 @@
           "known_inferred": 6,
           "to_reconstruct": 9,
           "filled": 9,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 15,
           "drawn_here": 13,
@@ -2232,7 +2282,7 @@
           "known_inferred": 4,
           "to_reconstruct": 6,
           "filled": 6,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 8,
           "recut_refused": true
@@ -2311,7 +2361,7 @@
           "known_inferred": 8,
           "to_reconstruct": 15,
           "filled": 15,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 18,
           "drawn_here": 16,
@@ -2390,14 +2440,15 @@
           },
           "target": 8,
           "known_attested": 1,
-          "known_inferred": 3,
+          "known_inferred": 4,
           "to_reconstruct": 4,
           "filled": 4,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 7,
           "drawn_here": 7,
-          "refamilied_out": 3
+          "refamilied_out": 3,
+          "recut_refused": true
         },
         {
           "key": "persons/female/30_39/west/family/none",
@@ -2471,7 +2522,7 @@
           "known_inferred": 1,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 3,
           "recut_refused": true
@@ -2545,12 +2596,12 @@
             "household_type": "family",
             "trade": "trade"
           },
-          "target": 7,
+          "target": 8,
           "known_attested": 1,
           "known_inferred": 3,
           "to_reconstruct": 5,
           "filled": 5,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 7,
           "drawn_here": 6,
@@ -2566,7 +2617,7 @@
             "household_type": "family",
             "trade": "none"
           },
-          "target": 15,
+          "target": 14,
           "known_attested": 2,
           "known_inferred": 6,
           "to_reconstruct": 9,
@@ -2628,7 +2679,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 2,
           "drawn_here": 3,
@@ -2707,7 +2758,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 2,
           "recut_refused": true
@@ -2784,7 +2835,7 @@
           "known_inferred": 2,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 4,
           "drawn_here": 4,
@@ -2863,7 +2914,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 2,
           "drawn_here": 2,
@@ -3216,10 +3267,10 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 11,
+          "target": 12,
           "known_attested": 2,
           "known_inferred": 4,
-          "to_reconstruct": 5,
+          "to_reconstruct": 6,
           "filled": 5,
           "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
@@ -3240,7 +3291,7 @@
           "known_inferred": 12,
           "to_reconstruct": 22,
           "filled": 22,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 28,
           "drawn_here": 25,
@@ -3261,7 +3312,7 @@
           "known_inferred": 23,
           "to_reconstruct": 26,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3313,7 +3364,7 @@
           "known_inferred": 30,
           "to_reconstruct": 52,
           "filled": 52,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 68,
           "drawn_here": 60,
@@ -3331,10 +3382,10 @@
           },
           "target": 140,
           "known_attested": 23,
-          "known_inferred": 58,
-          "to_reconstruct": 59,
+          "known_inferred": 57,
+          "to_reconstruct": 60,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3389,7 +3440,7 @@
           "known_inferred": 10,
           "to_reconstruct": 18,
           "filled": 18,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 25,
           "drawn_here": 23,
@@ -3410,7 +3461,7 @@
           "known_inferred": 20,
           "to_reconstruct": 24,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3465,9 +3516,9 @@
           "known_inferred": 7,
           "to_reconstruct": 14,
           "filled": 14,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
-          "recut_wants": 16,
+          "recut_wants": 17,
           "drawn_here": 15,
           "refamilied_out": 1,
           "recut_refused": true
@@ -3486,7 +3537,7 @@
           "known_inferred": 13,
           "to_reconstruct": 16,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3538,10 +3589,10 @@
           },
           "target": 43,
           "known_attested": 7,
-          "known_inferred": 18,
+          "known_inferred": 17,
           "to_reconstruct": 27,
           "filled": 27,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 40,
           "drawn_here": 35,
@@ -3562,7 +3613,7 @@
           "known_inferred": 34,
           "to_reconstruct": 35,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3616,7 +3667,7 @@
           "known_inferred": 6,
           "to_reconstruct": 10,
           "filled": 10,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 15,
           "drawn_here": 13,
@@ -3637,7 +3688,7 @@
           "known_inferred": 11,
           "to_reconstruct": 14,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3691,7 +3742,7 @@
           "known_inferred": 2,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 5,
           "drawn_here": 4,
@@ -3712,7 +3763,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3767,7 +3818,7 @@
           "known_inferred": 5,
           "to_reconstruct": 8,
           "filled": 8,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 11,
           "drawn_here": 10,
@@ -3788,7 +3839,7 @@
           "known_inferred": 10,
           "to_reconstruct": 10,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3842,7 +3893,7 @@
           "known_inferred": 1,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 4,
           "recut_refused": true
@@ -3861,7 +3912,7 @@
           "known_inferred": 4,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3915,7 +3966,7 @@
           "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 1,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 2,
           "drawn_here": 2,
@@ -3935,7 +3986,7 @@
           "known_inferred": 2,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -3949,14 +4000,15 @@
           },
           "target": 1,
           "known_attested": 0,
-          "known_inferred": 0,
+          "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 1,
           "owning_ticket": "T-2023",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1,
           "drawn_here": 0,
-          "refamilied_in": 1
+          "refamilied_in": 1,
+          "recut_refused": true
         },
         {
           "key": "persons/male/50_plus/north/lodging/none",
@@ -3967,9 +4019,9 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 1,
+          "target": 2,
           "known_attested": 0,
-          "known_inferred": 0,
+          "known_inferred": 1,
           "to_reconstruct": 1,
           "filled": 1,
           "owning_ticket": "T-2023",
@@ -3989,7 +4041,7 @@
           "known_inferred": 3,
           "to_reconstruct": 3,
           "filled": 3,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 5,
           "drawn_here": 5,
@@ -4010,7 +4062,7 @@
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4064,7 +4116,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "an adult at a trade",
           "recut_wants": 2,
           "recut_refused": true
@@ -4083,7 +4135,7 @@
           "known_inferred": 1,
           "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2043",
+          "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model"
         },
         {
@@ -4174,7 +4226,7 @@
           },
           "target": 148,
           "known_attested": 24,
-          "known_inferred": 61,
+          "known_inferred": 60,
           "to_reconstruct": 202,
           "filled": 202,
           "owning_ticket": "T-1174",
@@ -4284,16 +4336,16 @@
       "title": "Households",
       "lead": "The households the model wants, by kind and division.",
       "summary": {
-        "households_target": 644,
-        "households_target_basis": "the midpoint of the model's 472-816, rounded half up",
+        "households_target": 645,
+        "households_target_basis": "the midpoint of the model's 473-816, rounded half up",
         "households_target_range": [
-          472,
+          473,
           816
         ],
-        "known_present": 163,
-        "known_present_records": 1407,
+        "known_present": 161,
+        "known_present_records": 1405,
         "known_present_awaiting_a_household": 1244,
-        "known_uncertain_in_the_index_ruled_in_by_T-1386": 953
+        "known_uncertain_in_the_index_ruled_in_by_T-1386": 949
       },
       "buckets": [
         {
@@ -4307,7 +4359,7 @@
           "to_reconstruct": 9,
           "filled": 6,
           "owning_ticket": "T-2023",
-          "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the north division"
+          "basis": "the model's 645 households apportioned on the inventory's own boarding_house roof count in the north division"
         },
         {
           "key": "households/boarding_house/south",
@@ -4320,7 +4372,7 @@
           "to_reconstruct": 29,
           "filled": 7,
           "owning_ticket": "T-2023",
-          "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the south division"
+          "basis": "the model's 645 households apportioned on the inventory's own boarding_house roof count in the south division"
         },
         {
           "key": "households/boarding_house/west",
@@ -4333,7 +4385,7 @@
           "to_reconstruct": 7,
           "filled": 3,
           "owning_ticket": "T-2023",
-          "basis": "the model's 644 households apportioned on the inventory's own boarding_house roof count in the west division"
+          "basis": "the model's 645 households apportioned on the inventory's own boarding_house roof count in the west division"
         },
         {
           "key": "households/family_dwelling/north",
@@ -4342,11 +4394,11 @@
             "division": "north"
           },
           "target": 123,
-          "known": 27,
-          "to_reconstruct": 96,
+          "known": 26,
+          "to_reconstruct": 97,
           "filled": 8,
-          "owning_ticket": "T-2043",
-          "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the north division"
+          "owning_ticket": "T-2188",
+          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
           "key": "households/family_dwelling/south",
@@ -4355,11 +4407,11 @@
             "division": "south"
           },
           "target": 258,
-          "known": 73,
-          "to_reconstruct": 185,
-          "filled": 15,
-          "owning_ticket": "T-2043",
-          "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the south division"
+          "known": 72,
+          "to_reconstruct": 186,
+          "filled": 16,
+          "owning_ticket": "T-2188",
+          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
           "key": "households/family_dwelling/west",
@@ -4368,11 +4420,11 @@
             "division": "west"
           },
           "target": 110,
-          "known": 21,
-          "to_reconstruct": 89,
+          "known": 20,
+          "to_reconstruct": 90,
           "filled": 10,
-          "owning_ticket": "T-2043",
-          "basis": "the model's 644 households apportioned on the inventory's own family_dwelling roof count in the west division"
+          "owning_ticket": "T-2188",
+          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
           "key": "households/inn_tavern/north",
@@ -4385,7 +4437,7 @@
           "to_reconstruct": 3,
           "filled": 1,
           "owning_ticket": "T-2023",
-          "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the north division"
+          "basis": "the model's 645 households apportioned on the inventory's own inn_tavern roof count in the north division"
         },
         {
           "key": "households/inn_tavern/south",
@@ -4398,7 +4450,7 @@
           "to_reconstruct": 5,
           "filled": 5,
           "owning_ticket": "T-2023",
-          "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the south division"
+          "basis": "the model's 645 households apportioned on the inventory's own inn_tavern roof count in the south division"
         },
         {
           "key": "households/inn_tavern/west",
@@ -4407,11 +4459,11 @@
             "division": "west"
           },
           "target": 4,
-          "known": 0,
-          "to_reconstruct": 4,
+          "known": 1,
+          "to_reconstruct": 3,
           "filled": 1,
           "owning_ticket": "T-2023",
-          "basis": "the model's 644 households apportioned on the inventory's own inn_tavern roof count in the west division"
+          "basis": "the model's 645 households apportioned on the inventory's own inn_tavern roof count in the west division"
         },
         {
           "key": "households/institutional/south",
@@ -4424,7 +4476,7 @@
           "to_reconstruct": 1,
           "filled": 1,
           "owning_ticket": "T-1531",
-          "basis": "the model's 644 households apportioned on the institutional roofs whose own record puts a household under them (1835_institutional_lodging, T-1531) in the south division"
+          "basis": "the model's 645 households apportioned on the institutional roofs whose own record puts a household under them (1835_institutional_lodging, T-1531) in the south division"
         },
         {
           "key": "households/store_residence/north",
@@ -4436,8 +4488,8 @@
           "known": 2,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2043",
-          "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the north division"
+          "owning_ticket": "T-2188",
+          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
           "key": "households/store_residence/south",
@@ -4445,12 +4497,12 @@
             "household_type": "store_residence",
             "division": "south"
           },
-          "target": 61,
+          "target": 62,
           "known": 18,
-          "to_reconstruct": 43,
+          "to_reconstruct": 44,
           "filled": 0,
-          "owning_ticket": "T-2043",
-          "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the south division"
+          "owning_ticket": "T-2188",
+          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
           "key": "households/store_residence/west",
@@ -4462,8 +4514,8 @@
           "known": 1,
           "to_reconstruct": 8,
           "filled": 0,
-          "owning_ticket": "T-2043",
-          "basis": "the model's 644 households apportioned on the inventory's own store_residence roof count in the west division"
+          "owning_ticket": "T-2188",
+          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
           "key": "households/garrison/fort",
@@ -4650,11 +4702,11 @@
             "high": 21,
             "scaled_by": {
               "state_census_population": 3297,
-              "scene_date_population_low": 2369,
+              "scene_date_population_low": 2371,
               "scene_date_population_high": 3265,
               "figure": "population_on_1_july_1835"
             },
-            "method": "The census counts 22 in a town of 3297; the town model brackets 1 July 1835 between 2369 and 3265 people. A profession scales with the population it serves, so the scene date holds between 15 and 21 of them. The book orders to the low end, floored.",
+            "method": "The census counts 22 in a town of 3297; the town model brackets 1 July 1835 between 2371 and 3265 people. A profession scales with the population it serves, so the scene date holds between 15 and 21 of them. The book orders to the low end, floored.",
             "source": "data/research/books/trade_census_1835_spend.json",
             "ticket": "T-1418"
           },
@@ -4736,11 +4788,11 @@
             "high": 13,
             "scaled_by": {
               "state_census_population": 3297,
-              "scene_date_population_low": 2369,
+              "scene_date_population_low": 2371,
               "scene_date_population_high": 3265,
               "figure": "population_on_1_july_1835"
             },
-            "method": "The census counts 14 in a town of 3297; the town model brackets 1 July 1835 between 2369 and 3265 people. A profession scales with the population it serves, so the scene date holds between 10 and 13 of them. The book orders to the low end, floored.",
+            "method": "The census counts 14 in a town of 3297; the town model brackets 1 July 1835 between 2371 and 3265 people. A profession scales with the population it serves, so the scene date holds between 10 and 13 of them. The book orders to the low end, floored.",
             "source": "data/research/books/trade_census_1835_spend.json",
             "ticket": "T-1418"
           },
@@ -5711,14 +5763,14 @@
     {
       "id": "households_against_dwellings",
       "owning_ticket": "T-1196",
-      "model": 644,
+      "model": 645,
       "programme": 335,
-      "delta": 309,
+      "delta": 310,
       "programme_groups": [
         "ordinary_dwellings"
       ],
       "restates_the_programme": false,
-      "statement": "The household model wants 644 households and the programme schedules 335 ordinary dwellings (335-377 in the model's own reading). More than one household to a roof is the resolution the census's own 8.204 people per dwelling implies; T-1196 re-cuts the schedule to say how many."
+      "statement": "The household model wants 645 households and the programme schedules 335 ordinary dwellings (335-377 in the model's own reading). More than one household to a roof is the resolution the census's own 8.204 people per dwelling implies; T-1196 re-cuts the schedule to say how many."
     },
     {
       "id": "boarding_houses",
@@ -5760,12 +5812,12 @@
     {
       "id": "people_per_roof",
       "owning_ticket": "T-1196",
-      "model": 2548,
+      "model": 2550,
       "programme": 668,
       "delta": 0,
       "programme_groups": [],
       "restates_the_programme": false,
-      "statement": "2,548 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
+      "statement": "2,550 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
     }
   ],
   "invariants": [
@@ -5773,13 +5825,13 @@
       "id": "every_person_housed",
       "owning_ticket": "T-1215",
       "statement": "Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof.",
-      "measured_now": "22 of 1407 present households name a lives_at."
+      "measured_now": "22 of 1405 present households name a lives_at."
     },
     {
       "id": "every_working_person_has_a_workplace",
       "owning_ticket": "T-1189",
       "statement": "Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`.",
-      "measured_now": "50 of 1407 present households name a works_at."
+      "measured_now": "50 of 1405 present households name a works_at."
     },
     {
       "id": "every_business_has_staff",
@@ -5797,7 +5849,7 @@
       "id": "dwellings_ratio_within_its_bracket",
       "owning_ticket": "T-1215",
       "statement": "The town census's people-per-dwelling ratio is met within the model's bracket.",
-      "measured_now": "the book orders 2,548 people into 644 households."
+      "measured_now": "the book orders 2,550 people into 645 households."
     },
     {
       "id": "an_uncompared_class_orders_nothing",
@@ -6461,7 +6513,7 @@
       "bucket": "households/family_dwelling/south",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 15,
+      "records": 16,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
@@ -6848,16 +6900,16 @@
       "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
       "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
       "moves_the_rule_still_yields": 0,
-      "people_still_held": 409,
-      "buckets_they_are_held_in": 52,
+      "people_still_held": 408,
+      "buckets_they_are_held_in": 54,
       "and_what_holds_each_of_them": [
         {
           "refusal": "a_documented_reading_shrank_the_order",
-          "people": 11
+          "people": 12
         },
         {
           "refusal": "the_re_cut_reached_work_already_drawn",
-          "people": 398
+          "people": 396
         }
       ],
       "the_rungs_the_rule_refuses_on": [
@@ -9381,14 +9433,14 @@
       "adoptions_carried": 0
     },
     "the_held_surplus": {
-      "buckets_refused": 52,
-      "people_held": 409,
-      "people_still_held": 409,
-      "open_headroom_in_person_buckets": 215,
+      "buckets_refused": 54,
+      "people_held": 408,
+      "people_still_held": 408,
+      "open_headroom_in_person_buckets": 217,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 215,
+      "still_owed_now": 217,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }
