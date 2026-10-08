@@ -7,8 +7,10 @@ These are declared proportional reconstructions, about +/-1 ft.
 
 Canonical full/light assets and recovery archive rebuilt; 3,000 independent roof
 samples pass. Six published desktop/full and mobile/light app views load without
-page, HTTP or loader errors and remain inside their rendering budgets. Repository
-preflight after newer-dev integration is pending.
+page, HTTP or loader errors and remain inside their rendering budgets. The local
+repository gate passed 786 checks; its two stale generated outputs were rebuilt
+and passed unchanged direct rechecks. Required CI and broader smoke are recorded
+on the pull request.
 See `RESEARCH/glessner-tower-proportions-2172/README.md`.
 
 ## T-2035 / T-2037 / T-2038 - continuity while moving (2026-10-03)

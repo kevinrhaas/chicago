@@ -59,7 +59,7 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | people housed in the town census | 34 | 2437 | +2403 |
 | households housed in the town census | 20 | 1253 | +1233 |
 | rows in the final resident audit | 1288 | 2928 | +1640 |
-| published resident files in the mirror | 1336 | 2199 | +863 |
+| published resident files in the mirror | 1336 | 1426 | +90 |
 
 ## 4. T-1144's banked acceptances, as deltas
 

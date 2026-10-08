@@ -37,10 +37,13 @@ fixed. These principal-window heights are reconstructed (+/-1 ft).
 - PNGs and browser-validation.json retain the camera coordinates and observations.
   These are normal application materials, lighting and geometry; the animation
   loop is paused after entry for reproducible views. This is not an FPS benchmark.
-- Repository preflight and newer-dev integration are pending. An initial gate
-  caught concurrent local publishing, missing derived liberties, the browser
-  path environment convention and a newly closed dev ticket. Those are being
-  corrected before merge; no claim of a green whole-site browser suite is made.
+- Repository gate completed 788 checks: 786 passed; the two generated-output
+  failures (source-use coverage and duplicate published resident cohort files)
+  were refreshed and passed their unchanged direct checks. The closing-set
+  report, changelog contract, PR changelog check and ticket-ID check also pass.
+  The full required CI verdict is recorded on the pull request.
+- Broader published part-13 browser checks are recorded on the pull request;
+  this is not a claim that every part of the whole-site browser suite was run.
 
 Branch: steward/glessner-tower-proportions. Recovery checkpoints f08f65e4
 (study), a2205615 (band/assets), 9eeaf4a7 (final sash/assets and six app views).
