@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1519, ts: '2026-10-08T04:26:23.797Z', date: 'Oct 7, 2026, 11:26 PM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
+    items: [
+      'Nothing you can see changes. While the welcome or the menu is open, the town behind it is no longer redrawn sixty times a second when nothing in it has moved.',
+      'It is drawn again the moment something does change: a part of the town finishing loading, a setting you change, the window turning or resizing, or a jaunt preview moving the view.',
+      'On a phone that means less heat and battery spent sitting on the menu, and a menu that scrolls more smoothly over the town.',
+    ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
     items: [
       'Walk west along North Water Street from the Dearborn drawbridge, past the freight sheds, and at the LaSalle Street corner there is now a large two-storey river warehouse: unpainted clapboard, three cargo doors on its end wall, and its front to the river across the street.',
