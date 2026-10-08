@@ -14333,7 +14333,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 628 phases (624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 631 phases (628 until T-2169's last three yard buildings on plat block 50, blk_washington_clinton, 2026-10-08, L404; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -22122,3 +22122,38 @@ never increases the total.
 **Ticket:** T-2167.
 **Related:** **L263**, **L394**, **T-2148**, **T-2166**, **T-2168**.
 **Recorded:** 2026-10-08 (T-2167).
+
+
+### L404 — The West's last three yard buildings, behind the Canal Street houses of plat block 50
+
+**Decision:** `blk_washington_clinton` — plat block 50, Washington to Madison between Clinton
+and Canal, whose thirteen roofs are **L394** and whose four further yard buildings are **L402** —
+carries **three more anonymous yard buildings**, dealt by `tools/generate_block_infill.py` from a
+third recipe entry in `data/reconstruction/1835_platted_block_parcels.json`
+(`phase3_platted_block_washington_clinton_yard_deal_2`): a chicken house or small utility shed
+(A5, `_a5_18`) mid-yard behind the D5 cottage on plat lot 5, a barn or carriage shed (A2,
+`_a2_19`) on the woodshed's side of the D4's yard on plat lot 8, 16 m off the alley, and a
+woodshed (A4, `_a4_20`) mid-yard behind the H1 house on the Madison corner. The family mix is the
+668-roof schedule's: after T-2167's deal it re-apportioned the three yard roofs that had stood on
+`west_division_beyond_committed_control`, a district balance with no block, onto this block
+(`ancillary_room` 4), the only platted West block with ancillary room left. **Everything below
+that is invented** — that these yards held a third outbuilding in July 1835, which kind, which
+yard, and where in it (20 m off the alley for the two mid-yard sheds, 16 m for the barn). No
+coordinate is authored; every metre is read off the committed lot polygon.
+
+**Why the barn is in the D4's yard.** Mid-yard in the D5's yard it stood 1.98 m from the house,
+inside the generator's 3.0 m separation; the D4 stands furthest back from the alley of the three
+houses, so its yard is the one with the depth for a barn between the alley pair and the house.
+
+**What it does not do.** No household is seated or moved — a yard building seats nobody — and
+the Clinton face stays open as L394 left it. With these three the order book's West
+`barns_stables` and `small_outbuildings` cells owe nothing; the North's five A2 barns that no
+Wolcott lot can hold are **T-2170**'s.
+
+**How to resolve:** the same as L394: parcel-level tax, deed, assessment or surveyed building
+evidence for plat block 50. A named discovery substitutes for a compatible anonymous roof and
+never increases the total.
+
+**Covers:** `recon_1835_blk_washington_clinton_a5_18.inferred_1835.position`, `recon_1835_blk_washington_clinton_a5_18.inferred_1835.footprint`, `recon_1835_blk_washington_clinton_a2_19.inferred_1835.position`, `recon_1835_blk_washington_clinton_a2_19.inferred_1835.footprint`, `recon_1835_blk_washington_clinton_a4_20.inferred_1835.position`, `recon_1835_blk_washington_clinton_a4_20.inferred_1835.footprint`.
+**Ticket:** T-2169.
+**Recorded:** 2026-10-08.

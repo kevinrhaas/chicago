@@ -5877,6 +5877,97 @@
       ],
       "arrangement_note": "A SECOND OUTBUILDING ON EACH CANAL YARD THAT HAD ONE, AND ONE NEARER THE HOUSE ON TWO THAT HAD TWO. The D5 on lot 7 had only a barn off the alley, so a woodshed takes the other side of the yard; the D4 on lot 8 had only a woodshed, so a barn or carriage shed takes the other side. The merchant's H2 on lot 5 and the boarding house on lot 6 already keep two outbuildings off the alley each, so the privy and the smokehouse stand mid-yard, between those and the house, the position a privy and a smokehouse took in a town lot so that neither was at the house door nor across the yard from it. Which yard takes which is this file's choice; nothing states it.",
       "frontage_argued_on": "west_division_thompson_1830"
+    },
+    {
+      "block_id": "blk_washington_clinton",
+      "district": "west",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal_2",
+      "claimed": "2026-10-08",
+      "seq_start": 18,
+      "bounded_by": {
+        "north": "washington",
+        "south": "madison",
+        "west": "clinton",
+        "east": "canal"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 39,
+        "standing_roofs": 17,
+        "free_lots": 5,
+        "headroom": 16,
+        "dealt_roofs": 3,
+        "dealt_principal": 0,
+        "dealt_ancillary": 3,
+        "principal": 0,
+        "ancillary": 3
+      },
+      "families": {
+        "A2": 1,
+        "A4": 1,
+        "A5": 1
+      },
+      "dealt_against_the_order_book": {
+        "ticket": "T-2169",
+        "parent": "T-2168",
+        "cells": [
+          "structures/barns_stables/west",
+          "structures/small_outbuildings/west"
+        ],
+        "why": "THE WEST'S LAST THREE OWED YARD ROOFS, WHERE THE SCHEDULE NOW PUTS THEM. After T-2167's deal the 668-roof schedule re-apportions the three yard roofs that stood on `west_division_beyond_committed_control` (a district balance with no block: one A2, one A4, one A5) onto this block, the only platted West block with ancillary room left (`ancillary_room` 4, 17 standing). This entry deals those three alone, behind the Canal Street houses T-2148 raised, which leaves the order book's West barns_stables and small_outbuildings cells with nothing owed. A yard building seats nobody, so no household asks for it."
+      },
+      "open_lots": [
+        {
+          "lot": 0,
+          "why": "The Clinton column's Washington corner, left open as the first deal left it: the block keeps its whole Clinton face as open ground, and a yard building needs a dealt principal roof on its own lot."
+        },
+        {
+          "lot": 1,
+          "why": "The Clinton column's second lot, left open with the rest of the Clinton face as the first deal left it."
+        },
+        {
+          "lot": 2,
+          "why": "The Clinton column's middle lot, left open with the rest of the Clinton face as the first deal left it."
+        },
+        {
+          "lot": 3,
+          "why": "The Clinton column's fourth lot, left open with the rest of the Clinton face as the first deal left it."
+        },
+        {
+          "lot": 4,
+          "why": "The Clinton column's Madison corner, left open with the rest of the Clinton face as the first deal left it."
+        }
+      ],
+      "slots": [
+        {
+          "family": "A5",
+          "inventory_class": "ancillary",
+          "lot": 7,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 20.0,
+          "lateral_m": 0.0
+        },
+        {
+          "family": "A2",
+          "inventory_class": "ancillary",
+          "lot": 8,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 16.0,
+          "lateral_m": -5.0
+        },
+        {
+          "family": "A4",
+          "inventory_class": "ancillary",
+          "lot": 9,
+          "stands_on": "alley",
+          "fronts": "canal",
+          "setback_m": 20.0,
+          "lateral_m": 0.0
+        }
+      ],
+      "arrangement_note": "A THIRD OUTBUILDING IN THE THREE CANAL YARDS THAT STILL HAD TWO. After T-2167 the H2's yard on lot 5 and the boarding house's on lot 6 each keep three outbuildings, and the D5 on lot 7, the D4 on lot 8 and the H1 on lot 9 keep two each, both off the alley. So the three new ones stand between the alley pair and the house. The barn or carriage shed goes to the D4's yard on lot 8, on the woodshed's side of the yard and 16 m off the alley, clear of the barn beside it: it is the only one of the three yards with the depth for a barn there, because the D4 stands furthest back from the alley of the three houses. A first try mid-yard in the D5's yard stood it 1.98 m from the house. The chicken house or small utility shed stands mid-yard in the D5's yard on lot 7, and the woodshed mid-yard in the H1's on lot 9, the one yard of the five with no woodshed in it, both 20 m off the alley as T-2167 stood its privy and smokehouse on lots 5 and 6. Which yard takes which is this file's choice; nothing states it.",
+      "frontage_argued_on": "west_division_thompson_1830"
     }
   ],
   "redealt": {
