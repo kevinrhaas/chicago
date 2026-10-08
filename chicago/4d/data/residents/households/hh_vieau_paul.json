@@ -132,6 +132,19 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 5 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 266, so none of its 4 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "vieau_paul",
+   "relation": "father",
+   "household": "hh_vieaux_susanne",
+   "value": "vieaux_susanne",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 10 d'octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de Paul Vieaux et de Jaespquaa (sauvage de Green Bay), née le dix mai mil huit cent trente un. Parrain et marraine ont été Joseph Beaubien et Monique Nadeau. Both cards were minted from this entry's rows (st_marys_bapt_1833_18_2_father, st_marys_bapt_1833_18_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "vieau_paul",

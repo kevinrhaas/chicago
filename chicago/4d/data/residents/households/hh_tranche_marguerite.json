@@ -117,6 +117,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "tranche_marguerite",
+   "relation": "daughter",
+   "household": "hh_aspam_josette",
+   "value": "aspam_josette",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Marguerite [struck: Lafambre] fille de François Tranche[?] et de Josette Aspam, âgée d'un an. Parrain a été Michel Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1835_06_3_mother, st_marys_bapt_1835_06_1_child), so no identification is made here. The daughter term is the entry's: 'fille de François Tranche'."
+  }
+ ],
  "persons": [
   {
    "id": "tranche_marguerite",

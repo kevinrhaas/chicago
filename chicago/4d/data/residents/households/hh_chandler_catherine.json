@@ -131,6 +131,19 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 7 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 36 of 277 in that order, before the walk stopped. The 6 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "chandler_catherine",
+   "relation": "mother",
+   "household": "hh_tony_louisa",
+   "value": "tony_louisa",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_3_mother, st_marys_bapt_1835_13_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "chandler_catherine",

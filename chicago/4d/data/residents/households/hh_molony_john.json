@@ -131,6 +131,19 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 4 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 143 of 277 in that order, before the walk stopped. The 3 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "molony_john",
+   "relation": "father",
+   "household": "hh_molony_denis",
+   "value": "molony_denis",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster. Both cards were minted from this entry's rows (st_marys_bapt_1835_14_2_father, st_marys_bapt_1835_14_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "molony_john",

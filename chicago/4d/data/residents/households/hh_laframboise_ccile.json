@@ -118,6 +118,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "laframboise_ccile",
+   "relation": "daughter",
+   "household": "hh_laframboise_claude",
+   "value": "laframboise_claude",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf 10bre mil huit cent trente quatre, je soussigné ai baptisé Cécile fille de Claude Laframboise et de Manqua Masqua[?], âgée de 4 ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_24_2_father, st_marys_bapt_1834_24_1_child), so no identification is made here. The daughter term is the entry's: 'Cécile fille de Claude Laframboise'."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_ccile",

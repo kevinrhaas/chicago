@@ -132,6 +132,19 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 4 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 216, so none of its 3 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "laframboise_claude",
+   "relation": "father",
+   "household": "hh_laframboise_ccile",
+   "value": "laframboise_ccile",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf 10bre mil huit cent trente quatre, je soussigné ai baptisé Cécile fille de Claude Laframboise et de Manqua Masqua[?], âgée de 4 ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_24_2_father, st_marys_bapt_1834_24_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_claude",

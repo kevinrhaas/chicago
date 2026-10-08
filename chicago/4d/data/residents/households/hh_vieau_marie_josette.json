@@ -118,6 +118,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "vieau_marie_josette",
+   "relation": "daughter",
+   "household": "hh_vieau_jacob",
+   "value": "vieau_jacob",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 17 juin mil huit cent trente trois, je soussigné ai baptisé Marie Josette fille de Jacob Vieau et de Matanacqua, née aux environs du 16 de février mil huit cent trente trois. Parrain et marraine furent Solomon Juneau et Monique Nadeau. Both cards were minted from this entry's rows (st_marys_bapt_1833_08_2_father, st_marys_bapt_1833_08_1_child), so no identification is made here. The daughter term is the entry's: 'Marie Josette fille de Jacob Vieau'."
+  }
+ ],
  "persons": [
   {
    "id": "vieau_marie_josette",

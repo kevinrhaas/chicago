@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "wode_mary",
+   "relation": "daughter",
+   "household": "hh_wode_john",
+   "value": "wode_john",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the fourteenth of July eighteen hundred & thirty three I, the undersigned, baptised Mary and Catherine daughters of John Wode and Mariana Kamenwith[?] born the 16th July 1833. Sponsors were Jacob Jolly and Catherine Harrington. Both cards were minted from this entry's rows (st_marys_bapt_1833_09_3_father, st_marys_bapt_1833_09_1_child), so no identification is made here. The daughter term is the entry's: 'Mary and Catherine daughters of John Wode'."
+  }
+ ],
  "persons": [
   {
    "id": "wode_mary",

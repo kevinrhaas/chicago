@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "ltendre_joseph",
+   "relation": "son",
+   "household": "hh_ltendre_baptiste",
+   "value": "ltendre_baptiste",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 26 juillet mil huit cent trente trois, je soussigné ai baptisé Joseph Létendre fils de Baptiste Létendre et [de] O'Waichiquoi, né le vingt huit de mai mil huit cent trente [trois]. Parrain et marraine ont été Solomon Juneau et Josette Vieau. Both cards were minted from this entry's rows (st_marys_bapt_1833_10_2_father, st_marys_bapt_1833_10_1_child), so no identification is made here. The son term is the entry's: 'Joseph Létendre fils de Baptiste Létendre'."
+  }
+ ],
  "persons": [
   {
    "id": "ltendre_joseph",

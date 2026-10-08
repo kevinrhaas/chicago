@@ -118,6 +118,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "laframboise_thrse",
+   "relation": "daughter",
+   "household": "hh_laframboise_joseph",
+   "value": "laframboise_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans. Both cards were minted from this entry's rows (st_marys_bapt_1834_15_2_father, st_marys_bapt_1834_15_1_child), so no identification is made here. The daughter term is the entry's: 'Thérèse fille de Joseph Laframboise'."
+  },
+  {
+   "person": "laframboise_thrse",
+   "relation": "daughter",
+   "household": "hh_peltier_jacquette",
+   "value": "peltier_jacquette",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans. Both cards were minted from this entry's rows (st_marys_bapt_1834_15_3_mother, st_marys_bapt_1834_15_1_child), so no identification is made here. The daughter term is the entry's: 'Thérèse fille de Joseph Laframboise'."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_thrse",

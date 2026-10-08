@@ -131,6 +131,19 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 3 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 35 of 277 in that order, before the walk stopped. The 2 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "brenin_mary",
+   "relation": "mother",
+   "household": "hh_murray_martha",
+   "value": "murray_martha",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr. Both cards were minted from this entry's rows (st_marys_bapt_1835_09_3_mother, st_marys_bapt_1835_09_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "brenin_mary",

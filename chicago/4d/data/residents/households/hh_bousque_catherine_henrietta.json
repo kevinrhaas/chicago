@@ -119,6 +119,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "bousque_catherine_henrietta",
+   "relation": "daughter",
+   "household": "hh_bousque_bernard",
+   "value": "bousque_bernard",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?]. Both cards were minted from this entry's rows (st_marys_bapt_1835_02_2_father, st_marys_bapt_1835_02_1_child), so no identification is made here. The daughter term is the entry's: 'Catherine Henrietta Bousque daughter of Bernard Bousque'."
+  },
+  {
+   "person": "bousque_catherine_henrietta",
+   "relation": "daughter",
+   "household": "hh_preman_catherine",
+   "value": "preman_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the fifth of April eighteen hundred & thirty five, I the undersigned baptized Catherine Henrietta Bousque daughter of Bernard Bousque & of Catherine Preman, born the fifth of march 1835. Sponsors were Henry Stone & Catherine Debert[?]. Both cards were minted from this entry's rows (st_marys_bapt_1835_02_3_mother, st_marys_bapt_1835_02_1_child), so no identification is made here. The daughter term is the entry's: 'Catherine Henrietta Bousque daughter of Bernard Bousque'."
+  }
+ ],
  "persons": [
   {
    "id": "bousque_catherine_henrietta",

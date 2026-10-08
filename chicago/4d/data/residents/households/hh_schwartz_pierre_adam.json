@@ -117,6 +117,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "schwartz_pierre_adam",
+   "relation": "son",
+   "household": "hh_schwartz_adam",
+   "value": "schwartz_adam",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 24 août 1835, je soussigné ai administré les cérémonies du baptême à Pierre Adam Schwartz fils de Adam Schwartz et de Marie Dalbau[?], âgé de six mois. Parrain et marraine ont été M. Pierre Riffe et Marie Delacher[?]. Both cards were minted from this entry's rows (st_marys_bapt_1835_08_2_father, st_marys_bapt_1835_08_1_child), so no identification is made here. The son term is the entry's: 'Pierre Adam Schwartz fils de Adam Schwartz'."
+  }
+ ],
  "persons": [
   {
    "id": "schwartz_pierre_adam",
