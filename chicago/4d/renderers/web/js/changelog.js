@@ -1,10 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1540, ts: '2026-10-08T16:39:04.819Z', date: 'Oct 8, 2026, 11:39 AM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
+  { v: 1541, ts: '2026-10-08T16:54:52.945Z', date: 'Oct 8, 2026, 11:54 AM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
       'St Mary\u2019s baptism register gives six children a birth date, or an age at baptism, that falls after 1 July 1835. Until now they were counted in the town that day. Now they are not.',
       'One of them, Bridget O\u2019Marra, was born on 19 August. The others were born between July and December. Their cards in the People directory now say they were not yet born on the day, and quote the register\u2019s own words.',
       'The town makes up the count with one more household, a West Side boarding-house keeper we reconstructed. Everyone already in the town keeps their name and trade.',
     ] },
+  { v: 1540, ts: '2026-10-08T16:09:29.548Z', date: 'Oct 8, 2026, 11:09 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+    items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
   { v: 1539, ts: '2026-10-08T15:08:49.538Z', date: 'Oct 8, 2026, 10:08 AM CT', title: 'Forty church-register children now linked to their parents', kind: 'feature',
     items: [
       'Open the card of a child baptised at St Mary\u2019s between 1833 and 1835, such as George Beaubien or Caroline Beaubien. It now names the child\u2019s father or mother, and the parent\u2019s card names the child back.',
