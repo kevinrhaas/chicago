@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1520, ts: '2026-10-08T05:18:21.664Z', date: 'Oct 8, 2026, 12:18 AM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
+    items: [
+      'Nothing you can see changes. While the welcome or the menu is open, the town behind it is no longer redrawn sixty times a second when nothing in it has moved.',
+      'It is drawn again the moment something does change: a part of the town finishing loading, a setting you change, the window turning or resizing, or a jaunt preview moving the view.',
+      'On a phone that means less heat and battery spent sitting on the menu, and a menu that scrolls more smoothly over the town.',
+    ] },
   { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
     items: [
       'Evidence \u2192 City now shows how many homes stand against the 398 dwellings the town\u2019s census counted that November: 309 houses, or 358 if the census also counted the boarding houses and taverns. Nobody knows which way it counted, so the figure is a range and the bar shows both.',

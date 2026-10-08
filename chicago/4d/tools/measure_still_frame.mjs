@@ -231,15 +231,17 @@ for (const vp of VIEWPORTS) {
     let arrivalRead = null;
     if (arrival > 0) {
       const sigA = await a.capture(12);
-      const f0 = r.info.render.frame; const t0 = performance.now();
+      const f0 = r.info.render.frame; const h0 = a.gateFramesHeld ?? 0; const t0 = performance.now();
       await new Promise((res) => setTimeout(res, arrival * 1000));
-      const f1 = r.info.render.frame; const t1 = performance.now();
+      const f1 = r.info.render.frame; const h1 = a.gateFramesHeld ?? 0; const t1 = performance.now();
       const sigB = await a.capture(12);
       const same = JSON.stringify(sigA) === JSON.stringify(sigB);
       arrivalRead = { welcome: a.welcome?.state ?? null,
         gateUp: !document.getElementById('gate')?.hidden,
         seconds: Math.round((t1 - t0) / 100) / 10, framesDrawn: f1 - f0,
         perSecond: Math.round(((f1 - f0) / ((t1 - t0) / 1000)) * 100) / 100,
+        // T-2113: the ticks the gate let pass without drawing an unchanged town.
+        framesHeld: h1 - h0,
         pictureUnchanged: same };
       console.log(`still-frame ${label} arrival ${JSON.stringify(arrivalRead)}`);
     }
@@ -584,7 +586,8 @@ for (const pass of passes) {
     const ar = pass.arrival;
     console.log(`arrival screen (welcome ${ar.welcome}, gate ${ar.gateUp ? 'up' : 'down'}): `
       + `${ar.framesDrawn} frame(s) drawn in ${ar.seconds} s with nothing touched, `
-      + `${ar.perSecond}/s; the picture ${ar.pictureUnchanged ? 'did NOT change' : 'changed'}`);
+      + `${ar.perSecond}/s, ${ar.framesHeld ?? 0} tick(s) held undrawn; `
+      + `the picture ${ar.pictureUnchanged ? 'did NOT change' : 'changed'}`);
   }
   if (pass.jaunt) {
     console.log(`jaunt view: ${pass.jaunt.id}, stop ${pass.jaunt.stop + 1}, at `
