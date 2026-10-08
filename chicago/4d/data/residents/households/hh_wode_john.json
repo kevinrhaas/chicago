@@ -137,6 +137,17 @@
   {
    "person": "wode_john",
    "relation": "father",
+   "household": "hh_wode_catherine",
+   "value": "wode_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the fourteenth of July eighteen hundred & thirty three I, the undersigned, baptised Mary and Catherine daughters of John Wode and Mariana Kamenwith[?] born the 16th July 1833. Sponsors were Jacob Jolly and Catherine Harrington. Both cards were minted from this entry's rows (st_marys_bapt_1833_09_3_father, st_marys_bapt_1833_09_2_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  },
+  {
+   "person": "wode_john",
+   "relation": "father",
    "household": "hh_wode_mary",
    "value": "wode_mary",
    "confidence": "attested",

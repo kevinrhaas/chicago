@@ -116,7 +116,11 @@ STAGE = UNDERDOCUMENTED_STAGE
 SUB_STAGE = "church_register"
 TICKET = "T-1504"
 PARENT = "T-1177"
-FAMILY_PASS = "T-1335"
+# WAS T-1335, THE FAMILY PASS, UNTIL IT RAN (2026-10-08). It ruled every tie these rows
+# state, and the ones whose end is a card THIS stage writes it handed on to T-2191, because
+# a kin row typed onto a generated card is gone on the next --build. So the hand-off this
+# stage records now names the ticket that teaches the build to carry the tie.
+FAMILY_PASS = "T-2191"
 SCENE_DATE = dt.date(1835, 7, 1)
 WINDOW_OPENS = dt.date(1833, 1, 1)
 SCHEMA = 1

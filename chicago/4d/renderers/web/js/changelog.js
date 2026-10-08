@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1550, ts: '2026-10-08T22:00:45.811Z', date: 'Oct 8, 2026, 5:00 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+  { v: 1551, ts: '2026-10-08T22:39:14.350Z', date: 'Oct 8, 2026, 5:39 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
       'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
+    ] },
+  { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
+    items: [
+      'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',
+      'We went back through every family tie the church registers, the newspapers’ wedding and death notices, and our research notes mention but had never settled. There were 68. Each one now says what we did with it. Most name a relative who is not in the town, or a wedding that came after July 1835. Fifteen need more work and have tickets of their own.',
     ] },
   { v: 1549, ts: '2026-10-08T21:10:13.013Z', date: 'Oct 8, 2026, 4:10 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
