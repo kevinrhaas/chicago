@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1526, ts: '2026-10-08T09:01:57.492Z', date: 'Oct 8, 2026, 4:01 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
     items: [
       'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
       'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
       'No record names these buildings. The town\u2019s plan counted them as missing, and the North now has every roof it counted except five barns. Its cottage yards are too narrow for a barn beside the sheds they already have, so those wait for a better place.',
       'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L401).',
+    ] },
+  { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+    items: [
+      'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
+      'The ground is stored about four times smaller on every device. It draws exactly the same.',
+      'The town looks exactly the same, and tapping a building, fence or yard still opens its card. Nothing changes on a computer apart from the smaller ground.',
     ] },
   { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [
