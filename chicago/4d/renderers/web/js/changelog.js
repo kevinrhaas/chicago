@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
+    items: [
+      'Evidence \u2192 City now shows how many homes stand against the 398 dwellings the town\u2019s census counted that November: 309 houses, or 358 if the census also counted the boarding houses and taverns. Nobody knows which way it counted, so the figure is a range and the bar shows both.',
+      'The people figure is now split into townspeople and the Fort Dearborn garrison (127 soldiers, officers and their families). The summer\u2019s 307 visitors are named as counted separately rather than added in.',
+    ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
     items: [
       'Walk west along North Water Street from the Dearborn drawbridge, past the freight sheds, and at the LaSalle Street corner there is now a large two-storey river warehouse: unpainted clapboard, three cargo doors on its end wall, and its front to the river across the street.',
