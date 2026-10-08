@@ -5085,10 +5085,12 @@ def cmd_self_test() -> int:
     # thirteen roofs are raised; the four households that asked for its houses are seated
     # on standing West roofs, older households adopt the new ones, and the platted pass
     # seats three more at its fixpoint (209 -> 212 platted seats, 99 off-plat, L270, L394).
-    # 311 -> 312 on 2026-10-07 (T-2146): thirteen Wells-block houses dealt to
-    # the post-T-2148 requests; the settled pass seats 213 on the plat and 99 off it.
+    # 311 holds on 2026-10-08 (T-2146, merged over T-2165 and T-2167): thirteen Wells-block
+    # houses dealt to the post-T-2148 requests; older households adopt them, the requesters
+    # are seated on standing roofs or re-slot on block 81, and the settled pass seats 212 on
+    # the plat and 99 off it, as before.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 312
+        data["inventory"], data["programme"], occ))["seated"] == 311
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
