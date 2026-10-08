@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1520, ts: '2026-10-08T05:17:47.412Z', date: 'Oct 8, 2026, 12:17 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
+  { v: 1521, ts: '2026-10-08T05:41:15.739Z', date: 'Oct 8, 2026, 12:41 AM CT', title: 'The first houses south of Madison Street', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the first block beyond the town\u2019s old south line is no longer empty. Three frame houses face Madison and four face Monroe, from a one-room cottage to a small two-storey frame house on the Monroe corner, with a carriage shed behind it. The Madison-and-Market corner stays an open lot.',
       'This block was sold lot by lot in October 1833, in the School Section. It is the third of the five blocks there to be built, after the two on Clark Street; the two on Wells Street follow.',
       'Seven households now live in these houses, three of them named on the house itself. Five of the six who had been waiting for a lot on this block move instead into empty houses already standing north of Madison, which the town fills first; the sixth waits for a lot on the Wells Street blocks.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1520, ts: '2026-10-08T05:18:21.664Z', date: 'Oct 8, 2026, 12:18 AM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
+    items: [
+      'Nothing you can see changes. While the welcome or the menu is open, the town behind it is no longer redrawn sixty times a second when nothing in it has moved.',
+      'It is drawn again the moment something does change: a part of the town finishing loading, a setting you change, the window turning or resizing, or a jaunt preview moving the view.',
+      'On a phone that means less heat and battery spent sitting on the menu, and a menu that scrolls more smoothly over the town.',
     ] },
   { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
     items: [
