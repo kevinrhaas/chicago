@@ -5093,8 +5093,13 @@ def cmd_self_test() -> int:
     # houses dealt to the post-T-2148 requests; older households adopt them, the requesters
     # are seated on standing roofs or re-slot on block 81, and the settled pass seats 212 on
     # the plat and 99 off it, as before.
+    # 311 -> 312 on 2026-10-08 (T-2170, merged over T-2169): the North's five owed A2 barns
+    # stand behind the Wolcott-Kinzie core's houses, so the 668-roof schedule re-deals the
+    # roofs it held for them on blk_indiana_north_wolcott; block 81's plan trades a D2 for
+    # a second D6, hh_dewey_s is dealt it and hh_ira_paddock re-slots to block 95 (212 ->
+    # 213 platted seats, 99 off-plat, L270, L407).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 311
+        data["inventory"], data["programme"], occ))["seated"] == 312
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
