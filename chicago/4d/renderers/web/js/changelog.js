@@ -1,9 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1530, ts: '2026-10-08T10:41:28.960Z', date: 'Oct 8, 2026, 5:41 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+  { v: 1531, ts: '2026-10-08T11:08:56.450Z', date: 'Oct 8, 2026, 6:08 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [
       'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
       'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
     ] },
+  { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
+    items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
+      'The corrected curve is labelled reconstructed: early maps support a continuous shore, but do not establish its exact outline.'] },
   { v: 1529, ts: '2026-10-08T10:24:03.249Z', date: 'Oct 8, 2026, 5:24 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
     items: [
       'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',

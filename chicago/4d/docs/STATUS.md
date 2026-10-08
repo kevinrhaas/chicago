@@ -32,6 +32,15 @@
   and the receipt's tree as THEN) would replace the inference. The terrain long task itself
   is unowned work and is not fixed here. The mobile flora heartbeat stays T-2059's.
 
+## T-2171 — continuous 1812 lake shore (2026-10-08)
+
+The unsupported notch at the sand-spit attachment is replaced by a smooth,
+continuous lake face. The river-side bend, lower spit and southern outlet keep
+their coordinates. The curve is explicitly reconstructed (L403), based on the
+map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
+1812 checks pass with zero page errors or failed requests. The PR records the final
+repository and smoke gates; docs/measurements/t2171 holds the visual proof.
+
 ## T-2172 — courtyard tower window and roof proportions (2026-10-08)
 
 The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing

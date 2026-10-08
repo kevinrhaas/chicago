@@ -25,7 +25,7 @@
  "max_m": 5.6366,
  "quantisation_error_m": 0.0025,
  "water_surface_m": 0.0,
- "water_fraction": 0.1614,
+ "water_fraction": 0.1598,
  "relief_ft": {
   "land_min": -3.556,
   "land_max": 18.493,
@@ -52,7 +52,7 @@
   "shore_and_swale_cell_max": 224.231,
   "relief_zones_ft_per_300ft": {
    "bank_face": {
-    "cells": 96552,
+    "cells": 98304,
     "cell_max": 224.231
    },
    "channel_west_bank_ruling": {
@@ -72,7 +72,7 @@
     "cell_max": 63.343
    },
    "north_sand_ridge": {
-    "cells": 32468,
+    "cells": 35521,
     "cell_max": 72.232
    },
    "south_sand_ridge": {
@@ -80,7 +80,7 @@
     "cell_max": 214.995
    },
    "spit_1812": {
-    "cells": 16221,
+    "cells": 19274,
     "cell_max": 68.331
    },
    "state_street_break": {
@@ -104,5 +104,5 @@
   "ground": "gltf/terrain__e1830_natural.glb",
   "water": "gltf/water__e1830_natural.glb"
  },
- "inputs_sha256": "29abc1d53d087ac36db0dcdf9e576153ead87aff5154014e140069e07e431afa"
+ "inputs_sha256": "5178c908a5b3b5e3fa72d0ecdc3f280825f2e12281486529159d8c85d129476f"
 }
