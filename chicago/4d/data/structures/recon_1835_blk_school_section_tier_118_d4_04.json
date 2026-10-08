@@ -168,7 +168,7 @@
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D4 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
   "occupants": {
-    "value": "The Byram household — a name the town's own records carry",
+    "value": "The Carli household — a name the town's own records carry",
     "confidence": "reconstructed",
     "sources": [
       "chicago_democrat_1833_1835"
@@ -194,15 +194,15 @@
       "rule": "F-T",
       "class": "tradesman",
       "by": "keeper",
-      "household": "hh_byram_thomas",
-      "words": "silvered clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Byram household's, in Chicago since 1834 (rule F-T)"
+      "household": "hh_carli_paul_j",
+      "words": "silvered clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Carli household's, in Chicago since 1834 (rule F-T)"
     }
   },
   "resident_assignment": {
     "status": "assigned",
     "confidence": "reconstructed",
     "note": "T-2147: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_school_section_tier_118#04 fronting madison — a standing anonymous roof of family D4 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_byram_thomas"
+    "household_id": "hh_carli_paul_j"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

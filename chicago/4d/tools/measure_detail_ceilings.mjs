@@ -106,7 +106,10 @@
  * Street block, the shoulder of Lake Street, and a storefront on South Water Street.
  * The owner walked exactly those places and found prairie standing in them, which no
  * stand above sees from close enough to count. Like `--south` they are reported beside
- * the five and never counted in the exit tally. `--flora` reads, at every stand, what
+ * the five and never counted in the exit tally. Two of the three stood a metre from a
+ * wall, so T-2100 ADDED `town_yard` and `town_store_front` beside them, re-posed to
+ * take the yard and the shop front in frame; the old ids keep their coordinates as
+ * the baselines they are (see TOWN below). `--flora` reads, at every stand, what
  * the `flora` group alone costs (the frame drawn once with it hidden), and `--shots
  * DIR` writes one capture per in-town pose at the tier the page booted into, named
  * `<tree>-<viewport>-<pose>.png`, so a before and an after sit side by side. Every
@@ -221,6 +224,24 @@ const TOWN = [
   { id: 'town_south_water_store', kind: 'pose',
     label: 'a storefront on South Water Street',
     pose: { local_e: 501, local_n: -2, yaw_deg: 180, pitch_deg: -6 } },
+  // T-2100. RE-POSED UNDER NEW IDS, and the two above keep theirs and their
+  // coordinates. Both stood about a metre from a wall (T-2092's captures are a
+  // wall and a door), so neither picture showed the yard or the shop front it was
+  // placed to judge. They stay because every number taken there is a baseline —
+  // T-2091 and T-2092's triangles, T-2099's still frame, and the still-frame
+  // gate's own ceilings in `still_frame_ceilings.json`, which stand on
+  // `town_backyard` — and a moved stand would have silently re-based all of them.
+  // `town_yard` is 10 m further into the same yards, looking north at the backs of
+  // h1_02 and h1_03 (their back walls at n -418.6): the yard ground, the woodpile
+  // and the fence line between the lots. `town_store_front` steps back 14 m into
+  // South Water Street, looking south at the c3_12 / c3_13 fronts from the street,
+  // so the walk, the doors and the ground before them are in frame.
+  { id: 'town_yard', kind: 'pose',
+    label: 'back yards behind two Washington St houses',
+    pose: { local_e: 388, local_n: -440, yaw_deg: 0, pitch_deg: -6 } },
+  { id: 'town_store_front', kind: 'pose',
+    label: 'South Water St store fronts, from the street',
+    pose: { local_e: 501, local_n: 12, yaw_deg: 180, pitch_deg: -4 } },
 ];
 // `--stands a,b` keeps only the named stands, for a reading that has to fit one
 // 600 s foreground call: on a four-core runner one tier at eight stands with

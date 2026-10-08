@@ -35,16 +35,16 @@
       "block_not_on_the_sheet": 0,
       "description_not_read": 3
     },
-    "structures_placed": 663,
+    "structures_placed": 668,
     "structures_reached": 123,
     "structures_reached_by_grade": {
       "inferred": 25,
       "reconstructed": 98
     },
     "structures_unreached_by_section": {
-      "09": 510,
+      "09": 509,
       "10": 1,
-      "16": 28,
+      "16": 34,
       "outside the four sections": 1
     },
     "school_section": {
@@ -40064,7 +40064,6 @@
       "recon_1835_blk_south_water_dearborn_c3_02",
       "recon_1835_blk_south_water_dearborn_d1_05",
       "recon_1835_blk_south_water_dearborn_d2_04",
-      "recon_1835_blk_south_water_dearborn_f2_11",
       "recon_1835_blk_south_water_dearborn_h1_03",
       "recon_1835_blk_south_water_franklin_a1_06",
       "recon_1835_blk_south_water_franklin_a3_07",
@@ -40396,6 +40395,12 @@
       "recon_1835_blk_school_section_tier_119_d5_06",
       "recon_1835_blk_school_section_tier_119_d6_01",
       "recon_1835_blk_school_section_tier_119_d7_07",
+      "recon_1835_blk_school_section_tier_81_d2_05",
+      "recon_1835_blk_school_section_tier_81_d4_03",
+      "recon_1835_blk_school_section_tier_81_d4_04",
+      "recon_1835_blk_school_section_tier_81_d5_01",
+      "recon_1835_blk_school_section_tier_81_d5_02",
+      "recon_1835_blk_school_section_tier_81_d6_06",
       "recon_1835_blk_school_section_tier_94_d3_05",
       "recon_1835_blk_school_section_tier_94_d4_04",
       "recon_1835_blk_school_section_tier_94_d5_01",

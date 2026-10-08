@@ -152,6 +152,13 @@ const STANDS_1835 = [
     pose: { local_e: 520, local_n: -104, yaw_deg: 270, pitch_deg: -6 } },
   { id: 'town_south_water_store', kind: 'pose',
     pose: { local_e: 501, local_n: -2, yaw_deg: 180, pitch_deg: -6 } },
+  // T-2100's re-posed pair, ADDED beside the two above, which keep their
+  // coordinates: the gate below stands on `town_backyard` and its ceilings were
+  // read there. See measure_detail_ceilings.mjs TOWN.
+  { id: 'town_yard', kind: 'pose',
+    pose: { local_e: 388, local_n: -440, yaw_deg: 0, pitch_deg: -6 } },
+  { id: 'town_store_front', kind: 'pose',
+    pose: { local_e: 501, local_n: 12, yaw_deg: 180, pitch_deg: -4 } },
   { id: 'from_above', kind: 'anchor', target: 'from_above', aerial: true },
 ];
 const LANDING = [{ id: 'landing', kind: 'landing' }];

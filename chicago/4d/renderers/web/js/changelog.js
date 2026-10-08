@@ -1,9 +1,22 @@
 export const CHANGELOG = [ // newest first
-  { v: 1537, ts: '2026-10-08T14:25:17.038Z', date: 'Oct 8, 2026, 9:25 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [
       'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',
       'No record names this building. The town\u2019s plan counted four warehouses missing from the South Water and Lake Street blocks, and this is the one with ground for it today. The other three wait on river access and on the survey line at Market Street.',
       'Its card says the building is reconstructed, not recovered. The Liberties page explains it (L406).',
+    ] },
+  { v: 1538, ts: '2026-10-08T14:46:44.080Z', date: 'Oct 8, 2026, 9:46 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+    items: [
+      'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
+      'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
+      'The two Market corner lots stay open.',
+      'Six households now live in these houses, one of them named on the house itself.',
+      'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1537, ts: '2026-10-08T14:27:39.677Z', date: 'Oct 8, 2026, 9:27 AM CT', title: 'Two town measuring spots now face the yard and the shops', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The project measures the town from fixed spots, and two of them inside the town stood a metre from a wall.',
+      'Two new spots look across the back yards on Washington Street and at the South Water Street shop fronts from the street, so their pictures show what they are meant to check.',
     ] },
   { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
     items: [
