@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+  { v: 1532, ts: '2026-10-08T13:22:05.832Z', date: 'Oct 8, 2026, 8:22 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
       'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',

@@ -410,7 +410,11 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2147 WITH T-2146's OWN PR (2026-10-06). T-2146 builds the Wells blocks
     # and goes `done` when it merges, so the row moves to the Market block (81), the last
     # build piece of the tier still live.
-    ("south", "ordinary_dwellings"): "T-2147",
+    #
+    # AND ON TO T-2176 WITH T-2147's OWN PR (2026-10-08). T-2147 built block 81's six dwellings
+    # and goes `done` when it merges; the seating's fixpoint over them leaves South dwellings
+    # still ordered (a D4 slot on block 81's lot 1, a D5 on block 95's), and T-2176 owns them.
+    ("south", "ordinary_dwellings"): "T-2176",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -560,8 +564,10 @@ STRUCTURE_TICKETS = {
     # (T-2169, the West's last three on blk_washington_clinton; T-2170, the North's five
     # barns and the re-budget question), so the South's rows name T-2147 itself — the
     # build that carries the South's one owed barn (an A2 on blk_school_section_tier_81).
-    ("south", "barns_stables"): "T-2147",
-    ("south", "small_outbuildings"): "T-2147",
+    # T-2147 was re-dealt over T-2146 (2026-10-08) and the schedule no longer gives block 81
+    # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
+    ("south", "barns_stables"): "T-2176",
+    ("south", "small_outbuildings"): "T-2176",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
