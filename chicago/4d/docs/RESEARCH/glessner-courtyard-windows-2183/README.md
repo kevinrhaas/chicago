@@ -67,7 +67,9 @@ The three comparison models retain identical geometry, indices, normals,
 materials and metadata. Their pinned rebuilds differ only in UV packing;
 `comparison-version-check.json` records the independent buffer comparison.
 
-The recovered working tree passes all 790 repository checks (322 negative self-tests included). Mobile published stage 13–14 passes 137 assertions with zero page errors. The first desktop attempt timed out at boot under concurrent checks; its separate rerun is in progress. Current-dev integration, final desktop smoke and PR completion remain pending.
+Final preflight after integrating dev `2649aaf` passes all 790 repository checks (322 negative self-tests included), plus the PR changelog and ticket-ID checks. `repository-validation.txt` preserves the summary. Mobile published stage 13–14 passes 137 assertions with zero page errors. The first desktop attempt timed out at boot under concurrent checks; its separate rerun passed every stage 13 assertion, including Glessner, but the workspace restarted during stage 14 after 129 assertions, with no assertion failures. That interrupted run is recorded as killed, not passed: it never reached the final page-error summary. The separate stage 14 rerun on the final integrated tree passes 22 viewport assertions with zero page errors (24 checks including two vendor checks). The smoke logs retain all attempts. These are scoped stage 13–14 results, not a claim that all 14 stages ran.
+
+The browser runs began before dev integration and finished across it; the integration leaves Glessner assets and rendering unchanged. Their standing smoke records deliberately omit an exact tree digest, which was not captured at start, so another run cannot mistake them for an exact-tree reuse receipt. The final source gate is on the fully integrated tree.
 
 Rebuild from `chicago/4d` with pinned Blender 4.5.3:
 `generators/build.py --only glessner_house`, then
@@ -98,3 +100,9 @@ differences are work-owner references only: counts, quotas and placements
 are unchanged. The dependent re-familying programme report is rebuilt as well; its differences are also work-owner references only. Both strict checks and their existing negative fixtures pass.
 This repair unblocks the visible Glessner parcel; it does not implement either
 1835 ticket.
+
+Dev integration: `2649aaf` (T-2186) independently landed the same owner-book
+repoint, plus a bounded wait for the welcome screen in the smoke helper. The
+recovery takes dev's owner-book implementation and generated reports verbatim;
+none of that bookkeeping remains in the final diff against dev. Glessner's
+models and renderer behavior are unchanged by this integration.

@@ -1421,10 +1421,24 @@ for (const [label, viewport, touch] of [
     });
     return swardStationMemo;
   };
+  // T-2186: `ready` is not yet "enterable". After the boot finishes, the arrival runs
+  // its year-settle on animation frames (300 ms, arrival.js `settle`) and only then
+  // shows the welcome; until it does, `welcome.enter` refuses with a bare `false`
+  // (state 'arrival'). On a quiet box that window closes in a frame. On a loaded
+  // runner, where one frame has measured 17-26 s (see the click note below), a
+  // re-boot's enterTown landed inside it, so the town was never entered and desktop
+  // part 3's version chip read visible:false inside a hidden HUD. So wait for the
+  // welcome (bounded), and retry the entry until the welcome says it took.
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
-      if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
-      else document.getElementById('gate-btn')?.click();
+      const welcome = window.__chicago4d.welcome;
+      if (welcome) {
+        const deadline = Date.now() + 90_000;
+        while (welcome.state !== 'world' && Date.now() < deadline) {
+          if (welcome.state === 'welcome') welcome.enter('spawn');
+          if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
+        }
+      } else document.getElementById('gate-btn')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }

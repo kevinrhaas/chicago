@@ -14,7 +14,7 @@ Canonical full/light assets and the recovery package are rebuilt. The 3,000
 roof checks and seven glass checks pass. Six published-app views on desktop
 Full and mobile Light pass with no page, resource or loader errors and within
 existing budgets; switching all three detail levels retains dark glass.
-All 790 repository checks pass, and mobile published stage 13–14 completes with zero page errors. Desktop smoke and current-dev integration remain in progress.
+Final preflight after integrating dev `2649aaf` passes all 790 repository checks. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
 
 ## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
 

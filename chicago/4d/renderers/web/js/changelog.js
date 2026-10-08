@@ -1,9 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1544, ts: '2026-10-08T18:50:44.252Z', date: 'Oct 8, 2026, 1:50 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
+  { v: 1545, ts: '2026-10-08T19:33:20.505Z', date: 'Oct 8, 2026, 2:33 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
     items: [
       'The courtyard tower’s main windows now share the adjoining first-floor height. The upper wing windows are shorter, matching the tower’s upper band.',
       'The rear eave projects continuously into the tower roof, with joined copper, tile and gutters. These proportions are declared reconstructions based on the courtyard photographs and measured house plan.',
       'Glessner’s glass stays dark at every Scene detail setting, including Full. The glass comparison links still work.',
+    ] },
+  { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated check that walks into the town now waits for the welcome screen before stepping in, so a slow test machine no longer reports the version label as missing when it was there all along.',
     ] },
   { v: 1543, ts: '2026-10-08T17:49:39.051Z', date: 'Oct 8, 2026, 12:49 PM CT', title: 'Six babies born after 1 July 1835 leave the town', kind: 'fix',
     items: [
