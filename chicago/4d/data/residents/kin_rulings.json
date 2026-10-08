@@ -8,9 +8,9 @@
     "deferred": "Neither yet: the reading is not finished. A deferred ruling still owes a reason and is still answered."
   },
   "rulings": {
-    "hh_baptist_john__son__leon_bourrassa": {
+    "hh_bourassa_jean_baptiste__son__leon_bourrassa": {
       "ruling": "landed",
-      "why": "Landed. The burial entry of 2 July 1835 reads 'John Baptist, son of Leon Bourrassa, 28 days old', and both cards were minted from that entry's own rows. The child was alive on the scene date; the death falls one day after it."
+      "why": "Landed. The burial entry of 2 July 1835 reads 'John Baptist, son of Leon Bourrassa, 28 days old'. The proposal was hh_baptist_john's until T-2179 folded that card onto hh_bourassa_jean_baptiste — the same child, baptised by the same priest on 29 June 1835 and born 4 June, which is 2 July less 28 days — and it now reads from the survivor. Both ends are the cards that hold the entry's own rows: st_cyr_death_05_1 on this card, st_cyr_death_05_2 on hh_bourrassa_leon. The child was alive on the scene date; the death falls one day after it."
     },
     "hh_beaubien_jean_baptiste__son__charles_henry": {
       "ruling": "refused",
@@ -50,7 +50,7 @@
     },
     "st_cyr_death_05_2__parent_of__st_cyr_death_05_1": {
       "ruling": "landed",
-      "why": "Landed as the father's half of the same burial entry. The same tie as hh_baptist_john__son__leon_bourrassa, read from the register rather than from the card's prose, and the two directions are the reciprocal pair the gate demands."
+      "why": "Landed as the father's half of the same burial entry. The same tie as hh_bourassa_jean_baptiste__son__leon_bourrassa, read from the register rather than from the card's prose, and the two directions are the reciprocal pair the gate demands."
     },
     "st_cyr_marriage_001_1__husband_of__st_cyr_marriage_001_2": {
       "ruling": "landed",
@@ -241,8 +241,8 @@
       "why": "Deferred to T-1553, and the reason is that the TIE IS NOT IN DOUBT while the WRITING OF IT IS NOT THIS TICKET'S. St Mary's baptismal entry 1835-02 states the mother of the child in the entry's own words, which is the strongest statement of parentage this corpus holds — the priest recording an act he was party to. What made it LANDABLE only now is T-1525: before the register's 120 documented residents were minted the town held one end of this tie and not the other, and a proposal with one end in the town is not landable at all. Landing it means writing reciprocal kin rows on BOTH household records, and `tools/survey_stated_kin.py` has no mode that writes them — it surveys and it checks. Sixty-one ties is a hundred and twenty-two records, and hand-writing kin onto resident cards inside a ticket about the order book is how a derived layer stops being derived. T-1553 owns the pass, with the tool it needs. A deferred ruling is an ANSWER under this file's own vocabulary and not a gap: the reading is stated, the verdict is withheld, and the ticket is named."
     },
     "st_marys_bapt_1835_04_2_father__parent_of__st_marys_bapt_1835_04_1_child": {
-      "ruling": "deferred",
-      "why": "Deferred to T-1553, and the reason is that the TIE IS NOT IN DOUBT while the WRITING OF IT IS NOT THIS TICKET'S. St Mary's baptismal entry 1835-04 states the father of the child in the entry's own words, which is the strongest statement of parentage this corpus holds — the priest recording an act he was party to. What made it LANDABLE only now is T-1525: before the register's 120 documented residents were minted the town held one end of this tie and not the other, and a proposal with one end in the town is not landable at all. Landing it means writing reciprocal kin rows on BOTH household records, and `tools/survey_stated_kin.py` has no mode that writes them — it surveys and it checks. Sixty-one ties is a hundred and twenty-two records, and hand-writing kin onto resident cards inside a ticket about the order book is how a derived layer stops being derived. T-1553 owns the pass, with the tool it needs. A deferred ruling is an ANSWER under this file's own vocabulary and not a gap: the reading is stated, the verdict is withheld, and the ticket is named."
+      "ruling": "landed",
+      "why": "Landed by T-2179, ahead of T-1553's pass and without its tool, because the rows already stood. St Mary's baptismal entry 1835-04 states the father of the child in the entry's own words: 'Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]', born 4 June 1835. T-2179 ruled that child the 'John Baptist, son of Leon Bourrassa, 28 days old' Father St Cyr buried on 2 July 1835 (C15), and that entry's father the burial's (C16), so the two ends of this proposal are now the two cards the burial's landed father-and-son rows are written on. It is one tie stated twice, by one priest, at the font and at the grave. The rows cite both registers. T-1553's pass has sixty ties left, not sixty-one."
     },
     "st_marys_bapt_1835_04_3_mother__parent_of__st_marys_bapt_1835_04_1_child": {
       "ruling": "deferred",

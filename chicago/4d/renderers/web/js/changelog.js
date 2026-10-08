@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1537, ts: '2026-10-08T14:54:14.934Z', date: 'Oct 8, 2026, 9:54 AM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+    items: [
+      'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
+      'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
+      'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
+    ] },
   { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
     items: [
       'Nothing you can see changes. Before taking a ticket, the build loop now checks whether an open pull request already carries it, even one opened from a branch that doesn\'t name the ticket, so the same work isn\'t built twice.',

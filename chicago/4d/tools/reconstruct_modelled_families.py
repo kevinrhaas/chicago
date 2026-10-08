@@ -131,6 +131,7 @@ BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_modelled_families.json"
 RULINGS = ROOT / "data" / "reconstruction" / "1835_presence_rulings.json"
 FOLDS = ROOT / "data" / "reconstruction" / "1835_folded_houses.json"
+RETIRED = ROOT / "data" / "residents" / "merged"
 RULING = ROOT / "data" / "reconstruction" / "1835_family_ruling.json"
 STATED = ROOT / "data" / "residents" / "stated_family_rulings.json"
 ROSTER = ROOT / "data" / "reconstruction" / "1835_borderline_roster.json"
@@ -1311,8 +1312,17 @@ def trade_women() -> str:
 def re_housing(base: dict, refused: dict) -> dict:
     """How many of the refused married houses the town's own women could be wife to."""
     ruled = ruled_present()
+    # A HOUSE THE FROZEN RULING ADMITTED IS NOT ON OFFER (T-2179). T-2021 dealt it the
+    # whole family it drew, and "a later re-cut re-deals nobody". When the ruling froze,
+    # every house it admitted was one no woman in the town fitted, so on the tree it was
+    # frozen on this changes no pair; it matters only when the pool moves. A card merge
+    # that retires a married host frees his wife, and a greedy match left free to give her
+    # to an admitted house would take that house off the family the ruling ordered for
+    # it, leaving the book ordering people nobody deals.
+    admitted = {hid for hid, row in ((load_ruling() or {}).get("houses") or {}).items()
+                if row.get("verdict") == ADMITTED}
     heads = [(houses["wife_cell"].split("/")[3], houses["head_band_low"], hid)
-             for hid, houses in refused.items()]
+             for hid, houses in refused.items() if hid not in admitted]
     women, held, held_back_ids = [], Counter(), set()
     pool = [card for card in base.values()
             if card.get("source_pass") == WOMEN_PASS
@@ -1497,18 +1507,39 @@ def marry(host: dict, her: dict, size: int, seed: str) -> tuple:
     return out, {"folded_into": host["id"], "card": card}
 
 
-def unfold(live: dict, folds: dict | None = None) -> tuple:
+def retired_host(hid: str) -> dict | None:
+    """The card a host WAS, when a card merge has since retired it (T-2179).
+
+    `consolidate_town_cards.py` folds a duplicate card onto its survivor and keeps the
+    whole record under `data/residents/merged/` as `superseded_record`. If the retired
+    card was hosting a wife T-2020 moved in, her people are on that record and nowhere
+    else, so the unfold reads them from it: her house comes back as she was dealt and
+    the next marry pass is free to seat her again. The retired host is NOT restored —
+    the merge is what retired it."""
+    path = RETIRED / f"{hid}.json"
+    if not hid or not path.exists():
+        return None
+    stub = json.loads(path.read_text(encoding="utf-8"))
+    if not stub.get("merged_into"):
+        return None
+    return stub.get("superseded_record")
+
+
+def unfold(live: dict, folds: dict | None = None, retired=retired_host) -> tuple:
     """(the layer as T-1174 dealt it, {folded house: host}). The inverse of `marry`.
 
     Every folded house is restored from `FOLDS` with its own people taken back off the
     host, and every host is stripped of what the fold put there. A folded person no row
     accounts for, or a row whose people are not all on its host, is refused by name: the
-    fold is undone exactly or not at all."""
+    fold is undone exactly or not at all. A host a card merge has retired is read from
+    its retired record (`retired_host`); only a host that is nowhere is refused."""
     folds = load_folds() if folds is None else folds
     out = dict(live)
     hosts = {}
     for her_hid, row in sorted(folds.items()):
         host = live.get(row.get("folded_into"))
+        if host is None:
+            host = retired(row.get("folded_into"))
         if host is None:
             raise SystemExit("FAIL %s is folded into %s, which the layer does not hold"
                              % (her_hid, row.get("folded_into")))
@@ -2044,6 +2075,15 @@ def self_test() -> int:
     fires("unfold strips the host back to his lone head",
           [p_["id"] for p_ in back["hh_h"]["persons"]] == ["h"]
           and MARRIED_KEY not in back["hh_h"]["modelled_family"] and hosts == {"hh_w": "hh_h"})
+    back, hosts = unfold({}, {"hh_w": row}, retired=lambda hid: host if hid == "hh_h" else None)
+    fires("a host a card merge retired gives her house back, and stays retired",
+          dumps(back.get("hh_w")) == dumps(hers) and "hh_h" not in back
+          and hosts == {"hh_w": "hh_h"})
+    try:
+        unfold({}, {"hh_w": row}, retired=lambda hid: None)
+        fires("a host that is nowhere is refused", False)
+    except SystemExit:
+        fires("a host that is nowhere is refused", True)
     stray = json.loads(json.dumps(host))
     try:
         unfold({"hh_h": stray}, {})

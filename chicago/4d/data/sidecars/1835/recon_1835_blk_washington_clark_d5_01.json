@@ -196,42 +196,42 @@
           "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 12 November 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
         },
         {
-          "name": "Honora Mahoney",
+          "name": "Johanna McCarthy",
           "relationship": "wife",
           "grade": "reconstructed",
-          "occupation": "none_recorded",
+          "occupation": "schoolteacher",
           "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1)."
         },
         {
-          "name": "Alice Mahoney",
+          "name": "Catherine Mccarthy",
           "relationship": "daughter",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Bridget Mahoney",
+          "name": "Alice Mccarthy",
           "relationship": "daughter",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Mary Mahoney",
-          "relationship": "daughter",
+          "name": "Daniel Mccarthy",
+          "relationship": "son",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Margaret Mahoney",
-          "relationship": "daughter",
+          "name": "Cornelius Mccarthy",
+          "relationship": "son",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Hugh Mahoney",
+          "name": "Dennis Mccarthy",
           "relationship": "son",
           "grade": "reconstructed",
           "occupation": "none_recorded",
@@ -313,7 +313,7 @@
       "class": "tradesman",
       "by": "keeper",
       "household": "hh_blanshard_f_g",
-      "words": "silvered clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Blanshard household's, in Chicago since 1834 (rule F-T)"
+      "words": "silvered clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weathered roof — The Blanshard household's, a schoolteacher, in Chicago since 1834 (rule F-T)"
     }
   },
   "fabric_tone": {

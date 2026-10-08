@@ -20,7 +20,7 @@
     "data/streets/1835.json"
   ],
   "summary": {
-    "households_housed": 1832,
+    "households_housed": 1831,
     "households_unhoused": 0,
     "households_counted_apart": {
       "absent_on_the_scene_date": 29,
@@ -28,13 +28,13 @@
     },
     "working_age_persons_owed_a_workplace": 27,
     "businesses_neither_roofed_nor_stated": 0,
-    "structures_empty_owing_somebody": 2,
+    "structures_empty_owing_somebody": 3,
     "dangling_ids": 0,
     "the_join_is_total": false
   },
   "housed": {
     "households": {
-      "housed": 1832,
+      "housed": 1831,
       "unhoused": 0,
       "counted_apart": 176
     },
@@ -44,12 +44,12 @@
     },
     "persons_counted_apart": {
       "absent_on_the_scene_date": 29,
-      "waiting_on_a_roof": 382
+      "waiting_on_a_roof": 383
     },
     "persons_housed": {
       "attested": 366,
-      "inferred": 928,
-      "reconstructed": 1912
+      "inferred": 926,
+      "reconstructed": 1911
     },
     "persons_unhoused": {
       "attested": 0,
@@ -57,13 +57,13 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3205,
+      "persons_housed": 3202,
       "persons_unhoused": 0,
-      "persons_waiting_on_a_roof": 382
+      "persons_waiting_on_a_roof": 383
     },
     "housed_through": {
       "lives_at": 58,
-      "seated_by_a_structure": 1774
+      "seated_by_a_structure": 1773
     },
     "unhoused_by_folder": {},
     "unhoused_present_households": []
@@ -73,7 +73,7 @@
     "lodged_at_stated": 307
   },
   "at_work": {
-    "working_age": 2275,
+    "working_age": 2274,
     "placed": {
       "attested": 159,
       "inferred": 7,
@@ -91,8 +91,8 @@
     },
     "no_trade_recorded": {
       "attested": 232,
-      "inferred": 972,
-      "reconstructed": 382
+      "inferred": 970,
+      "reconstructed": 383
     },
     "owed_by_reason": {
       "held_on_an_identity_question": 1,
@@ -118,12 +118,12 @@
     "occupied": {
       "attested": 51,
       "inferred": 9,
-      "reconstructed": 314
+      "reconstructed": 315
     },
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 79
+      "reconstructed": 77
     },
     "use_stated": {
       "camp_ground": 3,
@@ -140,10 +140,11 @@
       "vacant_to_let": 1
     },
     "empty_owing_somebody": {
-      "dwelling": 2
+      "dwelling": 3
     },
     "empty": [
       "recon_1835_bank_freight_f3_001",
+      "recon_1835_blk_randolph_dearborn_d3_01",
       "recon_1835_branch_freight_f2_001"
     ]
   },
@@ -151,13 +152,13 @@
     "persons": {
       "housed": {
         "attested": 366,
-        "inferred": 928,
-        "reconstructed": 1912
+        "inferred": 926,
+        "reconstructed": 1911
       },
       "waiting_on_a_roof": {
         "attested": 46,
         "inferred": 101,
-        "reconstructed": 235
+        "reconstructed": 236
       },
       "absent_on_the_scene_date": {
         "attested": 0,
@@ -173,8 +174,8 @@
     "households": {
       "housed": {
         "attested": 355,
-        "inferred": 912,
-        "reconstructed": 565
+        "inferred": 910,
+        "reconstructed": 566
       },
       "waiting_on_a_roof": {
         "attested": 46,
@@ -213,12 +214,12 @@
       "occupied": {
         "attested": 51,
         "inferred": 9,
-        "reconstructed": 314
+        "reconstructed": 315
       },
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 79
+        "reconstructed": 77
       },
       "use_stated": {
         "attested": 25,
@@ -228,7 +229,7 @@
       "empty_owing_somebody": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 2
+        "reconstructed": 3
       }
     },
     "streets": {
@@ -267,7 +268,7 @@
     {
       "join": "occupied",
       "label": "Every standing roof occupied or its use stated",
-      "open": 2,
+      "open": 3,
       "what_keeps_it_open": "standing roofs empty and owed somebody"
     }
   ]

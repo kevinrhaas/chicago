@@ -124,14 +124,14 @@
   "ticket": "T-1171",
   "household_type": "family_with_children",
   "size_drawn": 4,
-  "kin_seated": 6,
+  "kin_seated": 4,
   "seed": "hh_forester_thomas:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
   "married": {
    "ticket": "T-2020",
-   "wife": "rc_barnes_almira",
-   "from_household": "hh_rc_barnes_almira",
-   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Almira Barnes headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 4 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Thomas Forester married anybody."
+   "wife": "rc_barnes_emily",
+   "from_household": "hh_rc_barnes_emily",
+   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Emily Barnes headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 2 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Thomas Forester married anybody."
   }
  },
  "persons": [
@@ -199,23 +199,23 @@
    }
   },
   {
-   "id": "rc_barnes_almira",
-   "name": "Almira Barnes",
+   "id": "rc_barnes_emily",
+   "name": "Emily Barnes",
    "relationship": "wife",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
     },
-    "seed": "rc_wc_south_052:head_age_bands_1840",
+    "seed": "rc_wc_south_040:head_age_bands_1840",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -223,30 +223,23 @@
     "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
    },
    "occupation": {
-    "value": "domestic",
+    "value": "laundress",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "women_children_fill.female_trades",
-     "note": "Service in another household. A woman heading her own roof and going out to service is the commonest way a widow's house was kept; the name pools already carry a `domestic` weighting for the same reason."
+     "note": "Washing is the work open to a woman with no capital and a house to keep, and the layer already carries a laundry as a structure (inf_laundry_north). The weight is an assumption; no source counts the town's washerwomen."
     },
-    "seed": "rc_wc_south_052:female_trades",
+    "seed": "rc_wc_south_040:female_trades",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a woman of this household and what she did"
     },
     "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
    },
-   "employment": {
-    "business_id": "biz_the_traveller_s_home",
-    "role": "domestic",
-    "tier": "reconstructed",
-    "seed": "rc_barnes_almira:employment",
-    "note": "A SEAT THIS PROJECT DREW, NOT A WORKPLACE A SOURCE NAMES. Nobody put this person in this house. tools/seat_reconstructed_trades_1835.py pointed them at it under the staffing model's own rule for their trade, and the reasoning — the term of the order rule that chose it, the class of house, the count of candidates considered and the model row that allows the hand — stands beside this person's id in data/residents/reconstructed_seating.json. It is deliberately NOT a `workplaces` entry: that field is the attested and inferred join, and its gate asserts a business record naming the person back, which no drawn seat has. A source naming where this person actually worked retires it."
-   },
    "name_basis": {
-    "value": "Almira Barnes",
+    "value": "Emily Barnes",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -254,7 +247,7 @@
      "id": "1835_invented_name_pools",
      "note": "The forename and the surname are both drawn from the New England and New York pool: nothing about this house is read, so no part of the name is inherited from a real person."
     },
-    "seed": "rc_wc_south_052:head_forename",
+    "seed": "rc_wc_south_040:head_forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a member of this south-division household"
@@ -266,7 +259,7 @@
     "id": "sex_ratio",
     "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the south division."
    },
-   "seed": "rc_wc_south_052:head_age_bands_1840",
+   "seed": "rc_wc_south_040:head_age_bands_1840",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a woman who kept her own house in this division, or anyone in it"
@@ -281,152 +274,14 @@
    "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
    "folded_in": {
     "ticket": "T-2020",
-    "from_household": "hh_rc_barnes_almira",
+    "from_household": "hh_rc_barnes_emily",
     "relationship_as_dealt": "head"
    }
   },
   {
-   "id": "rc_barnes_almira_1",
-   "name": "David Barnes",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "0-9",
-    "low": 0,
-    "high": 9,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
-    },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_1_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "David Barnes",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_1_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "under_ten",
-    "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_south_052:rc_barnes_almira:member_1_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_barnes_almira",
-    "relationship_as_dealt": "son"
-   }
-  },
-  {
-   "id": "rc_barnes_almira_2",
-   "name": "Henry Barnes",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "0-9",
-    "low": 0,
-    "high": 9,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
-    },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_2_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Henry Barnes",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_2_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "under_ten",
-    "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_south_052:rc_barnes_almira:member_2_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_barnes_almira",
-    "relationship_as_dealt": "son"
-   }
-  },
-  {
-   "id": "rc_barnes_almira_3",
-   "name": "Ruth Barnes",
-   "relationship": "household_member",
+   "id": "rc_barnes_emily_1",
+   "name": "Lydia Barnes",
+   "relationship": "daughter",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
@@ -438,9 +293,9 @@
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
     },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_3_sex_age",
+    "seed": "rc_wc_south_040:rc_barnes_emily:member_1_sex_age",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -453,7 +308,7 @@
     "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Ruth Barnes",
+    "value": "Lydia Barnes",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
@@ -461,7 +316,7 @@
      "id": "1835_invented_name_pools",
      "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
     },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_3_forename",
+    "seed": "rc_wc_south_040:rc_barnes_emily:member_1_forename",
     "replaceable_by": {
      "kind": "person",
      "match": "a source naming a member of this household"
@@ -473,76 +328,7 @@
     "id": "age_bands_1840",
     "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
    },
-   "seed": "rc_wc_south_052:rc_barnes_almira:member_3_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_barnes_almira",
-    "relationship_as_dealt": "household_member"
-   }
-  },
-  {
-   "id": "rc_barnes_almira_4",
-   "name": "Lucy Barnes",
-   "relationship": "daughter",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "0-9",
-    "low": 0,
-    "high": 9,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 0 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
-    },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_4_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Lucy Barnes",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_south_052:rc_barnes_almira:member_4_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "under_ten",
-    "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_south_052:rc_barnes_almira:member_4_sex_age",
+   "seed": "rc_wc_south_040:rc_barnes_emily:member_1_sex_age",
    "replaceable_by": {
     "kind": "person",
     "match": "a source naming a woman who kept her own house in this division, or anyone in it"
@@ -557,8 +343,77 @@
    "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
    "folded_in": {
     "ticket": "T-2020",
-    "from_household": "hh_rc_barnes_almira",
+    "from_household": "hh_rc_barnes_emily",
     "relationship_as_dealt": "daughter"
+   }
+  },
+  {
+   "id": "rc_barnes_emily_2",
+   "name": "Horace Barnes",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-9",
+    "low": 0,
+    "high": 9,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 10 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+    },
+    "seed": "rc_wc_south_residual_01:rc_barnes_emily:member_2_sex_age",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Horace Barnes",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+    },
+    "seed": "rc_wc_south_residual_01:rc_barnes_emily:member_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of this household"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "under_ten",
+    "note": "Drawn by the residual sweep against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+   },
+   "seed": "rc_wc_south_residual_01:rc_barnes_emily:member_2_sex_age",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "women_and_children",
+    "ticket": "T-1174",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
+   "folded_in": {
+    "ticket": "T-2020",
+    "from_household": "hh_rc_barnes_emily",
+    "relationship_as_dealt": "son"
    }
   }
  ],

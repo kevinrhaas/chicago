@@ -170,21 +170,21 @@
       "lot": "blk_south_water_franklin_lot4",
       "belongs_to": "recon_1835_blk_south_water_franklin_d4_12",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        270.45,
-        -48.67
+        270.53,
+        -48.6
       ],
       "bearing_deg": 0.32,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
-      "weather": "fresh",
+      "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_south_water_franklin_lot5",
@@ -2314,21 +2314,21 @@
       "lot": "blk_randolph_dearborn_lot0",
       "belongs_to": "recon_1835_blk_randolph_dearborn_d3_01",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        710.36,
-        -321.88
+        710.44,
+        -321.8
       ],
       "bearing_deg": 0.36,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
-      "weather": "seasoned",
+      "weather": "weathered",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_randolph_dearborn_lot1",
@@ -3118,21 +3118,21 @@
       "lot": "blk_washington_clark_lot2",
       "belongs_to": "recon_1835_blk_washington_clark_d4_14",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        633.28,
-        -451.97
+        633.21,
+        -451.89
       ],
       "bearing_deg": 0.36,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
       "weather": "weathered",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_washington_clark_lot3",

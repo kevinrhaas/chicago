@@ -15,15 +15,15 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3461,
-  "households": 1984,
-  "known": 3325,
+  "persons": 3459,
+  "households": 1983,
+  "known": 3323,
   "unknown": 136,
   "by_community": {
-   "yankee": 1683,
+   "yankee": 1682,
    "new_york": 558,
    "irish": 478,
-   "french_canadian": 185,
+   "french_canadian": 184,
    "other": 137,
    "unknown": 136,
    "british": 111,
@@ -33,21 +33,21 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3265,
+   "reconstructed": 3263,
    "null": 136,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
    "reconstruction_community": 1898,
-   "origin_region": 1402,
+   "origin_region": 1401,
    "no_origin_recorded": 121,
-   "stated_community": 25,
+   "stated_community": 24,
    "origin_does_not_speak_for_this_person": 11,
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 691,
+   "yankee": 690,
    "new_york": 557,
    "irish": 138,
    "other": 137,
@@ -467,11 +467,6 @@
    "rule": "origin_region"
   },
   "banstun_charles": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region"
-  },
-  "baptist_john": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -1022,11 +1017,6 @@
    "rule": "origin_region"
   },
   "bourassa_jean_baptiste": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "stated_community"
-  },
-  "bourassa_lon": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "stated_community"
@@ -6753,6 +6743,31 @@
   },
   "rc_bourassa_madeleine_4": {
    "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_1": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_2": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_3": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_4": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_wife": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -13021,26 +13036,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_rider_eli_a_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_rider_elia_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -14251,17 +14246,17 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_thomas_frederick_child_1": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_thomas_frederick_child_2": {
    "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
   "rc_thomas_frederick_child_3": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_thomas_frederick_child_4": {
    "value": "irish",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -14836,11 +14831,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_wellmaker_john_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_wellmaker_john_child_4": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -14852,11 +14842,6 @@
    "rule": "reconstruction_community"
   },
   "rc_wesencraft_charles_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_wesencraft_charles_child_4": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -14937,6 +14922,11 @@
    "rule": "reconstruction_community"
   },
   "rc_whitcomb_seth": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_whitlock_james_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -17928,13 +17918,6 @@
    "head": "banstun_charles",
    "file": "households/hh_banstun_charles.json"
   },
-  "hh_baptist_john": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "baptist_john",
-   "file": "households/hh_baptist_john.json"
-  },
   "hh_baptiste_l_tendre": {
    "value": "unknown",
    "tier": null,
@@ -18669,13 +18652,6 @@
    "rule": "stated_community",
    "head": "bourassa_jean_baptiste",
    "file": "households/hh_bourassa_jean_baptiste.json"
-  },
-  "hh_bourassa_lon": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "stated_community",
-   "head": "bourassa_lon",
-   "file": "households/hh_bourassa_lon.json"
   },
   "hh_bourassa_mark": {
    "value": "french_canadian",
@@ -25795,6 +25771,13 @@
    "rule": "reconstruction_community",
    "head": "rc_chevalier_alexis",
    "file": "reconstructed_trades/hh_rc_chevalier_alexis.json"
+  },
+  "hh_rc_chevalier_angelique": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_chevalier_angelique",
+   "file": "households/hh_rc_chevalier_angelique.json"
   },
   "hh_rc_chevalier_louis": {
    "value": "french_canadian",

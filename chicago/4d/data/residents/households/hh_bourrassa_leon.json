@@ -24,23 +24,24 @@
  "head": "bourrassa_leon",
  "source_pass": "civic",
  "arrival": {
-  "value": "1835-07-02",
+  "value": "1834-12-29",
   "confidence": "inferred",
   "sources": [
-   "st_cyr_register_ichr_v4"
+   "st_cyr_register_ichr_v4",
+   "st_marys_baptismal_register_1833_1835"
   ],
-  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 2 July 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason.",
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 29 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
   "precision": "not_later_than"
  },
  "arrival_year": {
-  "value": 1835,
+  "value": 1834,
   "confidence": "reconstructed",
   "tier": "reconstructed",
-  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-02 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+  "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1834-12-29 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
   "basis": {
    "kind": "model",
    "id": "arrival",
-   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
+   "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1834."
   },
   "seed": "hh_bourrassa_leon:arrival_year",
   "replaceable_by": {
@@ -72,14 +73,14 @@
   "written_by_stage": "attribute_fill_arrival"
  },
  "reason_for_coming": {
-  "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
+  "value": "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
   "confidence": "reconstructed",
   "tier": "reconstructed",
   "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
   "basis": {
    "kind": "rule",
    "id": "reason_from_arrival_cohort",
-   "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
+   "note": "arrival_fill.cohort_reasons — the household's arrival year (1834) is the only thing about it this value rests on."
   },
   "replaceable_by": {
    "kind": "person",
@@ -98,24 +99,13 @@
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
  },
  "present_on_scene_date": {
-  "value": "uncertain",
+  "value": "present",
   "confidence": "inferred",
   "sources": [
-   "st_cyr_register_ichr_v4"
+   "st_cyr_register_ichr_v4",
+   "st_marys_baptismal_register_1833_1835"
   ],
-  "last_dated_appearance": {
-   "as_read": null,
-   "precision": null,
-   "reaches": null,
-   "includes_scene_date": false,
-   "days_before_scene_date": null,
-   "leg": "none",
-   "person": null,
-   "record": null,
-   "sources": [],
-   "note": "NO DATED EVIDENCE AT OR BEFORE 1835-07-01. The earliest date this card carries is 1835-07-02, which is after the scene, so it is a later appearance rather than the leg under this verdict — T-1159 class R5 is where a later record is back-projected, and it is not done here."
-  },
-  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+  "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
  },
  "modelled_family": {
   "stage": "modelled_families",
@@ -124,25 +114,20 @@
   "size_drawn": 6,
   "kin_seated": 6,
   "seed": "hh_bourrassa_leon:household_size",
-  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
-  "married": {
-   "ticket": "T-2020",
-   "wife": "rc_stebbins_maria",
-   "from_household": "hh_rc_stebbins_maria",
-   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Maria Stebbins headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 4 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Leon Bourrassa married anybody."
-  }
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
  "kin": [
   {
    "person": "bourrassa_leon",
    "relation": "father",
-   "household": "hh_baptist_john",
-   "value": "baptist_john",
+   "household": "hh_bourassa_jean_baptiste",
+   "value": "bourassa_jean_baptiste",
    "confidence": "attested",
    "sources": [
-    "st_cyr_register_ichr_v4"
+    "st_cyr_register_ichr_v4",
+    "st_marys_baptismal_register_1833_1835"
    ],
-   "note": "THE MIRROR OF THE ROW ON hh_baptist_john. THE BURIAL ENTRY NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. Death entry 5 of Father St Cyr's page, Chicago, 2 July 1835: 'On the 2nd of July 1835, I performed the ecclesiastical burial according to the rites of the Catholic Church on the corpse of John Baptist, son of Leon Bourrassa, 28 days old.' Filed as st_cyr_death_05_1 (decedent) and st_cyr_death_05_2 (parent), and both cards were minted from those two rows and carry their record ids, so no identification is being made by name here. THE CHILD WAS ALIVE ON THE SCENE DATE: 28 days old at a burial on 2 July 1835 puts his birth about 4 June 1835 and his death the day AFTER 1 July 1835, so the father and son of this row are father and son in the scene. WHAT THE ENTRY DOES NOT SETTLE: 'John Baptist' is the transcription's reading of the child's name and it is very likely the forename Jean Baptiste standing where a surname was expected — the card is filed under Baptist because that is how the printed register reads, and T-0721 is where names read out of a printer's smudge are ruled on. The RELATIONSHIP does not turn on which of the two the child was called."
+   "note": "THE MIRROR OF THE ROW ON hh_bourassa_jean_baptiste. THE BURIAL ENTRY NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. Death entry 5 of Father St Cyr's page, Chicago, 2 July 1835: 'On the 2nd of July 1835, I performed the ecclesiastical burial according to the rites of the Catholic Church on the corpse of John Baptist, son of Leon Bourrassa, 28 days old.' Filed as st_cyr_death_05_1 (decedent) and st_cyr_death_05_2 (parent), and the cards minted from those two rows carry their record ids, so no identification is being made by name here. THE CHILD WAS ALIVE ON THE SCENE DATE: 28 days old at a burial on 2 July 1835 puts his birth about 4 June 1835 and his death the day AFTER 1 July 1835, so the father and son of this row are father and son in the scene. WHO THE CHILD WAS IS NOW SETTLED (T-2179): 'John Baptist' is the forename Jean Baptiste standing where a surname was expected, and he is the Jean Baptiste, son of Léon Bourrasso and Marguerite [Laframboise], whom the same priest baptised at St Mary's on 29 June 1835, born 4 June 1835 — 2 July less 28 days. The burial's card is folded onto the baptism's (card_merge_rulings.json, cluster baptist-bourassa, C15), and the father's two cards onto this one (cluster bourassa-bourrassa, C16)."
   }
  ],
  "persons": [
@@ -159,10 +144,29 @@
     "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
    },
    "sources": [
-    "st_cyr_register_ichr_v4"
+    "st_cyr_register_ichr_v4",
+    "st_marys_baptismal_register_1833_1835"
    ],
-   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 2 July 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1).",
+   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 29 December 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
    "church_evidence": [
+    {
+     "list": "church_1833_1835",
+     "as_read": "Léon Bourassa",
+     "locator": "father",
+     "record_id": "st_marys_bapt_1834_23_2_father",
+     "describes_date": "1834-12-29",
+     "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    },
+    {
+     "list": "church_1833_1835",
+     "as_read": "Léon Bourrasso",
+     "locator": "father",
+     "record_id": "st_marys_bapt_1835_04_2_father",
+     "describes_date": "1835-06-29",
+     "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    },
     {
      "list": "church_1833_1835",
      "as_read": "Leon Bourrassa",
@@ -210,23 +214,23 @@
    }
   },
   {
-   "id": "rc_stebbins_maria",
-   "name": "Maria Stebbins",
+   "id": "rc_bourrassa_leon_wife",
+   "name": "Almira Bourrassa",
    "relationship": "wife",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
-    "value": "50+",
-    "low": 50,
-    "high": null,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 50 under 60'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40'. Never above the head's own band: the spacing rule of the household model, which the 1840 adult sex ratio argues for and no source states."
     },
-    "seed": "rc_wc_south_045:head_age_bands_1840",
+    "seed": "hh_bourrassa_leon:wife_age_bands_1840",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -234,79 +238,191 @@
     "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
    },
    "occupation": {
-    "value": "laundress",
+    "value": "none_recorded",
     "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "women_children_fill.female_trades",
-     "note": "Washing is the work open to a woman with no capital and a house to keep, and the layer already carries a laundry as a structure (inf_laundry_north). The weight is an assumption; no source counts the town's washerwomen."
-    },
-    "seed": "rc_wc_south_045:female_trades",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a woman of this household and what she did"
-    },
-    "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Maria Stebbins",
+    "value": "Almira Bourrassa",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "The forename and the surname are both drawn from the New England and New York pool: nothing about this house is read, so no part of the name is inherited from a real person."
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
     },
-    "seed": "rc_wc_south_045:head_forename",
+    "seed": "hh_bourrassa_leon:wife_forename",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source naming a member of this south-division household"
+     "match": "a source naming a member of Leon Bourrassa's family"
     },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
    },
    "basis": {
     "kind": "model",
-    "id": "sex_ratio",
-    "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the south division."
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people from the 1840 city's size histogram, at the head's own band and not at the mean. A house of 6 with a head of 50 and over is a married house, and this is its wife."
    },
-   "seed": "rc_wc_south_045:head_age_bands_1840",
+   "seed": "hh_bourrassa_leon:household_size",
    "replaceable_by": {
     "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+    "match": "a source naming this head's family"
    },
    "reconstruction": {
     "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_stebbins_maria",
-    "relationship_as_dealt": "head"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_stebbins_maria_1",
-   "name": "Almira Stebbins",
+   "id": "rc_bourrassa_leon_child_1",
+   "name": "Orrin Bourrassa",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_bourrassa_leon:child_1_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Orrin Bourrassa",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_bourrassa_leon:child_1_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Leon Bourrassa's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
+   },
+   "seed": "hh_bourrassa_leon:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_bourrassa_leon_child_2",
+   "name": "Erastus Bourrassa",
+   "relationship": "son",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "0-4",
+    "low": 0,
+    "high": 4,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
+    },
+    "seed": "hh_bourrassa_leon:child_2_age_bands_1840",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   },
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+   },
+   "name_basis": {
+    "value": "Erastus Bourrassa",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
+    },
+    "seed": "hh_bourrassa_leon:child_2_forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a member of Leon Bourrassa's family"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
+   },
+   "seed": "hh_bourrassa_leon:household_size",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming this head's family"
+   },
+   "reconstruction": {
+    "programme": "1835_resident_reconstruction",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
+    "community": "yankee",
+    "review_required": false
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+  },
+  {
+   "id": "rc_bourrassa_leon_child_3",
+   "name": "Clarissa Bourrassa",
    "relationship": "daughter",
    "grade": "reconstructed",
    "sex": "female",
    "age_band": {
-    "value": "0-9",
-    "low": 0,
+    "value": "5-9",
+    "low": 5,
     "high": 9,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 5 under 10'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
     },
-    "seed": "rc_wc_south_045:rc_stebbins_maria:member_1_sex_age",
+    "seed": "hh_bourrassa_leon:child_3_age_bands_1840",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -316,135 +432,61 @@
    "occupation": {
     "value": "none_recorded",
     "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Almira Stebbins",
+    "value": "Clarissa Bourrassa",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
     },
-    "seed": "rc_wc_south_045:rc_stebbins_maria:member_1_forename",
+    "seed": "hh_bourrassa_leon:child_3_forename",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source naming a member of this household"
+     "match": "a source naming a member of Leon Bourrassa's family"
     },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
    },
    "basis": {
     "kind": "model",
-    "id": "under_ten",
-    "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
    },
-   "seed": "rc_wc_south_045:rc_stebbins_maria:member_1_sex_age",
+   "seed": "hh_bourrassa_leon:household_size",
    "replaceable_by": {
     "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+    "match": "a source naming this head's family"
    },
    "reconstruction": {
     "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_stebbins_maria",
-    "relationship_as_dealt": "daughter"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   },
   {
-   "id": "rc_stebbins_maria_2",
-   "name": "Calvin Stebbins",
+   "id": "rc_bourrassa_leon_child_4",
+   "name": "Reuben Bourrassa",
    "relationship": "son",
    "grade": "reconstructed",
    "sex": "male",
    "age_band": {
-    "value": "0-9",
-    "low": 0,
-    "high": 9,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
-    },
-    "seed": "rc_wc_south_045:rc_stebbins_maria:member_2_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Calvin Stebbins",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_south_045:rc_stebbins_maria:member_2_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "under_ten",
-    "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_south_045:rc_stebbins_maria:member_2_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_stebbins_maria",
-    "relationship_as_dealt": "son"
-   }
-  },
-  {
-   "id": "rc_stebbins_maria_3",
-   "name": "Rufus Stebbins",
-   "relationship": "son",
-   "grade": "reconstructed",
-   "sex": "male",
-   "age_band": {
-    "value": "10-19",
-    "low": 10,
+    "value": "15-19",
+    "low": 15,
     "high": 19,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 15 under 20'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the marriage the head's own age band allows."
     },
-    "seed": "rc_wc_south_045:rc_stebbins_maria:member_3_sex_age",
+    "seed": "hh_bourrassa_leon:child_4_age_bands_1840",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age or their birth year"
@@ -454,116 +496,42 @@
    "occupation": {
     "value": "none_recorded",
     "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+    "note": "No trade is drawn for a reconstructed kin member. The occupation model is spent on heads and on the trades the town is short of (T-1173); a wife's and a child's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
    },
    "name_basis": {
-    "value": "Rufus Stebbins",
+    "value": "Reuben Bourrassa",
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
+     "note": "The forename is drawn from the New England and New York pool; the surname is the head's own."
     },
-    "seed": "rc_wc_south_045:rc_stebbins_maria:member_3_forename",
+    "seed": "hh_bourrassa_leon:child_4_forename",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source naming a member of this household"
+     "match": "a source naming a member of Leon Bourrassa's family"
     },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. The surname is the head's own, as his card prints it; the forename is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here. No source names this person."
    },
    "basis": {
     "kind": "model",
-    "id": "age_bands_1840",
-    "note": "Drawn by the draw against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
+    "id": "size_histogram_1840",
+    "note": "The household model drew this house at 6 people; the head and his wife seated, 4 of them are children."
    },
-   "seed": "rc_wc_south_045:rc_stebbins_maria:member_3_sex_age",
+   "seed": "hh_bourrassa_leon:household_size",
    "replaceable_by": {
     "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
+    "match": "a source naming this head's family"
    },
    "reconstruction": {
     "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
+    "stage": "modelled_families",
+    "ticket": "T-1171",
     "community": "yankee",
     "review_required": false
    },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_stebbins_maria",
-    "relationship_as_dealt": "son"
-   }
-  },
-  {
-   "id": "rc_stebbins_maria_4",
-   "name": "Harriet Stebbins",
-   "relationship": "daughter",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "10-19",
-    "low": 10,
-    "high": 19,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Capped at 19 years: nobody is born after 1835-07-01, and no child of this house is older than the head's own age band allows her to have borne them."
-    },
-    "seed": "rc_wc_south_residual_01:rc_stebbins_maria:member_4_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Harriet Stebbins",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the New England and New York pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_south_residual_01:rc_stebbins_maria:member_4_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the New England and New York pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "age_bands_1840",
-    "note": "Drawn by the residual sweep against the south division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_south_residual_01:rc_stebbins_maria:member_4_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "yankee",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This child exists because the order book says the south division is short of people of this sex and age, and the whole of what is claimed is that. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_stebbins_maria",
-    "relationship_as_dealt": "daughter"
-   }
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
   }
  ],
  "touches_removal": false,
