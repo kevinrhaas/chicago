@@ -8,8 +8,8 @@
  * transmissive material is touched, a caller naming no mode keeps the GLB's
  * own glass, the input is never mutated, and the replacement carries no
  * transmission (so three's transmission pass cannot run for it). And it holds
- * the owner's pick (2026-10-04, answer c): the dark plate at `balanced` and
- * `light`, the GLB's transmission at `full`, `?glass=` overriding both.
+ * the owner's updated pick (T-2183): dark at full, balanced and light, with
+ * `?glass=` overriding the choice at every setting.
  */
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -42,9 +42,9 @@ check('?glass= reads only a known mode', () => {
   for (const q of ['', 'glass=', 'glass=CLEAR', 'glass=frosted']) assert.equal(readGlassRequest(new URLSearchParams(q)), null);
   assert.equal(readGlassRequest(null), null);
 });
-check("the owner's pick: dark at balanced and light, transmission at full", () => {
-  assert.deepEqual({ ...GLASS_BY_DETAIL }, { full: 'transmission', balanced: 'dark', light: 'dark' });
-  assert.equal(glassForDetail('full'), 'transmission');
+check("the owner's pick: dark at every scene detail setting", () => {
+  assert.deepEqual({ ...GLASS_BY_DETAIL }, { full: 'dark', balanced: 'dark', light: 'dark' });
+  assert.equal(glassForDetail('full'), 'dark');
   assert.equal(glassForDetail('balanced'), 'dark');
   assert.equal(glassForDetail('light'), 'dark');
   // An unknown setting keeps the GLB's glass rather than guessing.

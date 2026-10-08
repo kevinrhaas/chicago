@@ -163,8 +163,13 @@ if p.detail.get('dining_crested_connection'):
     bay=p.bays[0];ap=bay['apex']
     assert bay['pts'][1][1]-1e-4<=ap[1]<=bay['pts'][0][1]
     assert abs(ap[2]-n['ridge_z'])<1e-5 and n['ridge_at']-ap[1]>3.5
-    assert wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])==[(n['x0'],n['eave_lo_z']),(n['x1'],n['eave_lo_z'])]
-    low_y=n['y0']-.20
+    profile_points=wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])
+    assert profile_points[0]==(n['x0'],n['eave_lo_z']) and profile_points[-1]==(n['x1'],n['eave_lo_z'])
+    assert all(h>=n['eave_lo_z'] for x,h in profile_points)
+    if n.get('eave_lo_overhang',.20)>.21:
+        assert max(h for x,h in profile_points)>p.bows[0]['wall_top_z']
+    else:assert len(profile_points)==2
+    low_y=n['y0']-n.get('eave_lo_overhang',.20)
     def host_z(y):
         return n['eave_lo_z']+(y-n['y0'])*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
     host=[(n['x0'],low_y,host_z(low_y)),(n['x1'],low_y,host_z(low_y)),
@@ -196,5 +201,15 @@ assert abs(b['glazed_band_top'][0]-wing[1])<1e-8
 assert abs(b['glazed_band_top'][0]-b['wall_top'][0]-3.1)<1e-8
 assert abs(b['roof_apex'][2][0]-f['ridge_north_range']['value']['ridge'][0])<1e-8
 assert 9.5 < b['roof_apex'][2][0]-b['glazed_band_top'][0] < 10.7
-assert 2.0 < (b['light_row'][1]-b['light_row'][0])/3.1 < 2.5
+# T-2183 corrects the earlier perspective-based enlargement. The openings must
+# share floor datums; keeping a ratio that forced tall tower windows was wrong.
+assert b['light_row']==f['opening_heights']['value']['openings_court_north']['first']
+assert abs(wing[0]-b['wall_top'][0])<1e-8
+n=next(r for r in p.ranges if r['name']=='north_range')
+edge_y=n['y0']-n['eave_lo_overhang']
+edge_z=n['eave_lo_z']+(edge_y-n['y0'])*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
+assert abs(edge_y-p.bays[0]['pts'][1][1])<1e-4
+assert abs(edge_z-p.bays[0]['band_top_z'])<1e-4
+assert n['eave_lo_overhang']>.70
+print('PASS: tower principal openings share wing first-floor datums; short upper apertures and projecting roof/gutter meet the bay shoulder.')
 print('PASS: tower band head aligns with north-wing upper windows; band height and ridge retained; copper cap rise reduced to 10.1 ft.')
