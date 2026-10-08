@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1522, ts: '2026-10-08T07:13:20.407Z', date: 'Oct 8, 2026, 2:13 AM CT', title: 'A loading bar that keeps time again', kind: 'fix',
+    items: [
+      'On your first visit, the bar under the rolling years moves at the pace the town actually loads. Laying the ground and the river now counts for about a third of the wait instead of a tenth, so the bar no longer races ahead and then sits still while the ground is laid.',
+      'On later visits the bar learns from your own device, as before. It can now learn the full time that step takes on a slow device, because its starting guesses are no longer several times too small.',
+    ] },
   { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
       'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
