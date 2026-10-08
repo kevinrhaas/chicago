@@ -31,6 +31,48 @@
   (`measure_boot_phases.mjs --published --json`, then `--write` with that output as TODAY
   and the receipt's tree as THEN) would replace the inference. The terrain long task itself
   is unowned work and is not fixed here. The mobile flora heartbeat stays T-2059's.
+
+## T-2172 — courtyard tower window and roof proportions (2026-10-08)
+
+The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
+upper windows. The cap rise falls from 13.6 to 10.1 ft at the unchanged ridge.
+Principal sash heads rise 2 ft, retaining their sills and historical divisions.
+These are declared proportional reconstructions, about +/-1 ft.
+
+Canonical full/light assets and recovery archive rebuilt; 3,000 independent roof
+samples pass. Six published desktop/full and mobile/light app views load without
+page, HTTP or loader errors and remain inside their rendering budgets. The local
+repository gate passed 786 checks; its two stale generated outputs were rebuilt
+and passed unchanged direct rechecks. Required CI and broader smoke are recorded
+on the pull request.
+See `RESEARCH/glessner-tower-proportions-2172/README.md`.
+
+## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
+
+**What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in
+`data/reconstruction/1835_platted_block_parcels.json` behind houses earlier deals raised: an A1
+stable on `blk_indiana_north_wolcott` lot 9, an A2 barn or carriage shed on
+`blk_south_water_wells` lot 5, an A5 smokehouse on `blk_south_water_dearborn` lot 1. Baked
+(`tools/bake.sh --only`), L401 records them. Order book: North `barns_stables` 12/17 (5 owed),
+South `barns_stables` 34/35 (the last is T-2147's block 81), South `small_outbuildings` 48/48.
+
+**What it found (T-1692's question, half answered).** The schedule places the North's whole
+remainder — an A1 and five A2 — on the Wolcott block because it is the North's only platted block
+with ancillary room. That room is counted in roofs, not ground: its lots are 14.71 × 31.33 m, each
+cottage lot already keeps a woodshed or privy, and the generator's 1.5 m lot margin and 3.0 m
+separation leave 4.85-5.55 m beside it, narrower than any A2 (5.49 m at the band's floor; the
+recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this deal: North 31 yard
+roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
+divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
+split: T-2165 is this, and T-2166 — split again the same day — went to T-2167 (the West's four
+on blk_washington_clinton) and T-2168, itself split into T-2169 (the West's last three) and T-2170 (the North's five barns
+and the re-budget question). The order book's yard rows now name T-2170 (North), T-2169 (West)
+and T-2147 (the South's last barn, on its block 81); the South's civic row names T-2170.
+
+**Unverified.** The positions are invented on generated lots (L401); no source seats any of the
+three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
+move one School Section request's family (blk 94, D5 to D4), which T-2146's open PR will meet.
+
 ## T-2157 — courtyard dining-tower roof connection (2026-10-08)
 
 The copper hip now ends over the bay shoulders and meets a raised, tiled cross

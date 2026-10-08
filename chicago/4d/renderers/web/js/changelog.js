@@ -1,8 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1527, ts: '2026-10-08T09:16:55.949Z', date: 'Oct 8, 2026, 4:16 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
+  { v: 1530, ts: '2026-10-08T10:41:28.960Z', date: 'Oct 8, 2026, 5:41 AM CT', title: 'A truer time-left on your first visit', kind: 'fix',
     items: [
       'On your first visit, the loading machine now knows how long each stage takes. Laying the ground and the river is about a third of the wait, not a tenth, so the year and the time left keep moving through that stage instead of stalling.',
       'Later visits are still timed from your own device. They can now learn the full length of that stage on a slow device, because the first-visit figures are no longer several times too small.',
+    ] },
+  { v: 1529, ts: '2026-10-08T10:24:03.249Z', date: 'Oct 8, 2026, 5:24 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',
+      'Five recent builds added walks, fences, a wagon apron and bare workshop fronts, and the checks still expected the old numbers. They now count what those builds laid, and each new number is traced to the build that added it.',
+      'A cart on the newly extended West Water Street was being counted as part of the raft bridge\u2019s timber pile beside it. The check now measures that pile by its own footprint.',
+    ] },
+  { v: 1528, ts: '2026-10-08T09:44:15.901Z', date: 'Oct 8, 2026, 4:44 AM CT', title: 'Glessner’s courtyard tower has a shallower copper roof', kind: 'fix',
+    items: ['The tower’s divided upper windows now align with the north-wing window heads. The main tower windows are taller, and the copper cap is shorter, retaining the tiled ridge connection.'] },
+  { v: 1527, ts: '2026-10-08T09:14:22.008Z', date: 'Oct 8, 2026, 4:14 AM CT', title: 'A stable in Kinzie\u2019s Addition, a barn and a smokehouse downtown', kind: 'feature',
+    items: [
+      'North of the river, on the block between Wolcott and Cass Streets, the cottage on Illinois Street now has a small stable in its back yard, beside the privy.',
+      'South of the river, the house on Lake Street between Wells and LaSalle has a barn or carriage shed behind it, and the house on the Lake and Dearborn corner has a smokehouse in its yard.',
+      'No record names these buildings. The town\u2019s plan counted them as missing, and the North now has every roof it counted except five barns. Its cottage yards are too narrow for a barn beside the sheds they already have, so those wait for a better place.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L401).',
     ] },
   { v: 1526, ts: '2026-10-08T08:42:36.475Z', date: 'Oct 8, 2026, 3:42 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
     items: [
