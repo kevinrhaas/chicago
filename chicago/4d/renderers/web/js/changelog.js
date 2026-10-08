@@ -1,9 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1532, ts: '2026-10-08T12:05:52.135Z', date: 'Oct 8, 2026, 7:05 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+  { v: 1533, ts: '2026-10-08T12:28:50.095Z', date: 'Oct 8, 2026, 7:28 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
       'With these three, every yard building the town plan counted for the West Division now stands.',
       'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
+  { v: 1532, ts: '2026-10-08T11:44:45.896Z', date: 'Oct 8, 2026, 6:44 AM CT', title: 'A clearer Glessner House package check', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The Glessner House package check now explains how to refresh an out-of-date local copy instead of suggesting a repack that could undo a newer bake.',
     ] },
   { v: 1531, ts: '2026-10-08T11:16:48.172Z', date: 'Oct 8, 2026, 6:16 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [

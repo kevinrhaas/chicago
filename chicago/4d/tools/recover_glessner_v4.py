@@ -85,8 +85,12 @@ def materialize(root=ROOT, recovery=RECOVERY, check=False):
             missing.append(name)
         else:
             require(target.is_file() and target.read_bytes() == members[name],
-                    f"{name} differs from the packed asset. After the normal bake/derivative gates, "
-                    "run python3 tools/recover_glessner_v4.py --pack and commit the archive parts and manifest.")
+                    f"{name} differs from the packed asset. If YOU baked it, then after the normal "
+                    "bake/derivative gates run python3 tools/recover_glessner_v4.py --pack and commit the "
+                    "archive parts and manifest. If you did not, this clone holds an output materialized "
+                    "before the archive was last repacked (the outputs are untracked, so a pull never "
+                    "refreshes them): delete it and run --materialize. Packing a stale output would roll "
+                    "the committed bake back (T-2173).")
     require(not check or not missing, "packaged GLBs absent; run python3 tools/recover_glessner_v4.py --materialize")
     for name in missing:
         write_member(root, name, members[name])
