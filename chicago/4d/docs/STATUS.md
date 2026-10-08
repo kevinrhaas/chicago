@@ -1,3 +1,27 @@
+## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
+re-budgeted, priced against the dwellings, T-1692). T-2170 keeps the North's five A2 barns that
+no Wolcott lot can hold.
+
+- **Visible.** After T-2167's deal the 668-roof schedule re-apportioned the West's three yard roofs
+  from `west_division_beyond_committed_control` (a district balance with no block) onto
+  `blk_washington_clinton` (`ancillary_room` 4). A third recipe entry
+  (`phase3_platted_block_washington_clinton_yard_deal_2`, `seq_start` 18) deals them: a chicken
+  house or small utility shed (A5, `_a5_18`) mid-yard behind the D5 on plat lot 7, a barn or
+  carriage shed (A2, `_a2_19`) on the woodshed's side of the D4's yard on plat lot 8, 16 m off the
+  alley, and a woodshed (A4, `_a4_20`) mid-yard behind the H1 on the Madison corner. Baked
+  (`bake.sh --only`, web derivatives). **L404**; L263 631 → 634 (on top of T-2165's 628 → 631).
+- **Where the barn could go.** Mid-yard in the D5's yard it stood 1.98 m from the house (the
+  generator holds 3.0 m), so it went to the D4's yard, the deepest of the three; 14 m off the alley
+  it stood 2.97 m from the barn beside it, 15 m and beyond clears both.
+- **Order book.** The West's `barns_stables` and `small_outbuildings` cells owe nothing now.
+  `build_order_book_1835.OWNERS`: West → T-2169, North → T-2170 (T-2168 is split).
+- **Seating.** No household moves onto a yard building. `measure_generator_half` 684 → 687 /
+  678 → 681 (on top of T-2165's three and T-2146's thirteen); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
+  redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
+  register, population profile, hay limits and the Newberry parse re-derived.
+
 ## T-2059 — the mobile flora heartbeat back under 250 ms (2026-10-08)
 
 **What a visitor sees:** a phone's loading screen keeps moving while the trees and grass are
