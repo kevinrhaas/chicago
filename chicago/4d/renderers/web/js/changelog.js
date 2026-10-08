@@ -1,11 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1536, ts: '2026-10-08T13:51:34.727Z', date: 'Oct 8, 2026, 8:51 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
+  { v: 1537, ts: '2026-10-08T14:23:42.155Z', date: 'Oct 8, 2026, 9:23 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',
       'This block was sold lot by lot in October 1833, in the School Section. With it, all five School Section blocks the town reaches south of Madison now have houses.',
       'The two Market corner lots stay open.',
       'Six households now live in these houses, one of them named on the house itself.',
       'No source shows anyone built here by 1835, or names these houses. They fill the number of homes the town plan still owes the South Division, and each card says so. The Liberties page explains it (L397).',
+    ] },
+  { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Before taking a ticket, the build loop now checks whether an open pull request already carries it, even one opened from a branch that doesn\'t name the ticket, so the same work isn\'t built twice.',
     ] },
   { v: 1535, ts: '2026-10-08T13:02:09.967Z', date: 'Oct 8, 2026, 8:02 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
     items: [

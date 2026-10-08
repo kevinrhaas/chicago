@@ -446,6 +446,51 @@ const LAP_BRANCHES = [
   }
 }
 
+/* ------------- 30-32: an open PR that only its TITLE ties to a ticket (T-2138) */
+
+/**
+ * #449 was opened by an interactive session on `claude/project-thread-gfksyy`, titled
+ * `T-2122: …`, and `inflight` printed nothing under T-2122 because every row it built
+ * came from a branch name. A slice then stole the ticket's dead claim and rebuilt the
+ * fix in full. The title is the convention that survived, so it is read too — at the
+ * one position `prTicketIds` trusts, and only for a ticket that is still unfinished.
+ */
+const TITLE_PULLS = [
+  { number: 449, title: 'T-0055: the Kinzie view plate, by hand', state: 'open', merged_at: null,
+    labels: [], head: { ref: 'claude/project-thread-gfksyy' } },
+  // Names a ticket mid-title: queue-keeping, not the work (prTicketIds' rule 3).
+  { number: 450, title: 'Rank T-1105 under the drain band', state: 'open', merged_at: null,
+    labels: [], head: { ref: 'steward/queue-keeping' } },
+  // Names a FINISHED ticket: a follow-up, not work in flight on a queue row.
+  { number: 451, title: 'T-0100: a follow-up to the finished one', state: 'open', merged_at: null,
+    labels: [], head: { ref: 'claude/project-thread-xyz' } },
+];
+{
+  const { tmp, APP } = sandbox();
+  try {
+    console.log('\n  an open pull request whose branch names no ticket');
+    writeFileSync(path.join(APP, 'titled.json'),
+      JSON.stringify([...BRANCHES, { name: 'claude/project-thread-gfksyy', age_hours: 9 }], null, 2));
+    writeFileSync(path.join(APP, 'titled-pulls.json'), JSON.stringify(TITLE_PULLS, null, 2));
+    const { status, out } = inflight(APP, 'titled.json', '--pr-json', path.join(APP, 'titled-pulls.json'));
+    const json = inflight(APP, 'titled.json', '--pr-json', path.join(APP, 'titled-pulls.json'), '--json');
+    const rows = JSON.parse(/\[[\s\S]*\]\s*$/.exec(json.out)?.[0] ?? 'null') ?? [];
+    const row = rows.find((r) => r.branch === 'claude/project-thread-gfksyy');
+    check('30. #449\'s shape: a PR whose TITLE names the ticket is listed under it, open_pr',
+      row?.id === 'T-0055' && row?.reading === 'open_pr' && row?.open_pr === 449 && row?.by_title === true,
+      JSON.stringify(row));
+    check('    …and printed in the open-PR section, saying the title is what ties it',
+      /OPEN PULL REQUESTS[\s\S]*T-0055[^\n]*\n[^\n]*claude\/project-thread-gfksyy[^\n]*its PR title does[^\n]*\n[^\n]*PR #449 is OPEN/.test(out)
+      && status === 0, out.split('OPEN PULL REQUESTS')[1]?.slice(0, 600));
+    check('31. a title that names a ticket mid-sentence carries nothing',
+      !rows.some((r) => r.branch === 'steward/queue-keeping'), JSON.stringify(rows.filter((r) => r.branch === 'steward/queue-keeping')));
+    check('32. a title naming a FINISHED ticket is not work in flight',
+      !rows.some((r) => r.branch === 'claude/project-thread-xyz'));
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
 /* ------------------------------- 23: the one assertion no fixture can carry */
 
 /**
