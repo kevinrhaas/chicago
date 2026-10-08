@@ -54,13 +54,29 @@ on:
 permissions:
   contents: read
 
-# One sweep at a time, and the newest one wins. Three slices push often; a sweep
-# is a read of the queue as it stands, so an older one in flight has nothing to
-# say that the newer one will not say better. This is the one workflow in the repo
-# where cancelling in progress is right, and it is why this is cheap to trigger
-# so freely.
+# One sweep at a time PER BRANCH, and the newest one wins there. A sweep is a read
+# of the queue as it stands, so an older one in flight on the same branch has
+# nothing to say that the newer one will not say better, and its head is no longer
+# the PR's head — so the `report` check its cancel leaves behind is on a commit
+# nobody reads. This is the one workflow in the repo where cancelling in progress
+# is right, and it is why this is cheap to trigger so freely.
+#
+# PER REF, NOT ONE GROUP (T-2069). Until 2026-10-08 the group was the bare
+# `chicago-4d-pr-stuck`, so a push to ANY steward branch cancelled the sweep a
+# push to ANOTHER branch had started — and that sweep's `report` check sat
+# `cancelled` on the other PR's live head. `gh-rest.sh pr-automerge` reads a
+# cancelled check as red, so finished, green PRs were refused and labelled
+# `resume` while their real gate was still running: #455, #488 (twice), #530.
+# Five slices push often, so this was every busy hour, not an edge case.
+# T-1520's reading chose this cure over dropping cancellation; pr-stuck.sh says why.
+#
+# THE TRADE, stated: two branches pushed inside one sweep's minute now run two
+# sweeps at once. Each reads the whole queue, and pr-stuck.sh's one-comment-per-
+# stuck-head check is read-then-post, so on that collision a stuck PR can be told
+# twice. A duplicate comment on a PR already stuck costs a reader a scroll; the
+# cancelled check cost a refusal, a stray `resume` and a janitor lap per PR.
 concurrency:
-  group: chicago-4d-pr-stuck
+  group: chicago-4d-pr-stuck-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
