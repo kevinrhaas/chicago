@@ -13996,6 +13996,15 @@ for (const [label, viewport, touch] of [
           segs: city.querySelectorAll('.gc-done-seg').length,
           shares: city.querySelector('.gc-done-shares')?.textContent.trim() || '',
         },
+        // T-2154: the dwellings against the November census, and the people split.
+        dwellings: {
+          figure: city.querySelector('.gc-dw-n')?.textContent.trim() || '',
+          segs: city.querySelectorAll('.gc-dw-seg').length,
+          of: city.querySelector('.gc-dw-of')?.textContent.trim() || '',
+          inBuildings: !!city.querySelector('.gc-row:first-of-type .gc-dw'),
+        },
+        split: [...city.querySelectorAll('.gc-split li')].map((el) => el.textContent.trim()),
+        apart: city.querySelector('.gc-apart')?.textContent.trim() || '',
       };
       document.getElementById('panel-back').click();
       api.evidenceHub.showTopic('liberties');
@@ -14074,6 +14083,26 @@ for (const [label, viewport, touch] of [
         === `${grouped(housed)} of them are placed in a building that stands`
       && hub.city.aria.includes(`${grouped(housed)} of them are placed`),
       JSON.stringify(hub.city.note));
+    // T-2154: the dwellings standing are a BRACKET against the census's 398, read from
+    // the committed census and never typed; the split's two figures sum to the people
+    // rung, and the visitors are said to be counted apart rather than added in.
+    const cityDw = hub.city.data?.buildings?.dwellings || null;
+    const citySplit = hub.city.data?.people?.split || null;
+    const dwWant = cityDw && (cityDw.standing_high > cityDw.standing_low
+      ? `${grouped(cityDw.standing_low)}–${grouped(cityDw.standing_high)}` : grouped(cityDw.standing_low));
+    check(`${label}: Evidence → City sets the dwellings standing against the census's 398`,
+      !!cityDw && hub.city.dwellings.figure === dwWant && hub.city.dwellings.segs === 2
+      && hub.city.dwellings.inBuildings
+      && hub.city.dwellings.of === `of the ${grouped(cityDw.census)} the November 1835 census counted`
+      && hub.city.aria.includes(`${dwWant} dwellings standing`),
+      JSON.stringify({ shown: hub.city.dwellings, data: cityDw && [cityDw.standing_low, cityDw.standing_high, cityDw.census] }));
+    check(`${label}: Evidence → City splits the people into townspeople and garrison, visitors apart`,
+      !!citySplit && hub.city.split.length === 2
+      && hub.city.split[0] === `${grouped(citySplit.residents)} townspeople`
+      && hub.city.split[1] === `${grouped(citySplit.garrison)} the garrison at Fort Dearborn`
+      && citySplit.residents + citySplit.garrison === (cityPopulation ? cityPopulation.persons : cityScene?.persons)
+      && (!(citySplit.transients_apart > 0) || hub.city.apart.startsWith(`${grouped(citySplit.transients_apart)} summer visitors are counted apart`)),
+      JSON.stringify({ split: hub.city.split, apart: hub.city.apart, data: citySplit }));
     let residentCounts = null;
     try {
       residentCounts = JSON.parse(

@@ -1,11 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1519, ts: '2026-10-07T19:44:41.864Z', date: 'Oct 7, 2026, 2:44 PM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
       'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
       'Thirteen of the town\u2019s households move into the new houses.',
       'Light detail now has more room on a weaker machine as you look across the town.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
+    items: [
+      'Evidence \u2192 City now shows how many homes stand against the 398 dwellings the town\u2019s census counted that November: 309 houses, or 358 if the census also counted the boarding houses and taverns. Nobody knows which way it counted, so the figure is a range and the bar shows both.',
+      'The people figure is now split into townspeople and the Fort Dearborn garrison (127 soldiers, officers and their families). The summer\u2019s 307 visitors are named as counted separately rather than added in.',
     ] },
   { v: 1518, ts: '2026-10-07T18:43:35.900Z', date: 'Oct 7, 2026, 1:43 PM CT', title: 'A river warehouse on North Water Street', kind: 'feature',
     items: [

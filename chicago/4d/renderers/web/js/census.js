@@ -52,6 +52,13 @@
  * the project needs both. Each figure carries its own `question` string from the census as
  * its tooltip, so a visitor can read what they are looking at without leaving City.
  *
+ * T-2154 sets the town against the November census on its own terms, inside the two
+ * rows rather than as a third ladder: the dwellings standing under the buildings — a
+ * BRACKET, because whether the enumerator's 398 "dwellings" took in the boarding houses
+ * and taverns is not known — and the people split into townspeople and the Fort Dearborn
+ * garrison, with the summer's visitors said to be counted apart. Both come out of
+ * `town_census.json` (`buildings.dwellings`, `people.split`); nothing is typed here.
+ *
  * FAIL SOFT, ALWAYS. Either source may be absent while a branch is being built. Show the
  * rows that can be read and never turn a census nicety into a page error in Evidence.
  */
@@ -74,6 +81,67 @@ function attr(s) {
 /** `title="…"`, or nothing at all when there is no title to carry. */
 function titleAttr(s) {
   return s ? ` title="${attr(s)}"` : '';
+}
+
+/**
+ * The dwellings standing against the November census (T-2154): a bracket and a bar of
+ * two segments — the dwelling houses, then the boarding houses and taverns that only one
+ * reading of the census counts — over the census's 398. Empty when the block is absent.
+ */
+function dwellingsBlock(dw) {
+  const low = Number(dw?.standing_low);
+  const high = Number(dw?.standing_high);
+  const census = Number(dw?.census);
+  if (!Number.isFinite(low) || !Number.isFinite(high) || !Number.isFinite(census)) {
+    return { html: '', aria: '' };
+  }
+  const groups = dw.by_group || {};
+  const lodging = Number(groups.larger_boarding_houses) || 0;
+  const taverns = Number(groups.inns_taverns) || 0;
+  const figure = high > low ? `${group(low)}–${group(high)}` : group(low);
+  const of = `of the ${group(census)} the November 1835 census counted`;
+  const why = high > low
+    ? `${group(low)} dwelling houses; ${group(high)} if the census counted the `
+      + `${group(lodging)} boarding houses and ${group(taverns)} taverns as dwellings, `
+      + 'which is not known.'
+    : `${group(low)} dwelling houses.`;
+  return {
+    html: `<div class="gc-dw"${titleAttr(dw.question)}>`
+      + `<p class="gc-dw-head"><b class="gc-dw-n">${figure}</b>`
+      + `<span class="gc-l">dwellings standing</span></p>`
+      + '<div class="gc-dw-bar">'
+      + `<i class="gc-dw-seg gc-dw-house" style="width:${pct(low, census)}"></i>`
+      + `<i class="gc-dw-seg gc-dw-lodge" style="width:${pct(high - low, census)}"></i>`
+      + '</div>'
+      + `<p class="gc-dw-of">${of}</p>`
+      + `<p class="gc-dw-why"${titleAttr(dw.basis)}>${why}</p>`
+      + '</div>',
+    aria: `${figure} dwellings standing ${of}: ${why}`,
+  };
+}
+
+/**
+ * The people, split (T-2154): the townspeople and the Fort Dearborn garrison, which
+ * together are the population on the row's own figure, and the summer's visitors said
+ * to be counted apart — the 1843 enumerator's `Transient persons` line. Empty when absent.
+ */
+function splitBlock(split) {
+  const residents = Number(split?.residents);
+  const garrison = Number(split?.garrison);
+  if (!Number.isFinite(residents) || !Number.isFinite(garrison)) return { html: '', aria: '' };
+  const apart = Number(split.transients_apart);
+  const parts = [[residents, 'townspeople'], [garrison, 'the garrison at Fort Dearborn']];
+  const visitors = Number.isFinite(apart) && apart > 0
+    ? `${group(apart)} summer visitors are counted apart, as Chicago’s 1843 census counted its transients`
+    : '';
+  return {
+    html: `<ul class="gc-split"${titleAttr(split.basis)}>`
+      + parts.map(([n, label]) => `<li><b>${group(n)}</b> ${label}</li>`).join('')
+      + '</ul>'
+      + (visitors ? `<p class="gc-apart">${visitors}</p>` : ''),
+    aria: `Of them, ${parts.map(([n, label]) => `${group(n)} ${label}`).join(' and ')}`
+      + (visitors ? `; ${visitors}` : ''),
+  };
 }
 
 async function readJson(url, onError) {
@@ -113,6 +181,7 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
 
   // Row one: the roofs. One segment, because a building either stands or it does not.
   if (Number.isFinite(standing)) {
+    const dwellings = dwellingsBlock(census?.buildings?.dwellings);
     const of = Number.isFinite(target) ? `of the ${group(target)} the town held` : '';
     rows.push(
       `<section class="gc-row"${titleAttr(census?.buildings?.basis)}>`
@@ -125,9 +194,11 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
         : '')
       + (of ? `<p class="gc-of">${of}</p>` : '')
       + '<p class="gc-definition">Physical roofs standing in the scene; bridges, piers and grounds are not counted.</p>'
+      + dwellings.html
       + '</section>',
     );
     aria.push(`${group(standing)} buildings standing${of ? ` ${of}` : ''}`);
+    if (dwellings.aria) aria.push(dwellings.aria);
   }
 
   // The scene block is the T-1365 population: both ends of the row, counted the same
@@ -163,6 +234,7 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
   // town filling from the best-evidenced end. Reconstructed is listed in the key even
   // at zero: it is the work still to do, and a key that hid it would hide that.
   if (Number.isFinite(named)) {
+    const split = splitBlock(census?.people?.split);
     const rowLabel = population ? 'people in the town'
       : (scene ? 'residents in the town' : 'named on a card');
     // WHICH QUESTION THIS NUMBER ANSWERS, in the census's own words.
@@ -191,6 +263,7 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
         ? `<ul class="gc-key">${key.map(([k, n, label]) =>
           `<li><i class="gc-sw gc-sw-${k}"></i>${group(n)} ${label}</li>`).join('')}</ul>`
         : '')
+      + split.html
       + (Number.isFinite(housed)
         ? `<p class="gc-note"${titleAttr(census?.people?.basis)}>`
           + `${group(housed)} of them are placed in a building that stands</p>`
@@ -224,6 +297,7 @@ export async function mountCityCensus({ dataBase, root, buildStamp = '', onError
     );
     aria.push(`${group(named)} ${rowLabel}${of ? ` ${of}` : ''}`
       + (key.length ? `: ${key.map(([, n, name]) => `${group(n)} ${name}`).join(', ')}` : ''));
+    if (split.aria) aria.push(split.aria);
     if (Number.isFinite(housed)) {
       aria.push(`${group(housed)} of them are placed in a building that stands`);
     }
