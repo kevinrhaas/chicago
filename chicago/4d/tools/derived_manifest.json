@@ -134,7 +134,8 @@
         "python3 tools/build_order_book_1835.py --build",
         "python3 tools/seat_known_1835.py --build",
         "python3 tools/compile_liberties.py",
-        "python3 tools/house_the_present_1835.py"
+        "python3 tools/house_the_present_1835.py",
+        "python3 tools/count_held_head_dwellings_1835.py --build"
       ],
       "declared_readers": {
         "python3 tools/build_order_book_1835.py --build": "Reads both seat files' slot and seat counts, which the two deals in the pass rewrite. What the pass carries back through them is display names (T-2081): two names changed in each seat file left its --check green, and so did T-2081's chain reproduction.",
