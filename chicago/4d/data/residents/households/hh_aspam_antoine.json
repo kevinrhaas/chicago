@@ -134,6 +134,30 @@
    "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Lydia Pratt headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 1 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says Antoine Aspam married anybody."
   }
  },
+ "kin": [
+  {
+   "person": "aspam_antoine",
+   "relation": "father",
+   "household": "hh_aspam_jean_baptiste",
+   "value": "aspam_jean_baptiste",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le [quatre?] octobre mil huit cent trente trois, je soussigné ai baptisé Jean Baptiste fils d'Antoine Aspam et de Marianne (sauvage) né le 15 octobre 1831. Parrain et marraine ont été Augustin Bonné et Monique Nodeau. Both cards were minted from this entry's rows (st_marys_bapt_1833_14_2_father, st_marys_bapt_1833_14_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  },
+  {
+   "person": "aspam_antoine",
+   "relation": "father",
+   "household": "hh_aspam_magdeleine",
+   "value": "aspam_magdeleine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le huit october mil huit cent trente trois, je soussigné ai baptisé Magdelene fille d'Antoine Aspam et de Marianne (sauvage) née le vingt neuf mars[?] mil huit cent trente trois. Parrain et marraine ont été Jean Baptiste Lavigne et Josette Aspam. Both cards were minted from this entry's rows (st_marys_bapt_1833_17_2_father, st_marys_bapt_1833_17_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "aspam_antoine",

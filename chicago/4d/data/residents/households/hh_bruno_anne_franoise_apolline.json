@@ -131,6 +131,30 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 4 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 46 of 277 in that order, before the walk stopped. The 3 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "bruno_anne_franoise_apolline",
+   "relation": "mother",
+   "household": "hh_roi_anne_franoise_virginie",
+   "value": "roi_anne_franoise_virginie",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre d'octobre mil huit cent trente cinq, je soussigné ai baptisé Anne Françoise Virginie Roy fille de George David Roi et de Anne Françoise Apolline Bruno, âgée d'un an. Alexis Thomas Blanchemontagne et Marie Louise Mallet l'ont tenue sur les fonts. Both cards were minted from this entry's rows (st_marys_bapt_1835_11_3_mother, st_marys_bapt_1835_11_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "bruno_anne_franoise_apolline",
+   "relation": "mother",
+   "household": "hh_roi_joseph_claude",
+   "value": "roi_joseph_claude",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy. Both cards were minted from this entry's rows (st_marys_bapt_1835_10_3_mother, st_marys_bapt_1835_10_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "bruno_anne_franoise_apolline",

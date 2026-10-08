@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1537, ts: '2026-10-08T14:33:20.279Z', date: 'Oct 8, 2026, 9:33 AM CT', title: 'Forty church-register children now linked to their parents', kind: 'feature',
+    items: [
+      'Open the card of a child baptised at St Mary\u2019s between 1833 and 1835, such as George Beaubien or Caroline Beaubien. It now names the child\u2019s father or mother, and the parent\u2019s card names the child back.',
+      'That is 61 parent-and-child links across 40 children. Each one is quoted from the baptism entry, and son or daughter is taken from the priest\u2019s own word.',
+    ] },
   { v: 1536, ts: '2026-10-08T13:35:07.682Z', date: 'Oct 8, 2026, 8:35 AM CT', title: 'Work already up for review is no longer rebuilt by accident', kind: 'fix',
     items: [
       'Nothing you can see changes. Before taking a ticket, the build loop now checks whether an open pull request already carries it, even one opened from a branch that doesn\'t name the ticket, so the same work isn\'t built twice.',

@@ -117,6 +117,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "murray_martha",
+   "relation": "daughter",
+   "household": "hh_brenin_mary",
+   "value": "brenin_mary",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr. Both cards were minted from this entry's rows (st_marys_bapt_1835_09_3_mother, st_marys_bapt_1835_09_1_child), so no identification is made here. The daughter term is the entry's: 'Martha daughter of John Murray'."
+  },
+  {
+   "person": "murray_martha",
+   "relation": "daughter",
+   "household": "hh_murray_john",
+   "value": "murray_john",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr. Both cards were minted from this entry's rows (st_marys_bapt_1835_09_2_father, st_marys_bapt_1835_09_1_child), so no identification is made here. The daughter term is the entry's: 'Martha daughter of John Murray'."
+  }
+ ],
  "persons": [
   {
    "id": "murray_martha",

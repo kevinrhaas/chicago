@@ -119,6 +119,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "welsh_catharine",
+   "relation": "daughter",
+   "household": "hh_ouilmette_marie_louise",
+   "value": "ouilmette_marie_louise",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the same day eighteen hundred and thirty four I, the undersigned baptised Cattarine daughter of John Welsh and of Mary Louis Wimette, born the ninth of June. Sponsors were Salomon Juneau and Claudia Pierrette Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1834_17_3_mother, st_marys_bapt_1834_17_1_child), so no identification is made here. The daughter term is the entry's: 'Cattarine daughter of John Welsh'."
+  },
+  {
+   "person": "welsh_catharine",
+   "relation": "daughter",
+   "household": "hh_welsh_john",
+   "value": "welsh_john",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the same day eighteen hundred and thirty four I, the undersigned baptised Cattarine daughter of John Welsh and of Mary Louis Wimette, born the ninth of June. Sponsors were Salomon Juneau and Claudia Pierrette Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1834_17_2_father, st_marys_bapt_1834_17_1_child), so no identification is made here. The daughter term is the entry's: 'Cattarine daughter of John Welsh'."
+  }
+ ],
  "persons": [
   {
    "id": "welsh_catharine",

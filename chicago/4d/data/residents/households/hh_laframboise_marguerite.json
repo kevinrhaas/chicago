@@ -127,6 +127,30 @@
   "seed": "hh_laframboise_marguerite:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
+ "kin": [
+  {
+   "person": "laframboise_marguerite",
+   "relation": "mother",
+   "household": "hh_bourassa_jean_baptiste",
+   "value": "bourassa_jean_baptiste",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet. Both cards were minted from this entry's rows (st_marys_bapt_1835_04_3_mother, st_marys_bapt_1835_04_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "laframboise_marguerite",
+   "relation": "mother",
+   "household": "hh_bourassa_noel",
+   "value": "bourassa_noel",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_23_3_mother, st_marys_bapt_1834_23_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_marguerite",
