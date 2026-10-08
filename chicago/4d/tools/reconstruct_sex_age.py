@@ -94,7 +94,8 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from profile_population_1835 import age_band_of  # noqa: E402
-from spend_person_sex_age import ours_birth, read_name, tokens  # noqa: E402
+from spend_person_sex_age import (REGISTER_SOURCE, ours_birth, read_name,  # noqa: E402
+                                  tokens)
 
 ROOT = Path(__file__).resolve().parents[1]
 HOUSEHOLDS = ROOT / "data" / "residents" / "households"
@@ -300,6 +301,11 @@ def drawn_by_another_stage(person: dict) -> bool:
     return stage in SELF_DESCRIBING_STAGES
 
 
+def read_off_the_register(person: dict) -> bool:
+    """A sex `spend_person_sex_age.py` read off St Mary's register's role or term."""
+    return (person.get("sex_basis") or {}).get("sources") == [REGISTER_SOURCE]
+
+
 def without_this_pass(card: dict) -> dict:
     """The card as it stood before this pass ever ran. The basis of `--check`."""
     out = json.loads(json.dumps(card))
@@ -410,6 +416,13 @@ def measure(base: dict) -> dict:
             # stage drew is as much a draw as one of this pass's, so it is kept out of the
             # rate for the same reason `base` strips this pass's own fills.
             if drawn_by_another_stage(person):
+                continue
+            # NOR IS A SEX THE REGISTER'S ROLE SETTLES A SAMPLE OF THE ROLL (T-2177). Every
+            # St Mary's entry names one father and one mother, so a sex read off that role
+            # is chosen BY sex: counting the register's mothers as the roll's women would
+            # measure the shape of a baptismal entry, not the roll, and move the rate every
+            # other draw on it is made at. They are neither settled nor drawn for here.
+            if read_off_the_register(person):
                 continue
             if person.get("sex"):
                 settled[roll] += 1
@@ -909,6 +922,15 @@ def self_test() -> int:
     ok("a civic conditioning can never draw a child band", all(r["low"] >= 20 for r in adult))
 
     ok("a group is refused a sex", collective({"name": "The four Temple children"}))
+
+    # T-2177: a sex the register's role settles is chosen BY sex, and is no sample.
+    read = {"name": "Ann Roe", "sex": "female", "sex_basis": {
+        "confidence": "inferred", "sources": [REGISTER_SOURCE]}}
+    named = {"name": "Ann Roe", "sex": "female", "sex_basis": {"confidence": "inferred"}}
+    rolls = measure({"hh_a": {"source_pass": "civic", "persons": [named, read]}})
+    ok("a sex read off the register is neither settled nor drawn for in the rate",
+       rolls["pooled"]["settled_by_the_evidence"] == 1
+       and all(r["drawn_for"] == 0 for r in rolls["rolls"]))
     ok("a person is not", not collective({"name": "John Wilson"}))
     # T-1395: a leading article made one named woman into a group.
     ok("a leading article is not a group on its own",

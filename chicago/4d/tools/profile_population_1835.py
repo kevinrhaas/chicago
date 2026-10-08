@@ -223,6 +223,10 @@ SEX_RULES = [
      "means": "the read name carries a gendered title (Mrs, Miss, Widow, Mr)"},
     {"rule": "inferred_contraction", "tier": "inferred",
      "means": "the name is a period contraction every attested expansion of which is one sex's"},
+    {"rule": "inferred_register", "tier": "inferred",
+     "means": "St Mary's baptismal register puts the person in a sexed role (father, "
+              "mother, godfather, godmother) or writes fils/fille, son/daughter after the "
+              "child's name (T-2177)"},
     {"rule": "inferred_forename", "tier": "inferred",
      "means": "the forename stands in exactly one sex's naming and in no other (T-1303's "
               "derived table, which refuses a name its own evidence splits)"},
@@ -309,6 +313,8 @@ def sex_of(person: dict, male: set, female: set, both: set) -> tuple:
         if conf == "reconstructed":
             return recorded, "reconstructed_from_the_roll"
         if conf == "inferred":
+            if basis.get("sources") == ["st_marys_baptismal_register_1833_1835"]:
+                return recorded, "inferred_register"
             if "PRINTED WITH A TITLE" in note:
                 return recorded, "inferred_title"
             if "PERIOD CONTRACTION" in note:
@@ -522,14 +528,15 @@ def sec_sex(L) -> dict:
         "title": "Sex",
         "lead": ("%d of %d persons (%s) carry a sex, AT THREE DIFFERENT TIERS and the "
                  "table below is the only honest way to read them together: %d because a "
-                 "source records it, %d read off a gendered title, a period contraction or "
-                 "a forename that stands in one sex's naming only, and %d DRAWN at the "
+                 "source records it, %d read off a baptismal register's role or kinship "
+                 "word, a gendered title, a period contraction or a forename that stands "
+                 "in one sex's naming only, and %d DRAWN at the "
                  "male rate measured on the roll the person was named off. A drawn sex is "
                  "not evidence about that person and never becomes any; the %d left are "
                  "collective descriptions that name nobody."
                  % (known, total, pct(known, total), by_rule["recorded"],
-                    by_rule["inferred_title"] + by_rule["inferred_contraction"]
-                    + by_rule["inferred_forename"],
+                    by_rule["inferred_register"] + by_rule["inferred_title"]
+                    + by_rule["inferred_contraction"] + by_rule["inferred_forename"],
                     by_rule["reconstructed_from_the_roll"], by_rule["unknown"])),
         "tables": [
             {"title": "Sex by the rule that says so", **plain_table(

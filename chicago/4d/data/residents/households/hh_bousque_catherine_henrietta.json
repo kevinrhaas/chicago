@@ -171,23 +171,6 @@
      "rule": "G2c"
     }
    ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "bousque_catherine_henrietta:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'bousque_catherine_henrietta:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
    "age_band": {
     "value": "5-9",
     "low": 5,
@@ -197,7 +180,7 @@
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 5 under 10', one of its male bands, conditioned on `dependent_child_under_15` because the church register calls the person an infant or a baptised child, or the household record calls them a son, a daughter or a child."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 5 under 10', one of its female bands, conditioned on `dependent_child_under_15` because the church register calls the person an infant or a baptised child, or the household record calls them a son, a daughter or a child."
     },
     "seed": "bousque_catherine_henrietta:age_bands_1840",
     "replaceable_by": {
@@ -205,6 +188,15 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('bousque_catherine_henrietta:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: nothing beyond what the record already says: the band is drawn from the schedule's child bands because the record calls them a child. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "inferred",
+    "note": "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, entry 1835-02 writes 'Catherine Henrietta Bousque daughter' — so this person was female, and that is read off the entry rather than off the name or the roll. A role and a kinship word are statements about the person; no draw stands against them.",
+    "sources": [
+     "st_marys_baptismal_register_1833_1835"
+    ]
    }
   }
  ],

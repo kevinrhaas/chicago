@@ -184,7 +184,7 @@ THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2928 PEOPLE, TOGETHER. 6 of the nin
 
 | attribute | carried by | answered | share | attested | inferred | reconstructed | stated, no tier written | not answered |
 |---|---|---:|---:|---:|---:|---:|---:|---:|
-| sex | person | 2922 | 99.8% | 1589 | 590 | 743 | 0 | 6 |
+| sex | person | 2922 | 99.8% | 1589 | 666 | 667 | 0 | 6 |
 | age band | person | 2921 | 99.8% | 7 | 53 | 2861 | 0 | 7 |
 | arrival | household | 2928 | 100.0% | 141 | 2487 | 300 | 0 | 0 |
 | origin | household | 2928 | 100.0% | 24 | 96 | 2808 | 0 | 0 |
@@ -237,15 +237,15 @@ Named rather than summed away, which is the whole of this section. Every reason 
 
 ## Sex
 
-2922 of 2928 persons (99.8%) carry a sex, AT THREE DIFFERENT TIERS and the table below is the only honest way to read them together: 1589 because a source records it, 590 read off a gendered title, a period contraction or a forename that stands in one sex's naming only, and 743 DRAWN at the male rate measured on the roll the person was named off. A drawn sex is not evidence about that person and never becomes any; the 6 left are collective descriptions that name nobody.
+2922 of 2928 persons (99.8%) carry a sex, AT THREE DIFFERENT TIERS and the table below is the only honest way to read them together: 1589 because a source records it, 666 read off a baptismal register's role or kinship word, a gendered title, a period contraction or a forename that stands in one sex's naming only, and 667 DRAWN at the male rate measured on the roll the person was named off. A drawn sex is not evidence about that person and never becomes any; the 6 left are collective descriptions that name nobody.
 
 ### Sex by the rule that says so
 
-| sex | persons | share | recorded | inferred_title | inferred_contraction | inferred_forename | reconstructed_from_the_roll | unknown |
-|---|---:|---:|---:|---:|---:|---:|---:|---:|
-| male | 1973 | 67.4% | 713 | 0 | 32 | 531 | 697 | 0 |
-| female | 949 | 32.4% | 876 | 0 | 0 | 27 | 46 | 0 |
-| unknown | 6 | 0.2% | 0 | 0 | 0 | 0 | 0 | 6 |
+| sex | persons | share | recorded | inferred_title | inferred_contraction | inferred_register | inferred_forename | reconstructed_from_the_roll | unknown |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| male | 1954 | 66.7% | 713 | 0 | 32 | 52 | 531 | 626 | 0 |
+| female | 968 | 33.1% | 876 | 0 | 0 | 24 | 27 | 41 | 0 |
+| unknown | 6 | 0.2% | 0 | 0 | 0 | 0 | 0 | 0 | 6 |
 
 ### The rules themselves
 
@@ -254,8 +254,9 @@ Named rather than summed away, which is the whole of this section. Every reason 
 | recorded | 1589 | 54.3% | a source records the sex on the card, and no pass had to read it |
 | inferred_title | 0 | 0.0% | the read name carries a gendered title (Mrs, Miss, Widow, Mr) |
 | inferred_contraction | 32 | 1.1% | the name is a period contraction every attested expansion of which is one sex's |
+| inferred_register | 76 | 2.6% | St Mary's baptismal register puts the person in a sexed role (father, mother, godfather, godmother) or writes fils/fille, son/daughter after the child's name (T-2177) |
 | inferred_forename | 558 | 19.1% | the forename stands in exactly one sex's naming and in no other (T-1303's derived table, which refuses a name its own evidence splits) |
-| reconstructed_from_the_roll | 743 | 25.4% | DRAWN at the male rate measured on the roll this person was named off, seeded by their own id (T-1304) — never evidence about this person |
+| reconstructed_from_the_roll | 667 | 22.8% | DRAWN at the male rate measured on the roll this person was named off, seeded by their own id (T-1304) — never evidence about this person |
 | unknown | 6 | 0.2% | the name is an initial no roll rate reaches, or a collective description that names nobody |
 
 *A rank or a professional style — Capt., Rev., Dr. — is NOT read as male here. In this town it would almost always be right and it would still be an inference about the period rather than about the person; the age axis takes the honest half of that reading instead.*
@@ -2003,7 +2004,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 
 ## Household composition
 
-1065 of 1459 households (73.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 394 households name a second person; 113 heads read as women.
+1065 of 1459 households (73.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 394 households name a second person; 132 heads read as women.
 
 ### Persons in the household
 
