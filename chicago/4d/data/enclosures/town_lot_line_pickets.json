@@ -6241,7 +6241,7 @@
       "blk_west_lake_des_plaines_lot8"
     ],
     "runs": 171,
-    "note": "235 of the 243 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 8 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 58 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "note": "235 of the 244 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 9 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 58 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",
@@ -6251,7 +6251,8 @@
     "blk_lake_lasalle_lot3 (recon_1835_south_d5_028): the committed buildings reach 2.25 m past the lot's own rear line",
     "blk_lake_wells_lot3 (recon_1835_south_d4_025): the committed buildings reach 0.38 m past the lot's own rear line",
     "blk_lake_wells_lot5 (recon_1835_south_d4_026): the committed buildings reach 0.97 m past the lot's own rear line",
-    "blk_south_water_clark_lot7 (tremont_house_1_stable): only 0.00 m of lot is left behind them"
+    "blk_south_water_clark_lot7 (tremont_house_1_stable): only 0.00 m of lot is left behind them",
+    "blk_west_washington_canal_lot5 (recon_1835_branch_freight_f2_001): only 0.18 m of lot is left behind them"
   ],
   "research_note": "THE EVIDENCE HERE IS A NORM AND NOT A LOCATION, which is why this record is generated from a rule instead of authored lot by lot. Read the rule in tools/generate_lot_line_fences.py — it is the answer to 'why this lot and why this fence', and it is enforced on every commit, because tools/check.sh re-derives this file byte for byte. In short: a platted lot, improved by at least one committed building, with room behind those buildings for a yard, on a line no fence already stands on; and the TYPE follows the traffic class the project already grades its own streets with — board and picket where the town's made streets meet, split rail where a light-worn lane runs. WHAT WOULD CHANGE IT: a Chicago or Cook County fence ordinance of the 1830s, which would settle the heights and probably the rhythms; any tax, insurance or sale description of a town lot naming a fence; and the North Division street control docs/ROADMAP.md S9 still records as owed, which is what keeps two thirds of the plat off this grid."
 }

@@ -192,7 +192,7 @@
  },
  "the_programme": {
   "west_target": 135,
-  "west_remaining": 8,
+  "west_remaining": 7,
   "remaining_by_family": {
    "D1": 0,
    "A2": 1
@@ -209,8 +209,7 @@
   "farmsteads_the_ground_admits_beyond_those_standing": 8,
   "remaining_by_group": {
    "barns_stables": 2,
-   "small_outbuildings": 5,
-   "warehouses_freight": 1
+   "small_outbuildings": 5
   }
  },
  "the_ceiling": {

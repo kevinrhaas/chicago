@@ -28,7 +28,7 @@
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 243,
+    "lots": 244,
     "refused": 0,
     "refuges": 329,
     "paths": 312
@@ -12816,6 +12816,39 @@
           ]
         ]
       ]
+    },
+    {
+      "lot": "blk_west_washington_canal_lot5",
+      "structures": [
+        "recon_1835_branch_freight_f2_001"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          -63.5,
+          -420.2
+        ],
+        [
+          -35.44,
+          -420.39
+        ],
+        [
+          -32.81,
+          -400.48
+        ],
+        [
+          -61.87,
+          -400.25
+        ],
+        [
+          -64.51,
+          -402.66
+        ],
+        [
+          -65.74,
+          -417.75
+        ]
+      ],
+      "refuges_local_enu_m": []
     },
     {
       "lot": "blk_west_washington_canal_lot8",

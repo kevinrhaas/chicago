@@ -1,11 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1521, ts: '2026-10-08T05:54:36.876Z', date: 'Oct 8, 2026, 12:54 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
+  { v: 1522, ts: '2026-10-08T06:35:18.107Z', date: 'Oct 8, 2026, 1:35 AM CT', title: 'Thirteen houses on the two Wells blocks south of Madison', kind: 'feature',
     items: [
       'In 1835, walk south across Madison at Wells. The two blocks on either side of Wells, between Madison and Monroe, now have thirteen houses, one to a lot.',
       'West of Wells stand seven houses, including a larger house near the Wells end of Madison. East of Wells stand six smaller houses. Each block keeps its west Madison corner lot empty, and a second lot on the east block remains open.',
       'Thirteen of the town\u2019s households move into the new houses.',
       'Light detail now has more room on a weaker machine as you look across the town.',
       'The state sold this ground lot by lot in 1833, but no source shows what was built on it by July 1835. The houses, their places on the lots and their kinds are our reconstruction. The Liberties page says so.',
+    ] },
+  { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
+    items: [
+      'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
+      'No record names it. It is the West Division\u2019s second warehouse, which the plan counted and nobody had built. The plan first put it a block inland, where no river reaches. Here the river runs closer to West Water Street than anywhere else on the west side, so a warehouse can face its landing.',
+      'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L400).',
     ] },
   { v: 1520, ts: '2026-10-08T05:18:21.664Z', date: 'Oct 8, 2026, 12:18 AM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
     items: [

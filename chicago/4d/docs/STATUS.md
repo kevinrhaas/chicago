@@ -5,7 +5,7 @@ raises thirteen houses, one to a requested lot: west block 94 has D3, D4, three
 D5, D7 and H1; east block 95 has D2, two D4, two D5 and D6. Both west Madison
 corner lots remain open. Block 95 also reserves its second lot for the unbuilt
 H3, still owned by T-1957. The town's H2 ceiling is already met elsewhere.
-L400 covers the reconstructed deal; no source is promoted to a historical address.
+L401 covers the reconstructed deal; no source is promoted to a historical address.
 
 The keeper/seating cycle settled at 213 platted and 99 off-plat seats (312 total)
 and 92 named keepers. L263 records 636 phases. Forty-four models were rebuilt

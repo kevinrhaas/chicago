@@ -406,6 +406,7 @@
   "recon_1835_blk_west_washington_canal_d5_02",
   "recon_1835_blk_west_washington_canal_d6_01",
   "recon_1835_blk_west_washington_canal_d7_05",
+  "recon_1835_branch_freight_f2_001",
   "recon_1835_canal_trade_c3_001",
   "recon_1835_canal_trade_c4_002",
   "recon_1835_canal_trade_w1_003",
@@ -6051,6 +6052,20 @@
     [-132.73, -498.73],
     [-131.08, -499.23],
     [-131.09, -501.42]
+   ],
+   [
+    [-33.83, -402.61],
+    [-34.81, -410.04],
+    [-33.43, -410.22],
+    [-33.16, -408.21],
+    [-23.73, -408.95],
+    [-23.47, -408.88],
+    [-23.33, -408.65],
+    [-23.11, -406.92],
+    [-23.18, -406.67],
+    [-23.41, -406.53],
+    [-32.71, -404.8],
+    [-32.45, -402.79]
    ],
    [
     [-151.39, -22.65],
@@ -13077,6 +13092,16 @@
    "at_local_enu_m": [-129.68, -497.57],
    "bearing_deg": 270.05,
    "width_m": 0.92
+  },
+  {
+   "id": "recon_1835_branch_freight_f2_001__door_1",
+   "structure_id": "recon_1835_branch_freight_f2_001",
+   "archetype": "frame_storefront",
+   "kind": "door",
+   "read_by": "facade_openings.frame_storefront",
+   "at_local_enu_m": [-34.32, -406.32],
+   "bearing_deg": 97.52,
+   "width_m": 1.04
   },
   {
    "id": "recon_1835_canal_trade_c3_001__shop_door_1",
