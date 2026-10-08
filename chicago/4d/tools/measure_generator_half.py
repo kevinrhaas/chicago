@@ -501,13 +501,18 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # the School Section tier's block 81, blk_school_section_tier_81 — D2, two D4, two D5 and a D6,
 # all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 693 -> 694 and 687 -> 688 on 2026-10-08 (T-2174, of T-1673, on top of T-2147): one F2
+# two-storey warehouse behind the stores on blk_south_water_dearborn lot 0, a
+# frame_storefront through emit.py and the common modules. Terrain reach stays 6 and
+# pier_crib stays 2.
+#
 STATED = {
-    "assets": 693,
+    "assets": 694,
     "restales": {
-        "generators/common/*.py": 693,
+        "generators/common/*.py": 694,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 687,
+        "generators/emit.py": 688,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
