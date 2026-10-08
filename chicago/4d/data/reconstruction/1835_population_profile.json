@@ -172,6 +172,11 @@
     "means": "the name is a period contraction every attested expansion of which is one sex's"
    },
    {
+    "rule": "inferred_register",
+    "tier": "inferred",
+    "means": "St Mary's baptismal register puts the person in a sexed role (father, mother, godfather, godmother) or writes fils/fille, son/daughter after the child's name (T-2177)"
+   },
+   {
     "rule": "inferred_forename",
     "tier": "inferred",
     "means": "the forename stands in exactly one sex's naming and in no other (T-1303's derived table, which refuses a name its own evidence splits)"
@@ -1104,8 +1109,8 @@
        2922,
        "99.8%",
        1589,
-       590,
-       743,
+       666,
+       667,
        0,
        6
       ],
@@ -1340,7 +1345,7 @@
   {
    "id": "sex",
    "title": "Sex",
-   "lead": "2922 of 2928 persons (99.8%) carry a sex, AT THREE DIFFERENT TIERS and the table below is the only honest way to read them together: 1589 because a source records it, 590 read off a gendered title, a period contraction or a forename that stands in one sex's naming only, and 743 DRAWN at the male rate measured on the roll the person was named off. A drawn sex is not evidence about that person and never becomes any; the 6 left are collective descriptions that name nobody.",
+   "lead": "2922 of 2928 persons (99.8%) carry a sex, AT THREE DIFFERENT TIERS and the table below is the only honest way to read them together: 1589 because a source records it, 666 read off a baptismal register's role or kinship word, a gendered title, a period contraction or a forename that stands in one sex's naming only, and 667 DRAWN at the male rate measured on the roll the person was named off. A drawn sex is not evidence about that person and never becomes any; the 6 left are collective descriptions that name nobody.",
    "tables": [
     {
      "title": "Sex by the rule that says so",
@@ -1351,38 +1356,42 @@
       "recorded",
       "inferred_title",
       "inferred_contraction",
+      "inferred_register",
       "inferred_forename",
       "reconstructed_from_the_roll",
       "unknown"
      ],
-     "aligns": "lrrrrrrrr",
+     "aligns": "lrrrrrrrrr",
      "rows": [
       [
        "male",
-       1973,
-       "67.4%",
+       1954,
+       "66.7%",
        713,
        0,
        32,
+       52,
        531,
-       697,
+       626,
        0
       ],
       [
        "female",
-       949,
-       "32.4%",
+       968,
+       "33.1%",
        876,
        0,
        0,
+       24,
        27,
-       46,
+       41,
        0
       ],
       [
        "unknown",
        6,
        "0.2%",
+       0,
        0,
        0,
        0,
@@ -1422,6 +1431,12 @@
        "the name is a period contraction every attested expansion of which is one sex's"
       ],
       [
+       "inferred_register",
+       76,
+       "2.6%",
+       "St Mary's baptismal register puts the person in a sexed role (father, mother, godfather, godmother) or writes fils/fille, son/daughter after the child's name (T-2177)"
+      ],
+      [
        "inferred_forename",
        558,
        "19.1%",
@@ -1429,8 +1444,8 @@
       ],
       [
        "reconstructed_from_the_roll",
-       743,
-       "25.4%",
+       667,
+       "22.8%",
        "DRAWN at the male rate measured on the roll this person was named off, seeded by their own id (T-1304) — never evidence about this person"
       ],
       [
@@ -11344,7 +11359,7 @@
   {
    "id": "households",
    "title": "Household composition",
-   "lead": "1065 of 1459 households (73.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 394 households name a second person; 113 heads read as women.",
+   "lead": "1065 of 1459 households (73.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 394 households name a second person; 132 heads read as women.",
    "tables": [
     {
      "title": "Persons in the household",
