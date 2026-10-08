@@ -545,7 +545,7 @@ def census_document() -> dict:
                          "on 1 July than this figure does. They are not added here: counted "
                          "in, the town would hold more people on 1 July than the November "
                          "census counted four months later, and whether the order book "
-                         "over-minted or the index is short is T-2043's reconciliation, "
+                         "over-minted or the index is short is T-2188's reconciliation, "
                          "not a sum this file may settle by adding.",
         },
         "transients": transient_block(),
