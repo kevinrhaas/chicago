@@ -10,7 +10,11 @@
   "counts": {
     "a_trade_reading_the_business_layer_holds_no_record_for": 22,
     "the_column_names_nobody": 60,
-    "the_family_column_names_kin": 11,
+    "the_family_pass_finds_a_family_the_column_states_whole": 1,
+    "the_family_pass_finds_a_tie_the_household_contradicts": 1,
+    "the_family_pass_finds_an_identity_nobody_has_asserted": 1,
+    "the_family_pass_finds_neither_party_is_held": 4,
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 4,
     "the_issue_is_printed_after_the_scene_date": 60,
     "the_letter_list_name_belongs_to_the_borderline_roster": 69,
     "the_market_and_the_port_in_aggregate": 61,
@@ -26,10 +30,27 @@
       "disposition": "aggregate_only",
       "statement": "The unit is a notice or an editorial paragraph whose own `entities` array is EMPTY -- the reading looked for the people in it and recorded that it names none. A paragraph that names nobody cannot assert a person fact and cannot be handed to a person pass. Its content is the town's public print in aggregate -- what the paper carried, and when -- and that is what it is spent as."
     },
-    "the_family_column_names_kin": {
+    "the_family_pass_finds_a_family_the_column_states_whole": {
       "disposition": "unresolved",
-      "ticket": "T-1335",
-      "statement": "The unit is the paper's own MARRIED or DIED column, printed under that heading: it names a bride and a groom, or a decedent and the survivor they are named by, and the magistrate or minister who officiated. A marriage names a spouse and creates nobody; T-1170 gives the attested and inferred heads the families the sources name, from exactly these ruled kin ties. No household member is minted here and no kin tie is written here. THE HANDOFF WAS T-1170, THEN T-1320, AND IS T-1335 SINCE 2026-09-18: T-1170's split is spent, and T-1320 is scoped to the BOOK corpus by its own title, so it never covered this domain. T-1335 is the family pass proper."
+      "ticket": "T-2192",
+      "statement": "The family pass (T-1335) read a column that states a FAMILY rather than a tie: parent ties between cards the town holds, and marriages whose brides may still be seated in their fathers' houses. Writing the parent ties alone and leaving the marriages would rule the column piecemeal, and seating a bride is a household edit this pass may not make, so the unit is handed whole to the open ticket that reads it onto the cards."
+    },
+    "the_family_pass_finds_a_tie_the_household_contradicts": {
+      "disposition": "unresolved",
+      "ticket": "T-2190",
+      "statement": "The family pass (T-1335) read a tie between two people the town holds on two different cards, and the household it would join already holds a MODELLED person in the place the source gives the other: writing the tie would state two wives. Seating the printed person and withdrawing the modelled one is a household edit this pass is forbidden to make, so the unit is handed to the open ticket that owns that edit, and the tie is written there."
+    },
+    "the_family_pass_finds_an_identity_nobody_has_asserted": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and an end of it folds onto a person the town holds BY NAME ONLY: no card claims this source row as its own evidence, and no crosswalk has identified the two. Who a printed name is, is a crosswalk ruling and not a kinship; a surname and a forename are not permission to marry two cards (T-0734). NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_neither_party_is_held": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and NEITHER of the people it joins is a person this town holds, or the column's damage has taken the names that would say who they are. A tie between two people the town does not hold is not a fact about the town. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and one end of it is a person this town holds while the other is not: a relative named in the source who has no card here. The source is not doubted; the tie has no far end to land on, and this pass does not mint one to give it somewhere. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     },
     "the_issue_is_printed_after_the_scene_date": {
       "disposition": "later_only",
@@ -211,8 +232,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_11_26.json#claims/c005",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1833_11_26 c005: the family column of 1833-11-26 reads: “MARRIED, In [t]his village, on Monday evening, the 25t[h] […] [an officer] of the Indian Department, [to] […] [Miss] Ho[l]comb[e], daughter of Mil[e]s Ho[lcombe] […] of Kaskaskia. …”"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "chicago_democrat_1833_11_26 c005: the family column of 1833-11-26 reads: “MARRIED, In [t]his village, on Monday evening, the 25t[h] […] [an officer] of the Indian Department, [to] […] [Miss] Ho[l]comb[e], daughter of Mil[e]s Ho[lcombe] […] of Kaskaskia. …” THE FAMILY PASS: Miles Holcombe of Kaskaskia is a card here (hh_holcombe_miles, which the press register links to this very issue), and the tie the column states is his daughter's marriage. Neither Miss Holcombe nor her groom — '[an officer] of the Indian Department', his name lost to the column's damage — is a person this town holds, so neither the father-daughter tie nor the marriage has a far end."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_11_26.json#claims/c017",
@@ -251,8 +272,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1833_12_03 c007: the family column of 1833-12-03 reads: “MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only …”"
+      "rule": "the_family_pass_finds_a_family_the_column_states_whole",
+      "note": "chicago_democrat_1833_12_03 c007: the family column of 1833-12-03 reads: “MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only …” THE FAMILY PASS: The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. Two parent ties are writable between held cards, but both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the unit goes whole to T-2192."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c014",
@@ -291,8 +312,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1833_12_17 c001: the family column of 1833-12-17 reads: “MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.”"
+      "rule": "the_family_pass_finds_a_tie_the_household_contradicts",
+      "note": "chicago_democrat_1833_12_17 c001: the family column of 1833-12-17 reads: “MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.” THE FAMILY PASS: Chester Ingersoll (hh_ingersoll_chester) married Betsy Weaver (hh_weaver_betsy) on 12 December 1833; the press register links both cards to this column. On 1 July 1835 she is his wife, but his house already holds a MODELLED wife, 'Martha Ingersoll', and six modelled children. Writing husband/wife across the two cards would state two wives, so the unit is handed to T-2190, which seats the printed bride and withdraws the draw."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_24.json#claims/c008",
@@ -306,8 +327,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_01_14.json#claims/c001",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_01_14 c001: the family column of 1834-01-14 reads: “MARRIED, At Fort Dearborn on the evening of the [5]th inst. by [the Rev. …] NATHANIEL CA[R]PE[NTE]R, of the U. S. A. [to Miss] [R]osice HU[N]TER of this place.”"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "chicago_democrat_1834_01_14 c001: the family column of 1834-01-14 reads: “MARRIED, At Fort Dearborn on the evening of the [5]th inst. by [the Rev. …] NATHANIEL CA[R]PE[NTE]R, of the U. S. A. [to Miss] [R]osice HU[N]TER of this place.” THE FAMILY PASS: Nathaniel Carpenter of the U.S. Army is a card here (hh_carpenter_nathaniel, linked by the press register), and the bride the column names, Rosice Hunter 'of this place', is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Harriet Carpenter': a draw standing where the paper names a real woman the town does not hold, which is the modelled-families stage's to answer and not a tie this pass can write."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_01_14.json#claims/c002",
@@ -326,8 +347,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_01_28.json#claims/c004",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_01_28 c004: the family column of 1834-01-28 reads: “MARRIED, In this town, on the 23d inst. by the Hon. R. J. Hamilton, Mr. Jo[h]n W[…] to Miss Esth[e]r M. Ba[il]ey.”"
+      "rule": "the_family_pass_finds_neither_party_is_held",
+      "note": "chicago_democrat_1834_01_28 c004: the family column of 1834-01-28 reads: “MARRIED, In this town, on the 23d inst. by the Hon. R. J. Hamilton, Mr. Jo[h]n W[…] to Miss Esth[e]r M. Ba[il]ey.” THE FAMILY PASS: The groom's surname is lost to the column ('Mr. Jo[h]n W[…]') and the bride, Esther M. Bailey, is nobody this town holds; the town's Baileys are Amos and Bennet. Neither party can be put on a card, so there is no tie to write."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_02_04.json#claims/c004",
@@ -336,8 +357,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_02_04.json#claims/c005",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_02_04 c005: the family column of 1834-02-04 reads: “MARRIED, [In] this town, on the [2]d inst. by the Hon. R. [J.] [H]amilton, Mr. Sa[m]ue[l] Ba[i]l[ey] to Miss C[l]ar[issa] Ho[y]t, all of this place.”"
+      "rule": "the_family_pass_finds_neither_party_is_held",
+      "note": "chicago_democrat_1834_02_04 c005: the family column of 1834-02-04 reads: “MARRIED, [In] this town, on the [2]d inst. by the Hon. R. [J.] [H]amilton, Mr. Sa[m]ue[l] Ba[i]l[ey] to Miss C[l]ar[issa] Ho[y]t, all of this place.” THE FAMILY PASS: Samuel Bailey and Clarissa Hoyt, 'all of this place', married 2 February 1834. Neither is a person this town holds — the town's Baileys are Amos and Bennet and its Hoyts are Thomas and L. G. — so the marriage joins nobody here."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_02_04.json#claims/c015",
@@ -886,8 +907,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_06.json#claims/c004",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_08_06 c004: the family column of 1834-08-06 reads: “MARRIED, […] [Mr. …] WHITEHEAD, to Mi[s]s E[LIZABETH] Jerkies, all of this town”"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "chicago_democrat_1834_08_06 c004: the family column of 1834-08-06 reads: “MARRIED, […] [Mr. …] WHITEHEAD, to Mi[s]s E[LIZABETH] Jerkies, all of this town” THE FAMILY PASS: The groom's forename is lost ('[Mr. …] WHITEHEAD'), and the town holds a readmitted Henry Whitehead (hh_henry_whitehead) off the press register's 'uncertain Whitehead'; that the readmitted card is THIS groom is asserted nowhere, and a surname alone identifies nobody. The bride, Elizabeth Jerkies, is nobody here."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_08_06.json#claims/c005",
@@ -1001,13 +1022,13 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c001",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_09_17 c001: the family column of 1834-09-17 reads: “[Died, in this] town, on the 11th inst, of bil[i]o[u]s fe[ver and] inflam[m]ation in the bowel, Mr. James [uncertain: —]ey, aged 22 years and a few months, a merchant of the city …”"
+      "rule": "the_family_pass_finds_neither_party_is_held",
+      "note": "chicago_democrat_1834_09_17 c001: the family column of 1834-09-17 reads: “[Died, in this] town, on the 11th inst, of bil[i]o[u]s fe[ver and] inflam[m]ation in the bowel, Mr. James [uncertain: —]ey, aged 22 years and a few months, a merchant of the city …” THE FAMILY PASS: A death notice: Mr. James [—]ey, a merchant aged 22, died 11 September 1834. The surname is lost to the column and the notice names no survivor, so it states no tie between two people at all, let alone two the town holds."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c001",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_09_24 c001: the family column of 1834-09-24 reads: “MARRIED, [I]n this town, on the 20th inst. by J. Dea[n] Caton Esq. Mr. A[u]g[u]st[u]s B[on]i[n], to Miss Jos[uncertain: ers/enpy] Fras[ch]e.”"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "chicago_democrat_1834_09_24 c001: the family column of 1834-09-24 reads: “MARRIED, [I]n this town, on the 20th inst. by J. Dea[n] Caton Esq. Mr. A[u]g[u]st[u]s B[on]i[n], to Miss Jos[uncertain: ers/enpy] Fras[ch]e.” THE FAMILY PASS: Augustus Bonin (hh_bonin_augustus, linked by the press register) married 'Miss Jos[…] Fras[ch]e' on 20 September 1834; the bride's name is half lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Ellen Quinn': a draw standing where the paper names a real woman, which is the modelled-families stage's to answer."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c003",
@@ -1251,8 +1272,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c003",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1835_05_27 c003: the family column of 1835-05-27 reads: “MARRIED, At S[ugar Creek?] Meadows, near Lewiston on the 27th ult., by the Rev. Sa[mue]l McBurney, Jo[hn] S. C. Hogan, Esq., Postmaster, Chicago Ill., [to] Miss Anne Maria …”"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "chicago_democrat_1835_05_27 c003: the family column of 1835-05-27 reads: “MARRIED, At S[ugar Creek?] Meadows, near Lewiston on the 27th ult., by the Rev. Sa[mue]l McBurney, Jo[hn] S. C. Hogan, Esq., Postmaster, Chicago Ill., [to] Miss Anne Maria …” THE FAMILY PASS: John S. C. Hogan, postmaster (hh_hogan_john_s_c, linked by the press register), married 'Miss Anne Maria […]' at Sugar Creek Meadows near Lewiston on 27 April 1835, before the scene. Her surname is lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Polly Hogan', where the paper names Anne Maria: a draw the modelled-families stage owns, not a tie this pass can write."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c010",
@@ -1361,8 +1382,8 @@
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_06_24.json#claims/c011",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1835_06_24 c011: the family column of 1835-06-24 reads: “[MARRIED —] In this town on the 20th inst. […] B. Hubbard, of D[u]page Settle[ment … to Miss …] Peck, [dau. of …] Esq. Merchant of this [town … and …] K. Wi[lli]s, of Philadelphia.”"
+      "rule": "the_family_pass_finds_neither_party_is_held",
+      "note": "chicago_democrat_1835_06_24 c011: the family column of 1835-06-24 reads: “[MARRIED —] In this town on the 20th inst. […] B. Hubbard, of D[u]page Settle[ment … to Miss …] Peck, [dau. of …] Esq. Merchant of this [town … and …] K. Wi[lli]s, of Philadelphia.” THE FAMILY PASS: '[…] B. Hubbard, of D[u]page Settle[ment]' married '[Miss …] Peck, [dau. of …] Esq. Merchant of this [town]' on 20 June 1835. The groom is of the DuPage settlement, not Chicago, and matches none of the town's five Hubbards; the bride's forename and her father's name are lost, so 'Peck' alone identifies nobody. Neither end is a person this town holds."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_07_01.json#claims/c003",

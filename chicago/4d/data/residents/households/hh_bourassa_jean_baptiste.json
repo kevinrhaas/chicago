@@ -27,6 +27,7 @@
   "value": "1835-06-29",
   "confidence": "inferred",
   "sources": [
+   "st_cyr_register_ichr_v4",
    "st_marys_baptismal_register_1833_1835"
   ],
   "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 29 June 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
@@ -97,38 +98,26 @@
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
  },
  "present_on_scene_date": {
-  "value": "uncertain",
+  "value": "present",
   "confidence": "inferred",
   "sources": [
+   "st_cyr_register_ichr_v4",
    "st_marys_baptismal_register_1833_1835"
   ],
-  "last_dated_appearance": {
-   "as_read": "1835-06-29",
-   "precision": "day",
-   "reaches": "1835-06-29",
-   "includes_scene_date": false,
-   "days_before_scene_date": 2,
-   "leg": "sighting",
-   "person": "bourassa_jean_baptiste",
-   "record": "st_marys_bapt_1835_04_1_child",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `church_evidence` as `1835-06-29`, which reaches 1835-06-29 — 2 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
-  },
-  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+  "note": "THE RECORD BRACKETS THE DAY. This person is named at Chicago at or before 1 July 1835 and named again at or after it, so the sources reach across the scene date rather than stopping at one side of it. Inferred, not documented: no source says where they were on the day."
  },
  "kin": [
   {
    "person": "bourassa_jean_baptiste",
    "relation": "son",
-   "household": "hh_bourassa_lon",
-   "value": "bourassa_lon",
+   "household": "hh_bourrassa_leon",
+   "value": "bourrassa_leon",
    "confidence": "attested",
    "sources": [
+    "st_cyr_register_ichr_v4",
     "st_marys_baptismal_register_1833_1835"
    ],
-   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf juin mil huit cent trente cinq, je soussigné ai baptisé Jean Baptiste fils de Léon Bourrasso et de Marguerite [Laframboise]. Né the quatre juin 1835. Parrain et marraine ont été Jean Baptiste Derocher et Louise Caroline Choutet. Both cards were minted from this entry's rows (st_marys_bapt_1835_04_2_father, st_marys_bapt_1835_04_1_child), so no identification is made here. The son term is the entry's: 'Jean Baptiste fils de Léon Bourrasso'."
+   "note": "THE BURIAL ENTRY NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. Death entry 5 of Father St Cyr's page, Chicago, 2 July 1835: 'On the 2nd of July 1835, I performed the ecclesiastical burial according to the rites of the Catholic Church on the corpse of John Baptist, son of Leon Bourrassa, 28 days old.' Filed as st_cyr_death_05_1 (decedent) and st_cyr_death_05_2 (parent), and the cards minted from those two rows carry their record ids, so no identification is being made by name here. THE CHILD WAS ALIVE ON THE SCENE DATE: 28 days old at a burial on 2 July 1835 puts his birth about 4 June 1835 and his death the day AFTER 1 July 1835, so the father and son of this row are father and son in the scene. WHO THE CHILD WAS IS NOW SETTLED (T-2179): 'John Baptist' is the forename Jean Baptiste standing where a surname was expected, and he is the Jean Baptiste, son of Léon Bourrasso and Marguerite [Laframboise], whom the same priest baptised at St Mary's on 29 June 1835, born 4 June 1835 — 2 July less 28 days. The burial's card is folded onto the baptism's (card_merge_rulings.json, cluster baptist-bourassa, C15), and the father's two cards onto this one (cluster bourassa-bourrassa, C16). The baptism states the same tie and is carried by this row: St Mary's 1835 entry 4 baptises 'Jean Baptiste fils de Léon Bourrasso', and its father and child rows (st_marys_bapt_1835_04_2_father on hh_bourrassa_leon, st_marys_bapt_1835_04_1_child on hh_bourassa_jean_baptiste) are held by these two cards, so the kin survey's landed proposal for that entry is this row and not a second one."
   },
   {
    "person": "bourassa_jean_baptiste",
@@ -156,6 +145,7 @@
     "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
    },
    "sources": [
+    "st_cyr_register_ichr_v4",
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 29 June 1835 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
@@ -167,6 +157,15 @@
      "record_id": "st_marys_bapt_1835_04_1_child",
      "describes_date": "1835-06-29",
      "source": "st_marys_baptismal_register_1833_1835",
+     "rule": "G2c"
+    },
+    {
+     "list": "church_1833_1835",
+     "as_read": "John Baptist, son of Leon Bourrassa",
+     "locator": "decedent",
+     "record_id": "st_cyr_death_05_1",
+     "describes_date": "1835-07-02",
+     "source": "st_cyr_register_ichr_v4",
      "rule": "G2c"
     }
    ],

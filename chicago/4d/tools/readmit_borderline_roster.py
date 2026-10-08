@@ -290,6 +290,27 @@ def layer_names() -> tuple[set, set, set]:
     return person_ids, household_ids, keys
 
 
+def carried_records() -> set:
+    """Every source row a card merge moved onto a survivor: the folded cards' evidence.
+
+    Read from the merged stubs, not from every card, on purpose. A row a live card
+    holds under its own spelling is already caught by the name key; it is the fold —
+    one spelling retired onto a survivor spelt otherwise — that the key cannot see.
+    """
+    out = set()
+    for entry in load(INDEX).get("merged", []):
+        path = ROOT / "data" / "residents" / (entry.get("record_file") or "")
+        if not entry.get("record_file") or not path.exists():
+            continue
+        record = load(path).get("superseded_record") or {}
+        for person in record.get("persons") or []:
+            for key, block in person.items():
+                if key.endswith("_evidence") and isinstance(block, list):
+                    out.update(e["record_id"] for e in block
+                               if isinstance(e, dict) and e.get("record_id"))
+    return out
+
+
 def name_key(name) -> str:
     """`surname|first initial`, the crosswalks' own discriminator, from a display name."""
     words = [w for w in re.split(r"[^A-Za-z]+", fold(name)) if w]
@@ -453,6 +474,7 @@ def derive() -> tuple[dict, dict]:
     model = persistence_model()
     settlers = old_settler_rows()
     person_ids, household_ids, keys = layer_names()
+    carried = carried_records()
     source_ids = {p.stem for p in SOURCES.glob("*.json")}
 
     r1: list[dict] = []
@@ -507,6 +529,20 @@ def derive() -> tuple[dict, dict]:
             continue
 
         # R2, R3 and R5 all MINT. A read name, no card, and one reading behind it.
+        #
+        # …AND NO CARD MEANS NO CARD HOLDS THE READING (T-2179). The name key below is a
+        # spelling test, and a card merge can fold a reading onto a survivor spelt
+        # otherwise: St Mary's 1834 entry 23 prints 'Léon Bourassa', the father's card
+        # it minted was folded onto `bourrassa_leon` under C16, and that card carries the
+        # entry's row in its evidence. The roster still offers the row, the spelling no
+        # longer matches anybody, and the stage minted him again. The record id is exact.
+        if row.get("claim_or_record_id") in carried:
+            withhold(row, "a_card_merge_carried_the_reading",
+                     "A card merge folded the card this source row was read onto into a "
+                     "survivor spelt otherwise, and the survivor carries the row in its "
+                     "evidence. The name test cannot see across the spelling, so minting "
+                     "it would carry one person into the town twice.")
+            continue
         when, refusal = dated_evidence(row)
         if when is None:
             withhold(row, refusal,

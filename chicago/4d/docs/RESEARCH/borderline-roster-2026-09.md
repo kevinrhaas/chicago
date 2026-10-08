@@ -10,7 +10,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | | count |
 |---|---:|
-| rows | 15369 |
+| rows | 15365 |
 | ledger units considered (every non-`asserted` unit) | 23716 |
 | of those, units naming no person | 9384 |
 
@@ -18,19 +18,19 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class | rows | who | what reconstruction may do |
 |---|---:|---|---|
-| `R1_in_window_uncertain` | 885 | A card exists, its source is inside the window, and its presence on 1 July 1835 is `uncertain`. | Fix presence `present` at tier `reconstructed`, basis = the dated appearance plus the population model's persistence rate. |
+| `R1_in_window_uncertain` | 884 | A card exists, its source is inside the window, and its presence on 1 July 1835 is `uncertain`. | Fix presence `present` at tier `reconstructed`, basis = the dated appearance plus the population model's persistence rate. |
 | `R2_in_window_single_source` | 207 | One appearance inside the window, no card, the ledger withheld it as a single source or on insufficient identity. | Mint a reconstructed resident under the read name. |
 | `R3_1834_return_or_muster` | 28 | A name on the 1 April 1834 post-office return (T-1153) or the 1832 Black Hawk muster enrolled at Chicago, with no 1835 corroboration and no card. | Mint reconstructed, presence bounded by the persistence rate. |
 | `R4_surname_only_census` | 438 | A census reading that gives a surname this town already holds and no person of its own — the 1830 surname-only refusals and the 1840 heads. | May supply a FAMILY (spouse and child bands) to an existing head at `reconstructed`. Never a new head. |
 | `R5_later_only_backprojectable` | 53 | A later-only name — the 1839 directory, the 1840 census, the old-settler rolls — whose own biography dates an arrival before 1 July 1835. | Mint reconstructed with arrival at the biography's date. |
-| `R6_native_metis_black` | 182 | A Native, Métis or free Black person a source names in or near the town inside the window, whatever the ledger disposition. | Mint at the ladder's grade the evidence allows, else `reconstructed`. Always `review_required` for Native and Métis rows; `community` set. Owned by T-1177. |
+| `R6_native_metis_black` | 179 | A Native, Métis or free Black person a source names in or near the town inside the window, whatever the ledger disposition. | Mint at the ladder's grade the evidence allows, else `reconstructed`. Always `review_required` for Native and Métis rows; `community` set. Owned by T-1177. |
 | `R0_ineligible` | 13576 | Outside Chicago, the Bear Creek marriages (T-1129), the declared `researched_not_resident` names, post-scene arrivals with nothing to back-project from, and names this town already carries. | Never. |
 
 ## By class and domain
 
 | class | domain | rows |
 |---|---|---:|
-| `R1_in_window_uncertain` | `residents_layer` | 885 |
+| `R1_in_window_uncertain` | `residents_layer` | 884 |
 | `R2_in_window_single_source` | `books` | 28 |
 | `R2_in_window_single_source` | `church` | 34 |
 | `R2_in_window_single_source` | `land_sales` | 145 |
@@ -44,7 +44,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R6_native_metis_black` | `civic` | 93 |
 | `R6_native_metis_black` | `directories` | 4 |
 | `R6_native_metis_black` | `old_settlers` | 7 |
-| `R6_native_metis_black` | `residents_layer` | 55 |
+| `R6_native_metis_black` | `residents_layer` | 52 |
 | `R0_ineligible` | `books` | 135 |
 | `R0_ineligible` | `census_1830` | 132 |
 | `R0_ineligible` | `census_1840` | 659 |
@@ -60,12 +60,12 @@ The research spend was, correctly, conservative. This page does not overturn one
 
 | class / rule | rows |
 |---|---:|
-| `R0_ineligible/already_carried_as_present` | 1074 |
-| `R0_ineligible/carried_by_the_cards_own_row` | 1266 |
+| `R0_ineligible/already_carried_as_present` | 1076 |
+| `R0_ineligible/carried_by_the_cards_own_row` | 1263 |
 | `R0_ineligible/carried_under_a_crosswalk_merged_name` | 162 |
 | `R0_ineligible/earlier_than_the_window` | 143 |
 | `R0_ineligible/forename_printed_surname_lost` | 1 |
-| `R0_ineligible/later_only_and_not_backprojectable` | 9802 |
+| `R0_ineligible/later_only_and_not_backprojectable` | 9803 |
 | `R0_ineligible/ledger_a_sale_is_never_a_residence` | 412 |
 | `R0_ineligible/ledger_earlier_evidence_adds_no_1835_fact` | 19 |
 | `R0_ineligible/ledger_identity_refused_in_the_crosswalk` | 11 |
@@ -81,7 +81,7 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R0_ineligible/single_name_parent_of_a_named_child` | 3 |
 | `R0_ineligible/surname_only_and_unmatched` | 248 |
 | `R0_ineligible/undated_reading` | 258 |
-| `R1_in_window_uncertain/card_presence_is_uncertain` | 885 |
+| `R1_in_window_uncertain/card_presence_is_uncertain` | 884 |
 | `R2_in_window_single_source/in_window_read_and_withheld` | 70 |
 | `R2_in_window_single_source/in_window_unspent_inside_an_asserted_claim` | 137 |
 | `R3_1834_return_or_muster/blackhawk_muster_1832_at_chicago` | 28 |
@@ -90,14 +90,14 @@ The research spend was, correctly, conservative. This page does not overturn one
 | `R4_surname_only_census/census_surname_matches_a_held_head` | 31 |
 | `R5_later_only_backprojectable/own_biography_dates_the_arrival` | 53 |
 | `R6_native_metis_black/community_term_in_the_reading` | 123 |
-| `R6_native_metis_black/community_term_on_the_card` | 55 |
+| `R6_native_metis_black/community_term_on_the_card` | 52 |
 | `R6_native_metis_black/community_term_written_onto_the_name` | 4 |
 
 ## Twenty worked examples — five per class, R1 to R4
 
 Five rows of each class, in the roster's own order, with the reason each name was withheld from the town. These are the rows a reader should check the rules against.
 
-### `R1_in_window_uncertain` — 885 rows
+### `R1_in_window_uncertain` — 884 rows
 
 | name as read | dated | source | why it was withheld |
 |---|---|---|---|

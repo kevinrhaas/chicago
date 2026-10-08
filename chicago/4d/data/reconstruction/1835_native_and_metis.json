@@ -82,8 +82,8 @@
   "tier": "reconstructed"
  },
  "counts": {
-  "r6_rows_offered": 175,
-  "already_on_a_card": 55,
+  "r6_rows_offered": 172,
+  "already_on_a_card": 52,
   "cards_minted": 87,
   "minted_present": 70,
   "minted_absent": 17,
@@ -2273,20 +2273,6 @@
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
   {
-   "row_id": "card:hh_bourassa_jean_baptiste",
-   "name_as_read": "Jean Baptiste Bourassa",
-   "household_id": "hh_bourassa_jean_baptiste",
-   "community_term": "metis",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
-  {
-   "row_id": "card:hh_bourassa_lon",
-   "name_as_read": "Lon Bourassa",
-   "household_id": "hh_bourassa_lon",
-   "community_term": "metis",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
-  {
    "row_id": "card:hh_bourassa_mark",
    "name_as_read": "Mark Bourassa",
    "household_id": "hh_bourassa_mark",
@@ -2301,9 +2287,9 @@
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
   {
-   "row_id": "card:hh_braxton_lewis",
-   "name_as_read": "Lewis Braxton",
-   "household_id": "hh_braxton_lewis",
+   "row_id": "card:hh_bristol_charles_l",
+   "name_as_read": "Charles L Bristol",
+   "household_id": "hh_bristol_charles_l",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
@@ -2318,6 +2304,13 @@
    "row_id": "card:hh_carroll_patrick",
    "name_as_read": "Patrick Carroll",
    "household_id": "hh_carroll_patrick",
+   "community_term": "metis",
+   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
+  },
+  {
+   "row_id": "card:hh_chapley_m_s",
+   "name_as_read": "M S Chapley",
+   "household_id": "hh_chapley_m_s",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
@@ -2360,13 +2353,6 @@
    "row_id": "card:hh_field_secretary",
    "name_as_read": "Secretary Field",
    "household_id": "hh_field_secretary",
-   "community_term": "metis",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
-  {
-   "row_id": "card:hh_finley_clement_a",
-   "name_as_read": "Clement A Finley",
-   "household_id": "hh_finley_clement_a",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },
@@ -2591,13 +2577,6 @@
    "row_id": "card:hh_vieau_paul",
    "name_as_read": "Paul Vieau",
    "household_id": "hh_vieau_paul",
-   "community_term": "metis",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
-  {
-   "row_id": "card:hh_witkins_thomas",
-   "name_as_read": "Thomas Witkins",
-   "household_id": "hh_witkins_thomas",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },

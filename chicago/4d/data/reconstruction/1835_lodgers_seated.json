@@ -740,7 +740,7 @@
     {
      "bucket": "persons/male/10_19/west/lodging/none",
      "the_deal_was_dealt_against": 1,
-     "the_book_orders_now": 5
+     "the_book_orders_now": 6
     },
     {
      "bucket": "persons/male/10_19/west/lodging/trade",
@@ -3985,9 +3985,9 @@
    "built_places_holding_no_household": 5,
    "ordinary_night_beds": 243,
    "ordinary_night_beds_slept_in": 223,
-   "households_the_book_orders_in_these_two_classes": 57,
+   "households_the_book_orders_in_these_two_classes": 56,
    "houses_this_stage_has_filled": 22,
-   "houses_still_ordered_after_this_stage_s_counter": 35,
+   "houses_still_ordered_after_this_stage_s_counter": 34,
    "built_places_with_no_household_and_why": [
     {
      "place": "green_tree_tavern",

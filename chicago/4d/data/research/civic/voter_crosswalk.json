@@ -5,7 +5,7 @@
   "source_id": "chicago_voter_lists_1833_1835_irad",
   "publication_source_id": "chicago_genealogist_1993_voter_lists",
   "crosswalk_target": "data/residents/households/*.json",
-  "residents_compared": 1442,
+  "residents_compared": 1440,
   "counts": {
     "entries": 345,
     "matched": 292,

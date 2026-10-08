@@ -186,6 +186,41 @@
   },
   {
    "outcome": "merged",
+   "person_id": "bourassa_jean_baptiste",
+   "folded_person_id": "baptist_john",
+   "rule": "C15",
+   "cluster": "baptist-bourassa",
+   "record_ids": [
+    "st_cyr_death_05_1"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_cyr_register_ichr_v4"
+   ],
+   "evidence": "T-2179: 'baptist_john' and 'bourassa_jean_baptiste' are one person under rule C15; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'baptist-bourassa'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "bourrassa_leon",
+   "folded_person_id": "bourassa_lon",
+   "rule": "C16",
+   "cluster": "bourassa-bourrassa",
+   "record_ids": [
+    "st_marys_bapt_1834_23_2_father",
+    "st_marys_bapt_1835_04_2_father"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-2179: 'bourassa_lon' and 'bourrassa_leon' are one person under rule C16; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'bourassa-bourrassa'."
+  },
+  {
+   "outcome": "merged",
    "person_id": "brown_william_h",
    "folded_person_id": "brown_w_h",
    "rule": "C2",
