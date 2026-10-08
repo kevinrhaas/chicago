@@ -1,3 +1,19 @@
+## T-2157 — courtyard dining-tower roof connection (2026-10-08)
+
+The copper hip now ends over the bay shoulders and meets a raised, tiled cross
+ridge carrying the same terracotta collars as the north wing. The host eave is
+continuous; only the exact triangular valley intersection is removed. Copper
+and tile share the flared apron profile. Existing materials and the northeast
+courtyard copper return are retained. This is a declared reconstruction from
+the owner reference, bounded by the existing HABS-derived plan and roof heights.
+
+Validation: 1,200 independent courtyard roof rays prove one roof surface in the
+former cut, never below the original host plane; 1,800 stable-roof samples also
+pass. The canonical bake, full/light derivatives and recovery package are rebuilt.
+Desktop/full and mobile/light load the actual 1904 scene without page, resource
+or loader errors, and remain within the existing draw/triangle budgets. Review
+images and measurements: `docs/RESEARCH/glessner-courtyard-roof-2157/`.
+
 ## T-2167 — four more yard buildings behind the Canal Street houses of plat block 50 (2026-10-08)
 
 Piece 1 of 2 of T-2166, itself piece 2 of T-2156 (the yard-building roofs built or re-budgeted,

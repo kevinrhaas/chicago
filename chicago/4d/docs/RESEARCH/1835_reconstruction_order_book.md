@@ -668,7 +668,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/ordinary_dwellings/north` | 84 | 84 | 0 | 0 | T-1746 |
 | `structures/small_outbuildings/south` | 48 | 47 | 1 | 0 | T-2165 |
 | `structures/small_outbuildings/west` | 14 | 12 | 2 | 0 | T-2169 |
-| `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2170 |
+| `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2168 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |
 | `structures/stores_mixed_use/south` | 42 | 42 | 0 | 0 | T-1694 |
 | `structures/stores_mixed_use/west` | 6 | 6 | 0 | 0 | T-2150 |

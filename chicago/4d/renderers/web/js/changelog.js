@@ -1,9 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1523, ts: '2026-10-08T07:01:40.447Z', date: 'Oct 8, 2026, 2:01 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
+  { v: 1525, ts: '2026-10-08T07:54:48.321Z', date: 'Oct 8, 2026, 2:54 AM CT', title: '1835 on a phone keeps the town on the graphics chip, not twice', kind: 'fix',
     items: [
       'On a phone, 1835 still closed the browser tab as loading finished. Each heavy part of the town (ground, buildings, streets, fences, yards, walks, trees) now goes to the graphics chip as soon as it is built, and the phone lets go of its own copy. At its worst moment while loading, the page now needs about a fifth less memory, the moment the phone used to give up.',
       'The ground is stored about four times smaller on every device. It draws exactly the same.',
       'The town looks exactly the same, and tapping a building, fence or yard still opens its card. Nothing changes on a computer apart from the smaller ground.',
+    ] },
+  { v: 1524, ts: '2026-10-08T07:19:29.922Z', date: 'Oct 8, 2026, 2:19 AM CT', title: 'Glessner’s courtyard tower roof joins the north wing', kind: 'fix',
+    items: ['The copper roof over the central courtyard tower now meets a raised tiled ridge with matching terracotta crests. The main roof continues cleanly on both sides, and the copper cap has a flared lower edge.'] },
+  { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
+    items: [
+      'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
+      'The machine stays the same size the whole time. Long statuses are cut to fit their line instead of stretching the box.',
+      'On a slow connection the year no longer stops on one number while the town downloads. The machine measures your connection and how much is left, and rolls the year back at that pace.',
+      'A strip under the screen shows how much has downloaded, your connection speed and the time left. Your next visit is timed from this one.',
     ] },
   { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
     items: [

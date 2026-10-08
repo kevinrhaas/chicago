@@ -729,7 +729,7 @@
             ],
             "roof_apex": [
               70.6,
-              14.6,
+              29.19,
               [
                 34.1,
                 "ng"
@@ -740,12 +740,13 @@
               14.5
             ]
           },
-          "confidence": "inferred",
+          "confidence": "reconstructed",
           "sources": [
             "habs_glessner_photo_05_court_c1923",
-            "habs_glessner_house_il_1015_drawings"
+            "habs_glessner_house_il_1015_drawings",
+            "owner_glessner_v4_reconstruction_brief_2026"
           ],
-          "note": "SETTLED IN FORM BY HABS PHOTOGRAPH 5 (a c. 1923 view of the court from The Story of a House), where T-1731 had a one-storey bay 'roofed below the second-floor windows' from sheet 3 alone. The photograph shows the bay as a masonry storey of large lights with a stone band at the second-floor level, over it a continuous glazed band of multi-pane sash, and a tall faceted roof of seamed sheet metal rising into the north range's slope. Sheet 3's light, many-sided outline at the second floor agrees: a glazed band drawn as joinery, not masonry. The HEIGHTS are read off the print against the adjoining wall's floor levels (sheet 4: second floor 17.4 ft), within about 1.5 ft: band top 20.5 ft in v4; the faceted roof's point at the height of the north range's ridge (34.0 ft), where the print puts it, standing on the slope 6.8 ft behind the wall. Phase: a 1923 photograph, carried to 1904 because the 1892 changes were interior and nothing records exterior work before 1946. The roof metal is drawn in the copper slot; its material is not stated. V4 re-reads the full-resolution photograph: the glazed band is about 78 px high against 129 px for the 5.2-ft main sash, implying about 3.1 ft above the 17.4-ft masonry. Its 20.5-ft top replaces the default\u2019s inferred 23-ft reading, with approximately 1-ft uncertainty. The band has two glazed pane rows with a horizontal rail, rather than floor-height single sheets. T-2016: the apex meets the north ridge at S14.6/z34.1; the two rear return facets are tiled, as HABS courtyard photograph 05 shows. The hip and two flanking tiled valleys are clipped into the host slope rather than overlaid."
+          "note": "SETTLED IN FORM BY HABS PHOTOGRAPH 5 (a c. 1923 view of the court from The Story of a House), where T-1731 had a one-storey bay 'roofed below the second-floor windows' from sheet 3 alone. The photograph shows the bay as a masonry storey of large lights with a stone band at the second-floor level, over it a continuous glazed band of multi-pane sash, and a tall faceted roof of seamed sheet metal rising into the north range's slope. Sheet 3's light, many-sided outline at the second floor agrees: a glazed band drawn as joinery, not masonry. The HEIGHTS are read off the print against the adjoining wall's floor levels (sheet 4: second floor 17.4 ft), within about 1.5 ft: band top 20.5 ft in v4; the faceted roof's point at the height of the north range's ridge (34.0 ft), where the print puts it, standing on the slope 6.8 ft behind the wall. Phase: a 1923 photograph, carried to 1904 because the 1892 changes were interior and nothing records exterior work before 1946. The roof metal is drawn in the copper slot; its material is not stated. V4 re-reads the full-resolution photograph: the glazed band is about 78 px high against 129 px for the 5.2-ft main sash, implying about 3.1 ft above the 17.4-ft masonry. Its 20.5-ft top replaces the default\u2019s inferred 23-ft reading, with approximately 1-ft uncertainty. The band has two glazed pane rows with a horizontal rail, rather than floor-height single sheets. T-2016: the apex meets the north ridge at S14.6/z34.1; the two rear return facets are tiled, as HABS courtyard photograph 05 shows. The hip and two flanking tiled valleys are clipped into the host slope rather than overlaid. T-2157 supersedes the T-2016 apex placement: the copper hip ends over the bay shoulders at S29.19, retaining z34.1 and W70.6. A level tiled cross ridge joins it to the north ridge at S14.6, with the same raised terracotta collars. The main roof retains its eave and is cut only along the true intersection valleys. The hip has a shallow flared copper apron. This is reconstructed from the owner-supplied aerial and March 2023 detail, bounded by the existing HABS plan and roof heights; exact apron and seam dimensions are not measured 1904 fabric."
         },
         "dormers": {
           "value": {
@@ -2858,7 +2859,8 @@
               "loft_frame_ft": 0.22
             },
             "dining_roof_junction": true,
-            "continuous_copper_corner": true
+            "continuous_copper_corner": true,
+            "dining_crested_connection": true
           },
           "confidence": "reconstructed",
           "sources": [
