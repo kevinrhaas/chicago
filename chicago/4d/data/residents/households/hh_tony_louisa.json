@@ -105,6 +105,30 @@
   ],
   "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-11-09 (st_marys_bapt_1835_13_1_child), and the entry's own words — 'born the thirtieth of October' — put the birth on 1835-10-30, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "tony_louisa",
+   "relation": "daughter",
+   "household": "hh_chandler_catherine",
+   "value": "chandler_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_3_mother, st_marys_bapt_1835_13_1_child), so no identification is made here. The daughter term is the entry's: 'daughter of Jacob Tony'."
+  },
+  {
+   "person": "tony_louisa",
+   "relation": "daughter",
+   "household": "hh_tony_jacob",
+   "value": "tony_jacob",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_2_father, st_marys_bapt_1835_13_1_child), so no identification is made here. The daughter term is the entry's: 'daughter of Jacob Tony'."
+  }
+ ],
  "persons": [
   {
    "id": "tony_louisa",

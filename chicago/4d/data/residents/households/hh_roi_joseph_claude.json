@@ -105,6 +105,30 @@
   ],
   "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-04 (st_marys_bapt_1835_10_1_child), and the entry's own words — 'âgé de [?] jours' — put the birth between 1835-07-04 and 1835-10-04, after the scene date of 1 July 1835. An age in days whose count nobody can read. The register counts in days only for a newborn and has moved to months by two, so the window is bounded at three months before the font — a month wider than that practice. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "roi_joseph_claude",
+   "relation": "son",
+   "household": "hh_bruno_anne_franoise_apolline",
+   "value": "bruno_anne_franoise_apolline",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy. Both cards were minted from this entry's rows (st_marys_bapt_1835_10_3_mother, st_marys_bapt_1835_10_1_child), so no identification is made here. The son term is the entry's: 'Joseph Claude Roi fils de George David Roi'."
+  },
+  {
+   "person": "roi_joseph_claude",
+   "relation": "son",
+   "household": "hh_roi_george_david",
+   "value": "roi_george_david",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. Le quatre octobre mil huit cent trente cinq, je soussigné ai baptisé Joseph Claude Roi fils de George David Roi, et d'Anne Françoise Apolline Bruno, âgé de [?] jours. Ses parrain et marraine ont été Jean Baptiste Bruno et Joséphine Guy. Both cards were minted from this entry's rows (st_marys_bapt_1835_10_2_father, st_marys_bapt_1835_10_1_child), so no identification is made here. The son term is the entry's: 'Joseph Claude Roi fils de George David Roi'."
+  }
+ ],
  "persons": [
   {
    "id": "roi_joseph_claude",

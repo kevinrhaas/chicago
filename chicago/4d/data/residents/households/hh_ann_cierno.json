@@ -117,6 +117,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "ann_cierno",
+   "relation": "mother",
+   "household": "hh_omarra_bridget",
+   "value": "omarra_bridget",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife. Both cards were minted from this entry's rows (st_marys_bapt_1835_07_3_mother, st_marys_bapt_1835_07_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "ann_cierno",

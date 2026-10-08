@@ -105,6 +105,30 @@
   ],
   "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-08-20 (st_marys_bapt_1835_07_1_child), and the entry's own words — 'born the nineteenth of August eighteen hundred thirty five' — put the birth on 1835-08-19, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "omarra_bridget",
+   "relation": "daughter",
+   "household": "hh_ann_cierno",
+   "value": "ann_cierno",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife. Both cards were minted from this entry's rows (st_marys_bapt_1835_07_3_mother, st_marys_bapt_1835_07_1_child), so no identification is made here. The daughter term is the entry's: 'Brigitt O'Marra daughter of James O'Marra'."
+  },
+  {
+   "person": "omarra_bridget",
+   "relation": "daughter",
+   "household": "hh_omarra_james",
+   "value": "omarra_james",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife. Both cards were minted from this entry's rows (st_marys_bapt_1835_07_2_father, st_marys_bapt_1835_07_1_child), so no identification is made here. The daughter term is the entry's: 'Brigitt O'Marra daughter of James O'Marra'."
+  }
+ ],
  "persons": [
   {
    "id": "omarra_bridget",

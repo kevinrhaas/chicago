@@ -131,6 +131,19 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 2 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 270, so none of its 1 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "miller_catherine",
+   "relation": "mother",
+   "household": "hh_duplas_catherine",
+   "value": "duplas_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_12_3_mother, st_marys_bapt_1835_12_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "miller_catherine",

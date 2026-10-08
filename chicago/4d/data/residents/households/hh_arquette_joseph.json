@@ -117,6 +117,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "arquette_joseph",
+   "relation": "son",
+   "household": "hh_arquette_michel",
+   "value": "arquette_michel",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Joseph Arquat fils de Michel Arquot et de Marguerite Robi, âgé de 16 mois. Parrain a été Louis Trombere[?]. Both cards were minted from this entry's rows (st_marys_bapt_1835_05_2_father, st_marys_bapt_1835_05_1_child), so no identification is made here. The son term is the entry's: 'Joseph Arquat fils de Michel Arquot'."
+  },
+  {
+   "person": "arquette_joseph",
+   "relation": "son",
+   "household": "hh_robi_marguerite",
+   "value": "robi_marguerite",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Joseph Arquat fils de Michel Arquot et de Marguerite Robi, âgé de 16 mois. Parrain a été Louis Trombere[?]. Both cards were minted from this entry's rows (st_marys_bapt_1835_05_3_mother, st_marys_bapt_1835_05_1_child), so no identification is made here. The son term is the entry's: 'Joseph Arquat fils de Michel Arquot'."
+  }
+ ],
  "persons": [
   {
    "id": "arquette_joseph",

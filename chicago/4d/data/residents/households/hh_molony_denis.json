@@ -105,6 +105,30 @@
   ],
   "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-12-25 (st_marys_bapt_1835_14_1_child), and the entry's own words — 'born the twentieth of december 1835' — put the birth on 1835-12-20, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "molony_denis",
+   "relation": "son",
+   "household": "hh_casy_honora",
+   "value": "casy_honora",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster. Both cards were minted from this entry's rows (st_marys_bapt_1835_14_3_mother, st_marys_bapt_1835_14_1_child), so no identification is made here. The son term is the entry's: 'son of John Molony'."
+  },
+  {
+   "person": "molony_denis",
+   "relation": "son",
+   "household": "hh_molony_john",
+   "value": "molony_john",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago, Illinois. On the twenty five of december eighteen hundred and thirty five I the undersigned baptized Denis Molony born the twentieth of december 1835, son of John Molony and Honour Casy, & sponsors were Edward Daly and Brigitte Forster. Both cards were minted from this entry's rows (st_marys_bapt_1835_14_2_father, st_marys_bapt_1835_14_1_child), so no identification is made here. The son term is the entry's: 'son of John Molony'."
+  }
+ ],
  "persons": [
   {
    "id": "molony_denis",

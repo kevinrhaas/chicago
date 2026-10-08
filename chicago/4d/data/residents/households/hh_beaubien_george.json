@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "beaubien_george",
+   "relation": "son",
+   "household": "hh_nadeau_monique",
+   "value": "nadeau_monique",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 22 de mai mil huit [cent] trente trois, je soussigné ai baptisé George Beaubien fils de Mark Beaubien et de Monique Nadeau, né le 19 août 1832. Parrain a été Mark Beaubien père de l'enfant baptisé; marraine Archange Beaubien nièce du père de l'enfant. J. M. I. Saint Cyr, prêtre. Both cards were minted from this entry's rows (st_marys_bapt_1833_01_3_mother, st_marys_bapt_1833_01_1_child), so no identification is made here. The son term is the entry's: 'George Beaubien fils de Mark Beaubien'."
+  }
+ ],
  "persons": [
   {
    "id": "beaubien_george",

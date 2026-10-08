@@ -105,6 +105,30 @@
   ],
   "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-09-25 (st_marys_bapt_1835_09_1_child), and the entry's own words — 'fifteen days old' — put the birth on 1835-09-10, after the scene date of 1 July 1835. 15 days before the baptism of 1835-09-25. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "murray_martha",
+   "relation": "daughter",
+   "household": "hh_brenin_mary",
+   "value": "brenin_mary",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr. Both cards were minted from this entry's rows (st_marys_bapt_1835_09_3_mother, st_marys_bapt_1835_09_1_child), so no identification is made here. The daughter term is the entry's: 'Martha daughter of John Murray'."
+  },
+  {
+   "person": "murray_martha",
+   "relation": "daughter",
+   "household": "hh_murray_john",
+   "value": "murray_john",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 25 of 7ber eighteen hundred & thirty five I the undersigned administered the ceremonies of Baptism to Martha daughter of John Murray & Mary Brenin, fifteen days old. Godfather & Godmother were Catherine Murray & J. M. I. St Cyr. Both cards were minted from this entry's rows (st_marys_bapt_1835_09_2_father, st_marys_bapt_1835_09_1_child), so no identification is made here. The daughter term is the entry's: 'Martha daughter of John Murray'."
+  }
+ ],
  "persons": [
   {
    "id": "murray_martha",

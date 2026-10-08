@@ -420,8 +420,8 @@
   "reconstructed_removed_in_2026_09_02_synthesis": 108,
   "civic_mint": 511,
   "merged_away": 67,
-  "houses": 128,
-  "awaiting_a_household": 1331
+  "houses": 214,
+  "awaiting_a_household": 1245
  },
  "households": [
   {
@@ -1011,7 +1011,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_anstin_al",
@@ -1126,7 +1127,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_arquette_michel",
@@ -1143,7 +1145,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_arrasmith_james",
@@ -1228,7 +1231,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_aspam_jean_baptiste",
@@ -1244,7 +1248,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_aspam_josette",
@@ -1261,7 +1266,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "present",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_aspam_magdeleine",
@@ -1277,7 +1283,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_austin_w_g",
@@ -2080,7 +2087,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_beaubien_alexandre",
@@ -2146,7 +2154,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_beaubien_charles",
@@ -2163,7 +2172,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_beaubien_charles_h",
@@ -2196,7 +2206,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_beaubien_george",
@@ -2212,7 +2223,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_beaubien_jean_baptiste",
@@ -2326,7 +2338,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_beaubien_susan",
@@ -2342,7 +2355,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bebee_orson",
@@ -3317,7 +3331,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bouchard_louis",
@@ -3333,7 +3348,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_boucher_joseph",
@@ -3366,7 +3382,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bourassa_lon",
@@ -3382,7 +3399,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bourassa_mark",
@@ -3416,7 +3434,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bourque_william",
@@ -3468,7 +3487,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bousque_catherine_henrietta",
@@ -3484,7 +3504,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bowen_air",
@@ -3715,7 +3736,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_brewster_franklin",
@@ -4097,7 +4119,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_bruno_jean_baptiste",
@@ -4866,7 +4889,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_caton_john_dean",
@@ -4999,7 +5023,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_chandler_joseph",
@@ -6194,7 +6219,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_coslet_godfrey",
@@ -6211,7 +6237,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_couch_ira",
@@ -7677,7 +7704,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_dunlap_alva",
@@ -7726,8 +7754,9 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "absent",
-   "review_required": false
+   "present_on_scene_date": "uncertain",
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_duplas_joseph",
@@ -7744,7 +7773,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_dustin_thomas",
@@ -7914,7 +7944,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_egan_william_b",
@@ -8485,7 +8516,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_finley_clement_a",
@@ -8818,7 +8850,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_forester_thomas",
@@ -8835,7 +8868,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_forster_bridget",
@@ -9186,7 +9220,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_gagnier_catherine",
@@ -9202,7 +9237,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_galaher_thomas",
@@ -12367,7 +12403,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_juneau_solomon",
@@ -12383,7 +12420,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_keeney_g_w",
@@ -12449,7 +12487,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_kennicott_m_h",
@@ -13287,7 +13326,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_laframboise_claude",
@@ -13303,7 +13343,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_laframboise_franois",
@@ -13319,7 +13360,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_laframboise_joseph",
@@ -13336,7 +13378,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_laframboise_josette",
@@ -13352,7 +13395,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_laframboise_marguerite",
@@ -13368,7 +13412,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_laframboise_thrse",
@@ -13384,7 +13429,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_lafrombois_joseph",
@@ -14270,7 +14316,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_ltendre_joseph",
@@ -14286,7 +14333,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_lucas_robert",
@@ -14504,7 +14552,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_makepiece_george_r",
@@ -14884,7 +14933,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_mayo_michel",
@@ -14901,7 +14951,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_mcarty_n",
@@ -15334,7 +15385,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_miller_george",
@@ -15603,8 +15655,9 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "absent",
-   "review_required": false
+   "present_on_scene_date": "uncertain",
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_molony_john",
@@ -15621,7 +15674,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_monreou_john",
@@ -16136,7 +16190,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_murray_martha",
@@ -16151,8 +16206,9 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "absent",
-   "review_required": false
+   "present_on_scene_date": "uncertain",
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_murray_patrick",
@@ -16270,7 +16326,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_nalla_john_v",
@@ -16721,8 +16778,9 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "absent",
-   "review_required": false
+   "present_on_scene_date": "uncertain",
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_omarra_james",
@@ -16738,7 +16796,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_orinsbey_martin_t",
@@ -16906,7 +16965,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_outhet_daniel",
@@ -17441,7 +17501,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_pennington_sack_f",
@@ -17859,7 +17920,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_pottier_jean",
@@ -17876,7 +17938,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_pottier_joseph",
@@ -17892,7 +17955,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_powell_geo_n",
@@ -17993,7 +18057,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_preston_esther",
@@ -19308,7 +19373,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_robian_daniel_o",
@@ -19421,7 +19487,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_roi_george_david",
@@ -19437,7 +19504,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_roi_joseph_claude",
@@ -19452,8 +19520,9 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "absent",
-   "review_required": false
+   "present_on_scene_date": "uncertain",
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_rollins_charles",
@@ -20125,7 +20194,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_schwartz_pierre_adam",
@@ -20141,7 +20211,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_scott_john",
@@ -22424,7 +22495,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_tony_louisa",
@@ -22439,8 +22511,9 @@
    },
    "lives_at": null,
    "works_at": null,
-   "present_on_scene_date": "absent",
-   "review_required": false
+   "present_on_scene_date": "uncertain",
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_torry_d_v_s",
@@ -22507,7 +22580,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_tranche_susanne",
@@ -22523,7 +22597,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_trimble_edward",
@@ -23043,7 +23118,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_vieau_josette",
@@ -23060,7 +23136,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_vieau_marie_josette",
@@ -23076,7 +23153,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_vieau_paul",
@@ -23092,7 +23170,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_vieaux_susanne",
@@ -23108,7 +23187,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_villame_john_c",
@@ -23192,7 +23272,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_walford_h",
@@ -23644,7 +23725,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_welsh_john",
@@ -23660,7 +23742,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_welsh_joseph",
@@ -23676,7 +23759,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_welsh_mary",
@@ -24364,7 +24448,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_wode_mary",
@@ -24380,7 +24465,8 @@
    "lives_at": null,
    "works_at": null,
    "present_on_scene_date": "uncertain",
-   "review_required": false
+   "review_required": false,
+   "dwelling_evidence": "a_stated_kinship"
   },
   {
    "id": "hh_wolcott_alexander",

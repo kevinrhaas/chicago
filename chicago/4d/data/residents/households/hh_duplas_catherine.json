@@ -105,6 +105,30 @@
   ],
   "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-18 (st_marys_bapt_1835_12_1_child), and the entry's own words — 'two months old' — put the birth between 1835-07-19 and 1835-08-18, after the scene date of 1 July 1835. An age at the font, read as 2 completed month(s): born after 1835-07-18 and by 1835-08-18. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "duplas_catherine",
+   "relation": "daughter",
+   "household": "hh_duplas_joseph",
+   "value": "duplas_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_12_2_father, st_marys_bapt_1835_12_1_child), so no identification is made here. The daughter term is the entry's: 'two months old daughter of Joseph Duplas'."
+  },
+  {
+   "person": "duplas_catherine",
+   "relation": "daughter",
+   "household": "hh_miller_catherine",
+   "value": "miller_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_12_3_mother, st_marys_bapt_1835_12_1_child), so no identification is made here. The daughter term is the entry's: 'two months old daughter of Joseph Duplas'."
+  }
+ ],
  "persons": [
   {
    "id": "duplas_catherine",
