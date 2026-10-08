@@ -128,6 +128,19 @@
   "seed": "hh_bouchard_adelaide:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
+ "kin": [
+  {
+   "person": "bouchard_adelaide",
+   "relation": "mother",
+   "household": "hh_bouchard_louis",
+   "value": "bouchard_louis",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the eighteenth of August eighteen hundred and thirty three, I the undersigned, baptised Louis son of Andrew and of Adelaide Bouchard born the 4th December 1830. Sponsors were Augustin Bonné and Josette Chevalier. Both cards were minted from this entry's rows (st_marys_bapt_1833_11_3_mother, st_marys_bapt_1833_11_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "bouchard_adelaide",

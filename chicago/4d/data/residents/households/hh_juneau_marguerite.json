@@ -119,6 +119,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "juneau_marguerite",
+   "relation": "daughter",
+   "household": "hh_juneau_solomon",
+   "value": "juneau_solomon",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On [the] fifth of June eighteen hundred and thirty three, I the undersigned, baptised Marguerit daughter of Salomon Juneau and Josette Vieau, born the 25th of December 1832. Sponsors were Louis Franchère and Elozina[?] Bailly. Both cards were minted from this entry's rows (st_marys_bapt_1833_05_2_father, st_marys_bapt_1833_05_1_child), so no identification is made here. The daughter term is the entry's: 'Marguerit daughter of Salomon Juneau'."
+  },
+  {
+   "person": "juneau_marguerite",
+   "relation": "daughter",
+   "household": "hh_vieau_josette",
+   "value": "vieau_josette",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On [the] fifth of June eighteen hundred and thirty three, I the undersigned, baptised Marguerit daughter of Salomon Juneau and Josette Vieau, born the 25th of December 1832. Sponsors were Louis Franchère and Elozina[?] Bailly. Both cards were minted from this entry's rows (st_marys_bapt_1833_05_3_mother, st_marys_bapt_1833_05_1_child), so no identification is made here. The daughter term is the entry's: 'Marguerit daughter of Salomon Juneau'."
+  }
+ ],
  "persons": [
   {
    "id": "juneau_marguerite",

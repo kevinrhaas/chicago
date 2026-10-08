@@ -135,6 +135,19 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 8 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 222, so none of its 7 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "juneau_solomon",
+   "relation": "father",
+   "household": "hh_juneau_marguerite",
+   "value": "juneau_marguerite",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On [the] fifth of June eighteen hundred and thirty three, I the undersigned, baptised Marguerit daughter of Salomon Juneau and Josette Vieau, born the 25th of December 1832. Sponsors were Louis Franchère and Elozina[?] Bailly. Both cards were minted from this entry's rows (st_marys_bapt_1833_05_2_father, st_marys_bapt_1833_05_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "juneau_solomon",

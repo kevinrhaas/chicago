@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1539, ts: '2026-10-08T15:35:35.872Z', date: 'Oct 8, 2026, 10:35 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
+  { v: 1540, ts: '2026-10-08T16:18:45.473Z', date: 'Oct 8, 2026, 11:18 AM CT', title: 'A two-storey warehouse behind the stores at the Dearborn Street bridge', kind: 'feature',
     items: [
       'On South Water Street, just east of the Dearborn Street drawbridge, a narrow two-storey warehouse now stands behind the Chicago American\u2019s office and John Holbrook\u2019s clothing store. It has a hoist and upper freight doors, and its front faces the gap between the two stores.',
       'No record names this building. The town\u2019s plan counted four warehouses missing from the South Water and Lake Street blocks, and this is the one with ground for it today. The other three wait on river access and on the survey line at Market Street.',
       'Its card says the building is reconstructed, not recovered. The Liberties page explains it (L406).',
+    ] },
+  { v: 1539, ts: '2026-10-08T15:08:49.538Z', date: 'Oct 8, 2026, 10:08 AM CT', title: 'Forty church-register children now linked to their parents', kind: 'feature',
+    items: [
+      'Open the card of a child baptised at St Mary\u2019s between 1833 and 1835, such as George Beaubien or Caroline Beaubien. It now names the child\u2019s father or mother, and the parent\u2019s card names the child back.',
+      'That is 61 parent-and-child links across 40 children. Each one is quoted from the baptism entry, and son or daughter is taken from the priest\u2019s own word.',
     ] },
   { v: 1538, ts: '2026-10-08T14:46:44.080Z', date: 'Oct 8, 2026, 9:46 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
     items: [

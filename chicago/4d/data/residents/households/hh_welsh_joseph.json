@@ -119,6 +119,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "welsh_joseph",
+   "relation": "son",
+   "household": "hh_ouilmette_marie_louise",
+   "value": "ouilmette_marie_louise",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf juin, je soussigné ai conféré les cérémonies du baptême à Joseph fils de John Welsh et de Marie Louise Wimette né le dix huit mars mil huit cent trente trois. Parrain et marraine ont été N. Thob[?] et Louise Caroline Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1834_16_3_mother, st_marys_bapt_1834_16_1_child), so no identification is made here. The son term is the entry's: 'Joseph fils de John Welsh'."
+  },
+  {
+   "person": "welsh_joseph",
+   "relation": "son",
+   "household": "hh_welsh_john",
+   "value": "welsh_john",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf juin, je soussigné ai conféré les cérémonies du baptême à Joseph fils de John Welsh et de Marie Louise Wimette né le dix huit mars mil huit cent trente trois. Parrain et marraine ont été N. Thob[?] et Louise Caroline Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1834_16_2_father, st_marys_bapt_1834_16_1_child), so no identification is made here. The son term is the entry's: 'Joseph fils de John Welsh'."
+  }
+ ],
  "persons": [
   {
    "id": "welsh_joseph",

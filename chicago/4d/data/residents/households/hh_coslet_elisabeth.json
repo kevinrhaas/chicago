@@ -119,6 +119,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "coslet_elisabeth",
+   "relation": "daughter",
+   "household": "hh_coslet_godfrey",
+   "value": "coslet_godfrey",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 10th December eighteen hundred and thirty four I, the undersigned, baptised Elisabeth daughter of Godfrey Coslet and of Marian Eberling, born the 9th of December eighteen hundred and thirty four. Godmother was Marian Mouch[?]; no godfather. Both cards were minted from this entry's rows (st_marys_bapt_1834_20_2_father, st_marys_bapt_1834_20_1_child), so no identification is made here. The daughter term is the entry's: 'Elisabeth daughter of Godfrey Coslet'."
+  },
+  {
+   "person": "coslet_elisabeth",
+   "relation": "daughter",
+   "household": "hh_eberling_marian",
+   "value": "eberling_marian",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 10th December eighteen hundred and thirty four I, the undersigned, baptised Elisabeth daughter of Godfrey Coslet and of Marian Eberling, born the 9th of December eighteen hundred and thirty four. Godmother was Marian Mouch[?]; no godfather. Both cards were minted from this entry's rows (st_marys_bapt_1834_20_3_mother, st_marys_bapt_1834_20_1_child), so no identification is made here. The daughter term is the entry's: 'Elisabeth daughter of Godfrey Coslet'."
+  }
+ ],
  "persons": [
   {
    "id": "coslet_elisabeth",

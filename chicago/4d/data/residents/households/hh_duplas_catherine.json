@@ -117,6 +117,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "duplas_catherine",
+   "relation": "daughter",
+   "household": "hh_duplas_joseph",
+   "value": "duplas_joseph",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_12_2_father, st_marys_bapt_1835_12_1_child), so no identification is made here. The daughter term is the entry's: 'two months old daughter of Joseph Duplas'."
+  },
+  {
+   "person": "duplas_catherine",
+   "relation": "daughter",
+   "household": "hh_miller_catherine",
+   "value": "miller_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Chicago. On the eighteenth of October eighteen hundred & thirty five I, the undersigned, administered the ceremonies of Baptism to Catherine Duplar two months old daughter of Joseph Duplas & Catherine Miller. Sponsors were Frederick Daniel and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_12_3_mother, st_marys_bapt_1835_12_1_child), so no identification is made here. The daughter term is the entry's: 'two months old daughter of Joseph Duplas'."
+  }
+ ],
  "persons": [
   {
    "id": "duplas_catherine",

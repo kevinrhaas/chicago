@@ -133,6 +133,30 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 4 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 178, so none of its 3 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "nadeau_monique",
+   "relation": "mother",
+   "household": "hh_beaubien_elonore",
+   "value": "beaubien_elonore",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 6 d'août mil huit cent trente quatre, je soussigné ai baptisé Eléonore Beaubien fille de Mark Beaubien et de Monique Nodou, née le vingt deux de juillet 1834. Parrain et marraine ont été Jean Marie Irénée Saint Cyr et Archange Beaubien. Both cards were minted from this entry's rows (st_marys_bapt_1834_19_3_mother, st_marys_bapt_1834_19_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "nadeau_monique",
+   "relation": "mother",
+   "household": "hh_beaubien_george",
+   "value": "beaubien_george",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 22 de mai mil huit [cent] trente trois, je soussigné ai baptisé George Beaubien fils de Mark Beaubien et de Monique Nadeau, né le 19 août 1832. Parrain a été Mark Beaubien père de l'enfant baptisé; marraine Archange Beaubien nièce du père de l'enfant. J. M. I. Saint Cyr, prêtre. Both cards were minted from this entry's rows (st_marys_bapt_1833_01_3_mother, st_marys_bapt_1833_01_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "nadeau_monique",

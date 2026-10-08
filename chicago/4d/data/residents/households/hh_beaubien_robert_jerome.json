@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "beaubien_robert_jerome",
+   "relation": "son",
+   "household": "hh_laframboise_josette",
+   "value": "laframboise_josette",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the 22d of 10ber eighteen hundred and thirty [four] I, the undersigned baptised Robert Jerome Beaubien son of J. Bap[tis]t Beaubien and of Josette Laframboise, born nineteenth december eighteen hundred and thirty four. Godfather and godmother were Mr Robert Kinzie and Gwinthlean Whistler. Both cards were minted from this entry's rows (st_marys_bapt_1834_22_3_mother, st_marys_bapt_1834_22_1_child), so no identification is made here. The son term is the entry's: 'Robert Jerome Beaubien son of J. Bap[tis]t Beaubien'."
+  }
+ ],
  "persons": [
   {
    "id": "beaubien_robert_jerome",
