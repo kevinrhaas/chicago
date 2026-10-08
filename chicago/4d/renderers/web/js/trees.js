@@ -75,7 +75,7 @@
 
 import * as THREE from 'three';
 import { floraInScene } from './flora.js';
-import { createTreeAtlas, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
+import { createTreeAtlasSliced, leafFamily, treeAtlasUV, TREE_ALPHA_CUTOFF, patchTreeWind } from './tree-surface.js';
 
 /**
  * The zone records this module reads, by the CONTRACT's `z<NN>_<slug>` id. Only
@@ -3101,7 +3101,7 @@ export async function createTrees({
   /* ---- 4. the material --------------------------------------------------- */
 
   const uWind = { value: 0 };
-  const surfaceAtlas = createTreeAtlas();
+  const surfaceAtlas = await createTreeAtlasSliced(checkpoint);
   const nearMat = new THREE.MeshStandardMaterial({
     vertexColors: true, map: surfaceAtlas, bumpMap: surfaceAtlas, bumpScale: 0.015,
     roughness: 0.92, metalness: 0,

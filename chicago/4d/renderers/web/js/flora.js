@@ -1211,7 +1211,7 @@ export async function createFlora({
   const blocks = circleGrid(footprintCircles(footprints));
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
-  stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
+  stats.turf = await handTurfToGround(zones, finder, water, terrain, problems, checkpoint);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -3503,7 +3503,7 @@ const TURF_MASK_MIN_M = 2;
 /** T-2125: questions per texel, at fixed offsets inside it (a rotated grid). */
 const TURF_MASK_TAP_AT = [[-0.30, -0.10], [0.10, -0.30], [0.30, 0.10], [-0.10, 0.30]];
 const TURF_MASK_TAPS = TURF_MASK_TAP_AT.length;
-function handTurfToGround(zones, finder, water, terrain, problems) {
+async function handTurfToGround(zones, finder, water, terrain, problems, checkpoint = () => null) {
   const turf = zones.filter((z) => z.turf);
   const out = { zones: turf.map((z) => z.id), painted: false, cellM: null, texels: 0 };
   if (!turf.length || typeof terrain?.setTurf !== 'function') return out;
@@ -3536,6 +3536,9 @@ function handTurfToGround(zones, finder, water, terrain, problems) {
   const n0 = box.n0 - 2 * cell;
   const raw = new Uint8Array(w * h);
   for (let j = 0; j < h; j++) {
+    // T-2059: four finder questions a texel over the whole mask held the
+    // phone's flora phase for 200 ms in one task; a row is a few milliseconds.
+    const pause = checkpoint(); if (pause) await pause;
     for (let i = 0; i < w; i++) {
       // T-2125: the finder answers each plant from a draw across the blend
       // band, so one question per texel would speckle the mask. TURF_MASK_TAPS
