@@ -314,12 +314,12 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 352,
-  "outside": 289,
+  "inside": 356,
+  "outside": 290,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 61,
+   "north_of_the_limit": 62,
    "west_of_canal_street": 100,
    "south_of_washington_street": 99,
    "east_of_the_limit_in_the_water": 1,
@@ -384,6 +384,7 @@
     "recon_1835_blk_indiana_north_wolcott_d3_06",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
+    "recon_1835_north_a2_098",
     "recon_1835_north_c4_067",
     "recon_1835_north_d1_013",
     "recon_1835_north_d1_023",
@@ -651,7 +652,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 1,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -973,7 +974,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 1,
     "centre_local_enu_m": [
      885.64,
      525.4

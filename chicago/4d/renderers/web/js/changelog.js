@@ -1,4 +1,6 @@
 export const CHANGELOG = [ // newest first
+  { v: 1526, ts: '2026-10-08T09:16:24.005Z', date: 'Oct 8, 2026, 4:16 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+    items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
   { v: 1525, ts: '2026-10-08T08:04:35.646Z', date: 'Oct 8, 2026, 3:04 AM CT', title: 'The census screen counts everyone the town houses', kind: 'fix',
     items: [
       'Evidence \u2192 City said only 192 of the town\u2019s 2,926 people were placed in a building that stands. It now says 2,437: it had been missing everyone a lodging house or a reconstructed roof takes in, which is most of the town.',

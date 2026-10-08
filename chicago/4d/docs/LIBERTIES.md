@@ -10959,7 +10959,7 @@ this wing was sized around) · tickets **T-0626** (this), **T-0617** (the readin
 **Recorded:** 2026-09-04.
 
 ### L219 — Seventy roofs are told who entered their ground by a survey grid nobody traced
-**Scope:** `structures.land_owner[constructed_section_grid]` — 122 structures (103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
+**Scope:** `structures.land_owner[constructed_section_grid]` — 127 structures (122 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, all five on the constructed grid (L403); 103 until T-1746 carried the 26 ordinary dwellings the schedule had dealt to Kinzie's Addition's two subdivided blocks south of Michigan Street, 2026-10-05, nineteen of them on the constructed grid; 104 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 99 until T-1205's five Kinzie Street trade roofs east of Dearborn, 2026-10-03; 98 until T-1979's emigrants' camp on the same shore, 2026-10-02; 97 until T-1804's land-sale camp on the reservation shore, 2026-10-02; 94 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02)
 **Decision:** the Public Land Survey section lines of T39N R14E are CONSTRUCTED rather than
 traced, and 94 structures carry a `land_owner` block that rests on them (71 until three changes
 landed on the same day: T-1715's second garrison root-house on the reservation bank, T-1716's
@@ -14352,7 +14352,7 @@ the tickets **T-1419**, **T-1186** (the parent), **T-1404** (the premises ruling
 
 ### L263 — The shingle exposure is set at 0.14 m, which gives every shingled roof in this town its rhythm from a period stock and not from a source
 
-**Scope:** `structures.phases[roof_type_stated]` — 628 phases (624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
+**Scope:** `structures.phases[roof_type_stated]` — 633 phases (628 until T-2170's five barns in the yards of the Wolcott-Kinzie core's houses, 2026-10-08, L403; 624 until T-2167's four yard buildings behind the Canal Street houses of plat block 50, blk_washington_clinton, 2026-10-08, L402; 623 until T-2150's river warehouse on the West Water bank at Washington Street, 2026-10-08, L400; 622 until T-2022's river warehouse on the North Water bank at LaSalle, 2026-10-07, L399; 609 until T-2148's thirteen roofs on plat block 50, blk_washington_clinton, Washington to Madison on the Canal face, 2026-10-06, L394; 569 until T-1746's 26 North Division dwellings south of Michigan Street, 2026-10-05, L393; 563 until T-2143's six houses on plat block 51, blk_west_washington_canal, the West Division's last tier between Washington and Madison, 2026-10-05; 559 until T-2132's four houses on plat block 44, blk_west_randolph_canal, 2026-10-05; 554 until T-2062's factory, agent's house and three stables outside the first Fort Dearborn, 2026-10-05, dated 1808-1812; 550 until T-2134's four workshops at the back of Dearborn Street corner lots, 2026-10-05; 541 until T-2130's six houses on blk_washington_dearborn and two houses and a smokehouse on blk_washington_clark, 2026-10-05; 531 until T-2129 raised the Market block's ten roofs, 2026-10-05; 528 until T-1829's two frame cottages and plank shanty on blk_west_lake_canal, 2026-10-05; 516 until T-2049 wrote the first Fort Dearborn's twelve roofed records, 2026-10-04, dated 1803-1812 so that no scene resolves them yet; 517 until T-1743 folded `beaubien_new_residence` into the Beaubien homestead, 2026-10-03; 518 until T-2012 withdrew the south-bank freight shed `south_bank_shed_dearborn_e1`, 2026-10-03; 512 until T-1205's six trade roofs on the north face of Kinzie Street, 2026-10-03; 497 until T-1952's boarding house, stable and privy on blk_indiana_north_cass, 2026-10-02, 500 until T-1950's on blk_washington_clark the same day, and 503 until T-1951's three houses with their stables and privies on blk_washington_market and blk_washington_dearborn, also that day). Every phase that states a
 roof type takes this exposure the moment the `roof_plane` substrate carries a tile, which is
 why the population is counted here rather than described. It was 403 until five changes
 landed within two days: T-1712's two Beaubien homestead buildings, T-1709's six South Branch
@@ -22141,3 +22141,48 @@ never increases the total.
 **Ticket:** T-2167.
 **Related:** **L263**, **L394**, **T-2148**, **T-2166**, **T-2168**.
 **Recorded:** 2026-10-08 (T-2167).
+
+### L403 — Five invented barns in the yards of the Wolcott-Kinzie core's houses
+
+**Decision:** the five A2 barns or carriage sheds the order book still owed the North Division
+(`structures/barns_stables/north`) stand as anonymous yard buildings behind five houses of the
+Wolcott-Kinzie core: `recon_1835_north_a2_094` behind the D5 `_d5_026`, `_a2_095` behind the
+D6 `_d6_027`, `_a2_096` behind the D7 `_d7_076`, `_a2_097` behind the D7 `_d7_088` and
+`_a2_098` behind the D5 `_d5_092`. They are recipe rows 94-98 of
+`data/reconstruction/1835_north_division_initial_parcel.json` (`kinzie_core_barns`), built by
+`tools/generate_north_infill.py`. **Everything about them is invented**: that any of these
+households kept a barn in July 1835, which households, where in the yard, and how big.
+
+**Why here and not on the Addition.** The 668-roof schedule dealt all five to
+`blk_indiana_north_wolcott`, the North's only platted block with ancillary room — room counted
+in roofs, not ground. T-2165 measured it: every lot is 14.71 m wide, every built one already
+keeps a woodshed or privy off the alley, and the generator's 1.5 m lot margin and 3.0 m
+separation leave 4.85-5.55 m beside it, against an A2's 18 ft (5.49 m) narrowest band.
+`blk_indiana_north_cass` is the same plat with the same arrangement. Priced against the
+dwellings they serve (T-1692), the North is a short division rather than an overbuilt one, so
+the row is built and not cut, and it is built where the houses are: this recipe carries 64
+dwellings and sixteen yard buildings, and none behind any of the 26 houses **L393** added.
+
+**What chose the houses and bounded the positions.** A rule, not a hand: of the core's
+dwellings that keep no yard building and have room for one, the largest families first (the
+two D7s, the D6, then the two D5s with the most open ground around the barn), on the reading
+that a household able to keep a horse or a carriage is likelier in the larger house. That
+reading is general, not a source about these lots. Each barn is 20 x 32 ft, the size every
+other A2 in this recipe carries, stands on its house's axis with its front wall 5 m off the
+house's rear wall, and passed a deterministic search against the generator's own tests
+(no platted corridor, covered dry ground, at most 0.35 m of relief; all five read 0.00-0.02 m)
+and four more: at least 3 m from every committed roof, nearer its own house than any other
+roof, at least 25 m from every named structure, and inside the parcel's initial occupied
+envelope (E 430-1300, N 105-390).
+
+**What it does not do.** No household is seated or moved: a yard building seats nobody. The
+one A1 stable T-2165 deals to `blk_indiana_north_wolcott` lot 9 is that ticket's, not this one's.
+
+**How to resolve:** any dated record of a North Division yard in 1835 (a lot sale with
+improvements, an insurance survey, a reminiscence that places a stable) substitutes for a
+compatible anonymous roof and never increases the total.
+
+**Covers:** `recon_1835_north_a2_094.inferred_1835.position`, `recon_1835_north_a2_094.inferred_1835.footprint`, `recon_1835_north_a2_095.inferred_1835.position`, `recon_1835_north_a2_095.inferred_1835.footprint`, `recon_1835_north_a2_096.inferred_1835.position`, `recon_1835_north_a2_096.inferred_1835.footprint`, `recon_1835_north_a2_097.inferred_1835.position`, `recon_1835_north_a2_097.inferred_1835.footprint`, `recon_1835_north_a2_098.inferred_1835.position`, `recon_1835_north_a2_098.inferred_1835.footprint`.
+**Ticket:** T-2170.
+**Related:** **L393**, **L294**, **T-2165**, **T-2168**.
+**Recorded:** 2026-10-08 (T-2170).

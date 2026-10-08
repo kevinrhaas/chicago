@@ -4033,6 +4033,51 @@
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_north_a2_059"
     },
+    "recon_1835_north_a2_094__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 181736,
+      "inputs_sha256": "28c1202ca80a6fffeaeff67e3b6c7e295b78c29a05a59c16e2f2888869416926",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_north_a2_094"
+    },
+    "recon_1835_north_a2_095__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 164584,
+      "inputs_sha256": "de3508f1b9bddd9d7d23726ec29a5a914fdb7f3ae3b657b1f3ac74ab831487d3",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_north_a2_095"
+    },
+    "recon_1835_north_a2_096__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 156472,
+      "inputs_sha256": "73e102a8f833cb3f64e355354ae5e6fc794c7c80ab9bc713ddb861e37e949fb0",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_north_a2_096"
+    },
+    "recon_1835_north_a2_097__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 163024,
+      "inputs_sha256": "360481d709ae8670f64d35807018a0a23fe75856ae4f50541c289c50e842e663",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_north_a2_097"
+    },
+    "recon_1835_north_a2_098__inferred_1835.glb": {
+      "archetype": "outbuilding",
+      "baked_ao": false,
+      "bytes": 161456,
+      "inputs_sha256": "26474a18753d044c8fdf4f44bf9172870394a9c426ca7cbe16c465c2290c44c6",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_north_a2_098"
+    },
     "recon_1835_north_a3_009__inferred_1835.glb": {
       "archetype": "outbuilding",
       "baked_ao": false,

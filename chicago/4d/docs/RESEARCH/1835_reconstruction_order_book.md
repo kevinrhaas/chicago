@@ -10,7 +10,7 @@
 | Persons | 2,548 | 1,440 | 2,036 |
 | Households | 644 | 83 | 563 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
-| Roofs | 668 | 642 | 45 |
+| Roofs | 668 | 647 | 40 |
 
 **2,926 people stand in the layer today** and **215** are still owed after the counters, so the town this book converges to is **3,141** — inside the model's 2,369-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
@@ -401,7 +401,7 @@ Two committed passes have offered every banded household ground: the plat first,
 - offered ground: 1,424
 - seated: 311 — 292 by adopting a roof that already stands, 19 by asking for one
 - still on no ground at all: 1,113
-- of the 642 roofs the town already has, 292 now carry a reconstructed household
+- of the 647 roofs the town already has, 292 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
@@ -412,25 +412,25 @@ Two committed passes have offered every banded household ground: the plat first,
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
-| `hh_bently_wm_t` | `blk_school_section_tier_94` | `blk_school_section_tier_94#07` | D7 | `merchant_and_professional_dwellings` |
-| `hh_benton_datas_e` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | H1 | `merchant_and_professional_dwellings` |
-| `hh_coslet_godfrey` | `blk_school_section_tier_81` | `blk_school_section_tier_81#05` | D4 | `tradesman_dwellings` |
+| `hh_bently_wm_t` | `blk_school_section_tier_81` | `blk_school_section_tier_81#07` | D7 | `merchant_and_professional_dwellings` |
+| `hh_benton_datas_e` | `blk_school_section_tier_94` | `blk_school_section_tier_94#07` | H1 | `merchant_and_professional_dwellings` |
+| `hh_berger_f_c` | `blk_school_section_tier_95` | `blk_school_section_tier_95#07` | D7 | `merchant_and_professional_dwellings` |
+| `hh_coslet_godfrey` | `blk_school_section_tier_81` | `blk_school_section_tier_81#05` | D3 | `tradesman_dwellings` |
 | `hh_cross_oliver` | `blk_school_section_tier_81` | `blk_school_section_tier_81#04` | D4 | `tradesman_dwellings` |
-| `hh_crull_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#03` | D5 | `tradesman_dwellings` |
+| `hh_crull_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#03` | D4 | `tradesman_dwellings` |
 | `hh_curtin_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#02` | D5 | `tradesman_dwellings` |
-| `hh_curtin_l_g` | `blk_school_section_tier_81` | `blk_school_section_tier_81#07` | D6 | `tradesman_dwellings` |
-| `hh_cutler_morris` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D3 | `tradesman_dwellings` |
-| `hh_dailey_thomas` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D4 | `tradesman_dwellings` |
-| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D4 | `tradesman_dwellings` |
-| `hh_darling_daniel` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D5 | `tradesman_dwellings` |
-| `hh_darling_enoch` | `blk_school_section_tier_94` | `blk_school_section_tier_94#01` | D5 | `tradesman_dwellings` |
-| `hh_dave_john` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D4 | `tradesman_dwellings` |
-| `hh_davis_george` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D4 | `tradesman_dwellings` |
-| `hh_delano_loring` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D5 | `tradesman_dwellings` |
-| `hh_dell_frank` | `blk_school_section_tier_95` | `blk_school_section_tier_95#02` | D5 | `tradesman_dwellings` |
-| `hh_democrat_printers` | `blk_school_section_tier_95` | `blk_school_section_tier_95#07` | D6 | `tradesman_dwellings` |
-| `hh_hunt_charles_cotesworth_pinckney` | `blk_school_section_tier_81` | `blk_school_section_tier_81#06` | D2 | `labourer_dwellings` |
-| `hh_ira_paddock` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | D2 | `labourer_dwellings` |
+| `hh_curtin_l_g` | `blk_school_section_tier_81` | `blk_school_section_tier_81#06` | D5 | `tradesman_dwellings` |
+| `hh_cutler_morris` | `blk_school_section_tier_94` | `blk_school_section_tier_94#05` | D4 | `tradesman_dwellings` |
+| `hh_dailey_thomas` | `blk_school_section_tier_94` | `blk_school_section_tier_94#04` | D5 | `tradesman_dwellings` |
+| `hh_daniel_b_clevinger_4` | `blk_school_section_tier_94` | `blk_school_section_tier_94#03` | D6 | `tradesman_dwellings` |
+| `hh_darling_daniel` | `blk_school_section_tier_94` | `blk_school_section_tier_94#02` | D6 | `tradesman_dwellings` |
+| `hh_darling_enoch` | `blk_school_section_tier_95` | `blk_school_section_tier_95#05` | D3 | `tradesman_dwellings` |
+| `hh_dave_john` | `blk_school_section_tier_95` | `blk_school_section_tier_95#04` | D4 | `tradesman_dwellings` |
+| `hh_davis_george` | `blk_school_section_tier_95` | `blk_school_section_tier_95#03` | D4 | `tradesman_dwellings` |
+| `hh_delano_loring` | `blk_school_section_tier_95` | `blk_school_section_tier_95#02` | D5 | `tradesman_dwellings` |
+| `hh_dell_frank` | `blk_school_section_tier_95` | `blk_school_section_tier_95#06` | D5 | `tradesman_dwellings` |
+| `hh_hunt_charles_cotesworth_pinckney` | `blk_school_section_tier_94` | `blk_school_section_tier_94#06` | D2 | `labourer_dwellings` |
+| `hh_ira_paddock` | `blk_school_section_tier_94` | `blk_school_section_tier_94#01` | D2 | `labourer_dwellings` |
 
 1,113 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
@@ -641,17 +641,17 @@ The December 1835 State census set against the register the town already holds.
 The roofs the 668-roof programme still owes, by archetype group and division.
 
 - `roof_target`: 668
-- `standing_records`: 642
+- `standing_records`: 647
 - `standing_with_an_occupant`: 250
-- `standing_without_an_occupant`: 392
-- `to_build_total`: 45
-- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 392 of the 642 standing records carry no occupants block today, and T-1197 re-audits them against this book.
+- `standing_without_an_occupant`: 397
+- `to_build_total`: 40
+- `redeal_note`: A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 397 of the 647 standing records carry no occupants block today, and T-1197 re-audits them against this book.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
 | `structures/barns_stables/south` | 35 | 33 | 2 | 0 | T-2165 |
 | `structures/barns_stables/west` | 20 | 19 | 1 | 0 | T-2169 |
-| `structures/barns_stables/north` | 17 | 11 | 6 | 0 | T-2170 |
+| `structures/barns_stables/north` | 17 | 16 | 1 | 0 | T-2170 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
 | `structures/fort_principal/fort` | 10 | 10 | 0 | 0 | T-1204 |
 | `structures/inns_taverns/south` | 5 | 5 | 0 | 0 | T-1683 |
@@ -687,9 +687,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 39
+- `roofs_on_committed_ground`: 34
 - `roofs_gated_on_coverage`: 6
-- `statement`: 39 of the 45 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `statement`: 34 of the 40 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 6 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -734,7 +734,7 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 - **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1413 present households name a lives_at.
 - **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1413 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
-- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 392 of 642 standing records carry no occupants block.
+- **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 397 of 647 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,548 people into 644 households.
 - **an_uncompared_class_orders_nothing** (T-1442) — A trade-census class the crosswalk rules `compared: false` carries its figures but orders no reconstruction: the difference between a census line and the register is only a shortfall where the crosswalk has ruled the two comparable. *Now:* carried uncompared: 1 of 18 enumerated business classes, each ordering nought.
 - **no_bucket_overfilled** (T-1166) — No bucket's `filled` exceeds its `to_reconstruct`; a filler that bypasses the book is red in check.sh. *Now:* enforced by --check on every gate run.
