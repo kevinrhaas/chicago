@@ -401,23 +401,24 @@ The roster offers 1,802 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,423
-- seated: 313 — 311 by adopting a roof that already stands, 2 by asking for one
-- still on no ground at all: 1,110
+- seated: 314 — 311 by adopting a roof that already stands, 3 by asking for one
+- still on no ground at all: 1,109
 - of the 673 roofs the town already has, 311 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,423 | 214 | 212 | 2 | 1,209 |
-| The ground the plat does not draw | T-1614 | 1,209 | 99 | 99 | 0 | 1,110 |
+| The committed plat | T-1613 | 1,423 | 215 | 212 | 3 | 1,208 |
+| The ground the plat does not draw | T-1614 | 1,208 | 99 | 99 | 0 | 1,109 |
 
-2 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
+3 slot(s) on 2 block(s) — blk_school_section_tier_95, blk_south_water_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
 | household | block | lot | family | clause |
 |---|---|---|---|---|
-| `hh_dickson_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#01` | D5 | `tradesman_dwellings` |
-| `hh_dird_john_david` | `blk_school_section_tier_95` | `blk_school_section_tier_95#01` | D6 | `tradesman_dwellings` |
+| `hh_dickson_david` | `blk_south_water_market` | `blk_south_water_market#01` | D5 | `tradesman_dwellings` |
+| `hh_dird_john_david` | `blk_south_water_market` | `blk_south_water_market#01` | D6 | `tradesman_dwellings` |
+| `hh_laframboise_franois` | `blk_school_section_tier_95` | `blk_school_section_tier_95#01` | D2 | `labourer_dwellings` |
 
-1,110 of the 1,423 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,109 of the 1,423 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -577,16 +578,16 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 26 | 97 | 8 | T-2188 |
-| `households/family_dwelling/south` | 258 | 72 | 186 | 16 | T-2188 |
-| `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2188 |
+| `households/family_dwelling/north` | 123 | 26 | 97 | 8 | T-2193 |
+| `households/family_dwelling/south` | 258 | 72 | 186 | 16 | T-2193 |
+| `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2193 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
-| `households/store_residence/north` | 6 | 2 | 4 | 0 | T-2188 |
-| `households/store_residence/south` | 62 | 18 | 44 | 0 | T-2188 |
-| `households/store_residence/west` | 9 | 1 | 8 | 0 | T-2188 |
+| `households/store_residence/north` | 6 | 2 | 4 | 0 | T-2194 |
+| `households/store_residence/south` | 62 | 18 | 44 | 0 | T-2194 |
+| `households/store_residence/west` | 9 | 1 | 8 | 0 | T-2194 |
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
 ## Businesses
@@ -645,7 +646,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | T-2170 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | T-1785 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | T-1205 |
-| `structures/larger_boarding_houses/south` | 28 | 26 | 2 | 0 | T-1957 |
+| `structures/larger_boarding_houses/south` | 28 | 26 | 2 | 0 | T-2196 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 0 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
 | `structures/ordinary_dwellings/south` | 176 | 168 | 8 | 0 | T-2176 |
@@ -672,9 +673,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 6
-- `roofs_gated_on_coverage`: 8
-- `statement`: 6 of the 14 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 8 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_on_committed_ground`: 9
+- `roofs_gated_on_coverage`: 5
+- `statement`: 9 of the 14 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 5 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -700,7 +701,7 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_c_t6` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 |  |
-| `ground/blk_south_water_market` | 27 | — | — | 0 |  |
+| `ground/south_plat_beyond_committed_control` | 5 | — | — | 0 |  |
 
 ## Where the model and the roof programme disagree
 

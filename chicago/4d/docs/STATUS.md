@@ -1,3 +1,30 @@
+## T-2195 — the Market wedge, plat block 21, cut into four reconstructed lots (2026-10-08)
+
+The owner answered T-1957's question on 2026-10-08 with **(b)**: build on the wedge's eastern
+two-thirds only. T-1957 was split into T-2195 (cut the lots, this) and T-2196 (raise its two
+boarding houses). `blk_south_water_market` is now emitted by `tools/generate_plat_lots.py`
+(`build_wedge`), cut on the drawn corridors with no line moved:
+
+- **Four lots, not "about five".** Lake Street lots 6, 7 and 8 and South Water lot 1. A lot is kept
+  where its mean depth reaches half the tier's 40.2 m; South Water lot 2 reads 18.6 m and is
+  withheld. The shallowest lot cut anywhere else (26.68 m) keeps the same four. L409 records it.
+- **Three structures already stood on this ground**: `newberry_dole_warehouse`, `inf_cooperage_south`
+  and `inf_sawpit_shed`. The schedule opens the block at 4 roofs of room (D5, D6, F4, plus one
+  ancillary), where it held 8 against an assumed eight lots; the rest go back to the South balance.
+- **Seating:** hh_dickson_david's D5 and hh_dird_john_david's D6 slots move to the wedge's lot 7
+  (`blk_south_water_market#01`), and hh_laframboise_franois is dealt the D2 slot on
+  `blk_school_section_tier_95#01`. Seated 214 → 215 (L270 restated). Adopted roofs do not move.
+- **Visible:** plank walks on the Lake, Franklin and South Water faces, five board crossings, an alley
+  lane, kept yards on the two improved lots and prairie remnant on the vacant ones. The wedge's west
+  edge is the cut, not Market Street, so `generate_frontage_works` skips it
+  (`wedge.faces_off_the_street`), and the cross-street face count reads 47.
+- **Two re-budgets, both named:** `check_plank_ground.mjs`'s crossing allocation goes 9,000 → 10,000
+  (the five crossings cost 668 triangles: 9,470 over 105), and the corridor-strip baseline is
+  re-written because the T-0419 counterfactual now counts the wedge (87 blocks, 425 lots, 36 re-cut).
+- **Inherited red ported:** the order book's household rows named split T-2188. They now go to T-2193
+  (family dwellings) and T-2194 (store residences), the way T-2186 ported the last split. The South's
+  boarding-house cell goes to T-2196.
+
 ## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
 
 Recovered the source checkpoint `c497167` on the owner's request. Principal

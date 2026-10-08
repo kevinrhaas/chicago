@@ -28,7 +28,7 @@
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
-    "lots": 250,
+    "lots": 252,
     "refused": 0,
     "refuges": 341,
     "paths": 325
@@ -13021,6 +13021,92 @@
           ]
         ]
       ]
+    },
+    {
+      "lot": "blk_south_water_market_lot0",
+      "structures": [
+        "inf_sawpit_shed"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          123.32,
+          -97.72
+        ],
+        [
+          146.17,
+          -97.91
+        ],
+        [
+          146.4,
+          -59.24
+        ],
+        [
+          137.99,
+          -59.17
+        ],
+        [
+          133.92,
+          -60.95
+        ],
+        [
+          132.48,
+          -62.54
+        ],
+        [
+          131.11,
+          -64.08
+        ],
+        [
+          130.87,
+          -64.39
+        ],
+        [
+          123.41,
+          -80.8
+        ]
+      ],
+      "refuges_local_enu_m": []
+    },
+    {
+      "lot": "blk_south_water_market_lot3",
+      "structures": [
+        "newberry_dole_warehouse"
+      ],
+      "kept_ring_local_enu_m": [
+        [
+          172.35,
+          -52.43
+        ],
+        [
+          195.2,
+          -52.62
+        ],
+        [
+          195.43,
+          -14.19
+        ],
+        [
+          187.86,
+          -16.28
+        ],
+        [
+          185.33,
+          -17.01
+        ],
+        [
+          185.22,
+          -17.07
+        ],
+        [
+          183.08,
+          -18.45
+        ],
+        [
+          172.51,
+          -25.32
+        ]
+      ],
+      "refuges_local_enu_m": []
     },
     {
       "lot": "blk_wabansia_c_t7_lot1",
