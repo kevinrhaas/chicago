@@ -10,7 +10,7 @@
   "counts": {
     "a_trade_reading_the_business_layer_holds_no_record_for": 22,
     "the_column_names_nobody": 60,
-    "the_family_column_names_kin": 13,
+    "the_family_column_names_kin": 12,
     "the_issue_is_printed_after_the_scene_date": 60,
     "the_letter_list_name_belongs_to_the_borderline_roster": 69,
     "the_market_and_the_port_in_aggregate": 61,
@@ -288,11 +288,6 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_10.json#claims/c015",
       "rule": "the_press_name_is_a_person_the_town_does_not_hold",
       "note": "chicago_democrat_1833_12_10 c015: a notice of 1833-12-10 naming Henry Clyburn. It reads: “S[t]rayed, FROM the Door Prairie, about the first of Nov. last, one large gray Horse, 17 hands high, and nine years old. One Iron Gray Mare, 15 1-2 hands high, and 9 years old. …” The register carries: Henry Clyburn → new_resident"
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1833_12_17 c001: the family column of 1833-12-17 reads: “MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.”"
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_24.json#claims/c008",

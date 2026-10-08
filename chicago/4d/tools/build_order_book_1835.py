@@ -4233,10 +4233,21 @@ def _moves_on_disk() -> list:
     return (book.get("re_family_ledger") or {}).get("moves", [])
 
 
-def cmd_build() -> int:
+def cmd_build(owners_gate: bool = True) -> int:
+    """Re-derive the book. `owners_gate=False` is for a FILLER re-deriving it mid-chain.
+
+    T-2189. A filler that WITHDRAWS people — the modelled-families stage taking the wives
+    and children off a head ruled dead before the day — leaves the cells it vacated owing
+    until the stage that fills them runs next (T-1174's women and children, one step
+    below it). Whether every owed row names a live ticket is a claim about the FINISHED
+    book, so it is held at the book's own `--build` and `--check`, which run after every
+    filler; refusing it mid-chain stopped the chain one step short of the stage that pays
+    the debt. The overfill check, which is about the filler's own draw, is never deferred.
+    """
     doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
-    owners = every_work_order_names_a_live_ticket(doc)
+    owners = (every_work_order_names_a_live_ticket(doc) if owners_gate else
+              "the live-owner gate is the book's own --build's, after every filler")
     finish = the_programme_finishes_where_the_rule_does(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
     BOOK.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

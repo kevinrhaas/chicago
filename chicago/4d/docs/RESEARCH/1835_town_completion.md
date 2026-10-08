@@ -8,7 +8,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 
 | join | state | what keeps it open |
 |---|---|---|
-| Every household housed | open | 128 households without a roof yet |
+| Every household housed | open | 127 households without a roof yet |
 | Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
 | Every standing roof occupied or its use stated | open | 2 standing roofs empty and owed somebody |
@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,253** people housed in a standing building: **11.3 % attested** (368), **28.9 % inferred** (939), **59.8 % reconstructed** (1,946).
+Of the **3,253** people housed in a standing building: **11.3 % attested** (369), **28.9 % inferred** (939), **59.8 % reconstructed** (1,945).
 
 ## Every table by tier
 
@@ -25,11 +25,11 @@ Of the **3,253** people housed in a standing building: **11.3 % attested** (368)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 368 | 939 | 1,946 | 3,253 |
-| counted apart — waiting on a roof | 44 | 84 | 202 | 330 |
+| housed | 369 | 939 | 1,945 | 3,253 |
+| counted apart — waiting on a roof | 43 | 84 | 202 | 329 |
 | counted apart — absent on the scene date | 0 | 7 | 28 | 35 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **412** | **1,030** | **2,176** | **3,618** |
+| **all** | **412** | **1,030** | **2,175** | **3,617** |
 | share | 11.4 % | 28.5 % | 60.1 % | |
 
 ### Households (by the head's grade)
@@ -37,11 +37,11 @@ Of the **3,253** people housed in a standing building: **11.3 % attested** (368)
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
 | housed | 357 | 923 | 566 | 1,846 |
-| counted apart — waiting on a roof | 44 | 84 | 0 | 128 |
+| counted apart — waiting on a roof | 43 | 84 | 0 | 127 |
 | counted apart — absent on the scene date | 0 | 7 | 28 | 35 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **401** | **1,014** | **594** | **2,009** |
-| share | 20.0 % | 50.5 % | 29.6 % | |
+| **all** | **400** | **1,014** | **594** | **2,008** |
+| share | 19.9 % | 50.5 % | 29.6 % | |
 
 ### Working-age persons
 
@@ -50,8 +50,8 @@ Of the **3,253** people housed in a standing building: **11.3 % attested** (368)
 | at a workplace | 159 | 7 | 160 | 326 |
 | no fixed premises (stated) | 20 | 0 | 317 | 337 |
 | owed a workplace | 1 | 0 | 26 | 27 |
-| no trade recorded | 232 | 972 | 382 | 1,586 |
-| **all** | **412** | **979** | **885** | **2,276** |
+| no trade recorded | 232 | 972 | 381 | 1,585 |
+| **all** | **412** | **979** | **884** | **2,275** |
 | share | 18.1 % | 43.0 % | 38.9 % | |
 
 ### Businesses (by the primary location's tier)

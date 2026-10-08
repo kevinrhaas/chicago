@@ -27,7 +27,7 @@
     "present_households_already_housed": 93,
     "present_households_owed_a_roof": 927,
     "ruled_in_households_already_housed": 51,
-    "ruled_in_households_owed_a_roof": 902,
+    "ruled_in_households_owed_a_roof": 901,
     "seated": 1701,
     "seated_by_presence": {
       "on_the_card": 927,
@@ -37,11 +37,11 @@
     "persons_seated": 2753,
     "counted_apart": {
       "absent_on_the_scene_date": 35,
-      "waiting_on_a_roof": 128
+      "waiting_on_a_roof": 127
     },
     "persons_counted_apart": {
       "absent_on_the_scene_date": 35,
-      "waiting_on_a_roof": 330
+      "waiting_on_a_roof": 329
     },
     "by_rung": {
       "boarder": 1209,
@@ -96,7 +96,7 @@
     "order": "the ruling's leg, strongest first (on_the_day, spans, bracketed, carried), then the nearest last dated reading, then a seeded hash",
     "the_line_stops": "at the first household the census's people per dwelling cannot take; nobody behind it is seated, so a weaker ruling never takes a roof a stronger one waits for",
     "admitted": 774,
-    "waiting": 128,
+    "waiting": 127,
     "admitted_by_leg": {
       "bracketed": 30,
       "carried": 659,
@@ -104,7 +104,7 @@
       "spans": 34
     },
     "waiting_by_leg": {
-      "carried": 128
+      "carried": 127
     }
   },
   "counted_apart_reasons": {
@@ -20533,7 +20533,7 @@
       "persons": 5,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 895
+      "queue_position": 894
     },
     {
       "household": "hh_andrews_julian",
@@ -20541,7 +20541,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 882
+      "queue_position": 881
     },
     {
       "household": "hh_ann_cierno",
@@ -20549,7 +20549,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 871
+      "queue_position": 870
     },
     {
       "household": "hh_archer_william_b",
@@ -20557,7 +20557,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 844
+      "queue_position": 843
     },
     {
       "household": "hh_arquette_joseph",
@@ -20565,7 +20565,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 892
+      "queue_position": 891
     },
     {
       "household": "hh_arquette_michel",
@@ -20573,7 +20573,7 @@
       "persons": 8,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 899
+      "queue_position": 898
     },
     {
       "household": "hh_aspam_antoine",
@@ -20581,7 +20581,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 802
+      "queue_position": 801
     },
     {
       "household": "hh_aspam_jean_baptiste",
@@ -20589,7 +20589,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 804
+      "queue_position": 803
     },
     {
       "household": "hh_aspam_magdeleine",
@@ -20597,7 +20597,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 810
+      "queue_position": 809
     },
     {
       "household": "hh_ballard_c_a",
@@ -20613,7 +20613,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 884
+      "queue_position": 883
     },
     {
       "household": "hh_bates_harriet_ellen",
@@ -20621,7 +20621,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 855
+      "queue_position": 854
     },
     {
       "household": "hh_beaubien_b",
@@ -20629,7 +20629,7 @@
       "persons": 7,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 842
+      "queue_position": 841
     },
     {
       "household": "hh_beaubien_caroline",
@@ -20637,7 +20637,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 829
+      "queue_position": 828
     },
     {
       "household": "hh_beaubien_george",
@@ -20645,7 +20645,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 835
+      "queue_position": 834
     },
     {
       "household": "hh_beaubien_john_s",
@@ -20661,7 +20661,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 806
+      "queue_position": 805
     },
     {
       "household": "hh_beaubien_monique",
@@ -20669,7 +20669,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 809
+      "queue_position": 808
     },
     {
       "household": "hh_bickerdyke_george",
@@ -20677,7 +20677,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 796
+      "queue_position": 795
     },
     {
       "household": "hh_blanchemontagne_alexis_thomas",
@@ -20685,7 +20685,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 887
+      "queue_position": 886
     },
     {
       "household": "hh_bonn_augustin",
@@ -20693,7 +20693,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 803
+      "queue_position": 802
     },
     {
       "household": "hh_bouchard_louis",
@@ -20701,7 +20701,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 816
+      "queue_position": 815
     },
     {
       "household": "hh_bourrassa_leon",
@@ -20709,7 +20709,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 860
+      "queue_position": 859
     },
     {
       "household": "hh_brackett_e_c",
@@ -20717,7 +20717,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 870
+      "queue_position": 869
     },
     {
       "household": "hh_braxton_lewis",
@@ -20725,7 +20725,7 @@
       "persons": 7,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 876
+      "queue_position": 875
     },
     {
       "household": "hh_brenin_mary",
@@ -20733,7 +20733,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 869
+      "queue_position": 868
     },
     {
       "household": "hh_bristol_charles_l",
@@ -20741,7 +20741,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 867
+      "queue_position": 866
     },
     {
       "household": "hh_brown_hanna_e",
@@ -20749,7 +20749,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 798
+      "queue_position": 797
     },
     {
       "household": "hh_bruno_anne_franoise_apolline",
@@ -20757,7 +20757,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 856
+      "queue_position": 855
     },
     {
       "household": "hh_bruno_jean_baptiste",
@@ -20765,7 +20765,7 @@
       "persons": 7,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 848
+      "queue_position": 847
     },
     {
       "household": "hh_burton_edward",
@@ -20773,7 +20773,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 868
+      "queue_position": 867
     },
     {
       "household": "hh_calhoun_samuel",
@@ -20789,7 +20789,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 850
+      "queue_position": 849
     },
     {
       "household": "hh_chandler_catherine",
@@ -20797,7 +20797,7 @@
       "persons": 7,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 854
+      "queue_position": 853
     },
     {
       "household": "hh_chapley_m_s",
@@ -20823,7 +20823,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 805
+      "queue_position": 804
     },
     {
       "household": "hh_choulet_michel_alexandre",
@@ -20831,7 +20831,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 873
+      "queue_position": 872
     },
     {
       "household": "hh_clark_john_k",
@@ -20839,7 +20839,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 851
+      "queue_position": 850
     },
     {
       "household": "hh_clark_timothy_j",
@@ -20847,7 +20847,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 800
+      "queue_position": 799
     },
     {
       "household": "hh_clarke_w_b",
@@ -20855,7 +20855,7 @@
       "persons": 7,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 879
+      "queue_position": 878
     },
     {
       "household": "hh_cr_jaespquaa",
@@ -20873,7 +20873,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 845
+      "queue_position": 844
     },
     {
       "household": "hh_daniel_frederick",
@@ -20881,7 +20881,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 841
+      "queue_position": 840
     },
     {
       "household": "hh_dewey_d_s",
@@ -20889,7 +20889,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 862
+      "queue_position": 861
     },
     {
       "household": "hh_dewey_s",
@@ -20897,7 +20897,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 837
+      "queue_position": 836
     },
     {
       "household": "hh_dird_john_david",
@@ -20905,7 +20905,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 828
+      "queue_position": 827
     },
     {
       "household": "hh_dixon_robert",
@@ -20913,7 +20913,7 @@
       "persons": 8,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 894
+      "queue_position": 893
     },
     {
       "household": "hh_duplas_catherine",
@@ -20931,7 +20931,7 @@
       "persons": 5,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 902
+      "queue_position": 901
     },
     {
       "household": "hh_ebenezer_crane",
@@ -20949,7 +20949,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 897
+      "queue_position": 896
     },
     {
       "household": "hh_forster_bridget",
@@ -20957,7 +20957,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 861
+      "queue_position": 860
     },
     {
       "household": "hh_franchre_louis",
@@ -20965,7 +20965,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 830
+      "queue_position": 829
     },
     {
       "household": "hh_gagnier_alexis",
@@ -20973,7 +20973,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 814
+      "queue_position": 813
     },
     {
       "household": "hh_gagnier_catherine",
@@ -20981,7 +20981,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 813
+      "queue_position": 812
     },
     {
       "household": "hh_green_mary",
@@ -20989,7 +20989,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 846
+      "queue_position": 845
     },
     {
       "household": "hh_guy_josphine",
@@ -20997,7 +20997,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 863
+      "queue_position": 862
     },
     {
       "household": "hh_hall_george",
@@ -21005,7 +21005,7 @@
       "persons": 7,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 865
+      "queue_position": 864
     },
     {
       "household": "hh_harrington_catherine",
@@ -21013,7 +21013,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 824
+      "queue_position": 823
     },
     {
       "household": "hh_hartzell_thomas",
@@ -21039,7 +21039,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 872
+      "queue_position": 871
     },
     {
       "household": "hh_hogue_william",
@@ -21047,7 +21047,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 890
+      "queue_position": 889
     },
     {
       "household": "hh_holcombe_miles",
@@ -21055,7 +21055,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 797
+      "queue_position": 796
     },
     {
       "household": "hh_howe_sarah_d",
@@ -21063,7 +21063,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 843
+      "queue_position": 842
     },
     {
       "household": "hh_hubbard_ahira",
@@ -21071,7 +21071,7 @@
       "persons": 5,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 878
+      "queue_position": 877
     },
     {
       "household": "hh_hunt_charles_cotesworth_pinckney",
@@ -21079,7 +21079,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 893
+      "queue_position": 892
     },
     {
       "household": "hh_j_w_zarley",
@@ -21127,7 +21127,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 823
+      "queue_position": 822
     },
     {
       "household": "hh_jones_d_e",
@@ -21143,7 +21143,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 886
+      "queue_position": 885
     },
     {
       "household": "hh_juneau_marguerite",
@@ -21151,7 +21151,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 827
+      "queue_position": 826
     },
     {
       "household": "hh_keyes_edward",
@@ -21167,7 +21167,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 793
+      "queue_position": 792
     },
     {
       "household": "hh_kulozjcky_john",
@@ -21175,7 +21175,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 864
+      "queue_position": 863
     },
     {
       "household": "hh_laframboise_franois",
@@ -21183,7 +21183,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 815
+      "queue_position": 814
     },
     {
       "household": "hh_lavigne_jean_baptiste",
@@ -21191,7 +21191,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 811
+      "queue_position": 810
     },
     {
       "household": "hh_leframboise_joseph",
@@ -21215,7 +21215,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 817
+      "queue_position": 816
     },
     {
       "household": "hh_ltendre_joseph",
@@ -21223,7 +21223,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 818
+      "queue_position": 817
     },
     {
       "household": "hh_lucinda_jackson",
@@ -21241,7 +21241,7 @@
       "persons": 6,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 885
+      "queue_position": 884
     },
     {
       "household": "hh_mallet_marie_louise",
@@ -21249,7 +21249,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 838
+      "queue_position": 837
     },
     {
       "household": "hh_marknoble_jun",
@@ -21257,7 +21257,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 791
+      "queue_position": 790
     },
     {
       "household": "hh_mayo_joseph",
@@ -21265,7 +21265,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 833
+      "queue_position": 832
     },
     {
       "household": "hh_mayo_michel",
@@ -21273,7 +21273,7 @@
       "persons": 8,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 834
+      "queue_position": 833
     },
     {
       "household": "hh_miller_catherine",
@@ -21281,7 +21281,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 880
+      "queue_position": 879
     },
     {
       "household": "hh_min_ne_mung",
@@ -21309,7 +21309,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 891
+      "queue_position": 890
     },
     {
       "household": "hh_more_ebenezer_s",
@@ -21317,7 +21317,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 847
+      "queue_position": 846
     },
     {
       "household": "hh_morris_potily",
@@ -21325,7 +21325,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 859
+      "queue_position": 858
     },
     {
       "household": "hh_morrison_amanda",
@@ -21333,7 +21333,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 794
+      "queue_position": 793
     },
     {
       "household": "hh_murray_catherine",
@@ -21341,7 +21341,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 896
+      "queue_position": 895
     },
     {
       "household": "hh_murray_john",
@@ -21349,7 +21349,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 853
+      "queue_position": 852
     },
     {
       "household": "hh_murray_martha",
@@ -21367,7 +21367,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 792
+      "queue_position": 791
     },
     {
       "household": "hh_noble_mary",
@@ -21375,7 +21375,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 795
+      "queue_position": 794
     },
     {
       "household": "hh_nolan_michael",
@@ -21383,7 +21383,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 898
+      "queue_position": 897
     },
     {
       "household": "hh_omarra_bridget",
@@ -21401,7 +21401,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 900
+      "queue_position": 899
     },
     {
       "household": "hh_parsons_thomas",
@@ -21409,7 +21409,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 799
+      "queue_position": 798
     },
     {
       "household": "hh_pettit_c",
@@ -21417,7 +21417,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 857
+      "queue_position": 856
     },
     {
       "household": "hh_pottier_augustin",
@@ -21425,7 +21425,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 832
+      "queue_position": 831
     },
     {
       "household": "hh_riffe_pierre",
@@ -21433,7 +21433,7 @@
       "persons": 3,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 858
+      "queue_position": 857
     },
     {
       "household": "hh_robi_marguerite",
@@ -21441,7 +21441,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 901
+      "queue_position": 900
     },
     {
       "household": "hh_roi_anne_franoise_virginie",
@@ -21449,7 +21449,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 852
+      "queue_position": 851
     },
     {
       "household": "hh_roi_george_david",
@@ -21457,7 +21457,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 888
+      "queue_position": 887
     },
     {
       "household": "hh_roi_joseph_claude",
@@ -21483,7 +21483,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 839
+      "queue_position": 838
     },
     {
       "household": "hh_sherman_rebecca",
@@ -21491,7 +21491,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 836
+      "queue_position": 835
     },
     {
       "household": "hh_smith_lawrence",
@@ -21499,7 +21499,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 883
+      "queue_position": 882
     },
     {
       "household": "hh_smith_mathias",
@@ -21507,7 +21507,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 831
+      "queue_position": 830
     },
     {
       "household": "hh_stoer_clement",
@@ -21523,7 +21523,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 881
+      "queue_position": 880
     },
     {
       "household": "hh_sweet_richard_m",
@@ -21539,7 +21539,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 877
+      "queue_position": 876
     },
     {
       "household": "hh_tony_jacob",
@@ -21547,7 +21547,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 889
+      "queue_position": 888
     },
     {
       "household": "hh_tony_louisa",
@@ -21565,7 +21565,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 849
+      "queue_position": 848
     },
     {
       "household": "hh_tranche_susanne",
@@ -21573,7 +21573,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 812
+      "queue_position": 811
     },
     {
       "household": "hh_um_as_ke_witt",
@@ -21751,7 +21751,7 @@
       "persons": 5,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 874
+      "queue_position": 873
     },
     {
       "household": "hh_vieau_jacob",
@@ -21759,7 +21759,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 826
+      "queue_position": 825
     },
     {
       "household": "hh_vieau_josette",
@@ -21767,7 +21767,7 @@
       "persons": 2,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 819
+      "queue_position": 818
     },
     {
       "household": "hh_vieau_marie_josette",
@@ -21775,7 +21775,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 825
+      "queue_position": 824
     },
     {
       "household": "hh_vieau_paul",
@@ -21783,7 +21783,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 808
+      "queue_position": 807
     },
     {
       "household": "hh_vieaux_susanne",
@@ -21791,7 +21791,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 807
+      "queue_position": 806
     },
     {
       "household": "hh_walker_jeremiah",
@@ -21799,20 +21799,12 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 801
+      "queue_position": 800
     },
     {
       "household": "hh_walton_henry",
       "file": "households/hh_walton_henry.json",
       "persons": 3,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 789
-    },
-    {
-      "household": "hh_weaver_betsy",
-      "file": "households/hh_weaver_betsy.json",
-      "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
       "queue_position": 788
@@ -21823,7 +21815,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 840
+      "queue_position": 839
     },
     {
       "household": "hh_welsh_t",
@@ -21831,7 +21823,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 866
+      "queue_position": 865
     },
     {
       "household": "hh_wesencraft_charlotte",
@@ -21839,7 +21831,7 @@
       "persons": 4,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 790
+      "queue_position": 789
     },
     {
       "household": "hh_wessencraft_charles",
@@ -21865,7 +21857,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 822
+      "queue_position": 821
     },
     {
       "household": "hh_wode_john",
@@ -21873,7 +21865,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 821
+      "queue_position": 820
     },
     {
       "household": "hh_wode_mary",
@@ -21881,7 +21873,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 820
+      "queue_position": 819
     },
     {
       "household": "hh_wolcott_alexander",
@@ -21899,7 +21891,7 @@
       "persons": 1,
       "why": "waiting_on_a_roof",
       "leg": "carried",
-      "queue_position": 875
+      "queue_position": 874
     }
   ]
 }

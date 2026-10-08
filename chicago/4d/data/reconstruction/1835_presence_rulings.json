@@ -22,7 +22,7 @@
     "bracketed": "inferred — the corpus reads this person at Chicago on both sides of the day.",
     "carried": "reconstructed — the corpus stops before the day; the project's standing rule carries the presence and the persistence model prices it."
   },
-  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 953 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
+  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 952 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
   "nothing_is_drawn_here": "T-1172 drew against the persistence model and ruled 37 cards `absent` on the losing side. This stage does not draw: an absence with no evidence under it is not a finding, and the two evidenced absences below are the shape of a correct exclusion. `basis.kind` is `rule` and a rule owes no seed.",
   "persistence_model": {
     "id": "persistence_1835",
@@ -31,33 +31,33 @@
     "used_for": "pricing a `carried` ruling, never for deciding one"
   },
   "counts": {
-    "households_ruled": 953,
-    "persons_ruled": 1868,
+    "households_ruled": 952,
+    "persons_ruled": 1867,
     "households_by_leg": {
       "on_the_day": 60,
       "spans": 49,
       "bracketed": 32,
-      "carried": 812
+      "carried": 811
     },
     "persons_by_leg": {
       "on_the_day": 183,
       "spans": 132,
       "bracketed": 51,
-      "carried": 1502
+      "carried": 1501
     },
     "households_by_tier": {
-      "reconstructed": 812,
+      "reconstructed": 811,
       "inferred": 81,
       "attested": 60
     },
     "persons_by_tier": {
-      "reconstructed": 1502,
+      "reconstructed": 1501,
       "inferred": 183,
       "attested": 183
     },
     "persons_by_residence_grade": {
       "inferred": 681,
-      "attested": 278,
+      "attested": 277,
       "reconstructed": 909
     },
     "rulings_above_t1172_blanket_reconstructed": 141,
@@ -31582,43 +31582,6 @@
           "persistence": 0.9237
         },
         "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_weaver_betsy",
-      "name": "The Weaver household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1833-12-17, 1.536 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.907 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 1.536,
-          "persistence": 0.907
-        },
-        "residence_grade_this_stands_beside": "attested"
       },
       "the_inferred_value_this_stands_beside": "uncertain",
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"

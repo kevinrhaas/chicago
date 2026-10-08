@@ -2431,7 +2431,7 @@
       }
     },
     {
-      "person": "rc_ingersoll_chester_wife",
+      "person": "weaver_betsy",
       "household": "hh_ingersoll_chester",
       "relationship": "wife",
       "stage": "modelled_families",
@@ -2439,7 +2439,7 @@
       "bucket": "persons/female/20_29/west/family/none",
       "rung": "R_seated",
       "adoptions": [],
-      "deal_key": "hh_ingersoll_chester:rc_ingersoll_chester_wife",
+      "deal_key": "hh_ingersoll_chester:weaver_betsy",
       "axes": {
         "sex": "female",
         "age_band": "20_29",
@@ -7141,6 +7141,36 @@
         "division": "north",
         "household": "family",
         "trade": "none"
+      }
+    },
+    {
+      "person": "rc_chapin_eliza",
+      "household": "hh_rc_chapin_eliza",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": [
+            "rcb_chapin_millinery"
+          ]
+        },
+        {
+          "layer": "business",
+          "business": "index"
+        }
+      ],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:milliner:006",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
+        "household": "family",
+        "trade": "trade"
       }
     },
     {
@@ -12027,6 +12057,24 @@
         "sex": "female",
         "age_band": "30_39",
         "division": "south",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_goodrich_lydia",
+      "household": "hh_rc_goodrich_lydia",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "C1",
+      "adoptions": [],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:domestic:003",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
         "household": "family",
         "trade": "trade"
       }
@@ -17128,6 +17176,30 @@
       }
     },
     {
+      "person": "rc_parmelee_abigail",
+      "household": "hh_rc_parmelee_abigail",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:boarding_house_keeper:002",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_parmelee_abner",
       "household": "hh_rc_parmelee_abner",
       "relationship": "head",
@@ -17845,6 +17917,24 @@
       }
     },
     {
+      "person": "rc_quinn_alice",
+      "household": "hh_rc_quinn_alice",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "C1",
+      "adoptions": [],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:domestic:004",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_quinn_ellen",
       "household": "hh_rc_quinn_ellen",
       "relationship": "head",
@@ -18102,6 +18192,30 @@
         "sex": "male",
         "age_band": "30_39",
         "division": "south",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_reilly_bridget",
+      "household": "hh_rc_reilly_bridget",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:boarding_house_keeper:007",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
         "household": "family",
         "trade": "trade"
       }
@@ -20136,6 +20250,30 @@
       }
     },
     {
+      "person": "rc_sullivan_ellen",
+      "household": "hh_rc_sullivan_ellen",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "R_adopted",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "on_their_own_account",
+          "houses": []
+        }
+      ],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:boarding_house_keeper:001",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_sullivan_james",
       "household": "hh_rc_sullivan_james",
       "relationship": "head",
@@ -20165,6 +20303,24 @@
         "sex": "male",
         "age_band": "20_29",
         "division": "south",
+        "household": "family",
+        "trade": "trade"
+      }
+    },
+    {
+      "person": "rc_sullivan_johanna",
+      "household": "hh_rc_sullivan_johanna",
+      "relationship": "head",
+      "stage": "trade_households",
+      "ticket": "T-1347",
+      "bucket": "persons/female/30_39/west/family/trade",
+      "rung": "C1",
+      "adoptions": [],
+      "deal_key": "trade_households:persons/female/30_39/west/family/trade:domestic:005",
+      "axes": {
+        "sex": "female",
+        "age_band": "30_39",
+        "division": "west",
         "household": "family",
         "trade": "trade"
       }
@@ -30164,25 +30320,25 @@
     }
   ],
   "counts": {
-    "people_in_the_refused_buckets": 1181,
+    "people_in_the_refused_buckets": 1188,
     "the_surplus_those_buckets_hold": 409,
     "by_rung": {
       "C0": 220,
-      "C1": 535,
-      "R_adopted": 283,
+      "C1": 538,
+      "R_adopted": 287,
       "R_house_is_not_wholly_held": 25,
       "R_seated": 66,
       "R_division_is_a_reading": 52
     },
-    "movable_people": 755,
-    "refused_on_their_own_account": 313,
+    "movable_people": 758,
+    "refused_on_their_own_account": 317,
     "refused_with_their_house": 113,
-    "carrying_an_adoption_themselves": 201,
+    "carrying_an_adoption_themselves": 205,
     "moves_the_rule_yields": 142,
     "buckets_moved_out_of": 41,
     "buckets_moved_into": 43,
     "adoptions_carried": 0,
-    "the_roster_is_reconciled": "all 52 refused buckets accounted for, 1,181 people named"
+    "the_roster_is_reconciled": "all 53 refused buckets accounted for, 1,188 people named"
   },
   "the_ceilings": {
     "_doc": "Upper bounds, each loosening ONE more axis than the one above it. They are bounds and not plans: the rule's own yield is below the last of them because movability then applies.",
@@ -30198,16 +30354,16 @@
     "and_the_disjointness_is_total": "Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 5 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time."
   },
   "what_the_town_converges_to": {
-    "persons_standing_in_the_layer": 2920,
+    "persons_standing_in_the_layer": 2919,
     "still_owed_now": 13,
-    "converges_to_now": 2933,
-    "converges_to_if_the_rule_is_spent": 2791,
+    "converges_to_now": 2932,
+    "converges_to_if_the_rule_is_spent": 2790,
     "the_model_point": 2548,
     "the_model_range": [
       2369,
       3265
     ],
-    "reading": "2,791 is inside the model's 2,369-3,265 and 243 above its 2,548 point, against 385 above it today."
+    "reading": "2,790 is inside the model's 2,369-3,265 and 242 above its 2,548 point, against 384 above it today."
   },
   "what_would_raise_the_ceiling": [
     {
@@ -30217,7 +30373,7 @@
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "201 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "205 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {

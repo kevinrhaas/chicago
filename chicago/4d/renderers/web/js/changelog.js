@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1549, ts: '2026-10-08T22:13:37.536Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
+      'The paper\u2019s \u201cMiss\u201d now sets her card to female, quoting the column. She is seated in his house as his wife, in place of the invented one, and the house card quotes the marriage notice. His six children are still reconstructed, not named by any source, and are unchanged.',
+    ] },
   { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [
       'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',
