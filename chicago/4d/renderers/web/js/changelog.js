@@ -1,4 +1,7 @@
 export const CHANGELOG = [ // newest first
+  { v: 1530, ts: '2026-10-08T10:39:57.669Z', date: 'Oct 8, 2026, 5:39 AM CT', title: 'A continuous lake shore in 1812', kind: 'fix',
+    items: ['The sharp notch beside the river mouth is gone. The lake shore now flows smoothly into the sand spit while the river still turns south behind it.',
+      'The corrected curve is labelled reconstructed: early maps support a continuous shore, but do not establish its exact outline.'] },
   { v: 1529, ts: '2026-10-08T10:24:03.249Z', date: 'Oct 8, 2026, 5:24 AM CT', title: 'The town\u2019s street-edge checks count what the last five builds laid', kind: 'fix',
     items: [
       'Nothing you can see changes. The automated walk-through that checks the plank walks, fences, door fittings and building-material piles had fallen behind the town.',

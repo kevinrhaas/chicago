@@ -3,7 +3,7 @@
   "source": "docs/LIBERTIES.md",
   "standard": "A visitor should be able to tell you which parts we made up.",
   "note": "The confidence model covers attributes. These are the decisions that live above any single attribute: scope, omission, simplification, and the choices a visitor would otherwise have to reverse-engineer.",
-  "count": 426,
+  "count": 427,
   "liberties": [
     {
       "id": "L1",
@@ -26815,6 +26815,40 @@
         {
           "label": "Recorded",
           "text": "2026-10-08 (T-2172)."
+        }
+      ]
+    },
+    {
+      "id": "L403",
+      "title": "continuous outer lake shore at the 1812 spit",
+      "section": "per_subject",
+      "subjects": [],
+      "covers": [
+        {
+          "domain": "terrain",
+          "epoch": "e1830_natural",
+          "claim": "isthmus_1812"
+        },
+        {
+          "domain": "terrain",
+          "epoch": "e1830_natural",
+          "claim": "north_lake_shore_1812"
+        }
+      ],
+      "recorded": "2026-10-08",
+      "revised": null,
+      "fields": [
+        {
+          "label": "What",
+          "text": "Supersedes T-2003's narrow outer ribbon and root-to-shore chord at the attachment only. That construction created a V-shaped lake inlet unsupported by the checked Whistler 1808, retrospective Andreas 1812 and Harrison 1830 maps. We reconstruct a continuous outer face with a monotone cubic between Wright-carried bar vertex 3 and north-shore vertex 39. Adjacent retained trace segments bound its tangents; 24 subdivisions resolve the curve. These endpoints, tangents and interpolation are modelling choices, not a measured 1812 survey. The river-side edge, lower spit and outlet retain their prior coordinates; the +4 ft crest and 12 m shore faces retain their reconstructed heights. `width_ft` now controls the old reference ribbon's river-side offset, not total land width. A scaled pre-1833 lake-edge survey would replace this choice; later accretion in the carried north shore remains unresolved. See `RESEARCH/shore_1812_pre_cut.md`."
+        },
+        {
+          "label": "Covers",
+          "text": "`terrain.e1830_natural.north_lake_shore_1812`, `terrain.e1830_natural.isthmus_1812`."
+        },
+        {
+          "label": "Recorded",
+          "text": "2026-10-08 (T-2171)."
         }
       ]
     },
