@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## T-2100 — two in-town measurement stands re-posed to show the yard and the shop front (2026-10-08)
 
 - **What changed:** `tools/measure_detail_ceilings.mjs` (and the copy in
@@ -14,7 +13,6 @@
   already ran at.
 - **Not verified:** nothing in the scene changed, so no visual parcel was re-judged at the new
   stands in this run; T-2085..T-2087's own acceptances were judged at the old poses.
-=======
 ## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
 
 Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
@@ -38,7 +36,6 @@ no Wolcott lot can hold.
   678 → 681 (on top of T-2165's three and T-2146's thirteen); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
   redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
   register, population profile, hay limits and the Newberry parse re-derived.
->>>>>>> origin/dev
 
 ## T-2059 — the mobile flora heartbeat back under 250 ms (2026-10-08)
 
