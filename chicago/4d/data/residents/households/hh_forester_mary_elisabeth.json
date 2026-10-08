@@ -119,6 +119,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "forester_mary_elisabeth",
+   "relation": "daughter",
+   "household": "hh_finegan_bridget",
+   "value": "finegan_bridget",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On twenty third of February eighteen hundred thirty five I, the undersigned, baptised Mary Elisabeth daughter of Thomas Forester and of Brigitt Finegan, born the twenty first of instant 1835. Sponsors were Patrick Carroll and Mary Murphy. Both cards were minted from this entry's rows (st_marys_bapt_1835_01_3_mother, st_marys_bapt_1835_01_1_child), so no identification is made here. The daughter term is the entry's: 'Mary Elisabeth daughter of Thomas Forester'."
+  },
+  {
+   "person": "forester_mary_elisabeth",
+   "relation": "daughter",
+   "household": "hh_forester_thomas",
+   "value": "forester_thomas",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On twenty third of February eighteen hundred thirty five I, the undersigned, baptised Mary Elisabeth daughter of Thomas Forester and of Brigitt Finegan, born the twenty first of instant 1835. Sponsors were Patrick Carroll and Mary Murphy. Both cards were minted from this entry's rows (st_marys_bapt_1835_01_2_father, st_marys_bapt_1835_01_1_child), so no identification is made here. The daughter term is the entry's: 'Mary Elisabeth daughter of Thomas Forester'."
+  }
+ ],
  "persons": [
   {
    "id": "forester_mary_elisabeth",

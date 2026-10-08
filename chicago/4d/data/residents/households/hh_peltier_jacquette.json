@@ -133,6 +133,30 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 2 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 3 of 277 in that order, before the walk stopped. The 1 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "peltier_jacquette",
+   "relation": "mother",
+   "household": "hh_laframboise_franois",
+   "value": "laframboise_franois",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le trente [unième] d'août mil huit cent trente trois, je soussigné ai baptisé François Lafambise fils de Joseph Laframboise et de Jacquet Peltier, né le 1er août mil huit cent trente trois. Parrain et marraine ont été Mark Beaubien et Josette Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1833_13_3_mother, st_marys_bapt_1833_13_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "peltier_jacquette",
+   "relation": "mother",
+   "household": "hh_laframboise_thrse",
+   "value": "laframboise_thrse",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans. Both cards were minted from this entry's rows (st_marys_bapt_1834_15_3_mother, st_marys_bapt_1834_15_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "peltier_jacquette",

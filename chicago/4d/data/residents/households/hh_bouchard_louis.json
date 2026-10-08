@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "bouchard_louis",
+   "relation": "son",
+   "household": "hh_bouchard_adelaide",
+   "value": "bouchard_adelaide",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the eighteenth of August eighteen hundred and thirty three, I the undersigned, baptised Louis son of Andrew and of Adelaide Bouchard born the 4th December 1830. Sponsors were Augustin Bonné and Josette Chevalier. Both cards were minted from this entry's rows (st_marys_bapt_1833_11_3_mother, st_marys_bapt_1833_11_1_child), so no identification is made here. The son term is the entry's: 'Louis son of Andrew and of Adelaide Bouchard'."
+  }
+ ],
  "persons": [
   {
    "id": "bouchard_louis",

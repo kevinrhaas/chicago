@@ -1,6 +1,11 @@
 export const CHANGELOG = [ // newest first
-  { v: 1539, ts: '2026-10-08T15:09:52.689Z', date: 'Oct 8, 2026, 10:09 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
+  { v: 1540, ts: '2026-10-08T16:09:29.548Z', date: 'Oct 8, 2026, 11:09 AM CT', title: 'Five barns behind the houses north of the river', kind: 'feature',
     items: ['Five of the larger houses between Kinzie Street and Michigan Street now keep a barn or carriage shed in the back yard. The town plan had them all on one block in Kinzie\u2019s Addition, but its lots were too narrow for a barn beside the sheds already there, so each one stands behind a house instead. Like every unnamed building here, they are reconstructions; the What\u2019s-made-up list says so.'] },
+  { v: 1539, ts: '2026-10-08T15:08:49.538Z', date: 'Oct 8, 2026, 10:08 AM CT', title: 'Forty church-register children now linked to their parents', kind: 'feature',
+    items: [
+      'Open the card of a child baptised at St Mary\u2019s between 1833 and 1835, such as George Beaubien or Caroline Beaubien. It now names the child\u2019s father or mother, and the parent\u2019s card names the child back.',
+      'That is 61 parent-and-child links across 40 children. Each one is quoted from the baptism entry, and son or daughter is taken from the priest\u2019s own word.',
+    ] },
   { v: 1538, ts: '2026-10-08T14:46:44.080Z', date: 'Oct 8, 2026, 9:46 AM CT', title: 'Six houses on the Market block south of Madison', kind: 'feature',
     items: [
       'Walk south across Madison Street at Market and the block between Madison and Monroe is no longer empty. Three frame houses face Madison and three face Monroe, from a small cottage on the Madison corner to a larger frame house on the Monroe corner.',

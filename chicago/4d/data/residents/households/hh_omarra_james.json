@@ -131,6 +131,19 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 2 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 161, so none of its 1 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "omarra_james",
+   "relation": "father",
+   "household": "hh_omarra_bridget",
+   "value": "omarra_bridget",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the twentieth of August 1835 I, the undersigned baptized Brigitt O'Marra daughter of James O'Marra and Cierno Ann, born the nineteenth of August eighteen hundred thirty five. Sponsors were John Murphy and Brigitte his wife. Both cards were minted from this entry's rows (st_marys_bapt_1835_07_2_father, st_marys_bapt_1835_07_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "omarra_james",
