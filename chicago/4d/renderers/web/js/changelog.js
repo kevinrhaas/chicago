@@ -4,6 +4,7 @@ export const CHANGELOG = [ // newest first
       'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
       'No record names it. It is the West Division\u2019s second warehouse, which the plan counted and nobody had built. The plan first put it a block inland, where no river reaches. Here the river runs closer to West Water Street than anywhere else on the west side, so a warehouse can face its landing.',
       'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L400).',
+    ] },
   { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
     items: [
       'Evidence \u2192 City now shows how many homes stand against the 398 dwellings the town\u2019s census counted that November: 309 houses, or 358 if the census also counted the boarding houses and taverns. Nobody knows which way it counted, so the figure is a range and the bar shows both.',
