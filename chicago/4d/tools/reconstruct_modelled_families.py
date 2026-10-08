@@ -1312,17 +1312,17 @@ def trade_women() -> str:
 def re_housing(base: dict, refused: dict) -> dict:
     """How many of the refused married houses the town's own women could be wife to."""
     ruled = ruled_present()
-    # A HOUSE THE FROZEN RULING ADMITTED IS NOT ON OFFER (T-2179). T-2021 dealt it the
-    # whole family it drew, and "a later re-cut re-deals nobody". When the ruling froze,
-    # every house it admitted was one no woman in the town fitted, so on the tree it was
-    # frozen on this changes no pair; it matters only when the pool moves. A card merge
-    # that retires a married host frees his wife, and a greedy match left free to give her
-    # to an admitted house would take that house off the family the ruling ordered for
-    # it, leaving the book ordering people nobody deals.
-    admitted = {hid for hid, row in ((load_ruling() or {}).get("houses") or {}).items()
-                if row.get("verdict") == ADMITTED}
+    # A HOUSE THE FROZEN RULING RULED ON IS NOT ON OFFER (T-2179). T-2021 gave each one
+    # its answer — the whole family it drew, or standing alone — and "a later re-cut
+    # re-deals nobody". When the ruling froze, every house it ruled on was one no woman in
+    # the town fitted, so on the tree it was frozen on this changes no pair; it matters only
+    # when the pool moves. A card merge that retires a married host frees his wife, and a
+    # greedy match left free to give her to a ruled house would overturn the ruling: an
+    # admitted house would lose the family the book orders for it, and a house ruled to
+    # stand alone would be married after all. She heads her own house again instead.
+    ruled_on = set(((load_ruling() or {}).get("houses") or {}))
     heads = [(houses["wife_cell"].split("/")[3], houses["head_band_low"], hid)
-             for hid, houses in refused.items() if hid not in admitted]
+             for hid, houses in refused.items() if hid not in ruled_on]
     women, held, held_back_ids = [], Counter(), set()
     pool = [card for card in base.values()
             if card.get("source_pass") == WOMEN_PASS
@@ -1795,8 +1795,10 @@ def check() -> int:
         return 1
     ruling = load_ruling()
     fr = ledger["family_ruling"]
+    # A house a card merge RETIRED is not re-dealt, it is gone: its record is kept whole
+    # under data/residents/merged/ and its person stands on the survivor (T-2179).
     gone = sorted(hid for hid, row in (ruling.get("houses") or {}).items()
-                  if hid not in fr_houses(filled))
+                  if hid not in fr_houses(filled) and retired_host(hid) is None)
     if gone:
         print("  FAIL the ruling rules on %d house(s) no longer refused a wife: %s — a "
               "re-cut may not re-deal the ruling; re-rule it deliberately"
@@ -1970,8 +1972,11 @@ def self_test() -> int:
     # (38 and 961 until T-2071's concordance read hh_crissy_william onto hh_crisey_william;
     # 960 until T-2076 read hh_palmer_n_h's 1 July 1835 printing onto his card, which
     # settles him present on the card itself and leaves no uncertainty to rule on).
+    # T-2179 RESTATED IT FROM 959 TO 955: it folded two duplicate cards (hh_baptist_john
+    # onto hh_bourassa_jean_baptiste, hh_bourassa_lon onto hh_bourrassa_leon), and the two
+    # survivors, each now carrying a baptism and a burial, read present on their own cards.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 959)
+          len(ruled_present()) == 955)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
@@ -2125,9 +2130,19 @@ def self_test() -> int:
               r["rank"] for r in ruling["houses"].values() if r["verdict"] == ADMITTED)
           == list(range(1, ruling["counts"]["admitted"] + 1)))
     fr = ledger["family_ruling"]
+    # THE HOUSES REFUSED SINCE THE FREEZE, BY NAME, so one arrives as a decision rather than
+    # a re-count. T-2179 made the first: folding the Bourassa duplicates put Leon
+    # Bourrassa's card present on its own evidence, which draws his house ahead of
+    # hh_rider_eli_a's for the South's last 30-39 wife slot. Rider's house is refused, the
+    # ruling never saw it, and it stands alone and says so on the card. The ruling's own
+    # houses and orders are untouched, which is the clause that matters.
+    married_now = {p_["house"] for p_ in ledger["re_housing"]["pairs"]}
+    unruled = sorted(h for h in ledger["houses_the_book_refused_by_household"]
+                     if h not in married_now and h not in ((ruling or {}).get("houses") or {}))
     fires("the build reads the frozen list and re-deals nobody",
           ruling is not None and fr["fills"] == ruling["orders"]
-          and fr["admitted"] == ruling["counts"]["admitted"] and fr["not_ruled_on"] == 0)
+          and fr["admitted"] == ruling["counts"]["admitted"]
+          and fr["not_ruled_on"] == len(unruled) and unruled == ["hh_rider_eli_a"])
     moved = json.loads(json.dumps(ruling or {}))
     if moved.get("houses"):
         first = min(moved["houses"], key=lambda h: moved["houses"][h]["rank"])

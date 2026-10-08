@@ -1060,12 +1060,6 @@
    "household_type": "family_with_children",
    "ruled_by": "T-2021"
   },
-  "hh_guy_josphine": {
-   "size_drawn": 4,
-   "kin_seated": 6,
-   "household_type": "family_with_children",
-   "married_from": "hh_rc_bacon_phebe"
-  },
   "hh_haddock_edward": {
    "size_drawn": 6,
    "kin_seated": 6,
@@ -1763,6 +1757,12 @@
    "kin_seated": 6,
    "household_type": "family_with_children",
    "ruled_by": "T-2021"
+  },
+  "hh_rider_eli_a": {
+   "size_drawn": 5,
+   "kin_seated": 6,
+   "household_type": "family_with_children",
+   "married_from": "hh_rc_bacon_phebe"
   },
   "hh_rider_elia": {
    "size_drawn": 6,
@@ -4055,9 +4055,9 @@
   ],
   "houses_refused_a_wife": 366,
   "houses_refused_by_division": {
-   "north": 45,
-   "south": 125,
-   "west": 40
+   "north": 18,
+   "south": 49,
+   "west": 23
   },
   "woman_headed_houses": 124,
   "woman_headed_houses_by_division": {
@@ -4075,14 +4075,14 @@
    "south": 49,
    "west": 23
   },
-  "matched_if_the_re_familied_moved_too": 111,
+  "matched_if_the_re_familied_moved_too": 90,
   "houses_no_woman_in_the_town_fits": 276,
   "houses_no_woman_fits_by_wife_cell": {
    "persons/female/20_29/north/family/none": 61,
-   "persons/female/20_29/south/family/none": 146,
+   "persons/female/20_29/south/family/none": 147,
    "persons/female/20_29/west/family/none": 41,
    "persons/female/30_39/north/family/none": 6,
-   "persons/female/30_39/south/family/none": 13,
+   "persons/female/30_39/south/family/none": 12,
    "persons/female/30_39/west/family/none": 6,
    "persons/female/40_49/south/family/none": 2,
    "persons/female/40_49/west/family/none": 1
@@ -4319,7 +4319,7 @@
     "wife_and_children_from": "hh_rc_bardwell_phebe"
    },
    {
-    "house": "hh_guy_josphine",
+    "house": "hh_rider_eli_a",
     "wife_and_children_from": "hh_rc_bacon_phebe"
    },
    {
@@ -4497,8 +4497,8 @@
    "west": 31,
    "north": 40
   },
-  "standing_alone": 119,
-  "not_ruled_on": 1,
+  "standing_alone": 120,
+  "not_ruled_on": 0,
   "people_added": 508,
   "wives": 156,
   "children": 352,
@@ -4575,7 +4575,7 @@
    150.0
   ],
   "inside_the_model_s_range": false,
-  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 366 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 366, 90 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 276 could take no woman the town holds. T-2021 ruled on those: 156 are given the whole family drawn for them, 156 wives among 508 people, and 119 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
+  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 366 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 366, 90 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 276 could take no woman the town holds. T-2021 ruled on those: 156 are given the whole family drawn for them, 156 wives among 508 people, and 120 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
   "female_headed_households_after_the_moves": [
    114,
    1456
