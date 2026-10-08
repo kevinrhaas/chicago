@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 510,
-    "keep": 502,
+    "audited": 511,
+    "keep": 503,
     "refamily": 8,
     "retire": 0,
     "kept_occupied": 4,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 5,
     "roof_target": 668,
-    "standing_before": 618,
-    "standing_after": 618,
-    "short_of_the_programme_before": 50,
-    "short_of_the_programme_after": 50
+    "standing_before": 619,
+    "standing_after": 619,
+    "short_of_the_programme_before": 49,
+    "short_of_the_programme_after": 49
   },
   "ledger": [
     {
@@ -331,11 +331,11 @@
       "group": "warehouses_freight",
       "division": "west",
       "target": 2,
-      "standing": 1,
-      "anonymous": 1,
-      "head_before": 1,
-      "standing_after": 1,
-      "head_after": 1
+      "standing": 2,
+      "anonymous": 2,
+      "head_before": 0,
+      "standing_after": 2,
+      "head_after": 0
     },
     {
       "bucket": "structures/warehouses_freight/north",
@@ -6011,6 +6011,24 @@
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/west",
       "reason": "the order book has an occupant class for a D7 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_branch_freight_f2_001",
+      "division": "west",
+      "family": "F2",
+      "group": "warehouses_freight",
+      "programme_phase": "west_freight_bank_1835",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 1009.8,
+      "street": "washington",
+      "street_class": "light",
+      "setback_m": 1.57,
+      "on_the_street_line": true,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/warehouses_freight/west",
+      "reason": "the order book has an occupant class for a F2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
       "id": "recon_1835_canal_trade_c3_001",
