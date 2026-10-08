@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1523, ts: '2026-10-08T07:49:50.303Z', date: 'Oct 8, 2026, 2:49 AM CT', title: 'The last West Side back yards filled in on Canal Street', kind: 'feature',
+    items: [
+      'Walk Canal Street south of Washington again and look behind the three houses nearest Madison: each yard has one more building. There is a second barn or carriage shed behind the cottage fourth from Washington, a chicken house behind the cottage third from Washington, and a woodshed behind the house on the Madison corner.',
+      'With these three, every yard building the town plan counted for the West Division now stands.',
+      'No record names any of them. Every card says the building is reconstructed, not recovered, and the Liberties page explains it (L404).',
+    ] },
   { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington and look between the houses: the back yards are fuller. There is a barn behind the cottage fourth from Washington, a woodshed behind its neighbour, and mid-yard, nearer the houses, a privy behind the merchant\u2019s house on the Washington corner and a smokehouse behind the boarding house.',
