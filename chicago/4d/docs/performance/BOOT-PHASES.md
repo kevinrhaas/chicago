@@ -58,6 +58,17 @@ The full long-task reading includes software WebGL/compositor work at first
 presentation; it is reported separately and is not the flora heartbeat metric.
 No claim is made that all browser rendering tasks now take under 250 ms.
 
+T-2059 (2026-10-08) brought the gap back under the check after T-2015's
+leaf-scale trees took it to 315-396 ms. A CPU profile of the two longest frames
+named the leaf-and-bark atlas (`tree-surface.js`, painted with its coverage
+mipmaps in one task, about 270 ms) and the turf mask (`flora.js`
+`handTurfToGround`, four finder questions a texel, about 200 ms). The atlas is
+now painted by a generator that the boot drains through the checkpoint, and the
+mask yields once a row. On one steward runner, mobile/light reads 161 ms cold and
+192 ms warm, and all twelve cells read 149-204 ms (they were 320-427 ms). The
+`--compare` digests match dev's, and the sliced atlas matches dev's unsliced one
+pixel for pixel at all 12 levels.
+
 History is optional: `c4d.boot.timings.v1` stores one build stamp and at most six
 device/tier cells. Each reading is clamped to 0.25–4 times the committed default,
 including repeated writes; unavailable/corrupt storage and stale build keys fall

@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1522, ts: '2026-10-08T06:23:36.427Z', date: 'Oct 8, 2026, 1:23 AM CT', title: 'A steadier loading screen on a phone', kind: 'fix',
+    items: [
+      'While 1835 plants its trees and grass, a phone\u2019s loading screen no longer freezes for a third of a second at a time. Its progress keeps moving the whole way through.',
+      'Nothing in the town changes: every tree, leaf and blade of grass is drawn exactly as before.',
+    ] },
   { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
       'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
