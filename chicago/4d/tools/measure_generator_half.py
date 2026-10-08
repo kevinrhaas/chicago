@@ -480,18 +480,22 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # Washington Street adds one frame_storefront through emit.py and the common modules;
 # terrain reach stays 6 and pier_crib stays 2.
 #
-# 664 -> 667 and 658 -> 661 on 2026-10-08 (T-2165, of T-2156): three yard buildings — a
+# 664 -> 668 and 658 -> 662 on 2026-10-08 (T-2167): four more yard buildings on plat block
+# 50, blk_washington_clinton (A2, A3, A4, A5), through emit.py and the common modules;
+# terrain reach stays 6 and pier_crib stays 2.
+#
+# 668 -> 671 and 662 -> 665 on 2026-10-08 (T-2165, of T-2156): three yard buildings — a
 # stable on blk_indiana_north_wolcott, a barn on blk_south_water_wells and a smokehouse on
 # blk_south_water_dearborn — through emit.py and the common modules. Terrain reach
 # stays 6 and pier_crib stays 2.
 #
 STATED = {
-    "assets": 667,
+    "assets": 671,
     "restales": {
-        "generators/common/*.py": 667,
+        "generators/common/*.py": 671,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 661,
+        "generators/emit.py": 665,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

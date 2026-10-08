@@ -543,12 +543,11 @@ STRUCTURE_TICKETS = {
     # or re-budget the barns_stables and small_outbuildings roofs" — the piece that answers
     # for these cells, here and in the West and North rows below.
     # T-2156 WAS SPLIT on 2026-10-08 too: T-2165 dealt the yard roofs the schedule places
-    # on lots that can hold them (the South's barn and smokehouse, the North's stable) and
-    # T-2166 answers for the rest — the North's five barns no Wolcott lot can hold, the
-    # West's seven, and the South's last barn while T-2147's block 81 is still open.
-    # T-2166 was split the same day as well: T-2167 builds the West's four on
-    # blk_washington_clinton and T-2168 keeps the North's five barns, the West balance's
-    # three and the re-budget question, so it is the live owner every row here names.
+    # on lots that can hold them (the South's barn and smokehouse, the North's stable), and
+    # T-2166 (split again the same day into T-2167, the West's four on blk_washington_clinton,
+    # and T-2168) took the rest. The South's last barn is T-2147's block 81 while that PR is
+    # open, so these rows name T-2168, the live owner of what is left, and not T-2165, which
+    # closes with nothing of the South's still owed to it.
     ("south", "barns_stables"): "T-2168",
     ("south", "small_outbuildings"): "T-2168",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
@@ -614,8 +613,8 @@ STRUCTURE_TICKETS = {
     ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-2168",  # moved with the South's, above
-    ("west", "small_outbuildings"): "T-2168",  # moved with the South's, above
+    ("west", "barns_stables"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
+    ("west", "small_outbuildings"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -693,8 +692,8 @@ STRUCTURE_TICKETS = {
     # warehouse there. T-2022 is filed for exactly that cell.
     ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-2168",  # moved with the South's, above
-    ("north", "small_outbuildings"): "T-2168",  # moved with the South's, above
+    ("north", "barns_stables"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
+    ("north", "small_outbuildings"): "T-2168",  # T-2156 -> T-2166 -> T-2168, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",

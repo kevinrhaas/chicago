@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "302 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "304 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 231,
     "refused": 0,
-    "refuges": 319,
-    "paths": 302
+    "refuges": 320,
+    "paths": 304
   },
   "lots": [
     {
@@ -7880,6 +7880,7 @@
       "lot": "blk_washington_clinton_lot5",
       "structures": [
         "recon_1835_blk_washington_clinton_a1_06",
+        "recon_1835_blk_washington_clinton_a3_16",
         "recon_1835_blk_washington_clinton_a5_07",
         "recon_1835_blk_washington_clinton_h2_01"
       ],
@@ -7910,24 +7911,6 @@
         ]
       ],
       "refuges_local_enu_m": [
-        [
-          [
-            -210.26,
-            -417.11
-          ],
-          [
-            -210.28,
-            -419.85
-          ],
-          [
-            -207.84,
-            -419.87
-          ],
-          [
-            -207.82,
-            -417.13
-          ]
-        ],
         [
           [
             -199.8,
@@ -7971,6 +7954,7 @@
       "structures": [
         "recon_1835_blk_washington_clinton_a2_08",
         "recon_1835_blk_washington_clinton_a4_09",
+        "recon_1835_blk_washington_clinton_a5_17",
         "recon_1835_blk_washington_clinton_h3_02"
       ],
       "kept_ring_local_enu_m": [
@@ -8042,6 +8026,7 @@
       "lot": "blk_washington_clinton_lot7",
       "structures": [
         "recon_1835_blk_washington_clinton_a2_10",
+        "recon_1835_blk_washington_clinton_a4_14",
         "recon_1835_blk_washington_clinton_d5_03"
       ],
       "kept_ring_local_enu_m": [
@@ -8088,12 +8073,31 @@
             -206.64,
             -460.86
           ]
+        ],
+        [
+          [
+            -201.38,
+            -448.3
+          ],
+          [
+            -201.36,
+            -452.14
+          ],
+          [
+            -195.44,
+            -452.12
+          ],
+          [
+            -195.46,
+            -448.28
+          ]
         ]
       ]
     },
     {
       "lot": "blk_washington_clinton_lot8",
       "structures": [
+        "recon_1835_blk_washington_clinton_a2_15",
         "recon_1835_blk_washington_clinton_a4_11",
         "recon_1835_blk_washington_clinton_d4_04"
       ],
@@ -8140,6 +8144,24 @@
           [
             -206.56,
             -463.57
+          ]
+        ],
+        [
+          [
+            -195.68,
+            -481.78
+          ],
+          [
+            -195.67,
+            -489.13
+          ],
+          [
+            -185.11,
+            -489.11
+          ],
+          [
+            -185.13,
+            -481.75
           ]
         ],
         [

@@ -24,8 +24,8 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 514,
-    "keep": 506,
+    "audited": 518,
+    "keep": 510,
     "refamily": 8,
     "retire": 0,
     "kept_occupied": 4,
@@ -34,10 +34,10 @@
     "raised_for_a_trade": 31,
     "band_already_fits": 4,
     "roof_target": 668,
-    "standing_before": 622,
-    "standing_after": 622,
-    "short_of_the_programme_before": 46,
-    "short_of_the_programme_after": 46
+    "standing_before": 626,
+    "standing_after": 626,
+    "short_of_the_programme_before": 42,
+    "short_of_the_programme_after": 42
   },
   "ledger": [
     {
@@ -56,11 +56,11 @@
       "group": "barns_stables",
       "division": "west",
       "target": 20,
-      "standing": 18,
-      "anonymous": 15,
-      "head_before": 2,
-      "standing_after": 18,
-      "head_after": 2
+      "standing": 19,
+      "anonymous": 16,
+      "head_before": 1,
+      "standing_after": 19,
+      "head_after": 1
     },
     {
       "bucket": "structures/barns_stables/north",
@@ -243,11 +243,11 @@
       "group": "small_outbuildings",
       "division": "west",
       "target": 14,
-      "standing": 9,
-      "anonymous": 9,
-      "head_before": 5,
-      "standing_after": 9,
-      "head_after": 5
+      "standing": 12,
+      "anonymous": 12,
+      "head_before": 2,
+      "standing_after": 12,
+      "head_after": 2
     },
     {
       "bucket": "structures/small_outbuildings/north",
@@ -4465,6 +4465,42 @@
       "reason": "the order book has an occupant class for a A2 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a2_15",
+      "division": "west",
+      "family": "A2",
+      "group": "barns_stables",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 616.3,
+      "street": "madison",
+      "street_class": "none",
+      "setback_m": 24.47,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/barns_stables/west",
+      "reason": "the order book has an occupant class for a A2 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a3_16",
+      "division": "west",
+      "family": "A3",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 28.3,
+      "street": "washington",
+      "street_class": "light",
+      "setback_m": 10.14,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A3 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a4_09",
       "division": "west",
       "family": "A4",
@@ -4501,6 +4537,24 @@
       "reason": "the order book has an occupant class for a A4 roof in the west division and the placement policy accepts the family where it stands"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a4_14",
+      "division": "west",
+      "family": "A4",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 132.4,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 39.15,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A4 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
       "id": "recon_1835_blk_washington_clinton_a5_07",
       "division": "west",
       "family": "A5",
@@ -4530,6 +4584,24 @@
       "street": "madison",
       "street_class": "none",
       "setback_m": 4.18,
+      "on_the_street_line": false,
+      "conforms": true,
+      "verdict": "keep",
+      "bucket": "structures/small_outbuildings/west",
+      "reason": "the order book has an occupant class for a A5 roof in the west division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_17",
+      "division": "west",
+      "family": "A5",
+      "group": "small_outbuildings",
+      "programme_phase": "phase3_platted_block_washington_clinton_yard_deal",
+      "occupied": false,
+      "raised_for": null,
+      "footprint_ft2": 110.1,
+      "street": "canal",
+      "street_class": "ordinary",
+      "setback_m": 24.4,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",

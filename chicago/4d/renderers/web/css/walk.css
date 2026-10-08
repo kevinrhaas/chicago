@@ -107,18 +107,6 @@ html, body {
   letter-spacing: -0.01em;
 }
 
-.arrival-instrument {
-  margin: 12px 0 10px;
-  padding: 12px 8px 0;
-  border-top: 1px solid color-mix(in srgb, var(--brass) 48%, transparent);
-}
-.arrival-label {
-  margin: 0 0 7px;
-  color: var(--ink-dim);
-  font-size: 10px;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-}
 .arrival-year {
   width: min(220px, 60vw);
   height: 68px;
@@ -183,15 +171,6 @@ html, body {
   0% { visibility: visible; transform: rotateX(0deg); }
   100% { visibility: visible; transform: rotateX(-90deg); }
 }
-.arrival-card {
-  min-height: 3em;
-  max-width: 34em;
-  margin: 10px auto 0;
-  color: var(--ink-dim);
-  font-size: 12px;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-}
 .gate-sub[hidden] { display: none; }
 .gate-sub {
   min-height: 2.9em;
@@ -209,6 +188,15 @@ html, body {
 .gate-bar {
   height: 4px; margin: 0 0 18px; border-radius: 2px;
   background: rgba(255, 255, 255, .10); overflow: hidden;
+}
+/* T-2164: on the portable machine the bar is the console's segmented HOLD meter. */
+.gate:not([data-state="welcome"]) .gate-bar {
+  height: 8px; margin: 0 0 14px; padding: 1px; border-radius: 2px;
+  background: var(--screen, rgba(0, 0, 0, .5)); box-shadow: var(--inset-bezel, none);
+}
+.gate:not([data-state="welcome"]) .gate-bar > i {
+  border-radius: 1px; -webkit-mask: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 7px);
+  mask: repeating-linear-gradient(90deg, #000 0 5px, transparent 5px 7px);
 }
 .gate-bar > i {
   display: block; height: 100%; width: 0%;
@@ -261,6 +249,171 @@ body:is(.is-touch, .touch-first) .gate-touch { display: block; }
   color: var(--ink-dim);
 }
 .gate-fine code { font-size: 11px; }
+
+/* ------------------------------------------- arrival: portable machine --- */
+/* T-2164 (owner, 2026-10-08): the loader is the front door's console in a handheld
+   case — engraved plate, year window and stage lamps, a phosphor screen carrying the
+   status log, and a payload/link/ETA strip. EVERY ROW IS A FIXED HEIGHT: a long status
+   is clipped on its row (or clamped to the card's two lines), never wrapped into a
+   taller box, so the device does not change size as statuses cycle. The welcome state
+   (data-state="welcome") hides the instrument and keeps its own layout. */
+.arrival-instrument { display: grid; gap: 10px; margin: 12px 0 10px; text-align: left; }
+.gate:not([data-state="welcome"]) .gate-card {
+  position: relative;
+  width: min(500px, 100%);
+  padding: 20px 20px 16px;
+  border-color: var(--edge-strong, var(--edge));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .05), 0 24px 60px rgba(0, 0, 0, .4);
+}
+/* Four screws, as on the front door's console. */
+.gate:not([data-state="welcome"]) .gate-card::before {
+  content: ""; position: absolute; inset: 7px; pointer-events: none;
+  --screw: radial-gradient(circle, var(--edge-strong, var(--edge)) 0 2.2px, transparent 2.8px);
+  background: var(--screw) left top/8px 8px no-repeat, var(--screw) right top/8px 8px no-repeat,
+    var(--screw) left bottom/8px 8px no-repeat, var(--screw) right bottom/8px 8px no-repeat;
+}
+/* The rotating title lives on the screen; the heading stays for assistive tech. */
+.gate:not([data-state="welcome"]) #gate-title {
+  position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0; padding: 0;
+}
+.gate:not([data-state="welcome"]) .gate-eyebrow {
+  display: inline-block; margin: 0 0 2px; padding: 6px 12px 5px;
+  border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: var(--panel-raised, var(--panel)); box-shadow: var(--inset-bezel, none);
+  color: var(--ink-dim); font-size: 9px; letter-spacing: .3em;
+}
+
+.arrival-deck {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 16px;
+  padding: 10px 14px 12px; border: 1px solid var(--edge); border-radius: calc(var(--r-control, 4px) + 4px);
+  background: color-mix(in srgb, var(--panel-raised, var(--panel)) 70%, transparent);
+}
+.arrival-window .arrival-year { width: 196px; margin: 0; }
+.arrival-label {
+  margin: 0 0 6px; color: var(--ink-dim); font-size: 9px; letter-spacing: .18em; text-transform: uppercase;
+}
+.arrival-lamps {
+  list-style: none; margin: 0; padding: 0; display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px 10px;
+}
+.arrival-lamps li {
+  display: flex; align-items: center; gap: 7px; min-width: 0; white-space: nowrap; overflow: hidden;
+  font: 400 9px/1 var(--font-mono, ui-monospace, monospace); letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-faint, var(--ink-dim)); transition: color .3s;
+  --lc: var(--accent);
+}
+.arrival-lamps i {
+  position: relative; flex: none; width: 9px; height: 9px; border-radius: 50%;
+  background: color-mix(in srgb, var(--lc) 22%, #000); box-shadow: inset 0 1px 2px rgba(0, 0, 0, .6);
+}
+.arrival-lamps i::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%; opacity: 0;
+  background: radial-gradient(circle at 35% 30%, #fff 0, var(--lc) 45%, color-mix(in srgb, var(--lc) 70%, #000) 100%);
+  box-shadow: 0 0 10px var(--lc), 0 0 2px var(--lc); transition: opacity .25s;
+}
+/* The light machine: an unlit lamp is a dimmed lens on ivory, not a black hole in it. */
+html[data-theme="light"] .arrival-lamps i { background: color-mix(in srgb, var(--lc) 18%, var(--edge)); }
+.arrival-lamps li[data-state] { color: var(--ink); }
+.arrival-lamps li[data-state] i::after { opacity: 1; }
+.arrival-lamps li[data-state="active"] { --lc: var(--lamp, #F3A43B); }
+.arrival-lamps li[data-state="active"] i::after { animation: arrival-blink .7s steps(1, end) infinite; }
+.arrival-lamps li[data-state="done"] { --lc: var(--ok, var(--accent)); }
+.arrival-lamps li[data-state="fault"] { --lc: var(--alert, #E0457B); }
+
+.arrival-screen {
+  position: relative; overflow: hidden; display: grid;
+  grid-template-rows: 12px 22px calc(3 * 16px) calc(2 * 16px);
+  row-gap: 6px; padding: 11px 14px 12px;
+  border-radius: var(--r-screen, 10px); background: var(--screen, #07130F); color: var(--screen-ink, #8CF5A8);
+  box-shadow: var(--inset-bezel, inset 0 2px 8px rgba(0, 0, 0, .45)), 0 0 0 1px var(--edge-strong, var(--edge));
+  font: 400 11px/16px var(--font-mono, ui-monospace, monospace); letter-spacing: .04em;
+}
+.arrival-screen::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, rgba(0, 0, 0, .22) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 40%, transparent 55%, rgba(0, 0, 0, .4));
+}
+.arrival-screen::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; height: 30%; pointer-events: none;
+  background: linear-gradient(transparent, color-mix(in srgb, var(--screen-ink, #8CF5A8) 8%, transparent), transparent);
+  transform: translateY(-100%); animation: arrival-roll 7s linear infinite;
+}
+.arrival-screen-head {
+  display: flex; justify-content: space-between; gap: 10px; min-width: 0;
+  font-size: 9px; line-height: 12px; letter-spacing: .14em; text-transform: uppercase; opacity: .72;
+}
+.arrival-screen-head > span:first-child { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.arrival-live { white-space: nowrap; }
+.arrival-live i {
+  display: inline-block; width: 6px; height: 6px; margin: 0 6px 1px 0; border-radius: 50%;
+  background: var(--alert, #E0457B); animation: arrival-blink 1.2s steps(1, end) infinite;
+}
+.arrival-headline {
+  margin: 0; min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 500 15px/22px var(--font-mono, ui-monospace, monospace); letter-spacing: .04em; text-transform: uppercase;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--screen-ink, #8CF5A8) 55%, transparent);
+}
+.arrival-headline::after {
+  content: ""; display: inline-block; width: .5em; height: .8em; margin-left: .3em; vertical-align: -.04em;
+  background: currentColor; animation: arrival-blink 1s steps(1, end) infinite;
+}
+.arrival-log { list-style: none; margin: 0; padding: 0; display: grid; grid-auto-rows: 16px; overflow: hidden; }
+.arrival-log li {
+  position: relative; min-width: 0; padding-right: 3.2ch; overflow: hidden; white-space: nowrap;
+  text-overflow: ellipsis; text-transform: uppercase; opacity: .5;
+}
+.arrival-log li:not(:empty)::before { content: "> "; opacity: .6; }
+.arrival-log li:not(:empty)::after { content: "OK"; position: absolute; right: 0; top: 0; opacity: .8; }
+.arrival-log li:last-child { opacity: .72; }
+.arrival-log li.fresh { animation: arrival-logline .35s var(--ease-machine, ease-out); }
+.arrival-card {
+  margin: 0; min-width: 0; height: 32px; overflow: hidden;
+  display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2;
+  color: inherit; text-transform: uppercase; overflow-wrap: anywhere;
+  text-shadow: 0 0 8px color-mix(in srgb, var(--screen-ink, #8CF5A8) 40%, transparent);
+}
+.arrival-card::before { content: "> "; opacity: .6; }
+/* A failed boot hides the card; its row keeps its height so the device does not jump. */
+.arrival-card[hidden] { display: -webkit-box; visibility: hidden; }
+.arrival-card[data-loading-kind="error"] { color: var(--alert, #E0457B); }
+
+.arrival-readout {
+  display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) minmax(0, 1fr); margin: 0;
+  border: 1px solid var(--edge); border-radius: var(--r-control, 4px);
+  background: color-mix(in srgb, var(--panel-raised, var(--panel)) 55%, transparent);
+}
+.arrival-readout > div { min-width: 0; padding: 7px 10px 8px; }
+.arrival-readout > div + div { border-left: 1px solid var(--edge); }
+.arrival-readout dt {
+  margin: 0 0 4px; color: var(--ink-faint, var(--ink-dim)); font: var(--label-weight, 400) 8.5px/1 var(--font-label, var(--font-mono, ui-monospace, monospace));
+  letter-spacing: var(--label-tracking, .14em); text-transform: uppercase;
+}
+.arrival-readout dd {
+  margin: 0; overflow: hidden; white-space: nowrap; text-overflow: clip;
+  font: 500 13px/16px var(--font-mono, ui-monospace, monospace); font-variant-numeric: tabular-nums; color: var(--ink);
+}
+.arrival-readout dd[data-read="eta"] { color: var(--lamp, var(--accent)); }
+
+@keyframes arrival-blink { 50% { opacity: .15; } }
+@keyframes arrival-roll { to { transform: translateY(420%); } }
+@keyframes arrival-logline { from { transform: translateY(6px); opacity: 0; } }
+@media (prefers-reduced-motion: reduce) {
+  .arrival-screen::before, .arrival-live i, .arrival-headline::after,
+  .arrival-lamps li[data-state="active"] i::after, .arrival-log li.fresh { animation: none; }
+}
+@media (max-width: 520px) {
+  .gate:not([data-state="welcome"]) .gate-card { padding: 16px 14px 12px; }
+  .arrival-instrument { gap: 8px; margin: 10px 0 8px; }
+  .arrival-deck { gap: 12px; padding: 9px 10px 10px; }
+  .arrival-window .arrival-year { width: min(156px, 40vw); }
+  .arrival-lamps { gap: 8px 6px; }
+  .arrival-lamps li { gap: 5px; font-size: 8.5px; letter-spacing: .1em; }
+  .arrival-screen { padding: 10px 12px 11px; font-size: 10.5px; }
+  .arrival-headline { font-size: 13.5px; }
+  .arrival-readout > div { padding: 6px 7px 7px; }
+  .arrival-readout dd { font-size: 11.5px; }
+}
 
 /* ----------------------------------------------------------------- hud --- */
 

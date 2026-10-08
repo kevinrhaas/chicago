@@ -114,7 +114,7 @@
     "open": []
   },
   "occupied": {
-    "structures": 640,
+    "structures": 644,
     "occupied": {
       "attested": 51,
       "inferred": 9,
@@ -131,7 +131,7 @@
       "no_keeper_of_its_trade": 2,
       "occupancy_unattested": 2,
       "occupant_named_seat_refused": 2,
-      "outbuilding_of_a_yard": 113,
+      "outbuilding_of_a_yard": 117,
       "part_of_an_establishment": 14,
       "stated_use_of_an_anonymous_roof": 13,
       "storage_operator_unrecorded": 5,
@@ -223,7 +223,7 @@
       "use_stated": {
         "attested": 25,
         "inferred": 6,
-        "reconstructed": 149
+        "reconstructed": 153
       },
       "empty_owing_somebody": {
         "attested": 0,

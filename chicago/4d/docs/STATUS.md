@@ -22,6 +22,32 @@ re-budget question); the order book's yard rows (and the South's civic row) now 
 **Unverified.** The positions are invented on generated lots (L401); no source seats any of the
 three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
 move one School Section request's family (blk 94, D5 to D4), which T-2146's open PR will meet.
+## T-2167 — four more yard buildings behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2166, itself piece 2 of T-2156 (the yard-building roofs built or re-budgeted,
+priced against the dwellings, T-1692). T-2168 keeps the rest: the North's five A2 barns no
+Wolcott lot can hold and the West's three yard roofs still on
+`west_division_beyond_committed_control`.
+
+- **Visible.** `blk_washington_clinton` (plat block 50) gains four yard buildings from a second
+  recipe entry (`phase3_platted_block_washington_clinton_yard_deal`, `seq_start` 14): a woodshed
+  (A4) beside the barn in the D5's yard on plat lot 5, a barn or carriage shed (A2) beside the
+  woodshed in the D4's yard on plat lot 8, and a privy (A3) and smokehouse (A5) mid-yard, 20 m off
+  the alley, behind the H2 and the H3, whose yards already kept two outbuildings each. Baked
+  (`bake.sh --only`, web derivatives). **L402**; L263 624 → 628.
+- **Schedule.** The 668-roof schedule gave this block `ancillary_room` 4 after T-2148's deal; the
+  order book's West `barns_stables` reads 1 owed and `small_outbuildings` 2 owed after it (the
+  three on the balance). The yard layer's drawn privy on lot 5 gives way to the standing one.
+- **The entry must say `frontage_argued_on: west_division_thompson_1830`.** Without it
+  `generate_plat_lots` reads the block as dealt on the South module's faces and holds it off the
+  West arrangement, re-cutting the lots under T-2148's thirteen roofs. The first run of this deal
+  did exactly that; the field is now on the entry.
+- **Owners moved.** `build_order_book_1835.OWNERS`: the South's barn and outbuilding rows →
+  T-2165 (building them), the North's and West's → T-2168; T-2156 and T-2166 are split.
+- **Seating.** No household moves onto a yard building. One slot request re-families D5 → D4 as
+  the schedule re-apportions. `measure_generator_half` 664 → 668 / 658 → 662; entrances, alley
+  lanes, redeal, land tracts, street-face adoptions, register, profile, hay limits and the
+  Newberry parse re-derived.
 
 ## T-2154 — Evidence → City sets the town against the November census: dwellings standing, and the people split (2026-10-08)
 
