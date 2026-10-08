@@ -5212,7 +5212,13 @@ for (const [label, viewport, touch] of [
       // Randolph (+1); its Lake face was already one fronts-only run and stays one
       // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
       // retires and nothing new is refused. ID-set deltas, read off the record.
-      frontage.census?.records === 5 && frontage.census?.walks === 119
+      // T-2093 — five merged PRs moved town_street_edge.json and not this line, so
+      // dev read 121 / 100 against 114 / 99. Read commit by commit off the record:
+      // T-2134 (#481) +4 walks, the four Dearborn corner workshops' fronts; T-2148
+      // (af5988ec) +1 walk and +1 crossing, the face the Madison jog brings inside
+      // the boundary; T-2150 (#510) +1 walk and +1 decked walk, the West Water
+      // warehouse's: 114 + 4 + 1 + 2 = 121 walks, 99 + 1 = 100 crossings.
+      frontage.census?.records === 5 && frontage.census?.walks === 121
         && frontage.census?.crossings === 100
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
@@ -5275,6 +5281,10 @@ for (const [label, viewport, touch] of [
         // T-1679 (#396) moved Haddock's Tavern one lot east on blk_south_water_dearborn,
         // and the Lake Street face it left now takes a street fence
         // (blk_south_water_dearborn_south_fence_6): 32 to 33. Restated in T-2102 for T-2093.
+        // T-2093 — the plat's last Washington tier built to its seats: T-2129 (#465)
+        // fences the Market block's two improved north faces (+2, the Washington
+        // north fences renumbered round them) and T-2130 (#466) the Dearborn
+        // block's two (blk_washington_dearborn_north_fence_36/_37, +2): 33 to 37.
         && frontage.census?.posts === 53 && frontage.census?.fences === 37
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
@@ -5350,7 +5360,12 @@ for (const [label, viewport, touch] of [
         // 172 — each cross face states why it takes no fence and no post (the
         // end of a lot row), and the one clause that refused the seven on the
         // frame budget retires. dev's own reading was 134 against this 128.
-        && frontage.census?.refused === 184
+        // T-2093 — the town record's refusal list, commit by commit: T-2129 -3 and
+        // T-2130 -4 (unimproved-lot refusals retire as the houses rise), T-2134 +8
+        // (the workshops' fronts refuse a fence and a post each), T-2148 +1 (the new
+        // face's end of a lot row), T-2150 +2 (the warehouse's fence and post):
+        // 172 to 176 in the record, 182 to 186 on the layer.
+        && frontage.census?.refused === 186
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5541,7 +5556,10 @@ for (const [label, viewport, touch] of [
       // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
       // block's standing timber rides a west-bank mesh of its own rather than
       // Lake's and Randolph's (+1): 119.
-      frontage.authored === (frontage.census?.lettered === 1 ? 125 : 124)
+      // T-2093 — and the walks those five PRs laid name SIX chunks of their own
+      // (the record's named chunks go 102 to 108: T-2134 +4, T-2148 +1, T-2150 +1):
+      // 125, read on dev with no board lettered.
+      frontage.authored === (frontage.census?.lettered === 1 ? 126 : 125)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5558,7 +5576,8 @@ for (const [label, viewport, touch] of [
         && frontage.farWalkTops.every((m) => m.name === 'frontage-far-walk-tops'
           && m.sharedMaterial && !m.castsShadow && m.groundHugging
           && m.candidates === frontage.farWalkState?.candidateTriangles
-          && m.candidates === 108376
+          // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
+          && m.candidates === 108554
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -5781,6 +5800,10 @@ for (const [label, viewport, touch] of [
     // stand, no taller than a tie rail's 1.07 m. The counts are exact for the
     // same reason the posts' are: a fitting appearing or vanishing is worth
     // failing over, and a run that moves one updates them here.
+    // T-2093 — T-2150 (#510) moved one and did not: the West Water warehouse is a
+    // forwarding house, so its front takes a wagon apron
+    // (blk_west_washington_canal_east_wagon_apron_recon_1835_branch_freight_f2_001),
+    // 48 to 49 and four aprons to five.
     const fitKinds = frontage.census?.fittingKinds ?? {};
     // A part is good when it was drawn and its highest vertex stands within its
     // recorded top, give or take what the ground does under it: the top is
@@ -5792,10 +5815,10 @@ for (const [label, viewport, touch] of [
         && p.top <= p.recorded + 0.25)));
     // T-1823 — the Western Hotel's mounting block and the West Water freight
     // house's wagon apron, 46 to 48.
-    check(`${label}: the forty-eight business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 48 && (frontage.fittings ?? []).length === 48
+    check(`${label}: the forty-nine business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 49 && (frontage.fittings ?? []).length === 49
         && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
-        && fitKinds.wagon_apron === 4 && fitKinds.tie_rail === 1
+        && fitKinds.wagon_apron === 5 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
@@ -6289,7 +6312,10 @@ for (const [label, viewport, touch] of [
         // `faces_laid` (dev's record already read 47 against the 45 pinned here).
         // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
         // fronts-only and is laid as a street face, and its Randolph face is new: 94.
-        && edge.faces === 95 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-2093 — T-2148 lays the face the Madison jog brings inside the
+        // boundary (95) and T-2150 the West Water warehouse's (96): faces_laid,
+        // read off the record at each commit.
+        && edge.faces === 96 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6304,8 +6330,11 @@ for (const [label, viewport, touch] of [
     check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
       // T-1823 — the West Water freight house's deck makes four, and two West
       // Division works front bare ground (the Pierce smithy, a joiner on Randolph).
-      edge.byBusiness.records === 4 && edge.byBusiness.drawn === 4
-        && edge.byBusiness.onDeck === 4
+      // T-2093 — T-2150's warehouse is the fifth forwarding house with a decked
+      // walk (4 to 5), and T-2134's four Dearborn corner workshops each keep a
+      // bare front (3 to 7). Both read off the record at each commit.
+      edge.byBusiness.records === 5 && edge.byBusiness.drawn === 5
+        && edge.byBusiness.onDeck === 5
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
         && edge.byBusiness.bareLift <= 0.04
         && edge.byBusiness.bareRecs === 7 && edge.byBusiness.bareKept === 7,
@@ -6320,8 +6349,10 @@ for (const [label, viewport, touch] of [
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
       // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
       // walk the whole face rather than the store's front.
-      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
-        && edge.byBusiness.frontsOn === 4,
+      // T-2093 — T-2150 lays the warehouse's West Water face fronts-only: 4 to 5
+      // (the record's fronts_only_runs, 67.7 m to 83.1).
+      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
+        && edge.byBusiness.frontsOn === 5,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
