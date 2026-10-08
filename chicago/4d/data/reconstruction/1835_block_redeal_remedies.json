@@ -19,72 +19,17 @@
     "nothing_is_written_to": "No verdict is rewritten, no recipe slot moves, no record or asset is touched and no confidence changes. These roofs are inferred_anonymous before and after. The six are NOT yet carried out — the recipe still stands them as A-family slots and nothing has been rebaked. That is T-1611."
   },
   "counts": {
-    "outstanding_verdicts": 3,
-    "refused_by_the_parcel_gate": 1,
+    "outstanding_verdicts": 2,
+    "refused_by_the_parcel_gate": 0,
     "inventory_class_moves": 0,
-    "families_offered": 18,
-    "ancillary_families_offered": 1,
-    "open_lots_across_the_three_blocks": 2,
+    "families_offered": 12,
+    "ancillary_families_offered": 0,
+    "open_lots_across_the_three_blocks": 1,
     "clause_evidence_records": 4,
     "clause_evidence_breaching_their_own_clause": 1,
     "clause_evidence_fronting_no_street": 2
   },
   "roofs": [
-    {
-      "id": "recon_1835_blk_south_water_dearborn_f2_11",
-      "would_become": "recon_1835_blk_south_water_dearborn_h2_11",
-      "sequence": 11,
-      "block_id": "blk_south_water_dearborn",
-      "programme_phase": "phase3_platted_block_south_water_dearborn_warehouse_deal",
-      "stands_on": "street",
-      "lot": 0,
-      "fronts": "south_water",
-      "setback_m": 13.0,
-      "setback_class": "yard",
-      "was_family": "F2",
-      "was_group": "warehouses_freight",
-      "was_inventory_class": "principal_functional",
-      "to_family": "H2",
-      "to_group": "larger_boarding_houses",
-      "implied_inventory_class": "principal_functional",
-      "class_moves": false,
-      "lot_already_carries": "recon_1835_blk_south_water_dearborn_f2_11",
-      "refused_by_the_parcel_gate": "blk_south_water_dearborn: two principal roofs on one lot — lot 0 already carries recon_1835_blk_south_water_dearborn_f2_11",
-      "families_offered": [
-        {
-          "family": "H2",
-          "group": "larger_boarding_houses",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "A2",
-          "group": "barns_stables",
-          "inventory_class": "ancillary"
-        },
-        {
-          "family": "H1",
-          "group": "larger_boarding_houses",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D6",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D7",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        },
-        {
-          "family": "D5",
-          "group": "ordinary_dwellings",
-          "inventory_class": "principal_functional"
-        }
-      ],
-      "ancillary_families_offered": 1,
-      "why_the_adjudication_refamilied_it": "the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street; the slot is wanted and the position stands"
-    },
     {
       "id": "recon_1835_blk_washington_market_a3_15",
       "would_become": "recon_1835_blk_washington_market_d2_15",
@@ -197,15 +142,6 @@
     }
   ],
   "ground": {
-    "blk_south_water_dearborn": {
-      "roofs_needing_ground": 1,
-      "open_lots": [
-        {
-          "lot": 7,
-          "declared_open_because": "The Lake-and-State corner, left open, and the first open lot of this row chosen against a criterion that points the other way down the street. The three parcels before this one left a back-street corner open at the end farthest from the town centre and named that end by compass; T-A11 replaced the compass with a distance to the Dearborn Street drawbridge, the only crossing of the main stem in July 1835. On this block the two readings separate, because the bridge stands at the WEST end of it, at the foot of Dearborn: lot 7 is 161.1 m from the bridge, the farthest of the eight lots exactly as the open lot has been on every block of the row, but it is now the east corner rather than the west one. State Street is the platted town's eastern limit and the fort's reservation lies beyond it, so the lot the criterion leaves open is also the one with the least town around it. That a block on the business front is not a completed terrace one street back is the programme's own assumption of alternating vacancy, and the schedule's capacity is a ceiling rather than a target; which lot within the tier is still a choice, and this is the first block of the row on which a stated criterion made it rather than a direction."
-        }
-      ]
-    },
     "blk_washington_market": {
       "roofs_needing_ground": 2,
       "open_lots": [
@@ -288,13 +224,13 @@
       "taken": true,
       "what": "Admit a dwelling-family roof at a yard setback behind its lot's principal roof — a rear cottage — as ANCILLARY, and write the clause that covers it.",
       "what_it_changes": "The town gains a building class it had never stated. `ancillary_behind_its_own_roof` applies to A1–A5 only, so a D-family roof in the yard was covered by no clause at all. The adoption gate had to be ruled on too: it refused an ancillary roof an occupant on the reasoning that a yard building is a shed, and a rear cottage is not one.",
-      "costs": "3 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23."
+      "costs": "2 roofs keep their position; one new policy clause, tier `inferred` and citing no record; one ruling on adoption. TAKEN by the owner on 2026-09-23."
     },
     {
       "id": "move_them_onto_open_ground",
       "taken": false,
       "what": "Deal the six onto free lots as principal roofs.",
-      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 2 open lot(s) against 3 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
+      "what_it_changes": "The verdict's own sentence — `the slot is wanted and the position stands` — no longer holds, and the ground is not there: the three blocks hold 1 open lot(s) against 2 roofs, and each of those lots is declared open in the recipe with a stated reason, carried into `ground` below. Taking one is overruling the programme's alternating-vacancy assumption, not finding space.",
       "costs": "1 roof(s) with nowhere to stand even after both open lots are spent."
     },
     {
