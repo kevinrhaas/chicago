@@ -117,23 +117,23 @@
         "people_still_held": 3
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 0 if only the division changed, 17 if the household kind changed too, 77 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 0 if only the division changed, 14 if the household kind changed too, 14 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
-    "still_owed_now": 217,
-    "still_owed_when_the_programme_is_spent": 217,
+    "still_owed_now": 14,
+    "still_owed_when_the_programme_is_spent": 14,
     "persons_standing_in_the_layer": 2918,
-    "converges_to_now": 3135,
-    "converges_to_when_the_programme_is_spent": 3135,
+    "converges_to_now": 2932,
+    "converges_to_when_the_programme_is_spent": 2932,
     "the_model_point": 2550,
     "the_model_range": [
       2371,
       3265
     ],
-    "reading": "3,135 is inside the model's 2,371-3,265 and 585 above its 2,550 point, against 585 above it today.",
+    "reading": "2,932 is inside the model's 2,371-3,265 and 382 above its 2,550 point, against 382 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 2993,
-      "this_report_says": 3135,
+      "the_rule_says": 2790,
+      "this_report_says": 2932,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },

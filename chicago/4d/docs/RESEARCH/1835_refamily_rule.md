@@ -27,25 +27,25 @@ Under option (a) the town LOST people, and with 34 of 60 heads adopted the loss 
 | if a move may change | ceiling |
 |---|---|
 | the division only | 0 |
-| the division and the household kind | 17 |
-| those and the trade as well | 77 |
+| the division and the household kind | 14 |
+| those and the trade as well | 14 |
 | the household-kind bound with movability applied, a house free to split | 14 |
 | **under this rule, with movability applied** | **142** |
 | what T-1556 § 3 named | 265 |
 
-Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 18 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time.
+Not one of the 48 refused buckets has a single open slot in its own (sex, age band, household kind, trade) class in ANY division, and not one of the 6 open buckets holds any surplus. So a move that changes only the division — the one axis that is a bare ledger allocation, and therefore the only free one — yields nothing whatever. The buckets the re-cut GREW are the lodging band's (T-1532, T-1536, T-1538) and T-1171's adult-male family cells; the held surplus is women, children and tradesmen in family houses. Reaching an open order costs a household kind, every time.
 
-T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 77: 203 of the 217 open slots stand in adult-MALE cells while the surplus holds 235 people under twenty and 110 adult women, whose cells hold 14 slots between them.
+T-1556 § 3 took 265 from the aggregate — 523 held, 427 open, and 265 moves landing the town on the model's 2,543 point. The aggregate cannot see the axes. A move may not re-sex or re-age anybody (T-1557's own fault check), and on that constraint alone the ceiling is 14: 0 of the 14 open slots stand in adult-MALE cells while the surplus holds 235 people under twenty and 110 adult women, whose cells hold 14 slots between them.
 
 A C1 card states ONE division for a whole house, so moving half of it would put a mother in one division and her children in another. The -128 moves the condition costs are moves that would have split a family across the river to make an arithmetic close, which is the kind of trade this project does not make.
 
 ## What the town converges to
 
 - standing in the layer: 2,918
-- still owed: 217
-- converges to now: 3,135
-- converges to if this rule is spent: 2,993
-- 2,993 is inside the model's 2,371-3,265 and 443 above its 2,550 point, against 585 above it today.
+- still owed: 14
+- converges to now: 2,932
+- converges to if this rule is spent: 2,790
+- 2,790 is inside the model's 2,371-3,265 and 240 above its 2,550 point, against 382 above it today.
 
 ## What would raise the ceiling
 

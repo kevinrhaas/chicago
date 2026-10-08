@@ -1,3 +1,11 @@
+## T-2183 — recovered Glessner courtyard correction (2026-10-08)
+
+The owner-requested follow-up to T-2172 restores aligned principal openings,
+shortens the upper wing windows, joins the projecting rear eave into the tower,
+and extends the dark-glass default to Full detail. Dimensions and source-use
+limits are recorded in L-glessner-courtyard-windows-2183. Implementation and
+validation state are in STATUS and `RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
 ## T-2171 — continuous 1812 lake shore (2026-10-08)
 
 The unsupported notch at the sand-spit attachment is replaced by a smooth,

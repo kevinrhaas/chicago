@@ -1631,7 +1631,7 @@
   "totals": {
     "persons_target": 2550,
     "persons_known": 1432,
-    "persons_to_reconstruct": 2039,
+    "persons_to_reconstruct": 1836,
     "households_target": 645,
     "households_known": 161,
     "households_known_records": 1405,
@@ -1644,8 +1644,8 @@
     "roofs_standing": 673,
     "roofs_to_build": 14,
     "persons_standing": 2918,
-    "persons_still_owed": 217,
-    "persons_when_the_book_is_filled": 3135,
+    "persons_still_owed": 14,
+    "persons_when_the_book_is_filled": 2932,
     "persons_target_range": [
       2371,
       3265
@@ -1760,22 +1760,22 @@
       "household_leg_before": 58,
       "household_leg_now": 395,
       "person_leg_before": 374,
-      "person_leg_now": 203,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 395. The person leg is PART artifact: 374 before, 203 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "person_leg_now": 0,
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 395. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
       "persons_standing_in_the_layer": 2918,
-      "persons_still_owed": 217,
-      "converges_to": 3135,
+      "persons_still_owed": 14,
+      "converges_to": 2932,
       "model_point": 2550,
       "model_range": [
         2371,
         3265
       ],
-      "measured": "2,918 standing plus 217 still owed is 3,135, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,918 + 843 = 3,761, and the book was ordering a replacement for 826 people already in the layer. It is 585 above the model's 2,550 point, and that surplus is the 408 people drawn into 54 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,918 standing plus 14 still owed is 2,932, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,918 + 843 = 3,761, and the book was ordering a replacement for 826 people already in the layer. It is 382 above the model's 2,550 point, and that surplus is the 408 people drawn into 54 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1869,6 +1869,41 @@
       "declined": "RETIRING a reconstructed card is the bucket owner's work and not this book's: a book that deleted people to make its own arithmetic close would be reconstructing backwards. T-1347, which drew the trade band, has closed, so T-1530 is filed for the south-side 20-29 surplus and T-1506 owns the surplus lawyer."
     }
   ],
+  "adult_men_ruling": {
+    "ticket": "T-2187",
+    "asks": "The family cells order adult men the town does not hold. Does it hold them?",
+    "model_civil_adult_men": 944,
+    "named_adult_men_on_the_cards": 1188,
+    "named_by_division": {
+      "south": 55,
+      "west": 7,
+      "north": 12,
+      "unplaced": 1114
+    },
+    "named_men_with_no_age_not_counted": 0,
+    "adult_men_drawn": 276,
+    "the_town_holds": 1464,
+    "the_pro_rata_credit_gave_these_cells": 528,
+    "the_family_cells_ordered": 203,
+    "the_town_still_lacks": 0,
+    "discharged": 203,
+    "discharged_by_cell": {
+      "persons/male/20_29/north/family/none": 26,
+      "persons/male/20_29/south/family/none": 60,
+      "persons/male/20_29/west/family/none": 24,
+      "persons/male/30_39/north/family/none": 16,
+      "persons/male/30_39/south/family/none": 35,
+      "persons/male/30_39/west/family/none": 14,
+      "persons/male/40_49/north/family/none": 5,
+      "persons/male/40_49/south/family/none": 10,
+      "persons/male/40_49/west/family/none": 4,
+      "persons/male/50_plus/north/family/none": 2,
+      "persons/male/50_plus/south/family/none": 5,
+      "persons/male/50_plus/west/family/none": 2
+    },
+    "measured": "The model's civil town wants 944 men aged twenty and over. The present cards name 1,188 and the stages drew 276, so the town holds 1,464, 520 over the model's figure. The pro-rata credit gave these cells 528 of the named; the rest were counted in women's and children's cells. The family cells ordered 203 more and 203 are discharged.",
+    "what_this_does_not_do": "It moves nobody, retires nobody and draws nobody, and it does not touch the women's or children's cells, whose orders the same credit holds down: that is T-1174's and T-2021's ground, and their own ratio and under-ten gates bound it."
+  },
   "bucket_families": [
     {
       "key": "persons",
@@ -3310,10 +3345,11 @@
           "target": 58,
           "known_attested": 9,
           "known_inferred": 23,
-          "to_reconstruct": 26,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 26
         },
         {
           "key": "persons/male/20_29/north/lodging/trade",
@@ -3383,10 +3419,11 @@
           "target": 140,
           "known_attested": 23,
           "known_inferred": 57,
-          "to_reconstruct": 60,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 60
         },
         {
           "key": "persons/male/20_29/south/lodging/trade",
@@ -3459,10 +3496,11 @@
           "target": 52,
           "known_attested": 8,
           "known_inferred": 20,
-          "to_reconstruct": 24,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 24
         },
         {
           "key": "persons/male/20_29/west/lodging/trade",
@@ -3535,10 +3573,11 @@
           "target": 34,
           "known_attested": 5,
           "known_inferred": 13,
-          "to_reconstruct": 16,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 16
         },
         {
           "key": "persons/male/30_39/north/lodging/trade",
@@ -3611,10 +3650,11 @@
           "target": 82,
           "known_attested": 13,
           "known_inferred": 34,
-          "to_reconstruct": 35,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 35
         },
         {
           "key": "persons/male/30_39/south/lodging/trade",
@@ -3686,10 +3726,11 @@
           "target": 30,
           "known_attested": 5,
           "known_inferred": 11,
-          "to_reconstruct": 14,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 14
         },
         {
           "key": "persons/male/30_39/west/lodging/trade",
@@ -3761,10 +3802,11 @@
           "target": 10,
           "known_attested": 1,
           "known_inferred": 4,
-          "to_reconstruct": 5,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 5
         },
         {
           "key": "persons/male/40_49/north/lodging/trade",
@@ -3837,10 +3879,11 @@
           "target": 24,
           "known_attested": 4,
           "known_inferred": 10,
-          "to_reconstruct": 10,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 10
         },
         {
           "key": "persons/male/40_49/south/lodging/trade",
@@ -3910,10 +3953,11 @@
           "target": 9,
           "known_attested": 1,
           "known_inferred": 4,
-          "to_reconstruct": 4,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 4
         },
         {
           "key": "persons/male/40_49/west/lodging/trade",
@@ -3984,10 +4028,11 @@
           "target": 5,
           "known_attested": 1,
           "known_inferred": 2,
-          "to_reconstruct": 2,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 2
         },
         {
           "key": "persons/male/50_plus/north/lodging/trade",
@@ -4060,10 +4105,11 @@
           "target": 11,
           "known_attested": 2,
           "known_inferred": 4,
-          "to_reconstruct": 5,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 5
         },
         {
           "key": "persons/male/50_plus/south/lodging/trade",
@@ -4133,10 +4179,11 @@
           "target": 4,
           "known_attested": 1,
           "known_inferred": 1,
-          "to_reconstruct": 2,
+          "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
-          "basis": "otherwise: a family drawn from the household model"
+          "basis": "otherwise: a family drawn from the household model",
+          "discharged_by_the_men_ruling": 2
         },
         {
           "key": "persons/male/50_plus/west/lodging/trade",
@@ -9436,11 +9483,11 @@
       "buckets_refused": 54,
       "people_held": 408,
       "people_still_held": 408,
-      "open_headroom_in_person_buckets": 217,
+      "open_headroom_in_person_buckets": 14,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 217,
+      "still_owed_now": 14,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }

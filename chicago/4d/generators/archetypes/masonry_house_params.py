@@ -375,6 +375,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "eave_lo_z": eave_lo,
             "eave_hi_z": eave_hi,
             "kick": kick,
+            "eave_lo_overhang": float(rid.get("courtyard_overhang_ft", .20 / FT)) * FT,
             "roof_extend": extend,
             "walls": {f: r["walls"].get(f, "none") for f in FACES},
             "wall_skip": {f: [list(_urange(fr, f, *span)) for span in spans]

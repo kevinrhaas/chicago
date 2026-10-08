@@ -1,9 +1,20 @@
 export const CHANGELOG = [ // newest first
-  { v: 1545, ts: '2026-10-08T19:50:44.990Z', date: 'Oct 8, 2026, 2:50 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
+  { v: 1547, ts: '2026-10-08T20:21:54.801Z', date: 'Oct 8, 2026, 3:21 PM CT', title: 'One baby, one card: Jean Baptiste Bourassa', kind: 'fix',
     items: [
       'Jean Baptiste Bourassa was born on 4 June 1835, baptised at St Mary\u2019s on 29 June and buried by the same priest on 2 July. The town had read the baptism and the burial as two people, and made the burial\u2019s \u201cJohn Baptist\u201d a grown man with a wife, two girls and a house of his own. Open his card now: one child, alive on 1 July, and his father\u2019s son.',
       'His father L\u00e9on had two cards as well, one for each church entry. Now he has one.',
       'The cottage on the corner of Randolph and Dearborn that had been given to the burial card now stands without a household, finished as a tradesman\u2019s cottage again. A few invented families elsewhere were re-dealt, and their cards still say they are reconstructed.',
+    ] },
+  { v: 1546, ts: '2026-10-08T19:58:47.393Z', date: 'Oct 8, 2026, 2:58 PM CT', title: 'Glessner courtyard windows and eaves line up', kind: 'fix',
+    items: [
+      'The courtyard tower’s main windows now share the adjoining first-floor height. The upper wing windows are shorter, matching the tower’s upper band.',
+      'The rear eave projects continuously into the tower roof, with joined copper, tile and gutters. These proportions are declared reconstructions based on the courtyard photographs and measured house plan.',
+      'Glessner’s glass stays dark at every Scene detail setting, including Full. The glass comparison links still work.',
+    ] },
+  { v: 1545, ts: '2026-10-08T19:35:25.683Z', date: 'Oct 8, 2026, 2:35 PM CT', title: 'The town stops waiting on 202 men it already has', kind: 'fix',
+    items: [
+      'The plan of who still has to be added to the 1835 town was asking for 202 more grown men in family houses. The people cards already name 1,190 men aged twenty or over, and the plan wants 943 in all, so the town has more than enough.',
+      'The 202 are taken off the list. Nobody in the town is changed or removed. The count the town is heading for falls from 3,135 to 2,933, inside the 1835 range.',
     ] },
   { v: 1544, ts: '2026-10-08T18:40:42.949Z', date: 'Oct 8, 2026, 1:40 PM CT', title: 'A smoke check stops entering the town before the door opens', kind: 'fix',
     items: [
