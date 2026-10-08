@@ -11,7 +11,7 @@
     "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 10,
     "the_register_appearance_identity_was_refused_in_the_crosswalk": 27,
     "the_register_appearance_names_nobody_this_town_holds": 13,
-    "the_register_entry_names_kin": 46,
+    "the_register_entry_names_kin": 43,
     "the_register_reading_is_about_the_town_and_not_a_person": 6,
     "the_roll_is_beyond_the_reading_window": 26
   },
@@ -236,21 +236,6 @@
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_2",
       "rule": "the_register_entry_names_kin",
       "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_2: M. Colewell is the parent of a register entry dated 1834-06 at Chicago. Parent of death entry 1 of 11 on Father St. Cyr's death page, 1834-06. No forename and no age for the child; the father is named with his office. The burial …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_02_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_02_1: W. Brannen is the decedent of a register entry dated 1834-07 at Chicago. Decedent of death entry 2 of 11 on Father St. Cyr's death page, 1834-07. \"Newly arrived from Ireland\" — the page's own words, and the only origin statement on …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_03_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_03_1: John Hogan is the decedent of a register entry dated 1834-10 at Chicago. Decedent of death entry 3 of 11 on Father St. Cyr's death page, 1834-10. Died suddenly. No age, no relation, no residence. Line 13 closes this group of four: …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_04_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_04_1: William Bourque (Burke) is the decedent of a register entry dated 1835-06 at Chicago. Decedent of death entry 4 of 11 on Father St. Cyr's death page, 1835-06. SCENE YEAR. The page itself gives the alias in brackets, so both spellings are the …"
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_06_1",

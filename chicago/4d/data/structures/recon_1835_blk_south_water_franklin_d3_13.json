@@ -192,9 +192,9 @@
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "keeper_trade",
+      "by": "keeper",
       "household": "hh_bourque_william",
-      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Bourque household's, a dressmaker, in Chicago since 1835 (rule F-T)"
+      "words": "ochre-washed clapboard on a balloon frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a new roof — The Bourque household's, in Chicago since 1835 (rule F-T)"
     },
     "frontage": {
       "block": "blk_south_water_franklin",

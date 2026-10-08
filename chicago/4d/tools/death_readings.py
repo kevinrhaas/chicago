@@ -46,6 +46,7 @@ import argparse
 import calendar
 import functools
 import json
+import re
 import pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -194,12 +195,132 @@ def report() -> int:
     return 0
 
 
+RESIDENTS = ROOT / "data" / "residents"
+SCENE_DATE = "1835-07-01"
+
+
+def name_key(name) -> frozenset:
+    """The words of a name, order-free — `Rollins, Charles` and `Charles Rollins` agree."""
+    return frozenset(w for w in re.split(r"[^a-z]+", str(name or "").lower()) if len(w) > 1)
+
+
+#: A merge ruling argues about ANOTHER card's evidence — `hh_hogan_john_s_c`, the
+#: postmaster, cites John Hogan's 1834 burial to say they are two men — so what it cites
+#: is not this card's own.
+NOT_OWN = ("merge_ruling",)
+
+
+def strings(node):
+    if isinstance(node, str):
+        yield node
+    elif isinstance(node, dict):
+        for key, value in node.items():
+            if key not in NOT_OWN:
+                yield from strings(value)
+    elif isinstance(node, list):
+        for value in node:
+            yield from strings(value)
+
+
+def own_deaths(card: dict) -> list:
+    """[(record, day)] — the deaths before the scene date this card cites FOR ITS OWN HEAD.
+
+    A register burial row is one person, so citing its id is citing that death. A press
+    claim can name the dead beside the living (`husband of the deceased`), so a notice
+    counts only where the entity it prints as dead bears the head's own name."""
+    head = next((p for p in card.get("persons") or [] if p.get("id") == card.get("head")),
+                None)
+    key = name_key((head or {}).get("name") or card.get("name"))
+    cited = set()
+    for text in strings(card):
+        cited.update(re.findall(r"[a-z0-9_]+(?:#c\d+)?", text))
+    out = set()
+    for rid in cited & set(church_deaths()):
+        day = latest_day((church_deaths()[rid].get("cells") or {}).get("describes_date")
+                         or church_deaths()[rid].get("describes_date"))
+        if day and day < SCENE_DATE:
+            out.add((rid, day))
+    for (where, printed), claim in press_deaths().items():
+        if where in cited and key and name_key(printed) == key:
+            day = issue_date(claim["_issue"])
+            if day and day < SCENE_DATE:
+                out.add((where, day))
+    return sorted(out)
+
+
+def check() -> int:
+    """THE CLASS GATE (T-2189): no card whose own burial or death notice falls before the
+    scene date stands in the town. A death is the one departure no later source undoes."""
+    bad, seen = [], 0
+    for path in sorted(RESIDENTS.rglob("hh_*.json")):
+        card = _load(path)
+        if not isinstance(card, dict):
+            continue
+        deaths = own_deaths(card)
+        if not deaths:
+            continue
+        seen += 1
+        presence = card.get("present_on_scene_date")
+        value = presence.get("value") if isinstance(presence, dict) else presence
+        if value != "absent":
+            bad.append("%s reads %r, and cites its own death %s (%s)"
+                       % (path.relative_to(ROOT), value, deaths[0][0], deaths[0][1]))
+    for line in bad:
+        print("  FAIL " + line)
+    if bad:
+        return 1
+    print("  ok    %d card(s) cite their own burial or death notice before %s; every one "
+          "reads `absent`" % (seen, SCENE_DATE))
+    return 0
+
+
+def self_test() -> int:
+    failed = 0
+
+    def fires(label, ok):
+        nonlocal failed
+        failed += 0 if ok else 1
+        print("   %-70s %s" % (label, "ok" if ok else "FAIL"))
+
+    fires("a name's word order does not matter",
+          name_key("Rollins, Charles") == name_key("Charles Rollins"))
+    fires("a month is read at its last day", latest_day("1834-07") == "1834-07-31")
+    fires("an issue is dated by its own id", issue_date("chicago_democrat_1834_09_17")
+          == "1834-09-17")
+    burial = next(iter(church_deaths()), None)
+    fires("a card citing a register burial row is read as that death",
+          burial is None or bool(own_deaths({"head": "x", "persons": [{"id": "x"}],
+                                             "evidence": [burial]}))
+          or not (latest_day((church_deaths()[burial].get("cells") or {})
+                             .get("describes_date")) or "9") < SCENE_DATE)
+    notice = next(((w, n) for (w, n) in press_deaths()
+                   if (issue_date(w.split("#")[0]) or "9") < SCENE_DATE), None)
+    if notice:
+        fires("a notice naming the head is read as the head's death",
+              bool(own_deaths({"head": "x", "persons": [{"id": "x", "name": notice[1]}],
+                               "sources": [notice[0]]})))
+        fires("a notice naming somebody else is not",
+              not own_deaths({"head": "x", "persons": [{"id": "x", "name": "Zebulon Q"}],
+                              "sources": [notice[0]]}))
+    fires("a merge ruling's citation is another card's, not this one's",
+          burial is None or not own_deaths({"head": "x", "persons": [
+              {"id": "x", "merge_ruling": [{"against_merge": burial}]}]}))
+    print("   %d failed" % failed)
+    return 1 if failed else 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--report", action="store_true")
+    parser.add_argument("--check", action="store_true")
+    parser.add_argument("--self-test", action="store_true")
     args = parser.parse_args()
     if args.report:
         return report()
+    if args.check:
+        return check()
+    if args.self_test:
+        return self_test()
     parser.print_usage()
     return 2
 

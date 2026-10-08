@@ -800,7 +800,10 @@ def fill(base: dict) -> tuple:
         "houses_the_book_refused_by_household": {k: refused_houses[k]
                                                   for k in sorted(refused_houses)},
     }
-    ledger["re_housing"] = re_housing(base, refused_houses)
+    standing = ({her: row.get("folded_into") for her, row in load_folds().items()}
+                if FOLDS.exists() else None)
+    ruled_on = frozenset(((load_ruling() or {}).get("houses") or {}))
+    ledger["re_housing"] = re_housing(base, refused_houses, standing, ruled_on)
 
     # T-2020: THE PAIRS ARE CARRIED ONTO THE CARDS. Only after the draw and the
     # measurement, both of which read `base` and neither of which a fold may disturb: the
@@ -1272,6 +1275,31 @@ def match(heads: list, women: list) -> list:
     return pairs
 
 
+def keep_pairs(heads: list, women: list, standing, ruled_on) -> list:
+    """[(head household, woman's household)] — the pairs already made, and the growth. Pure.
+
+    T-2189: THE PAIRING IS FROZEN ONCE MADE, as the women-and-children deal is (T-2178)
+    and the ruling is (T-2021). `match` is greedy over the whole town, so one head ruled
+    absent re-pairs every head after him: on 2026-10-08 withdrawing two dead men's houses
+    made `hh_galaher_thomas`, a house T-2021 had already admitted, a fold host and left
+    `hh_rc_gilbert_esther` folded on file but standing on the layer. So `standing`
+    ({folded house: host}, read off the committed fold file) is replayed: a pair stands
+    while its head is still refused and she is still eligible; a pair whose head is gone
+    is dropped and she heads her own house again — NOBODY RE-PAIRS. Only a head neither
+    married nor ruled on (refused since the freeze) is matched, and only against a woman
+    no fold has ever named. `standing` None is a tree that has never folded: match all."""
+    if standing is None:
+        return match(heads, women)
+    order = {h[2]: (h[0], h[1], h[2]) for h in heads}
+    eligible = {w[2] for w in women}
+    kept = [(host, her) for her, host in standing.items()
+            if host in order and her in eligible]
+    married = {h for h, _ in kept}
+    new = match([h for h in heads if h[2] not in married and h[2] not in ruled_on],
+                [w for w in women if w[2] not in standing])
+    return sorted(kept + new, key=lambda pair: order[pair[0]])
+
+
 def wife_floor(card: dict):
     """(the lowest head band this woman may marry into, why not) for one T-1174 house.
 
@@ -1333,8 +1361,10 @@ def trade_women() -> str:
                 sum(trades.values()), trades["domestic"], trades["boarding_house_keeper"]))
 
 
-def re_housing(base: dict, refused: dict) -> dict:
-    """How many of the refused married houses the town's own women could be wife to."""
+def re_housing(base: dict, refused: dict, standing=None, ruled_on=frozenset()) -> dict:
+    """How many of the refused married houses the town's own women could be wife to.
+
+    `standing` and `ruled_on` freeze the pairs once made (`keep_pairs`, T-2189)."""
     ruled = ruled_present()
     heads = [(houses["wife_cell"].split("/")[3], houses["head_band_low"], hid)
              for hid, houses in refused.items()]
@@ -1351,7 +1381,7 @@ def re_housing(base: dict, refused: dict) -> dict:
                 held_back_ids.add(card["id"])
             continue
         women.append((card.get("division"), floor, card["id"]))
-    pairs = match(heads, women)
+    pairs = keep_pairs(heads, women, standing, ruled_on)
     widened = list(women)
     for card in pool:
         if card["id"] in held_back_ids:
@@ -1972,8 +2002,10 @@ def self_test() -> int:
     # T-2178 RESTATED IT FROM 959 TO 953: six St Mary's children whose own baptismal entries
     # put their births after 1 July 1835 are carded `absent` by the civic mint now, so they
     # reach the presence stage as evidenced absences and not as households to rule on.
+    # T-2189 RESTATED IT FROM 953 TO 940: the 13 cards the town's own burials and death
+    # notices bury before 1 July 1835 are carded `absent` by the civic mint now, the same way.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 953)
+          len(ruled_present()) == 940)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
@@ -2058,6 +2090,18 @@ def self_test() -> int:
           all(p_["house"] in ledger["houses_the_book_refused_by_household"]
               for p_ in ledger["re_housing"]["pairs"]))
 
+    # T-2189: the pairing is frozen once made.
+    heads_ = [("south", 20, "hh_a"), ("south", 40, "hh_b"), ("south", 40, "hh_c")]
+    women_ = [("south", 20, "hh_x"), ("south", 40, "hh_y")]
+    fires("a tree that has never folded matches the whole town",
+          keep_pairs(heads_, women_, None, frozenset()) == match(heads_, women_))
+    fires("a pair whose head is gone is dropped and nobody re-pairs",
+          keep_pairs(heads_[1:], women_, {"hh_x": "hh_a", "hh_y": "hh_b"},
+                     frozenset({"hh_c"})) == [("hh_b", "hh_y")])
+    fires("a head refused since the freeze is matched, only to a woman no fold named",
+          keep_pairs(heads_, women_ + [("south", 30, "hh_z")], {"hh_x": "hh_a", "hh_y": "hh_gone"},
+                     frozenset({"hh_b"})) == [("hh_a", "hh_x"), ("hh_c", "hh_z")])
+
     # T-2020, the fold.
     head = {"id": "hh_h", "head": "h", "present_on_scene_date": {"value": "present"},
             "persons": [{"id": "h", "name": "John Smith", "relationship": "head"}]}
@@ -2118,9 +2162,16 @@ def self_test() -> int:
               r["rank"] for r in ruling["houses"].values() if r["verdict"] == ADMITTED)
           == list(range(1, ruling["counts"]["admitted"] + 1)))
     fr = ledger["family_ruling"]
+    # T-2189: a house withdrawn by name (its head buried before the day) is netted out of
+    # both the orders and the admitted count, and nothing else is.
+    gone = (fr.get("withdrawn") or {})
+    owed = Counter((ruling or {}).get("orders") or {})
+    owed.subtract(gone.get("fills") or {})
     fires("the build reads the frozen list and re-deals nobody",
-          ruling is not None and fr["fills"] == ruling["orders"]
-          and fr["admitted"] == ruling["counts"]["admitted"] and fr["not_ruled_on"] == 0)
+          ruling is not None and fr["fills"] == {k: v for k, v in sorted(owed.items()) if v}
+          and fr["admitted"] + sum(1 for row in (gone.get("houses") or {}).values()
+                                   if row.get("verdict") == ADMITTED)
+          == ruling["counts"]["admitted"] and fr["not_ruled_on"] == 0)
     moved = json.loads(json.dumps(ruling or {}))
     if moved.get("houses"):
         first = min(moved["houses"], key=lambda h: moved["houses"][h]["rank"])

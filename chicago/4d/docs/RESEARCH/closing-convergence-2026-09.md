@@ -45,21 +45,21 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 
 | measured | baseline | now | delta |
 |---|---:|---:|---:|
-| households in `index.json` | 1258 | 1459 | +201 |
-| household cards on disk | 1258 | 1459 | +201 |
-| persons in `index.json` | 1288 | 2928 | +1640 |
+| households in `index.json` | 1258 | 1461 | +203 |
+| household cards on disk | 1258 | 1461 | +203 |
+| persons in `index.json` | 1288 | 2916 | +1628 |
 | rows in the `merged` redirect table | 66 | 67 | +1 |
 | redirects that do not arrive | 0 | 0 | 0 |
 | persons graded `attested` | 410 | 412 | +2 |
 | persons graded `inferred` | 875 | 1030 | +155 |
-| persons graded `reconstructed` | 3 | 1486 | +1483 |
+| persons graded `reconstructed` | 3 | 1474 | +1471 |
 | 1835 sidecar files | 391 | 680 | +289 |
-| people in the 1835 people sidecar | 1288 | 3925 | +2637 |
+| people in the 1835 people sidecar | 1288 | 3911 | +2623 |
 | buildings standing in the town census | 371 | 654 | +283 |
 | people housed in the town census | 34 | 2590 | +2556 |
-| households housed in the town census | 20 | 1323 | +1303 |
-| rows in the final resident audit | 1288 | 2928 | +1640 |
-| published resident files in the mirror | 1336 | 1427 | +91 |
+| households housed in the town census | 20 | 1319 | +1299 |
+| rows in the final resident audit | 1288 | 2916 | +1628 |
+| published resident files in the mirror | 1336 | 1426 | +90 |
 
 ## 4. T-1144's banked acceptances, as deltas
 
@@ -69,10 +69,10 @@ T-1144 banked acceptances 3, 5 and 9 to this pass "to state as deltas rather tha
 |---|---:|---:|---:|
 | acc. 3 — Mary Durbin, John Simmons, John Vincent or Logdson in the layer | 0 | 0 | 0 |
 | acc. 5 — standing 1835 trades cited to no 1835 source | 0 | 0 | 0 |
-| acc. 9 — uncertain presences | 820 | 953 | +133 |
-| acc. 9 — …of them carrying a dated evidence leg | 820 | 953 | +133 |
+| acc. 9 — uncertain presences | 820 | 940 | +120 |
+| acc. 9 — …of them carrying a dated evidence leg | 820 | 940 | +120 |
 
-Acceptance 9 reads as a pair: 953 of 953 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
+Acceptance 9 reads as a pair: 940 of 940 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
 
 ## 5. What holds this page
 

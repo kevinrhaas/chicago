@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1549, ts: '2026-10-08T22:29:21.785Z', date: 'Oct 8, 2026, 5:29 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+    items: [
+      'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
+      'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
+      'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
   { v: 1548, ts: '2026-10-08T20:51:44.383Z', date: 'Oct 8, 2026, 3:51 PM CT', title: 'St Mary\u2019s baptised children now show the sex the register gives them', kind: 'fix',
     items: [
       'Most of the children in St Mary\u2019s baptismal register had their sex guessed from a list that is nearly all men, so 21 girls were shown as male and 2 boys as female. The register itself says fils or fille, son or daughter, after each child\u2019s name. The card now reads that word and cites the register, for 42 of the 43 children; one entry gives no word and keeps its guess.',

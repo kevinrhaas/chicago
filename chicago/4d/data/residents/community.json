@@ -15,17 +15,17 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3462,
+  "persons": 3448,
   "households": 1985,
-  "known": 3326,
-  "unknown": 136,
+  "known": 3314,
+  "unknown": 134,
   "by_community": {
-   "yankee": 1683,
+   "yankee": 1671,
    "new_york": 558,
    "irish": 479,
    "french_canadian": 185,
    "other": 137,
-   "unknown": 136,
+   "unknown": 134,
    "british": 111,
    "native": 89,
    "southern": 67,
@@ -33,25 +33,25 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3266,
-   "null": 136,
+   "reconstructed": 3254,
+   "null": 134,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1899,
+   "reconstruction_community": 1887,
    "origin_region": 1402,
-   "no_origin_recorded": 121,
+   "no_origin_recorded": 119,
    "stated_community": 25,
    "origin_does_not_speak_for_this_person": 11,
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 691,
+   "yankee": 692,
    "new_york": 557,
-   "irish": 139,
+   "irish": 140,
    "other": 137,
-   "unknown": 124,
+   "unknown": 122,
    "british": 111,
    "native": 89,
    "french_canadian": 64,
@@ -5706,11 +5706,6 @@
    "tier": "reconstructed",
    "rule": "origin_region"
   },
-  "one_of_daughters_of_m_colewell": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
   "orinsbey_martin_t": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -9616,21 +9611,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_hamilton_diana_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_hamilton_diana_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_hamilton_diana_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_handy_henry_s_child_1": {
    "value": "irish",
    "tier": "reconstructed",
@@ -12351,26 +12331,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_outhet_daniel_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_outhet_daniel_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_outhet_daniel_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_outhet_daniel_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_paine_william_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -13108,31 +13068,6 @@
   },
   "rc_robillard_pierre": {
    "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rollins_charles_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rollins_charles_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rollins_charles_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rollins_charles_child_4": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rollins_charles_wife": {
-   "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -17132,11 +17067,6 @@
    "rule": "origin_region"
   },
   "william_bond": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded"
-  },
-  "william_bourque_burke": {
    "value": "unknown",
    "tier": null,
    "rule": "no_origin_recorded"
@@ -24884,13 +24814,6 @@
    "head": "omarra_james",
    "file": "households/hh_omarra_james.json"
   },
-  "hh_one_of_daughters_of_m_colewell": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "one_of_daughters_of_m_colewell",
-   "file": "readmitted/hh_one_of_daughters_of_m_colewell.json"
-  },
   "hh_orinsbey_martin_t": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -25591,6 +25514,13 @@
    "head": "rc_barnes_clarissa",
    "file": "households/hh_rc_barnes_clarissa.json"
   },
+  "hh_rc_barnes_esther": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_barnes_esther",
+   "file": "households/hh_rc_barnes_esther.json"
+  },
   "hh_rc_barnes_hannah": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -25884,6 +25814,13 @@
    "rule": "reconstruction_community",
    "head": "rc_connor_johanna",
    "file": "reconstructed_trades/hh_rc_connor_johanna.json"
+  },
+  "hh_rc_connor_margaret": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_connor_margaret",
+   "file": "households/hh_rc_connor_margaret.json"
   },
   "hh_rc_connor_owen": {
    "value": "irish",
@@ -30945,13 +30882,6 @@
    "rule": "no_origin_recorded",
    "head": "william_bond",
    "file": "readmitted/hh_william_bond.json"
-  },
-  "hh_william_bourque_burke": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "no_origin_recorded",
-   "head": "william_bourque_burke",
-   "file": "readmitted/hh_william_bourque_burke.json"
   },
   "hh_william_dird": {
    "value": "unknown",

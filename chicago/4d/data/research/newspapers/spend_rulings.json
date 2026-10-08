@@ -10,7 +10,7 @@
   "counts": {
     "a_trade_reading_the_business_layer_holds_no_record_for": 22,
     "the_column_names_nobody": 60,
-    "the_family_column_names_kin": 13,
+    "the_family_column_names_kin": 11,
     "the_issue_is_printed_after_the_scene_date": 60,
     "the_letter_list_name_belongs_to_the_borderline_roster": 69,
     "the_market_and_the_port_in_aggregate": 61,
@@ -1005,19 +1005,9 @@
       "note": "chicago_democrat_1834_09_17 c001: the family column of 1834-09-17 reads: “[Died, in this] town, on the 11th inst, of bil[i]o[u]s fe[ver and] inflam[m]ation in the bowel, Mr. James [uncertain: —]ey, aged 22 years and a few months, a merchant of the city …”"
     },
     {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c002",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_09_17 c002: the family column of 1834-09-17 reads: “[Died, in this] town on the 7th [inst.], [of] Drop[s]y in his [head, Char]les Rollins, only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months. [“The m]orning sun went …”"
-    },
-    {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c001",
       "rule": "the_family_column_names_kin",
       "note": "chicago_democrat_1834_09_24 c001: the family column of 1834-09-24 reads: “MARRIED, [I]n this town, on the 20th inst. by J. Dea[n] Caton Esq. Mr. A[u]g[u]st[u]s B[on]i[n], to Miss Jos[uncertain: ers/enpy] Fras[ch]e.”"
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c002",
-      "rule": "the_family_column_names_kin",
-      "note": "chicago_democrat_1834_09_24 c002: the family column of 1834-09-24 reads: “[Died,] In this town, on the 16th inst. Mrs. Sara[h] Hoit, wife of Mr. Thomas Ho[i]t, formerly [of] Stafford co. N. H. in the forty third y[e]ar of her age. In the death of this …”"
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c003",

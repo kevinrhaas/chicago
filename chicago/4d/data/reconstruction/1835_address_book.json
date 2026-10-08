@@ -228,11 +228,11 @@
   ]
  },
  "counts": {
-  "rows": 1635,
-  "households": 1459,
+  "rows": 1637,
+  "households": 1461,
   "businesses": 176,
   "by_rung": {
-   "division_band": 82,
+   "division_band": 84,
    "face": 52,
    "owed": 11,
    "policy_only": 1342,
@@ -240,14 +240,14 @@
    "unplaceable": 61
   },
   "by_reach": {
-   "division": 82,
+   "division": 84,
    "face": 52,
    "none": 1403,
    "structure": 87,
    "structure_owed": 11
   },
   "households_by_rung": {
-   "division_band": 82,
+   "division_band": 84,
    "policy_only": 1342,
    "structure": 34,
    "unplaceable": 1
@@ -258,10 +258,10 @@
    "structure": 53,
    "unplaceable": 60
   },
-  "seated": 1563,
+  "seated": 1565,
   "owed": 11,
   "by_seat_kind": {
-   "division_band": 1424,
+   "division_band": 1426,
    "street_face": 7,
    "structure": 132
   },
@@ -271,8 +271,8 @@
    "north/heavy_and_noxious_trades": 1,
    "north/labourer_dwellings": 21,
    "north/merchant_and_professional_dwellings": 88,
-   "north/tradesman_dwellings": 139,
-   "south/division_ground": 15,
+   "north/tradesman_dwellings": 140,
+   "south/division_ground": 16,
    "south/farms_and_country_seats": 104,
    "south/heavy_and_noxious_trades": 1,
    "south/labourer_dwellings": 80,
@@ -285,7 +285,7 @@
    "west/merchant_and_professional_dwellings": 81,
    "west/tradesman_dwellings": 127
   },
-  "reconstructed_seats": 1442,
+  "reconstructed_seats": 1444,
   "dealt_a_roof": 313,
   "dealt_a_standing_roof": 311,
   "dealt_a_slot_not_yet_built": 2,
@@ -47885,6 +47885,38 @@
    "dealt_roof": null
   },
   {
+   "id": "hh_rc_barnes_esther",
+   "kind": "household",
+   "name": "Reconstructed household — Esther Barnes, a woman keeping her own house in the south division",
+   "rung": "division_band",
+   "seat": {
+    "kind": "division_band",
+    "id": "south/division_ground",
+    "division": "south",
+    "clause": null
+   },
+   "works_seat": null,
+   "reach": "division",
+   "reach_value": "south",
+   "division": "south",
+   "tier": "reconstructed",
+   "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
+   "words": "The record reaches the south division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
+   "owed_to": null,
+   "band": {
+    "band": "south/division_ground",
+    "clause": null,
+    "clause_applies_to": [],
+    "clause_tier": null,
+    "statement": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
+    "division_is_the_clause_preference": null,
+    "from_trade": null
+   },
+   "seed": "hh_rc_barnes_esther|south|no_trade|T-1512",
+   "dealt_roof": null
+  },
+  {
    "id": "hh_rc_barnes_nancy",
    "kind": "household",
    "name": "Reconstructed household — Nancy Barnes, a woman boarding with her family in the south division",
@@ -47971,6 +48003,43 @@
     "from_trade": "laundress"
    },
    "seed": "hh_rc_cobb_martha|south|laundress|T-1512",
+   "dealt_roof": null
+  },
+  {
+   "id": "hh_rc_connor_margaret",
+   "kind": "household",
+   "name": "Reconstructed household — Margaret Connor, a woman keeping her own house in the north division",
+   "rung": "division_band",
+   "seat": {
+    "kind": "division_band",
+    "id": "north/tradesman_dwellings",
+    "division": "north",
+    "clause": "tradesman_dwellings"
+   },
+   "works_seat": null,
+   "reach": "division",
+   "reach_value": "north",
+   "division": "north",
+   "tier": "reconstructed",
+   "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
+   "words": "The record reaches the north division and nothing narrower. Inside it the placement policy bands this household by its head's trade (dressmaker): The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "replaceable_by": "a source naming a street, a corner or a building for this household",
+   "owed_to": null,
+   "band": {
+    "band": "north/tradesman_dwellings",
+    "clause": "tradesman_dwellings",
+    "clause_applies_to": [
+     "D3",
+     "D4",
+     "D5",
+     "D6"
+    ],
+    "clause_tier": "inferred",
+    "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
+    "division_is_the_clause_preference": false,
+    "from_trade": "dressmaker"
+   },
+   "seed": "hh_rc_connor_margaret|north|dressmaker|T-1512",
    "dealt_roof": null
   },
   {
