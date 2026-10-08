@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "301 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "304 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 231,
     "refused": 0,
-    "refuges": 317,
-    "paths": 301
+    "refuges": 320,
+    "paths": 304
   },
   "lots": [
     {
@@ -658,6 +658,7 @@
     {
       "lot": "blk_south_water_wells_lot5",
       "structures": [
+        "recon_1835_blk_south_water_wells_a2_09",
         "recon_1835_blk_south_water_wells_d4_03"
       ],
       "kept_ring_local_enu_m": [
@@ -703,6 +704,24 @@
           [
             393.69,
             -58.01
+          ]
+        ],
+        [
+          [
+            401.57,
+            -70.91
+          ],
+          [
+            410.91,
+            -70.85
+          ],
+          [
+            410.84,
+            -58.75
+          ],
+          [
+            401.5,
+            -58.81
           ]
         ]
       ]
@@ -1661,6 +1680,7 @@
     {
       "lot": "blk_south_water_dearborn_lot1",
       "structures": [
+        "recon_1835_blk_south_water_dearborn_a5_10",
         "recon_1835_blk_south_water_dearborn_d2_04"
       ],
       "kept_ring_local_enu_m": [
@@ -1706,6 +1726,24 @@
           [
             713.14,
             -59.6
+          ]
+        ],
+        [
+          [
+            718.41,
+            -66.15
+          ],
+          [
+            722.85,
+            -66.13
+          ],
+          [
+            722.82,
+            -60.72
+          ],
+          [
+            718.38,
+            -60.75
           ]
         ]
       ]
@@ -11157,6 +11195,7 @@
     {
       "lot": "blk_indiana_north_wolcott_lot9",
       "structures": [
+        "recon_1835_blk_indiana_north_wolcott_a1_09",
         "recon_1835_blk_indiana_north_wolcott_a3_04",
         "recon_1835_blk_indiana_north_wolcott_d3_02"
       ],
@@ -11187,6 +11226,24 @@
         ]
       ],
       "refuges_local_enu_m": [
+        [
+          [
+            902.3,
+            510.28
+          ],
+          [
+            908.23,
+            510.32
+          ],
+          [
+            908.17,
+            519.65
+          ],
+          [
+            902.24,
+            519.61
+          ]
+        ],
         [
           [
             910.29,
