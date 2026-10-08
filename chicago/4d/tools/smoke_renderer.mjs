@@ -2357,7 +2357,10 @@ for (const [label, viewport, touch] of [
     // loudly instead of quietly costing a phone its frame.
     const encl = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
-      const meshes = (e?.group?.children ?? []).filter((c) => c.isMesh);
+      // Far batches intentionally span several source chunks. Their sphere is
+      // not a source chunk's culling bound; the far-merge gate verifies them.
+      const meshes = (e?.group?.children ?? [])
+        .filter((c) => c.isMesh && !c.userData?.farMerged);
       const box = { minE: Infinity, maxE: -Infinity, minN: Infinity, maxN: -Infinity };
       for (const r of e?.records ?? []) {
         for (const run of r.runs ?? []) {
@@ -3816,37 +3819,15 @@ for (const [label, viewport, touch] of [
         }
         return null;
       };
-      // The piles are nine objects on one lot 130 m from the nearest wagon and
-      // further still from the nearest cask, so a plain radius claims them with
-      // nothing to collide with. The radius is the widest pile's own reach — a
-      // timber stick 3.66 m long lying across its pile — plus a margin.
-      // It returns the NEAREST pile and not the first one inside the radius: the
-      // brick stacks stand 3.2 m apart, so a vertex at the near end of one falls
-      // inside its neighbour's radius too, and taking the first match measured
-      // it against the wrong anchor and reported 2.49 m of stray on geometry
-      // that is exactly where the record puts it.
-      // T-2093 — THE BRIDGE PILES DO HAVE A WAGON BESIDE THEM NOW. T-2143 (#492)
-      // carried West Water to Madison and the stand rule put a cart
-      // (town_wagon_west_water_3) 3.04 m south of the raft bridge's west pile, so
-      // the radius took the cart's near side as pile: 1052 vertices against the
-      // stack's 396, 2.52 m across against its 0.8, and 2.60 m of stray. A bridge
-      // pile is one stated 3.048 x 0.8 m stack (T-1765), so it claims inside its
-      // own footprint plus 0.5 m and no further. A stack laid on the wrong axis
-      // still fails: its ends fall outside the box and its vertex count drops.
-      const inBridgeStack = (pl, e, n) => {
-        const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
-        const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
-        return Math.abs(along) <= 3.048 / 2 + 0.5 && Math.abs(across) <= 0.8 / 2 + 0.5;
-      };
-      const pileNear = (e, n) => {
-        let best = null;
-        let bestD = 2.6;
-        for (const pl of piles) {
-          const d = Math.hypot(e - pl.e, n - pl.n);
-          if (d <= bestD && (!pl.bridge || inBridgeStack(pl, e, n))) { bestD = d; best = pl; }
-        }
-        return best;
-      };
+      // Measure the exact vertices emitted for each lot item. The old radius
+      // classifier absorbed nearby wagons/trade goods into bridge repair piles.
+      // Ownership includes every emitted vertex, so a displaced pile fails its
+      // bound instead of disappearing outside a search radius.
+      const lotOwners = new Map(meshes.map((m) => [m.geometry,
+        (m.userData.lotItemSpans ?? []).map((span) => ({ ...span,
+          pile: piles.find((pl) => pl.structure_id === span.id
+            && pl.e === span.at[0] && pl.n === span.at[1]) }))]));
+      const unknownLotOwners = [...lotOwners.values()].flat().filter((s) => !s.pile).length;
       const inQuad = (e, n, quad) => {
         let inside = false;
         for (let i = 0, j = quad.length - 1; i < quad.length; j = i, i += 1) {
@@ -3859,12 +3840,39 @@ for (const [label, viewport, touch] of [
       };
       for (const geo of (items.length ? geos : [])) {
         const pos = geo.getAttribute('position');
+        const owners = lotOwners.get(geo) ?? [];
+        let ownerIndex = 0;
         for (let i = 0; i < pos.count; i++) {
+          while (ownerIndex < owners.length && i >= owners[ownerIndex].to * 3) ownerIndex++;
+          const owner = owners[ownerIndex];
+          const pl = owner && i >= owner.from * 3 && i < owner.to * 3 ? owner.pile : null;
           // world is (E, up, -N)
           const e = pos.getX(i);
           const n = -pos.getZ(i);
           lowest = Math.min(lowest, pos.getY(i));
           highest = Math.max(highest, pos.getY(i));
+          // T-0057's piles, claimed before the wagons: a pile is measured for how
+          // far it reaches from its own anchor and for the one thing that would
+          // make it wrong, which is a stack of brick standing inside the building
+          // it was delivered for.
+          if (pl) {
+            pileVerts++;
+            pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
+            if (inQuad(e, n, pl.quad)) pileInLot++;
+            if (pl.bridge) {
+              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
+              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
+              pl.vertices++;
+              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              pl.minAlong = Math.min(pl.minAlong, along);
+              pl.maxAlong = Math.max(pl.maxAlong, along);
+              pl.minAcross = Math.min(pl.minAcross, across);
+              pl.maxAcross = Math.max(pl.maxAcross, across);
+              pl.minY = Math.min(pl.minY, pos.getY(i));
+              pl.maxY = Math.max(pl.maxY, pos.getY(i));
+            }
+            continue;
+          }
           // The shed's bay first: along the wall and out of it, in the shed's own
           // frame. The wagon's tongue reaches past the bay and is left to the
           // wagon bound below, which is exactly where it belongs.
@@ -3896,29 +3904,6 @@ for (const [label, viewport, touch] of [
             break;
           }
           if (inBay) continue;
-          // T-0057's piles, claimed before the wagons: a pile is measured for how
-          // far it reaches from its own anchor and for the one thing that would
-          // make it wrong, which is a stack of brick standing inside the building
-          // it was delivered for.
-          const pl = pileNear(e, n);
-          if (pl) {
-            pileVerts++;
-            pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
-            if (inQuad(e, n, pl.quad)) pileInLot++;
-            if (pl.bridge) {
-              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
-              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
-              pl.vertices++;
-              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
-              pl.minAlong = Math.min(pl.minAlong, along);
-              pl.maxAlong = Math.max(pl.maxAlong, along);
-              pl.minAcross = Math.min(pl.minAcross, across);
-              pl.maxAcross = Math.max(pl.maxAcross, across);
-              pl.minY = Math.min(pl.minY, pos.getY(i));
-              pl.maxY = Math.max(pl.maxY, pos.getY(i));
-            }
-            continue;
-          }
           // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
           // own bound rather than lumped in with the casks.
           const w = wagonNear(e, n);
@@ -3993,6 +3978,8 @@ for (const [label, viewport, touch] of [
         benchInside,
         benches,
         pileVerts,
+        unknownLotOwners,
+        lotSpans: [...lotOwners.values()].flat().length,
         pileStray,
         pileInLot,
         lots,
@@ -4230,6 +4217,9 @@ for (const [label, viewport, touch] of [
       `${goods.census?.piles} pile(s) on ${goods.census?.lots} lot(s) `
       + `(${JSON.stringify(goods.census?.byMaterial ?? {})}), ${goods.pileVerts} `
       + `vertices, lot ${goods.lots?.[0]?.structure_id ?? 'MISSING'}`);
+    check(`${label}: every lot item has an exact rendered ownership span`,
+      goods.lotSpans === goods.piles && goods.unknownLotOwners === 0,
+      `${goods.lotSpans} spans for ${goods.piles} items, ${goods.unknownLotOwners} unknown owners`);
     // T-1765: the bridge stock uses the existing stack renderer. Check its
     // rendered boxes, not just the manifest's declared counts.
     check(`${label}: both branch bridges carry four reconstructed repair piles`,
@@ -5053,6 +5043,10 @@ for (const [label, viewport, touch] of [
         problems: (a?.problems ?? []).filter((x) => /frontage/.test(x)),
       };
     });
+    // PR #498 integration, 2026-10-07: the canonical records on f899a73d
+    // carry 119 walks, 100 crossings, 53 posts, 37 fences and 184 refusals.
+    // Authored meshes 124, derived top faces 108376, laid faces 95, bare fronts 7.
+    // These are exact scope readings, not relaxed minima; geometry bars remain.
     check(`${label}: the frontage layer lays all five records' walks and stands their posts`,
       // T-0241 laid Washington's seven block faces on top of Randolph's
       // thirteen: 42 walks to 49, 28 crossings to 33, 26 fence runs to 35 and
@@ -9258,9 +9252,12 @@ for (const [label, viewport, touch] of [
     // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
     // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
     // T-2015: combined six-stand maximum 277 at narrow prairie, +15 -> 295.
+    // PR #498: all six published stands at both widths after exact ground
+    // batching peak at 313 (mobile West prairie, full); +15, rounded to five,
+    // moves the general ceiling to 330. Light still has its own 90-call gate.
     // The measured argument is beside BUDGET in main.js; light stays at 90.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 295,
+      stats.budget.drawCalls === 330,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -11464,15 +11461,24 @@ for (const [label, viewport, touch] of [
           if (z && !spots[z] && a.flora.plantableAt(e, n)) spots[z] = [e, n];
         }
       }
+      // A scene-wide absence cannot be inferred from north-facing views alone.
+      // Keep every original plantable station and survey all four cardinal
+      // bearings there. Sampling is fixed independently of the species; the
+      // original north-facing samples and the owed/drawn bar stay in the census.
+      const stations = Object.entries(spots).flatMap(([zone, at]) =>
+        [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
       const started = a.detail;
       const levels = [];
       for (const level of a.detailOrder) {
         await a.setDetail(level);
         const rows = [];
-        for (const [zone, [e, n]] of Object.entries(spots)) {
+        for (const { zone, at: [e, n], bearing } of stations) {
           const camera = {
             getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
-            getWorldDirection: (v) => { v.set(0, 0, -1); return v; },
+            getWorldDirection: (v) => {
+              const angle = bearing * Math.PI / 180;
+              v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
+            },
           };
           a.flora.update(0.016, camera);
           a.flora.update(0.016, camera);
@@ -11498,7 +11504,7 @@ for (const [label, viewport, touch] of [
         a.flora.update(0.016, a.camera);
         a.flora.update(0.016, a.camera);
       }
-      return { spots: Object.keys(spots), levels };
+      return { spots: Object.keys(spots), stationCount: stations.length, levels };
     });
     // Summed over every station, per (community, list, species) — the scene's
     // answer, at one detail level.
@@ -11527,7 +11533,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: no sward species its own list owes a plant to is drawn nowhere, `
       + `in ANY community`,
       everywhere.spots.length >= 2 && richest.pairs >= 2 && richest.nowhere.length === 0,
-      `${everywhere.spots.length} communities stood in, ${richest.lists} populated list(s), `
+      `${everywhere.spots.length} communities stood in at ${everywhere.stationCount} cardinal views, ${richest.lists} populated list(s), `
       + `${richest.pairs} (list, species) pairs, ${richest.slots} slots dealt at detail `
       + `'${richest.level}'`
       + `${richest.nowhere.length ? `; DRAWN NOWHERE: ${richest.nowhere.join(', ')}` : ''}`);
@@ -14893,14 +14899,17 @@ for (const [label, viewport, touch] of [
         overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       };
     });
-    // T-2157: the committed lot-remnant community adds 11 species to the
-    // former 10/155 catalog. Pin the complete current 11/166 roster; the
-    // clamp and worst-case assertions below remain exact.
+    const floraIndex = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/flora/index.json'), 'utf8'));
+    const plantZones = floraIndex.zones.filter((z) => !z.scenes || z.scenes.includes('1835'));
+    const plantSpecies = plantZones.reduce((n, z) => {
+      const record = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/flora', z.file), 'utf8'));
+      return n + (record.species ?? []).length;
+    }, 0);
     check(`${label}: the plant list loads every community`,
-      plants.zones === 11 && plants.renderedZones === 11 && !plants.busy,
+      plants.zones === plantZones.length && plants.renderedZones === plantZones.length && !plants.busy,
       `${plants.zones} loaded / ${plants.renderedZones} rendered (${plants.error})`);
-    check(`${label}: every species in the eleven communities is on the card`,
-      plants.species === 166 && plants.renderedSpecies === 166,
+    check(`${label}: every species in the committed communities is on the card`,
+      plants.species === plantSpecies && plants.renderedSpecies === plantSpecies,
       `${plants.species} counted / ${plants.renderedSpecies} rendered`);
     // The finding, asserted as numbers so it cannot quietly go away: ten
     // (community, stratum, side) layers are over the lattice's ceiling, across
@@ -14923,7 +14932,7 @@ for (const [label, viewport, touch] of [
       + `"${plants.denseText.slice(Math.max(0, plants.denseText.indexOf('records ask')), 
         Math.max(240, plants.denseText.indexOf('records ask') + 240))}"`);
     check(`${label}: the note names the worst case rather than only the total`,
-      /166 plants across 11 communities/.test(plants.note)
+      plants.note.includes(`${plantSpecies} plants across ${plantZones.length} communities`)
       && /dense forest/.test(plants.note) && /0\.5 %/.test(plants.note),
       plants.note.slice(0, 220));
     check(`${label}: the plant records quote their sources, not their source ids`,

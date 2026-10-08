@@ -1,0 +1,371 @@
+{
+  "scope": "Wells f899a73d plus exact road/yard/terrain batching; pre-budget diagnostic, not the normal-loop smoke gate",
+  "sourceHead": "f899a73d5119b5f26e3156e8d6967c5a6a4373f2",
+  "sourceHeadWasDirty": true,
+  "sourceHashesBeforeBudgetChange": {
+    "renderers/web/js/main.js": "177f21a7573560d19b38dc1cc3d598fe6bb184dac3c56a36e1d203459c855701",
+    "renderers/web/js/terrain.js": "aaab3b418b0ce1a86600cf7af20f679c2f26c3490e98c5d3a30bf95be4a50f07",
+    "renderers/web/js/streets.js": "5fc920cd78a62411961b2cda1707e4ccff77111060aba85404e1557d3adb48aa",
+    "renderers/web/js/yards.js": "467387c373f59f7604e4e15cd2a4ce1dee7b95bd17209c081a735e7f12b85c2f",
+    "renderers/web/js/yard.js": "27aafb9445626e00e8f73fdcca6883c32bcf0d8e45de03d01f5906f56dff05d6",
+    "renderers/web/js/spatial-batch.js": "9fc64d23d8e5b8a9296ff153d40d035a56846bf60b6b1bc48cf188907288611e",
+    "tools/smoke_renderer.mjs": "232249d93abfc4fa8a49c0b87b07d845ec16bc6224919e5e949152d27af6ee2a"
+  },
+  "browser": "Official Chrome for Testing headless shell 151.0.7922.34, software SwiftShader",
+  "method": "Temporary copy of tools/measure_detail_ceilings.mjs with a stored Light preference at boot; the production setDetail API then selects every tier. --only both --stepped; six canonical stands per tier. Mobile here is a 390x780 viewport; actual touch-device normal-loop coverage remains the release smoke.",
+  "ceilingsAfterMeasurement": {
+    "full": 3160000,
+    "balanced": 2290000,
+    "light": 1005000,
+    "generalCalls": 330,
+    "lightCalls": 90
+  },
+  "reading": [
+    {
+      "tree": "this tree",
+      "root": "/tmp/chicago-clear/site/4d",
+      "renderLoop": "two production steps and GPU finish",
+      "passes": [
+        {
+          "viewport": "desktop 1280x800",
+          "seen": [
+            {
+              "level": "full",
+              "ceiling": 2685000,
+              "atStands": [
+                {
+                  "id": "lake_at_canal",
+                  "label": "Lake Street at Canal, east down the axis",
+                  "tris": 2848177,
+                  "calls": 307,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "the_forks",
+                  "label": "the forks, from Wolf Point",
+                  "tris": 2565567,
+                  "calls": 255,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "from_above",
+                  "label": "the open aerial",
+                  "tris": 2251937,
+                  "calls": 208,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "lake_and_market",
+                  "label": "Lake and Market",
+                  "tris": 2451618,
+                  "calls": 296,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "prairie_west",
+                  "label": "West prairie, east across the sward toward town",
+                  "tris": 3139013,
+                  "calls": 304,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "sauganash_26",
+                  "label": "the Sauganash at 26 m",
+                  "tris": 1949354,
+                  "calls": 232,
+                  "flora": null,
+                  "structures": null
+                }
+              ]
+            },
+            {
+              "level": "balanced",
+              "ceiling": 2090000,
+              "atStands": [
+                {
+                  "id": "lake_at_canal",
+                  "label": "Lake Street at Canal, east down the axis",
+                  "tris": 2137352,
+                  "calls": 279,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "the_forks",
+                  "label": "the forks, from Wolf Point",
+                  "tris": 1917836,
+                  "calls": 228,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "from_above",
+                  "label": "the open aerial",
+                  "tris": 1664225,
+                  "calls": 205,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "lake_and_market",
+                  "label": "Lake and Market",
+                  "tris": 1963407,
+                  "calls": 291,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "prairie_west",
+                  "label": "West prairie, east across the sward toward town",
+                  "tris": 2270978,
+                  "calls": 269,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "sauganash_26",
+                  "label": "the Sauganash at 26 m",
+                  "tris": 1509955,
+                  "calls": 228,
+                  "flora": null,
+                  "structures": null
+                }
+              ]
+            },
+            {
+              "level": "light",
+              "ceiling": 1005000,
+              "atStands": [
+                {
+                  "id": "lake_at_canal",
+                  "label": "Lake Street at Canal, east down the axis",
+                  "tris": 855323,
+                  "calls": 55,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "the_forks",
+                  "label": "the forks, from Wolf Point",
+                  "tris": 788467,
+                  "calls": 55,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "from_above",
+                  "label": "the open aerial",
+                  "tris": 588439,
+                  "calls": 54,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "lake_and_market",
+                  "label": "Lake and Market",
+                  "tris": 706607,
+                  "calls": 81,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "prairie_west",
+                  "label": "West prairie, east across the sward toward town",
+                  "tris": 980749,
+                  "calls": 78,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "sauganash_26",
+                  "label": "the Sauganash at 26 m",
+                  "tris": 564339,
+                  "calls": 71,
+                  "flora": null,
+                  "structures": null
+                }
+              ]
+            }
+          ],
+          "errors": [],
+          "heap": 741138142
+        },
+        {
+          "viewport": "mobile 390x780",
+          "seen": [
+            {
+              "level": "full",
+              "ceiling": 2685000,
+              "atStands": [
+                {
+                  "id": "lake_at_canal",
+                  "label": "Lake Street at Canal, east down the axis",
+                  "tris": 2398257,
+                  "calls": 282,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "the_forks",
+                  "label": "the forks, from Wolf Point",
+                  "tris": 2006182,
+                  "calls": 226,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "from_above",
+                  "label": "the open aerial",
+                  "tris": 2121069,
+                  "calls": 191,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "lake_and_market",
+                  "label": "Lake and Market",
+                  "tris": 1975345,
+                  "calls": 262,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "prairie_west",
+                  "label": "West prairie, east across the sward toward town",
+                  "tris": 2742582,
+                  "calls": 313,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "sauganash_26",
+                  "label": "the Sauganash at 26 m",
+                  "tris": 1709600,
+                  "calls": 190,
+                  "flora": null,
+                  "structures": null
+                }
+              ]
+            },
+            {
+              "level": "balanced",
+              "ceiling": 2090000,
+              "atStands": [
+                {
+                  "id": "lake_at_canal",
+                  "label": "Lake Street at Canal, east down the axis",
+                  "tris": 1868396,
+                  "calls": 253,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "the_forks",
+                  "label": "the forks, from Wolf Point",
+                  "tris": 1535707,
+                  "calls": 194,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "from_above",
+                  "label": "the open aerial",
+                  "tris": 1542113,
+                  "calls": 191,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "lake_and_market",
+                  "label": "Lake and Market",
+                  "tris": 1632578,
+                  "calls": 258,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "prairie_west",
+                  "label": "West prairie, east across the sward toward town",
+                  "tris": 2006123,
+                  "calls": 253,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "sauganash_26",
+                  "label": "the Sauganash at 26 m",
+                  "tris": 1318357,
+                  "calls": 186,
+                  "flora": null,
+                  "structures": null
+                }
+              ]
+            },
+            {
+              "level": "light",
+              "ceiling": 1005000,
+              "atStands": [
+                {
+                  "id": "lake_at_canal",
+                  "label": "Lake Street at Canal, east down the axis",
+                  "tris": 705837,
+                  "calls": 50,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "the_forks",
+                  "label": "the forks, from Wolf Point",
+                  "tris": 628722,
+                  "calls": 49,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "from_above",
+                  "label": "the open aerial",
+                  "tris": 538117,
+                  "calls": 68,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "lake_and_market",
+                  "label": "Lake and Market",
+                  "tris": 554730,
+                  "calls": 78,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "prairie_west",
+                  "label": "West prairie, east across the sward toward town",
+                  "tris": 829432,
+                  "calls": 67,
+                  "flora": null,
+                  "structures": null
+                },
+                {
+                  "id": "sauganash_26",
+                  "label": "the Sauganash at 26 m",
+                  "tris": 482567,
+                  "calls": 63,
+                  "flora": null,
+                  "structures": null
+                }
+              ]
+            }
+          ],
+          "errors": [],
+          "heap": 741482577
+        }
+      ]
+    }
+  ],
+  "postMeasurementCorrection": "The subsequent road drape fix rounds final end-line coordinates to Float32 and bounds their height by the authoritative field and actual ridge. It changes no triangle count, material, population, reach or tier; the complete normal-loop smoke validates the final bytes."
+}
