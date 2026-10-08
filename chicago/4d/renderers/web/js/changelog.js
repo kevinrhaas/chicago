@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1523, ts: '2026-10-08T07:00:52.558Z', date: 'Oct 8, 2026, 2:00 AM CT', title: 'The loading screen becomes a handheld time machine', kind: 'feature',
+    items: [
+      'While the town loads you now hold a small version of the home page\u2019s machine: the year window, a lamp for each stage of the build, and a green screen that logs each status as it finishes.',
+      'The machine stays the same size the whole time. Long statuses are cut to fit their line instead of stretching the box.',
+      'On a slow connection the year no longer stops on one number while the town downloads. The machine measures your connection and how much is left, and rolls the year back at that pace.',
+      'A strip under the screen shows how much has downloaded, your connection speed and the time left. Your next visit is timed from this one.',
+    ] },
   { v: 1522, ts: '2026-10-08T06:41:56.495Z', date: 'Oct 8, 2026, 1:41 AM CT', title: 'Fuller back yards on Canal Street, Washington to Madison', kind: 'feature',
     items: [
       'Walk Canal Street south of Washington and look between the houses: the back yards are fuller. There is a barn behind the cottage fourth from Washington, a woodshed behind its neighbour, and mid-yard, nearer the houses, a privy behind the merchant\u2019s house on the Washington corner and a smokehouse behind the boarding house.',
