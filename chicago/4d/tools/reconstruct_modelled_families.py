@@ -886,6 +886,29 @@ def fill(base: dict) -> tuple:
                                             len(drafts[hid]))
             seat(out[hid], [], block)
             ruled[verdict] += 1
+    # T-2189: WITHDRAWN, AND NAMED — NEVER A SILENT RE-RULE. A house the frozen ruling
+    # ruled on whose head the sources now bury before the day is not a house in the town,
+    # so it holds no family. The ruling is not re-dealt: each such house is drafted here
+    # by the very seeds the ruling admitted it with, IN MEMORY ONLY (nobody is seated and
+    # no name is taken), so the cells its family would have filled are said exactly, and
+    # the order book nets them out of what the ruling orders. Any other house the ruling
+    # lost is still the FAIL `check` names.
+    withdrawn, withdrawn_fills = {}, Counter()
+    for hid, row in sorted((ruling.get("houses") or {}).items()):
+        card = out.get(hid)
+        if hid in refused_houses or hid in hosts or card is None:
+            continue
+        if value_of(card.get("present_on_scene_date")) != "absent":
+            continue
+        cells = []
+        if row.get("verdict") == ADMITTED:
+            for drafted in draft(hid, card, int(row["size_drawn"]), frozenset(borne),
+                                 read_keys):
+                withdrawn_fills[drafted["bucket"]] += 1
+                cells.append(drafted["bucket"])
+        withdrawn[hid] = {"verdict": row.get("verdict"), "kin_withdrawn": len(cells),
+                          "why": ("the head is ruled absent on the day — the sources bury "
+                                  "them before it (T-2189) — so the house holds no family")}
     ledger["by_household"] = {k: per_card[k] for k in sorted(per_card)}
     after_people = present(out)
     ledger["family_ruling"] = {
@@ -907,6 +930,8 @@ def fill(base: dict) -> tuple:
         "under_ten_share": [under_ten_share(before_people), under_ten_share(after_people)],
         "the_model_s_under_ten_bracket": model_figure("share_under_ten"),
         "fills": dict(sorted(ruled_fills.items())),
+        "withdrawn": {"houses": withdrawn,
+                      "fills": dict(sorted(withdrawn_fills.items()))},
     }
     return out, ledger, folds
 
@@ -1716,7 +1741,9 @@ def write_fills(ledger: dict) -> None:
              for key, n in sorted(ledger["family_ruling"]["fills"].items())]
     book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET, RULING_TICKET}, rows)
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    ob.cmd_build()
+    # The live-owner gate waits for the stage below that refills what this one withdrew
+    # (T-2189); the overfill check does not.
+    ob.cmd_build(owners_gate=False)
 
 
 def check() -> int:
@@ -1764,14 +1791,17 @@ def check() -> int:
         return 1
     ruling = load_ruling()
     fr = ledger["family_ruling"]
+    withdrawn = (fr.get("withdrawn") or {}).get("houses") or {}
     gone = sorted(hid for hid, row in (ruling.get("houses") or {}).items()
-                  if hid not in fr_houses(filled))
+                  if hid not in fr_houses(filled) and hid not in withdrawn)
     if gone:
         print("  FAIL the ruling rules on %d house(s) no longer refused a wife: %s — a "
               "re-cut may not re-deal the ruling; re-rule it deliberately"
               % (len(gone), ", ".join(gone[:4])))
         return 1
-    if fr["fills"] != ruling["orders"]:
+    netted = Counter(ruling["orders"])
+    netted.subtract((fr.get("withdrawn") or {}).get("fills") or {})
+    if fr["fills"] != {k: v for k, v in sorted(netted.items()) if v}:
         print("  FAIL the ruling orders %d people and its houses drew %d in other cells"
               % (sum(ruling["orders"].values()), fr["people_added"]))
         return 1

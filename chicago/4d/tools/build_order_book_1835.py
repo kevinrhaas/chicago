@@ -968,6 +968,13 @@ def load(root: Path = ROOT) -> dict:
     ruling = root / "data" / "reconstruction" / "1835_family_ruling.json"
     out["family_ruling"] = (json.loads(ruling.read_text(encoding="utf-8"))
                             if ruling.exists() else {})
+    # …and the houses it ruled on that the modelled-families stage has since WITHDRAWN,
+    # because the sources bury their heads before the day (T-2189): the cells their
+    # families would have filled, which the ruling no longer orders.
+    families = root / "data" / "reconstruction" / "1835_modelled_families.json"
+    out["family_ruling_withdrawn"] = (
+        ((json.loads(families.read_text(encoding="utf-8")).get("family_ruling") or {})
+         .get("withdrawn") or {}).get("fills") or {}) if families.exists() else {}
     # T-2187's MEASURE, read off the cards the index points at. Only the committed tree
     # carries it; a fixture book has none, and orders as it always did.
     out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
@@ -3347,7 +3354,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                 else:
                     raise Fault(f"the bucket {b['key']} is overfilled: {b['filled']} of {todo}")
 
-    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills)
+    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills,
+                         data.get("family_ruling_withdrawn") or {})
     men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
                   if data.get("adult_men") else None)
 
@@ -3537,7 +3545,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     return doc
 
 
-def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> None:
+def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter,
+                         withdrawn: dict | None = None) -> None:
     """T-2021: the cells the family ruling orders, and what its houses filled. In place.
 
     The ruling (`data/reconstruction/1835_family_ruling.json`, frozen) gave each married
@@ -3549,6 +3558,14 @@ def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> N
     ruling did not order, or one past it, is a FAULT: that would be the ruling's ticket
     drawing past its own word."""
     orders = {k: int(v) for k, v in (ruling.get("orders") or {}).items()}
+    # T-2189: a house the ruling admitted whose head the sources bury before the day is
+    # withdrawn by name in the modelled-families ledger, and its family's cells leave the
+    # order with it. More withdrawn than ordered is the ledger disagreeing with the ruling.
+    for key, n in sorted((withdrawn or {}).items()):
+        if int(n) > orders.get(key, 0):
+            raise Fault(f"{FAMILY_RULING_TICKET}'s ruling orders {orders.get(key, 0)} in "
+                        f"{key} and the modelled-families ledger withdraws {n}")
+        orders[key] -= int(n)
     by_key = {b["key"]: b for b in buckets}
     for key in sorted(set(orders) | set(ruled_fills)):
         b = by_key.get(key)
@@ -4233,10 +4250,21 @@ def _moves_on_disk() -> list:
     return (book.get("re_family_ledger") or {}).get("moves", [])
 
 
-def cmd_build() -> int:
+def cmd_build(owners_gate: bool = True) -> int:
+    """Re-derive the book. `owners_gate=False` is for a FILLER re-deriving it mid-chain.
+
+    T-2189. A filler that WITHDRAWS people — the modelled-families stage taking the wives
+    and children off a head ruled dead before the day — leaves the cells it vacated owing
+    until the stage that fills them runs next (T-1174's women and children, one step
+    below it). Whether every owed row names a live ticket is a claim about the FINISHED
+    book, so it is held at the book's own `--build` and `--check`, which run after every
+    filler; refusing it mid-chain stopped the chain one step short of the stage that pays
+    the debt. The overfill check, which is about the filler's own draw, is never deferred.
+    """
     doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
-    owners = every_work_order_names_a_live_ticket(doc)
+    owners = (every_work_order_names_a_live_ticket(doc) if owners_gate else
+              "the live-owner gate is the book's own --build's, after every filler")
     finish = the_programme_finishes_where_the_rule_does(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
     BOOK.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
