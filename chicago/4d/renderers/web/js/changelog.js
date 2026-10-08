@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1520, ts: '2026-10-08T05:36:00.960Z', date: 'Oct 8, 2026, 12:36 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
+  { v: 1521, ts: '2026-10-08T05:50:50.601Z', date: 'Oct 8, 2026, 12:50 AM CT', title: 'A river warehouse on West Water Street', kind: 'feature',
     items: [
       'Walk south along West Water Street on the west bank of the South Branch, and at the Washington Street corner there is now a narrow two-storey warehouse: weathered boards, a hoist over its loft door, and two cargo doors facing the river across the street.',
       'No record names it. It is the West Division\u2019s second warehouse, which the plan counted and nobody had built. The plan first put it a block inland, where no river reaches. Here the river runs closer to West Water Street than anywhere else on the west side, so a warehouse can face its landing.',
       'Every card says the building is reconstructed, not recovered. The Liberties page explains it (L400).',
+    ] },
+  { v: 1520, ts: '2026-10-08T05:18:21.664Z', date: 'Oct 8, 2026, 12:18 AM CT', title: 'A cooler phone while the welcome is up', kind: 'fix',
+    items: [
+      'Nothing you can see changes. While the welcome or the menu is open, the town behind it is no longer redrawn sixty times a second when nothing in it has moved.',
+      'It is drawn again the moment something does change: a part of the town finishing loading, a setting you change, the window turning or resizing, or a jaunt preview moving the view.',
+      'On a phone that means less heat and battery spent sitting on the menu, and a menu that scrolls more smoothly over the town.',
     ] },
   { v: 1519, ts: '2026-10-08T04:11:57.218Z', date: 'Oct 7, 2026, 11:11 PM CT', title: 'The town set against the November census', kind: 'feature',
     items: [
