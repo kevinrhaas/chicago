@@ -22,8 +22,18 @@ warehouse stands behind the stores rather than on the street. That is the one wa
 differs from the row the owner's reference draws, and it is a choice about this lot, not a
 claim about 1835.
 
+**What it moved.** Lot 0 was the block's last unreserved free lot, so the schedule returns the
+block's other two scheduled roofs (a D2 and a D6) to the South's balance and re-apportions it.
+School Section block 81's mix becomes D2 ×2, D4, D5, D6 ×2 and H3 (was D2, D4 ×2, D5 ×2, D6, H3),
+block 95's remaining H3 becomes a D4, and one H3 and one D5 go to gated `blk_south_water_market`.
+T-2147's open PR on block 81 will meet the new mix. The deal then seats one more household on a
+slot (212 -> 213, L270): hh_laframboise_franois on block 81 lot 6, with hh_ira_paddock and
+hh_democrat_printers each moving a lot. The street-face adoption gives the warehouse Briggs &
+Humphrey (carriage and sleigh making, South Water Street, no narrower address) and reshuffles
+that face's firms. The business deal holds 45 roofs, at the same cost.
+
 **Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
-here. It seats nobody, so no household moved.
+here, and the warehouse itself seats no household.
 ## PR #498 — Wells integrated onto current dev and browser failures repaired (2026-10-07)
 
 This integration supersedes the older T-2146 checkpoints below. The current deal

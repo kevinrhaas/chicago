@@ -5093,8 +5093,12 @@ def cmd_self_test() -> int:
     # houses dealt to the post-T-2148 requests; older households adopt them, the requesters
     # are seated on standing roofs or re-slot on block 81, and the settled pass seats 212 on
     # the plat and 99 off it, as before.
+    # 311 -> 312 on 2026-10-08 (T-2174): an F2 warehouse takes blk_south_water_dearborn's
+    # last unreserved free lot, the schedule returns that block's D2 and D6 to the South
+    # balance, and the School Section tier's re-apportionment deals one more slot
+    # (212 -> 213 platted seats, L270, L406).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 311
+        data["inventory"], data["programme"], occ))["seated"] == 312
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
