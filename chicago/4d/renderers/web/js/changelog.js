@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1560, ts: '2026-10-09T04:01:25.543Z', date: 'Oct 8, 2026, 11:01 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
+  { v: 1561, ts: '2026-10-09T04:10:13.261Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
     items: [
       'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',
       'That still leaves 31 to house: one keeper\u2019s family for each store that has nobody living in it. The grocers, merchants and milliners already in the town come first. No new people are made up.',
+    ] },
+  { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
     ] },
   { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [
