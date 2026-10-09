@@ -2585,6 +2585,14 @@ def self_test() -> int:
     fires("cells left undrawn that are not the withdrawn families are refused",
           "are not the families" in str(withdraw(["hh_a"], {"hh_b": woman}, {"hh_c": "h"},
                                                  {w_cell: 1, boy: 2})))
+    # T-2185: a house the ruling stood ALONE whose head is read female leaves the set too,
+    # and only that: it ordered no cell, so it is named and withdraws nothing.
+    fires("a stood-alone house whose head is read female is named, and only she",
+          stood_alone_read_female(ruling, ["hh_a", "hh_b", "hh_c"],
+                                  {"hh_d": head_card("hh_d", "female")}) == ["hh_d"]
+          and stood_alone_read_female(ruling, ["hh_a", "hh_b", "hh_c"],
+                                      {"hh_d": head_card("hh_d", "male")}) == []
+          and stood_alone_read_female(ruling, ["hh_a", "hh_c"], {"hh_b": woman}) == [])
 
     print("   %d rule(s) checked, %d failed" % (len(checked), len(failures)))
     return 1 if failures else 0

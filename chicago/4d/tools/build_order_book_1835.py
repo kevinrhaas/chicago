@@ -4625,10 +4625,12 @@ def cmd_self_test() -> int:
     ledger = shipped["re_family_ledger"]
     assert ledger["moves"] == [] and ledger["counts"]["moves"] == 0, ledger["counts"]
     # …AND ITS ACCOUNT OF THE SURPLUS IS THE REFUSAL TABLE'S OWN ARITHMETIC, not a
-    # number typed beside it.
+    # number typed beside it. The PERSON refusals' arithmetic: a held house is not a
+    # person held (T-2185).
+    held_people = [r for r in shipped["recut_refusals"] if r["bucket"].startswith("persons/")]
     assert ledger["the_held_surplus"]["people_held"] == sum(
-        r["surplus_still_held"] for r in shipped["recut_refusals"])
-    assert ledger["the_held_surplus"]["buckets_refused"] == len(shipped["recut_refusals"])
+        r["surplus_still_held"] for r in held_people)
+    assert ledger["the_held_surplus"]["buckets_refused"] == len(held_people)
     assert (ledger["what_it_would_converge_to"]["still_owed_now"]
             == shipped["totals"]["persons_still_owed"])
     # AN EMPTY LEDGER CHANGES NOTHING. The book with no moves in it is the book that
@@ -5128,7 +5130,8 @@ def cmd_self_test() -> int:
     prg = on_disk["re_family_ledger"]["the_programme"]
     assert prg["settled"] is True and prg["moves_the_rule_still_yields"] == 0, prg
     assert prg["people_still_held"] == sum(
-        r["surplus_still_held"] for r in on_disk["recut_refusals"]), prg
+        r["surplus_still_held"] for r in on_disk["recut_refusals"]
+        if r["bucket"].startswith("persons/")), prg
     assert sum(r["people"] for r in prg["and_what_holds_each_of_them"]) \
         == prg["people_still_held"], prg
     assert finish(on_disk).startswith("the re-family programme is settled at its rule's "
