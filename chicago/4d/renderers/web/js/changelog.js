@@ -1,8 +1,33 @@
 export const CHANGELOG = [ // newest first
-  { v: 1587, ts: '2026-10-09T20:21:18.843Z', date: 'Oct 9, 2026, 3:21 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: 1591, ts: '2026-10-09T20:58:24.584Z', date: 'Oct 9, 2026, 3:58 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
       'His second house is gone. Other households move into it and the houses they leave, and Jacob Donner, who was waiting for a roof, now has one on the South side.',
+    ] },
+  { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 18th and 20th Streets: a new panel gives its 1904 decision and lists its front building, attached wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Allerton house is back on the map. The 1911 sheet labels it \u201c1918 (1936)\u201d, earlier misread as 1916 (1930), so the bare 1936 corner is its lawn, not an empty lot.',
+      'The Corwith house at 1945, built for George Armour in 1872, gets its own card.',
+      'The photograph posted as Edson Keith\u2019s 1906 house is shown on 1900 Prairie only, the house it pictures. The Keith building at 1906\u20131908 is one house of two homes.',
+      'The glasshouses behind 1811\u20131823 are now credited to the Pullman estate\u2019s garden across 18th Street. Nothing in the 3-D town changes yet.',
+    ] },
+  { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+    items: [
+      'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
+      'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
+      'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 29 more households now wait for a house still to be built, up from 24 to 53. The completion audit and the population counts now leave the place of work out too.',
+    ] },
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+    items: [
+      'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
+      'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
+    ] },
+  { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
+    items: [
+      'Open any house between 16th and 18th Streets in the Prairie Avenue 1904 library. Its card now has a 1904 reading taken from the 1911 Sanborn sheet. It lists the front building, its attached wings and its rear stables or coach houses, and says whether the house stood in 1904 and why.',
+      'Two house numbers were misread before. The railroad station is at 1605, not 1603. The Dexter house is at 1721, not 1719, so the map and the named record are one property.',
+      'Forsyth\u2019s 1635 now sits on the open lot next to 1637, where the 1886 atlas shows it, not on its neighbour 1625. Whether it still stood in 1904 is left open. The 1890 picture of Hugh J. McBirney\u2019s house now belongs to 1625, not 1736.',
     ] },
   { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
     items: [

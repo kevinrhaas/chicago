@@ -21,7 +21,7 @@ address,street,side,sheet,source_file,observation_year,address_confidence,raw_st
 1730,South Prairie Avenue,west,20,1911 - Sheet 20(1).jpg,1911,high,3B; rear 2B,brick,D,,,False,frontage-20-020,MAP-1911-20
 1736,South Prairie Avenue,west,20,1911 - Sheet 20(1).jpg,1911,high,3B,brick,D,Corner dwelling; rear garage.,,False,frontage-20-021,MAP-1911-20
 1601,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,medium,2,frame,D,Small dwelling north of station.,,False,frontage-20-022,MAP-1911-20
-1603,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,2,frame,Illinois Central R.R. 16th St. Station,1911 station use.,,False,frontage-20-023,MAP-1911-20
+1605,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,2,frame,Illinois Central R.R. 16th St. Station,1911 station use. The sheet prints 1605; transcribed 1603 until the sheet 20 census re-read it (T-1840).,,False,frontage-20-023,MAP-1911-20
 1607–1611,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,medium,4,brick,Auto Repairing 1st; Wind Shield Mfg. Abv.,1911 replacement block. Expert guidance identifies replaced1904 houses specifically as1609 and1611; do not back-project commercial use.,,False,frontage-20-024,MAP-1911-20
 1613,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,4,brick,D,Attached rowhouse.,,False,frontage-20-025,MAP-1911-20
 1615,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,4,brick,D,Attached rowhouse.,,False,frontage-20-026,MAP-1911-20
@@ -32,7 +32,7 @@ address,street,side,sheet,source_file,observation_year,address_confidence,raw_st
 1637,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,2½B,brick,D,Rear garage2.,,False,frontage-20-031,MAP-1911-20
 1701,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,2½S.B.,brick,D,Rear garages2 and1½; open porch annotation.,,False,frontage-20-032,MAP-1911-20
 1709,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,3B; rear2B/1B,brick,D,Irregular bay footprint; rear garage1½.,,False,frontage-20-033,MAP-1911-20
-1719,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,3B; rear2B,brick,D,Two curved Prairie-facing bays; rear garage2B.,,False,frontage-20-034,MAP-1911-20
+1721,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,3B; rear2B,brick,D,Two curved Prairie-facing bays; rear garage2B. The sheet prints 1721; transcribed 1719 until the sheet 20 census re-read it (T-1840). The same property as the named Dexter record at 1721.,,False,frontage-20-034,MAP-1911-20
 1729,South Prairie Avenue,east,20,1911 - Sheet 20(1).jpg,1911,high,3B,stone,D,Large irregular stone dwelling; rear stone garage2.,,False,frontage-20-035,MAP-1911-20
 1800,South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,high,2B,stone,D,U-shaped courtyard house; north wing fronts18thSt and includes garage. Glessner property.,,False,frontage-28-036,MAP-1911-28
 1808,South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,high,3B; rear2B,brick with stone front,D,,,False,frontage-28-037,MAP-1911-28
@@ -45,7 +45,7 @@ address,street,side,sheet,source_file,observation_year,address_confidence,raw_st
 1906,South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,high,3B,brick with stone front,D,Attached to1908.,,False,frontage-28-044,MAP-1911-28
 1908,South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,high,2½B; rear1B/2B,brick with stone front,D,Attached to1906.,,False,frontage-28-045,MAP-1911-28
 1912,South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,high,2½B; rear3B,stone with brick rear,D,,,False,frontage-28-046,MAP-1911-28
-1916 (1930),South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,medium,2½S.B.; bay4B; rear2B,brick,D,Stacked address label appears1916 with parenthetical1930; requires directory resolution. Do not count as two proven separate houses.,,False,frontage-28-047,MAP-1911-28
+1918 (1936),South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,medium,2½S.B.; bay4B; rear2B,brick,D,"Stacked address label reads 1918 over (1936) (re-read 2026-10-09, T-1841; first transcribed as 1916 (1930)). The drawn house carries the 1936 number: the Thompson/Allerton house, razed 1915 (sheet census ruling r28-allerton).",,False,frontage-28-047,MAP-1911-28
 1936,South Prairie Avenue,west,28,1911 - Sheet 28(1).jpg,1911,high,,none,vacant frontage,Frontage label at vacant corner lot; no dwelling footprint.,,False,frontage-28-048,MAP-1911-28
 1801,South Prairie Avenue,east,28,1911 - Sheet 28(1).jpg,1911,high,3B,stone,D,Corner dwelling with attached garage2.,,False,frontage-28-049,MAP-1911-28
 1811,South Prairie Avenue,east,28,1911 - Sheet 28(1).jpg,1911,high,3B; section2B,brick with stone front,D,Rear garage1½.,,False,frontage-28-050,MAP-1911-28

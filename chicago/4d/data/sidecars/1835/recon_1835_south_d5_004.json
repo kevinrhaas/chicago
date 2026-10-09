@@ -178,7 +178,34 @@
       "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-1691; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_lake_franklin#06, fronting lake, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_democrat_printers",
+      "name": "The Democrat's printers",
+      "division": "south",
+      "relation": "lived here",
+      "why": "the roof T-1613 dealt this household, joined here and not re-argued",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
+      "persons": [
+        {
+          "name": "Oscar Pratt",
+          "relationship": "head",
+          "grade": "inferred",
+          "occupation": "printer",
+          "note": "A REAL, NAMED MAN WITH A TRADE AND AN EMPLOYER, and nothing else. Andreas vol. 1, printed p. 132 (scan p. 281), 'an imperfect list of the denizens of the town in the fall of 1833, not before named' - a name, a trade and usually an arrival year, compiled fifty years after the fact."
+        },
+        {
+          "name": "Beckford",
+          "relationship": "partner",
+          "grade": "inferred",
+          "occupation": "printer",
+          "note": "SURNAME ONLY, NO FORENAME, NO SEX RECORDED. Andreas prints 'Oscar Pratt and Bcckford, printers' with the first letters damaged in the scan. The sex field is omitted rather than assumed: a compositor in 1833 was overwhelmingly likely to be a man, but 'overwhelmingly likely' is not what documented means and this record has no other information about the person at all."
+        }
+      ],
+      "research_note": "TWO WAGE-EARNERS, WHICH THIS DATASET OTHERWISE HAS ALMOST NONE OF, and a household that is a household only by convention. Andreas names them in one clause, as a pair, in an employment; nothing states where either lived or whether they lived together, and the grouping is a container for two people the source presents together, not a claim about a dwelling. lives_at is null for that reason and must stay null. WHY THEY ARE WORTH WRITING: the documented population of early Chicago as the sources give it is overwhelmingly proprietors - the men who owned the store, kept the tavern, edited the paper. The people who did the work are named perhaps a dozen times in the whole of Andreas's first volume, and these two are among them. The inferred phase's largest single task is the rest of them."
+    }
+  ],
   "citations": [
     {
       "source_id": "andreas_1884_v1",
