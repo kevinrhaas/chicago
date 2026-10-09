@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1571, ts: '2026-10-09T10:51:36.640Z', date: 'Oct 9, 2026, 5:51 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1572, ts: '2026-10-09T11:23:22.674Z', date: 'Oct 9, 2026, 6:23 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
+    items: [
+      'Open the unattributed drawing of a log schoolhouse on a shore in the Sources panel. It now links to the page it was copied from, a 2018 Illinois history blog post about Eliza Chappell, and to an archived copy of that page.',
+      'The post credits no artist, date or book, so who drew it is still unknown. Nothing in the town is built from it.',
     ] },
   { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
     items: [
