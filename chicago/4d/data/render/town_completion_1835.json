@@ -44,12 +44,12 @@
     },
     "persons_counted_apart": {
       "absent_on_the_scene_date": 48,
-      "waiting_on_a_roof": 143
+      "waiting_on_a_roof": 145
     },
     "persons_housed": {
       "attested": 380,
       "inferred": 987,
-      "reconstructed": 2015
+      "reconstructed": 2013
     },
     "persons_unhoused": {
       "attested": 0,
@@ -57,9 +57,9 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3381,
+      "persons_housed": 3379,
       "persons_unhoused": 0,
-      "persons_waiting_on_a_roof": 143
+      "persons_waiting_on_a_roof": 145
     },
     "housed_through": {
       "lives_at": 57,
@@ -152,12 +152,12 @@
       "housed": {
         "attested": 380,
         "inferred": 987,
-        "reconstructed": 2015
+        "reconstructed": 2013
       },
       "waiting_on_a_roof": {
         "attested": 22,
         "inferred": 31,
-        "reconstructed": 90
+        "reconstructed": 92
       },
       "absent_on_the_scene_date": {
         "attested": 10,
@@ -172,9 +172,9 @@
     },
     "households": {
       "housed": {
-        "attested": 367,
+        "attested": 366,
         "inferred": 971,
-        "reconstructed": 564
+        "reconstructed": 565
       },
       "waiting_on_a_roof": {
         "attested": 22,

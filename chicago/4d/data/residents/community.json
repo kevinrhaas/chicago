@@ -47,8 +47,8 @@
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 688,
-   "new_york": 557,
+   "yankee": 689,
+   "new_york": 556,
    "irish": 141,
    "other": 137,
    "unknown": 119,
@@ -24502,13 +24502,6 @@
    "head": "noble_mark",
    "file": "households/hh_noble_mark.json"
   },
-  "hh_noble_mary": {
-   "value": "new_york",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "noble_mary",
-   "file": "households/hh_noble_mary.json"
-  },
   "hh_noble_william_b": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -25670,6 +25663,13 @@
    "rule": "reconstruction_community",
    "head": "rc_crandall_chauncey",
    "file": "reconstructed_trades/hh_rc_crandall_chauncey.json"
+  },
+  "hh_rc_crandall_clarissa": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_crandall_clarissa",
+   "file": "households/hh_rc_crandall_clarissa.json"
   },
   "hh_rc_crandall_henry": {
    "value": "yankee",
