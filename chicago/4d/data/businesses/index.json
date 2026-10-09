@@ -4808,15 +4808,6 @@
           "from": null,
           "to": null,
           "also_printed_as": []
-        },
-        {
-          "name": "Alvah Nichols",
-          "person_id": "rc_nichols_alvah",
-          "role": "journeyman",
-          "tier": "reconstructed",
-          "from": null,
-          "to": null,
-          "also_printed_as": []
         }
       ],
       "where": {
@@ -6265,6 +6256,15 @@
           "tier": "attested",
           "from": "1833-12-17",
           "to": "1833-12-17",
+          "also_printed_as": []
+        },
+        {
+          "name": "Jared Parmelee",
+          "person_id": "rc_parmelee_jared",
+          "role": "clerk",
+          "tier": "reconstructed",
+          "from": null,
+          "to": null,
           "also_printed_as": []
         }
       ],
