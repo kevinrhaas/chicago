@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1569, ts: '2026-10-09T09:28:14.990Z', date: 'Oct 9, 2026, 4:28 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1569, ts: '2026-10-09T08:58:32.691Z', date: 'Oct 9, 2026, 3:58 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+    items: [
+      'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
+      'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
+      'No source shows this house in 1835 or names who lived in it. Its card says it is reconstructed, and the Liberties page explains it (L410).',
     ] },
   { v: 1568, ts: '2026-10-09T08:33:20.671Z', date: 'Oct 9, 2026, 3:33 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
     items: [
