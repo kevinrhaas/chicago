@@ -1063,6 +1063,20 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
         "shown", "w.business_present_at_scene_date ?"),
     "persons[].roles[].sources": (
         "shown", "(role.sources || []).map((id) => citationsById.get(id))"),
+    # T-1543 — A LATER VOLUME'S DATES OF ELECTION to an office the roles above already
+    # hold, printed as their own row under them so an election never widens a role's
+    # bound. `claim` is the reading's id and is the one key the card does not print: it
+    # is what the research-spend ledger reads to close the unit, and it is banked.
+    "persons[].office_elections.office": ("shown", "escapeHtml(words(block.office || 'an office'))"),
+    "persons[].office_elections.as_printed": ("shown", "escapeHtml(String(block.as_printed))"),
+    "persons[].office_elections.confidence": ("shown", "swatch(block.confidence)"),
+    "persons[].office_elections.promotes": ("shown", "block.promotes === false"),
+    "persons[].office_elections.note": ("shown", "escapeHtml(block.note)"),
+    "persons[].office_elections.sources": (
+        "shown", "(block.sources || []).map((id) => citationsById.get(id))"),
+    "persons[].office_elections.elections[].year": ("shown", "escapeHtml(String(e.year ?? 'not dated'))"),
+    "persons[].office_elections.elections[].as_printed": ("shown", "escapeHtml(String(e.as_printed))"),
+    "persons[].office_elections.elections[].read_as": ("shown", "escapeHtml(e.read_as)"),
     # The derived view's own list of which roles reach the scene date. The card reads
     # its LENGTH — the summary line says how many dated roles a person has and whether
     # any of them lands on 1 July 1835, so a closed card no longer reads as trade-less

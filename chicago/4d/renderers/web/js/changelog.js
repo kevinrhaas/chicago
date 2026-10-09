@@ -4,6 +4,15 @@ export const CHANGELOG = [ // newest first
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
     ] },
+  { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
+    ] },
+  { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+    items: [
+      'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
+      'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
+    ] },
   { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
     items: [
       'Open the small store with attic rooms on the teamster approach by Canal and Randolph. It stood empty, marked as a store whose keeper was not named. L. Chevalier, who sold watches, jewelry, engravings and fancy goods on Canal Street, now keeps it and lives over it. Before this he boarded in another household.',
