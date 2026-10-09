@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1599, ts: '2026-10-09T23:34:28.709Z', date: 'Oct 9, 2026, 6:34 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
+  { v: 1600, ts: '2026-10-09T23:46:46.583Z', date: 'Oct 9, 2026, 6:46 PM CT', title: 'Glessner gets solid ridge caps and finished roof edges', kind: 'fix',
     items: [
       'Raised clay ridge caps now have solid ends and stop cleanly at chimneys and the stable cupola. Tower and dormer finials have seated moulded bases.',
       'Layered eave edges, capped dormer hips and metal flashing give the roof more depth in close views. Full and Light retain the repaired roof shapes.',
+    ] },
+  { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Robbins house at 2126 is shown as a building site on 1 July 1904. The old Hamill house was razed that year, and the new house was finished by spring 1905.',
+      'The site plan puts eight Prairie houses, among them the Sherman, Armour and Smith houses, on their own lots only. They had also been drawn on Indiana or Calumet lots that share their numbers.',
+      'Two misreadings are fixed. The building behind 2120 is lettered “vacant 1st, dressmaking 2nd”. The Wheeler-Kohn house stands at 2018 Calumet, not 2018 Prairie.',
+      'Mark Kimball’s house at 2108 and the Rees house at 2110 share one coach house. Nothing in the 3-D town changes yet.',
     ] },
   { v: 1598, ts: '2026-10-09T22:51:29.981Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
     items: [
