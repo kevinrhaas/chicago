@@ -7001,8 +7001,8 @@
       "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
       "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
       "moves_the_rule_still_yields": 0,
-      "people_still_held": 409,
-      "buckets_they_are_held_in": 54,
+      "people_still_held": 408,
+      "buckets_they_are_held_in": 53,
       "and_what_holds_each_of_them": [
         {
           "refusal": "a_documented_reading_shrank_the_order",
@@ -7010,7 +7010,7 @@
         },
         {
           "refusal": "the_re_cut_reached_work_already_drawn",
-          "people": 397
+          "people": 396
         }
       ],
       "the_rungs_the_rule_refuses_on": [
@@ -9534,9 +9534,9 @@
       "adoptions_carried": 0
     },
     "the_held_surplus": {
-      "buckets_refused": 54,
-      "people_held": 409,
-      "people_still_held": 409,
+      "buckets_refused": 53,
+      "people_held": 408,
+      "people_still_held": 408,
       "open_headroom_in_person_buckets": 14,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
