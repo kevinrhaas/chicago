@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1583, ts: '2026-10-09T17:04:16.092Z', date: 'Oct 9, 2026, 12:04 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
+    ] },
   { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
     items: [
       'Open the small store with attic rooms on the teamster approach by Canal and Randolph. It stood empty, marked as a store whose keeper was not named. L. Chevalier, who sold watches, jewelry, engravings and fancy goods on Canal Street, now keeps it and lives over it. Before this he boarded in another household.',
