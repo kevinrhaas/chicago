@@ -186,7 +186,7 @@
     "basis": {
      "kind": "model",
      "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
+     "note": "Drawn at 95.2% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
     },
     "seed": "russell_p_t:sex_ratio",
     "replaceable_by": {
