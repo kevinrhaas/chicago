@@ -1,9 +1,35 @@
 export const CHANGELOG = [ // newest first
-  { v: 1579, ts: '2026-10-09T16:23:50.992Z', date: 'Oct 9, 2026, 11:23 AM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
+  { v: null, ts: '', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
     items: [
       'Walk west along Lake Street toward Market. On the wedge of land the river\u2019s bend leaves there, a large frame boarding house now shares a wall with the house already standing on lot 7, the two set back 5 m in one row.',
       'Mark Beaubien\u2019s household keeps it, and five people already in the town sleep there. Alanson Sweet\u2019s household moves into the Clark Street boarding house Beaubien left. The house beside that one gets a new keeper, Alvah Stebbins, with his three children.',
       'The town owed the South two more boarding houses and had nowhere to put them. This one stands on the owner\u2019s ruling. The other waits for the streets south of Madison to be surveyed in, along with five owed houses.',
+    ] },
+  { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+    items: [
+      'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
+      'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
+    ] },
+  { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
+    items: [
+      'Open the small store with attic rooms on the teamster approach by Canal and Randolph. It stood empty, marked as a store whose keeper was not named. L. Chevalier, who sold watches, jewelry, engravings and fancy goods on Canal Street, now keeps it and lives over it. Before this he boarded in another household.',
+      'Nothing changes on the cards of four South Water Street stores: H. Doty & Co., Rockwell\u2019s cabinet furniture warehouse, the Chicago Bakery and Harmon, Loomis & Co. The town has no card for any of their keepers, so they stay without anyone living over them, and the town no longer counts them as homes still to fill.',
+      'With one more home in use, John Vale\u2019s household of five and J. Wright, who were waiting for a roof, now have one. Some boarders move to other houses as a result.',
+    ] },
+  { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
+    items: [
+      'The Prairie frontage now has rounded stone lawn edging with gaps at the front door and carriage entrance. Stone paving and low steps meet the front-door sill.',
+      'A stone threshold and continuous carriage surface replace the grass showing through the porte-cochere, joining the existing courtyard drive.',
+      'Historic photographs and HABS drawings guide the layout. Uncertain 1904 paving materials, stone joints and curb dimensions are labeled as reconstructions.',
+    ] },
+  { v: 1580, ts: '2026-10-09T15:39:46.317Z', date: 'Oct 9, 2026, 10:39 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
+    items: [
+      'Ten roofs the South Division still owes have nowhere to stand. The town\u2019s plan said they were waiting for its streets to be carried south to Madison Street. That work was finished on 28 September: all seven north\u2013south streets from Market to State now reach Madison.',
+      'The plan now says what the ten are really waiting on: ground. Every South block they could go on is full, and so is the School Section row just south of Madison. The land beyond Monroe Street has never been divided into lots. The plan now checks each street against Madison, so this note updates itself.',
+    ] },
+  { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The five houses still owed on the South side\u2019s unsurveyed blocks are kept, not cut, on the owner\u2019s answer. The plan of what is left to build now files them under the street work that will open those blocks, so the automated checks pass again.',
     ] },
   { v: 1578, ts: '2026-10-09T14:18:56.253Z', date: 'Oct 9, 2026, 9:18 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [

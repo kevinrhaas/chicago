@@ -2930,6 +2930,78 @@
       ],
       "note": "T-2016: one of two north service-range courtyard stacks visible in owner Pasted Graphic 31 aerial. HABS sheets 2-3 locate the service rooms but the reviewed archive does not independently date these two visible stacks to 1904. Presence in this scene, plan rectangle, height and flues are reconstructed from the owner-directed surviving roof arrangement (+/-2 ft), not claimed as a HABS measurement. No image pixels used."
     },
+    "prairie_frontage": {
+      "value": {
+        "outer_W": -14.7,
+        "walk_join_W": -15.72,
+        "wall_W": 0.12,
+        "lawn_spans_S": [
+          [
+            0,
+            29.25
+          ],
+          [
+            36.55,
+            61.65
+          ],
+          [
+            70.85,
+            74
+          ]
+        ],
+        "curb_width_ft": 0.65,
+        "curb_height_ft": 1.05,
+        "corner_radius_ft": 0.8,
+        "joint_spacing_ft": 4,
+        "joint_width_ft": 0.016,
+        "walk_z": [
+          0.21,
+          "ng"
+        ],
+        "lawn_z": [
+          0.17,
+          "ng"
+        ],
+        "curb_base_z": [
+          -0.2,
+          "ng"
+        ],
+        "entry_S": [
+          29.25,
+          36.55
+        ],
+        "door_S": [
+          30.4,
+          35.4
+        ],
+        "door_z": [
+          0,
+          "door"
+        ],
+        "step_run_ft": 0.95,
+        "porte_S": [
+          61.65,
+          70.85
+        ],
+        "passage_front_z": [
+          0.21,
+          "ng"
+        ],
+        "passage_court_z": [
+          0.12,
+          "ng"
+        ],
+        "paving_joint_spacing_ft": 3.5,
+        "porte_threshold_depth_ft": 1.0
+      },
+      "confidence": "reconstructed",
+      "sources": [
+        "habs_glessner_house_il_1015_drawings",
+        "taylor_2135_glessner_exterior_1887_1889",
+        "habs_glessner_house_il_1015_data_pages"
+      ],
+      "note": "T-2202. House-side lawn edging and access gaps are visible in Taylor 2135 (c.1887–89) and HABS sheets 2/6 (1963/1965); continuity in 1904 is inferred, not a dated survey. The 14.7-ft setback reuses the existing Sanborn-aligned placement; the final 1.02 ft crosses only the reconstructed public margin to meet T-1728's unchanged six-foot walk. Curbs stop at the main entry and porte and return to the house with rounded plan corners and dressed top edges. Profile height 1.05 ft, width 0.65 ft, 0.8-ft corner radius and 4-ft joint spacing are bounded reconstructions (+/-0.25 ft profile, +/-1.5 ft setback), not dimensions printed by HABS. The door sill retains sheet 6's 0.00 datum, 0.74 ft above its sidewalk; two low stone risers join the existing sill to the rendered approach. The rendered 0.21-ft paving lift includes the terrain/sidewalk display clearance, not a newly surveyed historical grade. Passage paving tapers to the existing 0.12-ft courtyard drive, with no grass or duplicated floor. Paving uses dressed stone at the entry and neutral mineral surfacing at the carriage approach/passage; historic composition and joint layout remain reconstructed. No later street pavement is imported. L-glessner-frontage-2202."
+    },
     "function": {
       "value": "residence",
       "confidence": "attested",
@@ -3221,6 +3293,14 @@
         "architecture above the footprint - roof pitches, chimneys, openings",
         "lot dimensions in figures for this lot: none are printed on it"
       ]
+    },
+    {
+      "source_id": "taylor_2135_glessner_exterior_1887_1889",
+      "citation": "J. W. Taylor, Glessner Residence (2135), c.1887–1889. Art Institute of Chicago, Ryerson & Burnham Archives, mqc 28805.",
+      "url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/28805",
+      "archived_url": "",
+      "tier": 4,
+      "tier_label": "later scholarship"
     }
   ],
   "research_note": "THE DEFAULT VERSION OF THE GLESSNER HOUSE (T-1732), built from T-1731's specification (docs/RESEARCH/glessner_house_1904.md) and tightened by two sets of sources that landed after it: the 17 HABS photographs (PR #169) and ten Richardson drawings from Houghton Library (PR #171). What they settled, and what they did not, is § 13 of the research page. Alternates for the owner's comparison are T-1730's, under data/structures/versions/glessner_house/. Interior out of scope. The courtyard's south side — 1808 Prairie's north wall — is that house's (T-0475) and is not drawn here, so until it lands the courtyard reads open to the south. V4 retains the canonical building placement and measured envelope. Its additional fabric and the precise distinction between HABS measurements and reconstruction are recorded in docs/RESEARCH/glessner_house_v4.md. Modern reference images inform reconstructed feature arrangement and material boundaries; no photographed pixels are copied into textures or meshes, and their modern state is not asserted as measured 1904 fabric.",

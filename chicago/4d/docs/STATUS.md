@@ -27,6 +27,57 @@ stands in it; the other waits in the gated balance for S9. He answered T-2242 th
   **T-2247** (the S9 street work and the gated roofs behind it), since T-2242 is withdrawn and T-2196 closes.
 - Baked: the H3, the D5 and the Clark house whose keeper moved. Generator half 704/698; corridor-strip
   baseline `roofs_on_moved_blocks` 67 → 68 (the build itself, as on T-2238).
+## T-2246 — the store roofs still owed: four ruled empty, one kept (2026-10-09)
+
+T-2245 left the order book owing 5 store households (south 4, west 1): store roofs standing
+with nobody over them. Each was ruled, not filled by invention.
+
+- **The four South Water Street firm roofs** (`house_the_present_1835.py`,
+  `the_keepers.keeper_not_held`): H. Doty & Co., Rockwell's cabinet furniture warehouse, the
+  Chicago Bakery (D. Graves) and Harmon, Loomis & Co., each on the roof the street-face
+  adoption gave the firm. None of their keepers resolves to a town card, and T-2245's
+  `partner_links.json` (`not_linked`) already says why for each. Forming the keeper's household
+  was weighed and refused: the register's mint refuses all three printed keepers a card
+  ("a firm, not a person" for H. Doty & Co.; "a surname, a trade, and nothing else" for
+  Rockwell; "the town already names a Graves" for D. Graves, the Dexter Graves question), and
+  the Harmon brothers' own card places them at the firm's documented store. So each is a store
+  nobody is seated over and the book's store ruling discharges the order (`keeper_not_held`),
+  never below what a cell has filled.
+- **The firmless West store recon_1835_west_020**: its stated use (T-1826, L310) named no trade
+  and said it "retires the moment a deal or a source seats a storekeeper here". T-2236's keeper
+  rung can, so the row is retired, and the rung seats L. Chevalier (watches, jewelry and fancy
+  goods, a Canal Street house of trade on no roof) over it, out of a boarder's seat at
+  recon_1835_west_045. Shea's and Chapin's millineries, also Canal Street and roofless, still
+  board: the West's order is full.
+- **Measured:** store households owed 5 -> 0; keepers 20 -> 21; the census ceiling counts one
+  more standing dwelling (408 -> 409), so two waiting ruled-in households take a roof
+  (hh_vale_john, five people, and hh_wright_j): waiting 28 -> 26 households, 85 -> 79 people.
+  The deal is a least-crowded greedy, so 389 boarders re-deal onto other roofs, as on every
+  keeper change.
+- **Not settled:** the four firms stand on adopted roofs beside no keeper; whether D. Graves the
+  baker is Dexter Graves the tavern keeper is the mint's identity question, not this ruling's.
+  And `seated` in the housing deal counts a household with only a workplace row as housed, so
+  the Harmon brothers sleep nowhere in the scene (31 present households in all): T-2249.
+- L354 amended. Two new guards in the deal's self-test (fourteen); the book's self-test covers
+  the discharge.
+
+## T-2202 — Glessner Prairie frontage and ground contact (2026-10-09)
+
+House-side stone edging, rounded returns, entry paving/risers and the porte
+threshold/passage now come from the sourced `prairie_frontage` form record.
+The existing public street and sidewalk layout stays with T-1728. Taylor
+2135 and HABS sheets 2/6 bound the reconstruction; profile/joint/material
+uncertainties are recorded in L-glessner-frontage-2202. Roof, windows and dark
+glass stay unchanged. Full and light share access geometry; only new curb
+microdetail is reduced to retain the existing light triangle ceiling.
+
+Numerical tests cover 1,108 access points in both detail levels. Dedicated
+published desktop/full and mobile/light reviews pass. Published smoke parts
+12–13 pass 216 checks per viewport; final preflight passes all 802 checks.
+`docs/RESEARCH/glessner-frontage-2202/README.md` records actual scope, slow
+software-rendered timings and the desktop run's integration overlap. CI
+and post-merge deployment receipts are tracked on T-2202. T-2200's
+frozen cameras are not refitted; this is not whole-house photographic sign-off.
 
 ## T-2245 — the firm partners the town holds a card for, linked (2026-10-09)
 

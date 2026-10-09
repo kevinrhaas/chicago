@@ -1184,6 +1184,30 @@ def southern_ground() -> tuple[dict, str]:
         )
 
     ends = ", ".join(f"{v:.0f}" for v in m["columns_end_n_m"].values())
+    # T-2247. THE THIRD STATE, AND THE ONE THE GROUND HAS BEEN IN SINCE T-1707. The
+    # sentence below this branch went on naming street control for eleven days after
+    # T-1707 carried the seven columns to Madison, calling N -519 "the OLD south edge of
+    # the field" (the old edge was N -400), and on 2026-10-09 an owner's ruling (T-2242,
+    # answer a: "until the S9 street work lands") was asked and given on it. Whether the
+    # columns reach Madison is now MEASURED, column by column, so this branch is taken on
+    # the measurement and the sentence cannot outlive the street work again.
+    carried, columns = figures["columns_carried_to_madison"], figures["columns"]
+    if carried == columns:
+        return figures, (
+            f"GROUND, AND NOT STREET CONTROL ANY MORE. The S9 street work this balance used "
+            f"to name is done: T-1707 carried the plat's {columns} north-south columns, "
+            f"Market to State, to Madison Street, and each one's committed line now ends at "
+            f"local N {ends}, inside Madison's own corridor at every one of the {columns} "
+            f"(measured by tools/measure_southern_ground.py). Madison is the plat's south "
+            f"line, so there is no street left to carry inside the Original Town. The roofs "
+            f"here are the ones the deal found no room for on any named South block, the "
+            f"plat's last tier from Washington to Madison among them, nor on "
+            f"the School Section's Madison-Monroe tier, the one ground across Madison the "
+            f"owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to "
+            f"a lot, each block keeping a lot open). The section beyond Monroe is gridded "
+            f"(T-0797) but not cut into lots, and no ruling opens it. Ground east of State is "
+            f"not coming at any date — it is the United States Reservation (T-E2)."
+        )
     return figures, (
         f"STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this "
         f"schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO "
@@ -1199,9 +1223,9 @@ def southern_ground() -> tuple[dict, str]:
         f"{figures['land_south_of_committed_plat_ha']:.4f} ha of land above the water surface, "
         f"{figures['south_division_land_south_of_committed_plat_ha']:.4f} ha of it in the "
         f"South Division — where the same measurement returned 0.0000 ha before. What is left "
-        f"is the control itself: the plat's north-south columns still end at local N {ends}, "
-        f"the OLD south edge of the field, because they were cut where the ground used to "
-        f"stop. Carrying them to Madison is street work on ground that is now under them, and "
+        f"is the control itself: the plat's north-south columns end at local N {ends}, and "
+        f"only {carried} of the {columns} reach Madison Street's corridor. Carrying them to "
+        f"Madison is street work on ground that is now under them, and "
         f"tools/generate_block_infill.py will accept what it emits. Ground east of State is "
         f"still not coming at any date — it is the United States Reservation (T-E2). Measured "
         f"by tools/measure_southern_ground.py."

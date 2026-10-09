@@ -49,7 +49,7 @@
     "persons_housed": {
       "attested": 391,
       "inferred": 1003,
-      "reconstructed": 2052
+      "reconstructed": 2050
     },
     "persons_unhoused": {
       "attested": 0,
@@ -57,7 +57,7 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3445,
+      "persons_housed": 3443,
       "persons_unhoused": 0,
       "persons_waiting_on_a_roof": 79
     },
@@ -100,7 +100,7 @@
     }
   },
   "roofed": {
-    "businesses": 287,
+    "businesses": 286,
     "at_a_standing_structure": {
       "attested": 29,
       "inferred": 17,
@@ -109,12 +109,12 @@
     "stated_limit": {
       "anchored": 34,
       "street_only": 88,
-      "unplaceable": 101
+      "unplaceable": 100
     },
     "open": []
   },
   "occupied": {
-    "structures": 677,
+    "structures": 676,
     "occupied": {
       "attested": 51,
       "inferred": 9,
@@ -133,7 +133,7 @@
       "occupant_named_seat_refused": 2,
       "outbuilding_of_a_yard": 126,
       "part_of_an_establishment": 14,
-      "stated_use_of_an_anonymous_roof": 13,
+      "stated_use_of_an_anonymous_roof": 12,
       "storage_operator_unrecorded": 5,
       "the_mechanics_shops_are_over_their_count": 2,
       "the_printed_count_is_held": 2,
@@ -152,7 +152,7 @@
       "housed": {
         "attested": 391,
         "inferred": 1003,
-        "reconstructed": 2052
+        "reconstructed": 2050
       },
       "waiting_on_a_roof": {
         "attested": 11,
@@ -200,7 +200,7 @@
       },
       "stated_limit": {
         "attested": 2,
-        "inferred": 186,
+        "inferred": 185,
         "reconstructed": 35
       },
       "open": {
@@ -223,7 +223,7 @@
       "use_stated": {
         "attested": 25,
         "inferred": 6,
-        "reconstructed": 159
+        "reconstructed": 158
       },
       "empty_owing_somebody": {
         "attested": 0,
