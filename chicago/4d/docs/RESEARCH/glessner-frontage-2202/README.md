@@ -124,3 +124,10 @@ review checks the final build separately. Final local preflight passes on dev ef
 repository checks, the preflight changelog question and ticket-ID check.
 The committed-diff changelog check is also run after the commit; CI and
 deployment receipts are recorded on T-2202.
+
+Final integration uses dev `4a70582d` (T-2247's 1835 ground wording). All
+802 checks and the committed-change changelog question pass again; see
+`preflight-integration.txt`. Glessner geometry/assets are unchanged. The
+exact committed frontage also passed a fresh desktop/full and mobile/light
+review with the network-failure listener enabled before this unrelated
+integration. Final live-build verification is recorded on T-2202.

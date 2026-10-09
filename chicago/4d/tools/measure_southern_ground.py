@@ -26,6 +26,14 @@ columns are still cut at N -400, the field's OLD south edge, and carrying them t
 is now street work on ground that is under them. Ground east of State is still not coming
 at any date; it is the United States Reservation (T-E2).
 
+**T-1707 carried the seven columns to Madison, and T-2247 made this command say so.** For
+eleven days after that (T-1707 closed 2026-09-28) the South's `waiting_on` went on naming
+street control and calling N -519 "the OLD south edge of the field", because nothing
+measured where the columns end against Madison — and on 2026-10-09 an owner's ruling was
+asked on that sentence. The `columns_at_madison` figure is that measurement: a column is
+carried when its committed line ends inside Madison Street's own corridor at that
+column's easting, and `reconcile_665.py` stops naming street control the day all seven are.
+
     tools/measure_southern_ground.py             the report
     tools/measure_southern_ground.py --gate      the two assertions
     tools/measure_southern_ground.py --self-test prove both assertions still fire
@@ -356,8 +364,28 @@ def measure() -> dict:
         "south_of_plat": census,
         "tier": tier,
         "columns_end_n_m": {c: min(p[1] for p in paths[c]) for c in TIER_COLUMNS},
+        "columns_at_madison": columns_at_madison(paths, slope, corner, half_width),
         "off_field_blocks": committed_blocks_off_field(field),
     }
+
+
+def columns_at_madison(paths, slope, corner, half_width) -> dict:
+    """Where each north-south column of the plat ends, against Madison's corridor (T-2247).
+
+    A column is CARRIED TO MADISON when its committed line ends between the corridor's
+    north and south edges at the column's own easting — on the street, not short of it
+    and not through it. The corridor is the same construction `tier_blocks` uses:
+    Madison's centreline from the section corner, offset by the platted half-width.
+    """
+    madison = madison_line(slope, corner)
+    dn = perpendicular_offset(half_width, slope)
+    out = {}
+    for column in TIER_COLUMNS:
+        e, n = min(paths[column], key=lambda p: p[1])
+        centre = madison(e)
+        out[column] = {"end_n_m": n, "madison_n_m": centre,
+                       "carried": centre - dn <= n <= centre + dn}
+    return out
 
 
 def coverage_figures(m: dict | None = None) -> dict:
@@ -387,6 +415,9 @@ def coverage_figures(m: dict | None = None) -> dict:
         "last_tier_area_ha": round(m["tier"]["area_ha"], 2),
         "last_tier_ring_points_on_field": m["tier"]["ring_points_on_field"],
         "last_tier_ring_points": sum(r["ring_points"] for r in m["tier"]["blocks"]),
+        "columns_carried_to_madison": sum(
+            1 for c in m["columns_at_madison"].values() if c["carried"]),
+        "columns": len(m["columns_at_madison"]),
     }
 
 
@@ -406,6 +437,9 @@ def report(m: dict) -> None:
     ends = m["columns_end_n_m"]
     print(f"  the plat's columns end at           local N "
           f"{', '.join(f'{v:.0f}' for v in ends.values())}")
+    at = m["columns_at_madison"]
+    print(f"  carried into Madison's corridor     "
+          f"{sum(1 for c in at.values() if c['carried'])} of {len(at)} columns")
 
     print("\nground south of Washington's platted corridor, on the committed field")
     area = f["cell_m"] * f["cell_m"]
@@ -483,6 +517,13 @@ def self_test() -> int:
         ok = False
         print("  SELF-TEST FAIL: southern ground appearing under the programme's feet "
               "did not fail the gate")
+
+    broken = json.loads(json.dumps(m))
+    broken["columns_at_madison"]["state"]["carried"] = False
+    if gate(broken) == 0:
+        ok = False
+        print("  SELF-TEST FAIL: a column falling short of Madison did not fail the gate "
+              "(T-2247)")
 
     if gate(m) != 0:
         ok = False
