@@ -102,7 +102,7 @@ def _construct(root):
             for row in range(math.floor(z0/step),math.ceil(z1/step)):
                 y=row*step
                 lip=d.rect_clip(poly,a,y,c,y+relief)
-                if lip:self.roof_raw([point(q,relief*(1-(q[1]-y)/relief)) for q in lip],confidence,19+row%3,normal,coords)
+                if lip:self.roof_raw([point(q,relief*(1-(q[1]-y)/relief)) for q in lip],confidence,19+row%3,normal,coords,detail=True)
 
     b=ReducedBuilder('glessner_house__as_built_1887',params)
     legacy=d.legacy
@@ -331,7 +331,7 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
         points=[b.verts[i] for i in face];normal=_normal(points)
         triangles=_triangles(points,normal)
         if not triangles:continue
-        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'i':[]})
+        group=groups.setdefault(material,{'p':[],'n':[],'uv':[],'c':[],'rd':[],'i':[]})
         start=len(group['p'])//3
         horizontal=(-normal[1],normal[0],0);length=math.hypot(horizontal[0],horizontal[1])
         if length<1e-6:horizontal=(1,0,0);uphill=(0,1,0)
@@ -347,13 +347,15 @@ def build_light(master:Path,output:Path,*,root:Path,recipe_sha256:str)->dict:
             uv=b.roof_uvs.get(index,(sum(p*v for p,v in zip(point,horizontal)),sum(p*v for p,v in zip(point,uphill))))
             group['uv'].extend((uv[0]/tu,1-uv[1]/tv))
             group['c'].append(b.conf[index])
+            group['rd'].append(b.roof_detail.get(index,0))
         for triangle in triangles:group['i'].extend(start+i for i in triangle)
         triangle_count+=len(triangles)
     if triangle_count>MAX_TRIANGLES:raise ValueError(f'Reduced Glessner has {triangle_count:,} triangles; limit {MAX_TRIANGLES:,}')
     primitives=[]
     for material,g in sorted(groups.items()):
         attributes={'POSITION':accessor(g['p'],3,bounds=True),'NORMAL':accessor(g['n'],3),
-                    'TEXCOORD_0':accessor(g['uv'],2),'_CONFIDENCE':accessor(g['c'],1,bounds=True)}
+                    'TEXCOORD_0':accessor(g['uv'],2),'_CONFIDENCE':accessor(g['c'],1,bounds=True),
+                    '_ROOF_DETAIL':accessor(g['rd'],1,bounds=True)}
         primitives.append({'attributes':attributes,'indices':accessor(g['i'],1,'I'),
                            'material':names[MATERIAL_NAMES[material]],'mode':4})
     extras=copy.deepcopy(owner.get('extras',{}))
