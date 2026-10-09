@@ -525,6 +525,13 @@
       "finding": "Reproduces: ran `--build` on a clean tree in 0s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
     },
+    "generated_card_kin.py": {
+      "placement": "pending",
+      "write_mode": "--land",
+      "measured": "2026-10-09",
+      "finding": "Reproduces: `--land` on a clean tree changed no committed byte; perturbed (the Malore row removed from data/residents/households/hh_mayo_joseph.json) it rewrote that card byte for byte in 0.4s and moved nothing else.",
+      "placed": "not yet — measured to reproduce. It writes the households/ mirror of the register's parent ties onto cards the mints re-derive (they carry `kin` through), and it reads data/residents/readmitted/ and underdocumented/, which tools/readmit_borderline_roster.py and tools/reconstruct_church_register.py write, so its slot sits after both builds and before rebuild_resident_index; the manifest's order is its own measured pass, so it is not appended blind."
+    },
     "generate_block_infill.py": {
       "placement": "manifest",
       "write_mode": "(bare)",
