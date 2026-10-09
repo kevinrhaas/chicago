@@ -1395,6 +1395,26 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "old_settler_deaths.people[].as_read": ("shown", "The page reads <q>${escapeHtml(String(entry.as_read ?? ''))}</q>"),
     "old_settler_deaths.people[].record_id": ("shown", "record ${\n        escapeHtml(String(entry.record_id ?? ''))}"),
     "persons[].biographical_evidence.age_on_1835_07_01.value.max": ("shown", "and ${age.value.max}"),
+    # T-1552. The card's "Seen in the record, by date" row reads both bound blocks with
+    # one renderer, `datedBoundsHtml`, so the two share their expressions.
+    "persons[].appearance_bounds[].bound_kind": ("shown", "b.bound_kind === 'district_presence'"),
+    "persons[].appearance_bounds[].here_by": ("shown", "if (b.here_by) return"),
+    "persons[].appearance_bounds[].side_of_scene_date": ("shown", "b.side_of_scene_date === 'later'"),
+    "persons[].appearance_bounds[].role": ("shown", "String(b.role || 'named')"),
+    "persons[].appearance_bounds[].describes_date": ("shown", "when(b.describes_date)"),
+    "persons[].appearance_bounds[].locator": ("shown", "escapeHtml(String(b.locator))"),
+    "persons[].appearance_bounds[].as_read": ("shown", "b.as_read ?? b.as_printed"),
+    "persons[].appearance_bounds[].source_title": ("shown", "b.source_title || b.list_title || b.publication"),
+    "persons[].dated_bounds[].bound_kind": ("shown", "b.bound_kind === 'district_presence'"),
+    "persons[].dated_bounds[].here_by": ("shown", "if (b.here_by) return"),
+    "persons[].dated_bounds[].side_of_scene_date": ("shown", "b.side_of_scene_date === 'later'"),
+    "persons[].dated_bounds[].role": ("shown", "String(b.role || 'named')"),
+    "persons[].dated_bounds[].describes_date": ("shown", "when(b.describes_date)"),
+    "persons[].dated_bounds[].locator": ("shown", "escapeHtml(String(b.locator))"),
+    "persons[].dated_bounds[].as_read": ("shown", "b.as_read ?? b.as_printed"),
+    "persons[].dated_bounds[].as_printed": ("shown", "b.as_read ?? b.as_printed"),
+    "persons[].dated_bounds[].list_title": ("shown", "b.source_title || b.list_title || b.publication"),
+    "persons[].dated_bounds[].publication": ("shown", "b.source_title || b.list_title || b.publication"),
 }
 
 READS: dict[str, dict[str, tuple[str, str]]] = {

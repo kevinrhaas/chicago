@@ -147,6 +147,31 @@
    "sources": [
     "st_marys_baptismal_register_1833_1835"
    ],
+   "appearance_bounds": [
+    {
+     "bound_kind": "presence",
+     "corpus": "st_marys_baptisms",
+     "source_title": "St Mary's baptismal register, Chicago, 1833-1835, read off the deposited page images",
+     "record_id": "st_marys_bapt_1835_08_4_godfather",
+     "as_read": "M. Pierre Riffe",
+     "role": "godfather",
+     "locator": "image S3HT-DHG9-SJ8, page 17, entry 8 of the 1835 series",
+     "describes_date": "1835-08-24",
+     "date_confidence": "documented",
+     "precision": "day",
+     "reaches": "1835-08-24",
+     "here_by": null,
+     "side_of_scene_date": "later",
+     "covers_scene_date": false,
+     "confidence": "inferred",
+     "sources": [
+      "st_marys_baptismal_register_1833_1835"
+     ],
+     "identity_rule": "data/research/church/st_marys_baptisms_crosswalk.json rules this appearance `minted_from_this_reading`: tools/mint_civic_residents.py read this row and wrote this card from it, and the card cites the record id in its own church_evidence.",
+     "identity_rule_source": "data/research/church/st_marys_baptisms_crosswalk.json — rulings[] `minted_from_this_reading`",
+     "note": "AN APPEARANCE LATER THAN THE SCENE DATE, WHICH BOUNDS NOTHING AT IT. The entry is dated 1835-08-24 at Chicago, Cook County, Illinois — after 1 July 1835 — and this person stood at the font as godfather. Under the evidence ladder ratified 2026-09-03 a source EARLIER than the scene date corroborates and dates and never promotes, and a source LATER than it does not promote either. So this row dates and corroborates an appearance and `here_by` is null: it cannot put a body in the town on the scene date, and back-projecting it would be the promotion the ladder forbids. THE IDENTITY IS INFERRED AND THE PAGE IS NOT. The entry is read scan_verified off the page image at `documented` confidence. What no source states is that the sponsor the register names is one person with every other appearance this card carries: data/research/church/st_marys_baptisms_crosswalk.json rules that this card was minted from this very row, the mint grouped its readings on the name 'Pierre Riffe', and a bound whose subject is inferred is an inferred bound. No grade moves here and the identity is neither reopened nor hardened."
+    }
+   ],
    "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 24 August 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1).",
    "church_evidence": [
     {

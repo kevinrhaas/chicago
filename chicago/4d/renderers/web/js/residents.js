@@ -709,6 +709,59 @@ function evidenceLadderHtml(person, citationsById, ladderRules) {
 }
 
 /**
+ * WHERE AND WHEN the record puts this person, as dated bounds (T-1552).
+ *
+ * Two blocks carry the same shape on a person. `dated_bounds[]` is the town's poll and
+ * tax rolls (`tools/spend_civic_roll_bounds.py`, T-1326) and its press
+ * (`tools/spend_press_bounds.py`), and
+ * `tools/spend_appearance_bounds.py` (T-1337) writes `appearance_bounds[]` off the 1830
+ * schedule and St Mary's register — a sponsor or godparent standing at the font. The
+ * evidence list above shows a reading as a name on a page; this is what each reading
+ * does to the question a visitor asks of the card, whether the person was here by the
+ * scene date. Only `here_by` answers it: a dated day in the town puts them in Chicago by
+ * then, a later day bounds nothing at 1 July 1835, an 1830 line bounds a district and not
+ * the town, and a name in print or on a deed is shown as the appearance it is and no
+ * more. Every bound is inferred, because the identity is a crosswalk's or a mint's and
+ * never a source's; the swatch says so.
+ */
+function datedBoundsHtml(person, citationsById) {
+  const list = [...(person.dated_bounds || []), ...(person.appearance_bounds || [])]
+    .filter(Boolean)
+    .sort((a, b) => String(a.describes_date ?? '').localeCompare(String(b.describes_date ?? '')));
+  if (!list.length) return '';
+  const what = (b) => {
+    if (b.bound_kind === 'district_presence') {
+      return 'in the 1830 district, which is not the town';
+    }
+    if (b.here_by) return `in Chicago by ${printedOn(b.here_by)}`;
+    return b.side_of_scene_date === 'later'
+      ? 'after 1 July 1835, so it says nothing about that day' : '';
+  };
+  const role = (b) => {
+    const text = words(String(b.role || 'named'));
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+  const when = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(String(d ?? ''))
+    ? `on ${printedOn(d)}` : `in ${String(d ?? '')}`);
+  const title = (b) => b.source_title || b.list_title || b.publication || '';
+  const cites = [...new Set(list.flatMap((b) => b.sources || []))]
+    .map((id) => citationsById.get(id)).filter(Boolean);
+  return `<dt>Seen in the record, by date</dt>
+    <dd>${swatch(list[0].confidence)}<span class="res-chip res-research">${list.length} ${
+      list.length === 1 ? 'dated line' : 'dated lines'}</span>
+      <ul class="res-candidates">${list.map((b) => `<li>${
+      escapeHtml(role(b))} ${escapeHtml(when(b.describes_date))}, as
+      <q>${escapeHtml(String(b.as_read ?? b.as_printed ?? ''))}</q>${
+        what(b) ? ` \u2014 <b>${escapeHtml(what(b))}</b>` : ''}
+      <br><span class="res-why">${escapeHtml(String(title(b)))}${
+        b.locator ? `, ${escapeHtml(String(b.locator))}` : ''}.</span></li>`).join('')}</ul>
+      <span class="res-why">Each page is read as written; that the name on it is this person
+        is a match this project made, so every line is inferred and none of them alone
+        proves the person was here on 1 July 1835.</span>
+      ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
+}
+
+/**
  * WHEN a trade is unrecorded, on the cards that hold one for a later year (T-0693).
  *
  * `none_recorded` was carrying two different states. "This project holds no trade for
@@ -1751,6 +1804,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
       ${profileFactsHtml(person.profile_facts, citationsById)}
       ${withheldFactsHtml(withheldByPerson.get(person.id), citationsById)}
       ${evidenceLadderHtml(person, citationsById, ladderRules)}
+      ${datedBoundsHtml(person, citationsById)}
       ${researchHtml(researchByPerson.get(person.id), citationsById)}
       ${recordResearchHtml(person.resident_research, citationsById,
         Boolean(researchByPerson.get(person.id)))}

@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1577, ts: '2026-10-09T13:58:55.487Z', date: 'Oct 9, 2026, 8:58 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+  { v: 1578, ts: '2026-10-09T14:37:10.774Z', date: 'Oct 9, 2026, 9:37 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
       'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
       'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
+    ] },
+  { v: 1577, ts: '2026-10-09T13:43:01.271Z', date: 'Oct 9, 2026, 8:43 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
+    items: [
+      'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
+      'Each line says what it proves. A vote cast or a christening attended at Chicago puts the person in the town by that day. A name in print, an 1830 census line or a date after 1 July 1835 is shown for what it is and proves nothing about the scene date.',
+      'Twenty-six godparents and sponsors at St Mary\u2019s, among them Josette Laframboise, Jean Baptiste Lavigne and Edward Daly, now have their christening days on these lists. Before this they were named on their cards with no date attached.',
     ] },
   { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
