@@ -135,7 +135,8 @@
         "python3 tools/build_order_book_1835.py --build",
         "python3 tools/seat_known_1835.py --build",
         "python3 tools/compile_liberties.py",
-        "python3 tools/house_the_present_1835.py"
+        "python3 tools/house_the_present_1835.py",
+        "python3 tools/count_held_head_dwellings_1835.py --build"
       ],
       "declared_readers": {
         "python3 tools/build_order_book_1835.py --build": "Reads both seat files' slot and seat counts, which the two deals in the pass rewrite. What the pass carries back through them is display names (T-2081): two names changed in each seat file left its --check green, and so did T-2081's chain reproduction.",
@@ -2082,6 +2083,22 @@
       ],
       "reads": [
         "chicago/4d/data/reconstruction/1835_address_book.json"
+      ]
+    },
+    {
+      "why": "THE FAMILY DWELLINGS THE TOWN ALREADY FORMS (T-2193, of T-2188). Counts the held head records the order book reads as awaiting a household that the housing seats put under a standing dwelling (the dealt rung and the family rung), and writes them into the book as households/family_dwelling fills. BELOW house_the_present_1835.py, because it reads the seats that step writes, and BELOW build_order_book_1835.py, whose fills it splices and which it re-derives. Nothing above it reads its ledger: seat_known_1835.py reads only the household TARGETS, which a fill does not move, and reconstruct_women_children.py adds this stage's fills back to its house quota, so neither chases it. Measured 2026-10-08: a repeat --build on the built tree changed no committed byte.",
+      "command": [
+        "python3",
+        "tools/count_held_head_dwellings_1835.py",
+        "--build"
+      ],
+      "resolves": [
+        "chicago/4d/data/reconstruction/1835_held_head_dwellings.json"
+      ],
+      "verify": [
+        "python3",
+        "tools/count_held_head_dwellings_1835.py",
+        "--check"
       ]
     },
     {
