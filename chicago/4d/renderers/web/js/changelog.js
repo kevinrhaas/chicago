@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1557, ts: '2026-10-09T02:53:10.124Z', date: 'Oct 8, 2026, 9:53 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [
       'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
       'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and Joseph Leframboise’s household of six, which was still waiting for a roof, now shares a house in the South Division.',
+    ] },
+  { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+    items: [
+      'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
+      'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
     ] },
   { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
     items: [

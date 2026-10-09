@@ -64,6 +64,36 @@
   ],
   "note": "The post itself. data/structures/fort_dearborn_palisade.json already carries 'United States 5th Infantry, Maj. John Greene commanding' as its occupants; this household is the other end of that link."
  },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "fort_dearborn_commandants_quarters",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "The commanding officer's quarters are a building in this dataset and he was the commanding officer. This is the one lives_at link in the parcel that is true by definition of the building rather than by evidence about the man. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_greene_john#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "also_sources": [
+    "drloih_fort_dearborn"
+   ]
+  },
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "fort_dearborn_palisade",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "The post itself. data/structures/fort_dearborn_palisade.json already carries 'United States 5th Infantry, Maj. John Greene commanding' as its occupants; this household is the other end of that link. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_greene_john#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "also_sources": [
+    "drloih_fort_dearborn"
+   ]
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "attested",

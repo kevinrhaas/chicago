@@ -60,6 +60,33 @@
   ],
   "note": "A trading house at Wolf Point is where his trade was carried on, and the cabins are the only Wolf Point building this dataset attaches to him. Whether the store was one of the cabins or a separate building is not stated."
  },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "robinson_caldwell_cabins",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "kinzie_waubun_1856",
+   "note": "Wau-Bun, describing 1831: 'Near him [Wentworth's tavern] were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions.' data/structures/robinson_caldwell_cabins.json exists on that single sentence and carries review_required: true for the same reason this household does. Andreas independently puts him at Wolf Point with a store or trading-house in the later part of his residence. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_robinson_alexander#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  },
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "robinson_caldwell_cabins",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "inferred",
+   "source_id": "andreas_1884_v1",
+   "note": "A trading house at Wolf Point is where his trade was carried on, and the cabins are the only Wolf Point building this dataset attaches to him. Whether the store was one of the cabins or a separate building is not stated. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_robinson_alexander#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "also_sources": [
+    "kinzie_waubun_1856"
+   ]
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "inferred",
