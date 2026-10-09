@@ -1,8 +1,12 @@
 export const CHANGELOG = [ // newest first
-  { v: 1579, ts: '2026-10-09T15:23:01.331Z', date: 'Oct 9, 2026, 10:23 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
+  { v: null, ts: '', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
     items: [
       'Ten roofs the South Division still owes have nowhere to stand. The town\u2019s plan said they were waiting for its streets to be carried south to Madison Street. That work was finished on 28 September: all seven north\u2013south streets from Market to State now reach Madison.',
       'The plan now says what the ten are really waiting on: ground. Every South block they could go on is full, and so is the School Section row just south of Madison. The land beyond Monroe Street has never been divided into lots. The plan now checks each street against Madison, so this note updates itself.',
+    ] },
+  { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The five houses still owed on the South side\u2019s unsurveyed blocks are kept, not cut, on the owner\u2019s answer. The plan of what is left to build now files them under the street work that will open those blocks, so the automated checks pass again.',
     ] },
   { v: 1578, ts: '2026-10-09T14:18:56.253Z', date: 'Oct 9, 2026, 9:18 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
