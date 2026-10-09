@@ -182,7 +182,7 @@ MASTER = DATA / "research" / "residents" / "identity_master.json"
 sys.path.insert(0, str(ROOT / "tools"))
 from reconstructed_person import named_by_a_source  # noqa: E402
 from rebuild_resident_index import rebuild  # noqa: E402  (the manifest's one owner)
-from resident_mint_carry import carry_resident_mint  # noqa: E402  (T-1137)
+from resident_mint_carry import PRINTED_WIFE, carry_resident_mint  # noqa: E402  (T-1137, T-2232)
 from carry_stage_blocks import carry  # noqa: E402  (T-1169; a mint owns its record, a reconstruction stage owns its blocks)
 from supersede_arrival import supersede, supersede_block  # noqa: E402  (T-1350; a ruled reading supersedes a derived bound and cannot be reverted)
 from supersede_arrival import LEDGER as _ARRIVAL_LEDGER, by_household as arrival_supersessions  # noqa: E402
@@ -1106,6 +1106,17 @@ def build(preload: dict | None = None):
     established = {person.get("id"): docs[path] for path in mine_paths
                    for person in docs[path].get("persons") or []}
     accepted, refusals = pool(others, proposal, master, index, own)
+    # T-2232: A PRINTED WIFE IS CARRIED, NOT RE-MINTED. Where a source prints a woman this
+    # pass minted as the wife of a head it also minted, T-2190's fold seats her in his house
+    # and retires her card; `carry_over` keeps her there. Minting her a card again would put
+    # her in the town twice (and on his household id, since that is where she stands), so
+    # the identity is refused here under refusal 2: the town already carries this person.
+    printed = {person.get("id") for path in mine_paths
+               for person in docs[path].get("persons") or [] if PRINTED_WIFE in person}
+    refusals += [(row, "the town already carries this person") for row, _ in accepted
+                 if row.get("canonical_person_id") in printed]
+    accepted = [(row, apps) for row, apps in accepted
+                if row.get("canonical_person_id") not in printed]
 
     # What each identity's REFUSED readings were citing, so `carry_over` can tell this
     # pass's own retraction from another pass's addition (T-1049).
@@ -1551,7 +1562,10 @@ def gate_problems(docs: dict, index: dict) -> list:
         # refuse the card for something it did not do, and the sentence under it — "this
         # pass mints households of one and never invents a family" — stays exactly true:
         # it still mints one, and it still invents nobody.
-        people = named_by_a_source(doc.get("persons") or [])
+        # T-2232: a printed wife T-2190's fold seated here is the fold's, on the same
+        # footing; her own card was this pass's, and the fold retired it.
+        people = [p for p in named_by_a_source(doc.get("persons") or [])
+                  if PRINTED_WIFE not in p]
         if len(people) != 1:
             problems.append(f"{where}: {len(people)} member(s); this pass mints households "
                             f"of one and never invents a family")

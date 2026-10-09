@@ -31,6 +31,9 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from reconstructed_person import is_reconstructed  # noqa: E402
 
+# The mark `tools/reconstruct_modelled_families.py` puts on a printed wife it seats (T-2190).
+PRINTED_WIFE = "seated_as_printed_wife"
+
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 TOOLS = ROOT / "tools"
 
@@ -385,10 +388,16 @@ def carry_resident_mint(doc: dict, prior: dict | None, *,
     # the stage that can re-derive this person. A `reconstructed` person no stage claims is
     # what `refuse_reconstructed_grade` exists to refuse, and carrying one here would put
     # it back after that refusal had removed it.
+    #
+    # T-2232: AND A PRINTED WIFE, on the same footing. T-2190's fold seats a bride a source
+    # prints into her husband's house and retires her own card; the stage re-derives her
+    # place there (`reconstruct_modelled_families.unseat_printed`/`seat_printed`) exactly as
+    # it re-derives a drawn wife. Where the husband's card is a mint's, a rebuild that kept
+    # only its own head would put her out of the house the paper married her into.
     held = {person.get("id") for person in doc.get("persons") or []}
     carried = [person for person in prior.get("persons") or []
                if person.get("id") not in held
-               and is_reconstructed(person)]
+               and (is_reconstructed(person) or PRINTED_WIFE in person)]
     if carried:
         doc["persons"] = (doc.get("persons") or []) + carried
     return doc
