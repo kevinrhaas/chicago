@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "ticket": "T-2245",
+  "_doc": "AUTHORED RULINGS. The partners a firm's printed style names whom the register could not link to a town card, because it links a partner only where its own person list carries that exact spelling with action `enrich`. tools/compile_businesses.py lays each link over its record (apply_partner_links): it fills a null person_id on the printed partner row, or adds the row for a surname the style itself sets, and it never moves a link the register made. The link is `inferred` and says so on the row; the printed name keeps its own tier. A firm whose partner this file does not link is a finding about the evidence, not a gap: the style names a surname the town holds more than one card for, or none.",
+  "not_linked": [
+    {"business_id": "biz_fullerton_botsford", "name": "Fullerton", "why": "The town holds one Fullerton, the attorney Alexander N. Fullerton (fullerton_alexander, his trade from Andreas), and the style gives no initial. One card for a surname is not evidence that a lawyer sold pork, so the partner is not linked; Botsford carries the house."},
+    {"business_id": "biz_clark_filer_co", "name": "Clark", "why": "The town holds a dozen Clark and Clarke cards and the style gives no initial."},
+    {"business_id": "biz_harmon_loomis_co", "name": "Harmon", "why": "The style's 'Harmon' is one or both of the brothers hh_harmon_brothers carries (Charles L. and Isaac D.), and a link names one person; the card already puts them at work in the firm's documented store, harmon_loomis_store, which is the question its follow-up ticket owns."},
+    {"business_id": "biz_h_doty_co", "name": "H. Doty", "why": "The town holds J. D. Doty only, a different initial; this project never joins those."},
+    {"business_id": "biz_rockwell_cabinet_furniture_warehouse", "name": "Rockwell", "why": "No Rockwell card exists."},
+    {"business_id": "biz_chicago_bakery", "name": "D. Graves", "why": "No card for a D. Graves exists; the register holds the name as a person the town does not yet hold."}
+  ],
+  "links": [
+    {
+      "business_id": "biz_j_l_wilson_co",
+      "name": "J. L. Wilson",
+      "person_id": "wilson_john",
+      "ticket": "T-2245",
+      "basis": "The register already matches this house's own advertisement of 1834-09-17 (chicago_democrat_1834_09_17#c003, set 'L. WILSON & CO.', read 'Wilson, J. L. & Co.') to the town card wilson_john, under the gazetteer's identity policy, surname plus forename initials (register person person_wilson_j_l_co, action enrich). identity.json's firm merge reads 'Jno. L. Wilson & Co.' as this same house with the forename set as this corpus's abbreviation for John. The partner row 'J. L. Wilson' is that man; the register could not carry its match here only because it links by exact spelling. Inferred, not attested: the card is a letter list's John Wilson and carries no middle initial."
+    },
+    {
+      "business_id": "biz_fullerton_botsford",
+      "name": "Botsford",
+      "person_id": "botsford_j_k",
+      "ticket": "T-2245",
+      "basis": "The pork notice is signed 'FULLERTON & BOTSFORD, corner of Dearborn and Lake-sts.' (chicago_democrat_1834_06_04#c024, copy dated April 22, 1834), and the corner of Dearborn and Lake is the frontage J. K. Botsford's own grocery and tin shop advertises from in the same weeks (identity.json, refused_anchor_changes on business_j_k_botsford, T-0324). identity.json's proprietor merges on that house rule that nothing in the corpus names a second Botsford. One Botsford, one corner: the partner is J. K. Botsford."
+    },
+    {
+      "business_id": "biz_clark_filer_co",
+      "name": "Filer",
+      "person_id": "filer_a",
+      "ticket": "T-2245",
+      "basis": "A. Filer & Co. advertise a cabinet and chair manufactory on South Water Street, printed 1834-03-04 to 1834-05-21; Clark, Filer & Co. advertise chairs at 'the cabinet shop of Clark, Filer & Co.' on South Water Street from 1834-05-28 (chicago_democrat_1834_05_28#c007, copy dated May 20, 1834). Same trade, same street, and the second style's printing opens the week the first's closes. The town holds two Filers: A. Filer (filer_a), the man the first style names, and Elihu D. Filer (filer_elihu_d), a letter-list name with no trade. The cabinet maker is A. Filer."
+    }
+  ]
+}

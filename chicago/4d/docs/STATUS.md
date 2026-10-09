@@ -1,3 +1,39 @@
+## T-2245 — the firm partners the town holds a card for, linked (2026-10-09)
+
+T-2236's keeper rung seats the household of a proprietor or partner of a house of trade over the
+store its firm stands on, and it finds the keeper through `person_id` on the business record.
+The register links a printed partner to a card only where its own person list carries that
+exact spelling with action `enrich`, so a partner named only inside a firm's style stayed a
+name and seven of the store roofs T-2240 was left owing stood empty beside a firm whose
+partner the town in fact holds.
+
+- **The rule** (`data/businesses/rulings/partner_links.json`, laid over the record by
+  `compile_businesses.apply_partner_links`): a link names a partner the firm's style prints and
+  a card the town holds, and states its reasoning. It fills a null and never moves a link the
+  register made; the compiler refuses a name the style does not print, a card the town does
+  not hold, and a moved link (three self-test cases). The link is `inferred`, carried as
+  `link` on the row (a new optional schema field), while the printed name keeps its tier.
+- **Linked (3):** J. L. Wilson → `wilson_john` (the register's own match of this house's
+  1834-09-17 notice, `person_wilson_j_l_co`); Botsford of Fullerton & Botsford → `botsford_j_k`
+  (the same corner of Dearborn and Lake, and no second Botsford in the corpus); Filer of Clark,
+  Filer & Co. → `filer_a` (same trade, same street, the style's printing opening the week A.
+  Filer & Co.'s closes).
+- **Measured** (over dev with T-2244 and T-2189): keepers south 13 → 15 (Wilson over
+  `recon_1835_blk_randolph_clark_c2_01`, Botsford's household of six over
+  `recon_1835_south_c3_040`). Filer already keeps A. Filer & Co., so the Clark, Filer & Co.
+  roof (`recon_1835_blk_south_water_dearborn_c1_08`) now reads as T-2244's
+  `kept_from_elsewhere`: south 4 → 5 stores ruled kept from elsewhere. Store households still
+  owed: south 11 → 4, west 2 → 1 (T-2244's Pierce & French). Two more inhabited stores raise
+  the census ceiling, so households waiting on a roof fall 34 → 28 (100 → 85 people, over
+  dev with T-2189).
+- **Not linked, and said so in the same file's `not_linked`:** Fullerton (the town's one
+  Fullerton is an attorney), Clark (a dozen cards, no initial), Harmon (the brothers' card
+  already works in the firm's documented `harmon_loomis_store`, and a link names one man),
+  H. Doty (only J. D. Doty is held), Rockwell and D. Graves (no card).
+- **Routed:** the 5 still owed (Harmon, Loomis & Co.'s adopted roof, H. Doty & Co.,
+  Rockwell, the Chicago Bakery, and the firmless `recon_1835_west_020`) are **T-2246**, which
+  the order book's store rows now name.
+- **Liberty:** none new. The bed over the store is L354's, as for every keeper.
 ## T-2189 — the dead ruled not present: thirteen people the town's own burials and death notices bury before 1 July 1835 (2026-10-09)
 
 Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550),
