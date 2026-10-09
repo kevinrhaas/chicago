@@ -8,7 +8,7 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,798 |
-| Households | 645 | 165 | 451 |
+| Households | 645 | 165 | 447 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 677 | 10 |
 

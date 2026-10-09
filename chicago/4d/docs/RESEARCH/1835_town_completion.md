@@ -8,7 +8,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 
 | join | state | what keeps it open |
 |---|---|---|
-| Every household housed | open | 26 households without a roof yet |
+| Every household housed | open | 24 households without a roof yet |
 | Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
 | Every standing roof occupied or its use stated | open | 2 standing roofs empty and owed somebody |
@@ -17,7 +17,7 @@ Dangling ids: **0**. The town is **not yet complete**: the open joins above are 
 
 ## The three tiers' shares of the people housed
 
-Of the **3,444** people housed in a standing building: **11.4 % attested** (391), **29.1 % inferred** (1,003), **59.5 % reconstructed** (2,050).
+Of the **3,450** people housed in a standing building: **11.4 % attested** (393), **29.1 % inferred** (1,003), **59.5 % reconstructed** (2,054).
 
 ## Every table by tier
 
@@ -25,8 +25,8 @@ Of the **3,444** people housed in a standing building: **11.4 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 391 | 1,003 | 2,050 | 3,444 |
-| counted apart — waiting on a roof | 11 | 15 | 53 | 79 |
+| housed | 393 | 1,003 | 2,054 | 3,450 |
+| counted apart — waiting on a roof | 9 | 15 | 49 | 73 |
 | counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **412** | **1,028** | **2,131** | **3,571** |
@@ -36,11 +36,11 @@ Of the **3,444** people housed in a standing building: **11.4 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 378 | 987 | 564 | 1,929 |
-| counted apart — waiting on a roof | 11 | 15 | 0 | 26 |
+| housed | 379 | 987 | 565 | 1,931 |
+| counted apart — waiting on a roof | 9 | 15 | 0 | 24 |
 | counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **399** | **1,012** | **592** | **2,003** |
+| **all** | **398** | **1,012** | **593** | **2,003** |
 | share | 19.9 % | 50.5 % | 29.6 % | |
 
 ### Working-age persons
