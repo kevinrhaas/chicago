@@ -114,7 +114,7 @@
       "name": "The Robinson household at Wolf Point",
       "division": "west",
       "relation": "lived and worked here",
-      "why": "Wau-Bun, describing 1831: 'Near him [Wentworth's tavern] were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions.' data/structures/robinson_caldwell_cabins.json exists on that single sentence and carries review_required: true for the same reason this household does. Andreas independently puts him at Wolf Point with a store or trading-house in the later part of his residence.",
+      "why": "Wau-Bun, describing 1831: 'Near him [Wentworth's tavern] were two or three log cabins occupied by Robinson, the Pottowattamie chief, and some of his wife's connexions.' data/structures/robinson_caldwell_cabins.json exists on that single sentence and carries review_required: true for the same reason this household does. Andreas independently puts him at Wolf Point with a store or trading-house in the later part of his residence. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_robinson_alexander#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1",
         "kinzie_waubun_1856"

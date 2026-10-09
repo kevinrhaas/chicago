@@ -93,7 +93,7 @@
       "name": "The Robert Kinzie household",
       "division": "west",
       "relation": "worked here",
-      "why": "The frame store on the west side, which this dataset places immediately south of Wentworth's tavern in the Wolf Point row.",
+      "why": "The frame store on the west side, which this dataset places immediately south of Wentworth's tavern in the Wolf Point row. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_kinzie_robert_a#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
       "sources": [
         "andreas_1884_v1"
       ],

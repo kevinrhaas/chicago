@@ -34,6 +34,7 @@ DATA = ROOT / "data"
 sys.path.insert(0, str(ROOT / "tools"))
 from review_constraint import record_reason  # noqa: E402
 from tiers import tier_ladder, tier_label  # noqa: E402
+from associations import HOME_KINDS, WORK_KINDS, read_bounds  # noqa: E402
 sys.path.insert(0, str(ROOT / "generators"))
 from common.materials import fabric_tone  # noqa: E402
 
@@ -86,6 +87,46 @@ def research_doc(structure: dict) -> str:
 
 def load(p: Path):
     return json.loads(p.read_text())
+
+
+# T-2259. A household's home and workplace are read from its `associated_with` rows,
+# never from the singular `lives_at`/`works_at` pair, which `tools/associations.py`
+# keeps only until T-2261 retires it. The scene date bounds the read: a row that a
+# source CLOSES before the manifest's `scene_date` is a place the household had
+# left, and the pair this replaces could only ever mean the place on that day.
+LINK_KINDS = {"lives_at": HOME_KINDS, "works_at": WORK_KINDS}
+
+
+def place_links(hh: dict, scene: dt.date) -> dict:
+    """{'lives_at'|'works_at': [row, ...]} — the rows that put this record under a roof.
+
+    Only `resolves_to: structure` rows count: a street, a face or a division is
+    where the evidence stopped, not a building a card can be shown on. Rows keep
+    the record's own order, so the first is the one the card names."""
+    out = {}
+    for key, kinds in LINK_KINDS.items():
+        rows = []
+        for r in hh.get("associated_with") or []:
+            if r.get("kind") not in kinds or r.get("resolves_to") != "structure":
+                continue
+            ends = read_bounds(r.get("to")) if r.get("to") is not None else None
+            if ends and ends[1] < scene:
+                continue
+            rows.append(r)
+        if rows:
+            out[key] = rows
+    return out
+
+
+def first_place(links: dict, key: str) -> str | None:
+    """The structure the card names for `key`: the first of `place_links`' rows."""
+    rows = links.get(key)
+    return rows[0]["place_or_structure_id"] if rows else None
+
+
+def row_sources(row: dict) -> list:
+    """A row's citations: its `source_id` and any `also_sources` (T-1273)."""
+    return [s for s in [row.get("source_id"), *(row.get("also_sources") or [])] if s]
 
 
 def emit(path: Path, doc, *, compact: bool = False) -> None:
@@ -830,6 +871,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
     if not index_path.exists():
         return 0
     index = load(index_path)
+    scene = dt.date.fromisoformat(index["scene_date"])
     vocab = index.get("vocabulary", {}) or {}
     manifest_counts = index.get("counts", {}) or {}
 
@@ -1032,8 +1074,7 @@ def compile_people(scene_id: str, outdir: Path) -> int:
         occ = person.get("occupation") or {}
         occ_value = occ.get("value")
         arrival = hh.get("arrival") or {}
-        lives = hh.get("lives_at") or {}
-        works = hh.get("works_at") or {}
+        links = place_links(hh, scene)
         present = (hh.get("present_on_scene_date") or {}).get("value")
         row = {
             "id": person.get("id"),
@@ -1056,8 +1097,8 @@ def compile_people(scene_id: str, outdir: Path) -> int:
             "community": (community.get(person.get("id")) or {}).get("value"),
             "community_tier": (community.get(person.get("id")) or {}).get("tier"),
             "community_rule": (community.get(person.get("id")) or {}).get("rule"),
-            "lives_at": lives.get("value"),
-            "works_at": works.get("value"),
+            "lives_at": first_place(links, "lives_at"),
+            "works_at": first_place(links, "works_at"),
             **role_row_view(person),
         }
         seat = seat_for.get(person.get("id"))
@@ -2184,6 +2225,7 @@ def compile_residents(housing: bool = True) -> dict[str, list[dict]]:
     if not index_path.exists():
         return {}
     index = load(index_path)
+    scene = dt.date.fromisoformat(index["scene_date"])
     programme_path = DATA / "reconstruction" / "1835_inferred_household_programme.json"
     raised = {}
     if programme_path.exists():
@@ -2192,15 +2234,16 @@ def compile_residents(housing: bool = True) -> dict[str, list[dict]]:
     out: dict[str, list[dict]] = {}
     for entry in index.get("households", []):
         hh = load(DATA / "residents" / entry["file"])
+        # T-2259: every row of each family that reaches a roof, not one singular link
+        # per family, so a household dated at two homes is on both buildings' cards.
         links = {}
-        for key in ("lives_at", "works_at"):
-            block = hh.get(key) or {}
-            if block.get("value"):
-                links.setdefault(block["value"], []).append((key, block))
+        for key, rows in place_links(hh, scene).items():
+            for row in rows:
+                links.setdefault(row["place_or_structure_id"], []).append((key, row))
         for sid, pairs in links.items():
-            kinds = [k for k, _ in pairs]
+            kinds = {k for k, _ in pairs}
             relation = ("lived and worked here" if len(kinds) == 2
-                        else "lived here" if kinds[0] == "lives_at" else "worked here")
+                        else "lived here" if "lives_at" in kinds else "worked here")
             grades = sorted({p.get("grade") for p in hh.get("persons", [])})
             building = raised.get(sid)
             if building and building.get("kind") == "inferred":
@@ -2224,7 +2267,7 @@ def compile_residents(housing: bool = True) -> dict[str, list[dict]]:
                 "division": hh.get("division", ""),
                 "relation": relation,
                 "why": pairs[0][1].get("note", ""),
-                "sources": sorted({s for _, b in pairs for s in (b.get("sources") or [])}),
+                "sources": sorted({s for _, row in pairs for s in row_sources(row)}),
                 "basis": basis,
                 "persons": [{
                     "name": person.get("name", ""),
@@ -2298,7 +2341,9 @@ def overlay_lodgers(out: dict[str, list[dict]]) -> None:
             "name": hh["name"],
             "division": hh.get("division", ""),
             "relation": "lodged here",
-            "why": ((hh.get("lives_at") or {}).get("basis") or {}).get("note", ""),
+            "why": next((row["note"] for row in hh.get("associated_with") or []
+                         if row.get("kind") == "lodging"
+                         and row.get("place_or_structure_id") == minted["place"]), ""),
             "sources": [],
             "basis": lodging.get("note", ""),
             "persons": [{

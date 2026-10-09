@@ -178,7 +178,7 @@
       "name": "The Porter household",
       "division": "south",
       "relation": "worked here",
-      "why": "His own congregation, in its own building at Lake and Clark by the scene date. data/structures/first_presbyterian_church.json deliberately records its occupants as the CONGREGATION rather than as a person, because no source names the minister in charge on 1 July 1835 - and this household is why. He is the minister and he may have been away.",
+      "why": "The congregation was organised in June 1833 under Rev. Jeremiah Porter, which is what the June date is - the charge, not this building, whose own date no source reached gives. `to` is null for the reason the structure record states in full: NO SOURCE REACHED NAMES THE MINISTER IN CHARGE ON 1835-07-01, so the row may not be closed at the scene date and may not be extended to it either.",
       "sources": [
         "andreas_1884_v1"
       ],
