@@ -431,6 +431,13 @@
       "finding": "Reproduces, and the perturbation test tells idempotence from inertia. Run BARE on a clean tree it rewrote data/traces/vectors/north_division_tier_lots.json and `git status` came back empty; block 1's committed depth was then bent from 131.33 m to 999, `--check` went red (\"STALE ... not what tools/cut_north_division_tier.py re-derives\"), a bare run re-derived the file and `git status` came back empty again. Its only output is that one file; it reads data/traces/thompson_north_division_streets.json, data/streets/1835.json, data/traces/street_control.json and the committed heightfield, and writes none of them.",
       "placed": "not yet — measured to reproduce, and its inputs are all committed readings rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is still the ordering pass's call and not this ticket's."
     },
+    "cut_school_section_second_tier.py": {
+      "placement": "pending",
+      "write_mode": "bare",
+      "measured": "2026-10-09",
+      "finding": "Reproduces. Run BARE on a clean tree it rewrites data/traces/vectors/school_section_second_tier_lots.json byte for byte, and `--check` re-derives the file on every gate. Its arithmetic is cut_school_section_tier.py's derive() on the grid's row 1, so the perturbation that module's entry records covers this one too.",
+      "placed": "not yet — every input it reads is a committed reading (the block grid, the 1833 register, the heightfield) rather than anything a later stage writes, so it has no ordering hazard of its own; placing it is the ordering pass's call."
+    },
     "cut_school_section_tier.py": {
       "placement": "pending",
       "write_mode": "bare",

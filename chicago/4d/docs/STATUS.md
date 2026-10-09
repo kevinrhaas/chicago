@@ -1,3 +1,18 @@
+## T-2252 — the School Section's Monroe-Adams tier cut into lots (2026-10-09)
+
+The owner ruled (b) on T-2247: cross Monroe and build the South's six gated roofs (D2, D2, D4,
+D4, D5, H3) on the School Section's second row. T-2247 is split in three; this is the cut.
+
+- **The cut is T-1477's**: `tools/cut_school_section_second_tier.py` calls
+  `cut_school_section_tier.derive()` on the grid's row 1 and writes
+  `data/traces/vectors/school_section_second_tier_lots.json`. Same register, same refusals,
+  same module and grades.
+- **The register names all 13 blocks**: eleven of eight lots, 71 and 79 of four, directly under
+  the first tier's four-lot pair at the South Branch; 79 is the row's one wet block. 96 lots.
+- **East of the river** by T-2144's own test: 82, 93, 96, 117, 120, 141, which is 48 lots.
+- **Not done:** nothing is seated. Joining the tier to the grid and the roof schedule is T-2253;
+  raising the six is T-2254. Block 2 is half off the modelled field and is cut but not built on.
+
 ## T-2196 — a boarding house in a two-unit row on the Market wedge's lot 7 (2026-10-09)
 
 The owner answered T-2196 with **(a)**: lot 7 of `blk_south_water_market` becomes a two-unit
@@ -27,6 +42,7 @@ stands in it; the other waits in the gated balance for S9. He answered T-2242 th
   **T-2247** (the S9 street work and the gated roofs behind it), since T-2242 is withdrawn and T-2196 closes.
 - Baked: the H3, the D5 and the Clark house whose keeper moved. Generator half 704/698; corridor-strip
   baseline `roofs_on_moved_blocks` 67 → 68 (the build itself, as on T-2238).
+
 ## T-2246 — the store roofs still owed: four ruled empty, one kept (2026-10-09)
 
 T-2245 left the order book owing 5 store households (south 4, west 1): store roofs standing
