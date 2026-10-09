@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: '117 more houses now name the household living in them', kind: 'fix',
+  { v: 1595, ts: '2026-10-09T22:05:25.931Z', date: 'Oct 9, 2026, 5:05 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [
       'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
       'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
