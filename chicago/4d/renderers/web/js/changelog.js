@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1593, ts: '2026-10-09T21:18:09.586Z', date: 'Oct 9, 2026, 4:18 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
+    items: [
+      'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
+      'Close views retain the physical six-inch tiles and five-inch courses. Roof outlines, ridge ornaments and the copper roofs keep their geometry.',
+    ] },
   { v: 1592, ts: '2026-10-09T20:54:34.675Z', date: 'Oct 9, 2026, 3:54 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
