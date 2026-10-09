@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1587, ts: '2026-10-09T19:33:38.171Z', date: 'Oct 9, 2026, 2:33 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1588, ts: '2026-10-09T19:33:54.111Z', date: 'Oct 9, 2026, 2:33 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
+    items: [
+      'Open any house between 16th and 18th Streets in the Prairie Avenue 1904 library. Its card now has a 1904 reading taken from the 1911 Sanborn sheet. It lists the front building, its attached wings and its rear stables or coach houses, and says whether the house stood in 1904 and why.',
+      'Two house numbers were misread before. The railroad station is at 1605, not 1603. The Dexter house is at 1721, not 1719, so the map and the named record are one property.',
+      'Forsyth\u2019s 1635 now sits on the open lot next to 1637, where the 1886 atlas shows it, not on its neighbour 1625. Whether it still stood in 1904 is left open. The 1890 picture of Hugh J. McBirney\u2019s house now belongs to 1625, not 1736.',
     ] },
   { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
     items: [
