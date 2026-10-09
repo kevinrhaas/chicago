@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **549** anonymous roofs
-- keep: **547** (5 kept over a policy breach because they are seated, 6 because nothing they could become is wanted here)
+- audited: **550** anonymous roofs
+- keep: **548** (5 kept over a policy breach because they are seated, 6 because nothing they could become is wanted here)
 - refamily: **2** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 657 stand, so the town is 11 roofs short before this audit and 11 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 658 stand, so the town is 10 roofs short before this audit and 10 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -29,7 +29,7 @@ The programme wants 668 roofs and 657 stand, so the town is 11 roofs short befor
 | `structures/larger_boarding_houses/south` | 28 | 26 | 25 | 2 | 26 | 2 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
-| `structures/ordinary_dwellings/south` | 176 | 170 | 161 | 6 | 172 | 4 |
+| `structures/ordinary_dwellings/south` | 176 | 171 | 162 | 5 | 173 | 3 |
 | `structures/ordinary_dwellings/west` | 75 | 75 | 71 | 0 | 75 | 0 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 78 | 0 | 84 | 0 |
 | `structures/small_outbuildings/south` | 48 | 48 | 47 | 0 | 46 | 2 |

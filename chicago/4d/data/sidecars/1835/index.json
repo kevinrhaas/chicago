@@ -12428,6 +12428,12 @@
       "asset": "gltf/recon_1835_blk_south_water_lasalle_f2_10__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_market_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_market_d5_01.json",
+      "asset": "gltf/recon_1835_blk_south_water_market_d5_01__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_wells_a2_09",
       "name": "Reconstructed A2 barn or carriage shed #09",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a2_09.json",

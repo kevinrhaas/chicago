@@ -40,6 +40,58 @@ dwelling.
 - **Liberty:** L354, amended. The invention is the keeper's bed over the store, as with every
   seat in that deal.
 
+## T-2241 — Wells' narrow business-front lot refused in the schedule's sizing (piece 1 of T-2239, 2026-10-09)
+
+T-2239 was split: **T-2241** (this) makes `tools/reconcile_665.py` refuse a lot the business-front
+clause frees when the documented store on it leaves less than one party-line unit of face, and
+**T-2242** owns re-budgeting the South's five owed ordinary dwellings by name.
+
+- **The rule.** `narrow_business_fronts` reads every lot `exclusive_lots` frees under the owner's
+  2026-08-27 clause and measures the widest stretch of the lot's face not under a footprint standing
+  on it, with no margin taken. Under one unit (24.384 m / `ROW_UNITS_PER_LOT` = 8.128 m) the lot is
+  not free for the sizing; the block lists it as `narrow_front_lots` and the programme's method as
+  `narrow_business_front`. One lot in the town is freed by the clause today, and it is refused:
+  `blk_south_water_wells` lot 0, where H. Jones's store leaves 5.31 m west and 7.46 m east (T-1623's
+  4.46 m is the east stretch with the 1.5 m lot margin off both sides).
+- **What moved.** Wells reads 1 free lot, `lot_ceiling_principal` 0 and `at_capacity`; its D2, D4 and
+  F4 go back to `south_plat_beyond_committed_control`, which now holds all 10 of the programme's
+  remaining roofs (D2 2, D4 2, D5 1, F3 2, F4 1, H3 2). No household seat moves: the platted seats and
+  the lot ledger change only in their refusal prose and `block_state`. The order book's South
+  dwelling, barn and outbuilding rows now name **T-2242**.
+- **Why the re-budget is its own piece.** `build_order_book_1835.division_shares` reads the
+  inventory's district targets to split the household targets between divisions, so taking five
+  roofs off the South's 365 moves its share from 0.5598 to 0.5564 and family-dwelling households
+  between divisions. That needs the household layer walked to its fixpoint in the same PR.
+
+## T-2238 — a house on the Market wedge's lot 7 (piece 1 of T-2182, 2026-10-09)
+
+T-2182 was split: **T-2238** builds the one dwelling the seating asked for on the wedge T-2195 cut,
+and **T-2239** owns the South's five ordinary dwellings still owed after it (with the barn and
+outbuilding rows, both at 0 owed).
+
+- **`recon_1835_blk_south_water_market_d5_01`**: a D5 on the wedge's lot 7, the middle of the Lake
+  Street face, fronting Lake 5 m back, dealt against hh_dixon_robert's `slot`
+  (`phase3_platted_block_south_water_market_lot_7`). Lot 8, the Franklin corner, is the reserved open
+  lot. **L410** records the invention.
+- **`generate_block_infill.py` frames a wedge block.** Every lot is framed before a slot is placed,
+  and lot 6's back is cut to 12.0 m against its 24.4 m front, so `lot_frame`'s squareness test
+  refused the whole block. On a block the grid marks `wedge` (only there), a lot that cannot be
+  framed is now carried unframed and any slot dealt onto it is refused with the same words. Every
+  committed record re-derives unchanged; `--self-test` passes.
+- **Seating at its fixpoint.** The walk ran from hh_boucher_joseph (who adopts the new house) down
+  the household order to hh_dixon_robert (seated on the standing recon_1835_south_d5_016): 65 seated
+  households change roof, **215 seated, all adopted, no `slot` left on the plat**. It advanced one to
+  four households a lap; what drives it each lap is `generate_inferred_infill.py` re-writing the
+  phase-one South roofs the seating reads. Eleven full laps, then keepers + the four infill generators
+  + the seating chain until the seats stood still (thirteen more), then two full laps, the second
+  moving nothing. L263 662 → 663, L270 215 held, L276 97 → 98.
+- **What the schedule reads now.** The wedge is `at_capacity`, so its F4 moves to
+  `blk_south_water_wells` and its H3 to the gated balance (noted on T-2196). The South's
+  ordinary-dwelling row reads 176 / 171 / **5 owed**: a D2 and a D4 on Wells, and a D2, D4 and D5
+  gated.
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the new house and the 37 roofs the walk
+  re-dealt (their fabric follows the keeper). `validate.py --stale`: 703 match, 0 stale.
+
 ## T-2200 — dated Glessner camera and residual baseline (2026-10-09)
 
 Eight core views × ten landmarks and one explicitly limited courtyard-west view

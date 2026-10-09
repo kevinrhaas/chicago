@@ -1266,10 +1266,14 @@ def cmd_self_test() -> int:
         # to hold, because the deal holds none the moment the recipes catch up — which is
         # exactly when a guard against spending the reserve stops being testable and
         # starts being load-bearing. So: an open block whose free lots are already at the
-        # schedule's ceiling, and one synthetic slot on the lot it keeps open.
+        # schedule's ceiling, and one synthetic slot on the lot it keeps open. An open
+        # block first; failing one, any block — the guard reads the ceiling, not the
+        # state, and T-2241 closed the last open block that was at its ceiling
+        # (`blk_south_water_wells`, whose narrow business-front lot the schedule now
+        # refuses), which is the moment this fixture stopped finding one.
         target = None
-        for block_id in sorted({lot["block_id"] for lot in lots
-                                if lot["block_state"] == "open"}):
+        states = {lot["block_id"]: lot["block_state"] for lot in lots}
+        for block_id in sorted(states, key=lambda b: (states[b] != "open", b)):
             free = [lot for lot in lots if lot["block_id"] == block_id
                     and not lot["bars_another_roof"]]
             row = data["schedule"].get(block_id) or {}
@@ -1300,7 +1304,11 @@ def cmd_self_test() -> int:
                                 "district": target["district"]},
         })
         bent["seats"].append(slot)
-        assert_the_deal_is_honest(data, lots, bent)
+        # A block borrowed from another state is read as open, so the guard that stops
+        # a slot in a closed block does not fire first and hide the one under test.
+        opened = [dict(lot, block_state="open") if lot["block_id"] == target["block_id"]
+                  else lot for lot in lots]
+        assert_the_deal_is_honest(data, opened, bent)
     _fires("a block dealt out of its open lot", a_block_dealt_out_of_its_open_lot,
            expect="the block keeps one lot open")
     print("   a slot on the last open lot of an open block         refused")
