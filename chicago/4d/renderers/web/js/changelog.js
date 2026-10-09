@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1590, ts: '2026-10-09T20:44:09.689Z', date: 'Oct 9, 2026, 3:44 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1591, ts: '2026-10-09T20:44:18.162Z', date: 'Oct 9, 2026, 3:44 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 18th and 20th Streets: a new panel gives its 1904 decision and lists its front building, attached wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Allerton house is back on the map. The 1911 sheet labels it \u201c1918 (1936)\u201d, earlier misread as 1916 (1930), so the bare 1936 corner is its lawn, not an empty lot.',
+      'The Corwith house at 1945, built for George Armour in 1872, gets its own card.',
+      'The photograph posted as Edson Keith\u2019s 1906 house is shown on 1900 Prairie only, the house it pictures. The Keith building at 1906\u20131908 is one house of two homes.',
+      'The glasshouses behind 1811\u20131823 are now credited to the Pullman estate\u2019s garden across 18th Street. Nothing in the 3-D town changes yet.',
     ] },
   { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [

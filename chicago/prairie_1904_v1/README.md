@@ -19,6 +19,10 @@ Open `viewer/index.html` through an HTTP server. The viewer is a research browse
 
 The **Prairie_Avenue_1904_Originals.zip** companion preserves larger PDFs, raw annual directory OCR, and archival photographs. These originals are excluded from Pages and Git history; their source URLs, hashes and rights notes stay in this repository. It is a research-access archive, not a grant of republication rights.
 
+## Sheet censuses (1904 decisions per Sanborn sheet)
+
+`data/sheet_census/sheet-<n>.json` reads one 1911 sheet for 1904 under the contract `tools/sheet_census.py --check` holds (T-1840): every frontage row and every named record on the sheet's ground exactly once, each building's front, attached and rear polygons with their 1904 note, a decision and its tiers. Sheet 20 (16th–18th) came first; sheet 28 (18th–20th, T-1841) adds `allocations` (service ground given to a record another sheet places — the Pullman glasshouses) and `rulings` (Allerton's 1918 (1936) label, 1945 Armour/Corwith, the 1900/1906 photograph, the 1906–1908 Keith pair). The viewer shows each reading on the building and frontage cards.
+
 ## Existing project connections
 
 Reuse `../pre_fire_v1/data/` and `../postfire_1870s_v1/data/` for predecessor/context matching, but do not merge entities by name alone. The 4D project's `data/sources/habs_glessner_house_il_1015.json` and `habs_kimball_house_il_1077.json` are earlier source readings; this library extends their acquisition trail rather than silently changing their claims. Existing terrain memo `../4d/docs/RESEARCH/scene_1880s_prairie_avenue.md` reflects an older 1888 scene decision. **This library follows the owner's 1904 target; it does not rewrite the existing terrain pipeline or pretend that it already renders 1904.** T-0474–T-0477 and T-1250–T-1252 remain the scene construction work.
