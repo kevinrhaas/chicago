@@ -1,3 +1,26 @@
+## T-2250 — a platted keeper's cardless house keeps its firm (2026-10-09)
+
+T-2196 moved Mark Beaubien's household onto the Market wedge's new H3
+(`recon_1835_blk_south_water_market_h3_02`). The lodgers stage filled its beds from five people the
+layer already held and minted nobody, so it wrote the house **no lodging card**, and
+`reconstruct_businesses_1835.roof_keepers` read keepers off cards alone: the roof read "no firm",
+`rcb_beaubien_boarding_house` retired, and his unplaced in-window `biz_beaubien_mark_tavern_keeper`
+came back.
+
+- **The fix is a pointer, not a person.** Where no card speaks for a house, `roof_keepers` reads the
+  lodgers ledger's own `houses[].keeper_head` (the same pointer, from the same stage, that a card's
+  `kept_by` carries), only for a `platted_seat`, and still adopts the keeper off his own household
+  card. A card that names no keeper still stands. Self-test 11b holds all three; it fails with the
+  fallback removed. Only this house is affected today (the one platted-seat house with no card).
+- **What moved.** `rcb_beaubien_boarding_house` stands on the wedge's H3 (`tavern`, his own trade's
+  class, as T-1808 rules); the in-window tavern-keeper firm retires; reconstructed houses of trade
+  53 → 54 (L254, L257–L260, L262, L360, L367 restated), the register's scene-date taverns 10 → 9
+  (census 8, still met), businesses known 129 → 128.
+- **Six boards re-styled, by rule.** The South boarding-house bucket's seeds are ordinals in the
+  lodging model's order, so restoring a roof re-deals the styles after it: Sweet, Stebbins, Trottier,
+  Robillard, Laframboise and McCarthy go back to exactly the styles they carried before T-2196
+  retired the firm (e.g. *Sweet's boarding house*). Seeds keyed on the roof rather than the ordinal
+  would stop this churn; not done here.
 ## T-2204 — Glessner roof relief filtered at screen scale (2026-10-09)
 
 The fine physical tile noses formed broad moving interference bands in street and
