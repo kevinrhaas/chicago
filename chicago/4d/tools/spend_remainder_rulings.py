@@ -173,25 +173,37 @@ RULES = {
             "closed decision and the sources stand in the finding where the pass put "
             "them."),
     },
-    "the_enrichment_names_a_birth_or_age_no_field_carries": {
-        "disposition": "unresolved",
-        "ticket": "T-1315",
+    # T-1315 SPENT THE THREE, AND THE RULE THEY SAT UNDER IS GONE WITH THEM. It was
+    # `the_enrichment_names_a_birth_or_age_no_field_carries`, a hand-off to T-1315 on the
+    # ground that `birth_year` and `age_band` had just come into being. They had -- and
+    # read against the cards on 2026-10-09, with the volumes open beside them, not one of
+    # the three had anything left to write into them. Two give a birth the card already
+    # carries to the day; the third disputes a year without stating one. Both are finished
+    # answers, so both rules are `refused`, the disposition the arrival rule above uses for
+    # the same shape, and no card, confidence or source list moved to close them.
+    "the_enrichment_gives_a_birth_the_card_already_carries": {
+        "disposition": "refused",
         "statement": (
-            "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
-            "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
-            "extends the card and that no exact source-bearing structured field on that card "
-            "carries today. It is not refused, because it is true research; it is not written here, "
-            "because writing one attribute at a time, out of one pass and without the other sources "
-            "beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them "
-            "one at a time and handed each to the OPEN ticket whose acceptance owns the kind of "
-            "fact it names; this unit's own note says which field that is. This one names a BIRTH "
-            "DATE, a birth year or an age. It was routed to T-1168, the pass that fills sex and "
-            "age for every attested and inferred person with its tier and its reason; that "
-            "ticket was split into T-1303 (the tiers the evidence pays for) and T-1304 (the "
-            "tier the model draws), and both are done, so `birth_year` and `age_band` both "
-            "exist on the card and there is at last a field for these three to go in. "
-            "T-1315 owns spending them, and a hand-off must name LIVE work rather than a "
-            "spent parent."),
+            "The completed pass returned `corroborated_enrichment` naming a BIRTH DATE, and "
+            "T-1315 read it against the card it names with the volume open beside it: the card "
+            "ALREADY carries that birth, to the day, in `birth_year` and `age_on_scene_date`, "
+            "either from this same volume or from a source of its own that gives the same date. "
+            "Under the evidence ladder ratified 2026-09-03 corroboration corroborates; it does "
+            "not promote, and a second biography agreeing on the day a man was born names no "
+            "field to fill. This is a finished answer rather than a deferral, and the page the "
+            "date was read off is recorded in this unit's own note."),
+    },
+    "the_enrichment_disputes_a_birth_year_and_states_none": {
+        "disposition": "refused",
+        "statement": (
+            "The completed pass returned `corroborated_enrichment` saying that later "
+            "scholarship CONFLICTS with the birth year the card carries -- and T-1315 read the "
+            "sources the pass cited and found that neither of them states a birth year at all. "
+            "A dispute that names no year has nothing to write into `birth_year`, and it may not "
+            "lower the card's grade either: the year is already `inferred`, and its note "
+            "already carries the source's own hedge in the source's own words. This is a "
+            "finished answer on THESE sources, not on the question; a volume that prints a "
+            "year is a new reading and would be ruled on its own."),
     },
     "the_enrichment_is_written_onto_the_card_it_names": {
         "disposition": "asserted",
@@ -741,7 +753,9 @@ def issue_date(doc: dict) -> str | None:
 #
 # NOTHING HERE WRITES A CARD. A hand-off is not a spend; it names the field and the open
 # ticket that owns it, and that ticket closing turns this file red, which is the point.
-AGE = "the_enrichment_names_a_birth_or_age_no_field_carries"
+# T-1315: what the three birth readings turned out to be, read against their cards.
+BIRTH_CARRIED = "the_enrichment_gives_a_birth_the_card_already_carries"
+BIRTH_UNSTATED = "the_enrichment_disputes_a_birth_year_and_states_none"
 WRITTEN = "the_enrichment_is_written_onto_the_card_it_names"
 CARRIED = "the_enrichment_dates_an_appearance_the_card_already_carries"
 DEPARTURE = "the_enrichment_names_a_departure_from_chicago_no_field_carries"
@@ -755,6 +769,34 @@ TRADE = "routed_to_the_trade_and_premises_spend"
 CIVIC = "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"
 LAND = "the_landholding_is_written_onto_the_card_as_what_the_person_held"
 LATER = "the_later_volume_enriches_a_biography_and_names_no_1835_field"
+
+# T-1315: WHAT EACH BIRTH READING WAS READ AGAINST, card and volume side by side. Each
+# sentence states the card's committed value and the page it was compared with, so a
+# reader can put this note beside `hh_<id>.json` and the volume and see they agree.
+BIRTH_READINGS: dict[tuple[str, str], str] = {
+    ("04", "kimberly_edmund_s"): (
+        "The card already carries it: `birth_year` 1803 and `age_on_scene_date` 32, both "
+        "`attested` and both citing history_medicine_chicago_kimberly_maxwell, the very volume "
+        "this pass cited, written there by T-0478 (\u201cborn at Troy, New York, April 7, "
+        "1803\u201d). T-1315 read the biography on 2026-10-09 (the Internet Archive text of the "
+        "1922 volume, the Kimberly biography headed \u201c(1803-1874)\u201d) and it says "
+        "exactly that. Nothing to write."),
+    ("04", "maxwell_philip"): (
+        "The card already carries it: `birth_year` 1799, `attested`, noted \u201c3 April "
+        "1799\u201d and citing andreas_1884_v1. T-1315 read the 1922 biography on 2026-10-09 "
+        "(\u201cPhilip Maxwell, Eleventh Surgeon of Fort Dearborn (1799-1859)\u201d, p. 21): "
+        "\u201cBorn in Guilford, Windham County, Vt., April 3, 1799\u201d. The same day as "
+        "Andreas, so a second volume agrees and nothing moves."),
+    ("02", "robinson_alexander"): (
+        "The card carries `birth_year` 1762 at `inferred`, citing andreas_1884_v1 with Andreas's "
+        "own hedge (\u201cthe years of his life are somewhat doubtful\u201d) in its note. "
+        "T-1315 read the Indigenous Chicago profile on 2026-10-09: it gives his birth at Fort "
+        "Mackinac to an Odawa mother and a Scottish father, his move to Chicago after the War "
+        "of 1812 and his death on 22 April 1872, and NO birth year. The 1833 treaty names him "
+        "as a party and gives no age. Neither cited source supplies the year the pass said "
+        "scholarship prefers, so the dispute has nothing to write; the doubtful year keeps "
+        "its doubt and its grade."),
+}
 
 ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
     ("02", "peck_philip"): (WRITTEN, "a Providence origin and a dated July 1831 arrival"),
@@ -777,7 +819,7 @@ ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
     ("02", "pearsons_hiram"): (TRADE, "a house painter's trade the household carried as speculator"),
     ("02", "porter_eliza_chappel"): (KIN, "an 1835 marriage"),
     ("02", "porter_jeremiah"): (KIN, "a marriage dated 15 June 1835"),
-    ("02", "robinson_alexander"): (AGE, "a birth year current scholarship disputes"),
+    ("02", "robinson_alexander"): (BIRTH_UNSTATED, "a birth year current scholarship disputes"),
     ("02", "robinson_catherine"): (KIN, "a husband, a marriage year, parents and a grandfather"),
     ("02", "sen_elijah_wentworth"): (TRADE, "a tavern kept at Wolf Point and later at Sand Ridge"),
     ("02", "snow_george_w"): (CIVIC, "election as assessor and surveyor in December 1833"),
@@ -798,10 +840,10 @@ ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
     ("03", "ingersoll_chester"): (TRADE, "the Green Tree house held as landlord 1834-37"),
     ("03", "jones_benjamin"): (DEPARTURE, "a dated 1835 purchase and an 1836 removal"),
     ("04", "handy_major"): (TRADE, "a named role in the 1833 river-improvement works"),
-    ("04", "kimberly_edmund_s"): (AGE, "an exact birth date of 7 April 1803"),
+    ("04", "kimberly_edmund_s"): (BIRTH_CARRIED, "an exact birth date of 7 April 1803"),
     ("04", "kinzie_robert_a"): (TRADE, "a frame store and membership of Kinzie, Davis & Hyde"),
     ("04", "mason_matthias"): (TRADE, "a blacksmith shop opened in the fall of 1833"),
-    ("04", "maxwell_philip"): (AGE, "full birth data"),
+    ("04", "maxwell_philip"): (BIRTH_CARRIED, "full birth data"),
     ("04", "mckee_david"): (TRADE, "the agency blacksmith's shop at the foot of State Street"),
     ("04", "meeker_joseph"): (CIVIC, "church membership, a Sunday-school office and the first meeting house"),
     ("04", "murphy_john"): (TRADE, "the keeping of the Exchange Coffee House from August 1834"),
@@ -928,6 +970,11 @@ def rule_residents(unit: dict, finding: dict | None, preamble: str) -> tuple[str
                 f"person HELD, graded inferred, citing the volume it was read off. A holding "
                 f"is not a residence: nothing on this card gained an address, a lot or a "
                 f"coordinate for it.")
+    if rule in (BIRTH_CARRIED, BIRTH_UNSTATED):
+        return (rule,
+                f"The pass on {unit['source_record_id']} returned: “{summary}” "
+                f"Sources as recorded: {clip(sources, 180)}. T-1301 read that as {field}. "
+                f"{BIRTH_READINGS[key]}")
     return (rule,
             f"The pass on {unit['source_record_id']} returned: “{summary}” "
             f"Sources as recorded: {clip(sources, 180)}. T-1301 reads that as {field}.")
@@ -1739,7 +1786,8 @@ def self_test() -> int:
                            f"#people/{person}"}
 
     for label, pass_no, person, want in (
-            ("a birth date", "04", "kimberly_edmund_s", "the_enrichment_names_a_birth_or_age_no_field_carries"),
+            ("a birth date the card carries", "04", "kimberly_edmund_s", "the_enrichment_gives_a_birth_the_card_already_carries"),
+            ("a birth year disputed and not stated", "02", "robinson_alexander", "the_enrichment_disputes_a_birth_year_and_states_none"),
             ("an arrival the card already carries", "04", "norton_nelson_r", "the_enrichment_dates_an_appearance_the_card_already_carries"),
             ("an arrival written onto the card", "02", "peck_philip", "the_enrichment_is_written_onto_the_card_it_names"),
             ("a departure", "04", "sweet_alanson", "the_enrichment_names_a_departure_from_chicago_no_field_carries"),
