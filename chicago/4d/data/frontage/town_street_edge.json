@@ -28049,7 +28049,7 @@
         0,
         1
       ],
-      "least_setback_m": 4.97,
+      "least_setback_m": 5.0,
       "openings": [
         {
           "id": "blk_south_water_market_south_fence_1_gate_1",
@@ -28077,10 +28077,10 @@
         {
           "id": "blk_south_water_market_south_fence_1_gate_2",
           "on": "street",
-          "serves": "recon_1835_blk_south_water_market_d5_01",
+          "serves": "recon_1835_blk_south_water_market_h3_02",
           "at_local_enu_m": [
-            151.84,
-            -98.72
+            160.21,
+            -98.78
           ],
           "width_m": 1.067,
           "gate": {
@@ -28091,14 +28091,14 @@
             "swing_deg": 78.3
           },
           "opens_into_local_enu_m": [
-            151.87,
-            -94.72
+            160.24,
+            -94.78
           ],
           "confidence": "reconstructed",
-          "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_market_d5_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
+          "note": "INVENTED (T-2112): the way into this lot from Lake Street, in front of recon_1835_blk_south_water_market_h3_02, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         }
       ],
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_market's own platted frontage line from 0.0 m to 48.8 m along the south face, covering lot(s) 0, 1 — every one of them improved by a committed building whose nearest wall stands 4.97 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_south_water_market's own platted frontage line from 0.0 m to 48.8 m along the south face, covering lot(s) 0, 1 — every one of them improved by a committed building whose nearest wall stands 5.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_south_water_wells_south_fence_3",

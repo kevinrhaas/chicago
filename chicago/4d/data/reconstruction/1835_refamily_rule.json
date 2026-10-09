@@ -4058,13 +4058,6 @@
       "rung": "R_seated",
       "adoptions": [
         {
-          "layer": "employment",
-          "seat": "at_a_seat_this_project_drew",
-          "houses": [
-            "biz_j_d_caton_attorney_and_counsellor_at_law"
-          ]
-        },
-        {
           "layer": "business",
           "business": "biz_j_d_caton_attorney_and_counsellor_at_law"
         },
