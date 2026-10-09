@@ -51,7 +51,7 @@
   },
   "may_raise_a_slot": 5,
   "carrying_a_roof": 33,
-  "principal_roofs_standing": 168,
+  "principal_roofs_standing": 166,
   "ground_m2": 7257850.1
  },
  "what_the_roof_programme_does_not_carry": {
@@ -5407,7 +5407,6 @@
     "inf_grocery_west",
     "inf_labourer_shanty_west_a",
     "inf_labourer_shanty_west_b",
-    "inf_sawpit_shed",
     "inf_wheelwright_shop_west",
     "james_kinzie_house",
     "kinzie_hunter_warehouse",
@@ -5422,7 +5421,6 @@
     "newberry_dole_salt_house_south_branch",
     "newberry_dole_slaughterhouse_south_branch",
     "newberry_dole_stock_shed_south_branch",
-    "newberry_dole_warehouse",
     "north_side_school_1833",
     "recon_1835_canal_trade_c3_001",
     "recon_1835_canal_trade_c4_002",
@@ -5475,7 +5473,6 @@
     "inf_grocery_west": "C2",
     "inf_labourer_shanty_west_a": "D2",
     "inf_labourer_shanty_west_b": "D2",
-    "inf_sawpit_shed": "W5",
     "inf_wheelwright_shop_west": "W3",
     "james_kinzie_house": "D1",
     "kinzie_hunter_warehouse": "F1",
@@ -5490,7 +5487,6 @@
     "newberry_dole_salt_house_south_branch": "A4",
     "newberry_dole_slaughterhouse_south_branch": "W5",
     "newberry_dole_stock_shed_south_branch": "A1",
-    "newberry_dole_warehouse": "F2",
     "north_side_school_1833": "I2",
     "recon_1835_canal_trade_c3_001": "C3",
     "recon_1835_canal_trade_c4_002": "C4",
@@ -5530,7 +5526,7 @@
     "wolf_point_tavern_stable": "A1",
     "wolf_point_trading_camp": null
    },
-   "principal_roofs_standing": 49
+   "principal_roofs_standing": 47
   },
   {
    "parcel_id": "wabansia",

@@ -15,6 +15,7 @@ site-plan.json  the 1904 street grid's blocks, carriageways, alleys and the 92 P
 """
 from pathlib import Path
 import json, re, sys
+from evidence_review import validate_reviews
 
 P = Path(__file__).resolve().parents[1]
 GRID = P.parents[0] / '4d/data/street_grid/1904.json'
@@ -104,6 +105,7 @@ def merge(lib):
                        period=period_of(r), streetscape=bool(r.get('streetscape')) or not b, local=local)
             keys.setdefault(key, rec)
             out.append(rec)
+    errors.extend(validate_reviews(out))
     return out, errors, [f.name for f in streams]
 
 

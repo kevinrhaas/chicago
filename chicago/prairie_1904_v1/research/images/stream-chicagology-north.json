@@ -1279,7 +1279,22 @@
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Chicagology's per-address crop of the hand-coloured plate of Robinson's Atlas of the City of Chicago (E. Robinson, 1886) covering Prairie Avenue from 16th to 22nd Street (north at right; Indiana Avenue at top; the Illinois Central / Michigan Central tracks along the lake at lower right), with a black arrow added by Chicagology at the address. Plate conventions: pink = brick, yellow = frame, buff/brown = stone (a brown band at a pink front = stone front); X-crossed squares = rear stables on the alleys; frontage figures (ft) along the street line with the house numbers in small type below. All crops in this series are the same plate in two crop variants (3841×1482 and 3698×1400 px) and differ only by the arrow; the atlas itself is held by the Newberry (st-newberry-robinson-1886-atlas). Footprints are 1886 evidence — combine with the 1911 Sanborn for 1904. Rights: an 1886 atlas is public domain; the first-pass streams (a19/a20 Robinson crop records) treated these crops as link-only — this stream follows the pass instructions (dated published atlas → PD). Captioned \"Proposed Site — John J. Glessner\". Arrow ends at the corner lot (28-ft figure) at the SW corner of 18th and Prairie, which is EMPTY on the plate; the brick double house on the next lots south (labels 1808/1804) is still standing — the 1886 plate predates Glessner's construction (1886–87).",
-  "measurements": []
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 100,
+   "reviewed_on": "2026-10-08",
+   "review_state": "visually inspected",
+   "target_date": "1904-07-01",
+   "phase": "before target year",
+   "date_basis": "1886",
+   "evidence_role": "streetscape or site context",
+   "geometry_use": "context only",
+   "reason": "Context for the site or surrounding street; date and identify each visible feature before use.",
+   "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "cgn-1808-robinson-1886",
@@ -3728,7 +3743,27 @@
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "SAME PHOTOGRAPH as a18-gho-house-under-construction-1887 (Glessner House): the north (18th Street) front from the north-east with workmen, a ladder and debris, gas lamp and young trees. Here in black-and-white and slightly larger.",
-  "measurements": []
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 110,
+   "reviewed_on": "2026-10-08",
+   "review_state": "visually inspected",
+   "target_date": "1904-07-01",
+   "phase": "before target year",
+   "date_basis": "1887",
+   "evidence_role": "exterior reference",
+   "geometry_use": "corroborate with dated evidence",
+   "reason": "An image can establish visible fabric at its own date; it does not establish unchanged condition on 1904-07-01.",
+   "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+   "family": "glessner-construction-c1887",
+   "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
+   "family_members": [
+    "a18-gho-house-under-construction-1887",
+    "a18-gh-cornell-glessner-front-c1887",
+    "cgn-1800-glessner-1887-construction-copy"
+   ]
+  }
  },
  {
   "id": "cgn-1800-tribune-1965-glessner-headline",
@@ -3760,7 +3795,22 @@
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Headline of the 1965 preservation article (image record a18-cgy-1800-glessner-tribune-1965 holds the photograph). Text only.",
-  "measurements": []
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 158,
+   "reviewed_on": "2026-10-08",
+   "review_state": "text metadata inventoried",
+   "target_date": "1904-07-01",
+   "phase": "after target year",
+   "date_basis": "January 31, 1965",
+   "evidence_role": "text context",
+   "geometry_use": "context only",
+   "reason": "Text metadata inventoried; no visual fabric determination.",
+   "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "cgn-1800-tribune-1965-glessner-subheadline",
@@ -3792,7 +3842,22 @@
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Subheadline of the same article. Text only.",
-  "measurements": []
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 159,
+   "reviewed_on": "2026-10-08",
+   "review_state": "text metadata inventoried",
+   "target_date": "1904-07-01",
+   "phase": "after target year",
+   "date_basis": "January 31, 1965",
+   "evidence_role": "text context",
+   "geometry_use": "context only",
+   "reason": "Text metadata inventoried; no visual fabric determination.",
+   "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "cgn-1801-tribune-1904-kimball-headline",
@@ -3994,7 +4059,22 @@
   "verified": "viewed",
   "found_via": "chicagology Prairie Avenue index → per-address page (follow-up pass, all images on the page enumerated)",
   "notes": "Crop of the Land Owner vignette showing the three-storey Hitchcock/Galloway double house (mansard, dormers) at old 888/890, with a lower gabled building and a church-like tower beyond, picket fences and a carriage in the street. SAME ENGRAVING as a18-gh-hitchcock-galloway-1874-sketch (Glessner blog crop). CHICAGOLOGY CAPTION ERROR: \"588 & 590 Prairie\" — the old numbers were 888 & 890 (Lakeside 1876; the a18 Tribune 1885 record repeats \"588 & 590\").",
-  "measurements": []
+  "measurements": [],
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 3,
+   "reviewed_on": "2026-10-08",
+   "review_state": "visually inspected",
+   "target_date": "1904-07-01",
+   "phase": "before target year",
+   "date_basis": "May 1874",
+   "evidence_role": "streetscape or site context",
+   "geometry_use": "context only",
+   "reason": "Context for the site or surrounding street; date and identify each visible feature before use.",
+   "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "cgn-1804-1853-map-prairie-old-to-cross",
