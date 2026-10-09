@@ -63,7 +63,7 @@ window.PrairieImages = (() => {
     if (/googleusercontent\.com|bp\.blogspot\.com/.test(u)) u = u.replace(/\/s\d+(-[a-z0-9-]+)?\//, '/s' + size + '/').replace(/=s\d+(-[a-z0-9-]+)?$/, '=s' + size);
     else if (/\/iiif\//.test(u) && /\/full\/[^/]+\/0\/default\.(jpg|png)/.test(u)) u = u.replace(/\/full\/[^/]+\/0\//, '/full/!' + size + ',' + size + '/0/');
     else if (/tile\.loc\.gov\/storage-services\/service\//.test(u)) { if (/\.tiff?$/i.test(u)) return null; if (size <= 640) u = u.replace(/[uv]\.jpg$/i, 'r.jpg'); }
-    else if (!/\.(jpe?g|png|gif|webp)(\?|#|$)/i.test(u)) return null;
+    else if (!/\.(jpe?g|png|gif|webp)(\?|#|$)/i.test(u) && !/^https:\/\/repository\.iit\.edu\/islandora\/object\/[^/]+\/datastream\/JPG\/(view|download)([?#]|$)/.test(u)) return null;
     return u;
   }
   const fallbackURL = (r, size) => remoteURL2(r.image_url || r.local?.fetched_from, size);
@@ -315,13 +315,21 @@ window.PrairieImages = (() => {
       }
       info.append(review);
     }
+    if (r.retrieval_review) {
+      const t = r.retrieval_review, recovery = node('section', null, 'retrieval-review');
+      recovery.append(node('h3', 'Reference retrieval'), node('p', t.outcome + ' · ' + t.reviewed_on));
+      recovery.append(node('p', t.identity), node('p', t.detail), node('p', t.independent_evidence));
+      const brief = node('a', 'Remaining views and photographic brief');
+      brief.href = '../docs/glessner-reference-recovery.html'; recovery.append(brief);
+      info.append(recovery);
+    }
     if (array(r.metadata_history).length) {
       const history = node('details', null, 'metadata-history');
       history.append(node('summary', 'Previous library description (correction history)'));
       r.metadata_history.forEach(entry => {
         history.append(node('p', entry.ticket + ' · ' + entry.date + ' · ' + entry.reason));
         const before = node('dl');
-        Object.entries(entry.before || {}).forEach(([key, value]) => before.append(node('dt', key), node('dd', value == null ? 'Not recorded' : String(value))));
+        Object.entries(entry.before || {}).forEach(([key, value]) => before.append(node('dt', key), node('dd', value == null ? 'Not recorded' : typeof value === 'object' ? JSON.stringify(value) : String(value))));
         history.append(before);
       });
       info.append(history);

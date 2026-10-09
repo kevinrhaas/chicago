@@ -1,0 +1,269 @@
+{
+  "ticket": "T-2199",
+  "reviewed_on": "2026-10-09",
+  "requests": [
+    {
+      "name": "eoc-10382.html",
+      "url": "https://www.encyclopedia.chicagohistory.org/pages/10382.html",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "name": "eoc-10389.html",
+      "url": "https://www.encyclopedia.chicagohistory.org/pages/10389.html",
+      "error": "HTTP Error 503: Service Unavailable"
+    },
+    {
+      "name": "landmarks.pdf",
+      "url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+      "final_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "bytes": 1434832,
+      "sha256": "82a0f6c22f73c32e0f88ddd9856e40351e4b6b62299164d1ec0747668385c30c"
+    },
+    {
+      "name": "palace.html",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/",
+      "final_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+      "status": 200,
+      "mime": "text/html; charset=UTF-8",
+      "bytes": 135679,
+      "sha256": "399e8efd6c0e70c40a8477376a2758afc332a7d995db9b5c22a60eead6ccc9c3"
+    },
+    {
+      "name": "sale.html",
+      "url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
+      "final_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
+      "status": 200,
+      "mime": "text/html; charset=UTF-8",
+      "bytes": 35782,
+      "sha256": "e4e9c4298c65af7ec13cb8ffbfd36f348bfeed7c315cad4236c0b426fa1b225e"
+    },
+    {
+      "name": "cornell.html",
+      "url": "https://digital.library.cornell.edu/catalog/ss:3874293",
+      "final_url": "https://digital.library.cornell.edu/catalog/ss:3874293",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 20883,
+      "sha256": "80665dae6c0b10b9339324342cc48b86abfdb9605faed0fdafd63eaff67bd3ad"
+    },
+    {
+      "name": "nickel-api.json",
+      "url": "https://api.artic.edu/api/v1/artworks/141989",
+      "final_url": "https://api.artic.edu/api/v1/artworks/141989",
+      "status": 200,
+      "mime": "application/json",
+      "bytes": 4939,
+      "sha256": "edc7065ef2ebee1d2277cd8ae838ad3c8408d442235e0fbb5f185dd9fc642490"
+    },
+    {
+      "name": "nrhp.pdf",
+      "url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+      "final_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "bytes": 40352871,
+      "sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e"
+    },
+    {
+      "name": "iit.html",
+      "url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+      "final_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 33689,
+      "sha256": "f6dcc607edb4bf687a31df9b482b8253e61188da10defc98878e17ffec4b3ad5"
+    },
+    {
+      "name": "yale.pdf",
+      "url": "https://ead-pdfs.library.yale.edu/10515.pdf",
+      "final_url": "https://ead-pdfs.library.yale.edu/10515.pdf",
+      "status": 200,
+      "mime": "application/pdf",
+      "bytes": 596584,
+      "sha256": "3b1b07e81ab7e557deec8fdb1dbd909aaf00279c65db9e4151846c1fc8cf9464"
+    },
+    {
+      "name": "rba-25521.json",
+      "url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/25521",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/25521",
+      "status": 200,
+      "mime": "application/json",
+      "bytes": 4580,
+      "sha256": "bcd8cadba1c39abad46f75f3b31c89d756c9374311f7327e0850a70692bdea29"
+    },
+    {
+      "name": "rba-25521-download",
+      "url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/25521/download",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/25521/download",
+      "status": 200,
+      "mime": "image/jpeg",
+      "bytes": 145568,
+      "sha256": "7d11097811ebe89bc47c44eef15e04126c962d2b2ac575526dda9847746ed9ec"
+    },
+    {
+      "name": "rba-25521-iiif.json",
+      "url": "https://artic.contentdm.oclc.org/iiif/2/mqc:25521/info.json",
+      "final_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:25521/info.json",
+      "status": 200,
+      "mime": "application/json;charset=utf-8",
+      "bytes": 838,
+      "sha256": "4da06648329aea9caef6438c27f073b1eb4aac131af2178ba466a400389196db"
+    },
+    {
+      "name": "rba-36957.json",
+      "url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/36957",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/36957",
+      "status": 200,
+      "mime": "application/json",
+      "bytes": 3617,
+      "sha256": "f994a22fb9af93389566b0dc117360125bb88a7a39d0419d66f5a84f280d7c72"
+    },
+    {
+      "name": "rba-36957-download",
+      "url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/36957/download",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/36957/download",
+      "status": 200,
+      "mime": "application/meta",
+      "bytes": 34,
+      "sha256": "d49b23a02adb3201c8d8058a31b8adc589810e784a9b4725195ce3c8f8824b06"
+    },
+    {
+      "name": "rba-36957-iiif.json",
+      "url": "https://artic.contentdm.oclc.org/iiif/2/mqc:36957/info.json",
+      "error": "HTTP Error 501: Not Implemented"
+    },
+    {
+      "name": "rba-36641.json",
+      "url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/36641",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/36641",
+      "status": 200,
+      "mime": "application/json",
+      "bytes": 3489,
+      "sha256": "98726eedda9c96a6329587a98c5861e5f06e5794b0e54c3bcb4a6a0f9e1bd184"
+    },
+    {
+      "name": "rba-36641-download",
+      "url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/36641/download",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/36641/download",
+      "status": 200,
+      "mime": "application/meta",
+      "bytes": 34,
+      "sha256": "d49b23a02adb3201c8d8058a31b8adc589810e784a9b4725195ce3c8f8824b06"
+    },
+    {
+      "name": "rba-36641-iiif.json",
+      "url": "https://artic.contentdm.oclc.org/iiif/2/mqc:36641/info.json",
+      "error": "HTTP Error 501: Not Implemented"
+    },
+    {
+      "name": "rba-37021.json",
+      "url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/37021",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/37021",
+      "status": 200,
+      "mime": "application/json",
+      "bytes": 3624,
+      "sha256": "60dbf89f98efdbb70dd017bd65fc94928a022cdc4a61250615458041ca17ec02"
+    },
+    {
+      "name": "rba-37021-download",
+      "url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/37021/download",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/37021/download",
+      "status": 200,
+      "mime": "application/meta",
+      "bytes": 34,
+      "sha256": "d49b23a02adb3201c8d8058a31b8adc589810e784a9b4725195ce3c8f8824b06"
+    },
+    {
+      "name": "rba-37021-iiif.json",
+      "url": "https://artic.contentdm.oclc.org/iiif/2/mqc:37021/info.json",
+      "error": "HTTP Error 501: Not Implemented"
+    },
+    {
+      "name": "rba-37298.json",
+      "url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/37298",
+      "error": "The read operation timed out"
+    },
+    {
+      "name": "rba-37298-download",
+      "url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/37298/download",
+      "final_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/37298/download",
+      "status": 200,
+      "mime": "application/meta",
+      "bytes": 34,
+      "sha256": "d49b23a02adb3201c8d8058a31b8adc589810e784a9b4725195ce3c8f8824b06"
+    },
+    {
+      "name": "rba-37298-iiif.json",
+      "url": "https://artic.contentdm.oclc.org/iiif/2/mqc:37298/info.json",
+      "error": "HTTP Error 501: Not Implemented"
+    },
+    {
+      "name": "cornell.jpg",
+      "url": "https://stor.artstor.org/stor/99f80837-f0ce-47fa-a493-62b61bad2e28_size3",
+      "final_url": "https://stor.artstor.org/stor/99f80837-f0ce-47fa-a493-62b61bad2e28_size3",
+      "status": 200,
+      "mime": "text/html; charset=utf-8",
+      "bytes": 3038,
+      "sha256": "32ed63159c77e21ee19ca1b9aa3213ccf0218eb59539560b132a8e68ef0e18ea"
+    },
+    {
+      "name": "iit.jpg",
+      "url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
+      "final_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
+      "status": 200,
+      "mime": "image/jpeg",
+      "bytes": 377669,
+      "sha256": "a3ddec522f3ce1909538a4b6f0a8e18a91b7597c6913de788e01169363f35f33"
+    },
+    {
+      "name": "nickel.jpg",
+      "url": "https://www.artic.edu/iiif/2/f7d0153d-10a6-35da-a622-a1ee31ed84be/full/1686,/0/default.jpg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "rba-37298.json",
+      "url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/37298",
+      "error": "The read operation timed out"
+    },
+    {
+      "name": "eoc-10382-http.html",
+      "url": "http://www.encyclopedia.chicagohistory.org/pages/10382.html",
+      "error": "timed out"
+    },
+    {
+      "name": "eoc-10389-http.html",
+      "url": "http://www.encyclopedia.chicagohistory.org/pages/10389.html",
+      "error": "timed out"
+    },
+    {
+      "name": "cornell-iiif.json",
+      "url": "https://www.jstor.org/iiif//2015/05/01/13/99f80837-f0ce-47fa-a493-62b61bad2e28_deflate.tif/info.json",
+      "final_url": "https://www.jstor.org/iiif//2015/05/01/13/99f80837-f0ce-47fa-a493-62b61bad2e28_deflate.tif/info.json",
+      "status": 200,
+      "mime": "application/json;charset=utf-8",
+      "bytes": 885,
+      "sha256": "49e4663d2b135501926d081565f381f0a7ba3b4a7a5864740c641a834c9922f8"
+    },
+    {
+      "name": "nickel.jpg",
+      "url": "https://www.artic.edu/iiif/2/f7d0153d-10a6-35da-a622-a1ee31ed84be/full/843,/0/default.jpg",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "name": "cornell-recovered.jpg",
+      "url": "https://www.jstor.org/iiif/2015/05/01/13/99f80837-f0ce-47fa-a493-62b61bad2e28_deflate.tif/full/full/0/default.jpg",
+      "final_url": "https://www.jstor.org/iiif/2015/05/01/13/99f80837-f0ce-47fa-a493-62b61bad2e28_deflate.tif/full/full/0/default.jpg",
+      "status": 200,
+      "mime": "image/jpeg",
+      "bytes": 500513,
+      "sha256": "dd5a2c07b695720f4c80c355ca79c8e031b718ad957170b1d982b59a2e2a0d37"
+    },
+    {
+      "name": "nickel-page.html",
+      "url": "https://www.artic.edu/artworks/141989",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ]
+}

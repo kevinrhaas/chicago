@@ -1,3 +1,12 @@
+## T-2199 — bounded Glessner reference pass completed (2026-10-09)
+
+Ten of 17 records recovered; seven explicit unavailable outcomes retained.
+Cornell construction and Taylor report reproductions do not multiply evidence.
+The IIT 1945 view, Yale Box 34 lead, remaining-view matrix and measured-photo
+brief are published in the research library. Findings feed the existing held
+completion tickets; no outreach or purchases were made. Only T-2199 was released;
+T-2200–T-2228 stay commented below portable people for manual selection.
+
 ## T-2198 — Glessner source audit reconciled (2026-10-09)
 
 Owner-selected first step of the held exterior/courtyard programme: repair captions,
