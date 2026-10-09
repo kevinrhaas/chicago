@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1574, ts: '2026-10-09T12:06:23.024Z', date: 'Oct 9, 2026, 7:06 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+  { v: 1575, ts: '2026-10-09T12:19:04.861Z', date: 'Oct 9, 2026, 7:19 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
       'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
       'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
       'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
+    items: [
+      'Eighteen stores in the 1835 town stood with nobody living in them while their keepers boarded in other people\u2019s houses. Open Peter Cohen\u2019s store on South Water Street, or L. W. Montgomery\u2019s boot and shoe shop beside it, and the keeper\u2019s household is now listed as living there. Thirteen keepers moved into the store their own business already stood in. Five more whose business had no building took an empty store in their part of town.',
+      'No new people or businesses are made up, and the town keeps the same number of stores. A store with a family over it counts as a home, so 76 more households who were waiting for a roof now have one. The 13 stores still without a keeper\u2019s family are next.',
     ] },
   { v: 1573, ts: '2026-10-09T11:25:17.825Z', date: 'Oct 9, 2026, 6:25 AM CT', title: 'Three birth dates checked against the books they came from', kind: 'fix',
     items: [
