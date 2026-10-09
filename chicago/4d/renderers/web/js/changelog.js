@@ -1,9 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1584, ts: '2026-10-09T17:47:33.192Z', date: 'Oct 9, 2026, 12:47 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+  { v: null, ts: '', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [
       'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
       'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
       'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 30 more households the town adds by its own rules now wait for a house still to be built, up from 26 to 56. The completion audit and the population counts now leave the place of work out too.',
+    ] },
+  { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
     ] },
   { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
     items: [
