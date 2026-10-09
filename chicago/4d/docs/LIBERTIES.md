@@ -22537,3 +22537,40 @@ photogrammetry can replace these photographic proportions and hidden joins.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`,
 `glessner_house.as_built_1887.form.turret_stable`.
 **Recorded:** 2026-10-09.
+
+### L-glessner-courtyard-ridge-2235 — Restore the whole west-wing roof
+
+**Decision:** The owner's follow-up on 9 October 2026 explicitly requires the
+west wing's rear peak to remain at the front peak's height, simple gables at
+both ends, and the same projecting eave on the courtyard face. Restore the
+T-2016 north-south ridge at W141/z38.6 ft over the whole 59.75-ft wing. Extend
+the courtyard slope 2.36 ft beyond the wall to z24 ft, matching T-2183's north
+courtyard edge. Its wall intersection is derived at z25.957 ft; the small
+inside-corner masonry wedge closes to that actual slope. Restore the connected
+west dormer, with eave z25.5 ft and peak z29.9 ft.
+
+This **supersedes the low rear ridge and hidden joining facets in
+L-glessner-west-profile-2231**. That change incorrectly treated the isolated
+west elevation's outline as a section through the whole wing, leaving the
+courtyard wall exposed above the lowered roof. The west-facing cross-gable's
+S18.4/z38.6 apex, S35/z16.5 break and overall frontage remain, but the gable
+intersects the full-height north-south roof. Its western eave remains low;
+that does not lower the rear peak. The north range remains on its own measured
+ridge and the restored courtyard eaves meet at a common edge height.
+
+**Basis:** `owner_glessner_v4_reconstruction_brief_2026`, all three supplied
+conversation images, T-2016's connected roof plan and courtyard diagram, and
+T-2183's courtyard eave correction. The new screenshot identifies the
+regression; the explicit owner instruction and earlier plan control topology.
+The isolated west study is not an independently verified orthographic survey,
+and cannot determine the hidden courtyard roof. HABS photo 05 supports the
+north courtyard treatment, not a direct observation of the west slope.
+Dimensions remain bounded reconstruction (approximately +/-1 ft), not newly
+measured historical dimensions. No supplied photo pixels are republished or
+used as textures. Recent bay/window, dark-glass and evidence-review work stays.
+
+**How to resolve:** A measured original roof section or calibrated multi-view
+survey can replace these reconstructed height and projection controls.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Review:** `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`.
+**Recorded:** 2026-10-09.
