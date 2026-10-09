@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
+  { v: 1576, ts: '2026-10-09T13:36:46.962Z', date: 'Oct 9, 2026, 8:36 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
       'Open J. L. Wilson & Co.\u2019s dry goods store on Randolph Street, or Fullerton & Botsford\u2019s pork and provision store at Dearborn and Lake. Each stood empty because the town could not tell who the firm\u2019s partners were. John Wilson now lives over the Wilson store, and J. K. Botsford\u2019s household of six over Fullerton & Botsford\u2019s.',
       'The business cards for both firms, and for Clark, Filer & Co., the chair makers, now link the partner to their own card. Each card says how the match was made: the same corner, the same trade, or the paper\u2019s own spelling of the name.',
