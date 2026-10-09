@@ -222,6 +222,17 @@ def axes_of(key: str) -> dict:
             "household": parts[4], "trade": parts[5]}
 
 
+def person_refusals(doc: dict) -> list:
+    """The book's re-cut refusals in the PERSON family, the only family this rule moves.
+
+    A household bucket can be refused too (T-2191 + T-2232, 2026-10-09: the South's
+    family-dwelling re-cut fell to 184 under the 185 already standing, and the book holds
+    it at 185 under the ruling of 2026-09-20). That bucket counts houses, not people, so
+    there is nobody in it for a person-by-person roster to name or re-family; it stays
+    named and held in the book's own `recut_refusals`, which is where it is answered."""
+    return [r for r in doc["recut_refusals"] if r["bucket"].startswith("persons/")]
+
+
 def with_axes(key: str, **changes) -> str:
     ax = axes_of(key)
     ax.update(changes)
@@ -340,6 +351,13 @@ def held_roster(doc: dict, by_id: dict) -> list:
             stage = rc.get("stage") if isinstance(rc, dict) else None
             band = person.get("age_band")
             low = band.get("low") if isinstance(band, dict) else None
+            if (stage is None and isinstance(person.get("seated_as_printed_wife"), dict)
+                    and person["seated_as_printed_wife"].get("counted_in_a_cell") is False):
+                # T-2230: A PRINTED WIFE THE BOOK HAD NO CELL FOR. Her husband's house drew
+                # no wife (the cell was full), so she replaces nobody and is seated as the
+                # known person the book already counts; no cell names her, so neither may
+                # this roster.
+                continue
             if stage is None and isinstance(person.get("seated_as_printed_wife"), dict):
                 # AND THE PRINTED WIFE (T-2190): a NAMED woman, not a drawn one, whom the
                 # modelled-families stage seats in place of the wife it drew and counts in
@@ -476,7 +494,7 @@ def deal_key(row: dict, card: dict) -> str:
 def tier_the_roster(doc: dict, by_id: dict) -> tuple:
     """(roster rows with their rung, the household rungs). Pure over committed data."""
     rows = held_roster(doc, by_id)
-    refused = {r["bucket"]: r for r in doc["recut_refusals"]}
+    refused = {r["bucket"]: r for r in person_refusals(doc)}
     rows = [r for r in rows if r["bucket"] in refused]
     adoptions = adoptions_by_person({r["person"] for r in rows})
     for row in rows:
@@ -518,15 +536,15 @@ def tier_the_roster(doc: dict, by_id: dict) -> tuple:
 def every_refused_bucket_is_accounted_for(doc: dict, rows: list) -> str:
     """The model names, person by person, exactly what the book counted. Or it is wrong."""
     mine = Counter(r["bucket"] for r in rows)
-    for refusal in doc["recut_refusals"]:
+    for refusal in person_refusals(doc):
         key, want = refusal["bucket"], refusal["drawn_here"]
         if mine.get(key, 0) != want:
             raise Fault(f"the held roster names {mine.get(key, 0)} people in {key} where "
                         f"the order book counts {want} drawn there")
-    stray = sorted(set(mine) - {r["bucket"] for r in doc["recut_refusals"]})
+    stray = sorted(set(mine) - {r["bucket"] for r in person_refusals(doc)})
     if stray:
         raise Fault(f"the held roster names people in {stray[0]}, which the book does not refuse")
-    return (f"all {len(doc['recut_refusals'])} refused buckets accounted for, "
+    return (f"all {len(person_refusals(doc))} refused buckets accounted for, "
             f"{sum(mine.values()):,} people named")
 
 
@@ -602,7 +620,7 @@ def bound_if_houses_could_split(doc: dict, rows: list) -> int:
     It exists to price that condition. A C1 card states one division for a whole house,
     so moving half of it would put a mother in one division and her children in another;
     the rule refuses that, and this number says what the refusal costs in moves."""
-    surplus = {r["bucket"]: r["surplus_still_held"] for r in doc["recut_refusals"]}
+    surplus = {r["bucket"]: r["surplus_still_held"] for r in person_refusals(doc)}
     room = dict(open_orders(doc))
     out_of, made = Counter(), 0
     for row in sorted((r for r in rows if r["rung"] in MOVABLE_IDS),
@@ -632,7 +650,7 @@ def yields(doc: dict, rows: list) -> tuple:
       4. a destination that is FURTHEST from its own order takes the arrival, so the
          moves land where the book is shortest rather than where the key sorts first;
       5. no bucket ever moves out more than its `surplus_still_held`."""
-    refused = {r["bucket"]: r for r in doc["recut_refusals"]}
+    refused = {r["bucket"]: r for r in person_refusals(doc)}
     room = dict(open_orders(doc))
     out_of = Counter()
     # THE MOVES ALREADY SPENT COME FIRST AND ARE NOT RE-DEALT. `open_orders` and
@@ -724,7 +742,7 @@ def yields(doc: dict, rows: list) -> tuple:
 def model(doc: dict, by_id: dict) -> dict:
     rows, _house = tier_the_roster(doc, by_id)
     accounted = every_refused_bucket_is_accounted_for(doc, rows)
-    surplus = {r["bucket"]: r["surplus_still_held"] for r in doc["recut_refusals"]}
+    surplus = {r["bucket"]: r["surplus_still_held"] for r in person_refusals(doc)}
     room = open_orders(doc)
     moves, stuck, _by_person = yields(doc, rows)
     split_bound = bound_if_houses_could_split(doc, rows)
@@ -746,9 +764,9 @@ def model(doc: dict, by_id: dict) -> dict:
                           if r["rung"].startswith("R_") and not r.get("refused_with_the_house"))
     refused_with_house = sum(1 for r in rows if r.get("refused_with_the_house"))
     adopted_himself = sum(1 for r in rows if r["adoptions"])
-    children = sum(r["surplus_still_held"] for r in doc["recut_refusals"]
+    children = sum(r["surplus_still_held"] for r in person_refusals(doc)
                    if axes_of(r["bucket"])["age_band"] in ("under_10", "10_19"))
-    women = sum(r["surplus_still_held"] for r in doc["recut_refusals"]
+    women = sum(r["surplus_still_held"] for r in person_refusals(doc)
                 if axes_of(r["bucket"])["sex"] == "female"
                 and axes_of(r["bucket"])["age_band"] not in ("under_10", "10_19"))
     child_room = sum(n for k, n in room.items()
@@ -1089,7 +1107,7 @@ def cmd_self_test() -> int:
     # the rule refuses them on R_seated, and no move the rule yields changes the division
     # and nothing else. A bound the book's own re-cut can move is not the thing worth
     # freezing; what the ticket turns on is the yield, so that is what is measured here.
-    surplus = {r["bucket"]: r["surplus_still_held"] for r in doc["recut_refusals"]}
+    surplus = {r["bucket"]: r["surplus_still_held"] for r in person_refusals(doc)}
     room = open_orders(doc)
     one = ceiling(surplus, room, ("division",))
     two = ceiling(surplus, room, ("division", "household"))
@@ -1109,7 +1127,7 @@ def cmd_self_test() -> int:
     # open when the move landed and has since been shrunk by a documented reading is held
     # as `a_documented_reading_shrank_the_order`, with the landings it carried counted in
     # `refamilied_in`. Those landings, and no more than those, may stand there.
-    held = {r["bucket"]: r for r in doc["recut_refusals"]}
+    held = {r["bucket"]: r for r in person_refusals(doc)}
     landed = Counter(m["to_bucket"] for m in moves if m["to_bucket"] in held)
     assert not [b for b, n in landed.items()
                 if held[b].get("cause") != "a_documented_reading_shrank_the_order"
@@ -1123,7 +1141,7 @@ def cmd_self_test() -> int:
     # bucket re-familied all the way down leaves `recut_refusals` altogether, and what it
     # ever held is then exactly what walked out of it.
     ever_held = {r["bucket"]: r["surplus_still_held"] + r.get("refamilied_out", 0)
-                 for r in doc["recut_refusals"]}
+                 for r in person_refusals(doc)}
     spent_out = Counter(m["from_bucket"] for m in already_made(doc).values())
     for key, n in out_of.items():
         cap = ever_held.get(key, spent_out.get(key, 0))

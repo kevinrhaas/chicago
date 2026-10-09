@@ -159,16 +159,11 @@ RULES = {
     # `the_family_pass_finds_a_tie_onto_a_card_a_build_writes` was RETIRED by T-2191, which
     # taught the builds that write those cards to write the register's parent ties
     # (tools/generated_card_kin.py), so its thirteen units close `asserted`.
-    "the_family_pass_finds_a_family_the_column_states_whole": {
-        "disposition": "unresolved",
-        "ticket": "T-2230",
-        "statement": (
-            "The family pass (T-1335) read a column that states a FAMILY rather than a "
-            "tie: parent ties between cards the town holds, and marriages whose brides may "
-            "still be seated in their fathers' houses. The parent ties are written on both "
-            "cards of each (T-2229). Seating a bride is a household edit this pass may not "
-            "make, so the unit stays open on the ticket that seats the marriages."),
-    },
+    # `the_family_pass_finds_a_family_the_column_states_whole` was RETIRED by T-2232, which
+    # spent its one unit: the Democrat's notice of the Noble marriages, 3 December 1833. Its
+    # parent ties were already written (T-2229), and Charlotte Wesencraft is now seated as
+    # Mark Noble jun.'s wife (PRINTED_WIVES), so that marriage is the card's own structure and
+    # the unit is ruled `same_household`; Mary Noble's marriage to George Bickerdyke is T-2233.
     "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene": {
         "disposition": "refused",
         "statement": (
@@ -192,7 +187,6 @@ VERDICTS = {
     "after_the_scene": "the_family_pass_finds_the_tie_begins_after_the_scene",
     "ruled_by_the_kin_survey": "the_kin_survey_already_ruled_the_register_tie",
     "names_no_relative": "the_register_entry_names_no_relative",
-    "a_family_whole": "the_family_pass_finds_a_family_the_column_states_whole",
     "undated": "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene",
 }
 

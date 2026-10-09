@@ -15,13 +15,13 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3456,
-  "households": 1980,
-  "known": 3323,
+  "persons": 3451,
+  "households": 1979,
+  "known": 3318,
   "unknown": 133,
   "by_community": {
-   "yankee": 1680,
-   "new_york": 559,
+   "yankee": 1674,
+   "new_york": 560,
    "irish": 479,
    "french_canadian": 184,
    "other": 137,
@@ -33,13 +33,13 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3263,
+   "reconstructed": 3258,
    "null": 133,
    "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1898,
+   "reconstruction_community": 1893,
    "origin_region": 1401,
    "no_origin_recorded": 118,
    "stated_community": 24,
@@ -47,7 +47,7 @@
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 689,
+   "yankee": 688,
    "new_york": 557,
    "irish": 139,
    "other": 137,
@@ -6557,16 +6557,6 @@
    "rule": "reconstruction_community"
   },
   "rc_barnes_susan_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_barney_anne_maria_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_barney_anne_maria_wife": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -14836,21 +14826,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_wesencraft_charlotte_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_wesencraft_charlotte_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_wesencraft_charlotte_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_wessencraft_charles_child_1": {
    "value": "irish",
    "tier": "reconstructed",
@@ -17007,7 +16982,7 @@
    "rule": "origin_region"
   },
   "wesencraft_charlotte": {
-   "value": "yankee",
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -30740,13 +30715,6 @@
    "rule": "origin_region",
    "head": "wesencraft_charles",
    "file": "households/hh_wesencraft_charles.json"
-  },
-  "hh_wesencraft_charlotte": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "wesencraft_charlotte",
-   "file": "households/hh_wesencraft_charlotte.json"
   },
   "hh_wessencraft_charles": {
    "value": "new_york",
