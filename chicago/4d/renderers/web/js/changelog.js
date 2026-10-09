@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1555, ts: '2026-10-09T02:12:59.099Z', date: 'Oct 8, 2026, 9:12 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+    items: [
+      'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
+      'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
   { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
     items: [
       'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',

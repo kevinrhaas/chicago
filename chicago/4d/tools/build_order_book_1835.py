@@ -984,6 +984,14 @@ def load(root: Path = ROOT) -> dict:
     ruling = root / "data" / "reconstruction" / "1835_family_ruling.json"
     out["family_ruling"] = (json.loads(ruling.read_text(encoding="utf-8"))
                             if ruling.exists() else {})
+    # …LESS THE CELLS OF THE HOUSES IT ADMITTED THAT A LATER READING WITHDREW (T-2234). The
+    # ruling stays frozen. The modelled-families stage names the withdrawn houses and holds
+    # the cells they take with them to those houses' own frozen rows. A fixture tree has no
+    # ledger, and orders the ruling whole.
+    families = root / "data" / "reconstruction" / "1835_modelled_families.json"
+    out["family_ruling_withdrawn"] = (
+        (json.loads(families.read_text(encoding="utf-8")).get("family_ruling") or {})
+        .get("orders_withdrawn") or {}) if families.exists() else {}
     # T-2187's MEASURE, read off the cards the index points at. Only the committed tree
     # carries it; a fixture book has none, and orders as it always did.
     out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
@@ -3363,7 +3371,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                 else:
                     raise Fault(f"the bucket {b['key']} is overfilled: {b['filled']} of {todo}")
 
-    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills)
+    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills,
+                         data.get("family_ruling_withdrawn") or {})
     men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
                   if data.get("adult_men") else None)
 
@@ -3553,7 +3562,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     return doc
 
 
-def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> None:
+def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter,
+                         withdrawn: dict | None = None) -> None:
     """T-2021: the cells the family ruling orders, and what its houses filled. In place.
 
     The ruling (`data/reconstruction/1835_family_ruling.json`, frozen) gave each married
@@ -3563,8 +3573,18 @@ def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> N
     overfilled and none is left owing, and the town the book converges to rises by exactly
     the people the ruling seated, which the ruling itself held under the count. A fill the
     ruling did not order, or one past it, is a FAULT: that would be the ruling's ticket
-    drawing past its own word."""
+    drawing past its own word.
+
+    `withdrawn` is the cells of the admitted houses a later reading withdrew (T-2234, read
+    off the modelled-families ledger). Each one leaves the order with its house, so the
+    ruling never orders a family for a house that is not one. Withdrawing more than the
+    ruling ordered is a FAULT."""
     orders = {k: int(v) for k, v in (ruling.get("orders") or {}).items()}
+    for key, n in (withdrawn or {}).items():
+        if int(n) > orders.get(key, 0):
+            raise Fault(f"{FAMILY_RULING_TICKET}'s withdrawn houses take {n} from {key}, "
+                        f"where its ruling orders {orders.get(key, 0)}")
+        orders[key] -= int(n)
     by_key = {b["key"]: b for b in buckets}
     for key in sorted(set(orders) | set(ruled_fills)):
         b = by_key.get(key)
@@ -5336,6 +5356,20 @@ def cmd_self_test() -> int:
                                    "named_men_with_no_age_not_counted": 0})["discharged"] == 30
     assert held[1]["to_reconstruct"] == 20, "the men ruling discharged a lodging cell"
     assert "adult_men_ruling" in doc, "the committed book carries no ruling on the adult men"
+    # T-2234: A WITHDRAWN ADMISSION TAKES ITS ORDER WITH IT, AND NO MORE THAN IT ORDERED.
+    cell = lambda: {"key": "persons/female/20_29/north/family/none", "to_reconstruct": 4,
+                    "filled": 4}
+    ruled_cell = cell()
+    family_ruling_orders([ruled_cell], {"orders": {ruled_cell["key"]: 3}},
+                         Counter({ruled_cell["key"]: 2}), {ruled_cell["key"]: 1})
+    assert (ruled_cell["ordered_by_the_family_ruling"], ruled_cell["to_reconstruct"],
+            ruled_cell["filled"]) == (2, 6, 6), ruled_cell
+    fires("a withdrawn house takes more from a cell than the ruling ordered there",
+          lambda: family_ruling_orders([cell()], {"orders": {cell()["key"]: 1}}, Counter(),
+                                       {cell()["key"]: 2}))
+    fires("the ruling's houses fill past an order its withdrawals cut",
+          lambda: family_ruling_orders([cell()], {"orders": {cell()["key"]: 2}},
+                                       Counter({cell()["key"]: 2}), {cell()["key"]: 1}))
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "
