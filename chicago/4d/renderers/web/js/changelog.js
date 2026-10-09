@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1591, ts: '2026-10-09T20:45:31.967Z', date: 'Oct 9, 2026, 3:45 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
+  { v: null, ts: '', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [
       'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',
       'Six of its blocks, east of the river, are where the South side\u2019s last six houses will go next, on the owner\u2019s ruling.',
+    ] },
+  { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated walk-through checks that every wall the street-edge layer declines to fence is accounted for, and it still expected one more than the town now has.',
+      'That wall went when the house on the Market wedge was built: a fence refused because the lot stood empty no longer needs refusing. The check now counts 190, with the arithmetic beside it.',
     ] },
   { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
     items: [

@@ -5383,7 +5383,11 @@ for (const [label, viewport, touch] of [
         // face's end of a lot row), T-2150 +2 (the warehouse's fence and post):
         // 172 to 176 in the record, 182 to 186 on the layer.
         // T-2195 — dev already read 187 (T-2174); the wedge's faces refuse four more walls: 191.
-        && frontage.census?.refused === 191
+        // T-2262 — T-2238 (#559) built on the wedge and retired one: the unimproved-lot
+        // refusal "blk_south_water_market south face, lot 1" (no fence on open prairie).
+        // Diffed 6e5a9ec2d -> facae8d01: -1, nothing added, walks/fences/posts/fittings
+        // unchanged; #586 moved no refusal. 5+2+2+1 records' rows + 180 = 190.
+        && frontage.census?.refused === 190
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
