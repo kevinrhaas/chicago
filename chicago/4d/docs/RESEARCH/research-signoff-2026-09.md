@@ -49,7 +49,7 @@ An `unresolved` unit is research read and not yet spent, and it is only legitima
 | T-1569 | 12 | yes |
 | T-1315 | 3 | yes |
 | T-1543 | 1 | yes |
-| T-2192 | 1 | yes |
+| T-2230 | 1 | yes |
 
 Not one of those owners asks for another READING. The heaviest are T-1552 (26), T-2191 (13), T-1569 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
