@@ -6,7 +6,7 @@
  "target_date": "1835-07-01",
  "generated_by": "tools/reconstruct_modelled_families.py --build",
  "not_a_reading": "no source was opened; nobody here is named by one",
- "heads_drawn_for": 123,
+ "heads_drawn_for": 124,
  "people_drawn": 293,
  "wives": 83,
  "children": 210,
@@ -14,8 +14,8 @@
   "a letter-list mint argues for a person and not for a household": 780,
   "a source already names, counts or rules on this household's family": 147,
   "a source marries the head after the scene date": 1,
-  "a source prints her as the wife of a head this stage seats her beside (T-2190)": 2,
-  "a woman heading her own household is the age pyramid's, T-1174": 70,
+  "a source prints her as the wife of a head this stage seats her beside (T-2190)": 3,
+  "a woman heading her own household is the age pyramid's, T-1174": 69,
   "an evidence-only container holds read evidence and not a household to draw a family into": 5,
   "presence on the scene date is not settled (T-1172's roster holds it)": 21,
   "the fort and the country outside the town are not this stage's": 3,
@@ -23,7 +23,7 @@
   "the head is not an adult the household model seats as a husband": 47,
   "the head's own trade says he kept no wife": 1,
   "the household carries a standing review, and only T-1177's stage may reconstruct within one": 4,
-  "the order book has no woman left in this house's cell": 332
+  "the order book has no woman left in this house's cell": 331
  },
  "refused_by_the_order_book": {
   "persons/female/20_29/north/family/none": 57,
@@ -31,16 +31,17 @@
   "persons/female/20_29/west/family/none": 51,
   "persons/female/30_39/north/family/none": 16,
   "persons/female/30_39/south/family/none": 30,
-  "persons/female/30_39/west/family/none": 14,
+  "persons/female/30_39/west/family/none": 13,
   "persons/female/40_49/south/family/none": 2,
   "persons/female/40_49/west/family/none": 1,
-  "persons/female/under_10/north/family/none": 2,
+  "persons/female/under_10/north/family/none": 3,
   "persons/female/under_10/south/family/none": 4,
   "persons/female/under_10/west/family/none": 3,
-  "persons/male/10_19/south/family/none": 1,
+  "persons/male/10_19/south/family/none": 2,
+  "persons/male/under_10/north/family/none": 2,
   "persons/male/under_10/south/family/none": 3
  },
- "houses_the_book_refused": 332,
+ "houses_the_book_refused": 331,
  "size_drawn_histogram": {
   "1": 38,
   "2": 65,
@@ -56,13 +57,13 @@
   "3": 75,
   "4": 64,
   "5": 51,
-  "6": 44,
+  "6": 43,
   "7": 28,
   "8": 18
  },
  "kin_seated_histogram": {
   "1": 38,
-  "2": 15,
+  "2": 16,
   "3": 16,
   "4": 13,
   "5": 14,
@@ -276,9 +277,9 @@
   },
   "hh_bickerdyke_george": {
    "size_drawn": 6,
-   "kin_seated": 4,
+   "kin_seated": 2,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_ryan_bridget"
+   "printed_wife": "hh_noble_mary"
   },
   "hh_blaisdell_b": {
    "size_drawn": 4,
@@ -323,9 +324,9 @@
   },
   "hh_boardman_harry": {
    "size_drawn": 4,
-   "kin_seated": 5,
+   "kin_seated": 4,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_rice_lydia"
+   "married_from": "hh_rc_ryan_bridget"
   },
   "hh_bond_h": {
    "size_drawn": 2,
@@ -335,9 +336,9 @@
   },
   "hh_bonin_augustus": {
    "size_drawn": 5,
-   "kin_seated": 7,
+   "kin_seated": 5,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_quinn_ellen"
+   "married_from": "hh_rc_rice_lydia"
   },
   "hh_bonn_augustin": {
    "size_drawn": 5,
@@ -794,9 +795,9 @@
   },
   "hh_duplas_joseph": {
    "size_drawn": 6,
-   "kin_seated": 5,
+   "kin_seated": 7,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_nichols_rhoda"
+   "married_from": "hh_rc_quinn_ellen"
   },
   "hh_dyer_george": {
    "size_drawn": 2,
@@ -834,9 +835,9 @@
   },
   "hh_fell_j_w": {
    "size_drawn": 2,
-   "kin_seated": 8,
+   "kin_seated": 5,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_newell_polly"
+   "married_from": "hh_rc_nichols_rhoda"
   },
   "hh_field_secretary": {
    "size_drawn": 6,
@@ -858,9 +859,9 @@
   },
   "hh_foot_john": {
    "size_drawn": 3,
-   "kin_seated": 2,
-   "household_type": "married_couple",
-   "married_from": "hh_rc_ingalls_abigail"
+   "kin_seated": 8,
+   "household_type": "family_with_children",
+   "married_from": "hh_rc_newell_polly"
   },
   "hh_foot_s": {
    "size_drawn": 3,
@@ -1002,9 +1003,9 @@
   },
   "hh_haighs_isaac": {
    "size_drawn": 5,
-   "kin_seated": 3,
-   "household_type": "family_with_children",
-   "married_from": "hh_rc_hayes_margaret"
+   "kin_seated": 2,
+   "household_type": "married_couple",
+   "married_from": "hh_rc_ingalls_abigail"
   },
   "hh_hale_john": {
    "size_drawn": 4,
@@ -1257,9 +1258,9 @@
   },
   "hh_kingstone_paul": {
    "size_drawn": 2,
-   "kin_seated": 5,
+   "kin_seated": 3,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_gilbert_ruth"
+   "married_from": "hh_rc_hayes_margaret"
   },
   "hh_kinzie_james": {
    "size_drawn": 5,
@@ -1321,15 +1322,15 @@
   },
   "hh_lee_william": {
    "size_drawn": 5,
-   "kin_seated": 7,
+   "kin_seated": 5,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_eastman_emily"
+   "married_from": "hh_rc_gilbert_ruth"
   },
   "hh_leframboise_joseph": {
    "size_drawn": 8,
-   "kin_seated": 6,
+   "kin_seated": 7,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_doyle_ellen"
+   "married_from": "hh_rc_eastman_emily"
   },
   "hh_leonard_n": {
    "size_drawn": 2,
@@ -1368,7 +1369,7 @@
    "size_drawn": 3,
    "kin_seated": 6,
    "household_type": "family_with_children",
-   "married_from": "hh_rc_crandall_clarissa"
+   "married_from": "hh_rc_doyle_ellen"
   },
   "hh_marknoble_jun": {
    "size_drawn": 6,
@@ -2194,11 +2195,6 @@
    "wife_cell": "persons/female/30_39/west/family/none",
    "head_band_low": 30,
    "size_drawn": 3
-  },
-  "hh_bickerdyke_george": {
-   "wife_cell": "persons/female/30_39/west/family/none",
-   "head_band_low": 30,
-   "size_drawn": 6
   },
   "hh_blaisdell_b": {
    "wife_cell": "persons/female/20_29/south/family/none",
@@ -3738,12 +3734,14 @@
  },
  "printed_wives": {
   "ticket": "T-2190",
-  "houses": 2,
+  "houses": 3,
   "by_household": {
+   "hh_bickerdyke_george": "hh_noble_mary",
    "hh_ingersoll_chester": "hh_weaver_betsy",
    "hh_marknoble_jun": "hh_wesencraft_charlotte"
   },
   "seated_without_a_cell": {
+   "hh_bickerdyke_george": "persons/female/30_39/west/family/none",
    "hh_marknoble_jun": "persons/female/20_29/south/family/none"
   },
   "what_happened": "The wife a source prints, seated from her own card in place of the wife the model drew. The drawn wife is not seated; the printed one is counted in the cell her own sex, band and his division name, as a drawn wife would be, and is in `fills` beside the drawn people (she is not in `wives` or `people_drawn`). Where that cell had no room left, a drawn wife would never have been seated, so there is none to replace: she is seated without a cell (`seated_without_a_cell`), because the book already counts her among the known (T-2230)."
@@ -3760,11 +3758,11 @@
    "the child cap: no child of the house is older than his band's low minus 20",
    "the kin range: the joined house holds at most 8"
   ],
-  "houses_refused_a_wife": 332,
+  "houses_refused_a_wife": 331,
   "houses_refused_by_division": {
    "north": 16,
    "south": 47,
-   "west": 24
+   "west": 23
   },
   "woman_headed_houses": 124,
   "woman_headed_houses_by_division": {
@@ -3776,13 +3774,13 @@
    "already re-familied by T-1564": 24,
    "past the kin range of 8 once a husband joins it": 9
   },
-  "matched": 86,
+  "matched": 85,
   "matched_by_division": {
    "north": 16,
    "south": 47,
-   "west": 23
+   "west": 22
   },
-  "matched_if_the_re_familied_moved_too": 86,
+  "matched_if_the_re_familied_moved_too": 85,
   "houses_no_woman_in_the_town_fits": 246,
   "houses_no_woman_fits_by_wife_cell": {
    "persons/female/20_29/north/family/none": 51,
@@ -3794,17 +3792,17 @@
    "persons/female/40_49/south/family/none": 2,
    "persons/female/40_49/west/family/none": 1
   },
-  "women_left_heading_their_own_house": 38,
+  "women_left_heading_their_own_house": 39,
   "female_headed_households": {
    "before": [
-    243,
-    1524
+    242,
+    1523
    ],
    "after": [
     157,
     1438
    ],
-   "share_before": 0.1594,
+   "share_before": 0.1589,
    "share_after": 0.1092,
    "note": "Present households, as the order book counts the town. A move folds one house into another, so the town loses a household for every pair and the female-headed share falls on both ends of the fraction."
   },
@@ -4090,48 +4088,44 @@
     "wife_and_children_from": "hh_rc_stiles_esther"
    },
    {
-    "house": "hh_bickerdyke_george",
+    "house": "hh_boardman_harry",
     "wife_and_children_from": "hh_rc_ryan_bridget"
    },
    {
-    "house": "hh_boardman_harry",
+    "house": "hh_bonin_augustus",
     "wife_and_children_from": "hh_rc_rice_lydia"
    },
    {
-    "house": "hh_bonin_augustus",
+    "house": "hh_duplas_joseph",
     "wife_and_children_from": "hh_rc_quinn_ellen"
    },
    {
-    "house": "hh_duplas_joseph",
+    "house": "hh_fell_j_w",
     "wife_and_children_from": "hh_rc_nichols_rhoda"
    },
    {
-    "house": "hh_fell_j_w",
+    "house": "hh_foot_john",
     "wife_and_children_from": "hh_rc_newell_polly"
    },
    {
-    "house": "hh_foot_john",
+    "house": "hh_haighs_isaac",
     "wife_and_children_from": "hh_rc_ingalls_abigail"
    },
    {
-    "house": "hh_haighs_isaac",
+    "house": "hh_kingstone_paul",
     "wife_and_children_from": "hh_rc_hayes_margaret"
    },
    {
-    "house": "hh_kingstone_paul",
+    "house": "hh_lee_william",
     "wife_and_children_from": "hh_rc_gilbert_ruth"
    },
    {
-    "house": "hh_lee_william",
+    "house": "hh_leframboise_joseph",
     "wife_and_children_from": "hh_rc_eastman_emily"
    },
    {
-    "house": "hh_leframboise_joseph",
-    "wife_and_children_from": "hh_rc_doyle_ellen"
-   },
-   {
     "house": "hh_markle_joseph_w",
-    "wife_and_children_from": "hh_rc_crandall_clarissa"
+    "wife_and_children_from": "hh_rc_doyle_ellen"
    },
    {
     "house": "hh_brooks_george_m",
@@ -4158,11 +4152,11 @@
  "married_from_the_town": {
   "ticket": "T-2020",
   "of": "T-1171",
-  "houses": 86,
-  "people_moved": 376,
+  "houses": 85,
+  "people_moved": 371,
   "by_division": {
    "south": 47,
-   "west": 23,
+   "west": 22,
    "north": 16
   },
   "kin_seated_histogram": {
@@ -4170,7 +4164,7 @@
    "3": 9,
    "4": 10,
    "5": 16,
-   "6": 16,
+   "6": 15,
    "7": 19,
    "8": 9
   },
@@ -4426,20 +4420,20 @@
  },
  "measurement": {
   "the_town_the_book_counts": "present households only",
-  "people_before_this_stage": 2100,
+  "people_before_this_stage": 2099,
   "people_after_this_stage": 2864,
   "adults_after_this_stage": {
    "male": 1243,
    "female": 454
   },
-  "adult_sex_ratio_before": 542.8,
+  "adult_sex_ratio_before": 545.2,
   "adult_sex_ratio_after": 273.8,
   "the_model_s_range": [
    120.9,
    150.0
   ],
   "inside_the_model_s_range": false,
-  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 332 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 332, 86 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 246 could take no woman the town holds. T-2021 ruled on those: 140 are given the whole family drawn for them, 140 wives among 469 people, and 105 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
+  "what_closes_it": "NOTHING THIS STAGE MAY DRAW CLOSES IT, AND NEITHER DOES A MOVE OR THE RULING. 331 married houses were refused because the book had no woman left in their cell. Re-housing the town's own women into them moves nobody between the sexes; of the 331, 85 took the wife and children of one of T-1174's woman-headed houses (`re_housing`, T-2019; T-2020 moved them) and 246 could take no woman the town holds. T-2021 ruled on those: 140 are given the whole family drawn for them, 140 wives among 469 people, and 105 stand alone, because the walk stops where the town's under-ten share or its count would leave the model. The wives move the ratio, and the children that come with them are what stop it: the town reaches the top of the model's under-ten bracket long before it reaches the model's sex ratio.",
   "female_headed_households_after_the_moves": [
    157,
    1438

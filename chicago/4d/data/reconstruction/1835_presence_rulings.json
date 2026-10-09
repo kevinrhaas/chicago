@@ -22,7 +22,7 @@
     "bracketed": "inferred — the corpus reads this person at Chicago on both sides of the day.",
     "carried": "reconstructed — the corpus stops before the day; the project's standing rule carries the presence and the persistence model prices it."
   },
-  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 933 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
+  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 932 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
   "nothing_is_drawn_here": "T-1172 drew against the persistence model and ruled 37 cards `absent` on the losing side. This stage does not draw: an absence with no evidence under it is not a finding, and the two evidenced absences below are the shape of a correct exclusion. `basis.kind` is `rule` and a rule owes no seed.",
   "persistence_model": {
     "id": "persistence_1835",
@@ -31,34 +31,34 @@
     "used_for": "pricing a `carried` ruling, never for deciding one"
   },
   "counts": {
-    "households_ruled": 933,
-    "persons_ruled": 1785,
+    "households_ruled": 932,
+    "persons_ruled": 1780,
     "households_by_leg": {
       "on_the_day": 60,
       "spans": 49,
       "bracketed": 32,
-      "carried": 792
+      "carried": 791
     },
     "persons_by_leg": {
-      "on_the_day": 177,
+      "on_the_day": 182,
       "spans": 130,
       "bracketed": 49,
-      "carried": 1429
+      "carried": 1419
     },
     "households_by_tier": {
-      "reconstructed": 792,
+      "reconstructed": 791,
       "inferred": 81,
       "attested": 60
     },
     "persons_by_tier": {
-      "reconstructed": 1429,
+      "reconstructed": 1419,
       "inferred": 179,
-      "attested": 177
+      "attested": 182
     },
     "persons_by_residence_grade": {
       "inferred": 672,
       "attested": 268,
-      "reconstructed": 845
+      "reconstructed": 840
     },
     "rulings_above_t1172_blanket_reconstructed": 141,
     "evidenced_absences_left_out": 21
@@ -3090,10 +3090,9 @@
       "household_id": "hh_bickerdyke_george",
       "name": "The Bickerdyke household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 4,
+      "persons": 2,
       "grades": {
-        "attested": 1,
-        "reconstructed": 3
+        "attested": 2
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -3489,10 +3488,10 @@
       "household_id": "hh_boardman_harry",
       "name": "The Boardman household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 5,
+      "persons": 4,
       "grades": {
         "attested": 1,
-        "reconstructed": 4
+        "reconstructed": 3
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -3627,10 +3626,10 @@
       "household_id": "hh_bonin_augustus",
       "name": "The Bonin household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 7,
+      "persons": 5,
       "grades": {
         "attested": 1,
-        "reconstructed": 6
+        "reconstructed": 4
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -9692,10 +9691,10 @@
       "household_id": "hh_duplas_joseph",
       "name": "The Duplas household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 5,
+      "persons": 7,
       "grades": {
         "inferred": 1,
-        "reconstructed": 4
+        "reconstructed": 6
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -10473,10 +10472,10 @@
       "household_id": "hh_fell_j_w",
       "name": "The Fell household — documented at Chicago, no trade printed, unplaced in the town",
       "division": "unplaced",
-      "persons": 8,
+      "persons": 5,
       "grades": {
         "attested": 1,
-        "reconstructed": 7
+        "reconstructed": 4
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -10881,10 +10880,10 @@
       "household_id": "hh_foot_john",
       "name": "The Foot household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 2,
+      "persons": 8,
       "grades": {
         "attested": 1,
-        "reconstructed": 1
+        "reconstructed": 7
       },
       "leg": "on_the_day",
       "present_on_scene_date": {
@@ -12895,10 +12894,10 @@
       "household_id": "hh_haighs_isaac",
       "name": "The Haighs household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 3,
+      "persons": 2,
       "grades": {
         "inferred": 1,
-        "reconstructed": 2
+        "reconstructed": 1
       },
       "leg": "on_the_day",
       "present_on_scene_date": {
@@ -16415,10 +16414,10 @@
       "household_id": "hh_kingstone_paul",
       "name": "The Kingstone household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 5,
+      "persons": 3,
       "grades": {
         "inferred": 1,
-        "reconstructed": 4
+        "reconstructed": 2
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -17535,10 +17534,10 @@
       "household_id": "hh_lee_william",
       "name": "The Lee household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 7,
+      "persons": 5,
       "grades": {
         "inferred": 1,
-        "reconstructed": 6
+        "reconstructed": 4
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -17573,10 +17572,10 @@
       "household_id": "hh_leframboise_joseph",
       "name": "The Leframboise household — a name the town's own records carry",
       "division": "unplaced",
-      "persons": 6,
+      "persons": 7,
       "grades": {
         "inferred": 1,
-        "reconstructed": 5
+        "reconstructed": 6
       },
       "leg": "carried",
       "present_on_scene_date": {
@@ -21980,43 +21979,6 @@
           "lambda_per_year": 0.064844,
           "years_before_the_scene": null,
           "persistence": null
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_noble_mary",
-      "name": "The Noble household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1833-12-03, 1.5743 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.903 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.064844,
-          "years_before_the_scene": 1.5743,
-          "persistence": 0.903
         },
         "residence_grade_this_stands_beside": "attested"
       },

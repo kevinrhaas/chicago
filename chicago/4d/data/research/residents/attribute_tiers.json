@@ -26,19 +26,19 @@
   },
   "counts": {
     "cards": 1459,
-    "blocks": 22100,
-    "tiers_written_on_the_card": 10780,
+    "blocks": 22099,
+    "tiers_written_on_the_card": 10779,
     "by_tier": {
       "attested": 741,
-      "inferred": 3722,
-      "reconstructed": 10797,
+      "inferred": 3720,
+      "reconstructed": 10798,
       "unknown": 6840
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
-        "inferred": 1355,
-        "reconstructed": 53,
+        "inferred": 1354,
+        "reconstructed": 54,
         "unknown": 0
       },
       "arrival_year": {
@@ -74,7 +74,7 @@
       "division_reconstructed": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1337,
+        "reconstructed": 1336,
         "unknown": 0
       },
       "kin[]": {
@@ -163,8 +163,8 @@
       },
       "present_on_scene_date": {
         "attested": 38,
-        "inferred": 1367,
-        "reconstructed": 54,
+        "inferred": 1366,
+        "reconstructed": 55,
         "unknown": 0
       },
       "reason_for_coming": {
@@ -183,8 +183,8 @@
     "reconstructed_by_basis": {
       "address_back_projection": 23,
       "arrival_bound_from_the_record": 1,
-      "arrival_earliest_year_forced": 52,
-      "inferred_household_hypothesis": 43,
+      "arrival_earliest_year_forced": 53,
+      "inferred_household_hypothesis": 44,
       "origin_uncited_literature": 1,
       "residence_back_projection": 12
     }
@@ -1378,6 +1378,41 @@
     },
     {
       "card": "hh_rc_connor_margaret",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
+      "card": "hh_rc_crandall_clarissa",
+      "attribute": "arrival",
+      "value": "1835-07-01",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_crandall_clarissa",
       "attribute": "present_on_scene_date",
       "value": "present",
       "confidence": "reconstructed",
@@ -2828,9 +2863,9 @@
       },
       "values": 1375,
       "by_value": {
-        "1834": 571,
+        "1834": 570,
         "1833": 407,
-        "1835": 321,
+        "1835": 322,
         "1832": 44,
         "1831": 17,
         "1818": 4,
@@ -2854,9 +2889,9 @@
         "kind": "household",
         "match": "any source that places this household in a division or nearer"
       },
-      "values": 1337,
+      "values": 1336,
       "by_value": {
-        "south": 765,
+        "south": 764,
         "north": 298,
         "west": 274
       },
@@ -2926,8 +2961,8 @@
       },
       "values": 1378,
       "by_value": {
-        "New York State": 562,
-        "New England": 481,
+        "New York State": 561,
+        "New England": 482,
         "The Mid-Atlantic states": 121,
         "England": 114,
         "The Southern states": 59,
@@ -4538,9 +4573,9 @@
       },
       "values": 1329,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 548,
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 547,
         "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 390,
-        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 318,
+        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 319,
         "The trading post, the fort and the country trade — the town before the boom": 73
       },
       "a_seed": null,

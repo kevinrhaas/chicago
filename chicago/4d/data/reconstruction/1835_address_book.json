@@ -14,7 +14,7 @@
  "not_a_reading": "Rungs 1, 3-for-an-adopted-firm and 6 restate a seat some other committed record already made. Rung 3 for a refused street-only firm and rung 4 are RECONSTRUCTION (T-1512): each carries tier `reconstructed`, the clause it rests on, a seed and what would retire it, and neither adds a street or a division the record did not already carry. RUNG 5 IS THE ONE PLACE IN THIS FILE WHERE A DIVISION IS DEALT (T-1522) — for the 1,186 households no source places at all, off the order book's own household shape and the town model's own employment distribution, seeded and exact, every row saying so in its words. No coordinate, no lot and no roof is invented by this pass, no bucket of the order book is spent, and no household record is written to. T-1618 carries the PLACEMENT POLICY's own deal onto the row as `dealt_roof` — read from the two committed seats files and restated, not re-decided — and it is not a rung: every dealt row keeps the rung, seat, tier and words its evidence earned, and the roof is substitutable by construction.",
  "policy_only_deal": {
   "ticket": "T-1522",
-  "households": 1337,
+  "households": 1336,
   "what_is_dealt": "both halves of the band. These households carry no roof, no street and no division, so nothing about where they stood is read here — the division comes off the reconstruction order book's household target by division and the class off the town model's employment distribution, and every row says both in its own words.",
   "nothing_is_minted": "these 1,186 households are already in the committed layer and the book records them as KNOWN, not as households to reconstruct. So the book supplies the SHAPE of the deal and no bucket's `filled` moves, no record is written and nothing is added to the town. The invariant the book calls `no_bucket_overfilled` is untouched by this pass.",
   "division": {
@@ -33,7 +33,7 @@
    },
    "dealt": {
     "north": 298,
-    "south": 765,
+    "south": 764,
     "west": 274
    },
    "fort_is_not_in_the_shape": "the garrison's households are T-1176's and the book gives households/garrison/fort no target, so a household no source places is never dealt into the military reservation"
@@ -64,7 +64,7 @@
     "tradesman_dwellings": 0.46662
    },
    "dealt": {
-    "farms_and_country_seats": 210,
+    "farms_and_country_seats": 209,
     "labourer_dwellings": 109,
     "merchant_and_professional_dwellings": 394,
     "tradesman_dwellings": 624
@@ -232,23 +232,23 @@
   "households": 1459,
   "businesses": 176,
   "by_rung": {
-   "division_band": 87,
+   "division_band": 88,
    "face": 52,
    "owed": 11,
-   "policy_only": 1337,
+   "policy_only": 1336,
    "structure": 87,
    "unplaceable": 61
   },
   "by_reach": {
-   "division": 87,
+   "division": 88,
    "face": 52,
-   "none": 1398,
+   "none": 1397,
    "structure": 87,
    "structure_owed": 11
   },
   "households_by_rung": {
-   "division_band": 87,
-   "policy_only": 1337,
+   "division_band": 88,
+   "policy_only": 1336,
    "structure": 34,
    "unplaceable": 1
   },
@@ -270,20 +270,20 @@
    "north/farms_and_country_seats": 59,
    "north/heavy_and_noxious_trades": 1,
    "north/labourer_dwellings": 22,
-   "north/merchant_and_professional_dwellings": 88,
-   "north/tradesman_dwellings": 139,
+   "north/merchant_and_professional_dwellings": 87,
+   "north/tradesman_dwellings": 140,
    "south/division_ground": 17,
-   "south/farms_and_country_seats": 105,
+   "south/farms_and_country_seats": 104,
    "south/heavy_and_noxious_trades": 1,
-   "south/labourer_dwellings": 81,
+   "south/labourer_dwellings": 80,
    "south/lodging_near_the_landings": 2,
-   "south/merchant_and_professional_dwellings": 246,
+   "south/merchant_and_professional_dwellings": 247,
    "south/tradesman_dwellings": 374,
-   "west/division_ground": 3,
+   "west/division_ground": 4,
    "west/farms_and_country_seats": 46,
-   "west/labourer_dwellings": 26,
+   "west/labourer_dwellings": 27,
    "west/merchant_and_professional_dwellings": 81,
-   "west/tradesman_dwellings": 127
+   "west/tradesman_dwellings": 126
   },
   "reconstructed_seats": 1442,
   "dealt_a_roof": 314,
@@ -22979,28 +22979,28 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "west/farms_and_country_seats",
+    "id": "west/labourer_dwellings",
     "division": "west",
-    "clause": "farms_and_country_seats"
+    "clause": "labourer_dwellings"
    },
    "works_seat": null,
    "reach": "none",
    "reach_value": null,
    "division": "unplaced",
    "tier": "reconstructed",
-   "basis": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's labourer_dwellings clause. Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "west/farms_and_country_seats",
-    "clause": "farms_and_country_seats",
+    "band": "west/labourer_dwellings",
+    "clause": "labourer_dwellings",
     "clause_applies_to": [
      "D1",
-     "A2"
+     "D2"
     ],
-    "clause_tier": "documented",
-    "statement": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
+    "clause_tier": "inferred",
+    "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
     "division_is_the_clause_preference": true,
     "from_trade": null,
     "division_is_dealt": true,
@@ -23009,7 +23009,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_elizabeth_miner|T-1522|division:d052c2b8dc71|class:2e8208052b34",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": "recon_1835_west_048",
+    "how": "adopted",
+    "dealt_by": "T-1614",
+    "ground": "off_plat_parcel",
+    "on": "canal_section_9_remainder",
+    "block_id": null,
+    "fronts": null,
+    "family": "D1",
+    "clause": "labourer_dwellings",
+    "district": "west",
+    "stands_on": "tract",
+    "deal_seed": "hh_elizabeth_miner|T-1522|division:d052c2b8dc71|class:2e8208052b34",
+    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
+    "owed_to": null,
+    "substitutable": true,
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_048, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+   }
   },
   {
    "id": "hh_elliot_william",
@@ -23305,14 +23322,14 @@
    },
    "seed": "hh_everts_hiram|T-1522|division:ec18596e0f40|class:319ef63e9290",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_048",
+    "structure_id": "recon_1835_west_041",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
     "on": "canal_section_9_remainder",
     "block_id": null,
     "fronts": null,
-    "family": "D1",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -23320,7 +23337,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_048, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_041, a family D2 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -34555,29 +34572,30 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "north/merchant_and_professional_dwellings",
+    "id": "north/tradesman_dwellings",
     "division": "north",
-    "clause": "merchant_and_professional_dwellings"
+    "clause": "tradesman_dwellings"
    },
    "works_seat": null,
    "reach": "none",
    "reach_value": null,
    "division": "unplaced",
    "tier": "reconstructed",
-   "basis": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the north division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "north/merchant_and_professional_dwellings",
-    "clause": "merchant_and_professional_dwellings",
+    "band": "north/tradesman_dwellings",
+    "clause": "tradesman_dwellings",
     "clause_applies_to": [
-     "H1",
-     "H2",
-     "D7"
+     "D3",
+     "D4",
+     "D5",
+     "D6"
     ],
     "clause_tier": "inferred",
-    "statement": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
+    "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
     "division_is_the_clause_preference": false,
     "from_trade": null,
     "division_is_dealt": true,
@@ -36118,8 +36136,8 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "south/farms_and_country_seats",
-    "division": "south",
+    "id": "west/farms_and_country_seats",
+    "division": "west",
     "clause": "farms_and_country_seats"
    },
    "works_seat": null,
@@ -36128,11 +36146,11 @@
    "division": "unplaced",
    "tier": "reconstructed",
    "basis": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's farms_and_country_seats clause. The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "south/farms_and_country_seats",
+    "band": "west/farms_and_country_seats",
     "clause": "farms_and_country_seats",
     "clause_applies_to": [
      "D1",
@@ -36140,7 +36158,7 @@
     ],
     "clause_tier": "documented",
     "statement": "The places held before the plat stay where they were held: Beaubien's on the lakefront reservation, Clybourn's on the North Branch, Robinson and Caldwell's on the west ground. They are not seated by any of this — they are the reason the policy has to say 'outside the plat' at all.",
-    "division_is_the_clause_preference": false,
+    "division_is_the_clause_preference": true,
     "from_trade": null,
     "division_is_dealt": true,
     "division_dealt_from": "the order book's household target by division",
@@ -37697,14 +37715,14 @@
    },
    "seed": "hh_lloyd_alexander|T-1522|division:f8fd9db0de91|class:2e9dd810d1de",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_041",
+    "structure_id": "recon_1835_west_040",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
-    "on": "canal_section_9_remainder",
+    "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
-    "family": "D2",
+    "family": "D1",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -37712,7 +37730,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_041, a family D2 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_040, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -38838,28 +38856,29 @@
    "rung": "policy_only",
    "seat": {
     "kind": "division_band",
-    "id": "south/labourer_dwellings",
+    "id": "south/merchant_and_professional_dwellings",
     "division": "south",
-    "clause": "labourer_dwellings"
+    "clause": "merchant_and_professional_dwellings"
    },
    "works_seat": null,
    "reach": "none",
    "reach_value": null,
    "division": "unplaced",
    "tier": "reconstructed",
-   "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's labourer_dwellings clause. Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+   "basis": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
+   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the south division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's merchant_and_professional_dwellings clause. The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
    "replaceable_by": "any source that places this household in a division or nearer",
    "owed_to": null,
    "band": {
-    "band": "south/labourer_dwellings",
-    "clause": "labourer_dwellings",
+    "band": "south/merchant_and_professional_dwellings",
+    "clause": "merchant_and_professional_dwellings",
     "clause_applies_to": [
-     "D1",
-     "D2"
+     "H1",
+     "H2",
+     "D7"
     ],
     "clause_tier": "inferred",
-    "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+    "statement": "The better houses take the Randolph–Washington tier a block back from the trade, and the north tier under Kinzie: off the noise, on dry ground, with a garden. Inferred — the town holds one documented H roof and it is Cobweb Castle, on the north side, which is itself the clause's own outlier.",
     "division_is_the_clause_preference": false,
     "from_trade": null,
     "division_is_dealt": true,
@@ -42734,11 +42753,11 @@
    },
    "seed": "hh_murray_alonzo|T-1522|division:f7fde779aac7|class:4081a2dce3bf",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_040",
+    "structure_id": "recon_1835_west_039",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
-    "on": "canal_commissioners_1830",
+    "on": "canal_section_9_remainder",
     "block_id": null,
     "fronts": null,
     "family": "D1",
@@ -42749,7 +42768,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_040, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_039, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -43112,11 +43131,11 @@
    },
    "seed": "hh_myrick_nehemiah|T-1522|division:f08f0939968e|class:3d9db0fa73d2",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_039",
+    "structure_id": "recon_1835_west_038",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
-    "on": "canal_section_9_remainder",
+    "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
     "family": "D1",
@@ -43127,7 +43146,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_039, a family D1 roof on canal_section_9_remainder. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_038, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -43449,14 +43468,14 @@
    },
    "seed": "hh_nett_robert_a|T-1522|division:e6e2fd8fd427|class:35b79824193f",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_038",
+    "structure_id": "recon_1835_west_028",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
     "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
-    "family": "D1",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -43464,7 +43483,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_038, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_028, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -43749,47 +43768,6 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_noble_mark|T-1522|division:bcf555c05b5b|class:e944e37cfba1",
-   "dealt_roof": null
-  },
-  {
-   "id": "hh_noble_mary",
-   "kind": "household",
-   "name": "The Noble household — a name the town's own records carry",
-   "rung": "policy_only",
-   "seat": {
-    "kind": "division_band",
-    "id": "west/tradesman_dwellings",
-    "division": "west",
-    "clause": "tradesman_dwellings"
-   },
-   "works_seat": null,
-   "reach": "none",
-   "reach_value": null,
-   "division": "unplaced",
-   "tier": "reconstructed",
-   "basis": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-   "words": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
-   "replaceable_by": "any source that places this household in a division or nearer",
-   "owed_to": null,
-   "band": {
-    "band": "west/tradesman_dwellings",
-    "clause": "tradesman_dwellings",
-    "clause_applies_to": [
-     "D3",
-     "D4",
-     "D5",
-     "D6"
-    ],
-    "clause_tier": "inferred",
-    "statement": "The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street.",
-    "division_is_the_clause_preference": false,
-    "from_trade": null,
-    "division_is_dealt": true,
-    "division_dealt_from": "the order book's household target by division",
-    "class_is_dealt": true,
-    "class_dealt_from": "the town model's employment_shape_1840 distribution"
-   },
-   "seed": "hh_noble_mary|T-1522|division:f60c78866044|class:af4982a7db55",
    "dealt_roof": null
   },
   {
@@ -47987,6 +47965,38 @@
    "dealt_roof": null
   },
   {
+   "id": "hh_rc_crandall_clarissa",
+   "kind": "household",
+   "name": "Reconstructed household — Clarissa Crandall, a woman keeping her own house in the west division",
+   "rung": "division_band",
+   "seat": {
+    "kind": "division_band",
+    "id": "west/division_ground",
+    "division": "west",
+    "clause": null
+   },
+   "works_seat": null,
+   "reach": "division",
+   "reach_value": "west",
+   "division": "west",
+   "tier": "reconstructed",
+   "basis": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
+   "words": "The record reaches the west division and nothing narrower, and the head's trade is not one the placement policy has a dwelling clause for — so this household is banded to that division's own ground and no class is dealt for it. The division is the evidence; standing them anywhere inside it is reconstruction.",
+   "replaceable_by": "a source giving this household's head a trade, or naming a street, a corner or a building for them",
+   "owed_to": null,
+   "band": {
+    "band": "west/division_ground",
+    "clause": null,
+    "clause_applies_to": [],
+    "clause_tier": null,
+    "statement": "No dwelling clause of the placement policy reaches this household's head, so the band is the division the record names and nothing narrower. A class is not dealt for them here.",
+    "division_is_the_clause_preference": null,
+    "from_trade": null
+   },
+   "seed": "hh_rc_crandall_clarissa|west|no_trade|T-1512",
+   "dealt_roof": null
+  },
+  {
    "id": "hh_rc_duffy_margaret",
    "kind": "household",
    "name": "Reconstructed household — Margaret Duffy, a woman boarding with her family in the west division",
@@ -48020,14 +48030,14 @@
    },
    "seed": "hh_rc_duffy_margaret|west|domestic|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_028",
+    "structure_id": "recon_1835_west_027",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
     "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
-    "family": "D2",
+    "family": "D1",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -48035,7 +48045,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_028, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_027, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48680,7 +48690,7 @@
    },
    "seed": "hh_rc_reilly_catherine|west|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_027",
+    "structure_id": "recon_1835_west_026",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
@@ -48695,7 +48705,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_027, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_026, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48732,14 +48742,14 @@
    },
    "seed": "hh_rc_ryan_ellen|west|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_026",
+    "structure_id": "recon_1835_west_013",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
     "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
-    "family": "D1",
+    "family": "D2",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -48747,7 +48757,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_026, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_013, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -48784,7 +48794,7 @@
    },
    "seed": "hh_rc_shea_bridget|west|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_013",
+    "structure_id": "recon_1835_west_011",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
@@ -48799,7 +48809,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_013, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_011, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -49041,14 +49051,14 @@
    },
    "seed": "hh_rc_walsh_johanna|west|laundress|T-1512",
    "dealt_roof": {
-    "structure_id": "recon_1835_west_011",
+    "structure_id": "recon_1835_west_001",
     "how": "adopted",
     "dealt_by": "T-1614",
     "ground": "off_plat_parcel",
     "on": "canal_commissioners_1830",
     "block_id": null,
     "fronts": null,
-    "family": "D2",
+    "family": "D1",
     "clause": "labourer_dwellings",
     "district": "west",
     "stands_on": "tract",
@@ -49056,7 +49066,7 @@
     "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
     "owed_to": null,
     "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_011, a family D2 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
+    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_001, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
    }
   },
   {
@@ -54567,24 +54577,7 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_souee_theson|T-1522|division:ffc708922a6e|class:32557246c26b",
-   "dealt_roof": {
-    "structure_id": "recon_1835_west_001",
-    "how": "adopted",
-    "dealt_by": "T-1614",
-    "ground": "off_plat_parcel",
-    "on": "canal_commissioners_1830",
-    "block_id": null,
-    "fronts": null,
-    "family": "D1",
-    "clause": "labourer_dwellings",
-    "district": "west",
-    "stands_on": "tract",
-    "deal_seed": "hh_souee_theson|T-1522|division:ffc708922a6e|class:32557246c26b",
-    "why": "a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book",
-    "owed_to": null,
-    "substitutable": true,
-    "words": "The placement policy seats this household at a roof already standing — recon_1835_west_001, a family D1 roof on canal_commissioners_1830. The roof is the POLICY'S deal and not a reading about this household: it is an anonymous roof of the reconstruction programme, adopted under the policy's labourer_dwellings clause, and any other free roof the clause admits would have done as well. Why this one: a standing anonymous roof of a family this clause admits, off the plat and in this household's own division: the roof is already raised, so nothing is drawn off the order book."
-   }
+   "dealt_roof": null
   },
   {
    "id": "hh_south_g",

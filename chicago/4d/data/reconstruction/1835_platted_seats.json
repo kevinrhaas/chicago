@@ -64,8 +64,8 @@
   "roofs_adopted": 215,
   "slots_requested": 0,
   "owed_by_band_clause": {
-   "division_ground": 26,
-   "farms_and_country_seats": 210,
+   "division_ground": 27,
+   "farms_and_country_seats": 209,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 91,
    "merchant_and_professional_dwellings": 379,
@@ -7559,15 +7559,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_kimberly_ira",
-   "kind": "household",
-   "band": "north/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_kimbert_mons",
    "kind": "household",
    "band": "south/merchant_and_professional_dwellings",
@@ -7843,6 +7834,15 @@
    "band": "west/merchant_and_professional_dwellings",
    "clause": "merchant_and_professional_dwellings",
    "district": "west",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_maclean_archibald",
+   "kind": "household",
+   "band": "south/merchant_and_professional_dwellings",
+   "clause": "merchant_and_professional_dwellings",
+   "district": "south",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
@@ -10916,6 +10916,15 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_kimberly_ira",
+   "kind": "household",
+   "band": "north/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_kimberly_osa",
    "kind": "household",
    "band": "north/tradesman_dwellings",
@@ -11767,15 +11776,6 @@
    "band": "south/tradesman_dwellings",
    "clause": "tradesman_dwellings",
    "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_noble_mary",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
@@ -13841,6 +13841,15 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_elizabeth_miner",
+   "kind": "household",
+   "band": "west/labourer_dwellings",
+   "clause": "labourer_dwellings",
+   "district": "west",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_everts_hiram",
    "kind": "household",
    "band": "west/labourer_dwellings",
@@ -13936,15 +13945,6 @@
    "band": "north/labourer_dwellings",
    "clause": "labourer_dwellings",
    "district": "north",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
-   "id": "hh_maclean_archibald",
-   "kind": "household",
-   "band": "south/labourer_dwellings",
-   "clause": "labourer_dwellings",
-   "district": "south",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
    "handed_to": "T-1614"
   },
@@ -15128,15 +15128,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_elizabeth_miner",
-   "kind": "household",
-   "band": "west/farms_and_country_seats",
-   "clause": "farms_and_country_seats",
-   "district": "west",
-   "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_elston_daniel",
    "kind": "household",
    "band": "north/division_ground",
@@ -15598,9 +15589,9 @@
   {
    "id": "hh_laframboise_thrse",
    "kind": "household",
-   "band": "south/farms_and_country_seats",
+   "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "south",
+   "district": "west",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },
@@ -16042,6 +16033,15 @@
    "band": "south/division_ground",
    "clause": "division_ground",
    "district": "south",
+   "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_rc_crandall_clarissa",
+   "kind": "household",
+   "band": "west/division_ground",
+   "clause": "division_ground",
+   "district": "west",
    "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
    "handed_to": "T-1614"
   },

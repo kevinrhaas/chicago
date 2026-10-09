@@ -3701,7 +3701,7 @@
     {
       "person_id": "rc_doyle_ellen",
       "person_name": "Ellen Doyle",
-      "household_id": "hh_leframboise_joseph",
+      "household_id": "hh_markle_joseph_w",
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",
@@ -4345,7 +4345,7 @@
     {
       "person_id": "rc_eastman_emily",
       "person_name": "Emily Eastman",
-      "household_id": "hh_lee_william",
+      "household_id": "hh_leframboise_joseph",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -6257,7 +6257,7 @@
     {
       "person_id": "rc_gilbert_ruth",
       "person_name": "Ruth Gilbert",
-      "household_id": "hh_kingstone_paul",
+      "household_id": "hh_lee_william",
       "kind": "seated",
       "trade": "dressmaker",
       "premises": "own_premises",
@@ -7007,7 +7007,7 @@
     {
       "person_id": "rc_hayes_margaret",
       "person_name": "Margaret Hayes",
-      "household_id": "hh_haighs_isaac",
+      "household_id": "hh_kingstone_paul",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -7234,7 +7234,7 @@
     {
       "person_id": "rc_ingalls_abigail",
       "person_name": "Abigail Ingalls",
-      "household_id": "hh_foot_john",
+      "household_id": "hh_haighs_isaac",
       "kind": "keeps_their_own_house",
       "trade": "milliner",
       "premises": "own_premises",
@@ -10738,7 +10738,7 @@
     {
       "person_id": "rc_nichols_rhoda",
       "person_name": "Rhoda Nichols",
-      "household_id": "hh_duplas_joseph",
+      "household_id": "hh_fell_j_w",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -11851,7 +11851,7 @@
     {
       "person_id": "rc_quinn_ellen",
       "person_name": "Ellen Quinn",
-      "household_id": "hh_bonin_augustus",
+      "household_id": "hh_duplas_joseph",
       "kind": "no_employer_named",
       "trade": "laundress",
       "premises": "no_fixed_premises",
@@ -12371,7 +12371,7 @@
     {
       "person_id": "rc_rice_lydia",
       "person_name": "Lydia Rice",
-      "household_id": "hh_boardman_harry",
+      "household_id": "hh_bonin_augustus",
       "kind": "class_full_none_owed",
       "trade": "schoolteacher",
       "premises": "no_fixed_premises",
@@ -12598,7 +12598,7 @@
     {
       "person_id": "rc_ryan_bridget",
       "person_name": "Bridget Ryan",
-      "household_id": "hh_bickerdyke_george",
+      "household_id": "hh_boardman_harry",
       "kind": "class_held_no_house",
       "trade": "domestic",
       "premises": "no_fixed_premises",

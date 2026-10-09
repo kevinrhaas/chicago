@@ -3086,6 +3086,15 @@
       "rule": "The surname 'Berry' stands on the Second Presbyterian roll and no line under it carries the initial 'B' of 'Benjamin / Berry'. A surname-only agreement is a refusal."
     },
     {
+      "name": "Mary Noble",
+      "person_id": "noble_mary",
+      "household_id": "hh_bickerdyke_george",
+      "grade": "attested",
+      "source_id": "second_presbyterian_chicago_1892",
+      "candidates_under_that_surname": 2,
+      "rule": "The surname 'Noble' stands on the Second Presbyterian roll and no line under it carries the initial 'M' of 'Mary Noble'. A surname-only agreement is a refusal."
+    },
+    {
       "name": "Levi Blake",
       "person_id": "blake_levi",
       "household_id": "hh_blake_levi",
@@ -4857,15 +4866,6 @@
       "source_id": "second_presbyterian_chicago_1892",
       "candidates_under_that_surname": 2,
       "rule": "The surname 'Noble' stands on the Second Presbyterian roll and no line under it carries the initial 'M' of 'Esq. Mark Noble'. A surname-only agreement is a refusal."
-    },
-    {
-      "name": "Mary Noble",
-      "person_id": "noble_mary",
-      "household_id": "hh_noble_mary",
-      "grade": "attested",
-      "source_id": "second_presbyterian_chicago_1892",
-      "candidates_under_that_surname": 2,
-      "rule": "The surname 'Noble' stands on the Second Presbyterian roll and no line under it carries the initial 'M' of 'Mary Noble'. A surname-only agreement is a refusal."
     },
     {
       "name": "William B Noble",

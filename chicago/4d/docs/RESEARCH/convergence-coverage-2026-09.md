@@ -11,9 +11,9 @@ Read the three verdicts apart. **reaches** — at least one row on the axis reac
 | Axis | reaches 1 Jul 1835 | limited | no claim |
 | --- | ---: | ---: | ---: |
 | `roles[]` — trades, professions, offices | 138 | 191 | 2,556 |
-| home (`lives_at`) | 192 | 318 | 2,375 |
+| home (`lives_at`) | 192 | 323 | 2,370 |
 | work (`works_at`) | 149 | 0 | 2,736 |
-| other places — later addresses, business premises | 129 | 442 | 2,314 |
+| other places — later addresses, business premises | 129 | 448 | 2,308 |
 
 Of 2,885 people in 1,459 households.
 
@@ -29,7 +29,7 @@ Of 2,885 people in 1,459 households.
 
 **Roles.** 743 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 56, `profession` 84, `trade` 602.
 
-**Places.** 3,861 location rows reach a person; 495 of them reach the scene date. By claim kind: `business_location` 154, `home` 2,885, `later_home_address` 176, `later_workplace_address` 497, `workplace` 149.
+**Places.** 3,867 location rows reach a person; 495 of them reach the scene date. By claim kind: `business_location` 154, `home` 2,885, `later_home_address` 176, `later_workplace_address` 503, `workplace` 149.
 
 A person inherits his household's `home` and `workplace` rows — the claim is made about the roof, not about the man — and inherits a `business_location` row from every firm that names him as proprietor, partner or staff. That is why the location row count above is larger than the reconciliation's own: the same roof is carried to each of the people living under it.
 
@@ -38,8 +38,8 @@ A person inherits his household's `home` and `workplace` rows — the claim is m
 | Household presence on the scene date | People |
 | --- | ---: |
 | `absent` | 21 |
-| `present` | 1,079 |
-| `uncertain` | 1,785 |
+| `present` | 1,084 |
+| `uncertain` | 1,780 |
 
 Presence is not a fifth axis. It is the household's verdict (T-1144 acceptance 9, with the last dated sighting under it) and it is carried here only so a row can be read without a second file open. A man whose household is `uncertain` may still hold a role that reaches the day: the role is bounded by its own source, and the two bounds are different questions.
 

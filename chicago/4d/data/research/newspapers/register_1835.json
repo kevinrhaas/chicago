@@ -26524,7 +26524,7 @@
       "last_seen": "1833-12-03",
       "action": "enrich",
       "action_target": "noble_mary",
-      "action_note": "data/residents/ already holds this person as noble_mary (hh_noble_mary, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as noble_mary (hh_bickerdyke_george, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
     },
     {
       "id": "person_mary_polk",

@@ -56,8 +56,8 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | 1835 sidecar files | 391 | 685 | +294 |
 | people in the 1835 people sidecar | 1288 | 3879 | +2591 |
 | buildings standing in the town census | 371 | 659 | +288 |
-| people housed in the town census | 34 | 2721 | +2687 |
-| households housed in the town census | 20 | 1385 | +1365 |
+| people housed in the town census | 34 | 2724 | +2690 |
+| households housed in the town census | 20 | 1387 | +1367 |
 | rows in the final resident audit | 1288 | 2885 | +1597 |
 | published resident files in the mirror | 1336 | 1427 | +91 |
 
@@ -69,10 +69,10 @@ T-1144 banked acceptances 3, 5 and 9 to this pass "to state as deltas rather tha
 |---|---:|---:|---:|
 | acc. 3 — Mary Durbin, John Simmons, John Vincent or Logdson in the layer | 0 | 0 | 0 |
 | acc. 5 — standing 1835 trades cited to no 1835 source | 0 | 0 | 0 |
-| acc. 9 — uncertain presences | 820 | 933 | +113 |
-| acc. 9 — …of them carrying a dated evidence leg | 820 | 933 | +113 |
+| acc. 9 — uncertain presences | 820 | 932 | +112 |
+| acc. 9 — …of them carrying a dated evidence leg | 820 | 932 | +112 |
 
-Acceptance 9 reads as a pair: 933 of 933 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
+Acceptance 9 reads as a pair: 932 of 932 uncertain presences carry a `last_dated_appearance`, so the gap is 0.
 
 ## 5. What holds this page
 

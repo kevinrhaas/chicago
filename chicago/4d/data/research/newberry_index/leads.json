@@ -9,7 +9,7 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "cdec5ed4375151f11c38fef590151214ee498db5064f8dac9bca95a020aba1ad",
+    "fingerprint": "e3bc58a289ccceed88ef256155079910361fb0e25f72d88948480d1ecffdb3f1",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
@@ -21832,6 +21832,11 @@
       "layer": "residents",
       "candidates": [
         {
+          "id": "noble_mary",
+          "name": "Mary Noble",
+          "rule": "exact surname"
+        },
+        {
           "id": "noble_john",
           "name": "John Noble",
           "rule": "exact surname"
@@ -21839,11 +21844,6 @@
         {
           "id": "noble_mark",
           "name": "Esq. Mark Noble",
-          "rule": "exact surname"
-        },
-        {
-          "id": "noble_mary",
-          "name": "Mary Noble",
           "rule": "exact surname"
         },
         {

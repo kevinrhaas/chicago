@@ -40,9 +40,9 @@ It is an adjudication over committed derived files — no page of any source is 
 
 ### known by presence
 
-- **present** — 3034
-- **absent** — 146
-- **uncertain** — 392
+- **present** — 3033
+- **absent** — 145
+- **uncertain** — 394
 
 **Open questions.** These are recorded here and do not become tickets.
 
@@ -225,9 +225,9 @@ It is an adjudication over committed derived files — no page of any source is 
 | 1830 | 5 | 0.0017 |
 | 1831 | 22 | 0.0075 |
 | 1832 | 45 | 0.0154 |
-| 1833 | 503 | 0.172 |
-| 1834 | 1033 | 0.3533 |
-| 1835 | 1294 | 0.4425 |
+| 1833 | 502 | 0.1717 |
+| 1834 | 1031 | 0.3526 |
+| 1835 | 1297 | 0.4436 |
 - **not the figures denominator** — The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).
 - **rows total** — 2924
 - **unit** — people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,924 who record one at all
