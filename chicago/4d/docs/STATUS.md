@@ -24,6 +24,32 @@ re-derived to the fixpoint.
   on that route as firing.
 - **Unverified here**: nothing beyond the gate. The withdrawn houses' roofs re-seat through the
   derived chain; no geometry moved.
+## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
+
+T-2188's second piece asked whether the order book over-orders its 56 owed store
+residences or the residents index is short. Measured on dev, the answer is **both**:
+
+- **The book over-ordered the store rows.** It shares the model's 645 households out by
+  roof counts, so it asked for 77 store households on 52 civil store roofs (1.48 per roof).
+  Every one of those roofs stands. The book's own weighting says a store residence holds
+  *a* household, the keeper's, so `store_residence_ruling` discharges the order above one
+  household per store roof: north 2, south 20, west 3, **25** in all. Store households owed
+  go **56 → 31**, and households still owed go 424 → 399. Nobody is moved, minted or
+  re-apportioned. The ruling is an inference, and the book says so.
+- **The index is short.** 14 of the 52 store roofs seat a household; the other 38 (29 south,
+  5 west, 4 north) seat nobody. The 309 trade households drawn as heads of their own
+  (`reconstructed_trades/`) are seated 244 in dwellings, 58 in boarding houses and 7 in inns.
+  Of those heads, 64 work a store trade (grocer, merchant, milliner and the like), and none
+  sits in a store roof. The household quota counts houses off `data/residents/index.json` alone,
+  so it sees none of them. The census's 662 present beyond the index break down as 309 trade
+  households, 155 lodgers, 111 readmitted, 86 underdocumented and 1 institutional. The
+  book credits 464 of them as person fills, but not one as a household. Counted whole, the
+  completion audit reads 3,579 present, against the 3,265 ceiling.
+- **Routed:** the 31 still owed go to **T-2236**, which forms keepers' households in the empty
+  store roofs by moving the store-trade heads the town holds. Counting the households
+  outside the index into the household quota is **T-2237**. `town_census.py`'s note now
+  names that ruling instead of split T-2188.
+
 ## T-2235 — Restore Glessner's west-wing courtyard roof (2026-10-09)
 
 Corrects T-2231's lowered rear ridge and exposed courtyard wall. The west
