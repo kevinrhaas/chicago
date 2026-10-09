@@ -119,6 +119,27 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "modelled_family": {
+  "stage": "modelled_families",
+  "ticket": "T-1171",
+  "household_type": "family_with_children",
+  "size_drawn": 6,
+  "kin_seated": 2,
+  "seed": "hh_marknoble_jun:household_size",
+  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
+  "printed_wife": {
+   "ticket": "T-2190",
+   "wife": "wesencraft_charlotte",
+   "from_household": "hh_wesencraft_charlotte",
+   "married": "1833-11-29",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "locator": "chicago_democrat_1833_12_03#c007",
+   "printed": "MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo.",
+   "what_happened": "THE WIFE IS PRINTED, SO SHE IS NOT DRAWN. The paper marries them on 1833-11-29, before the scene date, and the town already held Charlotte Wesencraft on a card of her own, minted off the same column. She is seated here as his wife and that card is folded into this house; the wife the household model drew for it is not seated, and she is counted in the order book's cell for a woman of her band in his division, as a drawn wife would be. The house's size and its children are the model's, drawn by the same seeds as before and still the town's invention at the `reconstructed` tier: the paper names a marriage, not a family. It does not say where they lived, or that she was in Chicago on 1 July 1835; she stands in his house because a wife of nineteen months keeps her husband's house, and that is the reconstruction, not the source."
+  }
+ },
  "kin": [
   {
    "person": "marknoble_jun",
@@ -160,23 +181,67 @@
      "rule": "G1b"
     }
    ],
-   "sex": "female",
-   "sex_basis": {
-    "value": "female",
+   "age_band": {
+    "value": "20-29",
+    "low": 20,
+    "high": 29,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
+     "id": "age_bands_1840",
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 20 under 30', one of its male bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
     },
-    "seed": "marknoble_jun:sex_ratio",
+    "seed": "marknoble_jun:age_bands_1840",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'marknoble_jun:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('marknoble_jun:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "THE NAME IS PRINTED WITH A TITLE, in the column and not on the name list. The paper prints 'Mr. MARK NOBLE, jun.' (chicago_democrat_1833_12_03#c007), and whoever set that line said in the same breath that this person was male. The press register files the person under the bare name, which is why rule 1 could not read it there; the title is read here where it was printed. A title is a statement about the person, and no draw stands against it.",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ]
+   }
+  },
+  {
+   "id": "wesencraft_charlotte",
+   "name": "Charlotte Wesencraft",
+   "relationship": "wife",
+   "seated_as_printed_wife": {
+    "ticket": "T-2190",
+    "from_household": "hh_wesencraft_charlotte",
+    "relationship_as_dealt": "head",
+    "counted_in_a_cell": false
+   },
+   "grade": "attested",
+   "civic_mint": true,
+   "ladder_rule": "G1b",
+   "occupation": {
+    "value": "none_recorded",
+    "confidence": "reconstructed",
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
+   },
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 3 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Charlotte Wesencraft",
+     "locator": "chicago_democrat_1833_12_03#c007",
+     "record_id": "person_charlotte_wesencraft",
+     "describes_date": "1833-12-03",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
    "age_band": {
     "value": "20-29",
     "low": 20,
@@ -188,12 +253,21 @@
      "id": "age_bands_1840",
      "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
     },
-    "seed": "marknoble_jun:age_bands_1840",
+    "seed": "wesencraft_charlotte:age_bands_1840",
     "replaceable_by": {
      "kind": "person",
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
-    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('marknoble_jun:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('wesencraft_charlotte:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "inferred",
+    "note": "THE NAME IS PRINTED WITH A TITLE, in the column and not on the name list. The paper prints 'Miss CHARLOTTE' (chicago_democrat_1833_12_03#c007), and whoever set that line said in the same breath that this person was female. The press register files the person under the bare name, which is why rule 1 could not read it there; the title is read here where it was printed. A title is a statement about the person, and no draw stands against it.",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ]
    }
   }
  ],

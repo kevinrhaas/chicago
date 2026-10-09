@@ -162,23 +162,6 @@
      "rule": "G1b"
     }
    ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "bonin_augustus:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'bonin_augustus:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
    "age_band": {
     "value": "30-39",
     "low": 30,
@@ -196,6 +179,15 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('bonin_augustus:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "THE NAME IS PRINTED WITH A TITLE, in the column and not on the name list. The paper prints 'Mr. Avovstvs Boxix' (chicago_democrat_1834_09_24#c001), and whoever set that line said in the same breath that this person was male. The press register files the person under the bare name, which is why rule 1 could not read it there; the title is read here where it was printed. A title is a statement about the person, and no draw stands against it.",
+    "sources": [
+     "chicago_democrat_1833_1835"
+    ]
    }
   },
   {
