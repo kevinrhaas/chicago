@@ -1,3 +1,28 @@
+## T-2244 — the stores whose keeper lives elsewhere (2026-10-09)
+
+T-2236 left the order book owing 13 store households: store roofs that stand a named firm with
+nobody living over them. T-2240 split them in two. Five of the thirteen (this ticket) stand a
+house of trade whose keeper the town already holds AND already places on another roof; the
+other eight (T-2245) stand firms whose named partners the town holds no card for, plus one
+firmless West store.
+
+- **The rule** (`house_the_present_1835.py`, `the_keepers.kept_from_elsewhere`): a generated
+  store roof nobody sleeps or works in, standing a house of trade whose proprietor or partner
+  the town already places on another roof, is a store with nobody living over it. The keeper
+  is not moved. `build_order_book_1835.py`'s store ruling discharges the order for those
+  stores, never below what a cell has filled.
+- **Measured:** five stores. G. Blanshard (dealt a house of his own on South Water at Wells),
+  Dr W. G. Austin (dealt a house on Washington at La Salle) and W. Montgomery (lodging in a
+  Washington Street boarding house) are now listed on their store's card as having worked
+  there. John Calhoun's and Asahel Pierce's own cards put their work at the documented
+  Democrat office and Pierce's smithy, so the adopted roofs for the Democrat and for Pierce &
+  French are ruled empty and list nobody. Store households owed: 13 -> 8 (south 11 -> 7, west
+  2 -> 1), now T-2245's.
+- **Not settled:** the Democrat and Pierce & French each stand on two roofs, the documented
+  premises their keeper's card names and the roof the street-face adoption (L212) gave the
+  register's firm. That is the adoption's question, not this ruling's.
+- L354 amended.
+
 ## T-2236 — the keepers over their own stores (2026-10-09)
 
 T-2194's ruling left the order book owing 31 store households: one keeper's household for each

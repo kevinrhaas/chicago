@@ -1,10 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1575, ts: '2026-10-09T12:19:04.861Z', date: 'Oct 9, 2026, 7:19 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+  { v: null, ts: '', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
       'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
       'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
       'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
+    items: [
+      'Open G. Blanshard\u2019s land office or Dr W. G. Austin\u2019s office on Lake Street, or W. Montgomery\u2019s auction rooms on South Water Street. Each keeper is now listed as working there, with a note that they slept elsewhere in the town and nobody lived over the store.',
+      'Two more stores, the Chicago Democrat printing office and Pierce & French, also stay empty, because their keepers already work at the paper\u2019s office and Pierce\u2019s smithy. Nobody is moved or made up. Eight stores still have no keeper\u2019s family, and are next.',
     ] },
   { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [
