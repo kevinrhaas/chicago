@@ -1,3 +1,19 @@
+## T-2231 — Glessner west front gable and rear frontage (2026-10-09)
+
+The front west gable has a steeper rear-facing slope, with its apex at S18.4
+and its low-roof transition at S35 of the measured 59.75-ft frontage. The rear
+section therefore occupies 41.4% of the west elevation. The lower roof, hood,
+cornice and northwest shoulder meet the revised profile; the courtyard windows
+and projecting eave retain T-2183's controls. Dimensions remain reconstructed.
+
+Before/after actual-GLB views, reference controls and validation receipts:
+`RESEARCH/glessner-west-profile-2231/README.md`. Both owner references were
+reviewed against the final west and northwest renders. All 792 repository
+checks, 3,000 roof samples, nine masonry/glass checks, recovery verification,
+and focused published desktop/mobile review pass. Published mobile stage 13
+passes all 126 checks. The broader desktop stage-13 run remains in progress
+at this checkpoint; the PR records its final result before merge.
+
 ## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
 
 Recovered the source checkpoint `c497167` on the owner's request. Principal

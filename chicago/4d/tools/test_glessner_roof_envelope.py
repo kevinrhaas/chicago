@@ -60,9 +60,25 @@ if g.get('connected_roof_plan'):
     assert p.detail['dining_roof_junction'] and p.detail['continuous_copper_corner']
 elif g.get('lower_rear_gable'):
     assert not g.get('continuous_south_gable')
+    # T-2231: independent landmarks read from the supplied 1047x717 west
+    # elevation: north corner x~20, apex x~324, rear break x~600, south x~1020.
+    # These bounds reject the former 24.4% apex / 63.3% break, even when its
+    # envelope is internally watertight. Photo/coping uncertainty is explicit.
+    frontage = r['y1']-r['y0']
+    assert .29 < (r['y1']-g['cross_y'])/frontage < .33
+    assert .56 < (r['y1']-g['south_foot_y'])/frontage < .61
+    import math
+    north_pitch=math.degrees(math.atan2(g['cross_z']-g['north_west_eave'],r['y1']-g['cross_y']))
+    south_pitch=math.degrees(math.atan2(g['cross_z']-g['cross_foot_eave'],g['cross_y']-g['south_foot_y']))
+    assert 34 < north_pitch < 40 and 49 < south_pitch < 55
     assert abs(g['cross_y']-(74-18.4)*.3048)<1e-4
     assert abs(height(r,r['x0'],g['cross_y'])-38.6*.3048)<1e-4
-    assert abs(height(r,r['x0'],r['y1'])-23.1*.3048)<1e-4
+    assert abs(height(r,r['x0'],r['y1'])-25.2*.3048)<1e-4
+    for x in (r['x0'],g['front_x0']):
+        assert abs(height(r,x,r['y1'])-g['north_west_eave'])<1e-4
+    alley_band=next(b for b in p.bands if b['axis']=='x' and b['sign']==-1 and abs(b['at']-r['x0'])<1e-4)
+    assert abs(alley_band['z1']-g['rear_west_eave'])<1e-4
+    assert abs(alley_band['u1']-g['south_foot_y'])<1e-4
     for south in [35,40,50,59.75]:
         y=(74-south)*.3048
         assert abs(height(r,r['x0'],y)-16.5*.3048)<1e-4
@@ -71,11 +87,13 @@ elif g.get('lower_rear_gable'):
     # The east edge must meet the independent, measured north-range section.
     # Roof-wall rays alone could pass while leaving a vertical gap at this join.
     import math
-    n=g['north_range'];run=n['kick']['run_m'];yk=n['y0']+run
-    rise=math.tan(math.radians(n['kick']['pitch_deg']))
+    n=g['north_range'];run=n['kick']['run_m'] if n['kick'] else 0;yk=n['y0']+run
+    rise=(math.tan(math.radians(n['kick']['pitch_deg'])) if n['kick'] else
+          (n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0']))
     zk=n['eave_lo_z']+run*rise
     for i in range(81):
-        y=n['y0']-.20+(n['y1']-n['y0']+.20)*i/80
+        overhang=n.get('eave_lo_overhang',.20)
+        y=n['y0']-overhang+(n['y1']-n['y0']+overhang)*i/80
         if y<=yk:expected=n['eave_lo_z']+(y-n['y0'])*rise
         elif y<=n['ridge_at']:expected=zk+(n['ridge_z']-zk)*(y-yk)/(n['ridge_at']-yk)
         else:expected=n['ridge_z']+(n['eave_hi_z']-n['ridge_z'])*(y-n['ridge_at'])/(n['y1']-n['ridge_at'])
