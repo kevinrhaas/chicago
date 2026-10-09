@@ -66,8 +66,8 @@
     },
     "households_by_class": {
       "a_household_of_its_own": 4,
-      "a_bed_in_a_dwelling": 465,
-      "a_bed_in_a_lodging_house": 19,
+      "a_bed_in_a_dwelling": 466,
+      "a_bed_in_a_lodging_house": 18,
       "filed_by_its_own_stage": 23,
       "a_store_of_its_own": 5,
       "not_present": 28,
@@ -75,8 +75,8 @@
     },
     "persons_by_class": {
       "a_household_of_its_own": 12,
-      "a_bed_in_a_dwelling": 465,
-      "a_bed_in_a_lodging_house": 19,
+      "a_bed_in_a_dwelling": 466,
+      "a_bed_in_a_lodging_house": 18,
       "filed_by_its_own_stage": 158,
       "a_store_of_its_own": 5,
       "not_present": 28,
@@ -95,8 +95,8 @@
         "not_present": 10
       },
       "reconstructed_trades": {
-        "a_bed_in_a_dwelling": 288,
-        "a_bed_in_a_lodging_house": 16,
+        "a_bed_in_a_dwelling": 289,
+        "a_bed_in_a_lodging_house": 15,
         "a_store_of_its_own": 5
       },
       "underdocumented": {
@@ -4240,7 +4240,7 @@
       "household": "hh_russell_p_t",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_003",
+      "place": "recon_1835_blk_washington_clinton_d4_04",
       "family": "D4",
       "persons": 3,
       "seed": "65f0e65d2f97",
@@ -4280,7 +4280,7 @@
       "household": "hh_king_hyram",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_blk_washington_clinton_d4_04",
+      "place": "recon_1835_blk_west_randolph_des_plaines_d4_02",
       "family": "D4",
       "persons": 3,
       "seed": "c1e69fe9d2fe",
@@ -4300,7 +4300,7 @@
       "household": "hh_rollins_john",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_west_045",
+      "place": "recon_1835_west_033",
       "family": "D5",
       "persons": 2,
       "seed": "08446a61e340",
@@ -4340,8 +4340,8 @@
       "household": "hh_daniel_frederick",
       "division": "west",
       "rung": "family",
-      "place": "recon_1835_blk_west_randolph_des_plaines_d4_02",
-      "family": "D4",
+      "place": "recon_1835_west_045",
+      "family": "D5",
       "persons": 2,
       "seed": "f3fb230e9568",
       "why": "the west division's family_dwelling order was full before this household was reached"
