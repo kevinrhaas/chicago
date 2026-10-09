@@ -31,9 +31,9 @@
   "data/research/newspapers/street_face_adoptions.json (the business deal, which goes first — T-1669)"
  ],
  "counts": {
-  "rows_in_scope": 1422,
+  "rows_in_scope": 1424,
   "seated": 215,
-  "owed": 1207,
+  "owed": 1209,
   "by_how": {
    "adopted": 215
   },
@@ -64,12 +64,12 @@
   "roofs_adopted": 215,
   "slots_requested": 0,
   "owed_by_band_clause": {
-   "division_ground": 25,
+   "division_ground": 26,
    "farms_and_country_seats": 210,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 90,
    "merchant_and_professional_dwellings": 380,
-   "tradesman_dwellings": 500
+   "tradesman_dwellings": 501
   },
   "roofs_offered_for_adoption": 225,
   "roofs_held_back": 62,
@@ -77,9 +77,9 @@
   "seats_the_business_deal_costs": 0
  },
  "what_the_plat_could_not_hold": {
-  "rows": 1207,
+  "rows": 1209,
   "handed_to": "T-1614",
-  "statement": "the committed plat seats 215 of the 1422 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
+  "statement": "the committed plat seats 215 of the 1424 households the address book leaves at a band. The rest is not refused: it is handed to T-1614, which owns the ground the plat does not draw — the farms and country seats, the additions' small lots, the fringes and the branches. The binding constraint is the one the 665-roof programme already states: coverage, not recipes."
  },
  "the_business_deal_goes_first": {
   "ruling": "The street-face business deal (tools/adopt_street_faces.py, L212) deals before this one, and this pass takes what it leaves. Both deals spend one pool of anonymous roofs, so one of them has to go first, and the narrower placement does: a business the paper places on a street can stand on that one face and nowhere else, while a banded household may take any roof of an admitted family in its whole division. Which business goes on which roof of its face is that deal's allocation, as which roof a household takes is this one's. It is an allocation precedence between two of this project's own passes, with no source read on either side and no claim about 1835 either way, so a run settles it and writes down why (T-1669, on the reasoning T-1626 set out for refusal 7).",
@@ -12257,6 +12257,15 @@
    "handed_to": "T-1614"
   },
   {
+   "id": "hh_rc_connor_margaret",
+   "kind": "household",
+   "band": "north/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "north",
+   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
    "id": "hh_rc_lynch_bridget",
    "kind": "household",
    "band": "south/tradesman_dwellings",
@@ -16011,6 +16020,15 @@
   },
   {
    "id": "hh_rc_barnes_nancy",
+   "kind": "household",
+   "band": "south/division_ground",
+   "clause": "division_ground",
+   "district": "south",
+   "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_rc_bourassa_madeleine",
    "kind": "household",
    "band": "south/division_ground",
    "clause": "division_ground",

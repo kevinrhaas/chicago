@@ -82,8 +82,8 @@
   "tier": "reconstructed"
  },
  "counts": {
-  "r6_rows_offered": 173,
-  "already_on_a_card": 53,
+  "r6_rows_offered": 172,
+  "already_on_a_card": 52,
   "cards_minted": 87,
   "minted_present": 70,
   "minted_absent": 17,
@@ -2354,13 +2354,6 @@
    "row_id": "card:hh_field_secretary",
    "name_as_read": "Secretary Field",
    "household_id": "hh_field_secretary",
-   "community_term": "metis",
-   "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
-  },
-  {
-   "row_id": "card:hh_fisher_pitman",
-   "name_as_read": "Pitman Fisher",
-   "household_id": "hh_fisher_pitman",
    "community_term": "metis",
    "note": "The term was found on a card the town already holds. Nothing is minted; whether that card carries `touches_removal` is the card's own affair and this stage does not reach into it."
   },

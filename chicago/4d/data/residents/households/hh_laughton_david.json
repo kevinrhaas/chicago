@@ -99,36 +99,13 @@
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
  },
  "present_on_scene_date": {
-  "value": "uncertain",
-  "confidence": "inferred",
+  "value": "absent",
+  "confidence": "attested",
   "sources": [
    "blackhawk_war_chicago_enrollments_isa",
    "chicago_democrat_1833_1835"
   ],
-  "last_dated_appearance": {
-   "as_read": "1834-08-20",
-   "precision": "day",
-   "reaches": "1834-08-20",
-   "includes_scene_date": false,
-   "days_before_scene_date": 315,
-   "leg": "sighting",
-   "person": "laughton_david",
-   "record": "person_david_laughton",
-   "sources": [
-    "chicago_democrat_1833_1835"
-   ],
-   "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1834-08-20`, which reaches 1834-08-20 — 315 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
-  },
-  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
- },
- "modelled_family": {
-  "stage": "modelled_families",
-  "ticket": "T-1171",
-  "household_type": "solitary",
-  "size_drawn": 1,
-  "kin_seated": 1,
-  "seed": "hh_laughton_david:household_size",
-  "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
+  "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_08_20#c006, dated 1834-08-20, which names this person as the one who died — so they died no later than 20 August 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
  },
  "persons": [
   {

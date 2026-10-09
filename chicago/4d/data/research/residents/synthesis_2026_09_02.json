@@ -1118,11 +1118,11 @@
     "census_1840_linked": 0
   },
   "after": {
-    "households": 1457,
-    "persons": 2898,
+    "households": 1459,
+    "persons": 2886,
     "attested": 412,
     "inferred": 1028,
-    "reconstructed": 1458,
+    "reconstructed": 1446,
     "letter_list_only": 773,
     "projected_residents": 759,
     "census_1840_linked": 3
