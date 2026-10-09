@@ -15,11 +15,10 @@
   "beds_crowded": 23,
   "on_the_house_before_this_stage": 0,
   "seated_from_the_layer": [
-   "merrill_george_w",
-   "smith_george",
-   "rc_shea_catherine"
+   "perry_calvin",
+   "trowbridge_g_g"
   ],
-  "minted_here": 8,
+  "minted_here": 9,
   "stands_on": "The lodging model (T-1370) gives this house an ordinary-night capacity apportioned out of a figure the town model already owns, and the residents layer holds fewer people in it than that. The order book's `lodging` buckets are the quota these people are drawn against.",
   "withdrawn_if": "a re-cut lodging model that gives this house a smaller ordinary-night figure, or sources naming the people who actually lodged here; the retirement runs through --build, never by hand",
   "note": "BEDS, AND ONE FAMILY. 1 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper."
@@ -633,6 +632,86 @@
    "dealt_by": {
     "ticket": "T-1536",
     "note": "Dealt by the top-up, after every other draw this stage makes, out of the book's order as it stood when the top-up was recorded — see `quota_basis.youth_top_up` in data/reconstruction/1835_lodgers_seated.json."
+   }
+  },
+  {
+   "id": "rc_barnes_john",
+   "name": "John Barnes",
+   "relationship": "boarder",
+   "grade": "reconstructed",
+   "sex": "male",
+   "age_band": {
+    "value": "10-19",
+    "low": 10,
+    "high": 19,
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_reconstruction_order_book",
+     "note": "The bucket that ordered this person is 10_19; the band is the order, not a draw. Nothing here is a reading of anybody's age."
+    },
+    "seed": "lodgers:working:recon_1835_blk_washington_market_h3_01:male:10_19:001:age_band",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source that states this person's age or their birth year"
+    },
+    "note": "AN AGE BAND, NEVER A YEAR. The order book counts in the 1840 schedule's bands and this project writes no year it cannot read."
+   },
+   "name_basis": {
+    "value": "John Barnes",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "1835_invented_name_pools",
+     "note": "Both parts are drawn from the yankee pool, which is seeded from the attested residents of this town. The pools' trade weighting is not consulted for a lodger, working or not, so the community is drawn from the general stock."
+    },
+    "seed": "lodgers:working:recon_1835_blk_washington_market_h3_01:male:10_19:001:forename",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a real person who lodged in this house"
+    },
+    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. No source names this person. The name exists so a reader can tell one drawn lodger from another, and it is checked against every real name in the layer."
+   },
+   "basis": {
+    "kind": "model",
+    "id": "1835_reconstruction_order_book",
+    "bucket": "persons/male/10_19/south/lodging/trade",
+    "note": "The book's bucket persons/male/10_19/south/lodging/trade ordered this person: the town model's lodging share, cut by sex, age band and division, less everyone the sources already name there. The bed is recon_1835_blk_washington_market_h3_01's, from the lodging model's ordinary-night figure of 10."
+   },
+   "seed": "lodgers:working:recon_1835_blk_washington_market_h3_01:male:10_19:001:forename",
+   "replaceable_by": {
+    "kind": "person",
+    "match": "a source naming a person who lodged in this house, who would take this bed instead"
+   },
+   "reconstruction": {
+    "stage": "lodgers",
+    "programme": "chicago_1835_resident_reconstruction",
+    "community": "yankee",
+    "review_required": false
+   },
+   "resident_subtype": "reconstructed_lodger",
+   "occupation": {
+    "value": "clerk",
+    "confidence": "reconstructed",
+    "tier": "reconstructed",
+    "basis": {
+     "kind": "model",
+     "id": "fergus_1839_trade_table",
+     "note": "Drawn, at the 1839 directory's printed share. The order book's bucket persons/male/10_19/south/lodging/trade ordered a working lodger here, and the trade is picked over 59 trades — the rows T-1347 deals its heads from, renormalised over that set. The 1839 volume is four years after the scene and its shape is read back onto 1835 knowingly."
+    },
+    "seed": "lodgers:working:recon_1835_blk_washington_market_h3_01:male:10_19:001:trade",
+    "replaceable_by": {
+     "kind": "person",
+     "match": "a source naming a person of this trade who lodged in this house"
+    },
+    "note": "NO EMPLOYER IS NAMED. Which shop or yard this lodger worked at is not drawn here; nothing about this trade is dated."
+   },
+   "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the order book wants a WORKING lodger of this sex, band and division and the town model says 10 people slept in this house on an ordinary night, and the whole of what is claimed is that: somebody of this sex and band, at a trade, took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1).",
+   "dealt_by": {
+    "ticket": "T-1532",
+    "note": "Dealt as a working lodger, after every other draw this stage makes, out of the book's `lodging/trade` order as it stood when the deal was recorded — see `quota_basis.working_lodgers` in data/reconstruction/1835_lodgers_seated.json."
    }
   }
  ],
