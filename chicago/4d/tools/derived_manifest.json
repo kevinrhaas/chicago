@@ -87,13 +87,14 @@
     "why": "compile_scene.py is the first step below the second pass that reads the resident cards it rewrites, and the step pr-lap.sh has always re-run late (T-1661).",
     "between": {
       "measured": "2026-10-04",
-      "how": "Two perturbations of what the pass writes, each on a clean dev tree, each followed by every step below with its own check.sh line (python3 <tool> --check), 2 minutes 30 for the lot. (1) THE ARRIVAL DRAWS, the pass's reason for existing: 150 of arrival_year_of_the_known_layer's 1835 people moved to 1833 in data/reconstruction/1835_town_model.json, then the pass's arrival stage, migrate_attribute_tiers.py and profile_population_1835.py rebuilt from it (383 files moved: the cards' arrival draws, the tier table, the profile). Every step below stayed green. Control: generate_block_infill.py, below the tail, went red on the same tree, so the checks do see the move. (2) THE SEATS, what the seating chain's backward edge carries (T-2081: display names out of the address book): two households renamed in data/reconstruction/1835_platted_seats.json and two in 1835_off_plat_seats.json. Every step below stayed green. seat_trade_roofs_1835.py went red, and it joined the pass instead of this list. Before that, every step here was green on clean dev. To measure a step you add here, run both perturbations, --check it, and restore the tree with git checkout. It is evidence over two perturbations, not a proof over every input, and it is now evidence that a new step cannot skip.",
+      "how": "Two perturbations of what the pass writes, each on a clean dev tree, each followed by every step below with its own check.sh line (python3 <tool> --check), 2 minutes 30 for the lot. (1) THE ARRIVAL DRAWS, the pass's reason for existing: 150 of arrival_year_of_the_known_layer's 1835 people moved to 1833 in data/reconstruction/1835_town_model.json, then the pass's arrival stage, migrate_attribute_tiers.py and profile_population_1835.py rebuilt from it (383 files moved: the cards' arrival draws, the tier table, the profile). Every step below stayed green. Control: generate_block_infill.py, below the tail, went red on the same tree, so the checks do see the move. (2) THE SEATS, what the seating chain's backward edge carries (T-2081: display names out of the address book): two households renamed in data/reconstruction/1835_platted_seats.json and two in 1835_off_plat_seats.json. Every step below stayed green. seat_trade_roofs_1835.py went red, and it joined the pass instead of this list. Before that, every step here was green on clean dev. To measure a step you add here, run both perturbations, --check it, and restore the tree with git checkout. It is evidence over two perturbations, not a proof over every input, and it is now evidence that a new step cannot skip. settle_family_cycle.py (T-2234, measured 2026-10-09): under both perturbations its --check, the six --checks of the stages it drives, and a --build that settled in one lap moving nothing, all on the perturbed tree.",
       "insensitive": [
         "python3 tools/reconstruct_sex_age.py --build",
         "python3 tools/spend_person_sex_age.py",
         "python3 tools/reconstruct_modelled_families.py --build",
         "python3 tools/reconstruct_women_children.py --build",
         "python3 tools/reconstruct_trade_households.py --build",
+        "python3 tools/settle_family_cycle.py --build",
         "python3 tools/reconstruct_garrison_1835.py --build",
         "python3 tools/synthesize_resident_research.py",
         "python3 tools/apply_census_1840_bridges.py --write",
@@ -1355,6 +1356,20 @@
       "verify": [
         "python3",
         "tools/reconstruct_trade_households.py",
+        "--check"
+      ]
+    },
+    {
+      "why": "THE FAMILY CYCLE, WALKED UNTIL A LAP MOVES NOTHING (T-2234). The three steps above it, and two tools the sequence otherwise never re-runs (model_refamily_rule.py, refamily_moves_1835.py), read each other in a ring with the order book. Women-and-children applies the re-family rule's moves to the houses it deals, the rule names those houses, and the book counts both. So no linear order settles a branch whose readings withdraw a modelled family: the committed rule names houses the new deal no longer makes, and the stage refuses it. On #554 (T-2232, 2026-10-09) six laps by hand did not settle, and compounded. This step laps index, families, book, women-and-children, trades, rule, women-and-children, trades, moves and book until the cycle writes nothing new. It refuses an oscillation, and on any refusal it puts the tree back byte for byte. It re-derives the book with its owner gate OFF, as a filler mid-chain does, and the book's own step below re-derives it with the gate ON. On dev it takes one lap and moves nothing. It CLAIMS NO OUTPUT: everything it writes belongs to the steps that own those files, so `resolves` stays empty and a conflict is never cleared by it.",
+      "command": [
+        "python3",
+        "tools/settle_family_cycle.py",
+        "--build"
+      ],
+      "resolves": [],
+      "verify": [
+        "python3",
+        "tools/settle_family_cycle.py",
         "--check"
       ]
     },

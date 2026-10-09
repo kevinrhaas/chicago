@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1561, ts: '2026-10-09T04:14:01.986Z', date: 'Oct 8, 2026, 11:14 PM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
+  { v: 1562, ts: '2026-10-09T04:38:57.506Z', date: 'Oct 8, 2026, 11:38 PM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
     items: [
       'The plan of who still has to be added to the 1835 town was asking for 424 more family houses. 429 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
       'They are counted now, up to what each part of town needs: 88 on the North Side, 168 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The houses still owed fall from 424 to 89. The shop-front households are next.',
       ] },
+  { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+    items: [
+      'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
+      'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
   { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
     items: [
       'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
