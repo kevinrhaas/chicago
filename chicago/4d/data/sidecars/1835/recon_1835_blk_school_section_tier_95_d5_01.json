@@ -90,7 +90,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'older_frontier'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "hall_parlour",
@@ -162,50 +162,59 @@
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D5 family to satisfy the block's scheduled mix; no occupant or individual use is known."
     },
     "occupants": {
-      "value": "The Brown household — a name the town's own records carry",
+      "value": "The Holbrook household — a documented shoemaker, unplaced in the town",
       "confidence": "reconstructed",
       "sources": [
-        "blackhawk_war_chicago_enrollments_isa",
-        "chicago_democrat_1833_1835"
+        "chicago_american_1835",
+        "chicago_democrat_1833_1835",
+        "second_presbyterian_chicago_1892"
       ],
       "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2147; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_school_section_tier_95#02, fronting madison, a standing roof of family D5 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [],
+  "residents": [
+    {
+      "household": "hh_holbrook_john",
+      "name": "The Holbrook household — a documented shoemaker, unplaced in the town",
+      "division": "unplaced",
+      "relation": "lived here",
+      "why": "the roof T-1613 dealt this household, joined here and not re-argued",
+      "sources": [],
+      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
+      "persons": [
+        {
+          "name": "John Holbrook",
+          "relationship": "head",
+          "grade": "attested",
+          "occupation": "shoemaker",
+          "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'JOHN HOLBROOK' and 'JOHN HOLBROOK,' and 'JOUN HOLBROOK' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 12 August 1835, column 12; the American of 13 June 1835, column 12; the Democrat of 10 June 1835, column 10. The corpus associates the name with South Water Street, Chicago; that is where the paper does business with this person and not a statement about where they slept, and the storefront tickets are the ones that may stand a shop there. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `shoemaker` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry. THE SECOND PRESBYTERIAN ROLL — A NAME ON A CHURCH LIST THAT OPENS IN 1842, AND NEVER AN 1835 FACT. The 1892 printed membership roll of the Second Presbyterian Church of Chicago, read line by line into this repository, carries 1 line whose surname and given initial agree with this person's — “Holbrook, Miss Julia T. | Profession. | May 2, 1858. | Dismissed.” (second_presb_0618, printed page 189), admitted 1858-05-02 by profession. Under the rule that decided it: Surname 'Holbrook' folds to the same string as the roll line's, and the given name of both begins J. WHAT THE MATCH MINTS OR REGRADES: “NOTHING. A line on a roll that opens in June 1842 cannot place a person in the town of July 1835, and this file makes no proposal that it does. What a match IS: the same surname and initial, in Chicago, within seven years — a lead for a later pass that is allowed to write people.” This pass WRITES THE EVIDENCE AND MOVES NO GRADE: under the ratified ladder (T-0513) the roll is handed to the card as a thing a reader may weigh, and the verdict stays with T-0515, which applies the ladder against every source at once."
+        }
+      ],
+      "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name John Holbrook as a shoemaker at Chicago 3 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason."
+    }
+  ],
   "citations": [
     {
-      "source_id": "blackhawk_war_chicago_enrollments_isa",
-      "citation": "\"Black Hawk War Veterans who Enlisted at Chicago\" — the Illinois State Archives database indexing volume 1 of Ellen M. Whitney, ed., *The Black Hawk War 1831-1832* (Springfield: Illinois State Historical Library, 1970), transcribed and donated to the Archives by Fred Delap of Kansas, Illinois, and republished by the Genealogy Trails Transcription Team. 134 rows, each giving name, rank, company, place of enrollment and regiment or brigade.",
-      "url": "https://genealogytrails.com/ill/cook/blackhawkwar.htm",
+      "source_id": "chicago_american_1835",
+      "citation": "The Chicago American. Vol. I, No. 1 (June 8, 1835) through Vol. I, No. 12 (August 29, 1835). Chicago, Ill.: T. O. Davis. Thirteen issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
       "archived_url": "",
       "tier": 1,
       "tier_label": "period/eyewitness",
-      "transcribes": [
-        {
-          "work": "Ellen M. Whitney, ed., The Black Hawk War 1831-1832, volume 1 (Illinois State Historical Library, 1970)",
-          "date": "1832",
-          "tier": 1,
-          "note": "THE ORIGINAL. It prints, for each veteran, name, rank, unit, place and dates of enrollment, and remarks on his service, with unit history following the rolls. Nobody in this project has seen it: the layer actually read is the State Archives INDEX of it, which carries the name, the rank, the company, the place of enrollment and the regiment and nothing else — no date of enrollment, no remark, no service record."
-        },
-        {
-          "work": "Illinois State Archives Black Hawk War veterans database — the Chicago enrollments",
-          "date": "1832",
-          "tier": 1,
-          "note": "134 rows. Ninety-four of them carry the company 'INDIAN' with the Rank cell left empty; forty stand in G Kercheval's company (one CPT, one 1LT, one 2LT, 37 PVT). One hundred and thirty-three carry the regiment 'ODD', which the page's own footnote expands as 'Unassigned Colonel'; the row for ZARLEY, J W leaves that cell empty."
-        }
-      ],
       "what_it_supplies": [
-        "134 men who demonstrably stood in Chicago in 1832 to enroll for the Black Hawk War, three years before the scene",
-        "the rank and company each man enrolled in, and the regiment or brigade he was assigned to",
-        "83 names printed WITHOUT a surname comma — the French and Potawatomi forms ('AS KE WITT', 'WAB-ME-MIC', 'BOURBONNOIS, FRANCIS SR' being of the other kind) — which is the part of the town's population this project is least able to recover elsewhere",
-        "Gholson Kercheval's company as the commonest single body of Chicago enrollments, which touches a man who signs the 1833 poll list this project already holds"
+        "a second, independent contemporary witness to the town in the twelve weeks around the scene date",
+        "advertisements and self-reported addresses from a different advertiser base than the Democrat's",
+        "attestation that needs no survival liberty: the whole run is within twelve weeks of 1835-07-01",
+        "corroboration or contradiction of a Democrat address, which is worth more than either paper alone",
+        "the paper's own correction of its first masthead date"
       ],
       "what_it_does_not_supply": [
-        "any date of enrollment beyond the year of the war — the index drops the dates the book prints",
-        "any residence, address, lot, trade, age or household",
-        "any evidence at all that a man was still in Chicago in 1835: enrolling at a place is presence at that place on that day and nothing more",
-        "any woman, and any man who did not enroll",
-        "the remarks on service that Whitney's volume carries, which are only obtainable from the Archives by post"
+        "any building's form, material, storey count, fenestration or dimensions",
+        "a reliable reading of a dense body column — this run had no reconciled second pass",
+        "a word count or uncertainty-marker count: none was delivered, and corpus.json records null rather than zero",
+        "identification by volume and number: No. 12 is printed on two different issues",
+        "anything at all from an engraving — the cuts are the printer's stock",
+        "a citation without an issue page and column"
       ]
     },
     {
@@ -254,6 +263,26 @@
         "Exact locations, dimensions, appearance, occupants, or construction dates for anonymous roofs.",
         "Authority to replace stronger building-specific evidence already represented in the dataset."
       ]
+    },
+    {
+      "source_id": "second_presbyterian_chicago_1892",
+      "citation": "The Second Presbyterian Church of Chicago, June 1st, 1842, to June 1st, 1892 (Chicago: Knight, Leonard & Co., 1892), John C. Grant, editor — the semi-centennial volume of the congregation, read from the Princeton Theological Seminary copy digitised by the Internet Archive as item secondpresbyterian00chic",
+      "url": "https://archive.org/details/secondpresbyterian00chic",
+      "archived_url": "https://archive.org/details/secondpresbyterian00chic",
+      "tier": 2,
+      "tier_label": "near-primary recollection",
+      "what_it_supplies": [
+        "2,255 lines of a Chicago church roll running from 1 June 1842 to 1892 — a name, how the member was admitted (profession or letter), the date, and for the closed roll a remark (dismissed, deceased, ordained).",
+        "962 distinct surnames, of which 938 lines carry a surname this project already holds from the town of 1835.",
+        "The founding cohort of 1 June 1842, which is where the overlap with the 1835 town is thickest: W. H. Brown, George W. Dole and Mrs A. N. Fullerton are all on the first day's roll.",
+        "A dated Chicago appearance for a surname, which is exactly the kind of second source the resident sweep files as a lead."
+      ],
+      "what_it_does_not_supply": [
+        "An 1835 residency, or any part of one. The earliest line on the roll is seven years after the scene date and the ratified ladder never makes an 1835 resident from a later appearance alone.",
+        "A woman's own name, much of the time. The roll sets a wife as `Mrs.` followed by her HUSBAND'S name — `Fullerton, Mrs. A. N.` — so a line that meets a man in the 1835 layer has met his name and not him, and the crosswalk flags every such line.",
+        "A death or a departure that can be dated. `Deceased` and `Dismissed` are the state of the roll at its closing on 1 June 1892, not events with dates of their own.",
+        "An address, a trade or a household. The roll carries none of the three."
+      ]
     }
   ],
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
@@ -271,22 +300,22 @@
     "stands_on": "street",
     "fronts": "madison",
     "sequence": 1,
-    "finish_key": "mixed_patch",
+    "finish_key": "weathered_timber",
     "roof_condition": "darkened",
-    "age_state": "older_frontier",
+    "age_state": "established",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "keeper",
-      "household": "hh_brown_jesse_b",
-      "words": "patched clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and plain corner boards, under a weather-darkened roof — The Brown household's, in Chicago since 1831 (rule F-T)"
+      "by": "keeper_trade",
+      "household": "hh_holbrook_john",
+      "words": "silvered clapboard on a braced frame, 9-over-6 sash of 6 × 8 in glass and plain corner boards, under a weather-darkened roof — The Holbrook household's, a shoemaker, in Chicago since 1833 (rule F-T)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "tradesman",
-    "age_state": "older_frontier",
-    "weather_years": 5.0,
+    "age_state": "established",
+    "weather_years": 2.5,
     "weather_rate": 1.0,
     "lay_m": 0.006,
     "confidence": "reconstructed"

@@ -85,6 +85,20 @@ statement says the great majority of those remaining "have nowhere to go until s
 control, terrain and hydrology reach them" — and this pass does not argue with it. It spends what
 the schedule offers and says what it could not spend.
 
+**A household the letter-list ruling refuses a roof is never dealt one (T-1645).** The
+owner's ruling of 2026-08-30 (T-0379) is that a name minted from the post office's letter
+lists is *a name the town knows, not a man with an address*. Until T-1645 this deal never
+asked: `adoptable()` tests the ROOF three ways and none of them is about the HOUSEHOLD, so
+117 of its 215 adopted seats went to letter-list households and
+`tools/name_the_keepers_1835.py` then refused every one of them on the card, leaving the
+roof empty while a seatable household of the same clause waited behind it. The deal now
+reads the ruling first: such a row is OWED with the ruling as its reason, and the roof goes
+on to the next row of its clause order. It is the keeper pass's own test
+(`is_letter_list`, the person's `letter_list_only` flag) and not a second one, so the two
+cannot disagree about who the cohort is. The row is still handed on, because the next
+pass's scope is this one's owed list by contract (`build_order_book_1835.py` holds the
+chain); whether the off-plat deal seats it is that deal's own question.
+
 **Everything else is OWED, in writing.** Three of the address book's bands name ground
 the plat does not hold — `farms_and_country_seats`, `heavy_and_noxious_trades` and
 `division_ground`, which is the band for a head whose trade no dwelling clause reaches —
@@ -175,11 +189,33 @@ BUSINESS_DEAL_HOLDS = 45
 # raised on the School Section tier's blocks 94 and 95 seat him in the deal itself (the H1 on
 # blk_school_section_tier_94#06), so releasing the business deal's roofs no longer moves the
 # household count. The hold is unchanged at 44 (L270).
-BUSINESS_DEAL_COSTS = 0
+# 0 -> 9 on 2026-10-09 (T-1645): the deal reads the letter-list ruling before it deals, so
+# the 117 roofs it had dealt to letter-list households go to the next rows of their clauses,
+# and the rows queued behind the business deal's roofs are no longer households the ruling
+# refuses. Released, those roofs would now seat nine of them (L270).
+# 9 -> 10 on 2026-10-09 (T-1550): hh_beaubien_charles folds onto hh_beaubien_charles_h and
+# his adopted D3 (recon_1835_blk_washington_wells_d3_05) goes to the next row, so the South
+# walk turns over behind it. hh_meleney_patrick, whom a release used to seat, now takes
+# recon_1835_south_d5_016 in the deal itself; hh_rc_woodruff_ruth is handed on from
+# recon_1835_south_d1_018, and she and hh_mulford_e_h queue behind the business roofs.
+# Released, those roofs would now seat ten (L270).
+BUSINESS_DEAL_COSTS = 10
 
 TICKET = "T-1613"
 PARENT = "T-1199"
 SUCCESSOR = "T-1614"
+
+HOUSEHOLDS = DATA / "residents" / "households"
+
+# T-1645. The reason an owed row gives when the ruling, and not the ground, is what owes it.
+LETTER_LIST_RULING = "T-0379"
+LETTER_LIST_REFUSAL = (
+    "a household minted from the post office's letter lists, which the owner's ruling of "
+    "2026-08-30 (T-0379) refuses a roof: a letter-list name is a name the town knows, not "
+    "a man with an address. The deal reads the ruling before it deals (T-1645), so no "
+    "roof is offered to this row and the roof it would have taken goes on to the next "
+    "row of its clause order"
+)
 
 FACES = ("north", "south", "east", "west")
 
@@ -251,6 +287,20 @@ def _tree():
     return plat_occupancy, street_traffic(), documented_families()
 
 
+def refused_a_roof() -> frozenset[str]:
+    """Every household the letter-list ruling (T-0379) refuses a roof, by id.
+
+    T-1645. The test is `tools/name_the_keepers_1835.py`'s own `is_letter_list`, imported
+    rather than restated: that pass is where the ruling has been applied to this deal's
+    output since T-1638, and a second definition here is how the two would come to
+    disagree about who the cohort is.
+    """
+    sys.path.insert(0, str(TOOLS))
+    from name_the_keepers_1835 import is_letter_list  # noqa: E402
+    return frozenset(path.stem for path in sorted(HOUSEHOLDS.glob("*.json"))
+                     if is_letter_list(load_json(path)))
+
+
 def load() -> dict:
     occupancy, traffic, documented = _tree()
     grid = load_json(GRID)
@@ -276,6 +326,7 @@ def load() -> dict:
         "address_book": load_json(ADDRESS_BOOK),
         "occupancy": occupancy,
         "business_roofs": business_roofs(),
+        "refused_a_roof": refused_a_roof(),
     }
 
 
@@ -598,6 +649,18 @@ def deal(data: dict, lots: list[dict]) -> dict:
                          "handed_to": SUCCESSOR})
             continue
 
+        # T-1645. THE RULING BEFORE THE ROOF. A letter-list household is refused a roof
+        # by the owner's ruling of 2026-08-30, so it is owed here with that reason and
+        # offered nothing — neither a standing roof nor a slot — and the roof it would have
+        # taken stays in `offer` for the next row of this clause's order.
+        if row["id"] in data["refused_a_roof"]:
+            owed.append({"id": row["id"], "kind": row["kind"], "band": seat["id"],
+                         "clause": clause_id, "district": district,
+                         "why": LETTER_LIST_REFUSAL,
+                         "refused_by": LETTER_LIST_RULING,
+                         "handed_to": SUCCESSOR})
+            continue
+
         admitted = set(clause["applies_to"])
 
         candidates = [
@@ -609,6 +672,14 @@ def deal(data: dict, lots: list[dict]) -> dict:
             # other's (T-1638); a roof it has not is open to whoever the order reaches.
             and reserved.get(structure_id, row["id"]) == row["id"]
         ]
+        # T-1645. A HOUSEHOLD ALREADY ON A ROOF STAYS ON IT. The reservation above keeps a
+        # roof for its household and nobody else; it did not keep the household on it, so
+        # when the ruling freed a better-scored lot ahead of it the household moved there
+        # and left its own roof reserved to nobody — 83 roofs empty on the first re-deal.
+        # Its own roof is the one T-1638 made idempotent, so it is the one it takes.
+        own = [pair for pair in candidates if reserved.get(pair[0]) == row["id"]]
+        if own:
+            candidates = own
         if candidates:
             structure_id, lot = max(
                 candidates, key=lambda pair: (score(pair[1], clause), pair[1]["lot_id"]))
@@ -892,6 +963,11 @@ def assert_the_deal_is_honest(data: dict, lots: list[dict], dealt: dict) -> None
     adopted: set[str] = set()
     slots: dict[str, int] = {}
     for seat in dealt["seats"]:
+        if seat["id"] in data["refused_a_roof"]:
+            raise Fault(f"{seat['id']} is seated on {seat['lot_id']} and is a household "
+                        "minted from the post office's letter lists, which the owner's "
+                        f"ruling of 2026-08-30 ({LETTER_LIST_RULING}) refuses a roof — the "
+                        "deal must owe it, not seat it (T-1645)")
         if seat["id"] in seen:
             raise Fault(f"{seat['id']} is seated twice")
         seen.add(seat["id"])
@@ -1131,6 +1207,8 @@ def seats_document(data: dict, lots: list[dict], dealt: dict) -> dict:
             "slots_requested": sum(1 for seat in seats if seat["how"] == "slot"),
             "owed_by_band_clause": dict(sorted(
                 Counter(row["clause"] for row in owed).items())),
+            "owed_by_the_letter_list_ruling": sum(
+                1 for row in owed if row.get("refused_by") == LETTER_LIST_RULING),
             "roofs_offered_for_adoption": dealt["adoptable_offered"],
             "roofs_held_back": len(dealt["held_back"]),
             "roofs_held_by_the_business_deal": dealt["precedence"]["roofs_held"],
@@ -1142,7 +1220,11 @@ def seats_document(data: dict, lots: list[dict], dealt: dict) -> dict:
             "handed_to": SUCCESSOR,
             "statement":
                 f"the committed plat seats {len(seats)} of the {len(seats) + len(owed)} "
-                "households the address book leaves at a band. The rest is not refused: "
+                "households the address book leaves at a band. "
+                f"{sum(1 for row in owed if row.get('refused_by') == LETTER_LIST_RULING)} "
+                "of the rest are letter-list households the owner's ruling of 2026-08-30 "
+                f"({LETTER_LIST_RULING}) refuses a roof, owed here with that reason "
+                "(T-1645). The rest is not refused: "
                 f"it is handed to {SUCCESSOR}, which owns the ground the plat does not "
                 "draw — the farms and country seats, the additions' small lots, the "
                 "fringes and the branches. The binding constraint is the one the "
@@ -1364,6 +1446,19 @@ def cmd_self_test() -> int:
     _fires("a household adopted into a roof the business deal holds",
            a_household_under_a_business_roof, expect="street-face business deal holds")
     print("   a household under a roof the business deal holds    refused")
+
+    def a_letter_list_household_seated():
+        # T-1645. Drop the ruling from the DEAL and keep it in the check: the re-deal
+        # seats the cohort again, and the guard has to say so by name.
+        blind = {**data, "refused_a_roof": frozenset()}
+        again = deal(blind, lots)
+        if not any(s["id"] in data["refused_a_roof"] for s in again["seats"]):
+            raise Fault("fixture: with the ruling dropped the deal seats no letter-list "
+                        "household, so this guard has nothing to catch")
+        assert_the_deal_is_honest(data, lots, again)
+    _fires("a deal that no longer reads the letter-list ruling",
+           a_letter_list_household_seated, expect="T-1645")
+    print("   a letter-list household dealt a roof (T-0379)       refused")
 
     def the_precedence_moved_unruled():
         assert_the_precedence_is_ruled({

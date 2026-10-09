@@ -160,7 +160,7 @@
     "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
   },
   "occupants": {
-    "value": "The Dailey household — a name the town's own records carry",
+    "value": "The Leframboise household — a name the town's own records carry",
     "confidence": "reconstructed",
     "sources": [
       "chicago_voter_lists_1833_1835_irad"
@@ -186,15 +186,15 @@
       "rule": "F-L",
       "class": "labourer",
       "by": "keeper_trade",
-      "household": "hh_dailey_thomas",
-      "words": "silvered clapboard on a braced frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a patched roof — The Dailey household's, a domestic, in Chicago since 1832 (rule F-L)"
+      "household": "hh_leframboise_joseph",
+      "words": "silvered clapboard on a braced frame, 6-over-6 sash of 6 × 8 in glass and scant corner boards, under a patched roof — The Leframboise household's, a laundress, in Chicago since 1832 (rule F-L)"
     }
   },
   "resident_assignment": {
     "status": "assigned",
     "confidence": "reconstructed",
     "note": "T-1685: seated by the placement policy's platted deal under its tradesman_dwellings clause, on blk_randolph_wells#01 fronting washington — a standing anonymous roof of family D3 this clause admits, adopted and not raised. WHICH household takes WHICH lot is this project's invention (L270); that the card now says so is L276. No source places this household on this lot, on this street, or in this division.",
-    "household_id": "hh_dailey_thomas"
+    "household_id": "hh_leframboise_joseph"
   },
   "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
   "review_required": false

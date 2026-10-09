@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1596, ts: '2026-10-09T22:17:15.901Z', date: 'Oct 9, 2026, 5:17 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: null, ts: '', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
       'His second house is gone. Other households move into it and the houses they leave, and Jacob Donner, who was waiting for a roof, now has one on the South side.',
+    ] },
+  { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
+    items: [
+      'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
+      'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
+      'Ten houses still stand empty, because the household next in line is known by no source. The 98 households already named have not moved.',
     ] },
   { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
     items: [
