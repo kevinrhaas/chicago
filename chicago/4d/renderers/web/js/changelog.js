@@ -1,8 +1,9 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Shopkeepers now live over their own stores', kind: 'fix',
+  { v: 1569, ts: '2026-10-09T09:26:36.250Z', date: 'Oct 9, 2026, 4:26 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [
       'Eighteen stores in the 1835 town stood with nobody living in them while their keepers boarded in other people\u2019s houses. Open Peter Cohen\u2019s store on South Water Street, or L. W. Montgomery\u2019s boot and shoe shop beside it, and the keeper\u2019s household is now listed as living there. Thirteen keepers moved into the store their own business already stood in. Five more whose business had no building took an empty store in their part of town.',
       'No new people or businesses are made up, and the town keeps the same number of stores. A store with a family over it counts as a home, so 69 more households who were waiting for a roof now have one. The 13 stores still without a keeper\u2019s family are next.',
+    ] },
   { v: 1568, ts: '2026-10-09T08:33:20.671Z', date: 'Oct 9, 2026, 3:33 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
     items: [
       'St Mary\u2019s baptismal register names each child\u2019s mother and godmother. 28 of those women had no recorded sex, and the guess for them came out male. The register now sets them as women, quoting the entry.',
