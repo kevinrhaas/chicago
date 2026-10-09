@@ -11,7 +11,6 @@
     "a_trade_reading_the_business_layer_holds_no_record_for": 22,
     "the_column_names_nobody": 60,
     "the_family_pass_finds_a_family_the_column_states_whole": 1,
-    "the_family_pass_finds_a_tie_the_household_contradicts": 1,
     "the_family_pass_finds_an_identity_nobody_has_asserted": 1,
     "the_family_pass_finds_neither_party_is_held": 4,
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 4,
@@ -35,11 +34,6 @@
       "disposition": "unresolved",
       "ticket": "T-2192",
       "statement": "The family pass (T-1335) read a column that states a FAMILY rather than a tie: parent ties between cards the town holds, and marriages whose brides may still be seated in their fathers' houses. Writing the parent ties alone and leaving the marriages would rule the column piecemeal, and seating a bride is a household edit this pass may not make, so the unit is handed whole to the open ticket that reads it onto the cards."
-    },
-    "the_family_pass_finds_a_tie_the_household_contradicts": {
-      "disposition": "unresolved",
-      "ticket": "T-2190",
-      "statement": "The family pass (T-1335) read a tie between two people the town holds on two different cards, and the household it would join already holds a MODELLED person in the place the source gives the other: writing the tie would state two wives. Seating the printed person and withdrawing the modelled one is a household edit this pass is forbidden to make, so the unit is handed to the open ticket that owns that edit, and the tie is written there."
     },
     "the_family_pass_finds_an_identity_nobody_has_asserted": {
       "disposition": "refused",
@@ -314,11 +308,6 @@
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_10.json#claims/c015",
       "rule": "the_press_name_is_a_person_the_town_does_not_hold",
       "note": "chicago_democrat_1833_12_10 c015: a notice of 1833-12-10 naming Henry Clyburn. It reads: “S[t]rayed, FROM the Door Prairie, about the first of Nov. last, one large gray Horse, 17 hands high, and nine years old. One Iron Gray Mare, 15 1-2 hands high, and 9 years old. …” The register carries: Henry Clyburn → new_resident"
-    },
-    {
-      "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001",
-      "rule": "the_family_pass_finds_a_tie_the_household_contradicts",
-      "note": "chicago_democrat_1833_12_17 c001: the family column of 1833-12-17 reads: “MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.” THE FAMILY PASS: Chester Ingersoll (hh_ingersoll_chester) married Betsy Weaver (hh_weaver_betsy) on 12 December 1833; the press register links both cards to this column. On 1 July 1835 she is his wife, but his house already holds a MODELLED wife, 'Martha Ingersoll', and six modelled children. Writing husband/wife across the two cards would state two wives, so the unit is handed to T-2190, which seats the printed bride and withdraws the draw."
     },
     {
       "unit": "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_24.json#claims/c008",

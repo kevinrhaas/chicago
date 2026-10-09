@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1551, ts: '2026-10-08T22:45:14.954Z', date: 'Oct 8, 2026, 5:45 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+  { v: 1552, ts: '2026-10-09T00:17:30.495Z', date: 'Oct 8, 2026, 7:17 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
       'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
+    ] },
+  { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
+      'The paper\u2019s \u201cMiss\u201d now sets her card to female, quoting the column. She is seated in his house as his wife, in place of the invented one, and the house card quotes the marriage notice. His six children are still reconstructed, not named by any source, and are unchanged.',
     ] },
   { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
