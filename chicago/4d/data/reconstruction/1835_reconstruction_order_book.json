@@ -4444,7 +4444,7 @@
           "known": 26,
           "to_reconstruct": 97,
           "filled": 8,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
         {
@@ -4457,7 +4457,7 @@
           "known": 72,
           "to_reconstruct": 186,
           "filled": 16,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
         },
         {
@@ -4470,7 +4470,7 @@
           "known": 21,
           "to_reconstruct": 89,
           "filled": 10,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
         {
@@ -4535,7 +4535,7 @@
           "known": 2,
           "to_reconstruct": 4,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division"
         },
         {
@@ -4548,7 +4548,7 @@
           "known": 18,
           "to_reconstruct": 44,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division"
         },
         {
@@ -4561,7 +4561,7 @@
           "known": 1,
           "to_reconstruct": 8,
           "filled": 0,
-          "owning_ticket": "T-2188",
+          "owning_ticket": "T-2194",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division"
         },
         {
@@ -5231,7 +5231,7 @@
           "to_build": 2,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-1957",
+          "owning_ticket": "T-2196",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 2 of them to build"
         },

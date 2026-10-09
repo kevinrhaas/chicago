@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'Three people who were in the town twice are now in it once', kind: 'fix',
+    items: [
+      'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
+      'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and George Chapman’s household, which was still waiting for a roof, now has a house on Lake Street.',
+    ] },
   { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [
       'Mary and Catherine Wode were baptised together at St Mary’s in July 1833. Mary’s card already named her father, John Wode, but Catherine’s did not. Now it does, and his card names both daughters.',

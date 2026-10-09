@@ -9,15 +9,15 @@
   "cards_in_open_clusters": 45,
   "rulings": {
    "distinct": 72,
-   "merge": 50,
+   "merge": 53,
    "undecided_T-1281": 1,
    "undecided_T-1550": 1,
    "undecided_T-1554": 1,
    "undecided_owner": 1,
    "undecided_rule": 12
   },
-  "landed_merges": 50,
-  "cards_folded": 69
+  "landed_merges": 53,
+  "cards_folded": 72
  },
  "landed": [
   {
@@ -172,6 +172,16 @@
     "eldredge_john_w"
    ],
    "rule": "C9"
+  },
+  {
+   "cluster": "franchre-franch-re",
+   "survivor": "franchre_louis",
+   "survivor_household": "hh_franchre_louis",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "louis_franch_re"
+   ],
+   "rule": "C17"
   },
   {
    "cluster": "fraser-frazer",
@@ -371,6 +381,26 @@
     "anight_clark"
    ],
    "rule": "C13"
+  },
+  {
+   "cluster": "ltendre-l-tendre",
+   "survivor": "ltendre_baptiste",
+   "survivor_household": "hh_ltendre_baptiste",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "baptiste_l_tendre"
+   ],
+   "rule": "C17"
+  },
+  {
+   "cluster": "ltendre-l-tendre",
+   "survivor": "ltendre_joseph",
+   "survivor_household": "hh_ltendre_joseph",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "joseph_l_tendre"
+   ],
+   "rule": "C17"
   },
   {
    "cluster": "norton",

@@ -335,6 +335,23 @@
   },
   {
    "outcome": "merged",
+   "person_id": "franchre_louis",
+   "folded_person_id": "louis_franch_re",
+   "rule": "C17",
+   "cluster": "franchre-franch-re",
+   "record_ids": [
+    "st_marys_bapt_1833_05_4_sponsor"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-2197: 'louis_franch_re' and 'franchre_louis' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'franchre-franch-re'."
+  },
+  {
+   "outcome": "merged",
    "person_id": "fraser_wm_h",
    "folded_person_id": "frazer_wm_h",
    "rule": "C9",
@@ -835,6 +852,40 @@
     "chicago_democrat_1833_1835"
    ],
    "evidence": "T-1134: 'anight_clark' and 'knight_clark' are one person under rule C13; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'anight-knight'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "ltendre_baptiste",
+   "folded_person_id": "baptiste_l_tendre",
+   "rule": "C17",
+   "cluster": "ltendre-l-tendre",
+   "record_ids": [
+    "st_marys_bapt_1833_10_2_father"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-2197: 'baptiste_l_tendre' and 'ltendre_baptiste' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'ltendre-l-tendre'."
+  },
+  {
+   "outcome": "merged",
+   "person_id": "ltendre_joseph",
+   "folded_person_id": "joseph_l_tendre",
+   "rule": "C17",
+   "cluster": "ltendre-l-tendre",
+   "record_ids": [
+    "st_marys_bapt_1833_10_1_child"
+   ],
+   "domains": [
+    "church"
+   ],
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "evidence": "T-2197: 'joseph_l_tendre' and 'ltendre_joseph' are one person under rule C17; the ruling and its reasoning are in data/residents/card_merge_rulings.json under cluster 'ltendre-l-tendre'."
   },
   {
    "outcome": "merged",
