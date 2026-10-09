@@ -27,7 +27,7 @@ Of 2,886 people in 1,459 households.
 
 ## The rows behind the verdicts
 
-**Roles.** 738 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 52, `profession` 84, `trade` 601.
+**Roles.** 742 dated role rows across the layer; 160 reach 1 July 1835. By kind: `employment` 1, `office` 56, `profession` 84, `trade` 601.
 
 **Places.** 3,862 location rows reach a person; 495 of them reach the scene date. By claim kind: `business_location` 154, `home` 2,886, `later_home_address` 176, `later_workplace_address` 497, `workplace` 149.
 
