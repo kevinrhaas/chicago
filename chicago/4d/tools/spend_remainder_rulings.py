@@ -282,50 +282,11 @@ RULES = {
             "cards, so a presence that moves out from under one of these rulings turns the "
             "gate red."),
     },
-    "the_enrichment_names_a_civic_church_or_school_post_no_field_carries": {
-        "disposition": "unresolved",
-        # AND T-1189 IS SPENT SINCE 2026-09-25, so the pointer moves a third time. This is
-        # the T-1237 rule again and it arrived the way that rule always arrives: nothing in
-        # the tree moved, a ticket closed. T-1189 has been `split` since 2026-09-20 and was
-        # held live by ONE leaf of one chain the whole time — T-1189 -> T-1434 -> T-1448 —
-        # and T-1448 merged as #40 at 16:13Z on 2026-09-25 and settled to `done`. T-1432,
-        # T-1433, T-1461 and T-1462 had already closed, so the chain now reads spent and
-        # these twelve units were deferred to finished work; `check.sh` on dev went red on
-        # exactly them (T-1567 filed it from `--ledger-build`, T-1568 from the gate).
-        #
-        # THE PIECES OF T-1189 DO NOT COVER THEM, which is why this is not a per-person deal
-        # among T-1432, T-1433 and T-1434. Those three ran the staffing JOIN: T-1432 wrote
-        # `staff[]` on every business a source staffs, T-1433 seated reconstructed residents
-        # with a trade and no workplace, and T-1434's chain minted the shortfall and printed
-        # the coverage. Not one of them walked the RESIDENT LAYER'S ENRICHMENTS against the
-        # establishments T-1188's children raised — a post found in a volume, on a card this
-        # town already holds. That walk is what these twelve still need, and it now has its
-        # own ticket rather than a pointer at a chain that has stopped: T-1569, filed beside
-        # T-1315 and T-1335, which are the same shape for the dated births and the kin.
-        "ticket": "T-1569",
-        "statement": (
-            "The completed pass returned `corroborated_enrichment`: a real, sourced fact about a "
-            "person this town holds -- a trade, an address, an origin, a kinship, a date -- that "
-            "extends the card and that no exact source-bearing structured field on that card "
-            "carries today. It is not refused, because it is true research; it is not written here, "
-            "because writing one attribute at a time, out of one pass and without the other sources "
-            "beside it, is how a layer acquires facts it cannot defend. T-1301 read all 98 of them "
-            "one at a time and handed each to the OPEN ticket whose acceptance owns the kind of "
-            "fact it names; this unit's own note says which field that is. This one names a CIVIC, "
-            "CHURCH, SCHOOL or GARRISON POST -- a county office, a town trusteeship, a coronership, "
-            "a ministry, a church membership, a school kept or an officer's clerkship."
-            " IT WAS ROUTED TO T-1188, which completes those establishments with their staff. That "
-            "ticket split into T-1410 (the post office, the land office and the county rooms) and "
-            "T-1411, which split again into T-1421 (the churches) and T-1422 (the schools and the "
-            "press), and all four are now done -- so the establishments EXIST and a unit cannot "
-            "defer to spent work. The hand-off is T-1189 since 2026-09-20: what these twelve "
-            "findings name is a POST, a person at one of those establishments, and T-1189 is the "
-            "open ticket that puts real persons into them -- every working person a workplace and "
-            "every workplace its people. The three closed children raised the houses and named the "
-            "officers their own sources printed; they did not walk the resident layer's enrichments "
-            "against them, and that walk is what a post found in a volume still needs."
-            " AND THE HAND-OFF IS T-1569 SINCE 2026-09-25: T-1189's own chain is spent — T-1432 and T-1433 done, T-1434 split to T-1448 (done, #40) and T-1449, whose pieces T-1461 and T-1462 are done — so the ticket that was going to do the walk has stopped without doing it. T-1569 is that walk, and it is a SPEND rather than a routing: the join those pieces built is what gives these twelve a field to be written into."),
-    },
+    # THE CIVIC-POST HAND-OFF THAT STOOD HERE IS SPENT (T-1569). Twelve units sat under
+    # `the_enrichment_names_a_civic_church_or_school_post_no_field_carries`, `unresolved`,
+    # pointed at T-1188, then T-1189, then T-1569 as each ticket closed under them. T-1569
+    # read all twelve against the cards; their four rules are CIVIC_RULES below, beside
+    # the table that gives each unit its outcome.
     "the_landholding_is_written_onto_the_card_as_what_the_person_held": {
         "disposition": "asserted",
         # T-1588 SPENT THESE TWO, AND THE RULE THEY SAT UNDER IS GONE WITH THEM. Its name
@@ -697,6 +658,206 @@ import spend_family_pass as FAMILY  # noqa: E402
 RULES.update({k: v for k, v in FAMILY.RULES.items() if k not in FAMILY.BOOK_ONLY})
 
 
+# T-1569: THE TWELVE CIVIC, CHURCH, SCHOOL AND GARRISON POSTS ARE READ AGAINST THE CARDS,
+# and the hand-off they sat under is gone. T-1301 read them as posts -- a county office, a
+# trusteeship, an election, a ministry, a school kept, a fort clerkship, a church
+# membership -- and routed them to the ticket that would raise the establishments, then to
+# the one that would staff them. Both programmes finished and neither walked these twelve.
+# This is that walk. Eight are already carried by a field on the card; four were carried
+# by nothing, and data/research/residents/prose_role_readings.json now holds each of them
+# as a reading that tools/derive_resident_roles.py writes onto the card as a `roles[]` post,
+# outside the 1835 view because every volume they rest on was set down after the scene.
+# TWO OF THOSE FOUR LEAVE THIS REGISTER ONCE WRITTEN, and that is the ledger working:
+# Meeker's librarianship and Steele's coronership are the only readings of their people,
+# so the role row, which is graded, cited and names the pass that read it, is the
+# source-bearing field `research_spend_ledger.natural_disposition` asserts them by. Hogan
+# and Snow were read in two passes each, so their key is a repeat the ledger will not
+# resolve by token, and their units stay here, ruled below.
+# Every outcome is `refused` for the reason T-1469's trade spend gives its carries: the
+# unit asks nothing further of the layer. A register that wrote "asserted" for a field a
+# DIFFERENT pass wrote would be vouching for a write it never made.
+#
+# THE CARRIER IS SHOWN, NOT DECLARED. Each row names (field, selector) pairs, and
+# `civic_carriers` resolves every one on disk with T-1469's own resolver, so a post that
+# moves off a card turns `--check` red instead of leaving a note that says the card holds
+# it. A `staff` carrier is the business register's side of the same post: the record must
+# name THIS person in its staff, which is the "card and staff[] agree" half of T-1569's
+# acceptance held by structure.
+from spend_trade_premises import (cited as _cited, grade as _grade,  # noqa: E402
+                                  person_index as _person_index,
+                                  reaches_scene_date as _reaches,
+                                  resolve as _resolve)
+
+CIVIC_CARRIED = "the_post_is_carried_by_the_card_at_the_scene_date"
+CIVIC_BOUNDED = "the_post_is_carried_with_the_card_s_own_bound_outside_the_window"
+CIVIC_PROFILE = "the_post_is_carried_as_a_dated_profile_fact_on_the_card"
+CIVIC_WRITTEN = "the_post_is_written_onto_the_card_as_a_role_the_1835_view_refuses"
+CIVIC_RULES = {
+    CIVIC_CARRIED: {
+        "disposition": "refused",
+        "statement": (
+            "The completed pass returned `corroborated_enrichment` naming a CIVIC, CHURCH or "
+            "SCHOOL POST, and T-1569 found the card already carries it for the scene date: "
+            "the 1835 occupation names the post, graded and cited, and where the business "
+            "register holds the establishment its staff names this person in the same post "
+            "or the card's `workplaces[]` or `works_at` names it. Under the ladder ratified "
+            "2026-09-03 a corroboration corroborates and does not promote, so nothing moves. "
+            "The note names every field that answers the finding."),
+    },
+    CIVIC_BOUNDED: {
+        "disposition": "refused",
+        "statement": (
+            "The completed pass returned `corroborated_enrichment` naming a post, and T-1569 "
+            "found the card already carries the same post, dated OUT of the scene by a "
+            "contemporary printing the card cites. The finding gives no date finer than the "
+            "card's, so it names no field the card lacks and no bound the card has not "
+            "already drawn; nothing moves."),
+    },
+    CIVIC_PROFILE: {
+        "disposition": "refused",
+        "statement": (
+            "The completed pass returned `corroborated_enrichment` naming a post or a "
+            "membership, and T-1569 found it already on the card as a dated `profile_facts[]` "
+            "row, with its source and the date it speaks about, written by "
+            "tools/spend_person_facts.py. A membership or an assistant's place is not an "
+            "employment and is not put on a business's staff; the profile fact is the field "
+            "that carries it, and the note says so where an establishment exists."),
+    },
+    CIVIC_WRITTEN: {
+        "disposition": "refused",
+        "statement": (
+            "The completed pass returned `corroborated_enrichment` naming a post no field on "
+            "the card carried -- a town trusteeship, an election as assessor and surveyor. "
+            "T-1569 WROTE IT: the reading "
+            "stands in data/research/residents/prose_role_readings.json, and "
+            "tools/derive_resident_roles.py carries it onto the card as a `roles[]` row of "
+            "kind `office`, graded inferred, citing the volume the pass read, naming the body "
+            "the post served where the fold names one. It does not stand in the 1 July 1835 "
+            "view, because every volume these rest on was set down after the scene and may "
+            "date and corroborate but never promote. `refused` here means the unit asks "
+            "nothing further of the layer, not that the reading was declined; the note names "
+            "the role row it became."),
+    },
+}
+RULES.update(CIVIC_RULES)
+
+#: (pass, person) -> (outcome, what T-1301 read, carriers, the sentence that says why).
+CIVIC_SPEND: dict[tuple[str, str], tuple[str, str, list[tuple[str, str]], str]] = {
+    ("02", "hamilton_richard_j"): (
+        CIVIC_CARRIED, "county clerk and recorder, and the later county offices",
+        [("occupation", "county_clerk"), ("roles", "clerk of the circuit court"),
+         ("staff", "biz_cook_county_offices")],
+        "The county offices' record names him its clerk, which is the card's 1835 office. "
+        "The recordership and the later county offices are Andreas's, dated after the scene "
+        "on the record's own reading, and are not seated."),
+    ("02", "hogan_john_s_c"): (
+        CIVIC_WRITTEN, "a corporate trustee named in the 1835 incorporation act",
+        [("roles", "trustee of the town of Chicago")],
+        "The town had no hall and keeps no record in the business register, so the post "
+        "names its body and no house."),
+    ("02", "snow_george_w"): (
+        CIVIC_WRITTEN, "election as assessor and surveyor in December 1833",
+        [("roles", "assessor and surveyor")],
+        "Dated to the month of the election; the card's 1834 town clerkship and public "
+        "administratorship follow it from the Democrat."),
+    ("03", "fullerton_alexander"): (
+        CIVIC_BOUNDED, "the 1835 town-clerk chronology",
+        [("roles", "secretary to the town trustees")],
+        "The Democrat prints him secretary to the town trustees on 19 August 1835, after "
+        "the scene, and the chronology dates the clerkship to the same year and no finer."),
+    ("04", "sproat_grenville"): (
+        CIVIC_CARRIED, "an English and Classical School opened in the fall of 1833",
+        [("occupation", "schoolteacher"), ("workplaces", "biz_the_chicago_academy"),
+         ("works_at", "temple_building"), ("staff", "biz_the_chicago_academy")],
+        "The academy's record and his card name each other."),
+    ("04", "st_cyr_john_mary"): (
+        CIVIC_CARRIED, "an 1833 appointment, the first Mass and the first church",
+        [("occupation", "priest"), ("works_at", "st_marys_church"),
+         ("staff", "biz_st_marys_church")],
+        "St Mary's record names him its priest and his card works at the church."),
+    ("04", "watkins_john"): (
+        CIVIC_CARRIED, "a school taught in Chicago in 1835",
+        [("occupation", "schoolteacher"), ("workplaces", "biz_john_watkins"),
+         ("works_at", "north_side_school_1833"), ("staff", "biz_john_watkins")],
+        "His school's record and his card name each other."),
+    ("09", "myers_frederick"): (
+        CIVIC_PROFILE, "a quartermaster's clerkship at Fort Dearborn, 1831-33",
+        [("profile_facts", "Quartermaster's clerk")],
+        "The garrison is not in the business register, and a clerkship ending in 1833 does "
+        "not reach the scene."),
+    ("10", "barrows_mary"): (
+        CIVIC_PROFILE, "an assistant's post in Miss Chappel's school",
+        [("profile_facts", "Miss Chappel")],
+        "Miss Chappel's school has no record in the business register, so no staff row "
+        "can be written and none is raised for it here."),
+    ("11", "lathrop_samuel_s"): (
+        CIVIC_PROFILE, "First Baptist membership from October 1833",
+        [("profile_facts", "First Baptist")],
+        "A membership is not a post on the First Baptist Church's staff, which names only "
+        "its minister."),
+}
+
+
+def staff_row(business_id: str, person_id: str, root: Path = ROOT):
+    """The business register's row naming this person, and the pointer to it."""
+    found = sorted((root / "data" / "businesses").rglob(f"{business_id}.json"))
+    pointer = f"data/businesses/{business_id}.json#staff[{person_id}]"
+    if not found:
+        return None, pointer
+    doc = read_json(found[0])
+    pointer = f"{found[0].relative_to(root).as_posix()}#staff[{person_id}]"
+    for key in ("staff", "proprietors", "partners"):
+        for row in doc.get(key) or []:
+            if isinstance(row, dict) and row.get("person_id") == person_id:
+                return {**row, "sources": [row["source_id"]] if row.get("source_id") else []}, pointer
+    return None, pointer
+
+
+def civic_carriers(key: tuple[str, str], carriers=None,
+                   index=None) -> tuple[list[str], list[str]]:
+    """Each carrier resolved on disk, as a phrase; and every carrier that did not resolve."""
+    pass_id, person_id = key
+    index = _person_index() if index is None else index
+    found = index.get(person_id)
+    if found is None:
+        return [], [f"{pass_id}/{person_id}: the resident layer holds no such person"]
+    path, household, person = found
+    shown, faults = [], []
+    for field, selector in (CIVIC_SPEND[key][2] if carriers is None else carriers):
+        if field == "staff":
+            block, pointer = staff_row(selector, person_id)
+        else:
+            block, pointer = _resolve(field, selector, path, household, person)
+        if block is None:
+            faults.append(f"{pass_id}/{person_id} names {pointer}, which does not carry {selector!r}")
+            continue
+        if _grade(block) not in ("attested", "inferred", "documented"):
+            faults.append(f"{pass_id}/{person_id}: {pointer} is {_grade(block)!r}")
+        if not _cited(block):
+            faults.append(f"{pass_id}/{person_id}: {pointer} cites no source")
+        value = clip(block.get("value") or block.get("as_printed") or block.get("role")
+                     or block.get("business_id") or selector, 90)
+        # A role row says for itself whether it stands in the view; `covers_scene_date`
+        # only says its bound reaches the day, and a year-dated reading does that while
+        # the ladder still refuses it the view.
+        inside = (bool(block.get("fills_scene_view")) if "fills_scene_view" in block
+                  else _reaches(field, block))
+        view = ("" if field == "staff" else
+                f", {'in' if inside else 'outside'} the 1 July 1835 view")
+        shown.append(f"{pointer} = “{value}” ({_grade(block)}{view})")
+    return shown, faults
+
+
+def civic_rule(key: tuple[str, str], head: str) -> tuple[str, str]:
+    """T-1569's outcome for one civic-post enrichment, with the fields that answer it."""
+    outcome, _, _, why = CIVIC_SPEND[key]
+    shown, faults = civic_carriers(key)
+    if faults:
+        raise SystemExit("T-1569 names a carrier the card does not hold — " + "; ".join(faults))
+    verb = "T-1569 wrote it as" if outcome == CIVIC_WRITTEN else "The card carries it at"
+    return outcome, f"{head} {verb} " + "; ".join(shown) + ". " + why
+
+
 def read_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
@@ -752,7 +913,9 @@ KIN = "routed_to_the_family_pass"
 # under is decided by tools/spend_trade_premises.py, which reads the card; this
 # constant only says which of the 96 enrichments go to it (T-1469).
 TRADE = "routed_to_the_trade_and_premises_spend"
-CIVIC = "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"
+# CIVIC IS A ROUTING MARKER AND NO LONGER A RULE (T-1569): CIVIC_SPEND above gives each
+# of the twelve its outcome, read off the card.
+CIVIC = "routed_to_the_civic_post_spend"
 LAND = "the_landholding_is_written_onto_the_card_as_what_the_person_held"
 LATER = "the_later_volume_enriches_a_biography_and_names_no_1835_field"
 
@@ -803,7 +966,6 @@ ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
     ("04", "mason_matthias"): (TRADE, "a blacksmith shop opened in the fall of 1833"),
     ("04", "maxwell_philip"): (AGE, "full birth data"),
     ("04", "mckee_david"): (TRADE, "the agency blacksmith's shop at the foot of State Street"),
-    ("04", "meeker_joseph"): (CIVIC, "church membership, a Sunday-school office and the first meeting house"),
     ("04", "murphy_john"): (TRADE, "the keeping of the Exchange Coffee House from August 1834"),
     ("04", "norton_nelson_r"): (CARRIED, "an arrival dated 16 November 1833"),
     ("04", "pierce_asahel"): (CARRIED, "an October 1833 arrival"),
@@ -811,7 +973,6 @@ ENRICHMENT_ROUTE: dict[tuple[str, str], tuple[str, str]] = {
     ("04", "pruyne_peter"): (TRADE, "a drug store kept in partnership from early 1833"),
     ("04", "sproat_grenville"): (CIVIC, "an English and Classical School opened in the fall of 1833"),
     ("04", "st_cyr_john_mary"): (CIVIC, "an 1833 appointment, the first Mass and the first church"),
-    ("04", "steele_ashbel"): (CIVIC, "the county coroner's office in the 1835 period"),
     ("04", "sweet_alanson"): (DEPARTURE, "a removal to Milwaukee in 1835"),
     ("04", "thomas_frederick"): (TRADE, "a barber-surgeon's and retail druggist's trade"),
     ("04", "walters_william"): (TRADE, "the Wolf Point Tavern kept 1833-36"),
@@ -917,6 +1078,10 @@ def rule_residents(unit: dict, finding: dict | None, preamble: str) -> tuple[str
         return FAMILY.authored_rule(
             unit, f"The pass on {unit['source_record_id']} returned: “{summary}” "
                   f"Sources as recorded: {clip(sources, 180)}. T-1301 reads that as {field}.")
+    if rule == CIVIC:
+        return civic_rule(key, f"The pass on {unit['source_record_id']} returned: “{summary}” "
+                               f"Sources as recorded: {clip(sources, 180)}. T-1301 read that "
+                               f"as {field}.")
     if rule == LAND:
         # A SPENT UNIT'S NOTE SAYS WHERE IT WENT, not which ticket it was routed to
         # (T-1588). The routing sentence below was right while these two were waiting;
@@ -1754,12 +1919,29 @@ def self_test() -> int:
             ("a trade printed for a later year", "14", "sabine_wm", TRADE_LATER),
             ("a pre-scene engagement", "04", "handy_major", TRADE_UNREACHED),
             ("a reading the card contradicts", "02", "pearsons_hiram", TRADE_CONTRADICTING),
-            ("a county office", "04", "steele_ashbel", "the_enrichment_names_a_civic_church_or_school_post_no_field_carries"),
+            # T-1569: one probe per outcome the civic spend reaches.
+            ("a town post written as a role", "02", "hogan_john_s_c", CIVIC_WRITTEN),
+            ("a county office the card carries", "02", "hamilton_richard_j", CIVIC_CARRIED),
+            ("a town post the card dates out", "03", "fullerton_alexander", CIVIC_BOUNDED),
+            ("a membership carried as a profile fact", "11", "lathrop_samuel_s", CIVIC_PROFILE),
             ("a landholding", "05", "wright_john_s", LAND),
             ("a later volume", "15", "doolittle_ehjah", "the_later_volume_enriches_a_biography_and_names_no_1835_field")):
         held(f"an enrichment naming {label}", enrichment(pass_no, person), want,
              fn=lambda u: rule_residents(u, {"outcome": "corroborated_enrichment",
                                              "summary": "s" * 50}, ""))
+
+    # T-1569: the civic table is exactly the civic routes, and a carrier is SHOWN. A
+    # selector the card does not hold, and a business whose staff does not name the
+    # person, must each come back as a fault rather than as a sentence about the card.
+    civic_routes = {k for k, (rule, _) in ENRICHMENT_ROUTE.items() if rule == CIVIC}
+    if civic_routes != set(CIVIC_SPEND):
+        failures.append(f"CIVIC_SPEND and the civic routes differ: "
+                        f"{sorted(civic_routes ^ set(CIVIC_SPEND))}")
+    for label, probe in (
+            ("a role the card does not carry", [("roles", "lord mayor of nowhere")]),
+            ("a staff row naming somebody else", [("staff", "biz_first_presbyterian_church")])):
+        if not civic_carriers(("02", "hogan_john_s_c"), probe)[1]:
+            failures.append(f"the civic spend accepted {label} as a carrier")
 
     # An enrichment this tool never adjudicated must FAIL, not fall to a default. The whole
     # reason T-1301 exists is that one default pointer went stale and took 98 units with it.

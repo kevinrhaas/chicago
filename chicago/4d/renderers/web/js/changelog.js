@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1572, ts: '2026-10-09T11:15:07.460Z', date: 'Oct 9, 2026, 6:15 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+    items: [
+      'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
+      'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as the First Presbyterian Sunday-school librarian from March 1835.',
+      'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
+      'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
   { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
     items: [
       'Open the unattributed drawing of a log schoolhouse on a shore in the Sources panel. It now links to the page it was copied from, a 2018 Illinois history blog post about Eliza Chappell, and to an archived copy of that page.',

@@ -358,6 +358,14 @@ FOLD: dict[str, tuple[str | None, str | None, str | None]] = {
     "school trustee": (None, None, "town_of_chicago"),
     "judge of election": (None, None, "town_of_chicago"),
     "county clerk": ("county_clerk", "office", "cook_county"),
+    # T-1569: three posts the resident passes read in retrospective prose. None has a
+    # controlled word -- the town elected an assessor and a surveyor in ONE vote, which
+    # names two posts and so folds to neither; a trustee and a coroner are not in OFFICES
+    # -- so each keeps its printing and names the body it served.
+    "trustee of the town of Chicago": (None, None, "town_of_chicago"),
+    "assessor and surveyor": (None, None, "town_of_chicago"),
+    "county coroner": (None, None, "cook_county"),
+    "Sunday-school librarian": (None, None, None),
     # --- the 1839 city register's own office codes, read with their underscores out ---
     "fire warden": ("fire_warden", "office", None),
     "sheriff of cook county": ("sheriff", "office", "cook_county"),
@@ -795,6 +803,13 @@ def prose_roles(person_id: str, person: dict) -> list[dict]:
             continue
         source = reading.get("source_id") or ""
         role, kind, body, disposition = _fold(printed)
+        # A POST IS NOT A TRADE (T-1569). A printing with no controlled word folds to no
+        # kind at all, and a coronership defaulting to `trade` would read on the card as a
+        # living. The reading may say which it is; only `office` is accepted, because that
+        # is the one kind the readings file holds that the fold cannot name for itself.
+        if kind is None and reading.get("kind") == "office":
+            kind = "office"
+        what = "A POST" if kind == "office" else "A TRADE"
         span = str(reading.get("describes_date") or "") or describes_date(source)
         frm, to = _ends(span)
         rows.append({
@@ -813,11 +828,12 @@ def prose_roles(person_id: str, person: dict) -> list[dict]:
             "place": NOT_STATED,
             "employer_or_body": body or NOT_STATED,
             "note": _external_note(
-                "A TRADE NAMED IN RETROSPECTIVE PROSE, carried here by its reading in "
+                what + " NAMED IN RETROSPECTIVE PROSE, carried here by its reading in "
                 + str(PROSE_READINGS.relative_to(ROOT)) + " (T-1507, by " + GENERATOR
-                + "). The grade is `inferred`: the volume states the trade in words, and "
-                "the resident programme's identity rule tied the passage to this card, so "
-                "the trade is inferred FOR this person rather than stated OF him. The "
+                + "). The grade is `inferred`: the volume states the " + what[2:].lower()
+                + " in words, and the resident programme's identity rule tied the passage "
+                "to this card, so the " + what[2:].lower() + " is inferred FOR this person "
+                "rather than stated OF him. The "
                 "bound is " + (frm + " to " + to if frm and to else
                                "UNSTATED — the volume names no year this can read")
                 + ".",
@@ -1522,7 +1538,10 @@ def self_test() -> int:
         _PROSE = [{"person_id": "prose", "source_id": "ingale_early_chicago_reminiscence",
                    "as_printed": "house painter", "read_in": "fixture"},
                   {"person_id": "prose", "source_id": "andreas_1884_v1",
-                   "as_printed": "cooper", "describes_date": "1835"}]
+                   "as_printed": "cooper", "describes_date": "1835"},
+                  {"person_id": "prose", "source_id": "andreas_1884_v1",
+                   "as_printed": "county coroner", "kind": "office",
+                   "describes_date": "1835"}]
         out = proposed(hh)
 
         w = out["hh_window.json"]["persons"][0]
@@ -1553,11 +1572,12 @@ def self_test() -> int:
         holds("…and the 1835 field stays absent", lt["occupation"]["value"], ABSENT)
 
         pr = out["hh_prose.json"]["persons"][0]
+        painter = next((r for r in pr["roles"] if r["as_printed"] == "house painter"), {})
         holds("a trade named in retrospective prose becomes a role",
-              pr["roles"][1]["as_printed"], "house painter")
-        holds("…folded onto the controlled word", pr["roles"][1]["role"], "painter")
+              painter.get("as_printed"), "house painter")
+        holds("…folded onto the controlled word", painter.get("role"), "painter")
         holds("…undated where the volume names no year",
-              (pr["roles"][1]["from"], pr["roles"][1]["dated_by"]), (None, "undated"))
+              (painter.get("from"), painter.get("dated_by")), (None, "undated"))
         holds("…and the 1835 field stays absent", pr["occupation"]["value"], ABSENT)
         holds("a prose reading whose volume spans the scene says so",
               pr["roles"][0]["covers_scene_date"], True)
@@ -1565,6 +1585,10 @@ def self_test() -> int:
               pr["roles"][0]["fills_scene_view"], False)
         holds("…and the note gives the ladder as the reason",
               "may never promote" in pr["roles"][0]["note"], True)
+        post = next(r for r in pr["roles"] if r["as_printed"] == "county coroner")
+        holds("a post the reading calls an office is carried as one, not as a trade (T-1569)",
+              (post["kind"], post["note"].startswith("A POST NAMED")), ("office", True))
+        holds("…keeping the body the fold names", post["employer_or_body"], "cook_county")
 
         holds("the card's own scene role is admitted to the view",
               w["roles"][0]["fills_scene_view"], True)
@@ -1707,7 +1731,7 @@ def self_test() -> int:
 
     for line in failures:
         print(f"FAIL {line}", file=sys.stderr)
-    print(f"self-test: {78 - len(failures)}/78 assertions hold")
+    print(f"self-test: {80 - len(failures)}/80 assertions hold")
     return 1 if failures else 0
 
 

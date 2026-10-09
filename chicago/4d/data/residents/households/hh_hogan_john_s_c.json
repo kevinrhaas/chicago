@@ -504,6 +504,26 @@
     },
     {
      "role": null,
+     "kind": "office",
+     "as_printed": "trustee of the town of Chicago",
+     "from": "1835",
+     "to": "1835",
+     "precision": "year",
+     "dated_by": "source_describes_date",
+     "covers_scene_date": true,
+     "fills_scene_view": false,
+     "confidence": "inferred",
+     "sources": [
+      "pal_chicago_incorporation_1835"
+     ],
+     "claim": "data/research/residents/pass_02_findings.json#hogan_john_s_c",
+     "place": "not_stated",
+     "employer_or_body": "town_of_chicago",
+     "note": "A POST NAMED IN RETROSPECTIVE PROSE, carried here by its reading in data/research/residents/prose_role_readings.json (T-1507, by tools/derive_resident_roles.py). The grade is `inferred`: the volume states the post in words, and the resident programme's identity rule tied the passage to this card, so the post is inferred FOR this person rather than stated OF him. The bound is 1835 to 1835. It does not stand in the 1835-07-01 view, and the reason is the evidence ladder ratified 2026-09-03 (T-0513) and not the bound: a volume set down after the scene may date and corroborate and may never promote. The volume is deliberately absent from the person's own `sources[]`, which lists what the 1835 RESIDENCY grade stands on (T-1254). The reading's own reason is in the readings file, beside the pass that made it.",
+     "premises": null
+    },
+    {
+     "role": null,
      "kind": "trade",
      "as_printed": "dry goods and groceries",
      "from": "1839",

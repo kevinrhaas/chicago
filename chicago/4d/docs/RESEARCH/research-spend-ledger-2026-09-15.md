@@ -29,8 +29,8 @@ The historical read/spent comparison remains unchanged so new accounting cannot 
 | newberry_index | 0 | 0 | 0 | 0 | 6,658 | 0 | 6,658 |
 | newspapers | 707 | 68 | 8 | 268 | 69 | 69 | 1,189 |
 | old_settlers | 0 | 1,094 | 0 | 0 | 0 | 0 | 1,094 |
-| residents | 26 | 11 | 0 | 0 | 1,028 | 15 | 1,080 |
-| **Total** | **1,518** | **12,616** | **118** | **373** | **8,783** | **308** | **23,716** |
+| residents | 28 | 11 | 0 | 0 | 1,038 | 3 | 1,080 |
+| **Total** | **1,520** | **12,616** | **118** | **373** | **8,793** | **296** | **23,716** |
 
 ## Second-hop preservation
 
@@ -45,7 +45,6 @@ An unresolved unit is waiting on WORK or on EVIDENCE, and it says which. Only ti
 | T-1315 | 3 |
 | T-1543 | 1 |
 | T-1552 | 26 |
-| T-1569 | 12 |
 
 **266** unit(s) wait on evidence rather than on a ticket, under 5 stated reopening condition(s):
 
