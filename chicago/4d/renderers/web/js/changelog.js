@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+    items: [
+      'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
+      'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
+    ] },
   { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
     items: [
       'Open any house between 16th and 18th Streets in the Prairie Avenue 1904 library. Its card now has a 1904 reading taken from the 1911 Sanborn sheet. It lists the front building, its attached wings and its rear stables or coach houses, and says whether the house stood in 1904 and why.',

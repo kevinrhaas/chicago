@@ -471,7 +471,7 @@ detailing, signboards). They are exempt from regeneration but **not** from prove
 each needs a row here and a source record explaining what the form is based on.
 ### Glessner House v4 original surface studies
 
-The following 40 files are original project material assets: ten deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
+The following 43 files are original project material assets: eleven deterministic numeric PBR fabrics, three unchanged original generated albedo studies, their executable recipe and provenance. No historical, owner, Google or other third-party image pixels are sampled or embedded. Numeric maps are reproduced by `generate.py`; generated image prompts, hashes, methods and reconstructed confidence are preserved in the three provenance JSON files. Exact appearance is reconstructed, not historical evidence. Use, modification and redistribution with this project are permitted under the accompanying `LICENSE.txt`; retain provenance and confidence.
 
 - `textures/glessner-v4/LICENSE.txt`
 - `textures/glessner-v4/README.md`
@@ -506,6 +506,9 @@ The following 40 files are original project material assets: ten deterministic n
 - `textures/glessner-v4/terracotta_basecolor.jpg`
 - `textures/glessner-v4/terracotta_normal.png`
 - `textures/glessner-v4/terracotta_roughness.png`
+- `textures/glessner-v4/roof_tiles_basecolor.jpg`
+- `textures/glessner-v4/roof_tiles_normal.png`
+- `textures/glessner-v4/roof_tiles_roughness.png`
 - `textures/glessner-v4/turf_basecolor.jpg`
 - `textures/glessner-v4/turf_normal.png`
 - `textures/glessner-v4/turf_patch_photographic_basecolor.png`
