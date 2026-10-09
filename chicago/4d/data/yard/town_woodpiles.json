@@ -10,17 +10,17 @@
   "dwellings": 391,
   "by_row": {
    "cabin": 41,
-   "cottage": 168,
-   "house": 94,
+   "cottage": 167,
+   "house": 95,
    "keeper": 19,
    "merchant": 35,
    "shanty": 33
   },
   "by_class": {
    "keeper": 19,
-   "labourer": 84,
+   "labourer": 83,
    "merchant": 35,
-   "tradesman": 252
+   "tradesman": 253
   },
   "by_basis": {
    "default": 16,
@@ -31,7 +31,7 @@
   },
   "items": {
    "chopping_block": 357,
-   "cordwood": 410,
+   "cordwood": 411,
    "log_heap": 41,
    "slab_heap": 33
   },
@@ -3819,36 +3819,49 @@
    "structure_id": "recon_1835_blk_randolph_market_d6_02",
    "name": "Reconstructed D6 one-and-a-half-story frame cottage #02",
    "function": "one_and_a_half_story_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "larger",
-   "row": "cottage",
-   "rule": "Y-W3",
+   "row": "house",
+   "rule": "Y-W4",
    "confidence": "reconstructed",
    "wall": "back",
    "items": [
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      129.68,
+      130.03,
       -281.43
      ],
      "bearing_deg": 0.34,
-     "length_m": 2.17,
+     "length_m": 2.88,
      "depth_m": 0.61,
-     "height_m": 1.02,
+     "height_m": 1.12,
      "stick": "stove",
      "seed": 1703937703
     },
     {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      133.26,
+      -281.45
+     ],
+     "bearing_deg": 0.34,
+     "length_m": 2.88,
+     "depth_m": 0.61,
+     "height_m": 0.98,
+     "stick": "stove",
+     "seed": 202779166
+    },
+    {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      130.3,
-      -282.84
+      134.24,
+      -282.86
      ],
      "bearing_deg": 0.34,
      "billets": 1,
-     "seed": 202779166
+     "seed": 687430279
     }
    ]
   },

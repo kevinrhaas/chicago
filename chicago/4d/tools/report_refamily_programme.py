@@ -110,7 +110,10 @@ def outstanding_moves(book: dict, rule: dict) -> list[dict]:
 
 def end_state(book: dict, rule: dict) -> dict:
     """What every refused bucket holds once the programme has been spent in full."""
-    refusals = {b["bucket"]: b for b in book["recut_refusals"]}
+    # The PERSON refusals: a household bucket the re-cut refused holds a house, not people
+    # anybody could move, and the book's re-family ledger leaves it out too (T-2185).
+    refusals = {b["bucket"]: b for b in book["recut_refusals"]
+                if b["bucket"].startswith("persons/")}
     out = Counter(m["from_bucket"] for m in outstanding_moves(book, rule))
     into = Counter(m["to_bucket"] for m in outstanding_moves(book, rule))
     for bucket in out:

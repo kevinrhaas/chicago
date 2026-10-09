@@ -1506,12 +1506,11 @@
     },
     {
       "ticket": "T-1371",
-      "records": 138,
+      "records": 137,
       "buckets": [
         "households/boarding_house/north",
         "households/boarding_house/south",
         "households/boarding_house/west",
-        "households/inn_tavern/north",
         "households/inn_tavern/south",
         "households/inn_tavern/west",
         "persons/female/10_19/north/lodging/none",
@@ -1660,7 +1659,7 @@
       3265
     ],
     "households_standing": 210,
-    "households_still_owed": 64
+    "households_still_owed": 65
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -4512,7 +4511,7 @@
           "target": 3,
           "known": 0,
           "to_reconstruct": 3,
-          "filled": 1,
+          "filled": 0,
           "owning_ticket": "T-2023",
           "basis": "the model's 645 households apportioned on the inventory's own inn_tavern roof count in the north division"
         },
@@ -6286,13 +6285,6 @@
       "ticket": "T-1371",
       "stage": "lodgers",
       "records": 3,
-      "by": "tools/seat_lodgers_1835.py --build"
-    },
-    {
-      "bucket": "households/inn_tavern/north",
-      "ticket": "T-1371",
-      "stage": "lodgers",
-      "records": 1,
       "by": "tools/seat_lodgers_1835.py --build"
     },
     {

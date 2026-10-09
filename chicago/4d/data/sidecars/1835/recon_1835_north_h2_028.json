@@ -299,7 +299,7 @@
       "relation": "lodged here",
       "why": "THE BED IS THE CLAIM. The lodging model puts 9 people in this house on an ordinary night and 21 when it was full, apportioned from the town model's own bracket. These people are here because the beds are, and for no other reason.",
       "sources": [],
-      "basis": "BEDS, AND ONE FAMILY. 7 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
+      "basis": "BEDS, AND ONE FAMILY. 8 of the people here took a bed and are not kin to each other or to anybody else under this roof — `data/residents/` cannot carry a person outside a household, so one record holds them all. The exception is the keeper and the 1 child(ren) on their card, who are a family and say so: every one of them carries `kin_of` naming the keeper.",
       "persons": [
         {
           "name": "Johanna Cavanagh",
@@ -344,7 +344,14 @@
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 9 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Joseph Marcotte",
+          "name": "Reuben Bardwell",
+          "relationship": "boarder",
+          "grade": "reconstructed",
+          "occupation": "",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the town model says 9 people slept in this house on an ordinary night and the layer holds fewer, and the whole of what is claimed is that: an adult of this sex and band took a bed here as a boarder. They are reproducible from the seeds printed above and a real name retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "David Whitcomb",
           "relationship": "boarder",
           "grade": "reconstructed",
           "occupation": "",
@@ -437,25 +444,6 @@
       "research_note": "WRITTEN BY tools/reconstruct_trade_households.py (T-1347, of T-1173), the `trade_households` stage of the 1835 resident reconstruction programme. This file is NOT research and is not a mint output: data/residents/households/ is re-derived by the mint writers and data/residents/index.json is derived from that directory, so a reconstruction lives here instead and is overlaid onto the scene by tools/compile_scene.py. docs/LIBERTIES.md carries the invention."
     },
     {
-      "household": "hh_rc_stiles_abigail",
-      "name": "Abigail Stiles",
-      "division": "",
-      "relation": "lodged here",
-      "why": "The household model drew this head as living alone (T-1173) and no source gives them a roof. The mix puts a person at domestic in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
-      "sources": [],
-      "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Abigail Stiles",
-          "relationship": "boarder",
-          "grade": "reconstructed",
-          "occupation": "domestic",
-          "note": ""
-        }
-      ],
-      "research_note": ""
-    },
-    {
       "household": "hh_s_a_stubbs",
       "name": "The Stubbs household — a name the roster offered back",
       "division": "unplaced",
@@ -501,8 +489,8 @@
       "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
     },
     {
-      "household": "hh_smith_william",
-      "name": "William Smith",
+      "household": "hh_ulrich_nicholas",
+      "name": "Nicholas Ulrich",
       "division": "",
       "relation": "lodged here",
       "why": "The household model drew this head as living alone (T-1171) and no source gives them a roof. The mix puts a person at none_recorded in the labour group, and this house had the most free beds in it. A rule, not a draw: the seat reproduces without a seed.",
@@ -510,9 +498,9 @@
       "basis": "SEATED HERE, NOT RECORDED HERE. This person is one the residents layer already holds and no source says where they slept; the bed is the invention and the person is not. Their own card carries their evidence and is not touched by the seat.",
       "persons": [
         {
-          "name": "William Smith",
+          "name": "Nicholas Ulrich",
           "relationship": "boarder",
-          "grade": "attested",
+          "grade": "inferred",
           "occupation": "",
           "note": ""
         }
@@ -624,7 +612,7 @@
       "people": 9,
       "beds_ordinary": 9,
       "empty": 0,
-      "statement": "9 on this card against an ordinary night's 9 beds: 2 seated here from elsewhere in the layer, where no source gives them a roof, 6 drawn against the order book's lodging buckets for beds that were standing empty, a keeper drawn for a roof this programme raised.",
+      "statement": "9 on this card against an ordinary night's 9 beds: 1 seated here from elsewhere in the layer, where no source gives them a roof, 7 drawn against the order book's lodging buckets for beds that were standing empty, a keeper drawn for a roof this programme raised.",
       "empty_note": "",
       "keeper_persons": 2,
       "keeper_owed": "Minted by this stage as the keeper. T-1533 drew this keeper's own children here — 1 of them — out of the book's `under_10` lodging cells, at the size the 1840 histogram gives the household. What is still owed is a SPOUSE, which no rule this project has made can draw for a keeper who is a woman; the ledger's `keeper_families` row states it, and the staffing under a keeper is T-1183's."

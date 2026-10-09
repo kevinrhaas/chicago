@@ -20,8 +20,8 @@
     "data/streets/1835.json"
   ],
   "summary": {
-    "households_housed": 1849,
-    "households_unhoused": 0,
+    "households_housed": 1845,
+    "households_unhoused": 3,
     "households_counted_apart": {
       "absent_on_the_scene_date": 35,
       "waiting_on_a_roof": 120
@@ -34,8 +34,8 @@
   },
   "housed": {
     "households": {
-      "housed": 1849,
-      "unhoused": 0,
+      "housed": 1845,
+      "unhoused": 3,
       "counted_apart": 155
     },
     "counted_apart": {
@@ -48,25 +48,31 @@
     },
     "persons_housed": {
       "attested": 369,
-      "inferred": 943,
+      "inferred": 940,
       "reconstructed": 1955
     },
     "persons_unhoused": {
       "attested": 0,
-      "inferred": 0,
+      "inferred": 3,
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3266,
-      "persons_unhoused": 0,
+      "persons_housed": 3263,
+      "persons_unhoused": 3,
       "persons_waiting_on_a_roof": 283
     },
     "housed_through": {
-      "lives_at": 58,
-      "seated_by_a_structure": 1791
+      "lives_at": 57,
+      "seated_by_a_structure": 1788
     },
-    "unhoused_by_folder": {},
-    "unhoused_present_households": []
+    "unhoused_by_folder": {
+      "households": 3
+    },
+    "unhoused_present_households": [
+      "hh_beaubien_archange",
+      "hh_bouchard_adelaide",
+      "hh_laframboise_marguerite"
+    ]
   },
   "visitors_counted_apart": {
     "persons": 307,
@@ -151,7 +157,7 @@
     "persons": {
       "housed": {
         "attested": 369,
-        "inferred": 943,
+        "inferred": 940,
         "reconstructed": 1955
       },
       "waiting_on_a_roof": {
@@ -166,15 +172,15 @@
       },
       "unhoused": {
         "attested": 0,
-        "inferred": 0,
+        "inferred": 3,
         "reconstructed": 0
       }
     },
     "households": {
       "housed": {
         "attested": 357,
-        "inferred": 927,
-        "reconstructed": 565
+        "inferred": 924,
+        "reconstructed": 564
       },
       "waiting_on_a_roof": {
         "attested": 42,
@@ -188,7 +194,7 @@
       },
       "unhoused": {
         "attested": 0,
-        "inferred": 0,
+        "inferred": 3,
         "reconstructed": 0
       }
     },
@@ -249,7 +255,7 @@
     {
       "join": "housed",
       "label": "Every household housed",
-      "open": 120,
+      "open": 123,
       "what_keeps_it_open": "households without a roof yet"
     },
     {

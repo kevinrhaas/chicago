@@ -362,7 +362,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-2193 | 336 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
-| T-1371 | 138 | 36 |
+| T-1371 | 137 | 35 |
 | T-1533 | 24 | 5 |
 | T-1536 | 11 | 4 |
 | T-1532 | 4 | 1 |
@@ -580,7 +580,7 @@ The households the model wants, by kind and division.
 | `households/family_dwelling/north` | 123 | 27 | 97 | 97 | T-2193 |
 | `households/family_dwelling/south` | 258 | 73 | 185 | 185 | T-2193 |
 | `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2193 |
-| `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
+| `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
