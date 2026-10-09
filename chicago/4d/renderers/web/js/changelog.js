@@ -3,6 +3,7 @@ export const CHANGELOG = [ // newest first
     items: [
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
       'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
+    ] },
   { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
     items: [
       'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
