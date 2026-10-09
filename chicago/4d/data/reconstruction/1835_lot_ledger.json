@@ -52,7 +52,7 @@
   "lots_with_a_roof": 256,
   "lots_barring_another_roof": 255,
   "shared_business_fronts": 1,
-  "principal_roofs_standing": 319,
+  "principal_roofs_standing": 320,
   "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
@@ -77,8 +77,8 @@
   },
   "multi_building_lot_rate_on_the_principal_streets": {
    "principal_street_lots": 68,
-   "carrying_more_than_one_principal_roof": 33,
-   "rate": 0.4853,
+   "carrying_more_than_one_principal_roof": 34,
+   "rate": 0.5,
    "standard": "three party-line units per lot where the rule fires — the schedule's capacity is a ceiling and not a target (1835_platted_block_parcels.json, `placement_rule.open_lots`)"
   }
  },
@@ -8953,12 +8953,14 @@
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
    "standing": [
-    "recon_1835_blk_south_water_market_d5_01"
+    "recon_1835_blk_south_water_market_d5_01",
+    "recon_1835_blk_south_water_market_h3_02"
    ],
    "standing_families": {
-    "recon_1835_blk_south_water_market_d5_01": "D5"
+    "recon_1835_blk_south_water_market_d5_01": "D5",
+    "recon_1835_blk_south_water_market_h3_02": "H3"
    },
-   "principal_roofs_standing": 1,
+   "principal_roofs_standing": 2,
    "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,

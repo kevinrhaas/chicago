@@ -1643,8 +1643,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 677,
-    "roofs_to_build": 10,
+    "roofs_standing": 678,
+    "roofs_to_build": 9,
     "persons_standing": 2865,
     "persons_still_owed": 15,
     "persons_when_the_book_is_filled": 2880,
@@ -1666,9 +1666,9 @@
     "still_owed": 1110,
     "roofs_adopted": 314,
     "slots_requested": 0,
-    "roofs_standing": 677,
-    "roofs_standing_unseated": 363,
-    "share_of_standing_roofs_seated": 0.4638,
+    "roofs_standing": 678,
+    "roofs_standing_unseated": 364,
+    "share_of_standing_roofs_seated": 0.4631,
     "passes": [
       {
         "key": "platted",
@@ -1681,9 +1681,9 @@
         "handed_on": 1209,
         "roofs_adopted": 215,
         "slots_requested": 0,
-        "roofs_offered_for_adoption": 225,
+        "roofs_offered_for_adoption": 226,
         "roofs_held_back": 62,
-        "ground_taken": 197,
+        "ground_taken": 196,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
@@ -5053,11 +5053,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 677,
+        "standing_records": 678,
         "standing_with_an_occupant": 262,
-        "standing_without_an_occupant": 415,
-        "to_build_total": 10,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 415 of the 677 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "standing_without_an_occupant": 416,
+        "to_build_total": 9,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 416 of the 678 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5071,7 +5071,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2242",
+          "owning_ticket": "T-2247",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 0 of them to build"
         },
@@ -5232,13 +5232,13 @@
             "division": "south"
           },
           "target": 28,
-          "standing": 26,
-          "to_build": 2,
+          "standing": 27,
+          "to_build": 1,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2196",
+          "owning_ticket": "T-2247",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 2 of them to build"
+          "basis": "the inventory's district/group matrix sets 28; the 668-roof programme leaves 1 of them to build"
         },
         {
           "key": "structures/larger_boarding_houses/west",
@@ -5281,7 +5281,7 @@
           "to_build": 5,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2242",
+          "owning_ticket": "T-2247",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 5 of them to build"
         },
@@ -5326,7 +5326,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2242",
+          "owning_ticket": "T-2247",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 0 of them to build"
         },
@@ -5574,8 +5574,8 @@
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
         "roofs_on_committed_ground": 0,
-        "roofs_gated_on_coverage": 10,
-        "statement": "0 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 10 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_gated_on_coverage": 9,
+        "statement": "0 of the 9 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 9 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5803,7 +5803,7 @@
           "axes": {
             "division": "south"
           },
-          "roofs_gated": 10,
+          "roofs_gated": 9,
           "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
           "owning_tickets": [],
           "filled": 0
@@ -5895,7 +5895,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "415 of 677 standing records carry no occupants block."
+      "measured_now": "416 of 678 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
