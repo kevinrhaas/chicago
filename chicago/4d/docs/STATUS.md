@@ -1115,6 +1115,20 @@ the household model drew for them (508 people), and 121 stand alone with a card 
   aged twenty and over, the cards name 1,190 and the stages drew 276, so the town holds 1,466,
   523 over. The 202 are discharged in the book (`adult_men_ruling`); it converges 3,135 → 2,933.
   The same credit holds the women's and children's orders down; that is not touched here.
+- **The family dwellings (T-2193, piece 1 of T-2188).** The 335 family dwellings the book still
+  ordered were already standing. Of the 1,239 present head records the book counts as awaiting a
+  household, the housing seats (T-1971/T-1972) put 250 under a dwelling dealt to them by the
+  platted and off-plat seating ("lived here") and 179 more under a dwelling as a family of two or
+  more ("shared this roof"). Both joins live beside the card, and the book counts houses off the
+  card, so it kept ordering them. `tools/count_held_head_dwellings_1835.py` counts them into
+  `households/family_dwelling/<division>`, dealt roofs first, then the larger family, then a seed,
+  up to each division's order: north 88, south 168, west 79. The 94 seated families past a full
+  order are listed in `data/reconstruction/1835_held_head_dwellings.json` with the reason. Houses
+  still owed fall 399 → 64 (424 → 89 before T-2194's store ruling landed under it) and the
+  population is unchanged (2,931): nobody is minted, moved or re-carded, and a boarder is never
+  counted as a household. The women-and-children stage adds these fills back to its house quota,
+  so it re-derives byte for byte. **Not done here:** the 31 store keepers T-2194's ruling leaves
+  owed are **T-2236**'s. The seats refuse every store roof, so no held head stands over a shop.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first
