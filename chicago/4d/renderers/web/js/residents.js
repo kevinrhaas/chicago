@@ -1370,6 +1370,36 @@ export function rolesHtml(roles, citationsById) {
 }
 
 /**
+ * ELECTED TO AN OFFICE, ON THE DATES A BOOK GIVES (T-1543).
+ *
+ * `persons[].office_elections` is a later volume's dates of ELECTION to an office the
+ * card's dated roles already hold — Silas W Sherman's sheriffdom, elected 1834 and again
+ * 1836 on Fergus's annotation, beside a press run that bounds the office 1833 to 1835. An
+ * election is an event, not a term of service, so the years print as their own row and
+ * never widen the role's bound; the chip says the block corroborates and promotes
+ * nothing, because the 1835 town and the 1835 occupation were already the press's to set.
+ */
+function electionsHtml(block, citationsById) {
+  if (!block || !Array.isArray(block.elections) || !block.elections.length) return '';
+  const cites = (block.sources || []).map((id) => citationsById.get(id)).filter(Boolean);
+  const office = escapeHtml(words(block.office || 'an office'));
+  const years = block.elections.map((e, i) => `<li class="res-role-row">
+    <span class="res-role-when">${escapeHtml(String(e.year ?? 'not dated'))}</span>
+    ${i ? `elected ${office} again` : `elected ${office}`}${e.as_printed && String(e.as_printed) !== String(e.year)
+      ? ` · printed <q>${escapeHtml(String(e.as_printed))}</q>` : ''}${
+      e.read_as ? `<span class="res-why">${escapeHtml(e.read_as)}</span>` : ''}</li>`).join('');
+  return `<dt>Elected to office</dt>
+    <dd>${swatch(block.confidence)}<span class="res-chip res-research">${
+      block.elections.length} ${block.elections.length === 1 ? 'election' : 'elections'}</span><span
+      class="res-chip res-role-off">an election, not a term</span>${block.promotes === false
+      ? '<span class="res-chip res-role-off">corroborates, does not promote</span>' : ''}${
+      block.as_printed ? `<br><q>${escapeHtml(String(block.as_printed))}</q>` : ''}
+      <ol class="res-roles">${years}</ol>${
+      block.note ? `<span class="res-why">${escapeHtml(block.note)}</span>` : ''}${
+      cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</dd>`;
+}
+
+/**
  * Why a person nobody named is standing in this town, on their own card (T-1314).
  *
  * A `reconstructed` person is the one kind of record here that a visitor could
@@ -1696,6 +1726,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
         laterOccupationHtml(occ.later_occupation, citationsById)}${
         occCites.length ? `<ol class="cites">${citationItems(occCites)}</ol>` : ''}</dd>` : ''}
       ${rolesHtml(roles, citationsById)}
+      ${electionsHtml(person.office_elections, citationsById)}
       ${workplacesHtml(person.workplaces, citationsById)}
       ${employmentHtml(seatingByPerson, person.id)}
       ${employmentCoverageHtml(coverage, person.id)}

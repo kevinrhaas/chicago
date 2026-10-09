@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1574, ts: '2026-10-09T11:58:21.664Z', date: 'Oct 9, 2026, 6:58 AM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+    items: [
+      'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
+      'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
+    ] },
   { v: 1573, ts: '2026-10-09T11:25:17.825Z', date: 'Oct 9, 2026, 6:25 AM CT', title: 'Three birth dates checked against the books they came from', kind: 'fix',
     items: [
       'Nothing you can see changes. Three readings said a book gives a birth for Dr Edmund Kimberly, Dr Philip Maxwell or Alexander Robinson that the town had not yet used. Each one is now read against the book beside the person\u2019s card.',
