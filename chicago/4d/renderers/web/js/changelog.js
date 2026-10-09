@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1594, ts: '2026-10-09T21:33:48.337Z', date: 'Oct 9, 2026, 4:33 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
+  { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
     items: [
       'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
       'Close views retain the physical six-inch tiles and five-inch courses. Roof outlines, ridge ornaments and the copper roofs keep their geometry.',
+    ] },
+  { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',
+      'Six of its blocks, east of the river, are where the South side\u2019s last six houses will go next, on the owner\u2019s ruling.',
     ] },
   { v: 1593, ts: '2026-10-09T21:09:16.862Z', date: 'Oct 9, 2026, 4:09 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
     items: [
