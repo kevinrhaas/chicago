@@ -1,0 +1,46 @@
+{
+  "ticket": "T-2231",
+  "repository_gate": {
+    "command": "CHECK_JOBS=3 ./tools/check.sh",
+    "steps": 792,
+    "self_tests": 323,
+    "result": "pass"
+  },
+  "roof_envelope": {
+    "stable_samples": 1800,
+    "courtyard_samples": 1200,
+    "result": "pass"
+  },
+  "masonry_glass_light": {
+    "checks": 9,
+    "result": "pass"
+  },
+  "recovery_package": "pass",
+  "published_focused_desktop": "pass",
+  "published_focused_mobile": "pass",
+  "published_stage_13_mobile": {
+    "checks": 126,
+    "failed": 0,
+    "page_errors": 0,
+    "result": "pass"
+  },
+  "published_stage_13_desktop": {
+    "checks": 126,
+    "failed": 0,
+    "page_errors": 0,
+    "result": "pass",
+    "timing": "Began before dev 7aed0a2a integration; published metadata refreshed during run; geometry/renderer unchanged."
+  },
+  "manual_reference_comparison": "Final west and northwest GLB renders visually compared with both owner references; approximate photographic proportions, not a survey.",
+  "integrated_preflight": {
+    "dev": "35dae52ea53d87ac8f26024fcd7328479e4db491",
+    "repository_steps": 792,
+    "result": "pass",
+    "browser_receipts": "Predate this independent 1835 parcel; Glessner geometry and renderer unchanged."
+  },
+  "integrated_preflight_previous": {
+    "dev": "7aed0a2a15239ceb146008db32f4d6f28e244183",
+    "repository_steps": 792,
+    "result": "pass"
+  }
+}

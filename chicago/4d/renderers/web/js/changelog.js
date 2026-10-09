@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1554, ts: '2026-10-09T01:29:47.342Z', date: 'Oct 8, 2026, 8:29 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
+  { v: 1555, ts: '2026-10-09T01:46:17.282Z', date: 'Oct 8, 2026, 8:46 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
     items: [
       'Four July 1948 photographs in the Prairie research library now describe the doors, roof, courtyard and industrial interior they actually show. Their previous descriptions remain available in the correction history.',
       'All 168 audited references now show what was reviewed and how they can inform the 1904 exterior. Disputed attribution, rejected designs, later views and related reproductions carry explicit limits. Three additional Florian views link to the museum.',
+    ] },
+  { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+    items: [
+      'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
+      'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
     ] },
   { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [

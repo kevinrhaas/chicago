@@ -1889,6 +1889,101 @@
         "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
       },
       "source": "gh-run:36935238477 https://github.com/kevinrhaas/chicago/actions/runs/36935238477"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 126,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1561,
+      "takenAt": "2026-10-09T01:19:16.811Z",
+      "ref": "steward/t-2231-glessner-west-roof-width",
+      "commit": "5f8ca7e486a6",
+      "devCommit": "7aed0a2a1523",
+      "treeHash": null,
+      "treeDirty": true,
+      "changelogHash": "sha256:51e352b70b1c3d80",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          2.9,
+          5,
+          5.8
+        ],
+        "note": "Began before dev 7aed0a2a integration; published metadata refreshed during run. Glessner geometry and renderer unchanged. No exact-tree claim for this mixed timing; final integrated preflight passed separately."
+      },
+      "source": "/workspace/scratch/t2231/smoke-desktop-13.log"
+    },
+    {
+      "viewport": "mobile",
+      "stage": "13",
+      "parts": [
+        13
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 126,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 703,
+      "takenAt": "2026-10-09T01:01:31.583Z",
+      "ref": "steward/t-2231-glessner-west-roof-width",
+      "commit": "14ee07c9a701",
+      "devCommit": "14ee07c9a701",
+      "treeHash": "sha256:748b373a1e41114b",
+      "treeDirty": true,
+      "changelogHash": "sha256:938e94d42499130d",
+      "host": {
+        "kind": "local",
+        "cpus": 5,
+        "memGB": 17.6,
+        "loadavg": [
+          7.2,
+          9.1,
+          6.5
+        ]
+      },
+      "source": "/workspace/scratch/t2231/smoke-mobile-13-default.log"
+    },
+    {
+      "viewport": "desktop",
+      "stage": "1-6",
+      "parts": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "verdict": "pass",
+      "target": "published",
+      "passed": 294,
+      "failed": 0,
+      "failures": [],
+      "wallSeconds": 1684,
+      "takenAt": "2026-10-01T22:27:02Z",
+      "ref": "steward/t-1830-glessner-west-wing-alcove",
+      "commit": "a8fac67bf785a0849133c117ae245db1681cb959",
+      "devCommit": "6b3ef7a79bda6114507bf7987d3b8ceb072e056e",
+      "treeHash": null,
+      "treeDirty": false,
+      "changelogHash": null,
+      "host": {
+        "kind": "ci",
+        "cpus": null,
+        "loadavg": null,
+        "note": "GitHub-hosted ubuntu-latest. Load and smoke-tree digest were not captured on CI; commit and start time are from workflow metadata."
+      },
+      "source": "gh-run:36935126175 https://github.com/kevinrhaas/chicago/actions/runs/36935126175"
     }
   ]
 }

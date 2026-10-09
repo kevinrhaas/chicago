@@ -349,9 +349,10 @@ def _stable_reworked(b, r):
             # The masonry gable has coping only on its two slopes. No raised
             # diagonal runs from its foot to the ordinary alley eave.
             lift = r["parapet_m"].get("north", 0)
-            gp = [(g["front_x0"],g["north_eave"]),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],g["north_eave"])]
-            prof = [(r["x0"],g["north_eave"]),(g["front_x0"],g["north_eave"]),
-                (g["front_x0"],g["north_eave"]+lift),(r["ridge_at"],r["ridge_z"]+lift),
+            west_eave = g.get('north_west_eave', g['north_eave'])
+            gp = [(g["front_x0"],west_eave),(r["ridge_at"],r["ridge_z"]),(g["front_x1"],g["north_eave"])]
+            prof = [(r["x0"],west_eave),(g["front_x0"],west_eave),
+                (g["front_x0"],west_eave+lift),(r["ridge_at"],r["ridge_z"]+lift),
                 (g["front_x1"],g["north_eave"]+lift),(g["front_x1"],g["north_eave"])]
             _parapet(b,pl,gp,lift,r["conf_ends"][face],WALL_MAT[kind])
         spans=_kept(prof[0][0],prof[-1][0],r["wall_skip"].get(face,[]))
@@ -361,7 +362,7 @@ def _stable_reworked(b, r):
     # A short ordinary eave beyond the north wall at the alley return only.
     a,c=r["x0"]-.15,g["front_x0"]
     if c>a:
-        ze=g["north_eave"];y=r["y1"]
+        ze=g.get('north_west_eave', g['north_eave']);y=r["y1"]
         _two_sided_roof(b,[(a,y,ze),(c,y,ze),(c,y+.15,ze-.1),(a,y+.15,ze-.1)],r["conf_roof"],ROOF)
 
 

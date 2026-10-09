@@ -5211,3 +5211,11 @@ with an intersecting tiled cross roof. Its copper hip ends over the bay, and the
 level ridge meets the north wing with matching terracotta collars. See
 `docs/RESEARCH/glessner-courtyard-roof-2157/README.md` for scope and validation,
 and `docs/LIBERTIES.md` for the reconstructed dimensions. Work state is in T-2157.
+
+
+### T-2231 - West gable photo correction
+
+Owner-selected correction of the front west gable angle and rear frontage;
+this does not release the held exterior-audit programme. Reference controls,
+actual-model views and reconstruction limits are recorded in
+[the comparison report](RESEARCH/glessner-west-profile-2231/README.md).
