@@ -56,8 +56,8 @@ Baseline: `07605197356ccd8d8b4f547eccb2d1dc619ef06f` on `dev`, taken 2026-09-18 
 | 1835 sidecar files | 391 | 683 | +292 |
 | people in the 1835 people sidecar | 1288 | 3878 | +2590 |
 | buildings standing in the town census | 371 | 657 | +286 |
-| people housed in the town census | 34 | 2609 | +2575 |
-| households housed in the town census | 20 | 1326 | +1306 |
+| people housed in the town census | 34 | 2608 | +2574 |
+| households housed in the town census | 20 | 1325 | +1305 |
 | rows in the final resident audit | 1288 | 2886 | +1598 |
 | published resident files in the mirror | 1336 | 1426 | +90 |
 

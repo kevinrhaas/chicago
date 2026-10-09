@@ -26,13 +26,13 @@
       "class_full_none_owed": 2,
       "class_held_no_house": 61,
       "keeps_their_own_house": 169,
-      "no_employer_named": 163,
+      "no_employer_named": 162,
       "no_ruling": 5,
       "roofs_kept_none_owed": 13,
-      "seated": 123
+      "seated": 124
     },
-    "houses_taking_a_reconstructed_hand": 83,
-    "seats_carried_onto_a_card": 123,
+    "houses_taking_a_reconstructed_hand": 84,
+    "seats_carried_onto_a_card": 124,
     "seats_by_house_and_role": [
       {
         "business_id": "biz_a_chicago_stove_and_hollow_ware_dealer_august_1835",
@@ -280,6 +280,11 @@
         "seats": 1
       },
       {
+        "business_id": "biz_john_dean_caton",
+        "role": "clerk",
+        "seats": 1
+      },
+      {
         "business_id": "biz_john_h_kinzie",
         "role": "teamster",
         "seats": 2
@@ -524,7 +529,7 @@
   "which_term_of_the_order_rule_decided": {
     "what_this_is": "The ticket asks for the nearest house of the trade in the person's own division, seeded. Two of those three terms are inert against the layer as it stands, and this count is how a reader sees that rather than taking the rule's word for it.",
     "division_match": 0,
-    "nearest": 0,
+    "nearest": 1,
     "seeded_draw": 123,
     "why_division_is_inert": "No business record carries a division. The order book says why in its own words — 'EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY ... assigning premises to a division is T-1182's audit and T-1198's seating' — and this tool reads the field rather than deriving one, because deriving one is that audit done without a licence for it. Business records stating a division today: 0.",
     "why_nearest_is_nearly_inert": "Both ends must resolve to committed coordinates. 31 of 193 business records name a structure this project holds, and 56 of 2157 resident records are seated at one. Seating the reconstructed households is T-1198's and T-1199's."
@@ -618,9 +623,9 @@
       }
     },
     "clerk": {
-      "people": 24,
+      "people": 25,
       "kinds": {
-        "seated": 24
+        "seated": 25
       }
     },
     "confectioner": {
@@ -788,9 +793,9 @@
       }
     },
     "music_teacher": {
-      "people": 3,
+      "people": 2,
       "kinds": {
-        "no_employer_named": 3
+        "no_employer_named": 2
       }
     },
     "painter": {
@@ -1366,6 +1371,36 @@
       "candidates_considered": 2
     },
     {
+      "person_id": "rc_barnes_john",
+      "person_name": "John Barnes",
+      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "kind": "seated",
+      "trade": "clerk",
+      "premises": "no_fixed_premises",
+      "division_of_the_person": "south",
+      "business_id": "biz_john_dean_caton",
+      "business_name": "John Dean Caton",
+      "role": "clerk",
+      "tier": "reconstructed",
+      "seed": "rc_barnes_john:employment",
+      "ticket": "T-1433",
+      "parent_ticket": "T-1189",
+      "establishment_class": "law_office",
+      "basis": {
+        "kind": "model",
+        "id": "1835_business_staffing_model#law_office.clerk",
+        "note": "The staffing model puts 0 of this role in a law office at the typical band and 1 at the high end, on period_convention. The student-at-law, who read in an office rather than at a school. Analogue: the 1839 list's 11 students against 45 attorneys, a quarter of them. This person is a reconstructed resident of the trade with no workplace of their own; the house is one the business layer already holds, and this row points at it rather than raising anything."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a source naming where this person worked, which retires the draw"
+      },
+      "chosen_by": [
+        "nearest"
+      ],
+      "candidates_considered": 86
+    },
+    {
       "person_id": "rc_barnes_maria",
       "person_name": "Maria Barnes",
       "household_id": "hh_rc_barnes_maria",
@@ -1627,7 +1662,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 86
+      "candidates_considered": 85
     },
     {
       "person_id": "rc_bourassa_hyacinthe",
@@ -1802,7 +1837,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 86
+      "candidates_considered": 85
     },
     {
       "person_id": "rc_burke_bryan",
@@ -2454,7 +2489,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 85
+      "candidates_considered": 84
     },
     {
       "person_id": "rc_chevalier_louis",
@@ -2630,7 +2665,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 84
+      "candidates_considered": 83
     },
     {
       "person_id": "rc_cobb_hiram",
@@ -3061,7 +3096,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 83
+      "candidates_considered": 82
     },
     {
       "person_id": "rc_crandall_almira",
@@ -3234,7 +3269,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 82
+      "candidates_considered": 81
     },
     {
       "person_id": "rc_crandall_william",
@@ -3381,7 +3416,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 81
+      "candidates_considered": 80
     },
     {
       "person_id": "rc_dickinson_otis",
@@ -4449,7 +4484,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 80
+      "candidates_considered": 79
     },
     {
       "person_id": "rc_eastman_reuben",
@@ -4503,32 +4538,6 @@
       "replaceable_by": {
         "kind": "business",
         "match": "a house of this trade raised for this person, after which the seat is theirs and this block becomes a proprietorship"
-      },
-      "chosen_by": []
-    },
-    {
-      "person_id": "rc_fairbanks_abner",
-      "person_name": "Abner Fairbanks",
-      "household_id": "hh_lodging_recon_1835_blk_washington_market_h3_04",
-      "kind": "no_employer_named",
-      "trade": "music_teacher",
-      "premises": "no_fixed_premises",
-      "division_of_the_person": "south",
-      "business_id": null,
-      "business_name": null,
-      "role": null,
-      "tier": "reconstructed",
-      "seed": "rc_fairbanks_abner:employment",
-      "ticket": "T-1433",
-      "parent_ticket": "T-1189",
-      "basis": {
-        "kind": "ruling",
-        "id": "no_fixed_premises_and_no_class_employs_this_trade",
-        "note": "The premises ruling: Taught in the pupil's house or in a room hired for the term. exercised at an establishment the person does not keep. The staffing model employs this trade in no class of house, so there is no house to point at and this pass names none. The absence is the reading."
-      },
-      "replaceable_by": {
-        "kind": "business",
-        "match": "an establishment record for the place this ruling names — the post, the school, the household served — after which the seat re-derives onto it"
       },
       "chosen_by": []
     },
@@ -7661,7 +7670,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 79
+      "candidates_considered": 78
     },
     {
       "person_id": "rc_kellogg_almira",
@@ -7998,7 +8007,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 78
+      "candidates_considered": 77
     },
     {
       "person_id": "rc_laframboise_madeleine",
@@ -8177,7 +8186,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 77
+      "candidates_considered": 76
     },
     {
       "person_id": "rc_leland_abigail",
@@ -9437,7 +9446,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 76
+      "candidates_considered": 75
     },
     {
       "person_id": "rc_mccarthy_mary",
@@ -9723,7 +9732,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 76
+      "candidates_considered": 75
     },
     {
       "person_id": "rc_metcalf_george",
@@ -10228,7 +10237,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 75
+      "candidates_considered": 74
     },
     {
       "person_id": "rc_newell_hiram",
@@ -10621,7 +10630,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 74
+      "candidates_considered": 73
     },
     {
       "person_id": "rc_nichols_john",
@@ -11296,7 +11305,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 73
+      "candidates_considered": 72
     },
     {
       "person_id": "rc_parmelee_silas",
@@ -12188,7 +12197,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 72
+      "candidates_considered": 71
     },
     {
       "person_id": "rc_reilly_owen",
@@ -12274,7 +12283,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 71
+      "candidates_considered": 70
     },
     {
       "person_id": "rc_rice_levi",
@@ -12304,7 +12313,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 70
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_rice_luther",
@@ -13038,7 +13047,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 70
+      "candidates_considered": 69
     },
     {
       "person_id": "rc_sheldon_joseph",
@@ -13828,7 +13837,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 69
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_sullivan_ellen",
@@ -13890,7 +13899,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 69
+      "candidates_considered": 68
     },
     {
       "person_id": "rc_sullivan_johanna",
@@ -14955,7 +14964,7 @@
       "chosen_by": [
         "seeded_draw"
       ],
-      "candidates_considered": 68
+      "candidates_considered": 67
     },
     {
       "person_id": "rc_vieau_louis",
