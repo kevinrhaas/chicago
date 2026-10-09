@@ -1867,14 +1867,9 @@
       "trade": "tavern_keeper",
       "trade_confidence": "attested",
       "status": "on_their_own_account",
-      "reason": "keeps_a_house_the_register_holds",
-      "decided_by": "the business register's own row: rcb_beaubien_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
-      "houses": [
-        "rcb_beaubien_boarding_house"
-      ],
-      "house_names": [
-        "Mark Beaubien's boarding house"
-      ]
+      "reason": "keeps_their_own_house",
+      "decided_by": "premises_rulings.json#tavern_keeper = own_premises",
+      "houses": []
     },
     {
       "person_id": "beaubien_mark_household",
@@ -41002,9 +40997,14 @@
       "trade": "boarding_house_keeper",
       "trade_confidence": "reconstructed",
       "status": "on_their_own_account",
-      "reason": "keeps_their_own_house",
-      "decided_by": "reconstructed_seating.json#keeps_their_own_house, drawn by T-1433",
-      "houses": []
+      "reason": "keeps_a_house_the_register_holds",
+      "decided_by": "the business register's own row: rcb_stebbins_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
+      "houses": [
+        "rcb_stebbins_boarding_house"
+      ],
+      "house_names": [
+        "Stebbins's boarding house"
+      ]
     },
     {
       "person_id": "rc_stebbins_amanda",
@@ -49060,7 +49060,7 @@
         "rcb_sweet_boarding_house"
       ],
       "house_names": [
-        "Sweet's boarding house"
+        "Alanson Sweet's boarding house"
       ]
     },
     {
