@@ -60,7 +60,7 @@
  "fills": {
   "households/family_dwelling/north": 8,
   "households/family_dwelling/south": 16,
-  "households/family_dwelling/west": 10,
+  "households/family_dwelling/west": 11,
   "persons/female/10_19/north/family/none": 23,
   "persons/female/10_19/south/family/none": 54,
   "persons/female/10_19/west/family/none": 24,
@@ -101,13 +101,13 @@
  "buckets_left_short": {},
  "folded_into_married_houses": {
   "ticket": "T-2020",
-  "households": 90,
+  "households": 89,
   "by_division": {
    "north": 18,
    "south": 49,
-   "west": 23
+   "west": 22
   },
-  "people": 393,
+  "people": 388,
   "note": "Dealt here and then folded into a married house the order book refused a wife (data/reconstruction/1835_folded_houses.json). The counters above are the deal; `fills` no longer counts these houses as dwellings."
  },
  "measurement": {

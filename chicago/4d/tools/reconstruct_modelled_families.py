@@ -183,10 +183,7 @@ PRINTED_WIVES = {
     # T-2230: the first of the two Chicago couples of the Democrat's 3 December 1833
     # column, married "on Saturday evening 29 ult." The column prints the day of the
     # month and the weekday, and they disagree (29 November 1833 was a Friday); the day
-    # is the one written, and either way it is before the scene date. The second couple,
-    # George Bickerdyke and Mary Noble, waits on its own ticket: his house is one the book
-    # refused a wife, so seating her takes him out of T-2020's wife match and re-pairs the
-    # houses after him.
+    # is the one written, and either way it is before the scene date.
     "hh_marknoble_jun": {
         "wife_household": "hh_wesencraft_charlotte",
         "wife": "wesencraft_charlotte",
@@ -197,6 +194,22 @@ PRINTED_WIVES = {
                    "Hamilton, Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this "
                    "place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late "
                    "of Buffalo.",
+    },
+    # T-2233: the second couple of the same column, married "at the same time, and by the
+    # same". His house is one the order book refused a wife, so T-2020's wife match had
+    # folded Bridget Ryan's dealt house into it. Seating the printed bride takes him out of
+    # that match, and the match re-pairs the refused houses after him in its own order:
+    # nobody is ruled into a pair by hand, and the fold the paper contradicts is undone.
+    "hh_bickerdyke_george": {
+        "wife_household": "hh_noble_mary",
+        "wife": "noble_mary",
+        "married": "1833-11-29",
+        "source": "chicago_democrat_1833_1835",
+        "locator": "chicago_democrat_1833_12_03#c007",
+        "printed": "MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. "
+                   "Hamilton, [...] At the same time, and by the same, Mr. GEORGE "
+                   "BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq., both of "
+                   "this place.",
     },
 }
 

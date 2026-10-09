@@ -57,8 +57,8 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
 | absent | 8 |
-| present | 501 |
-| uncertain | 947 |
+| present | 502 |
+| uncertain | 946 |
 
 | Division | Households |
 | --- | ---: |
@@ -66,8 +66,8 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | north | 20 |
 | outside_town | 1 |
 | south | 71 |
-| unplaced | 1,338 |
-| west | 13 |
+| unplaced | 1,337 |
+| west | 14 |
 
 ## 4. Layer: businesses
 

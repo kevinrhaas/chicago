@@ -29,11 +29,11 @@
   },
   "known_layer": {
     "households_total": 1456,
-    "households_present": 1403,
-    "households_uncertain": 947,
-    "households_ruled_present": 947,
+    "households_present": 1402,
+    "households_uncertain": 946,
+    "households_ruled_present": 946,
     "households_evidenced_absent": 8,
-    "households_reconstructed": 45,
+    "households_reconstructed": 46,
     "persons_total": 2920,
     "persons_standing": 2912,
     "persons_ruled_present": 954,
@@ -53,7 +53,7 @@
       "fort": 2
     },
     "persons_present_unplaced": 1333,
-    "households_present_unplaced": 1332,
+    "households_present_unplaced": 1331,
     "houses_present": 164,
     "houses_present_by_division": {
       "south": 52,
@@ -62,13 +62,13 @@
       "fort": 2
     },
     "houses_present_unplaced": 93,
-    "records_awaiting_a_household": 1239,
+    "records_awaiting_a_household": 1238,
     "houses_present_by_clause": {
-      "a_stated_kinship": 91,
+      "a_stated_kinship": 90,
       "a_stated_premises": 33,
       "a_stated_dwelling": 22,
       "a_stated_division": 14,
-      "more_than_one_named_person": 4
+      "more_than_one_named_person": 5
     },
     "households_with_a_lives_at": 22,
     "households_with_a_works_at": 50
@@ -78,23 +78,23 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 1848,
-    "households_ruled_present": 947,
+    "persons_ruled_present": 1843,
+    "households_ruled_present": 946,
     "by_presence_tier": {
-      "reconstructed": 1492,
+      "reconstructed": 1482,
       "inferred": 179,
-      "attested": 177
+      "attested": 182
     },
     "by_residence_grade": {
       "inferred": 677,
       "attested": 277,
-      "reconstructed": 894
+      "reconstructed": 889
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
     "persons_known_before_the_rulings": 478,
     "persons_known_now": 1432,
     "households_known_before_the_rulings": 456,
-    "households_known_now": 1403,
+    "households_known_now": 1402,
     "the_roster_is_not_double_counted": "R1 offers these names to T-1172 as a LICENCE to use a real read name, never as a quota (rule `real_names_first`), and T-1386 has already re-admitted them into the layer. Counting them known orders nobody twice; it stops ordering them once.",
     "what_re_cuts_the_quotas": [
       "T-1196",
@@ -1371,7 +1371,7 @@
   "spent_by": [
     {
       "ticket": "T-1174",
-      "records": 590,
+      "records": 591,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1429,7 +1429,7 @@
     },
     {
       "ticket": "T-2193",
-      "records": 336,
+      "records": 335,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1606,9 +1606,9 @@
     }
   ],
   "roster_offered": {
-    "total": 1800,
+    "total": 1799,
     "by_class": {
-      "R1_in_window_uncertain": 894,
+      "R1_in_window_uncertain": 893,
       "R2_in_window_single_source": 207,
       "R3_1834_return_or_muster": 28,
       "R4_surname_only_census": 438,
@@ -1630,8 +1630,8 @@
     "persons_to_reconstruct": 1831,
     "households_target": 645,
     "households_known": 164,
-    "households_known_records": 1403,
-    "households_awaiting_a_household": 1239,
+    "households_known_records": 1402,
+    "households_awaiting_a_household": 1238,
     "households_to_reconstruct": 458,
     "businesses_target": 109,
     "businesses_known": 128,
@@ -1646,7 +1646,7 @@
       2371,
       3265
     ],
-    "households_standing": 209,
+    "households_standing": 210,
     "households_still_owed": 64
   },
   "seats_against_roofs": {
@@ -1768,22 +1768,22 @@
       "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
       "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,448 against 643 is a BACKLOG, not a contradiction.",
       "households_known_before_the_rulings": 456,
-      "records_known_now": 1403,
+      "records_known_now": 1402,
       "houses_known_now": 164,
-      "records_awaiting_a_household": 1239,
+      "records_awaiting_a_household": 1238,
       "houses_by_clause": {
-        "a_stated_kinship": 91,
+        "a_stated_kinship": 90,
         "a_stated_premises": 33,
         "a_stated_dwelling": 22,
         "a_stated_division": 14,
-        "more_than_one_named_person": 4
+        "more_than_one_named_person": 5
       },
       "model_target": 645,
       "model_range": [
         473,
         816
       ],
-      "measured": "Of the 1,403 records the layer holds present, 164 carry a reading about a dwelling and 1,239 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
+      "measured": "Of the 1,402 records the layer holds present, 164 carry a reading about a dwelling and 1,238 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
       "the_test_is_the_evidence_not_the_head_count": "A one-person record is not held out because it holds one person; a man may well have lived alone. It is held out where its whole evidence is a name on a list. The clause that lets a record stand as a house is written on its own manifest row as `dwelling_evidence` and is tallied above — so which of the records are which is readable off the layer and not asserted here.",
       "what_this_does_not_do": "Nothing is retired, nothing is re-graded and nobody is downgraded. Every record stays as it is, with its evidence and its grade; what changes is which question it answers. A record answers both the moment something seats him, and the derivation picks that up on the next rebuild."
     },
@@ -4406,9 +4406,9 @@
           816
         ],
         "known_present": 164,
-        "known_present_records": 1403,
-        "known_present_awaiting_a_household": 1239,
-        "known_uncertain_in_the_index_ruled_in_by_T-1386": 947
+        "known_present_records": 1402,
+        "known_present_awaiting_a_household": 1238,
+        "known_uncertain_in_the_index_ruled_in_by_T-1386": 946
       },
       "buckets": [
         {
@@ -5891,13 +5891,13 @@
       "id": "every_person_housed",
       "owning_ticket": "T-1215",
       "statement": "Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof.",
-      "measured_now": "22 of 1403 present households name a lives_at."
+      "measured_now": "22 of 1402 present households name a lives_at."
     },
     {
       "id": "every_working_person_has_a_workplace",
       "owning_ticket": "T-1189",
       "statement": "Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`.",
-      "measured_now": "50 of 1403 present households name a works_at."
+      "measured_now": "50 of 1402 present households name a works_at."
     },
     {
       "id": "every_business_has_staff",
@@ -6586,7 +6586,7 @@
       "bucket": "households/family_dwelling/west",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 10,
+      "records": 11,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
@@ -6943,7 +6943,7 @@
       "bucket": "households/family_dwelling/west",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 79,
+      "records": 78,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     }
   ],

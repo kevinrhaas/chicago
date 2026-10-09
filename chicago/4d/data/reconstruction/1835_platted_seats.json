@@ -65,11 +65,11 @@
   "roofs_adopted": 214,
   "slots_requested": 1,
   "owed_by_band_clause": {
-   "division_ground": 25,
+   "division_ground": 26,
    "farms_and_country_seats": 210,
    "heavy_and_noxious_trades": 2,
    "labourer_dwellings": 89,
-   "merchant_and_professional_dwellings": 380,
+   "merchant_and_professional_dwellings": 379,
    "tradesman_dwellings": 500
   },
   "roofs_offered_for_adoption": 224,
@@ -8781,15 +8781,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_stephenson_james_w",
-   "kind": "household",
-   "band": "south/merchant_and_professional_dwellings",
-   "clause": "merchant_and_professional_dwellings",
-   "district": "south",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_stewart_r",
    "kind": "household",
    "band": "west/merchant_and_professional_dwellings",
@@ -11823,15 +11814,6 @@
    "handed_to": "T-1614"
   },
   {
-   "id": "hh_noble_mary",
-   "kind": "household",
-   "band": "west/tradesman_dwellings",
-   "clause": "tradesman_dwellings",
-   "district": "west",
-   "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
-   "handed_to": "T-1614"
-  },
-  {
    "id": "hh_noble_william_b",
    "kind": "household",
    "band": "south/tradesman_dwellings",
@@ -13008,6 +12990,15 @@
    "clause": "tradesman_dwellings",
    "district": "west",
    "why": "the plat holds no free roof of a family this clause admits in this division, and no open block's plan has headroom for one",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_stephenson_james_w",
+   "kind": "household",
+   "band": "south/tradesman_dwellings",
+   "clause": "tradesman_dwellings",
+   "district": "south",
+   "why": "no standing roof of an admitted family was free in this division, and every open block that still plans one has a single lot left, which is the lot the schedule's own sizing keeps open (`lot_ceiling_principal` = free lots less one): blk_south_water_wells (blk_south_water_wells#01). The owner ruled on 2026-09-26 (T-1623) that a block is not dealt out of its open lot, so the request is refused here rather than left standing unfulfillable",
    "handed_to": "T-1614"
   },
   {
@@ -15614,9 +15605,9 @@
   {
    "id": "hh_laframboise_thrse",
    "kind": "household",
-   "band": "south/farms_and_country_seats",
+   "band": "west/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "south",
+   "district": "west",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },
@@ -15686,9 +15677,9 @@
   {
    "id": "hh_luke_pike",
    "kind": "household",
-   "band": "north/farms_and_country_seats",
+   "band": "south/farms_and_country_seats",
    "clause": "farms_and_country_seats",
-   "district": "north",
+   "district": "south",
    "why": "the clause seats this household outside the plat by its own terms (`ground:outside_plat`); the committed lot grid is not its ground",
    "handed_to": "T-1614"
   },
@@ -16049,6 +16040,15 @@
    "band": "south/division_ground",
    "clause": "division_ground",
    "district": "south",
+   "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
+   "handed_to": "T-1614"
+  },
+  {
+   "id": "hh_rc_crandall_clarissa",
+   "kind": "household",
+   "band": "west/division_ground",
+   "clause": "division_ground",
+   "district": "west",
    "why": "the band names a division and stops — no dwelling clause of the policy reaches this head's trade, so there is no clause to deal a lot by",
    "handed_to": "T-1614"
   },

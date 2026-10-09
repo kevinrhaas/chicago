@@ -37,7 +37,7 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *The model wants 643 households and the layer holds 1,448 records. Are those the same thing?*
 
-Of the 1,403 records the layer holds present, 164 carry a reading about a dwelling and 1,239 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
+Of the 1,402 records the layer holds present, 164 carry a reading about a dwelling and 1,238 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
 ### a documented reading shrank an order the town had drawn
 
@@ -356,9 +356,9 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 | ticket | persons drawn | buckets |
 |---|---:|---:|
-| T-1174 | 590 | 27 |
+| T-1174 | 591 | 27 |
 | T-2021 | 503 | 19 |
-| T-2193 | 336 | 3 |
+| T-2193 | 335 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 36 |
@@ -385,11 +385,11 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 ## Real names before invented ones
 
-The roster offers 1,800 names the corpus printed and this project withheld. Each class is a licence, not a quota:
+The roster offers 1,799 names the corpus printed and this project withheld. Each class is a licence, not a quota:
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 894 | T-1172 |
+| `R1_in_window_uncertain` | 893 | T-1172 |
 | `R2_in_window_single_source` | 207 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
 | `R4_surname_only_census` | 438 | T-1170 |
@@ -567,9 +567,9 @@ The households the model wants, by kind and division.
 - `households_target_basis`: the midpoint of the model's 473-816, rounded half up
 - `households_target_range`: 473, 816
 - `known_present`: 164
-- `known_present_records`: 1,403
-- `known_present_awaiting_a_household`: 1,239
-- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 947
+- `known_present_records`: 1,402
+- `known_present_awaiting_a_household`: 1,238
+- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 946
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -717,8 +717,8 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 
 ## The invariants the convergence tickets assert
 
-- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1403 present households name a lives_at.
-- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1403 present households name a works_at.
+- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1402 present households name a lives_at.
+- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1402 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
 - **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 415 of 676 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,550 people into 645 households.

@@ -2146,114 +2146,6 @@
     "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
    }
   },
-  "hh_rc_crandall_clarissa": {
-   "folded_into": "hh_markle_joseph_w",
-   "card": {
-    "id": "hh_rc_crandall_clarissa",
-    "name": "Reconstructed household — Clarissa Crandall, a woman keeping her own house in the west division",
-    "division": "west",
-    "head": "rc_crandall_clarissa",
-    "source_pass": "reconstructed_women_children",
-    "arrival": {
-     "value": "1835-07-01",
-     "precision": "not_later_than",
-     "confidence": "reconstructed",
-     "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
-    },
-    "arrival_year": {
-     "value": 1835,
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
-     "basis": {
-      "kind": "model",
-      "id": "arrival",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
-     },
-     "seed": "hh_rc_crandall_clarissa:arrival_year",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a dated source that says which year this household came to Chicago"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "party_size_on_arrival": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "Not claimed. The household model draws how many people this house held on 1 July 1835 and says nothing about how many of them travelled together."
-    },
-    "origin": {
-     "value": "New England",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
-     "basis": {
-      "kind": "model",
-      "id": "origin",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
-     },
-     "seed": "hh_rc_crandall_clarissa:origin_region",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says where this household came from"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "reason_for_coming": {
-     "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
-     "basis": {
-      "kind": "rule",
-      "id": "reason_from_arrival_cohort",
-      "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
-     },
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "lives_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
-    },
-    "works_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."
-    },
-    "present_on_scene_date": {
-     "value": "present",
-     "confidence": "reconstructed",
-     "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them."
-    },
-    "women_children": {
-     "stage": "women_and_children",
-     "ticket": "T-1174",
-     "household_type": "female_headed",
-     "head_trade": "none_recorded",
-     "head_trade_seed": "rc_wc_west_025:female_trades",
-     "size_drawn": 5,
-     "seated": 5,
-     "seated_beyond_the_draw": 0,
-     "seed": "rc_wc_west_025:household_size",
-     "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
-    },
-    "persons": [
-     "rc_crandall_clarissa",
-     "rc_crandall_clarissa_1",
-     "rc_crandall_clarissa_2",
-     "rc_crandall_clarissa_3",
-     "rc_crandall_clarissa_4"
-    ],
-    "touches_removal": false,
-    "review_required": false,
-    "research_note": "RECONSTRUCTED HOUSEHOLD — no trade recorded, in the west division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
-   }
-  },
   "hh_rc_crandall_polly": {
    "folded_into": "hh_david_john",
    "card": {
@@ -2794,7 +2686,7 @@
    }
   },
   "hh_rc_doyle_ellen": {
-   "folded_into": "hh_leframboise_joseph",
+   "folded_into": "hh_markle_joseph_w",
    "card": {
     "id": "hh_rc_doyle_ellen",
     "name": "Reconstructed household — Ellen Doyle, a woman keeping her own house in the west division",
@@ -2902,7 +2794,7 @@
    }
   },
   "hh_rc_eastman_emily": {
-   "folded_into": "hh_lee_william",
+   "folded_into": "hh_leframboise_joseph",
    "card": {
     "id": "hh_rc_eastman_emily",
     "name": "Reconstructed household — Emily Eastman, a woman keeping her own house in the west division",
@@ -4517,7 +4409,7 @@
    }
   },
   "hh_rc_gilbert_ruth": {
-   "folded_into": "hh_kingstone_paul",
+   "folded_into": "hh_lee_william",
    "card": {
     "id": "hh_rc_gilbert_ruth",
     "name": "Reconstructed household — Ruth Gilbert, a woman keeping her own house in the west division",
@@ -4946,7 +4838,7 @@
    }
   },
   "hh_rc_hayes_margaret": {
-   "folded_into": "hh_haighs_isaac",
+   "folded_into": "hh_kingstone_paul",
    "card": {
     "id": "hh_rc_hayes_margaret",
     "name": "Reconstructed household — Margaret Hayes, a woman keeping her own house in the west division",
@@ -5051,7 +4943,7 @@
    }
   },
   "hh_rc_ingalls_abigail": {
-   "folded_into": "hh_foot_john",
+   "folded_into": "hh_haighs_isaac",
    "card": {
     "id": "hh_rc_ingalls_abigail",
     "name": "Reconstructed household — Abigail Ingalls, a woman keeping her own house in the west division",
@@ -6339,7 +6231,7 @@
    }
   },
   "hh_rc_newell_polly": {
-   "folded_into": "hh_fell_j_w",
+   "folded_into": "hh_foot_john",
    "card": {
     "id": "hh_rc_newell_polly",
     "name": "Reconstructed household — Polly Newell, a woman keeping her own house in the west division",
@@ -6661,7 +6553,7 @@
    }
   },
   "hh_rc_nichols_rhoda": {
-   "folded_into": "hh_duplas_joseph",
+   "folded_into": "hh_fell_j_w",
    "card": {
     "id": "hh_rc_nichols_rhoda",
     "name": "Reconstructed household — Rhoda Nichols, a woman keeping her own house in the west division",
@@ -7415,7 +7307,7 @@
    }
   },
   "hh_rc_quinn_ellen": {
-   "folded_into": "hh_bonin_augustus",
+   "folded_into": "hh_duplas_joseph",
    "card": {
     "id": "hh_rc_quinn_ellen",
     "name": "Reconstructed household — Ellen Quinn, a woman keeping her own house in the west division",
@@ -7524,7 +7416,7 @@
    }
   },
   "hh_rc_rice_lydia": {
-   "folded_into": "hh_boardman_harry",
+   "folded_into": "hh_bonin_augustus",
    "card": {
     "id": "hh_rc_rice_lydia",
     "name": "Reconstructed household — Lydia Rice, a woman keeping her own house in the west division",
@@ -7631,7 +7523,7 @@
    }
   },
   "hh_rc_ryan_bridget": {
-   "folded_into": "hh_bickerdyke_george",
+   "folded_into": "hh_boardman_harry",
    "card": {
     "id": "hh_rc_ryan_bridget",
     "name": "Reconstructed household — Bridget Ryan, a woman keeping her own house in the west division",
@@ -9672,6 +9564,150 @@
  },
  "printed_wives_are": "T-2190: the cards of women a source prints as the wife of a head this stage draws for (PRINTED_WIVES), folded into his house in place of a drawn wife. Kept apart from `houses`, which are T-1174's and are undone by `unfold`; these are undone by `unseat_printed`.",
  "printed_wives": {
+  "hh_noble_mary": {
+   "folded_into": "hh_bickerdyke_george",
+   "card": {
+    "id": "hh_noble_mary",
+    "name": "The Noble household — a name the town's own records carry",
+    "division": "unplaced",
+    "division_reconstructed": {
+     "value": "west",
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "band": "west/tradesman_dwellings",
+     "clause": "tradesman_dwellings",
+     "note": "No source places this household anywhere — the record gives a name and no address, no street and not even a division. So BOTH halves of this band are dealt rather than read: the west division from the reconstruction order book's own household target by division, and the class from the town model's employment distribution, which puts this household under the placement policy's tradesman_dwellings clause. The frame cottages fall on the side streets behind the principal frontages — the back of the same blocks the stores front, which is how a block parcel comes to deal its meanest roof to its worst street. The deal is seeded on this household's own id, so it is the same on every run — and it is the weakest seat this ladder makes: no lot, no roof, no coordinate and no source behind either half of it.",
+     "basis": {
+      "kind": "model",
+      "id": "policy_only_deal",
+      "note": "data/reconstruction/1835_address_book.json#policy_only_deal — the division off the reconstruction order book's household target by division, the class off the town model's employment_shape_1840 distribution, dealt exact by largest remainder on a seeded order."
+     },
+     "seed": "hh_noble_mary|T-1522|division:f60c78866044|class:af4982a7db55",
+     "replaceable_by": {
+      "kind": "household",
+      "match": "any source that places this household in a division or nearer"
+     },
+     "written_by_stage": "policy_only_division"
+    },
+    "head": "noble_mary",
+    "source_pass": "civic",
+    "arrival": {
+     "value": "1833-12-03",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 3 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence.",
+     "precision": "not_later_than"
+    },
+    "arrival_year": {
+     "value": 1833,
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1833-12-03 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
+     "basis": {
+      "kind": "model",
+      "id": "arrival",
+      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1833."
+     },
+     "seed": "hh_noble_mary:arrival_year",
+     "replaceable_by": {
+      "kind": "person",
+      "match": "a dated source that says which year this household came to Chicago"
+     },
+     "written_by_stage": "attribute_fill_arrival"
+    },
+    "party_size_on_arrival": {
+     "value": null,
+     "confidence": "reconstructed",
+     "note": "Not attested."
+    },
+    "origin": {
+     "value": "New York State",
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
+     "basis": {
+      "kind": "model",
+      "id": "origin",
+      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
+     },
+     "seed": "hh_noble_mary:origin_region",
+     "replaceable_by": {
+      "kind": "person",
+      "match": "a source that says where this household came from"
+     },
+     "written_by_stage": "attribute_fill_arrival"
+    },
+    "reason_for_coming": {
+     "value": "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
+     "confidence": "reconstructed",
+     "tier": "reconstructed",
+     "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
+     "basis": {
+      "kind": "rule",
+      "id": "reason_from_arrival_cohort",
+      "note": "arrival_fill.cohort_reasons — the household's arrival year (1833) is the only thing about it this value rests on."
+     },
+     "replaceable_by": {
+      "kind": "person",
+      "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
+     },
+     "written_by_stage": "attribute_fill_arrival"
+    },
+    "lives_at": {
+     "value": null,
+     "confidence": "reconstructed",
+     "note": "Not attested: the lists that name this person give no address. The placement sweep assigns homes once the resident list is complete (T-0514, the owner's own sequencing) and this pass will not guess one."
+    },
+    "works_at": {
+     "value": null,
+     "confidence": "reconstructed",
+     "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
+    },
+    "present_on_scene_date": {
+     "value": "uncertain",
+     "confidence": "inferred",
+     "sources": [
+      "chicago_democrat_1833_1835"
+     ],
+     "last_dated_appearance": {
+      "as_read": "1833-12-03",
+      "precision": "day",
+      "reaches": "1833-12-03",
+      "includes_scene_date": false,
+      "days_before_scene_date": 575,
+      "leg": "sighting",
+      "person": "noble_mary",
+      "record": "person_mary_noble",
+      "sources": [
+       "chicago_democrat_1833_1835"
+      ],
+      "note": "A DATED READING OF THIS PERSON, AND THE LAST ONE THE CORPUS HOLDS. Read from `press_evidence` as `1833-12-03`, which reaches 1833-12-03 — 575 day(s) short of 1835-07-01. THE FIELD IS THE EVIDENCE UNDER THE VERDICT, not a new claim: nothing here moves the presence off `uncertain`, and T-1159 and T-1172 classify this household by this date instead of reading it out of the prose (T-1144 acceptance 9)."
+     },
+     "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+    },
+    "kin": [
+     {
+      "person": "noble_mary",
+      "relation": "daughter",
+      "household": "hh_noble_mark",
+      "value": "noble_mark",
+      "confidence": "attested",
+      "sources": [
+       "chicago_democrat_1833_1835"
+      ],
+      "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq., both of this place'. Both cards were minted from that same reading of that same notice — the press register reads 'Mark Nobles, Esq.' and 'Mark Noble, Esq.', two lines apart, as the one father of the bridegroom and of the second bride — so nothing is being identified by name here. Written by T-2229, the family pass's ruling on this column (data/research/family_pass_rulings.json, chicago_democrat_1833_12_03 c007). The term 'daughter' is the paper's word. 'Second daughter' implies a first daughter, who is nobody this town holds, so no row is written for her. The marriage the same line prints is T-2230's to seat."
+     }
+    ],
+    "persons": [
+     "noble_mary"
+    ],
+    "touches_removal": false,
+    "review_required": false,
+    "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
+   }
+  },
   "hh_weaver_betsy": {
    "folded_into": "hh_ingersoll_chester",
    "card": {

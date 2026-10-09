@@ -4526,21 +4526,21 @@
       "lot": "blk_school_section_tier_118_lot1",
       "belongs_to": "recon_1835_blk_school_section_tier_118_d2_01",
       "households": [],
-      "household_class": "labourer",
+      "household_class": "tradesman",
       "class_read_from": "fabric_basis.class (L330)",
       "at_local_enu_m": [
-        476.43,
-        -591.48
+        476.5,
+        -591.55
       ],
       "bearing_deg": 180.0,
-      "along_m": 1.07,
-      "depth_m": 1.07,
-      "eave_m": 1.85,
-      "head_m": 2.05,
+      "along_m": 1.22,
+      "depth_m": 1.22,
+      "eave_m": 1.95,
+      "head_m": 2.2,
       "roof": "shed",
       "weather": "seasoned",
       "confidence": "reconstructed",
-      "finish": "slab"
+      "finish": "board"
     },
     {
       "id": "privy_blk_school_section_tier_118_lot2",

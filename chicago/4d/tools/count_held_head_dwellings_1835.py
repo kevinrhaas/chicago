@@ -89,15 +89,29 @@ def seed_of(hid: str) -> str:
 
 
 def room_in_the_book(book: dict) -> dict[str, int]:
-    """Each division's family_dwelling order, less every fill but this stage's own."""
+    """Each division's family_dwelling order, less every fill but this stage's own.
+
+    THE ORDER IS THE RE-CUT'S WANT WHERE THE BOOK REFUSED THE CELL (T-2233). A cell the
+    re-cut reached work already drawn against is held at what was drawn (T-1459), and that
+    held number counts this stage's own fill. Read as the order, it would let this count
+    keep the surplus it made: when another stage's houses grow by one (a fold undone, so a
+    dealt house stands again), the book holds the cell at the new total and this count
+    takes the same room it took before, forever. This count draws nobody and un-draws
+    nobody, so it is the side that yields: its room is what the re-cut would order."""
     others = Counter()
     for fill in book.get("fills") or []:
         if fill.get("ticket") != TICKET:
             others[fill["bucket"]] += int(fill.get("records") or 0)
     family = next(f for f in book["bucket_families"] if f["key"] == "households")
     by_key = {b["key"]: b for b in family["buckets"]}
-    return {d: max(0, int(by_key[CELL.format(d)]["to_reconstruct"] or 0)
-                   - others[CELL.format(d)]) for d in DIVISIONS}
+    recut = {r["bucket"]: int(r["the_re_cut_would_have_ordered"])
+             for r in book.get("recut_refusals") or []
+             if r.get("the_re_cut_would_have_ordered") is not None}
+    order = {d: int(by_key[CELL.format(d)]["to_reconstruct"] or 0) for d in DIVISIONS}
+    for d in DIVISIONS:
+        if CELL.format(d) in recut:
+            order[d] = min(order[d], recut[CELL.format(d)])
+    return {d: max(0, order[d] - others[CELL.format(d)]) for d in DIVISIONS}
 
 
 def derive(awaiting: list[str], seats: list[dict], room: dict[str, int]) -> dict:
@@ -289,6 +303,10 @@ def self_test() -> int:
                 {"key": CELL.format(d), "to_reconstruct": 20} for d in DIVISIONS]}]}
     case("the room is the order less every OTHER stage's fill, never this stage's own",
          room_in_the_book(book) == {"north": 20, "south": 15, "west": 20})
+    book["recut_refusals"] = [{"bucket": CELL.format("south"), "the_re_cut_would_have_ordered": 18,
+                               "already_drawn": 21}]
+    case("a cell the re-cut refused is read at the re-cut's want, not the held number",
+         room_in_the_book(book) == {"north": 20, "south": 13, "west": 20})
     print("   self-test | %d failure(s)" % len(failures))
     return 1 if failures else 0
 

@@ -15,8 +15,8 @@ The first of the two axes T-1157 reads as the sign-off's location axis.
 | structure | 34 | a committed roof |
 | lot | 0 | a platted lot and no roof |
 | face | 0 | a block face and no lot |
-| division | 84 | a division and no face |
-| none | 1338 | no ground at all |
+| division | 85 | a division and no face |
+| none | 1337 | no ground at all |
 
 T-1147 clause 9 calls these "the four seating classes" and then lists five labels. Five is what the data supports and five is what is counted: a household the sources put in the North Division is not a household the sources put nowhere, and collapsing `division` into `none` would lose exactly the distinction the sign-off needs. The discrepancy is reported, not resolved.
 
@@ -44,8 +44,8 @@ The 61 street-only and 62 unplaceable businesses are the **location limits T-114
 
 | disposition | rows |
 |---|---:|
-| limited | 196 |
-| no_claim | 1338 |
+| limited | 197 |
+| no_claim | 1337 |
 | refused | 189 |
 | resolved | 184 |
 
