@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "329 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "332 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 255,
     "refused": 0,
-    "refuges": 345,
-    "paths": 329
+    "refuges": 347,
+    "paths": 332
   },
   "lots": [
     {
@@ -3375,19 +3375,19 @@
         [
           [
             292.63,
-            -186.33
+            -186.32
           ],
           [
-            290.19,
+            290.34,
             -186.31
           ],
           [
-            290.17,
-            -188.75
+            290.33,
+            -188.6
           ],
           [
-            292.61,
-            -188.77
+            292.62,
+            -188.61
           ]
         ],
         [
@@ -6677,20 +6677,20 @@
       "refuges_local_enu_m": [
         [
           [
-            343.31,
+            343.16,
             -325.8
           ],
           [
             340.87,
-            -325.78
+            -325.79
           ],
           [
-            340.85,
-            -328.22
+            340.86,
+            -328.08
           ],
           [
-            343.29,
-            -328.24
+            343.15,
+            -328.09
           ]
         ]
       ]
@@ -6728,24 +6728,6 @@
         ]
       ],
       "refuges_local_enu_m": [
-        [
-          [
-            383.34,
-            -320.36
-          ],
-          [
-            389.44,
-            -320.4
-          ],
-          [
-            389.46,
-            -315.52
-          ],
-          [
-            383.36,
-            -315.48
-          ]
-        ],
         [
           [
             372.78,
@@ -7060,38 +7042,20 @@
       "refuges_local_enu_m": [
         [
           [
-            632.51,
+            632.96,
             -322.39
           ],
           [
             635.25,
-            -322.41
+            -322.4
           ],
           [
-            635.27,
-            -319.97
+            635.26,
+            -320.11
           ],
           [
-            632.53,
-            -319.95
-          ]
-        ],
-        [
-          [
-            610.88,
-            -322.22
-          ],
-          [
-            616.98,
-            -322.26
-          ],
-          [
-            617.02,
-            -317.38
-          ],
-          [
-            610.92,
-            -317.34
+            632.97,
+            -320.1
           ]
         ]
       ]
@@ -9116,6 +9080,24 @@
       "refuges_local_enu_m": [
         [
           [
+            291.02,
+            -457.5
+          ],
+          [
+            284.92,
+            -457.46
+          ],
+          [
+            284.9,
+            -462.34
+          ],
+          [
+            291.0,
+            -462.38
+          ]
+        ],
+        [
+          [
             282.49,
             -464.22
           ],
@@ -10137,20 +10119,20 @@
       "refuges_local_enu_m": [
         [
           [
-            538.69,
-            -458.5
+            538.54,
+            -458.49
           ],
           [
             536.25,
             -458.48
           ],
           [
-            536.23,
-            -460.92
+            536.24,
+            -460.77
           ],
           [
-            538.67,
-            -460.94
+            538.53,
+            -460.78
           ]
         ]
       ]
@@ -13978,7 +13960,7 @@
       "refuges_local_enu_m": [
         [
           [
-            313.2,
+            313.5,
             -590.33
           ],
           [
@@ -13990,8 +13972,26 @@
             -592.77
           ],
           [
-            313.2,
+            313.5,
             -592.77
+          ]
+        ],
+        [
+          [
+            341.2,
+            -590.33
+          ],
+          [
+            335.1,
+            -590.33
+          ],
+          [
+            335.1,
+            -595.21
+          ],
+          [
+            341.2,
+            -595.21
           ]
         ]
       ]
@@ -14550,7 +14550,7 @@
       "refuges_local_enu_m": [
         [
           [
-            546.31,
+            546.01,
             -584.56
           ],
           [
@@ -14562,8 +14562,26 @@
             -582.12
           ],
           [
-            546.31,
+            546.01,
             -582.12
+          ]
+        ],
+        [
+          [
+            524.45,
+            -584.57
+          ],
+          [
+            531.77,
+            -584.57
+          ],
+          [
+            531.77,
+            -579.08
+          ],
+          [
+            524.45,
+            -579.08
           ]
         ]
       ]
@@ -15074,16 +15092,34 @@
             -590.33
           ],
           [
-            692.48,
+            692.18,
             -590.33
           ],
           [
-            692.48,
+            692.18,
             -592.77
           ],
           [
             694.92,
             -592.77
+          ]
+        ],
+        [
+          [
+            675.93,
+            -590.33
+          ],
+          [
+            669.83,
+            -590.33
+          ],
+          [
+            669.83,
+            -595.21
+          ],
+          [
+            675.93,
+            -595.21
           ]
         ]
       ]
