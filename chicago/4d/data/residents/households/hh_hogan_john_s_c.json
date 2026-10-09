@@ -64,6 +64,22 @@
   ],
   "note": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed."
  },
+ "associated_with": [
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "hogan_store",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "The log building at the intersection of South Water and Lake, near the east end of the bridge, with Hogan's store in it and the post office in the store. Twenty by forty-five feet, which Andreas gives as an aside about how little room the town's mail needed. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_hogan_john_s_c#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)",
+   "also_sources": [
+    "chicagology_first_post_office"
+   ]
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "attested",

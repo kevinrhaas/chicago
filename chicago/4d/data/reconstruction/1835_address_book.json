@@ -286,16 +286,16 @@
    "west/tradesman_dwellings": 127
   },
   "reconstructed_seats": 1440,
-  "dealt_a_roof": 313,
+  "dealt_a_roof": 314,
   "dealt_a_standing_roof": 313,
-  "dealt_a_slot_not_yet_built": 0,
+  "dealt_a_slot_not_yet_built": 1,
   "dealt_by_ticket": {
-   "T-1613": 214,
+   "T-1613": 215,
    "T-1614": 99
   },
   "dealt_by_ground": {
    "off_plat_parcel": 99,
-   "platted_lot": 214
+   "platted_lot": 215
   }
  },
  "rows": [
@@ -21146,7 +21146,24 @@
     "class_dealt_from": "the town model's employment_shape_1840 distribution"
    },
    "seed": "hh_dixon_robert|T-1522|division:80f370bf750e|class:d37daa4c385c",
-   "dealt_roof": null
+   "dealt_roof": {
+    "structure_id": null,
+    "how": "slot",
+    "dealt_by": "T-1613",
+    "ground": "platted_lot",
+    "on": "blk_south_water_market#01",
+    "block_id": "blk_south_water_market",
+    "fronts": "lake",
+    "family": "D5",
+    "clause": "tradesman_dwellings",
+    "district": "south",
+    "stands_on": "lot",
+    "deal_seed": "hh_dixon_robert|T-1522|division:80f370bf750e|class:d37daa4c385c",
+    "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil",
+    "owed_to": "T-1200..T-1214",
+    "substitutable": true,
+    "words": "The placement policy deals this household a place on blk_south_water_market#01 under its tradesman_dwellings clause, and the roof is not built: the deal REQUESTED a family D5 roof off that block's own committed plan, and T-1200..T-1214 raise it. So there is nowhere yet to stand. Why this one: no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil."
+   }
   },
   {
    "id": "hh_doane_seth_b",

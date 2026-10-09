@@ -147,10 +147,16 @@ check('adaptive transitions share every internal edge with upward winding',()=>{
  }
  assert.equal(edges.after.boundary,edges.before.boundary);
 });
-check('crossing refinement stays local and below its measured 9000-triangle allocation',()=>{
+// T-2195 RE-BUDGETED THIS, consciously and not to clear a red: 9000 was T-2037's measured
+// allocation for 100 protected crossings (8,802 used). The owner's 2026-10-08 ruling on T-1957
+// put the Market wedge on the grid, whose three new walk faces bring five board crossings, and
+// they cost 668 triangles (9,470 over 105, about 134 each). 10,000 holds those and about four
+// more crossings; the terrain base mesh is orders of magnitude larger, so this is headroom on
+// a locality check, not a frame-cost claim. A crossing that costs far more than ~134 still trips it.
+check('crossing refinement stays local and below its measured 10000-triangle allocation',()=>{
  assert.ok(adaptive.stats.refinedCells>0);
  assert.ok(adaptive.stats.protectedCells<200);
- assert.ok(adaptive.stats.triangles-original.stats.triangles<=9000);
+ assert.ok(adaptive.stats.triangles-original.stats.triangles<=10000);
 });
 check('partial edge cells keep their shared transitions closed',()=>{
  const field={loaded:true,cols:10,rows:9,cellM:1,originE:0,originN:0,data:new Float32Array(90).fill(1)};

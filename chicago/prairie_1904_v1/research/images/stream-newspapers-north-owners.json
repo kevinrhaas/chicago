@@ -301,7 +301,22 @@
   "rights_basis": "Published in the United States before 1929",
   "verified": "viewed",
   "period": "in-period",
-  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n187_w1200.jpg"
+  "image_url": "https://archive.org/download/chicagobluebooko1904chic/page/n187_w1200.jpg",
+  "evidence_review": {
+   "ticket": "T-2198",
+   "audit_number": 1,
+   "reviewed_on": "2026-10-08",
+   "review_state": "text metadata inventoried",
+   "target_date": "1904-07-01",
+   "phase": "range includes target year; exact phase unresolved",
+   "date_basis": "1904 (Blue Book for 1904, compiled late 1903)",
+   "evidence_role": "text context",
+   "geometry_use": "context only",
+   "reason": "Text metadata inventoried; no visual fabric determination.",
+   "source_url": "https://archive.org/details/chicagobluebooko1904chic/page/n187/mode/1up",
+   "family": null,
+   "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+  }
  },
  {
   "id": "npo-1726-rebj-1886-02-06-allen-to-james-r-walker-47x172",

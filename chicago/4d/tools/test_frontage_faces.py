@@ -101,7 +101,12 @@ def main(break_it: bool = False) -> int:
     #    on the south. Each of the six is bounded east and west by one of the covered
     #    cross streets, which is +12 faces and no other change: the count is the plat's,
     #    and the plat grew by a tier it had always drawn.
-    check("the seven cross streets have 46 platted faces", len(cross) == 46,
+    #
+    #    AND 47 SINCE T-2195, which cut the Market wedge (plat block 21) on the owner's
+    #    ruling of 2026-10-08: it fronts Franklin on its east face, +1. Its west face is
+    #    the lot cut a lot's width east of Market's corridor and is declared off the
+    #    street (`wedge.faces_off_the_street`), so Market gains nothing.
+    check("the seven cross streets have 47 platted faces", len(cross) == 47,
           f"got {len(cross)}")
     check("naming the cross streets does not disturb the east-west faces",
           len(along) == len(faces_with((), lots)),

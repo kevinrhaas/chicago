@@ -1258,8 +1258,8 @@
    {
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
-    "state": "complete",
-    "roofs": 0
+    "state": "gated",
+    "roofs": 5
    },
    {
     "id": "west_division_beyond_committed_control",
