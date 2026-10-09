@@ -1612,7 +1612,7 @@
     "households_known": 165,
     "households_known_records": 1389,
     "households_awaiting_a_household": 1224,
-    "households_to_reconstruct": 445,
+    "households_to_reconstruct": 435,
     "businesses_target": 109,
     "businesses_known": 129,
     "businesses_to_reconstruct": 7,
@@ -1627,7 +1627,7 @@
       3265
     ],
     "households_standing": 214,
-    "households_still_owed": 44
+    "households_still_owed": 34
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1710,10 +1710,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 10,
+      "household_leg_now": 0,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 10. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 0. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -1883,6 +1883,46 @@
     "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 8 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; 4 stand a house of trade whose keeper the town holds no card for, so nobody is seated over them; and 0 are still owed: a keeper for a store roof that stands with nobody in it.",
     "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.",
     "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: T-2237 counts those beside the held heads (count_held_head_dwellings_1835.py, `beyond_the_index`)."
+  },
+  "waiting_families_ruling": {
+    "ticket": "T-2256",
+    "asks": "The family_dwelling order outruns the held heads the housing seats put under a standing dwelling. Is that a household the town lacks?",
+    "families_waiting_on_a_roof": {
+      "unplaced": 23
+    },
+    "by_division": {
+      "north": {
+        "held_heads_under_a_dwelling": 115,
+        "houses_other_stages_drew": 10,
+        "short_of_the_order": 0,
+        "waiting_families_share": 6,
+        "discharged": 0,
+        "still_owed": 0
+      },
+      "south": {
+        "held_heads_under_a_dwelling": 157,
+        "houses_other_stages_drew": 17,
+        "short_of_the_order": 10,
+        "waiting_families_share": 12,
+        "discharged": 10,
+        "still_owed": 0
+      },
+      "west": {
+        "held_heads_under_a_dwelling": 79,
+        "houses_other_stages_drew": 11,
+        "short_of_the_order": 0,
+        "waiting_families_share": 5,
+        "discharged": 0,
+        "still_owed": 0
+      }
+    },
+    "short_of_the_order": 10,
+    "discharged": 10,
+    "still_owed": 0,
+    "measured": "The held heads fall 10 short of the family_dwelling order. The housing deal holds 23 families present on the scene date and waiting on a roof behind the census ceiling, none of them a letter-list household, 23 with no division on the card; spread pro rata on the cells' targets, as rule 2 spreads the unplaced known, they discharge 10 and 0 are still owed.",
+    "ruling": "NOT A HOUSEHOLD THE TOWN LACKS. Rule 2 never orders a replacement for somebody standing in the town, and these families stand in it on their own cards: what they lack is a roof, which the remaining dwelling builds raise, and the deal seats them where the room is when they do.",
+    "what_this_does_not_do": "It seats, moves, mints and retires nobody, counts no waiting family as a fill, and re-admits no household the letter-list ruling (T-0379) refuses a roof.",
+    "what_would_reopen_it": "a waiting family seated in another division, or a held head of this one boarded instead: either takes one from the share or adds one to the shortfall, and the cell owes again under its owning ticket."
   },
   "bucket_families": [
     {
@@ -4432,10 +4472,11 @@
           },
           "target": 258,
           "known": 74,
-          "to_reconstruct": 184,
+          "to_reconstruct": 174,
           "filled": 174,
           "owning_ticket": "T-2256",
-          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division"
+          "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division",
+          "discharged_by_the_waiting_families": 10
         },
         {
           "key": "households/family_dwelling/west",
