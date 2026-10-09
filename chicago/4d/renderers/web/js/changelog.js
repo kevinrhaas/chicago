@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1592, ts: '2026-10-09T21:26:39.702Z', date: 'Oct 9, 2026, 4:26 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+    items: [
+      'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
+      'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
+      'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
+    ] },
   { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
     items: [
       'Nothing you can see changed in the town. The automated walk-through checks that every wall the street-edge layer declines to fence is accounted for, and it still expected one more than the town now has.',

@@ -1,10 +1,10 @@
 {
-  "id": "rcb_mccarthy_boarding_house",
+  "id": "rcb_beaubien_boarding_house",
   "register_id": null,
-  "name": "Edward McCarthy's boarding house",
+  "name": "Mark Beaubien's boarding house",
   "provenance": "reconstructed",
   "type": [
-    "other"
+    "tavern"
   ],
   "trade": "boarding house",
   "occupation": "boarding_house_keeper",
@@ -12,14 +12,14 @@
   "firm_styles": [],
   "proprietors": [
     {
-      "name": "Edward McCarthy",
-      "person_id": "rc_mccarthy_edward",
+      "name": "Mark Beaubien",
+      "person_id": "beaubien_mark",
       "register_person_id": null,
       "role": "proprietor",
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "ADOPTED, NOT MINTED. Edward McCarthy is the keeper the lodgers stage (T-1371) drew for this house and printed in data/reconstruction/1835_lodgers_seated.json § keepers; that card reads the trade off the building it stands in and heads hh_lodging_recon_1835_blk_washington_dearborn_h3_01. One quota, filled once: this record is the house they keep, not a second person.",
+      "basis": "ADOPTED, NOT MINTED. Mark Beaubien heads hh_beaubien_mark, which the placement pass seated on this roof under a keeper clause (L270); the lodgers stage reads that seat as the house's keeper and draws none (T-1808), printed in data/reconstruction/1835_lodgers_seated.json § keepers. No source puts them in this house on 1 July 1835. One quota, filled once: this record is the house they keep, not a second person.",
       "source_id": null,
       "claim_ids": []
     }
@@ -29,14 +29,14 @@
   "locations": [
     {
       "kind": "premises",
-      "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
+      "structure_id": "recon_1835_blk_south_water_market_h3_02",
       "street_id": null,
       "face": null,
       "primary": true,
       "from": null,
       "to": null,
       "tier": "reconstructed",
-      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_blk_washington_dearborn_h3_01 stands in data/structures/ with 12 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
+      "basis": "THE ROOF IS THE PREMISES, and it is the one thing here that was not dealt. This firm exists because recon_1835_blk_south_water_market_h3_02 stands in data/structures/ with 12 ordinary-night beds in it; the building came first and the house of trade is what the building was missing. No street is claimed beyond the one the roof already stands on, and no coordinate is written here at all.",
       "limit_reason": null
     }
   ],
@@ -52,17 +52,17 @@
   "exclusion": null,
   "exclusion_note": null,
   "proprietor_community": {
-    "value": "unknown",
-    "tier": null,
-    "rule": "no_community_on_the_people_named",
-    "basis": "This record names 1 person/people the resident layer holds a card for and the layer knows no community for any of them. The silence is in the resident layer, not in the register.",
+    "value": "french_canadian",
+    "tier": "inferred",
+    "rule": "proprietors_agree",
+    "basis": "The 1 keeper(s) this record names and the resident layer holds a card for all read french_canadian: Mark Beaubien (french_canadian). A house is not its keeper, so the reading is an inference about the house and is capped there.",
     "from": [
       {
-        "person_id": "rc_mccarthy_edward",
-        "name": "Edward McCarthy",
+        "person_id": "beaubien_mark",
+        "name": "Mark Beaubien",
         "role": "proprietor",
-        "community": "unknown",
-        "tier": null
+        "community": "french_canadian",
+        "tier": "inferred"
       }
     ]
   },
@@ -80,14 +80,14 @@
     "group": "lodging_river_and_transport",
     "ticket": "T-1408",
     "roof": {
-      "structure_id": "recon_1835_blk_washington_dearborn_h3_01",
+      "structure_id": "recon_1835_blk_south_water_market_h3_02",
       "class": "boarding_house",
       "beds_ordinary": 12,
-      "keeper_person_id": "rc_mccarthy_edward",
-      "keeper_household_id": "hh_lodging_recon_1835_blk_washington_dearborn_h3_01",
-      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_blk_washington_dearborn_h3_01 stands, the lodging model apportioned it 12 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Edward McCarthy their keeper. The firm is what was missing, and it is withdrawn with the roof."
+      "keeper_person_id": "beaubien_mark",
+      "keeper_household_id": "hh_beaubien_mark",
+      "note": "A STANDING ROOF, NOT A SHORTFALL. The December 1835 State census enumerates taverns and never boarding houses, so the order book holds no bucket of this class to point at and no count of it is short. What is committed is the building: recon_1835_blk_south_water_market_h3_02 stands, the lodging model apportioned it 12 ordinary-night beds out of a bracket the town model owns, and the lodgers stage put people in them and named Mark Beaubien their keeper. The firm is what was missing, and it is withdrawn with the roof."
     },
-    "seed": "lodging_river_and_transport:lodging/boarding_house/south:005",
+    "seed": "lodging_river_and_transport:lodging/boarding_house/south:001",
     "basis": {
       "kind": "model",
       "id": "1835_lodging_model",

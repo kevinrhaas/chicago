@@ -9,7 +9,7 @@
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,798 |
 | Households | 645 | 165 | 453 |
-| Businesses (enumerated classes) | 109 | 129 | 7 |
+| Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 678 | 9 |
 
 **2,865 people stand in the layer today** and **13** are still owed after the counters, so the town this book converges to is **2,878** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
@@ -593,7 +593,7 @@ The households the model wants, by kind and division.
 The December 1835 State census set against the register the town already holds.
 
 - `register_total`: 193
-- `at_scene_date`: 206
+- `at_scene_date`: 205
 - `census_enumerated_total`: 118
 - `register_businesses_read`: 193
 - `division_note`: EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY, and that is a reading rather than a hole: the register carries a street where the paper printed one and no division at all, and assigning premises to a division is T-1182's audit and T-1198's seating. The key carries the axis so those tickets fill it rather than re-cut the book.
@@ -617,7 +617,7 @@ The December 1835 State census set against the register the town already holds.
 | `businesses/steam_saw_mill` | 1 | 2 | 0 | 0 | T-1187 |
 | `businesses/storage_and_forwarding` | 4 | 7 | 0 | 0 | T-1187 |
 | `businesses/store` | 44 | 65 | 0 | 0 | T-1184 |
-| `businesses/tavern` | 8 | 10 | 0 | 0 | T-1187 |
+| `businesses/tavern` | 8 | 9 | 0 | 0 | T-1187 |
 | `businesses/tin_and_copper_manufactory` | 2 | 4 | 0 | 0 | T-1185 |
 
 ## Structures

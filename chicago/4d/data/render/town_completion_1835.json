@@ -104,12 +104,12 @@
     "at_a_standing_structure": {
       "attested": 29,
       "inferred": 17,
-      "reconstructed": 18
+      "reconstructed": 19
     },
     "stated_limit": {
       "anchored": 34,
       "street_only": 88,
-      "unplaceable": 101
+      "unplaceable": 100
     },
     "open": []
   },
@@ -196,11 +196,11 @@
       "at_a_standing_structure": {
         "attested": 29,
         "inferred": 17,
-        "reconstructed": 18
+        "reconstructed": 19
       },
       "stated_limit": {
         "attested": 2,
-        "inferred": 186,
+        "inferred": 185,
         "reconstructed": 35
       },
       "open": {
