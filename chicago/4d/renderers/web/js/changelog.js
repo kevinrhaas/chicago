@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1586, ts: '2026-10-09T18:55:40.746Z', date: 'Oct 9, 2026, 1:55 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
+  { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
     items: [
       'Open any house between 16th and 18th Streets in the Prairie Avenue 1904 library. Its card now has a 1904 reading taken from the 1911 Sanborn sheet. It lists the front building, its attached wings and its rear stables or coach houses, and says whether the house stood in 1904 and why.',
       'Two house numbers were misread before. The railroad station is at 1605, not 1603. The Dexter house is at 1721, not 1719, so the map and the named record are one property.',
       'Forsyth\u2019s 1635 now sits on the open lot next to 1637, where the 1886 atlas shows it, not on its neighbour 1625. Whether it still stood in 1904 is left open. The 1890 picture of Hugh J. McBirney\u2019s house now belongs to 1625, not 1736.',
+    ] },
+  { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
+    items: [
+      'Walk west along Lake Street toward Market. On the wedge of land the river\u2019s bend leaves there, a large frame boarding house now shares a wall with the house already standing on lot 7, the two set back 5 m in one row.',
+      'Mark Beaubien\u2019s household keeps it, and five people already in the town sleep there. Alanson Sweet\u2019s household moves into the Clark Street boarding house Beaubien left. The house beside that one gets a new keeper, Alvah Stebbins, with his three children.',
+      'The town owed the South two more boarding houses and had nowhere to put them. This one stands on the owner\u2019s ruling. The other waits for the streets south of Madison to be surveyed in, along with five owed houses.',
     ] },
   { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [

@@ -4,12 +4,12 @@ DERIVED — regenerate with `tools/redeal_anonymous_roofs.py --build`. T-1445.
 
 an adjudication over committed derived files — no page of any source was opened, nobody is named, nothing is built, and no roof moves ground. tools/execute_roof_redeal.py carries the verdicts out; a verdict already carried out is gone from this file, because the roof it moved now conforms.
 
-- audited: **550** anonymous roofs
-- keep: **548** (4 kept over a policy breach because they are seated, 7 because nothing they could become is wanted here)
+- audited: **551** anonymous roofs
+- keep: **549** (5 kept over a policy breach because they are seated, 7 because nothing they could become is wanted here)
 - refamily: **2** (0 of them into a band that already fits the committed footprint)
 - retire: **0**
 
-The programme wants 668 roofs and 658 stand, so the town is 10 roofs short before this audit and 10 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
+The programme wants 668 roofs and 659 stand, so the town is 9 roofs short before this audit and 9 after it. That is why `retire` is the rare verdict: there is almost nowhere a standing roof is surplus to what the order book can occupy.
 
 ## The district/group ledger
 
@@ -26,7 +26,7 @@ The programme wants 668 roofs and 658 stand, so the town is 10 roofs short befor
 | `structures/institutional_public/south` | 5 | 5 | 0 | 0 | 5 | 0 |
 | `structures/institutional_public/west` | 1 | 1 | 0 | 0 | 1 | 0 |
 | `structures/institutional_public/north` | 3 | 3 | 0 | 0 | 3 | 0 |
-| `structures/larger_boarding_houses/south` | 28 | 26 | 25 | 2 | 26 | 2 |
+| `structures/larger_boarding_houses/south` | 28 | 27 | 26 | 1 | 27 | 1 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 6 | 0 | 6 | 0 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 6 | 0 | 8 | 0 |
 | `structures/ordinary_dwellings/south` | 176 | 171 | 162 | 5 | 173 | 3 |
@@ -55,12 +55,13 @@ The programme wants 668 roofs and 658 stand, so the town is 10 roofs short befor
 | `recon_1835_blk_washington_market_a3_15` | south | A3 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 | `recon_1835_blk_washington_market_a4_12` | south | A4 | D2 | refamily | the placement policy refuses this family here — stands on a principal street, which ancillary_behind_its_own_roof avoids; the slot is wanted and the position stands |
 
-## The 11 breaches owed out
+## The 12 breaches owed out
 
 | roof | division | family | why it was kept |
 | --- | --- | --- | --- |
 | `inf_sawpit_shed` | south | W5 | the placement policy refuses this family here — stands on a principal street, which heavy_and_noxious_trades avoids — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_blk_south_water_dearborn_f2_11` | south | F2 | the placement policy refuses this family here — stands 37.08 m from the traced water, beyond the 27.09 m bank_landing reaches across a river street — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
+| `recon_1835_blk_south_water_market_h3_02` | south | H3 | the placement policy refuses this family here — stands 5.00 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets |
 | `recon_1835_north_c3_064` | north | C3 | the placement policy refuses this family here — stands on a light street, which commercial_front avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
 | `recon_1835_north_c3_066` | north | C3 | the placement policy refuses this family here — stands 3.44 m off the street line (2.71 m), and commercial_front puts it on the line — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
 | `recon_1835_north_c4_067` | north | C4 | the placement policy refuses this family here — stands on a light street, which commercial_front avoids — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away |
