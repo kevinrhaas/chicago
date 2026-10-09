@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
+  { v: 1557, ts: '2026-10-09T03:00:59.988Z', date: 'Oct 8, 2026, 10:00 PM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
     items: [
       'The plan of who still has to be added to the 1835 town was asking for 424 more family houses. 428 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
       'They are counted now, up to what each part of town needs: 88 on the North Side, 168 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The houses still owed fall from 424 to 89. The shop-front households are next.',
