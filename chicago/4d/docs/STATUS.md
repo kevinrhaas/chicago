@@ -1,3 +1,23 @@
+## T-2235 — Restore Glessner's west-wing courtyard roof (2026-10-09)
+
+Corrects T-2231's lowered rear ridge and exposed courtyard wall. The west
+wing now retains its full 38.6-ft north-south ridge and front/rear gables,
+with a complete courtyard slope and the matching 2.36-ft overhang ending at
+24 ft. The west-facing cross-gable retains its corrected frontage and slopes;
+it intersects the full roof instead of defining the whole wing's section.
+The inside courtyard corner closes to the actual roof underside. The connected
+west dormer returns; recent bay, windows, dark glass and source-review work remain.
+
+The owner instruction, supplied images and earlier roof/courtyard diagrams
+are reconciled in `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`, with
+actual-model before/after views. L-glessner-courtyard-ridge-2235 records the
+reconstruction limits and supersedes the low-ridge interpretation in T-2231.
+
+Geometry/window checks, actual-model comparisons and published desktop/full
+and mobile/light six-view review pass. The final integrated repository gate passes all
+794 steps; published desktop and mobile stage 13 each pass all 126 assertions. Exact assets
+and browser receipts are in the review folder.
+
 ## T-2199 — Glessner reference recovery (2026-10-09)
 
 The bounded 17-record pass recovered and reviewed material for ten records;

@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
+    ] },
   { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [
       'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
