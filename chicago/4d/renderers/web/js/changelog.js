@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1587, ts: '2026-10-09T19:13:34.005Z', date: 'Oct 9, 2026, 2:13 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
     items: [
       'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
       'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
+    ] },
+  { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
+    items: [
+      'Open any house between 16th and 18th Streets in the Prairie Avenue 1904 library. Its card now has a 1904 reading taken from the 1911 Sanborn sheet. It lists the front building, its attached wings and its rear stables or coach houses, and says whether the house stood in 1904 and why.',
+      'Two house numbers were misread before. The railroad station is at 1605, not 1603. The Dexter house is at 1721, not 1719, so the map and the named record are one property.',
+      'Forsyth\u2019s 1635 now sits on the open lot next to 1637, where the 1886 atlas shows it, not on its neighbour 1625. Whether it still stood in 1904 is left open. The 1890 picture of Hugh J. McBirney\u2019s house now belongs to 1625, not 1736.',
     ] },
   { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
     items: [
