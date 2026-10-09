@@ -1,8 +1,18 @@
 export const CHANGELOG = [ // newest first
-  { v: 1565, ts: '2026-10-09T06:38:03.904Z', date: 'Oct 9, 2026, 1:38 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1567, ts: '2026-10-09T07:34:36.021Z', date: 'Oct 9, 2026, 2:34 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
+    items: [
+      'Open Glessner House in the 1904 view and choose Photographic comparison baseline. Dated photographs and the model appear beside each other, with numbered landmarks showing where their outlines and openings disagree.',
+      'Eight measured views and a limited courtyard view establish the starting point for the remaining work. The page shows uncertainty and missing coverage, including the whole west elevation. The house still needs correction; these comparisons do not certify photographic perfection.',
+    ] },
+  { v: 1565, ts: '2026-10-09T06:37:17.302Z', date: 'Oct 9, 2026, 1:37 AM CT', title: 'The town plan checks the people outside its main list', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of who still has to be added to the 1835 town counted households only from its main list of people, and about 660 people the town holds sit on cards beside that list: tradesmen, lodgers, and people with thin records.',
+      'Each of them is now checked. Nearly all board in a house whose household is already counted, so they are lodgers rather than houses still owed. Four families have a house of their own, but that part of the plan was already full. No one is added or moved, and the 64 households still owed stay at 64.',
     ] },
   { v: 1564, ts: '2026-10-09T06:06:53.644Z', date: 'Oct 9, 2026, 1:06 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [

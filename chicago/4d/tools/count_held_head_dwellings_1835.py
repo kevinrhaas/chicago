@@ -47,6 +47,32 @@ touched. The seats refuse every store roof, so no held head stands over a shop, 
 56 the book orders are T-2194's ruling. The seats are themselves an invention
 (docs/LIBERTIES.md L354) and this count stands on them. Retire a seat and the count
 follows on the next build.
+
+THE HOUSEHOLDS OUTSIDE THE INDEX (T-2237). The rule above read only the residents index,
+and T-2194 found the index short: the cards the reconstruction writes beside it — the
+trade heads T-1347 drew, the readmitted, the underdocumented, the lodgers and the one
+institutional household — stand present on the scene date and the book counted not one of
+them as a household. So every one of them is read here too, and sorted by what the seats
+make of it:
+
+  * `a_household_of_its_own` — seated on the `dealt` or `family` rung under a standing
+    dwelling. It is the same kind of household as a held head's, so it joins the same walk,
+    AFTER the held heads of its rung (a record the index carries is the stronger one);
+  * `a_bed_in_a_dwelling` / `a_bed_in_a_lodging_house` — seated as a boarder, or put in a
+    lodging house's bed by the lodgers stage (T-1371). A bed inside a household another
+    seat forms, by rule 2; the book already credits the person as a person fill;
+  * `filed_by_its_own_stage` — a lodgers or institutional card, which IS a household and
+    whose own stage (T-1371, T-1531) already files it in the book;
+  * `not_present` — neither the card nor the presence rulings put it in the town.
+
+Measured 2026-10-09: of the 659 people the cards beside the index hold present, 491 are
+beds — every one of the 309 trade heads (297 boarding in a dwelling, 12 in a lodging
+house's bed), and nearly every readmitted and underdocumented card — and 156 stand in the
+lodging and institutional households their own stages file. Four households, all
+underdocumented families of three, stand under a dwelling of their own, and the
+family_dwelling order was full before any of them was reached. So the book does not
+over-order on their account and no row moves. The person overrun the completion audit
+reads is a count of people, not of houses, and is not settled here.
 """
 
 from __future__ import annotations
@@ -66,9 +92,28 @@ DATA = ROOT / "data"
 BOOK = DATA / "reconstruction" / "1835_reconstruction_order_book.json"
 SEATS = DATA / "reconstruction" / "1835_housing_seats.json"
 LEDGER = DATA / "reconstruction" / "1835_held_head_dwellings.json"
+LODGERS_SEATED = DATA / "reconstruction" / "1835_lodgers_seated.json"
+RESIDENTS = DATA / "residents"
+# The resident folders beside the index (town_census.BEYOND_THE_INDEX), and the stage that
+# already files the two whose cards ARE households (T-2237).
+BEYOND_FOLDERS = ("reconstructed_trades", "lodgers", "readmitted", "underdocumented",
+                  "institutional")
+FILED_BY = {"lodgers": "T-1371", "institutional": "T-1531"}
+BEYOND_CLASSES = {
+    "a_household_of_its_own": "seated on the dealt or family rung under a standing dwelling; "
+                              "counted like a held head's, after them",
+    "a_bed_in_a_dwelling": "boarded in a dwelling whose household another seat forms",
+    "a_bed_in_a_lodging_house": "put in a lodging house's bed by the seats or the lodgers "
+                                "stage (T-1371)",
+    "filed_by_its_own_stage": "a lodging or institutional household its own stage files in "
+                              "the book",
+    "not_present": "neither the card nor the presence rulings put it in the town on 1 July",
+    "not_seated": "present, and no seat, lodging bed or stage holds it",
+}
 
 TICKET = "T-2193"
 PARENT = "T-2188"
+BEYOND_TICKET = "T-2237"
 STAGE = "held_head_dwellings"
 DIVISIONS = ("north", "south", "west")
 CELL = "households/family_dwelling/{}"
@@ -114,9 +159,35 @@ def room_in_the_book(book: dict) -> dict[str, int]:
     return {d: max(0, order[d] - others[CELL.format(d)]) for d in DIVISIONS}
 
 
-def derive(awaiting: list[str], seats: list[dict], room: dict[str, int]) -> dict:
-    """The ledger, from the three inputs and nothing else. Pure, so the self-test can
-    break any one of them."""
+def a_household_seat(hid: str, seat: dict | None) -> bool:
+    """Rule 2: a household of its own under a standing dwelling, never a bed."""
+    if not seat or seat.get("rung") not in RUNGS or seat.get("family") not in DWELLINGS:
+        return False
+    if seat.get("division") not in DIVISIONS:
+        raise SystemExit(f"FAIL {hid} is seated in {seat.get('division')!r}, "
+                         "which has no family_dwelling order")
+    return True
+
+
+def classify_beyond(card: dict, seat: dict | None, lodged: set[str]) -> str:
+    """What the seats make of one card outside the index (T-2237)."""
+    if card["folder"] in FILED_BY:
+        return "filed_by_its_own_stage"
+    if not card["present"]:
+        return "not_present"
+    if a_household_seat(card["household"], seat):
+        return "a_household_of_its_own"
+    if seat and seat.get("rung") == "boarder":
+        return "a_bed_in_a_dwelling"
+    if (seat and seat.get("rung") == "lodger") or card["household"] in lodged:
+        return "a_bed_in_a_lodging_house"
+    return "not_seated"
+
+
+def derive(awaiting: list[str], seats: list[dict], room: dict[str, int],
+           beyond: list[dict] = (), lodged: set[str] = frozenset()) -> dict:
+    """The ledger, from its inputs and nothing else. Pure, so the self-test can
+    break any one of them. `beyond` is one row per card outside the index (T-2237)."""
     waiting = set(awaiting)
     by_household: dict[str, dict] = {}
     for seat in seats:
@@ -126,29 +197,48 @@ def derive(awaiting: list[str], seats: list[dict], room: dict[str, int]) -> dict
     candidates = []
     for hid in awaiting:
         seat = by_household.get(hid)
-        if not seat or seat.get("rung") not in RUNGS or seat.get("family") not in DWELLINGS:
-            continue
-        if seat.get("division") not in DIVISIONS:
-            raise SystemExit(f"FAIL {hid} is seated in {seat.get('division')!r}, "
-                             "which has no family_dwelling order")
-        candidates.append(seat)
+        if a_household_seat(hid, seat):
+            candidates.append((seat, "index"))
+    # T-2237: the cards beside the index, every one of them sorted, and the households
+    # among them put into the same walk as the held heads.
+    sorted_beyond = Counter()
+    persons_beyond = Counter()
+    by_folder: dict[str, Counter] = {}
+    for card in sorted(beyond, key=lambda c: c["household"]):
+        hid = card["household"]
+        if hid in waiting:
+            raise SystemExit(f"FAIL {hid} is both a held head record and a card beyond "
+                             "the index")
+        kind = classify_beyond(card, by_household.get(hid), lodged)
+        sorted_beyond[kind] += 1
+        persons_beyond[kind] += int(card["persons"])
+        by_folder.setdefault(card["folder"], Counter())[kind] += 1
+        if kind == "a_household_of_its_own":
+            candidates.append((by_household[hid], card["folder"]))
     rank = list(RUNGS)
-    candidates.sort(key=lambda s: (s["division"], rank.index(s["rung"]),
-                                   -int(s["persons"]), seed_of(s["household"])))
+    candidates.sort(key=lambda c: (c[0]["division"], rank.index(c[0]["rung"]),
+                                   c[1] != "index", -int(c[0]["persons"]),
+                                   seed_of(c[0]["household"])))
     counted, past = [], []
     taken = Counter()
-    for seat in candidates:
+    for seat, source in candidates:
         row = {"household": seat["household"], "division": seat["division"],
                "rung": seat["rung"], "place": seat["place"], "family": seat["family"],
                "persons": int(seat["persons"]), "seed": seed_of(seat["household"])}
+        if source != "index":
+            row["beyond_the_index"] = source
         if taken[seat["division"]] < room.get(seat["division"], 0):
             taken[seat["division"]] += 1
             counted.append(row)
         else:
             past.append({**row, "why": f"the {seat['division']} division's family_dwelling "
                                        "order was full before this household was reached"})
-    assert all(r["household"] in waiting for r in counted)
+    assert all(r["household"] in waiting or "beyond_the_index" in r for r in counted)
     fills = {CELL.format(d): taken[d] for d in DIVISIONS if taken[d]}
+    present_beyond = sum(persons_beyond[k] for k in BEYOND_CLASSES if k != "not_present")
+    beds = persons_beyond["a_bed_in_a_dwelling"] + persons_beyond["a_bed_in_a_lodging_house"]
+    own = [r for r in counted + past if "beyond_the_index" in r]
+    counted_own = sum(1 for r in counted if "beyond_the_index" in r)
     return {
         "id": "1835_held_head_dwellings",
         "ticket": TICKET,
@@ -162,7 +252,9 @@ def derive(awaiting: list[str], seats: list[dict], room: dict[str, int]) -> dict
                          "family dwelling.",
         "inputs": ["data/residents/index.json", "data/reconstruction/1835_presence_rulings.json",
                    "data/reconstruction/1835_housing_seats.json",
-                   "data/reconstruction/1835_reconstruction_order_book.json"],
+                   "data/reconstruction/1835_reconstruction_order_book.json",
+                   "data/reconstruction/1835_lodgers_seated.json"]
+                  + [f"data/residents/{f}/*.json" for f in BEYOND_FOLDERS],
         "the_rule": [
             "the order book counts the record as awaiting a household",
             "the housing seats put it under a standing dwelling (D1-D7, H1, H2) on the "
@@ -176,12 +268,39 @@ def derive(awaiting: list[str], seats: list[dict], room: dict[str, int]) -> dict
         "counts": {
             "records_awaiting_a_household": len(awaiting),
             "under_a_standing_dwelling": dict(sorted(Counter(
-                s["rung"] for s in candidates).items())),
+                s["rung"] for s, source in candidates if source == "index").items())),
             "room_by_division": {d: room.get(d, 0) for d in DIVISIONS},
             "counted_by_division": {d: taken[d] for d in DIVISIONS},
             "counted_by_rung": dict(sorted(Counter(r["rung"] for r in counted).items())),
             "persons_in_the_counted_houses": sum(r["persons"] for r in counted),
             "not_counted": len(past),
+        },
+        "beyond_the_index": {
+            "ticket": BEYOND_TICKET,
+            "asks": "The household quota reads the residents index only. Are the cards the "
+                    "reconstruction writes beside it households the town holds, and does the "
+                    "book over-order on their account?",
+            "classes": BEYOND_CLASSES,
+            "households_by_class": {k: sorted_beyond[k] for k in BEYOND_CLASSES},
+            "persons_by_class": {k: persons_beyond[k] for k in BEYOND_CLASSES},
+            "households_by_folder": {f: {k: n for k, n in sorted(c.items())}
+                                     for f, c in sorted(by_folder.items())},
+            "filed_by": FILED_BY,
+            "households_of_their_own": len(own),
+            "counted": counted_own,
+            "past_a_full_order": len(own) - counted_own,
+            "ruling": (f"Of the {present_beyond:,} people the cards beside the index hold "
+                       f"present, {beds:,} are beds in a household another seat forms, and "
+                       "the book already credits each as a person; a bed is not a house. "
+                       f"{persons_beyond['filed_by_its_own_stage']:,} stand in the lodging and "
+                       "institutional households their own stages already file. "
+                       f"{len(own)} household(s) stand under a dwelling of their own; "
+                       f"{counted_own} counted into the family_dwelling order, "
+                       f"{len(own) - counted_own} past it. So the index-only quota does not "
+                       "over-order on their account: no household row moves for them."),
+            "what_this_does_not_do": "It mints, moves and retires nobody, and does not settle "
+                                     "the completion audit's person count against the "
+                                     "census ceiling: that is a count of people, not houses.",
         },
         "fills": fills,
         "counted": counted,
@@ -189,12 +308,31 @@ def derive(awaiting: list[str], seats: list[dict], room: dict[str, int]) -> dict
     }
 
 
-def inputs() -> tuple[list[str], list[dict], dict]:
+def beyond_the_index(ruled: dict) -> list[dict]:
+    """One row per card beside the index, read as town_census.beyond_the_index reads it."""
+    rows = []
+    for folder in BEYOND_FOLDERS:
+        for path in sorted((RESIDENTS / folder).glob("*.json")):
+            card = json.loads(path.read_text(encoding="utf-8"))
+            if not isinstance(card, dict) or not card.get("id"):
+                continue
+            here = card.get("present_on_scene_date")
+            here = here.get("value") if isinstance(here, dict) else here
+            rows.append({"household": card["id"], "folder": folder,
+                         "persons": len(card.get("persons") or []),
+                         "present": here == "present" or card["id"] in ruled})
+    return rows
+
+
+def inputs() -> tuple:
     data = ob.load()
     awaiting = ob.records_awaiting_a_household(data["residents"], data["presence_rulings"])
     seats = json.loads(SEATS.read_text(encoding="utf-8"))["seats"]
     book = json.loads(BOOK.read_text(encoding="utf-8"))
-    return awaiting, seats, room_in_the_book(book)
+    lodged = {s["household"] for s in
+              json.loads(LODGERS_SEATED.read_text(encoding="utf-8")).get("seats") or []}
+    beyond = beyond_the_index(ob.ruled_present(data["presence_rulings"]))
+    return awaiting, seats, room_in_the_book(book), beyond, lodged
 
 
 def write_fills(ledger: dict) -> None:
@@ -235,8 +373,13 @@ def check() -> int:
              if n > ledger["counts"]["counted_by_division"][d]}
     if short:
         print(f"  note  the family_dwelling order outruns the seated heads in {short}")
+    b = ledger["beyond_the_index"]
+    if b["households_by_class"]["not_seated"]:
+        print(f"  note  {b['households_by_class']['not_seated']} card(s) beyond the index stand "
+              "present with no seat, lodging bed or stage holding them")
     print(f"  ok    {sum(ledger['fills'].values())} family dwelling(s) re-derive from the "
-          "seats and the book carries them; nobody minted")
+          f"seats and the book carries them ({b['counted']} from beyond the index, "
+          f"{b['past_a_full_order']} past the order); nobody minted")
     return 0
 
 
@@ -252,6 +395,12 @@ def report() -> int:
               f"{c['counted_by_division'][d]:>4}")
     print(f"  {c['persons_in_the_counted_houses']:,} people in the counted houses, all of "
           f"them already standing; {c['not_counted']} past a full order")
+    b = ledger["beyond_the_index"]
+    print(f"BEYOND THE INDEX ({BEYOND_TICKET}): households / persons by what the seats make "
+          "of them")
+    for k in BEYOND_CLASSES:
+        print(f"  {k:<26} {b['households_by_class'][k]:>4} {b['persons_by_class'][k]:>5}")
+    print(f"  {b['ruling']}")
     return 0
 
 
@@ -307,6 +456,40 @@ def self_test() -> int:
                                "already_drawn": 21}]
     case("a cell the re-cut refused is read at the re-cut's want, not the held number",
          room_in_the_book(book) == {"north": 20, "south": 13, "west": 20})
+    # T-2237: the cards beside the index.
+    def card(hid, folder="underdocumented", persons=1, present=True):
+        return {"household": hid, "folder": folder, "persons": persons, "present": present}
+
+    room = {"north": 0, "south": 2, "west": 0}
+    got = derive(["a"], [seat("a", rung="family", persons=2), seat("x", rung="family", persons=5)],
+                 room, [card("x", persons=5)])
+    case("a household beyond the index is counted, after the held heads of its rung",
+         [r["household"] for r in got["counted"]] == ["a", "x"]
+         and got["counted"][1]["beyond_the_index"] == "underdocumented"
+         and got["beyond_the_index"]["counted"] == 1)
+    got = derive([], [seat("x", rung="boarder"), seat("y", rung="lodger", family="H3")], room,
+                 [card("x", "reconstructed_trades"), card("y", "readmitted"),
+                  card("z", "reconstructed_trades")], {"z"})
+    case("a boarder, a lodger and a lodging-house bed beyond the index are beds, never houses",
+         not got["counted"] and got["beyond_the_index"]["households_by_class"]
+         ["a_bed_in_a_dwelling"] == 1 and got["beyond_the_index"]["households_by_class"]
+         ["a_bed_in_a_lodging_house"] == 2)
+    got = derive([], [seat("l", rung="family"), seat("i")], room,
+                 [card("l", "lodgers", 4), card("i", "institutional")])
+    case("a lodging or institutional household is its own stage's fill, never counted again",
+         not got["counted"]
+         and got["beyond_the_index"]["households_by_class"]["filed_by_its_own_stage"] == 2)
+    got = derive([], [seat("x", rung="dealt")], room, [card("x", present=False)])
+    case("a card the town does not hold on 1 July is never counted",
+         not got["counted"] and got["beyond_the_index"]["households_by_class"]["not_present"] == 1)
+    got = derive([], [], room, [card("q")])
+    case("a present card nothing holds is reported, not hidden",
+         got["beyond_the_index"]["households_by_class"]["not_seated"] == 1)
+    try:
+        derive(["a"], [seat("a")], room, [card("a")])
+        case("fires: a household that is both a held head record and beyond the index", False)
+    except SystemExit:
+        case("fires: a household that is both a held head record and beyond the index", True)
     print("   self-test | %d failure(s)" % len(failures))
     return 1 if failures else 0
 
