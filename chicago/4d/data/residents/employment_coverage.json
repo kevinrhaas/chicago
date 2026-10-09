@@ -1868,12 +1868,12 @@
       "trade_confidence": "attested",
       "status": "on_their_own_account",
       "reason": "keeps_a_house_the_register_holds",
-      "decided_by": "the business register's own row: biz_beaubien_mark_tavern_keeper#proprietors (proprietor, inferred), read by T-1990",
+      "decided_by": "the business register's own row: rcb_beaubien_boarding_house#proprietors (proprietor, reconstructed), read by T-1990",
       "houses": [
-        "biz_beaubien_mark_tavern_keeper"
+        "rcb_beaubien_boarding_house"
       ],
       "house_names": [
-        "Mark Beaubien, tavern keeper"
+        "Mark Beaubien's boarding house"
       ]
     },
     {
@@ -39244,7 +39244,7 @@
         "rcb_robillard_boarding_house"
       ],
       "house_names": [
-        "Louis Robillard's boarding house"
+        "Robillard's boarding house"
       ]
     },
     {
@@ -43271,7 +43271,7 @@
         "rcb_trottier_boarding_house"
       ],
       "house_names": [
-        "Trottier's boarding house"
+        "Baptiste Trottier's boarding house"
       ]
     },
     {
@@ -49065,7 +49065,7 @@
         "rcb_sweet_boarding_house"
       ],
       "house_names": [
-        "Alanson Sweet's boarding house"
+        "Sweet's boarding house"
       ]
     },
     {

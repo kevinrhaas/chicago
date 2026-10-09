@@ -7,12 +7,12 @@
  "not_a_reading": "DERIVED, never hand-edited. Every row is read off a committed role on a committed card and a committed ruling. No page of any source is read here, nobody is minted, nothing is reconstructed and no confidence is promoted: a house raised from a role is `inferred` and says so on its own record.",
  "scene_date": "1835-07-01",
  "counts": {
-  "already_holds_a_workplace": 89,
+  "already_holds_a_workplace": 90,
   "held": 3,
   "no_premises": 27,
   "not_ruled": 3,
-  "raise": 38,
-  "houses_raised": 32,
+  "raise": 37,
+  "houses_raised": 31,
   "houses_seated_on_a_committed_structure": 10
  },
  "houses_by_census_class": {
@@ -20,7 +20,7 @@
   "other": 14,
   "physician": 5,
   "store": 6,
-  "tavern": 6
+  "tavern": 5
  },
  "houses_raised": [
   {
@@ -61,20 +61,6 @@
     "beaubien_madore"
    ],
    "seated_at": "madore_beaubien_house",
-   "sources": [
-    "andreas_1884_v1"
-   ]
-  },
-  {
-   "business_id": "biz_beaubien_mark_tavern_keeper",
-   "occupation": "tavern keeper",
-   "census_classes": [
-    "tavern"
-   ],
-   "keepers": [
-    "beaubien_mark"
-   ],
-   "seated_at": null,
    "sources": [
     "andreas_1884_v1"
    ]
@@ -914,8 +900,8 @@
     "class": "tavern",
     "census_count": 8,
     "town_before_T-1404": 4,
-    "raised_here": 6,
-    "town_after_T-1404": 10,
+    "raised_here": 5,
+    "town_after_T-1404": 9,
     "still_short": 0,
     "documented_zero": false,
     "owed_to": null
