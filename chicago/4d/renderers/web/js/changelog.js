@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1577, ts: '2026-10-09T13:58:15.686Z', date: 'Oct 9, 2026, 8:58 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
+  { v: 1578, ts: '2026-10-09T14:18:56.253Z', date: 'Oct 9, 2026, 9:18 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
       'Open J. L. Wilson & Co.\u2019s dry goods store on Randolph Street, or Fullerton & Botsford\u2019s pork and provision store at Dearborn and Lake. Each stood empty because the town could not tell who the firm\u2019s partners were. John Wilson now lives over the Wilson store, and J. K. Botsford\u2019s household of six over Fullerton & Botsford\u2019s.',
       'The business cards for both firms, and for Clark, Filer & Co., the chair makers, now link the partner to their own card. Each card says how the match was made: the same corner, the same trade, or the paper\u2019s own spelling of the name. A. Filer already lives over his other shop, so the Clark, Filer & Co. store now says nobody lived over it.',
       'Two more homes over stores let six households who were waiting for a roof move in. Stores whose partners the town has no card for, such as H. Doty & Co. and the Chicago Bakery, are next.',
+    ] },
+  { v: 1577, ts: '2026-10-09T13:43:01.271Z', date: 'Oct 9, 2026, 8:43 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
+    items: [
+      'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
+      'Each line says what it proves. A vote cast or a christening attended at Chicago puts the person in the town by that day. A name in print, an 1830 census line or a date after 1 July 1835 is shown for what it is and proves nothing about the scene date.',
+      'Twenty-six godparents and sponsors at St Mary\u2019s, among them Josette Laframboise, Jean Baptiste Lavigne and Edward Daly, now have their christening days on these lists. Before this they were named on their cards with no date attached.',
     ] },
   { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
