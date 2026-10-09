@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1558, ts: '2026-10-09T03:10:43.055Z', date: 'Oct 8, 2026, 10:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+  { v: null, ts: '', title: 'Groundwork for correcting guessed families', kind: 'fix',
     items: [
       'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
       'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
+  { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
+    items: [
+      'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
+      'Cornell’s construction print and the old sidewalk report image are identified as existing photographic exposures. A 1945 IIT facade view adds later evidence, with date and rights limits visible on its card. Archive inquiries are prepared for review and have not been sent.',
     ] },
   { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [

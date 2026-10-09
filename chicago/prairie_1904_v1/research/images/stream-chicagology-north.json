@@ -3759,11 +3759,41 @@
    "family": "glessner-construction-c1887",
    "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
    "family_members": [
-    "a18-gho-house-under-construction-1887",
     "a18-gh-cornell-glessner-front-c1887",
-    "cgn-1800-glessner-1887-construction-copy"
+    "a18-gho-house-under-construction-1887",
+    "cgn-1800-glessner-1887-construction-copy",
+    "a18-cornell-adw-glessner"
    ]
-  }
+  },
+  "metadata_history": [
+   {
+    "ticket": "T-2199",
+    "date": "2026-10-09",
+    "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+    "before": {
+     "evidence_review": {
+      "ticket": "T-2198",
+      "audit_number": 110,
+      "reviewed_on": "2026-10-08",
+      "review_state": "visually inspected",
+      "target_date": "1904-07-01",
+      "phase": "before target year",
+      "date_basis": "1887",
+      "evidence_role": "exterior reference",
+      "geometry_use": "corroborate with dated evidence",
+      "reason": "An image can establish visible fabric at its own date; it does not establish unchanged condition on 1904-07-01.",
+      "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+      "family": "glessner-construction-c1887",
+      "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
+      "family_members": [
+       "a18-gho-house-under-construction-1887",
+       "a18-gh-cornell-glessner-front-c1887",
+       "cgn-1800-glessner-1887-construction-copy"
+      ]
+     }
+    }
+   }
+  ]
  },
  {
   "id": "cgn-1800-tribune-1965-glessner-headline",
