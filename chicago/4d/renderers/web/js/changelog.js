@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1598, ts: '2026-10-09T23:05:43.478Z', date: 'Oct 9, 2026, 6:05 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
+  { v: 1599, ts: '2026-10-09T23:28:27.194Z', date: 'Oct 9, 2026, 6:28 PM CT', title: 'The South stops ordering ten family houses it already holds', kind: 'fix',
     items: [
       'Nothing you can see changes. The reconstruction\u2019s work list asked for ten more South-side family households than the town could form, after letter-list names stopped counting as households on 9 October.',
       'Those ten are not missing. The town already holds 23 families present in July 1835 who are still waiting for a house, so the list no longer asks for anyone to be invented in their place. It now owes no family houses in any division.',
       'Nobody was added, moved or given a house. The 23 families still wait for the town\u2019s next dwellings to be built.',
+    ] },
+  { v: 1598, ts: '2026-10-09T22:51:29.981Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+    items: [
+      'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
+      'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
+      'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
     ] },
   { v: 1597, ts: '2026-10-09T22:32:18.330Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [

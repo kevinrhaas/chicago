@@ -1614,7 +1614,7 @@
     "households_awaiting_a_household": 1224,
     "households_to_reconstruct": 435,
     "businesses_target": 109,
-    "businesses_known": 129,
+    "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
     "roofs_standing": 678,
@@ -4608,7 +4608,7 @@
       "lead": "The December 1835 State census set against the register the town already holds.",
       "summary": {
         "register_total": 193,
-        "at_scene_date": 206,
+        "at_scene_date": 205,
         "census_enumerated_total": 118,
         "register_businesses_read": 193,
         "division_note": "EVERY BUSINESS BUCKET IS `unassigned` BY DIVISION TODAY, and that is a reading rather than a hole: the register carries a street where the paper printed one and no division at all, and assigning premises to a division is T-1182's audit and T-1198's seating. The key carries the axis so those tickets fill it rather than re-cut the book.",
@@ -5028,7 +5028,7 @@
           "unit": "establishment",
           "scene_bracket": null,
           "target": 8,
-          "known": 10,
+          "known": 9,
           "to_reconstruct": 0,
           "records_opening_after_scene_date": 0,
           "filled": 0,
@@ -5038,7 +5038,7 @@
           "staff_owning_ticket": "T-1183",
           "compared_by_the_crosswalk": true,
           "crosswalk_note": null,
-          "basis": "the December 1835 State census prints 8; the register holds 10 at the scene date"
+          "basis": "the December 1835 State census prints 8; the register holds 9 at the scene date"
         },
         {
           "key": "businesses/tin_and_copper_manufactory",
@@ -5864,7 +5864,7 @@
         "inns_taverns"
       ],
       "restates_the_programme": true,
-      "statement": "NOT A CHECK: the model reads 10-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808)."
+      "statement": "NOT A CHECK: the model reads 9-10 inns and taverns and the programme schedules 10. The model's ceiling is the highest of the programme, the census and the business layer's count at the scene date, and while the layer's count stands at or below the programme's the ceiling IS the programme's figure, so this row cannot disagree until the layer passes it again (T-1808)."
     },
     {
       "id": "institutional_and_public",
