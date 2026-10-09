@@ -514,13 +514,16 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # 81 (recon_1835_blk_school_section_tier_81_d5_07), a house on its block 95 (_95_d6_07) and a
 # barn on blk_south_water_wells (_a2_10), all through emit.py and the common modules.
 #
+# 702 -> 703 and 696 -> 697 on 2026-10-09 (T-2238): a D5 on the Market wedge's lot 7
+# (recon_1835_blk_south_water_market_d5_01), through emit.py and the common modules.
+#
 STATED = {
-    "assets": 702,
+    "assets": 703,
     "restales": {
-        "generators/common/*.py": 702,
+        "generators/common/*.py": 703,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 696,
+        "generators/emit.py": 697,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,
