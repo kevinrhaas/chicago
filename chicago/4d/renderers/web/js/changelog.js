@@ -1,8 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1575, ts: '2026-10-09T12:27:34.425Z', date: 'Oct 9, 2026, 7:27 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1576, ts: '2026-10-09T13:08:00.450Z', date: 'Oct 9, 2026, 8:08 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+    items: [
+      'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
+      'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
+      'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
+    items: [
+      'Open G. Blanshard\u2019s land office or Dr W. G. Austin\u2019s office on Lake Street, or W. Montgomery\u2019s auction rooms on South Water Street. Each keeper is now listed as working there, with a note that they slept elsewhere in the town and nobody lived over the store.',
+      'Two more stores, the Chicago Democrat printing office and Pierce & French, also stay empty, because their keepers already work at the paper\u2019s office and Pierce\u2019s smithy. Nobody is moved or made up. Eight stores still have no keeper\u2019s family, and are next.',
     ] },
   { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [

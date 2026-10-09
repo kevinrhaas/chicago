@@ -14,22 +14,22 @@
   "data/town_census.json"
  ],
  "counts": {
-  "persons": 2898,
-  "households": 1457,
+  "persons": 2886,
+  "households": 1459,
   "by_grade": {
    "attested": 412,
    "inferred": 1028,
-   "reconstructed": 1458
+   "reconstructed": 1446
   },
   "reconstructed_answering_no_stage": 0,
-  "persons_with_a_sex": 2892,
+  "persons_with_a_sex": 2880,
   "persons_with_a_dated_age": 63,
   "persons_with_a_role": 328,
-  "households_naming_an_origin": 1457,
-  "households_naming_a_reason": 1457,
+  "households_naming_an_origin": 1459,
+  "households_naming_a_reason": 1459,
   "households_naming_a_lives_at": 34,
   "axes_answered_by_every_person": 6,
-  "persons_answering_every_axis": 494
+  "persons_answering_every_axis": 505
  },
  "vocabulary": {
   "age_bands": [
@@ -197,7 +197,7 @@
   {
    "id": "headcount",
    "title": "Headcount",
-   "lead": "2898 person entries in 1457 households. The town census of November 1835 counts 3,265 people in 398 dwellings, so this layer is the part of the town the sources name and no more.",
+   "lead": "2886 person entries in 1459 households. The town census of November 1835 counts 3,265 people in 398 dwellings, so this layer is the part of the town the sources name and no more.",
    "tables": [
     {
      "title": "Persons by grade",
@@ -211,21 +211,21 @@
       [
        "attested",
        412,
-       "14.2%"
+       "14.3%"
       ],
       [
        "inferred",
        1028,
-       "35.5%"
+       "35.6%"
       ],
       [
        "reconstructed",
-       1458,
-       "50.3%"
+       1446,
+       "50.1%"
       ],
       [
        "TOTAL",
-       2898,
+       2886,
        "100.0%"
       ]
      ],
@@ -242,13 +242,13 @@
      "rows": [
       [
        "south",
-       71,
+       72,
        "4.9%"
       ],
       [
        "north",
-       21,
-       "1.4%"
+       22,
+       "1.5%"
       ],
       [
        "west",
@@ -268,7 +268,7 @@
       [
        "unplaced",
        1337,
-       "91.8%"
+       "91.6%"
       ]
      ],
      "note": ""
@@ -284,18 +284,18 @@
      "rows": [
       [
        "present",
-       503,
-       "34.5%"
+       505,
+       "34.6%"
       ],
       [
        "absent",
-       8,
-       "0.5%"
+       21,
+       "1.4%"
       ],
       [
        "uncertain",
-       946,
-       "64.9%"
+       933,
+       "63.9%"
       ]
      ],
      "note": ""
@@ -312,21 +312,21 @@
       [
        "attested",
        182,
-       "10.0%"
+       "10.2%"
       ],
       [
        "inferred",
        179,
-       "9.8%"
+       "10.0%"
       ],
       [
        "reconstructed",
-       1459,
-       "80.2%"
+       1423,
+       "79.8%"
       ],
       [
        "TOTAL",
-       1820,
+       1784,
        "100.0%"
       ]
      ],
@@ -601,6 +601,18 @@
        "PRESENCE IS THE HYPOTHESIS, not a finding about anybody"
       ],
       [
+       "hh_rc_bourassa_madeleine",
+       "arrival",
+       "1835-07-01",
+       "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING"
+      ],
+      [
+       "hh_rc_bourassa_madeleine",
+       "present_on_scene_date",
+       "present",
+       "PRESENCE IS THE HYPOTHESIS, not a finding about anybody"
+      ],
+      [
        "hh_rc_carroll_ellen",
        "arrival",
        "1835-07-01",
@@ -638,6 +650,18 @@
       ],
       [
        "hh_rc_cobb_martha",
+       "present_on_scene_date",
+       "present",
+       "PRESENCE IS THE HYPOTHESIS, not a finding about anybody"
+      ],
+      [
+       "hh_rc_connor_margaret",
+       "arrival",
+       "1835-07-01",
+       "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING"
+      ],
+      [
+       "hh_rc_connor_margaret",
        "present_on_scene_date",
        "present",
        "PRESENCE IS THE HYPOTHESIS, not a finding about anybody"
@@ -1115,14 +1139,14 @@
     }
    ],
    "notes": [
-    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 946 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1820 of their people are ruled into the town, each at the tier its own readings reach. Exactly 8 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
-    "No PERSON carries the `reconstructed` grade (1458) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 128 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
+    "THE TABLE ABOVE IS THE STRICTEST READING AND IT IS NOT THE POPULATION (T-1386). 933 of these households stand `uncertain` on the card because no record follows the person to 1 July 1835 — unadjudicated, never disputed. Every one of them has attested or inferred evidence of living in this town and none has evidence of being elsewhere that day, so all 1784 of their people are ruled into the town, each at the tier its own readings reach. Exactly 21 cards are out on evidence of absence. The ruling is data/reconstruction/1835_presence_rulings.json; the cards keep the inferred `uncertain` the research wrote.",
+    "No PERSON carries the `reconstructed` grade (1446) and this ticket does not move that: reconstruction begins at T-1167 under its own programme. But 132 ATTRIBUTE values already do, and a person-grade count hides them — which is the whole reason T-1158 puts a tier on the field rather than on the card."
    ]
   },
   {
    "id": "completeness",
    "title": "Per-attribute completeness",
-   "lead": "THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2898 PEOPLE, TOGETHER. 6 of the nine axes leave nobody unanswered. Sex leaves 6 and age band 7 — the collective rows, \"the rest of the Beaubien household, unnamed\" and their kind, which name nobody and so can carry neither, and one row that names one woman and still earns no band; every one of them is named below. Division leaves 2397, the people of the 1337 households no source puts on a side of the river, and that is the layer's largest remaining hole: T-1198 seats the households the evidence places and T-1199 the reconstructed ones, and until they run this column cannot read zero without inventing ground. 494 people are answered on all nine. Two axes answer in a bare string that carries no confidence anywhere on the card — they are counted under \"stated, no tier written\" and not under a tier, because a value with no tier is not a value at a tier.",
+   "lead": "THE NINE QUESTIONS ASKED OF EVERY ONE OF THE 2886 PEOPLE, TOGETHER. 6 of the nine axes leave nobody unanswered. Sex leaves 6 and age band 7 — the collective rows, \"the rest of the Beaubien household, unnamed\" and their kind, which name nobody and so can carry neither, and one row that names one woman and still earns no band; every one of them is named below. Division leaves 2374, the people of the 1337 households no source puts on a side of the river, and that is the layer's largest remaining hole: T-1198 seats the households the evidence places and T-1199 the reconstructed ones, and until they run this column cannot read zero without inventing ground. 505 people are answered on all nine. Two axes answer in a bare string that carries no confidence anywhere on the card — they are counted under \"stated, no tier written\" and not under a tier, because a value with no tier is not a value at a tier.",
    "tables": [
     {
      "title": "Every person, every attribute",
@@ -1142,9 +1166,9 @@
       [
        "sex",
        "person",
-       2892,
+       2880,
        "99.8%",
-       1561,
+       1549,
        704,
        627,
        0,
@@ -1153,93 +1177,93 @@
       [
        "age band",
        "person",
-       2891,
+       2879,
        "99.8%",
        7,
        53,
-       2831,
+       2819,
        0,
        7
       ],
       [
        "arrival",
        "household",
-       2898,
+       2886,
        "100.0%",
        141,
-       2444,
-       313,
+       2421,
+       324,
        0,
        0
       ],
       [
        "origin",
        "household",
-       2898,
+       2886,
        "100.0%",
        24,
        96,
-       2778,
+       2766,
        0,
        0
       ],
       [
        "reason for coming",
        "household",
-       2898,
+       2886,
        "100.0%",
        33,
        28,
-       2837,
+       2825,
        0,
        0
       ],
       [
        "a role, or a stated reason for having none",
        "person",
-       2898,
+       2886,
        "100.0%",
        127,
        201,
-       2570,
+       2558,
        0,
        0
       ],
       [
        "presence on the scene date",
        "household",
-       2898,
+       2886,
        "100.0%",
-       61,
-       2536,
-       301,
+       74,
+       2500,
+       312,
        0,
        0
       ],
       [
        "division",
        "household",
-       501,
-       "17.3%",
+       512,
+       "17.7%",
        0,
        0,
        0,
-       501,
-       2397
+       512,
+       2374
       ],
       [
        "household relationship",
        "person",
-       2898,
+       2886,
        "100.0%",
        0,
        0,
        0,
-       2898,
+       2886,
        0
       ]
      ],
-     "note": "The tier columns and \"not answered\" sum to 2898 on every row. \"stated, no tier written\" is `division` and `relationship`, which the index's vocabulary lists as controlled terms and no card grades."
+     "note": "The tier columns and \"not answered\" sum to 2886 on every row. \"stated, no tier written\" is `division` and `relationship`, which the index's vocabulary lists as controlled terms and no card grades."
     },
     {
      "title": "A role, or a stated reason for having none",
@@ -1253,7 +1277,7 @@
       [
        "a role, dated and sourced",
        328,
-       "11.3%"
+       "11.4%"
       ],
       [
        "an occupation, undated",
@@ -1262,8 +1286,8 @@
       ],
       [
        "a stated reason for having none",
-       2367,
-       "81.7%"
+       2355,
+       "81.6%"
       ],
       [
        "nothing",
@@ -1271,7 +1295,7 @@
        "0.0%"
       ]
      ],
-     "note": "A stated absence is an answer and it is not a trade. The note on those 2367 cards says why the sources record no occupation — a list of uncalled-for letters prints a name and no trade; the sources of 1835 name the occupations of heads and almost never those of wives, children or the people counted with them."
+     "note": "A stated absence is an answer and it is not a trade. The note on those 2355 cards says why the sources record no occupation — a list of uncalled-for letters prints a name and no trade; the sources of 1835 name the occupations of heads and almost never those of wives, children or the people counted with them."
     },
     {
      "title": "The person rows that answer nothing",
@@ -1347,13 +1371,13 @@
      "rows": [
       [
        "civic",
-       1465,
-       "61.1%"
+       1442,
+       "60.7%"
       ],
       [
        "letter_list",
        780,
-       "32.5%"
+       "32.9%"
       ],
       [
        "documented",
@@ -1371,7 +1395,7 @@
        "0.3%"
       ]
      ],
-     "note": "2397 persons in households standing `unplaced`. `unplaced` is a term in the index's own division vocabulary and it is a statement — the sources do not place this household — but it is not a division, so this section counts it unanswered."
+     "note": "2374 persons in households standing `unplaced`. `unplaced` is a term in the index's own division vocabulary and it is a statement — the sources do not place this household — but it is not a division, so this section counts it unanswered."
     }
    ],
    "notes": [
@@ -1381,7 +1405,7 @@
   {
    "id": "sex",
    "title": "Sex",
-   "lead": "2892 of 2898 persons (99.8%) carry a sex, AT THREE DIFFERENT TIERS and the table below is the only honest way to read them together: 1561 because a source records it, 704 read off a baptismal register's role or kinship word, a gendered title, a period contraction or a forename that stands in one sex's naming only, and 627 DRAWN at the male rate measured on the roll the person was named off. A drawn sex is not evidence about that person and never becomes any; the 6 left are collective descriptions that name nobody.",
+   "lead": "2880 of 2886 persons (99.8%) carry a sex, AT THREE DIFFERENT TIERS and the table below is the only honest way to read them together: 1549 because a source records it, 704 read off a baptismal register's role or kinship word, a gendered title, a period contraction or a forename that stands in one sex's naming only, and 627 DRAWN at the male rate measured on the roll the person was named off. A drawn sex is not evidence about that person and never becomes any; the 6 left are collective descriptions that name nobody.",
    "tables": [
     {
      "title": "Sex by the rule that says so",
@@ -1401,9 +1425,9 @@
      "rows": [
       [
        "male",
-       1916,
-       "66.1%",
-       705,
+       1911,
+       "66.2%",
+       700,
        7,
        32,
        52,
@@ -1413,9 +1437,9 @@
       ],
       [
        "female",
-       976,
-       "33.7%",
-       856,
+       969,
+       "33.6%",
+       849,
        3,
        0,
        54,
@@ -1450,8 +1474,8 @@
      "rows": [
       [
        "recorded",
-       1561,
-       "53.9%",
+       1549,
+       "53.7%",
        "a source records the sex on the card, and no pass had to read it"
       ],
       [
@@ -1475,13 +1499,13 @@
       [
        "inferred_forename",
        556,
-       "19.2%",
+       "19.3%",
        "the forename stands in exactly one sex's naming and in no other (T-1303's derived table, which refuses a name its own evidence splits)"
       ],
       [
        "reconstructed_from_the_roll",
        627,
-       "21.6%",
+       "21.7%",
        "DRAWN at the male rate measured on the roll this person was named off, seeded by their own id (T-1304) — never evidence about this person"
       ],
       [
@@ -1501,7 +1525,7 @@
   {
    "id": "age",
    "title": "Age",
-   "lead": "63 of 2898 persons carry a year or an age off a source; 629 more are placed in an adult band by what they are recorded DOING — a poll, a tax list, a muster, a trade, an office, a marriage — and 2163 carry nothing that bears on age at all. SINCE T-1304 EVERY ONE OF THEM CARRIES AN AGE BAND, and the tier table below says which of the three it stands on. The bands are the 1840 Chicago schedule's and a drawn one is never turned into a year. THIS IS STILL NOT AN AGE PYRAMID OF THE TOWN: these are the people the rolls name, overwhelmingly adult men, and the women and children the pyramid lacks are T-1174's brief.",
+   "lead": "63 of 2886 persons carry a year or an age off a source; 629 more are placed in an adult band by what they are recorded DOING — a poll, a tax list, a muster, a trade, an office, a marriage — and 2151 carry nothing that bears on age at all. SINCE T-1304 EVERY ONE OF THEM CARRIES AN AGE BAND, and the tier table below says which of the three it stands on. The bands are the 1840 Chicago schedule's and a drawn one is never turned into a year. THIS IS STILL NOT AN AGE PYRAMID OF THE TOWN: these are the people the rolls name, overwhelmingly adult men, and the women and children the pyramid lacks are T-1174's brief.",
    "tables": [
     {
      "title": "Age bands",
@@ -1551,8 +1575,8 @@
       ],
       [
        "unknown",
-       2163,
-       "74.6%",
+       2151,
+       "74.5%",
        "nothing on the card bears on age at all"
       ]
      ],
@@ -1582,7 +1606,7 @@
       ],
       [
        "reconstructed",
-       2831,
+       2819,
        "97.7%",
        "DRAWN from the 1840 Chicago schedule's sex × age bands, conditioned on what the person is recorded doing, seeded by their own id — a band, never a year"
       ],
@@ -1607,47 +1631,47 @@
       [
        "0-9",
        221,
-       "7.6%"
+       "7.7%"
       ],
       [
        "0-4",
-       470,
-       "16.2%"
+       462,
+       "16.0%"
       ],
       [
        "5-9",
        71,
-       "2.4%"
+       "2.5%"
       ],
       [
        "10-19",
        239,
-       "8.2%"
+       "8.3%"
       ],
       [
        "10-14",
        42,
-       "1.4%"
+       "1.5%"
       ],
       [
        "15-19",
-       129,
-       "4.5%"
+       128,
+       "4.4%"
       ],
       [
        "20-29",
-       993,
+       991,
        "34.3%"
       ],
       [
        "30-39",
-       490,
+       489,
        "16.9%"
       ],
       [
        "40-49",
        149,
-       "5.1%"
+       "5.2%"
       ],
       [
        "50-59",
@@ -1657,7 +1681,7 @@
       [
        "50+",
        13,
-       "0.4%"
+       "0.5%"
       ],
       [
        "60-69",
@@ -2022,7 +2046,7 @@
   {
    "id": "origin_and_arrival",
    "title": "Origin and arrival",
-   "lead": "Every household carries an arrival block and 95.4% of them (1390) hold a `not_later_than` BOUND rather than an arrival: somebody was writing to that name at Chicago by a date, and nothing says when they came. Only 1457 households name an origin and 1457 a reason for coming.",
+   "lead": "Every household carries an arrival block and 95.4% of them (1392) hold a `not_later_than` BOUND rather than an arrival: somebody was writing to that name at Chicago by a date, and nothing says when they came. Only 1459 households name an origin and 1459 a reason for coming.",
    "tables": [
     {
      "title": "The three axes, by tier",
@@ -2039,29 +2063,29 @@
      "rows": [
       [
        "origin (state or country)",
-       1457,
+       1459,
        "100.0%",
        11,
        41,
-       1405,
+       1407,
        0
       ],
       [
        "arrival date or bound",
-       1457,
+       1459,
        "100.0%",
        51,
        1355,
-       51,
+       53,
        0
       ],
       [
        "reason for coming",
-       1457,
+       1459,
        "100.0%",
        12,
        13,
-       1432,
+       1434,
        0
       ]
      ],
@@ -2078,7 +2102,7 @@
      "rows": [
       [
        "not_later_than",
-       1390,
+       1392,
        "95.4%"
       ],
       [
@@ -2200,7 +2224,7 @@
       ],
       [
        "a_mechanics_trade",
-       14,
+       15,
        "a mechanic's trade the town had few of"
       ],
       [
@@ -2210,7 +2234,7 @@
       ],
       [
        "a_congregation_or_a_school",
-       8,
+       9,
        "a congregation or a school"
       ],
       [
@@ -2240,6 +2264,12 @@
        "The Myers household — a name from the post office's letter lists",
        "a_clerkship",
        "A clerkship in a merchant's or a public office",
+       "reconstructed"
+      ],
+      [
+       "Reconstructed household — Madeleine Bourassa, a woman keeping her own house in the south division",
+       "a_congregation_or_a_school",
+       "A congregation or a school",
        "reconstructed"
       ],
       [
@@ -2298,6 +2328,12 @@
       ],
       [
        "Reconstructed household — Bridget Lynch, a woman keeping her own house in the south division",
+       "a_mechanics_trade",
+       "A mechanic's trade in a town that had few of it",
+       "reconstructed"
+      ],
+      [
+       "Reconstructed household — Margaret Connor, a woman keeping her own house in the north division",
        "a_mechanics_trade",
        "A mechanic's trade in a town that had few of it",
        "reconstructed"
@@ -3247,7 +3283,7 @@
       [
        "The Allin household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -5701,7 +5737,7 @@
       [
        "The Faraher household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -6289,7 +6325,7 @@
       [
        "The Hanford household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -6727,7 +6763,7 @@
       [
        "The Hurd household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -7249,7 +7285,7 @@
       [
        "The Kulozjcky household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -7645,7 +7681,7 @@
       [
        "The Lymor household — a name from the post office's letter lists",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -8329,7 +8365,7 @@
       [
        "The Nicole household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -10989,7 +11025,7 @@
   {
    "id": "roles",
    "title": "Roles — plural and dated",
-   "lead": "328 of 2898 persons carry at least one role and 185 carry two or more. 160 of the 738 roles in the layer reach 1 July 1835; the other 578 are printed against the name in a later volume and say so.",
+   "lead": "328 of 2886 persons carry at least one role and 185 carry two or more. 160 of the 738 roles in the layer reach 1 July 1835; the other 578 are printed against the name in a later volume and say so.",
    "tables": [
     {
      "title": "Persons by number of roles",
@@ -11002,13 +11038,13 @@
      "rows": [
       [
        "0",
-       2570,
-       "88.7%"
+       2558,
+       "88.6%"
       ],
       [
        "1",
        143,
-       "4.9%"
+       "5.0%"
       ],
       [
        "2 or more",
@@ -11383,7 +11419,7 @@
   {
    "id": "households",
    "title": "Household composition",
-   "lead": "1074 of 1457 households (73.7%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 383 households name a second person; 160 heads read as women.",
+   "lead": "1079 of 1459 households (74.0%) are ONE PERSON — a head and nobody else. That is a statement about the evidence: a post-office return names one man and says nothing about a wife. 380 households name a second person; 162 heads read as women.",
    "tables": [
     {
      "title": "Persons in the household",
@@ -11396,8 +11432,8 @@
      "rows": [
       [
        "1",
-       1074,
-       "73.7%"
+       1079,
+       "74.0%"
       ],
       [
        "2",
@@ -11411,8 +11447,8 @@
       ],
       [
        "4",
-       63,
-       "4.3%"
+       62,
+       "4.2%"
       ],
       [
        "5",
@@ -11421,12 +11457,12 @@
       ],
       [
        "6",
-       53,
+       52,
        "3.6%"
       ],
       [
        "7",
-       40,
+       39,
        "2.7%"
       ],
       [
@@ -11458,23 +11494,23 @@
      "rows": [
       [
        "head",
-       1457,
-       "50.3%"
+       1459,
+       "50.6%"
       ],
       [
        "son",
-       465,
-       "16.0%"
+       460,
+       "15.9%"
       ],
       [
        "daughter",
-       435,
-       "15.0%"
+       431,
+       "14.9%"
       ],
       [
        "wife",
-       335,
-       "11.6%"
+       330,
+       "11.4%"
       ],
       [
        "household_member",
@@ -11579,7 +11615,7 @@
   {
    "id": "lodging",
    "title": "Lodging",
-   "lead": "34 of 1457 households name a place they live. The town census counts 398 dwellings for 3,265 people — eight to a dwelling — so the beds are where this layer is thinnest, and T-1175 is the ticket that fills them.",
+   "lead": "34 of 1459 households name a place they live. The town census counts 398 dwellings for 3,265 people — eight to a dwelling — so the beds are where this layer is thinnest, and T-1175 is the ticket that fills them.",
    "tables": [
     {
      "title": "Where a household is lodged",
@@ -11592,7 +11628,7 @@
      "rows": [
       [
        "no lives_at at all",
-       1423,
+       1425,
        "97.7%"
       ],
       [
@@ -11874,7 +11910,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "2764 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1409 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 126 wait on a roof not yet standing; 47 households have no dwelling. The table below reads `lives_at` alone. 658 roofs stand against a programme of 668.",
+   "lead": "2763 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1404 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 102 wait on a roof not yet standing; 54 households have no dwelling. The table below reads `lives_at` alone. 658 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",
@@ -11889,17 +11925,17 @@
      "rows": [
       [
        "south",
-       71,
+       72,
        12,
        33,
-       59
+       60
       ],
       [
        "north",
-       21,
+       22,
        5,
        11,
-       16
+       17
       ],
       [
        "west",
@@ -11931,10 +11967,10 @@
       ],
       [
        "TOTAL",
-       1457,
+       1459,
        34,
        51,
-       1423
+       1425
       ]
      ],
      "note": ""
@@ -11968,13 +12004,13 @@
     }
    ],
    "notes": [
-    "1337 of 1457 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together."
+    "1337 of 1459 households are `unplaced` — not in any division. A person without a division cannot be housed, which is why the division axis and the lodging axis fail together."
    ]
   },
   {
    "id": "community",
    "title": "Composition and types",
-   "lead": "What KINDS of people the sources show, counted only where a source says so. 0 of 2898 persons carry no community signal at all: the post-office returns that mint most of this layer print a name and a town and nothing else. Every row below is a source speaking, not a reading of a surname.",
+   "lead": "What KINDS of people the sources show, counted only where a source says so. 0 of 2886 persons carry no community signal at all: the post-office returns that mint most of this layer print a name and a town and nothing else. Every row below is a source speaking, not a reading of a surname.",
    "tables": [
     {
      "title": "Community signals on the card",
@@ -11987,7 +12023,7 @@
      "rows": [
       [
        "a source states where they came from",
-       2898,
+       2886,
        "100.0%"
       ],
       [
@@ -11998,7 +12034,7 @@
       [
        "named in a record that touches removal",
        13,
-       "0.4%"
+       "0.5%"
       ]
      ],
      "note": ""
@@ -12244,11 +12280,6 @@
       ],
       [
        "Abigail Reed",
-       "New York State",
-       "reconstructed"
-      ],
-      [
-       "Abigail Rollins",
        "New York State",
        "reconstructed"
       ],
@@ -13078,11 +13109,6 @@
        "reconstructed"
       ],
       [
-       "Amanda Rollins",
-       "New York State",
-       "reconstructed"
-      ],
-      [
        "Amanda Rue",
        "New York State",
        "reconstructed"
@@ -13249,7 +13275,7 @@
       ],
       [
        "Angelique Bourassa",
-       "West of the Alleghenies",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -13719,7 +13745,7 @@
       ],
       [
        "Baptiste Bourassa",
-       "West of the Alleghenies",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14019,7 +14045,7 @@
       ],
       [
        "Bridget Connor",
-       "The Mid-Atlantic states",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14324,7 +14350,7 @@
       ],
       [
        "Catherine Bourassa",
-       "West of the Alleghenies",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14349,7 +14375,7 @@
       ],
       [
        "Catherine Connor",
-       "The Mid-Atlantic states",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -14930,11 +14956,6 @@
       [
        "Clarissa Riffe",
        "England",
-       "reconstructed"
-      ],
-      [
-       "Clarissa Rollins",
-       "New York State",
        "reconstructed"
       ],
       [
@@ -16488,11 +16509,6 @@
        "reconstructed"
       ],
       [
-       "Erastus Rollins",
-       "New York State",
-       "reconstructed"
-      ],
-      [
        "Erastus Smow",
        "New York State",
        "reconstructed"
@@ -17028,11 +17044,6 @@
        "reconstructed"
       ],
       [
-       "George Hamilton",
-       "New England",
-       "reconstructed"
-      ],
-      [
        "George Holsman",
        "New York State",
        "reconstructed"
@@ -17090,11 +17101,6 @@
       [
        "George Morrison",
        "New England",
-       "reconstructed"
-      ],
-      [
-       "George Outhet",
-       "New York State",
        "reconstructed"
       ],
       [
@@ -17934,7 +17940,7 @@
       ],
       [
        "Honora Connor",
-       "The Mid-Atlantic states",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -18954,11 +18960,6 @@
       ],
       [
        "James Omarra",
-       "New York State",
-       "reconstructed"
-      ],
-      [
-       "James Outhet",
        "New York State",
        "reconstructed"
       ],
@@ -21179,7 +21180,7 @@
       ],
       [
        "Madeleine Bourassa",
-       "West of the Alleghenies",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -21279,7 +21280,7 @@
       ],
       [
        "Margaret Connor",
-       "The Mid-Atlantic states",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -21754,7 +21755,7 @@
       ],
       [
        "Martin Connor",
-       "The Mid-Atlantic states",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -21854,7 +21855,7 @@
       ],
       [
        "Mary Connor",
-       "The Mid-Atlantic states",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -22189,7 +22190,7 @@
       ],
       [
        "Medard Bourassa",
-       "West of the Alleghenies",
+       "New York State",
        "reconstructed"
       ],
       [
@@ -22983,11 +22984,6 @@
        "reconstructed"
       ],
       [
-       "Otis Rollins",
-       "New York State",
-       "reconstructed"
-      ],
-      [
        "Otis Wadsworth",
        "The Mid-Atlantic states",
        "reconstructed"
@@ -23590,11 +23586,6 @@
       [
        "Polly Newell",
        "West of the Alleghenies",
-       "reconstructed"
-      ],
-      [
-       "Polly Outhet",
-       "New York State",
        "reconstructed"
       ],
       [
@@ -24603,11 +24594,6 @@
        "reconstructed"
       ],
       [
-       "Sarah Hamilton",
-       "New England",
-       "reconstructed"
-      ],
-      [
        "Sarah Hoit",
        "England",
        "reconstructed"
@@ -24630,11 +24616,6 @@
       [
        "Sarah Nash",
        "New England",
-       "reconstructed"
-      ],
-      [
-       "Sarah Outhet",
-       "New York State",
        "reconstructed"
       ],
       [
@@ -25145,11 +25126,6 @@
       [
        "Susan Dickinson",
        "New York State",
-       "reconstructed"
-      ],
-      [
-       "Susan Hamilton",
-       "New England",
        "reconstructed"
       ],
       [

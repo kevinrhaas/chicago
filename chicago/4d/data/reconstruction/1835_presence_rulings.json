@@ -22,7 +22,7 @@
     "bracketed": "inferred — the corpus reads this person at Chicago on both sides of the day.",
     "carried": "reconstructed — the corpus stops before the day; the project's standing rule carries the presence and the persistence model prices it."
   },
-  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 946 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
+  "the_floor": "T-1172's R1 leg re-ruled every `uncertain` presence at tier `reconstructed`. 141 of these 933 rulings land ABOVE that on their own dated readings, which is what acceptance 3 asks for: an attested or inferred person never takes a presence tier below what their own evidence supports. A card graded `attested` whose last reading falls before the day keeps its attested RESIDENCE and takes a `reconstructed` PRESENCE — the two are different claims, and calling the presence inferred there would be the undeclared flip this stage refuses.",
   "nothing_is_drawn_here": "T-1172 drew against the persistence model and ruled 37 cards `absent` on the losing side. This stage does not draw: an absence with no evidence under it is not a finding, and the two evidenced absences below are the shape of a correct exclusion. `basis.kind` is `rule` and a rule owes no seed.",
   "persistence_model": {
     "id": "persistence_1835",
@@ -31,43 +31,98 @@
     "used_for": "pricing a `carried` ruling, never for deciding one"
   },
   "counts": {
-    "households_ruled": 946,
-    "persons_ruled": 1820,
+    "households_ruled": 933,
+    "persons_ruled": 1784,
     "households_by_leg": {
       "on_the_day": 60,
       "spans": 49,
       "bracketed": 32,
-      "carried": 805
+      "carried": 792
     },
     "persons_by_leg": {
       "on_the_day": 182,
       "spans": 130,
       "bracketed": 49,
-      "carried": 1459
+      "carried": 1423
     },
     "households_by_tier": {
-      "reconstructed": 805,
+      "reconstructed": 792,
       "inferred": 81,
       "attested": 60
     },
     "persons_by_tier": {
-      "reconstructed": 1459,
+      "reconstructed": 1423,
       "inferred": 179,
       "attested": 182
     },
     "persons_by_residence_grade": {
-      "inferred": 677,
-      "attested": 277,
-      "reconstructed": 866
+      "inferred": 674,
+      "attested": 267,
+      "reconstructed": 843
     },
     "rulings_above_t1172_blanket_reconstructed": 141,
-    "evidenced_absences_left_out": 8
+    "evidenced_absences_left_out": 21
   },
   "evidenced_absences": [
+    {
+      "household_id": "hh_baxley_mary",
+      "name": "The Baxley household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_11_19#c003, dated 1834-11-19, which names this person as the one who died — so they died no later than 19 November 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_bourque_william",
+      "name": "The Bourque household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). Father St Cyr's register records the death at Chicago in its entry st_cyr_death_04_1, dated 1835-06, which names this person as the one who died — so they died no later than 30 June 1835, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_bradford_william_h",
+      "name": "The Bradford household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_09_10#c011, dated 1834-09-10, which names this person as the one who died — so they died no later than 10 September 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_brannen_w",
+      "name": "The Brannen household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). Father St Cyr's register records the death at Chicago in its entry st_cyr_death_02_1, dated 1834-07, which names this person as the one who died — so they died no later than 31 July 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_calhoun_samuel",
+      "name": "The Calhoun household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1833_12_17#c007, dated 1833-12-17, which names this person as the one who died — so they died no later than 17 December 1833, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_chevallier_john_b",
+      "name": "The Chevallier household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_01_21#c006, dated 1834-01-21, which names this person as the one who died — so they died no later than 21 January 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
     {
       "household_id": "hh_duplas_catherine",
       "name": "The Duplas household — a name the town's own records carry",
       "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-18 (st_marys_bapt_1835_12_1_child), and the entry's own words — 'two months old' — put the birth between 1835-07-19 and 1835-08-18, after the scene date of 1 July 1835. An age at the font, read as 2 completed month(s): born after 1835-07-18 and by 1835-08-18. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
+    {
+      "household_id": "hh_fisher_pitman",
+      "name": "The Fisher household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_08_13#c013, dated 1834-08-13, which names this person as the one who died — so they died no later than 13 August 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_hamilton_diana",
+      "name": "The Hamilton household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_04_30#c001, dated 1834-04-30, which names this person as the one who died — so they died no later than 30 April 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_hogan_john",
+      "name": "The Hogan household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). Father St Cyr's register records the death at Chicago in its entry st_cyr_death_03_1, dated 1834-10, which names this person as the one who died — so they died no later than 31 October 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_hoit_sarah",
+      "name": "The Hoit household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_09_24#c002, dated 1834-09-24, which names this person as the one who died — so they died no later than 24 September 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
+      "household_id": "hh_laughton_david",
+      "name": "The Laughton household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_08_20#c006, dated 1834-08-20, which names this person as the one who died — so they died no later than 20 August 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
     },
     {
       "household_id": "hh_molony_denis",
@@ -85,6 +140,11 @@
       "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-08-20 (st_marys_bapt_1835_07_1_child), and the entry's own words — 'born the nineteenth of August eighteen hundred thirty five' — put the birth on 1835-08-19, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
     },
     {
+      "household_id": "hh_outhet_daniel",
+      "name": "The Outhet household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_12_24#c003, dated 1834-12-24, which names this person as the one who died — so they died no later than 24 December 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
+    },
+    {
       "household_id": "hh_porthier_joseph",
       "name": "The Porthier household",
       "note": "T-0478 resolves the earlier uncertainty. Pioneer History of Milwaukee dates Joseph Porthier leaving Chicago with Horace Chase on February 27, 1835; after a brief return to Chicago for means, Porthier left again March 21 and reached Milwaukee March 23. That dated migration is before the July 1 scene date."
@@ -93,6 +153,11 @@
       "household_id": "hh_roi_joseph_claude",
       "name": "The Roi household — a name the town's own records carry",
       "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-10-04 (st_marys_bapt_1835_10_1_child), and the entry's own words — 'âgé de [?] jours' — put the birth between 1835-07-04 and 1835-10-04, after the scene date of 1 July 1835. An age in days whose count nobody can read. The register counts in days only for a newborn and has moved to months by two, so the window is bounded at three months before the font — a month wider than that practice. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
+    },
+    {
+      "household_id": "hh_rollins_charles",
+      "name": "The Rollins household — a name the town's own records carry",
+      "note": "DEAD BEFORE THE DAY (T-2189). The Chicago Democrat prints the death in its claim chicago_democrat_1834_09_17#c002, dated 1834-09-17, which names this person as the one who died — so they died no later than 17 September 1834, before the scene date of 1 July 1835, and no record that places a person at Chicago names them after it. A BURIAL IS A DEPARTURE, NOT A SIGHTING: it puts the person at Chicago dead, so it cannot be the at-or-before leg of a bracket, and the persistence model cannot price it. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a death is not a silence."
     },
     {
       "household_id": "hh_tony_louisa",
@@ -2014,43 +2079,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_baxley_mary",
-      "name": "The Baxley household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-11-19, 0.6133 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9618 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.6133,
-          "persistence": 0.9618
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_beach_william_h",
       "name": "The Beach household — a name from the post office's letter lists",
       "division": "unplaced",
@@ -3961,44 +3989,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_bourque_william",
-      "name": "The Bourque household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 7,
-      "grades": {
-        "inferred": 1,
-        "reconstructed": 6
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_cyr_register_ichr_v4"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1835-06, 0.0027 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9998 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.0027,
-          "persistence": 0.9998
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_bousque_bernard",
       "name": "The Bousque household — a name the town's own records carry",
       "division": "unplaced",
@@ -4143,80 +4133,6 @@
           "persistence": 0.9501
         },
         "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_bradford_william_h",
-      "name": "The Bradford household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-09-10, 0.8049 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9501 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.8049,
-          "persistence": 0.9501
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_brannen_w",
-      "name": "The Brannen household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_cyr_register_ichr_v4"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-07, 0.9172 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9434 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.9172,
-          "persistence": 0.9434
-        },
-        "residence_grade_this_stands_beside": "inferred"
       },
       "the_inferred_value_this_stands_beside": "uncertain",
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
@@ -5530,43 +5446,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_calhoun_samuel",
-      "name": "The Calhoun household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1833-12-17, 1.536 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.907 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 1.536,
-          "persistence": 0.907
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_campbell_james_b",
       "name": "The Campbell household — a name the town's own records carry",
       "division": "unplaced",
@@ -6483,43 +6362,6 @@
           "lambda_per_year": 0.063541,
           "years_before_the_scene": 0.0684,
           "persistence": 0.9957
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_chevallier_john_b",
-      "name": "The Chevallier household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-01-21, 1.4401 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9126 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 1.4401,
-          "persistence": 0.9126
         },
         "residence_grade_this_stands_beside": "attested"
       },
@@ -10914,44 +10756,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_fisher_pitman",
-      "name": "The Fisher household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 6,
-      "grades": {
-        "attested": 1,
-        "reconstructed": 5
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-08-13, 0.8816 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9455 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.8816,
-          "persistence": 0.9455
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_fitzgerald_thos",
       "name": "The Fitzgerald household — a name the papers print beyond the letter lists",
       "division": "unplaced",
@@ -13258,44 +13062,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_hamilton_diana",
-      "name": "The Hamilton household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 4,
-      "grades": {
-        "attested": 1,
-        "reconstructed": 3
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-04-30, 1.1691 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9284 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 1.1691,
-          "persistence": 0.9284
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_handy_major",
       "name": "The Handy household",
       "division": "south",
@@ -14233,43 +13999,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_hogan_john",
-      "name": "The Hogan household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "inferred": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "st_cyr_register_ichr_v4"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-10, 0.6653 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9586 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.6653,
-          "persistence": 0.9586
-        },
-        "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_hogan_mary",
       "name": "The Hogan household — a name the town's own records carry",
       "division": "unplaced",
@@ -14337,43 +14066,6 @@
           "lambda_per_year": 0.063541,
           "years_before_the_scene": -0.0575,
           "persistence": null
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_hoit_sarah",
-      "name": "The Hoit household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-09-24, 0.7666 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9525 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.7666,
-          "persistence": 0.9525
         },
         "residence_grade_this_stands_beside": "attested"
       },
@@ -17705,43 +17397,6 @@
           "persistence": null
         },
         "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_laughton_david",
-      "name": "The Laughton household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 1,
-      "grades": {
-        "attested": 1
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-08-20, 0.8624 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9467 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.8624,
-          "persistence": 0.9467
-        },
-        "residence_grade_this_stands_beside": "attested"
       },
       "the_inferred_value_this_stands_beside": "uncertain",
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
@@ -22834,44 +22489,6 @@
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
     },
     {
-      "household_id": "hh_outhet_daniel",
-      "name": "The Outhet household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 5,
-      "grades": {
-        "attested": 1,
-        "reconstructed": 4
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-12-24, 0.5175 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9677 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.5175,
-          "persistence": 0.9677
-        },
-        "residence_grade_this_stands_beside": "attested"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
       "household_id": "hh_owen_j_v",
       "name": "The Owen household — a name the town's own records carry",
       "division": "unplaced",
@@ -25520,44 +25137,6 @@
           "persistence": null
         },
         "residence_grade_this_stands_beside": "inferred"
-      },
-      "the_inferred_value_this_stands_beside": "uncertain",
-      "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"
-    },
-    {
-      "household_id": "hh_rollins_charles",
-      "name": "The Rollins household — a name the town's own records carry",
-      "division": "unplaced",
-      "persons": 6,
-      "grades": {
-        "attested": 1,
-        "reconstructed": 5
-      },
-      "leg": "carried",
-      "present_on_scene_date": {
-        "value": "present",
-        "confidence": "reconstructed",
-        "tier": "reconstructed",
-        "sources": [
-          "chicago_democrat_1833_1835"
-        ],
-        "note": "CARRIED BY THE RULE, NOT BY A READING. The corpus stops before 1 July 1835 and nothing follows this person past it or places them elsewhere on it. What carries the presence is the project's own standing rule — an attested or inferred resident is in the population unless there is evidence they were not — and the persistence model prices it rather than deciding it (T-1386, acceptance 1).",
-        "basis": {
-          "kind": "rule",
-          "id": "an_attested_or_inferred_resident_is_present_unless_evidence_says_otherwise",
-          "note": "The corpus last reads this person 1834-09-17, 0.7858 year(s) before the scene date, and nothing in the corpus follows them past 1 July 1835 or places them elsewhere on it. The persistence model gives 0.9513 for that lag — the share of this layer a later Chicago volume still names — which prices the ruling and does not decide it: a draw that put a known resident out of the town would be a claim of absence with nothing under it."
-        },
-        "replaceable_by": {
-          "kind": "person",
-          "match": "any source that places this person outside Chicago on 1 July 1835, or that dates their departure before it"
-        },
-        "priced_by": {
-          "model": "persistence_1835",
-          "lambda_per_year": 0.063541,
-          "years_before_the_scene": 0.7858,
-          "persistence": 0.9513
-        },
-        "residence_grade_this_stands_beside": "attested"
       },
       "the_inferred_value_this_stands_beside": "uncertain",
       "what_would_retire_it": "a source that places this person outside Chicago on 1 July 1835, or dates a departure before it"

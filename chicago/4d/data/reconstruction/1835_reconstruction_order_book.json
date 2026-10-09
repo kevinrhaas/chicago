@@ -28,18 +28,18 @@
     "real_names_first": "The roster (T-1159) offers every name the corpus printed and withheld. It is a licence on WHICH name a filler uses and never a quota, so it is counted against its ticket rather than smeared across cells that cannot hold it."
   },
   "known_layer": {
-    "households_total": 1457,
-    "households_present": 1402,
-    "households_uncertain": 946,
-    "households_ruled_present": 946,
-    "households_evidenced_absent": 8,
-    "households_reconstructed": 47,
-    "persons_total": 2898,
-    "persons_standing": 2890,
-    "persons_ruled_present": 954,
-    "persons_present": 1432,
-    "persons_present_attested": 411,
-    "persons_present_inferred": 1021,
+    "households_total": 1459,
+    "households_present": 1389,
+    "households_uncertain": 933,
+    "households_ruled_present": 933,
+    "households_evidenced_absent": 21,
+    "households_reconstructed": 49,
+    "persons_total": 2886,
+    "persons_standing": 2865,
+    "persons_ruled_present": 941,
+    "persons_present": 1419,
+    "persons_present_attested": 401,
+    "persons_present_inferred": 1018,
     "persons_present_by_division": {
       "south": 71,
       "west": 10,
@@ -52,8 +52,8 @@
       "north": 11,
       "fort": 2
     },
-    "persons_present_unplaced": 1333,
-    "households_present_unplaced": 1331,
+    "persons_present_unplaced": 1320,
+    "households_present_unplaced": 1318,
     "houses_present": 165,
     "houses_present_by_division": {
       "south": 52,
@@ -62,7 +62,7 @@
       "fort": 2
     },
     "houses_present_unplaced": 94,
-    "records_awaiting_a_household": 1237,
+    "records_awaiting_a_household": 1224,
     "houses_present_by_clause": {
       "a_stated_kinship": 91,
       "a_stated_premises": 33,
@@ -78,23 +78,23 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 1820,
-    "households_ruled_present": 946,
+    "persons_ruled_present": 1784,
+    "households_ruled_present": 933,
     "by_presence_tier": {
-      "reconstructed": 1459,
+      "reconstructed": 1423,
       "inferred": 179,
       "attested": 182
     },
     "by_residence_grade": {
-      "inferred": 677,
-      "attested": 277,
-      "reconstructed": 866
+      "inferred": 674,
+      "attested": 267,
+      "reconstructed": 843
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
     "persons_known_before_the_rulings": 478,
-    "persons_known_now": 1432,
+    "persons_known_now": 1419,
     "households_known_before_the_rulings": 456,
-    "households_known_now": 1402,
+    "households_known_now": 1389,
     "the_roster_is_not_double_counted": "R1 offers these names to T-1172 as a LICENCE to use a real read name, never as a quota (rule `real_names_first`), and T-1386 has already re-admitted them into the layer. Counting them known orders nobody twice; it stops ordering them once.",
     "what_re_cuts_the_quotas": [
       "T-1196",
@@ -121,12 +121,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 61,
-      "the_re_cut_would_have_ordered": 32,
+      "the_re_cut_would_have_ordered": 33,
       "already_drawn": 54,
       "held_at": 54,
       "drawn_here": 60,
       "refamilied_out": 6,
-      "surplus_still_held": 22,
+      "surplus_still_held": 21,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -134,12 +134,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 23,
-      "the_re_cut_would_have_ordered": 12,
+      "the_re_cut_would_have_ordered": 13,
       "already_drawn": 21,
       "held_at": 21,
       "drawn_here": 24,
       "refamilied_out": 3,
-      "surplus_still_held": 9,
+      "surplus_still_held": 8,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -225,12 +225,12 @@
       "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 6,
-      "the_re_cut_would_have_ordered": 3,
+      "the_re_cut_would_have_ordered": 4,
       "already_drawn": 6,
       "held_at": 6,
       "drawn_here": 6,
       "refamilied_out": 0,
-      "surplus_still_held": 3,
+      "surplus_still_held": 2,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -436,12 +436,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 45,
-      "the_re_cut_would_have_ordered": 24,
+      "the_re_cut_would_have_ordered": 25,
       "already_drawn": 41,
       "held_at": 41,
       "drawn_here": 45,
       "refamilied_out": 4,
-      "surplus_still_held": 17,
+      "surplus_still_held": 16,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -449,12 +449,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 107,
-      "the_re_cut_would_have_ordered": 56,
+      "the_re_cut_would_have_ordered": 57,
       "already_drawn": 100,
       "held_at": 100,
       "drawn_here": 107,
       "refamilied_out": 7,
-      "surplus_still_held": 44,
+      "surplus_still_held": 43,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -462,12 +462,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 40,
-      "the_re_cut_would_have_ordered": 22,
+      "the_re_cut_would_have_ordered": 23,
       "already_drawn": 34,
       "held_at": 34,
       "drawn_here": 40,
       "refamilied_out": 6,
-      "surplus_still_held": 12,
+      "surplus_still_held": 11,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -501,12 +501,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 71,
-      "the_re_cut_would_have_ordered": 38,
+      "the_re_cut_would_have_ordered": 39,
       "already_drawn": 65,
       "held_at": 65,
       "drawn_here": 71,
       "refamilied_out": 6,
-      "surplus_still_held": 27,
+      "surplus_still_held": 26,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -566,12 +566,12 @@
       "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 59,
-      "the_re_cut_would_have_ordered": 31,
+      "the_re_cut_would_have_ordered": 32,
       "already_drawn": 52,
       "held_at": 52,
       "drawn_here": 60,
       "refamilied_out": 8,
-      "surplus_still_held": 21,
+      "surplus_still_held": 20,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
@@ -599,20 +599,6 @@
       "refamilied_out": 5,
       "surplus_still_held": 6,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
-    },
-    {
-      "bucket": "persons/male/20_29/west/lodging/trade",
-      "owning_ticket": "T-2023",
-      "cause": "a_documented_reading_shrank_the_order",
-      "quota_it_was_drawn_against": 5,
-      "the_re_cut_would_have_ordered": 4,
-      "already_drawn": 5,
-      "held_at": 5,
-      "drawn_here": 0,
-      "refamilied_out": 0,
-      "surplus_still_held": 1,
-      "refamilied_in": 5,
-      "why": "the town read more people it can name, the known layer's share of this cell grew, and its order fell under the head(s) the re-family ledger had already landed in it against an open order (T-2078). Nobody is moved back; the surplus is the owning ticket's to retire. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
       "bucket": "persons/male/30_39/north/family/trade",
@@ -719,20 +705,6 @@
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
-      "bucket": "persons/male/50_plus/north/lodging/trade",
-      "owning_ticket": "T-2023",
-      "cause": "a_documented_reading_shrank_the_order",
-      "quota_it_was_drawn_against": 1,
-      "the_re_cut_would_have_ordered": 0,
-      "already_drawn": 1,
-      "held_at": 1,
-      "drawn_here": 0,
-      "refamilied_out": 0,
-      "surplus_still_held": 1,
-      "refamilied_in": 1,
-      "why": "the town read more people it can name, the known layer's share of this cell grew, and its order fell under the head(s) the re-family ledger had already landed in it against an open order (T-2078). Nobody is moved back; the surplus is the owning ticket's to retire. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
-    },
-    {
       "bucket": "persons/male/50_plus/south/family/trade",
       "owning_ticket": "T-2187",
       "cause": "the_re_cut_reached_work_already_drawn",
@@ -789,12 +761,12 @@
       "owning_ticket": "T-1174",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 45,
-      "the_re_cut_would_have_ordered": 25,
+      "the_re_cut_would_have_ordered": 26,
       "already_drawn": 34,
       "held_at": 34,
       "drawn_here": 43,
       "refamilied_out": 9,
-      "surplus_still_held": 9,
+      "surplus_still_held": 8,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     }
   ],
@@ -1371,7 +1343,7 @@
   "spent_by": [
     {
       "ticket": "T-1174",
-      "records": 592,
+      "records": 594,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1404,7 +1376,7 @@
     },
     {
       "ticket": "T-2021",
-      "records": 481,
+      "records": 469,
       "buckets": [
         "persons/female/10_19/north/family/none",
         "persons/female/10_19/south/family/none",
@@ -1429,7 +1401,7 @@
     },
     {
       "ticket": "T-2193",
-      "records": 333,
+      "records": 331,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1614,14 +1586,14 @@
     }
   ],
   "roster_offered": {
-    "total": 1799,
+    "total": 1787,
     "by_class": {
-      "R1_in_window_uncertain": 893,
+      "R1_in_window_uncertain": 882,
       "R2_in_window_single_source": 207,
       "R3_1834_return_or_muster": 28,
       "R4_surname_only_census": 438,
       "R5_later_only_backprojectable": 53,
-      "R6_native_metis_black": 180
+      "R6_native_metis_black": 179
     },
     "tickets": {
       "R1_in_window_uncertain": "T-1172",
@@ -1634,28 +1606,28 @@
   },
   "totals": {
     "persons_target": 2550,
-    "persons_known": 1432,
-    "persons_to_reconstruct": 1809,
+    "persons_known": 1419,
+    "persons_to_reconstruct": 1798,
     "households_target": 645,
     "households_known": 165,
-    "households_known_records": 1402,
-    "households_awaiting_a_household": 1237,
-    "households_to_reconstruct": 457,
+    "households_known_records": 1389,
+    "households_awaiting_a_household": 1224,
+    "households_to_reconstruct": 452,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
     "roofs_standing": 677,
     "roofs_to_build": 10,
-    "persons_standing": 2890,
-    "persons_still_owed": 14,
-    "persons_when_the_book_is_filled": 2904,
+    "persons_standing": 2865,
+    "persons_still_owed": 15,
+    "persons_when_the_book_is_filled": 2880,
     "persons_target_range": [
       2371,
       3265
     ],
-    "households_standing": 212,
-    "households_still_owed": 47
+    "households_standing": 214,
+    "households_still_owed": 42
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1663,9 +1635,9 @@
       "tools/seat_platted_ground_1835.py --build",
       "tools/seat_off_plat_ground_1835.py --build"
     ],
-    "rows_offered": 1422,
+    "rows_offered": 1424,
     "seated": 314,
-    "still_owed": 1108,
+    "still_owed": 1110,
     "roofs_adopted": 314,
     "slots_requested": 0,
     "roofs_standing": 677,
@@ -1678,9 +1650,9 @@
         "title": "The committed plat",
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
-        "rows_offered": 1422,
+        "rows_offered": 1424,
         "seated": 215,
-        "handed_on": 1207,
+        "handed_on": 1209,
         "roofs_adopted": 215,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 225,
@@ -1705,9 +1677,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1207,
+        "rows_offered": 1209,
         "seated": 99,
-        "handed_on": 1108,
+        "handed_on": 1110,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 106,
@@ -1730,7 +1702,7 @@
     "requested_slots": [],
     "slot_blocks": [],
     "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,108 of the 1,422 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -1738,34 +1710,34 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 13,
+      "household_leg_now": 8,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 13. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 8. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
-      "persons_standing_in_the_layer": 2890,
-      "persons_still_owed": 14,
-      "converges_to": 2904,
+      "persons_standing_in_the_layer": 2865,
+      "persons_still_owed": 15,
+      "converges_to": 2880,
       "model_point": 2550,
       "model_range": [
         2371,
         3265
       ],
-      "measured": "2,890 standing plus 14 still owed is 2,904, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,890 + 843 = 3,733, and the book was ordering a replacement for 826 people already in the layer. It is 354 above the model's 2,550 point, and that surplus is the 408 people drawn into 53 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,865 standing plus 15 still owed is 2,880, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,865 + 843 = 3,708, and the book was ordering a replacement for 826 people already in the layer. It is 330 above the model's 2,550 point, and that surplus is the 397 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
-      "asks": "The model wants 643 households and the layer holds 1,449 records. Are those the same thing?",
+      "asks": "The model wants 643 households and the layer holds 1,438 records. Are those the same thing?",
       "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
-      "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,449 against 643 is a BACKLOG, not a contradiction.",
+      "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,438 against 643 is a BACKLOG, not a contradiction.",
       "households_known_before_the_rulings": 456,
-      "records_known_now": 1402,
+      "records_known_now": 1389,
       "houses_known_now": 165,
-      "records_awaiting_a_household": 1237,
+      "records_awaiting_a_household": 1224,
       "houses_by_clause": {
         "a_stated_kinship": 91,
         "a_stated_premises": 33,
@@ -1778,14 +1750,14 @@
         473,
         816
       ],
-      "measured": "Of the 1,402 records the layer holds present, 165 carry a reading about a dwelling and 1,237 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
+      "measured": "Of the 1,389 records the layer holds present, 165 carry a reading about a dwelling and 1,224 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
       "the_test_is_the_evidence_not_the_head_count": "A one-person record is not held out because it holds one person; a man may well have lived alone. It is held out where its whole evidence is a name on a list. The clause that lets a record stand as a house is written on its own manifest row as `dwelling_evidence` and is tallied above — so which of the records are which is readable off the layer and not asserted here.",
       "what_this_does_not_do": "Nothing is retired, nothing is re-graded and nobody is downgraded. Every record stays as it is, with its evidence and its grade; what changes is which question it answers. A record answers both the moment something seats him, and the derivation picks that up on the next rebuild."
     },
     {
       "id": "a_documented_reading_shrank_an_order_the_town_had_drawn",
       "asks": "The parish register's 120 documented residents (T-0841) land in buckets the town had already reconstructed strangers into. Where did reading a person the town can name put a bucket's order UNDER what was drawn against it, and by how many people?",
-      "the_answer_is": "8 bucket(s), over-supplied by 12 in all.",
+      "the_answer_is": "6 bucket(s), over-supplied by 10 in all.",
       "buckets": [
         {
           "bucket": "persons/female/30_39/south/lodging/none",
@@ -1828,24 +1800,10 @@
           "already_drawn": 1,
           "the_re_cut_would_have_ordered": 0,
           "over_supplied_by": 1
-        },
-        {
-          "bucket": "persons/male/20_29/west/lodging/trade",
-          "owning_ticket": "T-2023",
-          "already_drawn": 5,
-          "the_re_cut_would_have_ordered": 4,
-          "over_supplied_by": 1
-        },
-        {
-          "bucket": "persons/male/50_plus/north/lodging/trade",
-          "owning_ticket": "T-2023",
-          "already_drawn": 1,
-          "the_re_cut_would_have_ordered": 0,
-          "over_supplied_by": 1
         }
       ],
-      "over_supplied_by": 12,
-      "measured": "`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/female/40_49/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/20_29/west/lodging/trade` holds 5 drawn against an order of 4 — over-supplied by 1; `persons/male/50_plus/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 12 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.",
+      "over_supplied_by": 10,
+      "measured": "`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/female/40_49/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 10 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.",
       "declined": "RETIRING a reconstructed card is the bucket owner's work and not this book's: a book that deleted people to make its own arithmetic close would be reconstructing backwards. T-1347, which drew the trade band, has closed, so T-1530 is filed for the south-side 20-29 surplus and T-1506 owns the surplus lawyer."
     }
   ],
@@ -1853,22 +1811,22 @@
     "ticket": "T-2187",
     "asks": "The family cells order adult men the town does not hold. Does it hold them?",
     "model_civil_adult_men": 944,
-    "named_adult_men_on_the_cards": 1163,
+    "named_adult_men_on_the_cards": 1152,
     "named_by_division": {
       "south": 55,
       "west": 7,
       "north": 12,
-      "unplaced": 1089
+      "unplaced": 1078
     },
     "named_men_with_no_age_not_counted": 0,
     "adult_men_drawn": 276,
-    "the_town_holds": 1439,
-    "the_pro_rata_credit_gave_these_cells": 529,
-    "the_family_cells_ordered": 203,
+    "the_town_holds": 1428,
+    "the_pro_rata_credit_gave_these_cells": 525,
+    "the_family_cells_ordered": 204,
     "the_town_still_lacks": 0,
-    "discharged": 203,
+    "discharged": 204,
     "discharged_by_cell": {
-      "persons/male/20_29/north/family/none": 26,
+      "persons/male/20_29/north/family/none": 27,
       "persons/male/20_29/south/family/none": 60,
       "persons/male/20_29/west/family/none": 24,
       "persons/male/30_39/north/family/none": 16,
@@ -1881,7 +1839,7 @@
       "persons/male/50_plus/south/family/none": 5,
       "persons/male/50_plus/west/family/none": 2
     },
-    "measured": "The model's civil town wants 944 men aged twenty and over. The present cards name 1,163 and the stages drew 276, so the town holds 1,439, 495 over the model's figure. The pro-rata credit gave these cells 529 of the named; the rest were counted in women's and children's cells. The family cells ordered 203 more and 203 are discharged.",
+    "measured": "The model's civil town wants 944 men aged twenty and over. The present cards name 1,152 and the stages drew 276, so the town holds 1,428, 484 over the model's figure. The pro-rata credit gave these cells 525 of the named; the rest were counted in women's and children's cells. The family cells ordered 204 more and 204 are discharged.",
     "what_this_does_not_do": "It moves nobody, retires nobody and draws nobody, and it does not touch the women's or children's cells, whose orders the same credit holds down: that is T-1174's and T-2021's ground, and their own ratio and under-ten gates bound it."
   },
   "store_residence_ruling": {
@@ -1892,28 +1850,33 @@
         "store_roofs_standing": 4,
         "store_households_ordered": 6,
         "discharged": 2,
+        "kept_from_elsewhere": 0,
         "still_owed": 0
       },
       "south": {
         "store_roofs_standing": 42,
         "store_households_ordered": 62,
         "discharged": 20,
-        "still_owed": 11
+        "kept_from_elsewhere": 4,
+        "still_owed": 7
       },
       "west": {
         "store_roofs_standing": 6,
         "store_households_ordered": 9,
         "discharged": 3,
-        "still_owed": 2
+        "kept_from_elsewhere": 1,
+        "still_owed": 1
       }
     },
     "store_roofs_standing": 52,
     "store_households_ordered": 77,
     "discharged": 25,
-    "still_owed": 13,
-    "still_owed_by": "T-2240",
-    "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged and 13 are still owed: a keeper for a store roof that stands with nobody in it.",
-    "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2240's.",
+    "kept_from_elsewhere": 5,
+    "kept_from_elsewhere_by": "T-2244",
+    "still_owed": 8,
+    "still_owed_by": "T-2245",
+    "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 5 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; and 8 are still owed: a keeper for a store roof that stands with nobody in it.",
+    "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2245's.",
     "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: T-2237 counts those beside the held heads (count_held_head_dwellings_1835.py, `beyond_the_index`)."
   },
   "bucket_families": [
@@ -2004,7 +1967,7 @@
             "trade": "none"
           },
           "target": 76,
-          "known_attested": 13,
+          "known_attested": 12,
           "known_inferred": 31,
           "to_reconstruct": 62,
           "filled": 62,
@@ -2044,7 +2007,7 @@
             "trade": "none"
           },
           "target": 28,
-          "known_attested": 5,
+          "known_attested": 4,
           "known_inferred": 11,
           "to_reconstruct": 24,
           "filled": 24,
@@ -2105,14 +2068,14 @@
           "target": 34,
           "known_attested": 5,
           "known_inferred": 13,
-          "to_reconstruct": 55,
-          "filled": 55,
+          "to_reconstruct": 54,
+          "filled": 54,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 57,
+          "drawn_here": 56,
           "refamilied_out": 2,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 29
+          "ordered_by_the_family_ruling": 28
         },
         {
           "key": "persons/female/20_29/north/lodging/trade",
@@ -2186,14 +2149,14 @@
           "target": 82,
           "known_attested": 13,
           "known_inferred": 34,
-          "to_reconstruct": 139,
-          "filled": 139,
+          "to_reconstruct": 138,
+          "filled": 138,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 141,
+          "drawn_here": 140,
           "refamilied_out": 2,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 75
+          "ordered_by_the_family_ruling": 74
         },
         {
           "key": "persons/female/20_29/south/lodging/trade",
@@ -2326,7 +2289,7 @@
           },
           "target": 8,
           "known_attested": 1,
-          "known_inferred": 4,
+          "known_inferred": 3,
           "to_reconstruct": 6,
           "filled": 6,
           "owning_ticket": "T-2187",
@@ -2427,14 +2390,14 @@
           "target": 38,
           "known_attested": 6,
           "known_inferred": 16,
-          "to_reconstruct": 33,
-          "filled": 33,
+          "to_reconstruct": 32,
+          "filled": 32,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 37,
+          "drawn_here": 36,
           "refamilied_out": 4,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 6
+          "ordered_by_the_family_ruling": 5
         },
         {
           "key": "persons/female/30_39/south/lodging/trade",
@@ -3033,7 +2996,7 @@
             "trade": "none"
           },
           "target": 55,
-          "known_attested": 9,
+          "known_attested": 8,
           "known_inferred": 22,
           "to_reconstruct": 62,
           "filled": 62,
@@ -3073,16 +3036,16 @@
             "trade": "none"
           },
           "target": 133,
-          "known_attested": 22,
+          "known_attested": 21,
           "known_inferred": 55,
-          "to_reconstruct": 194,
-          "filled": 194,
+          "to_reconstruct": 190,
+          "filled": 190,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 201,
+          "drawn_here": 197,
           "refamilied_out": 7,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 94
+          "ordered_by_the_family_ruling": 90
         },
         {
           "key": "persons/female/under_10/south/lodging/none",
@@ -3094,9 +3057,9 @@
             "trade": "none"
           },
           "target": 47,
-          "known_attested": 8,
+          "known_attested": 7,
           "known_inferred": 19,
-          "to_reconstruct": 20,
+          "to_reconstruct": 21,
           "filled": 16,
           "owning_ticket": "T-2023",
           "basis": "a child of the house, a bed rather than a household",
@@ -3113,7 +3076,7 @@
             "trade": "none"
           },
           "target": 49,
-          "known_attested": 8,
+          "known_attested": 7,
           "known_inferred": 19,
           "to_reconstruct": 71,
           "filled": 71,
@@ -3214,15 +3177,15 @@
           },
           "target": 88,
           "known_attested": 14,
-          "known_inferred": 36,
-          "to_reconstruct": 71,
-          "filled": 71,
+          "known_inferred": 35,
+          "to_reconstruct": 70,
+          "filled": 70,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 77,
+          "drawn_here": 76,
           "refamilied_out": 6,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 6
+          "ordered_by_the_family_ruling": 5
         },
         {
           "key": "persons/male/10_19/south/lodging/trade",
@@ -3355,12 +3318,12 @@
           },
           "target": 58,
           "known_attested": 9,
-          "known_inferred": 23,
+          "known_inferred": 22,
           "to_reconstruct": 0,
           "filled": 0,
           "owning_ticket": "T-2187",
           "basis": "otherwise: a family drawn from the household model",
-          "discharged_by_the_men_ruling": 26
+          "discharged_by_the_men_ruling": 27
         },
         {
           "key": "persons/male/20_29/north/lodging/trade",
@@ -3408,7 +3371,7 @@
           },
           "target": 73,
           "known_attested": 12,
-          "known_inferred": 30,
+          "known_inferred": 29,
           "to_reconstruct": 52,
           "filled": 52,
           "owning_ticket": "T-2187",
@@ -3523,7 +3486,7 @@
             "trade": "trade"
           },
           "target": 10,
-          "known_attested": 2,
+          "known_attested": 1,
           "known_inferred": 4,
           "to_reconstruct": 5,
           "filled": 5,
@@ -3531,8 +3494,7 @@
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 9,
           "drawn_here": 0,
-          "refamilied_in": 5,
-          "recut_refused": true
+          "refamilied_in": 5
         },
         {
           "key": "persons/male/20_29/west/lodging/none",
@@ -4056,15 +4018,14 @@
           },
           "target": 1,
           "known_attested": 0,
-          "known_inferred": 1,
+          "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 1,
           "owning_ticket": "T-2023",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1,
           "drawn_here": 0,
-          "refamilied_in": 1,
-          "recut_refused": true
+          "refamilied_in": 1
         },
         {
           "key": "persons/male/50_plus/north/lodging/none",
@@ -4245,14 +4206,14 @@
           "target": 62,
           "known_attested": 10,
           "known_inferred": 24,
-          "to_reconstruct": 79,
-          "filled": 79,
+          "to_reconstruct": 78,
+          "filled": 78,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 86,
+          "drawn_here": 85,
           "refamilied_out": 7,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 35
+          "ordered_by_the_family_ruling": 34
         },
         {
           "key": "persons/male/under_10/north/lodging/none",
@@ -4285,14 +4246,14 @@
           "target": 148,
           "known_attested": 24,
           "known_inferred": 60,
-          "to_reconstruct": 200,
-          "filled": 200,
+          "to_reconstruct": 197,
+          "filled": 197,
           "owning_ticket": "T-1174",
           "basis": "a woman or a person under twenty",
-          "drawn_here": 210,
+          "drawn_here": 207,
           "refamilied_out": 10,
           "recut_refused": true,
-          "ordered_by_the_family_ruling": 91
+          "ordered_by_the_family_ruling": 88
         },
         {
           "key": "persons/male/under_10/south/lodging/none",
@@ -4304,8 +4265,8 @@
             "trade": "none"
           },
           "target": 52,
-          "known_attested": 9,
-          "known_inferred": 21,
+          "known_attested": 8,
+          "known_inferred": 22,
           "to_reconstruct": 22,
           "filled": 21,
           "owning_ticket": "T-2023",
@@ -4323,7 +4284,7 @@
             "trade": "none"
           },
           "target": 55,
-          "known_attested": 9,
+          "known_attested": 8,
           "known_inferred": 21,
           "to_reconstruct": 70,
           "filled": 70,
@@ -4401,9 +4362,9 @@
           816
         ],
         "known_present": 165,
-        "known_present_records": 1402,
-        "known_present_awaiting_a_household": 1237,
-        "known_uncertain_in_the_index_ruled_in_by_T-1386": 946
+        "known_present_records": 1389,
+        "known_present_awaiting_a_household": 1224,
+        "known_uncertain_in_the_index_ruled_in_by_T-1386": 933
       },
       "buckets": [
         {
@@ -4546,7 +4507,7 @@
           "known": 2,
           "to_reconstruct": 2,
           "filled": 2,
-          "owning_ticket": "T-2240",
+          "owning_ticket": "T-2245",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division",
           "discharged_by_the_store_ruling": 2
         },
@@ -4558,11 +4519,12 @@
           },
           "target": 62,
           "known": 18,
-          "to_reconstruct": 24,
+          "to_reconstruct": 20,
           "filled": 13,
-          "owning_ticket": "T-2240",
+          "owning_ticket": "T-2245",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division",
-          "discharged_by_the_store_ruling": 20
+          "discharged_by_the_store_ruling": 20,
+          "discharged_kept_from_elsewhere": 4
         },
         {
           "key": "households/store_residence/west",
@@ -4572,11 +4534,12 @@
           },
           "target": 9,
           "known": 1,
-          "to_reconstruct": 5,
+          "to_reconstruct": 4,
           "filled": 3,
-          "owning_ticket": "T-2240",
+          "owning_ticket": "T-2245",
           "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division",
-          "discharged_by_the_store_ruling": 3
+          "discharged_by_the_store_ruling": 3,
+          "discharged_kept_from_elsewhere": 1
         },
         {
           "key": "households/garrison/fort",
@@ -5886,13 +5849,13 @@
       "id": "every_person_housed",
       "owning_ticket": "T-1215",
       "statement": "Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof.",
-      "measured_now": "22 of 1402 present households name a lives_at."
+      "measured_now": "22 of 1389 present households name a lives_at."
     },
     {
       "id": "every_working_person_has_a_workplace",
       "owning_ticket": "T-1189",
       "statement": "Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`.",
-      "measured_now": "50 of 1402 present households name a works_at."
+      "measured_now": "50 of 1389 present households name a works_at."
     },
     {
       "id": "every_business_has_staff",
@@ -6448,14 +6411,14 @@
       "bucket": "persons/female/20_29/north/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 29,
+      "records": 28,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
       "bucket": "persons/female/20_29/south/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 75,
+      "records": 74,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
@@ -6476,7 +6439,7 @@
       "bucket": "persons/female/30_39/south/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 6,
+      "records": 5,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
@@ -6504,7 +6467,7 @@
       "bucket": "persons/female/under_10/south/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 94,
+      "records": 90,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
@@ -6525,7 +6488,7 @@
       "bucket": "persons/male/10_19/south/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 6,
+      "records": 5,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
@@ -6539,14 +6502,14 @@
       "bucket": "persons/male/under_10/north/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 35,
+      "records": 34,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
       "bucket": "persons/male/under_10/south/family/none",
       "ticket": "T-2021",
       "stage": "modelled_families",
-      "records": 91,
+      "records": 88,
       "by": "tools/reconstruct_modelled_families.py --build"
     },
     {
@@ -6560,14 +6523,14 @@
       "bucket": "households/family_dwelling/north",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 9,
+      "records": 10,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
       "bucket": "households/family_dwelling/south",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 16,
+      "records": 17,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
@@ -6917,14 +6880,14 @@
       "bucket": "households/family_dwelling/north",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 87,
+      "records": 86,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
       "bucket": "households/family_dwelling/south",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 168,
+      "records": 167,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
@@ -6996,16 +6959,16 @@
       "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
       "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
       "moves_the_rule_still_yields": 0,
-      "people_still_held": 408,
-      "buckets_they_are_held_in": 53,
+      "people_still_held": 397,
+      "buckets_they_are_held_in": 51,
       "and_what_holds_each_of_them": [
         {
           "refusal": "a_documented_reading_shrank_the_order",
-          "people": 12
+          "people": 10
         },
         {
           "refusal": "the_re_cut_reached_work_already_drawn",
-          "people": 396
+          "people": 387
         }
       ],
       "the_rungs_the_rule_refuses_on": [
@@ -9529,14 +9492,14 @@
       "adoptions_carried": 0
     },
     "the_held_surplus": {
-      "buckets_refused": 53,
-      "people_held": 408,
-      "people_still_held": 408,
-      "open_headroom_in_person_buckets": 14,
+      "buckets_refused": 51,
+      "people_held": 397,
+      "people_still_held": 397,
+      "open_headroom_in_person_buckets": 15,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },
     "what_it_would_converge_to": {
-      "still_owed_now": 14,
+      "still_owed_now": 15,
       "still_owed_if_every_held_head_moved": 0,
       "note": "the model's point is what decides HOW MANY move, and that number is T-1559's to spend; this book states the two ends of the range."
     }

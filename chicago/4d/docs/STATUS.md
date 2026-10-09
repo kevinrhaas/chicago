@@ -1,3 +1,67 @@
+## T-2189 — the dead ruled not present: thirteen people the town's own burials and death notices bury before 1 July 1835 (2026-10-09)
+
+Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550),
+T-2176 (#545), T-2195 (#551), T-1273 (#541), T-2199 (#556), T-2197 (#552), T-2232 (#554) and
+T-2237 (#560), then T-2191 (#548), T-2185 (#563), T-2238 (#559), T-0909 (#564), T-1281 (#567),
+T-1315 (#568), T-2236 (#565) and T-2244 (#571), and re-derived to the fixpoint.
+
+- **`tools/death_readings.py`** reads deaths from the readers' own structure: St Cyr rows whose
+  `cells.role` is `decedent`, and Democrat entities whose role is `decedent` or begins
+  `deceased`/`died`, dated by the issue. `--check` is the class gate, run by `check.sh`: no card
+  citing its own burial or death notice before the scene date reads other than `absent`.
+- **Thirteen cards read `absent`**: the ticket's five (W. Brannen, John Hogan, William Bourque,
+  Charles Rollins, Sarah Hoit) and eight more of the same class, each checked against its notice
+  (William H. Bradford, Daniel Outhet, David Laughton, Samuel Calhoun, John B. Chevallier, Pitman
+  Fisher, Mary Baxley, Diana Hamilton). The presence guard reads 934 (947 after T-2232, less 13).
+- **Withdrawn, never re-dealt.** The three houses T-2021's ruling admitted around Hamilton, Outhet
+  and Rollins go by name with their 12 drawn people (`family_ruling.withdrawn`); the folds onto
+  Bourque's and Fisher's houses are dropped, so two women head their own houses again. The
+  women-and-children deal and T-2020's fold pairing are frozen as drawn, so one withdrawal no
+  longer re-deals or re-pairs every house after it. L244: 796 in 238 → 784 in 235 (over T-2232).
+- **A dropped fold pair is remembered** (`released` in `1835_folded_houses.json`). Over T-2232,
+  which reads Alson Woodruff male and so refuses his drawn house a wife, the frozen pairing gave
+  him Madeleine Bourassa, freed from Fisher's house a lap earlier, because the fold file had
+  forgotten she was ever named. `keep_pairs` now offers a released woman to nobody. Seeded once
+  with this branch's two dropped pairs (Bourassa from Fisher, Connor from Bourque).
+- **Measured on the lap, not fixed here:** re-deriving from the civic mint down, the
+  women-and-children and trade-household stages' own order-book rebuilds stop on the live-owner
+  gate (`households/family_dwelling/south has 1 left and is ordered by T-2193, which is done`)
+  before T-2193's count step, far below, refills the cell. The finished book passes the gate.
+  A chain that crosses that cell mid-way needs the gate deferred the way the modelled-families
+  stage defers it.
+- **Two burial-row readmissions are no longer minted** (L246: 118 → 116 over T-2197); lodgers 23 → 22 houses.
+- **The family pass keeps its two death-notice rulings** (Rollins, Hoit): since T-2190 the
+  press-bounds route asks the pass about a kin unit before any card asserts it, so both units
+  still reach it. `spend_remainder_rulings.py --self-test` now counts a family-pass rule that fires
+  on that route as firing.
+- **Unverified here**: nothing beyond the gate. The withdrawn houses' roofs re-seat through the
+  derived chain; no geometry moved.
+
+## T-2244 — the stores whose keeper lives elsewhere (2026-10-09)
+
+T-2236 left the order book owing 13 store households: store roofs that stand a named firm with
+nobody living over them. T-2240 split them in two. Five of the thirteen (this ticket) stand a
+house of trade whose keeper the town already holds AND already places on another roof; the
+other eight (T-2245) stand firms whose named partners the town holds no card for, plus one
+firmless West store.
+
+- **The rule** (`house_the_present_1835.py`, `the_keepers.kept_from_elsewhere`): a generated
+  store roof nobody sleeps or works in, standing a house of trade whose proprietor or partner
+  the town already places on another roof, is a store with nobody living over it. The keeper
+  is not moved. `build_order_book_1835.py`'s store ruling discharges the order for those
+  stores, never below what a cell has filled.
+- **Measured:** five stores. G. Blanshard (dealt a house of his own on South Water at Wells),
+  Dr W. G. Austin (dealt a house on Washington at La Salle) and W. Montgomery (lodging in a
+  Washington Street boarding house) are now listed on their store's card as having worked
+  there. John Calhoun's and Asahel Pierce's own cards put their work at the documented
+  Democrat office and Pierce's smithy, so the adopted roofs for the Democrat and for Pierce &
+  French are ruled empty and list nobody. Store households owed: 13 -> 8 (south 11 -> 7, west
+  2 -> 1), now T-2245's.
+- **Not settled:** the Democrat and Pierce & French each stand on two roofs, the documented
+  premises their keeper's card names and the roof the street-face adoption (L212) gave the
+  register's firm. That is the adoption's question, not this ruling's.
+- L354 amended.
+
 ## T-2236 — the keepers over their own stores (2026-10-09)
 
 T-2194's ruling left the order book owing 31 store households: one keeper's household for each

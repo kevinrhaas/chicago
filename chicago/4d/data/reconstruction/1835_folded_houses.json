@@ -864,114 +864,6 @@
     "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn domestic, in the west division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
    }
   },
-  "hh_rc_bourassa_madeleine": {
-   "folded_into": "hh_fisher_pitman",
-   "card": {
-    "id": "hh_rc_bourassa_madeleine",
-    "name": "Reconstructed household — Madeleine Bourassa, a woman keeping her own house in the south division",
-    "division": "south",
-    "head": "rc_bourassa_madeleine",
-    "source_pass": "reconstructed_women_children",
-    "arrival": {
-     "value": "1835-07-01",
-     "precision": "not_later_than",
-     "confidence": "reconstructed",
-     "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
-    },
-    "arrival_year": {
-     "value": 1835,
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
-     "basis": {
-      "kind": "model",
-      "id": "arrival",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
-     },
-     "seed": "hh_rc_bourassa_madeleine:arrival_year",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a dated source that says which year this household came to Chicago"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "party_size_on_arrival": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "Not claimed. The household model draws how many people this house held on 1 July 1835 and says nothing about how many of them travelled together."
-    },
-    "origin": {
-     "value": "New York State",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
-     "basis": {
-      "kind": "model",
-      "id": "origin",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
-     },
-     "seed": "hh_rc_bourassa_madeleine:origin_region",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says where this household came from"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "reason_for_coming": {
-     "value": "A congregation or a school",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as schoolteacher, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
-     "basis": {
-      "kind": "rule",
-      "id": "reason_from_recorded_trade",
-      "note": "arrival_fill.trade_reasons.a_congregation_or_a_school — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
-     },
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "lives_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
-    },
-    "works_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."
-    },
-    "present_on_scene_date": {
-     "value": "present",
-     "confidence": "reconstructed",
-     "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them."
-    },
-    "women_children": {
-     "stage": "women_and_children",
-     "ticket": "T-1174",
-     "household_type": "female_headed",
-     "head_trade": "schoolteacher",
-     "head_trade_seed": "rc_wc_south_066:female_trades",
-     "size_drawn": 5,
-     "seated": 5,
-     "seated_beyond_the_draw": 0,
-     "seed": "rc_wc_south_066:household_size",
-     "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
-    },
-    "persons": [
-     "rc_bourassa_madeleine",
-     "rc_bourassa_madeleine_1",
-     "rc_bourassa_madeleine_2",
-     "rc_bourassa_madeleine_3",
-     "rc_bourassa_madeleine_4"
-    ],
-    "touches_removal": false,
-    "review_required": false,
-    "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn schoolteacher, in the south division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
-   }
-  },
   "hh_rc_burke_mary": {
    "folded_into": "hh_keyes_edward",
    "card": {
@@ -1716,115 +1608,6 @@
     "touches_removal": false,
     "review_required": false,
     "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the north division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
-   }
-  },
-  "hh_rc_connor_margaret": {
-   "folded_into": "hh_bourque_william",
-   "card": {
-    "id": "hh_rc_connor_margaret",
-    "name": "Reconstructed household — Margaret Connor, a woman keeping her own house in the north division",
-    "division": "north",
-    "head": "rc_connor_margaret",
-    "source_pass": "reconstructed_women_children",
-    "arrival": {
-     "value": "1835-07-01",
-     "precision": "not_later_than",
-     "confidence": "reconstructed",
-     "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
-    },
-    "arrival_year": {
-     "value": 1834,
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
-     "basis": {
-      "kind": "model",
-      "id": "arrival",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
-     },
-     "seed": "hh_rc_connor_margaret:arrival_year",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a dated source that says which year this household came to Chicago"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "party_size_on_arrival": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "Not claimed. The household model draws how many people this house held on 1 July 1835 and says nothing about how many of them travelled together."
-    },
-    "origin": {
-     "value": "New York State",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
-     "basis": {
-      "kind": "model",
-      "id": "origin",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
-     },
-     "seed": "hh_rc_connor_margaret:origin_region",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says where this household came from"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "reason_for_coming": {
-     "value": "A mechanic's trade in a town that had few of it",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "ARGUED FROM THIS HOUSEHOLD'S OWN RECORDED TRADE, WHICH IS NOT ITS MOTIVE. The head is recorded as dressmaker, and this names the documented draw that trade answered in this town in this decade. It does not claim to know why these people came. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
-     "basis": {
-      "kind": "rule",
-      "id": "reason_from_recorded_trade",
-      "note": "arrival_fill.trade_reasons.a_mechanics_trade — the head's recorded trade is evidence about this household, and the draw it answered is the reason the record will carry until a source states one."
-     },
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "lives_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
-    },
-    "works_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."
-    },
-    "present_on_scene_date": {
-     "value": "present",
-     "confidence": "reconstructed",
-     "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them."
-    },
-    "women_children": {
-     "stage": "women_and_children",
-     "ticket": "T-1174",
-     "household_type": "female_headed",
-     "head_trade": "dressmaker",
-     "head_trade_seed": "rc_wc_north_024:female_trades",
-     "size_drawn": 6,
-     "seated": 6,
-     "seated_beyond_the_draw": 0,
-     "seed": "rc_wc_north_024:household_size",
-     "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
-    },
-    "persons": [
-     "rc_connor_margaret",
-     "rc_connor_margaret_1",
-     "rc_connor_margaret_2",
-     "rc_connor_margaret_3",
-     "rc_connor_margaret_4",
-     "rc_connor_margaret_5"
-    ],
-    "touches_removal": false,
-    "review_required": false,
-    "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn dressmaker, in the north division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
    }
   },
   "hh_rc_corrigan_johanna": {
@@ -9877,5 +9660,10 @@
     "research_note": "MINTED FROM THE CONSOLIDATED CIVIC, CHURCH, PRESS, BOOK AND CENSUS EVIDENCE (T-0513, T-0514). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here is written unattested in its own block, because the lists that name this person name a person and not a family. What is claimed is that the sources cited on the member below name them at Chicago, and the grade is the owner's ratified ladder applied by tools/consolidate_resident_evidence.py --build and spent by tools/mint_civic_residents.py, which prints every refusal. docs/LIBERTIES.md L215 carries the liberty and the tension with L213."
    }
   }
+ },
+ "released_are": "T-2189: the woman-headed houses a frozen pair was dropped from, because its host left the layer (his head ruled absent, or his house withdrawn), each with the host it was folded into. She heads her own house again and no head is matched to her afterwards, so a dropped pair is never re-made with somebody else (`keep_pairs`).",
+ "released": {
+  "hh_rc_bourassa_madeleine": "hh_fisher_pitman",
+  "hh_rc_connor_margaret": "hh_bourque_william"
  }
 }
