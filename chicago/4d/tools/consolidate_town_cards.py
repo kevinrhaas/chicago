@@ -68,6 +68,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 RESIDENTS = ROOT / "data" / "residents"
 HOUSEHOLDS = RESIDENTS / "households"
+READMITTED = RESIDENTS / "readmitted"
+ROSTER = ROOT / "data" / "reconstruction" / "1835_borderline_roster.json"
 MERGED = RESIDENTS / "merged"
 INDEX = RESIDENTS / "index.json"
 RULINGS = RESIDENTS / "card_merge_rulings.json"
@@ -509,6 +511,28 @@ def appearances_of(person_id: str, name: str) -> list:
     return out
 
 
+def readmission_reading(record: dict) -> list:
+    """The one (domain, record_id) a READMITTED card was minted from (T-2197).
+
+    A card `readmit_borderline_roster.py` wrote carries no evidence block: its reading is
+    `readmission.row_id`, a row of the borderline roster, and the roster row names the
+    domain and the record. Read there rather than parsed out of the row id, so the
+    crosswalk says what the folded card brought in the roster's own words. Anything that
+    is not a readmission, or a row the roster no longer carries, gives nothing.
+    """
+    row_id = (record.get("readmission") or {}).get("row_id")
+    if not row_id or not ROSTER.exists():
+        return []
+    try:
+        rows = json.loads(ROSTER.read_text(encoding="utf-8")).get("rows") or []
+    except (ValueError, OSError):
+        return []
+    for row in rows:
+        if row.get("row_id") == row_id and row.get("domain") and row.get("claim_or_record_id"):
+            return [{"domain": row["domain"], "record_id": row["claim_or_record_id"]}]
+    return []
+
+
 def crosswalk_doc(rulings: dict) -> dict:
     """THE LANDED ADJUDICATION, in the shape consolidate_resident_evidence.py reads.
 
@@ -535,6 +559,8 @@ def crosswalk_doc(rulings: dict) -> dict:
                             continue
                         for domain in BLOCK_DOMAINS[key]:
                             record_ids.append({"domain": domain, "record_id": rid})
+                if not record_ids:
+                    record_ids += readmission_reading(record)
                 if not record_ids:
                     record_ids += (appearances_of(folded, person.get("name") or "")
                                    or landed_record_ids(folded))
@@ -632,10 +658,25 @@ def apply(write: bool = True) -> dict:
             for p in sorted(HOUSEHOLDS.glob("*.json"))}
     home = {person["id"]: hid for hid, doc in docs.items()
             for person in doc.get("persons") or []}
+    # A READMITTED CARD CAN BE FOLDED, NEVER BE A SURVIVOR (T-2197). The readmission stage
+    # writes data/residents/readmitted/ and the index does not list it, so this pass used
+    # to see none of it — and T-2191 found three of its cards minted from St Mary's rows a
+    # households card already carries under another spelling. The card's own
+    # `withdrawn_if` names this pass as the way out, so a ruling may fold one: the record
+    # is kept whole under merged/ like any other, and the stage reads the stub and stops
+    # minting it (readmit_borderline_roster.retired_rows). It is never a survivor: the
+    # stage re-derives every byte of its cards, so a union written onto one would be
+    # reverted by the next --build.
+    readmitted = ({p.stem: json.loads(p.read_text(encoding="utf-8"))
+                   for p in sorted(READMITTED.glob("*.json"))}
+                  if READMITTED.exists() else {})
+    readmitted_home = {person["id"]: hid for hid, doc in readmitted.items()
+                       for person in doc.get("persons") or []}
     stub_home = {row["person"]: row["household"] for row in index.get("merged", [])}
 
     files: dict = {}
     folded_households: set = set()
+    folded_readmissions: set = set()
 
     for ruling in merges(rulings):
         survivor_home = home.get(ruling["survivor"])
@@ -647,7 +688,14 @@ def apply(write: bool = True) -> dict:
         gained_sources, gained_blocks = set(), defaultdict(list)
         for folded in sorted(ruling["folded"]):
             hid = home.get(folded)
-            if hid is None:
+            if hid is None and folded in readmitted_home:
+                hid = readmitted_home[folded]
+                doc = readmitted[hid]
+                person = next(p for p in doc["persons"] if p["id"] == folded)
+                files[MERGED / f"{hid}.json"] = dump(
+                    stub_doc(doc, folded, ruling, survivor_home))
+                folded_readmissions.add(hid)
+            elif hid is None:
                 # ALREADY FOLDED ON AN EARLIER RUN. The union is still read, out of the
                 # stub, so --apply is idempotent and can repair a survivor a later
                 # derivation stripped rather than only ever landing a merge once.
@@ -820,6 +868,8 @@ def apply(write: bool = True) -> dict:
             path.write_text(text, encoding="utf-8")
         for hid in sorted(folded_households):
             (HOUSEHOLDS / f"{hid}.json").unlink(missing_ok=True)
+        for hid in sorted(folded_readmissions):
+            (READMITTED / f"{hid}.json").unlink(missing_ok=True)
         # the ledger and the crosswalk are derived from the LANDED tree
         town = read_town()
         LEDGER.write_text(dump(ledger_doc(town, rulings)), encoding="utf-8")
@@ -854,9 +904,14 @@ def check() -> int:
             problems.append(f"'{row['person']}' is both folded away and back on a card: "
                             f"the identity has been re-split")
 
+    # T-2197: a readmitted card is a card too, though the index does not list it.
+    readmitted_people = {person["id"] for path in sorted(READMITTED.glob("*.json"))
+                         for person in json.loads(path.read_text(encoding="utf-8")
+                                                  ).get("persons") or []
+                         } if READMITTED.exists() else set()
     for ruling in merges(rulings):
         for folded in ruling["folded"]:
-            if folded in people:
+            if folded in people or folded in readmitted_people:
                 problems.append(f"'{folded}' is ruled merged onto '{ruling['survivor']}' "
                                 f"and is still a person on the cards; run --apply")
         if ruling["survivor"] not in people:

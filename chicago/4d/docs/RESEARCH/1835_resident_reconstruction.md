@@ -191,7 +191,7 @@ turned out not to be in the register at all: `### L-rc-sex-rate` and
 | `attribute_fill_arrival` | attribute blocks | — | — | **L243** |
 | `named_families` | persons | 3 | 2 | **L242** |
 | `modelled_families` | persons | 801 | 240 | **L244** |
-| `readmissions` | persons | 121 | 121 | **L246** |
+| `readmissions` | persons | 118 | 118 | **L246** |
 | `trade_households` | persons | 309 | 309 | **L248** |
 | `women_and_children` | persons | 556 | 124 | **L247** |
 | `lodgers` | persons | 155 | 23 | **L252** |
@@ -200,7 +200,7 @@ turned out not to be in the register at all: `### L-rc-sex-rate` and
 | `transients` | persons | 307 | 83 | **L249** |
 | `institutional_households` | persons | 1 | 1 | **L267** |
 | `converge` | nothing | — | — | — |
-| **the programme** | | **2,475** | **1,057** | |
+| **the programme** | | **2,472** | **1,054** | |
 
 A stage that mints nobody carries no count for a liberty to agree with, and says why in
 `owes_no_person_scope`. The two attribute stages write onto people other passes read:
