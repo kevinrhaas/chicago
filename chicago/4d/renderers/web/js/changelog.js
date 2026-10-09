@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: null, ts: '', date: '', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
+    items: [
+      'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',
+      'That still leaves 31 to house: one keeper\u2019s family for each store that has nobody living in it. The grocers, merchants and milliners already in the town come first. No new people are made up.',
+    ] },
   { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
     items: [
       'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
