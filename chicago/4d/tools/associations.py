@@ -105,7 +105,7 @@ WORK_KINDS = ("agency_held", "business_premises", "church", "civic_seat",
 
 ASSOCIATION_ROW_KEYS = ("kind", "place_or_structure_id", "resolves_to", "from", "to",
                         "tier", "source_id", "note")
-ASSOCIATION_OPTIONAL_KEYS = ("undated",)
+ASSOCIATION_OPTIONAL_KEYS = ("undated", "also_sources")
 
 ASSOCIATION_TIERS = ("attested", "inferred", "reconstructed")
 
@@ -202,6 +202,27 @@ def check_association_rows(where: str, rows, *, error, structure_ids: set, sourc
             error(rwhere, "a reconstructed relationship names a source_id. Reconstruction is "
                           "what the project does where the sources are silent; citing one "
                           "would overstate it")
+        # `also_sources` (T-1273): the singular `lives_at`/`works_at` claims carry a
+        # LIST of sources, and twenty of them name two. A row that kept only the first
+        # would be a migration that drops a citation, so the second and later ones ride
+        # here — each resolving, none repeating `source_id`, and only on a tier that
+        # cites at all.
+        if "also_sources" in row:
+            also = row.get("also_sources")
+            if not isinstance(also, list) or not also:
+                error(rwhere, "also_sources is present and is not a non-empty list; omit "
+                              "the key when the row has one source")
+            elif tier not in ("attested", "inferred"):
+                error(rwhere, f"also_sources on a '{tier}' row. Only a row that cites a "
+                              f"source can cite a second one")
+            else:
+                for extra_sid in also:
+                    if extra_sid == sid or also.count(extra_sid) > 1:
+                        error(rwhere, f"also_sources repeats '{extra_sid}'. One source, "
+                                      f"one mention")
+                    elif extra_sid not in source_ids:
+                        error(rwhere, f"also_sources names '{extra_sid}', which does not "
+                                      f"resolve in data/sources/")
         if not str(row.get("note") or "").strip():
             error(rwhere, "note is empty. A relationship carries the reasoning that dated it "
                           "and the clause that limited its place")
@@ -360,7 +381,7 @@ def self_test() -> int:
     base = dict(kind="home", place_or_structure_id="peck_store", resolves_to="structure",
                 **{"from": "1833", "to": None}, tier="attested", source_id="andreas_1884_v1",
                 note="n")
-    env = dict(structure_ids={"peck_store"}, source_ids={"andreas_1884_v1"},
+    env = dict(structure_ids={"peck_store"}, source_ids={"andreas_1884_v1", "drloih_hotels"},
                divisions={"south"}, tracts={"school_section"}, scene=dt.date(1835, 7, 1))
 
     def run(row):
@@ -393,6 +414,16 @@ def self_test() -> int:
           "place_or_structure_id": "section_44"}, True),
         ("a tract rung on a roof",
          {**base, "kind": "land_purchased", "resolves_to": "tract"}, True),
+        ("a second source that resolves",
+         {**base, "also_sources": ["drloih_hotels"]}, False),
+        ("a second source that does not",
+         {**base, "also_sources": ["no_such_source"]}, True),
+        ("a second source that repeats the first",
+         {**base, "also_sources": ["andreas_1884_v1"]}, True),
+        ("an empty list of second sources", {**base, "also_sources": []}, True),
+        ("a second source on a reconstructed row",
+         {**base, "tier": "reconstructed", "source_id": None,
+          "also_sources": ["drloih_hotels"]}, True),
     ]
     failed = 0
     for label, row, want_error in cases:

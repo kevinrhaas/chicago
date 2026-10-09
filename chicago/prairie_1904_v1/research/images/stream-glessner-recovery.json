@@ -1,0 +1,61 @@
+[
+  {
+    "id": "a18-iit-glessner-prairie-facade-1945",
+    "kind": "photograph",
+    "title": "Glessner House, Chicago, Illinois, 1945",
+    "building_ids": [
+      "pa-1800-22"
+    ],
+    "addresses": [
+      "1800 S. Prairie Avenue"
+    ],
+    "streetscape": false,
+    "view": "front elevation",
+    "facing": "west",
+    "camera_position": "Across Prairie Avenue, looking toward the east facade; inferred from the visible facade.",
+    "date": "1945 (IIT catalog)",
+    "date_earliest": 1945,
+    "date_latest": 1945,
+    "period": "later",
+    "creator": "Unknown photographer",
+    "repository": "Illinois Institute of Technology, University Archives and Special Collections",
+    "collection": "Office of Communications and Marketing photographs, 1905–1999",
+    "call_number": "0360401-W1-02-003; Box W-1, Folder 2; islandora:1001086",
+    "catalog_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+    "image_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
+    "rights": "copyright — link only",
+    "rights_basis": "IIT catalog: In Copyright (rightsstatements.org/vocab/InC/1.0/). Medium JPEG publicly displayed; original TIFF marked File Restricted.",
+    "local": null,
+    "verified": "viewed",
+    "found_via": "T-2199: supplied IIT lead; public catalog and medium JPEG reviewed 2026-10-09.",
+    "measurements": [],
+    "notes": "Nearly straight-on Prairie facade: ridge caps, three stacks, eaves/gutter, corner downpipe, paired and grouped windows, entrance and boundary stones are readable. Heavy climbing vegetation obscures masonry and openings. The 1945 vegetation, paving and signs are not evidence of their 1904 state. No dimensions or material colors are derived from this monochrome view.",
+    "evidence_review": {
+      "ticket": "T-2199",
+      "reviewed_on": "2026-10-09",
+      "review_state": "visually inspected",
+      "target_date": "1904-07-01",
+      "phase": "after target year",
+      "date_basis": "IIT dates the photograph 1945; photographer unknown. Catalog building-completion wording is not adopted as a corrected construction date.",
+      "evidence_role": "exterior reference",
+      "geometry_use": "corroborate with dated evidence",
+      "reason": "Nearly straight-on Prairie facade: ridge caps, three stacks, eaves/gutter, corner downpipe, paired and grouped windows, entrance and boundary stones are readable. Heavy climbing vegetation obscures masonry and openings. The 1945 vegetation, paving and signs are not evidence of their 1904 state. No dimensions or material colors are derived from this monochrome view.",
+      "source_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+      "family": null,
+      "family_relationship": "Distinct camera view from the compared ca.1887 Cornell print and 1948 Florian views; other duplicate prints may exist."
+    },
+    "retrieval_review": {
+      "ticket": "T-2199",
+      "reviewed_on": "2026-10-09",
+      "outcome": "image recovered",
+      "identity": "0360401-W1-02-003; Box W-1, Folder 2; islandora:1001086",
+      "canonical_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+      "retrieved_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
+      "date": "1945 (IIT catalog)",
+      "rights_status": "copyright — link only",
+      "independent_evidence": "Additional dated exterior viewpoint relative to the compared library images; not independent proof of 1904 condition.",
+      "detail": "Public medium JPEG retrieved and visually inspected. Restricted original TIFF not requested.",
+      "source_sha256": "a3ddec522f3ce1909538a4b6f0a8e18a91b7597c6913de788e01169363f35f33"
+    }
+  }
+]

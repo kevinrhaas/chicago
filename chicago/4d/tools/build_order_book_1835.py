@@ -171,9 +171,14 @@ HOUSEHOLD_TYPES = (
 # SWEPT AGAIN ON T-2188's SPLIT (2026-10-08, ported by T-2190 so its gate stops reading a
 # split owner): the family dwellings go to T-2193, which counts the ones the town already
 # forms around held heads, and the store residences to T-2194.
+# RULED ON T-2194 (2026-10-09, `store_residence_ruling` below): the store rows ordered more
+# households than the town has store roofs, and the order above one household a roof is
+# discharged. What is left is a keeper for each store roof that stands empty, and T-2236
+# seats one from the store-trade heads the town already holds.
 FAMILY_OWNER = "T-2187"
 FAMILY_HOUSEHOLD_OWNER = "T-2193"
-STORE_RESIDENCE_OWNER = "T-2194"
+STORE_RULING_TICKET = "T-2194"
+STORE_RESIDENCE_OWNER = "T-2236"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -441,7 +446,17 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2176 WITH T-2147's OWN PR (2026-10-08). T-2147 built block 81's six dwellings
     # and goes `done` when it merges; the seating's fixpoint over them leaves South dwellings
     # still ordered (a D4 slot on block 81's lot 1, a D5 on block 95's), and T-2176 owns them.
-    ("south", "ordinary_dwellings"): "T-2176",
+    #
+    # AND ON TO T-2182 WITH T-2176's OWN PR (2026-10-08). T-2176 built the two dwellings the
+    # seating asked for (block 81's lot 1 and block 95's, a D5 and a D6 once T-2174 had
+    # re-dealt the schedule) and no `slot` request is left on the plat; the schedule still
+    # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
+    # gated), and T-2182 owns them.
+    #
+    # AND ON TO T-2239 WHEN T-2182 WAS SPLIT (2026-10-09). T-2238 builds the Market wedge's
+    # D5 against hh_dixon_robert's slot; T-2239 owns the five the row still owes once that
+    # stands, and the re-budget of the row by name, so the row names the piece that finishes it.
+    ("south", "ordinary_dwellings"): "T-2239",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -596,8 +611,12 @@ STRUCTURE_TICKETS = {
     # build that carries the South's one owed barn (an A2 on blk_school_section_tier_81).
     # T-2147 was re-dealt over T-2146 (2026-10-08) and the schedule no longer gives block 81
     # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
-    ("south", "barns_stables"): "T-2176",
-    ("south", "small_outbuildings"): "T-2176",
+    # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
+    # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
+    # re-opens when the schedule re-apportions still names a live ticket. T-2182 was split
+    # (2026-10-09) and the pair follows the dwellings on to T-2239.
+    ("south", "barns_stables"): "T-2239",
+    ("south", "small_outbuildings"): "T-2239",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -975,6 +994,14 @@ def load(root: Path = ROOT) -> dict:
     ruling = root / "data" / "reconstruction" / "1835_family_ruling.json"
     out["family_ruling"] = (json.loads(ruling.read_text(encoding="utf-8"))
                             if ruling.exists() else {})
+    # …LESS THE CELLS OF THE HOUSES IT ADMITTED THAT A LATER READING WITHDREW (T-2234). The
+    # ruling stays frozen. The modelled-families stage names the withdrawn houses and holds
+    # the cells they take with them to those houses' own frozen rows. A fixture tree has no
+    # ledger, and orders the ruling whole.
+    families = root / "data" / "reconstruction" / "1835_modelled_families.json"
+    out["family_ruling_withdrawn"] = (
+        (json.loads(families.read_text(encoding="utf-8")).get("family_ruling") or {})
+        .get("orders_withdrawn") or {}) if families.exists() else {}
     # T-2187's MEASURE, read off the cards the index points at. Only the committed tree
     # carries it; a fixture book has none, and orders as it always did.
     out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
@@ -1089,6 +1116,77 @@ def adult_men_ruling(buckets: list, measure: dict) -> dict:
                                  "does not touch the women's or children's cells, whose orders "
                                  "the same credit holds down: that is T-1174's and T-2021's "
                                  "ground, and their own ratio and under-ten gates bound it.",
+    }
+
+
+def store_residence_ruling(households: list, structures: list) -> dict | None:
+    """T-2194: the store households the book orders, set against the store roofs. In place.
+
+    `household_buckets` weights each household type on the roofs of its group, and the
+    model's households are more than the town's roofs, so every row carries about one and a
+    half households a roof. For a dwelling that is the town doubling up, which a model of more
+    households than the November count's 398 dwellings already assumes. For a store it is not
+    (an inference, stated as one): the weighting's
+    own comment says a store-residence holds A household, the keeper's, living in the store,
+    and a second family in the same store is not a store residence. So the order above one
+    household for each store roof standing in the division is DISCHARGED: the cell's order
+    falls by it, and `discharged_by_the_store_ruling` carries what it was ordering. The
+    inventory's store roofs all stand (`structures/stores_mixed_use/*`), so the roofs read here
+    are the town's and not a schedule's. Nobody is moved, minted or retired, and the
+    discharged households are not re-apportioned to the dwelling rows: the model's
+    households are a midpoint, and the book says how far it moved from it."""
+    roofs = {b["key"].rsplit("/", 1)[1]: int(b.get("standing") or 0) for b in structures
+             if b["key"].startswith("structures/stores_mixed_use/")}
+    cells = [b for b in sorted(households, key=lambda b: b["key"])
+             if b["axes"].get("household_type") == "store_residence"
+             and b["axes"].get("division") in CIVIL_DIVISIONS]
+    if not cells or not roofs:
+        return None
+    rows = {}
+    for b in cells:
+        division = b["axes"]["division"]
+        standing = roofs.get(division, 0)
+        owed = max(0, (b["to_reconstruct"] or 0) - b["filled"])
+        take = min(owed, max(0, b["target"] - standing))
+        if take:
+            b["discharged_by_the_store_ruling"] = take
+            b["to_reconstruct"] -= take
+        rows[division] = {"store_roofs_standing": standing,
+                          "store_households_ordered": b["target"],
+                          "discharged": take,
+                          "still_owed": max(0, (b["to_reconstruct"] or 0) - b["filled"])}
+    ordered = sum(r["store_households_ordered"] for r in rows.values())
+    standing = sum(r["store_roofs_standing"] for r in rows.values())
+    discharged = sum(r["discharged"] for r in rows.values())
+    still = sum(r["still_owed"] for r in rows.values())
+    return {
+        "ticket": STORE_RULING_TICKET,
+        "asks": "The book orders store households no standing store roof seats a held head "
+                "in. Does it over-order them, or is the residents index short?",
+        "by_division": rows,
+        "store_roofs_standing": standing,
+        "store_households_ordered": ordered,
+        "discharged": discharged,
+        "still_owed": still,
+        "still_owed_by": STORE_RESIDENCE_OWNER,
+        "measured": (f"The book ordered {ordered:,} store households on the town's {standing:,} "
+                     f"civil store roofs, {ordered / standing:.2f} a roof, because the "
+                     f"households are apportioned on roof counts. A store residence is one "
+                     f"household, the keeper's, so {discharged:,} are discharged and "
+                     f"{still:,} are still owed: a keeper for a store roof that stands with "
+                     f"nobody in it."),
+        "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one "
+                  "household a store roof, and that is discharged here. And the index is "
+                  "short: the household quota counts houses off the residents index alone, "
+                  "so the trade households the reconstruction drew as heads of their own and "
+                  "seated on a roof, the readmitted and the underdocumented are outside the "
+                  "count. They are people the cards hold present, not an order to fill, and "
+                  f"{STORE_RESIDENCE_OWNER} forms the store households still owed from the "
+                  "store-trade heads among them rather than from anybody new.",
+        "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion "
+                                 "the discharged households to the dwelling rows, and it does "
+                                 "not count the households outside the index: that count "
+                                 "moves every household row and is T-2237's.",
     }
 
 
@@ -3354,9 +3452,11 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                 else:
                     raise Fault(f"the bucket {b['key']} is overfilled: {b['filled']} of {todo}")
 
-    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills)
+    family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills,
+                         data.get("family_ruling_withdrawn") or {})
     men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
                   if data.get("adult_men") else None)
+    store_ruling = store_residence_ruling(families[1]["buckets"], families[3]["buckets"])
 
     spent = Counter()
     for fill in fills:
@@ -3524,6 +3624,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # THE ADULT MEN, RULED ON THEIR CARDS (T-2187). Absent from a book built without
         # the measure, so a fixture book is byte-identical to one built before it.
         **({"adult_men_ruling": men_ruling} if men_ruling else {}),
+        # THE STORE ROWS, RULED AGAINST THE STORE ROOFS (T-2194).
+        **({"store_residence_ruling": store_ruling} if store_ruling else {}),
         "bucket_families": families,
         "programme_deltas": programme_deltas(data["model"], data["inventory"],
                                              data["programme"], persons, households),
@@ -3544,7 +3646,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
     return doc
 
 
-def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> None:
+def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter,
+                         withdrawn: dict | None = None) -> None:
     """T-2021: the cells the family ruling orders, and what its houses filled. In place.
 
     The ruling (`data/reconstruction/1835_family_ruling.json`, frozen) gave each married
@@ -3554,8 +3657,18 @@ def family_ruling_orders(buckets: list, ruling: dict, ruled_fills: Counter) -> N
     overfilled and none is left owing, and the town the book converges to rises by exactly
     the people the ruling seated, which the ruling itself held under the count. A fill the
     ruling did not order, or one past it, is a FAULT: that would be the ruling's ticket
-    drawing past its own word."""
+    drawing past its own word.
+
+    `withdrawn` is the cells of the admitted houses a later reading withdrew (T-2234, read
+    off the modelled-families ledger). Each one leaves the order with its house, so the
+    ruling never orders a family for a house that is not one. Withdrawing more than the
+    ruling ordered is a FAULT."""
     orders = {k: int(v) for k, v in (ruling.get("orders") or {}).items()}
+    for key, n in (withdrawn or {}).items():
+        if int(n) > orders.get(key, 0):
+            raise Fault(f"{FAMILY_RULING_TICKET}'s withdrawn houses take {n} from {key}, "
+                        f"where its ruling orders {orders.get(key, 0)}")
+        orders[key] -= int(n)
     by_key = {b["key"]: b for b in buckets}
     for key in sorted(set(orders) | set(ruled_fills)):
         b = by_key.get(key)
@@ -4170,6 +4283,10 @@ def report_text(doc: dict) -> str:
             fmt = lambda v: "—" if v is None else f"{v:,}"
             out.append(f"| `{b['key']}` | {fmt(target)} | {fmt(known)} | {fmt(todo)} "
                        f"| {b['filled']:,} | {owner} |")
+        if family["key"] == "households" and doc.get("store_residence_ruling"):
+            ruling = doc["store_residence_ruling"]
+            out += ["", f"**The store rows, ruled ({ruling['ticket']}).** {ruling['measured']} "
+                        f"{ruling['ruling']}"]
 
     restatements = [d for d in doc["programme_deltas"] if d.get("restates_the_programme")]
     out += ["", "## Where the model and the roof programme disagree", "",
@@ -5272,8 +5389,12 @@ def cmd_self_test() -> int:
     # blk_south_water_dearborn's last unreserved free lot and the schedule returns that
     # block's D2 and D6 to the South balance; the School Section tier re-deals a D5 slot on
     # block 81 and a D6 on block 95 (213 -> 214 platted seats, 99 off-plat, L270, L406).
+    # 313 -> 314 on 2026-10-09 (T-2195, lapped over T-2176, which had held it at 313 by
+    # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
+    # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
+    # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 313
+        data["inventory"], data["programme"], occ))["seated"] == 314
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -5327,6 +5448,38 @@ def cmd_self_test() -> int:
                                    "named_men_with_no_age_not_counted": 0})["discharged"] == 30
     assert held[1]["to_reconstruct"] == 20, "the men ruling discharged a lodging cell"
     assert "adult_men_ruling" in doc, "the committed book carries no ruling on the adult men"
+    # T-2234: A WITHDRAWN ADMISSION TAKES ITS ORDER WITH IT, AND NO MORE THAN IT ORDERED.
+    cell = lambda: {"key": "persons/female/20_29/north/family/none", "to_reconstruct": 4,
+                    "filled": 4}
+    ruled_cell = cell()
+    family_ruling_orders([ruled_cell], {"orders": {ruled_cell["key"]: 3}},
+                         Counter({ruled_cell["key"]: 2}), {ruled_cell["key"]: 1})
+    assert (ruled_cell["ordered_by_the_family_ruling"], ruled_cell["to_reconstruct"],
+            ruled_cell["filled"]) == (2, 6, 6), ruled_cell
+    fires("a withdrawn house takes more from a cell than the ruling ordered there",
+          lambda: family_ruling_orders([cell()], {"orders": {cell()["key"]: 1}}, Counter(),
+                                       {cell()["key"]: 2}))
+    fires("the ruling's houses fill past an order its withdrawals cut",
+          lambda: family_ruling_orders([cell()], {"orders": {cell()["key"]: 2}},
+                                       Counter({cell()["key"]: 2}), {cell()["key"]: 1}))
+
+    # T-2194: the store ruling discharges only the order above one household a standing
+    # store roof, never below what a cell has filled, and leaves a division's dwelling rows
+    # alone.
+    def hh_cell(htype, division, target, order, filled=0):
+        return {"key": f"households/{htype}/{division}", "target": target,
+                "to_reconstruct": order, "filled": filled,
+                "axes": {"household_type": htype, "division": division}}
+    def roof_cell(division, standing):
+        return {"key": f"structures/stores_mixed_use/{division}", "standing": standing}
+    cells = [hh_cell("store_residence", "south", 62, 44), hh_cell("store_residence", "west", 9, 8, 7),
+             hh_cell("family_dwelling", "south", 258, 184)]
+    ruled = store_residence_ruling(cells, [roof_cell("south", 42), roof_cell("west", 6)])
+    assert [b["to_reconstruct"] for b in cells] == [24, 7, 184], cells
+    assert ruled["discharged"] == 21 and ruled["still_owed"] == 24, ruled
+    assert store_residence_ruling(cells[2:], [roof_cell("south", 42)]) is None, \
+        "a book with no store rows carried a store ruling"
+    assert "store_residence_ruling" in doc, "the committed book carries no ruling on the store rows"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

@@ -49,7 +49,7 @@ An `unresolved` unit is research read and not yet spent, and it is only legitima
 | T-1569 | 12 | yes |
 | T-1315 | 3 | yes |
 | T-1543 | 1 | yes |
-| T-2192 | 1 | yes |
+| T-2230 | 1 | yes |
 
 Not one of those owners asks for another READING. The heaviest are T-1552 (26), T-2191 (13), T-1569 (12), T-1315 (3), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
 
@@ -209,7 +209,7 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 | Agency holdings refused | 1 |
 | Land-sale parcels sorted onto a tract | 346 |
 | Land-sale parcels refused | 1,226 |
-| `associated_with` rows on a person or household | 82 |
+| `associated_with` rows on a person or household | 162 |
 
 | Body an office was held under | Rows |
 | --- | ---: |
@@ -277,7 +277,7 @@ None of these is a condition above, and that is a judgement rather than an overs
 2. **52 firms reach a street and 60 reach nowhere.** Those limits are preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 3. **1,423 of 1,457 households have no `lives_at`, and 1,339 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
 4. **2,597 of 2,925 persons carry no dated role, and 190 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
-5. **Only 82 `associated_with` rows exist.** The plural, dated location row is the agreed shape (T-1147) and the renderer already reads it, but the migration off the singular `lives_at`/`works_at` pair has barely begun: T-1273 writes the committed reconciliations as association rows, T-1274 retires the pair. Until then the reconciliation table above, not the card, is where a person's second address is legible — which is why C7 measures the table.
+5. **162 `associated_with` rows exist, and the singular pair still stands beside them.** The plural, dated location row is the agreed shape (T-1147) and the renderer reads it. T-1273 copied every home and workplace reconciliation row that reaches a roof onto its household (`tools/household_associations.py`); T-1274 moves the readers off `lives_at`/`works_at` and retires the pair. Until then both shapes are held to agree by `singular_drift`, and the reconciliation table above stays where a seating class short of a roof is legible — which is why C7 measures the table.
 6. **One resident derivation cannot be gated on byte identity.** `tools/mint_letter_list_residents.py` is not the last writer of the files it derives, so re-running it over the committed tree would revert the synthesis and upgrade grades this project holds down; T-0662 read that and T-0691 owns the contract that compares only what the pass owns. It is declared on the gate baseline with that reason (C9) and `--gate` and `--self-test` are run in check.sh, which prove different things. This is a tooling contract, not an unspent reading: it cannot cause a reconstruction band to invent over a source, which is why it is listed here and not above.
 
 ## 8. What this signs, and what it does not

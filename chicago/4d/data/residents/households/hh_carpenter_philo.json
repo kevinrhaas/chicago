@@ -57,6 +57,19 @@
   ],
   "note": "THE TWO-SHOP PROBLEM, INHERITED FROM THE STRUCTURES LAYER. This dataset holds both philo_carpenter_log_shop on Lake Street near the river and carpenter_south_water_store, and Andreas says he removed FROM the first TO the second. The South Water store is the later of the two and is where the sources leave him, so it is the link; the log shop's own record already argues that its survival to the scene date is doubtful. Inferred, because 'subsequently' is not a date."
  },
+ "associated_with": [
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "carpenter_south_water_store",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "inferred",
+   "source_id": "andreas_1884_v1",
+   "note": "THE TWO-SHOP PROBLEM, INHERITED FROM THE STRUCTURES LAYER. This dataset holds both philo_carpenter_log_shop on Lake Street near the river and carpenter_south_water_store, and Andreas says he removed FROM the first TO the second. The South Water store is the later of the two and is where the sources leave him, so it is the link; the log shop's own record already argues that its survival to the scene date is doubtful. Inferred, because 'subsequently' is not a date. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_carpenter_philo#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "inferred",

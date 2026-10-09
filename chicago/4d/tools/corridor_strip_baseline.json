@@ -64,13 +64,13 @@
    }
   },
   "counterfactual": {
-   "blocks_after": 86,
-   "lots_after": 420,
-   "lots_recut": 32,
+   "blocks_after": 87,
+   "lots_after": 425,
+   "lots_recut": 36,
    "blocks_lost": [
     "blk_south_water_lasalle"
    ],
-   "roofs_on_moved_blocks": 63,
+   "roofs_on_moved_blocks": 66,
    "roofs_on_lost_blocks": 18
   }
  }
