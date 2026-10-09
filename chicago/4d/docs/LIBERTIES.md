@@ -12950,7 +12950,7 @@ because the row carries no readable date at all, and 39 because T-1144's reading
 shows its evidence is a source SPAN that runs through 1 July 1835 and therefore pins no day
 before it. A lag nothing measures is not a lag a persistence rate may be applied to.
 
-**Scope:** `residents.persons[readmissions]` — 121 people, in 121 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Fifty-eight of the re-admitted turn out to be people the register NAMES, so they are minted on their own evidence instead of being re-admitted at the reconstructed tier — the strongest possible reason for this number to fall. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
+**Scope:** `residents.persons[readmissions]` — 118 people, in 118 cards of their own in `data/residents/readmitted/`, re-derivable from `tools/readmit_borderline_roster.py --check`. **T-2197 shrank it from 121 to 118 on 2026-10-08, and the three were never anybody new.** The stage minted Joseph Létendre, his father Baptiste and Louis Franchère from St Mary's rows that a card of the layer already carries in its own evidence, spelt otherwise (`ltendre_joseph`, `ltendre_baptiste`, `franchre_louis`), so each person stood in the town twice — once `uncertain` on the research card, once drawn `present` and boarding on this stage's. The copies are folded onto the research cards under rule C17 (`data/residents/card_merge_rulings.json`), kept whole under `data/residents/merged/`, and the stage now withholds a row whose readmission a card merge retired. **T-1525 MOVED IT, AND THE DIRECTION IS THE ONE THIS PROJECT WANTS.** Spending T-0841's ruling — a parish register is evidence about the man who keeps it — minted the register's 120 DOCUMENTED residents into the layer: the French, Métis, Irish and German Catholic town the poll books never recorded. Documented people displace invented ones wherever the two stand in the same place, so a count that FALLS here is not work lost, it is invention retired in favour of the record. The count is re-derived from the cards and never typed. Fifty-eight of the re-admitted turn out to be people the register NAMES, so they are minted on their own evidence instead of being re-admitted at the reconstructed tier — the strongest possible reason for this number to fall. The 904 of the title is what the stage RE-ADMITS and the 179 is what it MINTS: 725 of the 904 are a second presence written beside a reading on a card this layer already held, and only the rows carrying a read name no card of this layer holds get a card here. The stage's own ledger prints both figures; this one is the count of people who exist because this stage ran.
 
 **What is invented, exactly.** Two things and no more. First, **that these people were in
 Chicago on 1 July 1835**, which no source says of any of them — that is what "withheld"
@@ -22569,4 +22569,41 @@ and the existing HABS control dimensions. See
 photogrammetry can replace these photographic proportions and hidden joins.
 **Covers:** `glessner_house.as_built_1887.form.v4_detail`,
 `glessner_house.as_built_1887.form.turret_stable`.
+**Recorded:** 2026-10-09.
+
+### L-glessner-courtyard-ridge-2235 — Restore the whole west-wing roof
+
+**Decision:** The owner's follow-up on 9 October 2026 explicitly requires the
+west wing's rear peak to remain at the front peak's height, simple gables at
+both ends, and the same projecting eave on the courtyard face. Restore the
+T-2016 north-south ridge at W141/z38.6 ft over the whole 59.75-ft wing. Extend
+the courtyard slope 2.36 ft beyond the wall to z24 ft, matching T-2183's north
+courtyard edge. Its wall intersection is derived at z25.957 ft; the small
+inside-corner masonry wedge closes to that actual slope. Restore the connected
+west dormer, with eave z25.5 ft and peak z29.9 ft.
+
+This **supersedes the low rear ridge and hidden joining facets in
+L-glessner-west-profile-2231**. That change incorrectly treated the isolated
+west elevation's outline as a section through the whole wing, leaving the
+courtyard wall exposed above the lowered roof. The west-facing cross-gable's
+S18.4/z38.6 apex, S35/z16.5 break and overall frontage remain, but the gable
+intersects the full-height north-south roof. Its western eave remains low;
+that does not lower the rear peak. The north range remains on its own measured
+ridge and the restored courtyard eaves meet at a common edge height.
+
+**Basis:** `owner_glessner_v4_reconstruction_brief_2026`, all three supplied
+conversation images, T-2016's connected roof plan and courtyard diagram, and
+T-2183's courtyard eave correction. The new screenshot identifies the
+regression; the explicit owner instruction and earlier plan control topology.
+The isolated west study is not an independently verified orthographic survey,
+and cannot determine the hidden courtyard roof. HABS photo 05 supports the
+north courtyard treatment, not a direct observation of the west slope.
+Dimensions remain bounded reconstruction (approximately +/-1 ft), not newly
+measured historical dimensions. No supplied photo pixels are republished or
+used as textures. Recent bay/window, dark-glass and evidence-review work stays.
+
+**How to resolve:** A measured original roof section or calibrated multi-view
+survey can replace these reconstructed height and projection controls.
+**Covers:** `glessner_house.as_built_1887.form.v4_detail`.
+**Review:** `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`.
 **Recorded:** 2026-10-09.

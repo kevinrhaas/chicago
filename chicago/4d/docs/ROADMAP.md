@@ -1,3 +1,12 @@
+## T-2199 — bounded Glessner reference pass completed (2026-10-09)
+
+Ten of 17 records recovered; seven explicit unavailable outcomes retained.
+Cornell construction and Taylor report reproductions do not multiply evidence.
+The IIT 1945 view, Yale Box 34 lead, remaining-view matrix and measured-photo
+brief are published in the research library. Findings feed the existing held
+completion tickets; no outreach or purchases were made. Only T-2199 was released;
+T-2200–T-2228 stay commented below portable people for manual selection.
+
 ## T-2198 — Glessner source audit reconciled (2026-10-09)
 
 Owner-selected first step of the held exterior/courtyard programme: repair captions,
@@ -5219,3 +5228,16 @@ Owner-selected correction of the front west gable angle and rear frontage;
 this does not release the held exterior-audit programme. Reference controls,
 actual-model views and reconstruction limits are recorded in
 [the comparison report](RESEARCH/glessner-west-profile-2231/README.md).
+
+
+### T-2235 - Glessner courtyard roof regression correction (2026-10-09)
+
+The owner identified that T-2231 lowered the west-wing rear peak and removed
+the courtyard-facing slope. Restore the level W141/z38.6-ft ridge, front/rear
+gables, and a matching 2.36-ft projecting courtyard eave at z24 ft. Retain the
+west cross-gable profile as a local intersection, not the whole-wing section.
+All-view actual-GLB and published full/light review is recorded in
+`docs/RESEARCH/glessner-courtyard-roof-2235/README.md`. The explicit owner
+clarification and earlier T-2016 plan control topology; the isolated west study
+does not measure the hidden courtyard roof. L-glessner-courtyard-ridge-2235
+supersedes the low rear ridge in L-glessner-west-profile-2231.

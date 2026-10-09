@@ -1302,30 +1302,70 @@
   "repository": "National Archives (NARA RG 79, National Register of Historic Places records) — NPS nomination file",
   "collection": "Prairie Avenue District, National Register nomination (listed 1972), NRHP ref. 72000452",
   "call_number": "Commission negative #1972.64; nomination PDF p. 32 (photo), p. 33 (photograph form)",
-  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=32",
   "image_url": null,
   "rights": "unknown — link only",
   "rights_basis": "Federal nomination file, but the photograph credit is Richard Nickel / Commission on Chicago Landmarks; no release stated",
   "local": null,
   "verified": "viewed",
   "found_via": "data/sources.csv pa-district-nrhp-1972 (already-acquired nomination); PDF re-downloaded and every page rendered and inspected",
-  "notes": "Before the 1978 streetscape restoration: plain asphalt roadway with concrete curbs and walks, cobra-head street lights, power lines, parked 1960s–70s cars; Kimball's iron fence and the Coleman house beyond on the east side; Glessner's 18th-Street wall at right; open lots and industrial buildings further south. Gives the true roadway alignment and curb radii at the 18th Street corner (which date from the original layout) with nothing in the way — useful for fixing the cross-section; everything else is post-1904.",
+  "notes": "Image and form visually inspected. Form credits Richard Nickel, 1972. Street view has Glessner at right and Kimball at left; modern paving, cars and lighting belong to 1972. Distinct later exposure from photo 3; street context only.",
   "measurements": [],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2199",
    "audit_number": 167,
-   "reviewed_on": "2026-10-08",
-   "review_state": "unavailable image: catalog only",
+   "reviewed_on": "2026-10-09",
+   "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "after target year",
    "date_basis": "1972",
    "evidence_role": "streetscape or site context",
-   "geometry_use": "unreviewed",
-   "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+   "geometry_use": "context only",
+   "reason": "Image and form visually inspected. Form credits Richard Nickel, 1972. Street view has Glessner at right and Kimball at left; modern paving, cars and lighting belong to 1972. Distinct later exposure from photo 3; street context only.",
+   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=32",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
-  }
+  },
+  "retrieval_review": {
+   "ticket": "T-2199",
+   "reviewed_on": "2026-10-09",
+   "outcome": "image recovered",
+   "identity": "NRHP photo 4: PDF page 32 image, page 33 form; Commission negative 1972.64.",
+   "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=32",
+   "date": "1972",
+   "rights_status": "unknown — link only",
+   "independent_evidence": "Distinct later exposure from photo 3; street context only.",
+   "detail": "Image and form visually inspected. Form credits Richard Nickel, 1972. Street view has Glessner at right and Kimball at left; modern paving, cars and lighting belong to 1972.",
+   "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+   "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+  },
+  "metadata_history": [
+   {
+    "ticket": "T-2199",
+    "date": "2026-10-09",
+    "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+    "before": {
+     "evidence_review": {
+      "ticket": "T-2198",
+      "audit_number": 167,
+      "reviewed_on": "2026-10-08",
+      "review_state": "unavailable image: catalog only",
+      "target_date": "1904-07-01",
+      "phase": "after target year",
+      "date_basis": "1972",
+      "evidence_role": "streetscape or site context",
+      "geometry_use": "unreviewed",
+      "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+      "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+      "family": null,
+      "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+     },
+     "notes": "Before the 1978 streetscape restoration: plain asphalt roadway with concrete curbs and walks, cobra-head street lights, power lines, parked 1960s–70s cars; Kimball's iron fence and the Coleman house beyond on the east side; Glessner's 18th-Street wall at right; open lots and industrial buildings further south. Gives the true roadway alignment and curb radii at the 18th Street corner (which date from the original layout) with nothing in the way — useful for fixing the cross-section; everything else is post-1904.",
+     "retrieval_review": null,
+     "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+    }
+   }
+  ]
  },
  {
   "id": "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
@@ -1350,30 +1390,70 @@
   "repository": "National Archives (NARA RG 79, National Register of Historic Places records) — NPS nomination file",
   "collection": "Prairie Avenue District, National Register nomination (listed 1972), NRHP ref. 72000452",
   "call_number": "Commission negative #1972.39; nomination PDF p. 30 (photo), p. 31 (form)",
-  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=30",
   "image_url": null,
   "rights": "unknown — link only",
   "rights_basis": "As photo no. 4",
   "local": null,
   "verified": "viewed",
   "found_via": "data/sources.csv pa-district-nrhp-1972 (already-acquired nomination); PDF re-downloaded and every page rendered and inspected",
-  "notes": "High oblique: Indiana Avenue (wide, at left) running north; industrial lofts and parking lots where the 1900 and 2000 blocks stood; the surviving Kimball château and Glessner roofs mid-frame; the IC electrified tracks and freight yards along the old shoreline; Burnham Park/Field Museum/Soldier Field on the post-1904 landfill beyond. Documents the district's 1972 state (most of the 1904 fabric gone) and the relationship of Prairie Avenue to the railway edge.",
+  "notes": "Image and form visually inspected. Form credits Richard Nickel, 1972. Elevated northeast view includes the roof masses and altered industrial surroundings at limited detail. Distinct later exposure from photo 4; useful contextual comparison, not 1904 roof-junction proof.",
   "measurements": [],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2199",
    "audit_number": 166,
-   "reviewed_on": "2026-10-08",
-   "review_state": "unavailable image: catalog only",
+   "reviewed_on": "2026-10-09",
+   "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "after target year",
    "date_basis": "1972",
    "evidence_role": "streetscape or site context",
-   "geometry_use": "unreviewed",
-   "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+   "geometry_use": "context only",
+   "reason": "Image and form visually inspected. Form credits Richard Nickel, 1972. Elevated northeast view includes the roof masses and altered industrial surroundings at limited detail. Distinct later exposure from photo 4; useful contextual comparison, not 1904 roof-junction proof.",
+   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=30",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
-  }
+  },
+  "retrieval_review": {
+   "ticket": "T-2199",
+   "reviewed_on": "2026-10-09",
+   "outcome": "image recovered",
+   "identity": "NRHP photo 3: PDF page 30 image, page 31 form; Commission negative 1972.39.",
+   "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=30",
+   "date": "1972",
+   "rights_status": "unknown — link only",
+   "independent_evidence": "Distinct later exposure from photo 4; useful contextual comparison, not 1904 roof-junction proof.",
+   "detail": "Image and form visually inspected. Form credits Richard Nickel, 1972. Elevated northeast view includes the roof masses and altered industrial surroundings at limited detail.",
+   "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+   "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+  },
+  "metadata_history": [
+   {
+    "ticket": "T-2199",
+    "date": "2026-10-09",
+    "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+    "before": {
+     "evidence_review": {
+      "ticket": "T-2198",
+      "audit_number": 166,
+      "reviewed_on": "2026-10-08",
+      "review_state": "unavailable image: catalog only",
+      "target_date": "1904-07-01",
+      "phase": "after target year",
+      "date_basis": "1972",
+      "evidence_role": "streetscape or site context",
+      "geometry_use": "unreviewed",
+      "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+      "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+      "family": null,
+      "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+     },
+     "notes": "High oblique: Indiana Avenue (wide, at left) running north; industrial lofts and parking lots where the 1900 and 2000 blocks stood; the surviving Kimball château and Glessner roofs mid-frame; the IC electrified tracks and freight yards along the old shoreline; Burnham Park/Field Museum/Soldier Field on the post-1904 landfill beyond. Documents the district's 1972 state (most of the 1904 fabric gone) and the relationship of Prairie Avenue to the railway edge.",
+     "retrieval_review": null,
+     "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+    }
+   }
+  ]
  },
  {
   "id": "st-nrhp-1972-p23-district-and-environs-map",
@@ -1430,30 +1510,72 @@
   "repository": "National Archives (NARA RG 79, National Register of Historic Places records) — NPS nomination file",
   "collection": "Prairie Avenue District, National Register nomination (listed 1972), NRHP ref. 72000452",
   "call_number": "nomination PDF p. 40",
-  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+  "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=40",
   "image_url": null,
-  "rights": "public domain",
-  "rights_basis": "Federal record",
+  "rights": "unknown — link only",
+  "rights_basis": "Uncredited contributed sketch in a federal nomination file; no authorship or rights release established. Federal custody alone is insufficient.",
   "local": null,
   "verified": "viewed",
   "found_via": "data/sources.csv pa-district-nrhp-1972 (already-acquired nomination); PDF re-downloaded and every page rendered and inspected",
-  "notes": "Hand-drawn plan of the 18th Street / Prairie Avenue corner: Glessner House, Kimball House, 'Ames House' (1811), 'Keith Home', the district boundary, Calumet Ave. on the diagonal, and a proposed secondary arterial curving across 18th St. '15 feet above grade' with a proposal to close Prairie Ave. Documents a 1970s road threat, not the 1904 street; included because it is the only plan in the file that sketches the 18th-Street corner geometry with the Calumet diagonal. Partial transcription of faint pencil.",
+  "notes": "Sketch visually inspected: proposed road/grade changes and district boundary, not a built 1904 street layout. Author and creation date not established. Federal custody alone does not clear a contributed drawing. Distinct proposal context; excluded from 1904 geometry.",
   "measurements": [],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2199",
    "audit_number": 165,
-   "reviewed_on": "2026-10-08",
-   "review_state": "unavailable image: catalog only",
+   "reviewed_on": "2026-10-09",
+   "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "after target year",
    "date_basis": "c. 1970s (correspondence section of file; undated sketch)",
-   "evidence_role": "streetscape or site context",
-   "geometry_use": "unreviewed",
-   "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+   "evidence_role": "unbuilt or preliminary design",
+   "geometry_use": "excluded",
+   "reason": "Sketch visually inspected: proposed road/grade changes and district boundary, not a built 1904 street layout. Author and creation date not established. Federal custody alone does not clear a contributed drawing. Distinct proposal context; excluded from 1904 geometry.",
+   "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=40",
    "family": null,
    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
-  }
+  },
+  "retrieval_review": {
+   "ticket": "T-2199",
+   "reviewed_on": "2026-10-09",
+   "outcome": "image recovered",
+   "identity": "NRHP 72000452, PDF page 40: proposed 18th Street arterial sketch.",
+   "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=40",
+   "date": "c. 1970s (correspondence section of file; undated sketch)",
+   "rights_status": "unknown — link only",
+   "independent_evidence": "Distinct proposal context; excluded from 1904 geometry.",
+   "detail": "Sketch visually inspected: proposed road/grade changes and district boundary, not a built 1904 street layout. Author and creation date not established. Federal custody alone does not clear a contributed drawing.",
+   "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+   "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+  },
+  "metadata_history": [
+   {
+    "ticket": "T-2199",
+    "date": "2026-10-09",
+    "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+    "before": {
+     "evidence_review": {
+      "ticket": "T-2198",
+      "audit_number": 165,
+      "reviewed_on": "2026-10-08",
+      "review_state": "unavailable image: catalog only",
+      "target_date": "1904-07-01",
+      "phase": "after target year",
+      "date_basis": "c. 1970s (correspondence section of file; undated sketch)",
+      "evidence_role": "streetscape or site context",
+      "geometry_use": "unreviewed",
+      "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+      "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+      "family": null,
+      "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+     },
+     "notes": "Hand-drawn plan of the 18th Street / Prairie Avenue corner: Glessner House, Kimball House, 'Ames House' (1811), 'Keith Home', the district boundary, Calumet Ave. on the diagonal, and a proposed secondary arterial curving across 18th St. '15 feet above grade' with a proposal to close Prairie Ave. Documents a 1970s road threat, not the 1904 street; included because it is the only plan in the file that sketches the 18th-Street corner geometry with the Calumet diagonal. Partial transcription of faint pencil.",
+     "retrieval_review": null,
+     "rights_basis": "Federal record",
+     "rights": "public domain",
+     "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+    }
+   }
+  ]
  },
  {
   "id": "st-cl1973-p23-kimball-corner-18th-looking-se",
@@ -1514,27 +1636,27 @@
   "repository": "Commission on Chicago Landmarks (report PDF hosted at reports.chicagolandmarkreports.org)",
   "collection": "\"Prairie Avenue: Chicago's First Gold Coast\", research study by the staff of the Commission on Chicago Historical and Architectural Landmarks, March 1973",
   "call_number": "report PDF p. 24; negative number \"9974\" and initials scratched in the plate",
-  "catalog_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+  "catalog_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf#page=24",
   "image_url": null,
   "rights": "unknown — link only",
   "rights_basis": "Uncredited historic photograph reproduced (photocopy quality) in a 1973 municipal report; original holder not stated",
   "local": null,
   "verified": "viewed",
   "found_via": "data/sources.csv B-city1973 / pa-prairie-city-report-1973; PDF downloaded and all 24 pages inspected",
-  "notes": "Uncaptioned photocopy plate. Identified by me as the same photograph as the Holzman postcard postmarked 1908 (st-ghm-postcard-1908-prairie-south-at-18th; Glessner House caption: 'looking south at 18th Street… Glessner house at far right'): the Glessner lot's rounded-top granite coping/wall at right, broad slab sidewalk, a single row of elms in the grass parkway, high-stoop houses of 1808 onward. The scratched negative number '9974' and initials suggest a commercial view-company negative (LoC searches for LC-D4-9974 found nothing). Black-and-white version is the better evidence for surfaces than the tinted postcard. Also printed in Picturesque Chicago (1892) p. 199, which dates the negative to 1887–92. Captioned 'Looking south on Prairie Avenue from Eighteenth St.' in Flinn (1892) — see st-flinn-1892-looking-south-prairie-from-18th. Earliest printing found: Flinn 1891 'A Bit of Prairie Avenue' (st-flinn-1891-a-bit-of-prairie-avenue), so the negative dates Dec. 1887–1891.",
+  "notes": "PDF recovered and page 24 visually compared with audit #016: same foreground tree, sidewalk shadows, buildings and negative number. Duplicate of #016; wider #010/011/012/019 family remains qualified.",
   "measurements": [],
   "evidence_review": {
-   "ticket": "T-2198",
+   "ticket": "T-2199",
    "audit_number": 17,
-   "reviewed_on": "2026-10-08",
-   "review_state": "unavailable image: catalog only",
+   "reviewed_on": "2026-10-09",
+   "review_state": "visually inspected",
    "target_date": "1904-07-01",
    "phase": "before target year",
    "date_basis": "undated historic photograph (reproduced 1973)",
    "evidence_role": "streetscape or site context",
-   "geometry_use": "unreviewed",
-   "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-   "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+   "geometry_use": "context only",
+   "reason": "PDF recovered and page 24 visually compared with audit #016: same foreground tree, sidewalk shadows, buildings and negative number. Duplicate of #016; wider #010/011/012/019 family remains qualified.",
+   "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf#page=24",
    "family": "glessner-taylor-9974-possible",
    "family_relationship": "possible derivative family; catalog dates conflict; do not count as independent corroboration; count the underlying source once, not each reproduction.",
    "family_members": [
@@ -1545,7 +1667,55 @@
     "st-cl1973-p24-sidewalk-view-9974",
     "a18-rba-lowe-taylor-9974-copy"
    ]
-  }
+  },
+  "retrieval_review": {
+   "ticket": "T-2199",
+   "reviewed_on": "2026-10-09",
+   "outcome": "image recovered",
+   "identity": "Taylor negative 9974, report PDF page 24.",
+   "canonical_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf#page=24",
+   "date": "undated historic photograph (reproduced 1973)",
+   "rights_status": "unknown — link only",
+   "independent_evidence": "Duplicate of #016; wider #010/011/012/019 family remains qualified.",
+   "detail": "PDF recovered and page 24 visually compared with audit #016: same foreground tree, sidewalk shadows, buildings and negative number.",
+   "source_sha256": "82a0f6c22f73c32e0f88ddd9856e40351e4b6b62299164d1ec0747668385c30c",
+   "retrieved_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf"
+  },
+  "metadata_history": [
+   {
+    "ticket": "T-2199",
+    "date": "2026-10-09",
+    "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+    "before": {
+     "evidence_review": {
+      "ticket": "T-2198",
+      "audit_number": 17,
+      "reviewed_on": "2026-10-08",
+      "review_state": "unavailable image: catalog only",
+      "target_date": "1904-07-01",
+      "phase": "before target year",
+      "date_basis": "undated historic photograph (reproduced 1973)",
+      "evidence_role": "streetscape or site context",
+      "geometry_use": "unreviewed",
+      "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+      "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+      "family": "glessner-taylor-9974-possible",
+      "family_relationship": "possible derivative family; catalog dates conflict; do not count as independent corroboration; count the underlying source once, not each reproduction.",
+      "family_members": [
+       "st-flinn-1892-looking-south-prairie-from-18th",
+       "st-ghm-postcard-1908-prairie-south-at-18th",
+       "st-picturesque-chicago-1892-prairie-avenue-p199",
+       "a18-rba-taylor-9974-prairie-south-from-18th",
+       "st-cl1973-p24-sidewalk-view-9974",
+       "a18-rba-lowe-taylor-9974-copy"
+      ]
+     },
+     "notes": "Uncaptioned photocopy plate. Identified by me as the same photograph as the Holzman postcard postmarked 1908 (st-ghm-postcard-1908-prairie-south-at-18th; Glessner House caption: 'looking south at 18th Street… Glessner house at far right'): the Glessner lot's rounded-top granite coping/wall at right, broad slab sidewalk, a single row of elms in the grass parkway, high-stoop houses of 1808 onward. The scratched negative number '9974' and initials suggest a commercial view-company negative (LoC searches for LC-D4-9974 found nothing). Black-and-white version is the better evidence for surfaces than the tinted postcard. Also printed in Picturesque Chicago (1892) p. 199, which dates the negative to 1887–92. Captioned 'Looking south on Prairie Avenue from Eighteenth St.' in Flinn (1892) — see st-flinn-1892-looking-south-prairie-from-18th. Earliest printing found: Flinn 1891 'A Bit of Prairie Avenue' (st-flinn-1891-a-bit-of-prairie-avenue), so the negative dates Dec. 1887–1891.",
+     "retrieval_review": null,
+     "catalog_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf"
+    }
+   }
+  ]
  },
  {
   "id": "st-ilhap-1938-cook-bwq-8-50-district-crop",

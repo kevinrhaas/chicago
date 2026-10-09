@@ -27,6 +27,69 @@ outbuilding rows, both at 0 owed).
 - **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the new house and the 37 roofs the walk
   re-dealt (their fabric follows the keeper). `validate.py --stale`: 703 match, 0 stale.
 
+## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
+
+T-2188's second piece asked whether the order book over-orders its 56 owed store
+residences or the residents index is short. Measured on dev, the answer is **both**:
+
+- **The book over-ordered the store rows.** It shares the model's 645 households out by
+  roof counts, so it asked for 77 store households on 52 civil store roofs (1.48 per roof).
+  Every one of those roofs stands. The book's own weighting says a store residence holds
+  *a* household, the keeper's, so `store_residence_ruling` discharges the order above one
+  household per store roof: north 2, south 20, west 3, **25** in all. Store households owed
+  go **56 → 31**, and households still owed go 424 → 399. Nobody is moved, minted or
+  re-apportioned. The ruling is an inference, and the book says so.
+- **The index is short.** 14 of the 52 store roofs seat a household; the other 38 (29 south,
+  5 west, 4 north) seat nobody. The 309 trade households drawn as heads of their own
+  (`reconstructed_trades/`) are seated 244 in dwellings, 58 in boarding houses and 7 in inns.
+  Of those heads, 64 work a store trade (grocer, merchant, milliner and the like), and none
+  sits in a store roof. The household quota counts houses off `data/residents/index.json` alone,
+  so it sees none of them. The census's 662 present beyond the index break down as 309 trade
+  households, 155 lodgers, 111 readmitted, 86 underdocumented and 1 institutional. The
+  book credits 464 of them as person fills, but not one as a household. Counted whole, the
+  completion audit reads 3,579 present, against the 3,265 ceiling.
+- **Routed:** the 31 still owed go to **T-2236**, which forms keepers' households in the empty
+  store roofs by moving the store-trade heads the town holds. Counting the households
+  outside the index into the household quota is **T-2237**. `town_census.py`'s note now
+  names that ruling instead of split T-2188.
+
+## T-2235 — Restore Glessner's west-wing courtyard roof (2026-10-09)
+
+Corrects T-2231's lowered rear ridge and exposed courtyard wall. The west
+wing now retains its full 38.6-ft north-south ridge and front/rear gables,
+with a complete courtyard slope and the matching 2.36-ft overhang ending at
+24 ft. The west-facing cross-gable retains its corrected frontage and slopes;
+it intersects the full roof instead of defining the whole wing's section.
+The inside courtyard corner closes to the actual roof underside. The connected
+west dormer returns; recent bay, windows, dark glass and source-review work remain.
+
+The owner instruction, supplied images and earlier roof/courtyard diagrams
+are reconciled in `docs/RESEARCH/glessner-courtyard-roof-2235/README.md`, with
+actual-model before/after views. L-glessner-courtyard-ridge-2235 records the
+reconstruction limits and supersedes the low-ridge interpretation in T-2231.
+
+Geometry/window checks, actual-model comparisons and published desktop/full
+and mobile/light six-view review pass. The final integrated repository gate passes all
+794 steps; published desktop and mobile stage 13 each pass all 126 assertions. Exact assets
+and browser receipts are in the review folder.
+
+## T-2199 — Glessner reference recovery (2026-10-09)
+
+The bounded 17-record pass recovered and reviewed material for ten records;
+seven underlying images remain unavailable (two Encyclopedia, four Barford,
+one AIC Nickel print). The library records exact outcomes, dates, rights and
+independence; Cornell and the report plate join known exposure families. An
+additional IIT 1945 facade photograph stays copyright/link-only. Unsupported
+Barford date bounds are removed, and an uncredited nomination sketch is now
+unknown/link-only rather than assumed public domain from federal custody.
+The Yale lead is VRC 36, Box 34, seven unidentified photographs (PDF page 18).
+
+The visitor can open the retrieval report, prioritized remaining-view matrix,
+measured-photo brief and unsent archive inquiries from the Glessner section and
+image cards. Sources and limits: `../../prairie_1904_v1/docs/glessner-reference-recovery.html`.
+No new pre-1904 courtyard view was recovered; no geometry or dark-glass change.
+T-2200–T-2228 remain held. Validation receipts accompany the delivery PR.
+
 ## T-2195 — the Market wedge, plat block 21, cut into four reconstructed lots (2026-10-08)
 
 The owner answered T-1957's question on 2026-10-08 with **(b)**: build on the wedge's eastern

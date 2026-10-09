@@ -624,21 +624,21 @@
     "glessner_house__as_built_1887.glb": {
       "archetype": "masonry_house",
       "baked_ao": false,
-      "bytes": 125502192,
-      "inputs_sha256": "911b688f45a3f8c605f3b3b6d17875f1ed6aee5fb8867e0ed3ae62896ec0af34",
+      "bytes": 126154788,
+      "inputs_sha256": "7c242f2f5164d6b839ff3495a0f0e1b9e9706f81879e4774acfc52132d9543c5",
       "kind": "generated",
       "phase_id": "as_built_1887",
       "structure_id": "glessner_house",
       "web_lods": {
         "light": {
           "asset": "glessner_house__as_built_1887.light.glb",
-          "master_sha256": "70d6b672b84fd7615918c34639d61cc81a13d0a5672129467c4b52f8012fed9e",
-          "output_sha256": "e46cd0eb676ceb15e0756dd7280ec015aa87d9737ae80ab62180cd1d99304a52",
-          "recipe_sha256": "2bfc74cd96b4ed397c5e396e5d6394786b957c49796abc79111ad9f5214789b5",
-          "triangles": 195431
+          "master_sha256": "e29f50e208e23de69cfabc14fb6062e48a08cfa0666f1ecaf9d4f6a3abdd0204",
+          "output_sha256": "3e59adccc0798228e038bc67b05ec138703994891902d4a1b0a5284ff18b09ae",
+          "recipe_sha256": "441f49ba65cc79f9bbff2ece5e3aaafe8f0671ae3376329d4fe2bd884cad16f4",
+          "triangles": 199420
         }
       },
-      "web_master_sha256": "70d6b672b84fd7615918c34639d61cc81a13d0a5672129467c4b52f8012fed9e"
+      "web_master_sha256": "e29f50e208e23de69cfabc14fb6062e48a08cfa0666f1ecaf9d4f6a3abdd0204"
     },
     "goss_cobb_saddlery__shop_1833.glb": {
       "archetype": "frame_storefront",

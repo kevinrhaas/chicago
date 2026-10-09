@@ -32,6 +32,15 @@ def validate_reviews(records):
         if review.get('audit_number') is not None: numbers.append(review['audit_number'])
         if review.get('evidence_role') in EXCLUDED and review.get('geometry_use') != 'excluded': fail('excluded role permits geometry')
         if review.get('review_state', '').startswith('unavailable') and review.get('geometry_use') not in {'excluded', 'unreviewed'}: fail('unseen image permits geometry')
+        retrieval = r.get('retrieval_review')
+        if retrieval:
+            for field in ('ticket', 'reviewed_on', 'outcome', 'identity', 'canonical_url', 'date', 'rights_status', 'independent_evidence', 'detail'):
+                if not isinstance(retrieval.get(field), str) or not retrieval[field].strip(): fail(f'retrieval missing {field}')
+            if retrieval.get('outcome') not in {'image recovered', 'document recovered', 'metadata only', 'unavailable'}: fail('unknown retrieval outcome')
+            if retrieval.get('rights_status') != r.get('rights'): fail('retrieval rights disagree with record')
+            if retrieval.get('canonical_url') != r.get('catalog_url'): fail('retrieval canonical URL disagrees with record')
+            if retrieval.get('outcome') in {'metadata only', 'unavailable'} and not review.get('review_state', '').startswith('unavailable'): fail('unrecovered image promoted to reviewed')
+            if retrieval.get('outcome') in {'image recovered', 'document recovered'} and not retrieval.get('source_sha256'): fail('recovered source lacks receipt hash')
         if review.get('evidence_role') in {'secondary reconstruction', 'text context', 'streetscape or site context'} and review.get('geometry_use') not in {'context only', 'unreviewed'}: fail('context permits geometry')
         family = review.get('family')
         if family:

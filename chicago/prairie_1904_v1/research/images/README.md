@@ -97,3 +97,7 @@ linked families require reciprocal `family_members` and the same qualified
 See [the source review](../../docs/glessner-source-review.md) for the findings and
 rights boundary. The merger validates this contract; the viewer publishes it.
 Review does not override copyright or turn design intent into built fabric.
+
+### Retrieval follow-up (T-2199)
+
+`retrieval_review` records the retrieval date, outcome, canonical URL, source identity, date, rights, independence finding and exact-source SHA-256 when recovered. `metadata only` and `unavailable` never imply visual review. Updated descriptions and prior review objects remain in `metadata_history`. The Glessner follow-up closes all 17 retrieval rows: 10 recovered records and 7 still-unavailable images, plus a distinct 1945 IIT view. The published brief is `docs/glessner-reference-recovery.html`; raw request outcomes are `docs/glessner-retrieval-log.json`. Holder-hosted images remain links and no source-image bytes were added.

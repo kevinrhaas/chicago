@@ -1,9 +1,34 @@
 export const CHANGELOG = [ // newest first
-  { v: 1558, ts: '2026-10-09T04:38:13.630Z', date: 'Oct 8, 2026, 11:38 PM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+  { v: null, ts: '', date: '', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
       'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
       'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
       'No source shows this house in 1835 or names who lived in it. Its card says it is reconstructed, and the Liberties page explains it (L410).',
+    ] },
+  { v: 1562, ts: '2026-10-09T04:37:11.918Z', date: 'Oct 8, 2026, 11:37 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
+    items: [
+      'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',
+      'That still leaves 31 to house: one keeper\u2019s family for each store that has nobody living in it. The grocers, merchants and milliners already in the town come first. No new people are made up.',
+    ] },
+  { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+    items: [
+      'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
+      'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
+  { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
+    ] },
+  { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
+    items: [
+      'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
+      'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and Joseph Leframboise’s household of six, which was still waiting for a roof, now shares a house in the South Division.',
+    ] },
+  { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
+    items: [
+      'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
+      'Cornell’s construction print and the old sidewalk report image are identified as existing photographic exposures. A 1945 IIT facade view adds later evidence, with date and rights limits visible on its card. Archive inquiries are prepared for review and have not been sent.',
     ] },
   { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [

@@ -1,0 +1,753 @@
+{
+  "method": "Actual published /1904/ app, normal boot, full desktop and light mobile; animation paused after readiness for deterministic review cameras. Unchanged scene geometry, materials, lighting and shadows.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:33593/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:33593/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "west",
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 58,
+            "triangles": 2240471,
+            "programs": 23,
+            "geometries": 47,
+            "textures": 123,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 48157348,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1310.5348666362752,
+            -3227.29784448839,
+            6.040440280685425
+          ],
+          "target": [
+            1338.532957969682,
+            -3226.9709168416316,
+            10.340440280685424
+          ]
+        },
+        {
+          "name": "northwest",
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 61,
+            "triangles": 2247944,
+            "programs": 23,
+            "geometries": 52,
+            "textures": 131,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 48157348,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1313.1312567721577,
+            -3192.71517168448,
+            6.340440280685425
+          ],
+          "target": [
+            1348.4557985856748,
+            -3220.3046034594386,
+            10.640440280685425
+          ]
+        },
+        {
+          "name": "courtyard-west",
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 2216422,
+            "programs": 23,
+            "geometries": 53,
+            "textures": 133,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 48157348,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1371.6877505000866,
+            -3240.03469241632,
+            6.340440280685425
+          ],
+          "target": [
+            1347.5259226766443,
+            -3226.3158704468387,
+            11.340440280685424
+          ]
+        },
+        {
+          "name": "south",
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 2221209,
+            "programs": 23,
+            "geometries": 53,
+            "textures": 133,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 48157348,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1344.9347867350848,
+            -3261.3485125757497,
+            6.040440280685425
+          ],
+          "target": [
+            1344.0389581147665,
+            -3236.017245511447,
+            9.540440280685425
+          ]
+        },
+        {
+          "name": "overhead-west",
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 2218204,
+            "programs": 23,
+            "geometries": 53,
+            "textures": 133,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 48157348,
+            "fps": 0,
+            "cameraNear": 0.55,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1367.8281350153536,
+            -3252.0805783658884,
+            18.340440280685424
+          ],
+          "target": [
+            1346.5610188054611,
+            -3229.3273419342304,
+            11.740440280685426
+          ]
+        },
+        {
+          "name": "courtyard-bay",
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 55,
+            "triangles": 2219834,
+            "programs": 23,
+            "geometries": 53,
+            "textures": 133,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 48157348,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 3800000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.3181165550725,
+            -3240.0973924685736,
+            7.840440280685425
+          ],
+          "target": [
+            1366.1546527316932,
+            -3226.0983468018703,
+            10.840440280685424
+          ]
+        }
+      ],
+      "switches": [
+        {
+          "detail": "balanced",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": []
+        },
+        {
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": []
+        },
+        {
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": []
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1904"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:33593/data/gltf/glessner_house__as_built_1887.light.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:33593/data/gltf/glessner_house__as_built_1887.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "west",
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 52,
+            "triangles": 446413,
+            "programs": 15,
+            "geometries": 47,
+            "textures": 123,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25252600,
+            "fps": 1,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1310.5348666362752,
+            -3227.29784448839,
+            6.040440280685425
+          ],
+          "target": [
+            1338.532957969682,
+            -3226.9709168416316,
+            10.340440280685424
+          ]
+        },
+        {
+          "name": "northwest",
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 54,
+            "triangles": 449107,
+            "programs": 15,
+            "geometries": 50,
+            "textures": 127,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25252600,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1313.1312567721577,
+            -3192.71517168448,
+            6.340440280685425
+          ],
+          "target": [
+            1348.4557985856748,
+            -3220.3046034594386,
+            10.640440280685425
+          ]
+        },
+        {
+          "name": "courtyard-west",
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 53,
+            "triangles": 447526,
+            "programs": 15,
+            "geometries": 51,
+            "textures": 129,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25252600,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1371.6877505000866,
+            -3240.03469241632,
+            6.340440280685425
+          ],
+          "target": [
+            1347.5259226766443,
+            -3226.3158704468387,
+            11.340440280685424
+          ]
+        },
+        {
+          "name": "south",
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 52,
+            "triangles": 444512,
+            "programs": 15,
+            "geometries": 51,
+            "textures": 129,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25252600,
+            "fps": 0,
+            "cameraNear": 0.1,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1344.9347867350848,
+            -3261.3485125757497,
+            6.040440280685425
+          ],
+          "target": [
+            1344.0389581147665,
+            -3236.017245511447,
+            9.540440280685425
+          ]
+        },
+        {
+          "name": "overhead-west",
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 52,
+            "triangles": 447455,
+            "programs": 15,
+            "geometries": 51,
+            "textures": 129,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25252600,
+            "fps": 0,
+            "cameraNear": 0.55,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1367.8281350153536,
+            -3252.0805783658884,
+            18.340440280685424
+          ],
+          "target": [
+            1346.5610188054611,
+            -3229.3273419342304,
+            11.740440280685426
+          ]
+        },
+        {
+          "name": "courtyard-bay",
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": [],
+          "stats": {
+            "drawCalls": 52,
+            "triangles": 446847,
+            "programs": 15,
+            "geometries": 51,
+            "textures": 129,
+            "batches": 17,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 1,
+            "structuresExpected": 1,
+            "structuresStanding": 1,
+            "bytes": 25252600,
+            "fps": 0,
+            "cameraNear": 0.15000000000000002,
+            "budget": {
+              "drawCalls": 330,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1366.3181165550725,
+            -3240.0973924685736,
+            7.840440280685425
+          ],
+          "target": [
+            1366.1546527316932,
+            -3226.0983468018703,
+            10.840440280685424
+          ]
+        }
+      ],
+      "switches": [
+        {
+          "detail": "balanced",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": []
+        },
+        {
+          "detail": "light",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": []
+        },
+        {
+          "detail": "full",
+          "glassModes": [
+            "dark"
+          ],
+          "problems": []
+        }
+      ]
+    }
+  ]
+}

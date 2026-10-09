@@ -16,7 +16,7 @@ def contains(poly,x,y):
     return all((b[0]-a[0])*(y-a[1])-(b[1]-a[1])*(x-a[0])>=-1e-9 for a,b in zip(poly,poly[1:]+poly[:1]))
 rng=random.Random(1830)
 for i in range(1800):
-    x=rng.uniform(r['x0']-.55,r['x1']+.20);y=rng.uniform(r['y0']-.15,r['y1'])
+    x=rng.uniform(r['x0']-.55,max(r['x1']+.20,r['stable_roof'].get('court_edge_x',r['x1'])+.01));y=rng.uniform(r['y0']-.15,r['y1'])
     expected=[min(z(v,x,y) for v in ps) for _,box,ps in components(r)
               if all(z(b,x,y)>=0 for b in bounds_planes(box))]
     hits=[pts for _,pts in patch if contains(pts,x,y)]
@@ -27,11 +27,57 @@ for i in range(1800):
         assert abs(n[2])>1e-10
         actual=a[2]-(n[0]*(x-a[0])+n[1]*(y-a[1]))/n[2]
         assert abs(actual-max(expected))<1e-6,(i,actual,max(expected))
-# The active reconstruction has a lower rear gable. Test its silhouette against
-# explicit owner-reference proportions, not merely the implementation's planes.
+# Roof topology is an owner control as well as the outside silhouette. A west
+# elevation can look right while the courtyard slope and rear ridge are missing.
 g=r['stable_roof'];mid=(r['x0']+r['x1'])/2
 assert r['conf_roof']==r['conf_plan']==1.0
-if g.get('connected_roof_plan'):
+if g.get('level_courtyard_gable'):
+    assert not g.get('lower_rear_gable') and not g.get('connected_roof_plan')
+    import math
+    n=g['north_range']
+    assert abs(r['ridge_at']-(161.25-141)*.3048)<1e-4
+    # Same front and rear peak, and every point between them: no falling ridge.
+    for i in range(121):
+        y=r['y0']+(r['y1']-r['y0'])*i/120
+        assert abs(height(r,r['ridge_at'],y)-38.6*.3048)<1e-4
+    south=profile(r,'south')
+    assert len(south)==3 and abs(south[1][0]-r['ridge_at'])<1e-4
+    assert abs(south[1][1]-38.6*.3048)<1e-4
+    # Matching 2.36-ft awning, continuous at the 24-ft north courtyard edge.
+    edge=r['x1']+2.36*.3048
+    ny=n['y0']-n['eave_lo_overhang']
+    for i in range(81):
+        y=r['y0']+(ny-r['y0'])*i/80
+        assert abs(height(r,edge,y)-24*.3048)<1e-4
+        for f in (.1,.5,.9):
+            x=r['ridge_at']+(edge-r['ridge_at'])*f
+            assert abs(height(r,x,y)-(38.6+(24-38.6)*f)*.3048)<1e-4
+    north_edge=n['eave_lo_z']-n['eave_lo_overhang']*(n['ridge_z']-n['eave_lo_z'])/(n['ridge_at']-n['y0'])
+    assert abs(height(r,edge,ny)-north_edge)<1e-4
+    assert abs(n['ridge_z']-34.1*.3048)<1e-4
+    from archetypes.masonry_house_v4_courtyard_roof import wall_profile
+    court_wall=wall_profile(p,r['x1'],n['x1'],n['eave_lo_z'])
+    for x,h in court_wall:
+        if r['x1']<=x<=edge:
+            assert abs(h-height(r,x,n['y0']))<1e-4,(x,h,height(r,x,n['y0']))
+    for o in p.openings:
+        if o['face']=='east' and abs(o['at']-r['x1'])<1e-5:
+            for y in (o['u0'],o['u1']):
+                assert height(r,r['x1'],y)>o['z1']+.27,(o,y)
+    # Preserve the two owner west-elevation slopes and rear frontage, while
+    # giving the separate north-south roof its full-height rear peak.
+    for station,roof_z in ((0,25.2),(18.4,38.6),(35,16.5),(59.75,16.5)):
+        assert abs(height(r,r['x0'],(74-station)*.3048)-roof_z*.3048)<1e-4
+    for _,pts in patches(r,False):
+        for a,b in zip(pts,pts[1:]+pts[:1]):
+            dx,dy=b[0]-a[0],b[1]-a[1];length=math.hypot(dx,dy)
+            if length<1e-8:continue
+            for t in (.2,.5,.8):
+                x=a[0]+dx*t;y=a[1]+dy*t
+                if not(r['x0']-.15+1e-5<x<edge-1e-5 and r['y0']-.20+1e-5<y<r['y1']-1e-5):continue
+                xx,yy=-dy/length*1e-6,dx/length*1e-6
+                assert abs(height(r,x+xx,y+yy)-height(r,x-xx,y-yy))<1e-4,(x,y)
+elif g.get('connected_roof_plan'):
     assert not g.get('lower_rear_gable') and not g.get('continuous_south_gable')
     n=g['north_range']
     assert n['kick'] is None
@@ -182,7 +228,14 @@ if p.detail.get('dining_crested_connection'):
     assert bay['pts'][1][1]-1e-4<=ap[1]<=bay['pts'][0][1]
     assert abs(ap[2]-n['ridge_z'])<1e-5 and n['ridge_at']-ap[1]>3.5
     profile_points=wall_profile(p,n['x0'],n['x1'],n['eave_lo_z'])
-    assert profile_points[0]==(n['x0'],n['eave_lo_z']) and profile_points[-1]==(n['x1'],n['eave_lo_z'])
+    if g.get('level_courtyard_gable'):
+        # The restored west slope closes a 0.32-ft corner wedge above the
+        # north wall datum; the original flat endpoint would leave a slit.
+        left_height=(38.6+(24-38.6)*15.25/(15.25+2.36))*.3048
+        assert profile_points[0][0]==n['x0'] and abs(profile_points[0][1]-left_height)<1e-4
+    else:
+        assert profile_points[0]==(n['x0'],n['eave_lo_z'])
+    assert profile_points[-1]==(n['x1'],n['eave_lo_z'])
     assert all(h>=n['eave_lo_z'] for x,h in profile_points)
     if n.get('eave_lo_overhang',.20)>.21:
         assert max(h for x,h in profile_points)>p.bows[0]['wall_top_z']

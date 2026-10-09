@@ -117,3 +117,5 @@
   .img-info .evidence-review dl, .img-info .metadata-history dl { grid-template-columns: 1fr; gap: 2px; }
   .evidence-review dd, .metadata-history dd { margin-bottom: 9px; }
 }
+
+.retrieval-review { border-top: 1px solid var(--line); padding-top: 1rem; margin-block: 1.2rem; overflow-wrap: anywhere; }

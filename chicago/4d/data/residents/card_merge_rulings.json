@@ -36,7 +36,8 @@
     "D10": "THE NAMES DISAGREE BEYOND THE ONE LETTER. A pair the one-letter test joins whose FORENAMES also fail to agree: two different middle initials both printed, a middle initial against a middle NAME, two different given names, or an honorific that fixes a different person. C9's and C10's FIRST condition — that nothing but the one spelling stands between the cards — is unmet, so neither rule is reachable, and D7 and D8 do not apply either because they exist for pairs that fail only the DEMONSTRATION. Refused on the names, before any question of a page. This is the least interesting shape in the one-letter pool and it is why the pool is not a worklist: a distance measured over a whole name cannot tell 'one letter of surname' from 'one letter of surname plus a different man's forename'. Where neither card is documented beyond a list and the disagreement is two printed middle initials, R3 is the narrower rule and is used instead — the `barry-j` cluster is its precedent.",
     "U2": "AMBIGUOUS, AND THAT IS THE FINISHED ANSWER. The owner, 2026-09-17, on T-1290 and T-1291: the research spend is a CHECK before reconstruction, not a programme — 'a pair that cannot be ruled on the evidence is recorded as ambiguous, with both readings kept, and that is a finished answer, not a deferral and not a new ticket'. U1 files a question and names a ticket that owns it; U2 states that the evidence does not decide, keeps both readings, and files NOTHING. It is a refusal in the project's own sense — the project already prefers a refusal to an invention — and the gate treats it as U1 does, because the gate asks that a cluster be WEIGHED and not that it be merged. A U2 ruling still carries `for_merge` and `against_merge`: what it drops is the promise that somebody will come back.",
     "C15": "ONE CHILD AT THE FONT AND AT THE GRAVE, TIED BY THE PARENT, THE PRIEST AND THE DAY-COUNT. A baptism and a burial minted as two cards are one child when all four of: the SAME PRIEST kept both entries, so the two are one man's record of one parish and not two strangers' lists; both entries name the same FATHER by forename, and his surname differs between them only by a spelling the priest's own registers are shown setting more than one way; the child's forename agrees once the language of each entry is allowed for (French at the font, English in the transcription of the burial); and the burial's stated AGE AT DEATH, counted back from its date, lands on the very day of birth the baptism states, with the burial after the baptism. Arithmetic that meets to the day is the discriminator no namesake can share. It reaches a child, never an adult, because an adult's age is not stated to the day.",
-    "C16": "THE FATHER OF A CHILD C15 JOINED. Once C15 has made a baptism and a burial one child, the father each entry names is one man, and the cards minted from the two father cells fold. All of: C15 has joined the children; each father card was minted from the father or parent cell of one of the two entries C15 joined; and no source on either card dates, places or names him in a way the other contradicts. A forename one card prints without the accent its own source carries ('Lon' for the register's 'Léon') is the extraction's loss and not a different name."
+    "C16": "THE FATHER OF A CHILD C15 JOINED. Once C15 has made a baptism and a burial one child, the father each entry names is one man, and the cards minted from the two father cells fold. All of: C15 has joined the children; each father card was minted from the father or parent cell of one of the two entries C15 joined; and no source on either card dates, places or names him in a way the other contradicts. A forename one card prints without the accent its own source carries ('Lon' for the register's 'Léon') is the extraction's loss and not a different name.",
+    "C17": "A READMISSION THAT IS A SECOND COPY OF A CARD THE TOWN ALREADY HOLDS. tools/readmit_borderline_roster.py mints a card from a roster row it reads as carried on no card, and its name test is a spelling test, so a row whose reading an existing card already carries under another spelling is minted twice. All of: the readmitted card was minted from exactly one roster row; the survivor's own evidence block carries that row's record id; and the survivor was minted from the same register entry and cell. The record id is the identity, not the name: the two cards are one reading of one line of one register, spelt twice by two extractions. The survivor is always the card the research layer minted, never the readmission, because the readmission stage re-derives every byte of its cards and is the one that reads the fold and stops."
   },
   "deferred": [],
   "clusters": [
@@ -2462,6 +2463,69 @@
           "survivor_note": "The survivor is bourrassa_leon. Its printed name is a reading of a source, where bourassa_lon's 'Lon' is the extraction's dropped accent, and a civic card's name is carried rather than re-derived. It is also the card the burial's father-and-son tie already stands on. The order matters for the town as well as the card: the folded bourassa_lon is a house T-2021's frozen ruling left standing alone, so retiring it re-deals nobody, where folding bourrassa_leon would have freed the wife T-2020 moved into his house and re-paired every southern house drawn after it. Both are civic mints, so the fold lands through the crosswalk and the two St Mary's entries reach the survivor through the identity master."
         }
       ]
+    },
+    {
+      "id": "ltendre-l-tendre-baptiste",
+      "surname": "ltendre",
+      "derived_candidate": false,
+      "why_not_derived": "THE CANDIDATE TEST CANNOT SEE THESE PAIRS, AND DOES NOT READ THE CARDS THAT HOLD ONE HALF. The readmitted halves live in data/residents/readmitted/, which the index does not list and read_town() therefore never reads, and their surnames are split differently from the research cards' ('Joseph L. Tendre' against 'Joseph Ltendre', 'Louis Franch Re' against 'Louis Franchre') — the extraction dropped the accented letter, and one reading kept the dropped letter's gap as a word break. T-2191 found them while deriving St Mary's parent ties, and declined to write a tie onto either half. They are written in by hand, like the Blanchard and Bourassa clusters.",
+      "rulings": [
+        {
+          "state": "merge",
+          "rule": "C17",
+          "ticket": "T-2197",
+          "on": "2026-10-08",
+          "survivor": "ltendre_baptiste",
+          "folded": [
+            "baptiste_l_tendre"
+          ],
+          "for": "ONE LINE OF THE REGISTER, CARDED TWICE. baptiste_l_tendre was minted by the readmission stage (T-1172, class R2) from St Mary's row st_marys_bapt_1833_10_2_father (the father cell of 1833 entry 10, 26 July 1833: 'Joseph Létendre fils de Baptiste Létendre et [de] O'Waichiquoi'), and ltendre_baptiste's own church evidence carries st_marys_bapt_1833_10_2_father as its record id. Both cards cite st_marys_baptismal_register_1833_1835 and nothing else, and neither dates, places or names the person in a way the other contradicts.",
+          "against": "'L. Tendre' and 'Ltendre' are two extractions of 'Létendre': one dropped the é, the other kept its gap as a word break. The cards agree in the source, which is the same cell.",
+          "survivor_note": "The survivor is ltendre_baptiste: it is the card the research layer minted from the row, it carries the row in an evidence block and its own presence ruling (R1, beside its inferred `uncertain`), and the readmission stage owns its cards byte for byte, so a union written onto one would be reverted. The readmitted card's drawn `present` goes with it into merged/; the survivor keeps the presence its own ruling gives it, and the boarder's seat the copy held is freed."
+        }
+      ]
+    },
+    {
+      "id": "ltendre-l-tendre-joseph",
+      "surname": "ltendre",
+      "derived_candidate": false,
+      "why_not_derived": "THE CANDIDATE TEST CANNOT SEE THESE PAIRS, AND DOES NOT READ THE CARDS THAT HOLD ONE HALF. The readmitted halves live in data/residents/readmitted/, which the index does not list and read_town() therefore never reads, and their surnames are split differently from the research cards' ('Joseph L. Tendre' against 'Joseph Ltendre', 'Louis Franch Re' against 'Louis Franchre') — the extraction dropped the accented letter, and one reading kept the dropped letter's gap as a word break. T-2191 found them while deriving St Mary's parent ties, and declined to write a tie onto either half. They are written in by hand, like the Blanchard and Bourassa clusters.",
+      "rulings": [
+        {
+          "state": "merge",
+          "rule": "C17",
+          "ticket": "T-2197",
+          "on": "2026-10-08",
+          "survivor": "ltendre_joseph",
+          "folded": [
+            "joseph_l_tendre"
+          ],
+          "for": "ONE LINE OF THE REGISTER, CARDED TWICE. joseph_l_tendre was minted by the readmission stage (T-1172, class R2) from St Mary's row st_marys_bapt_1833_10_1_child (the child cell of the same entry), and ltendre_joseph's own church evidence carries st_marys_bapt_1833_10_1_child as its record id. Both cards cite st_marys_baptismal_register_1833_1835 and nothing else, and neither dates, places or names the person in a way the other contradicts.",
+          "against": "As for his father's pair: the names differ only in how the é was lost. The father and son are two people and stay two — this rules each of them one card, not the two of them one man.",
+          "survivor_note": "The survivor is ltendre_joseph: it is the card the research layer minted from the row, it carries the row in an evidence block and its own presence ruling (R1, beside its inferred `uncertain`), and the readmission stage owns its cards byte for byte, so a union written onto one would be reverted. The readmitted card's drawn `present` goes with it into merged/; the survivor keeps the presence its own ruling gives it, and the boarder's seat the copy held is freed."
+        }
+      ]
+    },
+    {
+      "id": "franchre-franch-re",
+      "surname": "franchre",
+      "derived_candidate": false,
+      "why_not_derived": "THE CANDIDATE TEST CANNOT SEE THESE PAIRS, AND DOES NOT READ THE CARDS THAT HOLD ONE HALF. The readmitted halves live in data/residents/readmitted/, which the index does not list and read_town() therefore never reads, and their surnames are split differently from the research cards' ('Joseph L. Tendre' against 'Joseph Ltendre', 'Louis Franch Re' against 'Louis Franchre') — the extraction dropped the accented letter, and one reading kept the dropped letter's gap as a word break. T-2191 found them while deriving St Mary's parent ties, and declined to write a tie onto either half. They are written in by hand, like the Blanchard and Bourassa clusters.",
+      "rulings": [
+        {
+          "state": "merge",
+          "rule": "C17",
+          "ticket": "T-2197",
+          "on": "2026-10-08",
+          "survivor": "franchre_louis",
+          "folded": [
+            "louis_franch_re"
+          ],
+          "for": "ONE LINE OF THE REGISTER, CARDED TWICE. louis_franch_re was minted by the readmission stage (T-1172, class R2) from St Mary's row st_marys_bapt_1833_05_4_sponsor (the sponsor cell of 1833 entry 5), and franchre_louis's own church evidence carries st_marys_bapt_1833_05_4_sponsor as its record id. Both cards cite st_marys_baptismal_register_1833_1835 and nothing else, and neither dates, places or names the person in a way the other contradicts.",
+          "against": "'Franch Re' and 'Franchre' are two extractions of 'Franchère'. Whether this Louis is the L Franchere of St Cyr's 1834 marriage witness (hh_franchere_l) is T-1554's question and is not ruled here: this folds one reading's two cards, and leaves that pair as it stood.",
+          "survivor_note": "The survivor is franchre_louis: it is the card the research layer minted from the row, it carries the row in an evidence block and its own presence ruling (R1, beside its inferred `uncertain`), and the readmission stage owns its cards byte for byte, so a union written onto one would be reverted. The readmitted card's drawn `present` goes with it into merged/; the survivor keeps the presence its own ruling gives it, and the boarder's seat the copy held is freed."
+        }
+      ]
     }
   ],
   "also_ruled_on": [
@@ -2534,6 +2598,11 @@
       "ticket": "T-2179",
       "on": "2026-10-08",
       "what": "ONE INFANT ON TWO CARDS, AND HIS FATHER ON TWO. The candidate test cannot derive either pair (the burial transcription spells the father Bourrassa and reads the child's forename 'John Baptist' as a surname), and T-1553 found them while landing St Mary's parentage. Two rules are written: C15, a baptism and a burial by one priest naming one father whose day-count meets to the day, and C16, the fathers of a child C15 joined. baptist_john folds onto bourassa_jean_baptiste and bourrassa_leon onto bourassa_lon. The town's cards fall by two."
+    },
+    {
+      "ticket": "T-2197",
+      "on": "2026-10-08",
+      "what": "THREE READMITTED CARDS THAT WERE SECOND COPIES. Rule C17 is written: a card the readmission stage minted from a roster row whose record id a research card already carries is that card again. joseph_l_tendre folds onto ltendre_joseph, baptiste_l_tendre onto ltendre_baptiste and louis_franch_re onto franchre_louis; consolidate_town_cards.py learns to fold a card from data/residents/readmitted/, and readmit_borderline_roster.py withholds a row whose readmission a merge retired. A fourth pair of the same shape (william_bourque_burke, bourque_william) is left to T-2189, which rules on William Bourque's presence. The town's cards fall by three."
     }
   ],
   "withdrawn": [
