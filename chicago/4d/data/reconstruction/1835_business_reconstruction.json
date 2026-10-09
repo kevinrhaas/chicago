@@ -7,15 +7,15 @@
   "proprietors": "ADOPTED from data/residents/reconstructed_trades/, never minted. tools/reconstruct_residents_1835.py is the one writer of a person.",
   "style_guide": "docs/RESEARCH/business-naming-1835.md",
   "liberty": "docs/LIBERTIES.md § L254",
-  "records": 47,
+  "records": 48,
   "groups": {
     "lodging_river_and_transport": {
       "ticket": "T-1187",
       "title": "lodging, the river and transport",
-      "records": 18,
+      "records": 19,
       "by_class": {
         "other": 17,
-        "tavern": 1
+        "tavern": 2
       },
       "by_street": {
         "Canal Street": 1,
@@ -24,6 +24,7 @@
       },
       "by_roof": {
         "recon_1835_blk_indiana_north_cass_h3_09": 1,
+        "recon_1835_blk_south_water_market_h3_02": 1,
         "recon_1835_blk_washington_clark_h3_05": 1,
         "recon_1835_blk_washington_clark_h3_06": 1,
         "recon_1835_blk_washington_clark_h3_11": 1,
@@ -41,6 +42,7 @@
       "ids": [
         "rcb_bardwell_boarding_house",
         "rcb_barnes_boarding_house",
+        "rcb_beaubien_boarding_house",
         "rcb_cavanagh_boarding_house",
         "rcb_chapin_boarding_house",
         "rcb_dufresne_livery_stable",
@@ -61,6 +63,7 @@
       "proprietors_adopted": [
         "rc_bardwell_esther",
         "rc_barnes_ezra",
+        "beaubien_mark",
         "rc_cavanagh_johanna",
         "rc_chapin_hannah",
         "rc_dufresne_joseph",
@@ -235,7 +238,7 @@
   "lodging": {
     "_doc": "BEDS AGAINST KEEPERS. Every place data/reconstruction/1835_lodging_model.json stands, and the house of trade behind it. `kept_by` is null where there is none, and `why_not` says which kind of absence it is.",
     "places": 28,
-    "reconstructed_roofs_this_programme_owes_a_firm": 3,
+    "reconstructed_roofs_this_programme_owes_a_firm": 2,
     "rows": [
       {
         "place": "brown_boarding_house",
@@ -286,11 +289,11 @@
         "standing": "reconstructed",
         "beds_ordinary": 12,
         "beds_crowded": 28,
-        "keeper_person": null,
-        "firm": null,
+        "keeper_person": "beaubien_mark",
+        "firm": "rcb_beaubien_boarding_house",
         "businesses_in_the_register_at_this_roof": [],
-        "kept_by": null,
-        "why_not": "NO FIRM. The lodgers stage named no keeper for this roof, so there is nobody to adopt and this programme mints none."
+        "kept_by": "this programme",
+        "why_not": null
       },
       {
         "place": "recon_1835_blk_washington_clark_h3_05",
