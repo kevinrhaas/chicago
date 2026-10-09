@@ -20,12 +20,12 @@
   // Notes (/notes/notes.js) file against these keys; a key must not change when a
   // record's wording does, so each is the record's own id where it has one.
   const noteKey = (el, key, label) => { el.dataset.note = String(key).slice(0, 300); el.dataset.noteLabel = String(label || key).slice(0, 300); return el; };
-  let data, sourcesById, census = { byRecord: new Map(), byFrontage: new Map() };
+  let data, sourcesById, census = { byRecord: new Map(), byFrontage: new Map(), allocations: new Map() };
   // The sheet censuses (data/sheet_census/, T-1840) read each 1911 sheet for 1904: every frontage
   // and named record on the sheet once, with what stands, what is a 1911 change and why.
-  const CENSUS_SHEETS = ['20'];
+  const CENSUS_SHEETS = ['20', '28'];
   async function loadCensus() {
-    const out = { byRecord: new Map(), byFrontage: new Map() };
+    const out = { byRecord: new Map(), byFrontage: new Map(), allocations: new Map() };
     for (const sheet of CENSUS_SHEETS) {
       try {
         const response = await fetch('../data/sheet_census/sheet-' + sheet + '.json'); if (!response.ok) continue;
@@ -33,6 +33,8 @@
         for (const f of array(c.frontages)) { out.byFrontage.set(f.frontage_id, { sheet, row: f }); f.named_record_ids.forEach(id => out.byRecord.set(id, { sheet, row: f })); }
         for (const v of array(c.vacant_ground)) v.named_record_ids.forEach(id => out.byRecord.set(id, { sheet, row: v, vacant: true }));
         for (const x of array(c.excluded_records)) out.byRecord.set(x.building_id, { sheet, row: rows.get(x.ground), excluded: x });
+        // Service ground on this sheet given to a record another sheet places (T-1841: the Pullman glasshouses).
+        for (const a of array(c.allocations)) out.allocations.set(a.building_id, [...(out.allocations.get(a.building_id) || []), { sheet, a }]);
       } catch { /* the cards simply go without their 1904 reading */ }
     }
     return out;
@@ -44,6 +46,7 @@
     const { sheet, row } = entry, box = node('section', null, 'census');
     box.append(node('h4', '1904 reading · Sanborn 1911 sheet ' + sheet));
     if (entry.excluded) { box.append(node('p', 'Excluded from 1904. ' + entry.excluded.why), node('p', 'Its ground: ' + row.printed_number_1911 + ' Prairie, which carries ' + (DECISIONS[row.decision_1904] || row.decision_1904).toLowerCase() + '.', 'meta')); return box; }
+    if (row.phase_1904) box.append(node('p', row.phase_1904, 'census-phase'));
     box.append(node('p', (DECISIONS[row.decision_1904] || row.decision_1904) + '. ' + (row.why || '')));
     if (entry.vacant) box.append(node('p', '1911: ' + row.reading_1911 + '. 1886: ' + row.reading_1886 + '.', 'meta'));
     if (array(row.polygons).length) {
@@ -132,6 +135,10 @@
         content.append(events);
       }
       const reading = censusReading(census.byRecord.get(b.id)); if (reading) content.append(reading);
+      for (const { sheet, a } of census.allocations.get(b.id) || []) {
+        const box = node('section', null, 'census'); box.append(node('h4', 'Also on Sanborn 1911 sheet ' + sheet), node('p', a.why));
+        const ul = node('ul'); a.polygons.forEach(p => { const li = node('li', (p.kind === 'non_building_use' ? 'Grounds' : PIECES[p.kind] || p.kind) + ': ' + p.reading_1911); li.append(node('span', ' — 1904 (' + p.tier + '): ' + p.note_1904, 'meta')); ul.append(li); }); box.append(ul); content.append(box);
+      }
       window.PrairieImages?.decorate(content, b.id, summary);
       content.append(citations(b.source_ids)); detail.append(summary,content); detail.id = 'building-' + b.id; noteKey(detail, 'building:' + b.id, b.name || b.id); list.append(detail);
     }
