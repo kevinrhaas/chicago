@@ -2330,8 +2330,10 @@ def self_test() -> int:
     # Chester Ingersoll's as the wife the Democrat prints, so it is no household to rule on.
     # T-2232 RESTATED IT FROM 948 TO 947: Charlotte Wesencraft's card, ruled present, is
     # folded into Mark Noble jun.'s as the bride the Democrat prints, as Betsy Weaver's was.
+    # T-2233 RESTATED IT FROM 947 TO 946: Mary Noble's card, ruled into the town, is folded
+    # into George Bickerdyke's as the bride the same column prints.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 947)
+          len(ruled_present()) == 946)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
