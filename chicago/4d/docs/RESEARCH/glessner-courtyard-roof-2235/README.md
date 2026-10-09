@@ -108,3 +108,14 @@ This is the applicable staged check, not the full fourteen-stage town smoke.
 Its renderer and Glessner assets are the hashes above; the rounded liberties
 prose was republished during its run, so the standing record does not claim
 an exact-tree hash for that mixed metadata timing.
+
+## Dev integration
+
+Dev advanced to `22685d12` (T-1273 household home/work associations) during
+validation. That change is integrated verbatim; the shared source index is
+regenerated and only this branch's changelog entry is re-stamped, now v1558.
+Dev's shipped v1557 remains unchanged. Glessner's geometry and asset hashes
+are unchanged. The focused visual review and mobile smoke predate this merge;
+the broader desktop run overlaps the published metadata/household refresh,
+so its standing record likewise must not claim an exact-tree hash. The final
+combined source tree is covered by the integrated preflight.
