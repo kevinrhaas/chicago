@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1590, ts: '2026-10-09T20:21:24.247Z', date: 'Oct 9, 2026, 3:21 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
+  { v: 1591, ts: '2026-10-09T20:42:54.517Z', date: 'Oct 9, 2026, 3:42 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
     items: [
       'Open L. Franchere or Louis Franch\u00e8re in People. The note on whether they are one man now gives the answer from the printed record. Both copies of the 1834 marriage he witnessed give only the initial L.: the web transcription and the 1921 Illinois Catholic Historical Review it was copied from.',
       'The 1921 Review also says the marriages and the 1833 baptisms are in one bound book. The project already holds that book\u2019s baptism pages but not its marriage pages, so the two cards stay apart until someone reads the marriage page itself.',
+    ] },
+  { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 18th and 20th Streets: a new panel gives its 1904 decision and lists its front building, attached wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Allerton house is back on the map. The 1911 sheet labels it \u201c1918 (1936)\u201d, earlier misread as 1916 (1930), so the bare 1936 corner is its lawn, not an empty lot.',
+      'The Corwith house at 1945, built for George Armour in 1872, gets its own card.',
+      'The photograph posted as Edson Keith\u2019s 1906 house is shown on 1900 Prairie only, the house it pictures. The Keith building at 1906\u20131908 is one house of two homes.',
+      'The glasshouses behind 1811\u20131823 are now credited to the Pullman estate\u2019s garden across 18th Street. Nothing in the 3-D town changes yet.',
     ] },
   { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [

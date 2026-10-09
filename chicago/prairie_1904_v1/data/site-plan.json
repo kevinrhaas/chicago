@@ -2420,7 +2420,9 @@
     ]
    ],
    "frontage_ft": 165.1,
-   "building_ids": []
+   "building_ids": [
+    "pa-1936-11"
+   ]
   },
   {
    "id": "prairie_1936",
@@ -2447,9 +2449,7 @@
     ]
    ],
    "frontage_ft": 25.8,
-   "building_ids": [
-    "pa-1936-11"
-   ]
+   "building_ids": []
   },
   {
    "id": "prairie_1801",
@@ -2797,7 +2797,9 @@
     ]
    ],
    "frontage_ft": 52.5,
-   "building_ids": []
+   "building_ids": [
+    "pa-1945-armour-corwith"
+   ]
   },
   {
    "id": "prairie_2000",
@@ -4901,9 +4903,7 @@
     ]
    ],
    "frontage_ft": 293.2,
-   "building_ids": [
-    "pa-1800-22"
-   ]
+   "building_ids": []
   },
   {
    "id": "calumet_1830",
@@ -5082,9 +5082,7 @@
     ]
    ],
    "frontage_ft": 55.5,
-   "building_ids": [
-    "pa-1900-25"
-   ]
+   "building_ids": []
   },
   {
    "id": "calumet_1910",
@@ -5576,67 +5574,67 @@
    "parcels": [
     "prairie_1808"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1812-7": {
    "parcels": [
     "prairie_1812"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1824-8": {
    "parcels": [
     "prairie_1824"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1834-9": {
    "parcels": [
     "prairie_1834"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1912-10": {
    "parcels": [
     "prairie_1912"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1936-11": {
    "parcels": [
-    "prairie_1936"
+    "prairie_1918"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1815-12": {
    "parcels": [
     "prairie_1815"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1823-13": {
    "parcels": [
     "prairie_1823"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1827-14": {
    "parcels": [
     "prairie_1827"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1901-15": {
    "parcels": [
     "prairie_1901"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1905-16": {
    "parcels": [
     "prairie_1905"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-2009-17": {
    "parcels": [
@@ -5674,35 +5672,33 @@
   },
   "pa-1800-22": {
    "parcels": [
-    "calumet_1800",
     "prairie_1800"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1801-23": {
    "parcels": [
     "prairie_1801"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1811-24": {
    "parcels": [
     "prairie_1811"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1900-25": {
    "parcels": [
-    "calumet_1900",
     "prairie_1900"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1919-26": {
    "parcels": [
     "prairie_1919"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-2013-29": {
    "parcels": [
@@ -5721,19 +5717,19 @@
    "parcels": [
     "prairie_1816"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1906-34": {
    "parcels": [
     "prairie_1906"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-1923-35": {
    "parcels": [
     "prairie_1923"
    ],
-   "by": "printed number"
+   "by": "sheet census (T-1841)"
   },
   "pa-2021-36": {
    "parcels": [
@@ -5789,7 +5785,7 @@
    "parcels": [
     "prairie_1808"
    ],
-   "by": "nearest lower printed number on the same face"
+   "by": "sheet census (T-1841)"
   },
   "pa-1637-45": {
    "parcels": [
@@ -5893,6 +5889,12 @@
     "prairie_1620"
    ],
    "by": "sheet census (T-1840)"
+  },
+  "pa-1945-armour-corwith": {
+   "parcels": [
+    "prairie_1945"
+   ],
+   "by": "sheet census (T-1841)"
   }
  },
  "unplaced": [
