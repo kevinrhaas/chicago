@@ -1,3 +1,36 @@
+## T-2176 — the South's last asked-for houses and its last owed barn: block 81's lot 1, block 95's lot 1, and a barn on South Water–Wells (2026-10-08)
+
+Rebuilt on `dev` at bd4f140d0 from salvage PR #536, then lapped over T-2179 (2acf51667) and walked again. That branch was cut before T-2174 re-dealt the
+schedule and built a D2 and a D4 that are no longer asked for, so its recipe entries, prose and
+order-book edit were ported and re-aimed. Its meshes and seating were thrown away and re-derived.
+
+- **Three second-deal recipe entries** in `1835_platted_block_parcels.json`, built by
+  `generate_block_infill.py`: `phase3_platted_block_school_section_tier_81_lot_1` (`seq_start` 7, a
+  D5 on lot 1 fronting Monroe, dealt against hh_dewey_s's slot);
+  `phase3_platted_block_school_section_tier_95_lot_1` (`seq_start` 7, a D6 on lot 1 fronting
+  Monroe, dealt against hh_dickson_david's slot); and
+  `phase3_platted_block_south_water_wells_second_yard_deal` (`seq_start` 10, an A2 behind the D3
+  on lot 7). The first entries of blocks 81 and 95 no longer name lot 1 open. **L408** records the
+  invention.
+- **Seating at its fixpoint**: thirteen full laps on the tree merged with T-2179 (adopt_street_faces → reconcile_665 → redeal →
+  keepers → the four infill generators → reconcile_665 → the seating chain), the last moving
+  nothing. **214 seated, all adopted, no `slot` left on the plat**. 22 households change roof:
+  hh_coslet_elisabeth adopts the D5 and hh_comstock_h_h the D6, and the two who asked are seated on
+  standing South roofs (hh_dewey_s on recon_1835_south_d3_017, hh_dickson_david on
+  recon_1835_south_d4_014). Keepers 96 → 97. L263 659 → 662, L270 214 held, L276 96 → 97. The
+  order book's seated pin holds at 313.
+- **Baked** (`bake.sh --only`, pinned Blender 4.5.3): the three new meshes and the 19 roofs the first walk moved, then the 11 the walk over T-2179 moved again, all
+  with web derivatives. Generator half 699/693 → 702/696.
+- **Re-derived**: `rederive.mjs --tail` from `adopt_street_faces`, from `compile_liberties` and
+  from `town_census` (after the completion audit), plus entrances, alley lanes, woodpiles, the
+  register, hay limits, land tracts, the population profile and the Newberry leads (all four
+  volumes re-parsed). The T-0419 corridor baseline is rewritten: `roofs_on_moved_blocks` 63 → 64,
+  the barn on South Water–Wells.
+- **Owners moved.** The South barn row reads 0 owed. The six dwellings the schedule still deals (a
+  D2 and a D4 on `blk_south_water_wells`, and the gated `blk_south_water_market`'s) have no
+  household asking for them. `build_order_book_1835.OWNERS` points the South's dwelling, barn and
+  outbuilding rows at **T-2182**, which was filed for them.
+
 ## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
 
 Recovered the source checkpoint `c497167` on the owner's request. Principal

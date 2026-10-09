@@ -1,9 +1,17 @@
 export const CHANGELOG = [ // newest first
-  { v: 1553, ts: '2026-10-09T01:08:53.382Z', date: 'Oct 8, 2026, 8:08 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1554, ts: '2026-10-09T01:39:58.304Z', date: 'Oct 8, 2026, 8:39 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
+    items: [
+      'Walk south down Wells Street past Madison. The Monroe Street corner of the block on your left is no longer empty: a roomy tradesman\u2019s house stands there, facing Monroe, a twin of the one at the block\u2019s other Monroe corner.',
+      'One block west, on Market at Monroe, a larger frame house now fills the last lot the plan dealt that block. Only its Madison corner is still open.',
+      'Behind the cottage on the Lake Street side of the block between Wells and LaSalle, a barn or carriage shed stands in the yard. Every barn the town plan counted for the South Division now stands.',
+      'The two households who had asked for a roof here are now housed, and every household the plan seats on the town\u2019s lots now has a house.',
+      'No source shows these buildings in 1835 or names them. Each card says it is reconstructed, and the Liberties page explains it (L408).',
     ] },
   { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
     items: [

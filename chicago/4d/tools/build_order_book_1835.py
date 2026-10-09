@@ -441,7 +441,13 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2176 WITH T-2147's OWN PR (2026-10-08). T-2147 built block 81's six dwellings
     # and goes `done` when it merges; the seating's fixpoint over them leaves South dwellings
     # still ordered (a D4 slot on block 81's lot 1, a D5 on block 95's), and T-2176 owns them.
-    ("south", "ordinary_dwellings"): "T-2176",
+    #
+    # AND ON TO T-2182 WITH T-2176's OWN PR (2026-10-08). T-2176 built the two dwellings the
+    # seating asked for (block 81's lot 1 and block 95's, a D5 and a D6 once T-2174 had
+    # re-dealt the schedule) and no `slot` request is left on the plat; the schedule still
+    # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
+    # gated), and T-2182 owns them.
+    ("south", "ordinary_dwellings"): "T-2182",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -596,8 +602,11 @@ STRUCTURE_TICKETS = {
     # build that carries the South's one owed barn (an A2 on blk_school_section_tier_81).
     # T-2147 was re-dealt over T-2146 (2026-10-08) and the schedule no longer gives block 81
     # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
-    ("south", "barns_stables"): "T-2176",
-    ("south", "small_outbuildings"): "T-2176",
+    # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
+    # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
+    # re-opens when the schedule re-apportions still names a live ticket.
+    ("south", "barns_stables"): "T-2182",
+    ("south", "small_outbuildings"): "T-2182",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
