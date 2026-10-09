@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1591, ts: '2026-10-09T20:44:18.162Z', date: 'Oct 9, 2026, 3:44 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1592, ts: '2026-10-09T20:54:34.675Z', date: 'Oct 9, 2026, 3:54 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
+    items: [
+      'Nothing you can see changed in the town. The automated walk-through checks that every wall the street-edge layer declines to fence is accounted for, and it still expected one more than the town now has.',
+      'That wall went when the house on the Market wedge was built: a fence refused because the lot stood empty no longer needs refusing. The check now counts 190, with the arithmetic beside it.',
     ] },
   { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
     items: [
