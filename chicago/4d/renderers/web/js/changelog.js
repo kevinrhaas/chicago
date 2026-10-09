@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1578, ts: '2026-10-09T15:00:49.150Z', date: 'Oct 9, 2026, 10:00 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The five houses still owed on the South side\u2019s unsurveyed blocks are kept, not cut, on the owner\u2019s answer. The plan of what is left to build now files them under the street work that will open those blocks, so the automated checks pass again.',
+    ] },
   { v: 1577, ts: '2026-10-09T13:43:01.271Z', date: 'Oct 9, 2026, 8:43 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
     items: [
       'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
