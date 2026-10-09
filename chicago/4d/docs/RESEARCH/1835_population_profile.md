@@ -1904,7 +1904,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 
 ## Roles — plural and dated
 
-328 of 2886 persons carry at least one role and 185 carry two or more. 160 of the 738 roles in the layer reach 1 July 1835; the other 578 are printed against the name in a later volume and say so.
+328 of 2886 persons carry at least one role and 185 carry two or more. 160 of the 742 roles in the layer reach 1 July 1835; the other 582 are printed against the name in a later volume and say so.
 
 ### Persons by number of roles
 
@@ -1913,12 +1913,12 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 | 0 | 2558 | 88.6% |
 | 1 | 143 | 5.0% |
 | 2 or more | 70 | 2.4% |
-| 3 or more | 57 | 2.0% |
+| 3 or more | 56 | 1.9% |
 | 4 or more | 32 | 1.1% |
 | 5 or more | 11 | 0.4% |
-| 6 or more | 8 | 0.3% |
-| 7 or more | 4 | 0.1% |
-| 8 or more | 2 | 0.1% |
+| 6 or more | 9 | 0.3% |
+| 7 or more | 3 | 0.1% |
+| 8 or more | 3 | 0.1% |
 | 9 or more | 1 | 0.0% |
 
 ### Roles by kind
@@ -1927,7 +1927,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 |---|---:|
 | trade | 601 |
 | profession | 84 |
-| office | 52 |
+| office | 56 |
 | employment | 1 |
 
 ### Occupations reaching the scene date, by tier
@@ -2008,7 +2008,7 @@ Every household carries an arrival block and 95.4% of them (1392) hold a `not_la
 | tailor | 1 |
 | watchmaker | 1 |
 
-*Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.*
+*Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Joseph Meeker, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.*
 
 *Houses of entertainment kept: Alanson Sweet, Chester Ingersoll, Edward H. Haddock, Harriet Murphy, Ira Couch, J. Shrigley, James Couch, John Davis, John Murphy, Mark Beaubien, Mrs Rufus Brown, Rufus Brown, William H. Stow, William Walters.*
 

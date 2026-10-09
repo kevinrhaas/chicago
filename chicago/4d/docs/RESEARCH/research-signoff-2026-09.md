@@ -32,21 +32,17 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 373 |
-| asserted | 1,550 |
+| asserted | 1,552 |
 | later_only | 12,616 |
 | outside_chicago | 118 |
-| refused | 8,781 |
-| unresolved | 278 |
+| refused | 8,791 |
+| unresolved | 266 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,550 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,552 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
-| Owner | Units | Live |
-| --- | ---: | ---: |
-| T-1569 | 12 | yes |
-
-Not one of those owners asks for another READING. The heaviest are T-1569 (12) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+There is no owners column left to read: no unresolved unit defers to a ticket, because every reading a band owned has been spent. That is the shape of a finished research spend. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -79,7 +75,7 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Persons in the layer | 2,886 |
 | Carrying at least one dated role | 328 |
 | Carrying two or more | 185 |
-| Role rows in total | 738 |
+| Role rows in total | 742 |
 | Persons whose roles reach 1835-07-01 | 138 |
 | Persons whose every role is dated away from it | 190 |
 | Persons carrying no dated role at all | 2,558 |
@@ -87,19 +83,19 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Role kind | Rows |
 | --- | ---: |
 | `employment` | 1 |
-| `office` | 52 |
+| `office` | 56 |
 | `profession` | 84 |
 | `trade` | 601 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 578 |
+| dated away from it | 582 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
 | `attested` | 127 |
-| `inferred` | 611 |
+| `inferred` | 615 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 
@@ -198,7 +194,7 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 
 | Kind of involvement | Rows |
 | --- | ---: |
-| Offices held, naming the body they were held under | 44 |
+| Offices held, naming the body they were held under | 47 |
 | Persons carrying church evidence | 151 |
 | Agency holdings reaching a card | 3 |
 | Agency holdings refused | 1 |
@@ -209,8 +205,8 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 | Body an office was held under | Rows |
 | --- | ---: |
 | `city_of_chicago` | 15 |
-| `cook_county` | 12 |
-| `town_of_chicago` | 5 |
+| `cook_county` | 13 |
+| `town_of_chicago` | 7 |
 | `united_states_post_office` | 4 |
 | `united_states_indian_department` | 3 |
 | `united_states_land_office` | 3 |
@@ -225,14 +221,14 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 
 ## 5. Withheld is legible
 
-**21,888** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
+**21,898** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
 
 | Withheld as | Units |
 | --- | ---: |
 | `aggregate_only` | 373 |
 | `later_only` | 12,616 |
 | `outside_chicago` | 118 |
-| `refused` | 8,781 |
+| `refused` | 8,791 |
 
 The same rule over the gate itself: of **287** tools carrying a `--check`, **278** are run by `tools/check.sh` and **9** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 

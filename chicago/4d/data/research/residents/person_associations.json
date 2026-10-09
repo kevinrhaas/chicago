@@ -14,11 +14,11 @@
     "persons_gaining_rows": 0,
     "rows_proposed": 0,
     "rows_by_kind": {},
-    "refusals": 331,
+    "refusals": 335,
     "refusals_by_kind": {
       "agency_held": 2,
       "church": 183,
-      "civic_seat": 46,
+      "civic_seat": 50,
       "land_purchased": 93,
       "school": 7
     },
@@ -774,6 +774,14 @@
     },
     {
       "kind": "civic_seat",
+      "person_id": "hogan_john_s_c",
+      "household_id": "hh_hogan_john_s_c",
+      "office": null,
+      "body": "town_of_chicago",
+      "why": "The role itself is dated None to None and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
       "person_id": "jones_william",
       "household_id": "hh_jones_william",
       "office": "justice_of_the_peace",
@@ -811,6 +819,14 @@
       "office": null,
       "body": "city_of_chicago",
       "why": "The role itself is dated 1840 to 1840 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "meeker_joseph",
+      "household_id": "hh_meeker_joseph",
+      "office": null,
+      "body": "not_stated",
+      "why": "The role itself is dated None to None and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
     },
     {
       "kind": "civic_seat",
@@ -944,6 +960,14 @@
       "kind": "civic_seat",
       "person_id": "snow_george_w",
       "household_id": "hh_snow_george_w",
+      "office": null,
+      "body": "town_of_chicago",
+      "why": "THE TOWN HAD NO HALL. `chicago_town_hall` is one of the three guards `civic_public_buildings_1835.md` \u00a7 4 added to data/exclusions.json precisely so that the next parcel would not build one. A town trustee met where he met; no source reached says where."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "snow_george_w",
+      "household_id": "hh_snow_george_w",
       "office": "public_administrator",
       "body": "cook_county",
       "why": "THE COUNTY HAD NO BUILDING ON THE SCENE DATE. `civic_public_buildings_1835.md` \u00a7 4: 'The county's own offices were private until late October 1835 ... Before the county building existed, the Recorder, the Clerk of the Circuit Court, the Judge of Probate and the notary were one man working out of an office of his own.' \u00a7 3 dates the court-house out of the scene and \u00a7 1 leaves the log jail as the only county roof on the square, which is not an office. No source reached names the private room, so there is no place and therefore no row."
@@ -963,6 +987,14 @@
       "office": "sheriff",
       "body": "cook_county",
       "why": "The role itself is dated 1840 to 1840 and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
+    },
+    {
+      "kind": "civic_seat",
+      "person_id": "steele_ashbel",
+      "household_id": "hh_steele_ashbel",
+      "office": null,
+      "body": "cook_county",
+      "why": "The role itself is dated None to None and does not reach the scene date, so there is no office in this scene to seat. A seat table keyed on the office alone would place a man at the 1835 land office on the strength of an 1844 directory."
     },
     {
       "kind": "civic_seat",
