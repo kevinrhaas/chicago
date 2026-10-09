@@ -3997,6 +3997,32 @@
       }
     },
     {
+      "person": "rc_barnes_john",
+      "household": "hh_lodging_recon_1835_blk_washington_market_h3_01",
+      "relationship": "boarder",
+      "stage": "lodgers",
+      "ticket": "T-1371",
+      "bucket": "persons/male/10_19/south/lodging/trade",
+      "rung": "R_seated",
+      "adoptions": [
+        {
+          "layer": "employment",
+          "seat": "at_a_seat_this_project_drew",
+          "houses": [
+            "biz_john_dean_caton"
+          ]
+        }
+      ],
+      "deal_key": "hh_lodging_recon_1835_blk_washington_market_h3_01:rc_barnes_john",
+      "axes": {
+        "sex": "male",
+        "age_band": "10_19",
+        "division": "south",
+        "household": "lodging",
+        "trade": "trade"
+      }
+    },
+    {
       "person": "rc_nichols_alvah",
       "household": "hh_lodging_recon_1835_blk_washington_market_h3_04",
       "relationship": "boarder",
@@ -4058,24 +4084,6 @@
       "rung": "R_seated",
       "adoptions": [],
       "deal_key": "hh_lodging_recon_1835_blk_washington_market_h3_04:rc_fisk_orrin",
-      "axes": {
-        "sex": "male",
-        "age_band": "10_19",
-        "division": "south",
-        "household": "lodging",
-        "trade": "trade"
-      }
-    },
-    {
-      "person": "rc_fairbanks_abner",
-      "household": "hh_lodging_recon_1835_blk_washington_market_h3_04",
-      "relationship": "boarder",
-      "stage": "lodgers",
-      "ticket": "T-1371",
-      "bucket": "persons/male/10_19/south/lodging/trade",
-      "rung": "R_seated",
-      "adoptions": [],
-      "deal_key": "hh_lodging_recon_1835_blk_washington_market_h3_04:rc_fairbanks_abner",
       "axes": {
         "sex": "male",
         "age_band": "10_19",
@@ -11189,7 +11197,7 @@
         },
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_clark_h3_11"
+          "place": "recon_1835_blk_indiana_north_cass_h3_09"
         }
       ],
       "deal_key": "trade_households:persons/male/30_39/north/family/trade:labourer:010",
@@ -11914,7 +11922,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_clinton_h3_02"
+          "place": "recon_1835_blk_washington_clark_h3_05"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/north/family/trade:domestic:011",
@@ -15165,7 +15173,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_dearborn_h3_01"
+          "place": "recon_1835_blk_washington_clark_h3_06"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/south/family/trade:domestic:026",
@@ -19178,7 +19186,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_market_h3_01"
+          "place": "recon_1835_blk_washington_clark_h3_11"
         }
       ],
       "deal_key": "trade_households:persons/female/30_39/south/family/trade:domestic:013",
@@ -19942,7 +19950,7 @@
       "adoptions": [
         {
           "layer": "lodging",
-          "place": "recon_1835_blk_washington_market_h3_04"
+          "place": "recon_1835_blk_washington_clinton_h3_02"
         }
       ],
       "deal_key": "trade_households:persons/female/20_29/west/family/trade:domestic:007",
@@ -30177,7 +30185,7 @@
     "movable_people": 755,
     "refused_on_their_own_account": 313,
     "refused_with_their_house": 113,
-    "carrying_an_adoption_themselves": 201,
+    "carrying_an_adoption_themselves": 202,
     "moves_the_rule_yields": 142,
     "buckets_moved_out_of": 41,
     "buckets_moved_into": 43,
@@ -30217,7 +30225,7 @@
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "201 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "202 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
