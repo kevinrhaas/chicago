@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1580, ts: '2026-10-09T16:03:45.753Z', date: 'Oct 9, 2026, 11:03 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+  { v: 1582, ts: '2026-10-09T16:34:46.138Z', date: 'Oct 9, 2026, 11:34 AM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
       'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
       'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
       'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
+    items: [
+      'The Prairie frontage now has rounded stone lawn edging with gaps at the front door and carriage entrance. Stone paving and low steps meet the front-door sill.',
+      'A stone threshold and continuous carriage surface replace the grass showing through the porte-cochere, joining the existing courtyard drive.',
+      'Historic photographs and HABS drawings guide the layout. Uncertain 1904 paving materials, stone joints and curb dimensions are labeled as reconstructions.',
+    ] },
+  { v: 1580, ts: '2026-10-09T15:39:46.317Z', date: 'Oct 9, 2026, 10:39 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
+    items: [
+      'Ten roofs the South Division still owes have nowhere to stand. The town\u2019s plan said they were waiting for its streets to be carried south to Madison Street. That work was finished on 28 September: all seven north\u2013south streets from Market to State now reach Madison.',
+      'The plan now says what the ten are really waiting on: ground. Every South block they could go on is full, and so is the School Section row just south of Madison. The land beyond Monroe Street has never been divided into lots. The plan now checks each street against Madison, so this note updates itself.',
     ] },
   { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
     items: [

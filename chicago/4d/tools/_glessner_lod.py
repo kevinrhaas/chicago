@@ -134,6 +134,8 @@ def _construct(root):
     for w in params.walls:legacy._gate_piece(b,w)
     b.decorate=False
     for g in params.ground:legacy._ground(b,g)
+    from archetypes.masonry_house_v4_frontage import add_frontage
+    add_frontage(b,params,reduced=True)
     _columns(b,params,d)
     _ridges(b,params,d)
     b.decorate=True
