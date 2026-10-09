@@ -85,6 +85,19 @@
   "confidence": "reconstructed",
   "note": "THE POST IS THE WORKPLACE AND THE POST IS THE DWELLING. A separate `works_at` would assert a second building for the same duty; the fort's own structures carry the garrison on their occupants blocks."
  },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "fort_dearborn_barracks",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "reconstructed",
+   "source_id": null,
+   "note": "SEATED IN THE BUILDING THIS DATASET HOLDS FOR THEM. `fort_dearborn_barracks` carries an `attested` function of `enlisted_mens_barracks` and an occupants block reading 'enlisted men of the 5th Infantry garrison'. Which men is what this stage supplies; the building was already theirs. No coordinate is invented — the roof exists in the record. Reconstructed on the rule `the_barracks_is_the_building_this_dataset_holds_for_them`; no source places this household. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_rc_garrison_company_2#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "reconstructed",

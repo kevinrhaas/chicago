@@ -120,7 +120,15 @@ def add_courtyard_rainwater(b,params):
     north_overhang=north.get('eave_lo_overhang',overhang)
     ny=north['y0']-north_overhang;nz=north['eave_lo_z']-north_overhang*slope
     right=copper['x0'] if copper else north['x1']
-    runs=[(north['x0'],right)]
+    west=ranges.get('west_wing')
+    wg=west.get('stable_roof',{}) if west else {}
+    left=north['x0']
+    if wg.get('level_courtyard_gable'):
+        left=max(left,wg['court_edge_x'])
+        edge=wg['court_edge_x'];ez=wg['court_edge_z']
+        _gutter(b,[(edge,west['y0'],ez),(edge,ny,ez)],[(1,0,0)]*2)
+        _downpipe(b,west['x1']+.10,west['y0']+.10,ez,(edge,west['y0']+.10))
+    runs=[(left,right)]
     if dining:
         da,dc=min(p[0] for p in dining['pts']),max(p[0] for p in dining['pts'])
         runs=[(a,min(c,da)) for a,c in runs if a<da]+[(max(a,dc),c) for a,c in runs if c>dc]
@@ -188,7 +196,7 @@ def add_west_rainwater(b,params):
     the same historical fitting vocabulary as the courtyard. Present only on
     the T-1999 lower rear roof, so older registered versions are unchanged.
     """
-    r=next((r for r in params.ranges if r.get('stable_roof',{}).get('lower_rear_gable') or r.get('stable_roof',{}).get('connected_roof_plan')),None)
+    r=next((r for r in params.ranges if any(r.get('stable_roof',{}).get(k) for k in ('lower_rear_gable','connected_roof_plan','level_courtyard_gable'))),None)
     if not r:return
     from archetypes.masonry_house_v4_west_roof import height
     g=r['stable_roof'];x=r['x0'];south=r['y0'];north=r['y1'];join=g['south_foot_y']
@@ -199,7 +207,7 @@ def add_west_rainwater(b,params):
     # collector at either end rather than continuing across the gable face.
     gx=x-.17;gz=height(r,x, south)-.025
     _gutter(b,[(gx,south,gz),(gx,join,gz)],[(-1,0,0)]*2)
-    for y,top in ((north,g['north_eave']),(join,height(r,x,join)),(south,height(r,x,south))):
+    for y,top in ((north,height(r,x,north)),(join,height(r,x,join)),(south,height(r,x,south))):
         _downpipe(b,x-.12,y,top,(gx,y))
         # Collared shoe carries the water down and away from the foundation.
         _tube(b,[(x-.12,y,.22),(x-.12,y,.10),(x-.27,y,.07)],.044,12)

@@ -284,6 +284,33 @@ committed centreline up to 34 m north onto the waterline and re-scoring every ga
 it — or return the 27 roofs to the South balance the way T-0163 returned
 `blk_south_water_clinton`'s to the West.
 
+### 6.3 The owner ruled for the wedge's eastern two-thirds, and it is cut — 2026-10-08
+
+Asked on T-1957 with three options (re-deal the wedge's roofs south of Madison, build on its eastern
+two-thirds, or return them to the South's targets), the owner took **(b)**: build on the wedge's
+eastern two-thirds only, cutting reconstructed lots where the block has depth. T-2195 cut it, in
+`tools/generate_plat_lots.py` § `build_wedge`, on the **drawn** corridors and without moving any line:
+
+- the Lake Street face from Market's corridor to Franklin's is divided into the module's four lots,
+  and the tier's 18 ft alley is carried west from Franklin's face, where the block is 85.9 m deep
+  like its neighbours, parallel to Lake Street;
+- a lot is kept where its mean depth is at least half the tier's 40.2 m.
+
+| lot | face | mean depth | |
+|---|---|---|---|
+| 8, 7 | Lake | 40.2 m | kept |
+| 6 | Lake | 35.4 m | kept: South Water's corridor clips its north-west corner |
+| 5 | Lake | 2.9 m | withheld: the pinch |
+| 1 | South Water | 35.4 m | kept |
+| 2 | South Water | 18.6 m | withheld: short of 20.1 m |
+| 3, 4 | South Water | 1.1, 0.0 m | withheld |
+
+**Four lots, not the "about five" the question estimated.** The shallowest lot the grid cuts anywhere
+else (26.68 m) gives the same four, so the count does not hang on the bound. The `build_block`
+refusal of the quadrilateral and the 2.8 m measurement above both still fire in `--self-test`;
+what is emitted is the block's lotted part, carrying both readings on its `wedge` field. The lots
+are conjectural, recorded as **L409**.
+
 ## 7. The cross-check: where the town's buildings actually stand
 
 `tools/generate_plat_lots.py --report` puts every placed structure in the 1835 scene against the

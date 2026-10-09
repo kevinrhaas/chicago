@@ -21,6 +21,12 @@
       "finding": "Reproduces: ran `--write` on a clean tree in 4s, wrote its outputs, changed no committed byte.",
       "placed": "after the structure and plat writers, before generate_dooryard_plantings.py, which reads its polygon (T-2084)"
     },
+    "settle_family_cycle.py": {
+      "placement": "manifest",
+      "write_mode": "--build",
+      "measured": "2026-10-09",
+      "finding": "Reproduces: `--build` on a clean dev tree took one lap in 24 s, moved nothing, and changed no committed byte. On #554 (T-2232) merged over dev it settled in one moving lap and left all six stages it drives green (T-2234)."
+    },
     "seat_trade_roofs_1835.py": {
       "placement": "manifest",
       "write_mode": "--build",
@@ -919,6 +925,13 @@
       "measured": "2026-09-18",
       "finding": "Reproduces: ran `--build` on a clean tree in 1s, wrote its outputs, changed no committed byte.",
       "placed": "by layer, 2026-09-18 — reasoned, not derived; see the manifest step"
+    },
+    "household_associations.py": {
+      "placement": "pending",
+      "write_mode": "--write",
+      "measured": "2026-10-08",
+      "finding": "Reproduces: `--write` run a second time on the tree it wrote rewrote no household card and re-wrote data/research/residents/household_associations.json byte-identically (git reported 0 changed paths on the second pass).",
+      "placed": "not yet, for person_associations.py's reason: it writes INTO data/residents/households/*.json, whose lives_at/works_at several reconstruction stages own (reconstruct_garrison_1835.py among them), and it reads data/research/location_reconciliation.json.gz, so its slot is after location_reconciliation.py and after every stage that writes a household's lives_at/works_at - its own measured pass, not an append."
     },
     "person_associations.py": {
       "placement": "pending",

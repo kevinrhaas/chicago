@@ -63,6 +63,19 @@
   ],
   "note": "Andreas's account of the 1835 school year puts him teaching in exactly the building this record models - on the river bank just east of Clark Street, erected by Hamilton and Owen. data/structures/north_side_school_1833.json carries the doubt about whether that building was ever built; this household carries the man who is said to have taught in it."
  },
+ "associated_with": [
+  {
+   "kind": "workplace",
+   "place_or_structure_id": "north_side_school_1833",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "Andreas's account of the 1835 school year puts him teaching in exactly the building this record models - on the river bank just east of Clark Street, erected by Hamilton and Owen. data/structures/north_side_school_1833.json carries the doubt about whether that building was ever built; this household carries the man who is said to have taught in it. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `works_at` AND ITS RECONCILIATION ROW `hh_watkins_john#works_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "attested",

@@ -667,6 +667,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "front_x0": min(fr.x(w) for w in ng["W"]),
                 "front_x1": max(fr.x(w) for w in ng["W"]),
                 "north_eave": fr.zval(ng["eave"]),
+                "north_west_eave": fr.zval(rework.get("north_west_eave", ng["eave"])),
                 "cross_y": fr.y(rework["cross_ridge_S"]),
                 "cross_z": fr.zval(rework["cross_ridge"]),
                 "south_foot_y": fr.y(rework["south_gable_foot_S"]),
@@ -681,7 +682,13 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             west["stable_roof"]["connected_roof_plan"] = rework.get("connected_roof_plan", False)
             west["stable_roof"]["continuous_south_gable"] = rework.get("continuous_south_gable", False)
             west["stable_roof"]["lower_rear_gable"] = rework.get("lower_rear_gable", False)
-            if any(west["stable_roof"].get(k) for k in ("connected_roof_plan", "continuous_south_gable", "lower_rear_gable")):
+            west["stable_roof"]["level_courtyard_gable"] = rework.get("level_courtyard_gable", False)
+            if west["stable_roof"]["level_courtyard_gable"]:
+                west["stable_roof"]["court_edge_x"] = west["x1"] + float(rework["courtyard_overhang_ft"]) * FT
+                west["stable_roof"]["court_edge_z"] = fr.zval(rework["courtyard_eave_edge"])
+                # This joined envelope owns the inside-corner strip, once.
+                north["roof_min"] = west["stable_roof"]["court_edge_x"]
+            if any(west["stable_roof"].get(k) for k in ("connected_roof_plan", "continuous_south_gable", "lower_rear_gable", "level_courtyard_gable")):
                 # The owner's reconstructed section now drives both the roof
                 # and the masonry silhouette; retain that tier in both meshes.
                 west["conf_roof"] = max(west["conf_roof"], cf("v4_detail"))

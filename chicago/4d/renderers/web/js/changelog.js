@@ -1,8 +1,49 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: null, ts: '', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
       'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
+    ] },
+  { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+    items: [
+      'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
+      'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
+    ] },
+  { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
+    ] },
+  { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
+    items: [
+      'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
+      'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and Joseph Leframboise’s household of six, which was still waiting for a roof, now shares a house in the South Division.',
+    ] },
+  { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
+    items: [
+      'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
+      'Cornell’s construction print and the old sidewalk report image are identified as existing photographic exposures. A 1945 IIT facade view adds later evidence, with date and rights limits visible on its card. Archive inquiries are prepared for review and have not been sent.',
+    ] },
+  { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
+    items: [
+      'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',
+      'That is 80 places, each with the same confidence and sources it already had. Where two sources say it, both are now cited. No source gives the years, so each one says \u201cno date either end\u201d.',
+    ] },
+  { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
+    items: [
+      'The narrow block between Lake Street, Franklin Street and the bend of the river, block 21 on the 1834 plat, is now part of the town plan. It has plank walks along Lake, Franklin and South Water Streets, five new board crossings and a back alley.',
+      'The plat draws this block as a triangle but marks no lot lines inside it, so the lots are our reconstruction. We kept the four with room for a house and a yard. The pinched west end stays open ground.',
+      'Dole\u2019s warehouse, a cooperage and a saw-pit already stood here, and their yards are now laid out. The two empty Lake Street lots are grazed prairie for now, and are next in line for houses.',
+    ] },
+  { v: 1555, ts: '2026-10-09T01:46:17.282Z', date: 'Oct 8, 2026, 8:46 PM CT', title: 'Glessner photographs show their evidence limits', kind: 'fix',
+    items: [
+      'Four July 1948 photographs in the Prairie research library now describe the doors, roof, courtyard and industrial interior they actually show. Their previous descriptions remain available in the correction history.',
+      'All 168 audited references now show what was reviewed and how they can inform the 1904 exterior. Disputed attribution, rejected designs, later views and related reproductions carry explicit limits. Three additional Florian views link to the museum.',
+    ] },
+  { v: 1554, ts: '2026-10-09T01:25:35.988Z', date: 'Oct 8, 2026, 8:25 PM CT', title: 'Glessner’s west gable and rear roof regain their proportions', kind: 'fix',
+    items: [
+      'The taller west gable now has the steeper rear-facing slope shown in the supplied elevation. Its apex and roof break give the lower rear section its proper share of the frontage.',
+      'The lower roof, dormer and cupola follow the revised silhouette. The measured footprint and recent courtyard window and eave corrections remain in place. These roof proportions are reconstructed from the reference views.',
     ] },
   { v: 1553, ts: '2026-10-09T01:10:56.683Z', date: 'Oct 8, 2026, 8:10 PM CT', title: 'Two more houses south of Madison, and a barn on Lake Street', kind: 'feature',
     items: [
