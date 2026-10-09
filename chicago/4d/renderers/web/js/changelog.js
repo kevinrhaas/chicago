@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1562, ts: '2026-10-09T05:11:07.707Z', date: 'Oct 9, 2026, 12:11 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
       'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
