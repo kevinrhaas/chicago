@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'Three birth dates checked against the books they came from', kind: 'fix',
+  { v: 1573, ts: '2026-10-09T11:43:23.606Z', date: 'Oct 9, 2026, 6:43 AM CT', title: 'Three birth dates checked against the books they came from', kind: 'fix',
     items: [
       'Nothing you can see changes. Three readings said a book gives a birth for Dr Edmund Kimberly, Dr Philip Maxwell or Alexander Robinson that the town had not yet used. Each one is now read against the book beside the person\u2019s card.',
       'Kimberly\u2019s 7 April 1803 and Maxwell\u2019s 3 April 1799 are already on their cards, and the 1922 medical history gives the same days. For Robinson, neither source gives a birth year, so his card keeps 1762 and keeps saying that year is doubtful.',
