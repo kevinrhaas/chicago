@@ -1,8 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1590, ts: '2026-10-09T20:20:21.801Z', date: 'Oct 9, 2026, 3:20 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
+  { v: null, ts: '', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [
       'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',
       'Six of its blocks, east of the river, are where the South side\u2019s last six houses will go next, on the owner\u2019s ruling.',
+    ] },
+  { v: 1590, ts: '2026-10-09T20:22:14.551Z', date: 'Oct 9, 2026, 3:22 PM CT', title: 'Prairie Avenue\u2019s 18th-to-20th block: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 18th and 20th Streets: a new panel gives its 1904 decision and lists its front building, attached wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Allerton house is back on the map. The 1911 sheet labels it \u201c1918 (1936)\u201d, earlier misread as 1916 (1930), so the bare 1936 corner is its lawn, not an empty lot.',
+      'The Corwith house at 1945, built for George Armour in 1872, gets its own card.',
+      'The photograph posted as Edson Keith\u2019s 1906 house is shown on 1900 Prairie only, the house it pictures. The Keith building at 1906\u20131908 is one house of two homes.',
+      'The glasshouses behind 1811\u20131823 are now credited to the Pullman estate\u2019s garden across 18th Street. Nothing in the 3-D town changes yet.',
     ] },
   { v: 1589, ts: '2026-10-09T19:59:53.408Z', date: 'Oct 9, 2026, 2:59 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [
