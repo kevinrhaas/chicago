@@ -1,8 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1593, ts: '2026-10-09T22:05:17.322Z', date: 'Oct 9, 2026, 5:05 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: 1596, ts: '2026-10-09T22:17:15.901Z', date: 'Oct 9, 2026, 5:17 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
       'His second house is gone. Other households move into it and the houses they leave, and Jacob Donner, who was waiting for a roof, now has one on the South side.',
+    ] },
+  { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
+    items: [
+      'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
+      'Close views retain the physical six-inch tiles and five-inch courses. Roof outlines, ridge ornaments and the copper roofs keep their geometry.',
+    ] },
+  { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
+    items: [
+      'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',
+      'Six of its blocks, east of the river, are where the South side\u2019s last six houses will go next, on the owner\u2019s ruling.',
+    ] },
+  { v: 1593, ts: '2026-10-09T21:09:16.862Z', date: 'Oct 9, 2026, 4:09 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
+    items: [
+      'Open L. Franchere or Louis Franch\u00e8re in People. The note on whether they are one man now gives the answer from the printed record. Both copies of the 1834 marriage he witnessed give only the initial L.: the web transcription and the 1921 Illinois Catholic Historical Review it was copied from.',
+      'The 1921 Review also says the marriages and the 1833 baptisms are in one bound book. The project already holds that book\u2019s baptism pages but not its marriage pages, so the two cards stay apart until someone reads the marriage page itself.',
     ] },
   { v: 1592, ts: '2026-10-09T20:54:34.675Z', date: 'Oct 9, 2026, 3:54 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [

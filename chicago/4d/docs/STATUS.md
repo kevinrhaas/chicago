@@ -1,3 +1,38 @@
+## T-2204 — Glessner roof relief filtered at screen scale (2026-10-09)
+
+The fine physical tile noses formed broad moving interference bands in street and
+aerial views. Full and Light now carry an additive `_ROOF_DETAIL` sampling hint;
+the renderer blends unresolved relief over the existing mipmapped tile bed across
+6–24 projected course pixels. Crests and beds are untagged and remain solid.
+Clay maps use trilinear mipmaps and anisotropy eight. Close tiles retain the
+6-inch width / 5-inch exposure established by T-2203.
+
+All 28 original master primitive streams (positions, normals, UVs, confidence and
+indices) and node transforms compare byte-for-byte equal. No roof envelope,
+copper, opening, material provenance or source camera changes. The downloadable
+Full asset grows by 36,908 bytes and Light by 4,648 bytes; the texture payload is
+unchanged. The sampling attribute uses 2,137,844 GPU bytes in Full and 89,196 in Light.
+
+Evidence, moving-view comparisons, rendering costs and validation receipts are in
+[the T-2204 dossier](RESEARCH/glessner-roof-filtering-2204/README.md). The separate
+folded copper corner remains held under T-2220. This is not a claim that the whole
+house has met the photographic-quality programme's target.
+
+## T-2252 — the School Section's Monroe-Adams tier cut into lots (2026-10-09)
+
+The owner ruled (b) on T-2247: cross Monroe and build the South's six gated roofs (D2, D2, D4,
+D4, D5, H3) on the School Section's second row. T-2247 is split in three; this is the cut.
+
+- **The cut is T-1477's**: `tools/cut_school_section_second_tier.py` calls
+  `cut_school_section_tier.derive()` on the grid's row 1 and writes
+  `data/traces/vectors/school_section_second_tier_lots.json`. Same register, same refusals,
+  same module and grades.
+- **The register names all 13 blocks**: eleven of eight lots, 71 and 79 of four, directly under
+  the first tier's four-lot pair at the South Branch; 79 is the row's one wet block. 96 lots.
+- **East of the river** by T-2144's own test: 82, 93, 96, 117, 120, 141, which is 48 lots.
+- **Not done:** nothing is seated. Joining the tier to the grid and the roof schedule is T-2253;
+  raising the six is T-2254. Block 2 is half off the modelled field and is cut but not built on.
+
 ## T-2196 — a boarding house in a two-unit row on the Market wedge's lot 7 (2026-10-09)
 
 The owner answered T-2196 with **(a)**: lot 7 of `blk_south_water_market` becomes a two-unit
@@ -27,6 +62,7 @@ stands in it; the other waits in the gated balance for S9. He answered T-2242 th
   **T-2247** (the S9 street work and the gated roofs behind it), since T-2242 is withdrawn and T-2196 closes.
 - Baked: the H3, the D5 and the Clark house whose keeper moved. Generator half 704/698; corridor-strip
   baseline `roofs_on_moved_blocks` 67 → 68 (the build itself, as on T-2238).
+
 ## T-2246 — the store roofs still owed: four ruled empty, one kept (2026-10-09)
 
 T-2245 left the order book owing 5 store households (south 4, west 1): store roofs standing

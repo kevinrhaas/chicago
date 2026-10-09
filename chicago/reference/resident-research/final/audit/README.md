@@ -27,7 +27,7 @@ Each line is *how many of the 2885 people carry at least one record of that kind
 | --- | ---: | ---: | --- |
 | identities | **1436** | 49.8% | a name with at least one source id anywhere on the card |
 | occupations | **340** | 11.8% | an occupation that is not `none_recorded` |
-| household membership | **1805** | 62.6% | recorded inside a household of two or more people |
+| household membership | **1806** | 62.6% | recorded inside a household of two or more people |
 | kinship | **1240** | 43.0% | a stated kin relationship (brother, child, daughter, father, husband, mother, sister, son, wife) |
 | property / address | **287** | 9.9% | the household resolves a `lives_at` or a `works_at` |
 | voter / civic evidence | **306** | 10.6% | a poll book, tax list, muster roll, treaty payment or other public record |
@@ -328,7 +328,7 @@ defect in this export.
 | --- | ---: | --- |
 | no census linkage | 2838 | no 1840 census row is bridged to this person |
 | no address | 2598 | neither `lives_at` nor `works_at` resolves |
-| unplaced | 2375 | the household carries division `unplaced`: in the town, on no lot |
+| unplaced | 2370 | the household carries division `unplaced`: in the town, on no lot |
 | no research row | 2049 | no cohort ticket has reviewed this person; the programme reached 836 of 2885 |
 | no source of their own | 1449 | the collective `household_member` rows — "the rest of the Beaubien household, unnamed" and its two fellows — which are an inferred count of people, not named individuals; the household record carries the sources |
 | rests on one source | 951 | one source id on the card and no second category to check it against |
