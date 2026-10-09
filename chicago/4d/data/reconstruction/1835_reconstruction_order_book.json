@@ -1623,7 +1623,7 @@
     "households_known": 165,
     "households_known_records": 1404,
     "households_awaiting_a_household": 1239,
-    "households_to_reconstruct": 482,
+    "households_to_reconstruct": 457,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
@@ -1638,7 +1638,7 @@
       3265
     ],
     "households_standing": 210,
-    "households_still_owed": 424
+    "households_still_owed": 399
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1734,10 +1734,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 391,
+      "household_leg_now": 366,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 391. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 366. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -1879,6 +1879,38 @@
     },
     "measured": "The model's civil town wants 944 men aged twenty and over. The present cards name 1,187 and the stages drew 276, so the town holds 1,463, 519 over the model's figure. The pro-rata credit gave these cells 529 of the named; the rest were counted in women's and children's cells. The family cells ordered 203 more and 203 are discharged.",
     "what_this_does_not_do": "It moves nobody, retires nobody and draws nobody, and it does not touch the women's or children's cells, whose orders the same credit holds down: that is T-1174's and T-2021's ground, and their own ratio and under-ten gates bound it."
+  },
+  "store_residence_ruling": {
+    "ticket": "T-2194",
+    "asks": "The book orders store households no standing store roof seats a held head in. Does it over-order them, or is the residents index short?",
+    "by_division": {
+      "north": {
+        "store_roofs_standing": 4,
+        "store_households_ordered": 6,
+        "discharged": 2,
+        "still_owed": 2
+      },
+      "south": {
+        "store_roofs_standing": 42,
+        "store_households_ordered": 62,
+        "discharged": 20,
+        "still_owed": 24
+      },
+      "west": {
+        "store_roofs_standing": 6,
+        "store_households_ordered": 9,
+        "discharged": 3,
+        "still_owed": 5
+      }
+    },
+    "store_roofs_standing": 52,
+    "store_households_ordered": 77,
+    "discharged": 25,
+    "still_owed": 31,
+    "still_owed_by": "T-2236",
+    "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged and 31 are still owed: a keeper for a store roof that stands with nobody in it.",
+    "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households still owed from the store-trade heads among them rather than from anybody new.",
+    "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: that count moves every household row and is T-2237's."
   },
   "bucket_families": [
     {
@@ -4508,10 +4540,11 @@
           },
           "target": 6,
           "known": 2,
-          "to_reconstruct": 4,
+          "to_reconstruct": 2,
           "filled": 0,
-          "owning_ticket": "T-2194",
-          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division"
+          "owning_ticket": "T-2236",
+          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the north division",
+          "discharged_by_the_store_ruling": 2
         },
         {
           "key": "households/store_residence/south",
@@ -4521,10 +4554,11 @@
           },
           "target": 62,
           "known": 18,
-          "to_reconstruct": 44,
+          "to_reconstruct": 24,
           "filled": 0,
-          "owning_ticket": "T-2194",
-          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division"
+          "owning_ticket": "T-2236",
+          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the south division",
+          "discharged_by_the_store_ruling": 20
         },
         {
           "key": "households/store_residence/west",
@@ -4534,10 +4568,11 @@
           },
           "target": 9,
           "known": 1,
-          "to_reconstruct": 8,
+          "to_reconstruct": 5,
           "filled": 0,
-          "owning_ticket": "T-2194",
-          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division"
+          "owning_ticket": "T-2236",
+          "basis": "the model's 645 households apportioned on the inventory's own store_residence roof count in the west division",
+          "discharged_by_the_store_ruling": 3
         },
         {
           "key": "households/garrison/fort",
@@ -5041,7 +5076,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2182",
+          "owning_ticket": "T-2239",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 0 of them to build"
         },
@@ -5251,7 +5286,7 @@
           "to_build": 6,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2182",
+          "owning_ticket": "T-2239",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 6 of them to build"
         },
@@ -5296,7 +5331,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2182",
+          "owning_ticket": "T-2239",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 0 of them to build"
         },
