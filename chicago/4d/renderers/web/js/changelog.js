@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1575, ts: '2026-10-09T12:57:39.732Z', date: 'Oct 9, 2026, 7:57 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
+  { v: 1576, ts: '2026-10-09T13:21:58.919Z', date: 'Oct 9, 2026, 8:21 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
     items: [
       'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
       'Each line says what it proves. A vote cast or a christening attended at Chicago puts the person in the town by that day. A name in print, an 1830 census line or a date after 1 July 1835 is shown for what it is and proves nothing about the scene date.',
       'Twenty-six godparents and sponsors at St Mary\u2019s, among them Josette Laframboise, Jean Baptiste Lavigne and Edward Daly, now have their christening days on these lists. Before this they were named on their cards with no date attached.',
+    ] },
+  { v: 1575, ts: '2026-10-09T12:24:15.716Z', date: 'Oct 9, 2026, 7:24 AM CT', title: 'Three shopkeepers who lived elsewhere now appear at their stores', kind: 'fix',
+    items: [
+      'Open G. Blanshard\u2019s land office or Dr W. G. Austin\u2019s office on Lake Street, or W. Montgomery\u2019s auction rooms on South Water Street. Each keeper is now listed as working there, with a note that they slept elsewhere in the town and nobody lived over the store.',
+      'Two more stores, the Chicago Democrat printing office and Pierce & French, also stay empty, because their keepers already work at the paper\u2019s office and Pierce\u2019s smithy. Nobody is moved or made up. Eight stores still have no keeper\u2019s family, and are next.',
     ] },
   { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [

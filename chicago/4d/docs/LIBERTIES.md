@@ -20136,6 +20136,18 @@ adds the keeper's bed to it. An inhabited store is a dwelling for the census's c
 the documented store-residences already were, so the 18 roofs admit 76 more ruled-in
 households: 41 wait on a roof (125 people) instead of 117 (272), measured over dev @ 48b2c2c15.
 **Recorded:** 2026-10-09.
+**Amended 2026-10-09 (T-2244):** a store roof nobody sleeps or works in, standing a house of
+trade whose keeper the town already places on ANOTHER roof (asleep there by the dealt roof or a
+lodging bed, or at work there by their own card), is ruled a store with nobody living over it.
+The keeper is not moved and the book's order for a household over the store is discharged.
+Five stores: G. Blanshard's, Dr W. G. Austin's and W. Montgomery's (their keepers slept in a
+house of their own, a house of their own and a boarding house), and the Chicago Democrat
+printing office and Pierce & French (whose keepers' own cards put their work at the
+documented Democrat office and Pierce's smithy). The first three keepers are listed on their
+store's card as having worked there; the other two are not, because their cards already say
+where they worked. **What is invented** is that nobody slept over those five stores, which no
+source says either way; it is the reading that leaves every keeper where the town already
+had them.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
