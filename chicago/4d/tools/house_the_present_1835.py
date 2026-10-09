@@ -132,6 +132,20 @@ on to the rungs below. Nobody is minted, no house of trade is raised or moved, a
 touched: what is invented is which store roof the keeper's house stands in, which is L354's
 liberty, the same as every other seat here.
 
+## THE STORES NOBODY IS SEATED OVER (T-2244, T-2246)
+
+A generated store roof nobody sleeps or works in, standing a house of trade whose keeper the
+town places on another roof, is a store nobody lived over (T-2244). And one standing a house
+of trade none of whose keepers the town holds a card for — T-2245's partner_links.json says
+why for each firm, in `not_linked` — is a store nobody is seated over (T-2246): the register's
+mint refuses each of those keepers a card (a firm, not a person; a surname, a trade and
+nothing else; the town already names the surname), and this deal does not mint around it.
+Either way the book's order for a household over the store is discharged.
+
+A stated use (data/reconstruction/1835_stated_uses.json, T-1826) is for a roof nobody holds
+and retires when a keeper can take it. recon_1835_west_020's did on T-2246: a C2 store whose
+use named no trade, standing empty while three Canal Street keepers boarded.
+
 The invention is docs/LIBERTIES.md **L354**.
 """
 
@@ -154,6 +168,7 @@ TICKET = "T-1971"
 RULED_TICKET = "T-1972"
 KEEPER_TICKET = "T-2236"
 ELSEWHERE_TICKET = "T-2244"
+UNHELD_TICKET = "T-2246"
 LIBERTY = "L354"
 RULINGS = DATA / "reconstruction" / "1835_presence_rulings.json"
 
@@ -184,6 +199,7 @@ WORKSHOP_TRADES = {o for family, rule in TRADE_ROOF_MATCH.items() if family.star
                    for o in rule.get("occupations", ())}
 ORDER_BOOK = DATA / "reconstruction" / "1835_reconstruction_order_book.json"
 STREET_FACES = DATA / "research" / "newspapers" / "street_face_adoptions.json"
+PARTNER_LINKS = DATA / "businesses" / "rulings" / "partner_links.json"
 KEEPER_ROLES = {"proprietor", "partner"}
 # A documented building counts as a DWELLING for the census's ratio by its own function.
 # It is never offered to the deal (a researched house is not re-tenanted by a policy), but
@@ -300,13 +316,22 @@ def read_inputs() -> dict:
                load(STREET_FACES).get("adoptions") or []}
     household_of = {p["id"]: hid for hid, e in cards.items()
                     for p in e["card"].get("persons") or [] if p.get("id")}
-    keepers, business_at = {}, set()
+    # T-2246: T-2245's ruling on each firm whose keeper it could not link to a card.
+    not_linked = {}
+    for r in (load(PARTNER_LINKS).get("not_linked") or []) if PARTNER_LINKS.exists() else ():
+        not_linked.setdefault(r["business_id"], []).append(r)
+    keepers, business_at, unheld = {}, set(), {}
     for b in load(DATA / "businesses" / "index.json")["businesses"]:
         at = (b.get("where") or {}).get("structure_id") or adopted.get(b.get("register_id")) \
             or adopted.get(b["id"])
         business_at.add(at)
         if b.get("present_at_scene_date") is not True:
             continue
+        if at in standing and b["id"] in not_linked and not any(
+                household_of.get(p.get("person_id")) for p in b.get("people") or []
+                if p.get("role") in KEEPER_ROLES):
+            unheld.setdefault(at, []).append({"business": b["id"], "name": b.get("name", ""),
+                                              "not_linked": not_linked[b["id"]]})
         trade = b.get("occupation")
         for person in b.get("people") or []:
             hid = household_of.get(person.get("person_id"))
@@ -331,8 +356,10 @@ def read_inputs() -> dict:
 
     return {"roofs": roofs, "standing": standing, "cards": cards, "book": book,
             "clauses": clauses, "vessels": {b["id"] for b in boats if b.get("id")},
-            "seated": seated, "at_work_only": at_work - seated, "ruled": ruled, "evidenced_absent": evidenced_absent,
-            "keepers": keepers, "business_at": business_at, "store_room": store_room}
+            "seated": seated, "at_work_only": at_work - seated, "ruled": ruled,
+            "evidenced_absent": evidenced_absent,
+            "keepers": keepers, "business_at": business_at, "store_room": store_room,
+            "unheld": unheld}
 
 
 def lag_days(card: dict) -> int:
@@ -616,6 +643,29 @@ def deal(inputs: dict) -> dict:
                       "over this store"),
         })
     elsewhere_by = Counter(r["division"] for r in kept_elsewhere)
+    # T-2246. A store roof nobody sleeps or works in, standing a house of trade present on
+    # the scene date none of whose keepers the town holds a card for — T-2245's
+    # partner_links.json says why for each firm, in `not_linked` — is a store with nobody
+    # seated over it. No household is formed for the keeper: the register's own mint
+    # (mint_documented_residents.py) refuses every one of them a card, so forming one here
+    # would be minting the person a stronger pass declined to. The book's order for a
+    # household over that store is discharged, as T-2244's is.
+    ruled_away = {r["structure_id"] for r in kept_elsewhere}
+    unheld_stores = []
+    for sid in sorted(sid for sid in own_store_ok if people[sid] == 0 and not rows_now.get(sid)
+                      and sid not in stores_taken and sid not in ruled_away
+                      and sid in inputs["unheld"]):
+        firm = inputs["unheld"][sid][0]
+        unheld_stores.append({
+            "structure_id": sid, "division": roofs[sid]["district"],
+            "business": firm["business"], "name": firm["name"],
+            "keepers_not_held": [r["name"] for r in firm["not_linked"]],
+            "why": " ".join(r["why"] for r in firm["not_linked"]),
+            "words": (f"the town holds no card for the keeper of {firm['name']} "
+                      f"({', '.join(r['name'] for r in firm['not_linked'])}), so nobody is "
+                      "seated over this store"),
+        })
+    unheld_by = Counter(r["division"] for r in unheld_stores)
 
     counted_apart = sorted(absent + [{
         "household": hid, "file": cards[hid]["file"], "persons": size(hid),
@@ -731,6 +781,23 @@ def deal(inputs: dict) -> dict:
                 "by_division": {d: elsewhere_by[d] for d in sorted(store_room)},
                 "stores": kept_elsewhere,
             },
+            "keeper_not_held": {
+                "ticket": UNHELD_TICKET,
+                "rule": "a generated store roof nobody sleeps or works in, standing a house of "
+                        "trade present on the scene date none of whose keepers (proprietor or "
+                        "partner) the town holds a card for, where T-2245's ruling "
+                        "(data/businesses/rulings/partner_links.json, not_linked) says why, is "
+                        "a store with nobody seated over it: no household is formed for the "
+                        "keeper, and the book's order for a household over it is discharged "
+                        "(build_order_book_1835.py, store_residence_ruling)",
+                "not_formed": "the register's mint (tools/mint_documented_residents.py) "
+                              "refuses each of these keepers a card of their own — a firm, "
+                              "not a person; a surname, a trade and nothing else; the town "
+                              "already names the surname — and this deal does not mint "
+                              "around it",
+                "by_division": {d: unheld_by[d] for d in sorted(store_room)},
+                "stores": unheld_stores,
+            },
         },
         "the_ruled_in": {
             "ticket": RULED_TICKET,
@@ -831,6 +898,19 @@ def problems(doc: dict, inputs: dict) -> list[str]:
                 k["at"] == r["structure_id"] for k in inputs["keepers"].get(r["household"], ())):
             out.append(f"{r['structure_id']} is ruled kept from elsewhere, and {r['household']} "
                        "is not a keeper of its house of trade placed on another roof")
+    elsewhere_ids = {r["structure_id"] for r in doc["the_keepers"]["kept_from_elsewhere"]["stores"]}
+    for r in doc["the_keepers"]["keeper_not_held"]["stores"]:
+        sid, roof = r["structure_id"], inputs["roofs"].get(r["structure_id"]) or {}
+        if sid in seat_places or sid in elsewhere_ids:
+            out.append(f"{sid} is ruled a store whose keeper the town holds no card for, and "
+                       "the deal seats a household in it or rules its keeper placed elsewhere")
+        if roof.get("family") not in STORE_FAMILIES or roof.get("documented", True):
+            out.append(f"{sid} is ruled a store whose keeper the town holds no card for and is "
+                       "not a generated store roof")
+        if not any(f["business"] == r["business"] for f in inputs["unheld"].get(sid, ())) or any(
+                k["at"] == sid for ks in inputs["keepers"].values() for k in ks):
+            out.append(f"{sid} is ruled a store whose keeper the town holds no card for, and "
+                       "its house of trade has a keeper the town holds, or none T-2245 ruled on")
     apart = Counter(r["household"] for r in doc["counted_apart"])
     for hid, n in apart.items():
         if n > 1 or hid in seen:
@@ -885,6 +965,8 @@ def report(doc: dict) -> str:
         f"{doc['the_keepers']['room_by_division']} the book orders (T-2236)",
         f"  elsewhere    {doc['the_keepers']['kept_from_elsewhere']['by_division']} stores whose "
         f"keeper is placed on another roof (T-2244)",
+        f"  not held     {doc['the_keepers']['keeper_not_held']['by_division']} stores whose "
+        f"keeper the town holds no card for (T-2246)",
         f"  by division  {c['by_division']}",
         f"  by family    {c['by_family']}",
         f"  roofs        {c['roofs_the_deal_used']} used: {c['roofs_in_the_pool']} in the pool, "
@@ -927,6 +1009,12 @@ def self_test(inputs: dict) -> int:
     expect("a store kept from elsewhere by its own keeper's bed", lambda d: d[
         "the_keepers"]["kept_from_elsewhere"]["stores"][0].update(
         keeper_placed_at=d["the_keepers"]["kept_from_elsewhere"]["stores"][0]["structure_id"]))
+    expect("a store with no keeper held, with a household seated in it", lambda d: d[
+        "the_keepers"]["keeper_not_held"]["stores"].append(
+        {**d["the_keepers"]["keeper_not_held"]["stores"][0],
+         "structure_id": d["seats"][0]["place"]}))
+    expect("a store with no keeper held, on a firm T-2245 never ruled on", lambda d: d[
+        "the_keepers"]["keeper_not_held"]["stores"][0].update(business="biz_x"))
     expect("a town above the census's crowding",
            lambda d: d["the_ceiling"].update(people_per_dwelling=9.0))
 
@@ -953,7 +1041,7 @@ def self_test(inputs: dict) -> int:
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all thirteen guards fire")
+    print("self-test: all fifteen guards fire")
     return 0
 
 

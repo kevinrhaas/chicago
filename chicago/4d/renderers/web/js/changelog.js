@@ -1,9 +1,15 @@
 export const CHANGELOG = [ // newest first
-  { v: 1582, ts: '2026-10-09T16:52:23.948Z', date: 'Oct 9, 2026, 11:52 AM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+  { v: 1583, ts: '2026-10-09T17:18:51.669Z', date: 'Oct 9, 2026, 12:18 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [
       'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
       'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
-      'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 30 more households the town adds by its own rules now wait for a house still to be built, up from 28 to 58. The completion audit and the population counts now leave the place of work out too.',
+      'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 30 more households the town adds by its own rules now wait for a house still to be built, up from 26 to 56. The completion audit and the population counts now leave the place of work out too.',
+    ] },
+  { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
+    items: [
+      'Open the small store with attic rooms on the teamster approach by Canal and Randolph. It stood empty, marked as a store whose keeper was not named. L. Chevalier, who sold watches, jewelry, engravings and fancy goods on Canal Street, now keeps it and lives over it. Before this he boarded in another household.',
+      'Nothing changes on the cards of four South Water Street stores: H. Doty & Co., Rockwell\u2019s cabinet furniture warehouse, the Chicago Bakery and Harmon, Loomis & Co. The town has no card for any of their keepers, so they stay without anyone living over them, and the town no longer counts them as homes still to fill.',
+      'With one more home in use, John Vale\u2019s household of five and J. Wright, who were waiting for a roof, now have one. Some boarders move to other houses as a result.',
     ] },
   { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
     items: [

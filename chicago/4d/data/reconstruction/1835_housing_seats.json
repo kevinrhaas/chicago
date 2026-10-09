@@ -33,43 +33,43 @@
     "ruled_in_households_already_housed": 38,
     "ruled_in_households_owed_a_roof": 887,
     "of_them_only_at_work_on_a_roof": 31,
-    "seated": 1788,
+    "seated": 1790,
     "seated_by_presence": {
       "on_the_card": 950,
-      "ruled_in": 838
+      "ruled_in": 840
     },
     "refused": 0,
-    "persons_seated": 2961,
+    "persons_seated": 2969,
     "counted_apart": {
       "absent_on_the_scene_date": 48,
-      "waiting_on_a_roof": 58
+      "waiting_on_a_roof": 56
     },
     "persons_counted_apart": {
       "absent_on_the_scene_date": 48,
-      "waiting_on_a_roof": 161
+      "waiting_on_a_roof": 153
     },
     "by_rung": {
-      "boarder": 1230,
-      "dealt": 285,
+      "boarder": 1229,
+      "dealt": 287,
       "family": 246,
-      "keeper": 22,
+      "keeper": 23,
       "lodger": 5
     },
     "by_division": {
       "north": 483,
-      "south": 919,
-      "west": 386
+      "south": 920,
+      "west": 387
     },
     "by_family": {
       "C1": 4,
-      "C2": 6,
+      "C2": 7,
       "C3": 9,
       "C4": 3,
-      "D1": 126,
+      "D1": 125,
       "D2": 96,
-      "D3": 238,
+      "D3": 239,
       "D4": 366,
-      "D5": 334,
+      "D5": 335,
       "D6": 148,
       "D7": 203,
       "H1": 109,
@@ -77,18 +77,18 @@
       "H3": 5
     },
     "roofs_in_the_pool": 222,
-    "roofs_the_deal_used": 314,
-    "of_them_assigned_to_their_own_household": 97
+    "roofs_the_deal_used": 317,
+    "of_them_assigned_to_their_own_household": 100
   },
   "the_ceiling": {
     "census_people_per_dwelling": 8.204,
     "source": "data/reconstruction/1835_town_model.json people_per_dwelling_november_1835 (3,265 people in 398 dwellings)",
     "the_ratio_is": "people under a roof / standing dwellings — the enumerator's own division, every dwelling counted whether this layer links anybody to it or not",
-    "standing_dwellings": 410,
-    "people_under_a_roof": 3360,
+    "standing_dwellings": 411,
+    "people_under_a_roof": 3368,
     "people_per_dwelling": 8.195,
-    "inhabited_roofs": 347,
-    "people_per_inhabited_roof": 9.683,
+    "inhabited_roofs": 350,
+    "people_per_inhabited_roof": 9.623,
     "why_the_two_differ": "documented dwellings no card links and roofs whose record already states its occupants stand in the first count and are refused by this deal; who sleeps in them is T-1966's and T-1615's to settle, not a policy deal's",
     "most_crowded_roof": {
       "structure_id": "recon_1835_blk_washington_wells_h2_07",
@@ -113,10 +113,10 @@
     "kept_by_division": {
       "north": 2,
       "south": 16,
-      "west": 4
+      "west": 5
     },
     "keepers_held": 179,
-    "store_roofs_offered": 8,
+    "store_roofs_offered": 9,
     "kept_from_elsewhere": {
       "ticket": "T-2244",
       "rule": "a generated store roof nobody sleeps or works in, standing a house of trade whose keeper (proprietor or partner) the town already places on another roof, is a store with nobody living over it: the keeper is not moved, and the book's order for a household over it is discharged (build_order_book_1835.py, store_residence_ruling)",
@@ -184,6 +184,62 @@
           "words": "the keeper of Clark, Filer & Co. is placed on another roof, so nobody lived over this store"
         }
       ]
+    },
+    "keeper_not_held": {
+      "ticket": "T-2246",
+      "rule": "a generated store roof nobody sleeps or works in, standing a house of trade present on the scene date none of whose keepers (proprietor or partner) the town holds a card for, where T-2245's ruling (data/businesses/rulings/partner_links.json, not_linked) says why, is a store with nobody seated over it: no household is formed for the keeper, and the book's order for a household over it is discharged (build_order_book_1835.py, store_residence_ruling)",
+      "not_formed": "the register's mint (tools/mint_documented_residents.py) refuses each of these keepers a card of their own — a firm, not a person; a surname, a trade and nothing else; the town already names the surname — and this deal does not mint around it",
+      "by_division": {
+        "north": 0,
+        "south": 4,
+        "west": 0
+      },
+      "stores": [
+        {
+          "structure_id": "recon_1835_blk_south_water_dearborn_c2_07",
+          "division": "south",
+          "business": "biz_harmon_loomis_co",
+          "name": "Harmon, Loomis & Co.",
+          "keepers_not_held": [
+            "Harmon"
+          ],
+          "why": "The style's 'Harmon' is one or both of the brothers hh_harmon_brothers carries (Charles L. and Isaac D.), and a link names one person; the card already puts them at work in the firm's documented store, harmon_loomis_store, so the town places them at the documented store and not over the roof the street-face adoption gave the firm (T-2246).",
+          "words": "the town holds no card for the keeper of Harmon, Loomis & Co. (Harmon), so nobody is seated over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_09",
+          "division": "south",
+          "business": "biz_h_doty_co",
+          "name": "H. Doty & Co.",
+          "keepers_not_held": [
+            "H. Doty"
+          ],
+          "why": "The town holds J. D. Doty only, a different initial; this project never joins those.",
+          "words": "the town holds no card for the keeper of H. Doty & Co. (H. Doty), so nobody is seated over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_south_water_franklin_c2_10",
+          "division": "south",
+          "business": "biz_rockwell_cabinet_furniture_warehouse",
+          "name": "Rockwell, cabinet furniture warehouse",
+          "keepers_not_held": [
+            "Rockwell"
+          ],
+          "why": "No Rockwell card exists.",
+          "words": "the town holds no card for the keeper of Rockwell, cabinet furniture warehouse (Rockwell), so nobody is seated over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_south_water_wells_c2_01",
+          "division": "south",
+          "business": "biz_chicago_bakery",
+          "name": "Chicago Bakery",
+          "keepers_not_held": [
+            "D. Graves"
+          ],
+          "why": "No card for a D. Graves exists; the register holds the name as a person the town does not yet hold.",
+          "words": "the town holds no card for the keeper of Chicago Bakery (D. Graves), so nobody is seated over this store"
+        }
+      ]
     }
   },
   "the_ruled_in": {
@@ -191,17 +247,17 @@
     "who": "households whose cards still read `uncertain` and whom T-1386's rule puts in the town (data/reconstruction/1835_presence_rulings.json): an attested or inferred resident is present unless evidence says otherwise",
     "order": "the ruling's leg, strongest first (on_the_day, spans, bracketed, carried), then the nearest last dated reading, then a seeded hash",
     "the_line_stops": "at the first household the census's people per dwelling cannot take; nobody behind it is seated, so a weaker ruling never takes a roof a stronger one waits for",
-    "admitted": 829,
+    "admitted": 831,
     "kept_a_store_before_the_line": 9,
-    "waiting": 58,
+    "waiting": 56,
     "admitted_by_leg": {
       "bracketed": 29,
-      "carried": 715,
+      "carried": 717,
       "on_the_day": 49,
       "spans": 36
     },
     "waiting_by_leg": {
-      "carried": 58
+      "carried": 56
     }
   },
   "counted_apart_reasons": {
@@ -688,6 +744,18 @@
       "family": "H2",
       "presence": "on_the_card",
       "words": "the roof T-1614 dealt this household, joined here and not re-argued"
+    },
+    {
+      "household": "hh_archer_william_b",
+      "file": "households/hh_archer_william_b.json",
+      "place": "recon_1835_south_d3_022",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 1,
+      "division": "south",
+      "family": "D3",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
     },
     {
       "household": "hh_archibald_rius",
@@ -1338,6 +1406,18 @@
       "words": "the roof T-1613 dealt this household, joined here and not re-argued"
     },
     {
+      "household": "hh_beaubien_b",
+      "file": "households/hh_beaubien_b.json",
+      "place": "recon_1835_blk_west_randolph_canal_d5_03",
+      "rung": "dealt",
+      "relation": "lived here",
+      "persons": 7,
+      "division": "west",
+      "family": "D5",
+      "presence": "ruled_in",
+      "words": "the roof T-1613 dealt this household, joined here and not re-argued"
+    },
+    {
       "household": "hh_beaubien_caroline",
       "file": "households/hh_beaubien_caroline.json",
       "place": "recon_1835_blk_washington_lasalle_h1_03",
@@ -1856,7 +1936,7 @@
     {
       "household": "hh_blake_edio_l",
       "file": "households/hh_blake_edio_l.json",
-      "place": "recon_1835_west_001",
+      "place": "recon_1835_west_040",
       "rung": "family",
       "relation": "shared this roof",
       "persons": 8,
@@ -2096,7 +2176,7 @@
     {
       "household": "hh_bonin_augustus",
       "file": "households/hh_bonin_augustus.json",
-      "place": "recon_1835_west_048",
+      "place": "recon_1835_west_001",
       "rung": "family",
       "relation": "shared this roof",
       "persons": 7,
@@ -4472,12 +4552,12 @@
     {
       "household": "hh_david_pemeton",
       "file": "readmitted/hh_david_pemeton.json",
-      "place": "recon_1835_north_d7_088",
+      "place": "recon_1835_north_h2_028",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D7",
+      "family": "H2",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -6176,12 +6256,12 @@
     {
       "household": "hh_francis_labaque",
       "file": "readmitted/hh_francis_labaque.json",
-      "place": "recon_1835_north_d4_087",
+      "place": "recon_1835_north_d7_076",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D4",
+      "family": "D7",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -6920,12 +7000,12 @@
     {
       "household": "hh_hannah_c_freeman",
       "file": "readmitted/hh_hannah_c_freeman.json",
-      "place": "recon_1835_blk_west_randolph_canal_d6_04",
+      "place": "recon_1835_west_003",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "west",
-      "family": "D6",
+      "family": "D4",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -8060,12 +8140,12 @@
     {
       "household": "hh_j_m_i_st_cyr",
       "file": "readmitted/hh_j_m_i_st_cyr.json",
-      "place": "recon_1835_north_d6_021",
+      "place": "recon_1835_north_d4_087",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D6",
+      "family": "D4",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -8360,12 +8440,12 @@
     {
       "household": "hh_john_f_herndon",
       "file": "readmitted/hh_john_f_herndon.json",
-      "place": "recon_1835_north_d6_093",
+      "place": "recon_1835_north_d5_026",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D6",
+      "family": "D5",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -10412,7 +10492,7 @@
     {
       "household": "hh_mather_thomas",
       "file": "households/hh_mather_thomas.json",
-      "place": "recon_1835_west_049",
+      "place": "recon_1835_west_048",
       "rung": "family",
       "relation": "shared this roof",
       "persons": 5,
@@ -10796,7 +10876,7 @@
     {
       "household": "hh_miller_george",
       "file": "households/hh_miller_george.json",
-      "place": "recon_1835_west_040",
+      "place": "recon_1835_west_038",
       "rung": "family",
       "relation": "shared this roof",
       "persons": 8,
@@ -11564,12 +11644,12 @@
     {
       "household": "hh_norman_clarke",
       "file": "readmitted/hh_norman_clarke.json",
-      "place": "recon_1835_north_d4_018",
+      "place": "recon_1835_north_h2_030",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D4",
+      "family": "H2",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -13184,14 +13264,14 @@
     {
       "household": "hh_rc_chevalier_louis",
       "file": "reconstructed_trades/hh_rc_chevalier_louis.json",
-      "place": "recon_1835_west_003",
-      "rung": "boarder",
-      "relation": "boarded here",
+      "place": "recon_1835_west_020",
+      "rung": "keeper",
+      "relation": "kept the store and lived here",
       "persons": 1,
       "division": "west",
-      "family": "D4",
+      "family": "C2",
       "presence": "on_the_card",
-      "words": "boarding in the division's least crowded dwelling"
+      "words": "keeping L. Chevalier, watches, jewelry, engravings and fancy goods, a house of trade the town holds and stands on no roof, over an empty store roof of the west division"
     },
     {
       "household": "hh_rc_chevalier_pierre",
@@ -14108,12 +14188,12 @@
     {
       "household": "hh_rc_hale_ruth",
       "file": "reconstructed_trades/hh_rc_hale_ruth.json",
-      "place": "recon_1835_north_h2_030",
+      "place": "recon_1835_north_d6_093",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "H2",
+      "family": "D6",
       "presence": "on_the_card",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -14924,12 +15004,12 @@
     {
       "household": "hh_rc_metcalf_nancy",
       "file": "reconstructed_trades/hh_rc_metcalf_nancy.json",
-      "place": "recon_1835_blk_washington_clinton_d4_04",
+      "place": "recon_1835_blk_west_randolph_canal_d6_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "west",
-      "family": "D4",
+      "family": "D6",
       "presence": "on_the_card",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -16376,12 +16456,12 @@
     {
       "household": "hh_rc_vieau_marie",
       "file": "reconstructed_trades/hh_rc_vieau_marie.json",
-      "place": "recon_1835_north_d5_026",
+      "place": "recon_1835_north_d4_079",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D5",
+      "family": "D4",
       "presence": "on_the_card",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -16496,12 +16576,12 @@
     {
       "household": "hh_rc_whitcomb_nathaniel",
       "file": "reconstructed_trades/hh_rc_whitcomb_nathaniel.json",
-      "place": "recon_1835_north_d5_082",
+      "place": "recon_1835_north_d6_021",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D5",
+      "family": "D6",
       "presence": "on_the_card",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -17336,12 +17416,12 @@
     {
       "household": "hh_s_sanford_blake",
       "file": "readmitted/hh_s_sanford_blake.json",
-      "place": "recon_1835_north_d7_076",
+      "place": "recon_1835_north_d4_018",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D7",
+      "family": "D4",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -17444,12 +17524,12 @@
     {
       "household": "hh_samuel_ellis",
       "file": "readmitted/hh_samuel_ellis.json",
-      "place": "recon_1835_west_046",
+      "place": "recon_1835_north_d4_043",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
-      "division": "west",
-      "family": "H2",
+      "division": "north",
+      "family": "D4",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -18236,7 +18316,7 @@
     {
       "household": "hh_smow_george_w",
       "file": "households/hh_smow_george_w.json",
-      "place": "recon_1835_west_038",
+      "place": "recon_1835_west_014",
       "rung": "family",
       "relation": "shared this roof",
       "persons": 4,
@@ -18668,7 +18748,7 @@
     {
       "household": "hh_stewart_james",
       "file": "households/hh_stewart_james.json",
-      "place": "recon_1835_west_014",
+      "place": "recon_1835_west_049",
       "rung": "family",
       "relation": "shared this roof",
       "persons": 5,
@@ -19508,12 +19588,12 @@
     {
       "household": "hh_um_chippe_wai_se",
       "file": "underdocumented/hh_um_chippe_wai_se.json",
-      "place": "recon_1835_north_d4_043",
+      "place": "recon_1835_blk_randolph_clinton_d5_01",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
-      "division": "north",
-      "family": "D4",
+      "division": "west",
+      "family": "D5",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -19664,12 +19744,12 @@
     {
       "household": "hh_um_mas_quat",
       "file": "underdocumented/hh_um_mas_quat.json",
-      "place": "recon_1835_north_h2_028",
+      "place": "recon_1835_blk_west_washington_canal_d7_05",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
-      "division": "north",
-      "family": "H2",
+      "division": "west",
+      "family": "D7",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -19724,11 +19804,11 @@
     {
       "household": "hh_um_me_kess",
       "file": "underdocumented/hh_um_me_kess.json",
-      "place": "recon_1835_blk_randolph_clinton_d5_01",
+      "place": "recon_1835_north_d5_082",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
-      "division": "west",
+      "division": "north",
       "family": "D5",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
@@ -19832,12 +19912,12 @@
     {
       "household": "hh_um_mon_ta_niss",
       "file": "underdocumented/hh_um_mon_ta_niss.json",
-      "place": "recon_1835_blk_west_washington_canal_d7_05",
+      "place": "recon_1835_blk_washington_clinton_d4_04",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "west",
-      "family": "D7",
+      "family": "D4",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -20168,12 +20248,12 @@
     {
       "household": "hh_um_wai_sau",
       "file": "underdocumented/hh_um_wai_sau.json",
-      "place": "recon_1835_north_d4_079",
+      "place": "recon_1835_north_d7_088",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "north",
-      "family": "D4",
+      "family": "D7",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -20204,12 +20284,12 @@
     {
       "household": "hh_um_wai_sau_won_quat",
       "file": "underdocumented/hh_um_wai_sau_won_quat.json",
-      "place": "recon_1835_west_029",
+      "place": "recon_1835_west_046",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "west",
-      "family": "D3",
+      "family": "H2",
       "presence": "on_the_card",
       "words": "boarding in the town's least crowded dwelling"
     },
@@ -20576,12 +20656,12 @@
     {
       "household": "hh_vyekoff_henry_s",
       "file": "households/hh_vyekoff_henry_s.json",
-      "place": "recon_1835_west_038",
+      "place": "recon_1835_west_029",
       "rung": "boarder",
       "relation": "boarded here",
       "persons": 1,
       "division": "west",
-      "family": "D1",
+      "family": "D3",
       "presence": "on_the_card",
       "words": "boarding in the division's least crowded dwelling"
     },
@@ -21693,14 +21773,6 @@
       "queue_position": 857
     },
     {
-      "household": "hh_archer_william_b",
-      "file": "households/hh_archer_william_b.json",
-      "persons": 1,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 831
-    },
-    {
       "household": "hh_arquette_joseph",
       "file": "households/hh_arquette_joseph.json",
       "persons": 1,
@@ -21733,14 +21805,6 @@
       "confidence": "attested",
       "basis": "the_card's_own_reading",
       "evidence": "DEAD BEFORE THE DAY (T-2189)."
-    },
-    {
-      "household": "hh_beaubien_b",
-      "file": "households/hh_beaubien_b.json",
-      "persons": 7,
-      "why": "waiting_on_a_roof",
-      "leg": "carried",
-      "queue_position": 830
     },
     {
       "household": "hh_blanchemontagne_alexis_thomas",

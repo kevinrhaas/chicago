@@ -28,9 +28,9 @@
     "keep": 548,
     "refamily": 2,
     "retire": 0,
-    "kept_occupied": 5,
-    "breach_owed_out": 6,
-    "seated": 191,
+    "kept_occupied": 4,
+    "breach_owed_out": 7,
+    "seated": 190,
     "raised_for_a_trade": 31,
     "band_already_fits": 0,
     "roof_target": 668,
@@ -9708,7 +9708,7 @@
       "family": "C2",
       "group": "stores_mixed_use",
       "programme_phase": "phase2_west_wolf_point_approaches",
-      "occupied": true,
+      "occupied": false,
       "raised_for": null,
       "footprint_ft2": 720.0,
       "street": "clinton",
@@ -9718,9 +9718,9 @@
       "conforms": false,
       "verdict": "keep",
       "bucket": "structures/stores_mixed_use/west",
-      "reason": "the placement policy refuses this family here — stands 8.82 m off the street line (2.71 m), and commercial_front puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets",
+      "reason": "the placement policy refuses this family here — stands 8.82 m off the street line (2.71 m), and commercial_front puts it on the line — and no family it could become stands in a group this division is short in; the breach is owed out rather than dealt away",
       "families_offered": [],
-      "kept_occupied": true
+      "breach_owed_out": true
     },
     {
       "id": "recon_1835_west_021",
