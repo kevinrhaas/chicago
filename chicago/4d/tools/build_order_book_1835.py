@@ -168,16 +168,12 @@ HOUSEHOLD_TYPES = (
 # several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
 # wants, and 1,244 present head records with no reading about a dwelling to form them
 # around. That is T-2188's.
-# AND T-2188 SPLIT TOO (2026-10-08), because the two household rows are not one job either.
-# The FAMILY DWELLINGS are formed already: the address book's dealt roofs (T-1613/T-1614)
-# and the housing seats' family rung (T-1971/T-1972) put hundreds of those head records
-# under a standing dwelling as its household, and only this book had not counted them.
-# T-2193 counts them (`tools/count_held_head_dwellings_1835.py`). The STORE RESIDENCES
-# are not: the housing seats refuse every store roof, so no held head stands over a shop,
-# and what the 56 are is T-2194's ruling.
+# SWEPT AGAIN ON T-2188's SPLIT (2026-10-08, ported by T-2190 so its gate stops reading a
+# split owner): the family dwellings go to T-2193, which counts the ones the town already
+# forms around held heads, and the store residences to T-2194.
 FAMILY_OWNER = "T-2187"
 FAMILY_HOUSEHOLD_OWNER = "T-2193"
-STORE_HOUSEHOLD_OWNER = "T-2194"
+STORE_RESIDENCE_OWNER = "T-2194"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
@@ -292,7 +288,7 @@ ROSTER_TICKETS = {
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
     ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
-    ("store_residence", "stores_mixed_use", STORE_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", STORE_RESIDENCE_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -445,13 +441,7 @@ STRUCTURE_TICKETS = {
     # AND ON TO T-2176 WITH T-2147's OWN PR (2026-10-08). T-2147 built block 81's six dwellings
     # and goes `done` when it merges; the seating's fixpoint over them leaves South dwellings
     # still ordered (a D4 slot on block 81's lot 1, a D5 on block 95's), and T-2176 owns them.
-    #
-    # AND ON TO T-2182 WITH T-2176's OWN PR (2026-10-08). T-2176 built the two dwellings the
-    # seating asked for (block 81's lot 1 and block 95's, a D5 and a D6 once T-2174 had
-    # re-dealt the schedule) and no `slot` request is left on the plat; the schedule still
-    # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
-    # gated), and T-2182 owns them.
-    ("south", "ordinary_dwellings"): "T-2182",
+    ("south", "ordinary_dwellings"): "T-2176",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -516,9 +506,9 @@ STRUCTURE_TICKETS = {
     # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
     # schedule re-apportions to blk_washington_market once those three stand, the one on
     # the gated blk_south_water_market, and three the plan holds no roof for at all.
-    # T-1957 WAS SPLIT on 2026-10-08 on the owner's ruling to lot the Market wedge: T-2195
-    # cuts the lots and T-2196 raises the South's two owed boarding houses on them, so the
-    # cell moves to T-2196, the child that builds what it owes.
+    # T-1957 SPLIT on 2026-10-08 (ported by T-2190 so its gate stops reading a split
+    # owner): T-2195 cuts the Market wedge into lots and T-2196 raises the South's two owed
+    # boarding houses on them, so the cell moves to T-2196.
     ("south", "larger_boarding_houses"): "T-2196",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
@@ -606,11 +596,8 @@ STRUCTURE_TICKETS = {
     # build that carries the South's one owed barn (an A2 on blk_school_section_tier_81).
     # T-2147 was re-dealt over T-2146 (2026-10-08) and the schedule no longer gives block 81
     # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
-    # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
-    # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
-    # re-opens when the schedule re-apportions still names a live ticket.
-    ("south", "barns_stables"): "T-2182",
-    ("south", "small_outbuildings"): "T-2182",
+    ("south", "barns_stables"): "T-2176",
+    ("south", "small_outbuildings"): "T-2176",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -3848,7 +3835,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_HOUSEHOLD_OWNER)
+    p_1171 = owed(persons, FAMILY_OWNER)
+    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -4253,10 +4241,21 @@ def _moves_on_disk() -> list:
     return (book.get("re_family_ledger") or {}).get("moves", [])
 
 
-def cmd_build() -> int:
+def cmd_build(owners_gate: bool = True) -> int:
+    """Re-derive the book. `owners_gate=False` is for a FILLER re-deriving it mid-chain.
+
+    T-2189. A filler that WITHDRAWS people — the modelled-families stage taking the wives
+    and children off a head ruled dead before the day — leaves the cells it vacated owing
+    until the stage that fills them runs next (T-1174's women and children, one step
+    below it). Whether every owed row names a live ticket is a claim about the FINISHED
+    book, so it is held at the book's own `--build` and `--check`, which run after every
+    filler; refusing it mid-chain stopped the chain one step short of the stage that pays
+    the debt. The overfill check, which is about the filler's own draw, is never deferred.
+    """
     doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
-    owners = every_work_order_names_a_live_ticket(doc)
+    owners = (every_work_order_names_a_live_ticket(doc) if owners_gate else
+              "the live-owner gate is the book's own --build's, after every filler")
     finish = the_programme_finishes_where_the_rule_does(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
     BOOK.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
