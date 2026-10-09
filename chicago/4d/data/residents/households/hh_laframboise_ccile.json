@@ -129,6 +129,17 @@
     "st_marys_baptismal_register_1833_1835"
    ],
    "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le vingt neuf 10bre mil huit cent trente quatre, je soussigné ai baptisé Cécile fille de Claude Laframboise et de Manqua Masqua[?], âgée de 4 ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_24_2_father, st_marys_bapt_1834_24_1_child), so no identification is made here. The daughter term is the entry's: 'Cécile fille de Claude Laframboise'."
+  },
+  {
+   "person": "laframboise_ccile",
+   "relation": "daughter",
+   "household": "hh_manqua_masqua",
+   "value": "manqua_masqua",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME (T-2191). Entry 24 of 1834: Le vingt neuf 10bre mil huit cent trente quatre, je soussigné ai baptisé Cécile fille de Claude Laframboise et de Manqua Masqua[?], âgée de 4 ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Laframboise. The two cards are the ones that carry this entry's rows (st_marys_bapt_1834_24_3_mother, st_marys_bapt_1834_24_1_child), so no identification is made here. The parent's term is the register's role column; the child's is the entry's own word, 'fille'. hh_manqua_masqua is written whole by its build, and tools/generated_card_kin.py derives both rows of this tie from the one entry, so a rebuild writes them again rather than losing one."
   }
  ],
  "persons": [

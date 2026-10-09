@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1567, ts: '2026-10-09T07:44:28.855Z', date: 'Oct 9, 2026, 2:44 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+  { v: 1568, ts: '2026-10-09T08:21:17.789Z', date: 'Oct 9, 2026, 3:21 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
       'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
       'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
       'No source shows this house in 1835 or names who lived in it. Its card says it is reconstructed, and the Liberties page explains it (L410).',
+    ] },
+  { v: 1567, ts: '2026-10-09T07:39:48.254Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Twelve St Mary\u2019s children now name the parent the register gives them', kind: 'fix',
+    items: [
+      'St Mary\u2019s register names a mother or father for twelve children whose parent the town had carded but never linked to them, among them Joseph Mayo, the Wode twins, Susanne Vieaux and C\u00e9cile Laframboise. Open the child\u2019s card and the parent is now listed under \u201cRelated to\u201d, and the parent\u2019s card lists the child.',
+      'Those parents\u2019 cards are rebuilt from the register each time the town is rebuilt, so a link typed onto them by hand would have been lost. The rebuild now writes each link itself, straight from the baptism entry.',
     ] },
   { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
     items: [
