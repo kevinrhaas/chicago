@@ -161,10 +161,36 @@ def connected_roof(r):
             ('straight_north',(r['x0']-.20,r['x1']+.20,r['y0']-.20,n['y1']),north)]
 
 
+def level_courtyard_gable(r):
+    """T-2235: one full-height stable ridge, with a projecting court eave.
+
+    The west-facing cross-gable is an intersecting roof, not the section of
+    the whole wing. Its photographic silhouette therefore does not lower
+    the north-south ridge or remove the courtyard slope. All joins are plane
+    intersections; there is no falling/skewed ridge or courtyard filler.
+    """
+    g = r['stable_roof']; n = g['north_range']
+    xm, peak = r['ridge_at'], r['ridge_z']
+    edge = g['court_edge_x']
+    court = slope('x', xm, peak, edge, g['court_edge_z'])
+    stable = [slope('x', r['x0'], g['rear_west_eave'], xm, peak), court]
+    front = [slope('x', g['front_x0'], g['north_west_eave'], xm, peak)]
+    cross = [slope('y', r['y1'], g['north_west_eave'], g['cross_y'], g['cross_z']),
+             slope('y', g['south_foot_y'], g['cross_foot_eave'], g['cross_y'], g['cross_z'])]
+    north = [slope('y', n['y0'], n['eave_lo_z'], n['ridge_at'], n['ridge_z']),
+             slope('y', n['y1'], n['eave_hi_z'], n['ridge_at'], n['ridge_z'])]
+    return [('stable_gable', (r['x0']-.15, edge, r['y0']-.20, r['y1']), stable),
+            ('north_gable', (r['x0']-.15, xm, g['cross_y'], r['y1']), front),
+            ('cross', (r['x0']-.15, xm, r['y0']-.20, r['y1']), cross),
+            ('straight_north', (xm, edge, r['y0']-.20, r['y1']), north)]
+
+
 def components(r, include_dormer=True):
     g=r['stable_roof'];x0,x1,y0,y1=r['x0'],r['x1'],r['y0'],r['y1'];ov=.15
     box=(x0-ov,x1,y0-ov,y1)
-    if g.get('connected_roof_plan'):
+    if g.get('level_courtyard_gable'):
+        comps=level_courtyard_gable(r)
+    elif g.get('connected_roof_plan'):
         comps=connected_roof(r)
     elif g.get('lower_rear_gable'):
         comps=lower_rear_gable(r)
@@ -294,6 +320,13 @@ def ridge_ranges(r):
     g=r['stable_roof'];candidates=[('y',r['ridge_at'],r['ridge_z'],g['front_hip_y'],r['y1']),
       ('x',g['cross_y'],g['cross_z'],r['x0'],r['x1']),
       ('y',g['rear_x'],g['rear_z'],g['hip_y'],g['cross_y'])]
+    if g.get('level_courtyard_gable'):
+        candidates=[('y',r['ridge_at'],r['ridge_z'],r['y0'],r['y1']),
+                    ('x',g['cross_y'],g['cross_z'],r['x0'],r['ridge_at']),
+                    ('x',g['north_range']['ridge_at'],g['north_range']['ridge_z'],r['ridge_at'],g['court_edge_x'])]
+        d=g.get('dormer')
+        if d and d.get('connected_ridge'):
+            candidates.append(('x',(d['u0']+d['u1'])/2,d['apex_z'],d['crest_x'],d['back']))
     if g.get('connected_roof_plan'):
         candidates=[('y',r['ridge_at'],r['ridge_z'],r['y0'],r['y1']),
                     ('x',g['north_range']['ridge_at'],g['north_range']['ridge_z'],r['x0'],r['x1'])]

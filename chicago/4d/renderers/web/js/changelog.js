@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1560, ts: '2026-10-09T03:46:47.350Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
+  { v: 1561, ts: '2026-10-09T04:14:01.986Z', date: 'Oct 8, 2026, 11:14 PM CT', title: 'The town stops ordering 335 houses it already has', kind: 'fix',
     items: [
       'The plan of who still has to be added to the 1835 town was asking for 424 more family houses. 429 households the town already holds were living in one, either in a house the town gave them or as a family sharing one. The plan counted houses only from the people cards, and those homes were recorded beside the cards, so it never saw them.',
       'They are counted now, up to what each part of town needs: 88 on the North Side, 168 on the South Side and 79 on the West Side. Nobody is added, moved or changed. The houses still owed fall from 424 to 89. The shop-front households are next.',
       ] },
+  { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
+    ] },
   { v: 1559, ts: '2026-10-09T03:23:46.382Z', date: 'Oct 8, 2026, 10:23 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [
       'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
