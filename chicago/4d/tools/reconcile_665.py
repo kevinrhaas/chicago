@@ -167,6 +167,16 @@ WEST_GRID = "west_division"
 # T-2144. The School Section's Madison-Monroe tier, joined to the grid on the owner's
 # T-1755 ruling — scheduled one roof to a lot, see `programme_document`.
 SCHOOL_SECTION_GRID = "school_section_tier"
+# T-2253. WHAT THE TIER TAKES, AND WHAT IT PASSES ON. The two rulings that opened the
+# School Section opened it to the South's HOUSES: T-1755 to its owed dwellings, and T-2247
+# to "the gated balance's five dwellings (D2, D2, D4, D4, D5) and its one boarding house
+# (H3)". The balance also holds the street line's warehouses — two F3 and an F4, the
+# freight cell of South Water and Lake Street that T-2175 owes — and until the Monroe-Adams
+# tier joined, no tier block had room left to be dealt one. With 48 lots of room the deal
+# reached them, and handed an F3 to block 82, a kilometre from the river it needs (the
+# waterside term below refuses it; L203). So a tier block passes a freight roof on, and the
+# warehouses stay on the balance, owed to the street line and not to the prairie.
+SCHOOL_SECTION_PASSES = ("warehouses_freight",)
 
 
 def west_lot_ceiling(grid: dict, rows: list[dict], recipe_id: str) -> dict:
@@ -1204,10 +1214,12 @@ def southern_ground() -> tuple[dict, str]:
             f"plat's last tier from Washington to Madison among them, nor on "
             f"the School Section's Madison-Monroe tier, the one ground across Madison the "
             f"owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to "
-            f"a lot, each block keeping a lot open). The section's next tier, Monroe to "
-            f"Adams, is now cut into the October 1833 register's lots (T-2252) and the "
-            f"owner's 2026-10-09 ruling on T-2247 (option b) opens its six blocks east of the "
-            f"river; joining them to this schedule is T-2253. Ground east of State is "
+            f"a lot, each block keeping a lot open), nor on the section's next tier, Monroe "
+            f"to Adams, cut into the October 1833 register's lots (T-2252) and joined on the "
+            f"same terms by the owner's 2026-10-09 ruling on T-2247 (option b, T-2253). "
+            f"Neither tier takes a warehouse: the rulings opened them to the South's houses, "
+            f"so a freight roof is passed on to this balance, owed to the South Water and "
+            f"Lake street line (T-2175) and not to the prairie. Ground east of State is "
             f"not coming at any date — it is the United States Reservation (T-E2)."
         )
     return figures, (
@@ -1547,6 +1559,7 @@ def programme_document():
                 "density": ("one principal roof per lot and no party-line row, the "
                             "block keeping one lot open — the School Section tier "
                             "south of Madison (T-2144, on the T-1755 ruling)"),
+                "passes_groups": list(SCHOOL_SECTION_PASSES),
             })
         hold = block.get("reserved")
         if hold:
@@ -1748,6 +1761,15 @@ def programme_document():
                 # waiting on coverage, a statement the ledger can make where "nowhere" is not.
                 take, pool = pool, []
                 unit["capacity_roofs"] = unit["headroom"] = len(take)
+                # T-2253. A SURPLUS OF ROOM IS NOT ROOM FOR EVERY ROOF. The state above was
+                # read off headroom alone, and a School Section block's headroom passes
+                # freight on (`SCHOOL_SECTION_PASSES`), so a district can hold more room than
+                # roofs and still leave roofs here. A balance that takes any is waiting on
+                # ground, and says so in its own sentence rather than "nothing".
+                if take and unit["state"] == "complete":
+                    unit["state"] = "gated"
+                    unit["waiting_on"] = (BALANCE_UNITS[district][1]
+                                          or composed[district])
             else:
                 take, passed = [], []
                 principal_left = unit.get("principal_room", unit["headroom"])
@@ -1757,7 +1779,11 @@ def programme_document():
                 grant = unit.get("row_lot_grant") or {}
                 grant_left = grant.get("room", 0)
                 principal_left -= grant_left
+                passes = unit.get("passes_groups") or ()
                 for family in pool:
+                    if group_of(family) in passes:
+                        passed.append(family)
+                        continue
                     is_ancillary = group_of(family) in ANCILLARY_GROUPS
                     if (not is_ancillary and grant_left > 0
                             and family in grant["families"]

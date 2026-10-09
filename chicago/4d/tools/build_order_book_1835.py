@@ -5515,8 +5515,12 @@ def cmd_self_test() -> int:
     # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
     # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
     # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
+    # 314 -> 319 on 2026-10-09 (T-2253): the School Section's Monroe-Adams tier joins the
+    # plat on the owner's T-2247 ruling and the South's five gated dwellings and its H3 are
+    # dealt to block 82, so five households the deal had handed on are dealt a slot there
+    # (215 -> 220 platted, 99 off-plat, L270) — requests T-2254 raises.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 314
+        data["inventory"], data["programme"], occ))["seated"] == 319
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

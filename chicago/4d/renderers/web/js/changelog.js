@@ -1,4 +1,11 @@
 export const CHANGELOG = [ // newest first
+  { v: 1595, ts: '2026-10-09T22:32:18.958Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+    items: [
+      'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
+      'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Five households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
+    ] },
   { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [
       'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',

@@ -1,3 +1,31 @@
+## T-2253 — the Monroe-Adams tier joins the grid and the roof schedule (2026-10-09)
+
+Piece 2 of 3 of T-2247, on the owner's ruling (b): cross Monroe. T-2252 cut the tier into lots;
+this joins it, exactly as T-2144 joined Madison to Monroe; T-2254 raises the six roofs.
+
+- **`generate_plat_lots.py` quotes both tier files** into the one `school_section_tier` grid, by
+  T-2144's own test (east of the forks, lots on dry ground): **82, 93, 96, 117, 120, 141**, 48 lots.
+  The grid is now 11 blocks and 88 lots; 94 platted blocks, 480 lots in all. West blocks 2-71 and
+  the wet block 79 are not joined.
+- **The schedule deals the six to block 82**: D2, D2, D4, D4, D5 and the H3, one roof to a lot
+  with a lot kept open. Block 117 holds Heacock's documented house and now carries its lot fence,
+  privy and kept ground.
+- **The warehouses stay owed.** The balance also held two F3 and an F4, the street line's freight
+  cell (T-2175). With 48 lots of room the deal reached them, handing an F3 to block 82. That is a
+  kilometre from the river it needs, and the waterside term refused it. Tier blocks now pass the
+  freight group on (`SCHOOL_SECTION_PASSES`). The South balance holds the 3 warehouses, `gated`.
+  Before, a balance with surplus headroom read `complete` and "holds nothing" even while it held
+  roofs; now a balance that takes any roof is gated, with its own sentence.
+- **Seating at a fixpoint** (chain, keeper pass, three infill generators, chain again; the last
+  lap moved nothing): **220 platted seats** (215 before), 99 off-plat. The five new seats are
+  slot requests on block 82, the ones T-2254 raises. No seat already dealt moved (L270).
+  The keeper ledger re-states its "households left" counts only.
+- **One carried-over fault, not this ticket's.** `hh_doty_j_d`, a letter-list household, is one
+  of the five slotted on block 82. The platted deal does not yet read the T-0379 ruling: that is
+  T-1645 (PR open), and T-2254 should build after it lands.
+- Order book tripwire 314 → 319; corridor-strip baseline `blocks_after` 87 → 93 and `lots_after`
+  425 → 473, which is the tier's 6 blocks and 48 lots and nothing else.
+
 ## T-2252 — the School Section's Monroe-Adams tier cut into lots (2026-10-09)
 
 The owner ruled (b) on T-2247: cross Monroe and build the South's six gated roofs (D2, D2, D4,

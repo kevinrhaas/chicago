@@ -28,10 +28,10 @@
     ],
     "confidence": "derived",
     "counts": {
-      "runs_joined_to_a_household": 62,
+      "runs_joined_to_a_household": 66,
       "runs_bounding_structures_only": 588,
-      "households_that_gained_a_fence": 27,
-      "lots_named": 244,
+      "households_that_gained_a_fence": 28,
+      "lots_named": 245,
       "households": [
         "hh_bates_john_jr",
         "hh_beaubien_madore",
@@ -44,6 +44,7 @@
         "hh_democrat_printers",
         "hh_haddock_edward",
         "hh_harmon_elijah_d",
+        "hh_heacock_russel_e",
         "hh_hubbard_gurdon",
         "hh_jones_benjamin",
         "hh_kimball_walter",
@@ -64,9 +65,9 @@
     },
     "not_joined_on_the_occupants_prose": {
       "_doc": "THE JOIN DOES NOT READ `occupants`, and this is the count of what it passed over. A structure record's occupants block is prose that often names a household id; most of those ids belong to households the 2026-09-02 synthesis removed and the index no longer holds (T-0516), and a mention is not an occupancy — philo_carpenter_log_shop names hh_chappel_eliza_mir in a sentence whose own value says no occupant is attested there. Joining on it would hand ground to the wrong household while looking like evidence, so the refusals above stand and this is what they cost.",
-      "structures_naming_a_household_in_prose": 5,
-      "household_ids_so_named": 5,
-      "of_those_the_index_still_holds": 5,
+      "structures_naming_a_household_in_prose": 6,
+      "household_ids_so_named": 6,
+      "of_those_the_index_still_holds": 6,
       "of_those_naming_a_household_that_no_longer_exists": 0
     },
     "refusals": "`refused: no_household_names_this_ground` IS THE REFUSAL, and here is the reason it stands for, stated once because it is the same reason every time. A run with no household is not blank and is not guessed at: it names the structures whose ground it bounds and carries a `refused` line giving the reason, which is the same reason for every one of them — the household layer holds a real `lives_at` for 20 of its 1,380 households and a real `works_at` for 50, all of them at named landmarks, so most improved lots in this town have buildings no household record names. That is a gap in the address work (T-0514), not in this join, and the join picks up whatever the sweep lands without a line of the rule changing.",
@@ -13566,7 +13567,7 @@
       "blk_west_washington_canal_lot8"
     ],
     "runs": 372,
-    "note": "244 of the 255 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 11 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 59 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
+    "note": "245 of the 256 improved platted lots in this town carry a yard fence after this record and its two companions — every one the rule reaches, on every block of the plat. The other 11 are refused for want of room behind their buildings and each is named in `refused` below with the measurement that refused it. THE REMAINDER OF THE OWNER'S ASK IS NOT HERE AND IS NOT PRETENDED TO BE: the continuous street-lining fences at the road edge are T-0069's half of it, and ground outside the 65 platted blocks that carry lot lines — the reservation, Kinzie's Addition, the West Division blocks whose own sheet prints no dimension to divide them by, the country places outside the plat — has no committed lot geometry to derive a line from at all."
   },
   "refused": [
     "blk_lake_clark_lot3 (recon_1835_south_d6_031): the committed buildings reach 4.58 m past the lot's own rear line",
