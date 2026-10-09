@@ -1,10 +1,16 @@
 export const CHANGELOG = [ // newest first
-  { v: 1597, ts: '2026-10-09T22:54:01.291Z', date: 'Oct 9, 2026, 5:54 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+  { v: 1598, ts: '2026-10-09T23:08:32.597Z', date: 'Oct 9, 2026, 6:08 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
     items: [
       'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
       'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
       'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
       'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
+    ] },
+  { v: 1597, ts: '2026-10-09T22:32:18.330Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+    items: [
+      'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
+      'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
+      'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
     ] },
   { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
     items: [

@@ -655,8 +655,11 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "party_size_on_arrival.value": ("shown", "party && party.value"),
     "origin.value": ("shown", "(hh.origin || {}).value"),
     "reason_for_coming.value": ("shown", "(hh.reason_for_coming || {}).value"),
-    "lives_at.value": ("shown", "(hh.lives_at || {}).value"),
-    "works_at.value": ("shown", "(hh.works_at || {}).value"),
+    # T-2258. A named home or workplace is printed by its `associated_with` row
+    # (validate.py refuses a singular link no row carries); `absenceRow` prints the
+    # singular block only when its value is null, so the reason stays on the card.
+    "lives_at.value": ("shown", "absenceRow('Lived at', hh.lives_at, citationsById)"),
+    "works_at.value": ("shown", "absenceRow('Worked at', hh.works_at, citationsById)"),
     "present_on_scene_date.value": ("shown", "(hh.present_on_scene_date || {}).value"),
     # T-1144 acceptance 9. The dated evidence leg under an `uncertain` presence — the
     # last day the corpus can still see this person — has its own row on the card,
