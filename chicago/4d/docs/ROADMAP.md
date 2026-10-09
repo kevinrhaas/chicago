@@ -1,3 +1,14 @@
+## T-2204 — Glessner roof distance filtering (2026-10-09)
+
+Owner-selected GA-05B. Shadows, normal-map strength, anisotropy alone and extra
+depth precision did not remove the physical tile-course interference. A 2–8
+projected-pixel blend still banded at intermediate distances; 6–24 filters the
+subpixel noses while retaining close tiles and the existing mapped course scale.
+The additive sampling hint moves no original geometry. Crests keep opaque depth;
+fully filtered relief leaves the continuous bed. Measurements and comparison
+media: `RESEARCH/glessner-roof-filtering-2204/README.md`. Other Glessner tickets
+remain individually held for owner selection, including the T-2220 copper fold.
+
 ## T-2202 - Glessner Prairie frontage implementation (2026-10-09)
 
 Owner-selected GA-04: generated house-side curb/rounded returns, entry steps,
