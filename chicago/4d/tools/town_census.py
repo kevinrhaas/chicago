@@ -127,12 +127,15 @@ def value_of(field):
 
 
 def seated_households(sidecars: dict) -> set[str]:
-    """Every household a standing structure seats under its sidecar's `residents[]`."""
+    """Every household a standing structure seats under its sidecar's `residents[]`.
+
+    A row that only says the household WORKED there is not a bed (T-2249), and the
+    completion audit skips it the same way, so the two counts stay one join."""
     seated = set()
     for row in sidecars["structures"]:
         sidecar = json.loads((DATA / row["sidecar"]).read_text(encoding="utf-8"))
         for entry in sidecar.get("residents") or []:
-            if entry.get("household"):
+            if entry.get("household") and entry.get("relation") != "worked here":
                 seated.add(entry["household"])
     return seated
 

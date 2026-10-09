@@ -8,7 +8,8 @@ T-1215's first clause turns it into four joins over committed data:
 1. **Housed.** Every resident card's household reaches a standing structure, a vessel or
    a camp — through its own `lives_at`, or because a structure's sidecar seats it under
    `residents[]` (the lodging houses and the reconstructed roofs carry their people that
-   way round, and a card cannot point back at a bed). A household the housing deal counts
+   way round, and a card cannot point back at a bed; a row that says only that the
+   household WORKED there is not a bed, T-2249). A household the housing deal counts
    APART with a stated reason (T-1972: absent on the scene date, or ruled present and
    waiting on a roof the scene does not stand yet) is not counted unhoused, and is not
    counted housed either: it has its own row, and a household still WAITING keeps the
@@ -97,6 +98,8 @@ CIVIC = {
     "school", "street_crossing", "hotel_under_construction",
 }
 CAMP = {"emigrant_camp"}
+# The relation compile_scene writes on a roof for a household that only works there.
+WORKED_HERE = "worked here"
 TO_LET = {"dwelling_to_let"}
 DWELLING_WORDS = ("dwelling", "cottage", "house", "residence", "shanty", "cabin",
                   "boarding", "quarters", "hotel", "tavern")
@@ -219,7 +222,10 @@ def audit(inputs: dict) -> dict:
             hid = entry.get("household")
             if hid not in cards:
                 dangling.append(f"structure {sid} seats household {hid}, which no card holds")
-            else:
+            elif entry.get("relation") != WORKED_HERE:
+                # T-2249: a household listed on a roof only because it WORKED there does
+                # not sleep there. Counting that row as a bed housed 31 households the
+                # town holds present under no roof at all.
                 seated_at.setdefault(hid, sid)
 
     housed = {"households": {"housed": 0, "unhoused": 0, "counted_apart": 0},
