@@ -43,8 +43,8 @@ carry is a controlled word, and it may not fill the 1835 view without one.
 | `fergus_1843_directory` | 126 | 20 | 12 | 12 | 82 |
 | `newspaper_gazetteer` | 213 | 88 | 81 | 44 | 0 |
 | `norris_1844_directory` | 103 | 23 | 15 | 8 | 57 |
-| `retrospective_prose` | 1 | 0 | 1 | 0 | 0 |
-| **total** | **612** | **150** | **125** | **85** | **252** |
+| `retrospective_prose` | 5 | 0 | 1 | 4 | 0 |
+| **total** | **616** | **150** | **125** | **89** | **252** |
 
 `10` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
 source printing two wordings for one controlled role over one bound asserts that
@@ -65,7 +65,7 @@ role once, and the survivor names the other wording in its note.
   lawyer no practitioner ruling held. T-1296 makes the four agree; until it does,
   the rows say plainly that the evidence reaches the day and the field does not
   carry it, which is a state that can be read and argued with.
-- `256` carry a stated `place` and `58` a stated
+- `256` carry a stated `place` and `61` a stated
   `employer_or_body`. Both default to `not_stated`, which is an assertion:
   the record does not say. Places come from the directories' own address and
   place-of-business columns and bodies from the register's `body` column and the
@@ -179,7 +179,7 @@ least one source in common, with corroborators beside it.
 | `heacock_russel_e` | 4 | 4 | attorney; justice of the peace; land agent |
 | `herrick_ira` | 2 | 0 | canal contractor; contractor |
 | `hinton_isaac_t` | 2 | 0 | Baptist pastor; First Baptist Church |
-| `hogan_john_s_c` | 7 | 3 | at C. L. P. Hogan's; dry goods and groceries; ex-postmaster; merchant; postmaster |
+| `hogan_john_s_c` | 8 | 3 | at C. L. P. Hogan's; dry goods and groceries; ex-postmaster; merchant; postmaster; trustee of the town of Chicago |
 | `holbrook_john` | 2 | 1 | boots and shoes; shoemaker |
 | `holsman_george` | 2 | 0 | saloon; tailor |
 | `howe_sarah_d` | 4 | 0 | cloak maker; dress maker; dressmaker; habit maker |
@@ -219,7 +219,7 @@ least one source in common, with corroborators beside it.
 | `mason_matthias` | 2 | 0 | blacksmith |
 | `maxwell_philip` | 4 | 1 | Garrison; army_surgeon; physician; physician, s.-w |
 | `mckee_david` | 2 | 1 | blacksmith; gunsmith, U.S., Garrison |
-| `meeker_joseph` | 4 | 1 | carpenter; carpenter and builder |
+| `meeker_joseph` | 5 | 1 | Sunday-school librarian; carpenter; carpenter and builder |
 | `merrill_george_w` | 3 | 0 | dry goods merchant; provision store; provisions, etc., 157 Lake, s.e |
 | `miller_john` | 3 | 1 | fire warden; tanner; tanner, North Branch, fire warden, 4th ward |
 | `montgomery_l_w` | 4 | 1 | United States Hotel; shoemaker; shoemaker, Jerome Beecher; shoemaker, at Beecher's |
@@ -258,10 +258,10 @@ least one source in common, with corroborators beside it.
 | `smith_e_kirby` | 5 | 0 | (Henry & Elijah S.); army officer; merchant tailor, 48 Clark sti'eet; of H. & E. Smith; post adjutant |
 | `smith_george` | 4 | 1 | (George Smith & Co.); coffee_house_keeper; general merchant; of'G. S. & Co |
 | `smith_william` | 2 | 0 | carpenter; teamster |
-| `snow_george_w` | 5 | 1 | Public Administrator of Cook county; clerk of the board of trustees; lumber merchant; lumber merchant, S, Water; surveyor |
+| `snow_george_w` | 6 | 1 | Public Administrator of Cook county; assessor and surveyor; clerk of the board of trustees; lumber merchant; lumber merchant, S, Water; surveyor |
 | `spring_giles` | 3 | 1 | (S. & Goodrich); attorney; of S. & Goodrich |
 | `sproat_grenville` | 2 | 1 | schoolmaster; schoolteacher |
-| `steele_ashbel` | 3 | 1 | mason builder, 3d ward; plasterer; sheriff of cook county |
+| `steele_ashbel` | 4 | 1 | county coroner; mason builder, 3d ward; plasterer; sheriff of cook county |
 | `stewart_r` | 2 | 1 | attorney; attorney at law |
 | `stow_william_h` | 4 | 1 | alderman; foundry; hotel_keeper; iron foundry, North Canal |
 | `taylor_anson_h` | 2 | 1 | carpenter; general supply store, near the Garrison |
