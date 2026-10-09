@@ -5,6 +5,10 @@ export const CHANGELOG = [ // newest first
       'Nothing changes on the cards of four South Water Street stores: H. Doty & Co., Rockwell\u2019s cabinet furniture warehouse, the Chicago Bakery and Harmon, Loomis & Co. The town has no card for any of their keepers, so they stay without anyone living over them, and the town no longer counts them as homes still to fill.',
       'With one more home in use, John Vale\u2019s household of five and J. Wright, who were waiting for a roof, now have one. Some boarders move to other houses as a result.',
     ] },
+  { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The five houses still owed on the South side\u2019s unsurveyed blocks are kept, not cut, on the owner\u2019s answer. The plan of what is left to build now files them under the street work that will open those blocks, so the automated checks pass again.',
+    ] },
   { v: 1578, ts: '2026-10-09T14:18:56.253Z', date: 'Oct 9, 2026, 9:18 AM CT', title: 'Two more shopkeepers live over their own stores', kind: 'fix',
     items: [
       'Open J. L. Wilson & Co.\u2019s dry goods store on Randolph Street, or Fullerton & Botsford\u2019s pork and provision store at Dearborn and Lake. Each stood empty because the town could not tell who the firm\u2019s partners were. John Wilson now lives over the Wilson store, and J. K. Botsford\u2019s household of six over Fullerton & Botsford\u2019s.',

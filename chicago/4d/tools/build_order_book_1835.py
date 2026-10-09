@@ -473,7 +473,13 @@ STRUCTURE_TICKETS = {
     # reconcile_665's sizing refuse Wells' lot 0, which H. Jones's store leaves 7.46 m of face
     # against an 8.128 m party-line unit, so Wells' D2 and D4 join the gated South balance and
     # all five owed dwellings stand there. T-2242 owns re-budgeting them by name.
-    ("south", "ordinary_dwellings"): "T-2242",
+    #
+    # AND ON TO T-2247 (2026-10-09). T-2242 was WITHDRAWN on the owner's decision (a): the
+    # five are not cut from the South's target, they stay owed in the gated balance beyond
+    # committed street control until the S9 street work carries the plat's north-south
+    # columns to Madison. T-2247 owns that street work and then the five dwellings (D2, D2,
+    # D4, D4, D5) and the balance's one boarding house, so the row names it.
+    ("south", "ordinary_dwellings"): "T-2247",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -632,9 +638,11 @@ STRUCTURE_TICKETS = {
     # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
     # re-opens when the schedule re-apportions still names a live ticket. T-2182 was split
     # (2026-10-09) and the pair follows the dwellings on to T-2239, and with T-2239's split
-    # on to T-2242, the piece that still owes them.
-    ("south", "barns_stables"): "T-2242",
-    ("south", "small_outbuildings"): "T-2242",
+    # on to T-2242, the piece that still owes them. T-2242 was withdrawn on the owner's
+    # decision (a) (2026-10-09) and the pair follows the dwellings on to T-2247, which owns
+    # the gated balance until the S9 street work lands.
+    ("south", "barns_stables"): "T-2247",
+    ("south", "small_outbuildings"): "T-2247",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
