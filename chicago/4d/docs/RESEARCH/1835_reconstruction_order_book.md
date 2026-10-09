@@ -8,7 +8,7 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,798 |
-| Households | 645 | 165 | 456 |
+| Households | 645 | 165 | 455 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 677 | 10 |
 
@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 8. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 5. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -363,7 +363,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-1171 | 294 | 19 |
 | T-1371 | 137 | 35 |
 | T-1533 | 24 | 5 |
-| T-2236 | 18 | 3 |
+| T-2236 | 20 | 3 |
 | T-1536 | 11 | 4 |
 | T-1532 | 4 | 1 |
 | T-1184 | 2 | 1 |
@@ -581,12 +581,12 @@ The households the model wants, by kind and division.
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
-| `households/store_residence/north` | 6 | 2 | 2 | 2 | T-2245 |
-| `households/store_residence/south` | 62 | 18 | 20 | 13 | T-2245 |
-| `households/store_residence/west` | 9 | 1 | 4 | 3 | T-2245 |
+| `households/store_residence/north` | 6 | 2 | 2 | 2 | T-2246 |
+| `households/store_residence/south` | 62 | 18 | 19 | 15 | T-2246 |
+| `households/store_residence/west` | 9 | 1 | 4 | 3 | T-2246 |
 | `households/garrison/fort` | — | 2 | — | 0 | T-1176 |
 
-**The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 5 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; and 8 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2245's.
+**The store rows, ruled (T-2194).** The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged; 6 more stand a house of trade whose keeper the town places on another roof, so nobody lived over them; and 5 are still owed: a keeper for a store roof that stands with nobody in it. BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households from the keepers of the houses of trade the town holds, over their own stores, rather than from anybody new; what it could not form is T-2246's.
 
 ## Businesses
 
@@ -633,7 +633,7 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
-| `structures/barns_stables/south` | 35 | 35 | 0 | 0 | T-2242 |
+| `structures/barns_stables/south` | 35 | 35 | 0 | 0 | T-2247 |
 | `structures/barns_stables/west` | 20 | 20 | 0 | 0 | T-2169 |
 | `structures/barns_stables/north` | 17 | 17 | 0 | 0 | T-2170 |
 | `structures/barns_stables/fort` | 1 | 1 | 0 | 0 | T-1204 |
@@ -647,10 +647,10 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 | `structures/larger_boarding_houses/south` | 28 | 26 | 2 | 0 | T-2196 |
 | `structures/larger_boarding_houses/west` | 6 | 6 | 0 | 0 | T-1953 |
 | `structures/larger_boarding_houses/north` | 8 | 8 | 0 | 0 | T-1952 |
-| `structures/ordinary_dwellings/south` | 176 | 171 | 5 | 0 | T-2242 |
+| `structures/ordinary_dwellings/south` | 176 | 171 | 5 | 0 | T-2247 |
 | `structures/ordinary_dwellings/west` | 75 | 75 | 0 | 0 | T-2150 |
 | `structures/ordinary_dwellings/north` | 84 | 84 | 0 | 0 | T-1746 |
-| `structures/small_outbuildings/south` | 48 | 48 | 0 | 0 | T-2242 |
+| `structures/small_outbuildings/south` | 48 | 48 | 0 | 0 | T-2247 |
 | `structures/small_outbuildings/west` | 14 | 14 | 0 | 0 | T-2169 |
 | `structures/small_outbuildings/north` | 20 | 20 | 0 | 0 | T-2170 |
 | `structures/small_outbuildings/fort` | 3 | 3 | 0 | 0 | T-1204 |

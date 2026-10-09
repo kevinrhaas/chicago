@@ -87,6 +87,9 @@ STAFFING_OVERLAY = BUSINESSES / "rulings" / "establishment_staffing.json"
 # T-0305: the owner's ruling on readings the paper contradicts — which printing a house's
 # address is taken from, at `inferred`, and which page columns would replace it.
 CONTESTED_READINGS = BUSINESSES / "rulings" / "contested_readings.json"
+# T-2245: the partners a firm's style names whom the register could not match to a card by
+# spelling, linked to the card the town holds where the evidence names one man and no other.
+PARTNER_LINKS = BUSINESSES / "rulings" / "partner_links.json"
 RECONSTRUCTED_STAFF_OVERLAY = (ROOT / "data" / "reconstruction"
                               / "1835_business_staff_overlay.json")
 INDEX = BUSINESSES / "index.json"
@@ -696,7 +699,8 @@ def dates_for(entry):
     }
 
 
-def compile_record(entry, gaz, register_persons, town_ids, communities, anchors=None):
+def compile_record(entry, gaz, register_persons, town_ids, communities, anchors=None,
+                   partner_links=None):
     """One register business, restated as a record."""
     by_name = register_persons
     evidence = entry.get("evidence") or {}
@@ -710,6 +714,8 @@ def compile_record(entry, gaz, register_persons, town_ids, communities, anchors=
         person = person_entry(name, role, by_name.get(name), town_ids, evidence, claims)
         (proprietors if sole else partners).append(person)
     proprietors, partners = fold_printed_styles(proprietors), fold_printed_styles(partners)
+    apply_partner_links(entry, (partner_links or {}).get(record_id(entry["id"]), ()),
+                        proprietors, partners, town_ids, evidence, claims)
 
     classes = list(gaz.get("trade_classes") or []) or ["not_stated"]
 
@@ -771,7 +777,7 @@ def compile_record(entry, gaz, register_persons, town_ids, communities, anchors=
     }
 
 
-def compile_all(register, gazetteer, town_ids, communities):
+def compile_all(register, gazetteer, town_ids, communities, partner_links=None):
     gaz_by_id = {b["id"]: b for b in gazetteer["businesses"]}
     by_name = {}
     for person in register["persons"]:
@@ -785,7 +791,8 @@ def compile_all(register, gazetteer, town_ids, communities):
         gaz = gaz_by_id.get(entry["id"])
         if gaz is None:
             raise ValueError("register business %s has no gazetteer row" % entry["id"])
-        records.append(compile_record(entry, gaz, by_name, town_ids, communities, anchors))
+        records.append(compile_record(entry, gaz, by_name, town_ids, communities, anchors,
+                                      partner_links))
     records.sort(key=lambda r: r["id"])
     return records
 
@@ -1168,6 +1175,58 @@ def apply_reconstructed_overlay(records, overlay):
     return records
 
 
+def read_partner_links():
+    """The T-2245 partner links, keyed by business id. Absent file, no links."""
+    if not PARTNER_LINKS.exists():
+        return {}
+    by_id = {}
+    for link in load_json(PARTNER_LINKS).get("links") or []:
+        by_id.setdefault(link["business_id"], []).append(link)
+    return by_id
+
+
+def apply_partner_links(entry, links, proprietors, partners, town_ids, evidence, claims):
+    """Lay each T-2245 link over the record's people, in place.
+
+    A LINK, NOT A NEW PERSON. `person_entry` links a printed name to a card only where the
+    register's own person list carries that exact spelling with action `enrich`, so a
+    partner whose firm's style names him and no notice prints his initials alone stays a
+    name, and the housing deal cannot seat a keeper it cannot find. A link names the
+    printed partner (an existing row, or the surname the style itself sets) and the card,
+    and states the reasoning: the link is `inferred` and says so on the row, while the
+    printed name keeps its own `attested` tier. It may fill a null and may never move a
+    link the register made; a partner the style does not name, or a card the town does not
+    hold, is refused rather than carried.
+    """
+    rid = record_id(entry["id"])
+    styles = [entry["name"]] + list(entry.get("firm_styles") or [])
+    for link in links:
+        name, pid = link["name"], link["person_id"]
+        surname = name.replace(".", " ").split()[-1]
+        if not any(surname in style for style in styles):
+            raise ValueError("partner_links.json links %r on %s, a name the firm's style "
+                             "does not print" % (name, rid))
+        if pid not in town_ids:
+            raise ValueError("partner_links.json links %r on %s to %s, which the resident "
+                             "layer does not hold" % (name, rid, pid))
+        row = next((p for p in proprietors + partners if p["name"] == name), None)
+        if row is None:
+            row = person_entry(name, "partner", None, town_ids, evidence, claims)
+            row["basis"] = ("The firm's own style prints this partner's surname (%s); no "
+                            "notice prints him apart from the house." % entry["name"])
+            partners.append(row)
+        if row["person_id"] not in (None, pid):
+            raise ValueError("partner_links.json would move %r on %s off %s, a link the "
+                             "register made" % (name, rid, row["person_id"]))
+        row["person_id"] = pid
+        row["link"] = {"ticket": link.get("ticket", "T-2245"), "tier": "inferred",
+                       "basis": link["basis"]}
+        row["basis"] = row["basis"].split(" Dated by the printing window")[0].rstrip() + (
+            " Linked to the town card %s at inferred (T-2245): %s Dated by the printing "
+            "window, which bounds the reading and does not date the partnership."
+            % (pid, link["basis"]))
+
+
 def read_contested_readings():
     """The T-0305 rulings, keyed by business id. Absent file, no rulings."""
     if not CONTESTED_READINGS.exists():
@@ -1295,7 +1354,8 @@ def compiled_docs(residents_dir=None):
     register = load_json(REGISTER)
     gazetteer = load_json(GAZETTEER)
     town_ids = person_ids(residents_dir)
-    records = compile_all(register, gazetteer, town_ids, person_communities(residents_dir))
+    records = compile_all(register, gazetteer, town_ids, person_communities(residents_dir),
+                          read_partner_links())
     records = apply_staffing_overlay(records, read_staffing_overlay())
     records = apply_reconstructed_overlay(records, read_reconstructed_overlay())
     records = apply_contested_readings(records, read_contested_readings())
@@ -2050,6 +2110,31 @@ def self_test():
                         failures.append("a hand-edited compiled record was not refused")
                 finally:
                     BUSINESSES = live
+
+    # T-2245: a partner link fills a null on a partner the style prints, and nothing else.
+    style = {"id": "business_fixture", "name": "Fixture & Botsford", "firm_styles": []}
+    for name, link, rows, needle in (
+            ("a link on a name the style does not print",
+             {"name": "Wilson", "person_id": "fixture_a", "basis": "b"}, [], "does not print"),
+            ("a link to a card the town does not hold",
+             {"name": "Botsford", "person_id": "nobody_at_all", "basis": "b"}, [],
+             "does not hold"),
+            ("a link that moves the register's own",
+             {"name": "Botsford", "person_id": "fixture_a", "basis": "b"},
+             [{"name": "Botsford", "person_id": "fixture_b", "basis": "x"}], "would move")):
+        fired.append(name)
+        try:
+            apply_partner_links(style, [link], [], rows, ids | {"fixture_b"}, {}, [])
+            failures.append("%s: not refused" % name)
+        except ValueError as e:
+            if needle not in str(e):
+                failures.append("%s: refused for the wrong reason: %s" % (name, e))
+    rows = []
+    apply_partner_links(style, [{"name": "Botsford", "person_id": "fixture_a", "basis": "b"}],
+                        [], rows, ids, {}, ["c001"])
+    if [(r["name"], r["person_id"], r["link"]["tier"]) for r in rows] != \
+            [("Botsford", "fixture_a", "inferred")]:
+        failures.append("a partner the style names was not added and linked: %r" % rows)
 
     # The build is deterministic: two compiles of the same input agree byte for byte.
     first, _, index_a = compiled_docs()
