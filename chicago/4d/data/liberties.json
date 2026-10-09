@@ -20005,12 +20005,6 @@
       "covers": [
         {
           "domain": "structure",
-          "structure": "recon_1835_west_020",
-          "phase": null,
-          "aspect": "occupants"
-        },
-        {
-          "domain": "structure",
           "structure": "recon_1835_west_036",
           "phase": null,
           "aspect": "occupants"
@@ -20029,7 +20023,7 @@
         }
       ],
       "recorded": "2026-10-01",
-      "revised": "2026-10-01",
+      "revised": "2026-10-09",
       "fields": [
         {
           "label": "Applies to",
@@ -20037,7 +20031,7 @@
         },
         {
           "label": "Covers",
-          "text": "`recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`, `recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`"
+          "text": "`recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`, `recon_1835_west_047.occupants`"
         },
         {
           "label": "What we invented",
@@ -20070,6 +20064,10 @@
         {
           "label": "Revised",
           "text": "2026-10-01 (T-1826) — `recon_1835_west_020` added."
+        },
+        {
+          "label": "Revised",
+          "text": "2026-10-09 (T-2246) — `recon_1835_west_020`'s row retired, as its \"Would replace\" foresaw: the housing deal's keeper rung (L354) seats a storekeeper over it, L. Chevalier, whose Canal Street house of trade stood on no roof."
         }
       ]
     },

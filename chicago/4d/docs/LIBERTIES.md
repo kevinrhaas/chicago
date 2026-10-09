@@ -18269,7 +18269,7 @@ Division in July 1835 substitutes for this roof rather than standing beside it.
 **Applies to:** `data/reconstruction/1835_stated_uses.json`
 
 **Covers:** `recon_1835_west_036.occupants`, `recon_1835_west_037.occupants`,
-`recon_1835_west_047.occupants`, `recon_1835_west_020.occupants`
+`recon_1835_west_047.occupants`
 
 **What we invented:** The USE of three anonymous roofs in the Jefferson and Clinton clusters
 that no deal seats a household in and no deal ever could, because their families are not ones a
@@ -18312,6 +18312,10 @@ A storekeeper seated on the Canal Street approach by a deal or a source retires 
 **Recorded:** 2026-10-01 (T-1782).
 
 **Revised:** 2026-10-01 (T-1826) — `recon_1835_west_020` added.
+
+**Revised:** 2026-10-09 (T-2246) — `recon_1835_west_020`'s row retired, as its "Would replace"
+foresaw: the housing deal's keeper rung (L354) seats a storekeeper over it, L. Chevalier, whose
+Canal Street house of trade stood on no roof.
 
 ### L311 — Three invented roofs on the Canal and Lake approach, and the one lot beside them the schedule keeps empty
 
