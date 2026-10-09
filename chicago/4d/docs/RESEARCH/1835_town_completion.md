@@ -9,7 +9,7 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 | join | state | what keeps it open |
 |---|---|---|
 | Every household housed | open | 26 households without a roof yet |
-| Every working person at a workplace | open | 28 working people owed a workplace |
+| Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
 | Every standing roof occupied or its use stated | open | 2 standing roofs empty and owed somebody |
 
@@ -47,9 +47,9 @@ Of the **3,446** people housed in a standing building: **11.3 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| at a workplace | 158 | 8 | 160 | 326 |
+| at a workplace | 159 | 8 | 160 | 327 |
 | no fixed premises (stated) | 20 | 0 | 317 | 337 |
-| owed a workplace | 2 | 0 | 26 | 28 |
+| owed a workplace | 1 | 0 | 26 | 27 |
 | no trade recorded | 232 | 969 | 365 | 1,566 |
 | **all** | **412** | **977** | **868** | **2,257** |
 | share | 18.3 % | 43.3 % | 38.5 % | |
@@ -59,10 +59,10 @@ Of the **3,446** people housed in a standing building: **11.3 % attested** (391)
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
 | at a standing structure | 29 | 17 | 18 | 64 |
-| a stated limit | 2 | 185 | 35 | 222 |
+| a stated limit | 2 | 186 | 35 | 223 |
 | neither (owed) | 0 | 0 | 0 | 0 |
-| **all** | **31** | **202** | **53** | **286** |
-| share | 10.8 % | 70.6 % | 18.5 % | |
+| **all** | **31** | **203** | **53** | **287** |
+| share | 10.8 % | 70.7 % | 18.5 % | |
 
 ### Standing structures
 

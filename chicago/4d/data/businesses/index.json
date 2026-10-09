@@ -3,10 +3,10 @@
   "_doc": "DERIVED, NEVER AUTHORED. Rebuilt from register_1835.json, gazetteer.json and data/residents/ by tools/compile_businesses.py; tools/check.sh refuses a committed copy a rebuild would not produce. Edit the gazetteer, the dataset or data/businesses/authored/, not this file.",
   "generated_by": "tools/compile_businesses.py",
   "counts": {
-    "records": 286,
+    "records": 287,
     "compiled_from_register": 193,
-    "authored": 93,
-    "present_at_scene_date": 269,
+    "authored": 94,
+    "present_at_scene_date": 270,
     "by_type": {
       "book_store": 2,
       "brewery": 2,
@@ -24,29 +24,29 @@
       "steam_saw_mill": 4,
       "storage_and_forwarding": 8,
       "store": 76,
-      "tavern": 15,
+      "tavern": 16,
       "tin_and_copper_manufactory": 4
     },
     "by_location_kind": {
       "anchored": 34,
       "premises": 65,
       "street_only": 88,
-      "unplaceable": 104
+      "unplaceable": 105
     },
-    "named_people": 424,
-    "named_people_linked_to_a_town_card": 371,
+    "named_people": 425,
+    "named_people_linked_to_a_town_card": 372,
     "works_at_households": 51,
     "works_at_households_resolving_to_a_business": 37,
     "by_grade": {
       "attested": 165,
-      "inferred": 68,
+      "inferred": 69,
       "reconstructed": 53
     },
     "by_where_kind": {
       "anchored": 34,
       "premises": 64,
       "street_only": 88,
-      "unplaceable": 100
+      "unplaceable": 101
     },
     "by_street": {
       "Canal Street": 10,
@@ -65,7 +65,7 @@
     "by_proprietor_community": {
       "british": 11,
       "free_black": 2,
-      "french_canadian": 5,
+      "french_canadian": 6,
       "irish": 12,
       "metis": 1,
       "new_york": 51,
@@ -106,7 +106,7 @@
       {
         "value": "french_canadian",
         "label": "French Canadian",
-        "count": 5
+        "count": 6
       },
       {
         "value": "free_black",
@@ -1104,6 +1104,52 @@
       "dates_tier": "inferred",
       "proprietor_community": "unknown",
       "proprietor_community_tier": null,
+      "review_required": false,
+      "liberties": []
+    },
+    {
+      "id": "biz_beaubien_mark_tavern_keeper",
+      "file": "biz_beaubien_mark_tavern_keeper.json",
+      "name": "Mark Beaubien, tavern keeper",
+      "register_id": null,
+      "provenance": "authored",
+      "type": [
+        "tavern"
+      ],
+      "present_at_scene_date": true,
+      "grade": "inferred",
+      "trade": "tavern keeper",
+      "occupation": "tavern_keeper",
+      "goods": [],
+      "firm_styles": [],
+      "people": [
+        {
+          "name": "Mark Beaubien",
+          "person_id": "beaubien_mark",
+          "role": "proprietor",
+          "tier": "inferred",
+          "from": null,
+          "to": null,
+          "also_printed_as": []
+        }
+      ],
+      "where": {
+        "kind": "unplaceable",
+        "structure_id": null,
+        "anchor": null,
+        "street_id": null,
+        "street": null,
+        "tier": "inferred",
+        "from": null,
+        "to": null,
+        "limit_reason": "The source names the trade and not the premises. T-1198 seats every attested and inferred house on the ground its evidence allows — a structure where one is named, a lot where an address narrows it, a division band where only that is known — and this house waits there."
+      },
+      "locations": 1,
+      "opened": null,
+      "closed": null,
+      "dates_tier": "inferred",
+      "proprietor_community": "french_canadian",
+      "proprietor_community_tier": "inferred",
       "review_required": false,
       "liberties": []
     },
