@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1557, ts: '2026-10-09T02:56:02.686Z', date: 'Oct 8, 2026, 9:56 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+    items: [
+      'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
+      'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
+    ] },
   { v: 1556, ts: '2026-10-09T02:21:44.544Z', date: 'Oct 8, 2026, 9:21 PM CT', title: 'The riverside block at Lake and Franklin joins the town', kind: 'feature',
     items: [
       'The narrow block between Lake Street, Franklin Street and the bend of the river, block 21 on the 1834 plat, is now part of the town plan. It has plank walks along Lake, Franklin and South Water Streets, five new board crossings and a back alley.',

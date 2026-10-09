@@ -1,0 +1,20 @@
+serving /workspace/chicago/site/4d on 4235 — PUBLISHED mirror (compressed assets, visitor layout)
+
+NOT THE FULL GATE — viewports filtered to "desktop"
+
+NOT THE FULL GATE — stages filtered to "13" of 14
+
+desktop 1280x800:
+  pass  desktop 1280x800: page serves
+  FAIL  desktop 1280x800: scene reaches ready — timed out | agency_striker_log_house: review_required is set — this scene cannot be released | beaubien_barn: review_required is set — this scene cannot be released | beaubien_trading_post: review_required is set — this scene cannot be released
+  pass  desktop 1280x800: the suite body ran to completion
+  pass  desktop 1280x800: zero page errors
+
+  pass  vendor: meshopt decoder loads and reports supported
+  pass  vendor: meshopt import raises no page error
+
+5 passed, 1 failed
+0 staged-section check(s) (stage 13 of 14), 6 always-on check(s)
+1 m 39 s for stage 13 at desktop — the ceiling on a steward run's single foreground command is 10 m 00 s
+FAILURES:
+ - desktop 1280x800: scene reaches ready
