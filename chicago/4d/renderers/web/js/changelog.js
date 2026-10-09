@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1586, ts: '2026-10-09T18:58:09.864Z', date: 'Oct 9, 2026, 1:58 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
+    items: [
+      'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
+      'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
+      'Ten houses still stand empty, because the household next in line is known by no source. The 98 households already named have not moved.',
+    ] },
   { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
