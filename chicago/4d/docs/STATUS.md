@@ -18,19 +18,45 @@ partner the town in fact holds.
   (the same corner of Dearborn and Lake, and no second Botsford in the corpus); Filer of Clark,
   Filer & Co. → `filer_a` (same trade, same street, the style's printing opening the week A.
   Filer & Co.'s closes).
-- **Measured:** keepers south 13 → 15 (Wilson over `recon_1835_blk_randolph_clark_c2_01`,
-  Botsford's household of six over `recon_1835_south_c3_040`); store households still owed
-  south 11 → 9, west 2. Filer already keeps A. Filer & Co., so the Clark, Filer & Co. roof
-  stays empty: T-2244's `kept_from_elsewhere` reads exactly that case once it lands. Two more
-  inhabited stores raise the census ceiling, so households waiting on a roof fall 41 → 36
-  (125 → 108 people).
+- **Measured** (over dev with T-2244): keepers south 13 → 15 (Wilson over
+  `recon_1835_blk_randolph_clark_c2_01`, Botsford's household of six over
+  `recon_1835_south_c3_040`). Filer already keeps A. Filer & Co., so the Clark, Filer & Co.
+  roof (`recon_1835_blk_south_water_dearborn_c1_08`) now reads as T-2244's
+  `kept_from_elsewhere`: south 4 → 5 stores ruled kept from elsewhere. Store households still
+  owed: south 11 → 4, west 2 → 1 (T-2244's Pierce & French). Two more inhabited stores raise
+  the census ceiling, so households waiting on a roof fall 41 → 36 (125 → 108 people).
 - **Not linked, and said so in the same file's `not_linked`:** Fullerton (the town's one
   Fullerton is an attorney), Clark (a dozen cards, no initial), Harmon (the brothers' card
   already works in the firm's documented `harmon_loomis_store`, and a link names one man),
   H. Doty (only J. D. Doty is held), Rockwell and D. Graves (no card).
-- **Routed:** the 11 still owed (south 9, west 2) are **T-2246**, which the order book's
-  store rows now name.
+- **Routed:** the 5 still owed (Harmon, Loomis & Co.'s adopted roof, H. Doty & Co.,
+  Rockwell, the Chicago Bakery, and the firmless `recon_1835_west_020`) are **T-2246**, which
+  the order book's store rows now name.
 - **Liberty:** none new. The bed over the store is L354's, as for every keeper.
+## T-2244 — the stores whose keeper lives elsewhere (2026-10-09)
+
+T-2236 left the order book owing 13 store households: store roofs that stand a named firm with
+nobody living over them. T-2240 split them in two. Five of the thirteen (this ticket) stand a
+house of trade whose keeper the town already holds AND already places on another roof; the
+other eight (T-2245) stand firms whose named partners the town holds no card for, plus one
+firmless West store.
+
+- **The rule** (`house_the_present_1835.py`, `the_keepers.kept_from_elsewhere`): a generated
+  store roof nobody sleeps or works in, standing a house of trade whose proprietor or partner
+  the town already places on another roof, is a store with nobody living over it. The keeper
+  is not moved. `build_order_book_1835.py`'s store ruling discharges the order for those
+  stores, never below what a cell has filled.
+- **Measured:** five stores. G. Blanshard (dealt a house of his own on South Water at Wells),
+  Dr W. G. Austin (dealt a house on Washington at La Salle) and W. Montgomery (lodging in a
+  Washington Street boarding house) are now listed on their store's card as having worked
+  there. John Calhoun's and Asahel Pierce's own cards put their work at the documented
+  Democrat office and Pierce's smithy, so the adopted roofs for the Democrat and for Pierce &
+  French are ruled empty and list nobody. Store households owed: 13 -> 8 (south 11 -> 7, west
+  2 -> 1), now T-2245's.
+- **Not settled:** the Democrat and Pierce & French each stand on two roofs, the documented
+  premises their keeper's card names and the roof the street-face adoption (L212) gave the
+  register's firm. That is the adoption's question, not this ruling's.
+- L354 amended.
 
 ## T-2236 — the keepers over their own stores (2026-10-09)
 

@@ -146,6 +146,7 @@ OUT = DATA / "reconstruction" / "1835_housing_seats.json"
 TICKET = "T-1971"
 RULED_TICKET = "T-1972"
 KEEPER_TICKET = "T-2236"
+ELSEWHERE_TICKET = "T-2244"
 LIBERTY = "L354"
 RULINGS = DATA / "reconstruction" / "1835_presence_rulings.json"
 
@@ -198,6 +199,14 @@ RELATION = {
     "boarder": "boarded here",
     "lodger": "lodged here",
     "keeper": "kept the store and lived here",
+}
+# T-2244. Where a keeper the scene places on another roof is, in the words the store's card
+# gives it. A keeper the town places at work on another roof is not listed on the store.
+ELSEWHERE = {
+    "lived here": "in a house of their own",
+    "shared this roof": "in a house they shared",
+    "boarded here": "boarding in another household",
+    "lodged here": "lodging in a boarding house",
 }
 
 
@@ -290,6 +299,7 @@ def read_inputs() -> dict:
             if person.get("role") in KEEPER_ROLES and hid:
                 keepers.setdefault(hid, []).append({
                     "business": b["id"], "name": b.get("name", ""), "trade": trade,
+                    "person": person.get("person_id"),
                     "at": at if at in standing else None,
                     "street_of_stores": trade not in WORKSHOP_TRADES and str(
                         (premises.get(trade) or {}).get("basis", "")).startswith(STREET_OF_STORES)})
@@ -552,6 +562,47 @@ def deal(inputs: dict) -> dict:
         room -= size(hid)
         admitted.append(hid)
     seat_cohort(admitted, "ruled_in")
+    # T-2244. A store roof nobody sleeps in, standing a house of trade whose keeper the
+    # town already places on another roof — sleeping there by their own card, the dealt
+    # roof or a lodging bed, or at work there by their own card — is a store with nobody
+    # living over it: the keeper's household is not moved, and the book's order for a
+    # household over that store is discharged. A keeper who slept elsewhere and works
+    # nowhere else is listed on the store's own card; one whose card puts their work on
+    # another roof is not, because the card has already said where they kept the trade.
+    placed_at = {}
+    for sid, rows in sorted(rows_now.items()):
+        for h in rows:
+            placed_at.setdefault(h.get("household"), []).append((sid, h.get("relation")))
+    for s in seats:
+        placed_at.setdefault(s["household"], []).append((s["place"], s["relation"]))
+    kept_elsewhere = []
+    for sid in sorted(sid for sid in own_store_ok if people[sid] == 0 and not rows_now.get(sid)
+                      and sid not in stores_taken):
+        mine = sorted((hid, k) for hid, ks in keepers.items() for k in ks if k["at"] == sid)
+        away = [(hid, k, [(at, rel) for at, rel in placed_at.get(hid, ()) if at != sid])
+                for hid, k in mine]
+        away = [(hid, k, where) for hid, k, where in away if where]
+        if not away:
+            continue
+        hid, k, where = away[0]
+        works = [at for at, rel in where if rel in ("worked here", "lived and worked here")]
+        sleeps = [(at, rel) for at, rel in where if rel in ELSEWHERE]
+        listed = bool(sleeps) and not works and bool(k["person"])
+        kept_elsewhere.append({
+            "structure_id": sid, "division": roofs[sid]["district"],
+            "business": k["business"], "name": k["name"], "household": hid,
+            "file": cards[hid]["file"], "person_id": k["person"],
+            "keeper_placed_at": (works or [at for at, _ in sleeps] or [where[0][0]])[0],
+            "keeper_placed_as": "at work" if works else (sleeps[0][1] if sleeps else where[0][1]),
+            "listed_on_the_store_card": listed,
+            "relation": "worked here",
+            "words": (f"kept {k['name']}'s business here and slept elsewhere in the town, "
+                      f"{ELSEWHERE[sleeps[0][1]]}; nobody lived over this store") if listed else
+                     (f"the keeper of {k['name']} is placed on another roof, so nobody lived "
+                      "over this store"),
+        })
+    elsewhere_by = Counter(r["division"] for r in kept_elsewhere)
+
     counted_apart = sorted(absent + [{
         "household": hid, "file": cards[hid]["file"], "persons": size(hid),
         "why": "waiting_on_a_roof", "leg": inputs["ruled"][hid],
@@ -651,6 +702,19 @@ def deal(inputs: dict) -> dict:
             "kept_by_division": {d: kept[d] for d in sorted(store_room)},
             "keepers_held": len(keepers),
             "store_roofs_offered": len(store_pool),
+            "kept_from_elsewhere": {
+                "ticket": ELSEWHERE_TICKET,
+                "rule": "a generated store roof nobody sleeps or works in, standing a house of "
+                        "trade whose keeper (proprietor or partner) the town already places "
+                        "on another roof, is a store with nobody living over it: the keeper is "
+                        "not moved, and the book's order for a household over it is "
+                        "discharged (build_order_book_1835.py, store_residence_ruling)",
+                "on_the_card": "a keeper who slept elsewhere and whose card puts their work "
+                               "nowhere else is listed on the store's card as having worked "
+                               "there; the rest of the household is not",
+                "by_division": {d: elsewhere_by[d] for d in sorted(store_room)},
+                "stores": kept_elsewhere,
+            },
         },
         "the_ruled_in": {
             "ticket": RULED_TICKET,
@@ -738,6 +802,19 @@ def problems(doc: dict, inputs: dict) -> list[str]:
         if n > inputs["store_room"].get(d, 0):
             out.append(f"{n} keepers seated in the {d} division, where the book orders "
                        f"{inputs['store_room'].get(d, 0)} store households")
+    seat_places = {s["place"] for s in doc["seats"]}
+    for r in doc["the_keepers"]["kept_from_elsewhere"]["stores"]:
+        roof = inputs["roofs"].get(r["structure_id"]) or {}
+        if r["structure_id"] in seat_places:
+            out.append(f"{r['structure_id']} is ruled a store nobody lived over, and the deal "
+                       "seats a household in it")
+        if roof.get("family") not in STORE_FAMILIES or roof.get("documented", True):
+            out.append(f"{r['structure_id']} is ruled kept from elsewhere and is not a "
+                       "generated store roof")
+        if r["keeper_placed_at"] == r["structure_id"] or not any(
+                k["at"] == r["structure_id"] for k in inputs["keepers"].get(r["household"], ())):
+            out.append(f"{r['structure_id']} is ruled kept from elsewhere, and {r['household']} "
+                       "is not a keeper of its house of trade placed on another roof")
     apart = Counter(r["household"] for r in doc["counted_apart"])
     for hid, n in apart.items():
         if n > 1 or hid in seen:
@@ -778,6 +855,8 @@ def report(doc: dict) -> str:
         f"  by rung      {c['by_rung']}",
         f"  keepers      {doc['the_keepers']['kept_by_division']} over a store, of "
         f"{doc['the_keepers']['room_by_division']} the book orders (T-2236)",
+        f"  elsewhere    {doc['the_keepers']['kept_from_elsewhere']['by_division']} stores whose "
+        f"keeper is placed on another roof (T-2244)",
         f"  by division  {c['by_division']}",
         f"  by family    {c['by_family']}",
         f"  roofs        {c['roofs_the_deal_used']} used: {c['roofs_in_the_pool']} in the pool, "
@@ -813,6 +892,13 @@ def self_test(inputs: dict) -> int:
     expect("a keeper over a documented building", lambda d: next(
         s for s in d["seats"] if s["rung"] == "keeper").update(
         place=next(s for s, r in sorted(inputs["roofs"].items()) if r["documented"])))
+    expect("a store kept from elsewhere with a household seated in it", lambda d: d[
+        "the_keepers"]["kept_from_elsewhere"]["stores"].append(
+        {**d["the_keepers"]["kept_from_elsewhere"]["stores"][0],
+         "structure_id": d["seats"][0]["place"]}))
+    expect("a store kept from elsewhere by its own keeper's bed", lambda d: d[
+        "the_keepers"]["kept_from_elsewhere"]["stores"][0].update(
+        keeper_placed_at=d["the_keepers"]["kept_from_elsewhere"]["stores"][0]["structure_id"]))
     expect("a town above the census's crowding",
            lambda d: d["the_ceiling"].update(people_per_dwelling=9.0))
 
@@ -830,7 +916,7 @@ def self_test(inputs: dict) -> int:
     if failures:
         print("SELF-TEST FAILED — the guard did not fire on: " + "; ".join(failures))
         return 1
-    print("self-test: all ten guards fire")
+    print("self-test: all twelve guards fire")
     return 0
 
 

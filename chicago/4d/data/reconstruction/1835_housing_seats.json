@@ -115,7 +115,103 @@
       "west": 3
     },
     "keepers_held": 179,
-    "store_roofs_offered": 8
+    "store_roofs_offered": 8,
+    "kept_from_elsewhere": {
+      "ticket": "T-2244",
+      "rule": "a generated store roof nobody sleeps or works in, standing a house of trade whose keeper (proprietor or partner) the town already places on another roof, is a store with nobody living over it: the keeper is not moved, and the book's order for a household over it is discharged (build_order_book_1835.py, store_residence_ruling)",
+      "on_the_card": "a keeper who slept elsewhere and whose card puts their work nowhere else is listed on the store's card as having worked there; the rest of the household is not",
+      "by_division": {
+        "north": 0,
+        "south": 5,
+        "west": 1
+      },
+      "stores": [
+        {
+          "structure_id": "recon_1835_blk_lake_clark_c2_02",
+          "division": "south",
+          "business": "biz_g_blanshard",
+          "name": "G. Blanshard",
+          "household": "hh_blanshard_g",
+          "file": "households/hh_blanshard_g.json",
+          "person_id": "blanshard_g",
+          "keeper_placed_at": "recon_1835_blk_south_water_wells_d2_06",
+          "keeper_placed_as": "lived here",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept G. Blanshard's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_lake_clark_c3_03",
+          "division": "south",
+          "business": "biz_dr_w_g_austin",
+          "name": "Dr. W. G. Austin",
+          "household": "hh_austin_w_g",
+          "file": "households/hh_austin_w_g.json",
+          "person_id": "austin_w_g",
+          "keeper_placed_at": "recon_1835_blk_washington_lasalle_d7_04",
+          "keeper_placed_as": "lived here",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept Dr. W. G. Austin's business here and slept elsewhere in the town, in a house of their own; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_south_water_clark_c2_06",
+          "division": "south",
+          "business": "biz_w_montgomery",
+          "name": "W. Montgomery",
+          "household": "hh_montgomery_w",
+          "file": "households/hh_montgomery_w.json",
+          "person_id": "montgomery_w",
+          "keeper_placed_at": "recon_1835_blk_washington_dearborn_h3_01",
+          "keeper_placed_as": "lodged here",
+          "listed_on_the_store_card": true,
+          "relation": "worked here",
+          "words": "kept W. Montgomery's business here and slept elsewhere in the town, lodging in a boarding house; nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_south_water_dearborn_c1_08",
+          "division": "south",
+          "business": "biz_clark_filer_co",
+          "name": "Clark, Filer & Co.",
+          "household": "hh_filer_a",
+          "file": "households/hh_filer_a.json",
+          "person_id": "filer_a",
+          "keeper_placed_at": "recon_1835_blk_south_water_lasalle_c3_13",
+          "keeper_placed_as": "kept the store and lived here",
+          "listed_on_the_store_card": false,
+          "relation": "worked here",
+          "words": "the keeper of Clark, Filer & Co. is placed on another roof, so nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_blk_south_water_lasalle_c3_12",
+          "division": "south",
+          "business": "biz_chicago_democrat_printing_office",
+          "name": "Chicago Democrat printing office",
+          "household": "hh_calhoun_john",
+          "file": "households/hh_calhoun_john.json",
+          "person_id": "calhoun_john",
+          "keeper_placed_at": "chicago_democrat_office",
+          "keeper_placed_as": "at work",
+          "listed_on_the_store_card": false,
+          "relation": "worked here",
+          "words": "the keeper of Chicago Democrat printing office is placed on another roof, so nobody lived over this store"
+        },
+        {
+          "structure_id": "recon_1835_west_007",
+          "division": "west",
+          "business": "biz_pierce_french",
+          "name": "Pierce & French",
+          "household": "hh_pierce_asahel",
+          "file": "households/hh_pierce_asahel.json",
+          "person_id": "pierce_asahel",
+          "keeper_placed_at": "pierce_blacksmith_shop",
+          "keeper_placed_as": "at work",
+          "listed_on_the_store_card": false,
+          "relation": "worked here",
+          "words": "the keeper of Pierce & French is placed on another roof, so nobody lived over this store"
+        }
+      ]
+    }
   },
   "the_ruled_in": {
     "ticket": "T-1972",
