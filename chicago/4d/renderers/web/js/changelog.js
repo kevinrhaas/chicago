@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1592, ts: '2026-10-09T21:07:03.185Z', date: 'Oct 9, 2026, 4:07 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
+  { v: null, ts: '', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [
       'Open John Davis\u2019s household in People. The Steamboat Hotel used to appear three times on his card: once in \u201cLived at\u201d, once in \u201cWorked at\u201d, and again in \u201cWhere this household was, and when\u201d. Now it appears only in that last section, which gives each place its dates and its evidence.',
       'The same happens on the 67 household cards that name a home or a workplace. A card with no known home or workplace still shows \u201cLived at: not recorded\u201d and the reason, because that reason has nowhere else to go.',
       'The build now refuses any household that names a home or workplace without a dated entry for it, so removing the old lines hides nothing. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1592, ts: '2026-10-09T20:54:34.675Z', date: 'Oct 9, 2026, 3:54 PM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
+      'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
     ] },
   { v: 1591, ts: '2026-10-09T20:35:56.763Z', date: 'Oct 9, 2026, 3:35 PM CT', title: 'The test walk counts the street edge\u2019s refused walls correctly again', kind: 'fix',
     items: [

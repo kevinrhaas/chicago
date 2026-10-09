@@ -110,8 +110,8 @@
    "includes_scene_date": false,
    "days_before_scene_date": 575,
    "leg": "sighting",
-   "person": "bickerdyke_george",
-   "record": "person_george_bickerdyke",
+   "person": "noble_mary",
+   "record": "person_mary_noble",
    "sources": [
     "chicago_democrat_1833_1835"
    ],
@@ -124,16 +124,35 @@
   "ticket": "T-1171",
   "household_type": "family_with_children",
   "size_drawn": 6,
-  "kin_seated": 4,
+  "kin_seated": 2,
   "seed": "hh_bickerdyke_george:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house.",
-  "married": {
-   "ticket": "T-2020",
-   "wife": "rc_ryan_bridget",
-   "from_household": "hh_rc_ryan_bridget",
-   "what_happened": "NOT DRAWN FOR THIS HOUSE: MOVED INTO IT. The household model drew this house married and the order book had no woman left in its wife's cell, so no wife was drawn. Bridget Ryan headed a house of her own, dealt by T-1174 to fill the women and children the age pyramid lacked; she fits this house by its own rules — her division, a band never above his, no child older than his band allows — and T-2020 folds her house into his: she is his wife here and the 2 of her house come with her. Every name, age band and seed is the one T-1174 drew; the children keep the surname they were dealt with. Both people are the town's invention at the `reconstructed` tier, and the marriage is too: no source says George Bickerdyke married anybody."
+  "printed_wife": {
+   "ticket": "T-2190",
+   "wife": "noble_mary",
+   "from_household": "hh_noble_mary",
+   "married": "1833-11-29",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "locator": "chicago_democrat_1833_12_03#c007",
+   "printed": "MARRIED, In this town, on Saturday evening 29 ult., by the Hon. R. I. Hamilton, [...] At the same time, and by the same, Mr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq., both of this place.",
+   "what_happened": "THE WIFE IS PRINTED, SO SHE IS NOT DRAWN. The paper marries them on 1833-11-29, before the scene date, and the town already held Mary Noble on a card of her own, minted off the same column. She is seated here as his wife and that card is folded into this house; the wife the household model drew for it is not seated, and she is counted in the order book's cell for a woman of her band in his division, as a drawn wife would be. The house's size and its children are the model's, drawn by the same seeds as before and still the town's invention at the `reconstructed` tier: the paper names a marriage, not a family. It does not say where they lived, or that she was in Chicago on 1 July 1835; she stands in his house because a wife of nineteen months keeps her husband's house, and that is the reconstruction, not the source."
   }
  },
+ "kin": [
+  {
+   "person": "noble_mary",
+   "relation": "daughter",
+   "household": "hh_noble_mark",
+   "value": "noble_mark",
+   "confidence": "attested",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq., both of this place'. Both cards were minted from that same reading of that same notice — the press register reads 'Mark Nobles, Esq.' and 'Mark Noble, Esq.', two lines apart, as the one father of the bridegroom and of the second bride — so nothing is being identified by name here. Written by T-2229, the family pass's ruling on this column (data/research/family_pass_rulings.json, chicago_democrat_1833_12_03 c007). The term 'daughter' is the paper's word. 'Second daughter' implies a first daughter, who is nobody this town holds, so no row is written for her. The marriage the same line prints is T-2230's to seat."
+  }
+ ],
  "persons": [
   {
    "id": "bickerdyke_george",
@@ -188,221 +207,74 @@
    }
   },
   {
-   "id": "rc_ryan_bridget",
-   "name": "Bridget Ryan",
+   "id": "noble_mary",
+   "name": "Mary Noble",
    "relationship": "wife",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "20-29",
-    "low": 20,
-    "high": 29,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 20 under 30'. Drawn against the band the order book still wants in this division: the buckets were cut from the population model, so the gap IS the model's shape and a draw that chased it converges on the pyramid rather than near it."
-    },
-    "seed": "rc_wc_west_006:head_age_bands_1840",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+   "seated_as_printed_wife": {
+    "ticket": "T-2190",
+    "from_household": "hh_noble_mary",
+    "relationship_as_dealt": "head",
+    "counted_in_a_cell": false
    },
-   "occupation": {
-    "value": "domestic",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "women_children_fill.female_trades",
-     "note": "Service in another household. A woman heading her own roof and going out to service is the commonest way a widow's house was kept; the name pools already carry a `domestic` weighting for the same reason."
-    },
-    "seed": "rc_wc_west_006:female_trades",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a woman of this household and what she did"
-    },
-    "note": "DRAWN FROM AN ASSUMPTION THIS PROJECT STATES RATHER THAN A ROW IT READ. The occupation model counts the December 1835 State census's establishments and the 1840 schedule's seven employment columns, and NEITHER counts a woman's work — so there is no female-trade row to draw from. The weights are the programme's own, written where a reader can argue with them and entered in docs/LIBERTIES.md. The term is the residents vocabulary's."
-   },
-   "name_basis": {
-    "value": "Bridget Ryan",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename and the surname are both drawn from the Irish pool: nothing about this house is read, so no part of the name is inherited from a real person."
-    },
-    "seed": "rc_wc_west_006:head_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this west-division household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the Irish pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "sex_ratio",
-    "note": "The 1840 city returned 146.8 men per 100 women aged twenty and over and this layer stood far past that, because the rolls that name the town name men. This woman is one of the count the order book says is missing from the west division."
-   },
-   "seed": "rc_wc_west_006:head_age_bands_1840",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "irish",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND. No source names this woman. She exists because the population model says the town held women of this age in this division that the naming sources never printed, and the whole of what is claimed is that: a woman of this band, keeping her own house, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_ryan_bridget",
-    "relationship_as_dealt": "head"
-   }
-  },
-  {
-   "id": "rc_ryan_bridget_1",
-   "name": "Catherine Ryan",
-   "relationship": "household_member",
-   "grade": "reconstructed",
-   "sex": "female",
-   "age_band": {
-    "value": "10-19",
-    "low": 10,
-    "high": 19,
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
-    },
-    "seed": "rc_wc_west_006:rc_ryan_bridget:member_1_sex_age",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that states this person's age or their birth year"
-    },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
-   },
+   "grade": "attested",
+   "civic_mint": true,
+   "ladder_rule": "G1b",
    "occupation": {
     "value": "none_recorded",
     "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
+    "note": "No source in this pass's evidence records an occupation for this person. A poll list, a tax list, a muster roll and a baptismal entry each print a name and no trade, and where a later directory prints one it is a trade of 1843 — T-0633 is the rule for back-projecting that, and this pass does not have it."
    },
-   "name_basis": {
-    "value": "Catherine Ryan",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the Irish pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_west_006:rc_ryan_bridget:member_1_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the Irish pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "age_bands_1840",
-    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_west_006:rc_ryan_bridget:member_1_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "irish",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_ryan_bridget",
-    "relationship_as_dealt": "household_member"
-   }
-  },
-  {
-   "id": "rc_ryan_bridget_2",
-   "name": "Daniel Ryan",
-   "relationship": "household_member",
-   "grade": "reconstructed",
-   "sex": "male",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 3 December 1833 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1).",
+   "press_evidence": [
+    {
+     "list": "newspaper_1833_1835",
+     "as_read": "Mary Noble",
+     "locator": "chicago_democrat_1833_12_03#c007",
+     "record_id": "person_mary_noble",
+     "describes_date": "1833-12-03",
+     "source": "chicago_democrat_1833_1835",
+     "rule": "G1b"
+    }
+   ],
+   "merge_ruling": [
+    {
+     "ticket": "T-1291",
+     "verdict": "distinct",
+     "rule": "D8",
+     "cluster": "noble-mark-mary",
+     "weighed_against": [
+      "noble_mark"
+     ],
+     "for_merge": "The surname agrees letter for letter and the forenames differ in one letter, which is all the one-letter test looks at.",
+     "against_merge": "ONE IS A MAN AND THE OTHER IS A WOMAN, AND THAT IS THE WHOLE ANSWER. Mark Noble, Esq. is the 1833 tax list and two of Fergus's old-settler death notices; 'Mary Noble' is the Democrat of 3 December 1833 (#c007). Mark and Mary are two given names of different sex, not two spellings of one name, so C10's first condition — that nothing but the SPELLING of the forename stands between the cards — is not merely undemonstrated but false. The town holds four Nobles (noble_john, noble_mark, noble_mary, noble_william_b) and the surname is set 161 times in the corpus. No printing sets both, and none could: a fold here would put a woman's reading on a man's card. This is the clearest refusal in the forty-three and it is recorded so the distance is never trusted again on a forename."
+    }
+   ],
    "age_band": {
-    "value": "10-19",
-    "low": 10,
-    "high": 19,
+    "value": "30-39",
+    "low": 30,
+    "high": 39,
     "confidence": "reconstructed",
     "tier": "reconstructed",
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males 10 under 15'. Older than the head's own band allows her to have borne, so no kin tie is claimed. The model places older children out as apprentices and servants; WHICH of the two this person was is not claimed, because nothing here can tell."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females 30 under 40', one of its female bands, conditioned on `named_on_a_roll_15_and_over` because the person is named in their own right on any other roll this layer was minted from - a letter list, a subscription, a court docket, a trade notice - or carries a role, a trade, a marriage or a parenthood."
     },
-    "seed": "rc_wc_west_006:rc_ryan_bridget:member_2_sex_age",
+    "seed": "noble_mary:age_bands_1840",
     "replaceable_by": {
      "kind": "person",
-     "match": "a source that states this person's age or their birth year"
+     "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
-    "note": "AN AGE BAND, NEVER A YEAR. The schedule counts in five- and ten-year columns and this project writes no year it cannot read, because a year drawn out of a decadal band would print as a record of a birth."
+    "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('noble_mary:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a roll naming a person in their own right names somebody 15 or over. The 1840 schedule counts a child as a tally inside a household and never as a correspondent; 15 rather than 20 because an apprentice or a journeyman stands on a trade roll. No source states this rule. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
    },
-   "occupation": {
-    "value": "none_recorded",
-    "confidence": "reconstructed",
-    "note": "No trade is drawn for anyone but the head of a reconstructed house. The occupation model is spent on heads and on the trades the town is short of (T-1173); a child's and a servant's work in an 1835 household is real and unrecorded, and this project will not invent a column for it."
-   },
-   "name_basis": {
-    "value": "Daniel Ryan",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "1835_invented_name_pools",
-     "note": "The forename is drawn from the Irish pool; the surname is the household's own."
-    },
-    "seed": "rc_wc_west_006:rc_ryan_bridget:member_2_forename",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source naming a member of this household"
-    },
-    "note": "AN INVENTED NAME, AND IT IS NEVER EVIDENCE. It is drawn from the Irish pool, which is seeded from the attested residents of this town and not from a story about who lived here, and it steps past every name a real person in this layer bears. No source names this person."
-   },
-   "basis": {
-    "kind": "model",
-    "id": "age_bands_1840",
-    "note": "Drawn by the draw against the west division's own shortfall in the order book: the buckets were cut from the population model and this person is one of the count they still want."
-   },
-   "seed": "rc_wc_west_006:rc_ryan_bridget:member_2_sex_age",
-   "replaceable_by": {
-    "kind": "person",
-    "match": "a source naming a woman who kept her own house in this division, or anyone in it"
-   },
-   "reconstruction": {
-    "programme": "1835_resident_reconstruction",
-    "stage": "women_and_children",
-    "ticket": "T-1174",
-    "community": "irish",
-    "review_required": false
-   },
-   "note": "RECONSTRUCTED, NOT FOUND, AND NOT CLAIMED AS KIN. This person is in the house and nothing says how. The population model places older children out of their parents' houses as apprentices and servants, and the head of this one is not old enough to be their parent, so the record says `household_member` and stops there rather than inventing a relation. A source naming this household retires them. No figure is drawn (L1).",
-   "folded_in": {
-    "ticket": "T-2020",
-    "from_household": "hh_rc_ryan_bridget",
-    "relationship_as_dealt": "household_member"
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "inferred",
+    "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Mary' is read as female because it stands in the irish and yankee female forename pool of this town's own attested naming. Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
    }
   }
  ],
