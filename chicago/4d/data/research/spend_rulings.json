@@ -19,11 +19,6 @@
       "disposition": "refused",
       "statement": "The books crosswalk has already refused this row by name, under this domain's standing rule that a merge needs a rule naming both spellings verbatim and that a surname-only merge is always a refusal. The ledger now carries that refusal instead of reading the row as work nobody has looked at."
     },
-    "handed_to_the_dated_role_pass": {
-      "disposition": "unresolved",
-      "ticket": "T-1543",
-      "statement": "The unit's only person content is a dated office or trade. T-1145 replaced the one-occupation resident field with dated plural roles and is SPLIT and spent — T-1229 wrote the schema, T-1254 migrated the external evidence, T-1255 put the run on the card. THE HANDOFF NAMED T-1296 IN PROSE AND T-1299 IN THE FIELD, AND BOTH HAVE NOW CLOSED. The prose reference was wrong when it was written: T-1296 is the land-sale purchaser ruling and never owned this field; T-1299, which the field named, is the ticket that made the four generators over the singular field agree, and it landed on 2026-09-24 as #26. T-1299 DID ITS OWN JOB AND DID NOT SPEND THIS UNIT. Sherman's card now carries a dated sheriff office, 1833-12-03 to 1835-07-15, covering the scene date, and the 1835 field reads it instead of none_recorded — but that office is sourced to the 1833-1835 press under its own claim, and nothing in this repository cites bk_fer2_042. The book says a different thing from the press run: Fergus's bracketed annotation prints the man ELECTED in 1834 and again in 1836, two dates bracketing the scene year, where the press gives a bound of mentions. So the handoff moves to T-1543, which owns citing the book against the office the press established — as corroboration and dating, never as the thing that puts him in the 1835 town, and never by flattening an election into a term of service. A closed ticket cannot own an unresolved unit, so the line hands on to live work rather than reading as spent."
-    },
     "named_as_a_visitor_not_a_resident": {
       "disposition": "refused",
       "statement": "The source itself names the person as a visitor to the settlement who went home again. That is stronger than the standing rule that a transaction is never a residence, because the document states the man was not living here, and the reading's value is the negative."
@@ -267,11 +262,6 @@
       "unit": "books:data/research/books/claims/fergus_26_29_first_half.json#claims/bk_fer_024",
       "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
       "note": "Beckwith names Billy Caldwell's wife as the sister of Min-ne-mung, the Yellow Head. Caldwell is a card here (hh_caldwell_billy) and holds nobody else: his wife is not a person this town holds, and the tie between him and Min-ne-mung (readmitted off this claim as hh_min_ne_mung) runs THROUGH her, as a brother-in-law relation validate.py declares no inverse for. With the wife off the layer the tie has no far end. THE FAMILY PASS (T-1335) rules it; nobody is minted."
-    },
-    {
-      "unit": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_042",
-      "rule": "handed_to_the_dated_role_pass",
-      "note": "Silas Wooster Sherman, whom this layer holds as Silas W Sherman, annotated as elected sheriff of Cook County in 1834 and again in 1836. A dated civic office across the scene year is exactly the dated-role field, and it may not be flattened into the single occupation the record carries today."
     },
     {
       "unit": "books:data/research/books/claims/fergus_26_29_second_half.json#claims/bk_fer2_044",

@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1583, ts: '2026-10-09T17:18:51.669Z', date: 'Oct 9, 2026, 12:18 PM CT', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
+  { v: null, ts: '', title: 'Thirty-one households who only worked in town now have homes', kind: 'fix',
     items: [
       'The town counted 31 households as housed because their card named the building they worked in. They had no home in the scene. Among them were the Harmon brothers, John Calhoun of the Chicago Democrat, George W. Dole and Archibald Clybourne. Each now has a home of its own on the building cards, the same way every other household is placed.',
       'John Calhoun now lives over his store on South Water Street, and Asahel Pierce over his on the West Side. The rest live in ordinary houses or board in their own part of town.',
       'The town is still kept no more crowded than the census of November 1835. Seating these households fills that room, so 30 more households the town adds by its own rules now wait for a house still to be built, up from 26 to 56. The completion audit and the population counts now leave the place of work out too.',
+    ] },
+  { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+    items: [
+      'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
+      'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
     ] },
   { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
     items: [
