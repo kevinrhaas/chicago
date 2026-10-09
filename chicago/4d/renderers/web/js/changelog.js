@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1558, ts: '2026-10-09T04:38:13.630Z', date: 'Oct 8, 2026, 11:38 PM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+    items: [
+      'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
+      'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
+      'No source shows this house in 1835 or names who lived in it. Its card says it is reconstructed, and the Liberties page explains it (L410).',
+    ] },
   { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
       'Open a household in the People directory, such as John Davis at the Steamboat Hotel. The section \u201cWhere this household was, and when\u201d now lists its home and workplace beside its church, offices and land. Until now 64 of these cards gave a home or workplace only in the single \u201cLived at\u201d and \u201cWorked at\u201d lines.',

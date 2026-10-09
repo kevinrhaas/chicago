@@ -1628,8 +1628,8 @@
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
-    "roofs_standing": 676,
-    "roofs_to_build": 11,
+    "roofs_standing": 677,
+    "roofs_to_build": 10,
     "persons_standing": 2917,
     "persons_still_owed": 14,
     "persons_when_the_book_is_filled": 2931,
@@ -1649,11 +1649,11 @@
     "rows_offered": 1422,
     "seated": 314,
     "still_owed": 1108,
-    "roofs_adopted": 313,
-    "slots_requested": 1,
-    "roofs_standing": 676,
+    "roofs_adopted": 314,
+    "slots_requested": 0,
+    "roofs_standing": 677,
     "roofs_standing_unseated": 363,
-    "share_of_standing_roofs_seated": 0.463,
+    "share_of_standing_roofs_seated": 0.4638,
     "passes": [
       {
         "key": "platted",
@@ -1664,9 +1664,9 @@
         "rows_offered": 1422,
         "seated": 215,
         "handed_on": 1207,
-        "roofs_adopted": 214,
-        "slots_requested": 1,
-        "roofs_offered_for_adoption": 224,
+        "roofs_adopted": 215,
+        "slots_requested": 0,
+        "roofs_offered_for_adoption": 225,
         "roofs_held_back": 62,
         "ground_taken": 197,
         "ground_taken_unit": "lots",
@@ -1710,22 +1710,9 @@
         }
       }
     ],
-    "requested_slots": [
-      {
-        "household_id": "hh_dixon_robert",
-        "name": "The Dixon household — a name the town's own records carry",
-        "district": "south",
-        "clause": "tradesman_dwellings",
-        "block_id": "blk_south_water_market",
-        "lot_id": "blk_south_water_market#01",
-        "family": "D5",
-        "why": "no standing roof of an admitted family was free in this division, and this block's own committed plan still holds a D5 roof of headroom: the slot is a request T-1200 through T-1214 fulfil"
-      }
-    ],
-    "slot_blocks": [
-      "blk_south_water_market"
-    ],
-    "what_the_slots_wait_on": "1 slot(s) on 1 block(s) — blk_south_water_market. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.",
+    "requested_slots": [],
+    "slot_blocks": [],
+    "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
     "what_is_left": "1,108 of the 1,422 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
@@ -5023,11 +5010,11 @@
       "lead": "The roofs the 668-roof programme still owes, by archetype group and division.",
       "summary": {
         "roof_target": 668,
-        "standing_records": 676,
-        "standing_with_an_occupant": 261,
+        "standing_records": 677,
+        "standing_with_an_occupant": 262,
         "standing_without_an_occupant": 415,
-        "to_build_total": 11,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 415 of the 676 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "to_build_total": 10,
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 415 of the 677 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5041,7 +5028,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2182",
+          "owning_ticket": "T-2239",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 35; the 668-roof programme leaves 0 of them to build"
         },
@@ -5247,13 +5234,13 @@
             "division": "south"
           },
           "target": 176,
-          "standing": 170,
-          "to_build": 6,
+          "standing": 171,
+          "to_build": 5,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2182",
+          "owning_ticket": "T-2239",
           "ground_waits_on": [],
-          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 6 of them to build"
+          "basis": "the inventory's district/group matrix sets 176; the 668-roof programme leaves 5 of them to build"
         },
         {
           "key": "structures/ordinary_dwellings/west",
@@ -5296,7 +5283,7 @@
           "to_build": 0,
           "to_retire_or_redeal": 0,
           "filled": 0,
-          "owning_ticket": "T-2182",
+          "owning_ticket": "T-2239",
           "ground_waits_on": [],
           "basis": "the inventory's district/group matrix sets 48; the 668-roof programme leaves 0 of them to build"
         },
@@ -5543,9 +5530,9 @@
       "title": "Ground first",
       "lead": "The streets, terrain and lots a structure bucket waits on.",
       "summary": {
-        "roofs_on_committed_ground": 6,
-        "roofs_gated_on_coverage": 5,
-        "statement": "6 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 5 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
+        "roofs_on_committed_ground": 3,
+        "roofs_gated_on_coverage": 7,
+        "statement": "3 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 7 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes."
       },
       "buckets": [
         {
@@ -5773,7 +5760,7 @@
           "axes": {
             "division": "south"
           },
-          "roofs_gated": 5,
+          "roofs_gated": 7,
           "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
           "owning_tickets": [],
           "filled": 0
@@ -5865,7 +5852,7 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "415 of 676 standing records carry no occupants block."
+      "measured_now": "415 of 677 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",

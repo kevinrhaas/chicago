@@ -447,7 +447,12 @@ STRUCTURE_TICKETS = {
     # re-dealt the schedule) and no `slot` request is left on the plat; the schedule still
     # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
     # gated), and T-2182 owns them.
-    ("south", "ordinary_dwellings"): "T-2182",
+    #
+    # AND ON TO T-2239 WITH T-2238's OWN PR (2026-10-09). T-2182 was split: T-2238 built the
+    # wedge's D5 the seating asked for (blk_south_water_market's lot 7, after T-2195 cut the
+    # wedge), and no `slot` request is left on the plat; the five the schedule still deals
+    # (a D2 and a D4 on blk_south_water_wells, a D2, D4 and D5 gated) are T-2239's.
+    ("south", "ordinary_dwellings"): "T-2239",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -604,9 +609,10 @@ STRUCTURE_TICKETS = {
     # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
     # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
     # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
-    # re-opens when the schedule re-apportions still names a live ticket.
-    ("south", "barns_stables"): "T-2182",
-    ("south", "small_outbuildings"): "T-2182",
+    # re-opens when the schedule re-apportions still names a live ticket. T-2182 was split
+    # (2026-10-09) and the pair follows the dwellings on to T-2239.
+    ("south", "barns_stables"): "T-2239",
+    ("south", "small_outbuildings"): "T-2239",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district

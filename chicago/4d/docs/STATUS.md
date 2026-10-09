@@ -1,3 +1,32 @@
+## T-2238 — a house on the Market wedge's lot 7 (piece 1 of T-2182, 2026-10-09)
+
+T-2182 was split: **T-2238** builds the one dwelling the seating asked for on the wedge T-2195 cut,
+and **T-2239** owns the South's five ordinary dwellings still owed after it (with the barn and
+outbuilding rows, both at 0 owed).
+
+- **`recon_1835_blk_south_water_market_d5_01`**: a D5 on the wedge's lot 7, the middle of the Lake
+  Street face, fronting Lake 5 m back, dealt against hh_dixon_robert's `slot`
+  (`phase3_platted_block_south_water_market_lot_7`). Lot 8, the Franklin corner, is the reserved open
+  lot. **L410** records the invention.
+- **`generate_block_infill.py` frames a wedge block.** Every lot is framed before a slot is placed,
+  and lot 6's back is cut to 12.0 m against its 24.4 m front, so `lot_frame`'s squareness test
+  refused the whole block. On a block the grid marks `wedge` (only there), a lot that cannot be
+  framed is now carried unframed and any slot dealt onto it is refused with the same words. Every
+  committed record re-derives unchanged; `--self-test` passes.
+- **Seating at its fixpoint.** The walk ran from hh_boucher_joseph (who adopts the new house) down
+  the household order to hh_dixon_robert (seated on the standing recon_1835_south_d5_016): 65 seated
+  households change roof, **215 seated, all adopted, no `slot` left on the plat**. It advanced one to
+  four households a lap; what drives it each lap is `generate_inferred_infill.py` re-writing the
+  phase-one South roofs the seating reads. Eleven full laps, then keepers + the four infill generators
+  + the seating chain until the seats stood still (thirteen more), then two full laps, the second
+  moving nothing. L263 662 → 663, L270 215 held, L276 97 → 98.
+- **What the schedule reads now.** The wedge is `at_capacity`, so its F4 moves to
+  `blk_south_water_wells` and its H3 to the gated balance (noted on T-2196). The South's
+  ordinary-dwelling row reads 176 / 171 / **5 owed**: a D2 and a D4 on Wells, and a D2, D4 and D5
+  gated.
+- **Baked** with `bake.sh --only` (pinned Blender 4.5.3): the new house and the 37 roofs the walk
+  re-dealt (their fabric follows the keeper). `validate.py --stale`: 703 match, 0 stale.
+
 ## T-2195 — the Market wedge, plat block 21, cut into four reconstructed lots (2026-10-08)
 
 The owner answered T-1957's question on 2026-10-08 with **(b)**: build on the wedge's eastern

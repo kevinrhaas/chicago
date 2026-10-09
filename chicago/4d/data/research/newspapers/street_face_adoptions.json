@@ -234,9 +234,9 @@
   "adopted_into_a_roof_of_no_trade": 14,
   "roofs_free_and_a_house_of_trade": 35,
   "houses_of_trade_left_free": 4,
-  "roofs_reserved_for_a_slot_request": 108,
+  "roofs_reserved_for_a_slot_request": 109,
   "reserved_and_held_by_a_committed_occupancy": 4,
-  "reserved_without_a_committed_occupancy": 104,
+  "reserved_without_a_committed_occupancy": 105,
   "by_street": {
    "canal": {
     "street_name": "Canal Street",
@@ -276,15 +276,15 @@
     "street_name": "Lake Street",
     "businesses_naming_it": 7,
     "adopted": 7,
-    "roofs_lot_front": 52,
+    "roofs_lot_front": 53,
     "roofs_corner_side": 0,
-    "roofs_on_the_adopted_face": 52,
+    "roofs_on_the_adopted_face": 53,
     "roofs_free": 15,
     "roofs_home": 24,
     "roofs_home_named": 0,
     "roofs_home_inferred": 24,
     "roofs_yard": 13,
-    "roofs_requested_by_a_seat": 0,
+    "roofs_requested_by_a_seat": 1,
     "roofs_in_centreline_band_declined": 6,
     "roofs_free_and_a_house_of_trade": 5,
     "adopted_into_a_house_of_trade": 5
@@ -913,6 +913,17 @@
    "requested_by_seat": "hh_bryant_j_r_m",
    "order_book_draw": "blk_south_water_franklin / D4 / south",
    "dealt_by_ticket": "T-1622",
+   "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
+   "held_by_a_committed_occupancy": false
+  },
+  {
+   "structure_id": "recon_1835_blk_south_water_market_d5_01",
+   "block_id": "blk_south_water_market",
+   "programme_phase": "phase3_platted_block_south_water_market_lot_7",
+   "family": "D5",
+   "requested_by_seat": "hh_dixon_robert",
+   "order_book_draw": "blk_south_water_market / D5 / south",
+   "dealt_by_ticket": "T-2182",
    "why": "raised in answer to this seat's slot request, so it is the household layer's roof and not supply for an adoption (refusal 7, T-1626)",
    "held_by_a_committed_occupancy": false
   },
