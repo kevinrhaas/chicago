@@ -56,6 +56,19 @@
   "confidence": "reconstructed",
   "note": "NOT MODELLED. He practised law, kept a tavern at Heacock's Point on the South Branch some five miles up, farmed there, and worked as a carpenter. None of the four has a record and the tavern is outside the modelled box."
  },
+ "associated_with": [
+  {
+   "kind": "home",
+   "place_or_structure_id": "heacock_house_monroe",
+   "resolves_to": "structure",
+   "from": null,
+   "to": null,
+   "undated": true,
+   "tier": "attested",
+   "source_id": "andreas_1884_v1",
+   "note": "The house he built in the spring of 1835 and moved on rollers. Linked by the inferred-household programme's building parcel (docs/ROADMAP.md K1, phase two); the building record carries the evidence. The record names a committed structure; the roof is the evidence's own limit and nothing narrower is claimed. COPIED FROM THE SINGULAR `lives_at` AND ITS RECONCILIATION ROW `hh_heacock_russel_e#lives_at`, changing no value, confidence or source. That field names the place as of 1 July 1835 and dates neither end of the relationship, so this row is `undated` rather than borrowing the scene date as a start (T-1273)"
+  }
+ ],
  "present_on_scene_date": {
   "value": "present",
   "confidence": "attested",

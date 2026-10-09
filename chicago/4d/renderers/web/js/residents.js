@@ -1198,7 +1198,10 @@ function associationReach(link) {
 }
 
 function associationRowHtml(link, citationsById) {
-  const cite = citationsById.get(link.source_id);
+  // `also_sources` (T-1273): a copied home or workplace claim keeps every source the
+  // singular field cited, so the row prints all of them and not only the first.
+  const cites = [citationsById.get(link.source_id),
+    ...(link.also_sources || []).map((id) => citationsById.get(id))].filter(Boolean);
   const [cls, mark] = associationReach(link);
   const at = cls === 'res-role-scene';
   const place = link.place_or_structure_id
@@ -1210,7 +1213,7 @@ function associationRowHtml(link, citationsById) {
       ? `<span class="res-chip">reaches a ${escapeHtml(words(link.resolves_to))}</span>` : ''}<span
       class="res-chip ${cls}">${escapeHtml(mark)}</span></span>
     ${link.note ? `<span class="res-why">${escapeHtml(link.note)}</span>` : ''}
-    ${cite ? `<ol class="cites">${citationItems([cite])}</ol>` : ''}</li>`;
+    ${cites.length ? `<ol class="cites">${citationItems(cites)}</ol>` : ''}</li>`;
 }
 
 function associationBound(link) {
