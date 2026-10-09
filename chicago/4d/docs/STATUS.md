@@ -1,8 +1,8 @@
 ## T-2189 — the dead ruled not present: thirteen people the town's own burials and death notices bury before 1 July 1835 (2026-10-09)
 
 Opened as PR #543 and handed on with `resume`; lapped over T-2190 (#547), T-2229 (#550),
-T-2176 (#545), T-2195 (#551), T-1273 (#541), T-2199 (#556) and T-2197 (#552) and
-re-derived to the fixpoint.
+T-2176 (#545), T-2195 (#551), T-1273 (#541), T-2199 (#556), T-2197 (#552), T-2232 (#554) and
+T-2237 (#560) and re-derived to the fixpoint.
 
 - **`tools/death_readings.py`** reads deaths from the readers' own structure: St Cyr rows whose
   `cells.role` is `decedent`, and Democrat entities whose role is `decedent` or begins
@@ -11,12 +11,23 @@ re-derived to the fixpoint.
 - **Thirteen cards read `absent`**: the ticket's five (W. Brannen, John Hogan, William Bourque,
   Charles Rollins, Sarah Hoit) and eight more of the same class, each checked against its notice
   (William H. Bradford, Daniel Outhet, David Laughton, Samuel Calhoun, John B. Chevallier, Pitman
-  Fisher, Mary Baxley, Diana Hamilton). The presence guard reads 935 (948 after T-2190, less 13).
+  Fisher, Mary Baxley, Diana Hamilton). The presence guard reads 934 (947 after T-2232, less 13).
 - **Withdrawn, never re-dealt.** The three houses T-2021's ruling admitted around Hamilton, Outhet
   and Rollins go by name with their 12 drawn people (`family_ruling.withdrawn`); the folds onto
   Bourque's and Fisher's houses are dropped, so two women head their own houses again. The
   women-and-children deal and T-2020's fold pairing are frozen as drawn, so one withdrawal no
-  longer re-deals or re-pairs every house after it. L244: 801 in 240 → 789 in 237.
+  longer re-deals or re-pairs every house after it. L244: 796 in 238 → 784 in 235 (over T-2232).
+- **A dropped fold pair is remembered** (`released` in `1835_folded_houses.json`). Over T-2232,
+  which reads Alson Woodruff male and so refuses his drawn house a wife, the frozen pairing gave
+  him Madeleine Bourassa, freed from Fisher's house a lap earlier, because the fold file had
+  forgotten she was ever named. `keep_pairs` now offers a released woman to nobody. Seeded once
+  with this branch's two dropped pairs (Bourassa from Fisher, Connor from Bourque).
+- **Measured on the lap, not fixed here:** re-deriving from the civic mint down, the
+  women-and-children and trade-household stages' own order-book rebuilds stop on the live-owner
+  gate (`households/family_dwelling/south has 1 left and is ordered by T-2193, which is done`)
+  before T-2193's count step, far below, refills the cell. The finished book passes the gate.
+  A chain that crosses that cell mid-way needs the gate deferred the way the modelled-families
+  stage defers it.
 - **Two burial-row readmissions are no longer minted** (L246: 118 → 116 over T-2197); lodgers 23 → 22 houses.
 - **The family pass keeps its two death-notice rulings** (Rollins, Hoit): since T-2190 the
   press-bounds route asks the pass about a kin unit before any card asserts it, so both units
@@ -24,6 +35,66 @@ re-derived to the fixpoint.
   on that route as firing.
 - **Unverified here**: nothing beyond the gate. The withdrawn houses' roofs re-seat through the
   derived chain; no geometry moved.
+
+## T-2200 — dated Glessner camera and residual baseline (2026-10-09)
+
+Eight core views × ten landmarks and one explicitly limited courtyard-west view
+(seven) now have fixed comparison cameras and 87 measured residuals. Open Glessner's
+house card → **Photographic comparison baseline** for source/model pairs and the
+withheld checks. Model geometry and dark glass are unchanged; the freeze includes
+T-2235. A candidate command evaluates future geometry through the frozen cameras.
+
+All eight core views retain exceptions to the proposed 1% target. Whole west remains
+unmatched; courtyard west is insufficient for acceptance. Most fitted poses touch the
+assumed camera-height bound. Errors may reflect camera/pick/vertex ambiguity as well
+as geometry. Later sources are not silently dated to 1904, and restricted courtyard
+pixels are not republished. [Method, measurements and reproduction](RESEARCH/glessner-camera-baseline/README.md).
+
+Owner-authorized dev→main promotion completed first: main `31768a18`, promotion
+37888023430, production deployment 37888103984 and live build verified. T-2200 ships
+to dev only; T-2201–T-2228 remain held for manual selection. Five numerical tests,
+report reproduction and the dedicated desktop/mobile page plus 1904 card-link checks
+pass. Published walk stages 3 and 12 pass on both viewports (103 and 101 checks
+per viewport, zero failures); these are the affected stages, not all 14. Desktop
+stage 12 took 19m45s under software graphics, recorded in the smoke ledger.
+The PR records the final repository preflight receipt;
+no whole-house photographic sign-off is claimed.
+
+## T-2237 — the households outside the index, counted against the household quota (2026-10-09)
+
+T-2194 found the order book's household quota reads houses off `data/residents/index.json`
+alone, and asked that the cards written beside it be counted as households the town holds.
+`count_held_head_dwellings_1835.py` (T-2193's stage) now reads every one of those 547 cards
+and sorts it by what the housing seats make of it (`beyond_the_index` in
+`data/reconstruction/1835_held_head_dwellings.json`):
+
+| class | households | people |
+|---|---:|---:|
+| a bed in a dwelling (the `boarder` rung) | 476 | 476 |
+| a bed in a lodging house (`lodger` rung, or T-1371's lodging seats) | 15 | 15 |
+| a lodging or institutional household its own stage already files (T-1371, T-1531) | 24 | 156 |
+| a household of its own under a dwelling (`dealt` / `family` rung) | 4 | 12 |
+| not present on 1 July | 28 | 28 |
+
+- **They are beds, not houses.** All 309 trade heads T-1347 drew are single cards: 297 board
+  in a dwelling and 12 have a lodging house's bed. T-2194's split (244 in dwellings, 58 in
+  boarding houses, 7 in inns) does not reproduce on today's seats. The building inventory
+  files H1/H2 roofs as larger boarding houses, but the seats treat them as dwellings, and
+  all 16 H1/H2 roofs with a boarder in them also hold a dealt or family household. A
+  boarder is a bed in that household, the rule T-2193 already applies to held heads, and
+  the book already credits each one as a person.
+- **Four are households**: the underdocumented families `hh_fb_anderson_benjamin`,
+  `hh_fb_williams_samuel`, `hh_fb_anderson_henry` (north) and `hh_fb_askie_george` (south),
+  three people each. They join the same walk as the held heads, after them, and the
+  `family_dwelling` order was full before either division reached them. They are listed
+  under `not_counted` with that reason.
+- **So no household row moves.** The household quota does not over-order on account of the
+  cards outside the index. The 64 households still owed are the 29 boarding-house and 4 inn
+  households waiting on a lodging roof (T-2023) and the 31 store keepers (T-2236).
+- **Not settled here:** the person count. The cards beside the index hold 659 people present,
+  and the town census keeps them out of its 2,912. That is a question about people, not
+  houses, and this count does not answer it.
+
 ## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
 
 T-2188's second piece asked whether the order book over-orders its 56 owed store

@@ -1,9 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1565, ts: '2026-10-09T07:04:35.835Z', date: 'Oct 9, 2026, 2:04 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1567, ts: '2026-10-09T07:39:24.261Z', date: 'Oct 9, 2026, 2:39 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1566, ts: '2026-10-09T07:11:45.716Z', date: 'Oct 9, 2026, 2:11 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
+    items: [
+      'Open Glessner House in the 1904 view and choose Photographic comparison baseline. Dated photographs and the model appear beside each other, with numbered landmarks showing where their outlines and openings disagree.',
+      'Eight measured views and a limited courtyard view establish the starting point for the remaining work. The page shows uncertainty and missing coverage, including the whole west elevation. The house still needs correction; these comparisons do not certify photographic perfection.',
+    ] },
+  { v: 1565, ts: '2026-10-09T06:37:17.302Z', date: 'Oct 9, 2026, 1:37 AM CT', title: 'The town plan checks the people outside its main list', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of who still has to be added to the 1835 town counted households only from its main list of people, and about 660 people the town holds sit on cards beside that list: tradesmen, lodgers, and people with thin records.',
+      'Each of them is now checked. Nearly all board in a house whose household is already counted, so they are lodgers rather than houses still owed. Four families have a house of their own, but that part of the plan was already full. No one is added or moved, and the 64 households still owed stay at 64.',
     ] },
   { v: 1564, ts: '2026-10-09T06:06:53.644Z', date: 'Oct 9, 2026, 1:06 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [

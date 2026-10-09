@@ -10,7 +10,13 @@
     "data/residents/index.json",
     "data/reconstruction/1835_presence_rulings.json",
     "data/reconstruction/1835_housing_seats.json",
-    "data/reconstruction/1835_reconstruction_order_book.json"
+    "data/reconstruction/1835_reconstruction_order_book.json",
+    "data/reconstruction/1835_lodgers_seated.json",
+    "data/residents/reconstructed_trades/*.json",
+    "data/residents/lodgers/*.json",
+    "data/residents/readmitted/*.json",
+    "data/residents/underdocumented/*.json",
+    "data/residents/institutional/*.json"
   ],
   "the_rule": [
     "the order book counts the record as awaiting a household",
@@ -44,7 +50,67 @@
       "family": 86
     },
     "persons_in_the_counted_houses": 981,
-    "not_counted": 94
+    "not_counted": 98
+  },
+  "beyond_the_index": {
+    "ticket": "T-2237",
+    "asks": "The household quota reads the residents index only. Are the cards the reconstruction writes beside it households the town holds, and does the book over-order on their account?",
+    "classes": {
+      "a_household_of_its_own": "seated on the dealt or family rung under a standing dwelling; counted like a held head's, after them",
+      "a_bed_in_a_dwelling": "boarded in a dwelling whose household another seat forms",
+      "a_bed_in_a_lodging_house": "put in a lodging house's bed by the seats or the lodgers stage (T-1371)",
+      "filed_by_its_own_stage": "a lodging or institutional household its own stage files in the book",
+      "not_present": "neither the card nor the presence rulings put it in the town on 1 July",
+      "not_seated": "present, and no seat, lodging bed or stage holds it"
+    },
+    "households_by_class": {
+      "a_household_of_its_own": 4,
+      "a_bed_in_a_dwelling": 474,
+      "a_bed_in_a_lodging_house": 15,
+      "filed_by_its_own_stage": 23,
+      "not_present": 28,
+      "not_seated": 0
+    },
+    "persons_by_class": {
+      "a_household_of_its_own": 12,
+      "a_bed_in_a_dwelling": 474,
+      "a_bed_in_a_lodging_house": 15,
+      "filed_by_its_own_stage": 156,
+      "not_present": 28,
+      "not_seated": 0
+    },
+    "households_by_folder": {
+      "institutional": {
+        "filed_by_its_own_stage": 1
+      },
+      "lodgers": {
+        "filed_by_its_own_stage": 22
+      },
+      "readmitted": {
+        "a_bed_in_a_dwelling": 105,
+        "a_bed_in_a_lodging_house": 1,
+        "not_present": 10
+      },
+      "reconstructed_trades": {
+        "a_bed_in_a_dwelling": 297,
+        "a_bed_in_a_lodging_house": 12
+      },
+      "underdocumented": {
+        "a_bed_in_a_dwelling": 72,
+        "a_bed_in_a_lodging_house": 2,
+        "a_household_of_its_own": 4,
+        "not_present": 18
+      }
+    },
+    "filed_by": {
+      "lodgers": "T-1371",
+      "institutional": "T-1531"
+    },
+    "households_of_their_own": 4,
+    "counted": 0,
+    "past_a_full_order": 4,
+    "ruling": "Of the 657 people the cards beside the index hold present, 489 are beds in a household another seat forms, and the book already credits each as a person; a bed is not a house. 156 stand in the lodging and institutional households their own stages already file. 4 household(s) stand under a dwelling of their own; 0 counted into the family_dwelling order, 4 past it. So the index-only quota does not over-order on their account: no household row moves for them.",
+    "what_this_does_not_do": "It mints, moves and retires nobody, and does not settle the completion audit's person count against the census ceiling: that is a count of people, not houses."
   },
   "fills": {
     "households/family_dwelling/north": 87,
@@ -3258,6 +3324,50 @@
       "family": "D4",
       "persons": 2,
       "seed": "c75d2e9379e8",
+      "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_fb_anderson_benjamin",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d5_071",
+      "family": "D5",
+      "persons": 3,
+      "seed": "1048a32963bd",
+      "beyond_the_index": "underdocumented",
+      "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_fb_williams_samuel",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d7_076",
+      "family": "D7",
+      "persons": 3,
+      "seed": "274bf9dfb601",
+      "beyond_the_index": "underdocumented",
+      "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_fb_askie_george",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d6_027",
+      "family": "D6",
+      "persons": 3,
+      "seed": "a01112781349",
+      "beyond_the_index": "underdocumented",
+      "why": "the north division's family_dwelling order was full before this household was reached"
+    },
+    {
+      "household": "hh_fb_anderson_henry",
+      "division": "north",
+      "rung": "family",
+      "place": "recon_1835_north_d5_074",
+      "family": "D5",
+      "persons": 3,
+      "seed": "de60bd181d5d",
+      "beyond_the_index": "underdocumented",
       "why": "the north division's family_dwelling order was full before this household was reached"
     },
     {

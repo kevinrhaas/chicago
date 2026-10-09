@@ -1,3 +1,12 @@
+## T-2200 — Glessner comparison baseline established (2026-10-09)
+
+Eight core matched views, 80 controls/checks, plus a seven-point limited courtyard-west
+reference now expose residuals against fixed cameras. No geometry was changed to fit
+photographs. Whole west and pre-1904 courtyard evidence remain missing; all core views
+retain exceptions. Method: `docs/RESEARCH/glessner-camera-baseline/README.md`.
+Future geometry candidates must retain these cameras or explicitly review a new
+calibration. T-2201–T-2228 stay commented for manual release; T-1843 remains open.
+
 ## T-2199 — bounded Glessner reference pass completed (2026-10-09)
 
 Ten of 17 records recovered; seven explicit unavailable outcomes retained.
