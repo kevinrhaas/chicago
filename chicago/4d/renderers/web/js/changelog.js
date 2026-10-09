@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1569, ts: '2026-10-09T09:03:53.284Z', date: 'Oct 9, 2026, 4:03 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
+    items: [
+      'Open the unattributed drawing of a log schoolhouse on a shore in the Sources panel. It now links to the page it was copied from, a 2018 Illinois history blog post about Eliza Chappell, and to an archived copy of that page.',
+      'The post credits no artist, date or book, so who drew it is still unknown. Nothing in the town is built from it.',
+    ] },
   { v: 1568, ts: '2026-10-09T08:33:20.671Z', date: 'Oct 9, 2026, 3:33 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
     items: [
       'St Mary\u2019s baptismal register names each child\u2019s mother and godmother. 28 of those women had no recorded sex, and the guess for them came out male. The register now sets them as women, quoting the entry.',
