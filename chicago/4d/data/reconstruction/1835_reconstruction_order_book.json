@@ -1906,7 +1906,7 @@
     "still_owed_by": "T-2236",
     "measured": "The book ordered 77 store households on the town's 52 civil store roofs, 1.48 a roof, because the households are apportioned on roof counts. A store residence is one household, the keeper's, so 25 are discharged and 31 are still owed: a keeper for a store roof that stands with nobody in it.",
     "ruling": "BOTH. The book over-orders the store rows, by what it ordered above one household a store roof, and that is discharged here. And the index is short: the household quota counts houses off the residents index alone, so the trade households the reconstruction drew as heads of their own and seated on a roof, the readmitted and the underdocumented are outside the count. They are people the cards hold present, not an order to fill, and T-2236 forms the store households still owed from the store-trade heads among them rather than from anybody new.",
-    "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: that count moves every household row and is T-2237's."
+    "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion the discharged households to the dwelling rows, and it does not count the households outside the index: T-2237 counts those beside the held heads (count_held_head_dwellings_1835.py, `beyond_the_index`)."
   },
   "bucket_families": [
     {
