@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 366. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 31. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -358,6 +358,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 |---|---:|---:|
 | T-1174 | 590 | 27 |
 | T-2021 | 508 | 19 |
+| T-2193 | 335 | 3 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 36 |
@@ -575,9 +576,9 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 27 | 96 | 8 | T-2193 |
-| `households/family_dwelling/south` | 258 | 74 | 184 | 16 | T-2193 |
-| `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2193 |
+| `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2193 |
+| `households/family_dwelling/south` | 258 | 74 | 184 | 184 | T-2193 |
+| `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2193 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
