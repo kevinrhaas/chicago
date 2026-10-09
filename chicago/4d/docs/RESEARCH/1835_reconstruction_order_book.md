@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 10. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 33. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -356,8 +356,8 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 |---|---:|---:|
 | T-1174 | 594 | 27 |
 | T-2021 | 469 | 19 |
-| T-2193 | 321 | 3 |
 | T-1347 | 309 | 24 |
+| T-2193 | 298 | 3 |
 | T-1171 | 294 | 19 |
 | T-1371 | 138 | 35 |
 | T-1533 | 26 | 5 |
@@ -400,19 +400,19 @@ The roster offers 1,786 names the corpus printed and this project withheld. Each
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
 - offered ground: 1,424
-- seated: 314 — 314 by adopting a roof that already stands, 0 by asking for one
-- still on no ground at all: 1,110
-- of the 678 roofs the town already has, 314 now carry a reconstructed household
+- seated: 310 — 310 by adopting a roof that already stands, 0 by asking for one
+- still on no ground at all: 1,114
+- of the 678 roofs the town already has, 310 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
 | The committed plat | T-1613 | 1,424 | 215 | 215 | 0 | 1,209 |
-| The ground the plat does not draw | T-1614 | 1,209 | 99 | 99 | 0 | 1,110 |
+| The ground the plat does not draw | T-1614 | 1,209 | 95 | 95 | 0 | 1,114 |
 
 no slot was requested: every seat is an adoption of a roof already standing.
 
 
-1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,114 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -572,9 +572,9 @@ The households the model wants, by kind and division.
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 27 | 96 | 96 | T-2256 |
+| `households/family_dwelling/north` | 123 | 27 | 96 | 88 | T-2256 |
 | `households/family_dwelling/south` | 258 | 74 | 184 | 174 | T-2256 |
-| `households/family_dwelling/west` | 110 | 21 | 89 | 89 | T-2256 |
+| `households/family_dwelling/west` | 110 | 21 | 89 | 74 | T-2256 |
 | `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |

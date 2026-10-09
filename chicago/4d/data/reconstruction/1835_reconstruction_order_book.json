@@ -1400,15 +1400,6 @@
       ]
     },
     {
-      "ticket": "T-2193",
-      "records": 321,
-      "buckets": [
-        "households/family_dwelling/north",
-        "households/family_dwelling/south",
-        "households/family_dwelling/west"
-      ]
-    },
-    {
       "ticket": "T-1347",
       "records": 309,
       "buckets": [
@@ -1436,6 +1427,15 @@
         "persons/male/50_plus/north/family/trade",
         "persons/male/50_plus/south/family/trade",
         "persons/male/50_plus/west/family/trade"
+      ]
+    },
+    {
+      "ticket": "T-2193",
+      "records": 298,
+      "buckets": [
+        "households/family_dwelling/north",
+        "households/family_dwelling/south",
+        "households/family_dwelling/west"
       ]
     },
     {
@@ -1627,7 +1627,7 @@
       3265
     ],
     "households_standing": 214,
-    "households_still_owed": 44
+    "households_still_owed": 67
   },
   "seats_against_roofs": {
     "statement": "Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.",
@@ -1636,13 +1636,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 314,
-    "still_owed": 1110,
-    "roofs_adopted": 314,
+    "seated": 310,
+    "still_owed": 1114,
+    "roofs_adopted": 310,
     "slots_requested": 0,
     "roofs_standing": 678,
-    "roofs_standing_unseated": 364,
-    "share_of_standing_roofs_seated": 0.4631,
+    "roofs_standing_unseated": 368,
+    "share_of_standing_roofs_seated": 0.4572,
     "passes": [
       {
         "key": "platted",
@@ -1678,9 +1678,9 @@
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
         "rows_offered": 1209,
-        "seated": 99,
-        "handed_on": 1110,
-        "roofs_adopted": 99,
+        "seated": 95,
+        "handed_on": 1114,
+        "roofs_adopted": 95,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 107,
         "roofs_held_back": 17,
@@ -1688,12 +1688,12 @@
         "ground_taken_unit": "parcels",
         "by_district": {
           "north": 70,
-          "west": 29
+          "west": 25
         },
         "by_clause": {
-          "farms_and_country_seats": 2,
+          "farms_and_country_seats": 4,
           "heavy_and_noxious_trades": 1,
-          "labourer_dwellings": 27,
+          "labourer_dwellings": 21,
           "merchant_and_professional_dwellings": 10,
           "tradesman_dwellings": 59
         }
@@ -1702,7 +1702,7 @@
     "requested_slots": [],
     "slot_blocks": [],
     "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,114 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -1710,10 +1710,10 @@
       "asks": "T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?",
       "the_answer_is": "BOTH, and the split is measured rather than argued.",
       "household_leg_before": 58,
-      "household_leg_now": 10,
+      "household_leg_now": 33,
       "person_leg_before": 374,
       "person_leg_now": 0,
-      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 10. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
+      "measured": "Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 33. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.",
       "verdict": "reopen T-1171 for the persons; the households are discharged"
     },
     {
@@ -4420,7 +4420,7 @@
           "target": 123,
           "known": 27,
           "to_reconstruct": 96,
-          "filled": 96,
+          "filled": 88,
           "owning_ticket": "T-2256",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the north division"
         },
@@ -4446,7 +4446,7 @@
           "target": 110,
           "known": 21,
           "to_reconstruct": 89,
-          "filled": 89,
+          "filled": 74,
           "owning_ticket": "T-2256",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the west division"
         },
@@ -6885,7 +6885,7 @@
       "bucket": "households/family_dwelling/north",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 86,
+      "records": 78,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
@@ -6899,7 +6899,7 @@
       "bucket": "households/family_dwelling/west",
       "ticket": "T-2193",
       "stage": "held_head_dwellings",
-      "records": 78,
+      "records": 63,
       "by": "tools/count_held_head_dwellings_1835.py --build"
     },
     {
