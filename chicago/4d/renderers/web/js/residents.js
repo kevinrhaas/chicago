@@ -1396,6 +1396,15 @@ function reconstructionHtml(person) {
     ${basisHtml(person)}</dd>`;
 }
 
+/** T-2190: a named woman seated as the wife a source prints, off a card of her own. */
+function printedSeatHtml(seat) {
+  if (!seat || typeof seat !== 'object') return '';
+  return `<dt>Why she is in this house</dt><dd>She stood as
+    ${escapeHtml(words(seat.relationship_as_dealt))} of her own card,
+    <code>${escapeHtml(String(seat.from_household))}</code>; ${escapeHtml(String(seat.ticket))}
+    seats her here as the wife a source prints.</dd>`;
+}
+
 /** T-2020: a person moved, with the house they were dealt in, into a married house. */
 function foldedInHtml(folded) {
   if (!folded || typeof folded !== 'object') return '';
@@ -1663,7 +1672,7 @@ export function personHtml(person, citationsById, researchByPerson, directoryByP
         roles.length ? ` · ${roles.length} dated ${roles.length === 1 ? 'role' : 'roles'}${
           rolesAtScene ? '' : ', none on 1 July 1835'}` : ''}</span></summary>
     <dl class="lib-body">
-      ${row('In the household as', words(person.relationship))}
+      ${row('In the household as', words(person.relationship))}${printedSeatHtml(person.seated_as_printed_wife)}
       ${basis
         ? claimRow('Sex', words(basis.value), basis, citationsById)
         : row('Sex', words(person.sex))}
@@ -1819,7 +1828,19 @@ function modelledFamilyHtml(block) {
     of the 1835 resident reconstruction programme, ${escapeHtml(String(block.ticket))}.
     ${escapeHtml(String(block.note || ''))}${
     block.seed ? ` Redrawn with the seed <code>${escapeHtml(String(block.seed))}</code>.` : ''}
-    </span></dd>${marriedHtml(block.married)}${rulingHtml(block.ruling)}`;
+    </span></dd>${marriedHtml(block.married)}${printedWifeHtml(block.printed_wife)}${
+    rulingHtml(block.ruling)}`;
+}
+
+/** T-2190: the wife a source prints, seated in place of the wife the model drew. */
+function printedWifeHtml(printed) {
+  if (!printed || typeof printed !== 'object') return '';
+  return `<dt>The wife the paper prints</dt><dd>“${escapeHtml(String(printed.printed || ''))}”
+    <span class="res-why">(${escapeHtml(String(printed.locator))}, married
+    ${escapeHtml(String(printed.married))}; ${escapeHtml((printed.sources || []).join(', '))})</span>
+    <br><span class="res-why">${escapeHtml(String(printed.what_happened || ''))} Seated by
+    ${escapeHtml(String(printed.ticket))}: <code>${escapeHtml(String(printed.wife))}</code>,
+    once the record <code>${escapeHtml(String(printed.from_household))}</code>.</span></dd>`;
 }
 
 /**

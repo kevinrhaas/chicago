@@ -1,9 +1,19 @@
 export const CHANGELOG = [ // newest first
-  { v: 1551, ts: '2026-10-08T22:48:21.371Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1553, ts: '2026-10-09T01:08:53.382Z', date: 'Oct 8, 2026, 8:08 PM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1552, ts: '2026-10-09T00:21:57.548Z', date: 'Oct 8, 2026, 7:21 PM CT', title: 'Mark Noble\u2019s son and daughter are on his card', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 3 December 1833 prints a double wedding. Mark Noble jun., \u201csecond son of Mark Nobles, Esq.\u201d, married Charlotte Wesencraft, and Mary, \u201csecond daughter to Mark Noble, Esq.\u201d, married George Bickerdyke. All three Nobles had cards, and none of them named the others.',
+      'Open Mark Noble\u2019s card now and it names his son and his daughter, quoting the notice; their cards name him back. The two weddings are not seated yet, so Mark jun.\u2019s card still shows a guessed sex and a garbled name. That comes next.',
+    ] },
+  { v: 1551, ts: '2026-10-08T22:48:46.097Z', date: 'Oct 8, 2026, 5:48 PM CT', title: 'Chester Ingersoll\u2019s wife is the woman the paper says he married', kind: 'fix',
+    items: [
+      'The Chicago Democrat of 17 December 1833 prints the tavern keeper Chester Ingersoll\u2019s marriage, on the 12th, to Miss Betsy Weaver. His house still showed a wife we had made up, \u2018Martha Ingersoll\u2019, while Betsy Weaver stood alone on a card of her own, guessed to be a man.',
+      'The paper\u2019s \u201cMiss\u201d now sets her card to female, quoting the column. She is seated in his house as his wife, in place of the invented one, and the house card quotes the marriage notice. His six children are still reconstructed, not named by any source, and are unchanged.',
     ] },
   { v: 1550, ts: '2026-10-08T22:13:13.241Z', date: 'Oct 8, 2026, 5:13 PM CT', title: 'A twin finds her father, and 68 family mentions get an answer', kind: 'fix',
     items: [

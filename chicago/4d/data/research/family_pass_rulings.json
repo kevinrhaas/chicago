@@ -9,11 +9,11 @@
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_03.json#claims/c007": {
    "verdict": "a_family_whole",
-   "why": "The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. Two parent ties are writable between held cards, but both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the unit goes whole to T-2192."
+   "why": "The column states the Noble family whole: Mark Noble jun. (hh_marknoble_jun) 'second son of Mark Nobles, Esq.' (hh_noble_mark) married Charlotte, 'only daughter of Mr. Charles Wesencraft'; Mary, 'second daughter to Mark Noble, Esq.' (hh_noble_mary), married George Bickerdyke, both on 29 November 1833. The two parent ties are written, reciprocally, between cards minted from this notice (T-2229), beside Charlotte's tie to her father that T-1134 landed. Both brides married eighteen months before the scene and where they live in 1835 is a seating question, so the marriages go to T-2230."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1833_12_17.json#claims/c001": {
-   "verdict": "household_contradicts",
-   "why": "Chester Ingersoll (hh_ingersoll_chester) married Betsy Weaver (hh_weaver_betsy) on 12 December 1833; the press register links both cards to this column. On 1 July 1835 she is his wife, but his house already holds a MODELLED wife, 'Martha Ingersoll', and six modelled children. Writing husband/wife across the two cards would state two wives, so the unit is handed to T-2190, which seats the printed bride and withdraws the draw."
+   "verdict": "same_household",
+   "why": "Chester Ingersoll (hh_ingersoll_chester) married Betsy Weaver on 12 December 1833, and the column prints her 'Miss BETSY WEAVER'. Since T-2190 she is a member of his household record with relationship 'wife', seated in place of the modelled wife the household model drew, so the tie IS the card's structure and a kin row inside one record would say it twice. The magistrate, R. J. Hamilton, is no relative. Nothing in the column dates where they lived in 1835; the house is the reconstruction's, and the card says so."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_01_14.json#claims/c001": {
    "verdict": "relative_not_held",
@@ -35,9 +35,17 @@
    "verdict": "neither_end_held",
    "why": "A death notice: Mr. James [—]ey, a merchant aged 22, died 11 September 1834. The surname is lost to the column and the notice names no survivor, so it states no tie between two people at all, let alone two the town holds."
   },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_17.json#claims/c002": {
+   "verdict": "ended_before_the_scene",
+   "why": "Charles Rollins, 'only son of Mr. John [Rollins,] Jr., aged 2 years and 10 months', died 7 September 1834. Both are cards here (hh_rollins_charles, hh_rollins_john, each minted from this notice), but the son was buried ten months before the scene, so the father-son tie did not stand on 1 July 1835. T-2189 rules his card absent on this notice and withdraws the household modelled around him."
+  },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c001": {
    "verdict": "relative_not_held",
    "why": "Augustus Bonin (hh_bonin_augustus, linked by the press register) married 'Miss Jos[…] Fras[ch]e' on 20 September 1834; the bride's name is half lost and she is nobody this town holds, so the marriage has no far end. His house carries a modelled wife, 'Ellen Quinn': a draw standing where the paper names a real woman, which is the modelled-families stage's to answer."
+  },
+  "newspapers:data/research/newspapers/extracted/chicago_democrat_1834_09_24.json#claims/c002": {
+   "verdict": "ended_before_the_scene",
+   "why": "Mrs. Sarah Hoit, 'wife of Mr. Thomas Hoit', died 16 September 1834 in her forty-third year. Both are cards here (hh_hoit_sarah, hh_hoit_thomas), but she was buried before the scene, so the husband/wife tie did not stand on 1 July 1835. T-2189 rules her card absent on this notice."
   },
   "newspapers:data/research/newspapers/extracted/chicago_democrat_1835_05_27.json#claims/c003": {
    "verdict": "relative_not_held",

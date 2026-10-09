@@ -8,11 +8,11 @@
 | | target | known | to reconstruct |
 |---|---:|---:|---:|
 | Persons | 2,550 | 1,419 | 1,825 |
-| Households | 645 | 162 | 485 |
+| Households | 645 | 165 | 482 |
 | Businesses (enumerated classes) | 109 | 128 | 7 |
 | Roofs | 668 | 673 | 14 |
 
-**2,893 people stand in the layer today** and **15** are still owed after the counters, so the town this book converges to is **2,908** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
+**2,892 people stand in the layer today** and **15** are still owed after the counters, so the town this book converges to is **2,907** — inside the model's 2,371-3,265. `--build` and `--check` both refuse a remainder that lands outside it.
 
 ## What the re-cut found
 
@@ -23,7 +23,7 @@
 
 *T-1171 closed 2026-09-18 (PR #1476) having drawn 124 of 556, and the presence rulings landed 2026-09-19 — the day after. Was its 432 real, or an artifact of a quota cut against a town that did not yet hold the 827 ruled-in people?*
 
-Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 392. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
+Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 against 124 drawn and the re-cut takes it to its own drawn figure, so it owes 389. The person leg is PART artifact: 374 before, 0 now. The remainder is owed and is not a counting error, so T-1171 REOPENS for it.
 
 **Verdict:** reopen T-1171 for the persons; the households are discharged
 
@@ -31,13 +31,13 @@ Of the 432, the household leg is DISCHARGED: T-1171's household quota was 182 ag
 
 *What does the town converge to if every remaining order is filled?*
 
-2,893 standing plus 15 still owed is 2,908, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,893 + 843 = 3,736, and the book was ordering a replacement for 826 people already in the layer. It is 358 above the model's 2,550 point, and that surplus is the 397 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
+2,892 standing plus 15 still owed is 2,907, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,892 + 843 = 3,735, and the book was ordering a replacement for 826 people already in the layer. It is 357 above the model's 2,550 point, and that surplus is the 397 people drawn into 51 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book.
 
 ### households are counted in two different units
 
-*The model wants 643 households and the layer holds 1,439 records. Are those the same thing?*
+*The model wants 643 households and the layer holds 1,438 records. Are those the same thing?*
 
-Of the 1,392 records the layer holds present, 162 carry a reading about a dwelling and 1,230 do not. The quota is taken against the 162, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
+Of the 1,391 records the layer holds present, 165 carry a reading about a dwelling and 1,226 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.
 
 ### a documented reading shrank an order the town had drawn
 
@@ -55,7 +55,7 @@ Of the 1,392 records the layer holds present, 162 carry a reading about a dwelli
 |---|---|---|---:|---:|---:|---:|---:|
 | `persons/female/10_19/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 26 | 14 | 24 | 2 | 10 |
 | `persons/female/10_19/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 61 | 33 | 54 | 6 | 21 |
-| `persons/female/10_19/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 24 | 13 | 21 | 3 | 8 |
+| `persons/female/10_19/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 23 | 13 | 21 | 3 | 8 |
 | `persons/female/20_29/north/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 15 | 8 | 15 | 0 | 7 |
 | `persons/female/20_29/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 28 | 16 | 26 | 2 | 10 |
 | `persons/female/20_29/south/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 35 | 19 | 30 | 5 | 11 |
@@ -83,14 +83,14 @@ Of the 1,392 records the layer holds present, 162 carry a reading about a dwelli
 | `persons/female/under_10/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 40 | 23 | 34 | 6 | 11 |
 | `persons/male/10_19/north/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 30 | 17 | 28 | 2 | 11 |
 | `persons/male/10_19/north/lodging/trade` | T-2023 | a_documented_reading_shrank_the_order | 1 | 0 | 1 | 0 | 1 |
-| `persons/male/10_19/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 71 | 38 | 65 | 6 | 27 |
+| `persons/male/10_19/south/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 71 | 39 | 65 | 6 | 26 |
 | `persons/male/10_19/south/lodging/trade` | T-2023 | a_documented_reading_shrank_the_order | 7 | 4 | 7 | 0 | 3 |
 | `persons/male/10_19/west/family/none` | T-1174 | the_re_cut_reached_work_already_drawn | 27 | 15 | 23 | 3 | 8 |
 | `persons/male/10_19/west/lodging/trade` | T-2023 | a_documented_reading_shrank_the_order | 1 | 0 | 1 | 0 | 1 |
 | `persons/male/20_29/north/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 25 | 14 | 22 | 3 | 8 |
 | `persons/male/20_29/south/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 59 | 32 | 52 | 8 | 20 |
 | `persons/male/20_29/south/lodging/none` | T-2023 | the_re_cut_reached_work_already_drawn | 39 | 21 | 22 | 0 | 1 |
-| `persons/male/20_29/west/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 22 | 13 | 18 | 5 | 5 |
+| `persons/male/20_29/west/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 22 | 12 | 18 | 5 | 6 |
 | `persons/male/30_39/north/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 15 | 8 | 14 | 1 | 6 |
 | `persons/male/30_39/north/lodging/none` | T-2023 | the_re_cut_reached_work_already_drawn | 10 | 5 | 6 | 0 | 1 |
 | `persons/male/30_39/south/family/trade` | T-2187 | the_re_cut_reached_work_already_drawn | 35 | 19 | 27 | 8 | 8 |
@@ -358,7 +358,7 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 | T-2021 | 496 | 19 |
 | T-1347 | 309 | 24 |
 | T-1171 | 294 | 19 |
-| T-1371 | 137 | 35 |
+| T-1371 | 138 | 36 |
 | T-1533 | 24 | 5 |
 | T-1536 | 11 | 4 |
 | T-1532 | 4 | 1 |
@@ -382,11 +382,11 @@ The re-cut's one forbidden move is to pull a quota out from under a stage that h
 
 ## Real names before invented ones
 
-The roster offers 1,789 names the corpus printed and this project withheld. Each class is a licence, not a quota:
+The roster offers 1,788 names the corpus printed and this project withheld. Each class is a licence, not a quota:
 
 | class | offered | ticket |
 |---|---:|---|
-| `R1_in_window_uncertain` | 884 | T-1172 |
+| `R1_in_window_uncertain` | 883 | T-1172 |
 | `R2_in_window_single_source` | 207 | T-1172 |
 | `R3_1834_return_or_muster` | 28 | T-1172 |
 | `R4_surname_only_census` | 438 | T-1170 |
@@ -397,15 +397,15 @@ The roster offers 1,789 names the corpus printed and this project withheld. Each
 
 Two committed passes have offered every banded household ground: the plat first, then the ground the plat does not draw. This is what they seated, against the roofs the town already has. A seat is an ADOPTION — a household put under a roof that already stands — or a SLOT, a request the build tickets fulfil. Neither pass raises a roof, and nothing here is a claim about 1835: it is the reconstruction's own progress, read off two derived files and joined.
 
-- offered ground: 1,425
+- offered ground: 1,424
 - seated: 313 — 311 by adopting a roof that already stands, 2 by asking for one
-- still on no ground at all: 1,112
+- still on no ground at all: 1,111
 - of the 673 roofs the town already has, 311 now carry a reconstructed household
 
 | pass | ticket | offered | seated | adopted | slots | handed on |
 |---|---|---:|---:|---:|---:|---:|
-| The committed plat | T-1613 | 1,425 | 214 | 212 | 2 | 1,211 |
-| The ground the plat does not draw | T-1614 | 1,211 | 99 | 99 | 0 | 1,112 |
+| The committed plat | T-1613 | 1,424 | 214 | 212 | 2 | 1,210 |
+| The ground the plat does not draw | T-1614 | 1,210 | 99 | 99 | 0 | 1,111 |
 
 2 slot(s) on 2 block(s) — blk_school_section_tier_81, blk_school_section_tier_95. A slot is headroom the block's own committed plan still holds, so the recipe that deals that block is where it is spent.
 
@@ -414,7 +414,7 @@ Two committed passes have offered every banded household ground: the plat first,
 | `hh_dickson_david` | `blk_school_section_tier_81` | `blk_school_section_tier_81#01` | D5 | `tradesman_dwellings` |
 | `hh_dird_john_david` | `blk_school_section_tier_95` | `blk_school_section_tier_95#01` | D6 | `tradesman_dwellings` |
 
-1,112 of the 1,425 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
+1,111 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away.
 
 ## Persons
 
@@ -494,7 +494,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/10_19/north/family/none` | 37 | 20 | 31 | 31 | T-1174 |
 | `persons/male/10_19/north/lodging/trade` | 0 | 0 | 1 | 1 | T-2023 |
 | `persons/male/10_19/north/lodging/none` | 13 | 7 | 6 | 6 | T-2023 |
-| `persons/male/10_19/south/family/none` | 88 | 50 | 70 | 70 | T-1174 |
+| `persons/male/10_19/south/family/none` | 88 | 49 | 70 | 70 | T-1174 |
 | `persons/male/10_19/south/lodging/trade` | 4 | 0 | 7 | 7 | T-2023 |
 | `persons/male/10_19/south/lodging/none` | 27 | 18 | 9 | 6 | T-2023 |
 | `persons/male/10_19/west/family/none` | 33 | 18 | 25 | 25 | T-1174 |
@@ -508,7 +508,7 @@ Who the town still has to be given, by sex, age, division, household and trade.
 | `persons/male/20_29/south/family/none` | 140 | 80 | 0 | 0 | T-2187 |
 | `persons/male/20_29/south/lodging/trade` | 26 | 15 | 11 | 11 | T-2023 |
 | `persons/male/20_29/south/lodging/none` | 49 | 28 | 22 | 22 | T-2023 |
-| `persons/male/20_29/west/family/trade` | 27 | 14 | 18 | 18 | T-2187 |
+| `persons/male/20_29/west/family/trade` | 27 | 15 | 18 | 18 | T-2187 |
 | `persons/male/20_29/west/family/none` | 52 | 28 | 0 | 0 | T-2187 |
 | `persons/male/20_29/west/lodging/trade` | 10 | 5 | 5 | 5 | T-2023 |
 | `persons/male/20_29/west/lodging/none` | 18 | 10 | 8 | 8 | T-2023 |
@@ -564,20 +564,20 @@ The households the model wants, by kind and division.
 - `households_target`: 645
 - `households_target_basis`: the midpoint of the model's 473-816, rounded half up
 - `households_target_range`: 473, 816
-- `known_present`: 162
-- `known_present_records`: 1,392
-- `known_present_awaiting_a_household`: 1,230
-- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 936
+- `known_present`: 165
+- `known_present_records`: 1,391
+- `known_present_awaiting_a_household`: 1,226
+- `known_uncertain_in_the_index_ruled_in_by_T-1386`: 935
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
 | `households/boarding_house/north` | 12 | 3 | 9 | 6 | T-2023 |
 | `households/boarding_house/south` | 41 | 12 | 29 | 7 | T-2023 |
 | `households/boarding_house/west` | 9 | 2 | 7 | 3 | T-2023 |
-| `households/family_dwelling/north` | 123 | 26 | 97 | 9 | T-2193 |
-| `households/family_dwelling/south` | 258 | 72 | 186 | 17 | T-2193 |
+| `households/family_dwelling/north` | 123 | 27 | 96 | 9 | T-2193 |
+| `households/family_dwelling/south` | 258 | 74 | 184 | 17 | T-2193 |
 | `households/family_dwelling/west` | 110 | 21 | 89 | 10 | T-2193 |
-| `households/inn_tavern/north` | 3 | 0 | 3 | 0 | T-2023 |
+| `households/inn_tavern/north` | 3 | 0 | 3 | 1 | T-2023 |
 | `households/inn_tavern/south` | 7 | 2 | 5 | 5 | T-2023 |
 | `households/inn_tavern/west` | 4 | 1 | 3 | 1 | T-2023 |
 | `households/institutional/south` | 1 | 0 | 1 | 1 | T-1531 |
@@ -713,8 +713,8 @@ The book carries THE MODEL. Every difference is listed here for T-1196, which re
 
 ## The invariants the convergence tickets assert
 
-- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1392 present households name a lives_at.
-- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1392 present households name a works_at.
+- **every_person_housed** (T-1215) — Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof. *Now:* 22 of 1391 present households name a lives_at.
+- **every_working_person_has_a_workplace** (T-1189) — Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`. *Now:* 50 of 1391 present households name a works_at.
 - **every_business_has_staff** (T-1189) — Every business — attested, inferred or reconstructed — carries the staff T-1183's model implies for its kind. *Now:* not yet measurable: the authored business layer is T-1180.
 - **every_structure_occupied_or_its_use_stated** (T-1197) — Every standing roof carries an occupant or a stated use. *Now:* 413 of 673 standing records carry no occupants block.
 - **dwellings_ratio_within_its_bracket** (T-1215) — The town census's people-per-dwelling ratio is met within the model's bracket. *Now:* the book orders 2,550 people into 645 households.

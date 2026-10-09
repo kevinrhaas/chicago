@@ -25,26 +25,26 @@
     ]
   },
   "counts": {
-    "cards": 1460,
-    "blocks": 22181,
-    "tiers_written_on_the_card": 10882,
+    "cards": 1459,
+    "blocks": 22173,
+    "tiers_written_on_the_card": 10873,
     "by_tier": {
-      "attested": 724,
-      "inferred": 3690,
-      "reconstructed": 10895,
-      "unknown": 6872
+      "attested": 728,
+      "inferred": 3691,
+      "reconstructed": 10886,
+      "unknown": 6868
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
-        "inferred": 1358,
+        "inferred": 1357,
         "reconstructed": 51,
         "unknown": 0
       },
       "arrival_year": {
         "attested": 0,
         "inferred": 19,
-        "reconstructed": 1376,
+        "reconstructed": 1375,
         "unknown": 0
       },
       "directories.people[].address_later": {
@@ -74,11 +74,11 @@
       "division_reconstructed": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1340,
+        "reconstructed": 1339,
         "unknown": 0
       },
       "kin[]": {
-        "attested": 134,
+        "attested": 138,
         "inferred": 12,
         "reconstructed": 0,
         "unknown": 0
@@ -87,24 +87,24 @@
         "attested": 8,
         "inferred": 15,
         "reconstructed": 11,
-        "unknown": 1426
+        "unknown": 1425
       },
       "origin": {
         "attested": 11,
         "inferred": 41,
-        "reconstructed": 1408,
+        "reconstructed": 1407,
         "unknown": 0
       },
       "party_size_on_arrival": {
         "attested": 3,
         "inferred": 9,
         "reconstructed": 0,
-        "unknown": 1448
+        "unknown": 1447
       },
       "persons[].age_band": {
         "attested": 7,
         "inferred": 53,
-        "reconstructed": 2847,
+        "reconstructed": 2846,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -140,14 +140,14 @@
       "persons[].name_basis": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1471,
+        "reconstructed": 1470,
         "unknown": 0
       },
       "persons[].occupation": {
         "attested": 118,
         "inferred": 20,
         "reconstructed": 203,
-        "unknown": 2573
+        "unknown": 2572
       },
       "persons[].profile_facts[]": {
         "attested": 1,
@@ -157,27 +157,27 @@
       },
       "persons[].sex_basis": {
         "attested": 0,
-        "inferred": 665,
-        "reconstructed": 666,
+        "inferred": 668,
+        "reconstructed": 663,
         "unknown": 6
       },
       "present_on_scene_date": {
         "attested": 38,
-        "inferred": 1370,
+        "inferred": 1369,
         "reconstructed": 52,
         "unknown": 0
       },
       "reason_for_coming": {
         "attested": 12,
         "inferred": 13,
-        "reconstructed": 1435,
+        "reconstructed": 1434,
         "unknown": 0
       },
       "works_at": {
         "attested": 32,
         "inferred": 19,
         "reconstructed": 0,
-        "unknown": 1409
+        "unknown": 1408
       }
     },
     "reconstructed_by_basis": {
@@ -2756,12 +2756,12 @@
         "kind": "person",
         "match": "a dated source that says which year this household came to Chicago"
       },
-      "values": 1376,
+      "values": 1375,
       "by_value": {
-        "1834": 565,
-        "1833": 414,
-        "1835": 319,
-        "1832": 46,
+        "1834": 575,
+        "1833": 409,
+        "1835": 314,
+        "1832": 45,
         "1831": 17,
         "1818": 4,
         "1824": 3,
@@ -2784,9 +2784,9 @@
         "kind": "household",
         "match": "any source that places this household in a division or nearer"
       },
-      "values": 1340,
+      "values": 1339,
       "by_value": {
-        "south": 767,
+        "south": 766,
         "north": 299,
         "west": 274
       },
@@ -2854,10 +2854,10 @@
         "kind": "person",
         "match": "a source that says where this household came from"
       },
-      "values": 1379,
+      "values": 1378,
       "by_value": {
         "New York State": 562,
-        "New England": 483,
+        "New England": 482,
         "The Mid-Atlantic states": 121,
         "England": 114,
         "The Southern states": 59,
@@ -2895,9 +2895,9 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2844,
+      "values": 2843,
       "by_value": {
-        "20-29": 978,
+        "20-29": 977,
         "0-4": 475,
         "30-39": 467,
         "10-19": 239,
@@ -2943,7 +2943,7 @@
         "kind": "person",
         "match": "a source naming a member of this south-division household"
       },
-      "values": 1471,
+      "values": 1470,
       "by_value": {
         "Mary Nolan": 4,
         "Abigail King": 2,
@@ -3937,7 +3937,6 @@
         "Martha Davis": 1,
         "Martha Dickinson": 1,
         "Martha Eastman": 1,
-        "Martha Ingersoll": 1,
         "Martha Lyon": 1,
         "Martha Mayo": 1,
         "Martha Meleney": 1,
@@ -4458,9 +4457,9 @@
         "kind": "person",
         "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
       },
-      "values": 666,
+      "values": 663,
       "by_value": {
-        "male": 625,
+        "male": 622,
         "female": 41
       },
       "a_seed": "abbot_8_g:sex_ratio",
@@ -4493,12 +4492,12 @@
         "kind": "person",
         "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
       },
-      "values": 1330,
+      "values": 1329,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 542,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 397,
-        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 316,
-        "The trading post, the fort and the country trade — the town before the boom": 75
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 552,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 392,
+        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 311,
+        "The trading post, the fort and the country trade — the town before the boom": 74
       },
       "a_seed": null,
       "a_card": "hh_abbot_8_g"

@@ -6,11 +6,11 @@ T-0487 → T-0490 synthesis of the completed newspaper/letter-list sweep, reside
 
 | Measure | Before | After |
 |---|---:|---:|
-| Households | 920 | 1460 |
-| Person entries | 956 | 2914 |
+| Households | 920 | 1459 |
+| Person entries | 956 | 2913 |
 | Attested | 823 | 412 |
 | Inferred | 25 | 1028 |
-| Reconstructed | 108 | 1474 |
+| Reconstructed | 108 | 1473 |
 | Letter-list-only flag | 727 | 773 |
 | Projected residents | 0 | 759 |
 | Linked to named 1840 census household | 0 | 3 |

@@ -77,7 +77,7 @@
           "high": 1440,
           "point": null,
           "is_a_count": true,
-          "method": "The resident layer carries 1,440 people — 412 attested, 1,028 inferred, 2,162 reconstructed. A count of the layer, not of the town.",
+          "method": "The resident layer carries 1,440 people — 412 attested, 1,028 inferred, 2,175 reconstructed. A count of the layer, not of the town.",
           "comparanda": [],
           "derived_from": [
             "data/sidecars/1835/people.json"
@@ -148,9 +148,9 @@
           ]
         },
         "known_by_presence": {
-          "present": 3051,
-          "absent": 145,
-          "uncertain": 406
+          "present": 3072,
+          "absent": 131,
+          "uncertain": 412
         }
       }
     },
@@ -863,9 +863,9 @@
       ],
       "tables": {
         "arrival_year_of_the_known_layer": {
-          "unit": "people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,953 who record one at all",
+          "unit": "people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,964 who record one at all",
           "not_the_figures_denominator": "The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).",
-          "rows_total": 2953,
+          "rows_total": 2964,
           "rows": [
             {
               "year": 1812,
@@ -915,7 +915,7 @@
             {
               "year": 1831,
               "people": 22,
-              "share": 0.0075
+              "share": 0.0074
             },
             {
               "year": 1832,
@@ -924,18 +924,18 @@
             },
             {
               "year": 1833,
-              "people": 516,
-              "share": 0.1747
+              "people": 515,
+              "share": 0.1738
             },
             {
               "year": 1834,
-              "people": 1037,
-              "share": 0.3512
+              "people": 1054,
+              "share": 0.3556
             },
             {
               "year": 1835,
-              "people": 1306,
-              "share": 0.4423
+              "people": 1301,
+              "share": 0.4389
             }
           ]
         },

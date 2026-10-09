@@ -10,7 +10,8 @@
     "a_town_reading_with_no_record_to_write": 4,
     "the_family_pass_finds_a_tie_onto_a_card_a_build_writes": 13,
     "the_family_pass_finds_an_identity_nobody_has_asserted": 9,
-    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 11,
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 9,
+    "the_family_pass_finds_the_tie_ended_before_the_scene": 2,
     "the_kin_survey_already_ruled_the_register_tie": 6,
     "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 10,
     "the_register_appearance_identity_was_refused_in_the_crosswalk": 27,
@@ -36,6 +37,10 @@
     "the_family_pass_finds_the_relative_is_nobody_this_town_holds": {
       "disposition": "refused",
       "statement": "The family pass (T-1335) read the tie and one end of it is a person this town holds while the other is not: a relative named in the source who has no card here. The source is not doubted; the tie has no far end to land on, and this pass does not mint one to give it somewhere. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_tie_ended_before_the_scene": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and the source is a DEATH dated before 1 July 1835: on the day this dataset reconstructs, one end of it was buried. A kin row carries no date, so writing it would state in the present tense a tie the source closes before the scene. Where the town still holds the dead person as present, that is a presence fault and T-2189's, not a kinship. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     },
     "the_kin_survey_already_ruled_the_register_tie": {
       "disposition": "refused",
@@ -249,13 +254,13 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_1",
-      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_1: one of the daughters of M. Colewell (decedent, nobody here); the entry dated 1834-06 also names M. Colewell (parent, held as hh_colewell_m)."
+      "rule": "the_family_pass_finds_the_tie_ended_before_the_scene",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_1: one of the daughters of M. Colewell (decedent, held as hh_one_of_daughters_of_m_colewell); the entry dated 1834-06 also names M. Colewell (parent, held as hh_colewell_m). The burial is dated 1834-06, before the scene date."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_2",
-      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_2: M. Colewell (parent, held as hh_colewell_m); the entry dated 1834-06 also names one of the daughters of M. Colewell (decedent, nobody here)."
+      "rule": "the_family_pass_finds_the_tie_ended_before_the_scene",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_2: M. Colewell (parent, held as hh_colewell_m); the entry dated 1834-06 also names one of the daughters of M. Colewell (decedent, held as hh_one_of_daughters_of_m_colewell). The burial is dated 1834-06, before the scene date."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_06_1",
