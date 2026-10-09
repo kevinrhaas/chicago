@@ -13,13 +13,14 @@
   "stream-chicagology-north.json",
   "stream-chicagology-south.json",
   "stream-drawings.json",
+  "stream-glessner-recovery.json",
   "stream-newspapers-north-owners.json",
   "stream-newspapers-north.json",
   "stream-newspapers-south.json",
   "stream-streetscape.json"
  ],
  "counts": {
-  "images": 932,
+  "images": 933,
   "local": 469,
   "in_period": 601,
   "buildings_with_images": 62,
@@ -621,10 +622,7 @@
    "a18-rba-casc-glessner-1920s",
    "a18-gh-glessner-wpa-model-east",
    "a18-gh-glessner-wpa-model-north",
-   "a18-rba-barford-glessner-courtyard",
-   "a18-rba-barford-glessner-exterior",
-   "a18-rba-barford-glessner-side-door",
-   "a18-rba-barford-glessner-window-detail",
+   "a18-iit-glessner-prairie-facade-1945",
    "a18-rba-florian-1948-glessner-interior",
    "a18-rba-nickel-glessner-ne-1",
    "a18-rba-nickel-glessner-ne-2",
@@ -663,7 +661,11 @@
    "st-nrhp-1972-p40-18th-street-arterial-sketch",
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
-   "st-ghm-1800-block-restored-streetscape-1981"
+   "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-rba-barford-glessner-courtyard",
+   "a18-rba-barford-glessner-exterior",
+   "a18-rba-barford-glessner-side-door",
+   "a18-rba-barford-glessner-window-detail"
   ],
   "pa-1801-23": [
    "npo-bluebook-1904-p186-prairie-avenue-1600-1816",
@@ -2278,10 +2280,7 @@
    "a18-rba-casc-glessner-1920s",
    "a18-gh-glessner-wpa-model-east",
    "a18-gh-glessner-wpa-model-north",
-   "a18-rba-barford-glessner-courtyard",
-   "a18-rba-barford-glessner-exterior",
-   "a18-rba-barford-glessner-side-door",
-   "a18-rba-barford-glessner-window-detail",
+   "a18-iit-glessner-prairie-facade-1945",
    "a18-rba-florian-1948-glessner-interior",
    "a18-rba-nickel-glessner-ne-1",
    "a18-rba-nickel-glessner-ne-2",
@@ -2321,6 +2320,10 @@
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
    "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-rba-barford-glessner-courtyard",
+   "a18-rba-barford-glessner-exterior",
+   "a18-rba-barford-glessner-side-door",
+   "a18-rba-barford-glessner-window-detail",
    "a16-aic-reed-prairie-at-18th-looking-south-1941"
   ],
   "calumet_1830": [
@@ -2590,10 +2593,7 @@
    "a18-rba-casc-glessner-1920s",
    "a18-gh-glessner-wpa-model-east",
    "a18-gh-glessner-wpa-model-north",
-   "a18-rba-barford-glessner-courtyard",
-   "a18-rba-barford-glessner-exterior",
-   "a18-rba-barford-glessner-side-door",
-   "a18-rba-barford-glessner-window-detail",
+   "a18-iit-glessner-prairie-facade-1945",
    "a18-rba-florian-1948-glessner-interior",
    "a18-rba-nickel-glessner-ne-1",
    "a18-rba-nickel-glessner-ne-2",
@@ -2633,6 +2633,10 @@
    "st-nrhp-1972-photo3-aerial-ne-from-20th-indiana",
    "st-nrhp-1972-photo4-prairie-south-from-18th",
    "st-ghm-1800-block-restored-streetscape-1981",
+   "a18-rba-barford-glessner-courtyard",
+   "a18-rba-barford-glessner-exterior",
+   "a18-rba-barford-glessner-side-door",
+   "a18-rba-barford-glessner-window-detail",
    "a16-aic-reed-prairie-at-18th-looking-south-1941"
   ],
   "prairie_1801": [
@@ -9400,11 +9404,41 @@
     "family": "glessner-construction-c1887",
     "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
     "family_members": [
-     "a18-gho-house-under-construction-1887",
      "a18-gh-cornell-glessner-front-c1887",
-     "cgn-1800-glessner-1887-construction-copy"
+     "a18-gho-house-under-construction-1887",
+     "cgn-1800-glessner-1887-construction-copy",
+     "a18-cornell-adw-glessner"
     ]
    },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 6,
+       "reviewed_on": "2026-10-08",
+       "review_state": "visually inspected",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "1887",
+       "evidence_role": "exterior reference",
+       "geometry_use": "corroborate with dated evidence",
+       "reason": "An image can establish visible fabric at its own date; it does not establish unchanged condition on 1904-07-01.",
+       "source_url": "https://www.glessnerhouse.org/house-under-construction",
+       "family": "glessner-construction-c1887",
+       "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "a18-gho-house-under-construction-1887",
+        "a18-gh-cornell-glessner-front-c1887",
+        "cgn-1800-glessner-1887-construction-copy"
+       ]
+      }
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -10192,23 +10226,60 @@
    "local": null,
    "verified": "catalog-only",
    "found_via": "WebSearch result listings for encyclopedia.chicagohistory.org (site itself returned 503/404 to WebFetch and curl on 2026-10-01)",
-   "notes": "EoC gallery item: J. W. Taylor photograph, CHM ICHi-37646 — almost certainly a print of Taylor #9974 (cf. a18-rba-taylor-9974-prairie-south-from-18th). Listing only.",
+   "notes": "HTTPS catalog returned HTTP 503; original HTTP URL timed out. Search indexing corroborates title/Taylor attribution but supplies no reviewed image. Unresolved; do not count a separate exposure.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 15,
-    "reviewed_on": "2026-10-08",
+    "reviewed_on": "2026-10-09",
     "review_state": "unavailable image: catalog only",
     "target_date": "1904-07-01",
     "phase": "range includes target year; exact phase unresolved",
     "date_basis": "n.d.",
     "evidence_role": "streetscape or site context",
     "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "reason": "HTTPS catalog returned HTTP 503; original HTTP URL timed out. Search indexing corroborates title/Taylor attribution but supplies no reviewed image. Unresolved; do not count a separate exposure.",
     "source_url": "http://www.encyclopedia.chicagohistory.org/pages/10382.html",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "unavailable",
+    "identity": "ICHi-37646; attributed to J. W. Taylor in the existing catalog record; exposure identity unverified.",
+    "canonical_url": "http://www.encyclopedia.chicagohistory.org/pages/10382.html",
+    "date": "n.d.",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unresolved; do not count a separate exposure.",
+    "detail": "HTTPS catalog returned HTTP 503; original HTTP URL timed out. Search indexing corroborates title/Taylor attribution but supplies no reviewed image."
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 15,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "range includes target year; exact phase unresolved",
+       "date_basis": "n.d.",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "http://www.encyclopedia.chicagohistory.org/pages/10382.html",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "EoC gallery item: J. W. Taylor photograph, CHM ICHi-37646 — almost certainly a print of Taylor #9974 (cf. a18-rba-taylor-9974-prairie-south-from-18th). Listing only.",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -10322,27 +10393,27 @@
    "repository": "Commission on Chicago Landmarks (report PDF hosted at reports.chicagolandmarkreports.org)",
    "collection": "\"Prairie Avenue: Chicago's First Gold Coast\", research study by the staff of the Commission on Chicago Historical and Architectural Landmarks, March 1973",
    "call_number": "report PDF p. 24; negative number \"9974\" and initials scratched in the plate",
-   "catalog_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+   "catalog_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf#page=24",
    "image_url": null,
    "rights": "unknown — link only",
    "rights_basis": "Uncredited historic photograph reproduced (photocopy quality) in a 1973 municipal report; original holder not stated",
    "local": null,
    "verified": "viewed",
    "found_via": "data/sources.csv B-city1973 / pa-prairie-city-report-1973; PDF downloaded and all 24 pages inspected",
-   "notes": "Uncaptioned photocopy plate. Identified by me as the same photograph as the Holzman postcard postmarked 1908 (st-ghm-postcard-1908-prairie-south-at-18th; Glessner House caption: 'looking south at 18th Street… Glessner house at far right'): the Glessner lot's rounded-top granite coping/wall at right, broad slab sidewalk, a single row of elms in the grass parkway, high-stoop houses of 1808 onward. The scratched negative number '9974' and initials suggest a commercial view-company negative (LoC searches for LC-D4-9974 found nothing). Black-and-white version is the better evidence for surfaces than the tinted postcard. Also printed in Picturesque Chicago (1892) p. 199, which dates the negative to 1887–92. Captioned 'Looking south on Prairie Avenue from Eighteenth St.' in Flinn (1892) — see st-flinn-1892-looking-south-prairie-from-18th. Earliest printing found: Flinn 1891 'A Bit of Prairie Avenue' (st-flinn-1891-a-bit-of-prairie-avenue), so the negative dates Dec. 1887–1891.",
+   "notes": "PDF recovered and page 24 visually compared with audit #016: same foreground tree, sidewalk shadows, buildings and negative number. Duplicate of #016; wider #010/011/012/019 family remains qualified.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 17,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "before target year",
     "date_basis": "undated historic photograph (reproduced 1973)",
     "evidence_role": "streetscape or site context",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+    "geometry_use": "context only",
+    "reason": "PDF recovered and page 24 visually compared with audit #016: same foreground tree, sidewalk shadows, buildings and negative number. Duplicate of #016; wider #010/011/012/019 family remains qualified.",
+    "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf#page=24",
     "family": "glessner-taylor-9974-possible",
     "family_relationship": "possible derivative family; catalog dates conflict; do not count as independent corroboration; count the underlying source once, not each reproduction.",
     "family_members": [
@@ -10354,6 +10425,54 @@
      "a18-rba-lowe-taylor-9974-copy"
     ]
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "Taylor negative 9974, report PDF page 24.",
+    "canonical_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf#page=24",
+    "date": "undated historic photograph (reproduced 1973)",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Duplicate of #016; wider #010/011/012/019 family remains qualified.",
+    "detail": "PDF recovered and page 24 visually compared with audit #016: same foreground tree, sidewalk shadows, buildings and negative number.",
+    "source_sha256": "82a0f6c22f73c32e0f88ddd9856e40351e4b6b62299164d1ec0747668385c30c",
+    "retrieved_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 17,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "undated historic photograph (reproduced 1973)",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+       "family": "glessner-taylor-9974-possible",
+       "family_relationship": "possible derivative family; catalog dates conflict; do not count as independent corroboration; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "st-flinn-1892-looking-south-prairie-from-18th",
+        "st-ghm-postcard-1908-prairie-south-at-18th",
+        "st-picturesque-chicago-1892-prairie-avenue-p199",
+        "a18-rba-taylor-9974-prairie-south-from-18th",
+        "st-cl1973-p24-sidewalk-view-9974",
+        "a18-rba-lowe-taylor-9974-copy"
+       ]
+      },
+      "notes": "Uncaptioned photocopy plate. Identified by me as the same photograph as the Holzman postcard postmarked 1908 (st-ghm-postcard-1908-prairie-south-at-18th; Glessner House caption: 'looking south at 18th Street… Glessner house at far right'): the Glessner lot's rounded-top granite coping/wall at right, broad slab sidewalk, a single row of elms in the grass parkway, high-stoop houses of 1808 onward. The scratched negative number '9974' and initials suggest a commercial view-company negative (LoC searches for LC-D4-9974 found nothing). Black-and-white version is the better evidence for surfaces than the tinted postcard. Also printed in Picturesque Chicago (1892) p. 199, which dates the negative to 1887–92. Captioned 'Looking south on Prairie Avenue from Eighteenth St.' in Flinn (1892) — see st-flinn-1892-looking-south-prairie-from-18th. Earliest printing found: Flinn 1891 'A Bit of Prairie Avenue' (st-flinn-1891-a-bit-of-prairie-avenue), so the negative dates Dec. 1887–1891.",
+      "retrieval_review": null,
+      "catalog_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf"
+     }
+    }
+   ],
    "stream": "streetscape",
    "parcel_ids": [
     "calumet_1800",
@@ -10976,23 +11095,60 @@
    "local": null,
    "verified": "catalog-only",
    "found_via": "WebSearch result listings for encyclopedia.chicagohistory.org (site itself returned 503/404 to WebFetch and curl on 2026-10-01)",
-   "notes": "EoC gallery item (CHM), 1951 street view south of 18th. Listing only.",
+   "notes": "HTTPS catalog returned HTTP 503; original HTTP URL timed out. Indexed Encyclopedia listings credit Chicago Daily News; no image inspected. Unresolved; 1951 cannot establish the 1904 scene.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 25,
-    "reviewed_on": "2026-10-08",
+    "reviewed_on": "2026-10-09",
     "review_state": "unavailable image: catalog only",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "1951",
     "evidence_role": "streetscape or site context",
     "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "reason": "HTTPS catalog returned HTTP 503; original HTTP URL timed out. Indexed Encyclopedia listings credit Chicago Daily News; no image inspected. Unresolved; 1951 cannot establish the 1904 scene.",
     "source_url": "http://www.encyclopedia.chicagohistory.org/pages/10389.html",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "unavailable",
+    "identity": "1951 Prairie Avenue south from 18th Street; exact exposure unverified.",
+    "canonical_url": "http://www.encyclopedia.chicagohistory.org/pages/10389.html",
+    "date": "1951",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unresolved; 1951 cannot establish the 1904 scene.",
+    "detail": "HTTPS catalog returned HTTP 503; original HTTP URL timed out. Indexed Encyclopedia listings credit Chicago Daily News; no image inspected."
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 25,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "1951",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "http://www.encyclopedia.chicagohistory.org/pages/10389.html",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "EoC gallery item (CHM), 1951 street view south of 18th. Listing only.",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -11318,7 +11474,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "data/sources.csv B-city1973 (PDF read via pdftotext this session)",
-   "notes": "Block-by-block text with building descriptions: 1808 O. R. Keith/Stanley Field \"a three-story stone house with a rusticated first story, it had a two-story elliptical bay. Six windows spanned the front of the third story, separated by pillars. It was topped by an elaborate, pierced parapet\"; 1815 Meeker (ex-Sears) \"of yellow limestone… reconstructed by the architect Arthur Heun… surrounded by high, spiky iron fences, and had a stable at the back, a porte-cochere on one side, and a yard on the other\" (Meekers there until 1914); 1827 Doane \"mansard roof with dormers, a tower, and elaborate steam laundry facilities in the basement\"; Tribune 1898 quote that 1824 (Marsh) was one of the two first houses. Plates: p. 24 reproduces Taylor #9974 (south from 18th); p. 23 an uncaptioned east-side street view with a Chateauesque corner house (possibly Kimball), printed inverted. NOTE: this is the TEXT record of the report; its two plates are recorded separately by the streetscape stream (st-cl1973-p23-kimball-corner-18th-looking-se, st-cl1973-p24-sidewalk-view-9974).",
+   "notes": "PDF recovered; Glessner passage on PDF page 10 and image on page 24 reviewed. Page 24 duplicates Taylor 9974 (#017/#016). Secondary written context; its photograph is not independent evidence.",
    "measurements": [
     {
      "what": "1808 third-storey front",
@@ -11327,20 +11483,59 @@
     }
    ],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 29,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "written document reviewed",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "March 1973",
-    "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "evidence_role": "text context",
+    "geometry_use": "context only",
+    "reason": "PDF recovered; Glessner passage on PDF page 10 and image on page 24 reviewed. Page 24 duplicates Taylor 9974 (#017/#016). Secondary written context; its photograph is not independent evidence.",
     "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "document recovered",
+    "identity": "24-page March 1973 Prairie Avenue district research report.",
+    "canonical_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+    "date": "March 1973",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Secondary written context; its photograph is not independent evidence.",
+    "detail": "PDF recovered; Glessner passage on PDF page 10 and image on page 24 reviewed. Page 24 duplicates Taylor 9974 (#017/#016).",
+    "source_sha256": "82a0f6c22f73c32e0f88ddd9856e40351e4b6b62299164d1ec0747668385c30c",
+    "retrieved_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 29,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "March 1973",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://reports.chicagolandmarkreports.org/prairie-avenue-district.pdf",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Block-by-block text with building descriptions: 1808 O. R. Keith/Stanley Field \"a three-story stone house with a rusticated first story, it had a two-story elliptical bay. Six windows spanned the front of the third story, separated by pillars. It was topped by an elaborate, pierced parapet\"; 1815 Meeker (ex-Sears) \"of yellow limestone… reconstructed by the architect Arthur Heun… surrounded by high, spiky iron fences, and had a stable at the back, a porte-cochere on one side, and a yard on the other\" (Meekers there until 1914); 1827 Doane \"mansard roof with dormers, a tower, and elaborate steam laundry facilities in the basement\"; Tribune 1898 quote that 1824 (Marsh) was one of the two first houses. Plates: p. 24 reproduces Taylor #9974 (south from 18th); p. 23 an uncaptioned east-side street view with a Chateauesque corner house (possibly Kimball), printed inverted. NOTE: this is the TEXT record of the report; its two plates are recorded separately by the streetscape stream (st-cl1973-p23-kimball-corner-18th-looking-se, st-cl1973-p24-sidewalk-view-9974).",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -11923,23 +12118,62 @@
    "local": null,
    "verified": "viewed",
    "found_via": "chicagology.com Prairie Avenue main page",
-   "notes": "House-by-house newspaper tour of Prairie Avenue (16th–22nd St). 1800-block passages: Charles M. Henderson \"has enjoyed his airy but substantially built mansion for many years\"; \"The Fernando Jones house has been improved and enlarged recently\" (supports the 1886 mansard addition at 1834); \"The light stone-front house, No. 1828, is a gem of artistic beauty\" (D. B. Shipman); \"Contiguous to Mr. Shipman's is the handsome brown stone…\" (1824); the Glessner house under construction (\"the northern wall… is unbroken\"). Rights reviewed 2026-10-02: reclassified public domain (published 1887 newspaper text); a transcription only — no image to store.",
+   "notes": "Transcription reviewed: construction still underway; continuous house/stable outer wall, small street windows, sloping roof and enclosed grounds described. Original newspaper scan not recovered in this pass. Independent written construction-period context; transcription accuracy not checked against the original.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 30,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "written document reviewed",
     "target_date": "1904-07-01",
     "phase": "before target year",
     "date_basis": "January 2, 1887",
-    "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "evidence_role": "text context",
+    "geometry_use": "context only",
+    "reason": "Transcription reviewed: construction still underway; continuous house/stable outer wall, small street windows, sloping roof and enclosed grounds described. Original newspaper scan not recovered in this pass. Independent written construction-period context; transcription accuracy not checked against the original.",
     "source_url": "https://chicagology.com/chicagostreets/prairieavenue/",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "document recovered",
+    "identity": "Inter Ocean, 2 January 1887, reproduced transcription on Chicagology.",
+    "canonical_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+    "date": "January 2, 1887",
+    "rights_status": "public domain",
+    "independent_evidence": "Independent written construction-period context; transcription accuracy not checked against the original.",
+    "detail": "Transcription reviewed: construction still underway; continuous house/stable outer wall, small street windows, sloping roof and enclosed grounds described. Original newspaper scan not recovered in this pass.",
+    "source_sha256": "399e8efd6c0e70c40a8477376a2758afc332a7d995db9b5c22a60eead6ccc9c3",
+    "retrieved_url": "https://chicagology.com/chicagostreets/prairieavenue/"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 30,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "January 2, 1887",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://chicagology.com/chicagostreets/prairieavenue/",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "House-by-house newspaper tour of Prairie Avenue (16th–22nd St). 1800-block passages: Charles M. Henderson \"has enjoyed his airy but substantially built mansion for many years\"; \"The Fernando Jones house has been improved and enlarged recently\" (supports the 1886 mansard addition at 1834); \"The light stone-front house, No. 1828, is a gem of artistic beauty\" (D. B. Shipman); \"Contiguous to Mr. Shipman's is the handsome brown stone…\" (1824); the Glessner house under construction (\"the northern wall… is unbroken\"). Rights reviewed 2026-10-02: reclassified public domain (published 1887 newspaper text); a transcription only — no image to store.",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -19978,7 +20212,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "chicagology.com Prairie Avenue per-address pages (1804prairie)",
-   "notes": "Sale of the Hitchcock/Galloway corner (old nos. 588 & 590 Prairie, the double house) to Glessner for $50,000, \"about $675 per foot\"; J. W. Doane had earlier offered $40,000. Chicagology gives the double house's life span 1858–1886. Implies c. 74 ft of frontage at the quoted rate. Rights reviewed 2026-10-02: reclassified public domain (published 1885 newspaper text); a transcription only — no image to store.",
+   "notes": "Transcription reviewed: southwest corner of Prairie and 18th sold to J. J. Glessner for $50,000; future house planned. Original newspaper scan not recovered in this pass. Independent acquisition context; no as-built dimensions or appearance.",
    "measurements": [
     {
      "what": "price",
@@ -19987,20 +20221,59 @@
     }
    ],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 32,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "written document reviewed",
     "target_date": "1904-07-01",
     "phase": "before target year",
     "date_basis": "April 19, 1885",
-    "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "evidence_role": "text context",
+    "geometry_use": "context only",
+    "reason": "Transcription reviewed: southwest corner of Prairie and 18th sold to J. J. Glessner for $50,000; future house planned. Original newspaper scan not recovered in this pass. Independent acquisition context; no as-built dimensions or appearance.",
     "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "document recovered",
+    "identity": "Chicago Tribune, 19 April 1885, residence-lot sale transcription on Chicagology.",
+    "canonical_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
+    "date": "April 19, 1885",
+    "rights_status": "public domain",
+    "independent_evidence": "Independent acquisition context; no as-built dimensions or appearance.",
+    "detail": "Transcription reviewed: southwest corner of Prairie and 18th sold to J. J. Glessner for $50,000; future house planned. Original newspaper scan not recovered in this pass.",
+    "source_sha256": "e4e9c4298c65af7ec13cb8ffbfd36f348bfeed7c315cad4236c0b426fa1b225e",
+    "retrieved_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 32,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "April 19, 1885",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1804prairie/",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Sale of the Hitchcock/Galloway corner (old nos. 588 & 590 Prairie, the double house) to Glessner for $50,000, \"about $675 per foot\"; J. W. Doane had earlier offered $40,000. Chicagology gives the double house's life span 1858–1886. Implies c. 74 ft of frontage at the quoted rate. Rights reviewed 2026-10-02: reclassified public domain (published 1885 newspaper text); a transcription only — no image to store.",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -20164,9 +20437,39 @@
     "family_members": [
      "a18-glessner-habs-photo-12",
      "a18-glessner-houghton-gle-b2",
-     "a18-rba-mf-glessner-f27-prairie-elevation"
+     "a18-rba-mf-glessner-f27-prairie-elevation",
+     "a18-rba-glessner-prelim-elevation-slide"
     ]
    },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 35,
+       "reviewed_on": "2026-10-08",
+       "review_state": "visually inspected",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "undated preliminary design (copied for HABS); distinguish design date from reproduction date; neither proves construction.",
+       "evidence_role": "unbuilt or preliminary design",
+       "geometry_use": "excluded",
+       "reason": "Preliminary unbuilt central-gable scheme.",
+       "source_url": "https://hdl.loc.gov/loc.pnp/hhh.il0118/photos.060914p",
+       "family": "glessner-central-gable-preliminary",
+       "family_relationship": "copies of the same preliminary design; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "a18-glessner-habs-photo-12",
+        "a18-glessner-houghton-gle-b2",
+        "a18-rba-mf-glessner-f27-prairie-elevation"
+       ]
+      }
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -20281,9 +20584,39 @@
     "family_members": [
      "a18-glessner-habs-photo-12",
      "a18-glessner-houghton-gle-b2",
-     "a18-rba-mf-glessner-f27-prairie-elevation"
+     "a18-rba-mf-glessner-f27-prairie-elevation",
+     "a18-rba-glessner-prelim-elevation-slide"
     ]
    },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 37,
+       "reviewed_on": "2026-10-08",
+       "review_state": "visually inspected",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "1885–1887 (project dates; sheet undated)",
+       "evidence_role": "unbuilt or preliminary design",
+       "geometry_use": "excluded",
+       "reason": "Preliminary design, not the built Prairie elevation.",
+       "source_url": "https://hollisarchives.lib.harvard.edu/catalog/hou00434_hou00434c00106",
+       "family": "glessner-central-gable-preliminary",
+       "family_relationship": "copies of the same preliminary design; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "a18-glessner-habs-photo-12",
+        "a18-glessner-houghton-gle-b2",
+        "a18-rba-mf-glessner-f27-prairie-elevation"
+       ]
+      }
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -20761,29 +21094,76 @@
    "collection": "Historic Architecture and Landscape Image Collection, c.1865-1973 (bulk 1890-1945) — Architecture Lantern Slide Collection",
    "call_number": "Box 10",
    "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/25521",
-   "image_url": null,
+   "image_url": "https://artic.contentdm.oclc.org/iiif/2/mqc:25521/full/full/0/default.jpg",
    "rights": "unknown — link only",
    "rights_basis": "Slide of a Houghton drawing. Holder's statement: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
    "local": null,
-   "verified": "catalog-only",
+   "verified": "viewed",
    "found_via": "Art Institute CONTENTdm (artic.contentdm.oclc.org) API search, collection mqc, terms \"prairie avenue\", glessner, kimball, keith, coleman, doane, wheeler… 2026-10-01; item metadata via /digital/api/singleitem",
-   "notes": "Lantern slide copy of Richardson's preliminary elevation held at Houghton (same drawing as HABS photo 12 / GLE B2). RBA caption/notes: Description: preliminary elevation; drawing in permanent collection of Houghton Library, Harvard University; Reference Sources: \"Chicago Architecture 1872-1922\" 439, 440; Date of Photographic View: c.1885",
+   "notes": "Holder download is a JPEG; central-gable design visually compared with HABS #035. The slide is a reproduction of the unbuilt scheme. Same preliminary-design family as #035/#037/#047, not independent as-built corroboration.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 46,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "before target year",
     "date_basis": "c. 1885 (drawing); slide undated",
     "evidence_role": "unbuilt or preliminary design",
     "geometry_use": "excluded",
-    "reason": "Preliminary/variant design; execution is not established. Do not use as built-condition geometry.",
+    "reason": "Holder download is a JPEG; central-gable design visually compared with HABS #035. The slide is a reproduction of the unbuilt scheme. Same preliminary-design family as #035/#037/#047, not independent as-built corroboration.",
     "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/25521",
-    "family": null,
-    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+    "family": "glessner-central-gable-preliminary",
+    "family_relationship": "copies of the same preliminary design; count the underlying source once, not each reproduction.",
+    "family_members": [
+     "a18-glessner-habs-photo-12",
+     "a18-glessner-houghton-gle-b2",
+     "a18-rba-mf-glessner-f27-prairie-elevation",
+     "a18-rba-glessner-prelim-elevation-slide"
+    ]
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "AIC mqc/25521, Box 10, filename 80214; lantern slide of Houghton preliminary elevation.",
+    "canonical_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/25521",
+    "date": "c. 1885 (drawing); slide undated",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Same preliminary-design family as #035/#037/#047, not independent as-built corroboration.",
+    "detail": "Holder download is a JPEG; central-gable design visually compared with HABS #035. The slide is a reproduction of the unbuilt scheme.",
+    "source_sha256": "7d11097811ebe89bc47c44eef15e04126c962d2b2ac575526dda9847746ed9ec",
+    "retrieved_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/25521/download"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "image_url": null,
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 46,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "c. 1885 (drawing); slide undated",
+       "evidence_role": "unbuilt or preliminary design",
+       "geometry_use": "excluded",
+       "reason": "Preliminary/variant design; execution is not established. Do not use as built-condition geometry.",
+       "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/25521",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Lantern slide copy of Richardson's preliminary elevation held at Houghton (same drawing as HABS photo 12 / GLE B2). RBA caption/notes: Description: preliminary elevation; drawing in permanent collection of Houghton Library, Harvard University; Reference Sources: \"Chicago Architecture 1872-1922\" 439, 440; Date of Photographic View: c.1885",
+      "retrieval_review": null,
+      "verified": "catalog-only"
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -20851,9 +21231,39 @@
     "family_members": [
      "a18-glessner-habs-photo-12",
      "a18-glessner-houghton-gle-b2",
-     "a18-rba-mf-glessner-f27-prairie-elevation"
+     "a18-rba-mf-glessner-f27-prairie-elevation",
+     "a18-rba-glessner-prelim-elevation-slide"
     ]
    },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 47,
+       "reviewed_on": "2026-10-08",
+       "review_state": "visually inspected",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "drawing 1885–1887; microfilmed March 1952; distinguish design date from reproduction date; neither proves construction.",
+       "evidence_role": "unbuilt or preliminary design",
+       "geometry_use": "excluded",
+       "reason": "Preliminary unbuilt central-gable scheme.",
+       "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/69491",
+       "family": "glessner-central-gable-preliminary",
+       "family_relationship": "copies of the same preliminary design; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "a18-glessner-habs-photo-12",
+        "a18-glessner-houghton-gle-b2",
+        "a18-rba-mf-glessner-f27-prairie-elevation"
+       ]
+      }
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -24234,29 +24644,78 @@
    "collection": "Andrew Dickson White Architectural Photographs Collection",
    "call_number": "15/5/3090.00155",
    "catalog_url": "https://digital.library.cornell.edu/catalog/ss:3874293",
-   "image_url": null,
+   "image_url": "https://www.jstor.org/iiif/2015/05/01/13/99f80837-f0ce-47fa-a493-62b61bad2e28_deflate.tif/full/full/0/default.jpg",
    "rights": "public domain",
-   "rights_basis": "Albumen print c. 1887 (public domain by age); Cornell terms not read (site returned 403)",
+   "rights_basis": "Cornell catalog expressly places the collection images in the public domain with no known U.S. restrictions; checked 2026-10-09.",
    "local": null,
-   "verified": "catalog-only",
-   "found_via": "web search (digital.library.cornell.edu result snippet); site and rmc.library.cornell.edu gallery returned 403 to curl/WebFetch",
-   "notes": "The original albumen print reproduced by Glessner House Museum as \"Cornell front\" (see a18-gh-cornell-glessner-front-c1887). A rear/stable view (\"Cornell rear\") is presumably a second ADW print — catalog id not found.",
+   "verified": "viewed",
+   "found_via": "Cornell catalog OpenSeadragon tile source → JSTOR IIIF; visually reviewed 2026-10-09.",
+   "notes": "Cornell catalog and public-domain statement recovered. Old Artstor link returns a browser challenge; the catalog-linked JSTOR IIIF service returns the image. Compared with #006: identical figures, propped frames, trees and temporary works. Same construction exposure as #006/#103/#110; not a new camera view.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 99,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "before target year",
     "date_basis": "ca. 1887",
     "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Cornell catalog and public-domain statement recovered. Old Artstor link returns a browser challenge; the catalog-linked JSTOR IIIF service returns the image. Compared with #006: identical figures, propped frames, trees and temporary works. Same construction exposure as #006/#103/#110; not a new camera view.",
     "source_url": "https://digital.library.cornell.edu/catalog/ss:3874293",
-    "family": null,
-    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+    "family": "glessner-construction-c1887",
+    "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
+    "family_members": [
+     "a18-gh-cornell-glessner-front-c1887",
+     "a18-gho-house-under-construction-1887",
+     "cgn-1800-glessner-1887-construction-copy",
+     "a18-cornell-adw-glessner"
+    ]
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "Cornell 10035008 / 15/5/3090.00155, ca. 1887 albumen print.",
+    "canonical_url": "https://digital.library.cornell.edu/catalog/ss:3874293",
+    "date": "ca. 1887",
+    "rights_status": "public domain",
+    "independent_evidence": "Same construction exposure as #006/#103/#110; not a new camera view.",
+    "detail": "Cornell catalog and public-domain statement recovered. Old Artstor link returns a browser challenge; the catalog-linked JSTOR IIIF service returns the image. Compared with #006: identical figures, propped frames, trees and temporary works.",
+    "source_sha256": "dd5a2c07b695720f4c80c355ca79c8e031b718ad957170b1d982b59a2e2a0d37",
+    "retrieved_url": "https://www.jstor.org/iiif/2015/05/01/13/99f80837-f0ce-47fa-a493-62b61bad2e28_deflate.tif/full/full/0/default.jpg"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "image_url": null,
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 99,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "ca. 1887",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://digital.library.cornell.edu/catalog/ss:3874293",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "The original albumen print reproduced by Glessner House Museum as \"Cornell front\" (see a18-gh-cornell-glessner-front-c1887). A rear/stable view (\"Cornell rear\") is presumably a second ADW print — catalog id not found.",
+      "retrieval_review": null,
+      "rights_basis": "Albumen print c. 1887 (public domain by age); Cornell terms not read (site returned 403)",
+      "found_via": "web search (digital.library.cornell.edu result snippet); site and rmc.library.cornell.edu gallery returned 403 to curl/WebFetch",
+      "verified": "catalog-only"
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -24519,11 +24978,41 @@
     "family": "glessner-construction-c1887",
     "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
     "family_members": [
-     "a18-gho-house-under-construction-1887",
      "a18-gh-cornell-glessner-front-c1887",
-     "cgn-1800-glessner-1887-construction-copy"
+     "a18-gho-house-under-construction-1887",
+     "cgn-1800-glessner-1887-construction-copy",
+     "a18-cornell-adw-glessner"
     ]
    },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 103,
+       "reviewed_on": "2026-10-08",
+       "review_state": "visually inspected",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "c. 1887",
+       "evidence_role": "exterior reference",
+       "geometry_use": "corroborate with dated evidence",
+       "reason": "An image can establish visible fabric at its own date; it does not establish unchanged condition on 1904-07-01.",
+       "source_url": "https://glessnerhouse.blogspot.com/2022/12/the-original-odd-quaint-queer-dutch.html",
+       "family": "glessner-construction-c1887",
+       "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "a18-gho-house-under-construction-1887",
+        "a18-gh-cornell-glessner-front-c1887",
+        "cgn-1800-glessner-1887-construction-copy"
+       ]
+      }
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -24951,11 +25440,41 @@
     "family": "glessner-construction-c1887",
     "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
     "family_members": [
-     "a18-gho-house-under-construction-1887",
      "a18-gh-cornell-glessner-front-c1887",
-     "cgn-1800-glessner-1887-construction-copy"
+     "a18-gho-house-under-construction-1887",
+     "cgn-1800-glessner-1887-construction-copy",
+     "a18-cornell-adw-glessner"
     ]
    },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 110,
+       "reviewed_on": "2026-10-08",
+       "review_state": "visually inspected",
+       "target_date": "1904-07-01",
+       "phase": "before target year",
+       "date_basis": "1887",
+       "evidence_role": "exterior reference",
+       "geometry_use": "corroborate with dated evidence",
+       "reason": "An image can establish visible fabric at its own date; it does not establish unchanged condition on 1904-07-01.",
+       "source_url": "https://chicagology.com/chicagostreets/prairieavenue/1800prairie/",
+       "family": "glessner-construction-c1887",
+       "family_relationship": "same exposure; count the underlying source once, not each reproduction.",
+       "family_members": [
+        "a18-gho-house-under-construction-1887",
+        "a18-gh-cornell-glessner-front-c1887",
+        "cgn-1800-glessner-1887-construction-copy"
+       ]
+      }
+     }
+    }
+   ],
    "stream": "chicagology-north",
    "parcel_ids": [
     "calumet_1800",
@@ -25940,9 +26459,9 @@
    ]
   },
   {
-   "id": "a18-rba-barford-glessner-courtyard",
+   "id": "a18-iit-glessner-prairie-facade-1945",
    "kind": "photograph",
-   "title": "Glessner, John J., Residence — courtyard (George Barford)",
+   "title": "Glessner House, Chicago, Illinois, 1945",
    "building_ids": [
     "pa-1800-22"
    ],
@@ -25950,198 +26469,54 @@
     "1800 S. Prairie Avenue"
    ],
    "streetscape": false,
-   "view": "rear",
-   "facing": null,
-   "camera_position": null,
-   "date": "after 1945",
+   "view": "front elevation",
+   "facing": "west",
+   "camera_position": "Across Prairie Avenue, looking toward the east facade; inferred from the visible facade.",
+   "date": "1945 (IIT catalog)",
    "date_earliest": 1945,
-   "date_latest": 1972,
+   "date_latest": 1945,
    "period": "later",
-   "creator": "Barford, George",
-   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
-   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
-   "call_number": "2008.3",
-   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36957",
-   "image_url": null,
+   "creator": "Unknown photographer",
+   "repository": "Illinois Institute of Technology, University Archives and Special Collections",
+   "collection": "Office of Communications and Marketing photographs, 1905–1999",
+   "call_number": "0360401-W1-02-003; Box W-1, Folder 2; islandora:1001086",
+   "catalog_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+   "image_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
    "rights": "copyright — link only",
-   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
+   "rights_basis": "IIT catalog: In Copyright (rightsstatements.org/vocab/InC/1.0/). Medium JPEG publicly displayed; original TIFF marked File Restricted.",
    "local": null,
-   "verified": "catalog-only",
-   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
-   "notes": "Post-1945; image not online.",
+   "verified": "viewed",
+   "found_via": "T-2199: supplied IIT lead; public catalog and medium JPEG reviewed 2026-10-09.",
    "measurements": [],
+   "notes": "Nearly straight-on Prairie facade: ridge caps, three stacks, eaves/gutter, corner downpipe, paired and grouped windows, entrance and boundary stones are readable. Heavy climbing vegetation obscures masonry and openings. The 1945 vegetation, paving and signs are not evidence of their 1904 state. No dimensions or material colors are derived from this monochrome view.",
    "evidence_review": {
-    "ticket": "T-2198",
-    "audit_number": 128,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "after target year",
-    "date_basis": "after 1945",
+    "date_basis": "IIT dates the photograph 1945; photographer unknown. Catalog building-completion wording is not adopted as a corrected construction date.",
     "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36957",
+    "geometry_use": "corroborate with dated evidence",
+    "reason": "Nearly straight-on Prairie facade: ridge caps, three stacks, eaves/gutter, corner downpipe, paired and grouped windows, entrance and boundary stones are readable. Heavy climbing vegetation obscures masonry and openings. The 1945 vegetation, paving and signs are not evidence of their 1904 state. No dimensions or material colors are derived from this monochrome view.",
+    "source_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
     "family": null,
-    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+    "family_relationship": "Distinct camera view from the compared ca.1887 Cornell print and 1948 Florian views; other duplicate prints may exist."
    },
-   "stream": "1800",
-   "parcel_ids": [
-    "calumet_1800",
-    "prairie_1800"
-   ]
-  },
-  {
-   "id": "a18-rba-barford-glessner-exterior",
-   "kind": "photograph",
-   "title": "Glessner, John J., Residence — exterior (George Barford)",
-   "building_ids": [
-    "pa-1800-22"
-   ],
-   "addresses": [
-    "1800 S. Prairie Avenue"
-   ],
-   "streetscape": false,
-   "view": "oblique front",
-   "facing": null,
-   "camera_position": null,
-   "date": "after 1945",
-   "date_earliest": 1945,
-   "date_latest": 1972,
-   "period": "later",
-   "creator": "Barford, George",
-   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
-   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
-   "call_number": "2008.3",
-   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36641",
-   "image_url": null,
-   "rights": "copyright — link only",
-   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
-   "local": null,
-   "verified": "catalog-only",
-   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
-   "notes": "Post-1945 photograph by George Barford (Institute of Design); image not online.",
-   "measurements": [],
-   "evidence_review": {
-    "ticket": "T-2198",
-    "audit_number": 129,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
-    "target_date": "1904-07-01",
-    "phase": "after target year",
-    "date_basis": "after 1945",
-    "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36641",
-    "family": null,
-    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "0360401-W1-02-003; Box W-1, Folder 2; islandora:1001086",
+    "canonical_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086",
+    "retrieved_url": "https://repository.iit.edu/islandora/object/islandora%3A1001086/datastream/JPG/view",
+    "date": "1945 (IIT catalog)",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Additional dated exterior viewpoint relative to the compared library images; not independent proof of 1904 condition.",
+    "detail": "Public medium JPEG retrieved and visually inspected. Restricted original TIFF not requested.",
+    "source_sha256": "a3ddec522f3ce1909538a4b6f0a8e18a91b7597c6913de788e01169363f35f33"
    },
-   "stream": "1800",
-   "parcel_ids": [
-    "calumet_1800",
-    "prairie_1800"
-   ]
-  },
-  {
-   "id": "a18-rba-barford-glessner-side-door",
-   "kind": "photograph",
-   "title": "Glessner, John J., Residence — side door (George Barford)",
-   "building_ids": [
-    "pa-1800-22"
-   ],
-   "addresses": [
-    "1800 S. Prairie Avenue"
-   ],
-   "streetscape": false,
-   "view": "detail",
-   "facing": null,
-   "camera_position": null,
-   "date": "after 1945",
-   "date_earliest": 1945,
-   "date_latest": 1972,
-   "period": "later",
-   "creator": "Barford, George",
-   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
-   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
-   "call_number": "2008.3",
-   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37021",
-   "image_url": null,
-   "rights": "copyright — link only",
-   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
-   "local": null,
-   "verified": "catalog-only",
-   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
-   "notes": "Post-1945; image not online.",
-   "measurements": [],
-   "evidence_review": {
-    "ticket": "T-2198",
-    "audit_number": 130,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
-    "target_date": "1904-07-01",
-    "phase": "after target year",
-    "date_basis": "after 1945",
-    "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37021",
-    "family": null,
-    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
-   },
-   "stream": "1800",
-   "parcel_ids": [
-    "calumet_1800",
-    "prairie_1800"
-   ]
-  },
-  {
-   "id": "a18-rba-barford-glessner-window-detail",
-   "kind": "photograph",
-   "title": "Glessner, John J., Residence — window detail (George Barford)",
-   "building_ids": [
-    "pa-1800-22"
-   ],
-   "addresses": [
-    "1800 S. Prairie Avenue"
-   ],
-   "streetscape": false,
-   "view": "detail",
-   "facing": null,
-   "camera_position": null,
-   "date": "after 1945",
-   "date_earliest": 1945,
-   "date_latest": 1972,
-   "period": "later",
-   "creator": "Barford, George",
-   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
-   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
-   "call_number": "2008.3",
-   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37298",
-   "image_url": null,
-   "rights": "copyright — link only",
-   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
-   "local": null,
-   "verified": "catalog-only",
-   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
-   "notes": "Post-1945; image not online.",
-   "measurements": [],
-   "evidence_review": {
-    "ticket": "T-2198",
-    "audit_number": 131,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
-    "target_date": "1904-07-01",
-    "phase": "after target year",
-    "date_basis": "after 1945",
-    "evidence_role": "exterior reference",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37298",
-    "family": null,
-    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
-   },
-   "stream": "1800",
+   "stream": "glessner-recovery",
    "parcel_ids": [
     "calumet_1800",
     "prairie_1800"
@@ -26746,23 +27121,62 @@
    "local": null,
    "verified": "catalog-only",
    "found_via": "api.artic.edu artworks search q=Glessner",
-   "notes": "Gelatin silver print, 35.3 x 35.4 cm. IIIF image returned 403; subject detail not seen.",
+   "notes": "API recovered with image identifier and is_public_domain=false. Public webpage and two IIIF image sizes return HTTP 403; browser-service retrieval also unavailable. No visual finding made from the tiny API placeholder. Unknown; do not equate this print with the two 1972 nomination photographs merely because Nickel made them.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 140,
-    "reviewed_on": "2026-10-08",
+    "reviewed_on": "2026-10-09",
     "review_state": "unavailable image: catalog only",
     "target_date": "1904-07-01",
     "phase": "after target year",
-    "date_basis": "c. 1950/72, printed 1973",
+    "date_basis": "Exposure c.1950–1972; print made 1973. These are separate dates in the AIC catalog.",
     "evidence_role": "exterior reference",
     "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "reason": "API recovered with image identifier and is_public_domain=false. Public webpage and two IIIF image sizes return HTTP 403; browser-service retrieval also unavailable. No visual finding made from the tiny API placeholder. Unknown; do not equate this print with the two 1972 nomination photographs merely because Nickel made them.",
     "source_url": "https://www.artic.edu/artworks/141989",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "metadata only",
+    "identity": "AIC 1975.425, artwork 141989; Richard Nickel, printed by Patrice Grimbert.",
+    "canonical_url": "https://www.artic.edu/artworks/141989",
+    "date": "c. 1950/72, printed 1973",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unknown; do not equate this print with the two 1972 nomination photographs merely because Nickel made them.",
+    "detail": "API recovered with image identifier and is_public_domain=false. Public webpage and two IIIF image sizes return HTTP 403; browser-service retrieval also unavailable. No visual finding made from the tiny API placeholder.",
+    "source_sha256": "edc7065ef2ebee1d2277cd8ae838ad3c8408d442235e0fbb5f185dd9fc642490",
+    "retrieved_url": "https://api.artic.edu/api/v1/artworks/141989"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 140,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "c. 1950/72, printed 1973",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://www.artic.edu/artworks/141989",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Gelatin silver print, 35.3 x 35.4 cm. IIIF image returned 403; subject detail not seen.",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "1800",
    "parcel_ids": [
     "calumet_1800",
@@ -28132,7 +28546,7 @@
    "local": null,
    "verified": "viewed",
    "found_via": "held PDF prairie-district-nrhp-1972.pdf, page 24 rendered",
-   "notes": "Plat-style map with subdivision lot numbers, 14 numbered ownership parcels outlined in blue (owners list: R. R. Donnelley; Cahners/Medalist; Chicago School of Architecture Foundation, 1800 S. Prairie; …), alleys and lot frontages/depths written on the lines. Useful for lot lines and depths in the 1800 block; 1972 ownership, not 1904. Map is turned (Prairie Ave. runs horizontally); only 1800 S. Prairie (owner no. 3, Chicago School of Architecture Foundation) is named on this page; the other 13 parcels are listed on the next sheet and not yet matched to building ids.",
+   "notes": "Map visually inspected: 1972 owner entries and parcel diagram, with April 18 receipt stamp. Ownership and lot boundaries are not a 1904 footprint survey. Distinct later cadastral context; same nomination container as #165–167.",
    "measurements": [
     {
      "what": "lot depth (one block face)",
@@ -28146,20 +28560,59 @@
     }
    ],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 164,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "received April 18, 1972",
     "evidence_role": "streetscape or site context",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+    "geometry_use": "context only",
+    "reason": "Map visually inspected: 1972 owner entries and parcel diagram, with April 18 receipt stamp. Ownership and lot boundaries are not a 1904 footprint survey. Distinct later cadastral context; same nomination container as #165–167.",
     "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "NRHP 72000452, PDF page 24: owner-of-property lot map.",
+    "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
+    "date": "received April 18, 1972",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Distinct later cadastral context; same nomination container as #165–167.",
+    "detail": "Map visually inspected: 1972 owner entries and parcel diagram, with April 18 receipt stamp. Ownership and lot boundaries are not a 1904 footprint survey.",
+    "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+    "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 164,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "received April 18, 1972",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=24",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Plat-style map with subdivision lot numbers, 14 numbered ownership parcels outlined in blue (owners list: R. R. Donnelley; Cahners/Medalist; Chicago School of Architecture Foundation, 1800 S. Prairie; …), alleys and lot frontages/depths written on the lines. Useful for lot lines and depths in the 1800 block; 1972 ownership, not 1904. Map is turned (Prairie Ave. runs horizontally); only 1800 S. Prairie (owner no. 3, Chicago School of Architecture Foundation) is named on this page; the other 13 parcels are listed on the next sheet and not yet matched to building ids.",
+      "retrieval_review": null
+     }
+    }
+   ],
    "stream": "drawings",
    "parcel_ids": [
     "calumet_1800",
@@ -28208,30 +28661,72 @@
    "repository": "National Archives (NARA RG 79, National Register of Historic Places records) — NPS nomination file",
    "collection": "Prairie Avenue District, National Register nomination (listed 1972), NRHP ref. 72000452",
    "call_number": "nomination PDF p. 40",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=40",
    "image_url": null,
-   "rights": "public domain",
-   "rights_basis": "Federal record",
+   "rights": "unknown — link only",
+   "rights_basis": "Uncredited contributed sketch in a federal nomination file; no authorship or rights release established. Federal custody alone is insufficient.",
    "local": null,
    "verified": "viewed",
    "found_via": "data/sources.csv pa-district-nrhp-1972 (already-acquired nomination); PDF re-downloaded and every page rendered and inspected",
-   "notes": "Hand-drawn plan of the 18th Street / Prairie Avenue corner: Glessner House, Kimball House, 'Ames House' (1811), 'Keith Home', the district boundary, Calumet Ave. on the diagonal, and a proposed secondary arterial curving across 18th St. '15 feet above grade' with a proposal to close Prairie Ave. Documents a 1970s road threat, not the 1904 street; included because it is the only plan in the file that sketches the 18th-Street corner geometry with the Calumet diagonal. Partial transcription of faint pencil.",
+   "notes": "Sketch visually inspected: proposed road/grade changes and district boundary, not a built 1904 street layout. Author and creation date not established. Federal custody alone does not clear a contributed drawing. Distinct proposal context; excluded from 1904 geometry.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 165,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "c. 1970s (correspondence section of file; undated sketch)",
-    "evidence_role": "streetscape or site context",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+    "evidence_role": "unbuilt or preliminary design",
+    "geometry_use": "excluded",
+    "reason": "Sketch visually inspected: proposed road/grade changes and district boundary, not a built 1904 street layout. Author and creation date not established. Federal custody alone does not clear a contributed drawing. Distinct proposal context; excluded from 1904 geometry.",
+    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=40",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "NRHP 72000452, PDF page 40: proposed 18th Street arterial sketch.",
+    "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=40",
+    "date": "c. 1970s (correspondence section of file; undated sketch)",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Distinct proposal context; excluded from 1904 geometry.",
+    "detail": "Sketch visually inspected: proposed road/grade changes and district boundary, not a built 1904 street layout. Author and creation date not established. Federal custody alone does not clear a contributed drawing.",
+    "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+    "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 165,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "c. 1970s (correspondence section of file; undated sketch)",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Hand-drawn plan of the 18th Street / Prairie Avenue corner: Glessner House, Kimball House, 'Ames House' (1811), 'Keith Home', the district boundary, Calumet Ave. on the diagonal, and a proposed secondary arterial curving across 18th St. '15 feet above grade' with a proposal to close Prairie Ave. Documents a 1970s road threat, not the 1904 street; included because it is the only plan in the file that sketches the 18th-Street corner geometry with the Calumet diagonal. Partial transcription of faint pencil.",
+      "retrieval_review": null,
+      "rights_basis": "Federal record",
+      "rights": "public domain",
+      "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+     }
+    }
+   ],
    "stream": "streetscape",
    "parcel_ids": [
     "calumet_1800",
@@ -28264,30 +28759,70 @@
    "repository": "National Archives (NARA RG 79, National Register of Historic Places records) — NPS nomination file",
    "collection": "Prairie Avenue District, National Register nomination (listed 1972), NRHP ref. 72000452",
    "call_number": "Commission negative #1972.39; nomination PDF p. 30 (photo), p. 31 (form)",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=30",
    "image_url": null,
    "rights": "unknown — link only",
    "rights_basis": "As photo no. 4",
    "local": null,
    "verified": "viewed",
    "found_via": "data/sources.csv pa-district-nrhp-1972 (already-acquired nomination); PDF re-downloaded and every page rendered and inspected",
-   "notes": "High oblique: Indiana Avenue (wide, at left) running north; industrial lofts and parking lots where the 1900 and 2000 blocks stood; the surviving Kimball château and Glessner roofs mid-frame; the IC electrified tracks and freight yards along the old shoreline; Burnham Park/Field Museum/Soldier Field on the post-1904 landfill beyond. Documents the district's 1972 state (most of the 1904 fabric gone) and the relationship of Prairie Avenue to the railway edge.",
+   "notes": "Image and form visually inspected. Form credits Richard Nickel, 1972. Elevated northeast view includes the roof masses and altered industrial surroundings at limited detail. Distinct later exposure from photo 4; useful contextual comparison, not 1904 roof-junction proof.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 166,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "1972",
     "evidence_role": "streetscape or site context",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+    "geometry_use": "context only",
+    "reason": "Image and form visually inspected. Form credits Richard Nickel, 1972. Elevated northeast view includes the roof masses and altered industrial surroundings at limited detail. Distinct later exposure from photo 4; useful contextual comparison, not 1904 roof-junction proof.",
+    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=30",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "NRHP photo 3: PDF page 30 image, page 31 form; Commission negative 1972.39.",
+    "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=30",
+    "date": "1972",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Distinct later exposure from photo 4; useful contextual comparison, not 1904 roof-junction proof.",
+    "detail": "Image and form visually inspected. Form credits Richard Nickel, 1972. Elevated northeast view includes the roof masses and altered industrial surroundings at limited detail.",
+    "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+    "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 166,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "1972",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "High oblique: Indiana Avenue (wide, at left) running north; industrial lofts and parking lots where the 1900 and 2000 blocks stood; the surviving Kimball château and Glessner roofs mid-frame; the IC electrified tracks and freight yards along the old shoreline; Burnham Park/Field Museum/Soldier Field on the post-1904 landfill beyond. Documents the district's 1972 state (most of the 1904 fabric gone) and the relationship of Prairie Avenue to the railway edge.",
+      "retrieval_review": null,
+      "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+     }
+    }
+   ],
    "stream": "streetscape",
    "parcel_ids": [
     "calumet_1800",
@@ -28319,30 +28854,70 @@
    "repository": "National Archives (NARA RG 79, National Register of Historic Places records) — NPS nomination file",
    "collection": "Prairie Avenue District, National Register nomination (listed 1972), NRHP ref. 72000452",
    "call_number": "Commission negative #1972.64; nomination PDF p. 32 (photo), p. 33 (photograph form)",
-   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+   "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=32",
    "image_url": null,
    "rights": "unknown — link only",
    "rights_basis": "Federal nomination file, but the photograph credit is Richard Nickel / Commission on Chicago Landmarks; no release stated",
    "local": null,
    "verified": "viewed",
    "found_via": "data/sources.csv pa-district-nrhp-1972 (already-acquired nomination); PDF re-downloaded and every page rendered and inspected",
-   "notes": "Before the 1978 streetscape restoration: plain asphalt roadway with concrete curbs and walks, cobra-head street lights, power lines, parked 1960s–70s cars; Kimball's iron fence and the Coleman house beyond on the east side; Glessner's 18th-Street wall at right; open lots and industrial buildings further south. Gives the true roadway alignment and curb radii at the 18th Street corner (which date from the original layout) with nothing in the way — useful for fixing the cross-section; everything else is post-1904.",
+   "notes": "Image and form visually inspected. Form credits Richard Nickel, 1972. Street view has Glessner at right and Kimball at left; modern paving, cars and lighting belong to 1972. Distinct later exposure from photo 3; street context only.",
    "measurements": [],
    "evidence_review": {
-    "ticket": "T-2198",
+    "ticket": "T-2199",
     "audit_number": 167,
-    "reviewed_on": "2026-10-08",
-    "review_state": "unavailable image: catalog only",
+    "reviewed_on": "2026-10-09",
+    "review_state": "visually inspected",
     "target_date": "1904-07-01",
     "phase": "after target year",
     "date_basis": "1972",
     "evidence_role": "streetscape or site context",
-    "geometry_use": "unreviewed",
-    "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
-    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+    "geometry_use": "context only",
+    "reason": "Image and form visually inspected. Form credits Richard Nickel, 1972. Street view has Glessner at right and Kimball at left; modern paving, cars and lighting belong to 1972. Distinct later exposure from photo 3; street context only.",
+    "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=32",
     "family": null,
     "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
    },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "image recovered",
+    "identity": "NRHP photo 4: PDF page 32 image, page 33 form; Commission negative 1972.64.",
+    "canonical_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf#page=32",
+    "date": "1972",
+    "rights_status": "unknown — link only",
+    "independent_evidence": "Distinct later exposure from photo 3; street context only.",
+    "detail": "Image and form visually inspected. Form credits Richard Nickel, 1972. Street view has Glessner at right and Kimball at left; modern paving, cars and lighting belong to 1972.",
+    "source_sha256": "92d947d05a8aedb97efd2631e0d93efa7c88e74770e972ff0a8a70079ccfa79e",
+    "retrieved_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 167,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "1972",
+       "evidence_role": "streetscape or site context",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "notes": "Before the 1978 streetscape restoration: plain asphalt roadway with concrete curbs and walks, cobra-head street lights, power lines, parked 1960s–70s cars; Kimball's iron fence and the Coleman house beyond on the east side; Glessner's 18th-Street wall at right; open lots and industrial buildings further south. Gives the true roadway alignment and curb radii at the 18th Street corner (which date from the original layout) with nothing in the way — useful for fixing the cross-section; everything else is post-1904.",
+      "retrieval_review": null,
+      "catalog_url": "https://nara-media.s3.amazonaws.com/electronic-records/rg-079/NPS_IL/72000452.pdf"
+     }
+    }
+   ],
    "stream": "streetscape",
    "parcel_ids": [
     "calumet_1800",
@@ -28403,6 +28978,382 @@
     "calumet_1800",
     "prairie_1800",
     "prairie_1801"
+   ]
+  },
+  {
+   "id": "a18-rba-barford-glessner-courtyard",
+   "kind": "photograph",
+   "title": "Glessner, John J., Residence — courtyard (George Barford)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "rear",
+   "facing": null,
+   "camera_position": null,
+   "date": "undated; collection labeled c. 1945–",
+   "date_earliest": null,
+   "date_latest": null,
+   "period": "later",
+   "creator": "Barford, George",
+   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
+   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
+   "call_number": "2008.3",
+   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36957",
+   "image_url": null,
+   "rights": "copyright — link only",
+   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
+   "local": null,
+   "verified": "catalog-only",
+   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
+   "notes": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501. Unknown until the print is examined; do not treat the catalog description as a visual finding.",
+   "measurements": [],
+   "evidence_review": {
+    "ticket": "T-2199",
+    "audit_number": 128,
+    "reviewed_on": "2026-10-09",
+    "review_state": "unavailable image: catalog only",
+    "target_date": "1904-07-01",
+    "phase": "date unresolved; later collection",
+    "date_basis": "The collection label is c.1945–; 1885–1887 is the building design/construction date, not the photograph date. No photograph-specific date or 1972 upper bound established.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "unreviewed",
+    "reason": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501. Unknown until the print is examined; do not treat the catalog description as a visual finding.",
+    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36957",
+    "family": null,
+    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+   },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "metadata only",
+    "identity": "George Barford, courtyard; collection 2008.3, Box 2.1, mqc/36957.",
+    "canonical_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36957",
+    "date": "undated; collection labeled c. 1945–",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unknown until the print is examined; do not treat the catalog description as a visual finding.",
+    "detail": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501.",
+    "source_sha256": "f994a22fb9af93389566b0dc117360125bb88a7a39d0419d66f5a84f280d7c72",
+    "retrieved_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/36957"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 128,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "after 1945",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36957",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "date_earliest": 1945,
+      "notes": "Post-1945; image not online.",
+      "retrieval_review": null,
+      "date": "after 1945",
+      "date_latest": 1972
+     }
+    }
+   ],
+   "stream": "1800",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-rba-barford-glessner-exterior",
+   "kind": "photograph",
+   "title": "Glessner, John J., Residence — exterior (George Barford)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "oblique front",
+   "facing": null,
+   "camera_position": null,
+   "date": "undated; collection labeled c. 1945–",
+   "date_earliest": null,
+   "date_latest": null,
+   "period": "later",
+   "creator": "Barford, George",
+   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
+   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
+   "call_number": "2008.3",
+   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36641",
+   "image_url": null,
+   "rights": "copyright — link only",
+   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
+   "local": null,
+   "verified": "catalog-only",
+   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
+   "notes": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501. Unknown until the print is examined.",
+   "measurements": [],
+   "evidence_review": {
+    "ticket": "T-2199",
+    "audit_number": 129,
+    "reviewed_on": "2026-10-09",
+    "review_state": "unavailable image: catalog only",
+    "target_date": "1904-07-01",
+    "phase": "date unresolved; later collection",
+    "date_basis": "The collection label is c.1945–; 1885–1887 is the building design/construction date, not the photograph date. No photograph-specific date or 1972 upper bound established.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "unreviewed",
+    "reason": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501. Unknown until the print is examined.",
+    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36641",
+    "family": null,
+    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+   },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "metadata only",
+    "identity": "George Barford, exterior; collection 2008.3, Box 2.1, mqc/36641.",
+    "canonical_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36641",
+    "date": "undated; collection labeled c. 1945–",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unknown until the print is examined.",
+    "detail": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501.",
+    "source_sha256": "98726eedda9c96a6329587a98c5861e5f06e5794b0e54c3bcb4a6a0f9e1bd184",
+    "retrieved_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/36641"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 129,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "after 1945",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/36641",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "date_earliest": 1945,
+      "notes": "Post-1945 photograph by George Barford (Institute of Design); image not online.",
+      "retrieval_review": null,
+      "date": "after 1945",
+      "date_latest": 1972
+     }
+    }
+   ],
+   "stream": "1800",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-rba-barford-glessner-side-door",
+   "kind": "photograph",
+   "title": "Glessner, John J., Residence — side door (George Barford)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": null,
+   "camera_position": null,
+   "date": "undated; collection labeled c. 1945–",
+   "date_earliest": null,
+   "date_latest": null,
+   "period": "later",
+   "creator": "Barford, George",
+   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
+   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
+   "call_number": "2008.3",
+   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37021",
+   "image_url": null,
+   "rights": "copyright — link only",
+   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
+   "local": null,
+   "verified": "catalog-only",
+   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
+   "notes": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501. Unknown until the print is examined; door location and phase unresolved.",
+   "measurements": [],
+   "evidence_review": {
+    "ticket": "T-2199",
+    "audit_number": 130,
+    "reviewed_on": "2026-10-09",
+    "review_state": "unavailable image: catalog only",
+    "target_date": "1904-07-01",
+    "phase": "date unresolved; later collection",
+    "date_basis": "The collection label is c.1945–; 1885–1887 is the building design/construction date, not the photograph date. No photograph-specific date or 1972 upper bound established.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "unreviewed",
+    "reason": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501. Unknown until the print is examined; door location and phase unresolved.",
+    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37021",
+    "family": null,
+    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+   },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "metadata only",
+    "identity": "George Barford, side door; collection 2008.3, Box 2.1, mqc/37021.",
+    "canonical_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37021",
+    "date": "undated; collection labeled c. 1945–",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unknown until the print is examined; door location and phase unresolved.",
+    "detail": "Catalog API recovered. Download is a 34-byte InternetShortcut to about:blank, not an image; IIIF info returns HTTP 501.",
+    "source_sha256": "60dbf89f98efdbb70dd017bd65fc94928a022cdc4a61250615458041ca17ec02",
+    "retrieved_url": "https://artic.contentdm.oclc.org/digital/api/singleitem/collection/mqc/id/37021"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 130,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "after 1945",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37021",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "date_earliest": 1945,
+      "notes": "Post-1945; image not online.",
+      "retrieval_review": null,
+      "date": "after 1945",
+      "date_latest": 1972
+     }
+    }
+   ],
+   "stream": "1800",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
+   ]
+  },
+  {
+   "id": "a18-rba-barford-glessner-window-detail",
+   "kind": "photograph",
+   "title": "Glessner, John J., Residence — window detail (George Barford)",
+   "building_ids": [
+    "pa-1800-22"
+   ],
+   "addresses": [
+    "1800 S. Prairie Avenue"
+   ],
+   "streetscape": false,
+   "view": "detail",
+   "facing": null,
+   "camera_position": null,
+   "date": "undated; collection labeled c. 1945–",
+   "date_earliest": null,
+   "date_latest": null,
+   "period": "later",
+   "creator": "Barford, George",
+   "repository": "Ryerson & Burnham Art and Architecture Archives, Art Institute of Chicago",
+   "collection": "Historic Architecture and Landscape Image Collection: Modern, c.1945-",
+   "call_number": "2008.3",
+   "catalog_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37298",
+   "image_url": null,
+   "rights": "copyright — link only",
+   "rights_basis": "Post-1945 photograph; holder: \"For publication information please contact the Art Institute of Chicago Archives at archives@artic.edu.\"",
+   "local": null,
+   "verified": "catalog-only",
+   "found_via": "Art Institute CONTENTdm mqc title search \"Glessner\"",
+   "notes": "Current download is a 34-byte InternetShortcut to about:blank; IIIF returns HTTP 501; metadata API timed out twice. Identity retained from the prior audit API record. Unknown until the print is examined; no window profile inferred.",
+   "measurements": [],
+   "evidence_review": {
+    "ticket": "T-2199",
+    "audit_number": 131,
+    "reviewed_on": "2026-10-09",
+    "review_state": "unavailable image: catalog only",
+    "target_date": "1904-07-01",
+    "phase": "date unresolved; later collection",
+    "date_basis": "The collection label is c.1945–; 1885–1887 is the building design/construction date, not the photograph date. No photograph-specific date or 1972 upper bound established.",
+    "evidence_role": "exterior reference",
+    "geometry_use": "unreviewed",
+    "reason": "Current download is a 34-byte InternetShortcut to about:blank; IIIF returns HTTP 501; metadata API timed out twice. Identity retained from the prior audit API record. Unknown until the print is examined; no window profile inferred.",
+    "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37298",
+    "family": null,
+    "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+   },
+   "retrieval_review": {
+    "ticket": "T-2199",
+    "reviewed_on": "2026-10-09",
+    "outcome": "metadata only",
+    "identity": "George Barford, window detail; collection 2008.3, Box 2.1, mqc/37298.",
+    "canonical_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37298",
+    "date": "undated; collection labeled c. 1945–",
+    "rights_status": "copyright — link only",
+    "independent_evidence": "Unknown until the print is examined; no window profile inferred.",
+    "detail": "Current download is a 34-byte InternetShortcut to about:blank; IIIF returns HTTP 501; metadata API timed out twice. Identity retained from the prior audit API record.",
+    "source_sha256": "d49b23a02adb3201c8d8058a31b8adc589810e784a9b4725195ce3c8f8824b06",
+    "retrieved_url": "https://artic.contentdm.oclc.org/digital/api/collection/mqc/id/37298/download"
+   },
+   "metadata_history": [
+    {
+     "ticket": "T-2199",
+     "date": "2026-10-09",
+     "reason": "Bounded retrieval and visual/document review; prior catalog-only status and source-use claims superseded only where supported.",
+     "before": {
+      "evidence_review": {
+       "ticket": "T-2198",
+       "audit_number": 131,
+       "reviewed_on": "2026-10-08",
+       "review_state": "unavailable image: catalog only",
+       "target_date": "1904-07-01",
+       "phase": "after target year",
+       "date_basis": "after 1945",
+       "evidence_role": "exterior reference",
+       "geometry_use": "unreviewed",
+       "reason": "Image could not be retrieved during the audit. Catalog metadata only; no visual claim or geometry use until reviewed.",
+       "source_url": "https://artic.contentdm.oclc.org/digital/collection/mqc/id/37298",
+       "family": null,
+       "family_relationship": "Independence not established; a separate catalog record does not establish a separate exposure."
+      },
+      "date_earliest": 1945,
+      "notes": "Post-1945; image not online.",
+      "retrieval_review": null,
+      "date": "after 1945",
+      "date_latest": 1972
+     }
+    }
+   ],
+   "stream": "1800",
+   "parcel_ids": [
+    "calumet_1800",
+    "prairie_1800"
    ]
   },
   {

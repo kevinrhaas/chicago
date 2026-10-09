@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1558, ts: '2026-10-09T03:17:32.192Z', date: 'Oct 8, 2026, 10:17 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
+  { v: 1559, ts: '2026-10-09T03:29:48.057Z', date: 'Oct 8, 2026, 10:29 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
     items: [
       'The west wing now has a level ridge at the front peak’s height, with gables at both ends. This corrects the rear roof being lowered too far in the previous change.',
       'The full roof slope and matching overhang return above the courtyard windows. Courtyard, rear, west and northwest views were compared with the supplied references and earlier roof diagrams.',
+    ] },
+  { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
+    items: [
+      'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
+      'Cornell’s construction print and the old sidewalk report image are identified as existing photographic exposures. A 1945 IIT facade view adds later evidence, with date and rights limits visible on its card. Archive inquiries are prepared for review and have not been sent.',
     ] },
   { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [

@@ -119,3 +119,18 @@ are unchanged. The focused visual review and mobile smoke predate this merge;
 the broader desktop run overlaps the published metadata/household refresh,
 so its standing record likewise must not claim an exact-tree hash. The final
 combined source tree is covered by the integrated preflight.
+
+Dev subsequently advanced to `1bf113e2` (T-2199, reference recovery). Its
+research records, review limits, viewer changes and smoke readings are retained.
+The recovery brief explicitly states that no recovered view settles the hidden
+courtyard roof junctions; it does not change this owner-directed correction.
+Both STATUS sections are preserved and only this branch's entry is re-stamped
+again, to v1559, keeping dev's v1558 verbatim. No Glessner asset changed.
+
+Final integrated preflight passes all **794 repository steps** (324 negative
+self-tests), plus the changelog-entry and ticket-ID checks. Published desktop
+stage 13 passes **126 assertions with zero page errors** in 25m10s; published
+mobile passes the same 126 in 8m41s. Both logs and the initial loaded-host
+failures are included and recorded with their conditions in dev-smoke-state.
+The complete fourteen-stage town smoke was not rerun. No timeout or assertion
+was relaxed.
