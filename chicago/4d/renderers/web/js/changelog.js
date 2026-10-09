@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1595, ts: '2026-10-09T21:51:17.497Z', date: 'Oct 9, 2026, 4:51 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+    items: [
+      'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
+      'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
+    ] },
   { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [
       'Nothing you can see changes yet. The School Section\u2019s row between Monroe and Adams is now divided into the 96 lots the state sold there in October 1833, read block by block from the sale\u2019s own register.',
