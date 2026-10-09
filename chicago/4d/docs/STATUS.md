@@ -22,6 +22,41 @@ stage 12 took 19m45s under software graphics, recorded in the smoke ledger.
 The PR records the final repository preflight receipt;
 no whole-house photographic sign-off is claimed.
 
+## T-2237 — the households outside the index, counted against the household quota (2026-10-09)
+
+T-2194 found the order book's household quota reads houses off `data/residents/index.json`
+alone, and asked that the cards written beside it be counted as households the town holds.
+`count_held_head_dwellings_1835.py` (T-2193's stage) now reads every one of those 547 cards
+and sorts it by what the housing seats make of it (`beyond_the_index` in
+`data/reconstruction/1835_held_head_dwellings.json`):
+
+| class | households | people |
+|---|---:|---:|
+| a bed in a dwelling (the `boarder` rung) | 476 | 476 |
+| a bed in a lodging house (`lodger` rung, or T-1371's lodging seats) | 15 | 15 |
+| a lodging or institutional household its own stage already files (T-1371, T-1531) | 24 | 156 |
+| a household of its own under a dwelling (`dealt` / `family` rung) | 4 | 12 |
+| not present on 1 July | 28 | 28 |
+
+- **They are beds, not houses.** All 309 trade heads T-1347 drew are single cards: 297 board
+  in a dwelling and 12 have a lodging house's bed. T-2194's split (244 in dwellings, 58 in
+  boarding houses, 7 in inns) does not reproduce on today's seats. The building inventory
+  files H1/H2 roofs as larger boarding houses, but the seats treat them as dwellings, and
+  all 16 H1/H2 roofs with a boarder in them also hold a dealt or family household. A
+  boarder is a bed in that household, the rule T-2193 already applies to held heads, and
+  the book already credits each one as a person.
+- **Four are households**: the underdocumented families `hh_fb_anderson_benjamin`,
+  `hh_fb_williams_samuel`, `hh_fb_anderson_henry` (north) and `hh_fb_askie_george` (south),
+  three people each. They join the same walk as the held heads, after them, and the
+  `family_dwelling` order was full before either division reached them. They are listed
+  under `not_counted` with that reason.
+- **So no household row moves.** The household quota does not over-order on account of the
+  cards outside the index. The 64 households still owed are the 29 boarding-house and 4 inn
+  households waiting on a lodging roof (T-2023) and the 31 store keepers (T-2236).
+- **Not settled here:** the person count. The cards beside the index hold 659 people present,
+  and the town census keeps them out of its 2,912. That is a question about people, not
+  houses, and this count does not answer it.
+
 ## T-2194 — the store rows ruled against the store roofs, and the index found short (2026-10-09)
 
 T-2188's second piece asked whether the order book over-orders its 56 owed store
