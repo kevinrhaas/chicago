@@ -42,10 +42,7 @@ Unclassified: **0** (C1). Asserted units whose named field does not resolve on t
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
-| Owner | Units | Live |
-| --- | ---: | ---: |
-
-Not one of those owners asks for another READING. The heaviest are  — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+There is no owners column left to read: no unresolved unit defers to a ticket, because every reading a band owned has been spent. That is the shape of a finished research spend. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
