@@ -116,3 +116,29 @@ One limit of the ground reading, stated rather than left to be found: block 1, t
 block at the tier's west corner, has 220 of its 440 lattice samples **off the modelled
 terrain field**, which does not reach that far west. Its `ground` block says so. The block
 carries no lots, so nothing in this cut rests on it.
+
+## The second tier, Monroe to Adams (T-2252)
+
+On the owner's ruling of 2026-10-09 on T-2247 — *cross Monroe* — the row directly south of
+this one is cut too, by `tools/cut_school_section_second_tier.py` into
+`data/traces/vectors/school_section_second_tier_lots.json`. It is not a second cut: that
+module calls this one's `derive()` on the committed grid's row 1, so the register reading,
+the contiguity refusal, the two-row module and the conjectural numbering are this tier's
+exactly, and so are the grades.
+
+The register names **all thirteen blocks** of the row — nothing here is reserved, and the
+corner blocks 2 and 141 both sold lots. Eleven sold lots 1 to 8; **71 and 79 sold 1 to 4**,
+and they sit directly under 72 and 80, this tier's four-lot pair. The heightfield agrees
+again without sharing arithmetic with the register: block 79 is the row's only wet block
+(190 of 432 samples below datum). 96 lots, 39.0 acres.
+
+**Where the ruling builds** is read by T-2144's own test for this tier
+(`generate_plat_lots.school_section_tier_joins`): east of the forks, cut, dry, on the
+modelled field. Six blocks pass — **82, 93, 96, 117, 120 and 141**, 48 lots, the westernmost
+fronting Market on its west face. Dealing the South's six gated roofs to them is T-2253 and
+raising them T-2254; this file seats nothing.
+
+The same ground-reading limit as block 1 above, one row down: block 2, the row's western
+corner, has 240 of its 480 samples off the modelled field. Unlike block 1 it *is* cut (the
+register sold its eight lots), so its lots are drawn on ground the field only half models —
+and the off-field reading keeps it out of the six the ruling builds on.
