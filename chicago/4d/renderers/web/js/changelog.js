@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1558, ts: '2026-10-09T03:16:23.583Z', date: 'Oct 8, 2026, 10:16 PM CT', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
+  { v: null, ts: '', date: '', title: 'Three people carded twice in the town now have one card each', kind: 'fix',
     items: [
       'Joseph Létendre, his father Baptiste Létendre and Louis Franchère each had two cards. Each pair came from the same line of the St Mary’s baptismal register, read twice and spelt two ways. One card of each pair is now folded into the other, and nothing on it is lost.',
       'The copies had been boarding in three houses. With those beds free, the town’s boarders are spread across its houses afresh, so many house cards list different lodgers, and Joseph Leframboise’s household of six, which was still waiting for a roof, now shares a house in the South Division.',
+    ] },
+  { v: 1558, ts: '2026-10-09T03:12:17.658Z', date: 'Oct 8, 2026, 10:12 PM CT', title: 'Glessner’s missing references have a retrieval report', kind: 'feature',
+    items: [
+      'Open Glessner House in the Prairie research library for recovered references, the remaining-view list and a measured-photo brief. Ten of the 17 records now have reviewed material; seven still lack viewable images.',
+      'Cornell’s construction print and the old sidewalk report image are identified as existing photographic exposures. A 1945 IIT facade view adds later evidence, with date and rights limits visible on its card. Archive inquiries are prepared for review and have not been sent.',
     ] },
   { v: 1557, ts: '2026-10-09T02:41:41.600Z', date: 'Oct 8, 2026, 9:41 PM CT', title: 'Homes and workplaces now listed among the places on a household card', kind: 'feature',
     items: [
