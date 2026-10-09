@@ -479,7 +479,10 @@ STRUCTURE_TICKETS = {
     # committed street control until the S9 street work carries the plat's north-south
     # columns to Madison. T-2247 owns that street work and then the five dwellings (D2, D2,
     # D4, D4, D5) and the balance's one boarding house, so the row names it.
-    ("south", "ordinary_dwellings"): "T-2247",
+    #
+    # AND ON TO T-2254 (T-2257, 2026-10-09). T-2247 was split at 18:22Z; T-2254 raises the
+    # six gated roofs (D2, D2, D4, D4, D5 and the H3) on the Monroe-to-Adams tier's lots.
+    ("south", "ordinary_dwellings"): "T-2254",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -640,9 +643,10 @@ STRUCTURE_TICKETS = {
     # (2026-10-09) and the pair follows the dwellings on to T-2239, and with T-2239's split
     # on to T-2242, the piece that still owes them. T-2242 was withdrawn on the owner's
     # decision (a) (2026-10-09) and the pair follows the dwellings on to T-2247, which owns
-    # the gated balance until the S9 street work lands.
-    ("south", "barns_stables"): "T-2247",
-    ("south", "small_outbuildings"): "T-2247",
+    # the gated balance until the S9 street work lands. T-2247 was split (2026-10-09) and
+    # the pair follows the dwellings on to T-2254 (T-2257).
+    ("south", "barns_stables"): "T-2254",
+    ("south", "small_outbuildings"): "T-2254",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
