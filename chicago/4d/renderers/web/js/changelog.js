@@ -1,9 +1,23 @@
 export const CHANGELOG = [ // newest first
-  { v: 1598, ts: '2026-10-09T23:19:02.797Z', date: 'Oct 9, 2026, 6:19 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
+  { v: 1600, ts: '2026-10-09T23:45:57.776Z', date: 'Oct 9, 2026, 6:45 PM CT', title: '65 more households are given a house beyond the platted town', kind: 'fix',
     items: [
       'Outside the platted town, in the North and West Divisions, 69 houses had been given to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address. The houses on the plat already followed that ruling, and now these do too.',
       'Those houses go to the next households in line for them. In People, 65 more household cards now show \u201cGo to the roof the policy deals it, off the plat\u201d, and the 69 letter-list cards no longer show it. The houses\u2019 cards list the new households.',
       'The 30 households already housed there keep a house, though 28 of them are now in a different one. In the West, a farm household is only given a cabin with a barn beside it, so four West cabins stand empty, and each says why.',
+    ] },
+  { v: 1599, ts: '2026-10-09T23:18:57.259Z', date: 'Oct 9, 2026, 6:18 PM CT', title: 'Prairie Avenue’s 20th-to-22nd blocks: every 1904 building accounted for', kind: 'feature',
+    items: [
+      'In the Prairie Avenue 1904 library, open any house between 20th and 22nd Streets. A panel gives its 1904 decision and lists its front building, wings, rear stable and grounds, each graded attested, inferred or reconstructed.',
+      'The Robbins house at 2126 is shown as a building site on 1 July 1904. The old Hamill house was razed that year, and the new house was finished by spring 1905.',
+      'The site plan puts eight Prairie houses, among them the Sherman, Armour and Smith houses, on their own lots only. They had also been drawn on Indiana or Calumet lots that share their numbers.',
+      'Two misreadings are fixed. The building behind 2120 is lettered “vacant 1st, dressmaking 2nd”. The Wheeler-Kohn house stands at 2018 Calumet, not 2018 Prairie.',
+      'Mark Kimball’s house at 2108 and the Rees house at 2110 share one coach house. Nothing in the 3-D town changes yet.',
+    ] },
+  { v: 1598, ts: '2026-10-09T22:51:29.981Z', date: 'Oct 9, 2026, 5:51 PM CT', title: 'Mark Beaubien\u2019s boarding house on Lake Street gets its signboard', kind: 'fix',
+    items: [
+      'The new boarding house on the Market wedge stood with no business behind it, so its front had no board. It now reads MARK BEAUBIEN\u2019S, Boarding House, the house he keeps.',
+      'Beaubien\u2019s stray \u201ctavern keeper\u201d business with no address is gone: the boarding house is where he works.',
+      'Six other boarding houses\u2019 boards go back to the names they had before the wedge\u2019s house was raised, such as SWEET\u2019S on Clark Street.',
     ] },
   { v: 1597, ts: '2026-10-09T22:32:18.330Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'A household\u2019s home and workplace are named once, with their dates', kind: 'fix',
     items: [
