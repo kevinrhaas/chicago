@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1562, ts: '2026-10-09T05:11:07.707Z', date: 'Oct 9, 2026, 12:11 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: null, ts: '', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',
       'The paper\u2019s \u201cMr.\u201d and \u201cMiss\u201d now set both cards, quoting the column. Charlotte is seated in his house as his wife, and the family we had invented for her is gone. The same reading puts \u201cMiss\u201d and \u201cMr.\u201d onto two more press cards, Anne Maria Barney and Alson Woodruff. Mary Noble\u2019s marriage to George Bickerdyke, printed in the same column, comes next.',
+    ] },
+  { v: 1562, ts: '2026-10-09T04:37:11.918Z', date: 'Oct 8, 2026, 11:37 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
+    items: [
+      'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',
+      'That still leaves 31 to house: one keeper\u2019s family for each store that has nobody living in it. The grocers, merchants and milliners already in the town come first. No new people are made up.',
     ] },
   { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
     items: [
