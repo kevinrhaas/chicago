@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1588, ts: '2026-10-09T19:39:39.509Z', date: 'Oct 9, 2026, 2:39 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
+  { v: 1589, ts: '2026-10-09T19:53:51.115Z', date: 'Oct 9, 2026, 2:53 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
     items: [
       'Open L. Franchere or Louis Franch\u00e8re in People. The note on whether they are one man now gives the answer from the printed record. Both copies of the 1834 marriage he witnessed give only the initial L.: the web transcription and the 1921 Illinois Catholic Historical Review it was copied from.',
       'The 1921 Review also says the marriages and the 1833 baptisms are in one bound book. The project already holds that book\u2019s baptism pages but not its marriage pages, so the two cards stay apart until someone reads the marriage page itself.',
+    ] },
+  { v: 1588, ts: '2026-10-09T19:28:35.221Z', date: 'Oct 9, 2026, 2:28 PM CT', title: 'Glessner roof tiles follow the documented size', kind: 'fix',
+    items: [
+      'Clay roof tiles now use the documented six-inch width and five-inch exposed courses across the main roof, service roofs, dormers and turrets. Small roof returns receive the same coverage.',
+      'The lighter house model now shows the complete tile pattern. The roof keeps its reconstructed red, unglazed clay finish; the tar coating recorded by a later survey is excluded from 1904.',
     ] },
   { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
     items: [
