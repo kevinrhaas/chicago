@@ -185,7 +185,10 @@ HOUSEHOLD_TYPES = (
 # a card for (data/businesses/rulings/partner_links.json), and T-2246 owns the store roofs
 # still owed: firms whose partner the town holds no card for, and the firmless west store.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2193"
+# T-2193 counted the held heads and is done. T-1645 (2026-10-09) took the letter-list
+# households off the platted deal's roofs, so two fewer South heads stand under a dealt
+# dwelling than the South's family_dwelling order has room for; T-2256 owns those two.
+FAMILY_HOUSEHOLD_OWNER = "T-2256"
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_FILLER = "T-2236"
 STORE_ELSEWHERE_TICKET = "T-2244"
