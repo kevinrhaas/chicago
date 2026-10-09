@@ -1160,8 +1160,10 @@ def southern_ground() -> tuple[dict, str]:
             f"plat's last tier from Washington to Madison among them, nor on "
             f"the School Section's Madison-Monroe tier, the one ground across Madison the "
             f"owner's 2026-10-05 ruling opened (T-1755 option b, joined by T-2144: one roof to "
-            f"a lot, each block keeping a lot open). The section beyond Monroe is gridded "
-            f"(T-0797) but not cut into lots, and no ruling opens it. Ground east of State is "
+            f"a lot, each block keeping a lot open). The section's next tier, Monroe to "
+            f"Adams, is now cut into the October 1833 register's lots (T-2252) and the "
+            f"owner's 2026-10-09 ruling on T-2247 (option b) opens its six blocks east of the "
+            f"river; joining them to this schedule is T-2253. Ground east of State is "
             f"not coming at any date — it is the United States Reservation (T-E2)."
         )
     return figures, (
