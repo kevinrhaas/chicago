@@ -308,8 +308,18 @@ def name_pool_sources() -> dict[str, list[pathlib.Path]]:
         # T-1732: the 1835 town's records only. A record of another year (the 1904
         # Glessner House) names nobody in the 1835 town, so its words guard nothing
         # here; tools/town_year.py says why the test is the year.
+        #
+        # NOR A ROOF WHOSE KEEPER IS ONE OF THOSE HOUSEHOLDS (T-1645). The keeper pass
+        # (tools/name_the_keepers_1835.py) writes the household the platted deal seated
+        # onto its roof's `occupants`, and when that household is one this pass named —
+        # hh_inf_tavern_keeper_north_01, J. Shrigley, seated on a School Section roof once
+        # the deal stopped dealing roofs to letter-list households — the roof hands this
+        # pass's own name back to it, and the next run refuses him as "already named in
+        # the town". The same self-poisoning as the households below, one hop further.
         "structures": sorted(p for p in STRUCTURES.glob("*.json")
-                             if touches_year(json.loads(p.read_text(encoding="utf-8")))),
+                             if touches_year(doc := json.loads(p.read_text(encoding="utf-8")))
+                             and not str(((doc.get("resident_assignment") or {})
+                                          .get("household_id") or "")).startswith(PREFIX)),
         # NOT the reconstructed households. Their names are this layer's own
         # inventions and guard nothing, and once this pass has written a documented
         # name into one of them, reading it back would refuse that man on the next
