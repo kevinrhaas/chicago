@@ -1635,6 +1635,22 @@ def seat_printed(out: dict, host_hid: str, spec: dict) -> tuple:
             record["relationship"] = "wife"
             record[PRINTED_KEY] = {"ticket": PRINTED_TICKET, "from_household": her_hid,
                                    "relationship_as_dealt": "head"}
+    # HER KIN COMES WITH HER (T-2232). A kin row is reciprocal: the far end's card names the
+    # house she stands in, so the rows her own card carried about her move onto his card
+    # with her, and `unseat_printed` takes them back. The folded card below keeps them whole.
+    rows = [k for k in her.get("kin") or [] if k.get("person") == spec["wife"]]
+    if rows:
+        host = out[host_hid]
+        if "kin" not in host:
+            # the slot every minter carries a kin block back into: just before persons
+            rebuilt = {}
+            for key, value in host.items():
+                if key == "persons":
+                    rebuilt["kin"] = []
+                rebuilt[key] = value
+            host.clear()
+            host.update(rebuilt)
+        host["kin"] = host["kin"] + json.loads(json.dumps(rows))
     card = json.loads(json.dumps(her))
     card["persons"] = [record["id"]]
     return record, {"folded_into": host_hid, "card": card}
@@ -1701,6 +1717,11 @@ def unseat_printed(live: dict, printed: dict | None = None) -> dict:
         out[her_hid] = card
         stripped = json.loads(json.dumps(host))
         stripped["persons"] = [p for p in stripped["persons"] if p.get("id") != person["id"]]
+        if "kin" in stripped:
+            # her rows came with her (`seat_printed`); a block they alone made goes too
+            stripped["kin"] = [k for k in stripped["kin"] if k.get("person") != person["id"]]
+            if not stripped["kin"]:
+                del stripped["kin"]
         out[host["id"]] = stripped
     stray = [p.get("id") for card in out.values() for p in card.get("persons") or []
              if PRINTED_KEY in p]
@@ -2294,8 +2315,10 @@ def self_test() -> int:
     # Merged, the two read 949 together: four folded and six absent, and no card is both.
     # T-2190 RESTATED IT FROM 949 TO 948: Betsy Weaver's card, ruled present, is folded into
     # Chester Ingersoll's as the wife the Democrat prints, so it is no household to rule on.
+    # T-2232 RESTATED IT FROM 948 TO 947: Charlotte Wesencraft's card, ruled present, is
+    # folded into Mark Noble jun.'s as the bride the Democrat prints, as Betsy Weaver's was.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 948)
+          len(ruled_present()) == 947)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
@@ -2461,22 +2484,40 @@ def self_test() -> int:
               r["rank"] for r in ruling["houses"].values() if r["verdict"] == ADMITTED)
           == list(range(1, ruling["counts"]["admitted"] + 1)))
     fr = ledger["family_ruling"]
+    # T-2232: a house a reading withdrew takes its own cells out of the ruling's orders, so
+    # the build fills the ruling LESS those, and admits the ruling less those houses.
+    gone = fr.get("orders_withdrawn") or {}
+    owed = {k: n - gone.get(k, 0) for k, n in ((ruling or {}).get("orders") or {}).items()
+            if n - gone.get(k, 0)}
     fires("the build reads the frozen list and re-deals nobody",
-          ruling is not None and fr["fills"] == ruling["orders"]
-          and fr["admitted"] == ruling["counts"]["admitted"] and fr["not_ruled_on"] == 0)
+          ruling is not None
+          and {k: n for k, n in fr["fills"].items() if n} == owed
+          and fr["admitted"] == ruling["counts"]["admitted"] - len(fr.get("withdrawn") or {}))
+    # A house refused after the ruling froze is not ruled on and is seated with nobody, so
+    # `not_ruled_on` may be non-zero without anybody dealt: T-2232 reads Alson Woodruff male,
+    # the model draws his house married, the book has no wife left for it, and he stands
+    # alone. The fills above are what prove the ruling re-dealt nobody.
     moved = json.loads(json.dumps(ruling or {}))
     if moved.get("houses"):
         first = min(moved["houses"], key=lambda h: moved["houses"][h]["rank"])
         moved["houses"][first]["verdict"] = STANDS_ALONE
         live_ruling = globals()["load_ruling"]
         globals()["load_ruling"] = lambda: moved
+        refused = None
         try:
             _, flipped, _ = fill(base_layer(live))
+        except SystemExit as stop:
+            # Beside a withdrawn house the cells the turned-away one leaves undrawn are not
+            # a withdrawn family's, and the build refuses rather than absorb them (T-2234).
+            refused, flipped = str(stop), None
         finally:
             globals()["load_ruling"] = live_ruling
         fires("a house the frozen list turns away is not drawn, whatever its seed",
-              flipped["family_ruling"]["admitted"] == fr["admitted"] - 1
-              and flipped["family_ruling"]["fills"] != moved["orders"])
+              (flipped is not None
+               and flipped["family_ruling"]["admitted"] == fr["admitted"] - 1
+               and flipped["family_ruling"]["fills"] != moved["orders"])
+              or (bool(fr.get("withdrawn")) and refused is not None
+                  and "are not the families of" in refused))
     else:
         fires("a house the frozen list turns away is not drawn, whatever its seed", False)
 

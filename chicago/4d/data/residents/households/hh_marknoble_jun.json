@@ -151,6 +151,17 @@
     "chicago_democrat_1833_1835"
    ],
    "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place'. Both cards were minted from that same reading of that same notice — the press register reads 'Mark Nobles, Esq.' and 'Mark Noble, Esq.', two lines apart, as the one father of the bridegroom and of the second bride — so nothing is being identified by name here. Written by T-2229, the family pass's ruling on this column (data/research/family_pass_rulings.json, chicago_democrat_1833_12_03 c007). The term 'son' is the paper's word, read off the notice and not off the card, whose sex is still a draw (T-2230 reads the column's 'Mr.' onto it). 'Second son' implies a first son, who is nobody this town holds, so no row is written for him. The marriage the same line prints is T-2230's to seat."
+  },
+  {
+   "person": "wesencraft_charlotte",
+   "relation": "daughter",
+   "household": "hh_wesencraft_charles",
+   "value": "wesencraft_charles",
+   "confidence": "attested",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mark Nobles, Esq. of this place, to Miss CHARLOTTE, only daughter of Mr. Charles Wesencraft, late of Buffalo'. Both cards were minted from that same reading of that same notice, so nothing is being identified by name here. 'Only daughter' is the paper's own word and no second daughter is implied. Ruled in data/residents/kin_rulings.json under 'hh_wesencraft_charles__daughter__charlotte' (T-1134)."
   }
  ],
  "persons": [
