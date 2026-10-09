@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1580, ts: '2026-10-09T15:52:43.882Z', date: 'Oct 9, 2026, 10:52 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
+  { v: 1581, ts: '2026-10-09T16:13:11.052Z', date: 'Oct 9, 2026, 11:13 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
     items: [
       'Open the small store with attic rooms on the teamster approach by Canal and Randolph. It stood empty, marked as a store whose keeper was not named. L. Chevalier, who sold watches, jewelry, engravings and fancy goods on Canal Street, now keeps it and lives over it. Before this he boarded in another household.',
       'Nothing changes on the cards of four South Water Street stores: H. Doty & Co., Rockwell\u2019s cabinet furniture warehouse, the Chicago Bakery and Harmon, Loomis & Co. The town has no card for any of their keepers, so they stay without anyone living over them, and the town no longer counts them as homes still to fill.',
       'With one more home in use, John Vale\u2019s household of five and J. Wright, who were waiting for a roof, now have one. Some boarders move to other houses as a result.',
+    ] },
+  { v: 1580, ts: '2026-10-09T15:39:46.317Z', date: 'Oct 9, 2026, 10:39 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
+    items: [
+      'Ten roofs the South Division still owes have nowhere to stand. The town\u2019s plan said they were waiting for its streets to be carried south to Madison Street. That work was finished on 28 September: all seven north\u2013south streets from Market to State now reach Madison.',
+      'The plan now says what the ten are really waiting on: ground. Every South block they could go on is full, and so is the School Section row just south of Madison. The land beyond Monroe Street has never been divided into lots. The plan now checks each street against Madison, so this note updates itself.',
     ] },
   { v: 1579, ts: '2026-10-09T15:17:29.000Z', date: 'Oct 9, 2026, 10:17 AM CT', title: 'Five South houses stay owed until the street work', kind: 'fix',
     items: [
