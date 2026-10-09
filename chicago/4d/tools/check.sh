@@ -2327,6 +2327,19 @@ step "the School Section tier's lots re-derive from the committed grid and the 1
 selftest "the School Section tier is still cut into the lots the sale witnesses, and no others" \
   python3 tools/cut_school_section_tier.py --self-test
 
+# T-2252, piece 1 of 3 of T-2247, on the owner's ruling of 2026-10-09: cross Monroe. The
+# School Section's SECOND tier — the thirteen blocks between Monroe and Adams — cut by the
+# first tier's own derive() on the grid's row 1, so the two tiers cannot be cut two ways.
+# The register names all thirteen: eleven sold eight lots, and the two that sold four (71,
+# 79) sit directly under the first tier's four-lot pair at the South Branch, with 79 the
+# row's one wet block. Six blocks stand east of the river by T-2144's own test — 82 to 141,
+# 48 lots — and those are where T-2253 and T-2254 deal and raise the South's six gated roofs.
+step "the School Section's Monroe-Adams tier re-derives from the committed grid and the 1833 register" \
+  python3 tools/cut_school_section_second_tier.py --check
+
+selftest "the Monroe-Adams tier is cut into the lots the sale witnesses, under the first tier's columns" \
+  python3 tools/cut_school_section_second_tier.py --self-test
+
 # T-0827, the ticket the reading above could only name. `market` is the one street on this
 # grid no sheet fixes directly — its west side is the river bank its whole length — and until
 # this it was ONE modern junction on N Wacker Drive, which is 1926 made ground, plus a

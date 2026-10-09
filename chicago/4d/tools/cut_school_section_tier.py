@@ -195,13 +195,16 @@ def rectangle(ring) -> tuple[float, float, float, float]:
     return min(eastings), max(eastings), min(northings), max(northings)
 
 
-def derive() -> dict:
+def derive(tier_row: int = TIER_ROW) -> dict:
+    """The tier's blocks cut into lots. `tier_row` is the committed grid's row index: 0 is
+    Madison to Monroe, this module's own tier; tools/cut_school_section_second_tier.py
+    passes 1, Monroe to Adams (T-2252), and cuts it by exactly this arithmetic."""
     grid = load(BLOCKS_PATH)
     lots_witnessed, acres = sale_rows()
     field = heightfield()
     alley_m = ALLEY_FT * FT_M
 
-    tier = [b for b in grid["blocks"] if any(c[1] == TIER_ROW for c in b["cells"])]
+    tier = [b for b in grid["blocks"] if any(c[1] == tier_row for c in b["cells"])]
     tier.sort(key=lambda b: min(c[0] for c in b["cells"]))
 
     blocks = []
