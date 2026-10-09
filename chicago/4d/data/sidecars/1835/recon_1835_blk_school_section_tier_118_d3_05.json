@@ -180,8 +180,8 @@
   },
   "residents": [
     {
-      "household": "hh_carpenter_nathaniel",
-      "name": "The Carpenter household — a name the town's own records carry",
+      "household": "hh_carli_paul_j",
+      "name": "The Carli household — a name the town's own records carry",
       "division": "unplaced",
       "relation": "lived here",
       "why": "the roof T-1613 dealt this household, joined here and not re-argued",
@@ -189,28 +189,56 @@
       "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
       "persons": [
         {
-          "name": "Nathaniel Carpenter",
+          "name": "Paul J Carli",
           "relationship": "head",
           "grade": "attested",
           "occupation": "none_recorded",
-          "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. PRESENT AT CHICAGO ON 19 OCTOBER 1833, FROM THE CATALOGUE OF THE FOURTEEN BAPTISTS WHO ORGANISED THE FIRST BAPTIST SOCIETY. Moses and Kirkland, History of Chicago, Illinois, vol. 2 (1895), printed page 294 (claim bk_mose2_010; data/research/books/claims/moses_kirkland_history_of_chicago_v2.json): \"At the date of the organization of the First Baptist society, October 19, 1833, there were twenty-five Baptists in the settlement, fourteen of whom were present and connected themselves with the new enterprise. The catalogue of those present is: Rev. Allen B. Freeman and Hannah C., his wife, S. T. Jackson, Martin D. Harmon, Peter Moore, Nathaniel Carpenter, John K. Sargent, Peter Warden, Willard Jones, Ebenezer and Betsey Crane, Susanna Rice, Samantha Harmon and Lucinda Jackson.\" THE CATALOGUE NAMES 'Nathaniel Carpenter', printed whole on both sides, AND IT IS NOT PHILO — the reading's own notes say `carpenter` 'here is Nathaniel and not Philo', and the crosswalk writes the Philo pairing down as an explicit refusal so it cannot be made again. A PRESENCE IS NOT AN ARRIVAL, AND IT BOUNDS ONE: a person standing in the settlement on 19 October 1833 had reached it by that day, so the bound is carried at 1833-10-19 with `not_later_than` precision — the same kind of statement the register made, moved earlier by a reading that saw the person sooner. THE CATALOGUE IS A ROLL AND NOT A CENSUS: the compiler says twenty-five Baptists were in the settlement and names the fourteen who were PRESENT that day, so the list is a floor. It can date the people it names and it can never be read to exclude anybody it leaves out. THE GRADE CEILING IS THE SOURCE'S AND NOT THIS FIELD'S. Moses and Kirkland, History of Chicago, Illinois (1895) is a compiler sixty years after the fact, crediting Andreas and Hurlbut on the pages read here; every claim taken off it is transcription_mediated and none is scan_verified, so nothing drawn from it is graded above `inferred` however plainly it is printed (the rule T-1322 set for the settlers table, kept here). AND IT ANSWERS A DIFFERENT QUESTION THAN PRESENCE ON THE SCENE DATE: being in the settlement in October 1833 says nothing about 1 July 1835, so `present_on_scene_date` is untouched and goes on reading `uncertain`. THE REGISTER'S BOUND IS NOT LOST, IT IS SUBSUMED: a person present in October 1833 was necessarily in the town when the record below first named them. PRIOR NOTE, KEPT: A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 14 January 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
+          "note": "A CONTEMPORARY CHICAGO PAPER OF 1833-1835 PRINTS THIS PERSON BY NAME IN THE TOWN. Read from newspaper_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G1b), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. newspaper_1833_1835 names this person at Chicago by 18 June 1834 and nothing says when they came. The bound is at or before the scene date, so the person was at Chicago by 1 July 1835 on this record's own evidence. No figure is drawn (L1)."
         },
         {
-          "name": "Harriet Carpenter",
+          "name": "Anna Carli",
           "relationship": "wife",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Susan Carpenter",
+          "name": "Abigail Carli",
           "relationship": "daughter",
           "grade": "reconstructed",
           "occupation": "none_recorded",
           "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
         },
         {
-          "name": "Ezra Carpenter",
+          "name": "Eliza Carli",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Mary Carli",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Polly Carli",
+          "relationship": "daughter",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a daughter of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Nathaniel Carli",
+          "relationship": "son",
+          "grade": "reconstructed",
+          "occupation": "none_recorded",
+          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a son of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+        },
+        {
+          "name": "Asa Carli",
           "relationship": "son",
           "grade": "reconstructed",
           "occupation": "none_recorded",
