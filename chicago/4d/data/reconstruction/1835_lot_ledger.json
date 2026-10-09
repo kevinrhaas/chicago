@@ -41,18 +41,18 @@
   },
   "by_state": {
    "at_capacity": 198,
-   "free": 183,
-   "room": 51
+   "free": 182,
+   "room": 52
   },
   "by_multi_building_rule": {
    "one_principal_roof": 364,
    "party_line_run": 68
   },
   "corner_lots": 181,
-  "lots_with_a_roof": 255,
-  "lots_barring_another_roof": 254,
+  "lots_with_a_roof": 256,
+  "lots_barring_another_roof": 255,
   "shared_business_fronts": 1,
-  "principal_roofs_standing": 318,
+  "principal_roofs_standing": 319,
   "lots_over_their_own_rule": 21
  },
  "the_density_standard": {
@@ -8906,7 +8906,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 6,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -8939,7 +8939,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 7,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -8952,14 +8952,18 @@
    "dry": true,
    "multi_building_rule": "party_line_run",
    "principal_roofs_max": 3,
-   "standing": [],
-   "standing_families": {},
-   "principal_roofs_standing": 0,
-   "bars_another_roof": false,
+   "standing": [
+    "recon_1835_blk_south_water_market_d5_01"
+   ],
+   "standing_families": {
+    "recon_1835_blk_south_water_market_d5_01": "D5"
+   },
+   "principal_roofs_standing": 1,
+   "bars_another_roof": true,
    "shared_business_front": false,
    "over_its_rule": false,
    "reserved_for": null,
-   "state": "free"
+   "state": "room"
   },
   {
    "lot_id": "blk_south_water_market#02",
@@ -8968,7 +8972,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 8,
    "plat_lot_confidence": "conjectural",
    "face": "south",
@@ -8997,7 +9001,7 @@
    "grid": "original_town",
    "plat": "thompson_plat_1830",
    "district": "south",
-   "block_state": "open",
+   "block_state": "at_capacity",
    "plat_lot_number": 1,
    "plat_lot_confidence": "conjectural",
    "face": "north",

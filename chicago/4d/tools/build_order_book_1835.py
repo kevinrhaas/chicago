@@ -457,9 +457,10 @@ STRUCTURE_TICKETS = {
     # deals the South six dwellings nobody asks for, on the South Water blocks (one of them
     # gated), and T-2182 owns them.
     #
-    # AND ON TO T-2239 WHEN T-2182 WAS SPLIT (2026-10-09). T-2238 builds the Market wedge's
-    # D5 against hh_dixon_robert's slot; T-2239 owns the five the row still owes once that
-    # stands, and the re-budget of the row by name, so the row names the piece that finishes it.
+    # AND ON TO T-2239 WITH T-2238's OWN PR (2026-10-09). T-2182 was split: T-2238 built the
+    # wedge's D5 the seating asked for (blk_south_water_market's lot 7, after T-2195 cut the
+    # wedge), and no `slot` request is left on the plat; the five the schedule still deals
+    # (a D2 and a D4 on blk_south_water_wells, a D2, D4 and D5 gated) are T-2239's.
     ("south", "ordinary_dwellings"): "T-2239",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket

@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1569, ts: '2026-10-09T09:22:41.852Z', date: 'Oct 9, 2026, 4:22 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
+  { v: 1570, ts: '2026-10-09T10:28:10.946Z', date: 'Oct 9, 2026, 5:28 AM CT', title: 'George Bickerdyke\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints, in the same column as Mark Noble jun.\u2019s wedding, \u201cMr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq.\u201d. Mary Noble now stands in his house as his wife, in place of the guessed wife and children it held. Her father\u2019s card names the house she lives in.',
       'The guessed family that had been placed with him goes to the next house waiting for one, and so on down a chain of ten households. Clarissa Crandall\u2019s household is a house of its own again. The town\u2019s count of family houses still owed is unchanged.',
+    ] },
+  { v: 1569, ts: '2026-10-09T08:58:32.691Z', date: 'Oct 9, 2026, 3:58 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+    items: [
+      'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
+      'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
+      'No source shows this house in 1835 or names who lived in it. Its card says it is reconstructed, and the Liberties page explains it (L410).',
     ] },
   { v: 1568, ts: '2026-10-09T08:33:20.671Z', date: 'Oct 9, 2026, 3:33 AM CT', title: 'St Mary\u2019s mothers and godmothers are women again', kind: 'fix',
     items: [

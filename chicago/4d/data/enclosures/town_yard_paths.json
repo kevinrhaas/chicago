@@ -144,6 +144,7 @@
     "recon_1835_blk_south_water_lasalle_d3_03",
     "recon_1835_blk_south_water_lasalle_d5_01",
     "recon_1835_blk_south_water_lasalle_f2_10",
+    "recon_1835_blk_south_water_market_d5_01",
     "recon_1835_blk_south_water_wells_c2_01",
     "recon_1835_blk_south_water_wells_d1_05",
     "recon_1835_blk_south_water_wells_d2_06",
@@ -2631,20 +2632,20 @@
       ],
       [
         [
-          180.55,
-          -364.37
+          180.56,
+          -364.36
         ],
         [
           181.43,
           -364.64
         ],
         [
-          193.19,
-          -326.69
+          193.3,
+          -326.53
         ],
         [
-          192.32,
-          -326.42
+          192.42,
+          -326.26
         ]
       ],
       [
@@ -5493,6 +5494,24 @@
       ],
       [
         [
+          156.91,
+          -83.85
+        ],
+        [
+          157.77,
+          -83.53
+        ],
+        [
+          149.23,
+          -60.44
+        ],
+        [
+          148.37,
+          -60.76
+        ]
+      ],
+      [
+        [
           -421.28,
           292.33
         ],
@@ -7627,6 +7646,11 @@
       "lot": "blk_west_washington_canal_lot8",
       "from": "recon_1835_blk_west_washington_canal_d2_06",
       "to": "privy_blk_west_washington_canal_lot8"
+    },
+    {
+      "lot": "blk_south_water_market_lot1",
+      "from": "recon_1835_blk_south_water_market_d5_01",
+      "to": "privy_blk_south_water_market_lot1"
     },
     {
       "lot": "blk_wabansia_c_t7_lot1",

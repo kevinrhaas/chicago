@@ -44,18 +44,7 @@
      "share": 0.56
     }
    },
-   "moved": [
-    {
-     "district": "south",
-     "blocks": 2,
-     "trade_roofs": 2,
-     "blocks_redealt": 2,
-     "quota": {
-      "blk_south_water_wells": 1,
-      "blk_south_water_market": 1
-     }
-    }
-   ],
+   "moved": [],
    "ticket": "T-0213"
   },
   "waterside": {
@@ -70,8 +59,8 @@
      "family": "F3",
      "from": "blk_south_water_wells",
      "to": "south_plat_beyond_committed_control",
-     "for": "D2",
-     "same_trade": false
+     "for": "F4",
+     "same_trade": true
     }
    ],
    "held": [],
@@ -80,26 +69,26 @@
   "naming": "A unit is named for a block only where the plat module reaches it. Everything else is a district balance that states what it waits on."
  },
  "standing": {
-  "structure_records": 676,
+  "structure_records": 677,
   "physical_roofs": {
-   "min": 657,
-   "max": 658,
+   "min": 658,
+   "max": 659,
    "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading."
   },
   "by_source": {
-   "generated": 518,
+   "generated": 519,
    "inferred_household_programme": 7,
    "pre_existing": 101,
    "retired_household_roofs": 31
   },
   "by_district": {
-   "south": 354,
+   "south": 355,
    "west": 135,
    "north": 152,
    "fort": 16
   },
   "by_group": {
-   "ordinary_dwellings": 329,
+   "ordinary_dwellings": 330,
    "larger_boarding_houses": 40,
    "stores_mixed_use": 53,
    "inns_taverns": 10,
@@ -124,7 +113,7 @@
    "D2": 37,
    "D3": 65,
    "D4": 73,
-   "D5": 51,
+   "D5": 52,
    "D6": 29,
    "D7": 18,
    "F1": 8,
@@ -172,10 +161,10 @@
   ]
  },
  "remaining": {
-  "roofs": 11,
+  "roofs": 10,
   "of_target": 668,
   "by_district": {
-   "south": 11,
+   "south": 10,
    "west": 0,
    "north": 0,
    "fort": 0
@@ -183,7 +172,7 @@
   "by_district_group": {
    "south": {
     "larger_boarding_houses": 2,
-    "ordinary_dwellings": 6,
+    "ordinary_dwellings": 5,
     "warehouses_freight": 3
    },
    "west": {},
@@ -198,7 +187,7 @@
    "A5": 0,
    "C1": 0,
    "C2": 0,
-   "C3": 1,
+   "C3": 0,
    "C4": 1,
    "D1": 0,
    "D2": 1,
@@ -232,7 +221,7 @@
     "H3": 2,
     "D2": 2,
     "D4": 2,
-    "D5": 2,
+    "D5": 1,
     "F3": 2,
     "F4": 1
    },
@@ -248,20 +237,21 @@
    "W5": 3
   },
   "absorbed_from": {
-   "D5": 6,
+   "D5": 5,
    "T1": 2,
    "D4": 1,
    "F3": 1,
    "H3": 1,
-   "W2": 1
+   "W2": 1,
+   "C3": 1
   },
   "district_group_rows_overshot": {},
   "district_group_slots_shed": {}
  },
  "coverage": {
-  "schedulable_on_committed_ground": 6,
-  "gated_on_coverage": 5,
-  "statement": "6 of the 11 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 5 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
+  "schedulable_on_committed_ground": 3,
+  "gated_on_coverage": 7,
+  "statement": "3 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 7 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.",
   "platted_lots": 432,
   "blocks_named": 89,
   "southern_ground": {
@@ -334,13 +324,14 @@
    "state": "open",
    "roofs": 3,
    "families": {
-    "D2": 2,
-    "D4": 1
+    "D2": 1,
+    "D4": 1,
+    "F4": 1
    },
    "principal": 3,
    "ancillary": 0,
+   "trade_roofs": 1,
    "frontage_weight": 0.4764,
-   "trade_roofs": 0,
    "lot_ceiling_principal": 1,
    "row_lots_required": 1
   },
@@ -1977,24 +1968,18 @@
    },
    "lots": 4,
    "capacity_roofs": 16,
-   "standing_roofs": 3,
-   "free_lots": 2,
-   "principal_room": 3,
-   "ancillary_room": 1,
-   "headroom": 4,
-   "state": "open",
-   "roofs": 3,
-   "families": {
-    "D5": 1,
-    "F4": 1,
-    "H3": 1
-   },
-   "principal": 3,
+   "standing_roofs": 4,
+   "free_lots": 1,
+   "principal_room": 0,
+   "ancillary_room": 0,
+   "headroom": 0,
+   "state": "at_capacity",
+   "roofs": 0,
+   "families": {},
+   "principal": 0,
    "ancillary": 0,
-   "frontage_weight": 0.5182,
-   "trade_roofs": 1,
-   "lot_ceiling_principal": 1,
-   "row_lots_required": 1
+   "lot_ceiling_principal": 0,
+   "row_lots_required": 0
   },
   {
    "id": "blk_michigan_st_tract_west_north",
@@ -2577,19 +2562,20 @@
    "id": "south_plat_beyond_committed_control",
    "kind": "district_balance",
    "district": "south",
-   "capacity_roofs": 5,
+   "capacity_roofs": 7,
    "standing_roofs": 0,
-   "headroom": 5,
+   "headroom": 7,
    "state": "gated",
    "waiting_on": "STREET CONTROL — the S9 line ROADMAP has recorded as owed since before this schedule was written — and, for the first time, nothing else. THE TERRAIN IS NO LONGER THE BLOCKER: T-0219 carried the heightfield south to local N -3800.0 m, 3274.8 m past Madison Street's line at State, and the plat's last tier — 6 blocks and 48 lots between Market and State, 6.31 ha — now stands on modelled ground at all 24 of its 24 block-boundary points. Washington Street's platted corridor is fully on the field (0.00 ha off it, against 0.33 ha before), and south of that corridor the field holds 697.3569 ha of land above the water surface, 438.1181 ha of it in the South Division — where the same measurement returned 0.0000 ha before. What is left is the control itself: the plat's north-south columns still end at local N -519, -519, -519, -519, -519, -519, -519, the OLD south edge of the field, because they were cut where the ground used to stop. Carrying them to Madison is street work on ground that is now under them, and tools/generate_block_infill.py will accept what it emits. Ground east of State is still not coming at any date — it is the United States Reservation (T-E2). Measured by tools/measure_southern_ground.py.",
-   "roofs": 5,
+   "roofs": 7,
    "families": {
+    "D2": 1,
     "D4": 1,
     "D5": 1,
     "F3": 2,
-    "H3": 1
+    "H3": 2
    },
-   "principal": 5,
+   "principal": 7,
    "ancillary": 0
   },
   {

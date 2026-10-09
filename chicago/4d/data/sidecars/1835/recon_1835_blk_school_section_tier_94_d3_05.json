@@ -90,7 +90,7 @@
       "sources": [
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
-      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'established'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
+      "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: the roof's age is 'older_frontier'; a building of the 1834–35 boom is balloon-framed, the method dated here to 1833, and one of the 1832–33 town or older is braced (rule FORM-C)."
     },
     "plan": {
       "value": "single_pen",
@@ -168,151 +168,82 @@
         "owner_chicago_1835_reconstruction_spec_2026"
       ],
       "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the D3 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+    },
+    "occupants": {
+      "value": "The Brown household — a name the town's own records carry",
+      "confidence": "reconstructed",
+      "sources": [
+        "blackhawk_war_chicago_enrollments_isa",
+        "chicago_democrat_1833_1835"
+      ],
+      "note": "SEATED BY THE PLACEMENT POLICY'S PLATTED DEAL (data/reconstruction/1835_platted_seats.json, dealt by T-1613 and carried onto this roof by T-2147; liberties L270 and L276). NO SOURCE PLACES THIS HOUSEHOLD HERE, OR ANYWHERE. Its own record gives a name and no address — no street, no lot and not even a division — so both halves of its band were dealt rather than read, and the lot under this roof is the policy's tradesman_dwellings clause answered on the committed plat: blk_school_section_tier_94#05, fronting monroe, a standing roof of family D3 the clause admits. THE SOURCES BELOW CARRY THE NAME AND NOTHING ELSE. The roof's own existence, position and footprint remain conjectural and are unchanged by the seating — it is still a count-unit of the 665-roof programme, adopted rather than raised, so nothing was drawn off the reconstruction order book. The household's id is carried in resident_assignment rather than in this prose, because tools/generate_dooryard_pickets.py admits a lot for a garden on an id appearing HERE and a keeper a policy deal seats is not a measurement of anybody's garden."
     }
   },
-  "residents": [
+  "residents": [],
+  "citations": [
     {
-      "household": "hh_brookins_david",
-      "name": "The Brookins household — a name from the post office's letter lists",
-      "division": "unplaced",
-      "relation": "lived here",
-      "why": "the roof T-1613 dealt this household, joined here and not re-argued",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
+      "source_id": "blackhawk_war_chicago_enrollments_isa",
+      "citation": "\"Black Hawk War Veterans who Enlisted at Chicago\" — the Illinois State Archives database indexing volume 1 of Ellen M. Whitney, ed., *The Black Hawk War 1831-1832* (Springfield: Illinois State Historical Library, 1970), transcribed and donated to the Archives by Fred Delap of Kansas, Illinois, and republished by the Genealogy Trails Transcription Team. 134 rows, each giving name, rank, company, place of enrollment and regiment or brigade.",
+      "url": "https://genealogytrails.com/ill/cook/blackhawkwar.htm",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "transcribes": [
         {
-          "name": "David Brookins",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Brookins, David' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 4 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
-    },
-    {
-      "household": "hh_drake_charles_c",
-      "name": "The Drake household — a name from the post office's letter lists",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "Charles C. Drake",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Charles C. Drake' and 'harics C. Drake' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 9 July 1834, column 7, reprinted over 2 consecutive issues — dated 1834-07-09 to 1834-07-16. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
-    },
-    {
-      "household": "hh_george_c",
-      "name": "The George household — a documented baker, unplaced in the town",
-      "division": "unplaced",
-      "relation": "shared this roof",
-      "why": "a D3/D4/D5/D6 dwelling, as the tradesman_dwellings clause admits",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "C. George",
-          "relationship": "head",
-          "grade": "attested",
-          "occupation": "baker",
-          "note": "A DOCUMENTED PERSON, AND NOTHING ELSE IS CLAIMED. The papers name 'C. GEORGE' and give the trade; they do not say where this household lived, who else was in it, or when it came. So the record around this person carries nothing but the person: no dwelling, no division, no family, each written as unattested in its own block rather than filled in from the shape of the rest of the town. Cited at the Democrat of 5 November 1834, column 9. THE TOWN NEVER INVENTED A ROOF FOR THIS TRADE. The occupation census raised reconstructed households for the trades a town of 3,265 people needed and could not document; `baker` was not one of them, which is why this person could only ever be ADDED and never seated on an existing record — data/research/newspapers/register_1835.json calls it `new_resident` for exactly that reason. No figure is drawn (docs/LIBERTIES.md L1). READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry."
+          "work": "Ellen M. Whitney, ed., The Black Hawk War 1831-1832, volume 1 (Illinois State Historical Library, 1970)",
+          "date": "1832",
+          "tier": 1,
+          "note": "THE ORIGINAL. It prints, for each veteran, name, rank, unit, place and dates of enrollment, and remarks on his service, with unit history following the rolls. Nobody in this project has seen it: the layer actually read is the State Archives INDEX of it, which carries the name, the rank, the company, the place of enrollment and the regiment and nothing else — no date of enrollment, no remark, no service record."
         },
         {
-          "name": "Margaret George",
-          "relationship": "wife",
-          "grade": "reconstructed",
-          "occupation": "none_recorded",
-          "note": "RECONSTRUCTED, NOT FOUND. Nobody is named by any source here. This person exists because the household model says the head kept a house of this size, and the whole of what is claimed is that: a wife of that house, of this sex and in this age band, drawn from the 1840 Chicago schedule and reproducible from the seed printed above. A source naming this head's family retires them. No figure is drawn (L1)."
+          "work": "Illinois State Archives Black Hawk War veterans database — the Chicago enrollments",
+          "date": "1832",
+          "tier": 1,
+          "note": "134 rows. Ninety-four of them carry the company 'INDIAN' with the Rank cell left empty; forty stand in G Kercheval's company (one CPT, one 1LT, one 2LT, 37 PVT). One hundred and thirty-three carry the regiment 'ODD', which the page's own footnote expands as 'Unassigned Colonel'; the row for ZARLEY, J W leaves that cell empty."
         }
       ],
-      "research_note": "MINTED FROM THE NEWSPAPER REGISTER (T-0376), AND THE HOUSEHOLD IS A CONTAINER RATHER THAN AN ARGUMENT. Every other record in this dataset argues for a household — a family the sources count, or a trade the town demonstrably needed. This one argues for a PERSON: the Democrat and the American name C. George as a baker at Chicago 1 time(s), and this reconstruction did not hold them. `data/residents/` has no way to carry a person except inside a household, so one was written around them and told to claim nothing: one member, no dwelling, no division, no origin, no arrival beyond the bound the paper sets. Reading a family, a house or a quarter of town into this record would be reading something the papers do not say. tools/mint_documented_residents.py derives the whole minted set and prints every candidate it refused, with the reason."
+      "what_it_supplies": [
+        "134 men who demonstrably stood in Chicago in 1832 to enroll for the Black Hawk War, three years before the scene",
+        "the rank and company each man enrolled in, and the regiment or brigade he was assigned to",
+        "83 names printed WITHOUT a surname comma — the French and Potawatomi forms ('AS KE WITT', 'WAB-ME-MIC', 'BOURBONNOIS, FRANCIS SR' being of the other kind) — which is the part of the town's population this project is least able to recover elsewhere",
+        "Gholson Kercheval's company as the commonest single body of Chicago enrollments, which touches a man who signs the 1833 poll list this project already holds"
+      ],
+      "what_it_does_not_supply": [
+        "any date of enrollment beyond the year of the war — the index drops the dates the book prints",
+        "any residence, address, lot, trade, age or household",
+        "any evidence at all that a man was still in Chicago in 1835: enrolling at a place is presence at that place on that day and nothing more",
+        "any woman, and any man who did not enroll",
+        "the remarks on service that Whitney's volume carries, which are only obtainable from the Archives by post"
+      ]
     },
     {
-      "household": "hh_hooibrook_lyman",
-      "name": "The Hooibrook household — a name from the post office's letter lists",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Lyman Hooibrook",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Hooibrook, Lyman' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 1 July 1835, column 5 — dated 1835-07-01. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
+      "source_id": "chicago_democrat_1833_1835",
+      "citation": "The Chicago Democrat. Vol. I, No. 1 (November 26, 1833) through Vol. II, No. 18 (August 26, 1835). Chicago, Ill.: John Calhoun, editor and publisher. Seventy-three issues, OCR-assisted research transcriptions from page scans.",
+      "url": "",
+      "archived_url": "",
+      "tier": 1,
+      "tier_label": "period/eyewitness",
+      "what_it_supplies": [
+        "that a named trade was being carried on in Chicago in a named week, and often where",
+        "self-reported addresses, which are the strongest address evidence this project has: the advertiser was paying, and his customers had to find him",
+        "dissolution, removal and replacement notices — the only thing that keeps a documented business out of the 1835 town under the owner's ruling 3",
+        "post-office letter lists, naming residents by the hundred (ruling 1: a listed name mints a resident candidate, flagged letter_list_only)",
+        "the village and later town ordinances, printed complete — the 7 November 1833 code is the richest single item in the run",
+        "arrivals and clearances, which date the piers and the harbour as working structures",
+        "public notices that fix a building as a polling place, an auction site or a meeting place on a given day",
+        "the paper's own imprint, self-reported: the corner of South Water and Clark streets",
+        "twenty-one months of continuous weekly attestation ending three weeks before the scene date, including the issue printed on 1835-07-01"
       ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
+      "what_it_does_not_supply": [
+        "any building's form, material, storey count, fenestration or dimensions — an advertisement describes a trade, not a building",
+        "the specific corner of any junction it names: 'on the corner of' does not say which of the four",
+        "anything at all from an engraving — see trap 1; the cuts are the printer's stock",
+        "proof that a business named in 1833 or 1834 still stood on 1835-07-01; that is ruling 3's survival liberty, and it is a liberty",
+        "an argument from silence, unless corpus.json shows the issues either side of the silence are both in the deposit",
+        "a reading that outranks a scan read of the same passage — see ruling 2 and the C. & I. HARMON case",
+        "a citation without an issue page and column"
+      ]
     },
-    {
-      "household": "hh_inf_tailor_north_02",
-      "name": "Evidence-only household — Thomas S. Eels",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). This household was present in the town on 1 July 1835 and no source says where it slept; the roof is the invention and the people are not. Their card carries their evidence and is not touched by the seat.",
-      "persons": [
-        {
-          "name": "Thomas S. Eels",
-          "relationship": "head",
-          "grade": "attested",
-          "occupation": "tailor",
-          "note": "A DOCUMENTED MAN ON A RECONSTRUCTED ROOF. The papers name him and this household's dwelling does not: what is attested is the person and his trade, and what remains the reconstruction's is everything about where he lived. He is printed as 'THOMAS 8. EELS.', 'THOMAS S. EELS.' and the corpus reads his trade as tailor. Cited at the Democrat of 23 July 1834, column 4; the Democrat of 1 October 1834, column 7. THIS ROOF DID NOT COME FROM HIS RECORD. The household was raised by the occupation census because the town of 3,265 people in 398 dwellings needed a tailor and no documented one was available; the register (data/research/newspapers/register_1835.json, action `replace_invented`) is what says one now is. The dwelling's existence, position and footprint are unchanged and still conjectural, and nothing here claims he slept in it — only that the town's need for this trade is met by a man the papers name rather than by one this project invented. The invented name this record used to carry, and its name_basis block, are retired: an invented name is not kept beside a documented one. No figure is drawn (docs/LIBERTIES.md L1); the placement is L205. He is placed nowhere in particular by his own record, which is the condition of taking ANY roof of his trade — a man the papers put on a named street takes only a roof the plat stands on that street (T-0367), and one they place somewhere this scene cannot honour is refused outright. READ THROUGH A TRANSCRIPTION, not a scan: the owner's ruling of 2026-08-28 grades a transcription-mediated reading as documented, and the source record for the run states that standard and its limits. A scan read that confirms or corrects the name upgrades this entry."
-        }
-      ],
-      "research_note": "RECONSTRUCTED HOUSEHOLD - second of 2 tailor households in this layer, in the north division. The same argument as the shoemaker at the smaller count a frontier town supports: ready-made clothing was a store trade and tailoring a bespoke one. Two households. METHOD: the count comes from the occupation census in data/reconstruction/1835_inferred_household_programme.json, which calibrates every trade against three things this project already holds - the 1835 town census (3,265 people, 398 dwellings), Andreas's roster of the fall of 1833 (about fifty named people, most with a trade, in a settlement of some 350), and the reconstruction specification's roof schedule, whose workshop and store family targets are treated as the ceiling on a trade rather than as its measure. Every count is stated NET of the documented layer: this dataset infers a tradesman only where it cannot name one. RETIRED AN INVENTED NAME (T-0264). This household was raised by the occupation census and named from the invented-name pools. The newspaper register matched it to Thomas S. Eels, a documented tailor the corpus names 2 time(s) and places nowhere in particular, and he now holds the roof. What changed is WHO: the argument for the household, its dwelling and its position are untouched and still the reconstruction's, and the person's grade is `inferred` — a real man with reconstructed details — rather than `attested`, which would claim the dwelling too. tools/replace_invented_residents.py derives this deal and prints every candidate it refused. T-0489: reconstructed occupancy retired; evidence-based person retained and unplaced."
-    },
-    {
-      "household": "hh_meriams_mary",
-      "name": "The Meriams household — a name from the post office's letter lists",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "Mary Meriams",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'y Meriams' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 4 March 1834, column 27 — dated 1834-03-04. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
-    },
-    {
-      "household": "hh_ritchey_james",
-      "name": "The Ritchey household — a name from the post office's letter lists",
-      "division": "unplaced",
-      "relation": "boarded here",
-      "why": "boarding in the division's least crowded dwelling",
-      "sources": [],
-      "basis": "HOUSED HERE BY THE DEAL, NOT RECORDED HERE (L354). The sources stop short of 1 July 1835 for this household and nothing puts it anywhere else; the town's rule (T-1386) counts it present, and no source says where it slept. The roof is the invention and the people are not.",
-      "persons": [
-        {
-          "name": "James Ritchey",
-          "relationship": "head",
-          "grade": "inferred",
-          "occupation": "none_recorded",
-          "note": "PROJECTED RESIDENT. Documented in Chicago post-office evidence but not independently corroborated strongly enough for attested circa-1835 residence. KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN. The papers print 'Ritchey, James' in a single return of letters uncalled-for at the Chicago post office — the Democrat of 20 May 1835, column 13 — dated 1835-05-20. Nothing else in the corpus names this person: no trade, no street, no household, no arrival, so every other claim here is written unattested in its own block. WHAT THAT IS WORTH: a correspondent believed a person of this name reachable at Chicago on that date, and nothing further — not that they lived here, kept a trade here, or were here on 1 July 1835. It is the weakest evidence this project accepts for a resident, and a source placing them elsewhere retires the record. THE ARGUMENT EVERY RECORD OF THIS KIND SHARES is written once instead of once per file: the ruling of 2026-08-30 and what it cost the town (docs/LIBERTIES.md L214), the refusals and the transcription standard behind the reading (tools/mint_letter_list_residents.py). No figure is drawn (L1)."
-        }
-      ],
-      "research_note": "MINTED FROM THE LETTER LISTS (T-0378, T-0379). THE HOUSEHOLD IS A CONTAINER, NOT AN ARGUMENT: every other record here argues for a household, and this one argues for a PERSON. `data/residents/` cannot carry a person outside a household, so one was written around them and told to claim nothing — one member, no dwelling, no division, no trade, no family, no arrival beyond the paper's bound. tools/mint_letter_list_residents.py derives the set and prints every refusal, `--gate` proves no record here gained a roof, a trade or a second member, and docs/LIBERTIES.md L214 carries the change of scale."
-    }
-  ],
-  "citations": [
     {
       "source_id": "owner_chicago_1835_reconstruction_spec_2026",
       "citation": "Chicago · July 1835: Building Inventory and Architectural Reconstruction Specification. Prepared for Kevin Haas, August 2026.",
@@ -348,22 +279,22 @@
     "stands_on": "street",
     "fronts": "monroe",
     "sequence": 5,
-    "finish_key": "weathered_timber",
+    "finish_key": "mixed_patch",
     "roof_condition": "darkened",
-    "age_state": "established",
+    "age_state": "older_frontier",
     "fabric_basis": {
       "rule": "F-T",
       "class": "tradesman",
-      "by": "type",
-      "household": null,
-      "words": "silvered clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weather-darkened roof — a one-room frame cottage, from the 1832–33 town (rule F-T: a tradesman's by its type)"
+      "by": "keeper",
+      "household": "hh_brown_jesse_b",
+      "words": "patched clapboard on a braced frame, 12-over-12 sash of 6 × 8 in glass, plain corner boards and a stoop, under a weather-darkened roof — The Brown household's, in Chicago since 1831 (rule F-T)"
     }
   },
   "fabric_tone": {
     "rule": "FIN-W/FIN-L",
     "class": "tradesman",
-    "age_state": "established",
-    "weather_years": 2.5,
+    "age_state": "older_frontier",
+    "weather_years": 5.0,
     "weather_rate": 1.0,
     "lay_m": 0.006,
     "confidence": "reconstructed"

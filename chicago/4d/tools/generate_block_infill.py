@@ -906,6 +906,36 @@ def lot_frame(lot: dict, alley: list[tuple[float, float]]) -> dict:
     }
 
 
+
+def block_frames(grid: dict, alley: list[tuple[float, float]]) -> list[dict]:
+    """Every lot's frame, in grid order — and on the Market wedge, a lot the cut leaves
+    without one.
+
+    T-2182. `lot_frame`'s squareness test refuses a lot whose front and rear edges
+    differ by more than a fifth, because on a rectangular block that only happens when
+    a side lot line was taken for the rear. T-2195's wedge (L409) is the first block
+    where it happens for a true lot: plat lot 6 keeps its 24.4 m Lake frontage, but the
+    river's bend cuts its back down to the 12.0 m of alley the wedge carries west. Every
+    lot of a block is framed before any slot is placed, so that lot refused the whole
+    block, and the lot the seating asks for (lot 7, square) could not be built either.
+
+    So on a block the grid marks `wedge`, and only there, a lot that cannot be framed is
+    carried as its polygon with the refusal written on it. Nothing is relaxed for a roof:
+    `slot_frame` refuses any slot dealt onto such a lot with the same words, and the
+    accounting below still has to name it built, taken or open. A rectangular block
+    raises exactly as before.
+    """
+    frames = []
+    for lot in grid["lots"]:
+        try:
+            frames.append(lot_frame(lot, alley))
+        except SystemExit as refused:
+            if not grid.get("wedge"):
+                raise
+            frames.append({"polygon": [tuple(p) for p in lot["polygon"]],
+                           "unframed": str(refused)})
+    return frames
+
 # --------------------------------------------------------------------------
 # the cross-street term (T-2133, of T-1684)
 # --------------------------------------------------------------------------
@@ -1025,6 +1055,9 @@ def slot_frame(block: dict, grid: dict, frames: list[dict], slot: dict,
     """
     frame = frames[lot_index]
     where = f"{block['block_id']}: slot {family} on lot {lot_index}"
+    if "unframed" in frame:
+        raise SystemExit(f"{where}: the wedge's cut leaves this lot no frame to stand a "
+                         f"roof on — {frame['unframed']} (T-2182)")
     face = face_frame(grid, face_compass(grid, slot["fronts"], where))
     poly = frame["polygon"]
     own = edge_on_face(poly, face)
@@ -1305,7 +1338,7 @@ def build_block(block: dict, table: dict[str, dict], lots_by_id: dict[str, dict]
         raise SystemExit(f"{block['block_id']} is not a block of the committed plat grid")
     streets = street_traffic()
     alley = [tuple(p) for p in grid["alley_local_enu_m"]]
-    frames = [lot_frame(lot, alley) for lot in grid["lots"]]
+    frames = block_frames(grid, alley)
 
     frontage = block.get("frontage")
     face = face_frame(grid, frontage["face"]) if frontage else None
@@ -2471,7 +2504,7 @@ def self_test() -> int:
         alley = [tuple(p) for p in grid["alley_local_enu_m"]]
         block = {"block_id": block_id, "district": "south",
                  "programme_phase": "self_test_t2133", "bounded_by": grid["bounded_by"]}
-        return block, grid, [lot_frame(lot, alley) for lot in grid["lots"]]
+        return block, grid, block_frames(grid, alley)
 
     def corner(grid: dict, street: str) -> int:
         """The first lot, in grid order, with an edge on the street's face."""
