@@ -180,14 +180,16 @@ HOUSEHOLD_TYPES = (
 # discharged. What is left is a keeper for each store roof that stands empty. T-2236 seats
 # the keepers of the houses of trade the town holds over their stores (the housing seats'
 # `keeper` rung, filled by count_held_head_dwellings_1835.py). T-2244 discharges a store
-# whose keeper the town places on another roof (the deal's `kept_from_elsewhere`), and
-# T-2245 owns what is left: store roofs whose firm's partners the town holds no card for.
+# whose keeper the town places on another roof (the deal's `kept_from_elsewhere`). T-2240,
+# split, owned what that could not form; T-2245 linked the firm partners the town does hold
+# a card for (data/businesses/rulings/partner_links.json), and T-2246 owns the store roofs
+# still owed: firms whose partner the town holds no card for, and the firmless west store.
 FAMILY_OWNER = "T-2187"
 FAMILY_HOUSEHOLD_OWNER = "T-2193"
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_FILLER = "T-2236"
 STORE_ELSEWHERE_TICKET = "T-2244"
-STORE_RESIDENCE_OWNER = "T-2245"
+STORE_RESIDENCE_OWNER = "T-2246"
 ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
