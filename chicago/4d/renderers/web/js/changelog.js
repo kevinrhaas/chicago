@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
+  { v: 1597, ts: '2026-10-09T22:35:16.554Z', date: 'Oct 9, 2026, 5:35 PM CT', title: 'A building card\u2019s residents are read from their dated places', kind: 'fix',
     items: [
       'Open a building and look at who lived or worked there: each household\u2019s reason for being on that card is now the note on its dated place, the same entry its own card lists with its years. Fifty-five buildings show the fuller wording.',
       'The People directory\u2019s homes and workplaces come from the same dated places, and none of them changed. Lodgers in the hotels and boarding houses, and the lighthouse keeper\u2019s household, now carry their beds in that form too.',
