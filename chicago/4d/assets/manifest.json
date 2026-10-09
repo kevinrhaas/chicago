@@ -3055,11 +3055,20 @@
     "recon_1835_blk_south_water_market_d5_01__inferred_1835.glb": {
       "archetype": "frame_dwelling",
       "baked_ao": false,
-      "bytes": 33644,
-      "inputs_sha256": "ebd5f4c4daaa97d940730c2c8d535f5be1cc48e4e9226b46980cf33988e68f23",
+      "bytes": 35520,
+      "inputs_sha256": "010dc484dad8db7fa9c342065e443e7800315e4d8a3b536616399af84942e995",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_south_water_market_d5_01"
+    },
+    "recon_1835_blk_south_water_market_h3_02__inferred_1835.glb": {
+      "archetype": "frame_tavern",
+      "baked_ao": false,
+      "bytes": 39924,
+      "inputs_sha256": "8730303bc1d859552f5c1831879755d0c81693a6b0c5e9a687ca52a60926ca98",
+      "kind": "generated",
+      "phase_id": "inferred_1835",
+      "structure_id": "recon_1835_blk_south_water_market_h3_02"
     },
     "recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb": {
       "archetype": "outbuilding",
@@ -3281,7 +3290,7 @@
       "archetype": "frame_tavern",
       "baked_ao": false,
       "bytes": 38824,
-      "inputs_sha256": "d1df0c89b096feb3f1a5960cbaa17225fc2aa7cc9b626cc790ef9e0b59497c30",
+      "inputs_sha256": "0af69d904b0df71e0a2ffd0b98b2b16100140a94ad6d78e2db06aa71cb2ed2b6",
       "kind": "generated",
       "phase_id": "inferred_1835",
       "structure_id": "recon_1835_blk_washington_clark_h3_06"

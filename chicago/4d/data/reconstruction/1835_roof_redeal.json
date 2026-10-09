@@ -24,20 +24,20 @@
     "no_confidence_moves": "Every roof audited here is inferred_anonymous before and after. Nothing is upgraded to make a substitution look better founded than it is."
   },
   "counts": {
-    "audited": 550,
-    "keep": 548,
+    "audited": 551,
+    "keep": 549,
     "refamily": 2,
     "retire": 0,
-    "kept_occupied": 4,
+    "kept_occupied": 5,
     "breach_owed_out": 7,
     "seated": 297,
     "raised_for_a_trade": 31,
     "band_already_fits": 0,
     "roof_target": 668,
-    "standing_before": 658,
-    "standing_after": 658,
-    "short_of_the_programme_before": 10,
-    "short_of_the_programme_after": 10
+    "standing_before": 659,
+    "standing_after": 659,
+    "short_of_the_programme_before": 9,
+    "short_of_the_programme_after": 9
   },
   "ledger": [
     {
@@ -166,11 +166,11 @@
       "group": "larger_boarding_houses",
       "division": "south",
       "target": 28,
-      "standing": 26,
-      "anonymous": 25,
-      "head_before": 2,
-      "standing_after": 26,
-      "head_after": 2
+      "standing": 27,
+      "anonymous": 26,
+      "head_before": 1,
+      "standing_after": 27,
+      "head_after": 1
     },
     {
       "bucket": "structures/larger_boarding_houses/west",
@@ -4351,12 +4351,32 @@
       "footprint_ft2": 738.0,
       "street": "lake",
       "street_class": "principal",
-      "setback_m": 4.99,
+      "setback_m": 5.0,
       "on_the_street_line": false,
       "conforms": true,
       "verdict": "keep",
       "bucket": "structures/ordinary_dwellings/south",
       "reason": "the order book has an occupant class for a D5 roof in the south division and the placement policy accepts the family where it stands"
+    },
+    {
+      "id": "recon_1835_blk_south_water_market_h3_02",
+      "division": "south",
+      "family": "H3",
+      "group": "larger_boarding_houses",
+      "programme_phase": "phase3_platted_block_south_water_market_lot_7_row",
+      "occupied": true,
+      "raised_for": null,
+      "footprint_ft2": 1482.5,
+      "street": "lake",
+      "street_class": "principal",
+      "setback_m": 5.0,
+      "on_the_street_line": false,
+      "conforms": false,
+      "verdict": "keep",
+      "bucket": "structures/larger_boarding_houses/south",
+      "reason": "the placement policy refuses this family here — stands 5.00 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line — but the roof is seated and a seated roof is not re-dealt behind its household's back; the breach is owed to the seating tickets",
+      "families_offered": [],
+      "kept_occupied": true
     },
     {
       "id": "recon_1835_blk_south_water_wells_a2_09",
@@ -4796,7 +4816,7 @@
       "family": "H3",
       "group": "larger_boarding_houses",
       "programme_phase": "phase3_platted_block_washington_clark_third_deal",
-      "occupied": true,
+      "occupied": false,
       "raised_for": null,
       "footprint_ft2": 1560.2,
       "street": "washington",

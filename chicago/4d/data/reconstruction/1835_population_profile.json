@@ -11898,7 +11898,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "2765 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1404 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 100 wait on a roof not yet standing; 54 households have no dwelling. The table below reads `lives_at` alone. 658 roofs stand against a programme of 668.",
+   "lead": "2794 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1414 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 71 wait on a roof not yet standing; 44 households have no dwelling. The table below reads `lives_at` alone. 659 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",
@@ -11981,7 +11981,7 @@
       ],
       [
        "roofs standing in the scene",
-       658
+       659
       ],
       [
        "roofs the programme targets",
@@ -12499,11 +12499,6 @@
       [
        "Alanson Sweet",
        "The Southern states",
-       "reconstructed"
-      ],
-      [
-       "Alanson Thayer",
-       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [
@@ -15322,6 +15317,11 @@
        "reconstructed"
       ],
       [
+       "David Eastman",
+       "The Southern states",
+       "reconstructed"
+      ],
+      [
        "David Foote",
        "New York State",
        "reconstructed"
@@ -16009,11 +16009,6 @@
       [
        "Elisha H. Hazzard",
        "West of the Alleghenies",
-       "reconstructed"
-      ],
-      [
-       "Elisha Hastings",
-       "The Southern states",
        "reconstructed"
       ],
       [
@@ -16732,6 +16727,11 @@
        "reconstructed"
       ],
       [
+       "Ezra Parmelee",
+       "The Mid-Atlantic states",
+       "reconstructed"
+      ],
+      [
        "Ezra Pottier",
        "New England",
        "reconstructed"
@@ -17089,6 +17089,11 @@
       [
        "George Morrison",
        "New England",
+       "reconstructed"
+      ],
+      [
+       "George Newell",
+       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [
@@ -25809,11 +25814,6 @@
       [
        "Warren Gilbert",
        "New York State",
-       "reconstructed"
-      ],
-      [
-       "Warren Parmelee",
-       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [
