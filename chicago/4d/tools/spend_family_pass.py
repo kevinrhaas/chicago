@@ -44,7 +44,8 @@ handed to T-2191, because a kin row typed onto one is gone on the next build; T-
 those builds to write them (tools/generated_card_kin.py), and they close `asserted`. One
 column, the Noble family's MARRIED notice of 3 December 1833, states two parent ties
 between held cards and two marriages: T-2229 wrote the ties onto both cards of each,
-and T-2230 owns the marriages, because seating a bride is a household edit. A second
+and T-2230 owned the marriages, because seating a bride is a household edit (both are
+seated now, T-2232 and T-2233). A second
 finding fell out
 of the burials: five people the registers and papers bury before 1 July 1835 are ruled
 present on it. That is not kin and not this pass's to fix; it is T-2189.
@@ -161,9 +162,10 @@ RULES = {
     # (tools/generated_card_kin.py), so its thirteen units close `asserted`.
     # `the_family_pass_finds_a_family_the_column_states_whole` was RETIRED by T-2232, which
     # spent its one unit: the Democrat's notice of the Noble marriages, 3 December 1833. Its
-    # parent ties were already written (T-2229), and Charlotte Wesencraft is now seated as
-    # Mark Noble jun.'s wife (PRINTED_WIVES), so that marriage is the card's own structure and
-    # the unit is ruled `same_household`; Mary Noble's marriage to George Bickerdyke is T-2233.
+    # parent ties were already written (T-2229), and Charlotte Wesencraft and Mary Noble are
+    # now seated as Mark Noble jun.'s and George Bickerdyke's wives (PRINTED_WIVES, T-2232 and
+    # T-2233), so both marriages are the cards' own structure and the unit is ruled
+    # `same_household`.
     "the_family_pass_finds_the_tie_cannot_be_dated_against_the_scene": {
         "disposition": "refused",
         "statement": (
