@@ -1,4 +1,9 @@
 export const CHANGELOG = [ // newest first
+  { v: 1565, ts: '2026-10-09T06:28:45.170Z', date: 'Oct 9, 2026, 1:28 AM CT', title: 'Compare Glessner House with its dated photographs', kind: 'feature',
+    items: [
+      'Open Glessner House in the 1904 view and choose Photographic comparison baseline. Dated photographs and the model appear beside each other, with numbered landmarks showing where their outlines and openings disagree.',
+      'Eight measured views and a limited courtyard view establish the starting point for the remaining work. The page shows uncertainty and missing coverage, including the whole west elevation. The house still needs correction; these comparisons do not certify photographic perfection.',
+    ] },
   { v: 1564, ts: '2026-10-09T06:06:53.644Z', date: 'Oct 9, 2026, 1:06 AM CT', title: 'Mark Noble jun.\u2019s wife is the woman the paper says he married', kind: 'fix',
     items: [
       'The Chicago Democrat of 3 December 1833 prints \u201cMr. MARK NOBLE, jun.\u201d marrying \u201cMiss CHARLOTTE, only daughter of Mr. Charles Wesencraft\u201d. Both their cards had a guessed sex, and both guesses were wrong: he showed as a woman, and she as a man heading a made-up wife and sons.',

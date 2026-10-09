@@ -4,11 +4,17 @@
   "what": "The tools carrying a --check mode that tools/check.sh does not run with --check, and WHY each one is not. A ratchet, not a target: this list may shrink, and audit_check_gates.py --gate fails when it grows, when it is left standing above what the tree actually shows, or when a row states no reason.",
   "how_to_change_it": "Gate the tool in tools/check.sh and re-run --write, or, if it cannot be gated today, write why_not_gated on its row here \u2014 --write carries that field forward \u2014 and point owner_ticket at whoever owns the answer. The gate fails on a row with no reason, and on a row the gate has since started running.",
   "counts": {
-    "check_capable": 274,
-    "gated": 266,
-    "ungated": 8
+    "check_capable": 287,
+    "gated": 278,
+    "ungated": 9
   },
   "ungated": [
+    {
+      "tool": "tools/glessner_camera_baseline.py",
+      "other_modes_in_check_sh": [],
+      "why_not_gated": "T-2200 is a frozen photographic benchmark, not a desired-current-geometry generator. --check intentionally requires the archived caf1c4e3/T-2235 GLB and sidecar hashes and reproduces its original camera fits; gating that against every future house edit would either forbid the completion tickets or force refitting the acceptance cameras to each candidate. Run it explicitly on the frozen assets (measured green, about 5 s), and use --candidate with unchanged cameras for later geometry. Five behavioral tests and published full/light desktop/mobile QA passed. T-2228 owns final cross-version photographic sign-off; retain the frozen baseline instead of silently refreshing it.",
+      "owner_ticket": "T-2228"
+    },
     {
       "tool": "tools/measure_street_widths.py",
       "other_modes_in_check_sh": [],
