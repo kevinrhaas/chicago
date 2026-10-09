@@ -133,6 +133,30 @@
    "what_happened": "STANDS ALONE, AND THAT IS A RULING, NOT A READING. The household model drew this house married at 8 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given their whole drawn family in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket. The walk stopped at house 157 of 277, and this one came 207, so none of its 7 drawn kin is seated. The head is left as the sources leave him; that is not a claim that he kept no wife."
   }
  },
+ "kin": [
+  {
+   "person": "noble_mark",
+   "relation": "father",
+   "household": "hh_marknoble_jun",
+   "value": "marknoble_jun",
+   "confidence": "attested",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mr. MARK NOBLE, jun., second son of Mark Nobles, Esq. of this place'. Both cards were minted from that same reading of that same notice — the press register reads 'Mark Nobles, Esq.' and 'Mark Noble, Esq.', two lines apart, as the one father of the bridegroom and of the second bride — so nothing is being identified by name here. Written by T-2229, the family pass's ruling on this column (data/research/family_pass_rulings.json, chicago_democrat_1833_12_03 c007). The term 'son' is the paper's word, read off the notice and not off the card, whose sex is still a draw (T-2230 reads the column's 'Mr.' onto it). 'Second son' implies a first son, who is nobody this town holds, so no row is written for him. The marriage the same line prints is T-2230's to seat."
+  },
+  {
+   "person": "noble_mark",
+   "relation": "father",
+   "household": "hh_noble_mary",
+   "value": "noble_mary",
+   "confidence": "attested",
+   "sources": [
+    "chicago_democrat_1833_1835"
+   ],
+   "note": "THE NOTICE NAMES THE FATHER, AND THAT IS THE WHOLE OF WHAT IS CLAIMED. The Chicago Democrat of 3 December 1833, column 7: 'Mr. GEORGE BICKERDYKE, to Miss MARY, second daughter to Mark Noble, Esq., both of this place'. Both cards were minted from that same reading of that same notice — the press register reads 'Mark Nobles, Esq.' and 'Mark Noble, Esq.', two lines apart, as the one father of the bridegroom and of the second bride — so nothing is being identified by name here. Written by T-2229, the family pass's ruling on this column (data/research/family_pass_rulings.json, chicago_democrat_1833_12_03 c007). The term 'daughter' is the paper's word. 'Second daughter' implies a first daughter, who is nobody this town holds, so no row is written for her. The marriage the same line prints is T-2230's to seat."
+  }
+ ],
  "persons": [
   {
    "id": "noble_mark",

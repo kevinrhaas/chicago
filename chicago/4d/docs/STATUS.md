@@ -9,21 +9,57 @@ boarding houses). `blk_south_water_market` is now emitted by `tools/generate_pla
   where its mean depth reaches half the tier's 40.2 m; South Water lot 2 reads 18.6 m and is
   withheld. The shallowest lot cut anywhere else (26.68 m) keeps the same four. L409 records it.
 - **Three structures already stood on this ground**: `newberry_dole_warehouse`, `inf_cooperage_south`
-  and `inf_sawpit_shed`. The schedule opens the block at 4 roofs of room (D5, D6, F4, plus one
-  ancillary), where it held 8 against an assumed eight lots; the rest go back to the South balance.
-- **Seating:** hh_dickson_david's D5 and hh_dird_john_david's D6 slots move to the wedge's lot 7
-  (`blk_south_water_market#01`), and hh_laframboise_franois is dealt the D2 slot on
-  `blk_school_section_tier_95#01`. Seated 214 → 215 (L270 restated). Adopted roofs do not move.
+  and `inf_sawpit_shed`. The block has 4 roofs of room where the schedule held 8 against an assumed
+  eight lots, and on the tree merged with T-2176 it deals three of them: a D5, an F4 and an H3 (the
+  boarding house T-2196 raises). The rest go back to the South balance.
+- **Seating, re-derived over T-2176** (2026-10-09 lap): T-2176 had already built the D5 and D6 the
+  branch first moved here, so its own seats stand. Against dev the deal moves exactly one household:
+  hh_dixon_robert, handed on until then, is dealt the D5 slot on the wedge's lot 7
+  (`blk_south_water_market#01`). Seated 214 → 215 (L270 restated); no adopted roof changes hands.
+  The seating chain and the keeper pass settled in one lap (the keepers' refusal prose restated on
+  58 roofs, text only).
 - **Visible:** plank walks on the Lake, Franklin and South Water faces, five board crossings, an alley
   lane, kept yards on the two improved lots and prairie remnant on the vacant ones. The wedge's west
   edge is the cut, not Market Street, so `generate_frontage_works` skips it
   (`wedge.faces_off_the_street`), and the cross-street face count reads 47.
 - **Two re-budgets, both named:** `check_plank_ground.mjs`'s crossing allocation goes 9,000 → 10,000
   (the five crossings cost 668 triangles: 9,470 over 105), and the corridor-strip baseline is
-  re-written because the T-0419 counterfactual now counts the wedge (87 blocks, 425 lots, 36 re-cut).
+  re-written because the T-0419 counterfactual now counts the wedge (87 blocks, 425 lots, 36 re-cut, 66 roofs on moved blocks over T-2176's 64).
 - **Inherited red ported:** the order book's household rows named split T-2188. They now go to T-2193
   (family dwellings) and T-2194 (store residences), the way T-2186 ported the last split. The South's
   boarding-house cell goes to T-2196.
+## T-2176 — the South's last asked-for houses and its last owed barn: block 81's lot 1, block 95's lot 1, and a barn on South Water–Wells (2026-10-08)
+
+Rebuilt on `dev` at bd4f140d0 from salvage PR #536, then lapped over T-2179 (2acf51667) and walked again. That branch was cut before T-2174 re-dealt the
+schedule and built a D2 and a D4 that are no longer asked for, so its recipe entries, prose and
+order-book edit were ported and re-aimed. Its meshes and seating were thrown away and re-derived.
+
+- **Three second-deal recipe entries** in `1835_platted_block_parcels.json`, built by
+  `generate_block_infill.py`: `phase3_platted_block_school_section_tier_81_lot_1` (`seq_start` 7, a
+  D5 on lot 1 fronting Monroe, dealt against hh_dewey_s's slot);
+  `phase3_platted_block_school_section_tier_95_lot_1` (`seq_start` 7, a D6 on lot 1 fronting
+  Monroe, dealt against hh_dickson_david's slot); and
+  `phase3_platted_block_south_water_wells_second_yard_deal` (`seq_start` 10, an A2 behind the D3
+  on lot 7). The first entries of blocks 81 and 95 no longer name lot 1 open. **L408** records the
+  invention.
+- **Seating at its fixpoint**: thirteen full laps on the tree merged with T-2179 (adopt_street_faces → reconcile_665 → redeal →
+  keepers → the four infill generators → reconcile_665 → the seating chain), the last moving
+  nothing. **214 seated, all adopted, no `slot` left on the plat**. 22 households change roof:
+  hh_coslet_elisabeth adopts the D5 and hh_comstock_h_h the D6, and the two who asked are seated on
+  standing South roofs (hh_dewey_s on recon_1835_south_d3_017, hh_dickson_david on
+  recon_1835_south_d4_014). Keepers 96 → 97. L263 659 → 662, L270 214 held, L276 96 → 97. The
+  order book's seated pin holds at 313.
+- **Baked** (`bake.sh --only`, pinned Blender 4.5.3): the three new meshes and the 19 roofs the first walk moved, then the 11 the walk over T-2179 moved again, all
+  with web derivatives. Generator half 699/693 → 702/696.
+- **Re-derived**: `rederive.mjs --tail` from `adopt_street_faces`, from `compile_liberties` and
+  from `town_census` (after the completion audit), plus entrances, alley lanes, woodpiles, the
+  register, hay limits, land tracts, the population profile and the Newberry leads (all four
+  volumes re-parsed). The T-0419 corridor baseline is rewritten: `roofs_on_moved_blocks` 63 → 64,
+  the barn on South Water–Wells.
+- **Owners moved.** The South barn row reads 0 owed. The six dwellings the schedule still deals (a
+  D2 and a D4 on `blk_south_water_wells`, and the gated `blk_south_water_market`'s) have no
+  household asking for them. `build_order_book_1835.OWNERS` points the South's dwelling, barn and
+  outbuilding rows at **T-2182**, which was filed for them.
 
 ## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
 

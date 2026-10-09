@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 359,
-  "outside": 313,
+  "inside": 360,
+  "outside": 315,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
    "north_of_the_limit": 63,
    "west_of_canal_street": 103,
-   "south_of_washington_street": 118,
+   "south_of_washington_street": 120,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -547,6 +547,7 @@
     "recon_1835_blk_school_section_tier_81_d4_04",
     "recon_1835_blk_school_section_tier_81_d5_01",
     "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d5_07",
     "recon_1835_blk_school_section_tier_81_d6_06",
     "recon_1835_blk_school_section_tier_94_d3_05",
     "recon_1835_blk_school_section_tier_94_d4_04",
@@ -561,6 +562,7 @@
     "recon_1835_blk_school_section_tier_95_d5_01",
     "recon_1835_blk_school_section_tier_95_d5_02",
     "recon_1835_blk_school_section_tier_95_d6_06",
+    "recon_1835_blk_school_section_tier_95_d6_07",
     "recon_1835_blk_washington_clark_a1_07",
     "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a1_12",
@@ -660,29 +662,8 @@
   "blocks_with_four_bounding_streets": 72,
   "inside_the_limit": 24,
   "outside_the_limit": 48,
-  "scheduling_roofs_outside_the_limit": 2,
-  "scheduling_roofs_outside_the_limit_rows": [
-   {
-    "id": "blk_school_section_tier_81",
-    "state": "open",
-    "roofs_scheduled": 1,
-    "centre_local_enu_m": [
-     139.86,
-     -587.44
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_school_section_tier_95",
-    "state": "open",
-    "roofs_scheduled": 1,
-    "centre_local_enu_m": [
-     408.24,
-     -587.44
-    ],
-    "inside_the_limit": false
-   }
-  ],
+  "scheduling_roofs_outside_the_limit": 0,
+  "scheduling_roofs_outside_the_limit_rows": [],
   "blocks_outside_the_limit": [
    {
     "id": "blk_lake_clinton",
@@ -1106,8 +1087,8 @@
    },
    {
     "id": "blk_school_section_tier_81",
-    "state": "open",
-    "roofs_scheduled": 1,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      139.86,
      -587.44
@@ -1126,8 +1107,8 @@
    },
    {
     "id": "blk_school_section_tier_95",
-    "state": "open",
-    "roofs_scheduled": 1,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      408.24,
      -587.44

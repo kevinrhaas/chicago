@@ -187,6 +187,7 @@
   "recon_1835_blk_school_section_tier_81_d4_04",
   "recon_1835_blk_school_section_tier_81_d5_01",
   "recon_1835_blk_school_section_tier_81_d5_02",
+  "recon_1835_blk_school_section_tier_81_d5_07",
   "recon_1835_blk_school_section_tier_81_d6_06",
   "recon_1835_blk_school_section_tier_94_d3_05",
   "recon_1835_blk_school_section_tier_94_d4_04",
@@ -201,6 +202,7 @@
   "recon_1835_blk_school_section_tier_95_d5_01",
   "recon_1835_blk_school_section_tier_95_d5_02",
   "recon_1835_blk_school_section_tier_95_d6_06",
+  "recon_1835_blk_school_section_tier_95_d6_07",
   "recon_1835_blk_south_water_clark_a3_05",
   "recon_1835_blk_south_water_clark_a3_07",
   "recon_1835_blk_south_water_clark_c2_06",
@@ -248,6 +250,7 @@
   "recon_1835_blk_south_water_lasalle_d5_01",
   "recon_1835_blk_south_water_lasalle_f2_10",
   "recon_1835_blk_south_water_wells_a2_09",
+  "recon_1835_blk_south_water_wells_a2_10",
   "recon_1835_blk_south_water_wells_a3_08",
   "recon_1835_blk_south_water_wells_c2_01",
   "recon_1835_blk_south_water_wells_c3_02",
@@ -3906,6 +3909,7 @@
     "h_jones_store",
     "peck_store",
     "recon_1835_blk_south_water_wells_a2_09",
+    "recon_1835_blk_south_water_wells_a2_10",
     "recon_1835_blk_south_water_wells_a3_08",
     "recon_1835_blk_south_water_wells_c2_01",
     "recon_1835_blk_south_water_wells_c3_02",
@@ -4738,6 +4742,7 @@
     "recon_1835_blk_school_section_tier_81_d4_04",
     "recon_1835_blk_school_section_tier_81_d5_01",
     "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d5_07",
     "recon_1835_blk_school_section_tier_81_d6_06"
    ]
   },
@@ -4779,7 +4784,8 @@
     "recon_1835_blk_school_section_tier_95_d4_04",
     "recon_1835_blk_school_section_tier_95_d5_01",
     "recon_1835_blk_school_section_tier_95_d5_02",
-    "recon_1835_blk_school_section_tier_95_d6_06"
+    "recon_1835_blk_school_section_tier_95_d6_06",
+    "recon_1835_blk_school_section_tier_95_d6_07"
    ]
   },
   {
