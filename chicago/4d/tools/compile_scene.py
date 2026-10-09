@@ -2392,6 +2392,37 @@ def overlay_housing(out: dict[str, list[dict]]) -> None:
             } for person in hh.get("persons", [])],
             "research_note": hh.get("research_note", ""),
         })
+    # T-2244: a store whose keeper slept on another roof stood with nobody living over it,
+    # and the keeper is listed on it as having worked there. Only the keeper is listed: the
+    # household is on the card of the roof it slept under.
+    kept = ((load(path).get("the_keepers") or {}).get("kept_from_elsewhere") or {})
+    for row in kept.get("stores", []):
+        card_path = DATA / "residents" / row["file"]
+        if not row.get("listed_on_the_store_card") or not card_path.exists():
+            continue
+        hh = load(card_path)
+        out.setdefault(row["structure_id"], []).append({
+            "household": hh["id"],
+            "name": hh["name"],
+            "division": hh.get("division", ""),
+            "relation": row["relation"],
+            "why": row["words"],
+            "sources": [],
+            "basis": ("KEPT HERE, AND HOUSED ELSEWHERE (T-2244). The business register stands "
+                      "this house of trade on this store, and the town already places its "
+                      "keeper's household on another roof, so the keeper is listed here as "
+                      "having worked here and nobody is seated over the store. Neither roof is "
+                      "recorded for this person in 1835 (L354); the keeper is not invented."),
+            "persons": [{
+                "name": person.get("name", ""),
+                "relationship": person.get("relationship", ""),
+                "grade": person.get("grade", "reconstructed"),
+                "occupation": ((person.get("occupation") or {}).get("value", "")
+                               if isinstance(person.get("occupation"), dict) else ""),
+                "note": person.get("note", ""),
+            } for person in hh.get("persons", []) if person.get("id") == row["person_id"]],
+            "research_note": hh.get("research_note", ""),
+        })
 
 
 def overlay_trade_roofs(out: dict[str, list[dict]]) -> None:
