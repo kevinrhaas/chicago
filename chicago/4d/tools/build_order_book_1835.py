@@ -185,7 +185,10 @@ HOUSEHOLD_TYPES = (
 # a card for (data/businesses/rulings/partner_links.json), and T-2246 owns the store roofs
 # still owed: firms whose partner the town holds no card for, and the firmless west store.
 FAMILY_OWNER = "T-2187"
-FAMILY_HOUSEHOLD_OWNER = "T-2193"
+# T-2193 counted the held heads and is done. T-1645 (2026-10-09) took the letter-list
+# households off the platted deal's roofs, so two fewer South heads stand under a dealt
+# dwelling than the South's family_dwelling order has room for; T-2256 owns those two.
+FAMILY_HOUSEHOLD_OWNER = "T-2256"
 STORE_RULING_TICKET = "T-2194"
 STORE_RESIDENCE_FILLER = "T-2236"
 STORE_ELSEWHERE_TICKET = "T-2244"
@@ -5515,12 +5518,13 @@ def cmd_self_test() -> int:
     # building block 81's D5 and block 95's D6): the Market wedge's four lots open a D5, an F4
     # and an H3 in the schedule, and the D5 is dealt as a slot on the wedge's lot 7 to one
     # household the deal had handed on (214 -> 215 platted, 99 off-plat, L270, L409).
-    # 314 -> 319 on 2026-10-09 (T-2253): the School Section's Monroe-Adams tier joins the
-    # plat on the owner's T-2247 ruling and the South's five gated dwellings and its H3 are
-    # dealt to block 82, so five households the deal had handed on are dealt a slot there
-    # (215 -> 220 platted, 99 off-plat, L270) — requests T-2254 raises.
+    # 314 -> 318 on 2026-10-09 (T-2253, over T-1645): the School Section's Monroe-Adams tier
+    # joins the plat on the owner's T-2247 ruling and the South's five gated dwellings and its
+    # H3 are dealt to block 82, so four households the deal had handed on are dealt a slot
+    # there; its second D2 and the H3 find no admitted row (215 -> 219 platted, 99 off-plat,
+    # L270) — requests T-2254 raises.
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 319
+        data["inventory"], data["programme"], occ))["seated"] == 318
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",

@@ -1,10 +1,21 @@
 export const CHANGELOG = [ // newest first
-  { v: 1595, ts: '2026-10-09T22:32:18.958Z', date: 'Oct 9, 2026, 5:32 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
+  { v: 1597, ts: '2026-10-09T22:54:01.291Z', date: 'Oct 9, 2026, 5:54 PM CT', title: 'The town\u2019s last six South houses get their lots, south of Monroe', kind: 'change',
     items: [
       'Walk south across Monroe Street between the river and State Street. Six more School Section blocks are now divided into lots: cropped, grazed ground like the empty lots in town, no longer open prairie.',
       'Russell Heacock\u2019s house near Monroe now stands on its own fenced lot, with a privy and a kept yard, like its neighbours north of Monroe.',
-      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Five households without a home are now given a lot there, and their cards say so. The houses come next.',
+      'The South side still owes five houses and one boarding house. They will stand on one of these blocks, one house to a lot. Four households without a home are now given a lot there, and their cards say so. The houses come next.',
       'The three riverside warehouses the South still owes are not sent this far from the river. They wait for the South Water Street front.',
+    ] },
+  { v: 1596, ts: '2026-10-09T22:15:28.289Z', date: 'Oct 9, 2026, 5:15 PM CT', title: '117 more houses now name the household living in them', kind: 'fix',
+    items: [
+      'The town gave 117 houses to households known only from the post office\u2019s lists of uncollected letters. The owner ruled on 30 August that such a name is not someone with an address, so each of those houses stood empty with a note saying why.',
+      'Those houses now go to the next households in line for that kind of house. Open one of them and its card names who lives there. 205 houses now name their household, up from 98.',
+      'Ten houses still stand empty, because the household next in line is known by no source. The 98 households already named have not moved.',
+    ] },
+  { v: 1595, ts: '2026-10-09T21:47:24.470Z', date: 'Oct 9, 2026, 4:47 PM CT', title: 'Glessner roof tiles stay steady at a distance', kind: 'fix',
+    items: [
+      'Fine clay-tile relief now blends gradually into the same tile pattern as it becomes too small to resolve, reducing the broad ripples and shimmer when moving around the house.',
+      'Close views retain the physical six-inch tiles and five-inch courses. Roof outlines, ridge ornaments and the copper roofs keep their geometry.',
     ] },
   { v: 1594, ts: '2026-10-09T21:32:06.816Z', date: 'Oct 9, 2026, 4:32 PM CT', title: 'The next row of school lots south of Monroe is measured out', kind: 'change',
     items: [

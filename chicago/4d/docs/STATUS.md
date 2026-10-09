@@ -16,15 +16,34 @@ this joins it, exactly as T-2144 joined Madison to Monroe; T-2254 raises the six
   freight group on (`SCHOOL_SECTION_PASSES`). The South balance holds the 3 warehouses, `gated`.
   Before, a balance with surplus headroom read `complete` and "holds nothing" even while it held
   roofs; now a balance that takes any roof is gated, with its own sentence.
-- **Seating at a fixpoint** (chain, keeper pass, three infill generators, chain again; the last
-  lap moved nothing): **220 platted seats** (215 before), 99 off-plat. The five new seats are
-  slot requests on block 82, the ones T-2254 raises. No seat already dealt moved (L270).
-  The keeper ledger re-states its "households left" counts only.
-- **One carried-over fault, not this ticket's.** `hh_doty_j_d`, a letter-list household, is one
-  of the five slotted on block 82. The platted deal does not yet read the T-0379 ruling: that is
-  T-1645 (PR open), and T-2254 should build after it lands.
-- Order book tripwire 314 → 319; corridor-strip baseline `blocks_after` 87 → 93 and `lots_after`
+- **Seating at a fixpoint** on the tree merged with T-1645 (chain, keeper pass, three infill
+  generators, chain again; the last lap moved nothing): **219 platted seats** (215 on dev), 99
+  off-plat. The four new seats are slot requests on block 82 — hh_meleney_patrick,
+  hh_merill_isaac, hh_merrill_george_w, hh_vieaux_susanne — the ones T-2254 raises. The block's
+  second D2 and its H3 are left unclaimed: no South row is admitted by a clause that takes them.
+  No seat already dealt moved (L270). The keeper ledger's ten refusals now read "no household
+  left" (10 → 0 with one left for them): the four slotted were the last ones.
+- Order book tripwire 314 → 318; corridor-strip baseline `blocks_after` 87 → 93 and `lots_after`
   425 → 473, which is the tier's 6 blocks and 48 lots and nothing else.
+## T-2204 — Glessner roof relief filtered at screen scale (2026-10-09)
+
+The fine physical tile noses formed broad moving interference bands in street and
+aerial views. Full and Light now carry an additive `_ROOF_DETAIL` sampling hint;
+the renderer blends unresolved relief over the existing mipmapped tile bed across
+6–24 projected course pixels. Crests and beds are untagged and remain solid.
+Clay maps use trilinear mipmaps and anisotropy eight. Close tiles retain the
+6-inch width / 5-inch exposure established by T-2203.
+
+All 28 original master primitive streams (positions, normals, UVs, confidence and
+indices) and node transforms compare byte-for-byte equal. No roof envelope,
+copper, opening, material provenance or source camera changes. The downloadable
+Full asset grows by 36,908 bytes and Light by 4,648 bytes; the texture payload is
+unchanged. The sampling attribute uses 2,137,844 GPU bytes in Full and 89,196 in Light.
+
+Evidence, moving-view comparisons, rendering costs and validation receipts are in
+[the T-2204 dossier](RESEARCH/glessner-roof-filtering-2204/README.md). The separate
+folded copper corner remains held under T-2220. This is not a claim that the whole
+house has met the photographic-quality programme's target.
 
 ## T-2252 — the School Section's Monroe-Adams tier cut into lots (2026-10-09)
 
