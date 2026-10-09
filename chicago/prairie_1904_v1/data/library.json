@@ -6450,7 +6450,7 @@
         "source_id": "MAP-1911-20"
       },
       {
-        "address": "1603",
+        "address": "1605",
         "street": "South Prairie Avenue",
         "side": "east",
         "sheet": "20",
@@ -6460,7 +6460,7 @@
         "raw_story_basement_notation": "2",
         "map_material_interpretation": "frame",
         "map_use_label": "Illinois Central R.R. 16th St. Station",
-        "notes": "1911 station use.",
+        "notes": "1911 station use. The sheet prints 1605; transcribed 1603 until the sheet 20 census re-read it (T-1840).",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-20-023",
@@ -6637,7 +6637,7 @@
         "source_id": "MAP-1911-20"
       },
       {
-        "address": "1719",
+        "address": "1721",
         "street": "South Prairie Avenue",
         "side": "east",
         "sheet": "20",
@@ -6647,7 +6647,7 @@
         "raw_story_basement_notation": "3B; rear2B",
         "map_material_interpretation": "brick",
         "map_use_label": "D",
-        "notes": "Two curved Prairie-facing bays; rear garage2B.",
+        "notes": "Two curved Prairie-facing bays; rear garage2B. The sheet prints 1721; transcribed 1719 until the sheet 20 census re-read it (T-1840). The same property as the named Dexter record at 1721.",
         "dimensions_ft": null,
         "footprint_digitized": false,
         "id": "frontage-20-034",
@@ -8573,12 +8573,12 @@
     },
     {
       "frontage_id": "frontage-20-023",
-      "map_address": "1603",
+      "map_address": "1605",
       "map_source_id": "MAP-1911-20",
       "candidate_building_ids": [],
       "directory_candidate_addresses": [],
       "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "note": "The sheet prints 1605; transcribed 1603 until the sheet 20 census re-read it (T-1840). Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
     },
     {
       "frontage_id": "frontage-20-024",
@@ -8693,12 +8693,16 @@
     },
     {
       "frontage_id": "frontage-20-034",
-      "map_address": "1719",
+      "map_address": "1721",
       "map_source_id": "MAP-1911-20",
-      "candidate_building_ids": [],
-      "directory_candidate_addresses": [],
+      "candidate_building_ids": [
+        "pa-1721-4"
+      ],
+      "directory_candidate_addresses": [
+        1721
+      ],
       "match_status": "candidate_by_printed_number_not_resolved_identity",
-      "note": "Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
+      "note": "The sheet prints 1721; transcribed 1719 until the sheet 20 census re-read it (T-1840). The same property as the named Dexter record at 1721. Multi-address buildings, moved sites, predecessor phases and 1909 renumbering require evidence review."
     },
     {
       "frontage_id": "frontage-20-035",

@@ -1,0 +1,1447 @@
+{
+ "_doc": "AUTHORED reading of Sanborn 1911 vol. 3 sheet 20 for the 1904 target (T-1840). Every frontage row on the sheet and every named record on its ground is assigned here exactly once. tools/sheet_census.py --check holds that, and tools/build_images.py places these records on the site plan by this file, not by number. Kinds: front = the building on the street; attached = joined to it on the sheet; detached_service = a separate rear building; non_building_use = a front whose 1911 use is not a dwelling. Tiers: attested (read on a source), inferred (reasoned, with why), reconstructed (designed within bounds), unresolved.",
+ "ticket": "T-1840",
+ "sheet": "20",
+ "target_date": "1904-07-01",
+ "source": {
+  "source_id": "MAP-1911-20",
+  "file": "maps/originals/sanborn-1911-sheet-20.jpg",
+  "sha256": "c7065feb27f8d9bf1b1b69b1b8505da44fb0e5d72ba6ffee36e56b25f2b39291",
+  "observation_year": 1911
+ },
+ "comparison": {
+  "source_id": "MAP-1886",
+  "file": "maps/originals/robinson-1886-north-block.jpg",
+  "sha256": "652bfd6b70ea05447b866933bf4a019b593313a338ee203e4f3744eaa999a1ab",
+  "observation_year": 1886
+ },
+ "reading": {
+  "by": "Read by eye from the deposited sheet image (1644 x 2048 px), at 2x and 3x crops, 2026-10-09.",
+  "locator": "sheet_rows_px are the image rows (y, from the top) a frontage spans along the street line, at the printed scale of about 1.67 px per foot. They locate a reading; they are not a survey.",
+  "conventions": "Sanborn colour: pink brick, yellow frame, blue stone. A cross (X) marks a stable. D = dwelling. Storey figures as printed (B = basement); a half storey is printed as ½.",
+  "limits": "Rear buildings are counted and described, not digitized; footprints and dimensions are not measured here. Uses lettered in 1911 (GARAGE, AUTO REPAIRING) are 1911 observations (study ruling 11)."
+ },
+ "frontages": [
+  {
+   "frontage_id": "frontage-20-001",
+   "printed_number_1911": "1600",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1600"
+   ],
+   "sheet_rows_px": [
+    350,
+    410
+   ],
+   "polygons": [
+    {
+     "id": "s20-1600-f",
+     "kind": "front",
+     "reading_1911": "2B brick dwelling (D); curved bay on the Prairie face; no rear building on the lot"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1859",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-002",
+   "printed_number_1911": "1604",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1604"
+   ],
+   "sheet_rows_px": [
+    410,
+    458
+   ],
+   "polygons": [
+    {
+     "id": "s20-1604-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D)"
+    },
+    {
+     "id": "s20-1604-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing behind the front, joined by a narrow frame (yellow) entry strip"
+    },
+    {
+     "id": "s20-1604-a2",
+     "kind": "attached",
+     "reading_1911": "2-storey brick rear block, the westernmost piece"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1859",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-003",
+   "printed_number_1911": "1608",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1608"
+   ],
+   "sheet_rows_px": [
+    458,
+    507
+   ],
+   "polygons": [
+    {
+     "id": "s20-1608-f",
+     "kind": "front",
+     "reading_1911": "2B brick dwelling (D) with a bay on the Prairie face and a small projection on its south wall; no rear building"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1859",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-004",
+   "printed_number_1911": "1612",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1612"
+   ],
+   "sheet_rows_px": [
+    507,
+    592
+   ],
+   "polygons": [
+    {
+     "id": "s20-1612-f",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D), stone (blue) Prairie front; small frame porch on the south wall"
+    },
+    {
+     "id": "s20-1612-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing with two 1B brick pieces"
+    },
+    {
+     "id": "s20-1612-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley, drawn in two parts by a dashed partition"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1612-1 (built 1869); the 1904 Blue Book lists the Brown household here.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1612-1"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1860",
+   "rear_package": "T-1932",
+   "notation_reread": {
+    "register": "2B",
+    "sheet": "2½B",
+    "confidence": "probable",
+    "why": "the same glyph as 1616's, which the register already reads 2½B"
+   }
+  },
+  {
+   "frontage_id": "frontage-20-005",
+   "printed_number_1911": "1616",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1616"
+   ],
+   "sheet_rows_px": [
+    592,
+    650
+   ],
+   "polygons": [
+    {
+     "id": "s20-1616-f",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D); frame (yellow) bay at its north-east corner"
+    },
+    {
+     "id": "s20-1616-a1",
+     "kind": "attached",
+     "reading_1911": "2-storey brick rear piece"
+    },
+    {
+     "id": "s20-1616-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1860",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-006",
+   "printed_number_1911": "1620",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1616_1620",
+    "prairie_1620",
+    "prairie_1620_1626"
+   ],
+   "sheet_rows_px": [
+    650,
+    780
+   ],
+   "polygons": [
+    {
+     "id": "s20-1620-r1",
+     "kind": "detached_service",
+     "reading_1911": "long 2-storey brick building on the alley, unmarked (no stable X), behind the vacant frontage",
+     "note_1904": "Carried as standing in 1904: no source dates it after 1904, and it is the rear of the lot the 1886 plate shows built."
+    }
+   ],
+   "decision_1904": "backcast_1886",
+   "why": "No front building in 1911: the frontage is open ground over three traced strips (prairie_1616_1620, prairie_1620, prairie_1620_1626, about 78 ft together). Robinson 1886 (MAP-1886) prints 1620 against a brick house on lots 13-14, and the 1904 Blue Book lists the F. VanS. Hibbard household at 1620, so the Robert Law house stands for 1904 (pa-1620-1904-correction). Which strips it covered is read from the 1886 plate, not from these lines.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "reconstructed",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1620-1904-correction"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1861",
+   "rear_package": "T-1932",
+   "placed_on": [
+    "prairie_1620"
+   ]
+  },
+  {
+   "frontage_id": "frontage-20-007",
+   "printed_number_1911": "1626",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1626"
+   ],
+   "sheet_rows_px": [
+    780,
+    825
+   ],
+   "polygons": [
+    {
+     "id": "s20-1626-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the north half of a pair attached to 1628; 2-storey frame (yellow) bay on the Prairie face"
+    },
+    {
+     "id": "s20-1626-a1",
+     "kind": "attached",
+     "reading_1911": "1B brick piece and a 2B brick rear wing ending in a 1-storey frame piece"
+    },
+    {
+     "id": "s20-1626-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1862",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-008",
+   "printed_number_1911": "1628",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1628"
+   ],
+   "sheet_rows_px": [
+    825,
+    862
+   ],
+   "polygons": [
+    {
+     "id": "s20-1628-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the south half of the pair with 1626"
+    },
+    {
+     "id": "s20-1628-a1",
+     "kind": "attached",
+     "reading_1911": "1B brick rear piece"
+    },
+    {
+     "id": "s20-1628-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1862",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-009",
+   "printed_number_1911": "1630",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1630"
+   ],
+   "sheet_rows_px": [
+    862,
+    910
+   ],
+   "polygons": [
+    {
+     "id": "s20-1630-f",
+     "kind": "front",
+     "reading_1911": "2BB frame (yellow) dwelling (D) with a 1-storey frame piece at its Prairie face"
+    },
+    {
+     "id": "s20-1630-a1",
+     "kind": "attached",
+     "reading_1911": "2-storey frame rear part and a small 2-storey brick piece at its south-west corner"
+    },
+    {
+     "id": "s20-1630-r1",
+     "kind": "detached_service",
+     "reading_1911": "1-storey frame shed on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1630-50; Robinson 1886 shows a small frame house here (lot 18). No 1904 directory listing at 1630.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1630-50"
+   ],
+   "directory_1904": null,
+   "front_package": "T-1862",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-010",
+   "printed_number_1911": "1634",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1634"
+   ],
+   "sheet_rows_px": [
+    910,
+    952
+   ],
+   "polygons": [
+    {
+     "id": "s20-1634-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), stone (blue) front, attached to 1636"
+    },
+    {
+     "id": "s20-1634-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing with a 1-storey end"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1863",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-011",
+   "printed_number_1911": "1636",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1636"
+   ],
+   "sheet_rows_px": [
+    952,
+    995
+   ],
+   "polygons": [
+    {
+     "id": "s20-1636-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), stone (blue) front, attached to 1634"
+    },
+    {
+     "id": "s20-1636-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing with a 1-storey end"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1863",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-012",
+   "printed_number_1911": "1638",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1638"
+   ],
+   "sheet_rows_px": [
+    995,
+    1065
+   ],
+   "polygons": [
+    {
+     "id": "s20-1638-f",
+     "kind": "front",
+     "reading_1911": "2BB frame (yellow) dwelling (D), irregular footprint"
+    },
+    {
+     "id": "s20-1638-a1",
+     "kind": "attached",
+     "reading_1911": "small 1-storey frame pieces on its west and north"
+    },
+    {
+     "id": "s20-1638-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1638-2 (Shortall-Gregory); the 1904 Blue Book lists the Robert B. Gregory household.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1638-2"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1864, T-1865",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-013",
+   "printed_number_1911": "1700",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1700"
+   ],
+   "sheet_rows_px": [
+    1065,
+    1130
+   ],
+   "polygons": [
+    {
+     "id": "s20-1700-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the north unit of a U-shaped brick block that runs to 1708; both 1700 and 1702 are printed against this one unit"
+    },
+    {
+     "id": "s20-1700-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley, with a dashed partition; the only rear building on the lot 1700-1706 share",
+     "note_1904": "On the one lot the two townhouses share (prairie_1700); which household it served is not read."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1700-52 (Frances Glessner Lee). The 1904 Blue Book lists the Blewett Lee household at 1700.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1700-52"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1871",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-014",
+   "printed_number_1911": "1702",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1700"
+   ],
+   "sheet_rows_px": [
+    1065,
+    1130
+   ],
+   "polygons": [],
+   "decision_1904": "alias",
+   "why": "The sheet prints 1702 against the same dwelling unit as 1700: between the lot's north line and the party line, one D and one 3B label. So 1702 is a second number on the 1700 front, not a third house (study ruling 2). The 1904 Blue Book lists no household at 1702.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": null,
+   "front_package": "T-1871",
+   "rear_package": "T-1932",
+   "alias_of": "frontage-20-013"
+  },
+  {
+   "frontage_id": "frontage-20-015",
+   "printed_number_1911": "1706",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1700"
+   ],
+   "sheet_rows_px": [
+    1130,
+    1188
+   ],
+   "polygons": [
+    {
+     "id": "s20-1706-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the south unit of the block; divided from 1700 by a party line that does not run to the alley, so 1700 and 1706 stand on one lot"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1706-53 (George Glessner). The 1904 Blue Book lists the J. G. M. Glessner household at 1706.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1706-53"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1871",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-016",
+   "printed_number_1911": "1708",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1708"
+   ],
+   "sheet_rows_px": [
+    1188,
+    1228
+   ],
+   "polygons": [
+    {
+     "id": "s20-1708-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), attached by a party wall to 1706"
+    },
+    {
+     "id": "s20-1708-a1",
+     "kind": "attached",
+     "reading_1911": "narrow 2-storey brick wing running west toward the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1708-54. The 1904 Blue Book lists the A. A. Carpenter Jr. household; the Thorne name is a later label (study).",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1708-54"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1872",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-017",
+   "printed_number_1911": "1712",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1712"
+   ],
+   "sheet_rows_px": [
+    1228,
+    1313
+   ],
+   "polygons": [
+    {
+     "id": "s20-1712-f",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D), stone (blue) front; small frame porch on its south wall"
+    },
+    {
+     "id": "s20-1712-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing with a 1-storey frame end"
+    },
+    {
+     "id": "s20-1712-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1872",
+   "rear_package": "T-1932",
+   "notation_reread": {
+    "register": "2B",
+    "sheet": "2½B",
+    "confidence": "probable",
+    "why": "the same glyph as 1616's, which the register already reads 2½B"
+   }
+  },
+  {
+   "frontage_id": "frontage-20-018",
+   "printed_number_1911": "1720",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1720"
+   ],
+   "sheet_rows_px": [
+    1313,
+    1450
+   ],
+   "polygons": [
+    {
+     "id": "s20-1720-f",
+     "kind": "front",
+     "reading_1911": "2BB frame (yellow) dwelling (D) with a bay"
+    },
+    {
+     "id": "s20-1720-a1",
+     "kind": "attached",
+     "reading_1911": "2BB frame rear wing and small 2-storey and 1-storey frame pieces on the south"
+    },
+    {
+     "id": "s20-1720-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick stable (X) on the alley"
+    },
+    {
+     "id": "s20-1720-r2",
+     "kind": "detached_service",
+     "reading_1911": "1-storey brick range joining the stable to the garage behind 1726, crossing the 1720/1726 lot line",
+     "note_1904": "Assigned here with the stable it adjoins; which owner held it is not read."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1720-55 (Tyrrell/Walker). The 1904 Blue Book lists Mrs. James M. Walker.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1720-55"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1873",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-019",
+   "printed_number_1911": "1726",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1726"
+   ],
+   "sheet_rows_px": [
+    1450,
+    1552
+   ],
+   "polygons": [
+    {
+     "id": "s20-1726-f",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D) with a bay"
+    },
+    {
+     "id": "s20-1726-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear piece and two 1-storey frame porches"
+    },
+    {
+     "id": "s20-1726-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building lettered GARAGE on the alley",
+     "note_1904": "GARAGE is a 1911 use (study ruling 11). The building is carried as a 1904 service building of unread use, not as a garage."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Map-led replacement of the excluded 1726-1728 predecessor (pa-1726–1728-s.-prairie-avenue-(predecessor)-51). The 1904 Blue Book lists the James R. Walker household at 1726.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1874",
+   "rear_package": "T-1932",
+   "notation_reread": {
+    "register": "2B",
+    "sheet": "2½B",
+    "confidence": "probable",
+    "why": "the same glyph as 1616's, which the register already reads 2½B"
+   }
+  },
+  {
+   "frontage_id": "frontage-20-020",
+   "printed_number_1911": "1730",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1730"
+   ],
+   "sheet_rows_px": [
+    1552,
+    1650
+   ],
+   "polygons": [
+    {
+     "id": "s20-1730-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the main block outlined by a dashed line; small frame porch on the south"
+    },
+    {
+     "id": "s20-1730-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing with a frame porch"
+    },
+    {
+     "id": "s20-1730-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey and 1-storey brick pieces with a long 1-storey brick range on the alley"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists Mrs. Joseph E. Otis at 1730. No named record yet.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1874",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-021",
+   "printed_number_1911": "1736",
+   "side": "west",
+   "parcel_ids": [
+    "prairie_1736"
+   ],
+   "sheet_rows_px": [
+    1650,
+    1690
+   ],
+   "polygons": [
+    {
+     "id": "s20-1736-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D) at the 18th Street corner"
+    },
+    {
+     "id": "s20-1736-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building lettered GARAGE on the alley",
+     "note_1904": "GARAGE is a 1911 use (study ruling 11); it is carried as a 1904 service building of unread use."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1736-49 (Ingraham/McBirney). The 1904 Blue Book lists the Hugh McBirney household.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1736-49"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1874",
+   "rear_package": "T-1932"
+  },
+  {
+   "frontage_id": "frontage-20-022",
+   "printed_number_1911": "1601",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1601"
+   ],
+   "sheet_rows_px": [
+    270,
+    330
+   ],
+   "polygons": [
+    {
+     "id": "s20-1601-f",
+     "kind": "front",
+     "reading_1911": "2-storey frame (yellow) dwelling (D), stepped outline; nothing behind it before the tracks"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet and no construction after 1904 is recorded in the library; no 1904 directory listing at this number, so presence rests on the map alone.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": null,
+   "front_package": "T-1866",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-023",
+   "printed_number_1911": "1605",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1605"
+   ],
+   "sheet_rows_px": [
+    340,
+    410
+   ],
+   "polygons": [
+    {
+     "id": "s20-1605-f",
+     "kind": "non_building_use",
+     "reading_1911": "2-storey frame (yellow) building lettered ILLINOIS CENTRAL R.R. 16TH ST. STATION",
+     "note_1904": "Robinson 1886 shows a frame building lettered 16TH ST. STATION, I.C.R.R. here, so the station use is carried to 1904."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The sheet prints 1605, not 1603: the register's 1603 was a misreading, and the traced parcel (prairie_1605) already reads 1605. Robinson 1886 shows a frame building lettered 16TH ST. STATION, I.C.R.R. on this ground.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": null,
+   "front_package": "T-1866",
+   "rear_package": "T-1933",
+   "register_address_was": "1603"
+  },
+  {
+   "frontage_id": "frontage-20-024",
+   "printed_number_1911": "1607–1611",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1607"
+   ],
+   "sheet_rows_px": [
+    410,
+    500
+   ],
+   "polygons": [
+    {
+     "id": "s20-1607-f",
+     "kind": "front",
+     "reading_1911": "4-storey brick loft (1911): AUTO REPAIRING 1st, WIND SHIELD MFG. above; automatic sprinklers",
+     "note_1904": "The 1911 replacement is NOT a 1904 building. For 1904 the lot carries the paired frame house Robinson 1886 shows on lot 6 (pa-1609-1904-correction, pa-1611-1904-correction)."
+    }
+   ],
+   "decision_1904": "backcast_1886",
+   "why": "The 1911 front is a later replacement (the expert guidance the study applies). Robinson 1886 shows one frame (yellow) building divided by a line on lot 6, printed 1609 and 1611; that is the 1904 pair. No 1904 directory listing at 1607-1611, so presence in 1904 rests on that guidance.",
+   "tiers": {
+    "identity": "inferred",
+    "presence_1904": "inferred",
+    "envelope": "reconstructed",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1609-1904-correction",
+    "pa-1611-1904-correction"
+   ],
+   "directory_1904": null,
+   "front_package": "T-1867",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-025",
+   "printed_number_1911": "1613",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1613"
+   ],
+   "sheet_rows_px": [
+    500,
+    548
+   ],
+   "polygons": [
+    {
+     "id": "s20-1613-f",
+     "kind": "front",
+     "reading_1911": "4-storey brick dwelling (D), the north half of a pair with 1615"
+    },
+    {
+     "id": "s20-1613-a1",
+     "kind": "attached",
+     "reading_1911": "1-storey frame (yellow) rear porch"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet and no construction after 1904 is recorded in the library; no 1904 directory listing at this number, so presence rests on the map alone.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": null,
+   "front_package": "T-1868",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-026",
+   "printed_number_1911": "1615",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1615"
+   ],
+   "sheet_rows_px": [
+    548,
+    595
+   ],
+   "polygons": [
+    {
+     "id": "s20-1615-f",
+     "kind": "front",
+     "reading_1911": "4-storey brick dwelling (D), the south half of the pair with 1613"
+    },
+    {
+     "id": "s20-1615-a1",
+     "kind": "attached",
+     "reading_1911": "1-storey frame (yellow) rear porch"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet and no construction after 1904 is recorded in the library; no 1904 directory listing at this number, so presence rests on the map alone.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": null,
+   "front_package": "T-1868",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-027",
+   "printed_number_1911": "1619",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1619"
+   ],
+   "sheet_rows_px": [
+    595,
+    645
+   ],
+   "polygons": [
+    {
+     "id": "s20-1619-f",
+     "kind": "front",
+     "reading_1911": "4-storey brick dwelling (D), stone (blue) front with a curved bay"
+    },
+    {
+     "id": "s20-1619-a1",
+     "kind": "attached",
+     "reading_1911": "brick rear block and a 2-storey frame half-round piece at its east end"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists the Howard E. Perry household. An 1891 report of J. Foster Rhodes buying the lot meaning to build (cgn-1619-text) suggests this four-storey front is after 1891; that is not read as a date.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1868",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-028",
+   "printed_number_1911": "1621",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1621"
+   ],
+   "sheet_rows_px": [
+    645,
+    690
+   ],
+   "polygons": [
+    {
+     "id": "s20-1621-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the north unit of the attached group 1621-1625, light well shared with 1623"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet; the 1904 Blue Book lists a household at this number (civic-bluebook-1904, OCR candidate) and no construction after 1904 is recorded in the library.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1869",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-029",
+   "printed_number_1911": "1623",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1623"
+   ],
+   "sheet_rows_px": [
+    690,
+    730
+   ],
+   "polygons": [
+    {
+     "id": "s20-1623-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), the middle unit of the group"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Standing on the 1911 sheet and no construction after 1904 is recorded in the library; no 1904 directory listing at this number, so presence rests on the map alone.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": null,
+   "front_package": "T-1869",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-030",
+   "printed_number_1911": "1625",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1625"
+   ],
+   "sheet_rows_px": [
+    730,
+    772
+   ],
+   "polygons": [
+    {
+     "id": "s20-1625-f",
+     "kind": "front",
+     "reading_1911": "3½B brick dwelling (D), the south unit of the group"
+    },
+    {
+     "id": "s20-1625-a1",
+     "kind": "attached",
+     "reading_1911": "4-storey brick rear section"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The 1904 Blue Book lists the Hugh J. McBirney household. The 1890 Inland Architect plate of his new Burling & Whitehouse house (a16-inland-1890-hj-mcbirney-residence; plate listing dw-inland-1890-01-mcbirney-plate-listing) shows it attached at the north with open ground to the south. This sheet shows the same: three unbuilt strips south of 1625. So the plate belongs here, not to 1736.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1869",
+   "rear_package": "T-1933",
+   "notation_reread": {
+    "register": "3B; section 4",
+    "sheet": "3½B; rear section 4",
+    "confidence": "probable",
+    "why": "the half-storey glyph that 1616's 2½B carries"
+   },
+   "image_ids": [
+    "a16-inland-1890-hj-mcbirney-residence",
+    "cgn-1625-mcbirney-inland-1890-copy",
+    "dw-inland-1890-01-mcbirney-plate-listing"
+   ]
+  },
+  {
+   "frontage_id": "frontage-20-031",
+   "printed_number_1911": "1637",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1637"
+   ],
+   "sheet_rows_px": [
+    892,
+    987
+   ],
+   "polygons": [
+    {
+     "id": "s20-1637-f",
+     "kind": "front",
+     "reading_1911": "2½B brick dwelling (D) with a frame (yellow) bay and porches on the Prairie face"
+    },
+    {
+     "id": "s20-1637-a1",
+     "kind": "attached",
+     "reading_1911": "2B brick rear wing"
+    },
+    {
+     "id": "s20-1637-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building lettered GARAGE by the tracks",
+     "note_1904": "GARAGE is a 1911 use (study ruling 11); it is carried as a 1904 service building of unread use."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1637-45 (Spalding remodel of Grosvenor). The 1904 Blue Book lists the William Gold Hibbard Jr. household at 1637 and Jesse Spalding at 1709. That conflict with the record's Spalding name is left for T-1870.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1637-45"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1870",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-032",
+   "printed_number_1911": "1701",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1701"
+   ],
+   "sheet_rows_px": [
+    987,
+    1170
+   ],
+   "polygons": [
+    {
+     "id": "s20-1701-f",
+     "kind": "front",
+     "reading_1911": "2½-storey brick dwelling over a stone basement (D, '2½SB'), with a 1-storey stone (blue) piece at its north-west corner and frame porches"
+    },
+    {
+     "id": "s20-1701-a1",
+     "kind": "attached",
+     "reading_1911": "2½SB brick rear wing, a 2SB piece at the south-west, and a 2-storey frame 'open 1st' porch with a 1-storey frame piece"
+    },
+    {
+     "id": "s20-1701-r1",
+     "kind": "detached_service",
+     "reading_1911": "2-storey brick building by the tracks, unlettered"
+    },
+    {
+     "id": "s20-1701-r2",
+     "kind": "detached_service",
+     "reading_1911": "1½-storey brick stable (X) joined to its south end"
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1701-3 (Hibbard). The 1904 Blue Book lists Mrs. William Gold Hibbard. The register's 'rear garages 2 and 1½' misreads the sheet: neither rear building is lettered GARAGE, and the 1½ carries a stable X.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1701-3"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1875, T-1876",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-033",
+   "printed_number_1911": "1709",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1709"
+   ],
+   "sheet_rows_px": [
+    1170,
+    1337
+   ],
+   "polygons": [
+    {
+     "id": "s20-1709-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D), irregular, with corner bays"
+    },
+    {
+     "id": "s20-1709-a1",
+     "kind": "attached",
+     "reading_1911": "2B, 1B and 2B brick rear pieces and a round frame porch"
+    },
+    {
+     "id": "s20-1709-r1",
+     "kind": "detached_service",
+     "reading_1911": "1½-storey brick building lettered GARAGE by the tracks",
+     "note_1904": "GARAGE is a 1911 use (study ruling 11); it is carried as a 1904 service building of unread use."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1709-s.-prairie-avenue-(successor)-47 (Palmer Kellogg successor). The Boyington/Williams predecessor pa-1709-46 is excluded.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1709-s.-prairie-avenue-(successor)-47"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1877",
+   "rear_package": "T-1933"
+  },
+  {
+   "frontage_id": "frontage-20-034",
+   "printed_number_1911": "1721",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1721"
+   ],
+   "sheet_rows_px": [
+    1337,
+    1450
+   ],
+   "polygons": [
+    {
+     "id": "s20-1721-f",
+     "kind": "front",
+     "reading_1911": "3B brick dwelling (D) with two curved bays on the Prairie face"
+    },
+    {
+     "id": "s20-1721-a1",
+     "kind": "attached",
+     "reading_1911": "long 2B brick rear wing with 1-storey frame pieces at both ends"
+    },
+    {
+     "id": "s20-1721-r1",
+     "kind": "detached_service",
+     "reading_1911": "2B brick building lettered GARAGE by the tracks",
+     "note_1904": "GARAGE is a 1911 use (study ruling 11); it is carried as a 1904 service building of unread use."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "The sheet prints 1721, not 1719: the register's 1719 was a misreading, and the traced parcel already reads 1721. So the map frontage and the named Dexter record pa-1721-4 are one property (study ruling 3), in its post-1889 phase. The 1904 Blue Book lists the Henry H. Walker household at 1721.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1721-4"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1878, T-1879",
+   "rear_package": "T-1933",
+   "register_address_was": "1719"
+  },
+  {
+   "frontage_id": "frontage-20-035",
+   "printed_number_1911": "1729",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1729"
+   ],
+   "sheet_rows_px": [
+    1450,
+    1690
+   ],
+   "polygons": [
+    {
+     "id": "s20-1729-f",
+     "kind": "front",
+     "reading_1911": "3B stone (blue) dwelling (D), large and irregular"
+    },
+    {
+     "id": "s20-1729-a1",
+     "kind": "attached",
+     "reading_1911": "1B stone wing running east, joined to a 2-storey and ½-storey stone piece"
+    },
+    {
+     "id": "s20-1729-a2",
+     "kind": "attached",
+     "reading_1911": "2-storey stone building lettered GARAGE, joined to the wing's east end",
+     "note_1904": "GARAGE is a 1911 use (study ruling 11). It is joined to the house by the wing, so on this sheet it is attached, not detached."
+    }
+   ],
+   "decision_1904": "present_as_mapped",
+   "why": "Named record pa-1729-5 (Pullman). The 1904 Blue Book lists Mrs. George M. Pullman.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "inferred",
+    "envelope": "inferred",
+    "facade": "reconstructed"
+   },
+   "named_record_ids": [
+    "pa-1729-5"
+   ],
+   "directory_1904": "civic-bluebook-1904",
+   "front_package": "T-1880, T-1881",
+   "rear_package": "T-1934"
+  }
+ ],
+ "vacant_ground": [
+  {
+   "id": "s20-vacant-east-1625-1637",
+   "side": "east",
+   "parcel_ids": [
+    "prairie_1625_1637_a",
+    "prairie_1625_1637_b",
+    "prairie_1625_1637_c"
+   ],
+   "sheet_rows_px": [
+    772,
+    892
+   ],
+   "reading_1911": "Three unbuilt, unnumbered lot strips (about 27, 25 and 19 ft) between 1625 and 1637",
+   "reading_1886": "Robinson 1886 (MAP-1886) shows lots 3-5 open and prints 1635 against a narrow brick building on lot 6, the lot next north of 1637",
+   "named_record_ids": [
+    "pa-1635-48"
+   ],
+   "placed_on": [
+    "prairie_1625_1637_c"
+   ],
+   "decision_1904": "phase_unresolved",
+   "why": "Forsyth's 1635 stood on the strip next to 1637 (prairie_1625_1637_c by adjacency; the lot numbers of the two maps are not reconciled one to one), not on 1625's lot where the site plan used to put it. Whether it stood on 1 July 1904 neither map decides; there is no 1904 directory listing at 1635. T-1870 rules on its presence. Until then nothing is built here.",
+   "tiers": {
+    "identity": "attested",
+    "presence_1904": "unresolved",
+    "envelope": "unresolved"
+   },
+   "front_package": "T-1870"
+  }
+ ],
+ "excluded_records": [
+  {
+   "building_id": "pa-1702-43",
+   "ground": "frontage-20-013",
+   "why": "The Staples/Harvey house the Glessner townhouses replaced (1902 occupancy). Excluded from 1904."
+  },
+  {
+   "building_id": "pa-1709-46",
+   "ground": "frontage-20-033",
+   "why": "The Boyington/Williams house, demolished about 1882 and replaced by the Palmer Kellogg house. Excluded from 1904."
+  },
+  {
+   "building_id": "pa-1726–1728-s.-prairie-avenue-(predecessor)-51",
+   "ground": "frontage-20-019",
+   "why": "The early frame double house at 1726-1728, replaced before 1904 by the brick house the sheet shows at 1726. Excluded from 1904."
+  }
+ ]
+}
