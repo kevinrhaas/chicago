@@ -27,8 +27,8 @@ dwelling.
   `count_held_head_dwellings_1835.py` fills `households/store_residence/*` from the keeper
   seats under T-2236.
 - **What it moved downstream.** An inhabited store is a dwelling for the census's ceiling (the
-  deal already counted documented store-residences so). The 18 roofs therefore let 69 more
-  ruled-in households in: 53 wait on a roof (155 people), down from 122 (306). Ruled-in keepers
+  deal already counted documented store-residences so). The 18 roofs therefore let 76 more
+  ruled-in households in: 41 wait on a roof (125 people), down from 117 (272) on dev @ 48b2c2c15. Ruled-in keepers
   take their store before the line is drawn, because each brings its own roof. The boarders
   re-deal around the moved keepers, which is why about 230 building cards' resident lists
   change. `seat_trade_roofs_1835.py` now answers the three roofs in its scope that a keeper

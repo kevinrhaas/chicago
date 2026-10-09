@@ -20133,8 +20133,8 @@ minted, no firm is raised or moved, and the store count T-1996 holds does not ch
 is invented** is the same as every seat here: that the keeper's household slept over the
 store, which no source says. The street-face adoption's roof was already the firm's; this
 adds the keeper's bed to it. An inhabited store is a dwelling for the census's ceiling, as
-the documented store-residences already were, so the 18 roofs admit 69 more ruled-in
-households: 53 wait on a roof (155 people) instead of 122 (306).
+the documented store-residences already were, so the 18 roofs admit 76 more ruled-in
+households: 41 wait on a roof (125 people) instead of 117 (272), measured over dev @ 48b2c2c15.
 **Recorded:** 2026-10-09.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
