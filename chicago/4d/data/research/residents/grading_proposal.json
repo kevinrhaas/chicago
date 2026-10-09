@@ -83,7 +83,7 @@
    "G2a": 33,
    "G4": 1
   },
-  "proposed_changes_to_existing_people": 83,
+  "proposed_changes_to_existing_people": 82,
   "conflicts": 80
  },
  "proposals": [
@@ -7046,7 +7046,6 @@
   {"identity":"id_bailey_bennet","person_id":"bailey_bennet","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":null},"rule":"G2e","direction":"down"},
   {"identity":"id_barrows_mary","person_id":"barrows_mary","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
   {"identity":"id_barry_john_s","person_id":"barry_john_s","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
-  {"identity":"id_beaubien_charles_h","person_id":"beaubien_charles_h","from":{"grade":"inferred","resident_subtype":"projected_resident"},"to":{"grade":"attested","resident_subtype":null},"rule":"G1c","direction":"up"},
   {"identity":"id_blakesley_harvey_a","person_id":"blakesley_harvey_a","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":null},"rule":"G2e","direction":"down"},
   {"identity":"id_blodgett_tyler_k","person_id":"blodgett_tyler_k","from":{"grade":"attested","resident_subtype":null},"to":{"grade":"inferred","resident_subtype":"projected_resident"},"rule":"G3","direction":"down"},
   {"identity":"id_bobinson_george_is","person_id":"bobinson_george_is","from":{"grade":"inferred","resident_subtype":"projected_resident"},"to":{"grade":null,"resident_subtype":null},"rule":"G5","direction":"subtype_only"},

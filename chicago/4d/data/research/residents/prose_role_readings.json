@@ -1,5 +1,5 @@
 {
- "_doc": "THE TRADES RETROSPECTIVE PROSE NAMES, AS ADJUDICATED ROLE READINGS — T-1507.\n\nWHY THIS FILE EXISTS. A resident's trade could be carried onto his card from five places — the card's own 1835 block, the newspaper gazetteer, the Fergus 1839 city register and the 1843 and 1844 directory crosswalks — and none of them is a REMINISCENCE. So a trade read out of recollected prose was carried by nothing at all. Hiram Pearsons is the case that found it: the resident-research pass of 2026-09-05 read the Ingale reminiscence as describing him a house painter who entered real estate, data/research/residents/spend_rulings.json recorded that the card carried the opposite reading at a grade the finding disputes, and then no field anywhere held the house painter. A reading held only in a findings ledger reads, to anybody opening the card, exactly like a reading nobody made.\n\nWHAT A ROW IS. One printing, in one retrospective volume, of one trade against one person the residents layer already holds, with the source stated, the unit named by `person_id`, and the reason the reading is kept. tools/derive_resident_roles.py carries each row onto that person's `roles[]` as a dated role, folding the printing through its own table; this file rules on the READING and never on the controlled word.\n\nIT MAY NEVER PROMOTE, AND THAT IS THE POINT. Every volume here is a recollection set down after the scene, so under the evidence ladder ratified 2026-09-03 (T-0513, applied by T-0514/T-0515) it may date and corroborate and may never promote: `fills_scene_view` is false on every row this file produces, whatever the volume's own `describes_date` says, and the generated role note gives the ladder as the reason rather than leaving the refusal to look like a missing bound. A reading that is kept is not a reading that is believed of 1 July 1835.\n\nTHIS IS NOT A FRESH READING. Every row cites the pass that read it, in `read_in`, and adds nothing to what that pass recorded. It is the CARRY the pass could not make, because a register may not hand-edit a field four generators derive.",
+ "_doc": "THE TRADES RETROSPECTIVE PROSE NAMES, AS ADJUDICATED ROLE READINGS — T-1507.\n\nWHY THIS FILE EXISTS. A resident's trade could be carried onto his card from five places — the card's own 1835 block, the newspaper gazetteer, the Fergus 1839 city register and the 1843 and 1844 directory crosswalks — and none of them is a REMINISCENCE. So a trade read out of recollected prose was carried by nothing at all. Hiram Pearsons is the case that found it: the resident-research pass of 2026-09-05 read the Ingale reminiscence as describing him a house painter who entered real estate, data/research/residents/spend_rulings.json recorded that the card carried the opposite reading at a grade the finding disputes, and then no field anywhere held the house painter. A reading held only in a findings ledger reads, to anybody opening the card, exactly like a reading nobody made.\n\nWHAT A ROW IS. One printing, in one retrospective volume, of one trade against one person the residents layer already holds, with the source stated, the unit named by `person_id`, and the reason the reading is kept. tools/derive_resident_roles.py carries each row onto that person's `roles[]` as a dated role, folding the printing through its own table; this file rules on the READING and never on the controlled word.\n\nIT MAY NEVER PROMOTE, AND THAT IS THE POINT. Every volume here is a recollection set down after the scene, so under the evidence ladder ratified 2026-09-03 (T-0513, applied by T-0514/T-0515) it may date and corroborate and may never promote: `fills_scene_view` is false on every row this file produces, whatever the volume's own `describes_date` says, and the generated role note gives the ladder as the reason rather than leaving the refusal to look like a missing bound. A reading that is kept is not a reading that is believed of 1 July 1835.\n\nTHIS IS NOT A FRESH READING. Every row cites the pass that read it, in `read_in`, and adds nothing to what that pass recorded. It is the CARRY the pass could not make, because a register may not hand-edit a field four generators derive.\n\nAND SINCE T-1569 IT CARRIES FOUR POSTS AS WELL AS A TRADE: a town trusteeship, an election as assessor and surveyor, a county coronership and a Sunday-school librarianship, which the resident passes read and no field carried. They stand on the same footing as the trade above and are held to it. One of them, Hogan's trusteeship, is read off a modern edition of an 1835 act rather than a recollection; it is kept here anyway, at the never-promote footing, because the pass summarised that edition and did not quote it, and a summary is not a printing this project can grade as contemporary.",
  "ticket": "T-1507",
  "ruled_on": "2026-09-24",
  "readings": [
@@ -16,6 +16,66 @@
     "pearsons_hiram"
    ],
    "reason": "The pass of 2026-09-05 read the reminiscence as describing Pearsons a house painter who entered real estate, and recorded that the card's `speculator` was held at `attested` on a note that called it this project's own reading. The house painter is kept because it is the one trade any prose this project holds states of this man, and it is kept UNDATED because the volume names no year: `describes_date` on the source record reads `nineteenth century`, which is no bound at all. It does not contradict the 1835 field as T-1507 re-adjudicated it — 'who entered real estate' is the same course of dealing the federal land tract register measures across the scene date, with a trade before it that no contemporary source this project holds records."
+  },
+  {
+   "person_id": "hogan_john_s_c",
+   "household_id": "hh_hogan_john_s_c",
+   "name_as_read": "John S. C. Hogan",
+   "source_id": "pal_chicago_incorporation_1835",
+   "read_in": "data/research/residents/pass_02_findings.json#hogan_john_s_c",
+   "as_printed": "trustee of the town of Chicago",
+   "kind": "office",
+   "describes_date": null,
+   "verdict": "retrospective_only",
+   "evidence": [
+    "hogan_john_s_c"
+   ],
+   "reason": "T-1569. The pass of 2026-09-05 read the edited text of the 1835 Illinois act on the town's incorporation as naming John S. C. Hogan a trustee of the town, and resolved the identity on the three unusual initials, the office, the place and the year. The act itself is of 1835, but what this project holds is a modern web edition the pass summarised and did not quote, and the card's own research block already reads McIlvaine's list of the trustees chosen on 11 August 1834 as naming him. So the post is carried at this file's footing and UNDATED: 1835 is the year of the act, not the bounds of a term, and the card's block puts his election in August 1834. Whether he still sat on the board on 1 July is not something either reading states, so the row does not reach the scene date and does not enter the 1835 view."
+  },
+  {
+   "person_id": "snow_george_w",
+   "household_id": "hh_snow_george_w",
+   "name_as_read": "George W. Snow",
+   "source_id": "chm_george_snow_assessor",
+   "read_in": "data/research/residents/pass_02_findings.json#snow_george_w",
+   "as_printed": "assessor and surveyor",
+   "kind": "office",
+   "describes_date": "1833-12",
+   "verdict": "retrospective_only",
+   "evidence": [
+    "snow_george_w"
+   ],
+   "reason": "T-1569. The pass of 2026-09-05 read the Chicago Historical Society's record of Snow's election as the town's assessor and surveyor in December 1833. It is dated to that month and to nothing after it: a town officer of 1833 was chosen for a year, and the card already carries his 1834 town-clerk and public-administrator offices from the Democrat, so this row does not reach the scene date and does not claim to. One vote naming two posts folds to neither controlled word, and both stay in the printing. The balloon-frame attribution in the same record is a separate, disputed matter and is not carried here."
+  },
+  {
+   "person_id": "steele_ashbel",
+   "household_id": "hh_steele_ashbel",
+   "name_as_read": "Ashbel Steele",
+   "source_id": "goodman_history_cook_county_early",
+   "read_in": "data/research/residents/pass_04_findings.json#steele_ashbel",
+   "as_printed": "county coroner",
+   "kind": "office",
+   "describes_date": "not stated by the pass",
+   "verdict": "retrospective_only",
+   "evidence": [
+    "steele_ashbel"
+   ],
+   "reason": "T-1569. The pass read the Cook County history as naming Ashbel Steele county coroner 'in the 1835 period', and gave no year finer than that. So the row is UNDATED rather than given the volume's own 1833-1836 coverage, which is the span the book is about and not the term of an office, and it does not reach or enter the 1835 view. His card's 1835 trade stays plasterer, which is what Andreas prints; a coroner's office was an occasional county duty and not a living, so the two do not compete."
+  },
+  {
+   "person_id": "meeker_joseph",
+   "household_id": "hh_meeker_joseph",
+   "name_as_read": "Joseph Meeker",
+   "source_id": "first_presbyterian_chicago_1833_1913",
+   "read_in": "data/research/residents/pass_04_findings.json#meeker_joseph",
+   "as_printed": "Sunday-school librarian",
+   "kind": "office",
+   "describes_date": null,
+   "verdict": "retrospective_only",
+   "evidence": [
+    "meeker_joseph"
+   ],
+   "reason": "T-1569. The pass read the First Presbyterian history as saying Joseph Meeker served as the congregation's Sunday-school librarian from 16 March 1835. The history dates the appointment and not its end, and the card's grade does not stand on this volume, so the row is carried UNDATED, with the date kept here, rather than as a role reaching 1 July that the card's own evidence does not carry; it does not stand in the 1835 view. It is an unpaid church post, not his living: his trade stays carpenter, which Andreas prints. His joining the church on 8 September 1833 is a membership, not a post, and no field on a card carries a congregation's roll, so it is not written here."
   }
  ]
 }

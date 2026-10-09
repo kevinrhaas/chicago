@@ -24,7 +24,7 @@
   "reconstructed_answering_no_stage": 0,
   "persons_with_a_sex": 2879,
   "persons_with_a_dated_age": 63,
-  "persons_with_a_role": 328,
+  "persons_with_a_role": 329,
   "households_naming_an_origin": 1459,
   "households_naming_a_reason": 1459,
   "households_naming_a_lives_at": 34,
@@ -1224,8 +1224,8 @@
        2885,
        "100.0%",
        127,
-       201,
-       2557,
+       202,
+       2556,
        0,
        0
       ],
@@ -1276,7 +1276,7 @@
      "rows": [
       [
        "a role, dated and sourced",
-       328,
+       329,
        "11.4%"
       ],
       [
@@ -1286,7 +1286,7 @@
       ],
       [
        "a stated reason for having none",
-       2354,
+       2353,
        "81.6%"
       ],
       [
@@ -1295,7 +1295,7 @@
        "0.0%"
       ]
      ],
-     "note": "A stated absence is an answer and it is not a trade. The note on those 2354 cards says why the sources record no occupation — a list of uncalled-for letters prints a name and no trade; the sources of 1835 name the occupations of heads and almost never those of wives, children or the people counted with them."
+     "note": "A stated absence is an answer and it is not a trade. The note on those 2353 cards says why the sources record no occupation — a list of uncalled-for letters prints a name and no trade; the sources of 1835 name the occupations of heads and almost never those of wives, children or the people counted with them."
     },
     {
      "title": "The person rows that answer nothing",
@@ -5731,7 +5731,7 @@
       [
        "The Faraher household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -6151,7 +6151,7 @@
       [
        "The Goodrich household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -8359,7 +8359,7 @@
       [
        "The Nicole household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
        "reconstructed"
       ],
       [
@@ -10567,7 +10567,7 @@
       [
        "The Whistler household — a name the town's own records carry",
        "season_not_apportioned",
-       "The 1834 season: the harbour works, the opening of the bar and the trade that followed them",
+       "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers",
        "reconstructed"
       ],
       [
@@ -11025,7 +11025,7 @@
   {
    "id": "roles",
    "title": "Roles — plural and dated",
-   "lead": "328 of 2885 persons carry at least one role and 185 carry two or more. 160 of the 738 roles in the layer reach 1 July 1835; the other 578 are printed against the name in a later volume and say so.",
+   "lead": "329 of 2885 persons carry at least one role and 185 carry two or more. 160 of the 743 roles in the layer reach 1 July 1835; the other 583 are printed against the name in a later volume and say so.",
    "tables": [
     {
      "title": "Persons by number of roles",
@@ -11038,12 +11038,12 @@
      "rows": [
       [
        "0",
-       2557,
+       2556,
        "88.6%"
       ],
       [
        "1",
-       143,
+       144,
        "5.0%"
       ],
       [
@@ -11053,8 +11053,8 @@
       ],
       [
        "3 or more",
-       57,
-       "2.0%"
+       56,
+       "1.9%"
       ],
       [
        "4 or more",
@@ -11068,17 +11068,17 @@
       ],
       [
        "6 or more",
-       8,
+       9,
        "0.3%"
       ],
       [
        "7 or more",
-       4,
+       3,
        "0.1%"
       ],
       [
        "8 or more",
-       2,
+       3,
        "0.1%"
       ],
       [
@@ -11099,7 +11099,7 @@
      "rows": [
       [
        "trade",
-       601
+       602
       ],
       [
        "profession",
@@ -11107,7 +11107,7 @@
       ],
       [
        "office",
-       52
+       56
       ],
       [
        "employment",
@@ -11412,7 +11412,7 @@
     }
    ],
    "notes": [
-    "Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.",
+    "Offices held: Alexander Loyd, Asahel Pierce, Ashbel Steele, Col. Jean Baptiste Beaubien, Daniel Elston, Edmund D Taylor, Erastus Bowen, George Davis, George W. Snow, George Washington Dole, Gholson Kercheval, Isaac Dewey Harmon, James Walker, James Whitlock, Jeremiah Price, Jeremiah Smith, John Harris Kinzie, John M. Nelson, John Miller, John Murphy, John S. C. Hogan, John Scott, Joseph Meeker, Josiah Stillman, Levi F. Arnold, Mark Beaubien, O I Thompson, Richard Jones Hamilton, Russel E. Heacock, Silas W Sherman, Stephen Forbes, Stephen M. Salisbury, Thomas Galaher, Thomas Jefferson Vance Owen, W B Ogden, William H Brown, William H. Stow, William Jones.",
     "Houses of entertainment kept: Alanson Sweet, Chester Ingersoll, Edward H. Haddock, Harriet Murphy, Ira Couch, J. Shrigley, James Couch, John Davis, John Murphy, Mark Beaubien, Mrs Rufus Brown, Rufus Brown, William H. Stow, William Walters."
    ]
   },
@@ -11910,7 +11910,7 @@
   {
    "id": "buildings",
    "title": "Where they meet the buildings",
-   "lead": "2786 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1412 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 79 wait on a roof not yet standing; 46 households have no dwelling. The table below reads `lives_at` alone. 658 roofs stand against a programme of 668.",
+   "lead": "2798 persons in the town on 1 July resolve into a dwelling that stands in the scene, in 1415 households — 191 of them through their card's `lives_at`, the rest seated by a roof's `residents[]` — and 66 wait on a roof not yet standing; 43 households have no dwelling. The table below reads `lives_at` alone. 659 roofs stand against a programme of 668.",
    "tables": [
     {
      "title": "Households by division and seating",
@@ -11993,7 +11993,7 @@
       ],
       [
        "roofs standing in the scene",
-       658
+       659
       ],
       [
        "roofs the programme targets",
@@ -12511,11 +12511,6 @@
       [
        "Alanson Sweet",
        "The Southern states",
-       "reconstructed"
-      ],
-      [
-       "Alanson Thayer",
-       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [
@@ -15329,6 +15324,11 @@
        "reconstructed"
       ],
       [
+       "David Eastman",
+       "The Southern states",
+       "reconstructed"
+      ],
+      [
        "David Foote",
        "New York State",
        "reconstructed"
@@ -16016,11 +16016,6 @@
       [
        "Elisha H. Hazzard",
        "West of the Alleghenies",
-       "reconstructed"
-      ],
-      [
-       "Elisha Hastings",
-       "The Southern states",
        "reconstructed"
       ],
       [
@@ -16739,6 +16734,11 @@
        "reconstructed"
       ],
       [
+       "Ezra Parmelee",
+       "The Mid-Atlantic states",
+       "reconstructed"
+      ],
+      [
        "Ezra Pottier",
        "New England",
        "reconstructed"
@@ -17096,6 +17096,11 @@
       [
        "George Morrison",
        "New England",
+       "reconstructed"
+      ],
+      [
+       "George Newell",
+       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [
@@ -25816,11 +25821,6 @@
       [
        "Warren Gilbert",
        "New York State",
-       "reconstructed"
-      ],
-      [
-       "Warren Parmelee",
-       "The Mid-Atlantic states",
        "reconstructed"
       ],
       [

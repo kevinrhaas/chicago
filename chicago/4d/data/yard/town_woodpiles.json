@@ -7,35 +7,35 @@
  "target_date": "1835-07-01",
  "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/ and data/signage/ and the sidecars' placement.local_e / placement.local_n use.",
  "counts": {
-  "dwellings": 392,
+  "dwellings": 393,
   "by_row": {
    "cabin": 41,
    "cottage": 167,
    "house": 96,
-   "keeper": 19,
+   "keeper": 20,
    "merchant": 35,
    "shanty": 33
   },
   "by_class": {
-   "keeper": 19,
-   "labourer": 83,
+   "keeper": 20,
+   "labourer": 82,
    "merchant": 35,
-   "tradesman": 254
+   "tradesman": 255
   },
   "by_basis": {
    "default": 16,
-   "fabric_rule": 344,
+   "fabric_rule": 345,
    "function": 6,
    "household_trade": 11,
    "reconstruction_occupation": 14
   },
   "items": {
-   "chopping_block": 358,
-   "cordwood": 413,
+   "chopping_block": 359,
+   "cordwood": 415,
    "log_heap": 41,
    "slab_heap": 33
   },
-  "piled": 391,
+  "piled": 392,
   "refused": 1
  },
  "existence": {
@@ -3571,7 +3571,7 @@
    "structure_id": "recon_1835_blk_randolph_market_d3_04",
    "name": "Reconstructed D3 one-room frame cottage #04",
    "function": "one_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -3929,7 +3929,7 @@
    "structure_id": "recon_1835_blk_randolph_wells_d3_05",
    "name": "Reconstructed D3 one-room frame cottage #05",
    "function": "one_room_frame_cottage",
-   "household_class": "tradesman",
+   "household_class": "labourer",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",
@@ -6410,10 +6410,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      159.89,
-      -83.02
+      152.58,
+      -82.96
      ],
-     "bearing_deg": 180.34,
+     "bearing_deg": 180.46,
      "length_m": 2.27,
      "depth_m": 0.61,
      "height_m": 0.84,
@@ -6423,10 +6423,10 @@
     {
      "kind": "cordwood",
      "at_local_enu_m": [
-      157.27,
-      -83.01
+      149.96,
+      -82.94
      ],
-     "bearing_deg": 180.34,
+     "bearing_deg": 180.46,
      "length_m": 2.27,
      "depth_m": 0.61,
      "height_m": 0.96,
@@ -6436,12 +6436,62 @@
     {
      "kind": "chopping_block",
      "at_local_enu_m": [
-      160.59,
-      -81.62
+      153.27,
+      -81.56
      ],
-     "bearing_deg": 180.34,
+     "bearing_deg": 180.46,
      "billets": 2,
      "seed": 2126475181
+    }
+   ]
+  },
+  {
+   "structure_id": "recon_1835_blk_south_water_market_h3_02",
+   "name": "Reconstructed H3 boarding house #02",
+   "function": "large_boarding_house",
+   "household_class": "keeper",
+   "household_by": "fabric_rule",
+   "house": "small",
+   "row": "keeper",
+   "rule": "Y-W6",
+   "confidence": "reconstructed",
+   "wall": "back",
+   "items": [
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      163.81,
+      -79.01
+     ],
+     "bearing_deg": 180.46,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 0.91,
+     "stick": "cord",
+     "seed": 1697752692
+    },
+    {
+     "kind": "cordwood",
+     "at_local_enu_m": [
+      161.02,
+      -78.99
+     ],
+     "bearing_deg": 180.46,
+     "length_m": 2.44,
+     "depth_m": 1.22,
+     "height_m": 1.08,
+     "stick": "cord",
+     "seed": 1338377960
+    },
+    {
+     "kind": "chopping_block",
+     "at_local_enu_m": [
+      164.59,
+      -77.31
+     ],
+     "bearing_deg": 180.46,
+     "billets": 3,
+     "seed": 148222671
     }
    ]
   },
@@ -8422,7 +8472,7 @@
    "structure_id": "recon_1835_blk_washington_wells_d3_05",
    "name": "Reconstructed D3 one-room frame cottage #05",
    "function": "one_room_frame_cottage",
-   "household_class": "labourer",
+   "household_class": "tradesman",
    "household_by": "fabric_rule",
    "house": "small",
    "row": "cottage",

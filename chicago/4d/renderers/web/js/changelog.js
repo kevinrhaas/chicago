@@ -1,8 +1,30 @@
 export const CHANGELOG = [ // newest first
-  { v: 1583, ts: '2026-10-09T18:49:24.002Z', date: 'Oct 9, 2026, 1:49 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
+  { v: 1587, ts: '2026-10-09T20:21:18.843Z', date: 'Oct 9, 2026, 3:21 PM CT', title: 'Charles Beaubien of the St Mary\u2019s register is Charles H. Beaubien', kind: 'fix',
     items: [
       'Charles Beaubien, father of Susan at her baptism at St Mary\u2019s on 24 December 1834, stood in the town as a second man, with a house of his own. He is Charles H. Beaubien, the voter and violinist, now on one card. The history of Chicago names Charles H. as J. B. Beaubien\u2019s son, teaching the fort\u2019s children in 1829, and his death notice puts his birth in 1806 or 1807. No record the town holds names a second Charles Beaubien.',
       'His second house is gone. Other households move into it and the houses they leave, and Jacob Donner, who was waiting for a roof, now has one on the South side.',
+    ] },
+  { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
+    items: [
+      'Walk west along Lake Street toward Market. On the wedge of land the river\u2019s bend leaves there, a large frame boarding house now shares a wall with the house already standing on lot 7, the two set back 5 m in one row.',
+      'Mark Beaubien\u2019s household keeps it, and five people already in the town sleep there. Alanson Sweet\u2019s household moves into the Clark Street boarding house Beaubien left. The house beside that one gets a new keeper, Alvah Stebbins, with his three children.',
+      'The town owed the South two more boarding houses and had nowhere to put them. This one stands on the owner\u2019s ruling. The other waits for the streets south of Madison to be surveyed in, along with five owed houses.',
+    ] },
+  { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
+    items: [
+      'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
+      'George W. Snow\u2019s card now records his election as the town\u2019s assessor and surveyor in December 1833, Ashbel Steele\u2019s his post as county coroner, and Joseph Meeker\u2019s his place as his church\u2019s Sunday-school librarian.',
+      'Each is marked an office, graded inferred and cited. None of them changes anyone\u2019s 1835 occupation, because the histories they come from were written after the scene.',
+      'Eight more posts the research had found, among them Hamilton\u2019s county clerkship and St Cyr\u2019s priesthood, were already on their cards. Nothing in the 3-D town changes.',
+    ] },
+  { v: 1584, ts: '2026-10-09T17:34:59.494Z', date: 'Oct 9, 2026, 12:34 PM CT', title: 'The 1830 census and early directories are fully accounted for', kind: 'fix',
+    items: [
+      'Nothing you can see changes. Every name the town reads from the 1830 census now either belongs to a household in the town or has a stated reason why not. The same is true of the town directories. Claude Laframboise was the last name waiting, and he heads his own household.',
+    ] },
+  { v: 1583, ts: '2026-10-09T17:10:28.334Z', date: 'Oct 9, 2026, 12:10 PM CT', title: 'Silas W. Sherman\u2019s card shows his two elections as sheriff', kind: 'feature',
+    items: [
+      'Open Silas W. Sherman\u2019s card in People. A new row, Elected to office, shows him elected sheriff in 1834 and again in 1836. The dates come from Robert Fergus\u2019s note in his 1843 Chicago directory, which the row quotes and cites.',
+      'They are dates of elections, not the years he served, so the sheriff role above them keeps the 1833 to 1835 dates the town\u2019s newspapers give it. The book backs that role up and changes nothing else about him.',
     ] },
   { v: 1582, ts: '2026-10-09T16:33:01.831Z', date: 'Oct 9, 2026, 11:33 AM CT', title: 'A Canal Street jeweller keeps the empty West Side store', kind: 'fix',
     items: [

@@ -10,11 +10,11 @@
  ],
  "rule": "Under the ratified ladder a directory read after 1835 can corroborate that a person attested here was still in Chicago and can print a trade or a street the 1835 record never had; on its own it makes nobody a resident of 1835. Nothing on this person's 1835 record was regraded, moved, dated or given an occupation by this entry.",
  "counts": {
-  "rulings": 492,
-  "carried": 213,
-  "matched": 436,
-  "refused": 56,
-  "distinct_people": 238,
+  "rulings": 491,
+  "carried": 214,
+  "matched": 437,
+  "refused": 54,
+  "distinct_people": 237,
   "distinct_claims": 518
  },
  "rulings": [
@@ -506,27 +506,7 @@
    "why_refused": null
   },
   {
-   "outcome": "refused",
-   "person_id": "beaubien_charles",
-   "household_id": "hh_beaubien_charles",
-   "resident": "Charles Beaubien",
-   "volume": "fergus_1839",
-   "source_id": "fergus_chicago_directory_1839",
-   "source_ids": [
-    "fergus_chicago_directory_1839"
-   ],
-   "claim_id": "f1839_e0081",
-   "claim_ids": [
-    "f1839_e0081"
-   ],
-   "match_status": "contested",
-   "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
-   "carried": [],
-   "refused_to_carry": [],
-   "why_refused": null
-  },
-  {
-   "outcome": "refused",
+   "outcome": "matched",
    "person_id": "beaubien_charles_h",
    "household_id": "hh_beaubien_charles_h",
    "resident": "Charles H Beaubien",
@@ -539,9 +519,11 @@
    "claim_ids": [
     "f1839_e0081"
    ],
-   "match_status": "contested",
-   "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
-   "carried": [],
+   "match_status": "single_entry",
+   "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C.",
+   "carried": [
+    "occupation"
+   ],
    "refused_to_carry": [],
    "why_refused": null
   },

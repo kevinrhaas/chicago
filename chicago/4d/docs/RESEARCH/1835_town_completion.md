@@ -8,16 +8,16 @@ The closeout of the reconstruction (T-1215) asks four joins of the committed dat
 
 | join | state | what keeps it open |
 |---|---|---|
-| Every household housed | open | 25 households without a roof yet |
+| Every household housed | open | 23 households without a roof yet |
 | Every working person at a workplace | open | 27 working people owed a workplace |
 | Every business roofed or its limit stated | closed | — |
-| Every standing roof occupied or its use stated | open | 22 standing roofs empty and owed somebody |
+| Every standing roof occupied or its use stated | open | 2 standing roofs empty and owed somebody |
 
 Dangling ids: **0**. The town is **not yet complete**: the open joins above are the work T-1215's remaining pieces owe.
 
 ## The three tiers' shares of the people housed
 
-Of the **3,450** people housed in a standing building: **11.4 % attested** (393), **29.0 % inferred** (1,001), **59.6 % reconstructed** (2,056).
+Of the **3,456** people housed in a standing building: **11.4 % attested** (395), **29.0 % inferred** (1,001), **59.6 % reconstructed** (2,060).
 
 ## Every table by tier
 
@@ -25,20 +25,20 @@ Of the **3,450** people housed in a standing building: **11.4 % attested** (393)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 393 | 1,001 | 2,056 | 3,450 |
-| counted apart — waiting on a roof | 10 | 15 | 47 | 72 |
-| counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
+| housed | 395 | 1,001 | 2,060 | 3,456 |
+| counted apart — waiting on a roof | 8 | 15 | 43 | 66 |
+| counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
-| **all** | **413** | **1,026** | **2,131** | **3,570** |
+| **all** | **413** | **1,026** | **2,133** | **3,572** |
 | share | 11.6 % | 28.7 % | 59.7 % | |
 
 ### Households (by the head's grade)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| housed | 380 | 985 | 565 | 1,930 |
-| counted apart — waiting on a roof | 10 | 15 | 0 | 25 |
-| counted apart — absent on the scene date | 10 | 10 | 28 | 48 |
+| housed | 382 | 985 | 563 | 1,930 |
+| counted apart — waiting on a roof | 8 | 15 | 0 | 23 |
+| counted apart — absent on the scene date | 10 | 10 | 30 | 50 |
 | unhoused (owed a roof) | 0 | 0 | 0 | 0 |
 | **all** | **400** | **1,010** | **593** | **2,003** |
 | share | 20.0 % | 50.4 % | 29.6 % | |
@@ -50,8 +50,8 @@ Of the **3,450** people housed in a standing building: **11.4 % attested** (393)
 | at a workplace | 159 | 8 | 160 | 327 |
 | no fixed premises (stated) | 20 | 0 | 317 | 337 |
 | owed a workplace | 1 | 0 | 26 | 27 |
-| no trade recorded | 233 | 967 | 366 | 1,566 |
-| **all** | **413** | **975** | **869** | **2,257** |
+| no trade recorded | 233 | 967 | 365 | 1,565 |
+| **all** | **413** | **975** | **868** | **2,256** |
 | share | 18.3 % | 43.2 % | 38.5 % | |
 
 ### Businesses (by the primary location's tier)
@@ -59,20 +59,20 @@ Of the **3,450** people housed in a standing building: **11.4 % attested** (393)
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
 | at a standing structure | 29 | 17 | 18 | 64 |
-| a stated limit | 2 | 185 | 35 | 222 |
+| a stated limit | 2 | 186 | 35 | 223 |
 | neither (owed) | 0 | 0 | 0 | 0 |
-| **all** | **31** | **202** | **53** | **286** |
-| share | 10.8 % | 70.6 % | 18.5 % | |
+| **all** | **31** | **203** | **53** | **287** |
+| share | 10.8 % | 70.7 % | 18.5 % | |
 
 ### Standing structures
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| occupied | 51 | 9 | 344 | 404 |
-| occupants named in prose only | 8 | 10 | 43 | 61 |
+| occupied | 51 | 9 | 363 | 423 |
+| occupants named in prose only | 8 | 10 | 45 | 63 |
 | a use that needs nobody | 25 | 6 | 158 | 189 |
-| empty, owing somebody | 0 | 0 | 22 | 22 |
-| **all** | **84** | **25** | **567** | **676** |
+| empty, owing somebody | 0 | 0 | 2 | 2 |
+| **all** | **84** | **25** | **568** | **677** |
 | share | 12.4 % | 3.7 % | 83.9 % | |
 
 ### Streets (two questions of each street — not summed)

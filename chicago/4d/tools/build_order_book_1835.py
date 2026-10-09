@@ -479,7 +479,10 @@ STRUCTURE_TICKETS = {
     # committed street control until the S9 street work carries the plat's north-south
     # columns to Madison. T-2247 owns that street work and then the five dwellings (D2, D2,
     # D4, D4, D5) and the balance's one boarding house, so the row names it.
-    ("south", "ordinary_dwellings"): "T-2247",
+    # T-2247 SPLIT on 2026-10-09 on the owner's ruling (b): T-2252 cuts the School Section's
+    # Monroe-to-Adams tier into lots, T-2253 joins it to the grid and deals it the six gated
+    # roofs, and T-2254 raises them, so the row names T-2254, the piece that builds them.
+    ("south", "ordinary_dwellings"): "T-2254",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -547,7 +550,11 @@ STRUCTURE_TICKETS = {
     # T-1957 SPLIT on 2026-10-08 (ported by T-2190 so its gate stops reading a split
     # owner): T-2195 cuts the Market wedge into lots and T-2196 raises the South's two owed
     # boarding houses on them, so the cell moves to T-2196.
-    ("south", "larger_boarding_houses"): "T-2196",
+    # T-2196 built one of the two on the wedge's lot 7 as a two-unit row (owner ruling a,
+    # 2026-10-09); the other waits in the gated balance for S9, which is T-2247's.
+    # T-2247 was split (2026-10-09) and the H3 is one of the six T-2254 raises on the
+    # Monroe-to-Adams tier, so the cell moves to T-2254.
+    ("south", "larger_boarding_houses"): "T-2254",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -641,8 +648,9 @@ STRUCTURE_TICKETS = {
     # on to T-2242, the piece that still owes them. T-2242 was withdrawn on the owner's
     # decision (a) (2026-10-09) and the pair follows the dwellings on to T-2247, which owns
     # the gated balance until the S9 street work lands.
-    ("south", "barns_stables"): "T-2247",
-    ("south", "small_outbuildings"): "T-2247",
+    # With T-2247's split (2026-10-09) the pair follows the dwellings on to T-2254.
+    ("south", "barns_stables"): "T-2254",
+    ("south", "small_outbuildings"): "T-2254",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district

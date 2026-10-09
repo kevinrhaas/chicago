@@ -38,23 +38,23 @@
     }
   ],
   "the_programme_in_four_numbers": {
-    "held_when_the_ruling_was_made": 539,
+    "held_when_the_ruling_was_made": 538,
     "moves_T_1556_named": 265,
     "moves_the_rule_yields": 142,
-    "people_still_held_when_it_is_spent": 397,
-    "the_remedy_reaches": 0.2635
+    "people_still_held_when_it_is_spent": 396,
+    "the_remedy_reaches": 0.2639
   },
   "where_the_programme_stands": {
     "moves_made": 142,
     "moves_outstanding": 0,
     "outstanding_by_the_ticket_the_move_names": [],
-    "surplus_still_held_today": 397
+    "surplus_still_held_today": 396
   },
   "what_it_is_left_holding": {
-    "people": 397,
-    "buckets": 51,
+    "people": 396,
+    "buckets": 50,
     "buckets_cleared": 0,
-    "of_refused_buckets": 51,
+    "of_refused_buckets": 50,
     "by_family": [
       {
         "sex": "female",
@@ -99,7 +99,7 @@
       {
         "sex": "female",
         "age_band": "40_49",
-        "people_still_held": 10
+        "people_still_held": 9
       },
       {
         "sex": "male",
@@ -117,33 +117,33 @@
         "people_still_held": 2
       }
     ],
-    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 0 if only the division changed, 15 if the household kind changed too, 15 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
+    "and_nothing_can_move_them": "T-1558 measured the ceilings, each loosening one more axis than the one above it: 0 if only the division changed, 13 if the household kind changed too, 13 if the trade could change as well, and 142 under the rule as written. The remainder is not waiting on a run; it is waiting on an order book that wants women and children somewhere else."
   },
   "what_the_town_converges_to": {
-    "still_owed_now": 15,
-    "still_owed_when_the_programme_is_spent": 15,
-    "persons_standing_in_the_layer": 2865,
-    "converges_to_now": 2880,
-    "converges_to_when_the_programme_is_spent": 2880,
-    "the_model_point": 2550,
+    "still_owed_now": 13,
+    "still_owed_when_the_programme_is_spent": 13,
+    "persons_standing_in_the_layer": 2864,
+    "converges_to_now": 2877,
+    "converges_to_when_the_programme_is_spent": 2877,
+    "the_model_point": 2549,
     "the_model_range": [
-      2371,
+      2370,
       3265
     ],
-    "reading": "2,880 is inside the model's 2,371-3,265 and 330 above its 2,550 point, against 330 above it today.",
+    "reading": "2,877 is inside the model's 2,370-3,265 and 328 above its 2,549 point, against 328 above it today.",
     "and_the_rules_own_projection_is_not_used": {
-      "the_rule_says": 2738,
-      "this_report_says": 2880,
+      "the_rule_says": 2735,
+      "this_report_says": 2877,
       "why": "the rule subtracts every move it yields from a standing-and-owed pair that is ALREADY post-move, so once the moves are spent it counts them twice — the T-1563 double count, one file over. Both ends here are computed from the layer's standing persons and what the book still owes; `model_refamily_rule.py` owns the projection and the fix."
     }
   },
   "the_residue_and_the_ruling_on_it": {
-    "people_still_held": 397,
-    "buckets_they_are_held_in": 51,
+    "people_still_held": 396,
+    "buckets_they_are_held_in": 50,
     "and_what_holds_each_of_them": [
       {
         "refusal": "a_documented_reading_shrank_the_order",
-        "people": 10
+        "people": 9
       },
       {
         "refusal": "the_re_cut_reached_work_already_drawn",
@@ -161,12 +161,12 @@
   "what_would_move_the_remainder": [
     {
       "id": "more_orders_in_the_women_and_children_cells",
-      "says": "The binding constraint is room, not willingness: the surplus is 228 people under twenty and 108 adult women, and their cells hold 15 and 0 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
+      "says": "The binding constraint is room, not willingness: the surplus is 228 people under twenty and 107 adult women, and their cells hold 13 and 0 open slots between them. An order book re-cut that grew those cells — or a lodging ticket that ordered more children into boarding houses — would raise this directly.",
       "who_owns_it": "T-1532, T-1536, T-1538 (the lodging band) and the book itself"
     },
     {
       "id": "a_ruling_that_an_adoption_may_be_RE_SEATED",
-      "says": "202 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
+      "says": "203 of the people in the refused buckets carry an employment seat, a business card or a lodging roll that names a house in their division, and 113 more are refused with a house one of those people is in. If the staffing layer may re-seat an adopted head at an equivalent house in the destination division, the adoption travels and T-1556 § 8 is satisfied by carrying rather than by refusing. That is a change to the staffing model and not to this rule.",
       "who_owns_it": "the business staffing band (T-1189 and its successors)"
     },
     {
@@ -568,16 +568,6 @@
       "the_re_cut_would_have_ordered": 1,
       "surplus_still_held": 1,
       "refamilied_out_already": 1,
-      "outstanding_moves": 0,
-      "surplus_when_the_programme_is_spent": 1
-    },
-    {
-      "bucket": "persons/female/40_49/west/lodging/trade",
-      "owning_ticket": "T-2023",
-      "held_at": 1,
-      "the_re_cut_would_have_ordered": 0,
-      "surplus_still_held": 1,
-      "refamilied_out_already": 0,
       "outstanding_moves": 0,
       "surplus_when_the_programme_is_spent": 1
     },

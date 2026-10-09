@@ -373,6 +373,28 @@
      "premises": null
     }
    ],
+   "office_elections": {
+    "office": "sheriff",
+    "as_printed": "[elected sheriff Cook County in 1834 and 1S3G",
+    "elections": [
+     {
+      "year": "1834",
+      "as_printed": "1834"
+     },
+     {
+      "year": "1836",
+      "as_printed": "1S3G",
+      "read_as": "The OCR prints the year '1S3G'. The claim normalizes it to 1836, and that reading is the claim's and is not reopened here."
+     }
+    ],
+    "confidence": "inferred",
+    "sources": [
+     "fergus_historical_series_26_29"
+    ],
+    "claim": "bk_fer2_042",
+    "promotes": false,
+    "note": "TWO ELECTIONS, NOT A TERM OF SERVICE (T-1543). Fergus's bracketed annotation in his 1843 name directory says Silas Wooster Sherman was elected sheriff of Cook County in 1834 and again in 1836. Those are the dates of two elections, and they are kept as the book's own dates. They do not replace or widen the sheriff role on this card, which the 1833-1835 press bounds by this man's own dated mentions, 1833-12-03 to 1835-07-15. An election year is not the first or last year of an office, so the book is consistent with the press run without dating either end of it. The grade is `inferred`, not `attested`: the annotation was added to an 1843 directory in a compilation printed in 1896, and the resident programme's identity rule ties 'Silas Wooster Sherman' to this card by name. Under the evidence ladder ratified 2026-09-03 a later volume corroborates and dates and never promotes. So this block does not put him in the 1835 town and does not move his occupation; the press already did both. It is not part of the person's `sources[]`, which lists what the 1835 residency grade stands on."
+   },
    "associated_with": [
     {
      "kind": "land_purchased",

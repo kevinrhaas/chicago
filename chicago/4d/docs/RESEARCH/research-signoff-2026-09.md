@@ -32,22 +32,17 @@ Reproduce: `python3 tools/report_research_signoff.py --check`.
 | Disposition | Units |
 | --- | ---: |
 | aggregate_only | 373 |
-| asserted | 1,549 |
+| asserted | 1,552 |
 | later_only | 12,616 |
 | outside_chicago | 118 |
-| refused | 8,781 |
-| unresolved | 279 |
+| refused | 8,791 |
+| unresolved | 266 |
 
-Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,549 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
+Unclassified: **0** (C1). Asserted units whose named field does not resolve on the record: **0** of 1,552 (C2). The resident synthesizer's declared drift from the cards it writes: **0** file(s) (C4).
 
 An `unresolved` unit is research read and not yet spent, and it is only legitimate while the ticket it defers to is still going to happen. Read the owners column carefully — it is the most informative table in this report:
 
-| Owner | Units | Live |
-| --- | ---: | ---: |
-| T-1569 | 12 | yes |
-| T-1543 | 1 | yes |
-
-Not one of those owners asks for another READING. The heaviest are T-1569 (12), T-1543 (1) — the arrival and origin fill, the authored business layer, the seating, the re-admissions, the named families — and the lighter ones are derivation fixes beside them. That is the shape of a finished research spend: what is still unspent is waiting on the bands this report opens, not on more of the corpus. **0** units defer to work that is no longer live (C3).
+There is no owners column left to read: no unresolved unit defers to a ticket, because every reading a band owned has been spent. That is the shape of a finished research spend. **0** units defer to work that is no longer live (C3).
 
 **266** further unresolved unit(s) name no ticket at all, because no ticket can settle them: they are names the research READ and the town WITHHELD, since re-admitted at the reconstructed tier, and what is open is whether the person was in the town on 1 July 1835. Each states the document that would reopen it (T-1423):
 
@@ -78,29 +73,29 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 | Measure | Count |
 | --- | ---: |
 | Persons in the layer | 2,885 |
-| Carrying at least one dated role | 328 |
+| Carrying at least one dated role | 329 |
 | Carrying two or more | 185 |
-| Role rows in total | 738 |
+| Role rows in total | 743 |
 | Persons whose roles reach 1835-07-01 | 138 |
-| Persons whose every role is dated away from it | 190 |
-| Persons carrying no dated role at all | 2,557 |
+| Persons whose every role is dated away from it | 191 |
+| Persons carrying no dated role at all | 2,556 |
 
 | Role kind | Rows |
 | --- | ---: |
 | `employment` | 1 |
-| `office` | 52 |
+| `office` | 56 |
 | `profession` | 84 |
-| `trade` | 601 |
+| `trade` | 602 |
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 578 |
+| dated away from it | 583 |
 | reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
 | `attested` | 127 |
-| `inferred` | 611 |
+| `inferred` | 616 |
 
 Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 
@@ -199,7 +194,7 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 
 | Kind of involvement | Rows |
 | --- | ---: |
-| Offices held, naming the body they were held under | 44 |
+| Offices held, naming the body they were held under | 47 |
 | Persons carrying church evidence | 151 |
 | Agency holdings reaching a card | 3 |
 | Agency holdings refused | 1 |
@@ -210,8 +205,8 @@ Rows with no disposition: **0**. Limited or refused rows with no clause: **0**. 
 | Body an office was held under | Rows |
 | --- | ---: |
 | `city_of_chicago` | 15 |
-| `cook_county` | 12 |
-| `town_of_chicago` | 5 |
+| `cook_county` | 13 |
+| `town_of_chicago` | 7 |
 | `united_states_post_office` | 4 |
 | `united_states_indian_department` | 3 |
 | `united_states_land_office` | 3 |
@@ -226,14 +221,14 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 
 ## 5. Withheld is legible
 
-**21,888** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
+**21,898** reading units were deliberately kept out of the town, and **0** of them do so without a stated reason (C8). A refusal that cannot say why is indistinguishable from an oversight, which is the whole point of keeping them.
 
 | Withheld as | Units |
 | --- | ---: |
 | `aggregate_only` | 373 |
 | `later_only` | 12,616 |
 | `outside_chicago` | 118 |
-| `refused` | 8,781 |
+| `refused` | 8,791 |
 
 The same rule over the gate itself: of **287** tools carrying a `--check`, **278** are run by `tools/check.sh` and **9** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
@@ -273,7 +268,7 @@ None of these is a condition above, and that is a judgement rather than an overs
 1. **28 of the 176 firms standing on 1835-07-01 name nobody who kept them.** The paper advertised the goods and not the man. T-1182 audits it; T-1189 staffs it.
 2. **52 firms reach a street and 60 reach nowhere.** Those limits are preserved refusals; the address book T-1198's chain wrote (T-1491..T-1493) seats what can be seated, T-1199 seats the reconstructed remainder, and the rest stay limits.
 3. **1,425 of 1,459 households have no `lives_at`, and 1,337 sit in no seating class.** Most are post-office-list names whose whole evidence is that a letter waited for them. T-1172 rules on their re-admission; T-1199 seats them.
-4. **2,557 of 2,885 persons carry no dated role, and 190 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
+4. **2,556 of 2,885 persons carry no dated role, and 191 carry only roles dated away from the scene date.** The town's trades come from newspapers, directories and registers, and those name the men who advertised. T-1173 reconstructs the trade households the occupation model still wants.
 5. **162 `associated_with` rows exist, and the singular pair still stands beside them.** The plural, dated location row is the agreed shape (T-1147) and the renderer reads it. T-1273 copied every home and workplace reconciliation row that reaches a roof onto its household (`tools/household_associations.py`); T-1274 moves the readers off `lives_at`/`works_at` and retires the pair. Until then both shapes are held to agree by `singular_drift`, and the reconciliation table above stays where a seating class short of a roof is legible — which is why C7 measures the table.
 6. **One resident derivation cannot be gated on byte identity.** `tools/mint_letter_list_residents.py` is not the last writer of the files it derives, so re-running it over the committed tree would revert the synthesis and upgrade grades this project holds down; T-0662 read that and T-0691 owns the contract that compares only what the pass owns. It is declared on the gate baseline with that reason (C9) and `--gate` and `--self-test` are run in check.sh, which prove different things. This is a tooling contract, not an unspent reading: it cannot cause a reconstruction band to invent over a source, which is why it is listed here and not above.
 

@@ -12,17 +12,17 @@
   "data/reconstruction/1835_presence_rulings.json"
  ],
  "buildings": {
-  "standing": 658,
+  "standing": 659,
   "target": 668,
-  "records_in_scene": 676,
+  "records_in_scene": 677,
   "basis": "Physical roofs credited by the roof reconciliation, not structure records: a bridge, a pier, a palisade and a parade ground are records that are not buildings.",
   "range_note": "one record — the Robinson/Caldwell cabins — is two or three cabins in its source; the ledger counts the low reading.",
   "dwellings": {
    "standing_low": 330,
-   "standing_high": 380,
+   "standing_high": 381,
    "by_group": {
     "ordinary_dwellings": 330,
-    "larger_boarding_houses": 40,
+    "larger_boarding_houses": 41,
     "inns_taverns": 10
    },
    "ordered_low": 335,
@@ -34,16 +34,16 @@
   }
  },
  "people": {
-  "housed": 2792,
-  "households_housed": 1413,
+  "housed": 2798,
+  "households_housed": 1415,
   "housed_through": {
    "lives_at": 191,
-   "seated_by_a_structure": 2601
+   "seated_by_a_structure": 2607
   },
-  "waiting_on_a_roof": 72,
-  "households_waiting_on_a_roof": 25,
+  "waiting_on_a_roof": 66,
+  "households_waiting_on_a_roof": 23,
   "group_entries": 6,
-  "households_without_a_dwelling": 45,
+  "households_without_a_dwelling": 43,
   "town_total": 3265,
   "town_total_dwellings": 398,
   "town_total_source": "andreas_1884_v1",
@@ -58,13 +58,13 @@
    },
    "cards_total": 2885,
    "cards_not_established": 1806,
-   "target": 2550,
-   "target_low": 2371,
+   "target": 2549,
+   "target_low": 2370,
    "target_high": 3265,
    "target_figure": "population_on_1_july_1835",
    "target_source": "data/reconstruction/1835_town_model.json",
-   "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.8% of the 1,440 people the layer carries give an arrival year of 1835, so about 1,431 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,550, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
-   "target_note": "The town model's point reading for 1 July 1835 within 2,371–3,265, and the same number the reconstruction order book quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
+   "target_method": "CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.8% of the 1,439 people the layer carries give an arrival year of 1835, so about 1,432 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,549, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does.",
+   "target_note": "The town model's point reading for 1 July 1835 within 2,370–3,265, and the same number the reconstruction order book quotas against. The November count of 3,265 is this range's high end, four months later, and is not what the scene holds.",
    "basis": "Persons in households the layer records `present` on the scene date — the order book's Rule 3. A card the layer holds without establishing the person in Chicago on 1 July is not counted here; `cards_not_established` is how many those are.",
    "question": "How many people does a record establish in Chicago on 1 July 1835? It is the strictest reading the layer supports and it is NOT the town's population: it leaves out every person the research left unadjudicated.",
    "population": {
@@ -112,7 +112,7 @@
   "persons_present_housed": 657,
   "persons_present_waiting_on_a_roof": 0,
   "persons_present_unhoused": 0,
-  "persons_not_present": 28,
+  "persons_not_present": 30,
   "by_folder": {
    "reconstructed_trades": {
     "households": 309,
@@ -124,27 +124,27 @@
    },
    "lodgers": {
     "households": 22,
-    "persons_present": 155,
-    "persons_present_housed": 155,
+    "persons_present": 157,
+    "persons_present_housed": 157,
     "persons_present_waiting_on_a_roof": 0,
     "persons_present_unhoused": 0,
     "persons_not_present": 0
    },
    "readmitted": {
     "households": 116,
-    "persons_present": 106,
-    "persons_present_housed": 106,
+    "persons_present": 105,
+    "persons_present_housed": 105,
     "persons_present_waiting_on_a_roof": 0,
     "persons_present_unhoused": 0,
-    "persons_not_present": 10
+    "persons_not_present": 11
    },
    "underdocumented": {
     "households": 96,
-    "persons_present": 86,
-    "persons_present_housed": 86,
+    "persons_present": 85,
+    "persons_present_housed": 85,
     "persons_present_waiting_on_a_roof": 0,
     "persons_present_unhoused": 0,
-    "persons_not_present": 18
+    "persons_not_present": 19
    },
    "institutional": {
     "households": 1,

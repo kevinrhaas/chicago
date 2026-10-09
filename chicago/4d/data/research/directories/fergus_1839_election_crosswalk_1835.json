@@ -18,7 +18,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1438
+   "n": 1437
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -40,7 +40,7 @@
   "residents_matched_one_entry": 90,
   "residents_ambiguous": 31,
   "residents_contested": 21,
-  "residents_surname_only_refused": 237,
+  "residents_surname_only_refused": 236,
   "residents_further_initial_disagreed_refused": 4,
   "residents_letter_list_bucket_refused": 1,
   "voters_matched_one_entry": 81,
@@ -3793,11 +3793,6 @@
     "name": "Catherine Miller",
     "candidates_under_that_surname": 4,
     "rule": "The surname 'Miller' stands in the 1837 poll and no man under it carries the initial 'C' of 'Catherine Miller'. A surname-only agreement is a refusal."
-   },
-   {
-    "name": "Charles Beaubien",
-    "candidates_under_that_surname": 1,
-    "rule": "The surname 'Beaubien' stands in the 1837 poll and no man under it carries the initial 'C' of 'Charles Beaubien'. A surname-only agreement is a refusal."
    },
    {
     "name": "Charles C. Williams",

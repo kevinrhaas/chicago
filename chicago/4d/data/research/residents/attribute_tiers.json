@@ -26,10 +26,10 @@
   },
   "counts": {
     "cards": 1459,
-    "blocks": 22098,
+    "blocks": 22100,
     "tiers_written_on_the_card": 10780,
     "by_tier": {
-      "attested": 739,
+      "attested": 741,
       "inferred": 3722,
       "reconstructed": 10797,
       "unknown": 6840
@@ -60,7 +60,7 @@
         "unknown": 0
       },
       "directories.people[].occupation_later": {
-        "attested": 128,
+        "attested": 129,
         "inferred": 0,
         "reconstructed": 0,
         "unknown": 0
@@ -78,7 +78,7 @@
         "unknown": 0
       },
       "kin[]": {
-        "attested": 149,
+        "attested": 150,
         "inferred": 12,
         "reconstructed": 0,
         "unknown": 0
@@ -2828,9 +2828,9 @@
       },
       "values": 1375,
       "by_value": {
-        "1834": 575,
-        "1833": 405,
-        "1835": 319,
+        "1834": 571,
+        "1833": 407,
+        "1835": 321,
         "1832": 44,
         "1831": 17,
         "1818": 4,
@@ -2856,8 +2856,8 @@
       },
       "values": 1337,
       "by_value": {
-        "south": 764,
-        "north": 299,
+        "south": 765,
+        "north": 298,
         "west": 274
       },
       "a_seed": "hh_abbot_8_g|T-1522|division:d885452788c3|class:611ac327f05d",
@@ -3074,7 +3074,6 @@
         "Alanson Noble": 1,
         "Alanson Sawyer": 1,
         "Alanson Stiles": 1,
-        "Alanson Thayer": 1,
         "Alexis Foote": 1,
         "Alexis Johnson": 1,
         "Alexis Vieau": 1,
@@ -3403,6 +3402,7 @@
         "Daniel Sherman": 1,
         "David Barnes": 1,
         "David Dickinson": 1,
+        "David Eastman": 1,
         "David Foote": 1,
         "David Hogan": 1,
         "David Hubbard": 1,
@@ -3445,7 +3445,6 @@
         "Elisha Bradley": 1,
         "Elisha Eastman": 1,
         "Elisha Fairbanks": 1,
-        "Elisha Hastings": 1,
         "Elisha Kennicott": 1,
         "Elisha Mcburney": 1,
         "Elisha Price": 1,
@@ -3566,6 +3565,7 @@
         "Ezra Garrett": 1,
         "Ezra Ogleby": 1,
         "Ezra Panster": 1,
+        "Ezra Parmelee": 1,
         "Ezra Pottier": 1,
         "Ezra Stow": 1,
         "Ezra Thayer": 1,
@@ -3583,6 +3583,7 @@
         "George Ingalls": 1,
         "George King": 1,
         "George Morrison": 1,
+        "George Newell": 1,
         "Hannah Boyer": 1,
         "Hannah Byram": 1,
         "Hannah Clarke": 1,
@@ -4416,7 +4417,6 @@
         "Warren Elston": 1,
         "Warren Fisk": 1,
         "Warren Gilbert": 1,
-        "Warren Parmelee": 1,
         "Warren Russell": 1,
         "Warren Stebbins": 1,
         "Warren Walter": 1,
@@ -4538,9 +4538,9 @@
       },
       "values": 1329,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 552,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 388,
-        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 316,
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 548,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 390,
+        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 318,
         "The trading post, the fort and the country trade — the town before the boom": 73
       },
       "a_seed": null,

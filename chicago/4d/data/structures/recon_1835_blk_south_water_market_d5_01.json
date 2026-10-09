@@ -12,12 +12,12 @@
         "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
       },
       "position": {
-        "utm_e": 447235.336,
-        "utm_n": 4637312.004,
-        "rotation_deg": 180.34,
-        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, Franklin, Lake and Market; standing back from the Lake Street frontage",
+        "utm_e": 447228.02,
+        "utm_n": 4637312.061,
+        "rotation_deg": 180.46,
+        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by South Water, Franklin, Lake and Market; standing ON the Lake Street frontage itself, one unit of the party-line row along it",
         "confidence": "reconstructed",
-        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 5.0 m back from its street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+        "note": "PARTY-LINE FRONTAGE, DERIVED FROM THE COMMITTED PLAT (T-0078). This building does not stand centred on a lot at a typology setback: it stands ON the south face of blk_south_water_market, the block's Lake Street frontage, whose line and bearing are read from the block boundary in data/traces/vectors/thompson_lots.json — the same committed geometry the lot grid and the corridor gate are derived from. Its front wall is 5.00 m back from that lot line, which is the closest line the plat module's own margin allows and is not a measurement of this frontage, and its west wall is fixed by the west end of the run's own frontage, 1.5 m clear of the side lot line at that end. The bearing is the face's own, so the front looks square at Lake Street. The run carries no lateral offset, because a shared party wall is one wall and cannot wander. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a building stood here at all, which building it was, and that these particular units stood shoulder to shoulder. What the 1834 South Water Street view supports is the TREATMENT — a continuous working row of party walls rather than detached cottages set back on grass. The treatment is what this placement takes from it, and a run standing on any other face of the town is borrowing it from that one street: the view draws a row, it does not place this row. Standing on a derived block face is not standing on a recovered lot, and the side lot lines this row crosses were always conjectural.",
         "derivation": {
           "method": "not_derivable",
           "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."
@@ -143,9 +143,9 @@
           "note": "RECONSTRUCTED BY THE FABRIC RULE (T-1817, docs/LIBERTIES.md L338). Dealt by tools/fabric_rule_1835.py from the household class and age it reads for this roof, not from evidence about this building: tradesman class — a brick stack finished in one corbelled course; the stack's brick is inferred and not dealt (rule FORM-H)."
         },
         "siding_exposure_m": {
-          "value": 0.152,
+          "value": 0.14,
           "confidence": "reconstructed",
-          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 6 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
+          "note": "INVENTED WITHIN A STOCK SET, NOT DERIVED. No source states the exposed face of any Chicago building's siding. The value is one of four period mill sidings — 4.5, 5, 5.5 or 6 in to the weather; this roof wears 5.5 in — dealt in this building's own parcel recipe: drawn on this record's stable key from the stocks its household class may hang (5 in, 5.5 in or 6 in; T-1839, docs/LIBERTIES.md L352), then advanced within them so that no roof of the parcel standing within 60 m hangs the same course. It is NOT keyed to a construction season the way the named buildings' stocks are: this record's 1835-01-01 is the programme's count-unit convention and not a date anything was built, so keying to it would deal every anonymous roof in the town one stock. The separation is the surface variety T-0049 reconstructs, not a claim about 1835. docs/LIBERTIES.md L148 owns the invention and the recipe half is recorded beside it, under `tools/siding_stock.py`."
         }
       },
       "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
@@ -175,8 +175,7 @@
     "programme_phase": "phase3_platted_block_south_water_market_lot_7",
     "source_id": "owner_chicago_1835_reconstruction_spec_2026",
     "block_id": "blk_south_water_market",
-    "lot_index": 1,
-    "stands_on": "street",
+    "stands_on": "frontage",
     "fronts": "lake",
     "sequence": 1,
     "finish_key": "whitewash",
@@ -188,6 +187,13 @@
       "by": "keeper",
       "household": "hh_bourque_william",
       "words": "whitewashed clapboard on a balloon frame, 9-over-6 sash of 6 × 8 in glass and plain corner boards, under a new roof — The Bourque household's, in Chicago since 1835 (rule F-T)"
+    },
+    "frontage": {
+      "block": "blk_south_water_market",
+      "face": "south",
+      "setback_m": 5.0,
+      "abuts": null,
+      "why": "T-2196, on the owner's ruling (a) of 2026-10-09: lot 7 is a two-unit party-line row, and a row has one street line. The D5 was first placed as a lot slot (T-2238), its 5 m set-back measured off the lot's own front edge; the boarding house's run measures off the block face, and the two lines differ by 27 mm across the lot. So the D5 now stands as the run's west unit, anchored at the plat's 1.5 m margin off lot 6's side line, 5 m back from the face it shares with the boarding house; its family, its lot and its set-back are unchanged."
     }
   },
   "resident_assignment": {

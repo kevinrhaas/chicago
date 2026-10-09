@@ -23,15 +23,15 @@
   "rule": {
     "kept_ring": "the improved lot's polygon pulled in 0.762 m (2½ ft) from every lot line, its two rear corners cut back 2.438 m (8 ft) along each line; inside it the flora layer plants the zone's low layer and no forb in place, and re-seats 35% of the forbs it turns out in the strip beside the nearest lot line",
     "refuges": "every outbuilding's walls grown by 0.61 m (2 ft); a forb there stands even inside the kept ring",
-    "paths": "329 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
+    "paths": "330 worn path(s), 0.914 m (3 ft) wide, house back wall to outbuilding wall — written to data/enclosures/town_yard_paths.json",
     "vacant_lots": "a platted lot with no building is not a yard and is not listed; it is grazed prairie remnant, z11_lot_remnant (T-2101, tools/derive_lot_remnant.py)",
     "reader": "renderers/web/js/flora.js, through main.js forbSeat"
   },
   "counts": {
     "lots": 255,
     "refused": 0,
-    "refuges": 345,
-    "paths": 329
+    "refuges": 346,
+    "paths": 330
   },
   "lots": [
     {
@@ -13089,7 +13089,8 @@
     {
       "lot": "blk_south_water_market_lot1",
       "structures": [
-        "recon_1835_blk_south_water_market_d5_01"
+        "recon_1835_blk_south_water_market_d5_01",
+        "recon_1835_blk_south_water_market_h3_02"
       ],
       "kept_ring_local_enu_m": [
         [
@@ -13120,7 +13121,7 @@
       "refuges_local_enu_m": [
         [
           [
-            149.75,
+            150.05,
             -58.64
           ],
           [
@@ -13132,8 +13133,26 @@
             -61.06
           ],
           [
-            149.73,
+            150.03,
             -61.08
+          ]
+        ],
+        [
+          [
+            171.41,
+            -58.81
+          ],
+          [
+            164.09,
+            -58.76
+          ],
+          [
+            164.05,
+            -64.25
+          ],
+          [
+            171.37,
+            -64.3
           ]
         ]
       ]
