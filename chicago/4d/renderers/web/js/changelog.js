@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1572, ts: '2026-10-09T11:12:44.531Z', date: 'Oct 9, 2026, 6:12 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1573, ts: '2026-10-09T11:36:21.928Z', date: 'Oct 9, 2026, 6:36 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1572, ts: '2026-10-09T11:02:20.576Z', date: 'Oct 9, 2026, 6:02 AM CT', title: 'Alanson and Alonson Sweet stay two people', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The town holds two Sweets whose first name starts with A: Alanson Sweet, who is on every tax and poll list, and an \u2018A. Sweet\u2019 card, which also carries a lost-saddle notice of July 1834 signed \u2018Alonson Sweet\u2019.',
+      'The question was whether Alonson was a printer\u2019s slip for Alanson. Read on the scanned page, the notice really does say ALONSON. No issue of the paper ever prints both spellings for one man, so the two cards stay separate and each says why.',
     ] },
   { v: 1571, ts: '2026-10-09T10:37:53.730Z', date: 'Oct 9, 2026, 5:37 AM CT', title: 'The Chappel school shore drawing now says where it came from', kind: 'fix',
     items: [
