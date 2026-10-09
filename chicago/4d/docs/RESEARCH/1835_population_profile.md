@@ -1896,7 +1896,7 @@ Every household carries an arrival block and 95.4% of them (1390) hold a `not_la
 
 ## Roles — plural and dated
 
-328 of 2898 persons carry at least one role and 185 carry two or more. 163 of the 742 roles in the layer reach 1 July 1835; the other 579 are printed against the name in a later volume and say so.
+328 of 2898 persons carry at least one role and 185 carry two or more. 160 of the 742 roles in the layer reach 1 July 1835; the other 582 are printed against the name in a later volume and say so.
 
 ### Persons by number of roles
 

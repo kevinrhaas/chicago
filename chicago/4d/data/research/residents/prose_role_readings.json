@@ -25,12 +25,12 @@
    "read_in": "data/research/residents/pass_02_findings.json#hogan_john_s_c",
    "as_printed": "trustee of the town of Chicago",
    "kind": "office",
-   "describes_date": "1835",
+   "describes_date": null,
    "verdict": "retrospective_only",
    "evidence": [
     "hogan_john_s_c"
    ],
-   "reason": "T-1569. The pass of 2026-09-05 read the edited text of the 1835 Illinois act on the town's incorporation as naming John S. C. Hogan a trustee of the town, and resolved the identity on the three unusual initials, the office, the place and the year. The act itself is of 1835, but what this project holds is a modern web edition the pass summarised and did not quote, and the card's own research block already reads McIlvaine's list of the trustees chosen on 11 August 1834 as naming him. So the post is carried at this file's footing, dated to the year the pass gives and to nothing finer, and it does not enter the 1835 view: whether he still sat on the board on 1 July is not something either reading states."
+   "reason": "T-1569. The pass of 2026-09-05 read the edited text of the 1835 Illinois act on the town's incorporation as naming John S. C. Hogan a trustee of the town, and resolved the identity on the three unusual initials, the office, the place and the year. The act itself is of 1835, but what this project holds is a modern web edition the pass summarised and did not quote, and the card's own research block already reads McIlvaine's list of the trustees chosen on 11 August 1834 as naming him. So the post is carried at this file's footing and UNDATED: 1835 is the year of the act, not the bounds of a term, and the card's block puts his election in August 1834. Whether he still sat on the board on 1 July is not something either reading states, so the row does not reach the scene date and does not enter the 1835 view."
   },
   {
    "person_id": "snow_george_w",
@@ -55,12 +55,12 @@
    "read_in": "data/research/residents/pass_04_findings.json#steele_ashbel",
    "as_printed": "county coroner",
    "kind": "office",
-   "describes_date": null,
+   "describes_date": "not stated by the pass",
    "verdict": "retrospective_only",
    "evidence": [
     "steele_ashbel"
    ],
-   "reason": "T-1569. The pass read the Cook County history as naming Ashbel Steele county coroner 'in the 1835 period', and gave no year finer than that. So the row takes the volume's own bound, 1833 to 1836, rather than inventing one, and it does not enter the 1835 view. His card's 1835 trade stays plasterer, which is what Andreas prints; a coroner's office was an occasional county duty and not a living, so the two do not compete."
+   "reason": "T-1569. The pass read the Cook County history as naming Ashbel Steele county coroner 'in the 1835 period', and gave no year finer than that. So the row is UNDATED rather than given the volume's own 1833-1836 coverage, which is the span the book is about and not the term of an office, and it does not reach or enter the 1835 view. His card's 1835 trade stays plasterer, which is what Andreas prints; a coroner's office was an occasional county duty and not a living, so the two do not compete."
   },
   {
    "person_id": "meeker_joseph",
@@ -70,12 +70,12 @@
    "read_in": "data/research/residents/pass_04_findings.json#meeker_joseph",
    "as_printed": "Sunday-school librarian",
    "kind": "office",
-   "describes_date": "1835-03",
+   "describes_date": null,
    "verdict": "retrospective_only",
    "evidence": [
     "meeker_joseph"
    ],
-   "reason": "T-1569. The pass read the First Presbyterian history as saying Joseph Meeker served as the congregation's Sunday-school librarian from 16 March 1835. The history dates the appointment and not its end, so the row is dated to that month and does not stand in the 1835 view. It is an unpaid church post, not his living: his trade stays carpenter, which Andreas prints. His joining the church on 8 September 1833 is a membership, not a post, and no field on a card carries a congregation's roll, so it is not written here."
+   "reason": "T-1569. The pass read the First Presbyterian history as saying Joseph Meeker served as the congregation's Sunday-school librarian from 16 March 1835. The history dates the appointment and not its end, and the card's grade does not stand on this volume, so the row is carried UNDATED, with the date kept here, rather than as a role reaching 1 July that the card's own evidence does not carry; it does not stand in the 1835 view. It is an unpaid church post, not his living: his trade stays carpenter, which Andreas prints. His joining the church on 8 September 1833 is a membership, not a post, and no field on a card carries a congregation's roll, so it is not written here."
   }
  ]
 }

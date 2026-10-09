@@ -235,7 +235,7 @@
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/hogan_john_s_c",
       "rule": "the_post_is_written_onto_the_card_as_a_role_the_1835_view_refuses",
-      "note": "The pass on hogan_john_s_c returned: “The edited 1835 Illinois incorporation act names John S. C. Hogan as a Chicago corporate trustee. The exact unusual initials, office, place and date independently resolve the identity.” Sources as recorded: pal_chicago_incorporation_1835. T-1301 read that as a corporate trustee named in the 1835 incorporation act. T-1569 wrote it as data/residents/households/hh_hogan_john_s_c.json#persons[hogan_john_s_c].roles[4] = “trustee of the town of Chicago” (inferred, outside the 1 July 1835 view). The town had no hall and keeps no record in the business register, so the post names its body and no house."
+      "note": "The pass on hogan_john_s_c returned: “The edited 1835 Illinois incorporation act names John S. C. Hogan as a Chicago corporate trustee. The exact unusual initials, office, place and date independently resolve the identity.” Sources as recorded: pal_chicago_incorporation_1835. T-1301 read that as a corporate trustee named in the 1835 incorporation act. T-1569 wrote it as data/residents/households/hh_hogan_john_s_c.json#persons[hogan_john_s_c].roles[7] = “trustee of the town of Chicago” (inferred, outside the 1 July 1835 view). The town had no hall and keeps no record in the business register, so the post names its body and no house."
     },
     {
       "unit": "residents:data/research/residents/pass_02_75_cohort.json#people/house_chester",

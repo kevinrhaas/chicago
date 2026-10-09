@@ -53,8 +53,8 @@ role once, and the survivor names the other wording in its note.
 ## What the roles now carry
 
 - `185` people carry two or more roles, listed below.
-- `118` of their roles reach 1835-07-01, of which `114` stand in the 1835 compatibility view.
-- The `4` that reach the day WITHOUT filling the
+- `115` of their roles reach 1835-07-01, of which `114` stand in the 1835 compatibility view.
+- The `1` that reach the day WITHOUT filling the
   field are the migration's open question, and they are held open on purpose. Four
   tools derive `persons[].occupation` and only one of them was taught about roles:
   this generator, T-0693's `tools/qualify_later_trades.py`, the ladder resident
@@ -179,7 +179,7 @@ least one source in common, with corroborators beside it.
 | `heacock_russel_e` | 4 | 4 | attorney; justice of the peace; land agent |
 | `herrick_ira` | 2 | 0 | canal contractor; contractor |
 | `hinton_isaac_t` | 2 | 0 | Baptist pastor; First Baptist Church |
-| `hogan_john_s_c` | 8 | 4 | at C. L. P. Hogan's; dry goods and groceries; ex-postmaster; merchant; postmaster; trustee of the town of Chicago |
+| `hogan_john_s_c` | 8 | 3 | at C. L. P. Hogan's; dry goods and groceries; ex-postmaster; merchant; postmaster; trustee of the town of Chicago |
 | `holbrook_john` | 2 | 1 | boots and shoes; shoemaker |
 | `holsman_george` | 2 | 0 | saloon; tailor |
 | `howe_sarah_d` | 4 | 0 | cloak maker; dress maker; dressmaker; habit maker |
@@ -219,7 +219,7 @@ least one source in common, with corroborators beside it.
 | `mason_matthias` | 2 | 0 | blacksmith |
 | `maxwell_philip` | 4 | 1 | Garrison; army_surgeon; physician; physician, s.-w |
 | `mckee_david` | 2 | 1 | blacksmith; gunsmith, U.S., Garrison |
-| `meeker_joseph` | 5 | 2 | Sunday-school librarian; carpenter; carpenter and builder |
+| `meeker_joseph` | 5 | 1 | Sunday-school librarian; carpenter; carpenter and builder |
 | `merrill_george_w` | 3 | 0 | dry goods merchant; provision store; provisions, etc., 157 Lake, s.e |
 | `miller_john` | 3 | 1 | fire warden; tanner; tanner, North Branch, fire warden, 4th ward |
 | `montgomery_l_w` | 4 | 1 | United States Hotel; shoemaker; shoemaker, Jerome Beecher; shoemaker, at Beecher's |
@@ -261,7 +261,7 @@ least one source in common, with corroborators beside it.
 | `snow_george_w` | 6 | 1 | Public Administrator of Cook county; assessor and surveyor; clerk of the board of trustees; lumber merchant; lumber merchant, S, Water; surveyor |
 | `spring_giles` | 3 | 1 | (S. & Goodrich); attorney; of S. & Goodrich |
 | `sproat_grenville` | 2 | 1 | schoolmaster; schoolteacher |
-| `steele_ashbel` | 4 | 2 | county coroner; mason builder, 3d ward; plasterer; sheriff of cook county |
+| `steele_ashbel` | 4 | 1 | county coroner; mason builder, 3d ward; plasterer; sheriff of cook county |
 | `stewart_r` | 2 | 1 | attorney; attorney at law |
 | `stow_william_h` | 4 | 1 | alderman; foundry; hotel_keeper; iron foundry, North Canal |
 | `taylor_anson_h` | 2 | 1 | carpenter; general supply store, near the Garrison |

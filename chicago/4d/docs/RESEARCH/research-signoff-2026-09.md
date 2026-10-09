@@ -95,15 +95,15 @@ Reproduce: `python3 tools/measure_research_spend.py --check` · `python3 tools/s
 
 | Dating | Rows |
 | --- | ---: |
-| dated away from it | 579 |
-| reaches 1 July 1835 | 163 |
+| dated away from it | 582 |
+| reaches 1 July 1835 | 160 |
 
 | Confidence | Rows |
 | --- | ---: |
 | `attested` | 127 |
 | `inferred` | 615 |
 
-Of the rows that reach the scene date, every one names a source that describes it (C5) — 130 by `source_describes_date`, 33 by `stated_date`.
+Of the rows that reach the scene date, every one names a source that describes it (C5) — 127 by `source_describes_date`, 33 by `stated_date`.
 
 **The fixture.** Daniel Elston is the owner's own example of a man with more than one calling, and the report shows his rows rather than describing them:
 
@@ -153,9 +153,9 @@ And the other direction — the people. **138** persons hold a trade, profession
 
 | What the record gives | Persons |
 | --- | ---: |
-| a printed reason no premises resolves | 74 |
+| a printed reason no premises resolves | 75 |
 | a workplace on the household record | 55 |
-| an employer or body on the role | 9 |
+| an employer or body on the role | 8 |
 
 Reproduce: `python3 tools/location_spend.py --check` · `python3 tools/compile_register.py --check`.
 
