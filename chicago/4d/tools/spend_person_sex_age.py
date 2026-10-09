@@ -150,14 +150,15 @@ REGISTRY_SOURCE = "calumet_club_early_chicago_1879"
 REGISTER_SOURCE = "st_marys_baptismal_register_1833_1835"
 REGISTER = ROOT / "data" / "research" / "church" / "records" / "st_marys_baptisms_1833_1835.json"
 #
-# THE MOTHERS AND GODMOTHERS ARE NOT READ HERE YET, and the reason is a later stage's, not
-# this pass's. 28 of them were drawn male, and the modelled-families stage gave the ones
-# who head a house of their own a modelled wife and children; reading them female
-# withdraws those families, which re-opens the order book's women-and-children cells and
-# has to run through that stage's re-family fixpoint. That is T-2185 (split off T-2177), and
-# `mother` and `godmother` join ROLE_SEX in the same commit as the families come down.
-ROLE_SEX = {"father": "male", "godfather": "male"}
-ROLE_WORDS = {"father": "the father", "godfather": "the godfather (parrain)"}
+# THE MOTHERS AND GODMOTHERS ARE READ TOO (T-2185, split off T-2177). They waited a run,
+# and the reason was a later stage's, not this pass's: 28 of them had been drawn male, and
+# the modelled-families stage gave the ones who head a house of their own a modelled wife
+# and children. Reading them female withdraws those families, which re-opens the order
+# book's women-and-children cells, and only `settle_family_cycle.py` (T-2234) carries
+# that through to a layer that re-derives.
+ROLE_SEX = {"father": "male", "godfather": "male", "mother": "female", "godmother": "female"}
+ROLE_WORDS = {"father": "the father", "godfather": "the godfather (parrain)",
+              "mother": "the mother", "godmother": "the godmother (marraine)"}
 TERM_SEX = {"fils": "male", "son": "male", "sons": "male",
             "fille": "female", "filles": "female", "daughter": "female", "daughters": "female"}
 TERM = re.compile(r"\b(%s)\b" % "|".join(sorted(TERM_SEX)), re.IGNORECASE)

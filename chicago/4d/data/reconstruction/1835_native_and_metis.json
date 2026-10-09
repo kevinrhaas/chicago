@@ -89,10 +89,11 @@
   "minted_absent": 17,
   "withheld": 33,
   "withheld_by_reason": {
-   "a_card_of_that_name_already_stands": 10,
+   "a_card_of_that_name_already_stands": 9,
    "a_one_word_european_surname_gives_no_person": 3,
    "earlier_than_the_window_and_nothing_follows_the_person_forward": 7,
    "later_only_and_this_stage_does_not_back_project": 6,
+   "the_reading_carries_no_date_this_tool_can_read": 1,
    "the_roll_prints_this_name_twice": 1,
    "the_statement_is_not_on_the_roll_this_stage_reads": 4,
    "the_term_is_prose_and_not_a_statement": 2
@@ -2825,8 +2826,8 @@
    "name_as_read": "Ouilmette, Antoine (Indian chief)",
    "domain": "old_settlers",
    "describes_date": null,
-   "reason": "a_card_of_that_name_already_stands",
-   "why": "A person already in the layer shares this reading's surname and first given initial, the discriminator this project's directory crosswalks match on. The town already carries this man under his own card; a second would double him."
+   "reason": "the_reading_carries_no_date_this_tool_can_read",
+   "why": "A mint needs a dated appearance to price its presence against the persistence model, and this reading gives none."
   },
   {
    "row_id": "old_settlers:data/research/old_settlers/death_notices.json#records/fdn0537#0",

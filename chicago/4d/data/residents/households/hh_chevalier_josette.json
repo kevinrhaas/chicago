@@ -223,7 +223,10 @@
    "sex_basis": {
     "value": "female",
     "confidence": "inferred",
-    "note": "A FORENAME THAT STANDS IN ONE SEX'S NAMING ONLY. 'Josette' is read as female because 1 person in this layer whose sex a source records bears it (beaubien_josette), and it stands in the french_colonial female forename pool of this town's own attested naming. Nothing about this person is recorded; the name is the whole of the reasoning, and the table that licenses it — data/research/residents/forename_sex.json — refuses a name its own evidence splits, refuses Jean, Marion, Leslie and Francis by name, and refuses an initial outright."
+    "note": "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, entry 1834-12 puts 'Josette Chevalier' in the place of the godmother (marraine) — so this person was female, and that is read off the entry rather than off the name or the roll. A role and a kinship word are statements about the person; no draw stands against them.",
+    "sources": [
+     "st_marys_baptismal_register_1833_1835"
+    ]
    }
   }
  ],

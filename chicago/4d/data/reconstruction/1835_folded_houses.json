@@ -1079,112 +1079,6 @@
     "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the north division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
    }
   },
-  "hh_rc_carroll_ellen": {
-   "folded_into": "hh_madera_victoire",
-   "card": {
-    "id": "hh_rc_carroll_ellen",
-    "name": "Reconstructed household — Ellen Carroll, a woman keeping her own house in the north division",
-    "division": "north",
-    "head": "rc_carroll_ellen",
-    "source_pass": "reconstructed_women_children",
-    "arrival": {
-     "value": "1835-07-01",
-     "precision": "not_later_than",
-     "confidence": "reconstructed",
-     "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records."
-    },
-    "arrival_year": {
-     "value": 1835,
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN, NOT READ. The household's arrival block holds a BOUND — somebody was here by 1835-07-01 and no source says when they came — so the year is drawn from the arrival years the known layer records, truncated at that bound and renormalised. It says what a household of this bound most likely was, and nothing whatever about this household.",
-     "basis": {
-      "kind": "model",
-      "id": "arrival",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.arrival_year_of_the_known_layer, restricted to years at or before 1835."
-     },
-     "seed": "hh_rc_carroll_ellen:arrival_year",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a dated source that says which year this household came to Chicago"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "party_size_on_arrival": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "Not claimed. The household model draws how many people this house held on 1 July 1835 and says nothing about how many of them travelled together."
-    },
-    "origin": {
-     "value": "Ireland",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "DRAWN FROM A SURVIVORSHIP SAMPLE. No source says where this household came from. The region is drawn from the birthplaces of the seventy Old Settlers who registered an arrival at or before 1835 — a self-selected roll set down forty-four years later that over-represents the men who stayed and prospered, as the town model's own open questions say. It is the only origin distribution this project holds and this value is drawn from it, not measured.",
-     "basis": {
-      "kind": "model",
-      "id": "origin",
-      "note": "data/reconstruction/1835_town_model.json#arrival_and_origin.tables.birthplace_of_the_old_settlers_who_came_by_1835."
-     },
-     "seed": "hh_rc_carroll_ellen:origin_region",
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says where this household came from"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "reason_for_coming": {
-     "value": "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated",
-     "confidence": "reconstructed",
-     "tier": "reconstructed",
-     "note": "ARGUED FROM THE SEASON AND NOTHING ELSE. No trade is recorded for this household and no source says why it came; the only thing the evidence gives is when it was here by. This states the draws that were operating in that season and chooses among them nowhere. Which of these draws brought this household is not recorded, and no committed source apportions the town between them.",
-     "basis": {
-      "kind": "rule",
-      "id": "reason_from_arrival_cohort",
-      "note": "arrival_fill.cohort_reasons — the household's arrival year (1835) is the only thing about it this value rests on."
-     },
-     "replaceable_by": {
-      "kind": "person",
-      "match": "a source that says why this household came, or a committed source that apportions the town's arrivals between the land sales, the canal and the harbour works"
-     },
-     "written_by_stage": "attribute_fill_arrival"
-    },
-    "lives_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "NO ROOF AND NO LOT. This stage seats nobody: the ground the north and west divisions still want is T-1191–T-1194's and T-1199 seats every reconstructed household on it. A coordinate invented here would be a fabricated location, which docs/LIBERTIES.md refuses outright."
-    },
-    "works_at": {
-     "value": null,
-     "confidence": "reconstructed",
-     "note": "No workplace is assigned from a reconstructed household; T-1189 staffs the businesses and T-1199 seats the premises."
-    },
-    "present_on_scene_date": {
-     "value": "present",
-     "confidence": "reconstructed",
-     "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them."
-    },
-    "women_children": {
-     "stage": "women_and_children",
-     "ticket": "T-1174",
-     "household_type": "female_headed",
-     "head_trade": "laundress",
-     "head_trade_seed": "rc_wc_north_018:female_trades",
-     "size_drawn": 2,
-     "seated": 3,
-     "seated_beyond_the_draw": 1,
-     "seed": "rc_wc_north_018:household_size",
-     "note": "The women and children the age pyramid still lacks. A servant, an apprentice or a lodger this house may also have held is priced by T-1183 and seated by T-1173 and T-1175; the drawn size is a floor on the house, and where the division's child buckets were still short after every house was drawn the remainder was seated across them and says so."
-    },
-    "persons": [
-     "rc_carroll_ellen",
-     "rc_carroll_ellen_1",
-     "rc_carroll_ellen_2"
-    ],
-    "touches_removal": false,
-    "review_required": false,
-    "research_note": "RECONSTRUCTED HOUSEHOLD — a drawn laundress, in the north division. NOBODY HERE IS NAMED BY ANY SOURCE. The 1840 Chicago schedule counts children under ten at 27% of the town and women of twenty to twenty-nine as its second-largest band; the 1835 layer the sources can name holds 15 women, because the rolls that name this town — a letter list, a voters' roll, a subscription — print men. That gap is the shape of the evidence and not a reading of the town, so the order book counts it bucket by bucket and this household is drawn against those counts. Every value on it carries the model row and the seed that redraws it, and a source naming a woman who kept her own house in this division retires the whole record. No figure is drawn (docs/LIBERTIES.md L1)."
-   }
-  },
   "hh_rc_carroll_johanna": {
    "folded_into": "hh_finley_clement_a",
    "card": {
@@ -1612,7 +1506,7 @@
    }
   },
   "hh_rc_cobb_clarissa": {
-   "folded_into": "hh_adams_hiram_a",
+   "folded_into": "hh_woodruff_alson",
    "card": {
     "id": "hh_rc_cobb_clarissa",
     "name": "Reconstructed household — Clarissa Cobb, a woman keeping her own house in the south division",
@@ -8379,7 +8273,7 @@
    }
   },
   "hh_rc_stiles_almira": {
-   "folded_into": "hh_abbott_titus_h",
+   "folded_into": "hh_adams_hiram_a",
    "card": {
     "id": "hh_rc_stiles_almira",
     "name": "Reconstructed household — Almira Stiles, a woman keeping her own house in the south division",

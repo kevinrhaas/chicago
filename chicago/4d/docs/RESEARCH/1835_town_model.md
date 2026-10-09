@@ -22,7 +22,7 @@ It is an adjudication over committed derived files — no page of any source is 
 | `recorded_town_count_november_1835` | **3,265** | Andreas prints the November 1835 town census as 3,265 people in 398 dwellings. Four months after the scene, so a ceiling on 1 July and never its population. |
 | `recorded_state_count_september_to_december_1835` | **3,297** | The Illinois State census returns 3,297 for Chicago. Two to five months after the scene, and a second ceiling that disagrees with the first by 32. |
 | `population_on_1_july_1835` | **2,371 – 3,265** (point reading **2,550**) | CEILING: the November count of 3,265, because the town grew through 1835 and did not shrink. FLOOR: 43.8% of the 1,440 people the layer carries give an arrival year of 1835, so about 1,431 of the November town arrived that year; spread evenly over an eight-month navigation season, 5 months of that cohort were still to come on 1 July. POINT READING: 2,550, which is the same arithmetic with half the cohort ashore by midsummer rather than three-eighths — the spring land-sale rush pulls arrivals earlier than a flat season does. |
-| `people_the_layer_can_name` | **1,440** | The resident layer carries 1,440 people — 412 attested, 1,028 inferred, 2,167 reconstructed. A count of the layer, not of the town. |
+| `people_the_layer_can_name` | **1,440** | The resident layer carries 1,440 people — 412 attested, 1,028 inferred, 2,145 reconstructed. A count of the layer, not of the town. |
 | `males_per_100_females` | **120.9 – 150** (point reading **146.8**) | The 1840 city returns 120.9 overall and 146.8 among those aged 20 and over. 1835 is five years earlier and rawer — more single men and fewer families — so the 1840 ratio is a FLOOR and the 1840 adult ratio is inside the range, not at the top of it. |
 | `share_under_ten` | **0.2 – 0.2702** | Children under ten are 27.0% of the 1840 city. A town with a higher adult sex ratio carries proportionally fewer of them, so 1840 is the CEILING here and the floor is set one fifth below it. |
 
@@ -40,9 +40,9 @@ It is an adjudication over committed derived files — no page of any source is 
 
 ### known by presence
 
-- **present** — 3064
+- **present** — 3056
 - **absent** — 131
-- **uncertain** — 412
+- **uncertain** — 398
 
 **Open questions.** These are recorded here and do not become tickets.
 
@@ -223,14 +223,14 @@ It is an adjudication over committed derived files — no page of any source is 
 | 1826 | 3 | 0.001 |
 | 1827 | 2 | 0.0007 |
 | 1830 | 5 | 0.0017 |
-| 1831 | 22 | 0.0074 |
-| 1832 | 45 | 0.0152 |
-| 1833 | 512 | 0.173 |
-| 1834 | 1054 | 0.3562 |
-| 1835 | 1299 | 0.439 |
+| 1831 | 22 | 0.0075 |
+| 1832 | 45 | 0.0153 |
+| 1833 | 503 | 0.1713 |
+| 1834 | 1054 | 0.3589 |
+| 1835 | 1286 | 0.4379 |
 - **not the figures denominator** — The FIGURES above divide by the named layer alone; this table does not, and the two are different populations on purpose (T-1364).
-- **rows total** — 2959
-- **unit** — people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,959 who record one at all
+- **rows total** — 2937
+- **unit** — people in the WHOLE compiled layer — named and reconstructed together — by the arrival year each one records, out of the 2,937 who record one at all
 
 ### birthplace of the old settlers who came by 1835
 

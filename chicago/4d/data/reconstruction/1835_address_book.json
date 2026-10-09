@@ -228,11 +228,11 @@
   ]
  },
  "counts": {
-  "rows": 1632,
-  "households": 1456,
+  "rows": 1633,
+  "households": 1457,
   "businesses": 176,
   "by_rung": {
-   "division_band": 83,
+   "division_band": 84,
    "face": 52,
    "owed": 11,
    "policy_only": 1338,
@@ -240,14 +240,14 @@
    "unplaceable": 61
   },
   "by_reach": {
-   "division": 83,
+   "division": 84,
    "face": 52,
    "none": 1399,
    "structure": 87,
    "structure_owed": 11
   },
   "households_by_rung": {
-   "division_band": 83,
+   "division_band": 84,
    "policy_only": 1338,
    "structure": 34,
    "unplaceable": 1
@@ -258,10 +258,10 @@
    "structure": 53,
    "unplaceable": 60
   },
-  "seated": 1560,
+  "seated": 1561,
   "owed": 11,
   "by_seat_kind": {
-   "division_band": 1421,
+   "division_band": 1422,
    "street_face": 7,
    "structure": 132
   },
@@ -269,7 +269,7 @@
    "north/division_ground": 6,
    "north/farms_and_country_seats": 60,
    "north/heavy_and_noxious_trades": 1,
-   "north/labourer_dwellings": 21,
+   "north/labourer_dwellings": 22,
    "north/merchant_and_professional_dwellings": 88,
    "north/tradesman_dwellings": 138,
    "south/division_ground": 16,
@@ -285,7 +285,7 @@
    "west/merchant_and_professional_dwellings": 81,
    "west/tradesman_dwellings": 127
   },
-  "reconstructed_seats": 1439,
+  "reconstructed_seats": 1440,
   "dealt_a_roof": 314,
   "dealt_a_standing_roof": 314,
   "dealt_a_slot_not_yet_built": 0,
@@ -47832,6 +47832,41 @@
     "from_trade": null
    },
    "seed": "hh_rc_barnes_nancy|south|no_trade|T-1512",
+   "dealt_roof": null
+  },
+  {
+   "id": "hh_rc_carroll_ellen",
+   "kind": "household",
+   "name": "Reconstructed household — Ellen Carroll, a woman keeping her own house in the north division",
+   "rung": "division_band",
+   "seat": {
+    "kind": "division_band",
+    "id": "north/labourer_dwellings",
+    "division": "north",
+    "clause": "labourer_dwellings"
+   },
+   "works_seat": null,
+   "reach": "division",
+   "reach_value": "north",
+   "division": "north",
+   "tier": "reconstructed",
+   "basis": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+   "words": "The record reaches the north division and nothing narrower. Inside it the placement policy bands this household by its head's trade (laundress): Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records. The division is the evidence; the band is reconstruction, and no lot, roof or coordinate is claimed by it.",
+   "replaceable_by": "a source naming a street, a corner or a building for this household",
+   "owed_to": null,
+   "band": {
+    "band": "north/labourer_dwellings",
+    "clause": "labourer_dwellings",
+    "clause_applies_to": [
+     "D1",
+     "D2"
+    ],
+    "clause_tier": "inferred",
+    "statement": "Cabins and shanties take the small lots, the fringes and the ground nobody is bidding on — Kinzie's Addition, the west clusters, the prairie edge. Inferred from the two documented cabin groups, both well outside the plat, and from the lot prices the land-sale register records.",
+    "division_is_the_clause_preference": true,
+    "from_trade": "laundress"
+   },
+   "seed": "hh_rc_carroll_ellen|north|laundress|T-1512",
    "dealt_roof": null
   },
   {
