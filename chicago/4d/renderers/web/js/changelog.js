@@ -1,8 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1587, ts: '2026-10-09T19:24:40.191Z', date: 'Oct 9, 2026, 2:24 PM CT', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
+  { v: null, ts: '', title: 'L. Franchere and Louis Franch\u00e8re stay two cards, with the reason', kind: 'fix',
     items: [
       'Open L. Franchere or Louis Franch\u00e8re in People. The note on whether they are one man now gives the answer from the printed record. Both copies of the 1834 marriage he witnessed give only the initial L.: the web transcription and the 1921 Illinois Catholic Historical Review it was copied from.',
       'The 1921 Review also says the marriages and the 1833 baptisms are in one bound book. The project already holds that book\u2019s baptism pages but not its marriage pages, so the two cards stay apart until someone reads the marriage page itself.',
+    ] },
+  { v: 1587, ts: '2026-10-09T19:12:48.893Z', date: 'Oct 9, 2026, 2:12 PM CT', title: 'Prairie Avenue\u2019s 1600 block has a 1904 reading on every card', kind: 'feature',
+    items: [
+      'Open any house between 16th and 18th Streets in the Prairie Avenue 1904 library. Its card now has a 1904 reading taken from the 1911 Sanborn sheet. It lists the front building, its attached wings and its rear stables or coach houses, and says whether the house stood in 1904 and why.',
+      'Two house numbers were misread before. The railroad station is at 1605, not 1603. The Dexter house is at 1721, not 1719, so the map and the named record are one property.',
+      'Forsyth\u2019s 1635 now sits on the open lot next to 1637, where the 1886 atlas shows it, not on its neighbour 1625. Whether it still stood in 1904 is left open. The 1890 picture of Hugh J. McBirney\u2019s house now belongs to 1625, not 1736.',
     ] },
   { v: 1586, ts: '2026-10-09T18:37:23.945Z', date: 'Oct 9, 2026, 1:37 PM CT', title: 'A boarding house beside the Market wedge\u2019s house on Lake Street', kind: 'feature',
     items: [
