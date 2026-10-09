@@ -29,17 +29,17 @@
   },
   "known_layer": {
     "households_total": 1459,
-    "households_present": 1390,
-    "households_uncertain": 934,
-    "households_ruled_present": 934,
+    "households_present": 1389,
+    "households_uncertain": 933,
+    "households_ruled_present": 933,
     "households_evidenced_absent": 21,
-    "households_reconstructed": 48,
-    "persons_total": 2886,
-    "persons_standing": 2865,
-    "persons_ruled_present": 941,
-    "persons_present": 1419,
-    "persons_present_attested": 401,
-    "persons_present_inferred": 1018,
+    "households_reconstructed": 49,
+    "persons_total": 2885,
+    "persons_standing": 2864,
+    "persons_ruled_present": 940,
+    "persons_present": 1418,
+    "persons_present_attested": 402,
+    "persons_present_inferred": 1016,
     "persons_present_by_division": {
       "south": 71,
       "west": 10,
@@ -52,19 +52,19 @@
       "north": 11,
       "fort": 2
     },
-    "persons_present_unplaced": 1320,
-    "households_present_unplaced": 1319,
-    "houses_present": 165,
+    "persons_present_unplaced": 1319,
+    "households_present_unplaced": 1318,
+    "houses_present": 164,
     "houses_present_by_division": {
       "south": 52,
       "west": 6,
       "north": 11,
       "fort": 2
     },
-    "houses_present_unplaced": 94,
+    "houses_present_unplaced": 93,
     "records_awaiting_a_household": 1225,
     "houses_present_by_clause": {
-      "a_stated_kinship": 92,
+      "a_stated_kinship": 91,
       "a_stated_premises": 33,
       "a_stated_dwelling": 22,
       "a_stated_division": 14,
@@ -78,23 +78,23 @@
     "source": "data/reconstruction/1835_presence_rulings.json",
     "summed_into_known": true,
     "summed_by": "T-1463",
-    "persons_ruled_present": 1789,
-    "households_ruled_present": 934,
+    "persons_ruled_present": 1785,
+    "households_ruled_present": 933,
     "by_presence_tier": {
-      "reconstructed": 1433,
+      "reconstructed": 1429,
       "inferred": 179,
       "attested": 177
     },
     "by_residence_grade": {
-      "inferred": 674,
-      "attested": 267,
-      "reconstructed": 848
+      "inferred": 672,
+      "attested": 268,
+      "reconstructed": 845
     },
     "what_known_takes": "the 826 attested and inferred; the 1 reconstructed is a fill",
     "persons_known_before_the_rulings": 478,
-    "persons_known_now": 1419,
+    "persons_known_now": 1418,
     "households_known_before_the_rulings": 456,
-    "households_known_now": 1390,
+    "households_known_now": 1389,
     "the_roster_is_not_double_counted": "R1 offers these names to T-1172 as a LICENCE to use a real read name, never as a quota (rule `real_names_first`), and T-1386 has already re-admitted them into the layer. Counting them known orders nobody twice; it stops ordering them once.",
     "what_re_cuts_the_quotas": [
       "T-1196",
@@ -377,20 +377,6 @@
       "refamilied_out": 1,
       "surplus_still_held": 1,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
-    },
-    {
-      "bucket": "persons/female/40_49/west/lodging/trade",
-      "owning_ticket": "T-2023",
-      "cause": "a_documented_reading_shrank_the_order",
-      "quota_it_was_drawn_against": 1,
-      "the_re_cut_would_have_ordered": 0,
-      "already_drawn": 1,
-      "held_at": 1,
-      "drawn_here": 0,
-      "refamilied_out": 0,
-      "surplus_still_held": 1,
-      "refamilied_in": 1,
-      "why": "the town read more people it can name, the known layer's share of this cell grew, and its order fell under the head(s) the re-family ledger had already landed in it against an open order (T-2078). Nobody is moved back; the surplus is the owning ticket's to retire. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
     },
     {
       "bucket": "persons/female/50_plus/north/family/trade",
@@ -787,10 +773,10 @@
       "owning_ticket": "T-2193",
       "cause": "the_re_cut_reached_work_already_drawn",
       "quota_it_was_drawn_against": 232,
-      "the_re_cut_would_have_ordered": 184,
-      "already_drawn": 186,
-      "held_at": 186,
-      "drawn_here": 186,
+      "the_re_cut_would_have_ordered": 185,
+      "already_drawn": 187,
+      "held_at": 187,
+      "drawn_here": 187,
       "refamilied_out": 0,
       "surplus_still_held": 2,
       "why": "the re-cut would put this bucket's order under the people already drawn against it. The owner's ruling of 2026-09-20 (T-1459) holds here: no bucket's target falls below what has been drawn against it, and the refusal is named with both numbers rather than clamped in silence."
@@ -1369,7 +1355,7 @@
   "spent_by": [
     {
       "ticket": "T-1174",
-      "records": 593,
+      "records": 594,
       "buckets": [
         "households/family_dwelling/north",
         "households/family_dwelling/south",
@@ -1614,8 +1600,8 @@
   "roster_offered": {
     "total": 1787,
     "by_class": {
-      "R1_in_window_uncertain": 882,
-      "R2_in_window_single_source": 207,
+      "R1_in_window_uncertain": 881,
+      "R2_in_window_single_source": 208,
       "R3_1834_return_or_muster": 28,
       "R4_surname_only_census": 438,
       "R5_later_only_backprojectable": 53,
@@ -1631,25 +1617,25 @@
     }
   },
   "totals": {
-    "persons_target": 2550,
-    "persons_known": 1419,
+    "persons_target": 2549,
+    "persons_known": 1418,
     "persons_to_reconstruct": 1798,
     "households_target": 645,
-    "households_known": 165,
-    "households_known_records": 1390,
+    "households_known": 164,
+    "households_known_records": 1389,
     "households_awaiting_a_household": 1225,
-    "households_to_reconstruct": 456,
+    "households_to_reconstruct": 457,
     "businesses_target": 109,
     "businesses_known": 128,
     "businesses_to_reconstruct": 7,
     "roofs_target": 668,
     "roofs_standing": 677,
     "roofs_to_build": 10,
-    "persons_standing": 2865,
+    "persons_standing": 2864,
     "persons_still_owed": 15,
-    "persons_when_the_book_is_filled": 2880,
+    "persons_when_the_book_is_filled": 2879,
     "persons_target_range": [
-      2371,
+      2370,
       3265
     ],
     "households_standing": 213,
@@ -1662,13 +1648,13 @@
       "tools/seat_off_plat_ground_1835.py --build"
     ],
     "rows_offered": 1424,
-    "seated": 314,
-    "still_owed": 1110,
-    "roofs_adopted": 314,
+    "seated": 313,
+    "still_owed": 1111,
+    "roofs_adopted": 313,
     "slots_requested": 0,
     "roofs_standing": 677,
-    "roofs_standing_unseated": 363,
-    "share_of_standing_roofs_seated": 0.4638,
+    "roofs_standing_unseated": 364,
+    "share_of_standing_roofs_seated": 0.4623,
     "passes": [
       {
         "key": "platted",
@@ -1677,24 +1663,24 @@
         "ground": "the 226 lots of the Thompson plat the lot ledger enumerates",
         "generated_by": "tools/seat_platted_ground_1835.py --build",
         "rows_offered": 1424,
-        "seated": 215,
-        "handed_on": 1209,
-        "roofs_adopted": 215,
+        "seated": 214,
+        "handed_on": 1210,
+        "roofs_adopted": 214,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 225,
         "roofs_held_back": 62,
-        "ground_taken": 197,
+        "ground_taken": 196,
         "ground_taken_unit": "lots",
         "by_district": {
           "north": 8,
-          "south": 165,
+          "south": 164,
           "west": 42
         },
         "by_clause": {
           "labourer_dwellings": 38,
           "lodging_near_the_landings": 2,
           "merchant_and_professional_dwellings": 36,
-          "tradesman_dwellings": 139
+          "tradesman_dwellings": 138
         }
       },
       {
@@ -1703,9 +1689,9 @@
         "title": "The ground the plat does not draw",
         "ground": "the tier lots, School Section blocks, Kinzie's Addition, survey tracts and camp grounds the off-plat ledger enumerates",
         "generated_by": "tools/seat_off_plat_ground_1835.py --build",
-        "rows_offered": 1209,
+        "rows_offered": 1210,
         "seated": 99,
-        "handed_on": 1110,
+        "handed_on": 1111,
         "roofs_adopted": 99,
         "slots_requested": 0,
         "roofs_offered_for_adoption": 106,
@@ -1728,7 +1714,7 @@
     "requested_slots": [],
     "slot_blocks": [],
     "what_the_slots_wait_on": "no slot was requested: every seat is an adoption of a roof already standing.",
-    "what_is_left": "1,110 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
+    "what_is_left": "1,111 of the 1,424 banded households are still on no ground at all. The reasons are written row by row in both files' `owed`, and the clause each one waits on is carried there rather than summarised away."
   },
   "what_the_re_cut_found": [
     {
@@ -1745,15 +1731,15 @@
     {
       "id": "the_remainder_said_out_loud",
       "asks": "What does the town converge to if every remaining order is filled?",
-      "persons_standing_in_the_layer": 2865,
+      "persons_standing_in_the_layer": 2864,
       "persons_still_owed": 15,
-      "converges_to": 2880,
-      "model_point": 2550,
+      "converges_to": 2879,
+      "model_point": 2549,
       "model_range": [
-        2371,
+        2370,
         3265
       ],
-      "measured": "2,865 standing plus 15 still owed is 2,880, inside the model's 2,371-3,265. Before the re-cut the same sum was 2,865 + 843 = 3,708, and the book was ordering a replacement for 826 people already in the layer. It is 330 above the model's 2,550 point, and that surplus is the 401 people drawn into 53 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
+      "measured": "2,864 standing plus 15 still owed is 2,879, inside the model's 2,370-3,265. Before the re-cut the same sum was 2,864 + 843 = 3,707, and the book was ordering a replacement for 826 people already in the layer. It is 330 above the model's 2,549 point, and that surplus is the 400 people drawn into 52 buckets past what the re-cut would now order — named in `recut_refusals`, held rather than clamped, and retired or re-familied by T-1196, T-1197 and T-1179 rather than by this book."
     },
     {
       "id": "households_are_counted_in_two_different_units",
@@ -1761,11 +1747,11 @@
       "the_answer_is": "NO — RULED BY THE OWNER, 2026-09-21, and carried here (T-1476).",
       "ruling": "A name on a post-office letter list is evidence that a man was at Chicago. It is not evidence that he kept a house. A record whose whole evidence says nothing about a dwelling is a PERSON AWAITING A HOUSEHOLD, so the record count and the house count are two units and 1,438 against 643 is a BACKLOG, not a contradiction.",
       "households_known_before_the_rulings": 456,
-      "records_known_now": 1390,
-      "houses_known_now": 165,
+      "records_known_now": 1389,
+      "houses_known_now": 164,
       "records_awaiting_a_household": 1225,
       "houses_by_clause": {
-        "a_stated_kinship": 92,
+        "a_stated_kinship": 91,
         "a_stated_premises": 33,
         "a_stated_dwelling": 22,
         "a_stated_division": 14,
@@ -1776,14 +1762,14 @@
         473,
         816
       ],
-      "measured": "Of the 1,390 records the layer holds present, 165 carry a reading about a dwelling and 1,225 do not. The quota is taken against the 165, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
+      "measured": "Of the 1,389 records the layer holds present, 164 carry a reading about a dwelling and 1,225 do not. The quota is taken against the 164, so it stops reading 0 owed — which was never true and was the symptom that raised this — and starts reading what the town still owes in houses.",
       "the_test_is_the_evidence_not_the_head_count": "A one-person record is not held out because it holds one person; a man may well have lived alone. It is held out where its whole evidence is a name on a list. The clause that lets a record stand as a house is written on its own manifest row as `dwelling_evidence` and is tallied above — so which of the records are which is readable off the layer and not asserted here.",
       "what_this_does_not_do": "Nothing is retired, nothing is re-graded and nobody is downgraded. Every record stays as it is, with its evidence and its grade; what changes is which question it answers. A record answers both the moment something seats him, and the derivation picks that up on the next rebuild."
     },
     {
       "id": "a_documented_reading_shrank_an_order_the_town_had_drawn",
       "asks": "The parish register's 120 documented residents (T-0841) land in buckets the town had already reconstructed strangers into. Where did reading a person the town can name put a bucket's order UNDER what was drawn against it, and by how many people?",
-      "the_answer_is": "6 bucket(s), over-supplied by 10 in all.",
+      "the_answer_is": "5 bucket(s), over-supplied by 9 in all.",
       "buckets": [
         {
           "bucket": "persons/female/30_39/south/lodging/none",
@@ -1807,13 +1793,6 @@
           "over_supplied_by": 1
         },
         {
-          "bucket": "persons/female/40_49/west/lodging/trade",
-          "owning_ticket": "T-2023",
-          "already_drawn": 1,
-          "the_re_cut_would_have_ordered": 0,
-          "over_supplied_by": 1
-        },
-        {
           "bucket": "persons/male/10_19/north/lodging/trade",
           "owning_ticket": "T-2023",
           "already_drawn": 1,
@@ -1828,26 +1807,26 @@
           "over_supplied_by": 1
         }
       ],
-      "over_supplied_by": 10,
-      "measured": "`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/female/40_49/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 10 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.",
+      "over_supplied_by": 9,
+      "measured": "`persons/female/30_39/south/lodging/none` holds 9 drawn against an order of 6 — over-supplied by 3; `persons/male/10_19/south/lodging/trade` holds 7 drawn against an order of 4 — over-supplied by 3; `persons/female/40_49/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/north/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1; `persons/male/10_19/west/lodging/trade` holds 1 drawn against an order of 0 — over-supplied by 1. That is 9 reconstructed people standing where the sources now name someone else, and it is a different fault from the rest of `recut_refusals`: those are quotas drifting under a draw, this is the town learning it invented a person it did not need. Nothing here is clamped and nothing already drawn moves — T-1459 — so the book keeps ordering the larger figure and names the surplus instead.",
       "declined": "RETIRING a reconstructed card is the bucket owner's work and not this book's: a book that deleted people to make its own arithmetic close would be reconstructing backwards. T-1347, which drew the trade band, has closed, so T-1530 is filed for the south-side 20-29 surplus and T-1506 owns the surplus lawyer."
     }
   ],
   "adult_men_ruling": {
     "ticket": "T-2187",
     "asks": "The family cells order adult men the town does not hold. Does it hold them?",
-    "model_civil_adult_men": 944,
-    "named_adult_men_on_the_cards": 1152,
+    "model_civil_adult_men": 943,
+    "named_adult_men_on_the_cards": 1151,
     "named_by_division": {
       "south": 55,
       "west": 7,
       "north": 12,
-      "unplaced": 1078
+      "unplaced": 1077
     },
     "named_men_with_no_age_not_counted": 0,
     "adult_men_drawn": 276,
-    "the_town_holds": 1428,
-    "the_pro_rata_credit_gave_these_cells": 525,
+    "the_town_holds": 1427,
+    "the_pro_rata_credit_gave_these_cells": 524,
     "the_family_cells_ordered": 204,
     "the_town_still_lacks": 0,
     "discharged": 204,
@@ -1865,7 +1844,7 @@
       "persons/male/50_plus/south/family/none": 5,
       "persons/male/50_plus/west/family/none": 2
     },
-    "measured": "The model's civil town wants 944 men aged twenty and over. The present cards name 1,152 and the stages drew 276, so the town holds 1,428, 484 over the model's figure. The pro-rata credit gave these cells 525 of the named; the rest were counted in women's and children's cells. The family cells ordered 204 more and 204 are discharged.",
+    "measured": "The model's civil town wants 943 men aged twenty and over. The present cards name 1,151 and the stages drew 276, so the town holds 1,427, 484 over the model's figure. The pro-rata credit gave these cells 524 of the named; the rest were counted in women's and children's cells. The family cells ordered 204 more and 204 are discharged.",
     "what_this_does_not_do": "It moves nobody, retires nobody and draws nobody, and it does not touch the women's or children's cells, whose orders the same credit holds down: that is T-1174's and T-2021's ground, and their own ratio and under-ten gates bound it."
   },
   "store_residence_ruling": {
@@ -1911,10 +1890,10 @@
       "title": "Persons",
       "lead": "Who the town still has to be given, by sex, age, division, household and trade.",
       "summary": {
-        "town_target": 2550,
-        "town_target_basis": "the model's own point within 2,371-3,265",
+        "town_target": 2549,
+        "town_target_basis": "the model's own point within 2,370-3,265",
         "town_target_range": [
-          2371,
+          2370,
           3265
         ],
         "employed_target": 508,
@@ -2752,15 +2731,14 @@
           },
           "target": 1,
           "known_attested": 0,
-          "known_inferred": 1,
+          "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 1,
           "owning_ticket": "T-2023",
           "basis": "a working lodger, a bed rather than a household",
           "recut_wants": 1,
           "drawn_here": 0,
-          "refamilied_in": 1,
-          "recut_refused": true
+          "refamilied_in": 1
         },
         {
           "key": "persons/female/40_49/west/lodging/none",
@@ -3022,8 +3000,8 @@
             "trade": "none"
           },
           "target": 55,
-          "known_attested": 8,
-          "known_inferred": 22,
+          "known_attested": 9,
+          "known_inferred": 21,
           "to_reconstruct": 62,
           "filled": 62,
           "owning_ticket": "T-1174",
@@ -3062,8 +3040,8 @@
             "trade": "none"
           },
           "target": 133,
-          "known_attested": 21,
-          "known_inferred": 55,
+          "known_attested": 22,
+          "known_inferred": 54,
           "to_reconstruct": 190,
           "filled": 190,
           "owning_ticket": "T-1174",
@@ -4062,9 +4040,9 @@
             "household_type": "lodging",
             "trade": "none"
           },
-          "target": 2,
+          "target": 1,
           "known_attested": 0,
-          "known_inferred": 1,
+          "known_inferred": 0,
           "to_reconstruct": 1,
           "filled": 1,
           "owning_ticket": "T-2023",
@@ -4291,8 +4269,8 @@
             "trade": "none"
           },
           "target": 52,
-          "known_attested": 8,
-          "known_inferred": 22,
+          "known_attested": 9,
+          "known_inferred": 21,
           "to_reconstruct": 22,
           "filled": 21,
           "owning_ticket": "T-2023",
@@ -4387,10 +4365,10 @@
           473,
           816
         ],
-        "known_present": 165,
-        "known_present_records": 1390,
+        "known_present": 164,
+        "known_present_records": 1389,
         "known_present_awaiting_a_household": 1225,
-        "known_uncertain_in_the_index_ruled_in_by_T-1386": 934
+        "known_uncertain_in_the_index_ruled_in_by_T-1386": 933
       },
       "buckets": [
         {
@@ -4453,9 +4431,9 @@
             "division": "south"
           },
           "target": 258,
-          "known": 74,
-          "to_reconstruct": 186,
-          "filled": 186,
+          "known": 73,
+          "to_reconstruct": 187,
+          "filled": 187,
           "owning_ticket": "T-2193",
           "basis": "the model's 645 households apportioned on the inventory's own family_dwelling roof count in the south division",
           "recut_refused": true
@@ -4754,11 +4732,11 @@
             "high": 21,
             "scaled_by": {
               "state_census_population": 3297,
-              "scene_date_population_low": 2371,
+              "scene_date_population_low": 2370,
               "scene_date_population_high": 3265,
               "figure": "population_on_1_july_1835"
             },
-            "method": "The census counts 22 in a town of 3297; the town model brackets 1 July 1835 between 2371 and 3265 people. A profession scales with the population it serves, so the scene date holds between 15 and 21 of them. The book orders to the low end, floored.",
+            "method": "The census counts 22 in a town of 3297; the town model brackets 1 July 1835 between 2370 and 3265 people. A profession scales with the population it serves, so the scene date holds between 15 and 21 of them. The book orders to the low end, floored.",
             "source": "data/research/books/trade_census_1835_spend.json",
             "ticket": "T-1418"
           },
@@ -4840,11 +4818,11 @@
             "high": 13,
             "scaled_by": {
               "state_census_population": 3297,
-              "scene_date_population_low": 2371,
+              "scene_date_population_low": 2370,
               "scene_date_population_high": 3265,
               "figure": "population_on_1_july_1835"
             },
-            "method": "The census counts 14 in a town of 3297; the town model brackets 1 July 1835 between 2371 and 3265 people. A profession scales with the population it serves, so the scene date holds between 10 and 13 of them. The book orders to the low end, floored.",
+            "method": "The census counts 14 in a town of 3297; the town model brackets 1 July 1835 between 2370 and 3265 people. A profession scales with the population it serves, so the scene date holds between 10 and 13 of them. The book orders to the low end, floored.",
             "source": "data/research/books/trade_census_1835_spend.json",
             "ticket": "T-1418"
           },
@@ -5054,10 +5032,10 @@
       "summary": {
         "roof_target": 668,
         "standing_records": 677,
-        "standing_with_an_occupant": 262,
-        "standing_without_an_occupant": 415,
+        "standing_with_an_occupant": 261,
+        "standing_without_an_occupant": 416,
         "to_build_total": 10,
-        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 415 of the 677 standing records carry no occupants block today, and T-1197 re-audits them against this book."
+        "redeal_note": "A roof standing where the order book has nobody to put in it is a SUBSTITUTION for T-1197, never a demolition: 416 of the 677 standing records carry no occupants block today, and T-1197 re-audits them against this book."
       },
       "buckets": [
         {
@@ -5864,12 +5842,12 @@
     {
       "id": "people_per_roof",
       "owning_ticket": "T-1196",
-      "model": 2550,
+      "model": 2549,
       "programme": 668,
       "delta": 0,
       "programme_groups": [],
       "restates_the_programme": false,
-      "statement": "2,550 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
+      "statement": "2,549 people under 668 roofs is the ratio the completed town must meet; the census's own reading for November 1835 is 8.204 people per dwelling over 398 dwellings."
     }
   ],
   "invariants": [
@@ -5877,13 +5855,13 @@
       "id": "every_person_housed",
       "owning_ticket": "T-1215",
       "statement": "Every person in the layer — attested, inferred or reconstructed — is a member of a household or a lodging place that is seated on a roof.",
-      "measured_now": "22 of 1390 present households name a lives_at."
+      "measured_now": "22 of 1389 present households name a lives_at."
     },
     {
       "id": "every_working_person_has_a_workplace",
       "owning_ticket": "T-1189",
       "statement": "Every person carrying a trade, profession or employment has a workplace, or a stated `no fixed workplace`.",
-      "measured_now": "50 of 1390 present households name a works_at."
+      "measured_now": "50 of 1389 present households name a works_at."
     },
     {
       "id": "every_business_has_staff",
@@ -5895,13 +5873,13 @@
       "id": "every_structure_occupied_or_its_use_stated",
       "owning_ticket": "T-1197",
       "statement": "Every standing roof carries an occupant or a stated use.",
-      "measured_now": "415 of 677 standing records carry no occupants block."
+      "measured_now": "416 of 677 standing records carry no occupants block."
     },
     {
       "id": "dwellings_ratio_within_its_bracket",
       "owning_ticket": "T-1215",
       "statement": "The town census's people-per-dwelling ratio is met within the model's bracket.",
-      "measured_now": "the book orders 2,550 people into 645 households."
+      "measured_now": "the book orders 2,549 people into 645 households."
     },
     {
       "id": "an_uncompared_class_orders_nothing",
@@ -6558,7 +6536,7 @@
       "bucket": "households/family_dwelling/south",
       "ticket": "T-1174",
       "stage": "women_and_children",
-      "records": 17,
+      "records": 18,
       "by": "tools/reconstruct_women_children.py --build"
     },
     {
@@ -6987,12 +6965,12 @@
       "the_finish_line": "the rule's own fixpoint: the programme is settled when T-1558's rule yields no further move, and not when nobody is held. `settled` is arithmetic either way — what the ruling changed is which arithmetic.",
       "the_ruling_that_set_it": "owner, 2026-09-25, answering T-1597 with option (a): \"They remain held, recorded as held, and the programme is settled at its fixpoint rather than at zero — the refusals stand as written and the book says so.\" It is the ruling of 2026-09-24 asked again of the residue that rule could not reach.",
       "moves_the_rule_still_yields": 0,
-      "people_still_held": 397,
-      "buckets_they_are_held_in": 51,
+      "people_still_held": 396,
+      "buckets_they_are_held_in": 50,
       "and_what_holds_each_of_them": [
         {
           "refusal": "a_documented_reading_shrank_the_order",
-          "people": 10
+          "people": 9
         },
         {
           "refusal": "the_re_cut_reached_work_already_drawn",
@@ -9520,9 +9498,9 @@
       "adoptions_carried": 0
     },
     "the_held_surplus": {
-      "buckets_refused": 51,
-      "people_held": 397,
-      "people_still_held": 397,
+      "buckets_refused": 50,
+      "people_held": 396,
+      "people_still_held": 396,
       "open_headroom_in_person_buckets": 15,
       "why_the_headroom_matters": "a held head moved into an open order fills that order without drawing a stranger, so each move takes one person off what is still owed rather than out of the town."
     },

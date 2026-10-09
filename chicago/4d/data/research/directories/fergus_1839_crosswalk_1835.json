@@ -26,7 +26,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1438
+   "n": 1437
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -45,9 +45,9 @@
   }
  ],
  "counts": {
-  "residents_matched_one_entry": 164,
+  "residents_matched_one_entry": 165,
   "residents_ambiguous": 11,
-  "residents_contested": 6,
+  "residents_contested": 4,
   "residents_surname_only_refused": 290,
   "voters_matched_one_entry": 122,
   "voters_ambiguous": 39,
@@ -75,8 +75,8 @@
   "of_those_contested": 0,
   "of_those_ambiguous": 2,
   "residents_narrowings_withdrawn_as_a_collision": 0,
-  "residents_ties_left_standing": 15,
-  "residents_could_carry_occupation": 84,
+  "residents_ties_left_standing": 13,
+  "residents_could_carry_occupation": 85,
   "residents_could_carry_street": 102
  },
  "residents": {
@@ -586,6 +586,31 @@
     "person_id": "avery_charles",
     "household_id": "hh_avery_charles",
     "grade_1835": "inferred",
+    "occupation_1835": "none_recorded",
+    "occupation_1835_confidence": "reconstructed",
+    "lives_at_1835": null,
+    "could_carry": [
+     "occupation"
+    ],
+    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only."
+   },
+   {
+    "name": "Charles H Beaubien",
+    "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C.",
+    "entries_1839": [
+     {
+      "claim": "f1839_e0081",
+      "as_printed": "Beaubien, Charles IT, violinist",
+      "printed_page": 6,
+      "occupation_1839": "violinist",
+      "address_1839": null,
+      "streets_1839": [],
+      "address_is_street_only": false
+     }
+    ],
+    "person_id": "beaubien_charles_h",
+    "household_id": "hh_beaubien_charles_h",
+    "grade_1835": "attested",
     "occupation_1835": "none_recorded",
     "occupation_1835_confidence": "reconstructed",
     "lives_at_1835": null,
@@ -4500,96 +4525,6 @@
    }
   ],
   "contested": [
-   {
-    "name": "Charles Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
-    "entries_1839": [
-     {
-      "claim": "f1839_e0081",
-      "as_printed": "Beaubien, Charles IT, violinist",
-      "printed_page": 6,
-      "occupation_1839": "violinist",
-      "address_1839": null,
-      "streets_1839": [],
-      "address_is_street_only": false
-     }
-    ],
-    "person_id": "beaubien_charles",
-    "household_id": "hh_beaubien_charles",
-    "grade_1835": "inferred",
-    "occupation_1835": "none_recorded",
-    "occupation_1835_confidence": "reconstructed",
-    "lives_at_1835": null,
-    "could_carry": [
-     "occupation"
-    ],
-    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only.",
-    "contested_with": [
-     "Charles H Beaubien"
-    ],
-    "discriminator": {
-     "kind": "trade",
-     "named": null,
-     "why": "the trade names 0 of the 2 sides, and a discriminator fires only when it names exactly one",
-     "sides": [
-      {
-       "key": "beaubien_charles",
-       "agrees": false,
-       "why": "no trade on one side"
-      },
-      {
-       "key": "beaubien_charles_h",
-       "agrees": false,
-       "why": "no trade on one side"
-      }
-     ]
-    }
-   },
-   {
-    "name": "Charles H Beaubien",
-    "rule": "Surname 'Beaubien' folds to the same string as the 1839 entry's, and the given name of both begins C. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",
-    "entries_1839": [
-     {
-      "claim": "f1839_e0081",
-      "as_printed": "Beaubien, Charles IT, violinist",
-      "printed_page": 6,
-      "occupation_1839": "violinist",
-      "address_1839": null,
-      "streets_1839": [],
-      "address_is_street_only": false
-     }
-    ],
-    "person_id": "beaubien_charles_h",
-    "household_id": "hh_beaubien_charles_h",
-    "grade_1835": "inferred",
-    "occupation_1835": "none_recorded",
-    "occupation_1835_confidence": "reconstructed",
-    "lives_at_1835": null,
-    "could_carry": [
-     "occupation"
-    ],
-    "carry_rule": "Whatever is carried is carried as 1839 evidence with describes_date 1839 on the note, never as an 1835 fact, and the grade of the person does not move. The street NAME may cross; the street NUMBER may not — see address_is_street_only.",
-    "contested_with": [
-     "Charles Beaubien"
-    ],
-    "discriminator": {
-     "kind": "trade",
-     "named": null,
-     "why": "the trade names 0 of the 2 sides, and a discriminator fires only when it names exactly one",
-     "sides": [
-      {
-       "key": "beaubien_charles",
-       "agrees": false,
-       "why": "no trade on one side"
-      },
-      {
-       "key": "beaubien_charles_h",
-       "agrees": false,
-       "why": "no trade on one side"
-      }
-     ]
-    }
-   },
    {
     "name": "John A Clark",
     "rule": "Surname 'Clark' folds to the same string as the 1839 entry's, and the given name of both begins J. CONTESTED: 2 residents of 1835 meet this one 1839 entry on that rule, and at most one of them is the person printed. The match is not made.",

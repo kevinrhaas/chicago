@@ -47,8 +47,8 @@
       "waiting_on_a_roof": 100
     },
     "persons_housed": {
-      "attested": 386,
-      "inferred": 1000,
+      "attested": 387,
+      "inferred": 998,
       "reconstructed": 2037
     },
     "persons_unhoused": {
@@ -57,7 +57,7 @@
       "reconstructed": 0
     },
     "present_on_scene_date": {
-      "persons_housed": 3422,
+      "persons_housed": 3421,
       "persons_unhoused": 0,
       "persons_waiting_on_a_roof": 100
     },
@@ -73,7 +73,7 @@
     "lodged_at_stated": 307
   },
   "at_work": {
-    "working_age": 2257,
+    "working_age": 2256,
     "placed": {
       "attested": 159,
       "inferred": 7,
@@ -90,8 +90,8 @@
       "reconstructed": 26
     },
     "no_trade_recorded": {
-      "attested": 232,
-      "inferred": 970,
+      "attested": 233,
+      "inferred": 968,
       "reconstructed": 365
     },
     "owed_by_reason": {
@@ -118,12 +118,12 @@
     "occupied": {
       "attested": 51,
       "inferred": 9,
-      "reconstructed": 359
+      "reconstructed": 358
     },
     "occupants_in_prose_only": {
       "attested": 8,
       "inferred": 10,
-      "reconstructed": 47
+      "reconstructed": 48
     },
     "use_stated": {
       "camp_ground": 3,
@@ -150,8 +150,8 @@
   "tiers": {
     "persons": {
       "housed": {
-        "attested": 386,
-        "inferred": 1000,
+        "attested": 387,
+        "inferred": 998,
         "reconstructed": 2037
       },
       "waiting_on_a_roof": {
@@ -172,9 +172,9 @@
     },
     "households": {
       "housed": {
-        "attested": 373,
-        "inferred": 984,
-        "reconstructed": 564
+        "attested": 374,
+        "inferred": 982,
+        "reconstructed": 565
       },
       "waiting_on_a_roof": {
         "attested": 16,
@@ -213,12 +213,12 @@
       "occupied": {
         "attested": 51,
         "inferred": 9,
-        "reconstructed": 359
+        "reconstructed": 358
       },
       "occupants_in_prose_only": {
         "attested": 8,
         "inferred": 10,
-        "reconstructed": 47
+        "reconstructed": 48
       },
       "use_stated": {
         "attested": 25,

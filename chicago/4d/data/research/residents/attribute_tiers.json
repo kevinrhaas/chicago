@@ -26,19 +26,19 @@
   },
   "counts": {
     "cards": 1459,
-    "blocks": 22103,
-    "tiers_written_on_the_card": 10782,
+    "blocks": 22098,
+    "tiers_written_on_the_card": 10780,
     "by_tier": {
-      "attested": 740,
-      "inferred": 3725,
+      "attested": 739,
+      "inferred": 3722,
       "reconstructed": 10797,
-      "unknown": 6841
+      "unknown": 6840
     },
     "by_attribute": {
       "arrival": {
         "attested": 51,
-        "inferred": 1356,
-        "reconstructed": 52,
+        "inferred": 1355,
+        "reconstructed": 53,
         "unknown": 0
       },
       "arrival_year": {
@@ -60,7 +60,7 @@
         "unknown": 0
       },
       "directories.people[].occupation_later": {
-        "attested": 128,
+        "attested": 129,
         "inferred": 0,
         "reconstructed": 0,
         "unknown": 0
@@ -74,11 +74,11 @@
       "division_reconstructed": {
         "attested": 0,
         "inferred": 0,
-        "reconstructed": 1338,
+        "reconstructed": 1337,
         "unknown": 0
       },
       "kin[]": {
-        "attested": 150,
+        "attested": 148,
         "inferred": 12,
         "reconstructed": 0,
         "unknown": 0
@@ -104,7 +104,7 @@
       "persons[].age_band": {
         "attested": 7,
         "inferred": 53,
-        "reconstructed": 2819,
+        "reconstructed": 2818,
         "unknown": 7
       },
       "persons[].age_on_scene_date": {
@@ -147,7 +147,7 @@
         "attested": 118,
         "inferred": 20,
         "reconstructed": 203,
-        "unknown": 2545
+        "unknown": 2544
       },
       "persons[].profile_facts[]": {
         "attested": 1,
@@ -157,14 +157,14 @@
       },
       "persons[].sex_basis": {
         "attested": 0,
-        "inferred": 704,
+        "inferred": 703,
         "reconstructed": 627,
         "unknown": 6
       },
       "present_on_scene_date": {
         "attested": 38,
-        "inferred": 1368,
-        "reconstructed": 53,
+        "inferred": 1367,
+        "reconstructed": 54,
         "unknown": 0
       },
       "reason_for_coming": {
@@ -183,8 +183,8 @@
     "reconstructed_by_basis": {
       "address_back_projection": 23,
       "arrival_bound_from_the_record": 1,
-      "arrival_earliest_year_forced": 51,
-      "inferred_household_hypothesis": 42,
+      "arrival_earliest_year_forced": 52,
+      "inferred_household_hypothesis": 43,
       "origin_uncited_literature": 1,
       "residence_back_projection": 12
     }
@@ -2132,6 +2132,41 @@
       }
     },
     {
+      "card": "hh_rc_shea_margaret",
+      "attribute": "arrival",
+      "value": "1835-07-01",
+      "precision": "not_later_than",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "A BOUND THE HYPOTHESIS ITSELF CARRIES, AND NOT A READING. No source names this household, so none dates its coming. What the record does say is that it was here on 1835-07-01 — that is the whole of what this stage claims — and a household here on that day arrived not later than it. Nothing narrower is known; the year below is DRAWN from that bound by the programme's arrival stage against the years the known layer records.",
+      "basis": {
+        "kind": "rule",
+        "id": "arrival_earliest_year_forced",
+        "note": "No source dates the coming. The value is the earliest year the committed evidence forces, carried at the precision the note states."
+      },
+      "replaceable_by": {
+        "kind": "person",
+        "match": "a dated source that says when this person came to Chicago"
+      }
+    },
+    {
+      "card": "hh_rc_shea_margaret",
+      "attribute": "present_on_scene_date",
+      "value": "present",
+      "confidence": "reconstructed",
+      "tier": "reconstructed",
+      "note": "PRESENCE IS THE HYPOTHESIS, not a finding about anybody. This household exists because the town of 1 July 1835 demonstrably held women and children the naming sources never printed — the order book counts how many, by sex, age and division — and this is one of them.",
+      "basis": {
+        "kind": "rule",
+        "id": "inferred_household_hypothesis",
+        "note": "Presence on the scene date IS this household's hypothesis: the record exists because the town of 1 July 1835 demonstrably needed a household of this trade."
+      },
+      "replaceable_by": {
+        "kind": "household",
+        "match": "a source that puts this household at Chicago on 1 July 1835, or takes it away"
+      }
+    },
+    {
       "card": "hh_rc_shea_martin",
       "attribute": "arrival",
       "value": "1835-07-01",
@@ -2793,11 +2828,11 @@
       },
       "values": 1375,
       "by_value": {
-        "1834": 575,
-        "1833": 405,
-        "1835": 318,
+        "1834": 571,
+        "1833": 407,
+        "1835": 321,
         "1832": 44,
-        "1831": 18,
+        "1831": 17,
         "1818": 4,
         "1824": 3,
         "1816": 2,
@@ -2819,9 +2854,9 @@
         "kind": "household",
         "match": "any source that places this household in a division or nearer"
       },
-      "values": 1338,
+      "values": 1337,
       "by_value": {
-        "south": 765,
+        "south": 764,
         "north": 299,
         "west": 274
       },
@@ -2930,10 +2965,10 @@
         "kind": "person",
         "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
       },
-      "values": 2816,
+      "values": 2815,
       "by_value": {
         "20-29": 964,
-        "30-39": 466,
+        "30-39": 465,
         "0-4": 462,
         "10-19": 239,
         "0-9": 221,
@@ -4503,10 +4538,10 @@
       },
       "values": 1329,
       "by_value": {
-        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 552,
-        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 388,
-        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 315,
-        "The trading post, the fort and the country trade — the town before the boom": 74
+        "The 1834 season: the harbour works, the opening of the bar and the trade that followed them": 548,
+        "The 1833 season: the harbour appropriation, the treaty at Chicago and the first rush of settlers": 390,
+        "The 1835 season: the canal land sales of June, the harbour works and the boom of a town just incorporated": 318,
+        "The trading post, the fort and the country trade — the town before the boom": 73
       },
       "a_seed": null,
       "a_card": "hh_abbot_8_g"

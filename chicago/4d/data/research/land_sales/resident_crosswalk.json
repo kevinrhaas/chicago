@@ -421,7 +421,7 @@
       "resident_name": "Mark Beaubien",
       "household_id": "hh_beaubien_mark",
       "match": "forename_agrees",
-      "rule": "BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 18 people of this surname, and the forename agrees in full.",
+      "rule": "BEAUBIEN MARK matches Mark Beaubien: the forename names Mark Beaubien of the 17 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
         {
@@ -463,15 +463,6 @@
         {
           "key": "beaubien_caroline",
           "name": "Caroline Beaubien",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_charles",
-          "name": "Charles Beaubien",
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
@@ -3255,15 +3246,6 @@
           "outcome": "refused_on_the_forename"
         },
         {
-          "key": "beaubien_charles",
-          "name": "Charles Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
           "key": "beaubien_charles_h",
           "name": "Charles H Beaubien",
           "forename_agrees": false,
@@ -3388,7 +3370,7 @@
         ],
         "reasoning": "NAMED, NOT UPHELD — AND THE JUDGEMENT IS THE ONE T-0990 MADE, NOT A NEW ONE (T-1525). It stood as `upheld` while the mechanical forename rule reached Col. Jean Baptiste Beaubien on its own and this file only had to confirm it. T-1525 minted the Catholic town St Mary's baptismal register names, and the layer's Beaubiens went from eight to eighteen; one of the new cards is a Joseph Beaubien, so the reading's J now stands for two of them and R3 — a reading is named onto exactly one or onto none — refuses the proposal the ruling used to adjudicate. A ruling on a refusal is a ruling on nothing, so the SAME finding is recorded in the direction that can carry it: `named`, under the guards this file states — the surname gathered rivals, the forename failed to choose among them, and the ruling names one of those rivals. NOTHING BELOW HAS CHANGED. UPHELD on the initials as the town itself prints them, and on a date only one Beaubien can reach. The town's record of this man does not hold a forename it has to have expanded for it: Andreas's 1833 roster prints 'J. B. Beaubien, merchant' and Fergus 1839 prints 'Beaubien, John B., Michigan ave., bet. Lake and So. Water sts' — J. B. is the form the town used, and the register's BEAUBIEN J B is that form. The layer holds ten Beaubiens and the sale is dated 29 September 1830: this card's arrival is attested at 1812 from Andreas — 'he came to Chicago and bought the cabin and cultivated field south of the old fort in 1812' — and it is the only Beaubien in the layer the record puts at Chicago that early. Four canal rows in section 29 of T39N R14E, two of them the register's own voided duplicates of the other two, carried at 212.61 acres and $1,063.20 net. TWO THINGS THIS DOES NOT DO: it does not touch the Fort Dearborn reservation claim, which this project holds no record of and makes no finding on, and it does not make the 1830 purchase evidence of residence — the Residence column reads ILLINOIS on the voided pair and UNKNOWN on the pair that stood, and neither names a town. AND WHY THE NEW RIVAL IS NOT THE MAN: the register prints BEAUBIEN J B, two initials, and Col. Jean Baptiste is the only candidate of the eighteen whose own middle initial is attested B — the town prints him 'J. B. Beaubien' in Andreas's 1833 roster and 'Beaubien, John B.' in Fergus 1839. Joseph Beaubien's card carries no middle initial at all: it is a person minted from a single baptismal entry, with no forename expansion, no middle name, no date before 1833 and nothing that reaches a tract entered on 29 September 1830. He is a rival the rule must count and not a candidate the record supports, and this ruling does not merge the two cards or say anything about him."
       },
-      "was_refused_as": "BEAUBIEN J B is refused against 18 residents named Beaubien: the forename names 2 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "was_refused_as": "BEAUBIEN J B is refused against 17 residents named Beaubien: the forename names 2 of the 17 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
@@ -15467,8 +15449,8 @@
     },
     {
       "a": "BEAUBIEN M",
-      "b": "18 residents named Beaubien",
-      "rule": "BEAUBIEN M is refused against 18 residents named Beaubien: the forename names 3 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "b": "17 residents named Beaubien",
+      "rule": "BEAUBIEN M is refused against 17 residents named Beaubien: the forename names 3 of the 17 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "rivals": [
         {
           "key": "beaubien_alexander",
@@ -15509,15 +15491,6 @@
         {
           "key": "beaubien_caroline",
           "name": "Caroline Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_charles",
-          "name": "Charles Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
@@ -15642,8 +15615,8 @@
     },
     {
       "a": "BEAUBIEN M B",
-      "b": "18 residents named Beaubien",
-      "rule": "BEAUBIEN M B is refused against 18 residents named Beaubien: the forename names 3 of the 18 people of this surname, and a reading is named onto exactly one or onto none (R3).",
+      "b": "17 residents named Beaubien",
+      "rule": "BEAUBIEN M B is refused against 17 residents named Beaubien: the forename names 3 of the 17 people of this surname, and a reading is named onto exactly one or onto none (R3).",
       "rivals": [
         {
           "key": "beaubien_alexander",
@@ -15684,15 +15657,6 @@
         {
           "key": "beaubien_caroline",
           "name": "Caroline Beaubien",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": null,
-          "reading_middle_initial": "B",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "beaubien_charles",
-          "name": "Charles Beaubien",
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,

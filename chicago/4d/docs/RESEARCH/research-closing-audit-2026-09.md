@@ -19,13 +19,13 @@ Every asserted unit names the record and field it wrote to. Grouped by the layer
 
 | Layer | Asserted units landed |
 | --- | ---: |
-| residents | 0 |
-| households | 964 |
+| residents | 1 |
+| households | 963 |
 | businesses | 541 |
 | structures | 41 |
 | outside the four layers | 3 |
 
-**Read this honestly.** The unit-level ledger proves the second hop for households, businesses and structures. It proves nothing at unit level for residents, which is not a claim that the layer is unresearched — the newspaper register below is compiled from the same readings by `tools/compile_register.py`, and the roofs carry their own graded attributes. Sections 4 and 5 read those layers directly for that reason.
+**Read this honestly.** The unit-level ledger proves the second hop for residents, households, businesses and structures.
 
 Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python3 tools/report_research_closing_audit.py --check`.
 
@@ -33,14 +33,14 @@ Reproduce: `python3 tools/measure_research_spend.py --ledger-build` then `python
 
 | Measure | Count |
 | --- | ---: |
-| Persons | 2,886 |
+| Persons | 2,885 |
 | Households | 1,459 |
-| Persons graded `attested` | 412 |
-| Persons graded `inferred` | 1,028 |
+| Persons graded `attested` | 413 |
+| Persons graded `inferred` | 1,026 |
 | Persons graded `reconstructed` | 1,446 |
 | Letter-list-only names | 773 |
-| Projected residents | 759 |
-| Merged away | 72 |
+| Projected residents | 758 |
+| Merged away | 73 |
 
 Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.json'))['counts'])"`.
 
@@ -57,16 +57,16 @@ Reproduce: `python3 -c "import json;print(json.load(open('data/residents/index.j
 | Presence on 1 July 1835 | Households |
 | --- | ---: |
 | absent | 21 |
-| present | 504 |
-| uncertain | 934 |
+| present | 505 |
+| uncertain | 933 |
 
 | Division | Households |
 | --- | ---: |
 | fort | 13 |
 | north | 22 |
 | outside_town | 1 |
-| south | 72 |
-| unplaced | 1,338 |
+| south | 73 |
+| unplaced | 1,337 |
 | west | 13 |
 
 ## 4. Layer: businesses
@@ -99,7 +99,7 @@ Reproduce: `python3 tools/compile_register.py --check`.
 | Measure | Count |
 | --- | ---: |
 | Structure records | 699 |
-| Carrying occupants | 262 |
+| Carrying occupants | 261 |
 | Flagged `review_required` | 14 |
 
 | Graded phase attribute | Values |

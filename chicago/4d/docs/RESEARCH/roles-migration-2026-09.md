@@ -38,13 +38,13 @@ carry is a controlled word, and it may not fill the 1835 view without one.
 
 | record | offered | asserted | folded | refused | unresolved |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `fergus_1839_directory` | 151 | 19 | 11 | 8 | 113 |
+| `fergus_1839_directory` | 152 | 19 | 11 | 8 | 114 |
 | `fergus_1839_register` | 18 | 0 | 5 | 13 | 0 |
 | `fergus_1843_directory` | 126 | 20 | 12 | 12 | 82 |
 | `newspaper_gazetteer` | 213 | 88 | 81 | 44 | 0 |
 | `norris_1844_directory` | 103 | 23 | 15 | 8 | 57 |
 | `retrospective_prose` | 1 | 0 | 1 | 0 | 0 |
-| **total** | **612** | **150** | **125** | **85** | **252** |
+| **total** | **613** | **150** | **125** | **85** | **253** |
 
 `10` further row(s) were SYNONYM-FOLDED INTO EACH OTHER: one
 source printing two wordings for one controlled role over one bound asserts that

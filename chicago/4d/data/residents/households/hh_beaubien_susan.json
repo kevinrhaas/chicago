@@ -123,17 +123,6 @@
   {
    "person": "beaubien_susan",
    "relation": "daughter",
-   "household": "hh_beaubien_charles",
-   "value": "beaubien_charles",
-   "confidence": "attested",
-   "sources": [
-    "st_marys_baptismal_register_1833_1835"
-   ],
-   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the twenty fourth of 10ber eighteen hundred and thirty four I, the undersigned, baptised Susan daughter of Charles Beaubien and of Lucy Kennedy, born sixteenth of 10ber eighteen hundred thirty four. Sponsors were John Mary I. Saint Cyr and Monique Nadeau Beaubien. Both cards were minted from this entry's rows (st_marys_bapt_1834_21_2_father, st_marys_bapt_1834_21_1_child), so no identification is made here. The daughter term is the entry's: 'Susan daughter of Charles Beaubien'."
-  },
-  {
-   "person": "beaubien_susan",
-   "relation": "daughter",
    "household": "hh_kennedy_lucy",
    "value": "kennedy_lucy",
    "confidence": "attested",
