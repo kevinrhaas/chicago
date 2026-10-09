@@ -6782,6 +6782,63 @@
       ],
       "arrangement_note": "A THIRD OUTBUILDING IN THE THREE CANAL YARDS THAT STILL HAD TWO. After T-2167 the H2's yard on lot 5 and the boarding house's on lot 6 each keep three outbuildings, and the D5 on lot 7, the D4 on lot 8 and the H1 on lot 9 keep two each, both off the alley. So the three new ones stand between the alley pair and the house. The barn or carriage shed goes to the D4's yard on lot 8, on the woodshed's side of the yard and 16 m off the alley, clear of the barn beside it: it is the only one of the three yards with the depth for a barn there, because the D4 stands furthest back from the alley of the three houses. A first try mid-yard in the D5's yard stood it 1.98 m from the house. The chicken house or small utility shed stands mid-yard in the D5's yard on lot 7, and the woodshed mid-yard in the H1's on lot 9, the one yard of the five with no woodshed in it, both 20 m off the alley as T-2167 stood its privy and smokehouse on lots 5 and 6. Which yard takes which is this file's choice; nothing states it.",
       "frontage_argued_on": "west_division_thompson_1830"
+    },
+    {
+      "block_id": "blk_south_water_market",
+      "district": "south",
+      "programme_phase": "phase3_platted_block_south_water_market_lot_7",
+      "claimed": "2026-10-09",
+      "bounded_by": {
+        "north": "south_water",
+        "south": "lake",
+        "west": "market",
+        "east": "franklin"
+      },
+      "drawn_from_schedule": {
+        "capacity_roofs": 16,
+        "standing_roofs": 3,
+        "free_lots": 2,
+        "headroom": 4,
+        "dealt_roofs": 1,
+        "dealt_principal": 1,
+        "dealt_ancillary": 0,
+        "principal": 1,
+        "ancillary": 0
+      },
+      "families": {
+        "D5": 1
+      },
+      "dealt_against_a_request": {
+        "ticket": "T-2238",
+        "parent": "T-2182",
+        "from": "data/reconstruction/1835_platted_seats.json",
+        "requests": [
+          {
+            "seat": "hh_dixon_robert",
+            "family": "D5",
+            "order_book_draw": "blk_south_water_market / D5 / south"
+          }
+        ],
+        "why": "THE ONE `slot` REQUEST THE SEATING HOLDS ON THE MARKET WEDGE, AND THE ROOF THE SCHEDULE DEALS FOR IT. T-2195 cut plat block 21 into four reconstructed lots on the owner's T-1957 ruling, and on the re-derived tree the 668-roof schedule deals the wedge a D5, an F4 and an H3. The seating's fixpoint seats hh_dixon_robert (south/tradesman_dwellings) on the D5 as a `slot` with no structure under it: lot index 1, plat lot 7, the middle of the Lake Street face. So the lot, the family and the household are the seating's and the schedule's, and nothing in this deal chooses them. The F4 is a river warehouse (T-2175's) and the H3 is T-2196's boarding house; neither is dealt here."
+      },
+      "open_lots": [
+        {
+          "lot": 2,
+          "why": "Plat lot 8, the Lake-and-Franklin corner, left open. The schedule's sizing (T-1623) counts principal room over the free lots less one, so the wedge is never dealt out of its open lot, and the seating names no request on this lot. Which of the two free lots carries the reservation is arbitrary; this entry keeps the one the seating leaves clear."
+        }
+      ],
+      "slots": [
+        {
+          "family": "D5",
+          "inventory_class": "principal_functional",
+          "lot": 1,
+          "stands_on": "street",
+          "fronts": "lake",
+          "setback_m": 5.0,
+          "lateral_m": 0.0
+        }
+      ],
+      "arrangement_note": "A LARGER FRAME HOUSE ON THE LAKE STREET FACE OF THE MARKET WEDGE (T-2238, of T-2182). T-2195 opened plat block 21, the triangle the river's bend leaves between Franklin Street and the bank, as four reconstructed lots, and the schedule deals it one dwelling, a D5, which the seating asks for on lot 7 for the Dixon household. It fronts Lake 5 m back, the set-out the School Section tier's D5s use, between the sawpit shed on the cut-side corner lot and the open Franklin corner. Every metre is read off the committed lot polygon by tools/generate_block_infill.py. WHAT IS INVENTED IS STILL EVERYTHING THAT MATTERS: that a house stood on this lot in 1835, where on the lot and how far back; the wedge's lots are themselves reconstructed (L409), and the house is an anonymous count-unit toward the schedule's documented aggregate. The lot grid, the block faces, the street hierarchy and the ground reading are committed and none of them moves here."
     }
   ],
   "redealt": {

@@ -249,6 +249,7 @@
   "recon_1835_blk_south_water_lasalle_d4_02",
   "recon_1835_blk_south_water_lasalle_d5_01",
   "recon_1835_blk_south_water_lasalle_f2_10",
+  "recon_1835_blk_south_water_market_d5_01",
   "recon_1835_blk_south_water_wells_a2_09",
   "recon_1835_blk_south_water_wells_a2_10",
   "recon_1835_blk_south_water_wells_a3_08",
@@ -4722,7 +4723,8 @@
    "served": [
     "inf_cooperage_south",
     "inf_sawpit_shed",
-    "newberry_dole_warehouse"
+    "newberry_dole_warehouse",
+    "recon_1835_blk_south_water_market_d5_01"
    ]
   },
   {

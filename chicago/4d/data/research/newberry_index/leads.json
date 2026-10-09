@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "368f85fc1c386c474ae7c52e0acc8e1c75d31f74fce0e0c2ce68b7e4456225a7",
+    "fingerprint": "4aeb749260f406677b3a7b39a58310d29d63c94d227a3dc2851de327d0a8901a",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
       "residents": 1440,
-      "structures": 676,
+      "structures": 677,
       "voters": 345
     }
   },
