@@ -187,8 +187,44 @@ def terracotta():
     h = .00004 * grit + .00015 * clay
     rough = .71 + .035 * clay + .025 * grit
     return save("terracotta", rgb, h, rough, "Fine fired clay grain. Individual flat overlapping "
-                "tiles, lapped noses and ridge caps are geometry; reconstructed exposure is "
-                "0.12192 m (4.8 in), not Spanish barrel tile.", seed)
+                "tiles, lapped noses and ridge caps are geometry. This grain-only fabric "
+                "contains no tile module; roof_tiles supplies the mapped joints.", seed)
+
+
+def roof_tiles():
+    """Original numeric tile surface; HABS module, inferred 1904 continuity.
+
+    This is the continuous roof bed / light mesh, not the separate grain-only
+    material on full-model tiles and ridge caps. No historic pixels are used.
+    """
+    record=json.loads((OUT.parents[2]/"data/structures/glessner_house.json").read_text())
+    spec=record['phases'][0]['form']['v4_detail']['value']['roof_tiles']
+    width,exposure=spec['width_in']*.0254,spec['exposure_in']*.0254
+    columns,rows=spec['texture_columns'],spec['texture_rows']
+    TILE_M['roof_tiles']=(columns*width,rows*exposure)
+    seed=190403
+    rng=np.random.default_rng(seed)
+    grit,clay=field(rng,.6),field(rng,7)
+    # Image top is v=1; Blender and the standalone glTF writer share this UV.
+    yy,xx=np.mgrid[:SIZE,:SIZE]
+    v=(1-(yy+.5)/SIZE)*rows
+    row=np.floor(v).astype(int);course=v-row
+    u=(xx+.5)/SIZE*columns-.5*(row%2)
+    col=np.floor(u).astype(int);across=u-col
+    variation=rng.uniform(-.012,.012,(rows,columns))[row%rows,col%columns]
+    edge=np.minimum(across,1-across)*width
+    joint=1-smoothstep(spec['joint_m']/2,spec['joint_m']/2+.001,edge)
+    nose=1-smoothstep(0,.003,course*exposure)
+    rgb=np.array([.493,.240,.166])+(.009*grit+.012*clay+variation)[...,None]
+    rgb*=1-(.12*joint+.045*nose)[...,None]
+    # Bounded lap and narrow open side joint; no baked directional lighting.
+    height=.00004*grit+.00015*clay+.0015*(1-course)-.001*joint
+    rough=.71+.035*clay+.025*grit+.035*joint
+    return save('roof_tiles',rgb,height,rough,
+        'HABS IL-1015 printed p.21: 6-inch tile width, 5-inch exposed course. '
+        'Inferred 1904 continuity, checked against Taylor 2135. Red baked unglazed '
+        'clay from Glessner 1923; later tar excluded. Stagger, joints, lap relief '
+        'and exact colour reconstructed. Sixteen columns by sixteen courses.',seed)
 
 
 def copper():
@@ -288,12 +324,12 @@ def gravel():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--only", choices=list(TILE_M), help="regenerate one fabric and its hash record")
+    parser.add_argument("--only", choices=[*TILE_M,"roof_tiles"], help="regenerate one fabric and its hash record")
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     recipes = {"granite": lambda: stone("granite", 190400),
                "limestone": lambda: stone("limestone", 190401, True), "mortar": mortar,
-               "brick": brick, "terracotta": terracotta, "copper": copper,
+               "brick": brick, "terracotta": terracotta, "roof_tiles": roof_tiles, "copper": copper,
                "oak": oak, "painted_wood": lambda: oak(True), "turf": turf, "gravel": gravel}
     existing = OUT / "material-library.json"
     old = {m["name"]: m for m in json.loads(existing.read_text())["materials"]} if existing.exists() else {}

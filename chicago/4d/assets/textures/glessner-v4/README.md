@@ -91,3 +91,11 @@ Copper retains subdued brown/green variation so standing seams carry the form.
 Exact oxidation after 17 years is reconstructed. Oak is warm brown with varnish
 roughness bounded 0.40–0.61. Linen blinds and muted green joinery remain separate
 from real transmissive glass; no scene reflections are painted into windows.
+
+T-2203 adds `roof_tiles`, an original numeric 16-by-16 tile field at the HABS
+6-inch width and 5-inch exposure (2.4384 × 2.032 m per repeat). It supplies the
+continuous roof bed and Light's complete joint/course pattern. `terracotta`
+remains grain-only for individual Full tiles and ridge ornament. The new recipe
+reads `v4_detail.roof_tiles`; its scale is checked against geometry and UVs by
+`tools/test_glessner_roof_tiles.py`. Later tar is excluded. Exact colour, side
+joints, stagger and lap relief are reconstructed; no historical pixels are used.

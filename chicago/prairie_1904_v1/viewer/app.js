@@ -20,37 +20,42 @@
   // Notes (/notes/notes.js) file against these keys; a key must not change when a
   // record's wording does, so each is the record's own id where it has one.
   const noteKey = (el, key, label) => { el.dataset.note = String(key).slice(0, 300); el.dataset.noteLabel = String(label || key).slice(0, 300); return el; };
-  let data, sourcesById;
-  // Sheet censuses (data/sheet_census/, T-1841): each Sanborn sheet's polygons joined to one
-  // owner with a 1904 decision. Optional — a card without one renders exactly as before.
-  const censusByBuilding = new Map(), censusByFrontage = new Map();
-  const KIND = { front: 'Front building', attached_wing: 'Attached wing', detached_service: 'Detached service building', grounds: 'Open grounds', context: 'Context' };
-  async function loadCensuses() {
-    for (const path of array(data.meta?.sheet_censuses)) {
+  let data, sourcesById, census = { byRecord: new Map(), byFrontage: new Map(), allocations: new Map() };
+  // The sheet censuses (data/sheet_census/, T-1840) read each 1911 sheet for 1904: every frontage
+  // and named record on the sheet once, with what stands, what is a 1911 change and why.
+  const CENSUS_SHEETS = ['20', '28'];
+  async function loadCensus() {
+    const out = { byRecord: new Map(), byFrontage: new Map(), allocations: new Map() };
+    for (const sheet of CENSUS_SHEETS) {
       try {
-        const response = await fetch('../' + path); if (!response.ok) continue;
-        const census = await response.json(), sheet = census.sheet;
-        for (const n of array(census.named_records)) censusByBuilding.set(n.building_id, { sheet, named: n, entities: [] });
-        for (const e of array(census.entities)) {
-          if (e.building_id) { const entry = censusByBuilding.get(e.building_id) || { sheet, named: null, entities: [] }; entry.entities.push(e); censusByBuilding.set(e.building_id, entry); }
-          if (e.frontage_id) { const entry = censusByFrontage.get(e.frontage_id) || { sheet, named: null, entities: [] }; entry.entities.push(e); censusByFrontage.set(e.frontage_id, entry); }
-        }
-      } catch { /* a census that fails to load leaves the cards as they were */ }
+        const response = await fetch('../data/sheet_census/sheet-' + sheet + '.json'); if (!response.ok) continue;
+        const c = await response.json(), rows = new Map(array(c.frontages).map(f => [f.frontage_id, f]));
+        for (const f of array(c.frontages)) { out.byFrontage.set(f.frontage_id, { sheet, row: f }); f.named_record_ids.forEach(id => out.byRecord.set(id, { sheet, row: f })); }
+        for (const v of array(c.vacant_ground)) v.named_record_ids.forEach(id => out.byRecord.set(id, { sheet, row: v, vacant: true }));
+        for (const x of array(c.excluded_records)) out.byRecord.set(x.building_id, { sheet, row: rows.get(x.ground), excluded: x });
+        // Service ground on this sheet given to a record another sheet places (T-1841: the Pullman glasshouses).
+        for (const a of array(c.allocations)) out.allocations.set(a.building_id, [...(out.allocations.get(a.building_id) || []), { sheet, a }]);
+      } catch { /* the cards simply go without their 1904 reading */ }
     }
+    return out;
   }
-  function censusPanel(entry) {
-    if (!entry) return null;
-    const box = node('section', null, 'census');
-    box.append(node('h4', '1904 decision · sheet ' + entry.sheet + ' census'));
-    if (entry.named?.phase_1904) box.append(node('p', entry.named.phase_1904, 'census-phase'));
-    if (entry.entities.length) {
+  const DECISIONS = { present_as_mapped: 'Stands in 1904 as the 1911 sheet draws it', backcast_1886: 'Restored for 1904 from the 1886 atlas', alias: 'A second printed number on another front', phase_unresolved: 'Whether it stood in 1904 is unresolved' };
+  const PIECES = { front: 'Front', attached: 'Attached', detached_service: 'Rear building', non_building_use: 'Front, not a dwelling in 1911' };
+  function censusReading(entry) {
+    if (!entry || !entry.row) return null;
+    const { sheet, row } = entry, box = node('section', null, 'census');
+    box.append(node('h4', '1904 reading · Sanborn 1911 sheet ' + sheet));
+    if (entry.excluded) { box.append(node('p', 'Excluded from 1904. ' + entry.excluded.why), node('p', 'Its ground: ' + row.printed_number_1911 + ' Prairie, which carries ' + (DECISIONS[row.decision_1904] || row.decision_1904).toLowerCase() + '.', 'meta')); return box; }
+    if (row.phase_1904) box.append(node('p', row.phase_1904, 'census-phase'));
+    box.append(node('p', (DECISIONS[row.decision_1904] || row.decision_1904) + '. ' + (row.why || '')));
+    if (entry.vacant) box.append(node('p', '1911: ' + row.reading_1911 + '. 1886: ' + row.reading_1886 + '.', 'meta'));
+    if (array(row.polygons).length) {
       const ul = node('ul');
-      for (const e of entry.entities) {
-        const li = node('li'); li.append(node('strong', KIND[e.kind] || e.kind), ' · ' + e.decision_1904 + ' ', node('span', e.tier, 'tier tier-' + e.tier));
-        li.append(node('span', e.basis, 'census-basis')); ul.append(li);
-      }
+      row.polygons.forEach(p => { const li = node('li', (PIECES[p.kind] || p.kind) + ': ' + p.reading_1911); if (p.note_1904) li.append(node('span', ' — 1904: ' + p.note_1904, 'meta')); ul.append(li); });
       box.append(ul);
     }
+    if (row.notation_reread) box.append(node('p', 'Storeys re-read as ' + row.notation_reread.sheet + ' (register: ' + row.notation_reread.register + '; ' + row.notation_reread.confidence + ', ' + row.notation_reread.why + ').', 'meta'));
+    if (row.tiers) box.append(node('p', Object.entries(row.tiers).map(([k, v]) => k.replace('_1904', ' in 1904').replace(/_/g, ' ') + ': ' + v).join(' · '), 'meta'));
     return box;
   }
   function citations(ids) {
@@ -123,12 +128,16 @@
       const facts = node('dl');
       for (const [label,value] of [['Built',b.construction || b.built_year],['Demolished',b.demolition || b.demolished_year],['Architect',b.architect],['1904 status',b.status_1904]]) facts.append(node('dt', label), node('dd', plain(value) || 'Not established'));
       content.append(facts);
-      const census = censusPanel(censusByBuilding.get(b.id)); if (census) content.append(census);
       if (b.notes) content.append(node('p', plain(b.notes)));
       if (array(b.events).length) {
         content.append(node('h3', 'Recorded history')); const events = node('ul');
         b.events.forEach(e => { const item = node('li', typeof e === 'string' ? e : [e.year || e.date || e.date_text,e.type || e.title,e.text || e.description || e.notes].filter(Boolean).map(plain).join(' · ')); if (array(e.source_ids).length) item.append(citations(e.source_ids)); events.append(item); });
         content.append(events);
+      }
+      const reading = censusReading(census.byRecord.get(b.id)); if (reading) content.append(reading);
+      for (const { sheet, a } of census.allocations.get(b.id) || []) {
+        const box = node('section', null, 'census'); box.append(node('h4', 'Also on Sanborn 1911 sheet ' + sheet), node('p', a.why));
+        const ul = node('ul'); a.polygons.forEach(p => { const li = node('li', (PIECES[p.kind] || p.kind) + ': ' + p.reading_1911); li.append(node('span', ' — 1904 (' + p.tier + '): ' + p.note_1904, 'meta')); ul.append(li); }); box.append(ul); content.append(box);
       }
       window.PrairieImages?.decorate(content, b.id, summary);
       content.append(citations(b.source_ids)); detail.append(summary,content); detail.id = 'building-' + b.id; noteKey(detail, 'building:' + b.id, b.name || b.id); list.append(detail);
@@ -175,7 +184,8 @@
       summary.append(node('h3',[r.address,r.street || 'Prairie Avenue'].filter(Boolean).join(' ')),node('span','Observed ' + (r.observation_year || '1911') + ' · sheet ' + (r.sheet || 'unresolved') + (r.side ? ' · ' + r.side + ' side' : ''),'address'));
       const facts = node('dl');
       for (const [label,value] of [['Raw notation',r.raw_story_basement_notation],['Material',r.map_material_interpretation],['Use label',r.map_use_label],['Address read',r.address_confidence],['Dimensions (ft)',r.dimensions_ft],['Digitized',r.footprint_digitized === true ? 'Yes' : 'No']]) facts.append(node('dt',label),node('dd',plain(value) || 'Not established'));
-      content.append(facts); const census = censusPanel(censusByFrontage.get(r.id)); if (census) content.append(census); if (r.notes) content.append(node('p',r.notes));
+      content.append(facts); if (r.notes) content.append(node('p',r.notes));
+      const reading = censusReading(census.byFrontage.get(r.id)); if (reading) content.append(reading);
       content.append(node('p','Source: ' + (r.source_file || 'See source sheet attribution'),'meta'));
       if (r.source_id) content.append(citations([r.source_id]));
       card.append(summary,content); noteKey(card, 'frontage:' + (r.id || [r.sheet,r.address,r.side].join('|')), [r.address,r.street || 'Prairie Avenue'].filter(Boolean).join(' ') + ' · 1911 frontage'); list.append(card);
@@ -234,8 +244,8 @@
     $('downloadBuildings').disabled = true; $('downloadSources').disabled = true;
     try {
       const response = await fetch('../data/library.json'); if (!response.ok) throw new Error('HTTP ' + response.status); data = await response.json();
+      census = await loadCensus();
       sourcesById = new Map(array(data.sources).map(s => [s.id,s]));
-      await loadCensuses();
       $('scope').textContent = plain(data.meta?.scope); $('coverageNote').textContent = plain(data.meta?.coverage_note);
       $('year').value = yearNumber(data.meta?.target_year) || 1904;
       for (const kind of [...new Set(array(data.sources).map(s => s.kind).filter(Boolean))].sort()) { const option = node('option',kind); option.value = kind; $('sourceKind').append(option); }
