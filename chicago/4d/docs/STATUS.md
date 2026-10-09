@@ -1,3 +1,35 @@
+## T-2198 — Glessner source identity and evidence review (2026-10-09)
+
+The 168-record exterior/courtyard audit is reconciled into the research library.
+Four Florian captions are corrected with their prior descriptions preserved; three
+additional 1948 references remain copyright/link-only. Every record states its
+review status, phase and source-use limit. Disputed Lowe attribution and the rejected
+door sheet are excluded; reproduction families do not multiply corroboration.
+The viewer exposes these findings and correction history. No geometry changed;
+T-2183 and dark glass are retained. The 17 unavailable images remain catalog-only,
+and the other 30 tickets stay held. Sources and limits are recorded in
+`../../prairie_1904_v1/docs/glessner-source-review.md`.
+Final gate and browser receipts are recorded on the delivery PR.
+
+## T-2231 — Glessner west front gable and rear frontage (2026-10-09)
+
+The front west gable has a steeper rear-facing slope, with its apex at S18.4
+and its low-roof transition at S35 of the measured 59.75-ft frontage. The rear
+section therefore occupies 41.4% of the west elevation. The lower roof, hood,
+cornice and northwest shoulder meet the revised profile; the courtyard windows
+and projecting eave retain T-2183's controls. Dimensions remain reconstructed.
+
+Before/after actual-GLB views, reference controls and validation receipts:
+`RESEARCH/glessner-west-profile-2231/README.md`. Both owner references were
+reviewed against the final west and northwest renders. All 792 repository
+checks, 3,000 roof samples, nine masonry/glass checks, recovery verification,
+and focused published desktop/mobile review pass. Published desktop and mobile stage 13 each
+pass all 126 checks with zero page errors. Dev `7aed0a2a` is integrated, and
+full preflight on the combined tree passes all 792 steps. The report states
+the browser runs' timing relative to integration; the full town smoke was
+not rerun. Subsequent dev `35dae52e` is also integrated verbatim, and final
+preflight again passes all 792 steps. Glessner asset checksums are unchanged.
+
 ## T-2176 — the South's last asked-for houses and its last owed barn: block 81's lot 1, block 95's lot 1, and a barn on South Water–Wells (2026-10-08)
 
 Rebuilt on `dev` at bd4f140d0 from salvage PR #536, then lapped over T-2179 (2acf51667) and walked again. That branch was cut before T-2174 re-dealt the

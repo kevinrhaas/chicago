@@ -82,7 +82,7 @@ window.PrairieImages = (() => {
   function forBuilding(id) { return array(imgs?.by_building?.[id]).map(i => byId.get(i)).filter(Boolean); }
   // The card's lead picture: an in-period front view held here, else anything held here.
   function leadImage(id) {
-    const list = forBuilding(id).filter(r => thumbOf(r) || remoteThumbOf(r));
+    const list = forBuilding(id).filter(r => (!r.evidence_review || r.evidence_review.geometry_use === 'corroborate with dated evidence') && !/design|documentation/.test(r.evidence_review?.evidence_role || '') && (thumbOf(r) || remoteThumbOf(r)));
     const score = r => (r.period === 'in-period' ? 0 : r.period === 'near-period' ? 2 : 4) + (/front|elevation|oblique/i.test(r.view || '') && !/plan|section/i.test(r.view || '') ? 0 : 1) + (/plan|section|map/i.test(r.view || '') ? 2 : 0) + (thumbOf(r) ? 0 : 0.5);
     return list.sort((x, y) => score(x) - score(y))[0] || null;
   }
@@ -99,7 +99,7 @@ window.PrairieImages = (() => {
     if (f.rights === 'here' && !r.local) return false;
     if (f.rights === 'link' && r.local) return false;
     if (f.term) {
-      const hay = [r.id, r.title, r.kind, r.view, r.facing, r.camera_position, r.date, r.creator, r.repository, r.collection, r.call_number, r.notes, ...array(r.addresses), ...r.building_ids.map(buildingName)].join(' ').toLowerCase();
+      const hay = [r.id, r.title, r.kind, r.view, r.facing, r.camera_position, r.date, r.creator, r.repository, r.collection, r.call_number, r.notes, ...Object.values(r.evidence_review || {}), ...array(r.addresses), ...r.building_ids.map(buildingName)].join(' ').toLowerCase();
       if (!f.term.split(/\s+/).every(t => hay.includes(t))) return false;
     }
     return true;
@@ -132,6 +132,7 @@ window.PrairieImages = (() => {
     b.append(node('span', PERIOD_LABEL[r.period] || r.period, 'badge period-' + r.period));
     if (!r.local) b.append(node('span', 'Link only', 'badge link-badge')); else if (!r.local.display) b.append(node('span', 'Thumbnail here', 'badge link-badge'));
     if (r.rights === 'pending — permission requested') b.append(node('span', 'Rights pending', 'badge pending-badge'));
+    if (r.evidence_review) b.append(node('span', r.evidence_review.evidence_role, 'badge evidence-badge'));
     return b;
   }
   function chipsFor(r, onPick) {
@@ -294,9 +295,38 @@ window.PrairieImages = (() => {
     const cap = node('figcaption'); cap.append(node('p', [r.kind, dateText(r), r.creator].filter(Boolean).join(' · '), 'kicker'), node('h2', r.title || r.id)); fig.append(cap);
     const info = node('div', null, 'img-info');
     const dl = node('dl');
-    for (const [k, v] of [['View', [r.view, r.facing && 'facing ' + r.facing].filter(Boolean).join(', ')], ['Camera', r.camera_position], ['Date', dateText(r) + (r.period ? ' — ' + (PERIOD_LABEL[r.period] || r.period) : '')], ['Made by', r.creator], ['Holder', [r.repository, r.collection].filter(Boolean).join(' · ')], ['Call no.', r.call_number], ['Rights', (RIGHTS_LABEL[r.rights] || r.rights) + (r.rights_basis ? ' — ' + r.rights_basis : '')], ['Checked', r.verified === 'viewed' ? 'Image or full record seen' : 'Catalogue listing only'], ['Record', r.id]]) if (v) dl.append(node('dt', k), node('dd', v));
+    for (const [k, v] of [['View', [r.view, r.facing && 'facing ' + r.facing].filter(Boolean).join(', ')], ['Camera', r.camera_position], ['Date', dateText(r) + (r.period ? ' — ' + (PERIOD_LABEL[r.period] || r.period) : '')], ['Made by', r.creator], ['Holder', [r.repository, r.collection].filter(Boolean).join(' · ')], ['Call no.', r.call_number], ['Rights', (RIGHTS_LABEL[r.rights] || r.rights) + (r.rights_basis ? ' — ' + r.rights_basis : '')], ['Checked', r.evidence_review?.review_state || (r.verified === 'viewed' ? 'Image or full record seen' : 'Catalogue listing only')], ['Record', r.id]]) if (v) dl.append(node('dt', k), node('dd', v));
     info.append(dl);
-    if (r.notes) info.append(node('p', r.notes));
+    if (r.evidence_review) {
+      const e = r.evidence_review, review = node('section', null, 'evidence-review');
+      review.append(node('h3', 'Evidence for 1 July 1904'), badges(r));
+      const facts = node('dl');
+      for (const [label, value] of [['Review', e.review_state + ' · ' + e.reviewed_on], ['Phase', e.phase], ['Date basis', e.date_basis], ['Geometry use', e.geometry_use], ['Evidence family', e.family || 'Independence not established'], ['Relationship', e.family_relationship]]) facts.append(node('dt', label), node('dd', value));
+      review.append(facts, node('p', e.reason));
+      if (array(e.family_members).length > 1) {
+        const members = node('ul');
+        e.family_members.filter(id => id !== r.id).forEach(id => {
+          const other = byId.get(id); if (!other) return;
+          const li = node('li'), button = node('button', other.title, 'text-button'); button.type = 'button';
+          button.addEventListener('click', () => { let j = current.findIndex(c => c.id === id); if (j < 0) { current = [other, ...current]; j = 0; } openDetail(j); });
+          li.append(button); members.append(li);
+        });
+        review.append(members);
+      }
+      info.append(review);
+    }
+    if (array(r.metadata_history).length) {
+      const history = node('details', null, 'metadata-history');
+      history.append(node('summary', 'Previous library description (correction history)'));
+      r.metadata_history.forEach(entry => {
+        history.append(node('p', entry.ticket + ' · ' + entry.date + ' · ' + entry.reason));
+        const before = node('dl');
+        Object.entries(entry.before || {}).forEach(([key, value]) => before.append(node('dt', key), node('dd', value == null ? 'Not recorded' : String(value))));
+        history.append(before);
+      });
+      info.append(history);
+    }
+    if (r.notes && r.notes !== r.evidence_review?.reason) info.append(node('p', r.notes));
     if (array(r.measurements).length) {
       info.append(node('h3', 'Measurements stated'));
       const ul = node('ul'); r.measurements.forEach(m => ul.append(node('li', [m.what, m.value, m.locator && '(' + m.locator + ')'].filter(Boolean).join(' — ')))); info.append(ul);
@@ -308,7 +338,7 @@ window.PrairieImages = (() => {
     share.addEventListener('click', () => { const u = new URL(location.href); u.hash = 'image=' + encodeURIComponent(r.id); navigator.clipboard?.writeText(u.href).then(() => { share.textContent = 'Link copied'; }, () => { share.textContent = u.href; }); });
     links.append(share); info.append(links);
     if (r.building_ids.length) {
-      info.append(node('h3', 'Shows'));
+      info.append(node('h3', r.evidence_review?.evidence_role === 'disputed attribution' ? 'Catalog association (disputed)' : 'Shows'));
       const ul = node('ul', null, 'img-shows');
       r.building_ids.forEach(id => {
         const li = node('li'), n = forBuilding(id).length;
