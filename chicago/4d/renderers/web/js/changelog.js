@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1575, ts: '2026-10-09T12:57:39.732Z', date: 'Oct 9, 2026, 7:57 AM CT', title: 'Each person\u2019s card now lists when the records place them', kind: 'feature',
+    items: [
+      'Open a resident\u2019s card and a new row, \u2018Seen in the record, by date\u2019, lists every dated line the town holds for that person, oldest first: a poll list, a tax roll, a newspaper notice, the 1830 census or the St Mary\u2019s baptismal register. 386 people have at least one line.',
+      'Each line says what it proves. A vote cast or a christening attended at Chicago puts the person in the town by that day. A name in print, an 1830 census line or a date after 1 July 1835 is shown for what it is and proves nothing about the scene date.',
+      'Twenty-six godparents and sponsors at St Mary\u2019s, among them Josette Laframboise, Jean Baptiste Lavigne and Edward Daly, now have their christening days on these lists. Before this they were named on their cards with no date attached.',
+    ] },
   { v: 1574, ts: '2026-10-09T11:57:00.192Z', date: 'Oct 9, 2026, 6:57 AM CT', title: 'Shopkeepers now live over their own stores', kind: 'fix',
     items: [
       'Eighteen stores in the 1835 town stood with nobody living in them while their keepers boarded in other people\u2019s houses. Open Peter Cohen\u2019s store on South Water Street, or L. W. Montgomery\u2019s boot and shoe shop beside it, and the keeper\u2019s household is now listed as living there. Thirteen keepers moved into the store their own business already stood in. Five more whose business had no building took an empty store in their part of town.',
