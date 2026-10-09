@@ -1,8 +1,13 @@
 export const CHANGELOG = [ // newest first
-  { v: 1561, ts: '2026-10-09T04:10:13.261Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
+  { v: null, ts: '', title: 'The town plan stops asking for second families in its stores', kind: 'fix',
     items: [
       'Open Evidence \u2192 Reconstructing the town and look at Households. The plan had asked for 77 shopkeepers\u2019 households to live in the town\u2019s 52 stores, about one and a half for each store, because it shared households out by building counts. A store houses one family, the keeper\u2019s, so the plan now asks for at most one per store. 25 fewer households are wanted.',
       'That still leaves 31 to house: one keeper\u2019s family for each store that has nobody living in it. The grocers, merchants and milliners already in the town come first. No new people are made up.',
+    ] },
+  { v: 1561, ts: '2026-10-09T04:10:43.709Z', date: 'Oct 8, 2026, 11:10 PM CT', title: 'Groundwork for correcting guessed families', kind: 'fix',
+    items: [
+      'Some of the town\u2019s households were guessed to be married men and given an invented wife and children. When a source shows that the head was a woman, or that she was a bride whose card belongs in her husband\u2019s house, that invented family now leaves with the guess. Nobody new is invented in its place.',
+      'The steps that rebuild the invented families now run until they agree with each other, instead of in a single pass that could leave them disagreeing. This clears the way for three corrections waiting on it, starting with Mark Noble jun.\u2019s marriage to Charlotte Wesencraft. Nothing on the map changes yet.',
     ] },
   { v: 1560, ts: '2026-10-09T03:46:53.815Z', date: 'Oct 8, 2026, 10:46 PM CT', title: 'Glessner’s courtyard roof regains its full height', kind: 'fix',
     items: [
