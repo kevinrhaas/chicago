@@ -249,6 +249,9 @@ mkdir -p "$SITE/data/scenes"
 cp -f data/scenes/*.json "$SITE/data/scenes/" 2>/dev/null || true
 rm -f "$SITE"/data/[0-9]*.json
 cp -f data/datum.json "$SITE/data/"
+# T-2200 frozen metric/photo comparison, consumed by the isolated review page.
+mkdir -p "$SITE/data/comparisons/glessner"
+cp -f data/comparisons/glessner/*.json "$SITE/data/comparisons/glessner/"
 # The liberties list the Evidence panel reads. Derived from docs/LIBERTIES.md,
 # which itself stays out of the payload.
 cp -f data/liberties.json "$SITE/data/"

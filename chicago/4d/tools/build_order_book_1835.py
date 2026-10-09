@@ -1189,8 +1189,9 @@ def store_residence_ruling(households: list, structures: list) -> dict | None:
                   "store-trade heads among them rather than from anybody new.",
         "what_this_does_not_do": "It moves, mints and retires nobody, it does not re-apportion "
                                  "the discharged households to the dwelling rows, and it does "
-                                 "not count the households outside the index: that count "
-                                 "moves every household row and is T-2237's.",
+                                 "not count the households outside the index: T-2237 "
+                                 "counts those beside the held heads "
+                                 "(count_held_head_dwellings_1835.py, `beyond_the_index`).",
     }
 
 

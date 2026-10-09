@@ -544,11 +544,14 @@ def census_document() -> dict:
                          "the institutional households — so it counts more people present "
                          "on 1 July than this figure does. They are not added here: counted "
                          "in, the town would hold more people on 1 July than the November "
-                         "census counted four months later. T-2194 ruled the question "
-                         "this raised: the index is short, because the order book's "
-                         "household quota counts houses off it alone, and counting these "
-                         "households in is T-2237's, not a sum this file may settle by "
-                         "adding.",
+                         "census counted four months later. T-2194 found the order "
+                         "book's household quota reads houses off the index alone, and "
+                         "T-2237 counted these cards against it "
+                         "(data/reconstruction/1835_held_head_dwellings.json, "
+                         "`beyond_the_index`), saying which are beds in a household "
+                         "another seat forms and which are houses of their own. Whether "
+                         "the town holds too many PEOPLE is not a sum this file may "
+                         "settle by adding.",
         },
         "transients": transient_block(),
     }

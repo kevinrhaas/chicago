@@ -237,11 +237,12 @@ Reproduce: `python3 tools/location_reconciliation.py --check` · `python3 tools/
 | `outside_chicago` | 118 |
 | `refused` | 8,783 |
 
-The same rule over the gate itself: of **274** tools carrying a `--check`, **266** are run by `tools/check.sh` and **8** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
+The same rule over the gate itself: of **287** tools carrying a `--check`, **278** are run by `tools/check.sh` and **9** are not. Each of those declares why and who owns the answer, and **0** state no reason (C9):
 
 | Ungated check | Owner | States why |
 | --- | ---: | ---: |
 | `generators/terrain_gen_e1830.py` | T-2003 | yes |
+| `tools/glessner_camera_baseline.py` | T-2228 | yes |
 | `tools/measure_boot_payload.mjs` | T-1156 | yes |
 | `tools/measure_boot_phases.mjs` | T-1246 | yes |
 | `tools/measure_street_widths.py` | — | yes |

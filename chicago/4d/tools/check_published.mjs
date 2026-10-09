@@ -49,6 +49,7 @@ const COPIES = [
   ['tickets.json', 'tickets/tickets.json'],
   ['data/scenes/', 'data/scenes/'],
   ['data/datum.json', 'data/datum.json'],
+  ['data/comparisons/glessner/', 'data/comparisons/glessner/'],
   ['data/liberties.json', 'data/liberties.json'],
   ['data/town_census.json', 'data/town_census.json'],
   ['data/render/town_completion_1835.json', 'data/render/town_completion_1835.json'],
