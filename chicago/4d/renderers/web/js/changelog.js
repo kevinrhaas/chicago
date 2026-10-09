@@ -1,4 +1,8 @@
 export const CHANGELOG = [ // newest first
+  { v: 1586, ts: '2026-10-09T18:39:41.720Z', date: 'Oct 9, 2026, 1:39 PM CT', title: 'The six owed South roofs filed under their new builder', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The six houses still owed on the South side\u2019s unsurveyed blocks now wait on the Monroe-to-Adams tier the next runs will lay out, so the plan of what is left to build names that work and the automated checks pass again.',
+    ] },
   { v: 1585, ts: '2026-10-09T17:54:48.792Z', date: 'Oct 9, 2026, 12:54 PM CT', title: 'Four townsmen\u2019s cards now list the public posts they held', kind: 'feature',
     items: [
       'Open John S. C. Hogan\u2019s card: his roles now include trustee of the town of Chicago, read in the 1835 act on the town\u2019s incorporation.',
