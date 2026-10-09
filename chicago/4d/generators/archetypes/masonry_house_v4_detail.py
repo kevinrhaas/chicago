@@ -247,6 +247,8 @@ class DetailBuilder(MeshBuilder):
                                       'z0':a['z0']+.05,'z1':a['z1']-.035})
         self.course_schedule = params.detail.get('ashlar_courses_m') or [0.4572,0.4572,0.3937,0.2413,0.3429,0.3683,0.1905,0.3683,0.1905,0.2921]
         self.masonry_blocks = self.roof_tiles = 0
+        self.roof_uvs = {}
+        self.roof_surfaces = []
 
     def add_box(self,x0,y0,z0,x1,y1,z1,confidence,mat=0,skip=()):
         # Correct outward winding locally. The legacy helper's inward box faces
@@ -298,7 +300,7 @@ class DetailBuilder(MeshBuilder):
         if self.decorate and mat in (GRANITE,BRICK) and abs(n[2]) < .005:
             self.wall(pts,confidence,mat)
             return []
-        if self.decorate and mat == ROOF and n[2] > .12:
+        if mat == ROOF and 1e-6 < n[2] < .999999:
             self.tiles(pts,confidence)
             return []
         return self.raw(pts,confidence,mat)
@@ -453,43 +455,56 @@ class DetailBuilder(MeshBuilder):
             for i in range(len(front)):
                 surface([front[i],front[(i+1)%len(front)],center])
 
-    def tiles(self, pts, confidence):
+    def roof_frame(self, pts):
+        """Metre coordinates on the HOST slope, shared across clipped fragments.
+
+        Global height fixes course phase on equal-pitch cone facets; using each
+        raised tile's normal would drift the UVs away from its host courses.
+        """
         normal=norm(legacy._normal(pts))
         uphill=norm((-normal[0]*normal[2],-normal[1]*normal[2],1-normal[2]*normal[2]))
-        if abs(uphill[2])<1e-5:
-            return self.raw(pts,confidence,ROOF)
-        u=norm(cross(uphill,normal))
-        d=dot(pts[0],normal)
-        poly=[(dot(p,u),dot(p,uphill)) for p in pts]
-        if area(poly)<0:
-            poly.reverse()
+        u=norm(cross(uphill,normal));distance=dot(pts[0],normal)
+        offset=normal[2]*distance/uphill[2]
+        def coords(p):return (dot(p,u),dot(p,uphill)+offset)
+        def point(q,off=0):
+            return tuple(u[k]*q[0]+uphill[k]*(q[1]-offset)+normal[k]*(distance+off) for k in range(3))
+        poly=[coords(p) for p in pts]
+        if area(poly)<0:poly.reverse()
+        self.roof_surfaces.append({'points':pts,'area_m2':abs(area(poly)),
+                                   'normal':normal,'phase_offset':offset})
+        return normal,poly,point,coords
+
+    def roof_raw(self, pts, confidence, mat, normal, coords):
+        indices=self.raw(pts,confidence,mat,normal)
+        for index in indices:self.roof_uvs[index]=coords(self.verts[index])
+
+    def tiles(self, pts, confidence):
+        normal,poly,point,coords=self.roof_frame(pts)
+        self.roof_raw(pts,confidence,ROOF,normal,coords)
+        spec=self.params.detail['roof_tiles']
+        w,h=spec['width_in']*.0254,spec['exposure_in']*.0254
+        joint,relief=spec['joint_m'],spec['lap_relief_m']
         a,b,c,e=bounds(poly)
-        if abs(area(poly))<.08:
-            return self.raw(pts,confidence,ROOF)
-        self.raw(pts,confidence,ROOF)
-        def point(q,off):
-            return tuple(u[k]*q[0]+uphill[k]*q[1]+normal[k]*(d+off) for k in range(3))
-        w,h=.2032,.12192
+        # Clip every fragment, including narrow returns and cone tips. The
+        # continuous mapped bed closes the joints and all computational cuts.
         for row in range(math.floor(b/h),math.ceil(e/h)):
             y0,y1=row*h,(row+1)*h
             shift=.5*w if row%2 else 0
             for col in range(math.floor((a-shift)/w),math.ceil((c-shift)/w)):
                 x0=col*w+shift
-                tile=rect_clip(poly,x0+.002,y0+.002,x0+w-.002,y1+.005)
-                if not tile:
-                    continue
+                tile=rect_clip(poly,x0+joint/2,y0,x0+w-joint/2,y1)
+                if not tile:continue
                 rng=random.Random(row*10007+col*813+31)
                 mat=19+rng.randrange(3)
-                # Raised lower edge and slight lap cast an honest narrow shadow.
-                def raised(q):
-                    return .006+.006*(1-(q[1]-y0)/h)
+                def raised(q):return relief+relief*(1-(q[1]-y0)/h)
                 front=[point(q,raised(q)) for q in tile]
-                self.raw(front,confidence,mat,normal)
+                self.roof_raw(front,confidence,mat,normal,coords)
+                # Individual noses close the lap instead of a broad stripe
+                # stretching through every tile joint across the whole course.
+                for q,r in zip(tile,tile[1:]+tile[:1]):
+                    if abs(q[1]-y0)<1e-7 and abs(r[1]-y0)<1e-7:
+                        self.roof_raw([point(q,relief),point(r,relief),point(r,raised(r)),point(q,raised(q))],confidence,mat,normal,coords)
                 self.roof_tiles+=1
-
-            lip=rect_clip(poly,a,y0+.002,c,y0+.012)
-            if lip:
-                self.raw([point(q,.013 if q[1]<y0+.007 else .001) for q in lip],confidence,19+row%3,normal)
 
 
 def solid_polygon(b, pl, poly, depth0, depth1, confidence, mat):
@@ -1424,21 +1439,16 @@ def west_hood(b,p,d):
     slab(b,pl,o['u1'],c,o['z0'],o['z1'],-.03,.03,conf,23)
     for u in (a,c):
         zf=height(r,front,u);zb=height(r,back,u)
-        b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,19,
+        b.raw([(apron_front,u,apron_z),(front,u,zf),(front,u,o['z0'])],conf,ROOF,
               (0,-1 if u==a else 1,0))
         cheek_back=back
         if d.get('connected_ridge') and zb>d['eave_z']:
             cheek_back=front+(back-front)*(d['eave_z']-zf)/(zb-zf)
             zb=d['eave_z']
         cheek=[(front,u,zf),(cheek_back,u,zb),(cheek_back,u,d['eave_z']),(front,u,d['eave_z'])]
-        b.raw(cheek,conf,19,(0,-1 if u==a else 1,0))
-        # Restrained overlapping tile courses on the cheeks (not masonry).
-        low=min(zf,zb);step=.13
-        for i in range(max(0,int((d['eave_z']-low)/step))):
-            zl=low+i*step;zh=min(d['eave_z'],zl+step)
-            if zh<=max(zf,zb):continue
-            at=u+(-.014 if u==a else .014)
-            b.raw([(front,at,max(zl,zf)),(cheek_back,at,max(zl,zb)),(cheek_back,at,zh),(front,at,zh)],conf,19+i%3,(0,-1 if u==a else 1,0))
+        want=(0,-1 if u==a else 1,0)
+        if dot(legacy._normal(cheek),want)<0:cheek.reverse()
+        b.tiles(cheek,conf)
     opening(b,o)
     # Outward fascia, sill and small hood brackets are visible from below.
     slab(b,pl,a-overhang,c+overhang,d['eave_z']-.10,d['eave_z'],-.02,d['front']-d['hood_front'],conf,23)
@@ -1562,7 +1572,7 @@ def build(params,name):
     stair_tower_plinth(b,params)
     add_courtyard_rainwater(b,params)
     obj=b.to_object(build_materials(params.colours))
-    assign_metric_uvs(obj)
+    assign_metric_uvs(obj,b.roof_uvs)
     _discard_export_scratch_uv(obj)
     obj['detail_profile']='glessner_v4'
     obj['masonry_blocks']=b.masonry_blocks

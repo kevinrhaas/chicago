@@ -21,13 +21,15 @@ SURFACE_UV = "SurfaceUV"
 BAKE_UV = "BakeUV"
 
 # One repeat in metres. The module sizes are reconstructed. The tall brick repeat
-# covers 32 small courses; the roof repeat covers 16 flat overlapping tile courses.
+# covers 32 small courses. Roof tiles use the HABS 6-inch width / 5-inch
+# exposure in a 16-by-16 repeat; terracotta is the separate grain-only fabric.
 TILE_M = {
     "granite": (1.6, 1.6),
     "brick": (1.7272, 2.1336),
     "limestone": (1.2, 1.2),
     "mortar": (1.2, 1.2),
     "terracotta": (2.4384, 1.95072),
+    "roof_tiles": (16 * 6 * .0254, 16 * 5 * .0254),
     "copper": (2.4, 2.4),
     "oak": (0.8, 2.4),
     "painted_wood": (0.8, 2.4),
@@ -51,7 +53,7 @@ ROUGH_TRIM = 24
 GRASS_BLADES = (25, 26, 27)
 
 SLOT_FABRIC = {
-    0: "granite", 1: "brick", 2: "limestone", 3: "terracotta",
+    0: "granite", 1: "brick", 2: "limestone", 3: "roof_tiles",
     4: "copper", 6: "oak", 7: "turf", 8: "gravel", 9: "mortar",
     12: "granite", 13: "granite", 14: "granite", 15: "granite",
     16: "brick", 17: "brick", 18: "brick",
@@ -156,7 +158,7 @@ def build_materials(colours=None):
         _pbr(bpy, "granite", "granite", tint=(0.78, 0.95, 1.0), normal_strength=1.0),
         _pbr(bpy, "brick", "brick", tint=(0.88, 0.88, 0.88), normal_strength=0.85),
         _pbr(bpy, "limestone_trim", "limestone", normal_strength=0.65),
-        _pbr(bpy, "roof_plane", "terracotta", normal_strength=0.70),
+        _pbr(bpy, "roof_plane", "roof_tiles", normal_strength=0.70),
         _pbr(bpy, "copper", "copper", normal_strength=0.18, metallic=0.78),
         _plain(bpy, "glass", (0.945, 0.97, 0.953, 1), roughness=0.065),
         _pbr(bpy, "oak", "oak", normal_strength=0.45),
@@ -206,7 +208,7 @@ def build_materials(colours=None):
     return mats
 
 
-def assign_metric_uvs(ob):
+def assign_metric_uvs(ob, roof_uvs=None):
     """Metric UVs for walls and pitched planes; preserve them through emit.unwrap.
 
     SurfaceUV is the first / render-active layer and every PBR node requests it
@@ -238,7 +240,8 @@ def assign_metric_uvs(ob):
         tu, tv = TILE_M.get(fabric, (1.0, 1.0))
         for li in poly.loop_indices:
             co = mesh.vertices[mesh.loops[li].vertex_index].co
-            surface.data[li].uv = (co.dot(horizontal) / tu, co.dot(uphill) / tv)
+            uv=(roof_uvs or {}).get(mesh.loops[li].vertex_index,(co.dot(horizontal),co.dot(uphill)))
+            surface.data[li].uv = (uv[0] / tu, uv[1] / tv)
     surface.active_render = True
     scratch = mesh.uv_layers.get(BAKE_UV) or mesh.uv_layers.new(name=BAKE_UV)
     mesh.uv_layers.active = scratch
