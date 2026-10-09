@@ -1,5 +1,5 @@
 export const CHANGELOG = [ // newest first
-  { v: null, ts: '', date: '', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
+  { v: 1565, ts: '2026-10-09T07:24:36.688Z', date: 'Oct 9, 2026, 2:24 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [
       'Walk west along Lake Street to Franklin and look across at the narrow block by the bend of the river. The middle Lake Street lot there, grazed prairie until now, has a larger frame house on it, set back from the street. The Franklin corner beside it stays open.',
       'One household in the town plan had asked for a roof on that lot, and every household the plan seats on the town\u2019s lots now has a house again.',
