@@ -174,7 +174,11 @@ CONSUMED = {
                                            "band_n_m", "west_band_m"}),
     "spit_1812": frozenset({"feature", "crest_ft", "face_m"}),
     "isthmus_1812": frozenset({"decision", "feature", "width_ft", "crest_ft", "face_m"}),
-    "north_lake_shore_1812": frozenset(),
+    "north_lake_shore_1812": frozenset({"curve"}),
+    # T-2066: an 1812 reach of the dune pass above, every figure a build instruction.
+    "south_lake_sand_hills_1812": frozenset({"n_range", "end_fade_m", "ridges", "hollow",
+                                             "wander_m", "wander_wavelength_m",
+                                             "hummock_wavelength_m", "seed"}),
 }
 
 

@@ -9,10 +9,10 @@
       "persons": 2667,
       "businesses": 193
     },
-    "structures": 559,
-    "structures_sharing_a_name": 69,
+    "structures": 673,
+    "structures_sharing_a_name": 80,
     "streets": 80,
-    "resident_persons": 1441
+    "resident_persons": 1440
   },
   "counts": {
     "businesses": {
@@ -24,9 +24,9 @@
       },
       "by_action": {
         "enrich_existing": 31,
-        "new_building": 27,
-        "street_only": 56,
-        "unplaceable": 79
+        "new_building": 33,
+        "street_only": 52,
+        "unplaceable": 77
       },
       "by_placement_class": {
         "corner": 16,
@@ -36,9 +36,9 @@
       },
       "present_by_action": {
         "enrich_existing": 31,
-        "new_building": 27,
-        "street_only": 56,
-        "unplaceable": 62
+        "new_building": 33,
+        "street_only": 52,
+        "unplaceable": 60
       },
       "outside_the_plat": 5,
       "survival_liberty_required": 95,
@@ -59,11 +59,11 @@
         "boarding_house_keeper": 1,
         "hotel_keeper": 1,
         "merchant": 1,
-        "none_recorded": 1019,
+        "none_recorded": 1018,
         "printer": 1,
         "tavern_keeper": 2
       },
-      "households_total": 1025,
+      "households_total": 1024,
       "retirable_by_trade": {
         "merchant": 1,
         "tavern_keeper": 2
@@ -1695,19 +1695,19 @@
       "survival_liberty_required": true,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor \"Newberry & Dole's store\" names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "street_only",
-      "action_target": "south_water",
+      "action": "new_building",
+      "action_target": "dole_warehouse_south",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "The paper names South Water Street and nothing narrower; the anchor \"Newberry & Dole's store\" names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south."
     },
     {
       "id": "business_d_o_robinson_and_r_a_neff",
@@ -3669,19 +3669,19 @@
       "survival_liberty_required": true,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "street_only",
-      "action_target": "dearborn",
+      "action": "new_building",
+      "action_target": "dole_warehouse_south",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south."
     },
     {
       "id": "business_j_bates_jr_auction_store",
@@ -7032,19 +7032,19 @@
       "survival_liberty_required": true,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor 'the store of Messrs Newberry & Dole' names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "unplaceable",
-      "action_target": null,
+      "action": "new_building",
+      "action_target": "dole_warehouse_south",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "No street the model holds. The anchor 'the store of Messrs Newberry & Dole' names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south."
     },
     {
       "id": "business_the_chicago_brewery",
@@ -7724,11 +7724,11 @@
       "survival_liberty_required": false,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor \"Messrs. Newberry & Dole's store\" names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
@@ -8304,19 +8304,19 @@
       "survival_liberty_required": true,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor \"Newberry & Dole's store\" names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "unplaceable",
-      "action_target": null,
+      "action": "new_building",
+      "action_target": "dole_warehouse_south",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "No street the model holds. The anchor \"Newberry & Dole's store\" names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south."
     },
     {
       "id": "business_w_h_taylor",
@@ -8840,19 +8840,19 @@
       "survival_liberty_required": false,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor \"Messrs. Newberry & Dole's Store\" names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "street_only",
-      "action_target": "dearborn",
+      "action": "new_building",
+      "action_target": "dole_warehouse_south",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "The paper names Dearborn Street and nothing narrower; the anchor \"Messrs. Newberry & Dole's Store\" names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south."
     },
     {
       "id": "business_wm_h_taylor_boot_shoe_leather_store",
@@ -8891,19 +8891,19 @@
       "survival_liberty_required": false,
       "backdating_liberty_required": false,
       "anchor": {
-        "kind": "unresolved",
-        "target": null,
+        "kind": "structure",
+        "target": "dole_warehouse_south",
         "streets": null,
         "via": null,
-        "note": "The anchor \"Newberry & Dole's Store\" names nothing the committed town holds."
+        "note": "The landmark is the committed structure dole_warehouse_south."
       },
       "anchor_change": null,
       "outside_plat": null,
-      "action": "street_only",
-      "action_target": "dearborn",
+      "action": "new_building",
+      "action_target": "dole_warehouse_south",
       "match_tier": null,
       "match_evidence": null,
-      "action_note": "The paper names Dearborn Street and nothing narrower; the anchor \"Newberry & Dole's Store\" names nothing the committed town holds."
+      "action_note": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south."
     },
     {
       "id": "business_wm_hogue_co",
@@ -11531,7 +11531,7 @@
       "last_seen": "1833-12-17",
       "action": "enrich",
       "action_target": "weaver_betsy",
-      "action_note": "data/residents/ already holds this person as weaver_betsy (hh_weaver_betsy, attested) — the civic pass minted that card from this printed name, so the link is the card's id and not its display string. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as weaver_betsy (hh_ingersoll_chester, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_beyera_tobia",
@@ -15271,7 +15271,7 @@
       "last_seen": "1834-11-19",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_dodge_trowbridge",
@@ -15733,7 +15733,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_s_kimberly",
@@ -15744,7 +15744,7 @@
       "last_seen": "1835-07-01",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_e_simons",
@@ -15953,7 +15953,7 @@
       "last_seen": "1834-08-13",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_edmund_uncertain_poke",
@@ -34686,7 +34686,7 @@
       "last_seen": "1834-07-16",
       "action": "enrich",
       "action_target": "kimberly_edmund_s",
-      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_pruyne_kimberly, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_note": "data/residents/ already holds this person as kimberly_edmund_s (hh_kimberly_edmund_s, attested) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_douglass_sloan",
@@ -35059,8 +35059,8 @@
       "first_seen": "1834-04-01",
       "last_seen": "1834-04-01",
       "action": "enrich",
-      "action_target": "bourassa_lon",
-      "action_note": "data/residents/ already holds this person as bourassa_lon (hh_bourassa_lon, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
+      "action_target": "bourrassa_leon",
+      "action_note": "data/residents/ already holds this person as bourrassa_leon (hh_bourrassa_leon, inferred) — matched under the gazetteer's identity policy, surname plus forename initials. The papers add mentions and dates."
     },
     {
       "id": "person_uncertain_loon_bowrassa",

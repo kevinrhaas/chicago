@@ -1,0 +1,118 @@
+{
+  "id": "first_fort_outer_officers_garden",
+  "name": "First Fort Dearborn — the Commanding Officer's garden",
+  "aka": [
+    "'Comm'g Officers Garden' on Whistler's draught"
+  ],
+  "archetype": "palisade",
+  "phases": [
+    {
+      "id": "first_fort_1803",
+      "documented_range": {
+        "from": "1808-01-25",
+        "to": "1812-08-16",
+        "confidence": "inferred",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "andreas_1884_v1"
+        ],
+        "note": "THE RANGE IS INFERRED, NOT DATED FOR THIS BUILDING. It opens on 25 January 1808, the date Whistler's draught carries, which is the one day on which a source shows it standing. It may well be older: the factory and the agency were set up at the post in the years after 1803, and nothing in the corpus dates either house. It closes on 16 August 1812 with the first fort, the day after the evacuation, when the post was burned (data/exclusions.json fort_dearborn_first_1803). No source in the corpus says these houses burned with it. Closing them with the fort is the conservative reading: it keeps them out of every later scene and adds nothing to one."
+      },
+      "position": {
+        "utm_e": 448186.54,
+        "utm_n": 4637503.11,
+        "rotation_deg": 0.0,
+        "symbolic_location": "Outside the first Fort Dearborn, in the frame of Whistler's 1808 draught (T-2062 rule, part 'officers_garden'): E -125.2..+103.8 ft, N -373.0..-258.0 ft of the flagstaff's foot, facing north; this record's origin is the box's corner the seat names for that facing.",
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught",
+          "chicagology_prefire052"
+        ],
+        "note": "PLACED BY T-2062's RULE, NOT MEASURED. The draught lays down the garrison at twenty feet to the inch and says the buildings outside it are 'not laid down by a scale', so this box is the sheet's ARRANGEMENT opened out about the main gate. The sheet box is px [752, 1514, 1166, 1722]. Its offset from the gate's mouth (px [964, 1150]) is multiplied by 2.5, the ratio of the garden's lettered '5o feete to the Inch' to the garrison's twenty. The rule and its numbers are data/traces/whistler_1808_fort_dearborn.json § outside_the_stockade, and tools/read_whistler_1808.py --check (run by check.sh) refuses this point if it is not what the rule gives, to 0.01 m. Seated with the fort's own frame: the staff's foot at local E +1152, N +221, the frame's north on grid north. The rule is a reconstruction (docs/LIBERTIES.md), so this position carries the drafter's own disagreement between his figures: his two stated distances open the sheet out 3.3 and 6.8 times.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "Not by any of validate.py's methods (platted corner, traced waterline, street frontage). It is a reconstruction by stated rule, and tools/read_whistler_1808.py --check (run by check.sh) recomputes it: it refuses this utm point and rotation unless they are what the register's outside_the_stockade rule and the fort's seat give this record's box, to 0.01 m (T-2062)."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            69.799,
+            0
+          ],
+          [
+            69.799,
+            35.052
+          ],
+          [
+            0,
+            35.052
+          ]
+        ],
+        "confidence": "reconstructed",
+        "sources": [
+          "whistler_1808_fort_dearborn_draught"
+        ],
+        "note": "MEASURED AT THE GARDEN'S OWN LETTERED SCALE, '5o feete to the Inch' (inferred reading, register § outside_the_stockade): the four ruled sides, px 752..1166 by 1514..1722, are 229 x 115 ft. The scale reading is inferred and the drafter's lines are freehand, so the box is reconstructed."
+      },
+      "form": {
+        "wall_kind": {
+          "value": "picket_stockade",
+          "confidence": "reconstructed",
+          "note": "A paling: a fence of light pales set in the ground. The draught draws the garden's bounds as plain ruled lines, not the zigzag of a worm fence, and letters the yards beside nos. 17 and 18 'Paling'. That this garden had the same fence is the reconstruction."
+        },
+        "construction": {
+          "value": "log",
+          "confidence": "reconstructed",
+          "note": "Unattested. Split pales, the archetype's light-post kind."
+        },
+        "picket_height_m": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Unattested. Five feet, enough to keep stock out of a garden, and the lowest the archetype builds."
+        },
+        "picket_width_m": {
+          "value": 0.12,
+          "confidence": "reconstructed",
+          "note": "Unattested. A split pale."
+        },
+        "picket_spacing_m": {
+          "value": 0.2,
+          "confidence": "reconstructed",
+          "note": "Unattested. Pales a hand apart."
+        },
+        "gate_sides": {
+          "value": [
+            "n"
+          ],
+          "confidence": "inferred",
+          "sources": [
+            "whistler_1808_fort_dearborn_draught"
+          ],
+          "note": "The draught brings a walk into the garden at mid-width on its north side, toward the fort."
+        },
+        "gate_width_m": {
+          "value": 1.5,
+          "confidence": "reconstructed",
+          "note": "Unattested. A walk's width."
+        }
+      }
+    }
+  ],
+  "function": {
+    "value": "company_gardens",
+    "confidence": "attested",
+    "sources": [
+      "whistler_1808_fort_dearborn_draught",
+      "chicagology_prefire052",
+      "quaife_1913"
+    ],
+    "note": "Lettered 'Comm'g Officers Garden' south of the fort, eight beds in two rows. The Chicago Magazine of 1857 on the first fort: 'the garden on the south side'. Quaife: melons and other small fruit and vegetables."
+  },
+  "research_note": "THE GARDEN SOUTH OF THE FIRST FORT (T-2062). It is the one part outside the stockade that states a scale of its own, '5o feete to the Inch', read at T-2062. So its SIZE is a measurement at that inferred scale, and its PLACE is the reconstruction. ONLY THE PALING IS BUILT. The eight beds and the walks are ground, and the flora layer has no cultivated zone for them, so the plot inside is the prairie the 1812 cover lays (as with the 1830 garrison garden).",
+  "review_required": false
+}

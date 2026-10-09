@@ -161,6 +161,8 @@ GENERATOR_OF_PHASE = (
     ("phase2_inferred_households", "tools/generate_inferred_households.py"),
     ("canal_approach_trade_1835", "tools/generate_canal_approach_trade.py"),
     ("west_freight_forks_1835", "tools/generate_west_freight.py"),
+    ("west_freight_bank_1835", "tools/generate_west_freight.py"),
+    ("north_freight_bank_1835", "tools/generate_north_freight.py"),
 )
 
 # The liberties that cover EVERY reconstruction (`recon_*`, `inf_*`) state a rule for the

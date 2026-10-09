@@ -119,6 +119,19 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "kennedy_lucy",
+   "relation": "mother",
+   "household": "hh_beaubien_susan",
+   "value": "beaubien_susan",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the twenty fourth of 10ber eighteen hundred and thirty four I, the undersigned, baptised Susan daughter of Charles Beaubien and of Lucy Kennedy, born sixteenth of 10ber eighteen hundred thirty four. Sponsors were John Mary I. Saint Cyr and Monique Nadeau Beaubien. Both cards were minted from this entry's rows (st_marys_bapt_1834_21_3_mother, st_marys_bapt_1834_21_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "kennedy_lucy",

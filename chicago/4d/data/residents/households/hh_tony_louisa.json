@@ -29,7 +29,7 @@
   "sources": [
    "st_marys_baptismal_register_1833_1835"
   ],
-  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 9 November 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason.",
+  "note": "A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 9 November 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. And the register's own entry dates the birth after the day as well, so present_on_scene_date is `absent` (T-2178).",
   "precision": "not_later_than"
  },
  "arrival_year": {
@@ -98,25 +98,37 @@
   "note": "Not attested. No trade is recorded here, so there is no premises to seek; T-0633 is where a later directory's address gets back-projected."
  },
  "present_on_scene_date": {
-  "value": "uncertain",
-  "confidence": "inferred",
+  "value": "absent",
+  "confidence": "attested",
   "sources": [
    "st_marys_baptismal_register_1833_1835"
   ],
-  "last_dated_appearance": {
-   "as_read": null,
-   "precision": null,
-   "reaches": null,
-   "includes_scene_date": false,
-   "days_before_scene_date": null,
-   "leg": "none",
-   "person": null,
-   "record": null,
-   "sources": [],
-   "note": "NO DATED EVIDENCE AT OR BEFORE 1835-07-01. The earliest date this card carries is 1835-11-09, which is after the scene, so it is a later appearance rather than the leg under this verdict — T-1159 class R5 is where a later record is back-projected, and it is not done here."
-  },
-  "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
+  "note": "NOT YET BORN ON THE DAY. St Mary's register baptises this child on 1835-11-09 (st_marys_bapt_1835_13_1_child), and the entry's own words — 'born the thirtieth of October' — put the birth on 1835-10-30, after the scene date of 1 July 1835. The entry states the day of birth. `absent` and not `uncertain`: a silence is somewhere the sources have not looked, and a birth after the day is not a silence (T-2178)."
  },
+ "kin": [
+  {
+   "person": "tony_louisa",
+   "relation": "daughter",
+   "household": "hh_chandler_catherine",
+   "value": "chandler_catherine",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_3_mother, st_marys_bapt_1835_13_1_child), so no identification is made here. The daughter term is the entry's: 'daughter of Jacob Tony'."
+  },
+  {
+   "person": "tony_louisa",
+   "relation": "daughter",
+   "household": "hh_tony_jacob",
+   "value": "tony_jacob",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. On the nineth of November eighteen hundred and thirty five I, the undersigned, baptized Louisa born the thirtieth of October, daughter of Jacob Tony and Catherine Chandler. Godfather and godmother were Joseph Chandler and Barbery Judar. Both cards were minted from this entry's rows (st_marys_bapt_1835_13_2_father, st_marys_bapt_1835_13_1_child), so no identification is made here. The daughter term is the entry's: 'daughter of Jacob Tony'."
+  }
+ ],
  "persons": [
   {
    "id": "tony_louisa",
@@ -133,7 +145,7 @@
    "sources": [
     "st_marys_baptismal_register_1833_1835"
    ],
-   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 9 November 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. present_on_scene_date is `uncertain` for that reason. No figure is drawn (L1).",
+   "note": "THE ST CYR REGISTER OF 1833-1835 NAMES THIS PERSON IN THE PARISH. Read from church_1833_1835. THE GRADE IS THE OWNER'S RATIFIED LADDER OF 2026-09-03 (G2c), applied to every identity at once by tools/consolidate_resident_evidence.py and spent onto this card by tools/mint_civic_residents.py; the evidence blocks below carry the reading AS READ, its locator and the record it came from, so the page can be gone back to. WHAT IS RECONSTRUCTED: everything except the person and the sources — no dwelling, no trade, no origin, no family, no party. A BOUND FROM THE RECORD, NOT AN ARRIVAL. church_1833_1835 names this person at Chicago by 9 November 1835 and nothing says when they came. THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than narrowing it: the earliest source that names this person is later than 1 July 1835, so they may have arrived after the day this scene models. And the register's own entry dates the birth after the day as well, so present_on_scene_date is `absent` (T-2178). No figure is drawn (L1).",
    "church_evidence": [
     {
      "list": "church_1833_1835",
@@ -145,23 +157,6 @@
      "rule": "G2c"
     }
    ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "tony_louisa:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'tony_louisa:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
    "age_band": {
     "value": "0-4",
     "low": 0,
@@ -171,7 +166,7 @@
     "basis": {
      "kind": "model",
      "id": "age_bands_1840",
-     "note": "Drawn from the 1840 Chicago schedule's column 'free white males Under 5', one of its male bands, conditioned on `dependent_child_under_15` because the church register calls the person an infant or a baptised child, or the household record calls them a son, a daughter or a child."
+     "note": "Drawn from the 1840 Chicago schedule's column 'free white females Under 5', one of its female bands, conditioned on `dependent_child_under_15` because the church register calls the person an infant or a baptised child, or the household record calls them a son, a daughter or a child."
     },
     "seed": "tony_louisa:age_bands_1840",
     "replaceable_by": {
@@ -179,6 +174,15 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('tony_louisa:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: nothing beyond what the record already says: the band is drawn from the schedule's child bands because the record calls them a child. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "female",
+   "sex_basis": {
+    "value": "female",
+    "confidence": "inferred",
+    "note": "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, entry 1835-13 writes 'Louisa daughter' — so this person was female, and that is read off the entry rather than off the name or the roll. A role and a kinship word are statements about the person; no draw stands against them.",
+    "sources": [
+     "st_marys_baptismal_register_1833_1835"
+    ]
    }
   }
  ],

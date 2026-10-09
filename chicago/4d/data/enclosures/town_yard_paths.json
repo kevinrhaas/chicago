@@ -15,6 +15,7 @@
     "data/yard/town_yard_outbuildings.json"
   ],
   "belongs_to": [
+    "chicago_american_office",
     "harmon_log_cabin",
     "inf_artisan_dwelling_west_a",
     "inf_sawyer_dwelling_a",
@@ -87,6 +88,39 @@
     "recon_1835_blk_randolph_wells_d5_03",
     "recon_1835_blk_randolph_wells_h1_02",
     "recon_1835_blk_randolph_wells_h2_01",
+    "recon_1835_blk_school_section_tier_118_d2_01",
+    "recon_1835_blk_school_section_tier_118_d3_05",
+    "recon_1835_blk_school_section_tier_118_d4_03",
+    "recon_1835_blk_school_section_tier_118_d4_04",
+    "recon_1835_blk_school_section_tier_118_d5_02",
+    "recon_1835_blk_school_section_tier_118_d5_07",
+    "recon_1835_blk_school_section_tier_118_d6_06",
+    "recon_1835_blk_school_section_tier_119_d3_05",
+    "recon_1835_blk_school_section_tier_119_d4_03",
+    "recon_1835_blk_school_section_tier_119_d4_04",
+    "recon_1835_blk_school_section_tier_119_d5_02",
+    "recon_1835_blk_school_section_tier_119_d5_06",
+    "recon_1835_blk_school_section_tier_119_d6_01",
+    "recon_1835_blk_school_section_tier_119_d7_07",
+    "recon_1835_blk_school_section_tier_81_d2_05",
+    "recon_1835_blk_school_section_tier_81_d4_03",
+    "recon_1835_blk_school_section_tier_81_d4_04",
+    "recon_1835_blk_school_section_tier_81_d5_01",
+    "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d6_06",
+    "recon_1835_blk_school_section_tier_94_d3_05",
+    "recon_1835_blk_school_section_tier_94_d4_04",
+    "recon_1835_blk_school_section_tier_94_d5_01",
+    "recon_1835_blk_school_section_tier_94_d5_02",
+    "recon_1835_blk_school_section_tier_94_d5_03",
+    "recon_1835_blk_school_section_tier_94_d7_07",
+    "recon_1835_blk_school_section_tier_94_h1_06",
+    "recon_1835_blk_school_section_tier_95_d2_05",
+    "recon_1835_blk_school_section_tier_95_d4_03",
+    "recon_1835_blk_school_section_tier_95_d4_04",
+    "recon_1835_blk_school_section_tier_95_d5_01",
+    "recon_1835_blk_school_section_tier_95_d5_02",
+    "recon_1835_blk_school_section_tier_95_d6_06",
     "recon_1835_blk_south_water_clark_c2_06",
     "recon_1835_blk_south_water_clark_d1_04",
     "recon_1835_blk_south_water_clark_d3_03",
@@ -113,11 +147,24 @@
     "recon_1835_blk_south_water_wells_d2_06",
     "recon_1835_blk_south_water_wells_d3_04",
     "recon_1835_blk_south_water_wells_d4_03",
+    "recon_1835_blk_washington_clark_d3_15",
     "recon_1835_blk_washington_clark_d4_02",
+    "recon_1835_blk_washington_clark_d4_14",
     "recon_1835_blk_washington_clark_d5_01",
     "recon_1835_blk_washington_clark_h3_05",
     "recon_1835_blk_washington_clark_h3_06",
     "recon_1835_blk_washington_clark_h3_11",
+    "recon_1835_blk_washington_clinton_d4_04",
+    "recon_1835_blk_washington_clinton_d5_03",
+    "recon_1835_blk_washington_clinton_h1_05",
+    "recon_1835_blk_washington_clinton_h2_01",
+    "recon_1835_blk_washington_clinton_h3_02",
+    "recon_1835_blk_washington_dearborn_d3_07",
+    "recon_1835_blk_washington_dearborn_d3_08",
+    "recon_1835_blk_washington_dearborn_d4_09",
+    "recon_1835_blk_washington_dearborn_d7_04",
+    "recon_1835_blk_washington_dearborn_d7_06",
+    "recon_1835_blk_washington_dearborn_h2_05",
     "recon_1835_blk_washington_dearborn_h3_01",
     "recon_1835_blk_washington_franklin_d3_05",
     "recon_1835_blk_washington_franklin_d3_06",
@@ -150,9 +197,19 @@
     "recon_1835_blk_west_lake_canal_d2_03",
     "recon_1835_blk_west_lake_canal_d4_02",
     "recon_1835_blk_west_lake_canal_d5_01",
+    "recon_1835_blk_west_randolph_canal_d4_02",
+    "recon_1835_blk_west_randolph_canal_d5_01",
+    "recon_1835_blk_west_randolph_canal_d5_03",
+    "recon_1835_blk_west_randolph_canal_d6_04",
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",
+    "recon_1835_blk_west_washington_canal_d2_06",
+    "recon_1835_blk_west_washington_canal_d3_04",
+    "recon_1835_blk_west_washington_canal_d4_03",
+    "recon_1835_blk_west_washington_canal_d5_02",
+    "recon_1835_blk_west_washington_canal_d6_01",
+    "recon_1835_blk_west_washington_canal_d7_05",
     "recon_1835_south_a1_046",
     "recon_1835_south_a2_037",
     "recon_1835_south_a2_047",
@@ -188,6 +245,7 @@
     "south_bank_shed_dearborn_e2",
     "st_marys_church",
     "wabansia_doctors_house",
+    "western_hotel",
     "wright_building_to_let_a",
     "wright_building_to_let_b"
   ],
@@ -461,6 +519,24 @@
         [
           392.23,
           -57.65
+        ]
+      ],
+      [
+        [
+          401.6,
+          -85.9
+        ],
+        [
+          402.5,
+          -86.08
+        ],
+        [
+          405.56,
+          -70.51
+        ],
+        [
+          404.66,
+          -70.33
         ]
       ],
       [
@@ -825,6 +901,24 @@
       ],
       [
         [
+          719.37,
+          -14.95
+        ],
+        [
+          718.54,
+          -15.33
+        ],
+        [
+          720.18,
+          -18.93
+        ],
+        [
+          721.01,
+          -18.55
+        ]
+      ],
+      [
+        [
           723.55,
           -92.08
         ],
@@ -839,6 +933,24 @@
         [
           711.81,
           -59.28
+        ]
+      ],
+      [
+        [
+          724.14,
+          -91.98
+        ],
+        [
+          725.04,
+          -91.85
+        ],
+        [
+          721.38,
+          -65.61
+        ],
+        [
+          720.48,
+          -65.74
         ]
       ],
       [
@@ -1031,12 +1143,12 @@
           -201.85
         ],
         [
-          -225.85,
-          -193.07
+          -225.71,
+          -192.98
         ],
         [
-          -226.06,
-          -192.18
+          -225.92,
+          -192.09
         ]
       ],
       [
@@ -1455,20 +1567,38 @@
       ],
       [
         [
-          352.42,
+          352.4,
           -151.4
         ],
         [
-          351.59,
-          -151.78
+          351.57,
+          -151.77
         ],
         [
-          363.98,
-          -179.52
+          363.73,
+          -179.37
         ],
         [
-          364.82,
-          -179.15
+          364.57,
+          -179.0
+        ]
+      ],
+      [
+        [
+          350.18,
+          -151.64
+        ],
+        [
+          349.28,
+          -151.48
+        ],
+        [
+          344.7,
+          -176.49
+        ],
+        [
+          345.6,
+          -176.66
         ]
       ],
       [
@@ -2651,12 +2781,12 @@
           -365.02
         ],
         [
-          315.25,
-          -327.65
+          315.35,
+          -327.49
         ],
         [
-          314.36,
-          -327.44
+          314.46,
+          -327.29
         ]
       ],
       [
@@ -2949,24 +3079,6 @@
       ],
       [
         [
-          673.04,
-          -282.41
-        ],
-        [
-          672.16,
-          -282.65
-        ],
-        [
-          682.69,
-          -320.95
-        ],
-        [
-          683.57,
-          -320.7
-        ]
-      ],
-      [
-        [
           671.09,
           -282.59
         ],
@@ -2981,6 +3093,24 @@
         [
           668.53,
           -314.27
+        ]
+      ],
+      [
+        [
+          671.54,
+          -282.55
+        ],
+        [
+          670.63,
+          -282.55
+        ],
+        [
+          670.63,
+          -301.14
+        ],
+        [
+          671.54,
+          -301.14
         ]
       ],
       [
@@ -3003,20 +3133,20 @@
       ],
       [
         [
-          723.05,
-          -283.24
+          672.81,
+          -365.39
         ],
         [
-          722.18,
-          -282.97
+          673.72,
+          -365.32
         ],
         [
-          710.14,
-          -321.07
+          671.72,
+          -337.39
         ],
         [
-          711.01,
-          -321.34
+          670.81,
+          -337.46
         ]
       ],
       [
@@ -3035,6 +3165,24 @@
         [
           727.37,
           -315.06
+        ]
+      ],
+      [
+        [
+          724.4,
+          -283.08
+        ],
+        [
+          723.49,
+          -283.13
+        ],
+        [
+          725.06,
+          -313.74
+        ],
+        [
+          725.98,
+          -313.69
         ]
       ],
       [
@@ -3215,6 +3363,204 @@
         [
           787.72,
           -331.34
+        ]
+      ],
+      [
+        [
+          -186.45,
+          -404.72
+        ],
+        [
+          -187.25,
+          -404.27
+        ],
+        [
+          -194.47,
+          -416.92
+        ],
+        [
+          -193.68,
+          -417.38
+        ]
+      ],
+      [
+        [
+          -189.69,
+          -402.47
+        ],
+        [
+          -189.97,
+          -401.6
+        ],
+        [
+          -199.59,
+          -404.72
+        ],
+        [
+          -199.3,
+          -405.59
+        ]
+      ],
+      [
+        [
+          -191.23,
+          -422.84
+        ],
+        [
+          -191.18,
+          -421.93
+        ],
+        [
+          -208.19,
+          -421.09
+        ],
+        [
+          -208.23,
+          -422.0
+        ]
+      ],
+      [
+        [
+          -189.11,
+          -427.86
+        ],
+        [
+          -189.73,
+          -427.19
+        ],
+        [
+          -200.46,
+          -437.11
+        ],
+        [
+          -199.84,
+          -437.78
+        ]
+      ],
+      [
+        [
+          -186.23,
+          -448.46
+        ],
+        [
+          -186.73,
+          -447.69
+        ],
+        [
+          -207.37,
+          -461.21
+        ],
+        [
+          -206.87,
+          -461.98
+        ]
+      ],
+      [
+        [
+          -186.37,
+          -446.94
+        ],
+        [
+          -186.64,
+          -446.06
+        ],
+        [
+          -196.05,
+          -449.0
+        ],
+        [
+          -195.78,
+          -449.87
+        ]
+      ],
+      [
+        [
+          -183.33,
+          -469.59
+        ],
+        [
+          -183.17,
+          -468.69
+        ],
+        [
+          -206.94,
+          -464.47
+        ],
+        [
+          -207.1,
+          -465.37
+        ]
+      ],
+      [
+        [
+          -180.72,
+          -473.3
+        ],
+        [
+          -181.45,
+          -472.76
+        ],
+        [
+          -188.37,
+          -481.97
+        ],
+        [
+          -187.64,
+          -482.52
+        ]
+      ],
+      [
+        [
+          -183.2,
+          -470.85
+        ],
+        [
+          -183.29,
+          -469.94
+        ],
+        [
+          -194.6,
+          -471.1
+        ],
+        [
+          -194.51,
+          -472.01
+        ]
+      ],
+      [
+        [
+          -185.68,
+          -492.85
+        ],
+        [
+          -186.16,
+          -492.07
+        ],
+        [
+          -206.18,
+          -504.65
+        ],
+        [
+          -205.69,
+          -505.42
+        ]
+      ],
+      [
+        [
+          -185.24,
+          -493.65
+        ],
+        [
+          -185.84,
+          -492.95
+        ],
+        [
+          -196.55,
+          -502.23
+        ],
+        [
+          -195.95,
+          -502.92
         ]
       ],
       [
@@ -4119,6 +4465,60 @@
       ],
       [
         [
+          625.45,
+          -418.52
+        ],
+        [
+          624.56,
+          -418.74
+        ],
+        [
+          632.58,
+          -451.24
+        ],
+        [
+          633.47,
+          -451.02
+        ]
+      ],
+      [
+        [
+          623.49,
+          -418.74
+        ],
+        [
+          622.59,
+          -418.56
+        ],
+        [
+          617.2,
+          -445.26
+        ],
+        [
+          618.09,
+          -445.44
+        ]
+      ],
+      [
+        [
+          621.98,
+          -495.83
+        ],
+        [
+          622.85,
+          -495.56
+        ],
+        [
+          611.9,
+          -460.63
+        ],
+        [
+          611.03,
+          -460.9
+        ]
+      ],
+      [
+        [
           647.07,
           -420.52
         ],
@@ -4245,6 +4645,24 @@
       ],
       [
         [
+          723.5,
+          -420.22
+        ],
+        [
+          722.58,
+          -420.25
+        ],
+        [
+          723.44,
+          -446.69
+        ],
+        [
+          724.35,
+          -446.66
+        ]
+      ],
+      [
+        [
           748.94,
           -421.5
         ],
@@ -4277,6 +4695,114 @@
         [
           741.35,
           -447.4
+        ]
+      ],
+      [
+        [
+          746.72,
+          -495.45
+        ],
+        [
+          747.59,
+          -495.16
+        ],
+        [
+          736.16,
+          -461.13
+        ],
+        [
+          735.29,
+          -461.42
+        ]
+      ],
+      [
+        [
+          770.21,
+          -424.88
+        ],
+        [
+          769.34,
+          -424.62
+        ],
+        [
+          761.36,
+          -451.54
+        ],
+        [
+          762.24,
+          -451.8
+        ]
+      ],
+      [
+        [
+          774.23,
+          -424.58
+        ],
+        [
+          773.36,
+          -424.87
+        ],
+        [
+          781.69,
+          -449.45
+        ],
+        [
+          782.55,
+          -449.16
+        ]
+      ],
+      [
+        [
+          772.09,
+          -495.15
+        ],
+        [
+          772.96,
+          -495.45
+        ],
+        [
+          784.73,
+          -461.61
+        ],
+        [
+          783.87,
+          -461.31
+        ]
+      ],
+      [
+        [
+          799.84,
+          -421.35
+        ],
+        [
+          798.98,
+          -421.66
+        ],
+        [
+          809.81,
+          -452.01
+        ],
+        [
+          810.67,
+          -451.7
+        ]
+      ],
+      [
+        [
+          798.17,
+          -493.13
+        ],
+        [
+          799.03,
+          -492.83
+        ],
+        [
+          787.98,
+          -461.33
+        ],
+        [
+          787.11,
+          -461.63
         ]
       ],
       [
@@ -4367,6 +4893,24 @@
         [
           911.74,
           534.94
+        ]
+      ],
+      [
+        [
+          905.86,
+          503.28
+        ],
+        [
+          906.77,
+          503.37
+        ],
+        [
+          906.08,
+          510.81
+        ],
+        [
+          905.17,
+          510.72
         ]
       ],
       [
@@ -4479,20 +5023,20 @@
       ],
       [
         [
-          1019.18,
+          1019.17,
           504.01
         ],
         [
-          1020.03,
+          1020.02,
           504.33
         ],
         [
-          1014.14,
-          520.16
+          1014.04,
+          520.3
         ],
         [
-          1013.28,
-          519.84
+          1013.19,
+          519.98
         ]
       ],
       [
@@ -4541,12 +5085,12 @@
           -216.43
         ],
         [
-          -462.08,
-          -235.11
+          -461.94,
+          -235.23
         ],
         [
-          -461.59,
-          -234.34
+          -461.44,
+          -234.46
         ]
       ],
       [
@@ -4713,6 +5257,222 @@
       ],
       [
         [
+          -135.79,
+          -271.56
+        ],
+        [
+          -136.02,
+          -272.44
+        ],
+        [
+          -87.0,
+          -284.88
+        ],
+        [
+          -86.77,
+          -284.0
+        ]
+      ],
+      [
+        [
+          -135.94,
+          -271.29
+        ],
+        [
+          -135.86,
+          -272.2
+        ],
+        [
+          -90.09,
+          -268.39
+        ],
+        [
+          -90.16,
+          -267.48
+        ]
+      ],
+      [
+        [
+          -116.39,
+          -324.05
+        ],
+        [
+          -115.99,
+          -324.87
+        ],
+        [
+          -86.39,
+          -310.46
+        ],
+        [
+          -86.79,
+          -309.64
+        ]
+      ],
+      [
+        [
+          -119.32,
+          -343.86
+        ],
+        [
+          -119.0,
+          -344.72
+        ],
+        [
+          -86.18,
+          -332.6
+        ],
+        [
+          -86.5,
+          -331.74
+        ]
+      ],
+      [
+        [
+          -115.39,
+          -366.56
+        ],
+        [
+          -115.03,
+          -367.4
+        ],
+        [
+          -85.9,
+          -354.82
+        ],
+        [
+          -86.26,
+          -353.98
+        ]
+      ],
+      [
+        [
+          -53.14,
+          -337.22
+        ],
+        [
+          -53.61,
+          -336.44
+        ],
+        [
+          -76.77,
+          -350.58
+        ],
+        [
+          -76.29,
+          -351.36
+        ]
+      ],
+      [
+        [
+          -113.37,
+          -417.29
+        ],
+        [
+          -113.41,
+          -418.2
+        ],
+        [
+          -74.58,
+          -419.95
+        ],
+        [
+          -74.54,
+          -419.04
+        ]
+      ],
+      [
+        [
+          -114.42,
+          -436.73
+        ],
+        [
+          -114.51,
+          -437.64
+        ],
+        [
+          -76.16,
+          -441.41
+        ],
+        [
+          -76.07,
+          -440.5
+        ]
+      ],
+      [
+        [
+          -113.59,
+          -457.31
+        ],
+        [
+          -113.27,
+          -458.17
+        ],
+        [
+          -76.15,
+          -444.45
+        ],
+        [
+          -76.47,
+          -443.59
+        ]
+      ],
+      [
+        [
+          -116.93,
+          -478.6
+        ],
+        [
+          -117.05,
+          -479.51
+        ],
+        [
+          -79.29,
+          -484.37
+        ],
+        [
+          -79.17,
+          -483.46
+        ]
+      ],
+      [
+        [
+          -110.17,
+          -504.17
+        ],
+        [
+          -110.2,
+          -505.08
+        ],
+        [
+          -80.79,
+          -505.93
+        ],
+        [
+          -80.77,
+          -505.02
+        ]
+      ],
+      [
+        [
+          -58.07,
+          -469.66
+        ],
+        [
+          -57.76,
+          -468.8
+        ],
+        [
+          -68.25,
+          -465.0
+        ],
+        [
+          -68.56,
+          -465.85
+        ]
+      ],
+      [
+        [
           -421.28,
           292.33
         ],
@@ -4745,6 +5505,618 @@
         [
           -409.93,
           310.44
+        ]
+      ],
+      [
+        [
+          125.53,
+          -545.76
+        ],
+        [
+          124.66,
+          -545.46
+        ],
+        [
+          111.82,
+          -582.44
+        ],
+        [
+          112.68,
+          -582.74
+        ]
+      ],
+      [
+        [
+          124.6,
+          -629.11
+        ],
+        [
+          125.46,
+          -628.81
+        ],
+        [
+          112.68,
+          -592.15
+        ],
+        [
+          111.82,
+          -592.45
+        ]
+      ],
+      [
+        [
+          154.85,
+          -545.28
+        ],
+        [
+          153.99,
+          -544.98
+        ],
+        [
+          141.05,
+          -582.44
+        ],
+        [
+          141.91,
+          -582.74
+        ]
+      ],
+      [
+        [
+          154.16,
+          -630.82
+        ],
+        [
+          155.02,
+          -630.53
+        ],
+        [
+          141.91,
+          -592.15
+        ],
+        [
+          141.04,
+          -592.45
+        ]
+      ],
+      [
+        [
+          184.73,
+          -541.3
+        ],
+        [
+          183.86,
+          -541.02
+        ],
+        [
+          170.17,
+          -582.6
+        ],
+        [
+          171.04,
+          -582.89
+        ]
+      ],
+      [
+        [
+          180.55,
+          -630.03
+        ],
+        [
+          181.43,
+          -629.79
+        ],
+        [
+          171.1,
+          -592.18
+        ],
+        [
+          170.22,
+          -592.43
+        ]
+      ],
+      [
+        [
+          236.39,
+          -628.34
+        ],
+        [
+          237.27,
+          -628.6
+        ],
+        [
+          248.01,
+          -592.43
+        ],
+        [
+          247.14,
+          -592.17
+        ]
+      ],
+      [
+        [
+          267.82,
+          -545.22
+        ],
+        [
+          266.94,
+          -545.48
+        ],
+        [
+          277.87,
+          -582.71
+        ],
+        [
+          278.75,
+          -582.46
+        ]
+      ],
+      [
+        [
+          267.07,
+          -628.62
+        ],
+        [
+          267.95,
+          -628.88
+        ],
+        [
+          278.74,
+          -592.43
+        ],
+        [
+          277.87,
+          -592.17
+        ]
+      ],
+      [
+        [
+          298.36,
+          -544.05
+        ],
+        [
+          297.48,
+          -544.31
+        ],
+        [
+          308.6,
+          -582.71
+        ],
+        [
+          309.48,
+          -582.46
+        ]
+      ],
+      [
+        [
+          297.26,
+          -632.42
+        ],
+        [
+          298.14,
+          -632.67
+        ],
+        [
+          309.49,
+          -592.43
+        ],
+        [
+          308.61,
+          -592.18
+        ]
+      ],
+      [
+        [
+          325.75,
+          -548.66
+        ],
+        [
+          324.9,
+          -548.33
+        ],
+        [
+          311.99,
+          -582.43
+        ],
+        [
+          312.84,
+          -582.75
+        ]
+      ],
+      [
+        [
+          329.47,
+          -548.38
+        ],
+        [
+          328.59,
+          -548.62
+        ],
+        [
+          337.17,
+          -580.26
+        ],
+        [
+          338.06,
+          -580.03
+        ]
+      ],
+      [
+        [
+          325.26,
+          -629.14
+        ],
+        [
+          326.12,
+          -628.83
+        ],
+        [
+          312.68,
+          -592.14
+        ],
+        [
+          311.83,
+          -592.46
+        ]
+      ],
+      [
+        [
+          397.14,
+          -545.88
+        ],
+        [
+          396.26,
+          -545.64
+        ],
+        [
+          385.98,
+          -582.46
+        ],
+        [
+          386.86,
+          -582.71
+        ]
+      ],
+      [
+        [
+          398.68,
+          -628.41
+        ],
+        [
+          399.57,
+          -628.59
+        ],
+        [
+          407.17,
+          -592.4
+        ],
+        [
+          406.27,
+          -592.21
+        ]
+      ],
+      [
+        [
+          420.79,
+          -544.19
+        ],
+        [
+          419.9,
+          -543.95
+        ],
+        [
+          409.37,
+          -582.46
+        ],
+        [
+          410.25,
+          -582.71
+        ]
+      ],
+      [
+        [
+          419.76,
+          -629.96
+        ],
+        [
+          420.64,
+          -629.71
+        ],
+        [
+          410.25,
+          -592.18
+        ],
+        [
+          409.37,
+          -592.43
+        ]
+      ],
+      [
+        [
+          444.46,
+          -541.39
+        ],
+        [
+          443.57,
+          -541.16
+        ],
+        [
+          432.66,
+          -582.62
+        ],
+        [
+          433.54,
+          -582.86
+        ]
+      ],
+      [
+        [
+          445.46,
+          -628.42
+        ],
+        [
+          446.35,
+          -628.6
+        ],
+        [
+          453.95,
+          -592.4
+        ],
+        [
+          453.05,
+          -592.21
+        ]
+      ],
+      [
+        [
+          487.19,
+          -633.82
+        ],
+        [
+          488.07,
+          -633.58
+        ],
+        [
+          477.05,
+          -592.04
+        ],
+        [
+          476.17,
+          -592.28
+        ]
+      ],
+      [
+        [
+          512.44,
+          -546.88
+        ],
+        [
+          511.57,
+          -546.62
+        ],
+        [
+          500.88,
+          -582.46
+        ],
+        [
+          501.75,
+          -582.72
+        ]
+      ],
+      [
+        [
+          512.38,
+          -630.89
+        ],
+        [
+          513.26,
+          -630.63
+        ],
+        [
+          501.75,
+          -592.17
+        ],
+        [
+          500.88,
+          -592.43
+        ]
+      ],
+      [
+        [
+          538.97,
+          -543.63
+        ],
+        [
+          538.08,
+          -543.83
+        ],
+        [
+          546.91,
+          -582.69
+        ],
+        [
+          547.8,
+          -582.48
+        ]
+      ],
+      [
+        [
+          538.36,
+          -632.51
+        ],
+        [
+          539.26,
+          -632.7
+        ],
+        [
+          547.82,
+          -592.4
+        ],
+        [
+          546.92,
+          -592.21
+        ]
+      ],
+      [
+        [
+          562.24,
+          -545.34
+        ],
+        [
+          561.37,
+          -545.07
+        ],
+        [
+          550.04,
+          -582.45
+        ],
+        [
+          550.92,
+          -582.72
+        ]
+      ],
+      [
+        [
+          558.09,
+          -628.24
+        ],
+        [
+          558.98,
+          -628.04
+        ],
+        [
+          550.87,
+          -592.21
+        ],
+        [
+          549.98,
+          -592.41
+        ]
+      ],
+      [
+        [
+          606.29,
+          -629.05
+        ],
+        [
+          607.16,
+          -628.78
+        ],
+        [
+          595.62,
+          -592.17
+        ],
+        [
+          594.75,
+          -592.44
+        ]
+      ],
+      [
+        [
+          634.31,
+          -545.96
+        ],
+        [
+          633.42,
+          -546.17
+        ],
+        [
+          642.34,
+          -582.69
+        ],
+        [
+          643.23,
+          -582.48
+        ]
+      ],
+      [
+        [
+          631.45,
+          -630.91
+        ],
+        [
+          632.33,
+          -630.65
+        ],
+        [
+          620.98,
+          -592.17
+        ],
+        [
+          620.1,
+          -592.43
+        ]
+      ],
+      [
+        [
+          657.73,
+          -544.83
+        ],
+        [
+          656.86,
+          -544.56
+        ],
+        [
+          645.48,
+          -582.45
+        ],
+        [
+          646.35,
+          -582.72
+        ]
+      ],
+      [
+        [
+          656.61,
+          -632.91
+        ],
+        [
+          657.49,
+          -632.66
+        ],
+        [
+          646.34,
+          -592.18
+        ],
+        [
+          645.46,
+          -592.43
+        ]
+      ],
+      [
+        [
+          683.27,
+          -546.41
+        ],
+        [
+          682.4,
+          -546.13
+        ],
+        [
+          670.85,
+          -582.45
+        ],
+        [
+          671.72,
+          -582.73
+        ]
+      ],
+      [
+        [
+          681.74,
+          -629.94
+        ],
+        [
+          682.62,
+          -630.2
+        ],
+        [
+          693.91,
+          -592.43
+        ],
+        [
+          693.04,
+          -592.17
         ]
       ]
     ]
@@ -4819,6 +6191,11 @@
       "lot": "blk_south_water_wells_lot5",
       "from": "recon_1835_blk_south_water_wells_d4_03",
       "to": "privy_blk_south_water_wells_lot5"
+    },
+    {
+      "lot": "blk_south_water_wells_lot5",
+      "from": "recon_1835_blk_south_water_wells_d4_03",
+      "to": "recon_1835_blk_south_water_wells_a2_09"
     },
     {
       "lot": "blk_south_water_wells_lot6",
@@ -4921,9 +6298,19 @@
       "to": "bates_auction_room"
     },
     {
+      "lot": "blk_south_water_dearborn_lot0",
+      "from": "chicago_american_office",
+      "to": "recon_1835_blk_south_water_dearborn_f2_11"
+    },
+    {
       "lot": "blk_south_water_dearborn_lot1",
       "from": "recon_1835_blk_south_water_dearborn_d2_04",
       "to": "privy_blk_south_water_dearborn_lot1"
+    },
+    {
+      "lot": "blk_south_water_dearborn_lot1",
+      "from": "recon_1835_blk_south_water_dearborn_d2_04",
+      "to": "recon_1835_blk_south_water_dearborn_a5_10"
     },
     {
       "lot": "blk_south_water_dearborn_lot2",
@@ -5099,6 +6486,11 @@
       "lot": "blk_lake_wells_lot0",
       "from": "recon_1835_south_d2_005",
       "to": "privy_blk_lake_wells_lot0"
+    },
+    {
+      "lot": "blk_lake_wells_lot0",
+      "from": "recon_1835_south_d2_005",
+      "to": "stable_blk_lake_wells_lot0"
     },
     {
       "lot": "blk_lake_wells_lot0",
@@ -5513,12 +6905,12 @@
     {
       "lot": "blk_randolph_clark_lot6",
       "from": "recon_1835_blk_randolph_clark_c2_01",
-      "to": "privy_blk_randolph_clark_lot6"
+      "to": "recon_1835_blk_randolph_clark_a4_07"
     },
     {
       "lot": "blk_randolph_clark_lot6",
       "from": "recon_1835_blk_randolph_clark_c2_01",
-      "to": "recon_1835_blk_randolph_clark_a4_07"
+      "to": "recon_1835_blk_randolph_clark_w2_09"
     },
     {
       "lot": "blk_randolph_clark_lot7",
@@ -5526,14 +6918,19 @@
       "to": "privy_blk_randolph_clark_lot7"
     },
     {
-      "lot": "blk_randolph_dearborn_lot0",
-      "from": "recon_1835_blk_randolph_dearborn_d3_01",
-      "to": "privy_blk_randolph_dearborn_lot0"
+      "lot": "blk_randolph_clark_lot7",
+      "from": "recon_1835_blk_randolph_clark_d6_04",
+      "to": "recon_1835_blk_randolph_clark_w1_10"
     },
     {
       "lot": "blk_randolph_dearborn_lot0",
       "from": "recon_1835_blk_randolph_dearborn_d3_01",
       "to": "recon_1835_blk_randolph_dearborn_a4_06"
+    },
+    {
+      "lot": "blk_randolph_dearborn_lot0",
+      "from": "recon_1835_blk_randolph_dearborn_d3_01",
+      "to": "recon_1835_blk_randolph_dearborn_w2_18"
     },
     {
       "lot": "blk_randolph_dearborn_lot1",
@@ -5584,6 +6981,61 @@
       "lot": "blk_randolph_dearborn_lot7",
       "from": "recon_1835_blk_randolph_dearborn_d2_05",
       "to": "privy_blk_randolph_dearborn_lot7"
+    },
+    {
+      "lot": "blk_washington_clinton_lot5",
+      "from": "recon_1835_blk_washington_clinton_h2_01",
+      "to": "recon_1835_blk_washington_clinton_a1_06"
+    },
+    {
+      "lot": "blk_washington_clinton_lot5",
+      "from": "recon_1835_blk_washington_clinton_h2_01",
+      "to": "recon_1835_blk_washington_clinton_a5_07"
+    },
+    {
+      "lot": "blk_washington_clinton_lot6",
+      "from": "recon_1835_blk_washington_clinton_h3_02",
+      "to": "privy_blk_washington_clinton_lot6"
+    },
+    {
+      "lot": "blk_washington_clinton_lot6",
+      "from": "recon_1835_blk_washington_clinton_h3_02",
+      "to": "recon_1835_blk_washington_clinton_a4_09"
+    },
+    {
+      "lot": "blk_washington_clinton_lot7",
+      "from": "recon_1835_blk_washington_clinton_d5_03",
+      "to": "privy_blk_washington_clinton_lot7"
+    },
+    {
+      "lot": "blk_washington_clinton_lot7",
+      "from": "recon_1835_blk_washington_clinton_d5_03",
+      "to": "recon_1835_blk_washington_clinton_a4_14"
+    },
+    {
+      "lot": "blk_washington_clinton_lot8",
+      "from": "recon_1835_blk_washington_clinton_d4_04",
+      "to": "privy_blk_washington_clinton_lot8"
+    },
+    {
+      "lot": "blk_washington_clinton_lot8",
+      "from": "recon_1835_blk_washington_clinton_d4_04",
+      "to": "recon_1835_blk_washington_clinton_a2_15"
+    },
+    {
+      "lot": "blk_washington_clinton_lot8",
+      "from": "recon_1835_blk_washington_clinton_d4_04",
+      "to": "recon_1835_blk_washington_clinton_a4_11"
+    },
+    {
+      "lot": "blk_washington_clinton_lot9",
+      "from": "recon_1835_blk_washington_clinton_h1_05",
+      "to": "privy_blk_washington_clinton_lot9"
+    },
+    {
+      "lot": "blk_washington_clinton_lot9",
+      "from": "recon_1835_blk_washington_clinton_h1_05",
+      "to": "recon_1835_blk_washington_clinton_a5_13"
     },
     {
       "lot": "blk_washington_market_lot0",
@@ -5836,6 +7288,21 @@
       "to": "recon_1835_blk_washington_clark_a3_13"
     },
     {
+      "lot": "blk_washington_clark_lot2",
+      "from": "recon_1835_blk_washington_clark_d4_14",
+      "to": "privy_blk_washington_clark_lot2"
+    },
+    {
+      "lot": "blk_washington_clark_lot2",
+      "from": "recon_1835_blk_washington_clark_d4_14",
+      "to": "recon_1835_blk_washington_clark_a5_16"
+    },
+    {
+      "lot": "blk_washington_clark_lot3",
+      "from": "recon_1835_blk_washington_clark_d3_15",
+      "to": "privy_blk_washington_clark_lot3"
+    },
+    {
       "lot": "blk_washington_clark_lot4",
       "from": "recon_1835_blk_washington_clark_d5_01",
       "to": "recon_1835_blk_washington_clark_a3_03"
@@ -5871,6 +7338,11 @@
       "to": "recon_1835_blk_washington_clark_a3_10"
     },
     {
+      "lot": "blk_washington_dearborn_lot0",
+      "from": "recon_1835_blk_washington_dearborn_d7_04",
+      "to": "recon_1835_blk_washington_dearborn_w2_10"
+    },
+    {
       "lot": "blk_washington_dearborn_lot2",
       "from": "recon_1835_blk_washington_dearborn_h3_01",
       "to": "recon_1835_blk_washington_dearborn_a1_02"
@@ -5879,6 +7351,36 @@
       "lot": "blk_washington_dearborn_lot2",
       "from": "recon_1835_blk_washington_dearborn_h3_01",
       "to": "recon_1835_blk_washington_dearborn_a3_03"
+    },
+    {
+      "lot": "blk_washington_dearborn_lot3",
+      "from": "recon_1835_blk_washington_dearborn_d3_07",
+      "to": "privy_blk_washington_dearborn_lot3"
+    },
+    {
+      "lot": "blk_washington_dearborn_lot4",
+      "from": "recon_1835_blk_washington_dearborn_h2_05",
+      "to": "privy_blk_washington_dearborn_lot4"
+    },
+    {
+      "lot": "blk_washington_dearborn_lot4",
+      "from": "recon_1835_blk_washington_dearborn_h2_05",
+      "to": "stable_blk_washington_dearborn_lot4"
+    },
+    {
+      "lot": "blk_washington_dearborn_lot5",
+      "from": "recon_1835_blk_washington_dearborn_d3_08",
+      "to": "privy_blk_washington_dearborn_lot5"
+    },
+    {
+      "lot": "blk_washington_dearborn_lot6",
+      "from": "recon_1835_blk_washington_dearborn_d7_06",
+      "to": "privy_blk_washington_dearborn_lot6"
+    },
+    {
+      "lot": "blk_washington_dearborn_lot7",
+      "from": "recon_1835_blk_washington_dearborn_d4_09",
+      "to": "privy_blk_washington_dearborn_lot7"
     },
     {
       "lot": "blk_indiana_north_wolcott_lot4",
@@ -5904,6 +7406,11 @@
       "lot": "blk_indiana_north_wolcott_lot8",
       "from": "recon_1835_blk_indiana_north_wolcott_d3_01",
       "to": "recon_1835_blk_indiana_north_wolcott_a4_03"
+    },
+    {
+      "lot": "blk_indiana_north_wolcott_lot9",
+      "from": "recon_1835_blk_indiana_north_wolcott_d3_02",
+      "to": "recon_1835_blk_indiana_north_wolcott_a1_09"
     },
     {
       "lot": "blk_indiana_north_wolcott_lot9",
@@ -6001,6 +7508,66 @@
       "to": "privy_blk_west_randolph_des_plaines_lot9"
     },
     {
+      "lot": "blk_west_randolph_canal_lot0",
+      "from": "western_hotel",
+      "to": "privy_blk_west_randolph_canal_lot0"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot0",
+      "from": "western_hotel",
+      "to": "stable_blk_west_randolph_canal_lot0"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot2",
+      "from": "recon_1835_blk_west_randolph_canal_d5_01",
+      "to": "privy_blk_west_randolph_canal_lot2"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot3",
+      "from": "recon_1835_blk_west_randolph_canal_d4_02",
+      "to": "privy_blk_west_randolph_canal_lot3"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot4",
+      "from": "recon_1835_blk_west_randolph_canal_d5_03",
+      "to": "privy_blk_west_randolph_canal_lot4"
+    },
+    {
+      "lot": "blk_west_randolph_canal_lot8",
+      "from": "recon_1835_blk_west_randolph_canal_d6_04",
+      "to": "privy_blk_west_randolph_canal_lot8"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot0",
+      "from": "recon_1835_blk_west_washington_canal_d6_01",
+      "to": "privy_blk_west_washington_canal_lot0"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot1",
+      "from": "recon_1835_blk_west_washington_canal_d5_02",
+      "to": "privy_blk_west_washington_canal_lot1"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot2",
+      "from": "recon_1835_blk_west_washington_canal_d4_03",
+      "to": "privy_blk_west_washington_canal_lot2"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot3",
+      "from": "recon_1835_blk_west_washington_canal_d3_04",
+      "to": "privy_blk_west_washington_canal_lot3"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot4",
+      "from": "recon_1835_blk_west_washington_canal_d7_05",
+      "to": "privy_blk_west_washington_canal_lot4"
+    },
+    {
+      "lot": "blk_west_washington_canal_lot8",
+      "from": "recon_1835_blk_west_washington_canal_d2_06",
+      "to": "privy_blk_west_washington_canal_lot8"
+    },
+    {
       "lot": "blk_wabansia_c_t7_lot1",
       "from": "wabansia_doctors_house",
       "to": "privy_blk_wabansia_c_t7_lot1"
@@ -6009,6 +7576,176 @@
       "lot": "blk_wabansia_c_t7_lot1",
       "from": "wabansia_doctors_house",
       "to": "wabansia_doctors_barn"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot2",
+      "from": "recon_1835_blk_school_section_tier_81_d5_01",
+      "to": "privy_blk_school_section_tier_81_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot3",
+      "from": "recon_1835_blk_school_section_tier_81_d5_02",
+      "to": "privy_blk_school_section_tier_81_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot4",
+      "from": "recon_1835_blk_school_section_tier_81_d4_03",
+      "to": "privy_blk_school_section_tier_81_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot5",
+      "from": "recon_1835_blk_school_section_tier_81_d4_04",
+      "to": "privy_blk_school_section_tier_81_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot6",
+      "from": "recon_1835_blk_school_section_tier_81_d2_05",
+      "to": "privy_blk_school_section_tier_81_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_81_lot7",
+      "from": "recon_1835_blk_school_section_tier_81_d6_06",
+      "to": "privy_blk_school_section_tier_81_lot7"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot1",
+      "from": "recon_1835_blk_school_section_tier_94_d5_01",
+      "to": "privy_blk_school_section_tier_94_lot1"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot2",
+      "from": "recon_1835_blk_school_section_tier_94_d5_02",
+      "to": "privy_blk_school_section_tier_94_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot3",
+      "from": "recon_1835_blk_school_section_tier_94_d5_03",
+      "to": "privy_blk_school_section_tier_94_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot4",
+      "from": "recon_1835_blk_school_section_tier_94_d4_04",
+      "to": "privy_blk_school_section_tier_94_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot5",
+      "from": "recon_1835_blk_school_section_tier_94_d3_05",
+      "to": "privy_blk_school_section_tier_94_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot6",
+      "from": "recon_1835_blk_school_section_tier_94_h1_06",
+      "to": "privy_blk_school_section_tier_94_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot6",
+      "from": "recon_1835_blk_school_section_tier_94_h1_06",
+      "to": "stable_blk_school_section_tier_94_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_94_lot7",
+      "from": "recon_1835_blk_school_section_tier_94_d7_07",
+      "to": "privy_blk_school_section_tier_94_lot7"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot2",
+      "from": "recon_1835_blk_school_section_tier_95_d5_01",
+      "to": "privy_blk_school_section_tier_95_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot3",
+      "from": "recon_1835_blk_school_section_tier_95_d5_02",
+      "to": "privy_blk_school_section_tier_95_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot4",
+      "from": "recon_1835_blk_school_section_tier_95_d4_03",
+      "to": "privy_blk_school_section_tier_95_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot5",
+      "from": "recon_1835_blk_school_section_tier_95_d4_04",
+      "to": "privy_blk_school_section_tier_95_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot6",
+      "from": "recon_1835_blk_school_section_tier_95_d2_05",
+      "to": "privy_blk_school_section_tier_95_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_95_lot7",
+      "from": "recon_1835_blk_school_section_tier_95_d6_06",
+      "to": "privy_blk_school_section_tier_95_lot7"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot1",
+      "from": "recon_1835_blk_school_section_tier_118_d2_01",
+      "to": "privy_blk_school_section_tier_118_lot1"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot2",
+      "from": "recon_1835_blk_school_section_tier_118_d5_02",
+      "to": "privy_blk_school_section_tier_118_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot3",
+      "from": "recon_1835_blk_school_section_tier_118_d4_03",
+      "to": "privy_blk_school_section_tier_118_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot4",
+      "from": "recon_1835_blk_school_section_tier_118_d4_04",
+      "to": "privy_blk_school_section_tier_118_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot5",
+      "from": "recon_1835_blk_school_section_tier_118_d3_05",
+      "to": "privy_blk_school_section_tier_118_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot6",
+      "from": "recon_1835_blk_school_section_tier_118_d6_06",
+      "to": "privy_blk_school_section_tier_118_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_118_lot7",
+      "from": "recon_1835_blk_school_section_tier_118_d5_07",
+      "to": "privy_blk_school_section_tier_118_lot7"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot1",
+      "from": "recon_1835_blk_school_section_tier_119_d6_01",
+      "to": "privy_blk_school_section_tier_119_lot1"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot2",
+      "from": "recon_1835_blk_school_section_tier_119_d5_02",
+      "to": "privy_blk_school_section_tier_119_lot2"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot3",
+      "from": "recon_1835_blk_school_section_tier_119_d4_03",
+      "to": "privy_blk_school_section_tier_119_lot3"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot4",
+      "from": "recon_1835_blk_school_section_tier_119_d4_04",
+      "to": "privy_blk_school_section_tier_119_lot4"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot5",
+      "from": "recon_1835_blk_school_section_tier_119_d3_05",
+      "to": "privy_blk_school_section_tier_119_lot5"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot6",
+      "from": "recon_1835_blk_school_section_tier_119_d5_06",
+      "to": "privy_blk_school_section_tier_119_lot6"
+    },
+    {
+      "lot": "blk_school_section_tier_119_lot7",
+      "from": "recon_1835_blk_school_section_tier_119_d7_07",
+      "to": "privy_blk_school_section_tier_119_lot7"
     }
   ],
   "research_note": "Generated by tools/generate_kept_ground.py with the kept ground of data/yard/town_kept_ground.json; the treatment is the door aprons' road earth, so a path is the town's own dirt."

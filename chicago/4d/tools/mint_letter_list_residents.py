@@ -140,6 +140,8 @@ REGISTER = DATA / "research" / "newspapers" / "register_1835.json"
 GAZETTEER = DATA / "research" / "newspapers" / "gazetteer.json"
 NAME_RULINGS = (DATA / "research" / "newspapers"
                 / "letter_list_1834_01_01_name_rulings.json")
+ROSTER = (DATA / "research" / "newspapers"
+          / "letter_list_1834_01_01_printed.json")
 
 SCENE_DATE = "1835-07-01"
 PREFIX = "hh_ll_"
@@ -1197,7 +1199,10 @@ def record(cand: dict, gaz: dict, docs: dict, taken_ids: set[str],
                  "in."),
     }
     person["sources"] = list(sources)
-    if len(groups) > 1:
+    ruling = cand.get("name_ruling")
+    if ruling:
+        held = ruled_reading(ruling, returns_said, span)
+    elif len(groups) > 1:
         held = (f"KNOWN ONLY FROM THE POST OFFICE, AND HELD THERE MORE THAN ONCE. The "
                 f"papers print " + " and ".join(f"'{p}'" for p in printed)
                 + f" in {len(groups)} separate returns of letters uncalled-for at the "
@@ -1441,6 +1446,9 @@ def onto_standing(accepted: list, docs: dict) -> list:
                                + list(other_gaz.get("variants") or []))
         if pid in renamed:
             cand["name"] = renamed[pid]["card"]["displayed_name_is"]
+            # T-1219: and the note says which impression sets which reading, rather
+            # than asserting the overturned one as what the papers print.
+            cand["name_ruling"] = renamed[pid]
         elif not id_family_name(pid, display(cand["name"])):
             # A re-reading may give a standing card fuller letters (`H. Pease` is
             # `C. H. Pease`); it may not respell the surname its handle was minted off.
@@ -1734,6 +1742,39 @@ def ruled_renamings() -> dict[str, dict]:
     return out
 
 
+def ruled_reading(ruling: dict, returns_said: str, span: str) -> str:
+    """The note's opening for a card T-1139 renamed: each reading, with its impression.
+
+    T-1219. The generic sentence says "the papers print" whatever the gazetteer's
+    variants hold, and on these cards that is the transcription-mediated reading the
+    ruling OVERTURNED — so a card named `Wm. H. Frazer` said in its own prose that the
+    papers print `Wm. H. Fraser`. Neither is false of its own impression: the ruling's
+    finding is that the compositor re-keyed the line between printings. So this names
+    both, each against the printing it was read from, and says which one the card wears
+    and why. The printing read at the image is taken from the roster the ruling cites,
+    never typed here.
+    """
+    roster = load(ROSTER)
+    read = roster.get("printing_read") or {}
+    image_at = issue_of(str(read.get("issue_id") or ""))
+    if read.get("issue_page"):
+        image_at += f", page {read['issue_page']}"
+    if read.get("printed_column"):
+        image_at += f", column {read['printed_column']}"
+    image = ruling["printed_as_at_the_image"]
+    text = ruling["the_transcription_read_the_type_as"]
+    return (f"KNOWN ONLY FROM THE POST OFFICE, IN ONE RETURN, AND READ TWO WAYS. The "
+            f"return of letters uncalled-for at the Chicago post office was reprinted "
+            f"issue after issue, and two of its impressions set this line differently: "
+            f"the ninth and last printing — {image_at} — sets '{image}', read at the "
+            f"page image, and the transcription of {returns_said} sets '{text}'. Both "
+            f"are plain, complete letters, so the compositor re-keyed the line between "
+            f"printings, and the reading made at the page image stands (T-1139, line "
+            f"{ruling.get('n')} of {NAME_RULINGS.name}): the card wears '{image}'. Its "
+            f"id keeps the other spelling, because an id is a handle and not a claim. "
+            f"Dated {span}. ")
+
+
 def gazetteer_persons() -> dict[str, dict]:
     """record id -> the gazetteer person, for the readings a card cites.
 
@@ -1929,6 +1970,13 @@ def gate_problems(docs: dict, index: dict, structure_text: dict) -> list[str]:
                                     f"it moved and {NAME_RULINGS.relative_to(ROOT)} "
                                     f"says {was!r} — the card must carry the "
                                     f"adjudication it stands on (T-1218)")
+                # T-1219. The prose agrees with the name: a ruled card may not say
+                # the papers print the reading its ruling overturned.
+                if f"The papers print '{was}'" in str(person.get("note") or ""):
+                    problems.append(f"{hid}/{pid}: the card wears {awarded!r} and its "
+                                    f"note still says the papers print {was!r}, the "
+                                    f"reading line {shown_row.get('n')!r} overturned — "
+                                    f"the note names each reading's impression (T-1219)")
             # T-1561. A CARD WEARS A READING ITS OWN EVIDENCE STILL HOLDS. When two
             # readings of one printed line are declared one person, the gazetteer
             # keeps the one that carries every letter a printing set and the
@@ -2468,6 +2516,14 @@ def self_test() -> int:
         person = next(p for p in doc["persons"] if p["id"] in RULED)
         person["name_ruling"]["displayed_name_was"] = person["name"]
 
+    # T-1219. The note as it stood before this ticket: the card wears the awarded
+    # reading and its prose asserts the overturned one as what the papers print.
+    def reprint_the_overturned(d, i, s):
+        doc = d[RULED_PATH]
+        person = next(p for p in doc["persons"] if p["id"] in RULED)
+        was = person["name_ruling"]["displayed_name_was"]
+        person["note"] = f"The papers print '{was}' in a single return. " + person["note"]
+
     # T-1561. The defect exactly as T-1528 left it: a card displaying a spelling
     # its own evidence no longer holds. The mutation puts a spare initial into a
     # card's forename and leaves the family name and the punctuation alone, so
@@ -2497,6 +2553,8 @@ def self_test() -> int:
         ("a ruled card is re-spelled a third way", respell_a_ruled_card, "awards"),
         ("a ruled card drops the adjudication it stands on", unrule_the_card,
          "must carry the adjudication"),
+        ("a ruled card's note prints the overturned reading", reprint_the_overturned,
+         "T-1219"),
         ("a person loses letter_list_only", drop_flag, "letter_list_only"),
         ("a person loses its returns' dates", drop_dates, "letter_list_returns"),
         ("a household gains a roof", give_a_roof, "lives_at"),

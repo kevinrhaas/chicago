@@ -49,6 +49,51 @@ made from the attested use against the archetype's default.
 - Andreas at page-image level around scan pp. 261 and 1151, where the packing narrative sits.
 - The 1834-35 town lot records for the Lake and Dearborn block.
 
+## 6. The firm's store, by its neighbours (T-2137, 2026-10-05)
+
+The first open thread in §5 is answered by the *Chicago Democrat*, though not by an advertisement of
+Dole's own. Five advertisers fix themselves off **"Newberry & Dole's store"**:
+
+| advertiser | where | claim |
+|---|---|---|
+| Tuttle & Brown, grocers | "on Dearborn street, one door **south** of" it | `chicago_democrat_1834_06_04#c011` (copy 27 May 1834) |
+| J. B. Brown | same words | `chicago_democrat_1834_07_02#c021` |
+| W. H. Brown | "on Dearborn street, one door from" it | `chicago_democrat_1834_05_28#c004` |
+| Wm. H. Taylor, boots and shoes | "on Dearborn street, a few rods **north** of" it | `chicago_democrat_1835_05_20#c020` (copy 8 July 1834) |
+| D. Graves, baker | "on South Water-street, a few doors **north** of" it | `chicago_democrat_1834_03_25#c003` |
+
+A store with Dearborn-street neighbours both south and north of it stands on the Dearborn face, not on
+a South Water corner, where the only thing north is the roadway and the river. The South Water baker
+"a few doors north" puts it some way south of South Water. Andreas's "close to the present site of the
+Tremont House" is the Lake and Dearborn crossing, and this record is the one committed building there.
+So **this house is read as the firm's store in 1834–35, inferred**, and the signboard is lettered
+`NEWBERRY & DOLE / Dry Goods, Hardware & Crockery` off the firm's own card of 26 November 1833. The
+record's name stays Andreas's, because he is who names the building.
+
+**Guard 1 in §3 is superseded.** T-1723 ruled the forwarding house's bank SOUTH on the same paper, and
+Andreas's north-bank sentence is the firm's 1839 warehouse. The guard against merging still holds,
+for a different reason: the firm's **store house** on South Water is placed by Peter Cohen ("next door
+below Messrs. Newberry and Dole's store house, on south water street") and is a second premises, kept
+as `newberry_dole_warehouse`. No single lot is next door to a South Water lot and also has a Dearborn
+neighbour a few rods north of it.
+
+**Still open:** which corner of the crossing. Taylor's "a few rods north" and Tuttle & Brown's "one door
+south" fit the south-east corner the record already takes, and they fit a store just north of Lake
+on the Dearborn face too. Nothing moves until a printing settles that.
+
+**The register reads the store as this house (T-2142, 2026-10-05).** The record carries the aka
+`Newberry & Dole's store`, so `tools/compile_register.py` resolves that anchor here instead of calling
+it unresolved. Six register rows move from `street_only` or `unplaceable` to `new_building` on this
+house: D. Graves, J. B. Brown's Dearborn Street grocery, W. H. Brown, both of Wm. H. Taylor's rows, and
+the Chicago and St. Joseph packet ("apply on board, or [at] the store of Messrs Newberry & Dole").
+Tuttle & Brown resolves too, but stays out of the July town: the paper contradicts it in June 1834.
+Downstream, the address book seats the six on this roof at rung `structure` and grade `inferred`. That is
+the rule it already applies to "first door north from the Tremont House": the anchor's roof is the seat,
+and `replaceable_by` names what would move it. "One door south" and "a few rods north" say the
+shops stood beside the store, not in it, so the seat is the nearest committed roof and not a claim
+that they shared it. This house only takes the alias. The forwarding house's anchors ("store house",
+Cohen) have one word more and do not match it, and the Chicago Bakery's printing "Newbury" does not match either.
+
 ## The parcel's shared inventions
 
 Three things are true of every record in the South Water Street parcel and are written once here

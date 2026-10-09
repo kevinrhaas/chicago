@@ -18,6 +18,18 @@
 # that costs a minute has to be made cheaper, or moved to tools/bake.sh, or the budget
 # has to be re-argued out loud here.
 #
+# IT OUTGREW IT A SECOND TIME, AND WAS MADE CHEAPER (T-2117). By 2026-10-05, 782 steps
+# took more than 600 s on a four-core steward runner — three runs ended on rc 124 at
+# 763 of 774 — and 2,288 CPU-seconds went into the pool. The heavy tail was not hard
+# work; it was the same work done many times over: one tool parsing five crosswalks
+# 35,000 times, a self-test rebuilding an unchanged frontage census fourteen times,
+# another re-segmenting the whole newspaper corpus 157 times, two searches measuring
+# every wall and street in town from points they could not reach, and the validator's
+# suite re-running the full validation the step before it had just run. Each was cut
+# to the work it actually needed, and each tool's verdict, output and self-test
+# transcript is unchanged byte for byte. Measured on four cores: 484 s, 1,906
+# CPU-seconds. Each step's time sits in CHECK_TIMINGS. Read it before adding to the tail.
+#
 #   tools/check.sh            the gate
 #   tools/check.sh --strict   warnings are errors (used before a release)
 #
@@ -33,6 +45,9 @@ STRICT=""
 # The step harness — `step`, `selftest` and the end-of-run roll-up — lives in its own
 # file so that tools/test_check_harness.sh can source and exercise it (T-0763).
 source "$_check_tools/check_harness.sh"
+
+step "Spatial ground batches preserve geometry and reject only held or out-of-view pieces" \
+  node tools/check_spatial_batch.mjs
 
 step "Plankwalk subpixel gaps preserve geometry and material contracts (T-2037)" \
   node tools/check_plank_gap_filter.mjs
@@ -58,8 +73,15 @@ step "A patched plain lit material cannot be handed another layer's shader progr
 step "Boot phase readiness, failure and history contract (T-1246)" \
   node tools/test_boot_phases.mjs
 
+step "boot-weights.js re-derives from the reference reading and its calibration receipt (T-2060)" \
+  node tools/calibrate_boot_weights.mjs --check
+
 step "Arrival year pacing stays monotone, bounded and readiness-honest (T-1247)" \
   node tools/test_arrival.mjs
+step "The arrival clock forecasts downloads and never sits still on a slow link (T-2164)" \
+  node tools/test_boot_forecast.mjs
+step "The welcome draws the town only when the town changed (T-2113)" \
+  node tools/test_gate_frame.mjs
 step "Selected-year arrival and catalog isolation (T-1767)" \
   node tools/test_selected_year.mjs
 step "Drawn placement rejects shifted, mirrored and rotated camps (T-1805)" \
@@ -219,8 +241,10 @@ selftest "…and it refuses a thinned air, a shrunk apron and the two literals d
 step "dataset (schema, provenance, date gates, licenses, staleness, publish)" \
   python3 tools/validate.py --all $STRICT
 
+# The validator's own suite re-validates the committed dataset as one of its tests;
+# the step above already did, and more strictly, so the suite is told so (T-2117).
 step "validator self-tests" \
-  python3 tools/test_validate.py
+  env CHECK_VALIDATE_ALL_IS_A_STEP=1 python3 tools/test_validate.py
 
 # T-1727. STRUCTURE VERSIONS — `?structure=<id>&version=<label>` swaps one building for a
 # committed alternate so competing builds can be compared side by side. validate.py above
@@ -801,11 +825,22 @@ step "West Division approaches parcel matches its recipe" \
 # T-1773: the West Division's second freight roof, at Lake and West Water. Its own
 # generator because the West grid is unscheduled (reconcile_665.py, T-1455) and the
 # block parcels cannot deal onto it; the record re-derives from its recipe and the
-# validator is proved by breaking it.
-step "West freight roof at the forks matches its recipe" \
+# validator is proved by breaking it. T-2150 adds the second recipe: the F2 the schedule
+# dealt to plat block 50, seated on block 51's West Water corner at Washington Street on
+# the policy's `bank_landing` clause, and the validator refuses it beyond that reach.
+step "West freight roofs on West Water match their recipes" \
   python3 tools/generate_west_freight.py --check
 selftest "…and its validator refuses bad ground" \
   python3 tools/generate_west_freight.py --self-test
+
+# T-2022: the North Division's seventh freight roof, on the North Water bank at LaSalle.
+# Its own generator because North Water is graded `light` and the block parcels refuse a
+# warehouse there; it stands on the policy's `bank_landing` clause, the record re-derives from
+# it, and the validator is proved by breaking it.
+step "North freight roof on the North Water bank matches its recipe" \
+  python3 tools/generate_north_freight.py --check
+selftest "…and its validator refuses bad ground" \
+  python3 tools/generate_north_freight.py --self-test
 
 step "Canal approach trade roofs match their bounded recipe" \
   python3 tools/generate_canal_approach_trade.py --check
@@ -3154,6 +3189,12 @@ selftest "…and its own assertions still fire when broken" \
 # might not have published yet, and it meant exactly that checkout skipped this gate
 # without saying so. The mirror is untracked now and the step at the top of this file
 # publishes it, so the mirror always exists here and the question is always asked.
+selftest "deferred household notes: the card's fields stay, the reasoning leaves (T-2151)" \
+  node tools/defer_household_notes.mjs --self-test
+
+step "the shipped sidecars carry their households, notes beside them (T-2151)" \
+  node tools/defer_household_notes.mjs --check
+
 step "publish.sh produces a mirror that matches its source" \
   node tools/check_published.mjs
 
@@ -4340,6 +4381,16 @@ step "the remainder rulings re-derive from their five corpora (T-1298)" \
 
 selftest "…and each of its rules still fires, and hands on only to live work" \
   python3 tools/spend_remainder_rulings.py --self-test
+
+# T-1335. The family pass rules the kin those registers route to it: the church verdicts
+# derived from the register's roles and the cards that claim its rows, the papers' family
+# columns and the kin enrichments read one at a time. A ruling that no live unit reaches is
+# a ruling on work something else closed, and fails here.
+step "the family pass answers every kin unit, and no ruling outlives its unit (T-1335)" \
+  python3 tools/spend_family_pass.py --check --quiet
+
+selftest "…and its church derivation still tells a lone burial, a missing far end and an unruled tie apart" \
+  python3 tools/spend_family_pass.py --self-test
 
 # T-1330. THE SPEND ITSELF, where the two steps above only ROUTE. Thirty of T-1301's
 # `corroborated_enrichment` findings named an arrival, an origin, a departure or a dated

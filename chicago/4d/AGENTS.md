@@ -314,7 +314,11 @@ is the contract. The short form:
   as silence rather than as proof.
 - **Claim** in your first commit: `node tools/ticket.mjs claim T-NNNN`. `ticket.mjs
   inflight` shows what other branches are already carrying a ticket number, which is the
-  only live view of work the merged files cannot show yet. It reads each branch as
+  only live view of work the merged files cannot show yet. Both also read the OPEN PULL
+  REQUESTS by title (T-2138): a PR titled `T-NNNN: …` carries its ticket whatever its
+  branch is called, so `claim` refuses it — a dead claim included — and `inflight` lists
+  it under the ticket; #449 on `claude/project-thread-*` was invisible to both, and a
+  slice rebuilt T-2122 in full beside it. It reads each branch as
   **live**, **held**, **open_pr**, **recoverable** or **cold**. A branch under
   **open_pr** has a pull request up right now and is printed with its number and labels
   — `hold` there means THE OWNER is deciding, so do not rebuild it, do not take the ticket
@@ -572,6 +576,16 @@ straight to production.* The fleet pilot is `kevinrhaas/jobtracker.polecat.live`
     branch that is already most of the way there. **Skip one whose `waits on` ticket is
     still open** and say so in your summary: it cannot go green yet, and re-gating it
     would spend a run proving that.
+  - **Take the PR before you lap it: `node tools/ticket.mjs lap <N>`** (T-1721). The rule
+    above carries no slice index, so under `slices > 1` every slice that looks takes the
+    same PR — #154 was relapped twice on 2026-09-28, #442 again on 2026-10-05, and each
+    loser found out at `git push`, after its gate. `lap` takes `lap/pr-<N>` on the remote
+    by the claim lock's compare-and-swap; a refusal (exit 1) means a live sibling is on it,
+    so take your own row of the queue instead. `inflight` lists every `resume` PR as
+    BEING LAPPED, pushed minutes ago with no lock (treat as held until you have read its
+    newest commit), or FREE. Release with `lap <N> --release` once it merges or is handed
+    on; a lap older than three hours is a dead run's, stolen by the next `lap` and swept by
+    `claims --sweep`.
   - **What each pass does with the two**, stated so nobody has to read three scripts:
     `pr-lap.sh` laps a `resume` PR like any other and skips `hold`; `merge-ready.sh`
     merges a `resume` PR the moment GitHub calls it `clean` (which IS the resume, for one

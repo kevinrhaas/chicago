@@ -357,6 +357,25 @@ def not_chicago_records() -> frozenset:
     return frozenset(out)
 
 
+@functools.lru_cache(maxsize=None)
+def births_read() -> dict:
+    """The register's own reading of when a child was born, by record id (T-2178).
+
+    Read from the `born` cell `tools/read_st_marys_baptisms.py` writes on a child's row —
+    the entry's own words and the earliest and latest day they permit — and never from
+    the row's prose note, which is where the birth lived until a presence rule needed it.
+    """
+    out = {}
+    if not CHURCH_RECORDS.exists():
+        return out
+    for path in sorted(CHURCH_RECORDS.glob("*.json")):
+        for record_row in (load(path) or {}).get("records") or []:
+            born = (record_row.get("cells") or {}).get("born")
+            if record_row.get("id") and isinstance(born, dict) and born.get("earliest"):
+                out[record_row["id"]] = born
+    return out
+
+
 MUSTER_LADDER = ("An 1832 enrollment is EARLIER evidence and never an 1835 residence on "
                  "its own: it places the man in this town in 1832, which is why it dates "
                  "and corroborates rather than mints")
@@ -659,8 +678,12 @@ def arrival_block(appearances: list, sources: list) -> dict:
     if late:
         note += ("THE BOUND FALLS AFTER THE SCENE DATE and the record says so rather than "
                  "narrowing it: the earliest source that names this person is later than "
-                 "1 July 1835, so they may have arrived after the day this scene models. "
-                 "present_on_scene_date is `uncertain` for that reason.")
+                 "1 July 1835, so they may have arrived after the day this scene models. ")
+        if born_after_the_day(appearances, bracket_legs(appearances)[0]):
+            note += ("And the register's own entry dates the birth after the day as well, "
+                     "so present_on_scene_date is `absent` (T-2178).")
+        else:
+            note += "present_on_scene_date is `uncertain` for that reason."
     elif roll:
         # The bound stands and its CLAIM shrinks (T-1117). `arrival` is structurally a
         # dated `not_later_than` on every household the validator will accept, and this
@@ -755,6 +778,40 @@ def death_before_the_day(refused_before: list, before: list) -> str | None:
     return died
 
 
+def born_after_the_day(appearances: list, before: list,
+                       births: dict | None = None) -> tuple | None:
+    """The baptism whose own entry puts this child's birth after the scene date, if any.
+
+    A BIRTH IS THE OTHER TERMINAL APPEARANCE (T-2178). A death dated before 1 July 1835
+    puts a man nowhere on the day; so does a birth dated after it, and for the same
+    reason `absent` is the honest reading and `uncertain` the flattering one. Narrow the
+    same three ways the death is: it reads only the register's structured `born` cell;
+    EVERY birth reading the card holds must put the EARLIEST day it permits after the
+    scene date — a window that reaches back to 1 July is silent about which side of it
+    the child was born on; and it defers to any record placing this person at Chicago
+    at or before the day, because that is a contradiction this pass does not resolve.
+    """
+    births = births_read() if births is None else births
+    read = [(app, births[app["record_id"]]) for app in appearances
+            if app.get("domain") == "church" and app.get("record_id") in births]
+    if not read or before:
+        return None
+    if not all(str(born.get("earliest")) > SCENE_DATE for _, born in read):
+        return None
+    return min(read, key=lambda t: (str(t[1]["earliest"]), str(t[0].get("record_id"))))
+
+
+def not_yet_born_note(app: dict, born: dict) -> str:
+    window = (f"on {born['earliest']}" if born["earliest"] == born["latest"]
+              else f"between {born['earliest']} and {born['latest']}")
+    return (f"NOT YET BORN ON THE DAY. St Mary's register baptises this child on "
+            f"{app.get('describes_date')} ({app.get('record_id')}), and the entry's own "
+            f"words — '{born['as_read']}' — put the birth {window}, after the scene "
+            f"date of 1 July 1835. {born['note']} `absent` and not `uncertain`: a silence "
+            f"is somewhere the sources have not looked, and a birth after the day is not a "
+            f"silence (T-2178).")
+
+
 def presence_block(appearances: list, sources: list) -> dict:
     before, after, refused_before = bracket_legs(appearances)
     if before and after:
@@ -786,6 +843,15 @@ def presence_block(appearances: list, sources: list) -> dict:
                      "bracket, and a later source on the far side cannot close one over a "
                      "dead man. `absent` and not `uncertain`: a silence is somewhere the "
                      "sources have not looked, and a death is not a silence."),
+        }
+    unborn = born_after_the_day(appearances, before)
+    if unborn:
+        app, born = unborn
+        return {
+            "value": "absent",
+            "confidence": "attested" if born.get("confidence") == "documented" else "inferred",
+            "sources": sources,
+            "note": not_yet_born_note(app, born),
         }
     refused = sorted({a.get("evidence_class") for a in appearances
                       if a.get("evidence_class") in NOT_A_PRESENCE_CLASS})
@@ -1630,7 +1696,10 @@ def gate_problems(docs: dict, index: dict) -> list:
         elif not row.get("civic_mint"):
             problems.append(f"{where}: the manifest row does not carry civic_mint")
     counted = (index.get("counts") or {}).get("civic_mint")
-    actual = sum(1 for d in mine.values() for p in d.get("persons") or []
+    # OVER THE WHOLE TREE, AS THE INDEX COUNTS IT (T-2190). A person this pass minted keeps
+    # the flag when a later stage seats them in another house — a printed bride folded into
+    # her husband's — and the index counts every flagged person wherever they stand.
+    actual = sum(1 for d in docs.values() for p in d.get("persons") or []
                  if p.get("civic_mint"))
     if counted != actual:
         problems.append(f"counts.civic_mint is {counted!r} and the tree holds {actual}")
@@ -1911,6 +1980,28 @@ def self_test() -> int:
                              "present_on_scene_date": "present"}]})):
         failed += 1
         print("   FAIL the gate accepts `present` carried by a death notice alone")
+
+    # T-2178: A BIRTH AFTER THE DAY IS THE OTHER TERMINAL APPEARANCE.
+    baby = _app(domain="church", record_id="st_marys_bapt_fixture_child",
+                describes_date="1835-08-20", evidence_class="church_1833_1835")
+    for label, births, before, want in (
+            ("a birth the entry dates after the day is `absent`",
+             {"st_marys_bapt_fixture_child": {"earliest": "1835-08-19", "latest": "1835-08-19"}},
+             [], True),
+            ("a window that reaches back to the day is silent about it",
+             {"st_marys_bapt_fixture_child": {"earliest": "1835-07-01", "latest": "1835-08-19"}},
+             [], False),
+            ("a record naming the child at or before the day is a contradiction left open",
+             {"st_marys_bapt_fixture_child": {"earliest": "1835-08-19", "latest": "1835-08-19"}},
+             [_app()], False),
+            ("a card with no birth reading is not read as one", {}, [], False),
+    ):
+        if bool(born_after_the_day([baby], before, births)) != want:
+            failed += 1
+            print(f"   FAIL {label}")
+    if not all(b["earliest"] <= b["latest"] for b in births_read().values()):
+        failed += 1
+        print("   FAIL a birth window in the register runs backwards")
 
     # T-1136: THE TWO LEGS READ OPPOSITE ENDS OF THE DATE RANGE.
     for label, value, want in (

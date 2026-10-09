@@ -8,10 +8,15 @@
   "generated_by": "tools/spend_remainder_rulings.py",
   "counts": {
     "a_town_reading_with_no_record_to_write": 4,
+    "the_family_pass_finds_a_tie_onto_a_card_a_build_writes": 13,
+    "the_family_pass_finds_an_identity_nobody_has_asserted": 9,
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": 9,
+    "the_family_pass_finds_the_tie_ended_before_the_scene": 2,
+    "the_kin_survey_already_ruled_the_register_tie": 6,
     "the_register_appearance_identity_is_a_candidate_and_not_a_merge": 10,
     "the_register_appearance_identity_was_refused_in_the_crosswalk": 27,
     "the_register_appearance_names_nobody_this_town_holds": 13,
-    "the_register_entry_names_kin": 147,
+    "the_register_entry_names_no_relative": 6,
     "the_register_reading_is_about_the_town_and_not_a_person": 6,
     "the_roll_is_beyond_the_reading_window": 26
   },
@@ -19,6 +24,27 @@
     "a_town_reading_with_no_record_to_write": {
       "disposition": "aggregate_only",
       "statement": "The unit is an in-window reading ABOUT THE TOWN rather than about a person: a society, a public event, a civic act, a weather or an institution note, dated 1835 or undated, naming no record this layer holds. It is not refused -- it is true and it is in the window -- and it is not handed on, because there is no structured record for it to land on. It is spent in aggregate as scene chronology, which is a finished answer."
+    },
+    "the_family_pass_finds_a_tie_onto_a_card_a_build_writes": {
+      "disposition": "unresolved",
+      "ticket": "T-2191",
+      "statement": "The family pass (T-1335) read a register tie with BOTH ends on a card, and one card is written whole by a build — the register's own underdocumented cards (tools/reconstruct_church_register.py, T-1504) or the readmission stage (T-1172). A kin row typed onto such a card is gone the next time its stage runs, so the tie is handed to the open ticket that teaches those builds to carry it: reciprocal, nobody minted, no household gaining a member."
+    },
+    "the_family_pass_finds_an_identity_nobody_has_asserted": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and an end of it folds onto a person the town holds BY NAME ONLY: no card claims this source row as its own evidence, and no crosswalk has identified the two. Who a printed name is, is a crosswalk ruling and not a kinship; a surname and a forename are not permission to marry two cards (T-0734). NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_relative_is_nobody_this_town_holds": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and one end of it is a person this town holds while the other is not: a relative named in the source who has no card here. The source is not doubted; the tie has no far end to land on, and this pass does not mint one to give it somewhere. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_family_pass_finds_the_tie_ended_before_the_scene": {
+      "disposition": "refused",
+      "statement": "The family pass (T-1335) read the tie and the source is a DEATH dated before 1 July 1835: on the day this dataset reconstructs, one end of it was buried. A kin row carries no date, so writing it would state in the present tense a tie the source closes before the scene. Where the town still holds the dead person as present, that is a presence fault and T-2189's, not a kinship. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
+    },
+    "the_kin_survey_already_ruled_the_register_tie": {
+      "disposition": "refused",
+      "statement": "The register tie this entry states was proposed by the kin survey (tools/survey_stated_kin.py, T-0734) — both ends are cards that claim the entry's own rows — and data/residents/kin_rulings.json REFUSED it, with its reason, which the note quotes. The family pass (T-1335) carries that ruling onto the unit rather than making it a second time. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     },
     "the_register_appearance_identity_is_a_candidate_and_not_a_merge": {
       "disposition": "refused",
@@ -32,10 +58,9 @@
       "disposition": "refused",
       "statement": "The crosswalk looked for this adult in the residents layer and found no candidate at all -- not a surname, not a variant. 85 of the 111 distinct adults St Mary's names in its Chicago entries reach no surname in the town's households, and this is one of them. The three readings that stay open are the ones the crosswalk itself states: the person had gone by 1835, or was never of the town, or is somebody the reconstruction has not found. On all three the appearance asserts no 1835 fact, mints nobody and edits no card, and what it spends into the town is NOTHING. That is a complete answer and not a deferral; the reading stays where it is for any later evidence to reach, and a surname arriving in the residents layer is what would reopen it."
     },
-    "the_register_entry_names_kin": {
-      "disposition": "unresolved",
-      "ticket": "T-1335",
-      "statement": "The entry's own `cells.role` puts this person in the KIN of a dated sacrament at Chicago -- the child, the father, the mother, the groom, the bride, the spouse or the decedent of a baptism, a marriage or a death. T-1170's field is the spouses, children, kin and dependants the baptism and marriage registers name. The tie is handed on whole; nobody is minted, no household is edited, and the entry's `confidence` is untouched. THE HANDOFF WAS T-1170, THEN T-1320, AND IS T-1335 SINCE 2026-09-18: T-1170's split is spent, and T-1320 is scoped to the BOOK corpus by its own title, so it never covered this domain. T-1335 is the family pass proper."
+    "the_register_entry_names_no_relative": {
+      "disposition": "refused",
+      "statement": "The register entry puts this person in a sacrament — a burial, an adult's baptism, a child's baptism with no parent written — and names NOBODY ELSE in a kin role on that line. The role is a role in a rite, not a tie: there is no second person for a kin row to join, so the family pass (T-1335) has nothing to write. NOBODY IS MINTED AND NO HOUSEHOLD GAINS A MEMBER (T-1312, T-1320): a kin row is the link between two cards this town holds, and a relative who is nobody here is evidence for the prose of a card, not a structure (T-0849)."
     },
     "the_register_reading_is_about_the_town_and_not_a_person": {
       "disposition": "refused",
@@ -229,38 +254,38 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_1: one of the daughters of M. Colewell is the decedent of a register entry dated 1834-06 at Chicago. Decedent of death entry 1 of 11 on Father St. Cyr's death page, 1834-06. No forename and no age for the child; the father is named with his office. The burial …"
+      "rule": "the_family_pass_finds_the_tie_ended_before_the_scene",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_1: one of the daughters of M. Colewell (decedent, held as hh_one_of_daughters_of_m_colewell); the entry dated 1834-06 also names M. Colewell (parent, held as hh_colewell_m). The burial is dated 1834-06, before the scene date."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_01_2",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_2: M. Colewell is the parent of a register entry dated 1834-06 at Chicago. Parent of death entry 1 of 11 on Father St. Cyr's death page, 1834-06. No forename and no age for the child; the father is named with his office. The burial …"
+      "rule": "the_family_pass_finds_the_tie_ended_before_the_scene",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_01_2: M. Colewell (parent, held as hh_colewell_m); the entry dated 1834-06 also names one of the daughters of M. Colewell (decedent, held as hh_one_of_daughters_of_m_colewell). The burial is dated 1834-06, before the scene date."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_02_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_02_1: W. Brannen is the decedent of a register entry dated 1834-07 at Chicago. Decedent of death entry 2 of 11 on Father St. Cyr's death page, 1834-07. \"Newly arrived from Ireland\" — the page's own words, and the only origin statement on …"
+      "rule": "the_register_entry_names_no_relative",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_02_1: W. Brannen, decedent of the entry dated 1834-07: the line names nobody else in a kin role."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_03_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_03_1: John Hogan is the decedent of a register entry dated 1834-10 at Chicago. Decedent of death entry 3 of 11 on Father St. Cyr's death page, 1834-10. Died suddenly. No age, no relation, no residence. Line 13 closes this group of four: …"
+      "rule": "the_register_entry_names_no_relative",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_03_1: John Hogan, decedent of the entry dated 1834-10: the line names nobody else in a kin role."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_04_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_04_1: William Bourque (Burke) is the decedent of a register entry dated 1835-06 at Chicago. Decedent of death entry 4 of 11 on Father St. Cyr's death page, 1835-06. SCENE YEAR. The page itself gives the alias in brackets, so both spellings are the …"
+      "rule": "the_register_entry_names_no_relative",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_04_1: William Bourque (Burke), decedent of the entry dated 1835-06: the line names nobody else in a kin role."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_06_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_06_1: Julian Andrews is the decedent of a register entry dated 1835-07-17 at Chicago. Decedent of death entry 6 of 11 on Father St. Cyr's death page, 1835-07-17. SCENE YEAR. 18 days old, so born about 29 June 1835 by the same arithmetic. No …"
+      "rule": "the_register_entry_names_no_relative",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_06_1: Julian Andrews, decedent of the entry dated 1835-07-17: the line names nobody else in a kin role."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_deaths_1834_1837.json#records/st_cyr_death_07_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_deaths_1834_1837 st_cyr_death_07_1: Thomas Owen is the decedent of a register entry dated 1835-10-15 at Chicago. Decedent of death entry 7 of 11 on Father St. Cyr's death page, 1835-10-15. SCENE YEAR, and the one entry on either page that reaches an attested resident. …"
+      "rule": "the_register_entry_names_no_relative",
+      "note": "st_cyr_deaths_1834_1837 st_cyr_death_07_1: Thomas Owen, decedent of the entry dated 1835-10-15: the line names nobody else in a kin role."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_001_3",
@@ -274,13 +299,13 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_006_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_006_1: John Murphy is the groom of a register entry dated 1835-04-26 at Chicago. Groom of marriage 6 of 128, 1835-04-26, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_006_1: John Murphy (groom, a name the town holds with no card claiming the row); the entry dated 1835-04-26 also names Bridget Rogers (bride, held as hh_rogers_bridget)."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_006_2",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_006_2: Bridget Rogers is the bride of a register entry dated 1835-04-26 at Chicago. Bride of marriage 6 of 128, 1835-04-26, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_006_2: Bridget Rogers (bride, held as hh_rogers_bridget); the entry dated 1835-04-26 also names John Murphy (groom, a name the town holds with no card claiming the row)."
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_006_3",
@@ -304,13 +329,13 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_008_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_008_1: Michael Nolan is the groom of a register entry dated 1835-08-29 at Chicago. Groom of marriage 8 of 128, 1835-08-29, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_kin_survey_already_ruled_the_register_tie",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_008_1: Michael Nolan (groom, held as hh_nolan_michael); the entry dated 1835-08-29 also names Mary Green (bride, held as hh_green_mary). kin_rulings.json on st_cyr_marriage_008_1__husband_of__st_cyr_marriage_008_2: Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 29 August 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie "
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_008_2",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_008_2: Mary Green is the bride of a register entry dated 1835-08-29 at Chicago. Bride of marriage 8 of 128, 1835-08-29, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_kin_survey_already_ruled_the_register_tie",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_008_2: Mary Green (bride, held as hh_green_mary); the entry dated 1835-08-29 also names Michael Nolan (groom, held as hh_nolan_michael). kin_rulings.json on st_cyr_marriage_008_1__husband_of__st_cyr_marriage_008_2: Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 29 August 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie "
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_008_3",
@@ -319,13 +344,13 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_009_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_009_1: John Latzky is the groom of a register entry dated 1835-10-01 at Chicago. Groom of marriage 9 of 128, 1835-10-01, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_kin_survey_already_ruled_the_register_tie",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_009_1: John Latzky (groom, held as hh_latzky_john); the entry dated 1835-10-01 also names Potily Morris (bride, held as hh_morris_potily). kin_rulings.json on st_cyr_marriage_009_1__husband_of__st_cyr_marriage_009_2: Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 1 October 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie "
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_009_2",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_009_2: Potily Morris is the bride of a register entry dated 1835-10-01 at Chicago. Bride of marriage 9 of 128, 1835-10-01, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_kin_survey_already_ruled_the_register_tie",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_009_2: Potily Morris (bride, held as hh_morris_potily); the entry dated 1835-10-01 also names John Latzky (groom, held as hh_latzky_john). kin_rulings.json on st_cyr_marriage_009_1__husband_of__st_cyr_marriage_009_2: Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 1 October 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie "
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_009_3",
@@ -339,13 +364,13 @@
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_010_1",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_010_1: Lawrence Smith is the groom of a register entry dated 1835-10-27 at Chicago. Groom of marriage 10 of 128, 1835-10-27, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_kin_survey_already_ruled_the_register_tie",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_010_1: Lawrence Smith (groom, held as hh_smith_lawrence); the entry dated 1835-10-27 also names Mary Welsh (bride, held as hh_welsh_mary). kin_rulings.json on st_cyr_marriage_010_1__husband_of__st_cyr_marriage_010_2: Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 27 October 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie"
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_010_2",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_010_2: Mary Welsh is the bride of a register entry dated 1835-10-27 at Chicago. Bride of marriage 10 of 128, 1835-10-27, celebrated by J. M. I. Saint Cyr."
+      "rule": "the_kin_survey_already_ruled_the_register_tie",
+      "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_010_2: Mary Welsh (bride, held as hh_welsh_mary); the entry dated 1835-10-27 also names Lawrence Smith (groom, held as hh_smith_lawrence). kin_rulings.json on st_cyr_marriage_010_1__husband_of__st_cyr_marriage_010_2: Refused, and the source is not doubted. The register celebrates this marriage AFTER the scene date of 1 July 1835 — 27 October 1835 — so on the day this dataset reconstructs these two were not yet husband and wife. A kin row carries no date field, so writing it would state in the present tense a tie"
     },
     {
       "unit": "church:data/research/church/records/st_cyr_marriages_1834_1839.json#records/st_cyr_marriage_010_3",
@@ -358,19 +383,9 @@
       "note": "st_cyr_marriages_1834_1839 st_cyr_marriage_010_4: T. Welsh stands as witness at a register entry dated 1835-10-27 at Chicago. st_cyr_crosswalk.json rules it 'candidate': Surname folds equal and the forenames agree initial for initial: 'T. Welsh' against 'T Welsh'. That is a candidate and not a merge; a merge needs a second attribute to agree as well."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_01_1_child: George Beaubien is the child of a register entry dated 1833-05-22 at Chicago. Child of baptism entry 1 of 1833, Chicago, Cook County, Illinois. Born 19 August 1832. A baptism documents a person at a font on a day; it is not a residence, …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_01_2_father: Mark Beaubien is the father of a register entry dated 1833-05-22 at Chicago. Father of baptism entry 1 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_01_3_mother: Monique Nadeau is the mother of a register entry dated 1833-05-22 at Chicago. Mother of baptism entry 1 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_01_2_father: Mark Beaubien (father, a name the town holds with no card claiming the row); the entry dated 1833-05-22 also names George Beaubien (child, held as hh_beaubien_george); Monique Nadeau (mother, held as hh_nadeau_monique)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_01_5_godmother",
@@ -378,39 +393,14 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_01_5_godmother: Archange Beaubien stands as godmother at a register entry dated 1833-05-22 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_1_child: Joseph Mayo is the child of a register entry dated 1833-05-26 at Chicago. Child of baptism entry 2 of 1833, Chicago, Cook County, Illinois. The child is entered by forename only; the surname is taken from the father in the same line …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_2_father: Michel Mayo is the father of a register entry dated 1833-05-26 at Chicago. Father of baptism entry 2 of 1833, Chicago, Cook County, Illinois. The surname is struck through and rewritten; 'Mayo' is the legible form. A baptism documents …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_3_mother: Marguerite Malore is the mother of a register entry dated 1833-05-26 at Chicago. Mother of baptism entry 2 of 1833, Chicago, Cook County, Illinois. The surname is written over an erasure and the last two letters are not certain. A baptism …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_3_mother: Marguerite Malore (mother, held as hh_marguerite_malore); the entry dated 1833-05-26 also names Joseph Mayo (child, held as hh_mayo_joseph); Michel Mayo (father, held as hh_mayo_michel). hh_marguerite_malore is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_02_5_sponsor",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_02_5_sponsor: Archange Beaubien stands as sponsor at a register entry dated 1833-05-26 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_03_1_child: Augustin Pottier is the child of a register entry dated 1833-06-03 at Chicago. Child of baptism entry 3 of 1833, Chicago, Cook County, Illinois. Born 26 May 1832. A baptism documents a person at a font on a day; it is not a residence, an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_03_2_father: Jean Pottier is the father of a register entry dated 1833-06-03 at Chicago. Father of baptism entry 3 of 1833, Chicago, Cook County, Illinois. The clerk spells the child 'Pottier' and the father 'Potier' in the same sentence; both …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_03_3_mother: Victoire Madera is the mother of a register entry dated 1833-06-03 at Chicago. Mother of baptism entry 3 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_03_4_godfather",
@@ -423,19 +413,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_03_5_godmother: Monique Nadeau stands as godmother at a register entry dated 1833-06-03 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_04_1_child: Caroline Beaubien is the child of a register entry dated 1833-06-05 at Chicago. Child of baptism entry 4 of 1833, Chicago, Cook County, Illinois. Forename only in the entry; the surname is the father's and is inferred. A baptism documents …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_04_2_father: Jean Baptiste Beaubien is the father of a register entry dated 1833-06-05 at Chicago. Father of baptism entry 4 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_04_3_mother: Josette Laframboise is the mother of a register entry dated 1833-06-05 at Chicago. Mother of baptism entry 4 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_04_2_father: Jean Baptiste Beaubien (father, a name the town holds with no card claiming the row); the entry dated 1833-06-05 also names Caroline Beaubien (child, held as hh_beaubien_caroline); Josette Laframboise (mother, held as hh_laframboise_josette)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_4_sponsor",
@@ -446,21 +426,6 @@
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_04_5_sponsor",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_04_5_sponsor: Esther Bailly stands as sponsor at a register entry dated 1833-06-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_05_1_child: Marguerite Juneau is the child of a register entry dated 1833-06-05 at Chicago. Child of baptism entry 5 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. A baptism documents a person at a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_05_2_father: Solomon Juneau is the father of a register entry dated 1833-06-05 at Chicago. Father of baptism entry 5 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_05_3_mother: Josette Vieau is the mother of a register entry dated 1833-06-05 at Chicago. Mother of baptism entry 5 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_05_4_sponsor",
@@ -474,18 +439,18 @@
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_1_child: John David Dird is the child of a register entry dated 1833-06-05 at Chicago. Child of baptism entry 6 of 1833, Chicago, Cook County, Illinois. Two forenames and no surname; the surname is the father's and is inferred. A baptism …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_1_child: John David Dird (child, held as hh_dird_john_david); the entry dated 1833-06-05 also names William Dird (father, held as hh_william_dird); Lieu (mother, nobody here). hh_william_dird is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_2_father: William Dird is the father of a register entry dated 1833-06-05 at Chicago. Father of baptism entry 6 of 1833, Chicago, Cook County, Illinois. The surname is four letters and the middle two are not certain; 'Dird', 'Bird' and 'Died' …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_2_father: William Dird (father, held as hh_william_dird); the entry dated 1833-06-05 also names John David Dird (child, held as hh_dird_john_david); Lieu (mother, nobody here). hh_william_dird is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_3_mother: Lieu is the mother of a register entry dated 1833-06-05 at Chicago. Mother of baptism entry 6 of 1833, Chicago, Cook County, Illinois. One short word, heavily abbreviated, and the reading is not secure. It is recorded as it …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_3_mother: Lieu (mother, nobody here); the entry dated 1833-06-05 also names John David Dird (child, held as hh_dird_john_david); William Dird (father, held as hh_william_dird)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_06_4_sponsor",
@@ -493,19 +458,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_06_4_sponsor: Mathias Smith stands as sponsor at a register entry dated 1833-06-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_08_1_child: Marie Josette Vieau is the child of a register entry dated 1833-06-17 at Chicago. Child of baptism entry 8 of 1833, Chicago, Cook County, Illinois. Two forenames and no surname; the surname is the father's and is inferred. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_08_2_father: Jacob Vieau is the father of a register entry dated 1833-06-17 at Chicago. Father of baptism entry 8 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_08_3_mother: Matanacqua is the mother of a register entry dated 1833-06-17 at Chicago. Mother of baptism entry 8 of 1833, Chicago, Cook County, Illinois. A single Indigenous name, written without a surname and without a baptismal forename. A …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_08_3_mother: Matanacqua (mother, nobody here); the entry dated 1833-06-17 also names Marie Josette Vieau (child, held as hh_vieau_marie_josette); Jacob Vieau (father, held as hh_vieau_jacob)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_08_5_godmother",
@@ -513,54 +468,19 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_08_5_godmother: Monique Nadeau stands as godmother at a register entry dated 1833-06-17 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_09_1_child: Mary Wode is the child of a register entry dated 1833-07-14 at Chicago. Child of baptism entry 9 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. One of two children baptised in …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_2_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_09_2_child: Catherine Wode is the child of a register entry dated 1833-07-14 at Chicago. Child of baptism entry 9 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. The second of the two. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_3_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_09_3_father: John Wode is the father of a register entry dated 1833-07-14 at Chicago. Father of baptism entry 9 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_09_4_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_09_4_mother: Mariana Kamenwith is the mother of a register entry dated 1833-07-14 at Chicago. Mother of baptism entry 9 of 1833, Chicago, Cook County, Illinois. The surname is long, unfamiliar and the last syllable is not certain. A baptism documents a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_10_1_child: Joseph Létendre is the child of a register entry dated 1833-07-26 at Chicago. Child of baptism entry 10 of 1833, Chicago, Cook County, Illinois. Born 28 May 1833. A baptism documents a person at a font on a day; it is not a residence, an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_10_2_father: Baptiste Létendre is the father of a register entry dated 1833-07-26 at Chicago. Father of baptism entry 10 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_09_4_mother: Mariana Kamenwith (mother, held as hh_mariana_kamenwith); the entry dated 1833-07-14 also names Mary Wode (child, held as hh_wode_mary); Catherine Wode (child, held as hh_wode_catherine); John Wode (father, held as hh_wode_john). hh_mariana_kamenwith is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_10_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_10_3_mother: O'Waichiquoi is the mother of a register entry dated 1833-07-26 at Chicago. Mother of baptism entry 10 of 1833, Chicago, Cook County, Illinois. A single Indigenous name, written without a surname. A baptism documents a person at a font …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_11_1_child: Louis Bouchard is the child of a register entry dated 1833-08-18 at Chicago. Child of baptism entry 11 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. A baptism documents a person at …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_10_3_mother: O'Waichiquoi (mother, held as hh_o_waichiquoi); the entry dated 1833-07-26 also names Joseph Létendre (child, held as hh_ltendre_joseph); Baptiste Létendre (father, held as hh_ltendre_baptiste). hh_o_waichiquoi is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_11_2_father: Andrew Bouchard is the father of a register entry dated 1833-08-18 at Chicago. Father of baptism entry 11 of 1833, Chicago, Cook County, Illinois. The clerk writes 'Andrew and of Adelaide Bouchard', carrying the surname once for both …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_11_3_mother: Adelaide Bouchard is the mother of a register entry dated 1833-08-18 at Chicago. Mother of baptism entry 11 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_11_2_father: Andrew Bouchard (father, nobody here); the entry dated 1833-08-18 also names Louis Bouchard (child, held as hh_bouchard_louis); Adelaide Bouchard (mother, held as hh_bouchard_adelaide)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_11_4_sponsor",
@@ -574,18 +494,18 @@
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_1_child: Isabelle Bouchard is the child of a register entry dated 1833-08-18 at Chicago. Child of baptism entry 12 of 1833, Chicago, Cook County, Illinois. The forename is written small and the first syllable is not certain; the surname is the …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_1_child: Isabelle Bouchard (child, held as hh_isabelle_bouchard); the entry dated 1833-08-18 also names Andrew Bouchard (father, nobody here); Adelaide Bouchard (mother, held as hh_bouchard_adelaide). hh_isabelle_bouchard is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_2_father: Andrew Bouchard is the father of a register entry dated 1833-08-18 at Chicago. Father of baptism entry 12 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_2_father: Andrew Bouchard (father, nobody here); the entry dated 1833-08-18 also names Isabelle Bouchard (child, held as hh_isabelle_bouchard); Adelaide Bouchard (mother, held as hh_bouchard_adelaide)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_3_mother: Adelaide Bouchard is the mother of a register entry dated 1833-08-18 at Chicago. Mother of baptism entry 12 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_3_mother: Adelaide Bouchard (mother, held as hh_bouchard_adelaide); the entry dated 1833-08-18 also names Isabelle Bouchard (child, held as hh_isabelle_bouchard); Andrew Bouchard (father, nobody here). hh_isabelle_bouchard is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_12_4_sponsor",
@@ -598,34 +518,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_12_5_sponsor: Josette Chevalier stands as sponsor at a register entry dated 1833-08-18 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_13_1_child: François Laframboise is the child of a register entry dated 1833-08 at Chicago. Child of baptism entry 13 of 1833, Chicago, Cook County, Illinois. The clerk contracts the surname to 'Lafambise' for the child and writes it out for the …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_13_2_father: Joseph Laframboise is the father of a register entry dated 1833-08 at Chicago. Father of baptism entry 13 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_13_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_13_3_mother: Jacquette Peltier is the mother of a register entry dated 1833-08 at Chicago. Mother of baptism entry 13 of 1833, Chicago, Cook County, Illinois. Written 'Jacquet'; the same woman is 'Thérèse Jacquet Peltier' in 1834 entry 15 and …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_14_1_child: Jean Baptiste Aspam is the child of a register entry dated 1833-10 at Chicago. Child of baptism entry 14 of 1833, Chicago, Cook County, Illinois. Two forenames and no surname; the surname is the father's and is inferred. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_14_2_father: Antoine Aspam is the father of a register entry dated 1833-10 at Chicago. Father of baptism entry 14 of 1833, Chicago, Cook County, Illinois. The surname's second letter is an s or an sh ligature and its fourth is a p or a k: the …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_14_3_mother: Marianne is the mother of a register entry dated 1833-10 at Chicago. Mother of baptism entry 14 of 1833, Chicago, Cook County, Illinois. The clerk's own parenthesis. 'Sauvage' is his word for an Indigenous woman and it is kept …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_14_3_mother: Marianne (mother, held as hh_cr_marianne); the entry dated 1833-10 also names Jean Baptiste Aspam (child, held as hh_aspam_jean_baptiste); Antoine Aspam (father, held as hh_aspam_antoine). hh_cr_marianne is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_14_4_sponsor",
@@ -638,19 +533,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_14_5_sponsor: Monique Nadeau stands as sponsor at a register entry dated 1833-10 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_15_1_child: Catherine Gagnier is the child of a register entry dated 1833-10-04 at Chicago. Child of baptism entry 15 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. A baptism documents a person at …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_15_2_father: Alexis Gagnier is the father of a register entry dated 1833-10-04 at Chicago. Father of baptism entry 15 of 1833, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_15_3_mother: Angélique Aspam is the mother of a register entry dated 1833-10-04 at Chicago. Mother of baptism entry 15 of 1833, Chicago, Cook County, Illinois. The forename is abbreviated and the surname is the family written 'Ashkam' on page 2; …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_15_3_mother: Angélique Aspam (mother, nobody here); the entry dated 1833-10-04 also names Catherine Gagnier (child, held as hh_gagnier_catherine); Alexis Gagnier (father, held as hh_gagnier_alexis)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_15_4_sponsor",
@@ -663,49 +548,19 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_15_5_sponsor: Monique Nadeau stands as sponsor at a register entry dated 1833-10-04 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_16_1_child: Susanne Tranche is the child of a register entry dated 1833-10-08 at Chicago. Child of baptism entry 16 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. A baptism documents a person at …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_16_2_father: François Tranche is the father of a register entry dated 1833-10-08 at Chicago. Father of baptism entry 16 of 1833, Chicago, Cook County, Illinois. The surname is written over a struck word and is not certain; the same man appears again in …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_16_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_16_3_mother: Josette Aspam is the mother of a register entry dated 1833-10-08 at Chicago. Mother of baptism entry 16 of 1833, Chicago, Cook County, Illinois. The family written 'Ashkam' on page 2. A baptism documents a person at a font on a day; it …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_17_1_child: Magdeleine Aspam is the child of a register entry dated 1833-10-08 at Chicago. Child of baptism entry 17 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. A baptism documents a person at …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_17_2_father: Antoine Aspam is the father of a register entry dated 1833-10-08 at Chicago. Father of baptism entry 17 of 1833, Chicago, Cook County, Illinois. The same father as entry 14; the same uncertain surname. A baptism documents a person at a …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_16_2_father: François Tranche (father, held as hh_fran_ois_tranche); the entry dated 1833-10-08 also names Susanne Tranche (child, held as hh_tranche_susanne); Josette Aspam (mother, held as hh_aspam_josette). hh_fran_ois_tranche is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_17_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_17_3_mother: Marianne is the mother of a register entry dated 1833-10-08 at Chicago. Mother of baptism entry 17 of 1833, Chicago, Cook County, Illinois. The clerk's own parenthesis. A baptism documents a person at a font on a day; it is not a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_18_1_child: Susanne Vieaux is the child of a register entry dated 1833-10-10 at Chicago. Child of baptism entry 18 of 1833, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. A baptism documents a person at …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_18_2_father: Paul Vieau is the father of a register entry dated 1833-10-10 at Chicago. Father of baptism entry 18 of 1833, Chicago, Cook County, Illinois. Written 'Vieaux' here and 'Vieau' for Jacob and Josette elsewhere. A baptism documents a …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_17_3_mother: Marianne (mother, held as hh_cr_marianne); the entry dated 1833-10-08 also names Magdeleine Aspam (child, held as hh_aspam_magdeleine); Antoine Aspam (father, held as hh_aspam_antoine). hh_cr_marianne is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_18_3_mother: Jaespquaa is the mother of a register entry dated 1833-10-10 at Chicago. Mother of baptism entry 18 of 1833, Chicago, Cook County, Illinois. An Indigenous name written phonetically by a French speaker; the middle letters are not …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_18_3_mother: Jaespquaa (mother, held as hh_cr_jaespquaa); the entry dated 1833-10-10 also names Susanne Vieaux (child, held as hh_vieaux_susanne); Paul Vieau (father, held as hh_vieau_paul). hh_cr_jaespquaa is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_18_4_godfather",
@@ -719,23 +574,8 @@
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1833_19_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_19_1_child: Joseph Chevalier is the child of a register entry dated 1833-10-20 at Chicago. Child of baptism entry 19 of 1833, Chicago, Cook County, Illinois. Born in May, at the Rivière au Sable; the year's last figure is struck through and unread. A …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_12_1_child: Joseph Pottier is the child of a register entry dated 1834-06-16 at Chicago. Child of baptism entry 12 of 1834, Chicago, Cook County, Illinois. Born 8 March 1834. A baptism documents a person at a font on a day; it is not a residence, …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_12_2_father: Jean Pottier is the father of a register entry dated 1834-06-16 at Chicago. Father of baptism entry 12 of 1834, Chicago, Cook County, Illinois. The same father as 1833 entry 3, where he is written 'Potier'. A baptism documents a person …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_12_3_mother: Victoire Madera is the mother of a register entry dated 1834-06-16 at Chicago. Mother of baptism entry 12 of 1834, Chicago, Cook County, Illinois. Written 'Madera' in 1833 entry 3 and 'Medero' here, in the same hand. A baptism documents a …"
+      "rule": "the_register_entry_names_no_relative",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1833_19_1_child: Joseph Chevalier, child of the entry dated 1833-10-20: the line names nobody else in a kin role."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_12_5_godmother",
@@ -744,58 +584,18 @@
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_13_1_subject",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_13_1_subject: Josette Laframboise Beaubien is the subject of a register entry dated 1834-06-28 at Chicago. Subject of baptism entry 13 of 1834, Chicago, Cook County, Illinois. AN ADULT, not a child: 'femme de Jean Baptiste Beaubien, âgée de 38 ans' — wife of Jean …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_13_1_subject: Josette Laframboise Beaubien (subject, a name the town holds with no card claiming the row); the entry dated 1834-06-28 also names Jean Baptiste Beaubien (spouse, a name the town holds with no card claiming the row)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_13_2_spouse",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_13_2_spouse: Jean Baptiste Beaubien is the spouse of a register entry dated 1834-06-28 at Chicago. Spouse of baptism entry 13 of 1834, Chicago, Cook County, Illinois. Named as the subject's husband, not as a parent. A baptism documents a person at a font on …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_14_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_14_1_child: Alexander Beaubien is the child of a register entry dated 1834-06-28 at Chicago. Child of baptism entry 14 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Aged about twelve, so born about …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_13_2_spouse: Jean Baptiste Beaubien (spouse, a name the town holds with no card claiming the row); the entry dated 1834-06-28 also names Josette Laframboise Beaubien (subject, a name the town holds with no card claiming the row)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_14_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_14_2_father: Jean Baptiste Beaubien is the father of a register entry dated 1834-06-28 at Chicago. Father of baptism entry 14 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_14_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_14_3_mother: Josette Laframboise is the mother of a register entry dated 1834-06-28 at Chicago. Mother of baptism entry 14 of 1834, Chicago, Cook County, Illinois. The same woman baptised as an adult in the entry immediately above, written there under her …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_15_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_15_1_child: Thérèse Laframboise is the child of a register entry dated 1834-06-28 at Chicago. Child of baptism entry 15 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Aged eleven, so born about 1823. …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_15_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_15_2_father: Joseph Laframboise is the father of a register entry dated 1834-06-28 at Chicago. Father of baptism entry 15 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_15_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_15_3_mother: Jacquette Peltier is the mother of a register entry dated 1834-06-28 at Chicago. Mother of baptism entry 15 of 1834, Chicago, Cook County, Illinois. Written 'Jacquet Peltier' in 1833 entry 13 and 'Thérèse Jacquet Peltier' here; the child is …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_16_1_child: Joseph Welsh is the child of a register entry dated 1834-06-29 at Chicago. Child of baptism entry 16 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Born 18 March 1833. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_16_2_father: John Welsh is the father of a register entry dated 1834-06-29 at Chicago. Father of baptism entry 16 of 1834, Chicago, Cook County, Illinois. The clerk underlines the name, which he does nowhere else. A baptism documents a person at …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_16_3_mother: Marie Louise Ouilmette is the mother of a register entry dated 1834-06-29 at Chicago. Mother of baptism entry 16 of 1834, Chicago, Cook County, Illinois. 'Wimette' is the phonetic form of Ouilmette; the normalization is this project's spelling …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_14_2_father: Jean Baptiste Beaubien (father, a name the town holds with no card claiming the row); the entry dated 1834-06-28 also names Alexander Beaubien (child, held as hh_beaubien_alexander); Josette Laframboise (mother, held as hh_laframboise_josette)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_16_4_godfather",
@@ -803,49 +603,14 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_16_4_godfather: N. Thob stands as godfather at a register entry dated 1834-06-29 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_17_1_child: Catharine Welsh is the child of a register entry dated 1834-06-29 at Chicago. Child of baptism entry 17 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Born the ninth of June, twenty …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_17_2_father: John Welsh is the father of a register entry dated 1834-06-29 at Chicago. Father of baptism entry 17 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_17_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_17_3_mother: Marie Louise Ouilmette is the mother of a register entry dated 1834-06-29 at Chicago. Mother of baptism entry 17 of 1834, Chicago, Cook County, Illinois. The English form of the name written 'Marie Louise Wimette' in the entry above. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_18_1_child: Cicely Wagon is the child of a register entry dated 1834-07-16 at Chicago. Child of baptism entry 18 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Born the day before her baptism. …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_18_2_father: Patrick Wagon is the father of a register entry dated 1834-07-16 at Chicago. Father of baptism entry 18 of 1834, Chicago, Cook County, Illinois. The surname is five letters and the first is not certain; 'Wagon' and 'Nagon' are both …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_18_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_18_3_mother: Mary Duggan is the mother of a register entry dated 1834-07-16 at Chicago. Mother of baptism entry 18 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_19_1_child: Eléonore Beaubien is the child of a register entry dated 1834-08-06 at Chicago. Child of baptism entry 19 of 1834, Chicago, Cook County, Illinois. Born 22 July 1834. A baptism documents a person at a font on a day; it is not a residence, …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_18_2_father: Patrick Wagon (father, held as hh_patrick_wagon); the entry dated 1834-07-16 also names Cicely Wagon (child, held as hh_wagon_cicely); Mary Duggan (mother, held as hh_duggan_mary). hh_patrick_wagon is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_19_2_father: Mark Beaubien is the father of a register entry dated 1834-08-06 at Chicago. Father of baptism entry 19 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_19_3_mother: Monique Nadeau is the mother of a register entry dated 1834-08-06 at Chicago. Mother of baptism entry 19 of 1834, Chicago, Cook County, Illinois. A third spelling of the same woman's surname in the same hand — Nadeau, Nodeau, Nodou. A …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_19_2_father: Mark Beaubien (father, a name the town holds with no card claiming the row); the entry dated 1834-08-06 also names Eléonore Beaubien (child, held as hh_beaubien_elonore); Monique Nadeau (mother, held as hh_nadeau_monique)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_19_5_godmother",
@@ -853,39 +618,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_19_5_godmother: Archange Beaubien stands as godmother at a register entry dated 1834-08-06 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_20_1_child: Elisabeth Coslet is the child of a register entry dated 1834-12-10 at Chicago. Child of baptism entry 20 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Born the day before her baptism. …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_20_2_father: Godfrey Coslet is the father of a register entry dated 1834-12-10 at Chicago. Father of baptism entry 20 of 1834, Chicago, Cook County, Illinois. The surname's middle letters are crossed by the line below and the reading is not secure. A …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_20_3_mother: Marian Eberling is the mother of a register entry dated 1834-12-10 at Chicago. Mother of baptism entry 20 of 1834, Chicago, Cook County, Illinois. A German form written by a French speaker; the ending is not certain. A baptism documents a …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_20_4_godmother",
       "rule": "the_register_appearance_names_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_20_4_godmother: Marian Mouch stands as godmother at a register entry dated 1834-12-10 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_21_1_child: Susan Beaubien is the child of a register entry dated 1834-12-24 at Chicago. Child of baptism entry 21 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Born 16 December 1834. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_21_2_father: Charles Beaubien is the father of a register entry dated 1834-12-24 at Chicago. Father of baptism entry 21 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_21_3_mother: Lucy Kennedy is the mother of a register entry dated 1834-12-24 at Chicago. Mother of baptism entry 21 of 1834, Chicago, Cook County, Illinois. The surname is struck through once and rewritten; the rewritten form is what is read. A …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_21_5_sponsor",
@@ -893,34 +628,9 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_21_5_sponsor: Monique Nadeau stands as sponsor at a register entry dated 1834-12-24 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_22_1_child: Robert Jerome Beaubien is the child of a register entry dated 1834-12-22 at Chicago. Child of baptism entry 22 of 1834, Chicago, Cook County, Illinois. Born 19 December 1834, and named for his godfather. A baptism documents a person at a font …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_22_2_father: Jean Baptiste Beaubien is the father of a register entry dated 1834-12-22 at Chicago. Father of baptism entry 22 of 1834, Chicago, Cook County, Illinois. SIGNS THE ENTRY IN HIS OWN HAND: 'J. B. Beaubien'. A baptism documents a person at a font …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_22_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_22_3_mother: Josette Laframboise is the mother of a register entry dated 1834-12-22 at Chicago. Mother of baptism entry 22 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_23_1_child: Noel Bourassa is the child of a register entry dated 1834-12-29 at Chicago. Child of baptism entry 23 of 1834, Chicago, Cook County, Illinois. Aged two, so born about 1832. A baptism documents a person at a font on a day; it is not a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_23_2_father: Léon Bourassa is the father of a register entry dated 1834-12-29 at Chicago. Father of baptism entry 23 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_23_3_mother: Marguerite Laframboise is the mother of a register entry dated 1834-12-29 at Chicago. Mother of baptism entry 23 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
+      "rule": "the_family_pass_finds_an_identity_nobody_has_asserted",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_22_2_father: Jean Baptiste Beaubien (father, a name the town holds with no card claiming the row); the entry dated 1834-12-22 also names Robert Jerome Beaubien (child, held as hh_beaubien_robert_jerome); Josette Laframboise (mother, held as hh_laframboise_josette)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_23_4_godfather",
@@ -928,39 +638,14 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_23_4_godfather: M. Rowe stands as godfather at a register entry dated 1834-12-29 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_24_1_child: Cécile Laframboise is the child of a register entry dated 1834-12-29 at Chicago. Child of baptism entry 24 of 1834, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Aged four, so born about 1830. A …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_24_2_father: Claude Laframboise is the father of a register entry dated 1834-12-29 at Chicago. Father of baptism entry 24 of 1834, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_24_3_mother: Manqua Masqua is the mother of a register entry dated 1834-12-29 at Chicago. Mother of baptism entry 24 of 1834, Chicago, Cook County, Illinois. An Indigenous name written phonetically; the second element is not certain. A baptism …"
+      "rule": "the_family_pass_finds_a_tie_onto_a_card_a_build_writes",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_24_3_mother: Manqua Masqua (mother, held as hh_manqua_masqua); the entry dated 1834-12-29 also names Cécile Laframboise (child, held as hh_laframboise_ccile); Claude Laframboise (father, held as hh_laframboise_claude). hh_manqua_masqua is written whole by its stage's build, so the tie is T-2191's to write through it."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1834_24_4_godfather",
       "rule": "the_register_appearance_names_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1834_24_4_godfather: M. Rowe stands as godfather at a register entry dated 1834-12-29 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_01_1_child: Mary Elisabeth Forester is the child of a register entry dated 1835-02-23 at Chicago. Child of baptism entry 1 of 1835, Chicago, Cook County, Illinois. Two forenames and no surname; the surname is the father's and is inferred. Born 21 February …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_01_2_father: Thomas Forester is the father of a register entry dated 1835-02-23 at Chicago. Father of baptism entry 1 of 1835, Chicago, Cook County, Illinois. The surname is written over a struck word and rewritten clearly. A baptism documents a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_01_3_mother: Bridget Finegan is the mother of a register entry dated 1835-02-23 at Chicago. Mother of baptism entry 1 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_01_4_sponsor",
@@ -973,34 +658,19 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_01_5_sponsor: Mary Murphy stands as sponsor at a register entry dated 1835-02-23 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_02_1_child: Catherine Henrietta Bousque is the child of a register entry dated 1835-04-05 at Chicago. Child of baptism entry 2 of 1835, Chicago, Cook County, Illinois. Born 5 March 1835. A baptism documents a person at a font on a day; it is not a residence, an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_02_2_father: Bernard Bousque is the father of a register entry dated 1835-04-05 at Chicago. Father of baptism entry 2 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_02_3_mother: Catherine Preman is the mother of a register entry dated 1835-04-05 at Chicago. Mother of baptism entry 2 of 1835, Chicago, Cook County, Illinois. The surname's first letter could be a P or a B. A baptism documents a person at a font on a …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_02_5_sponsor",
       "rule": "the_register_appearance_names_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_02_5_sponsor: Catherine Debert stands as sponsor at a register entry dated 1835-04-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_1_subject",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_03_1_subject: Geneviève Medera is the subject of a register entry dated 1835-06-06 at Chicago. Subject of baptism entry 3 of 1835, Chicago, Cook County, Illinois. AN ADULT: 'âgée d'environ vingt ans' — about twenty years old, so born about 1815. A …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_03_1_subject: Geneviève Medera (subject, held as hh_medera_genevive); the entry dated 1835-06-06 also names Miranda (father, nobody here)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_03_2_father: Miranda is the father of a register entry dated 1835-06-06 at Chicago. Father of baptism entry 3 of 1835, Chicago, Cook County, Illinois. One name, and the entry gives no more of it. A baptism documents a person at a font on a …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_03_2_father: Miranda (father, nobody here); the entry dated 1835-06-06 also names Geneviève Medera (subject, held as hh_medera_genevive)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_03_3_witness",
@@ -1013,54 +683,14 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_03_4_witness: Bourrasso stands as witness at a register entry dated 1835-06-06 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_04_1_child: Jean Baptiste Bourassa is the child of a register entry dated 1835-06-29 at Chicago. Child of baptism entry 4 of 1835, Chicago, Cook County, Illinois. Two forenames and no surname; the surname is the father's and is inferred. Born 4 June 1835 — …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_04_2_father: Léon Bourassa is the father of a register entry dated 1835-06-29 at Chicago. Father of baptism entry 4 of 1835, Chicago, Cook County, Illinois. Written 'Bourassa' in 1834 entry 23 and 'Bourrasso' here. A baptism documents a person at a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_04_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_04_3_mother: Marguerite Laframboise is the mother of a register entry dated 1835-06-29 at Chicago. Mother of baptism entry 4 of 1835, Chicago, Cook County, Illinois. The forename alone; the surname is taken from 1834 entry 23, where the same father's wife is …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_05_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_05_1_child: Joseph Arquette is the child of a register entry dated 1835-07-05 at Chicago. Child of baptism entry 5 of 1835, Chicago, Cook County, Illinois. Sixteen months old, so born about March 1834. The surname is spelt two ways in one sentence. …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_05_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_05_2_father: Michel Arquette is the father of a register entry dated 1835-07-05 at Chicago. Father of baptism entry 5 of 1835, Chicago, Cook County, Illinois. Written 'Arquat' for the child and 'Arquot' for the father; the normalization to 'Arquette' …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_05_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_05_3_mother: Marguerite Robi is the mother of a register entry dated 1835-07-05 at Chicago. Mother of baptism entry 5 of 1835, Chicago, Cook County, Illinois. The surname is four letters and its ending is not certain. A baptism documents a person at a …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_05_4_godfather",
       "rule": "the_register_appearance_names_nobody_this_town_holds",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_05_4_godfather: Louis Trombere stands as godfather at a register entry dated 1835-07-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_06_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_06_1_child: Marguerite Tranche is the child of a register entry dated 1835-07-05 at Chicago. Child of baptism entry 6 of 1835, Chicago, Cook County, Illinois. Forename only — a surname was written after it and struck out. The surname is the father's …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_06_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_06_2_father: François Tranche is the father of a register entry dated 1835-07-05 at Chicago. Father of baptism entry 6 of 1835, Chicago, Cook County, Illinois. The same uncertain surname as 1833 entry 16, with the same wife. A baptism documents a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_06_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_06_3_mother: Josette Aspam is the mother of a register entry dated 1835-07-05 at Chicago. Mother of baptism entry 6 of 1835, Chicago, Cook County, Illinois. The family written 'Ashkam' on page 2 and 'Aspam' here and on page 5. A baptism documents a …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_06_2_father: François Tranche (father, nobody here); the entry dated 1835-07-05 also names Marguerite Tranche (child, held as hh_tranche_marguerite); Josette Aspam (mother, held as hh_aspam_josette)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_06_4_godfather",
@@ -1068,39 +698,14 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_06_4_godfather: Michel Choulet stands as godfather at a register entry dated 1835-07-05 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused_surname_only': REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_07_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_07_1_child: Bridget O'Marra is the child of a register entry dated 1835-08-20 at Chicago. Child of baptism entry 7 of 1835, Chicago, Cook County, Illinois. Born 19 August 1835 — a scene-year birth, the day before her baptism. A baptism documents a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_07_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_07_2_father: James O'Marra is the father of a register entry dated 1835-08-20 at Chicago. Father of baptism entry 7 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_07_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_07_3_mother: Cierno Ann is the mother of a register entry dated 1835-08-20 at Chicago. Mother of baptism entry 7 of 1835, Chicago, Cook County, Illinois. Read as written; it may be a forename pair rather than a surname and the entry does not say. …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_07_5_sponsor",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_07_5_sponsor: Bridget Murphy stands as sponsor at a register entry dated 1835-08-20 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_08_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_08_1_child: Pierre Adam Schwartz is the child of a register entry dated 1835-08-24 at Chicago. Child of baptism entry 8 of 1835, Chicago, Cook County, Illinois. Six months old, so born about February 1835 — a scene-year birth. A baptism documents a …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_08_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_08_2_father: Adam Schwartz is the father of a register entry dated 1835-08-24 at Chicago. Father of baptism entry 8 of 1835, Chicago, Cook County, Illinois. The child's second forename is struck through in the entry and rewritten as the father's …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_08_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_08_3_mother: Marie Dalbau is the mother of a register entry dated 1835-08-24 at Chicago. Mother of baptism entry 8 of 1835, Chicago, Cook County, Illinois. The surname's ending is not certain. A baptism documents a person at a font on a day; it is …"
+      "rule": "the_family_pass_finds_the_relative_is_nobody_this_town_holds",
+      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_08_3_mother: Marie Dalbau (mother, nobody here); the entry dated 1835-08-24 also names Pierre Adam Schwartz (child, held as hh_schwartz_pierre_adam); Adam Schwartz (father, held as hh_schwartz_adam)."
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_08_5_godmother",
@@ -1108,104 +713,14 @@
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_08_5_godmother: Marie Delacher stands as godmother at a register entry dated 1835-08-24 at Chicago. st_marys_baptisms_crosswalk.json rules it 'no_candidate': NO CANDIDATE AT ALL — the residents layer holds no person of this surname. This is the finding, not a failure: it is the Catholic town the poll books and the letter lists never reached."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_1_child: Martha Murray is the child of a register entry dated 1835-09-25 at Chicago. Child of baptism entry 9 of 1835, Chicago, Cook County, Illinois. Forename only; the surname is the father's and is inferred. Fifteen days old, so born about …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_2_father: John Murray is the father of a register entry dated 1835-09-25 at Chicago. Father of baptism entry 9 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_3_mother: Mary Brenin is the mother of a register entry dated 1835-09-25 at Chicago. Mother of baptism entry 9 of 1835, Chicago, Cook County, Illinois. The surname could be Brenin or Brennan. A baptism documents a person at a font on a day; it …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_09_4_godmother",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_09_4_godmother: Catherine Murray stands as godmother at a register entry dated 1835-09-25 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused': Refused against a named rival in the residents layer; the rule is in refusals[]."
     },
     {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_10_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_10_1_child: Joseph Claude Roi is the child of a register entry dated 1835-10-04 at Chicago. Child of baptism entry 10 of 1835, Chicago, Cook County, Illinois. Aged some days — the figure is struck through and unread — so born in 1835, a scene-year …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_10_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_10_2_father: George David Roi is the father of a register entry dated 1835-10-04 at Chicago. Father of baptism entry 10 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_10_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_10_3_mother: Anne Françoise Apolline Bruno is the mother of a register entry dated 1835-10-04 at Chicago. Mother of baptism entry 10 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_10_5_godmother",
       "rule": "the_register_appearance_identity_was_refused_in_the_crosswalk",
       "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_10_5_godmother: Joséphine Guy stands as godmother at a register entry dated 1835-10-04 at Chicago. st_marys_baptisms_crosswalk.json rules it 'refused_surname_only': REFUSED ON THE STANDING RULE: the residents layer holds this surname and no forename agrees, and a surname-only merge is always a refusal."
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_11_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_11_1_child: Anne Françoise Virginie Roi is the child of a register entry dated 1835-10-04 at Chicago. Child of baptism entry 11 of 1835, Chicago, Cook County, Illinois. Aged one, so born about 1834. The clerk writes the child 'Roy' and the father 'Roi' in the …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_11_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_11_2_father: George David Roi is the father of a register entry dated 1835-10-04 at Chicago. Father of baptism entry 11 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_11_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_11_3_mother: Anne Françoise Apolline Bruno is the mother of a register entry dated 1835-10-04 at Chicago. Mother of baptism entry 11 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_12_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_12_1_child: Catherine Duplas is the child of a register entry dated 1835-10-18 at Chicago. Child of baptism entry 12 of 1835, Chicago, Cook County, Illinois. Two months old, so born about August 1835 — a scene-year birth. The surname is written …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_12_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_12_2_father: Joseph Duplas is the father of a register entry dated 1835-10-18 at Chicago. Father of baptism entry 12 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_12_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_12_3_mother: Catherine Miller is the mother of a register entry dated 1835-10-18 at Chicago. Mother of baptism entry 12 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_13_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_13_1_child: Louisa Tony is the child of a register entry dated 1835-11-09 at Chicago. Child of baptism entry 13 of 1835, Chicago, Cook County, Illinois. Forename only in the body; the margin heads the entry 'Baptism of Louisa Tony'. Born 30 …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_13_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_13_2_father: Jacob Tony is the father of a register entry dated 1835-11-09 at Chicago. Father of baptism entry 13 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_13_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_13_3_mother: Catherine Chandler is the mother of a register entry dated 1835-11-09 at Chicago. Mother of baptism entry 13 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_14_1_child",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_14_1_child: Denis Molony is the child of a register entry dated 1835-12-25 at Chicago. Child of baptism entry 14 of 1835, Chicago, Cook County, Illinois. Born 20 December 1835 — a scene-year birth, five days before his baptism. A baptism …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_14_2_father",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_14_2_father: John Molony is the father of a register entry dated 1835-12-25 at Chicago. Father of baptism entry 14 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
-    },
-    {
-      "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_14_3_mother",
-      "rule": "the_register_entry_names_kin",
-      "note": "st_marys_baptisms_1833_1835 st_marys_bapt_1835_14_3_mother: Honora Casy is the mother of a register entry dated 1835-12-25 at Chicago. Mother of baptism entry 14 of 1835, Chicago, Cook County, Illinois. A baptism documents a person at a font on a day; it is not a residence, an address or an …"
     },
     {
       "unit": "church:data/research/church/records/st_marys_baptisms_1833_1835.json#records/st_marys_bapt_1835_14_5_sponsor",

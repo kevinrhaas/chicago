@@ -435,13 +435,88 @@ TABLE_CLOSE = "<!-- end T-0252 layer export table -->"
 # dwellings (an H1, two D4s, a D7 and a D3) and their five yard buildings, all through
 # emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
 #
+# 578 -> 587 and 572 -> 581 on 2026-10-05 (T-2130): the nine roofs the platted deal
+# requests on blk_washington_dearborn and blk_washington_clark, all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 587 -> 591 and 581 -> 585 on 2026-10-05 (T-2134): the four side-street workshops on
+# Dearborn Street corner lots, three W2 and a W1, all `outbuilding` through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 591 -> 598 and 585 -> 592 on 2026-10-05 (T-2062): seven meshes outside the first Fort
+# Dearborn's stockade in the 1812 scene — the factory and the agent's house (`log_dwelling`),
+# three stables (`outbuilding`) and two paled gardens (`palisade`), all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 598 -> 602 and 592 -> 596 on 2026-10-05 (T-2132): the four cottages on plat block 44,
+# blk_west_randolph_canal — two D5, a D4 and a D6, all `frame_dwelling` through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 602 -> 608 and 596 -> 602 on 2026-10-05 (T-2143): the six houses on plat block 51,
+# blk_west_washington_canal — a D2 shanty and D3 to D7 dwellings, all through emit.py and the
+# common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 608 -> 634 and 602 -> 628 on 2026-10-05 (T-1746): the North Division's 26 ordinary
+# dwellings carried off Kinzie's Addition into the clusters south of Michigan Street
+# (generate_north_infill rows 68-93), all through emit.py and the common modules.
+# Terrain reach still 6 and pier_crib still 2.
+#
+# 634 -> 635 and 628 -> 629 on 2026-10-06 (T-1977): the trading camp at Wolf Point, one
+# `camp` through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 635 -> 649 and 629 -> 643 on 2026-10-06 (T-2145): the School Section tier's fourteen
+# dwellings on its two Clark blocks south of Madison (plat blocks 118 and 119), all through
+# emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 649 -> 662 and 643 -> 656 on 2026-10-06 (T-2148): plat block 50, blk_washington_clinton —
+# five principal roofs on the Canal face and eight yard buildings, all through emit.py and
+# the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 662 -> 663 and 656 -> 657 on 2026-10-07 (T-2022): the North Water river warehouse
+# adds one frame_storefront through emit.py and the common modules. The lap preserves
+# T-2148's thirteen assets; terrain reach stays 6 and pier_crib stays 2.
+#
+# 663 -> 664 and 657 -> 658 on 2026-10-08 (T-2150): the West Water river warehouse at
+# Washington Street adds one frame_storefront through emit.py and the common modules;
+# terrain reach stays 6 and pier_crib stays 2.
+#
+# 664 -> 668 and 658 -> 662 on 2026-10-08 (T-2167): four more yard buildings on plat block
+# 50, blk_washington_clinton (A2, A3, A4, A5), through emit.py and the common modules;
+# terrain reach stays 6 and pier_crib stays 2.
+#
+# 668 -> 671 and 662 -> 665 on 2026-10-08 (T-2165, of T-2156): three yard buildings — a
+# stable on blk_indiana_north_wolcott, a barn on blk_south_water_wells and a smokehouse on
+# blk_south_water_dearborn — through emit.py and the common modules. Terrain reach
+# stays 6 and pier_crib stays 2.
+#
+# 671 -> 684 and 665 -> 678 on 2026-10-08 (T-2146): thirteen School Section Wells-block
+# houses, D2 to D7 dwellings and an H1, through the common modules and emit.py; terrain
+# reach stays 6 and pier_crib stays 2.
+#
+# 684 -> 687 and 678 -> 681 on 2026-10-08 (T-2169, of T-2168, on top of T-2146): the West's last three yard
+# buildings on plat block 50, blk_washington_clinton (A2, A4, A5), through emit.py and the
+# common modules; terrain reach stays 6 and pier_crib stays 2.
+#
+# 687 -> 693 and 681 -> 687 on 2026-10-08 (T-2147, re-dealt over T-2146, on top of T-2169): the six houses on
+# the School Section tier's block 81, blk_school_section_tier_81 — D2, two D4, two D5 and a D6,
+# all through emit.py and the common modules. Terrain reach still 6 and pier_crib still 2.
+#
+# 693 -> 698 and 687 -> 692 on 2026-10-08 (T-2170, lapped over T-2147): five barns in the yards
+# of the Wolcott-Kinzie core's houses (recon_1835_north_a2_094..098), through emit.py and the
+# common modules; terrain reach stays 6 and pier_crib stays 2.
+#
+# 698 -> 699 and 692 -> 693 on 2026-10-08 (T-2174, of T-1673, on top of T-2170): one F2
+# two-storey warehouse behind the stores on blk_south_water_dearborn lot 0, a
+# frame_storefront through emit.py and the common modules. Terrain reach stays 6 and
+# pier_crib stays 2.
+#
 STATED = {
-    "assets": 578,
+    "assets": 699,
     "restales": {
-        "generators/common/*.py": 578,
+        "generators/common/*.py": 699,
         "generators/common/__init__.py": 0,
         "generators/common/phases.py": 0,
-        "generators/emit.py": 572,
+        "generators/emit.py": 693,
         "generators/build.py": 0,
         "generators/terrain_gen.py": 6,
         "generators/archetypes/pier_crib.py": 2,

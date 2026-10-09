@@ -39,6 +39,12 @@
       "measured": "continuously",
       "finding": "In the manifest: `rederive.mjs --run` rebuilds it and `--check` re-derives it on every gate — a measurement taken every commit rather than once."
     },
+    "spend_family_pass.py": {
+      "placement": "not_a_writer",
+      "write_mode": null,
+      "measured": "2026-10-08",
+      "finding": "Run bare it prints the family pass's ruling tally over the remainder registers (65 units under its rules), exits 0 and writes nothing (git status --porcelain identical before and after); --check rebuilds the registers in memory and compares the authored rulings to the units they reach, writing nothing. It declares no write mode: the rulings it reads are authored in data/research/family_pass_rulings.json and the registers that carry them are written by tools/spend_remainder_rulings.py (T-1335)."
+    },
     "check_frontage_notes.py": {
       "placement": "not_a_writer",
       "write_mode": null,
@@ -670,6 +676,13 @@
       "measured": "2026-10-01",
       "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
       "placed": "by layer, 2026-10-01 \u2014 reasoned, not derived; beside generate_west_infill.py in the manifest"
+    },
+    "generate_north_freight.py": {
+      "placement": "manifest",
+      "write_mode": "(bare)",
+      "measured": "2026-10-06",
+      "finding": "Reproduces: ran `(bare)` on a clean tree in 2s, wrote its one output, changed no committed byte.",
+      "placed": "by layer, 2026-10-06 \u2014 reasoned, not derived; beside generate_west_freight.py in the manifest"
     },
     "generate_woodpiles.py": {
       "placement": "pending",

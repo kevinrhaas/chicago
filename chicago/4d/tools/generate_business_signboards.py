@@ -253,6 +253,8 @@ WORKS_TRADES = {
                                "delivering to it",
     "narrow_two_story_warehouse": "a warehouse names its firm for the shipper on "
                                   "the river",
+    "large_river_warehouse": "a river warehouse names its firm for the shipper "
+                             "on the river",
     "carpenter_or_joiner_shop": "a joiner's shop, named on its front for the "
                                 "builder who orders from it",
     "cooper_wagon_or_wheelwright_shop": "a wright's shop, named on its front for "
@@ -543,16 +545,29 @@ SIGN_WORDING = {
         ),
     },
     "dole_warehouse_south": {
-        "name": "GEO. W. DOLE", "trade": "Forwarding & Commission Merchant",
-        "trade_short": "Forwarding & Commission", "identity": "Dole",
-        "grade": "reconstructed",
+        "name": "NEWBERRY & DOLE", "trade": "Dry Goods, Hardware & Crockery",
+        "trade_short": "Dry Goods & Hardware",
+        "identity": "Dole", "grade": "inferred",
+        "sources": ["chicago_democrat_1833_11_26", "chicago_democrat_1833_1835"],
         "why": (
-            "The firm NEWBERRY & DOLE advertises in both 1833 and 1835 and its warehouse "
-            "on the north bank carries that firm's own line. THIS building is Dole's own "
-            "1832 warehouse and slaughter yard on the south side, and no advertisement in "
-            "the pages read is signed by Dole alone — so the trade words are the firm's "
-            "and the single-partner line is ours. Reconstructed for that reason rather "
-            "than for any doubt about the trade."
+            "THE FIRM'S STORE, AND THE PAPER'S NEIGHBOURS ARE WHAT SAY SO (T-2137). This "
+            "was lettered \"GEO. W. DOLE\" on Andreas's word that the 1832 house was Dole's "
+            "own. By 1834 the Chicago Democrat's advertisers fix themselves off "
+            "\"Newberry & Dole's store\" ON DEARBORN STREET with a neighbour on each side "
+            "of it on that street — Tuttle & Brown \"one door south\" (1834-06-04 c011), "
+            "Wm. H. Taylor \"a few rods north\" (1835-05-20 c020, still standing six weeks "
+            "before the scene date) — and D. Graves's bakery on South Water \"a few doors "
+            "north\" of it. A store with Dearborn lots both north and south of it is not on "
+            "a South Water corner; Andreas's Lake-and-Dearborn house is the one committed "
+            "building that fits, so the board carries the firm. The trade line is the "
+            "firm's own first card, \"have just received an assortment of DRY GOODS, "
+            "HARDWARE, CROCKERY\" (26 November 1833, c013). No street line: the "
+            "neighbours say Dearborn and this board hangs on the Lake Street face, so a "
+            "place line would contradict the wall it is painted on. Graded `inferred` because the building is matched "
+            "to the store by its neighbours and Andreas, not named by either. The river "
+            "house on South Water carries the firm's forwarding line, so the two boards "
+            "of one firm say two different trades. The identity stays `Dole`: the card "
+            "keeps Andreas's name for the house, and Dole is the partner both name."
         ),
     },
     "elston_soap_candle_manufactory": {

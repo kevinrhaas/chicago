@@ -125,6 +125,23 @@ DISTRICTS = {
                  "parent": "T-1202", "says_why": "T-1685"},
     "lake": {"prefix": "blk_lake_", "ticket": "T-1691",
              "parent": "T-1201", "says_why": "T-1691"},
+    # T-2136. The 24 seats the three passes above left owed: 18 on the Washington tier
+    # (T-1202's ground, which `blk_randolph_` never reached), five on the West Division's
+    # Lake and Randolph blocks west of the river, one on the North Division's Indiana
+    # Street blocks. T-2136 was filed for that remainder and was a piece of nothing, so
+    # these three carry no `parent` rather than one borrowed from a closed programme.
+    "washington": {"prefix": "blk_washington_", "ticket": "T-2136",
+                   "parent": None, "says_why": "T-2136"},
+    "west": {"prefix": "blk_west_", "ticket": "T-2136",
+             "parent": None, "says_why": "T-2136"},
+    "indiana_north": {"prefix": "blk_indiana_north_", "ticket": "T-2136",
+                      "parent": None, "says_why": "T-2136"},
+    # T-2147, piece 4 of T-1755. The School Section's Madison-Monroe tier joined the plat
+    # with T-2144 and its first roofs rose on block 81 with T-2147, which is the first
+    # build ticket to reach the district, so it carries the pass here. The tier's other
+    # South blocks (94, 95, 118, 119; T-2145, T-2146) share the prefix and the pass.
+    "school_section_tier": {"prefix": "blk_school_section_tier_", "ticket": "T-2147",
+                            "parent": "T-1755", "says_why": "T-2147"},
 }
 
 # `parent` IS PROVENANCE, NOT A WORK ORDER (T-1705). It says which programme ticket a
@@ -134,7 +151,8 @@ DISTRICTS = {
 # looking ticket id this pass writes is `OWED_TO`, below, and that one is gated.
 
 # The order the passes have been run in, which is the order the ledger states them in.
-RUN_FOR = ("south_water", "randolph", "lake")
+RUN_FOR = ("south_water", "randolph", "lake", "washington", "west", "indiana_north",
+           "school_section_tier")
 
 # WHO CARRIES THE OWED SEATS (T-1705). A seat outside the districts above is held owed BY
 # NAME, and until T-1705 the ledger handed every one of them to "T-1200's successors
@@ -145,6 +163,8 @@ RUN_FOR = ("south_water", "randolph", "lake")
 # queue the way the order book holds its owners (T-1420): while anything is owed, it must
 # name a ticket a run can still claim. When T-2136 adds a district, whatever is still owed
 # moves to the ticket that carries it next, in the same pull request.
+# T-2136 ran the remaining three districts and left nothing owed (`owed_to` is null in
+# the ledger); the id stays here so the next seat dealt outside them names it and is held.
 OWED_TO = "T-2136"
 
 # THE GENERATORS THIS PASS IS WIRED THROUGH, by way of tools/inferred_occupancy.py, keyed
@@ -780,19 +800,26 @@ def self_test(scopes: tuple[str, ...]) -> int:
     # T-1705. THE OWED SEATS' OWNER, asked against made-up queues rather than a broken
     # ledger, because what goes dead is the ticket and not the file. A fixture in which
     # the owner is live must pass, or the three that must fail prove nothing.
-    owner = ledger.get("owed_to")
+    # T-2136. Once every seat stands in a district nothing is owed, and the gate on the
+    # owner still has to be shown to fire, so it is asked of the committed ledger with one
+    # of its own rows moved to owed: the fixture is the shape `derive` writes, not prose.
+    owed_ledger = ledger
+    if not ledger.get("owed") and ledger.get("written"):
+        owed_ledger = {**ledger, "owed": ledger["written"][:1], "owed_to": OWED_TO}
+    owner = owed_ledger.get("owed_to")
     queues = [("the owed seats' owner is done", {owner: "done"}, {}, True),
               ("the owed seats' owner is split with no live piece",
                {owner: "split", "T-9001": "done"}, {owner: ["T-9001"]}, True),
               ("the owed seats' owner is not a ticket", {"T-9002": "open"}, {}, True),
               ("the owed seats' owner is split with a live piece",
                {owner: "split", "T-9001": "open"}, {owner: ["T-9001"]}, False)]
-    if not ledger.get("owed"):
-        print("   NOT EXERCISED: the owed seats' owner — the committed ledger owes nothing")
+    if not owed_ledger.get("owed"):
+        print("   NOT EXERCISED: the owed seats' owner — the committed ledger owes nothing "
+              "and writes nothing to stand in for it")
         failures += 1
     else:
         for label, states, children, should_fire in queues:
-            fired = bool(owed_order_problems(ledger, states, children))
+            fired = bool(owed_order_problems(owed_ledger, states, children))
             if fired != should_fire:
                 print(f"   {'NOT CAUGHT' if should_fire else 'FALSE ALARM'}: {label}")
                 failures += 1

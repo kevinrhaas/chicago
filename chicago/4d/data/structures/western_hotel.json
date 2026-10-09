@@ -177,6 +177,22 @@
     ],
     "note": "Both sources have Stow building and operating the house; the hotel chronology says outright that it was 'built and operated by W.H. Stow'. He came to Chicago about 1833, so he is present at the scene date on either build date."
   },
+  "stands_on_lot": {
+    "claims_lot": false,
+    "grid": "west_division",
+    "plat": "thompson_plat_1830",
+    "layer": "data/traces/vectors/thompson_lots.json",
+    "block_id": "blk_west_randolph_canal",
+    "lot_index": 0,
+    "lot_number": 2,
+    "lot_number_withheld": null,
+    "lot_lines_confidence": "inferred",
+    "lot_numbers_confidence": "documented",
+    "confidence": "inferred",
+    "footprint_share": 0.988,
+    "derived_by": "tools/record_lot_seating.py",
+    "note": "MEASURED, NOT CLAIMED (T-1478). This record's committed footprint lies 99% on lot 2 of blk_west_randolph_canal in the west_division grid, which is where tools/plat_occupancy.py seats it: a building stands on the lot most of it is on, and only if it reaches the part of that lot a roof could use. THE LOT GRID WAS DRAWN AFTER THE BUILDING WAS PLACED (T-1194 and its children), so this is an observation about the ground under a committed coordinate and NOT an address — no source names this lot, `claims_lot` is false, and nothing about the record's placement, footprint, form or confidence moved to write it. The seat is graded at the weaker of the lot lines this block states (inferred) and the numeral on them (documented), read from data/traces/vectors/thompson_lots.json."
+  },
   "research_note": "The teamsters' house on the west side, and the one record in this parcel where a disputed date could have changed what stands in the scene. chicagology dates it 1834 on W. H. Stow's own word and gives the description everything else here rests on — a 40 ft front and a 60 ft wing in an L, a large stable, a yard the wagon trains drove into with entrances from both streets, and a clientele of farmers and teamsters coming in from the west. The hotel chronology dates it 1835 and calls it 'a small structure', contradicting the size as well as the date. BOTH DISPUTES ARE DECIDED THE SAME WAY AND FOR THE SAME REASON: the builder's own account, with corroborating detail, beats an undated line in a chronology that is unfootnoted and demonstrably inconsistent elsewhere. THE PHASE MECHANISM WAS CONSIDERED FOR THE 1835 READING AND REJECTED — modelling a construction site would require inventing a start month, a build duration and a degree of completeness, which is more invention than the honest alternative of one completed phase with the dispute written down. The largest unmodelled thing about this building is not its date but its yard: the stable and the enclosed wagon court are attested, are most of the site, and are not built by the frame_tavern archetype. See docs/RESEARCH/western_hotel.md and docs/LIBERTIES.md.",
   "review_required": false
 }

@@ -162,6 +162,9 @@ UNSCHEDULED_PLATS = {
 # its own, and one has been standing on the grid since T-1444 instantiated the reviewed
 # West recipe: its placements fill lot-ruled West blocks at a density somebody reviewed.
 WEST_GRID = "west_division"
+# T-2144. The School Section's Madison-Monroe tier, joined to the grid on the owner's
+# T-1755 ruling — scheduled one roof to a lot, see `programme_document`.
+SCHOOL_SECTION_GRID = "school_section_tier"
 
 
 def west_lot_ceiling(grid: dict, rows: list[dict], recipe_id: str) -> dict:
@@ -339,17 +342,35 @@ def group_of(family: str) -> str:
 # roof are the ones the same deal already placed one on. So "behind the principal roof on
 # its own lot" is read off the recipe, and a caller who knows no position (the North
 # Division's placement rows, which carry none) gets the group-only answer it always got.
+#
+# T-2134 CARRIES THE SAME RULING ROUND A CORNER. A workshop at the back of a CORNER lot,
+# fronting the lot's side street, behind the house that already fronts the long face, is
+# the rear building the owner's ruling admits — "a lot may carry a main house plus a rear
+# dwelling" — with its door on the street it stands beside rather than on the alley. It
+# is ancillary by position for the same reason the rear cottage is: it adds no house to
+# the lot's frontage, so `ROW_UNITS_PER_LOT` and the lot ceiling count the lot exactly as
+# they did. The term is workshops only, on purpose. The documented record puts a shop
+# behind or beside its master's house; a store is the thing a stranger has to find, and
+# a store on a side street is the store's own frontage and a principal roof (T-0024).
+# `fronts_side_street` is read off the committed lot grid by the caller — the slot's
+# street either is its lot's own long face or it is not — never typed into a recipe.
 def inventory_class(family: str, *, stands_on: str | None = None,
-                    lot_carries_a_principal_roof: bool = False) -> str:
+                    lot_carries_a_principal_roof: bool = False,
+                    fronts_side_street: bool = False) -> str:
     """`ancillary` or `principal_functional`, from what a roof IS and where it STANDS.
 
     A barn or a small outbuilding is ancillary by what it is, wherever it stands — that
     half is unchanged and is the older rule. Anything else is ancillary when it stands in
-    the yard: off the alley, on a lot whose principal roof is already dealt.
+    the yard: off the alley, on a lot whose principal roof is already dealt. A workshop
+    is also ancillary when it fronts its corner lot's SIDE street behind that roof
+    (T-2134).
     """
     if group_of(family) in ANCILLARY_GROUPS:
         return "ancillary"
     if stands_on == "alley" and lot_carries_a_principal_roof:
+        return "ancillary"
+    if (stands_on == "street" and fronts_side_street and lot_carries_a_principal_roof
+            and group_of(family) == "workshops"):
         return "ancillary"
     return "principal_functional"
 
@@ -1330,6 +1351,31 @@ def programme_document():
                 "density": (f"{west_density['reviewed_roofs']} roofs per "
                             f"{west_density['lots']} lots, the reviewed West recipe on "
                             f"{west_density['block']} (T-1783)"),
+            })
+        elif block.get("grid") == SCHOOL_SECTION_GRID:
+            # T-2144. ONE HOUSE TO A LOT, AND NO ROW. The tier's lots are as wide as the
+            # Original Town's, so `ROW_UNITS_PER_LOT` would fit on them by its own
+            # arithmetic — but that figure is a party-line density measured on the
+            # town's commercial frontage, and this is the ground the town spilled onto
+            # across its south line: sold lot by lot in October 1833 and, by every
+            # account this project holds, mostly empty in 1835. So a lot carries one
+            # principal roof, the generator's own one-roof-to-a-lot gate
+            # (`lot_ceiling_principal`), the block still keeps a lot open, and the yard
+            # buildings ride at the town's ratio. The owner's ruling of 2026-10-05
+            # (T-1755, option b) is what opens the ground at all.
+            principal = lot_ceiling_principal(free)
+            ceiling = lots + round(lots * ANCILLARY_PER_PRINCIPAL)
+            principal = max(0, min(principal, ceiling - stands))
+            ancillary = max(0, min(round(principal * ANCILLARY_PER_PRINCIPAL),
+                                   ceiling - stands - principal))
+            unit.update({
+                "capacity_roofs": ceiling,
+                "principal_room": principal, "ancillary_room": ancillary,
+                "headroom": principal + ancillary,
+                "state": "open" if principal + ancillary > 0 else "at_capacity",
+                "density": ("one principal roof per lot and no party-line row, the "
+                            "block keeping one lot open — the School Section tier "
+                            "south of Madison (T-2144, on the T-1755 ruling)"),
             })
         hold = block.get("reserved")
         if hold:

@@ -30,7 +30,7 @@
   "staffing": null,
   "locations": [
     {
-      "kind": "unplaceable",
+      "kind": "anchored",
       "structure_id": null,
       "street_id": null,
       "face": null,
@@ -38,8 +38,14 @@
       "from": "1834-08-06",
       "to": null,
       "tier": "inferred",
-      "basis": "The register resolved no place for this house at the scene date.",
-      "limit_reason": "No street the model holds. The anchor 'the store of Messrs Newberry & Dole' names nothing the committed town holds."
+      "basis": "Placeable against the committed town. The landmark is the committed structure dole_warehouse_south.",
+      "limit_reason": "The register places this house against dole_warehouse_south and the town holds no roof of its own for it (action: new_building), so the anchor is as far as the reading goes.",
+      "anchor": {
+        "kind": "structure",
+        "id": "dole_warehouse_south",
+        "title": "George W. Dole's Warehouse",
+        "streets": []
+      }
     }
   ],
   "dates": {

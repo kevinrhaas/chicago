@@ -119,9 +119,13 @@ BEARING_FROM = "clinton"
 # read 2026-09-24 by the node rule in data/traces/street_control.json and transformed to
 # EPSG:26916 against data/datum.json.) The corporate boundary's west leg walks the result;
 # see tools/measure_corporation_limits.py.
+#
+# T-2018, 2026-10-06 — AND CUT BACK TO THE FIRST OF THEM. Hubbard's node witnessed a later
+# extension through Wabansia block 59, which Wright 1834 draws whole, and Thompson's 1830
+# plat draws Jefferson no farther north than Kinzie; so the line now ends on Kinzie's node
+# and Hubbard is no longer its control. The street record's note states the ruling.
 CARRIED_ONTO_OWN_CONTROL = {
-    "jefferson": [("Kinzie", -410.158, 263.614, "708314133"),
-                  ("Hubbard", -410.159, 381.887, "12233681439")],
+    "jefferson": [("Kinzie", -410.158, 263.614, "708314133")],
 }
 
 BANK_REACH = 9
@@ -178,6 +182,58 @@ def west_bank():
     raise SystemExit("the West Division shore line is not in river.geojson")
 
 
+# T-2143 — THE REACH SOUTH OF WASHINGTON. T-0445 seated this line off the forks window's
+# bank, whose trace stops at local N -405.2, the old south edge of the modelled field; that
+# edge fell inside Washington Street's own corridor, so the street stopped one tier short
+# of the plat's south town line. T-1707 carried the Original Town's seven south columns to
+# Madison for exactly that reason. The bank south of the old edge is committed too —
+# `branches.geojson`'s west bank of the South Branch, traced from the same Wright 1834
+# sheet by tools/trace_south_branch.py — so the same rule carries the street the same way:
+# the bank offset one half-corridor west, stopped where it meets Madison Street, which is
+# the Original Town's south line (tools/build_survey_tracts.py ORIGINAL_TOWN_BOUNDS) and the
+# line plat block 51's south face is printed on.
+SOUTH_REACH_TO = "madison"
+
+# The two traces meet on the forks window's south edge, and each carries a vertex there:
+# the branch trace's last one and the forks trace's first stand 0.73 m apart. The forks
+# trace's vertex is kept, so the line north of the old edge is not re-cut; a branch vertex
+# this close to it is the splice row, not more bank.
+SPLICE_TOLERANCE_M = 1.0
+
+
+def south_bank():
+    """The committed west bank of the South Branch south of the forks trace, local ENU,
+    south to north, from the first vertex south of SOUTH_REACH_TO up to the splice."""
+    oe, on = datum()
+    fc = load("data/terrain/epochs/e1834_harbor_cut/branches.geojson")
+    start = west_bank()[0][0]
+    for f in fc["features"]:
+        if str(f["properties"].get("name", "")).startswith("West bank of the South Branch"):
+            pts = [(c[0] - oe, c[1] - on) for c in f["geometry"]["coordinates"]]
+            if pts[0][1] > pts[-1][1]:
+                pts.reverse()
+            if math.dist(pts[-1], start) <= SPLICE_TOLERANCE_M:
+                pts = pts[:-1]
+            stop = madison_north()
+            first = max(i for i, q in enumerate(pts) if q[1] < stop)
+            return pts[first:], f["properties"].get("confidence")
+    raise SystemExit("the South Branch's west bank is not in branches.geojson")
+
+
+def madison_north():
+    path = streets()[SOUTH_REACH_TO]["path_local_enu_m"]
+    return sum(q[1] for q in path) / len(path)
+
+
+def clip_south(line, northing):
+    """Cut a south-to-north polyline where it first crosses `northing`."""
+    for i, ((x1, y1), (x2, y2)) in enumerate(zip(line, line[1:])):
+        if y1 <= northing <= y2:
+            t = (northing - y1) / (y2 - y1)
+            return [(x1 + t * (x2 - x1), northing)] + line[i + 1:]
+    raise SystemExit(f"the offset line never reaches north {northing}")
+
+
 def offset_west(path, half):
     """Offset a polyline by `half` metres to its left walking south to north.
 
@@ -206,6 +262,33 @@ def offset_west(path, half):
         out.append(meet(a, b))
     out.append(segs[-1][1])
     return out
+
+
+def offset_west_bevelled(path, half, limit):
+    """`offset_west`, but a joint whose mitre would stand more than `limit` past `half`
+    from the bank is bevelled instead: both segments' perpendicular ends are kept.
+
+    T-2143. The branch trace south of the old edge turns harder than the forks trace does
+    — at local N -446.7 the mitre would stand 12.51 m from the bank, 0.32 m past the
+    0.15 m the assertions hold every vertex to. A bevel keeps each vertex exactly one
+    half-corridor from the bank instead of widening the tolerance to admit the mitre.
+    """
+    mitred = offset_west(path, half)
+    out = [mitred[0]]
+    for i in range(1, len(path) - 1):
+        if dist_to_polyline(mitred[i], path) - half <= limit:
+            out.append(mitred[i])
+            continue
+        for a, b in ((path[i - 1], path[i]), (path[i], path[i + 1])):
+            dx, dy = b[0] - a[0], b[1] - a[1]
+            L = math.hypot(dx, dy)
+            out.append((path[i][0] - dy / L * half, path[i][1] + dx / L * half))
+    out.append(mitred[-1])
+    return out
+
+
+# The tolerance the assertions below hold every vertex to.
+VERTEX_TOLERANCE_M = 0.15
 
 
 def world_polygon(phase, oe, on):
@@ -438,8 +521,17 @@ def derive():
     tail = continuation()
     # The seated line is the South Branch reach mitred into the reach past the turn, so the
     # joint at the turn is the mitre and not the old perpendicular end (T-0768).
-    centre = offset_west(traced[:CONT_SEGMENT[1] + 1], corridor / 2.0)[:-1] + [tail["cut"]]
-    clearances = [dist_to_polyline(p, traced) for p in centre]
+    # T-2143. The reach south of the old edge is offset on its own and PREPENDED: the
+    # old south end is kept as a vertex rather than re-mitred into the new reach, so no
+    # lot of the tiers north of Washington is re-cut (T-1707 kept its columns' old ends
+    # for the same reason). Re-mitring it would move it 0.21 m and re-cut block 44.
+    north_of_edge = offset_west(traced[:CONT_SEGMENT[1] + 1], corridor / 2.0)[:-1] + [tail["cut"]]
+    south, south_conf = south_bank()
+    south_of_edge = offset_west_bevelled(south + traced[:1], corridor / 2.0,
+                                         VERTEX_TOLERANCE_M)[:-1]
+    centre = clip_south(south_of_edge + north_of_edge, madison_north())
+    whole = south + traced
+    clearances = [dist_to_polyline(p, whole) for p in centre]
     a, b, res, rms = fit_line(bank)
     box_e = ground_box()
 
@@ -454,6 +546,7 @@ def derive():
         corridor=corridor, bank=bank, bank_conf=bank_conf, centre=centre,
         clearances=clearances, fit=(a, b, res, rms), box_e=box_e,
         modules=modules, streets=st, traced=traced, tail=tail,
+        south=south, south_conf=south_conf, madison_n=madison_north(),
         lake=lake_kerb_gap(tail),
     )
 
@@ -590,9 +683,9 @@ def self_test(quiet=False):
           sorted({c[0] for c in tail["clearances"]}) == sorted(CLUSTER))
 
     check("every vertex stands one half-corridor from the bank, within 0.15 m",
-          all(abs(c - d["corridor"] / 2) <= 0.15 for c in d["clearances"]))
+          all(abs(c - d["corridor"] / 2) <= VERTEX_TOLERANCE_M for c in d["clearances"]))
     check("the street's east kerb therefore reaches the waterline and no further",
-          max(d["clearances"]) - d["corridor"] / 2 < 0.15)
+          max(d["clearances"]) - d["corridor"] / 2 < VERTEX_TOLERANCE_M)
 
     box_w = d["box_e"][0]
     bearing = slope_of(st[BEARING_FROM])

@@ -128,6 +128,53 @@ SCENE_DATE = "1835-07-01"
 DEATHS_SOURCE = "fergus_1843_old_settler_death_notices"
 REGISTRY_SOURCE = "calumet_club_early_chicago_1879"
 
+# THE REGISTER STATES IT, AND A DRAW MAY NOT STAND AGAINST IT (T-2177). St Mary's
+# baptismal register puts every person it names in a ROLE, and four of the roles are
+# sexed by the language the priest wrote them in: the father and the mother of the child,
+# the parrain and the marraine. The child's own sex is not a role; it is the word the entry
+# writes after the child's name — `fils` or `fille`, `son` or `daughter`. Until T-2177
+# nothing read either, so a card minted from the register drew its sex at the roll's male
+# rate like any name off a poll list, and on 2026-10-08 the draw contradicted the entry on
+# 22 of the 43 children and on every one of the 28 mothers and godmothers it drew male.
+#
+# So this is a reading, graded `inferred` like every other this pass makes, and it is
+# taken BEFORE the name is read and in place of a draw: a statement about the person
+# outranks a reading of their name, and a draw is not a statement about anybody. It never
+# replaces a sex a mint wrote. The block cites the register by source id, so the card
+# prints the citation, and its note quotes the entry's own word.
+#
+# `sponsor`, `witness`, `subject` and `spouse` are not sexed by their word, and the child's
+# term is read only where it stands within TERM_REACH characters after the child's name as
+# read — the longest committed gap is a birth date, "born the twentieth of december 1835,"
+# at 37. A person the register puts in roles of both sexes is refused, not resolved.
+REGISTER_SOURCE = "st_marys_baptismal_register_1833_1835"
+REGISTER = ROOT / "data" / "research" / "church" / "records" / "st_marys_baptisms_1833_1835.json"
+#
+# THE MOTHERS AND GODMOTHERS ARE NOT READ HERE YET, and the reason is a later stage's, not
+# this pass's. 28 of them were drawn male, and the modelled-families stage gave the ones
+# who head a house of their own a modelled wife and children; reading them female
+# withdraws those families, which re-opens the order book's women-and-children cells and
+# has to run through that stage's re-family fixpoint. That is T-2185 (split off T-2177), and
+# `mother` and `godmother` join ROLE_SEX in the same commit as the families come down.
+ROLE_SEX = {"father": "male", "godfather": "male"}
+ROLE_WORDS = {"father": "the father", "godfather": "the godfather (parrain)"}
+TERM_SEX = {"fils": "male", "son": "male", "sons": "male",
+            "fille": "female", "filles": "female", "daughter": "female", "daughters": "female"}
+TERM = re.compile(r"\b(%s)\b" % "|".join(sorted(TERM_SEX)), re.IGNORECASE)
+TERM_REACH = 60
+
+# THE COLUMN PRINTS THE TITLE, AND THE NAME LIST DROPPED IT (T-2190). Rule 1 reads a
+# gendered title off the name as the card carries it, but the press register files a
+# person under the name it normalised, and a marriage notice's "to Miss BETSY WEAVER" is
+# filed as plain "Betsy Weaver": the title the column printed never reaches the card. So
+# the title is read where it was printed — the claim's own normalised text, directly in
+# front of the name the person was read as, nothing between them but the title's stop. It
+# is the same statement rule 1 reads and is graded the same; it replaces a draw, because
+# a draw is not a statement about anybody, and among undrawn people it speaks only where
+# the name itself says nothing, so no reading rule 1 or 2 already makes is re-cited. Two
+# columns that print the person with titles of both sexes are refused, not resolved.
+PRESS_EXTRACTED = ROOT / "data" / "research" / "newspapers" / "extracted"
+
 # The roll that prints an age, and the day it was signed. Only one of the old-settler
 # rolls carries `age_1879_as_read`, and the arithmetic below turns on its date.
 REGISTRY_ROLL = "registry_1879_05_27"
@@ -391,6 +438,71 @@ def persons(cards: dict):
             yield hid, person
 
 
+# --- the register's own word (T-2177) ---------------------------------------------------
+
+_REGISTER_READINGS = None
+
+
+def child_term(row: dict):
+    """(term, sex) the entry writes after the child's name as read, or (None, None)."""
+    text = (row.get("cells") or {}).get("entry_as_read") or ""
+    at = text.find(row.get("as_read") or "\0")
+    if at < 0:
+        return None, None
+    match = TERM.search(text, at + len(row["as_read"]))
+    if not match or match.start() - (at + len(row["as_read"])) > TERM_REACH:
+        return None, None
+    return match.group(1), TERM_SEX[match.group(1).lower()]
+
+
+def register_readings() -> dict:
+    """record id -> (sex, the words that say so), for every row whose role or term sexes it."""
+    global _REGISTER_READINGS
+    if _REGISTER_READINGS is None:
+        _REGISTER_READINGS = {}
+        for row in load(REGISTER).get("records") or []:
+            loc = row.get("locator") or {}
+            role, entry = loc.get("role"), "entry %s-%02d" % (loc.get("year_series"),
+                                                              int(loc.get("entry") or 0))
+            if role in ROLE_SEX:
+                _REGISTER_READINGS[row["id"]] = (ROLE_SEX[role], "%s puts '%s' in the place "
+                                                 "of %s" % (entry, row.get("as_read"),
+                                                            ROLE_WORDS[role]))
+            elif role == "child":
+                term, sex = child_term(row)
+                if sex:
+                    _REGISTER_READINGS[row["id"]] = (sex, "%s writes '%s %s'"
+                                                     % (entry, row.get("as_read"), term))
+    return _REGISTER_READINGS
+
+
+def drawn_sex(person: dict) -> bool:
+    """A sex T-1304 drew, which a reading may replace. Nothing else is replaced."""
+    return (person.get("sex_basis") or {}).get("confidence") == "reconstructed"
+
+
+def register_sex(person: dict):
+    """(sex, note, record ids) the register states for this person, ("split", ...) where
+    its rows disagree, or None where no row of it sexes them."""
+    readings = register_readings()
+    rows = sorted({(e.get("record_id"),) + readings[e.get("record_id")]
+                   for e in person.get("church_evidence") or []
+                   if e.get("record_id") in readings})
+    if not rows:
+        return None
+    sexes = {sex for _rid, sex, _said in rows}
+    ids = [rid for rid, _sex, _said in rows]
+    if len(sexes) > 1:
+        return "split", None, ids
+    sex = sexes.pop()
+    said = "; ".join(words for _rid, _sex, words in rows)
+    return sex, (
+        "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, "
+        "%s — so this person was %s, and that is read off the entry rather than off the "
+        "name or the roll. A role and a kinship word are statements about the person; no "
+        "draw stands against them." % (said, sex)), ids
+
+
 # --- the forename table ----------------------------------------------------------------
 
 # A POOL THAT ADDS NO FORENAME IS NOT NAMED IN A CARD'S PROSE (T-1377). The `free_black`
@@ -401,6 +513,53 @@ def persons(cards: dict):
 # and irish and yankee male forename pool", printing a community term onto four hundred
 # people it says nothing whatever about. The sex reading does not move: `says` is a set
 # and every one of this pool's forenames is already in it.
+# --- the column's own title (T-2190) ----------------------------------------------------
+
+_COLUMNS = {}
+
+
+def column_claims(issue: str) -> dict:
+    """claim id -> claim, for one extracted newspaper issue ({} where none is committed)."""
+    if issue not in _COLUMNS:
+        path = PRESS_EXTRACTED / f"{issue}.json"
+        _COLUMNS[issue] = ({c.get("id"): c for c in load(path).get("claims") or []}
+                           if path.exists() else {})
+    return _COLUMNS[issue]
+
+
+def column_title_sex(person: dict):
+    """(sex, note, source ids) a press column states by printing a gendered title directly
+    before the name this person was read as, ("split", None, None) where the columns
+    disagree, or None where none prints one."""
+    rows = []
+    for row in person.get("press_evidence") or []:
+        issue, _, cid = str(row.get("locator") or "").partition("#")
+        as_read = " ".join(str(row.get("as_read") or "").split())
+        claim = column_claims(issue).get(cid) if issue and cid and as_read else None
+        if not claim:
+            continue
+        text = " ".join(str(claim.get("normalized") or "").split())
+        printed = re.compile(r"\b(%s)\.?\s+%s\b" % ("|".join(sorted(GENDERED_TITLES)),
+                                                       re.escape(as_read)), re.IGNORECASE)
+        for match in printed.finditer(text):
+            rows.append((GENDERED_TITLES[match.group(1).lower()], match.group(0),
+                         row["locator"], row.get("source")))
+    if not rows:
+        return None
+    sexes = {sex for sex, _w, _l, _s in rows}
+    if len(sexes) > 1:
+        return "split", None, None
+    sex = sexes.pop()
+    said = "; ".join(sorted({"'%s' (%s)" % (words, loc) for _x, words, loc, _s in rows}))
+    sources = sorted({src for _x, _w, _l, src in rows if src})
+    return sex, (
+        "THE NAME IS PRINTED WITH A TITLE, in the column and not on the name list. The paper "
+        "prints %s, and whoever set that line said in the same breath that this person was "
+        "%s. The press register files the person under the bare name, which is why rule 1 "
+        "could not read it there; the title is read here where it was printed. A title is a "
+        "statement about the person, and no draw stands against it." % (said, sex)), sources
+
+
 POOLS_NOT_NAMED_IN_A_SEX_SENTENCE = ("free_black",)
 
 
@@ -545,7 +704,20 @@ def table_lookup(table: dict) -> dict:
 
 def sex_for(person: dict, table: dict, lookup: dict) -> tuple:
     """(sex, rule, note) or (None, why_not, None)."""
+    if person.get("sex") and not drawn_sex(person):
+        return None, "already_recorded", None
+    stated = register_sex(person)
+    if stated and stated[0] == "split":
+        return None, "register_roles_disagree", None
+    if stated:
+        return stated[0], "register", stated[1]
+    printed = column_title_sex(person)
+    if printed and printed[0] == "split":
+        return None, "column_titles_disagree", None
     if person.get("sex"):
+        # Only a draw reaches here: a sex anything else wrote returned above.
+        if printed:
+            return printed[0], "column_title", printed[1]
         return None, "already_recorded", None
     name = person.get("name") or ""
     title, fore, why = read_name(name)
@@ -558,6 +730,14 @@ def sex_for(person: dict, table: dict, lookup: dict) -> tuple:
             "Capt., Col., Rev. and Maj. would be right nearly every time in this town and "
             "would still be a guess about the period rather than a fact about the person, "
             "so none of them sexes anybody." % (token.capitalize(), title))
+    named = sex_for_name(fore, why, table, lookup)
+    if named[0] is None and printed:
+        return printed[0], "column_title", printed[1]
+    return named
+
+
+def sex_for_name(fore, why, table: dict, lookup: dict) -> tuple:
+    """Rule 2 and its refusals: (sex, rule, note) off the forename, or (None, why_not, None)."""
     if why == "initial":
         return None, "initial_only", None
     if fore is None:
@@ -812,8 +992,16 @@ def apply_to(card: dict, table: dict, lookup: dict, deaths: dict, registry: dict
         pid = person.get("id")
         sex, rule, note = sex_for(person, table, lookup)
         if sex:
+            # Popped first, so a reading that replaces a draw lands where a fresh fill
+            # does — at the end of the person — and `--check` derives the same order.
+            person.pop("sex", None)
+            person.pop("sex_basis", None)
             person["sex"] = sex
             person["sex_basis"] = {"value": sex, "confidence": "inferred", "note": note}
+            if rule == "register":
+                person["sex_basis"]["sources"] = [REGISTER_SOURCE]
+            elif rule == "column_title":
+                person["sex_basis"]["sources"] = column_title_sex(person)[2]
         if not person.get("birth_year"):
             # Rule 4 before rule 3: a man's own age about himself outranks an obituary
             # matched to him by name. Where both stand, the note of the one written says
@@ -1031,6 +1219,56 @@ def self_test() -> int:
              sex_for({"name": "%s Smith" % fore.capitalize()}, table, lookup)[0] is None)
         want("%s is refused in the table with a reason" % fore,
              any(r["forename"] == fore and r["why"] for r in table["refused"]))
+
+    # T-2177: the register's own word, before the name and in place of a draw.
+    drawn = {"confidence": "reconstructed", "value": "male"}
+    girl = {"name": "Jacques Smith", "sex": "male", "sex_basis": drawn,
+            "church_evidence": [{"record_id": "st_marys_bapt_1833_08_1_child"}]}
+    want("the entry's 'fille' outranks a male draw and a male forename",
+         sex_for(girl, table, lookup)[:2] == ("female", "register"))
+    want("a son's 'fils' is read", sex_for(
+        {"name": "George Beaubien", "sex": "male", "sex_basis": drawn,
+         "church_evidence": [{"record_id": "st_marys_bapt_1833_01_1_child"}]},
+        table, lookup)[:2] == ("male", "register"))
+    want("the father's place is read male", sex_for(
+        {"name": "Mark Beaubien", "church_evidence": [
+            {"record_id": "st_marys_bapt_1833_01_2_father"}]}, table, lookup)[0] == "male")
+    want("a sponsor's place sexes nobody",
+         all(rid not in register_readings() for rid in
+             (r["id"] for r in load(REGISTER)["records"]
+              if (r.get("locator") or {}).get("role") in ("sponsor", "witness", "subject"))))
+    want("a sex a mint wrote is never replaced", sex_for(
+        {"name": "x", "sex": "female", "church_evidence": [
+            {"record_id": "st_marys_bapt_1833_01_1_child"}]}, table, lookup)[1]
+         == "already_recorded")
+    split = {"name": "x", "church_evidence": [
+        {"record_id": "st_marys_bapt_1833_01_1_child"},
+        {"record_id": "st_marys_bapt_1833_08_1_child"}]}
+    want("rows of both sexes are refused, not resolved",
+         sex_for(split, table, lookup) == (None, "register_roles_disagree", None))
+    want("a term beyond reach of the child's name is not read",
+         child_term({"as_read": "Ann", "cells": {"entry_as_read":
+                     "Ann" + " x" * TERM_REACH + " fils"}}) == (None, None))
+    want("every child read off the register carries its citation", all(
+        (p.get("sex_basis") or {}).get("sources") == [REGISTER_SOURCE]
+        for _h, p in persons(fresh)
+        if (p.get("sex_basis") or {}).get("note", "").startswith("THE REGISTER STATES IT")))
+
+    # T-2190: the title the column printed, where the name list dropped it.
+    bride = {"name": "Betsy Weaver", "sex": "male", "sex_basis": drawn, "press_evidence": [
+        {"as_read": "Betsy Weaver", "locator": "chicago_democrat_1833_12_17#c001",
+         "source": "chicago_democrat_1833_1835"}]}
+    want("the column's 'Miss' outranks a male draw", sex_for(bride, table, lookup)[:2]
+         == ("female", "column_title"))
+    want("…and the block it writes cites the paper",
+         column_title_sex(bride)[2] == ["chicago_democrat_1833_1835"])
+    groom = {"name": "Chester Ingersoll", "press_evidence": [
+        {"as_read": "Chester Ingersoll", "locator": "chicago_democrat_1833_12_17#c001"}]}
+    want("a printed title never re-cites a name rule 2 already reads",
+         sex_for(groom, table, lookup)[1] != "column_title")
+    want("a name the column prints with no title before it is not read",
+         column_title_sex({"press_evidence": [{"as_read": "R. J. Hamilton",
+                           "locator": "chicago_democrat_1833_12_17#c001"}]}) is None)
 
     # A rank is not a title, and it is not a forename either.
     want("a rank sexes nobody", sex_for({"name": "Capt. Baxley"}, table, lookup)[0] is None)

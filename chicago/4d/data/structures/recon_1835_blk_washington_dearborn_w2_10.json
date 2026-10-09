@@ -1,0 +1,166 @@
+{
+  "id": "recon_1835_blk_washington_dearborn_w2_10",
+  "name": "Reconstructed W2 carpenter or joiner shop #10",
+  "archetype": "outbuilding",
+  "phases": [
+    {
+      "id": "inferred_1835",
+      "documented_range": {
+        "from": "1835-01-01",
+        "to": "1835-12-31",
+        "confidence": "reconstructed",
+        "note": "Anonymous count-unit toward the July 1835 665-roof programme. No evidence establishes that this particular building existed, and no source names an occupant of this lot."
+      },
+      "position": {
+        "utm_e": 447791.974,
+        "utm_n": 4636948.943,
+        "rotation_deg": 270.36,
+        "symbolic_location": "Anonymous reconstructed roof in the South Division block bounded by Washington, State, Madison and Dearborn; standing back from the Dearborn Street side of its corner lot",
+        "confidence": "reconstructed",
+        "note": "Interpretive placement on a GENERATED lot, not a recovered parcel. The lot geometry is the K7 plat module's — this project has never read Thompson's numbering off a sheet, and the side lot lines and the alley are conjectural even where the block face is not. The building stands 1.6 m back from its side street edge, which is a typology for the period and not a measurement of this lot. The whole footprint — not its centre — is tested against the platted street corridors, against its own lot lines and against every other footprint in the dataset, so no invented building of this parcel stands in the roadway; clearing the roadway is not the same as standing on a recovered lot.",
+        "derivation": {
+          "method": "not_derivable",
+          "reason": "No parcel-by-parcel July 1835 roof register survives in the supplied evidence, and no lot in this block is numbered."
+        }
+      },
+      "footprint": {
+        "polygon": [
+          [
+            0,
+            0
+          ],
+          [
+            6.277,
+            0
+          ],
+          [
+            6.277,
+            9.421
+          ],
+          [
+            0,
+            9.421
+          ]
+        ],
+        "confidence": "reconstructed",
+        "note": "A 6.28 × 9.42 m rectangle sampled deterministically inside the W2 family's authored footprint band; no individual dimensions are documented."
+      },
+      "form": {
+        "wall_height_m": {
+          "value": 3.41,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_type": {
+          "value": "gable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "roof_pitch_deg": {
+          "value": 39.3,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "construction": {
+          "value": "light_frame",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "door": {
+          "value": "stable",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "door_side": {
+          "value": "front",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "loft": {
+          "value": false,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Type-level choice within the W2 band in the supplied reconstruction specification; it is not evidence for this anonymous instance."
+        },
+        "board_gap_m": {
+          "value": 0.012,
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W2 family's key geometry parameters do not speak to a board gap, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        },
+        "paint": {
+          "value": "unpainted",
+          "confidence": "reconstructed",
+          "sources": [
+            "owner_chicago_1835_reconstruction_spec_2026"
+          ],
+          "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. NOT BOUNDED BY THE SPECIFICATION, and the sentence above about the invention being bounded does not hold for this value: the W2 family's key geometry parameters do not speak to paint or finish, so there is nothing here for a citation to point at. The value is the reconstruction generator's type default; it is not evidence for this anonymous instance."
+        }
+      },
+      "change_note": "Reconstructed anonymous July 1835 block infill; a better-evidenced named roof substitutes for a compatible count-unit rather than increasing the 665-roof total."
+    }
+  ],
+  "function": {
+    "value": "carpenter_or_joiner_shop",
+    "confidence": "reconstructed",
+    "sources": [
+      "owner_chicago_1835_reconstruction_spec_2026"
+    ],
+    "note": "INVENTED, NOT DERIVED. This value comes from a typology in the reconstruction spec — what a building of this kind was ordinarily like — and NOT from evidence about this particular building, because there is no particular building: the structure itself is an invention filling a demonstrable need of the town. The spec is cited because the invention is bounded by it, which is what makes it defensible rather than arbitrary; the GRADE is the bottom tier because nothing here is a reading of a source about this thing. Assigned from the W2 family to satisfy the block's scheduled mix; no occupant or individual use is known."
+  },
+  "occupants": {
+    "value": "Elmira Fowler — millinery and dress making",
+    "confidence": "reconstructed",
+    "sources": [
+      "chicago_democrat_1833_1835"
+    ],
+    "note": "SEATED BY THE STREET-FACE ADOPTION POLICY (docs/STREET-FACE-ADOPTION.md, the owner's ruling of 2026-08-29 for T-0354, extended 2026-08-30 for T-0416; liberty L212). The newspaper register places this business on Dearborn Street AND NOTHING NARROWER — 1 printing, 1834-11-05 to 1834-11-05, claims chicago_democrat_1834_11_05#c004 — so it takes the STREET FACE and not a lot. THE ROOF ENDS ITS PLATTED TIER AGAINST Dearborn Street, so it is a corner building and stands on that street as well as on the one its lot faces — the owner's ruling of 2026-08-30 (T-0416). Nothing about the roof changed and no geometry was raised to seat this business. WHICH roof on that face it is given is an allocation by tools/adopt_street_faces.py and not a reading of any source, and nothing here says this business stood nearer the corner than any other on the same face. THE ROOF'S OWN EXISTENCE, POSITION AND FOOTPRINT REMAIN CONJECTURAL and are unchanged by the adoption: the business is documented, the building under it is not, and this attribute is graded `reconstructed` because the invented part is the whole of the placement."
+  },
+  "reconstruction": {
+    "status": "inferred_anonymous",
+    "family": "W2",
+    "district": "south",
+    "inventory_class": "ancillary",
+    "programme_phase": "phase3_platted_block_washington_dearborn_side_street_shop",
+    "source_id": "owner_chicago_1835_reconstruction_spec_2026",
+    "block_id": "blk_washington_dearborn",
+    "lot_index": 0,
+    "stands_on": "street",
+    "fronts": "dearborn",
+    "sequence": 10,
+    "finish_key": "mixed_patch",
+    "roof_condition": "patched",
+    "age_state": "established",
+    "fabric_basis": {
+      "rule": "F-W",
+      "class": "works",
+      "by": "type",
+      "household": null,
+      "words": "patched boards under a patched roof — a carpenter's shop, from the 1832–33 town (rule F-W: a tradesman's shop by its type)"
+    }
+  },
+  "research_note": "RECONSTRUCTED / GENERATED, NOT AN ATTESTED NAMED BUILDING. The block, its scheduled roof count and its family mix follow the 665-roof programme; exact presence, lot, position, footprint, finish and instance-level form are interpretive.",
+  "review_required": false
+}

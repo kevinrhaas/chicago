@@ -26,7 +26,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1439
+   "n": 1438
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -48,7 +48,7 @@
   "residents_matched_one_entry": 164,
   "residents_ambiguous": 11,
   "residents_contested": 6,
-  "residents_surname_only_refused": 289,
+  "residents_surname_only_refused": 290,
   "voters_matched_one_entry": 122,
   "voters_ambiguous": 39,
   "voters_surname_only_refused": 75,
@@ -866,11 +866,11 @@
      }
     ],
     "person_id": "kimberly_edmund_s",
-    "household_id": "hh_pruyne_kimberly",
+    "household_id": "hh_kimberly_edmund_s",
     "grade_1835": "attested",
     "occupation_1835": "physician",
     "occupation_1835_confidence": "attested",
-    "lives_at_1835": null,
+    "lives_at_1835": "kimberly_residence",
     "could_carry": [
      "street_1839"
     ],
@@ -6282,6 +6282,11 @@
     "name": "Manson Parker",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Parker' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Manson Parker'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Marie Theresa Ellis Kimberly",
+    "candidates_under_that_surname": 1,
+    "rule": "The surname 'Kimberly' is in Fergus 1839 and no entry under it carries the initial 'M' of 'Marie Theresa Ellis Kimberly'. A surname-only agreement is a refusal."
    },
    {
     "name": "Martha Murray",

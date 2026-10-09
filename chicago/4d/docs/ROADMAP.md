@@ -1,3 +1,35 @@
+## T-2183 — recovered Glessner courtyard correction (2026-10-08)
+
+The owner-requested follow-up to T-2172 restores aligned principal openings,
+shortens the upper wing windows, joins the projecting rear eave into the tower,
+and extends the dark-glass default to Full detail. Dimensions and source-use
+limits are recorded in L-glessner-courtyard-windows-2183. Implementation and
+validation state are in STATUS and `RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
+## T-2171 — continuous 1812 lake shore (2026-10-08)
+
+The unsupported notch at the sand-spit attachment is replaced by a smooth,
+continuous lake face. The river-side bend, lower spit and southern outlet keep
+their coordinates. The curve is explicitly reconstructed (L403), based on the
+map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
+1812 checks pass with zero page errors or failed requests. The PR records the final
+repository and smoke gates; docs/measurements/t2171 holds the visual proof.
+
+## T-2172 — courtyard tower window and roof proportions (2026-10-08)
+
+The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
+upper windows. The cap rise falls from 13.6 to 10.1 ft at the unchanged ridge.
+Principal sash heads rise 2 ft, retaining their sills and historical divisions.
+These are declared proportional reconstructions, about +/-1 ft.
+
+Canonical full/light assets and recovery archive rebuilt; 3,000 independent roof
+samples pass. Six published desktop/full and mobile/light app views load without
+page, HTTP or loader errors and remain inside their rendering budgets. The local
+repository gate passed 786 checks; its two stale generated outputs were rebuilt
+and passed unchanged direct rechecks. Required CI and broader smoke are recorded
+on the pull request.
+See `RESEARCH/glessner-tower-proportions-2172/README.md`.
+
 ## T-2035 / T-2037 / T-2038 - continuity while moving (2026-10-03)
 
 Held frames did not establish continuity: the owner still sees whole clumps appear
@@ -5162,3 +5194,12 @@ north courtyard eave. See RESEARCH/glessner-south-gable/work.md for evidence and
 Owner repair, 2026-10-02. Implementation and comparisons are recorded in
 [the elevation dossier](RESEARCH/glessner-elevation-rebuild/work.md).
 Operational state is in chicago-tickets/T-1999.
+
+
+## T-2157 — courtyard dining roof continuation
+
+The owner-requested correction replaces the T-2016 rectangular recessed return
+with an intersecting tiled cross roof. Its copper hip ends over the bay, and the
+level ridge meets the north wing with matching terracotta collars. See
+`docs/RESEARCH/glessner-courtyard-roof-2157/README.md` for scope and validation,
+and `docs/LIBERTIES.md` for the reconstructed dimensions. Work state is in T-2157.

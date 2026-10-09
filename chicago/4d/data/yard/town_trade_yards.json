@@ -7,22 +7,22 @@
   "target_date": "1835-07-01",
   "coordinates": "Local East-North-Up metres from data/datum.json's origin, the same frame data/enclosures/, data/signage/ and the sidecars' placement.local_e / local_n use.",
   "counts": {
-    "yards": 30,
-    "objects": 76,
+    "yards": 35,
+    "objects": 81,
     "by_trade": {
-      "carpenter_or_joiner_shop": 3,
+      "carpenter_or_joiner_shop": 6,
       "cooperage": 2,
       "packing_house": 2,
       "slaughterhouse_packing": 2,
-      "stable": 18,
+      "stable": 20,
       "stable_and_wagon_yard": 1,
       "tannery": 1,
       "warehouse_and_slaughter_yard": 1
     },
     "by_kind": {
       "barrel": 52,
-      "boards": 3,
-      "hay": 19,
+      "boards": 6,
+      "hay": 21,
       "hides": 2
     },
     "wagons": 5,
@@ -1046,6 +1046,46 @@
       ]
     },
     {
+      "structure_id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+      "name": "Reconstructed A1 stable #09",
+      "belongs_to": "recon_1835_blk_indiana_north_wolcott_a1_09",
+      "trade": "stable",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a stable's hay stands in a rick outside it",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          902.91,
+          510.89
+        ],
+        [
+          907.62,
+          510.86
+        ],
+        [
+          907.67,
+          518.97
+        ],
+        [
+          902.96,
+          519.0
+        ]
+      ],
+      "items": [
+        {
+          "kind": "hay",
+          "at_local_enu_m": [
+            905.25,
+            508.68
+          ],
+          "bearing_deg": 180.4
+        }
+      ]
+    },
+    {
       "structure_id": "recon_1835_blk_lake_clinton_a1_03",
       "name": "Reconstructed A1 stable #03",
       "belongs_to": "recon_1835_blk_lake_clinton_a1_03",
@@ -1086,6 +1126,47 @@
       ]
     },
     {
+      "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+      "name": "Reconstructed W2 carpenter or joiner shop #09",
+      "belongs_to": "recon_1835_blk_randolph_clark_w2_09",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a joiner's boards are stacked and stickered in the yard to season",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          675.15,
+          -307.45
+        ],
+        [
+          675.11,
+          -313.62
+        ],
+        [
+          683.19,
+          -313.67
+        ],
+        [
+          683.23,
+          -307.5
+        ]
+      ],
+      "items": [
+        {
+          "kind": "boards",
+          "at_local_enu_m": [
+            673.43,
+            -310.52
+          ],
+          "bearing_deg": 270.4,
+          "courses": 6
+        }
+      ]
+    },
+    {
       "structure_id": "recon_1835_blk_randolph_clinton_a1_06",
       "name": "Reconstructed A1 stable #06",
       "belongs_to": "recon_1835_blk_randolph_clinton_a1_06",
@@ -1122,6 +1203,47 @@
             -290.81
           ],
           "bearing_deg": 90.5
+        }
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+      "name": "Reconstructed W2 carpenter or joiner shop #18",
+      "belongs_to": "recon_1835_blk_randolph_dearborn_w2_18",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a joiner's boards are stacked and stickered in the yard to season",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          720.67,
+          -313.89
+        ],
+        [
+          720.71,
+          -307.84
+        ],
+        [
+          710.72,
+          -307.78
+        ],
+        [
+          710.68,
+          -313.83
+        ]
+      ],
+      "items": [
+        {
+          "kind": "boards",
+          "at_local_enu_m": [
+            722.38,
+            -310.88
+          ],
+          "bearing_deg": 90.4,
+          "courses": 6
         }
       ]
     },
@@ -1246,6 +1368,46 @@
       ]
     },
     {
+      "structure_id": "recon_1835_blk_washington_clinton_a1_06",
+      "name": "Reconstructed A1 stable #06",
+      "belongs_to": "recon_1835_blk_washington_clinton_a1_06",
+      "trade": "stable",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a stable's hay stands in a rick outside it",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          -199.18,
+          -417.32
+        ],
+        [
+          -199.14,
+          -412.12
+        ],
+        [
+          -206.19,
+          -412.07
+        ],
+        [
+          -206.22,
+          -417.27
+        ]
+      ],
+      "items": [
+        {
+          "kind": "hay",
+          "at_local_enu_m": [
+            -196.96,
+            -414.74
+          ],
+          "bearing_deg": 90.4
+        }
+      ]
+    },
+    {
       "structure_id": "recon_1835_blk_washington_dearborn_a1_02",
       "name": "Reconstructed A1 stable #02",
       "belongs_to": "recon_1835_blk_washington_dearborn_a1_02",
@@ -1282,6 +1444,47 @@
             -440.31
           ],
           "bearing_deg": 0.4
+        }
+      ]
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+      "name": "Reconstructed W2 carpenter or joiner shop #10",
+      "belongs_to": "recon_1835_blk_washington_dearborn_w2_10",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "why_goods": "a joiner's boards are stacked and stickered in the yard to season",
+      "confidence": "reconstructed",
+      "faces": [
+        "rear"
+      ],
+      "ground_quad_local_enu_m": [
+        [
+          719.27,
+          -446.86
+        ],
+        [
+          719.31,
+          -440.58
+        ],
+        [
+          709.89,
+          -440.52
+        ],
+        [
+          709.85,
+          -446.8
+        ]
+      ],
+      "items": [
+        {
+          "kind": "boards",
+          "at_local_enu_m": [
+            720.99,
+            -443.73
+          ],
+          "bearing_deg": 90.4,
+          "courses": 6
         }
       ]
     },

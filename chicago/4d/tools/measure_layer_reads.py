@@ -344,7 +344,7 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     # therefore a vertex. `x` is the extent object inside `matchZone`.
     "extent.kind": ("mesh", "switch (x.kind)"),
     "extent.elev_m": ("mesh", "Array.isArray(x.elev_m)"),
-    "extent.polygon": ("mesh", "pointInPolygon(x.polygon, e, n)"),
+    "extent.polygon": ("mesh", "pointInPolygon(x.polygon, qe, qn)"),
     "extent.box.e": ("mesh", "const be = x.box.e;"),
     "extent.box.n": ("mesh", "const bn = x.box.n;"),
     "extent.of": ("mesh", "if (x.of !== 'water') return false;"),
@@ -356,12 +356,12 @@ FLORA_ZONE_READS: dict[str, tuple[str, str]] = {
     "extent.wander_m": ("mesh", "x.wander_m ?? 0"),
     "extent.edge.ramp_m": ("mesh", "x.edge.ramp_m ?? 0"),
     "extent.edge.wander_m": ("mesh", "x.edge.wander_m ?? 0"),
-    "extent.exclude_polygons": ("mesh", "ringsNear(x.exclude_polygons, e, n)"),
+    "extent.exclude_polygons": ("mesh", "ringsNear(x.exclude_polygons, qe, qn)"),
     # Ground a community holds that its own extent rule cannot reach — the mirror
     # of the exclusions above. z03's evidence names the public square and its rule
     # is an elevation band that cannot find a block the terrain draws flat.
     # Both lists are read through a bin index since T-2101 (69 vacant-lot rings).
-    "extent.include_polygons": ("mesh", "ringsNear(x.include_polygons, e, n)"),
+    "extent.include_polygons": ("mesh", "ringsNear(x.include_polygons, qe, qn)"),
     "extent.priority": ("mesh", "rec.extent?.priority"),
     # Per species.
     "species[].role": ("mesh", "OUR_ROLES.has(sp.role)"),
@@ -831,6 +831,10 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "persons[].sex_basis.value": ("shown", "claimRow('Sex', words(basis.value)"),
     "persons[].sex_basis.confidence": ("shown", "tierOf(block) || block.confidence"),
     "persons[].sex_basis.note": ("shown", "escapeHtml(block.note)"),
+    # T-2177. A sex read off St Mary's register cites it, and `claimRow` prints the
+    # citation under the row like any other block's `sources`.
+    "persons[].sex_basis.sources": (
+        "shown", "(block.sources || []).map((id) => citationsById.get(id))"),
     # T-1304. THE SAME ROW, ONE TIER DOWN, AND THAT IS THE POINT. A sex the model DREW
     # goes through `claimRow` exactly as a read one does, so `tier`, `basis` and
     # `replaceable_by` reach the card through `basisHtml` — the collapsed "Drawn from a
@@ -887,6 +891,20 @@ RESIDENTS_HOUSEHOLD_READS: dict[str, tuple[str, str]] = {
     "modelled_family.married.wife": ("shown", "escapeHtml(String(married.wife))"),
     "modelled_family.married.from_household": ("shown", "escapeHtml(String(married.from_household))"),
     "modelled_family.married.what_happened": ("shown", "escapeHtml(String(married.what_happened || ''))"),
+    # T-2190. The wife a source prints, seated from her own card in place of the drawn one:
+    # `printedWifeHtml` prints the quote, its locator and date, and why; `printedSeatHtml`
+    # says on her own entry which card she stood on.
+    "modelled_family.printed_wife.ticket": ("shown", "escapeHtml(String(printed.ticket))"),
+    "modelled_family.printed_wife.wife": ("shown", "escapeHtml(String(printed.wife))"),
+    "modelled_family.printed_wife.from_household": ("shown", "escapeHtml(String(printed.from_household))"),
+    "modelled_family.printed_wife.married": ("shown", "escapeHtml(String(printed.married))"),
+    "modelled_family.printed_wife.sources": ("shown", "escapeHtml((printed.sources || []).join(', '))"),
+    "modelled_family.printed_wife.locator": ("shown", "escapeHtml(String(printed.locator))"),
+    "modelled_family.printed_wife.printed": ("shown", "escapeHtml(String(printed.printed || ''))"),
+    "modelled_family.printed_wife.what_happened": ("shown", "escapeHtml(String(printed.what_happened || ''))"),
+    "persons[].seated_as_printed_wife.ticket": ("shown", "escapeHtml(String(seat.ticket))"),
+    "persons[].seated_as_printed_wife.from_household": ("shown", "escapeHtml(String(seat.from_household))"),
+    "persons[].seated_as_printed_wife.relationship_as_dealt": ("shown", "escapeHtml(words(seat.relationship_as_dealt))"),
     # T-2021. The ruling on a married house no woman in the town fits: `rulingHtml` prints
     # whether the house was given its drawn family or stands alone, and why.
     "modelled_family.ruling.ticket": ("shown", "escapeHtml(String(ruling.ticket))"),

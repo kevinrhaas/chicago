@@ -628,6 +628,12 @@ const unstable = (over = {}) => ({
   check('…and it is not `schedule`, which never fires from a non-default branch',
         !/^\s*schedule:/m.test(y));
   check('…and it can be dispatched at a single PR', /STUCK_ONLY/.test(y));
+  // T-2069: one global group let a push to one branch cancel the sweep another
+  // branch's push started, leaving `report` cancelled on that PR's live head —
+  // which pr-automerge reads as red. Newest-wins must hold per branch only.
+  const group = (y.match(/^concurrency:\s*\n\s+group:\s*(.+)$/m) || [])[1] || '';
+  check('…and its concurrency group is scoped per ref, so one branch never cancels another\'s report',
+        group.includes('${{ github.ref }}'), group || 'no concurrency group found');
 }
 
 /* 15. T-1288 IS NOT UNDONE. Its measurement — one commit must never get two

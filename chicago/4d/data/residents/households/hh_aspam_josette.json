@@ -114,6 +114,30 @@
   "seed": "hh_aspam_josette:household_size",
   "note": "The kin core only. A servant, an apprentice or a journeyman this house may have held is priced by T-1183 and seated by T-1173; a boarder is seated by T-1175. The drawn size is a floor on the house."
  },
+ "kin": [
+  {
+   "person": "aspam_josette",
+   "relation": "mother",
+   "household": "hh_tranche_marguerite",
+   "value": "tranche_marguerite",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le cinq juillet mil huit cent trente cinq, je soussigné ai administré les cérémonies du baptême à Marguerite [struck: Lafambre] fille de François Tranche[?] et de Josette Aspam, âgée d'un an. Parrain a été Michel Choulet. Both cards were minted from this entry's rows (st_marys_bapt_1835_06_3_mother, st_marys_bapt_1835_06_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  },
+  {
+   "person": "aspam_josette",
+   "relation": "mother",
+   "household": "hh_tranche_susanne",
+   "value": "tranche_susanne",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le huit octobre mil huit cent trente trois, je soussigné ai baptisé Susanne fille de François Tranche[?] et de Josette Aspam, née [le] 15 octobre 1831. Parrain et marraine ont été Jean Baptiste Lavigne et Monique Beaubien. Both cards were minted from this entry's rows (st_marys_bapt_1833_16_3_mother, st_marys_bapt_1833_16_1_child), so no identification is made here. The mother term is the entry's: it names the mother of the child."
+  }
+ ],
  "persons": [
   {
    "id": "aspam_josette",

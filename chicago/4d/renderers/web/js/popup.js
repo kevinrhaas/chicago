@@ -714,6 +714,7 @@ const FUNCTION_WORDS = {
   small_two_story_frame_house: 'small two-story frame house',
   narrow_two_story_store: 'narrow two-story store',
   narrow_two_story_warehouse: 'narrow two-story warehouse',
+  large_river_warehouse: 'large river warehouse',
   cooper_wagon_or_wheelwright_shop: 'cooper, wagon or wheelwright shop',
   parade_and_drill_ground: 'parade and drill ground',
   block_house: 'block-house',
@@ -1250,8 +1251,11 @@ export const DOSSIER_BASE = 'https://github.com/kevinrhaas/chicago/blob/main/chi
  * @param {HTMLElement} root  the <aside> to render into
  * @param {object} opts
  * @param {string} opts.docBase  where a dossier is read — see DOSSIER_BASE
+ * @param {function} [opts.onShow]  told each time a card is drawn, so a file
+ *   only the card reads (the liberties, T-2058; a record's household notes,
+ *   T-2151) can be fetched on first need rather than at boot
  */
-export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } = {}) {
+export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null, onShow = null } = {}) {
   let currentId = null;
   /** Null until the derived list loads; never faked to an empty list. */
   let liberties = null;
@@ -1267,6 +1271,8 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
    *  the claim that no firm traded here. */
   let businessesByStructure = null;
   let currentRecord = null;
+  /** Households fetched whole for a card (T-2151), by record id. */
+  const householdsById = new Map();
   /** Whether the card on screen was opened by aiming at this building's signboard,
    *  kept so a redraw (the liberties, the agencies) does not lose the fact. */
   let currentFromSign = false;
@@ -1301,11 +1307,12 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
     close,
 
     /**
-     * Hand the popup the derived liberties once they load. Boot awaits the list
-     * before the gate opens, so in practice a card is never drawn without it —
-     * but a card already on screen is redrawn rather than left stale, because
-     * the one failure mode that matters here is a building quietly showing
-     * fewer admissions than the record holds.
+     * Hand the popup the derived liberties once they load. Boot no longer
+     * waits for them (T-2058): the first card drawn starts the fetch through
+     * `onShow`, so that card is drawn without the section and then redrawn
+     * when the list lands, rather than left stale, because the one failure mode
+     * that matters here is a building quietly showing fewer admissions than the
+     * record holds.
      *
      * @param {object[]|null} list  `data/liberties.json`'s `liberties`
      */
@@ -1364,6 +1371,23 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
     },
 
     /**
+     * Hand the popup one record's households whole, once the card that asked for
+     * them has fetched them (T-2151): the boot sidecar carries them slim, with the
+     * reasoning behind each `why` toggle in `sidecars/<scene>/households/<id>.json`.
+     * Held here rather than written onto the registry's record, so the record stays
+     * exactly what was shipped. The card on screen is redrawn on the same terms as
+     * the handles above; a card since moved on is left alone.
+     *
+     * @param {string} id  the record whose households arrived
+     * @param {object[]} list  that record's `residents`, as the source carries them
+     */
+    setHouseholds(id, list) {
+      if (!Array.isArray(list)) return;
+      householdsById.set(id, list);
+      if (currentRecord && currentRecord.id === id) this.show(currentRecord, { fromSign: currentFromSign });
+    },
+
+    /**
      * @param {object} record  a registry entry: { id, sidecar, ... }
      * @param {object} [opts]
      * @param {boolean} [opts.fromSign]  the visitor aimed at this building's
@@ -1373,6 +1397,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
      */
     show(record, { fromSign = false } = {}) {
       if (!record?.sidecar) return false;
+      onShow?.(record);
       const s = record.sidecar;
       currentId = record.id;
       currentRecord = record;
@@ -1451,7 +1476,7 @@ export function createPopup(root, { docBase = DOSSIER_BASE, onBusiness = null } 
         ${leadHtml(s, called, p)}
         ${factsHtml(s, firms, currentFromSign)}
         ${lodgingSection(s)}
-        ${residentsSection(s)}
+        ${residentsSection(householdsById.has(record.id) ? { residents: householdsById.get(record.id) } : s)}
         ${agencySectionHtml(agencies, 'structure_id', record.id, escapeHtml)}
         ${tabsHtml({ liberties: libertyCount + questionCount })}
         ${paneHtml('evidence', evidencePane)}

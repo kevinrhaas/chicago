@@ -1394,6 +1394,30 @@
       "name_changed": true,
       "path_local_enu_m": [
         [
+          -35.45,
+          -519.05
+        ],
+        [
+          -34.28,
+          -495.98
+        ],
+        [
+          -25.7,
+          -470.7
+        ],
+        [
+          -28.32,
+          -448.12
+        ],
+        [
+          -27.71,
+          -442.65
+        ],
+        [
+          -24.01,
+          -432.17
+        ],
+        [
           -20.21,
           -404.02
         ],
@@ -1441,7 +1465,7 @@
       "geometry_confidence": "inferred",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "T-0445. THE WEST DIVISION'S RIVERFRONT STREET, SEATED OFF THE COMMITTED WATERLINE AND NOTHING ELSE. The plat carries five north-south streets west of the river — West Water, Canal, Clinton, Jefferson, Des Plaines (the owner's reading of the sheet, T-0443) — and this file held only the middle two. West Water is the one of the three missing lines the modelled ground can carry, so it is seated here and the other two are refused in docs/RESEARCH/west_division_streets.md with the measurement that refuses them. METHOD: the centreline is the committed west bank of the South Branch (data/terrain/epochs/e1834_harbor_cut/river.geojson, traced from Wright 1834 and graded inferred there) offset one half-corridor — 12.192 m — to the west, so the street's EAST KERB stands on the 1834 waterline. That is the furthest east an 80 ft street on this bank can be, which is the same bound T-0444's swap test rested on; taking the bound as the placement is this line's one reconstruction and WHAT WOULD MOVE IT IS STATED: any wharf or landing strip between the kerb and the water pushes the whole line west by its width, and no source reached gives that width. Every vertex is 12.19-12.29 m from the bank, so the kerb reaches the waterline and does not cross it. THE GRADE IS INHERITED and is not better than its anchor: the bank is inferred, so this is. THE REACH WAS CARRIED PAST THE TURN BY T-0768, AND IT STOPS WHERE A COMMITTED FOOTPRINT STANDS IN IT. T-0445 ended the line at local north -104, where the traced bank turns west into the junction pool at Wolf Point, because an offset line past the turn runs through the attested Wolf Point cluster; it did not measure how far past the turn the line gets FIRST, and the answer is 39.55 m. The same bank offset is carried along the bank's Wolf Point segment until the riverward corridor reaches JAMES KINZIE'S HOUSE, whose footprint spans 6.77-16.99 m west of the bank and therefore stands ACROSS the roadway rather than beside it, and the line is cut there: 37.12 m of new centreline, of which 20.30 m lies north of West Lake Street's north kerb. That is the frontage Fergus 1839's 'W. Water st north of West Lake st' attests and this reconstruction carried none of — the old end stood 6.79 m SOUTH of Lake's own north kerb, so the attested reach had zero length. JOINING THE TWO REACHES MITRES THE VERTEX AT THE TURN, which is why the old end [-9.34, -104.20] now reads [-7.92, -106.17]: it was the perpendicular end of the last segment and it is now the mitre joint between two, still 12.192 m from the bank. WHAT IS NOT SEATED, and the measurement that refuses it, is in docs/RESEARCH/west_division_streets.md § 1: past the cut five more committed placements — James Kinzie's house, Robert Kinzie's store, the Wolf Point tavern and its stable, the Robinson-Caldwell cabins and the Walker meeting house — stand 3.76-23.50 m from the traced bank at their nearest corners, so the widest clear strip between the water and the cluster is 3.76 m against the 24.384 m an 80 ft street needs, and no line fits riverward of them. ATTESTATION, all of it already committed here: Fergus 1839 prints three West Water addresses (a hotel at the Randolph corner, a grocery and ship stores near Randolph, the Rat's-castle Hotel north of West Lake) — 1839 evidence recalled in 1876, which attests the street and is NOT backdated into its 1835 wear, which is why the traffic grade here is the light one Clinton carries and not Canal's; and south_branch_raft_bridge's committed position puts its west landing on West Water Street, with the war-dance procession coming south along it. NOTHING SURVIVES ON THE LINE and the negative is recorded rather than passed over: an Overpass query for every named highway in the box 41.8825/-87.6395 to 41.8862/-87.6368, run 2026-09-05, returned Wacker Drive and its lower decks on the EAST bank, the cross streets, and the Riverwalk — no through street on the west bank of the South Branch. The bridge record's parenthetical gloss 'West Water Street (now Canal Street)' cannot be right for this line: the committed `canal` is fitted to modern Canal Street's own surviving intersections and stands 131-159 m west of it over the reach they share, which is about one plat module, exactly as the plat draws the two as separate streets. THE REACH PAST THE TURN IS NOW CUT BY THE GREEN TREE TAVERN, ON T-0768'S OWN RULE (T-0141, 2026-09-24). The tavern came onto the west bank north of Lake on the owner's ruling of 2026-09-21, and the rule that seated this reach — carry the bank offset until the riverward corridor reaches a committed footprint that stands ACROSS the roadway rather than beside it, and cut the line there — now bites at 17.03 m along the bank's Wolf Point segment instead of James Kinzie's 39.55 m. The tavern's nearest corner stands 3.01 m from the traced bank and its furthest 15.90 m, so like James Kinzie's house it stands across the roadway and not beside it. The line therefore ends at [-19.33, -99.11]. THE CUT IS MADE ON THE ROADWAY AND NOT ON THE LINE, AND UNTIL T-1547 IT WAS MADE ON THE LINE (2026-09-29). T-0768's rule is about a ROADWAY — it cuts where a footprint stands ACROSS one — and a roadway is a corridor with a width, but the cut was taken where the CENTRELINE reached the tavern. That left the end at [-20.32, -98.49], 2.70 m from the inn's south-east corner at [-18.90, -96.19] against a 2.90 m half-width, so the committed track ran through that corner by 0.20 m: a street this file draws and a building this project has raised stood in the same 0.20 m of ground. Cutting instead where the TRACK clears the footprint pulls the end 1.17 m back along the same segment, and every corner of the inn is then outside the roadway — the nearest by 0.05 m, the others by 7.65, 9.22 and 12.89 m. The 0.05 m is a stated allowance and not a measurement: a vertex in this file is committed to two decimal places, so the cut is taken to clear by at least 50 mm rather than to sit on the kerb line, where rounding decides the answer. Nothing else about the reach moves: the end is still on the same segment and still 12.195 m from the traced bank, against the method's 12.192 m offset, so the east kerb still reaches the 1834 waterline and does not cross it. The centreline is 315.49 m. WHAT THIS COSTS IS EXACTLY WHAT T-0768 BOUGHT: the 20.30 m of centreline that lay north of that kerb is gone, 0.00 m remains, and Fergus 1839's 'W. Water st north of West Lake st' again attests a street this reconstruction gives no modelled length north of Lake. That is not a tie broken on confidence, because both the tavern's placement and this line are graded inferred. It is the owner's ruling of 2026-09-21 on T-0141, which moved a tavern two independent sources put at this junction and said in terms that a collision is settled by T-0251 — the loser re-seated on its own evidence before it is withdrawn — and this line's own evidence is the rule above, applied to a footprint the rule did not have when it was written. WHAT WOULD RESTORE THE REACH is what this note already names: a landing or wharf strip between the kerb and the water pushes the whole line west and lets the tavern and the street both stand. Nobody has reached a source that gives its width.",
+      "note": "T-0445. THE WEST DIVISION'S RIVERFRONT STREET, SEATED OFF THE COMMITTED WATERLINE AND NOTHING ELSE. The plat carries five north-south streets west of the river — West Water, Canal, Clinton, Jefferson, Des Plaines (the owner's reading of the sheet, T-0443) — and this file held only the middle two. West Water is the one of the three missing lines the modelled ground can carry, so it is seated here and the other two are refused in docs/RESEARCH/west_division_streets.md with the measurement that refuses them. METHOD: the centreline is the committed west bank of the South Branch (data/terrain/epochs/e1834_harbor_cut/river.geojson, traced from Wright 1834 and graded inferred there) offset one half-corridor — 12.192 m — to the west, so the street's EAST KERB stands on the 1834 waterline. That is the furthest east an 80 ft street on this bank can be, which is the same bound T-0444's swap test rested on; taking the bound as the placement is this line's one reconstruction and WHAT WOULD MOVE IT IS STATED: any wharf or landing strip between the kerb and the water pushes the whole line west by its width, and no source reached gives that width. Every vertex is 12.19-12.29 m from the bank, so the kerb reaches the waterline and does not cross it. THE GRADE IS INHERITED and is not better than its anchor: the bank is inferred, so this is. THE REACH WAS CARRIED PAST THE TURN BY T-0768, AND IT STOPS WHERE A COMMITTED FOOTPRINT STANDS IN IT. T-0445 ended the line at local north -104, where the traced bank turns west into the junction pool at Wolf Point, because an offset line past the turn runs through the attested Wolf Point cluster; it did not measure how far past the turn the line gets FIRST, and the answer is 39.55 m. The same bank offset is carried along the bank's Wolf Point segment until the riverward corridor reaches JAMES KINZIE'S HOUSE, whose footprint spans 6.77-16.99 m west of the bank and therefore stands ACROSS the roadway rather than beside it, and the line is cut there: 37.12 m of new centreline, of which 20.30 m lies north of West Lake Street's north kerb. That is the frontage Fergus 1839's 'W. Water st north of West Lake st' attests and this reconstruction carried none of — the old end stood 6.79 m SOUTH of Lake's own north kerb, so the attested reach had zero length. JOINING THE TWO REACHES MITRES THE VERTEX AT THE TURN, which is why the old end [-9.34, -104.20] now reads [-7.92, -106.17]: it was the perpendicular end of the last segment and it is now the mitre joint between two, still 12.192 m from the bank. WHAT IS NOT SEATED, and the measurement that refuses it, is in docs/RESEARCH/west_division_streets.md § 1: past the cut five more committed placements — James Kinzie's house, Robert Kinzie's store, the Wolf Point tavern and its stable, the Robinson-Caldwell cabins and the Walker meeting house — stand 3.76-23.50 m from the traced bank at their nearest corners, so the widest clear strip between the water and the cluster is 3.76 m against the 24.384 m an 80 ft street needs, and no line fits riverward of them. ATTESTATION, all of it already committed here: Fergus 1839 prints three West Water addresses (a hotel at the Randolph corner, a grocery and ship stores near Randolph, the Rat's-castle Hotel north of West Lake) — 1839 evidence recalled in 1876, which attests the street and is NOT backdated into its 1835 wear, which is why the traffic grade here is the light one Clinton carries and not Canal's; and south_branch_raft_bridge's committed position puts its west landing on West Water Street, with the war-dance procession coming south along it. NOTHING SURVIVES ON THE LINE and the negative is recorded rather than passed over: an Overpass query for every named highway in the box 41.8825/-87.6395 to 41.8862/-87.6368, run 2026-09-05, returned Wacker Drive and its lower decks on the EAST bank, the cross streets, and the Riverwalk — no through street on the west bank of the South Branch. The bridge record's parenthetical gloss 'West Water Street (now Canal Street)' cannot be right for this line: the committed `canal` is fitted to modern Canal Street's own surviving intersections and stands 131-159 m west of it over the reach they share, which is about one plat module, exactly as the plat draws the two as separate streets. THE REACH PAST THE TURN IS NOW CUT BY THE GREEN TREE TAVERN, ON T-0768'S OWN RULE (T-0141, 2026-09-24). The tavern came onto the west bank north of Lake on the owner's ruling of 2026-09-21, and the rule that seated this reach — carry the bank offset until the riverward corridor reaches a committed footprint that stands ACROSS the roadway rather than beside it, and cut the line there — now bites at 17.03 m along the bank's Wolf Point segment instead of James Kinzie's 39.55 m. The tavern's nearest corner stands 3.01 m from the traced bank and its furthest 15.90 m, so like James Kinzie's house it stands across the roadway and not beside it. The line therefore ends at [-19.33, -99.11]. THE CUT IS MADE ON THE ROADWAY AND NOT ON THE LINE, AND UNTIL T-1547 IT WAS MADE ON THE LINE (2026-09-29). T-0768's rule is about a ROADWAY — it cuts where a footprint stands ACROSS one — and a roadway is a corridor with a width, but the cut was taken where the CENTRELINE reached the tavern. That left the end at [-20.32, -98.49], 2.70 m from the inn's south-east corner at [-18.90, -96.19] against a 2.90 m half-width, so the committed track ran through that corner by 0.20 m: a street this file draws and a building this project has raised stood in the same 0.20 m of ground. Cutting instead where the TRACK clears the footprint pulls the end 1.17 m back along the same segment, and every corner of the inn is then outside the roadway — the nearest by 0.05 m, the others by 7.65, 9.22 and 12.89 m. The 0.05 m is a stated allowance and not a measurement: a vertex in this file is committed to two decimal places, so the cut is taken to clear by at least 50 mm rather than to sit on the kerb line, where rounding decides the answer. Nothing else about the reach moves: the end is still on the same segment and still 12.195 m from the traced bank, against the method's 12.192 m offset, so the east kerb still reaches the 1834 waterline and does not cross it. The centreline is 315.49 m. WHAT THIS COSTS IS EXACTLY WHAT T-0768 BOUGHT: the 20.30 m of centreline that lay north of that kerb is gone, 0.00 m remains, and Fergus 1839's 'W. Water st north of West Lake st' again attests a street this reconstruction gives no modelled length north of Lake. That is not a tie broken on confidence, because both the tavern's placement and this line are graded inferred. It is the owner's ruling of 2026-09-21 on T-0141, which moved a tavern two independent sources put at this junction and said in terms that a collision is settled by T-0251 — the loser re-seated on its own evidence before it is withdrawn — and this line's own evidence is the rule above, applied to a footprint the rule did not have when it was written. WHAT WOULD RESTORE THE REACH is what this note already names: a landing or wharf strip between the kerb and the water pushes the whole line west and lets the tavern and the street both stand. Nobody has reached a source that gives its width. CARRIED SOUTH TO MADISON STREET, THE PLAT'S SOUTH TOWN LINE (T-2143). The forks trace this line is offset from stops at local N -405.2, the old south edge of the modelled field, so the street stopped one tier short of the town line that plat block 51's south face is printed on. The bank south of that edge is committed too: `branches.geojson`'s west bank of the South Branch, traced from the same Wright 1834 sheet by tools/trace_south_branch.py and graded inferred, as the forks trace is. The SAME RULE carries it: the bank offset one half-corridor west, from the first bank vertex south of Madison up to the splice (the branch trace's last vertex stands 0.73 m from the forks trace's first, on the window's edge, and the forks trace's is kept), cut where it meets `madison`'s committed line at [-35.45, -519.05]. Two rules keep it honest, both asserted by tools/measure_west_division_streets.py: the old south end [-20.21, -404.02] is KEPT as a vertex rather than re-mitred into the new reach, so block 44's lots are not re-cut; and the one joint where the branch turns hard (local N -446.7, where a mitre would stand 12.51 m from the bank) is BEVELLED, so every vertex still stands within 0.15 m of one half-corridor from the water rather than the tolerance being widened. Nothing here says the street was opened or worn south of Washington; the track, surface and wear are this record's own.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -1543,6 +1567,10 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          -147.18,
+          -519.05
+        ],
+        [
           -150.8,
           -400
         ],
@@ -1566,7 +1594,7 @@
       "geometry_confidence": "attested",
       "surface_confidence": "inferred",
       "wear_confidence": "reconstructed",
-      "note": "The line uses the road-only Kinzie control already adopted by the North Branch bridge rather than the queued five-node bikeway-inclusive GCP. Its recorded turnpiking belongs to fall 1836 and is not backdated. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The fall-1836 grading work on Canal is still not backdated into this scene, which is a claim about surface and belongs to `surface_confidence`. WHICH READING, AND WHERE IT IS WRITTEN DOWN (T-0421, 2026-09-13). The sentence this note opens with — that the line uses the road-only Kinzie control — pointed at no record, and the coordinate it means lived in prose in three places. It is committed now as `data/traces/street_control.json` § control.kinzie_canal.road_only_reading (E 446891.71, N 4637657.80, the three road nodes of the five), and that entry names this record back. BOTH READINGS STAND, for stated reasons: the five-node mean stays the control point because it is georeferencing GCP HB and re-deriving it re-runs the Hathaway fit and re-bakes the North Branch bridge, and this line stays on the road-only reading because that is the one `node_rule` prescribes. WHAT THAT COSTS THIS STREET, now measured instead of asserted: `tools/plat_corridors.py` control_offsets() derives the platted corridor from the committed control, and against the five-node mean Canal's three control points spread 2.33 m (lake_canal +0.00, randolph_canal +0.09, kinzie_canal -2.24), which is `disagree` — no rigid translation satisfies all three, so Canal's corridor stays on this drawn line. Against `road_only_reading` the same three spread 0.09 m. The 2.33 m is the Kinzie Street Bikeway inside the control's average, not this street disagreeing with itself; the line reproduces its own control to 9 cm. NOTHING MOVES ON EITHER READING — 0.09 m is still wider than the 0.01 m the offsets are quoted to, so the verdict is `disagree` both ways and the corridor sits where it sat. `tools/measure_canal_control_spread.py` re-derives both numbers on every commit.",
+      "note": "The line uses the road-only Kinzie control already adopted by the North Branch bridge rather than the queued five-node bikeway-inclusive GCP. Its recorded turnpiking belongs to fall 1836 and is not backdated. ATTESTED FROM THE THOMPSON PLAT (T-0713, the owner's ruling of 2026-09-04). James Thompson's 1830 plat of the Town of Chicago DRAWS this street, so that it ran here is a claim the sheet itself makes, and `geometry_confidence` now says so. WHAT THE 17.5 m FIGURE IS, because it is the thing most easily mistaken for a grade: `data/datum.json` `derivation.residual_m` is 17.5 m RMS of COORDINATE UNCERTAINTY — how well the 1834 sheet warped onto modern ground — and it bounds how precisely this line is PLACED, not whether the street was there. A metric bracket on a position is not a doubt about existence, and the two must not be traded for one another. `surface_confidence` and `wear_confidence` are untouched by this ruling: the plat attests where a street ran, and carries nothing about what it was paved with or how it was worn. The fall-1836 grading work on Canal is still not backdated into this scene, which is a claim about surface and belongs to `surface_confidence`. WHICH READING, AND WHERE IT IS WRITTEN DOWN (T-0421, 2026-09-13). The sentence this note opens with — that the line uses the road-only Kinzie control — pointed at no record, and the coordinate it means lived in prose in three places. It is committed now as `data/traces/street_control.json` § control.kinzie_canal.road_only_reading (E 446891.71, N 4637657.80, the three road nodes of the five), and that entry names this record back. BOTH READINGS STAND, for stated reasons: the five-node mean stays the control point because it is georeferencing GCP HB and re-deriving it re-runs the Hathaway fit and re-bakes the North Branch bridge, and this line stays on the road-only reading because that is the one `node_rule` prescribes. WHAT THAT COSTS THIS STREET, now measured instead of asserted: `tools/plat_corridors.py` control_offsets() derives the platted corridor from the committed control, and against the five-node mean Canal's three control points spread 2.33 m (lake_canal +0.00, randolph_canal +0.09, kinzie_canal -2.24), which is `disagree` — no rigid translation satisfies all three, so Canal's corridor stays on this drawn line. Against `road_only_reading` the same three spread 0.09 m. The 2.33 m is the Kinzie Street Bikeway inside the control's average, not this street disagreeing with itself; the line reproduces its own control to 9 cm. NOTHING MOVES ON EITHER READING — 0.09 m is still wider than the 0.01 m the offsets are quoted to, so the verdict is `disagree` both ways and the corridor sits where it sat. `tools/measure_canal_control_spread.py` re-derives both numbers on every commit. CARRIED SOUTH TO MADISON STREET, THE PLAT'S SOUTH TOWN LINE (T-2143). The line stopped at local N -400 for the reason T-1707 found on the seven south columns: N -400 was the OLD south edge of the modelled heightfield, inside Washington Street's own corridor, and not a claim about the street. T-0219 carried the field to N -3800, and James Thompson's 1830 plat draws Canal Street through the West Division's last tier to the town's south line, which is Madison (tools/build_survey_tracts.py ORIGINAL_TOWN_BOUNDS): plat block 51 is printed between this street and West Water on that tier, 180 ft under its west column and 88 ft under its east. So carrying the line there adds no reach the sheet does not draw. THE REACH IS CARRIED FROM THE OLD SOUTH END, NOT FITTED THROUGH IT: the bearing is this line's own southern segment, -0.030416 m of easting per metre of northing, the old end [-150.8, -400] is KEPT as a vertex so no lot north of Washington is re-cut, and the new south vertex [-147.18, -519.05] is that bearing's intersection with `madison`'s committed line. It stands 2.18 m west of `canal_school_section`'s line, which is a different survey's street and is not joined to this one. The track, surface and wear are this record's own and are carried with the line rather than re-argued for 119 m of it; the fall-1836 grading is still not backdated.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -1649,6 +1677,10 @@
       "name_2026": "N/S Clinton Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          -273.647760417,
+          -519.05
+        ],
         [
           -276.5,
           -400
@@ -1749,12 +1781,16 @@
       "name_changed": false,
       "path_local_enu_m": [
         [
+          -388.290760417,
+          -519.05
+        ],
+        [
           -391.143,
           -400
         ],
         [
-          -409.875709375,
-          381.887
+          -407.042085416667,
+          263.614
         ]
       ],
       "corridor_width_m": 24.384,
@@ -1767,7 +1803,7 @@
       "geometry_confidence": "inferred",
       "surface_confidence": "inferred",
       "wear_confidence": "inferred",
-      "note": "SEATED BY T-1430 (piece 1 of T-1417, of T-1193), AND THE REFUSAL IT ANSWERS IS ITS OWN LICENCE. T-0445 refused this street in writing — docs/RESEARCH/west_division_streets.md §2 — for one reason and one only: the modelled ground's west edge stood at local east -320.0 m and this line lay west of it over its whole length, so a street drawn here would have hung off the end of the terrain, and this project already refuses a platted BLOCK on exactly that test. That memo also said what would reverse the refusal, and that it was not more research: “When the box moves, both lines are seatable from control that is already in this file, with no new research.” T-1415 derived the west wall and T-1416 built the field out to local east -705.0 m, so the box has moved and this is the seating it licensed. Nothing new was read to place this line. WHERE THE LINE COMES FROM, the two halves stated apart because they are held differently. POSITION is surviving control already committed to this repository: `fulton`'s own note carries the four OpenStreetMap intersections T-0446 fitted that tier to, read 2026-09-04 and transformed to EPSG:26916 against data/datum.json. Jefferson's is node 262247424 at local east -401.04, north 13.11, and this path passes through it to 0.001 m. BEARING is read from no sheet and no control on this line: it is the committed `clinton` line's own, -0.02395833 m east per metre north, carried across because Clinton is the neighbouring north-south street of the same plat, fitted to the same modern control family, and because ONE intersection fixes a point and not a direction. `geometry_confidence` is `inferred` for that inheritance and not because the street is doubtful: the Thompson plat DRAWS it, which under the owner's ruling of 2026-09-04 (T-0713) is the sheet's own claim that it ran here. WHAT WOULD RAISE IT to `attested` is a second surviving intersection on this line, which would fit the bearing from control instead of inheriting it, the way Fulton's four do for its tier. THE REACH WAS INHERITED FROM CLINTON UNTIL T-1490, 2026-09-24, AND IS NOW THIS LINE'S OWN. T-1430 spanned local north -400.0 to +80.0 because that is `clinton`'s committed extent, and a line whose direction is borrowed from Clinton should not claim more ground than Clinton does. The north end stands at local north +381.887 instead now, on TWO MORE SURVIVING INTERSECTIONS OF THIS LINE - which is what the paragraph above says would fit the bearing from control - and the bearing was NOT refitted, because the committed one already reaches them. Read from OpenStreetMap on 2026-09-24 by the node rule in data/traces/street_control.json and transformed to EPSG:26916 against data/datum.json: Kinzie is node 708314133 at local east -410.158, north +263.614, shared by West Kinzie Street (highway=secondary) and North Jefferson Street (highway=residential); Hubbard is node 12233681439 at -410.159, +381.887, shared by West Hubbard Street (highway=residential) and North Jefferson Street, whose ways at that junction are tagged highway=service. The weaker classification is stated rather than passed over, because this line's north end now rests on it. CARRIED NORTH FROM THE FULTON NODE ON THE COMMITTED BEARING, the drawn line passes 3.116 m east of Kinzie's node and 0.283 m east of Hubbard's, both far inside this project's 20 m trace tolerance, and the Fulton node is still reproduced to 0.001 m. Nothing south of north +80 moved. THE GRADE IS HELD AT `inferred` AND NOT RAISED: a least-squares refit through all three nodes fits at 1.35 m RMS against `fulton`'s own 0.35 m, because modern Jefferson jogs 9.1 m west between Fulton and Kinzie, and a bearing fitted to a jogged modern line is not better evidence than the plat module it would replace. The plat rules this street further north and further south than the control reaches; this reconstruction still does not draw it there. WHAT THE REACH IS FOR: the corporate boundary of 7 November 1833 resolves its west leg on Jefferson Street, and until this extension `tools/measure_corporation_limits.py` had to carry `jefferson_school_section` 1,188.8 m past its own end to reach Ohio Street. It walks this line instead now, and the extrapolation left is the 288.3 m from this north end to Ohio - modern Jefferson does not survive north of Hubbard, so that last stretch wants a sheet and not a node. THE GROUND IT STANDS ON, measured and not assumed. Sampled at 41 stations 20.0 m apart along the committed path - re-measured over the whole of it when T-1490 carried the north end to +381.887 - the heightfield reads 1.181 to 1.325 m above the 1835 water surface and not one station is at or below it (data/terrain/epochs/e1834_harbor_cut/heightfield.json, box local east -705.0..+1700.0). The whole line stands on dry modelled land, which is the test the refusal was written against and the only test it named. STATUS, argued rather than inherited. `track_width_m` is 0, `opened` and `worn` are false and the surface is `unworn_prairie` — the School Section grid's reading, carried here for the same reasons: nothing committed fronts this line, nothing reached attests traffic or wear on it, and the West Division beyond Canal Street was open ground in 1835 (Andreas: “The West Side was an open prairie, entirely free from timber”). What a visitor should see is a platted corridor over prairie, not a road. What would change that is a building seated on it or a source giving it traffic; the 35 placements `tools/generate_west_infill.py` still holds for want of ground are the nearest candidates, and they are T-1431's. AND ONE DISAGREEMENT THIS RECORD DOES NOT SETTLE: `jefferson_school_section`, the same street name south of Madison, runs due north-south at local east -379.98 on the School Section's own grid. Carried to Madison's northing this line would stand 8.3 m west of it. The two are different surveys and this file has always held them as different records; nothing here claims they met, and no line is bent to make them.",
+      "note": "SEATED BY T-1430 (piece 1 of T-1417, of T-1193), AND THE REFUSAL IT ANSWERS IS ITS OWN LICENCE. T-0445 refused this street in writing — docs/RESEARCH/west_division_streets.md §2 — for one reason and one only: the modelled ground's west edge stood at local east -320.0 m and this line lay west of it over its whole length, so a street drawn here would have hung off the end of the terrain, and this project already refuses a platted BLOCK on exactly that test. That memo also said what would reverse the refusal, and that it was not more research: “When the box moves, both lines are seatable from control that is already in this file, with no new research.” T-1415 derived the west wall and T-1416 built the field out to local east -705.0 m, so the box has moved and this is the seating it licensed. Nothing new was read to place this line. WHERE THE LINE COMES FROM, the two halves stated apart because they are held differently. POSITION is surviving control already committed to this repository: `fulton`'s own note carries the four OpenStreetMap intersections T-0446 fitted that tier to, read 2026-09-04 and transformed to EPSG:26916 against data/datum.json. Jefferson's is node 262247424 at local east -401.04, north 13.11, and this path passes through it to 0.001 m. BEARING is read from no sheet and no control on this line: it is the committed `clinton` line's own, -0.02395833 m east per metre north, carried across because Clinton is the neighbouring north-south street of the same plat, fitted to the same modern control family, and because ONE intersection fixes a point and not a direction. `geometry_confidence` is `inferred` for that inheritance and not because the street is doubtful: the Thompson plat DRAWS it, which under the owner's ruling of 2026-09-04 (T-0713) is the sheet's own claim that it ran here. WHAT WOULD RAISE IT to `attested` is a second surviving intersection on this line, which would fit the bearing from control instead of inheriting it, the way Fulton's four do for its tier. THE REACH WAS INHERITED FROM CLINTON UNTIL T-1490, 2026-09-24, AND IS NOW THIS LINE'S OWN. T-1430 spanned local north -400.0 to +80.0 because that is `clinton`'s committed extent, and a line whose direction is borrowed from Clinton should not claim more ground than Clinton does. The north end stands at local north +381.887 instead now, on TWO MORE SURVIVING INTERSECTIONS OF THIS LINE - which is what the paragraph above says would fit the bearing from control - and the bearing was NOT refitted, because the committed one already reaches them. Read from OpenStreetMap on 2026-09-24 by the node rule in data/traces/street_control.json and transformed to EPSG:26916 against data/datum.json: Kinzie is node 708314133 at local east -410.158, north +263.614, shared by West Kinzie Street (highway=secondary) and North Jefferson Street (highway=residential); Hubbard is node 12233681439 at -410.159, +381.887, shared by West Hubbard Street (highway=residential) and North Jefferson Street, whose ways at that junction are tagged highway=service. The weaker classification is stated rather than passed over, because this line's north end now rests on it. CARRIED NORTH FROM THE FULTON NODE ON THE COMMITTED BEARING, the drawn line passes 3.116 m east of Kinzie's node and 0.283 m east of Hubbard's, both far inside this project's 20 m trace tolerance, and the Fulton node is still reproduced to 0.001 m. Nothing south of north +80 moved. THE GRADE IS HELD AT `inferred` AND NOT RAISED: a least-squares refit through all three nodes fits at 1.35 m RMS against `fulton`'s own 0.35 m, because modern Jefferson jogs 9.1 m west between Fulton and Kinzie, and a bearing fitted to a jogged modern line is not better evidence than the plat module it would replace. The plat rules this street further north and further south than the control reaches; this reconstruction still does not draw it there. WHAT THE REACH IS FOR: the corporate boundary of 7 November 1833 resolves its west leg on Jefferson Street, and until this extension `tools/measure_corporation_limits.py` had to carry `jefferson_school_section` 1,188.8 m past its own end to reach Ohio Street. It walks this line instead now, and the extrapolation left is the 288.3 m from this north end to Ohio - modern Jefferson does not survive north of Hubbard, so that last stretch wants a sheet and not a node. AND T-2018 CUT THE REACH BACK TO KINZIE, 2026-10-06, BECAUSE THE TWO NODES NORTH OF FULTON ARE NOT EQUALLY EVIDENCE OF 1835. The plat licenses the line and the nodes only seat it. Thompson's 1830 plat, the sheet that draws and letters this street, ends the West Division at the street on Kinzie's line above blocks 8, 9 and 10 and draws Jefferson no farther north. The ground beyond is Wabansia, surveyed 1831, and Wright's 1834 survey draws it with block 59 (`blk_wabansia_c_t7`) whole across this line and no north-south corridor anywhere near it (data/traces/wabansia_streets.json; data/traces/jefferson_continuation.json measures the nearest drawn one about 80 m west). Carried to Hubbard, the 24.384 m corridor lay entirely inside that block and put both reconstructed Wabansia bodies into a roadway (`wabansia_doctors_barn` 12.11 m deep, `wabansia_doctors_house` 1.38 m; T-1414). So the Kinzie node is a junction of the plat's own street and its last block line, and the Hubbard node witnesses a later extension through Wabansia, which no source in this corpus dates before 1835. The north end therefore stands on Kinzie's node at local north +263.614, on the bearing above, unrefitted: 3.116 m east of node 708314133, as before. Hubbard's node is no longer this line's control. The corporate boundary's west leg is extrapolated from here to Ohio instead of from Hubbard, along the same bearing, so the ring does not move; only its stated extrapolation grows (tools/measure_corporation_limits.py, tools/measure_jefferson_continuation.py). WHAT WOULD REVERSE THIS is a sheet dated to 1835 or earlier that rules a street on this line through Wabansia. THE GROUND IT STANDS ON, measured and not assumed. Sampled at 41 stations 20.0 m apart along the committed path - re-measured over the whole of it when T-1490 carried the north end to +381.887, which the path T-2018 cut back to Kinzie lies wholly inside - the heightfield reads 1.181 to 1.325 m above the 1835 water surface and not one station is at or below it (data/terrain/epochs/e1834_harbor_cut/heightfield.json, box local east -705.0..+1700.0). The whole line stands on dry modelled land, which is the test the refusal was written against and the only test it named. STATUS, argued rather than inherited. `track_width_m` is 0, `opened` and `worn` are false and the surface is `unworn_prairie` — the School Section grid's reading, carried here for the same reasons: nothing committed fronts this line, nothing reached attests traffic or wear on it, and the West Division beyond Canal Street was open ground in 1835 (Andreas: “The West Side was an open prairie, entirely free from timber”). What a visitor should see is a platted corridor over prairie, not a road. What would change that is a building seated on it or a source giving it traffic; the 35 placements `tools/generate_west_infill.py` still holds for want of ground are the nearest candidates, and they are T-1431's. AND ONE DISAGREEMENT THIS RECORD DOES NOT SETTLE: `jefferson_school_section`, the same street name south of Madison, runs due north-south at local east -379.98 on the School Section's own grid. Carried to Madison's northing this line would stand 8.3 m west of it. The two are different surveys and this file has always held them as different records; nothing here claims they met, and no line is bent to make them.",
       "citations": [
         {
           "source_id": "chicago_dpw_1891_streets",
@@ -1850,6 +1886,10 @@
       "name_2026": "N/S Des Plaines Street",
       "name_changed": false,
       "path_local_enu_m": [
+        [
+          -512.115760417,
+          -519.05
+        ],
         [
           -514.968,
           -400
@@ -11260,6 +11300,12 @@
       "asset": "gltf/pruyne_kimball_drugstore__frame_1830s.glb"
     },
     {
+      "id": "recon_1835_bank_freight_f3_001",
+      "name": "Reconstructed F3 large river warehouse #001",
+      "sidecar": "sidecars/1835/recon_1835_bank_freight_f3_001.json",
+      "asset": "gltf/recon_1835_bank_freight_f3_001__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_indiana_north_cass_a1_08",
       "name": "Reconstructed A1 stable #08",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_a1_08.json",
@@ -11324,6 +11370,12 @@
       "name": "Reconstructed H3 boarding house #09",
       "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_cass_h3_09.json",
       "asset": "gltf/recon_1835_blk_indiana_north_cass_h3_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_indiana_north_wolcott_a1_09",
+      "name": "Reconstructed A1 stable #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_indiana_north_wolcott_a1_09.json",
+      "asset": "gltf/recon_1835_blk_indiana_north_wolcott_a1_09__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_indiana_north_wolcott_a3_04",
@@ -11524,6 +11576,18 @@
       "asset": "gltf/recon_1835_blk_randolph_clark_h2_02__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_randolph_clark_w1_10",
+      "name": "Reconstructed W1 blacksmith shop #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_randolph_clark_w1_10.json",
+      "asset": "gltf/recon_1835_blk_randolph_clark_w1_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_randolph_clark_w2_09",
+      "name": "Reconstructed W2 carpenter or joiner shop #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_randolph_clark_w2_09.json",
+      "asset": "gltf/recon_1835_blk_randolph_clark_w2_09__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_randolph_clinton_a1_06",
       "name": "Reconstructed A1 stable #06",
       "sidecar": "sidecars/1835/recon_1835_blk_randolph_clinton_a1_06.json",
@@ -11690,6 +11754,12 @@
       "name": "Reconstructed H1 larger one-and-a-half-story house #14",
       "sidecar": "sidecars/1835/recon_1835_blk_randolph_dearborn_h1_14.json",
       "asset": "gltf/recon_1835_blk_randolph_dearborn_h1_14__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_randolph_dearborn_w2_18",
+      "name": "Reconstructed W2 carpenter or joiner shop #18",
+      "sidecar": "sidecars/1835/recon_1835_blk_randolph_dearborn_w2_18.json",
+      "asset": "gltf/recon_1835_blk_randolph_dearborn_w2_18__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_randolph_franklin_a1_07",
@@ -11872,6 +11942,204 @@
       "asset": "gltf/recon_1835_blk_randolph_wells_h2_01__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_school_section_tier_118_d2_01",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d2_01.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_118_d3_05",
+      "name": "Reconstructed D3 one-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d3_05.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d3_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_118_d4_03",
+      "name": "Reconstructed D4 two-room frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d4_03.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d4_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_118_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d4_04.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_118_d5_02",
+      "name": "Reconstructed D5 deep-plan frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d5_02.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_118_d5_07",
+      "name": "Reconstructed D5 deep-plan frame cottage #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d5_07.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d5_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_118_d6_06",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_118_d6_06.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_118_d6_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d3_05",
+      "name": "Reconstructed D3 one-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d3_05.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d3_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d4_03",
+      "name": "Reconstructed D4 two-room frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d4_03.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d4_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d4_04.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d5_02",
+      "name": "Reconstructed D5 deep-plan frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d5_02.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d5_06",
+      "name": "Reconstructed D5 deep-plan frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d5_06.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d5_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d6_01",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d6_01.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d6_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_119_d7_07",
+      "name": "Reconstructed D7 small two-story frame house #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_119_d7_07.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_119_d7_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_81_d2_05",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d2_05.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d2_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_81_d4_03",
+      "name": "Reconstructed D4 two-room frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d4_03.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d4_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_81_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d4_04.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_81_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d5_01.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d5_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_81_d5_02",
+      "name": "Reconstructed D5 deep-plan frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d5_02.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_81_d6_06",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_81_d6_06.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_81_d6_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_d3_05",
+      "name": "Reconstructed D3 one-room frame cottage #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_d3_05.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_d3_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_d4_04.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_d5_01.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_d5_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_d5_02",
+      "name": "Reconstructed D5 deep-plan frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_d5_02.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_d5_03",
+      "name": "Reconstructed D5 deep-plan frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_d5_03.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_d5_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_d7_07",
+      "name": "Reconstructed D7 small two-story frame house #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_d7_07.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_d7_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_94_h1_06",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_94_h1_06.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_94_h1_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d2_05",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d2_05.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d2_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d4_03",
+      "name": "Reconstructed D4 two-room frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d4_03.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d4_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d4_04.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d5_01.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d5_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d5_02",
+      "name": "Reconstructed D5 deep-plan frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d5_02.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_school_section_tier_95_d6_06",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_school_section_tier_95_d6_06.json",
+      "asset": "gltf/recon_1835_blk_school_section_tier_95_d6_06__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_clark_a3_05",
       "name": "Reconstructed A3 privy #05",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_clark_a3_05.json",
@@ -11926,6 +12194,12 @@
       "asset": "gltf/recon_1835_blk_south_water_dearborn_a3_06__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_dearborn_a5_10",
+      "name": "Reconstructed A5 small utility building #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_a5_10.json",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_a5_10__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_dearborn_c1_08",
       "name": "Reconstructed C1 small shop or office #08",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_c1_08.json",
@@ -11960,6 +12234,12 @@
       "name": "Reconstructed D2 rough plank dwelling or shanty #04",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_d2_04.json",
       "asset": "gltf/recon_1835_blk_south_water_dearborn_d2_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_south_water_dearborn_f2_11",
+      "name": "Reconstructed F2 narrow two-story warehouse #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_dearborn_f2_11.json",
+      "asset": "gltf/recon_1835_blk_south_water_dearborn_f2_11__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_south_water_dearborn_h1_03",
@@ -12136,6 +12416,12 @@
       "asset": "gltf/recon_1835_blk_south_water_lasalle_f2_10__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_south_water_wells_a2_09",
+      "name": "Reconstructed A2 barn or carriage shed #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a2_09.json",
+      "asset": "gltf/recon_1835_blk_south_water_wells_a2_09__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_south_water_wells_a3_08",
       "name": "Reconstructed A3 privy #08",
       "sidecar": "sidecars/1835/recon_1835_blk_south_water_wells_a3_08.json",
@@ -12232,10 +12518,28 @@
       "asset": "gltf/recon_1835_blk_washington_clark_a4_04__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clark_a5_16",
+      "name": "Reconstructed A5 small utility building #16",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_a5_16.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_a5_16__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_d3_15",
+      "name": "Reconstructed D3 one-room frame cottage #15",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d3_15.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_d3_15__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_clark_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d4_02.json",
       "asset": "gltf/recon_1835_blk_washington_clark_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clark_d4_14",
+      "name": "Reconstructed D4 two-room frame cottage #14",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clark_d4_14.json",
+      "asset": "gltf/recon_1835_blk_washington_clark_d4_14__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_clark_d5_01",
@@ -12262,6 +12566,126 @@
       "asset": "gltf/recon_1835_blk_washington_clark_h3_11__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_clinton_a1_06",
+      "name": "Reconstructed A1 stable #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a1_06.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a1_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_08",
+      "name": "Reconstructed A2 barn or carriage shed #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_08.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_10",
+      "name": "Reconstructed A2 barn or carriage shed #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_10.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_10__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_12",
+      "name": "Reconstructed A2 barn or carriage shed #12",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_12.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_12__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_15",
+      "name": "Reconstructed A2 barn or carriage shed #15",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_15.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_15__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a2_19",
+      "name": "Reconstructed A2 barn or carriage shed #19",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a2_19.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a2_19__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a3_16",
+      "name": "Reconstructed A3 privy #16",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a3_16.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a3_16__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a4_09",
+      "name": "Reconstructed A4 woodshed or storage shed #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_09.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a4_11",
+      "name": "Reconstructed A4 woodshed or storage shed #11",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_11.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_11__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a4_14",
+      "name": "Reconstructed A4 woodshed or storage shed #14",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_14.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_14__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a4_20",
+      "name": "Reconstructed A4 woodshed or storage shed #20",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a4_20.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a4_20__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_07",
+      "name": "Reconstructed A5 small utility building #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_07.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_13",
+      "name": "Reconstructed A5 small utility building #13",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_13.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_13__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_17",
+      "name": "Reconstructed A5 small utility building #17",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_17.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_17__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_a5_18",
+      "name": "Reconstructed A5 small utility building #18",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_a5_18.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_a5_18__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_d4_04",
+      "name": "Reconstructed D4 two-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_d4_04.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_d4_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_d5_03",
+      "name": "Reconstructed D5 deep-plan frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_d5_03.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_d5_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_h1_05",
+      "name": "Reconstructed H1 larger one-and-a-half-story house #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_h1_05.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_h1_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_h2_01",
+      "name": "Reconstructed H2 merchant or professional house #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_h2_01.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_h2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_clinton_h3_02",
+      "name": "Reconstructed H3 boarding house #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_clinton_h3_02.json",
+      "asset": "gltf/recon_1835_blk_washington_clinton_h3_02__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_dearborn_a1_02",
       "name": "Reconstructed A1 stable #02",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_a1_02.json",
@@ -12274,10 +12698,52 @@
       "asset": "gltf/recon_1835_blk_washington_dearborn_a3_03__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_washington_dearborn_d3_07",
+      "name": "Reconstructed D3 one-room frame cottage #07",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d3_07.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d3_07__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d3_08",
+      "name": "Reconstructed D3 one-room frame cottage #08",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d3_08.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d3_08__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d4_09",
+      "name": "Reconstructed D4 two-room frame cottage #09",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d4_09.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d4_09__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d7_04",
+      "name": "Reconstructed D7 small two-story frame house #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d7_04.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d7_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_d7_06",
+      "name": "Reconstructed D7 small two-story frame house #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_d7_06.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_d7_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_h2_05",
+      "name": "Reconstructed H2 merchant or professional house #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_h2_05.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_h2_05__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_washington_dearborn_h3_01",
       "name": "Reconstructed H3 boarding house #01",
       "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_h3_01.json",
       "asset": "gltf/recon_1835_blk_washington_dearborn_h3_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_washington_dearborn_w2_10",
+      "name": "Reconstructed W2 carpenter or joiner shop #10",
+      "sidecar": "sidecars/1835/recon_1835_blk_washington_dearborn_w2_10.json",
+      "asset": "gltf/recon_1835_blk_washington_dearborn_w2_10__inferred_1835.glb"
     },
     {
       "id": "recon_1835_blk_washington_franklin_a1_10",
@@ -12604,6 +13070,30 @@
       "asset": "gltf/recon_1835_blk_west_lake_canal_d5_01__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_blk_west_randolph_canal_d4_02",
+      "name": "Reconstructed D4 two-room frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d4_02.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d4_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d5_01",
+      "name": "Reconstructed D5 deep-plan frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d5_01.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d5_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d5_03",
+      "name": "Reconstructed D5 deep-plan frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d5_03.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d5_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_randolph_canal_d6_04",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_canal_d6_04.json",
+      "asset": "gltf/recon_1835_blk_west_randolph_canal_d6_04__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_blk_west_randolph_des_plaines_d4_02",
       "name": "Reconstructed D4 two-room frame cottage #02",
       "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_d4_02.json",
@@ -12626,6 +13116,48 @@
       "name": "Reconstructed W2 carpenter or joiner shop #01",
       "sidecar": "sidecars/1835/recon_1835_blk_west_randolph_des_plaines_w2_01.json",
       "asset": "gltf/recon_1835_blk_west_randolph_des_plaines_w2_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_washington_canal_d2_06",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #06",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_washington_canal_d2_06.json",
+      "asset": "gltf/recon_1835_blk_west_washington_canal_d2_06__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_washington_canal_d3_04",
+      "name": "Reconstructed D3 one-room frame cottage #04",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_washington_canal_d3_04.json",
+      "asset": "gltf/recon_1835_blk_west_washington_canal_d3_04__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_washington_canal_d4_03",
+      "name": "Reconstructed D4 two-room frame cottage #03",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_washington_canal_d4_03.json",
+      "asset": "gltf/recon_1835_blk_west_washington_canal_d4_03__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_washington_canal_d5_02",
+      "name": "Reconstructed D5 deep-plan frame cottage #02",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_washington_canal_d5_02.json",
+      "asset": "gltf/recon_1835_blk_west_washington_canal_d5_02__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_washington_canal_d6_01",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #01",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_washington_canal_d6_01.json",
+      "asset": "gltf/recon_1835_blk_west_washington_canal_d6_01__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_blk_west_washington_canal_d7_05",
+      "name": "Reconstructed D7 small two-story frame house #05",
+      "sidecar": "sidecars/1835/recon_1835_blk_west_washington_canal_d7_05.json",
+      "asset": "gltf/recon_1835_blk_west_washington_canal_d7_05__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_branch_freight_f2_001",
+      "name": "Reconstructed F2 narrow two-story warehouse #002",
+      "sidecar": "sidecars/1835/recon_1835_branch_freight_f2_001.json",
+      "asset": "gltf/recon_1835_branch_freight_f2_001__inferred_1835.glb"
     },
     {
       "id": "recon_1835_canal_trade_c3_001",
@@ -12704,6 +13236,36 @@
       "name": "Reconstructed A2 barn or carriage shed #059",
       "sidecar": "sidecars/1835/recon_1835_north_a2_059.json",
       "asset": "gltf/recon_1835_north_a2_059__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_a2_094",
+      "name": "Reconstructed A2 barn or carriage shed #094",
+      "sidecar": "sidecars/1835/recon_1835_north_a2_094.json",
+      "asset": "gltf/recon_1835_north_a2_094__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_a2_095",
+      "name": "Reconstructed A2 barn or carriage shed #095",
+      "sidecar": "sidecars/1835/recon_1835_north_a2_095.json",
+      "asset": "gltf/recon_1835_north_a2_095__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_a2_096",
+      "name": "Reconstructed A2 barn or carriage shed #096",
+      "sidecar": "sidecars/1835/recon_1835_north_a2_096.json",
+      "asset": "gltf/recon_1835_north_a2_096__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_a2_097",
+      "name": "Reconstructed A2 barn or carriage shed #097",
+      "sidecar": "sidecars/1835/recon_1835_north_a2_097.json",
+      "asset": "gltf/recon_1835_north_a2_097__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_a2_098",
+      "name": "Reconstructed A2 barn or carriage shed #098",
+      "sidecar": "sidecars/1835/recon_1835_north_a2_098.json",
+      "asset": "gltf/recon_1835_north_a2_098__inferred_1835.glb"
     },
     {
       "id": "recon_1835_north_a3_009",
@@ -12832,6 +13394,24 @@
       "asset": "gltf/recon_1835_north_d2_046__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_north_d2_077",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #077",
+      "sidecar": "sidecars/1835/recon_1835_north_d2_077.json",
+      "asset": "gltf/recon_1835_north_d2_077__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d2_085",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #085",
+      "sidecar": "sidecars/1835/recon_1835_north_d2_085.json",
+      "asset": "gltf/recon_1835_north_d2_085__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d2_091",
+      "name": "Reconstructed D2 rough plank dwelling or shanty #091",
+      "sidecar": "sidecars/1835/recon_1835_north_d2_091.json",
+      "asset": "gltf/recon_1835_north_d2_091__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_d3_002",
       "name": "Reconstructed D3 one-room frame cottage #002",
       "sidecar": "sidecars/1835/recon_1835_north_d3_002.json",
@@ -12878,6 +13458,24 @@
       "name": "Reconstructed D3 one-room frame cottage #055",
       "sidecar": "sidecars/1835/recon_1835_north_d3_055.json",
       "asset": "gltf/recon_1835_north_d3_055__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d3_073",
+      "name": "Reconstructed D3 one-room frame cottage #073",
+      "sidecar": "sidecars/1835/recon_1835_north_d3_073.json",
+      "asset": "gltf/recon_1835_north_d3_073__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d3_081",
+      "name": "Reconstructed D3 one-room frame cottage #081",
+      "sidecar": "sidecars/1835/recon_1835_north_d3_081.json",
+      "asset": "gltf/recon_1835_north_d3_081__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d3_089",
+      "name": "Reconstructed D3 one-room frame cottage #089",
+      "sidecar": "sidecars/1835/recon_1835_north_d3_089.json",
+      "asset": "gltf/recon_1835_north_d3_089__inferred_1835.glb"
     },
     {
       "id": "recon_1835_north_d4_004",
@@ -12940,6 +13538,48 @@
       "asset": "gltf/recon_1835_north_d4_056__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_north_d4_069",
+      "name": "Reconstructed D4 two-room frame cottage #069",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_069.json",
+      "asset": "gltf/recon_1835_north_d4_069__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d4_072",
+      "name": "Reconstructed D4 two-room frame cottage #072",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_072.json",
+      "asset": "gltf/recon_1835_north_d4_072__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d4_075",
+      "name": "Reconstructed D4 two-room frame cottage #075",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_075.json",
+      "asset": "gltf/recon_1835_north_d4_075__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d4_079",
+      "name": "Reconstructed D4 two-room frame cottage #079",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_079.json",
+      "asset": "gltf/recon_1835_north_d4_079__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d4_083",
+      "name": "Reconstructed D4 two-room frame cottage #083",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_083.json",
+      "asset": "gltf/recon_1835_north_d4_083__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d4_087",
+      "name": "Reconstructed D4 two-room frame cottage #087",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_087.json",
+      "asset": "gltf/recon_1835_north_d4_087__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d4_090",
+      "name": "Reconstructed D4 two-room frame cottage #090",
+      "sidecar": "sidecars/1835/recon_1835_north_d4_090.json",
+      "asset": "gltf/recon_1835_north_d4_090__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_d5_019",
       "name": "Reconstructed D5 deep-plan frame cottage #019",
       "sidecar": "sidecars/1835/recon_1835_north_d5_019.json",
@@ -12970,6 +13610,48 @@
       "asset": "gltf/recon_1835_north_d5_057__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_north_d5_068",
+      "name": "Reconstructed D5 deep-plan frame cottage #068",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_068.json",
+      "asset": "gltf/recon_1835_north_d5_068__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d5_071",
+      "name": "Reconstructed D5 deep-plan frame cottage #071",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_071.json",
+      "asset": "gltf/recon_1835_north_d5_071__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d5_074",
+      "name": "Reconstructed D5 deep-plan frame cottage #074",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_074.json",
+      "asset": "gltf/recon_1835_north_d5_074__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d5_078",
+      "name": "Reconstructed D5 deep-plan frame cottage #078",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_078.json",
+      "asset": "gltf/recon_1835_north_d5_078__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d5_082",
+      "name": "Reconstructed D5 deep-plan frame cottage #082",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_082.json",
+      "asset": "gltf/recon_1835_north_d5_082__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d5_086",
+      "name": "Reconstructed D5 deep-plan frame cottage #086",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_086.json",
+      "asset": "gltf/recon_1835_north_d5_086__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d5_092",
+      "name": "Reconstructed D5 deep-plan frame cottage #092",
+      "sidecar": "sidecars/1835/recon_1835_north_d5_092.json",
+      "asset": "gltf/recon_1835_north_d5_092__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_d6_021",
       "name": "Reconstructed D6 one-and-a-half-story frame cottage #021",
       "sidecar": "sidecars/1835/recon_1835_north_d6_021.json",
@@ -12994,10 +13676,46 @@
       "asset": "gltf/recon_1835_north_d6_058__inferred_1835.glb"
     },
     {
+      "id": "recon_1835_north_d6_070",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #070",
+      "sidecar": "sidecars/1835/recon_1835_north_d6_070.json",
+      "asset": "gltf/recon_1835_north_d6_070__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d6_080",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #080",
+      "sidecar": "sidecars/1835/recon_1835_north_d6_080.json",
+      "asset": "gltf/recon_1835_north_d6_080__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d6_084",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #084",
+      "sidecar": "sidecars/1835/recon_1835_north_d6_084.json",
+      "asset": "gltf/recon_1835_north_d6_084__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d6_093",
+      "name": "Reconstructed D6 one-and-a-half-story frame cottage #093",
+      "sidecar": "sidecars/1835/recon_1835_north_d6_093.json",
+      "asset": "gltf/recon_1835_north_d6_093__inferred_1835.glb"
+    },
+    {
       "id": "recon_1835_north_d7_031",
       "name": "Reconstructed D7 small two-story frame house #031",
       "sidecar": "sidecars/1835/recon_1835_north_d7_031.json",
       "asset": "gltf/recon_1835_north_d7_031__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d7_076",
+      "name": "Reconstructed D7 small two-story frame house #076",
+      "sidecar": "sidecars/1835/recon_1835_north_d7_076.json",
+      "asset": "gltf/recon_1835_north_d7_076__inferred_1835.glb"
+    },
+    {
+      "id": "recon_1835_north_d7_088",
+      "name": "Reconstructed D7 small two-story frame house #088",
+      "sidecar": "sidecars/1835/recon_1835_north_d7_088.json",
+      "asset": "gltf/recon_1835_north_d7_088__inferred_1835.glb"
     },
     {
       "id": "recon_1835_north_h1_007",
@@ -13822,6 +14540,12 @@
       "asset": "gltf/wolf_point_tavern_stable__stable_1831.glb"
     },
     {
+      "id": "wolf_point_trading_camp",
+      "name": "The trading camp at Wolf Point",
+      "sidecar": "sidecars/1835/wolf_point_trading_camp.json",
+      "asset": "gltf/wolf_point_trading_camp__camp_1835.glb"
+    },
+    {
       "id": "wright_building_to_let_a",
       "name": "John Wright's Building to Let (a)",
       "sidecar": "sidecars/1835/wright_building_to_let_a.json",
@@ -13850,6 +14574,13 @@
     "first_fort_dearborn_small_house_sw",
     "first_fort_dearborn_soldiers_barracks_se",
     "first_fort_dearborn_soldiers_barracks_sw",
+    "first_fort_outer_agents_house",
+    "first_fort_outer_factory",
+    "first_fort_outer_officers_garden",
+    "first_fort_outer_stable_middle",
+    "first_fort_outer_stable_north",
+    "first_fort_outer_stable_south",
+    "first_fort_outer_sutlers_garden",
     "glessner_house"
   ]
 }

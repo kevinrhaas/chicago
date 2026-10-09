@@ -134,6 +134,30 @@
    "what_happened": "DRAWN, AND ORDERED BY A RULING RATHER THAN BY THE QUOTA. The household model drew this house married at 6 and the order book had no woman left in the wife's cell, and no woman the town already holds fits it. T-2021 ruled that houses like this are given the whole family the model drew for them, in a seeded order, while the town the book converges to stays at or under 3,265 people and its under-ten share inside the town model's bracket; this house came 7 of 277 in that order, before the walk stopped. The 5 kin seated here are the very ones this stage drew for it, by the same seeds: no source names any of them, and none says this man married."
   }
  },
+ "kin": [
+  {
+   "person": "laframboise_joseph",
+   "relation": "father",
+   "household": "hh_laframboise_franois",
+   "value": "laframboise_franois",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le trente [unième] d'août mil huit cent trente trois, je soussigné ai baptisé François Lafambise fils de Joseph Laframboise et de Jacquet Peltier, né le 1er août mil huit cent trente trois. Parrain et marraine ont été Mark Beaubien et Josette Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1833_13_2_father, st_marys_bapt_1833_13_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  },
+  {
+   "person": "laframboise_joseph",
+   "relation": "father",
+   "household": "hh_laframboise_thrse",
+   "value": "laframboise_thrse",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le même jour mil huit cent trente quatre, je soussigné ai conféré les cérémonies du baptême à Thérèse fille de Joseph Laframboise et de Thérèse Jacquet Peltier, âgée de onze ans. Both cards were minted from this entry's rows (st_marys_bapt_1834_15_2_father, st_marys_bapt_1834_15_1_child), so no identification is made here. The father term is the entry's: it names the father of the child."
+  }
+ ],
  "persons": [
   {
    "id": "laframboise_joseph",
@@ -229,23 +253,6 @@
      "against_merge": "THE TWO BODIES OF EVIDENCE DO NOT TOUCH, AND NO TITLE SETS BOTH SPELLINGS. Every Laframboise reading is a muster or a parish register — 'LAFRAMBOISE, JOSEPH' on the Black Hawk War enrollments of 1832, and 'Joseph Laframboise' as sponsor on 26 May 1833 and as father in August 1833 and on 28 June 1834 in St Mary's. 'Le Framboise, Joseph' is the tax list of 1833 and nothing else: one roll, one instrument, which none of the Laframboise readings is on. So there is no single roll whose silence could be weighed either way, and no printing is caught setting both spellings for one man. Only one card cites `chicago_voter_lists_1833_1835_irad`, so D9's measurement at the roll does not apply here — the instruments are genuinely different, which is D7's general case rather than D6's serial-roll one. THIS IS NOT A CLAIM THAT THE TOWN HELD TWO JOSEPHS OF THIS NAME, and the `for_merge` is kept verbatim so a page that sets both reopens it. D7."
     }
    ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "laframboise_joseph:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'laframboise_joseph:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
    "age_band": {
     "value": "40-49",
     "low": 40,
@@ -263,6 +270,15 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('laframboise_joseph:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: that a poll, tax or muster list names a person 20 or over - the 1840 schedule's own adult line. THE FRANCHISE'S AGE RULE IS NOT IN ANY SOURCE RECORD THIS PROJECT HOLDS; this is the model's conditioning and not a reading (T-1303's finding, handed to T-1304). No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, entry 1833-13 puts 'Joseph Laframboise' in the place of the father; entry 1834-15 puts 'Joseph Laframboise' in the place of the father — so this person was male, and that is read off the entry rather than off the name or the roll. A role and a kinship word are statements about the person; no draw stands against them.",
+    "sources": [
+     "st_marys_baptismal_register_1833_1835"
+    ]
    }
   },
   {

@@ -314,14 +314,14 @@
  "self_intersections": [],
  "structures": {
   "counted_from": "data/sidecars/1835/*.json placement.local_e / local_n",
-  "inside": 330,
-  "outside": 228,
+  "inside": 359,
+  "outside": 313,
   "no_committed_position": 0,
   "outside_by_where": {
    "on_the_united_states_reservation": 28,
-   "north_of_the_limit": 48,
-   "west_of_canal_street": 83,
-   "south_of_washington_street": 68,
+   "north_of_the_limit": 63,
+   "west_of_canal_street": 103,
+   "south_of_washington_street": 118,
    "east_of_the_limit_in_the_water": 1,
    "unclassified": 0
   },
@@ -374,6 +374,7 @@
     "recon_1835_blk_indiana_north_cass_d4_05",
     "recon_1835_blk_indiana_north_cass_d4_06",
     "recon_1835_blk_indiana_north_cass_h3_09",
+    "recon_1835_blk_indiana_north_wolcott_a1_09",
     "recon_1835_blk_indiana_north_wolcott_a3_04",
     "recon_1835_blk_indiana_north_wolcott_a3_08",
     "recon_1835_blk_indiana_north_wolcott_a4_03",
@@ -384,6 +385,7 @@
     "recon_1835_blk_indiana_north_wolcott_d3_06",
     "recon_1835_north_a1_036",
     "recon_1835_north_a2_059",
+    "recon_1835_north_a2_098",
     "recon_1835_north_c4_067",
     "recon_1835_north_d1_013",
     "recon_1835_north_d1_023",
@@ -392,14 +394,27 @@
     "recon_1835_north_d1_060",
     "recon_1835_north_d2_014",
     "recon_1835_north_d2_029",
+    "recon_1835_north_d2_085",
     "recon_1835_north_d3_024",
     "recon_1835_north_d3_038",
     "recon_1835_north_d3_055",
+    "recon_1835_north_d3_073",
     "recon_1835_north_d4_015",
     "recon_1835_north_d4_025",
     "recon_1835_north_d4_056",
+    "recon_1835_north_d4_069",
+    "recon_1835_north_d4_072",
+    "recon_1835_north_d4_083",
     "recon_1835_north_d5_057",
+    "recon_1835_north_d5_068",
+    "recon_1835_north_d5_071",
+    "recon_1835_north_d5_074",
+    "recon_1835_north_d5_082",
+    "recon_1835_north_d5_086",
+    "recon_1835_north_d5_092",
     "recon_1835_north_d6_058",
+    "recon_1835_north_d6_070",
+    "recon_1835_north_d6_084",
     "recon_1835_north_h2_030",
     "recon_1835_north_t1_061",
     "recon_1835_north_w3_062",
@@ -430,6 +445,26 @@
     "recon_1835_blk_randolph_clinton_d4_09",
     "recon_1835_blk_randolph_clinton_d5_01",
     "recon_1835_blk_randolph_clinton_d7_08",
+    "recon_1835_blk_washington_clinton_a1_06",
+    "recon_1835_blk_washington_clinton_a2_08",
+    "recon_1835_blk_washington_clinton_a2_10",
+    "recon_1835_blk_washington_clinton_a2_12",
+    "recon_1835_blk_washington_clinton_a2_15",
+    "recon_1835_blk_washington_clinton_a2_19",
+    "recon_1835_blk_washington_clinton_a3_16",
+    "recon_1835_blk_washington_clinton_a4_09",
+    "recon_1835_blk_washington_clinton_a4_11",
+    "recon_1835_blk_washington_clinton_a4_14",
+    "recon_1835_blk_washington_clinton_a4_20",
+    "recon_1835_blk_washington_clinton_a5_07",
+    "recon_1835_blk_washington_clinton_a5_13",
+    "recon_1835_blk_washington_clinton_a5_17",
+    "recon_1835_blk_washington_clinton_a5_18",
+    "recon_1835_blk_washington_clinton_d4_04",
+    "recon_1835_blk_washington_clinton_d5_03",
+    "recon_1835_blk_washington_clinton_h1_05",
+    "recon_1835_blk_washington_clinton_h2_01",
+    "recon_1835_blk_washington_clinton_h3_02",
     "recon_1835_blk_west_randolph_des_plaines_d4_02",
     "recon_1835_blk_west_randolph_des_plaines_d5_04",
     "recon_1835_blk_west_randolph_des_plaines_d6_03",
@@ -493,6 +528,39 @@
    ],
    "south_of_washington_street": [
     "heacock_house_monroe",
+    "recon_1835_blk_school_section_tier_118_d2_01",
+    "recon_1835_blk_school_section_tier_118_d3_05",
+    "recon_1835_blk_school_section_tier_118_d4_03",
+    "recon_1835_blk_school_section_tier_118_d4_04",
+    "recon_1835_blk_school_section_tier_118_d5_02",
+    "recon_1835_blk_school_section_tier_118_d5_07",
+    "recon_1835_blk_school_section_tier_118_d6_06",
+    "recon_1835_blk_school_section_tier_119_d3_05",
+    "recon_1835_blk_school_section_tier_119_d4_03",
+    "recon_1835_blk_school_section_tier_119_d4_04",
+    "recon_1835_blk_school_section_tier_119_d5_02",
+    "recon_1835_blk_school_section_tier_119_d5_06",
+    "recon_1835_blk_school_section_tier_119_d6_01",
+    "recon_1835_blk_school_section_tier_119_d7_07",
+    "recon_1835_blk_school_section_tier_81_d2_05",
+    "recon_1835_blk_school_section_tier_81_d4_03",
+    "recon_1835_blk_school_section_tier_81_d4_04",
+    "recon_1835_blk_school_section_tier_81_d5_01",
+    "recon_1835_blk_school_section_tier_81_d5_02",
+    "recon_1835_blk_school_section_tier_81_d6_06",
+    "recon_1835_blk_school_section_tier_94_d3_05",
+    "recon_1835_blk_school_section_tier_94_d4_04",
+    "recon_1835_blk_school_section_tier_94_d5_01",
+    "recon_1835_blk_school_section_tier_94_d5_02",
+    "recon_1835_blk_school_section_tier_94_d5_03",
+    "recon_1835_blk_school_section_tier_94_d7_07",
+    "recon_1835_blk_school_section_tier_94_h1_06",
+    "recon_1835_blk_school_section_tier_95_d2_05",
+    "recon_1835_blk_school_section_tier_95_d4_03",
+    "recon_1835_blk_school_section_tier_95_d4_04",
+    "recon_1835_blk_school_section_tier_95_d5_01",
+    "recon_1835_blk_school_section_tier_95_d5_02",
+    "recon_1835_blk_school_section_tier_95_d6_06",
     "recon_1835_blk_washington_clark_a1_07",
     "recon_1835_blk_washington_clark_a1_09",
     "recon_1835_blk_washington_clark_a1_12",
@@ -501,14 +569,24 @@
     "recon_1835_blk_washington_clark_a3_10",
     "recon_1835_blk_washington_clark_a3_13",
     "recon_1835_blk_washington_clark_a4_04",
+    "recon_1835_blk_washington_clark_a5_16",
+    "recon_1835_blk_washington_clark_d3_15",
     "recon_1835_blk_washington_clark_d4_02",
+    "recon_1835_blk_washington_clark_d4_14",
     "recon_1835_blk_washington_clark_d5_01",
     "recon_1835_blk_washington_clark_h3_05",
     "recon_1835_blk_washington_clark_h3_06",
     "recon_1835_blk_washington_clark_h3_11",
     "recon_1835_blk_washington_dearborn_a1_02",
     "recon_1835_blk_washington_dearborn_a3_03",
+    "recon_1835_blk_washington_dearborn_d3_07",
+    "recon_1835_blk_washington_dearborn_d3_08",
+    "recon_1835_blk_washington_dearborn_d4_09",
+    "recon_1835_blk_washington_dearborn_d7_04",
+    "recon_1835_blk_washington_dearborn_d7_06",
+    "recon_1835_blk_washington_dearborn_h2_05",
     "recon_1835_blk_washington_dearborn_h3_01",
+    "recon_1835_blk_washington_dearborn_w2_10",
     "recon_1835_blk_washington_franklin_a1_10",
     "recon_1835_blk_washington_franklin_a2_09",
     "recon_1835_blk_washington_franklin_a3_13",
@@ -559,7 +637,14 @@
     "recon_1835_blk_washington_wells_d7_04",
     "recon_1835_blk_washington_wells_h1_02",
     "recon_1835_blk_washington_wells_h1_03",
-    "recon_1835_blk_washington_wells_h2_07"
+    "recon_1835_blk_washington_wells_h2_07",
+    "recon_1835_blk_west_washington_canal_d2_06",
+    "recon_1835_blk_west_washington_canal_d3_04",
+    "recon_1835_blk_west_washington_canal_d4_03",
+    "recon_1835_blk_west_washington_canal_d5_02",
+    "recon_1835_blk_west_washington_canal_d6_01",
+    "recon_1835_blk_west_washington_canal_d7_05",
+    "recon_1835_branch_freight_f2_001"
    ],
    "east_of_the_limit_in_the_water": [
     "south_pier"
@@ -572,48 +657,28 @@
  "block_infill_programme": {
   "counted_from": "data/reconstruction/1835_665_roof_programme.json schedule[]",
   "method": "A block's centre is the mean of the four corners its own four bounding street centrelines make. No block polygon is invented.",
-  "blocks_with_four_bounding_streets": 63,
+  "blocks_with_four_bounding_streets": 72,
   "inside_the_limit": 24,
-  "outside_the_limit": 39,
-  "scheduling_roofs_outside_the_limit": 4,
+  "outside_the_limit": 48,
+  "scheduling_roofs_outside_the_limit": 2,
   "scheduling_roofs_outside_the_limit_rows": [
    {
-    "id": "blk_washington_clark",
+    "id": "blk_school_section_tier_81",
     "state": "open",
-    "roofs_scheduled": 8,
+    "roofs_scheduled": 1,
     "centre_local_enu_m": [
-     634.55,
-     -456.0
+     139.86,
+     -587.44
     ],
     "inside_the_limit": false
    },
    {
-    "id": "blk_washington_dearborn",
+    "id": "blk_school_section_tier_95",
     "state": "open",
-    "roofs_scheduled": 18,
+    "roofs_scheduled": 1,
     "centre_local_enu_m": [
-     760.04,
-     -456.51
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_indiana_north_wolcott",
-    "state": "open",
-    "roofs_scheduled": 27,
-    "centre_local_enu_m": [
-     885.64,
-     525.4
-    ],
-    "inside_the_limit": false
-   },
-   {
-    "id": "blk_indiana_north_cass",
-    "state": "open",
-    "roofs_scheduled": 6,
-    "centre_local_enu_m": [
-     997.2,
-     524.49
+     408.24,
+     -587.44
     ],
     "inside_the_limit": false
    }
@@ -636,6 +701,16 @@
     "centre_local_enu_m": [
      -215.87,
      -318.38
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_washington_clinton",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -212.22,
+     -452.55
     ],
     "inside_the_limit": false
    },
@@ -681,8 +756,8 @@
    },
    {
     "id": "blk_washington_clark",
-    "state": "open",
-    "roofs_scheduled": 8,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      634.55,
      -456.0
@@ -691,8 +766,8 @@
    },
    {
     "id": "blk_washington_dearborn",
-    "state": "open",
-    "roofs_scheduled": 18,
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      760.04,
      -456.51
@@ -892,7 +967,7 @@
    {
     "id": "blk_indiana_north_wolcott",
     "state": "open",
-    "roofs_scheduled": 27,
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      885.64,
      525.4
@@ -902,7 +977,7 @@
    {
     "id": "blk_indiana_north_cass",
     "state": "open",
-    "roofs_scheduled": 6,
+    "roofs_scheduled": 0,
     "centre_local_enu_m": [
      997.2,
      524.49
@@ -996,6 +1071,86 @@
     "centre_local_enu_m": [
      -335.8,
      -317.42
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_washington_des_plaines",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -451.82,
+     -451.58
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_washington_jefferson",
+    "state": "open",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -332.57,
+     -452.07
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_west_washington_canal",
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     -88.1,
+     -453.08
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_81",
+    "state": "open",
+    "roofs_scheduled": 1,
+    "centre_local_enu_m": [
+     139.86,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_94",
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     279.89,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_95",
+    "state": "open",
+    "roofs_scheduled": 1,
+    "centre_local_enu_m": [
+     408.24,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_118",
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     524.31,
+     -587.44
+    ],
+    "inside_the_limit": false
+   },
+   {
+    "id": "blk_school_section_tier_119",
+    "state": "at_capacity",
+    "roofs_scheduled": 0,
+    "centre_local_enu_m": [
+     644.33,
+     -587.44
     ],
     "inside_the_limit": false
    },
@@ -1123,13 +1278,13 @@
     "id": "south_plat_beyond_committed_control",
     "kind": "district_balance",
     "state": "complete",
-    "roofs": 8
+    "roofs": 0
    },
    {
     "id": "west_division_beyond_committed_control",
     "kind": "district_balance",
-    "state": "gated",
-    "roofs": 31
+    "state": "complete",
+    "roofs": 0
    },
    {
     "id": "north_division_beyond_modelled_ground",

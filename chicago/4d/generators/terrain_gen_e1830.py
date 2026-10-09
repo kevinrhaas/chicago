@@ -17,9 +17,8 @@ and this file is its one reader. It does three things and nothing else:
 1. WRITES THE 1812 MOUTH into `e1830_natural/river.geojson`, out of committed lines only:
    the 1834 harbour-reach ring with the cut, the piers and the sand caught against them
    taken out, the spit's isthmus laid across the gap L240 left, and the lake shore north
-   of the spit root drawn as `north_lake_shore_1812` says (a chord to the first 1834
-   vertex past the pier head, then the 1834 line). No vertex is placed by hand: every one
-   is a vertex of a committed trace or the crossing of two committed lines.
+   of the spit root joined smoothly to the outer bar as `north_lake_shore_1812` says
+   (T-2171). Endpoints come from committed traces; the curve is reconstructed.
 
 2. TRANSLATES the effective table into the shape `terrain_gen.build_field` reads and
    calls it, so the 1812 ground is the 1834 field's own arithmetic on the 1812 planform:
@@ -142,6 +141,34 @@ def ring_index(ring, p):
 # 1. the 1812 mouth, from committed lines
 # ---------------------------------------------------------------------------
 
+def lake_curve(before, start, end, after, segments):
+    """E(N) cubic Hermite: trace tangents, clamped to forbid a new inlet/overshoot.
+
+    The shape is reconstructed, not a digitised 1812 survey. Northing is strictly
+    increasing; eastings stay between the carried endpoints. 24 chords resolve the
+    ~213 m join at less than the terrain's bank-face width.
+    """
+    span = end[1] - start[1]
+    if span <= 0 or segments < 2 or end[0] >= start[0]:
+        raise ValueError("outer lake join must run north and west")
+    secant = (end[0] - start[0]) / span
+    def slope(a, b):
+        raw = (b[0] - a[0]) / (b[1] - a[1])
+        return max(3 * secant, min(0, raw))
+    m0, m1 = slope(before, start), slope(end, after)
+    # Monotone cubic sufficient condition; preserve direction if tangents are steep.
+    norm = math.hypot(m0 / secant, m1 / secant)
+    if norm > 3:
+        m0, m1 = m0 * 3 / norm, m1 * 3 / norm
+    pts = []
+    for i in range(segments + 1):
+        t = i / segments
+        e = ((2*t**3 - 3*t**2 + 1)*start[0] + (t**3 - 2*t**2 + t)*span*m0
+             + (-2*t**3 + 3*t**2)*end[0] + (t**3 - t**2)*span*m1)
+        pts.append((e, start[1] + t*span))
+    return pts
+
+
 def derive_mouth(base_feats, shore_1812, spec, origin):
     """The four features river.geojson carries, in local metres, with what each rests on."""
     f12 = {f["id"]: f for f in shore_1812["features"]}
@@ -186,39 +213,32 @@ def derive_mouth(base_feats, shore_1812, spec, origin):
         raise SystemExit("REFUSING: the neck's south-west face never meets the north bank")
     t, i_bank, _ = min(hits, key=lambda h: abs(h[0]))
     p_sw = at(p_sw0, u, t)
-    # lake side: the chord root -> chord_end
-    hits = line_hits(p_ne0, u, [root, chord_end])
-    if not hits:
-        raise SystemExit("REFUSING: the neck's north-east face never meets the chord")
-    t_ne = min(hits, key=lambda h: abs(h[0]))[0]
-    p_ne = at(p_ne0, u, t_ne)
-
-    # spit side: the first crossing of each edge with the spit ring, going out from the root
-    def first_on_spit(p0, t0):
-        hs = sorted(h for h in line_hits(p0, u, spit, closed=True) if h[0] > t0)
-        if not hs:
-            raise SystemExit("REFUSING: a face of the neck never reaches the spit")
-        return at(p0, u, hs[0][0]), hs[0][1]
-
-    x_sw, i_sw = first_on_spit(p_sw0, t)
-    x_ne, i_ne = first_on_spit(p_ne0, t_ne)
-    # The spit ring between the two crossings, the long way round: the short arc is the
-    # bar's north-west corner, which the neck now covers.
+    # Preserve the river-side neck exactly. Its old outer face and root-to-shore
+    # chord made an unsupported V in the lake edge (T-2171). The lake face now
+    # follows a monotone Hermite join between two carried trace vertices.
+    hs = sorted(h for h in line_hits(p_sw0, u, spit, closed=True) if h[0] > t)
+    if not hs:
+        raise SystemExit("REFUSING: the river-side neck never reaches the spit")
+    x_sw, i_sw = at(p_sw0, u, hs[0][0]), hs[0][1]
+    curve = spec["north_lake_shore_1812"]["curve"]
+    join = int(curve["spit_vertex_index"])
     n = len(spit)
-    arc_a = [spit[(i_sw + 1 + k) % n] for k in range((i_ne - i_sw) % n)]
-    arc_b = [spit[(i_sw - k) % n] for k in range((i_sw - i_ne) % n)]
-    ic = min(range(n), key=lambda k: math.hypot(spit[k][0] - corner[0], spit[k][1] - corner[1]))
+    ic = min(range(n), key=lambda k: math.dist(spit[k], corner))
+    arc_a = [spit[(i_sw + 1 + k) % n] for k in range((join - i_sw) % n)]
+    arc_b = [spit[(i_sw - k) % n] for k in range((i_sw - join) % n + 1)]
     arc = arc_b if spit[ic] in arc_a else arc_a
-    if spit[ic] in arc:
-        raise SystemExit("REFUSING: both arcs of the spit between the neck's faces hold its "
-                         "north-west corner, so the faces do not straddle it")
-
-    shore = [p_sw, x_sw] + arc + [x_ne, p_ne]
+    if not arc or not same(arc[-1], spit[join]) or spit[ic] in arc:
+        raise SystemExit("REFUSING: the outer join must keep the long spit arc and southern tip")
+    lake_join = lake_curve(arc[-2], arc[-1], chord_end, n34[first + 1],
+                           int(curve["segments"]))
+    shore = [p_sw, x_sw] + arc + lake_join[1:]
+    p_ne = chord_end
+    x_ne = arc[-1]
     bank_cut = bank[:i_bank + 1] + [p_sw]
     # The land the 1812 water goes round: the neck and the spit, closed against the
     # mainland along the 1834 shore it leaves.
     land = shore + [root] + list(reversed(bank[i_bank + 1:-1]))
-    north = [p_ne, chord_end] + n34[first + 1:]
+    north = [chord_end] + n34[first + 1:]
 
     # The water: the 1834 harbour ring, spliced. It runs S68..S135 (the channel's west bank,
     # up to the forks window), N0..N62 (the north shore), the window, the lake edge, and
@@ -228,7 +248,7 @@ def derive_mouth(base_feats, shore_1812, spec, origin):
     i_head = ring_index(ring, n34[first])
     if i_head <= i_root:
         raise SystemExit("REFUSING: the 1834 ring does not run the north shore west to east")
-    mouth = ring[:i_root] + bank_cut + shore[1:] + ring[i_head:]
+    mouth = ring[:i_root] + bank_cut + shore[1:] + ring[i_head + 1:]
     island = spec["spit_1812"]["feature"]
     holes = [r for r in harbour[1:]]
     if len(holes) != 1 or len(to_local(holes[0], origin)) - 1 != len(spit):
@@ -246,7 +266,7 @@ def derive_mouth(base_feats, shore_1812, spec, origin):
         "root_line": [p_sw] + bank[i_bank + 1:-1] + [root, p_ne],
         "mouth": mouth, "land": land, "shore": shore, "north": north, "bank_cut": bank_cut,
         "root": root, "p_sw": p_sw, "p_ne": p_ne, "x_sw": x_sw, "x_ne": x_ne,
-        "chord_end": chord_end, "first": first, "half_m": half,
+        "chord_end": chord_end, "first": first, "half_m": half, "lake_join": lake_join,
     }
 
 
@@ -260,7 +280,7 @@ def mouth_geojson(geo, spec, origin):
     prov = {"derived_by": "generators/terrain_gen_e1830.py",
             "spec": "data/terrain/epochs/e1830_natural/terrain_spec.json",
             "base_trace": "data/terrain/epochs/e1834_harbor_cut/shoreline.geojson",
-            "ticket": "T-2003"}
+            "ticket": "T-2171"}
     feats = [
         {"type": "Feature", "id": MOUTH_ID,
          "properties": {
@@ -270,7 +290,7 @@ def mouth_geojson(geo, spec, origin):
              "derivation": "1834 harbor_reach_water's outer ring, less the north shore from the cut on "
                            "the north bank to the pier head (1834 index " + str(geo["first"]) + "), which "
                            "becomes the neck's south-west face, the spit's ring and the neck's north-east "
-                           "face; the 1834 interior ring (the bar) is gone because the bar is no longer "
+                           "lake-facing curve; the 1834 interior ring (the bar) is gone because the bar is no longer "
                            "an island",
              "opens_between_local": json.dumps([loc(geo["outlet"]), loc(geo["bar_tip"])]),
              "sources": spec["water_bodies_1812"]["sources"],
@@ -280,11 +300,11 @@ def mouth_geojson(geo, spec, origin):
          "properties": {
              "kind": "spit", "name": "The baymouth spit and the neck that joined it to the north shore",
              "confidence": "reconstructed",
-             "derivation": "the neck: a ribbon isthmus_1812.width_ft wide on spit_attachment_gap_1812, "
-                           "its faces carried back to the north bank and the chord and forward to the "
-                           "spit's ring; the spit: baymouth_bar_1812 less the north-west corner the "
-                           "neck covers; closed against the mainland along the 1834 shore",
-             "width_m": round(2 * geo["half_m"], 3),
+             "derivation": "river-side neck offset by half isthmus_1812.width_ft from the gap line; "
+                           "the long spit arc to north_lake_shore_1812.curve.spit_vertex_index; "
+                           "a reconstructed monotone curve to the carried north shore; closed "
+                           "against the mainland. width_ft controls the river face, not full land width",
+             "river_side_offset_m": round(geo["half_m"], 3),
              "sources": spec["isthmus_1812"]["sources"],
              "provenance": prov},
          "geometry": {"type": "Polygon", "coordinates": [ring_closed(geo["land"])]}},
@@ -293,9 +313,9 @@ def mouth_geojson(geo, spec, origin):
              "kind": "shore", "name": "The waterline round the neck and the spit",
              "confidence": "reconstructed",
              "derivation": "the neck's south-west face from the north bank, the spit's ring the long "
-                           "way round, the neck's north-east face back to the chord",
+                           "way round to the outer join, then the reconstructed lake curve to the north shore",
              "meets_north_bank_local": json.dumps(loc(geo["p_sw"])),
-             "meets_chord_local": json.dumps(loc(geo["p_ne"])),
+             "meets_north_lake_shore_local": json.dumps(loc(geo["p_ne"])),
              "sources": spec["isthmus_1812"]["sources"],
              "provenance": prov},
          "geometry": {"type": "LineString", "coordinates": to_utm(geo["shore"], origin)}},
@@ -303,12 +323,10 @@ def mouth_geojson(geo, spec, origin):
          "properties": {
              "kind": "shore", "name": "The lake shore north of the spit root",
              "confidence": spec["north_lake_shore_1812"]["confidence"],
-             "derivation": "the chord from the spit root to 1834 north_shore_harbor_reach index "
-                           + str(geo["first"]) + " (1812_mouth_readings.json accretion_bound_first_index), "
-                           "taken from where the neck's north-east face meets it, then the 1834 line "
-                           "to its end",
-             "chord_from_local": json.dumps(loc(geo["root"])),
-             "chord_to_local": json.dumps(loc(geo["chord_end"])),
+             "derivation": "1834 north_shore_harbor_reach from index " + str(geo["first"])
+                           + " north; the reconstructed outer curve meets this run at its first vertex",
+             "curve_from_local": json.dumps(loc(geo["x_ne"])),
+             "curve_to_local": json.dumps(loc(geo["chord_end"])),
              "sources": spec["north_lake_shore_1812"]["sources"],
              "provenance": prov},
          "geometry": {"type": "LineString", "coordinates": to_utm(geo["north"], origin)}},
@@ -327,6 +345,12 @@ def spec_shore(_spec=None):
 # ---------------------------------------------------------------------------
 # 2. the effective table, in the shape build_field reads
 # ---------------------------------------------------------------------------
+
+# The figures of south_lake_sand_hills_1812 that build_field's dune pass reads; the same
+# set terrain_inputs.CONSUMED declares for it.
+SAND_HILL_KEYS = ("id", "n_range", "end_fade_m", "west_limit_e_m", "west_fade_m", "ridges",
+                  "hollow", "wander_m", "wander_wavelength_m", "hummock_wavelength_m", "seed")
+
 
 def field_spec(spec, base, eff):
     """The 1834 field's own spec keys, filled from the effective 1812 table."""
@@ -375,6 +399,13 @@ def field_spec(spec, base, eff):
         "id": "outlet_channel_1812", "anchor_e": oc["anchor_e"], "anchor_n": oc["anchor_n"],
         "bed_ft": oc["bed_ft"], "e_fold_m": oc["e_fold_m"]}]
     fs["islands"] = []
+    # The sand hills south of Twelfth Street (T-2066) are an 1812 reach of the 1834 dune
+    # machinery, so they join the carried `dunes` list and build_field lays them exactly as
+    # it lays north_lake_dunes. Only the build instructions go in; the block's grade,
+    # sources and note stay on the block, where the Evidence panel reads them.
+    hills = spec["south_lake_sand_hills_1812"]
+    fs["dunes"] = list(fs.get("dunes", [])) + [
+        {k: hills[k] for k in SAND_HILL_KEYS if k in hills}]
     for gone in ("approaches", "street_sections"):
         fs.pop(gone, None)
     return fs
@@ -494,7 +525,7 @@ def build(spec, base):
     }
     stats = {
         "land_cells": int(land.sum()), "spit_crest_ft": crest_ft,
-        "neck_width_m": round(2 * geo["half_m"], 3),
+        "river_side_offset_m": round(geo["half_m"], 3),
         "conjectural_share": float((conf == tg.CONF_CONJECTURAL).mean()),
         "documented_cells": int((conf == tg.CONF_DOCUMENTED).sum()),
     }
@@ -552,8 +583,8 @@ def main() -> int:
     print(f"grid {doc['cols']}x{doc['rows']} @ {doc['cell_m']} m; land {doc['relief_ft']['land_min']}.."
           f"{doc['relief_ft']['land_max']} ft; channel floor {doc['relief_ft']['channel_min']} ft; water "
           f"{100 * doc['water_fraction']:.1f}%; quantisation {doc['quantisation_error_m'] * 1000:.2f} mm")
-    print(f"spit and neck: {stats['land_cells']} cells at +{stats['spit_crest_ft']} ft, neck "
-          f"{stats['neck_width_m']} m wide; conjectural {100 * stats['conjectural_share']:.1f}% of the box; "
+    print(f"spit and neck: {stats['land_cells']} cells at +{stats['spit_crest_ft']} ft, river-side offset "
+          f"{stats['river_side_offset_m']} m; conjectural {100 * stats['conjectural_share']:.1f}% of the box; "
           f"documented vertices {stats['documented_cells']}")
     ga = meta["gradient_audit"]
     print(f"gradient audit: plain max {ga['plain_block_max']} ft - "

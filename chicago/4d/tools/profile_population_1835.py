@@ -223,6 +223,10 @@ SEX_RULES = [
      "means": "the read name carries a gendered title (Mrs, Miss, Widow, Mr)"},
     {"rule": "inferred_contraction", "tier": "inferred",
      "means": "the name is a period contraction every attested expansion of which is one sex's"},
+    {"rule": "inferred_register", "tier": "inferred",
+     "means": "St Mary's baptismal register puts the person in a sexed role (father, "
+              "mother, godfather, godmother) or writes fils/fille, son/daughter after the "
+              "child's name (T-2177)"},
     {"rule": "inferred_forename", "tier": "inferred",
      "means": "the forename stands in exactly one sex's naming and in no other (T-1303's "
               "derived table, which refuses a name its own evidence splits)"},
@@ -309,6 +313,8 @@ def sex_of(person: dict, male: set, female: set, both: set) -> tuple:
         if conf == "reconstructed":
             return recorded, "reconstructed_from_the_roll"
         if conf == "inferred":
+            if basis.get("sources") == ["st_marys_baptismal_register_1833_1835"]:
+                return recorded, "inferred_register"
             if "PRINTED WITH A TITLE" in note:
                 return recorded, "inferred_title"
             if "PERIOD CONTRACTION" in note:
@@ -522,14 +528,15 @@ def sec_sex(L) -> dict:
         "title": "Sex",
         "lead": ("%d of %d persons (%s) carry a sex, AT THREE DIFFERENT TIERS and the "
                  "table below is the only honest way to read them together: %d because a "
-                 "source records it, %d read off a gendered title, a period contraction or "
-                 "a forename that stands in one sex's naming only, and %d DRAWN at the "
+                 "source records it, %d read off a baptismal register's role or kinship "
+                 "word, a gendered title, a period contraction or a forename that stands "
+                 "in one sex's naming only, and %d DRAWN at the "
                  "male rate measured on the roll the person was named off. A drawn sex is "
                  "not evidence about that person and never becomes any; the %d left are "
                  "collective descriptions that name nobody."
                  % (known, total, pct(known, total), by_rule["recorded"],
-                    by_rule["inferred_title"] + by_rule["inferred_contraction"]
-                    + by_rule["inferred_forename"],
+                    by_rule["inferred_register"] + by_rule["inferred_title"]
+                    + by_rule["inferred_contraction"] + by_rule["inferred_forename"],
                     by_rule["reconstructed_from_the_roll"], by_rule["unknown"])),
         "tables": [
             {"title": "Sex by the rule that says so", **plain_table(
@@ -815,10 +822,12 @@ def sec_buildings(L) -> dict:
     grid = defaultdict(Counter)
     for h in records:
         d = h["division"]
-        grid[d]["housed" if value(h.get("lives_at")) else "no dwelling"] += 1
+        # The card's own `lives_at` only — the table's question. The lead's housed count
+        # also reads the roofs that seat a household under `residents[]` (T-2155).
+        grid[d]["lives_at named" if value(h.get("lives_at")) else "no lives_at"] += 1
         if value(h.get("works_at")):
             grid[d]["roofed workplace"] += 1
-    cols = ["housed", "roofed workplace", "no dwelling"]
+    cols = ["lives_at named", "roofed workplace", "no lives_at"]
     rows = [[d, sum(1 for h in records if h["division"] == d)] + [grid[d][c] for c in cols]
             for d in L.index["vocabulary"]["divisions"]]
     rows.append(["TOTAL", len(records)]
@@ -826,10 +835,13 @@ def sec_buildings(L) -> dict:
     return {
         "id": "buildings",
         "title": "Where they meet the buildings",
-        "lead": ("%d persons resolve into a dwelling that stands in the scene, in %d "
-                 "households; %d households have no dwelling. %d roofs stand against a "
-                 "programme of %d."
+        "lead": ("%d persons in the town on 1 July resolve into a dwelling that stands in "
+                 "the scene, in %d households — %d of them through their card's `lives_at`, the "
+                 "rest seated by a roof's `residents[]` — and %d wait on a roof not yet "
+                 "standing; %d households have no dwelling. The table below reads "
+                 "`lives_at` alone. %d roofs stand against a programme of %d."
                  % (people["housed"], people["households_housed"],
+                    people["housed_through"]["lives_at"], people["waiting_on_a_roof"],
                     people["households_without_a_dwelling"],
                     buildings["standing"], buildings["target"])),
         "tables": [

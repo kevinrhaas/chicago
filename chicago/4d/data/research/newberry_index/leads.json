@@ -9,12 +9,12 @@
     4
   ],
   "derives_from": {
-    "fingerprint": "d5b796718fded55d89d02b81db113cd430407e9f2cd61592e4ca4e996c208c5c",
+    "fingerprint": "dca5aa43aacf7b1040a9dadc88795963858bb1f4353e4bc622a9493ff4056ff4",
     "_doc": "sha256 over the layers the leads are looked up in, the WORKS table, and the committed card text of every parsed volume. Recomputed by --check; a mismatch means --parse is no longer a no-op and the leads must be regenerated and re-ruled.",
     "layer_counts": {
       "census_1840": 995,
-      "residents": 1441,
-      "structures": 559,
+      "residents": 1440,
+      "structures": 673,
       "voters": 345
     }
   },
@@ -17645,6 +17645,16 @@
       "layer": "residents",
       "candidates": [
         {
+          "id": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "rule": "OCR variant (0.88 similarity to 'kimberly')"
+        },
+        {
+          "id": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "rule": "OCR variant (0.88 similarity to 'kimberly')"
+        },
+        {
           "id": "kimberly_ira",
           "name": "Ira Kimberly",
           "rule": "OCR variant (0.88 similarity to 'kimberly')"
@@ -17652,11 +17662,6 @@
         {
           "id": "kimberly_osa",
           "name": "Osa Kimberly",
-          "rule": "OCR variant (0.88 similarity to 'kimberly')"
-        },
-        {
-          "id": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
           "rule": "OCR variant (0.88 similarity to 'kimberly')"
         }
       ],
@@ -25557,6 +25562,26 @@
         {
           "id": "fort_dearborn_shop",
           "name": "Fort Dearborn — the shop",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_randolph_clark_w1_10",
+          "name": "Reconstructed W1 blacksmith shop #10",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_randolph_clark_w2_09",
+          "name": "Reconstructed W2 carpenter or joiner shop #09",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_randolph_dearborn_w2_18",
+          "name": "Reconstructed W2 carpenter or joiner shop #18",
+          "rule": "OCR variant (0.89 similarity to 'shop')"
+        },
+        {
+          "id": "recon_1835_blk_washington_dearborn_w2_10",
+          "name": "Reconstructed W2 carpenter or joiner shop #10",
           "rule": "OCR variant (0.89 similarity to 'shop')"
         },
         {

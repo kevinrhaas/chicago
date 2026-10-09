@@ -625,6 +625,11 @@
       "type": "string",
       "description": "Free text. Source conflicts go here and in docs/RESEARCH/<id>.md."
     },
+    "touches_removal": {
+      "type": "boolean",
+      "default": false,
+      "description": "The record reconstructs Native or Métis presence at Chicago in the year of the 1835 removal (AGENTS.md § Standing constraint). Implies review_required, as it does on households and persons."
+    },
     "review_required": {
       "type": "boolean",
       "default": false,
@@ -791,6 +796,7 @@
             "jail",
             "land_sale_camp",
             "large_boarding_house",
+            "large_river_warehouse",
             "large_workshop",
             "larger_one_and_a_half_story_house",
             "livestock_pound",
@@ -847,6 +853,7 @@
             "tannery",
             "tavern_inn",
             "tavern_stable",
+            "trading_camp",
             "trading_house",
             "two_room_frame_cottage",
             "warehouse_and_slaughter_yard",

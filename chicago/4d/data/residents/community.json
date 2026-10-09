@@ -15,17 +15,17 @@
  },
  "not_a_reading": "Derived, never hand-edited. Every value is read off a committed field — a household's origin block or a reconstructed person's own pool community — and graded no higher than the field it came from. No source was read to write this file and nobody was minted.",
  "counts": {
-  "persons": 3461,
+  "persons": 3459,
   "households": 1983,
-  "known": 3324,
-  "unknown": 137,
+  "known": 3323,
+  "unknown": 136,
   "by_community": {
-   "yankee": 1681,
-   "new_york": 558,
+   "yankee": 1680,
+   "new_york": 559,
    "irish": 479,
-   "french_canadian": 185,
+   "french_canadian": 184,
    "other": 137,
-   "unknown": 137,
+   "unknown": 136,
    "british": 111,
    "native": 89,
    "southern": 67,
@@ -33,23 +33,23 @@
    "metis": 2
   },
   "by_tier": {
-   "reconstructed": 3266,
-   "null": 137,
-   "inferred": 55,
+   "reconstructed": 3263,
+   "null": 136,
+   "inferred": 57,
    "attested": 3
   },
   "by_rule": {
-   "reconstruction_community": 1899,
-   "origin_region": 1400,
+   "reconstruction_community": 1898,
+   "origin_region": 1401,
    "no_origin_recorded": 121,
-   "stated_community": 25,
-   "origin_does_not_speak_for_this_person": 12,
+   "stated_community": 24,
+   "origin_does_not_speak_for_this_person": 11,
    "origin_unreadable": 4
   },
   "households_by_community": {
-   "yankee": 690,
+   "yankee": 689,
    "new_york": 557,
-   "irish": 138,
+   "irish": 139,
    "other": 137,
    "unknown": 124,
    "british": 111,
@@ -467,11 +467,6 @@
    "rule": "origin_region"
   },
   "banstun_charles": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region"
-  },
-  "baptist_john": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "origin_region"
@@ -1022,11 +1017,6 @@
    "rule": "origin_region"
   },
   "bourassa_jean_baptiste": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "stated_community"
-  },
-  "bourassa_lon": {
    "value": "french_canadian",
    "tier": "reconstructed",
    "rule": "stated_community"
@@ -4297,13 +4287,18 @@
    "rule": "origin_region"
   },
   "kimberly_edmund_s": {
-   "value": "unknown",
-   "tier": null,
-   "rule": "origin_does_not_speak_for_this_person"
+   "value": "yankee",
+   "tier": "inferred",
+   "rule": "origin_region"
   },
   "kimberly_ira": {
    "value": "new_york",
    "tier": "reconstructed",
+   "rule": "origin_region"
+  },
+  "kimberly_marie_theresa": {
+   "value": "yankee",
+   "tier": "inferred",
    "rule": "origin_region"
   },
   "kimberly_osa": {
@@ -6748,6 +6743,31 @@
   },
   "rc_bourassa_madeleine_4": {
    "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_1": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_2": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_3": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_child_4": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_bourrassa_leon_wife": {
+   "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
@@ -10106,11 +10126,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_ingersoll_chester_wife": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_irwell_william_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -12866,6 +12881,11 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
+  "rc_reilly_bridget": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
   "rc_reilly_catherine": {
    "value": "irish",
    "tier": "reconstructed",
@@ -13012,26 +13032,6 @@
    "rule": "reconstruction_community"
   },
   "rc_rice_lydia_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_child_2": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_rider_eli_a_wife": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -14246,11 +14246,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_thomas_frederick_child_1": {
-   "value": "irish",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_thomas_frederick_child_2": {
    "value": "irish",
    "tier": "reconstructed",
@@ -14836,11 +14831,6 @@
    "tier": "reconstructed",
    "rule": "reconstruction_community"
   },
-  "rc_wellmaker_john_child_3": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
   "rc_wellmaker_john_child_4": {
    "value": "yankee",
    "tier": "reconstructed",
@@ -14852,11 +14842,6 @@
    "rule": "reconstruction_community"
   },
   "rc_wesencraft_charles_child_1": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "reconstruction_community"
-  },
-  "rc_wesencraft_charles_child_4": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -14937,6 +14922,11 @@
    "rule": "reconstruction_community"
   },
   "rc_whitcomb_seth": {
+   "value": "yankee",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community"
+  },
+  "rc_whitlock_james_child_1": {
    "value": "yankee",
    "tier": "reconstructed",
    "rule": "reconstruction_community"
@@ -16952,7 +16942,7 @@
    "rule": "origin_region"
   },
   "weaver_betsy": {
-   "value": "yankee",
+   "value": "new_york",
    "tier": "reconstructed",
    "rule": "origin_region"
   },
@@ -17928,13 +17918,6 @@
    "head": "banstun_charles",
    "file": "households/hh_banstun_charles.json"
   },
-  "hh_baptist_john": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "baptist_john",
-   "file": "households/hh_baptist_john.json"
-  },
   "hh_baptiste_l_tendre": {
    "value": "unknown",
    "tier": null,
@@ -18669,13 +18652,6 @@
    "rule": "stated_community",
    "head": "bourassa_jean_baptiste",
    "file": "households/hh_bourassa_jean_baptiste.json"
-  },
-  "hh_bourassa_lon": {
-   "value": "french_canadian",
-   "tier": "reconstructed",
-   "rule": "stated_community",
-   "head": "bourassa_lon",
-   "file": "households/hh_bourassa_lon.json"
   },
   "hh_bourassa_mark": {
    "value": "french_canadian",
@@ -23101,6 +23077,13 @@
    "head": "kimball_walter",
    "file": "households/hh_kimball_walter.json"
   },
+  "hh_kimberly_edmund_s": {
+   "value": "yankee",
+   "tier": "inferred",
+   "rule": "origin_region",
+   "head": "kimberly_edmund_s",
+   "file": "households/hh_kimberly_edmund_s.json"
+  },
   "hh_kimberly_ira": {
    "value": "new_york",
    "tier": "reconstructed",
@@ -25789,6 +25772,13 @@
    "head": "rc_chevalier_alexis",
    "file": "reconstructed_trades/hh_rc_chevalier_alexis.json"
   },
+  "hh_rc_chevalier_angelique": {
+   "value": "french_canadian",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_chevalier_angelique",
+   "file": "households/hh_rc_chevalier_angelique.json"
+  },
   "hh_rc_chevalier_louis": {
    "value": "french_canadian",
    "tier": "reconstructed",
@@ -27272,6 +27262,13 @@
    "rule": "reconstruction_community",
    "head": "rc_quinn_terence",
    "file": "reconstructed_trades/hh_rc_quinn_terence.json"
+  },
+  "hh_rc_reilly_bridget": {
+   "value": "irish",
+   "tier": "reconstructed",
+   "rule": "reconstruction_community",
+   "head": "rc_reilly_bridget",
+   "file": "reconstructed_trades/hh_rc_reilly_bridget.json"
   },
   "hh_rc_reilly_catherine": {
    "value": "irish",
@@ -30681,13 +30678,6 @@
    "rule": "origin_region",
    "head": "wear_amy_c",
    "file": "households/hh_wear_amy_c.json"
-  },
-  "hh_weaver_betsy": {
-   "value": "yankee",
-   "tier": "reconstructed",
-   "rule": "origin_region",
-   "head": "weaver_betsy",
-   "file": "households/hh_weaver_betsy.json"
   },
   "hh_weaver_d": {
    "value": "yankee",

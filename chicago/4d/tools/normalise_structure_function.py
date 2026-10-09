@@ -445,11 +445,14 @@ def self_test() -> int:
     assert not unruled_commercial_families(
         dict(families, C9="tea_room"), vocab | {"tea_room"}, known | {"tea_room"}), \
         "the gate refuses a family the signage rule HAS ruled on"
-    # F4's `lumber_shed` and F3's `large_river_warehouse` are the live proof of the
-    # second half: both are authored families and neither is asked about, because the
-    # vocabulary cannot spell either and so no roof in town carries one.
-    for term in ("lumber_shed", "large_river_warehouse",
-                 "sawmill_boat_repair_or_riverside_shop"):
+    # F4's `lumber_shed` is the live proof of the second half: an authored family that
+    # is not asked about, because the vocabulary cannot spell it and so no roof in town
+    # carries one. F3's `large_river_warehouse` stood here too until T-2022 built the
+    # town's first F3 and the schema learned the term; WORKS_TRADES rules on it now, which
+    # is the first half of this gate doing its job rather than the second.
+    assert "large_river_warehouse" in known, \
+        "F3's term is in the vocabulary and no trade set rules on it"
+    for term in ("lumber_shed", "sawmill_boat_repair_or_riverside_shop"):
         assert term not in vocab, (
             f"{term!r} is in the vocabulary now, so a trade set has to rule on it - "
             f"which is what this gate will say on the next commit")

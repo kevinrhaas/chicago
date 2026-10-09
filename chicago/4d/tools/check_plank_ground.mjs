@@ -16,6 +16,8 @@ function check(name,fn){fn();checks.push(name);}
 const threeURL=pathToFileURL(path.join(sourceRoot,'renderers/web/vendor/three-0.185.1/three.module.js')).href;
 const THREE=await import(threeURL);
 const modURL=s=>'data:text/javascript;base64,'+Buffer.from(s).toString('base64');
+const spatialSource=await readFile(path.join(sourceRoot,'renderers/web/js/spatial-batch.js'),'utf8');
+const {spatialBatch}=await import(modURL(spatialSource.replace("from 'three'",`from '${threeURL}'`)));
 const terrainSource=await readFile(path.join(sourceRoot,'renderers/web/js/terrain.js'),'utf8');
 const baseStride=Number(terrainSource.match(/const GROUND_BASE_STEP = (\d+)/)[1]);
 const baseOffset=Number(terrainSource.match(/groundBase\.position\.y = (-?[\d.]+)/)[1]);
@@ -38,7 +40,7 @@ const frontageSource=await readFile(path.join(sourceRoot,'renderers/web/js/front
 const frontage=await import(modURL(frontageSource.replace("from 'three'",`from '${threeURL}'`)
  .replace("import { resolveBases } from './scene-loader.js';","const resolveBases=()=>({assetBase:new URL('file:///tmp/t2037-no-assets/')});")
  .replace("from './gates.js'",`from '${pathToFileURL(path.join(sourceRoot,'renderers/web/js/gates.js')).href}'`)
- +'\nexport {timberBuf,buildWalk,buildCrossing};'));
+ +'\nexport {timberBuf,plainTimber,buildWalk,buildCrossing};'));
 globalThis.fetch=async(url)=>{const file=fileURLToPath(url);if(!file.startsWith(path.join(sourceRoot,'data/')))return {ok:false,status:404};
  return {ok:true,json:async()=>JSON.parse(await readFile(file,'utf8'))};};
 globalThis.document={createElement:()=>({getContext:()=>null})};
@@ -98,6 +100,7 @@ const rows=[];
 for(const walk of allWalks){
  const buf=frontage.timberBuf(),problems=[];
  (walk.kind==='board_crossing'?frontage.buildCrossing:frontage.buildWalk)(buf,walk,terrain,1,problems);
+ frontage.plainTimber(buf);
  assert.deepEqual(problems,[]);
  // The draw uploads Float32 positions. Test those, not higher-precision JS arrays.
  const positions=Float32Array.from(buf.pos);
@@ -172,6 +175,32 @@ check('repeated terrain replacement disposes each geometry once',()=>{
  assert.equal(disposables.length,1);assert.equal(disposables[0],groundBase.geometry);
  for(const d of disposables)d.dispose();
  assert.ok(geometries.every(g=>g.disposed===1));
+});
+check('batching and repeated crossing protection preserve placement and release every buffer',()=>{
+ const counts=[];
+ const track=geometry=>{const row={disposed:0};counts.push(row);geometry.addEventListener('dispose',()=>row.disposed++);return geometry;};
+ const make=()=>{const geometry=track(new THREE.BufferGeometry());
+  geometry.setAttribute('position',new THREE.Float32BufferAttribute([0,1,0,1,1,0,0,1,1],3));
+  geometry.userData.adaptiveGround={triangles:1};return geometry;};
+ const material=new THREE.MeshBasicMaterial(),initial=new THREE.Mesh(make(),material);
+ initial.name='protected-base';initial.position.y=-.03;initial.receiveShadow=true;
+ const group=new THREE.Group();group.add(initial);
+ const disposables=[initial.geometry];
+ const protect=terrainSource.match(/protectGroundUnder\(footprints\) \{([\s\S]*?)\n    \},/)?.[1];
+ const batch=terrainSource.match(/batchDistantGround\(\) \{([\s\S]*?)\n    \},/)?.[1];
+ assert.ok(protect&&batch,'both actual terrain APIs exist');
+ const build=(geometry,mat)=>{const mesh=spatialBatch(geometry,mat);track(mesh.geometry);return mesh;};
+ const api=new Function('groundBase','heightfield','gridGeometry','GROUND_BASE_STEP','disposables','spatialBatch','group',
+  `return {protect(footprints){${protect}},batch(){${batch}},current:()=>groundBase};`)(initial,{loaded:true},make,baseStride,disposables,build,group);
+ api.protect([]);assert.equal(api.batch(),true);assert.equal(api.batch(),false);
+ api.protect([]);api.protect([]);
+ const current=api.current();
+ assert.equal(disposables.length,1);assert.equal(disposables[0],current);
+ assert.equal(group.children.length,1);assert.equal(group.children[0],current);
+ assert.equal(current.name,'protected-base');assert.equal(current.position.y,-.03);
+ assert.equal(current.material,material);assert.equal(current.receiveShadow,true);
+ current.dispose();material.dispose();
+ assert.ok(counts.every(row=>row.disposed===1),JSON.stringify(counts));
 });
 // Exercise the actual frontage publication path with one accepted default-width
 // crossing, one too-short rejected crossing, and an ordinary longitudinal walk.

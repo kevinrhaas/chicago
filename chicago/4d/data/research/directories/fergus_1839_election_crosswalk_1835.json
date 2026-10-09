@@ -18,7 +18,7 @@
   {
    "what": "residents layer, persons",
    "path": "data/residents/households/",
-   "n": 1439
+   "n": 1438
   },
   {
    "what": "voter, poll and tax list entries (T-0493)",
@@ -40,7 +40,7 @@
   "residents_matched_one_entry": 90,
   "residents_ambiguous": 31,
   "residents_contested": 21,
-  "residents_surname_only_refused": 236,
+  "residents_surname_only_refused": 237,
   "residents_further_initial_disagreed_refused": 4,
   "residents_letter_list_bucket_refused": 1,
   "voters_matched_one_entry": 81,
@@ -2780,7 +2780,7 @@
      }
     ],
     "person_id": "kimberly_edmund_s",
-    "household_id": "hh_pruyne_kimberly",
+    "household_id": "hh_kimberly_edmund_s",
     "grade_1835": "attested"
    },
    {
@@ -4418,6 +4418,11 @@
     "name": "Major L Shapley",
     "candidates_under_that_surname": 1,
     "rule": "The surname 'Shapley' stands in the 1837 poll and no man under it carries the initial 'L' of 'Major L Shapley'. A surname-only agreement is a refusal."
+   },
+   {
+    "name": "Marie Theresa Ellis Kimberly",
+    "candidates_under_that_surname": 2,
+    "rule": "The surname 'Kimberly' stands in the 1837 poll and no man under it carries the initial 'M' of 'Marie Theresa Ellis Kimberly'. A surname-only agreement is a refusal."
    },
    {
     "name": "Mary Baxley",

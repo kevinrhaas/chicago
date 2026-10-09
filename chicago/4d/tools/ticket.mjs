@@ -1201,18 +1201,24 @@ const isRefRejection = (err) =>
  * inside one second; it is not exotic, because two slices of one workflow share
  * `runUrl()` as well as the clock.
  */
-function claimCommit(id, by, run) {
+function claimCommit(id, by, run) { return markerCommit(`claim ${id}`, by, run); }
+
+/** The same record for any marker — a claim on a ticket, a lap on a pull request. */
+function markerCommit(subject, by, run) {
   const tree = gitTry(['hash-object', '-w', '-t', 'tree', '/dev/null']);
   if (!tree.ok || !tree.out) return null;
   const nonce = `${Date.now().toString(36)}${process.pid.toString(36)}${Math.random().toString(36).slice(2, 10)}`;
-  const msg = `claim ${id} — ${by}${run ? `\n\nrun: ${run}` : ''}\nnonce: ${nonce}`;
+  const msg = `${subject} — ${by}${run ? `\n\nrun: ${run}` : ''}\nnonce: ${nonce}`;
   const c = gitTry(['commit-tree', tree.out, '-m', msg]);
   return c.ok && c.out ? c.out : null;
 }
 
 /** Who holds the marker for this ticket, and since when. */
-function inspectClaim(id) {
-  const ref = `refs/heads/${claimBranch(id)}`;
+function inspectClaim(id) { return inspectMarker(claimBranch(id)); }
+
+/** Who holds this marker branch, and since when — a claim or a lap alike. */
+function inspectMarker(branch) {
+  const ref = `refs/heads/${branch}`;
   const ls = gitTry(['ls-remote', 'origin', ref]);
   const sha = ls.ok ? (ls.out.split('\t')[0] || '').trim() : '';
   if (!sha) return { sha: null, by: null, ageHours: null };
@@ -1238,8 +1244,13 @@ const sinceWords = (h) =>
  *   { unknown: why }                    the remote could not answer — proceed
  */
 function takeClaimLock(id, by, run, { steal = false } = {}) {
-  const ref = `refs/heads/${claimBranch(id)}`;
-  const commit = claimCommit(id, by, run);
+  return takeMarker(claimBranch(id), `claim ${id}`, by, run, { steal });
+}
+
+/** The compare-and-swap itself, for any marker branch — see takeClaimLock. */
+function takeMarker(branch, subject, by, run, { steal = false } = {}) {
+  const ref = `refs/heads/${branch}`;
+  const commit = markerCommit(subject, by, run);
   if (!commit) return { unknown: 'could not write a claim commit' };
 
   const take = (expect) =>
@@ -1257,7 +1268,7 @@ function takeClaimLock(id, by, run, { steal = false } = {}) {
     return { unknown: (push.err.split('\n').filter(Boolean).pop() || 'push failed').trim() };
   }
 
-  const holder = inspectClaim(id);
+  const holder = inspectMarker(branch);
   const dead = holder.ageHours !== null && holder.ageHours > RUN_HOURS;
   if (!steal && !dead) return { held: false, ...holder };
   if (!holder.sha) return { held: false, ...holder };
@@ -1287,6 +1298,37 @@ function releaseClaimLock(id) {
   }
   return r.ok;
 }
+
+/* ------------------------------------------------------- the lap lock */
+
+/**
+ * A `resume` PULL REQUEST IS A ROW A LIVE RUN CAN HOLD, AND THIS IS HOW IT IS HELD (T-1721).
+ *
+ * `claim` guards a ticket about to be WORKED. A `resume` PR's ticket is already in
+ * `review`, so a run that takes the PR to lap it — merge the base in, re-derive, gate,
+ * merge — claims nothing, and every other run reads the same true thing from `inflight`:
+ * "PR #N OPEN · resume". The steward's rule says resumable work comes before new queue
+ * work and carries no slice index, so under `slices > 1` every slice that looks takes it.
+ * Measured twice: slices 1 and 4 both relapped #154 (T-1707) on 2026-09-28 to the same
+ * eight conflict resolutions, and on 2026-10-05 slice 5 relapped #442 (T-2115) two
+ * minutes after another run had pushed its own lap. Each loser found out at `git push`,
+ * after its whole gate had run.
+ *
+ * So a lap takes a marker exactly as a claim does — `lap/pr-<N>` on the code repo, a
+ * parentless empty-tree commit, created by a compare-and-swap the server decides, stolen
+ * once it is older than RUN_HOURS — and `inflight` reads it beside the PR. Keyed on the
+ * PULL REQUEST and not the ticket because the PR is the thing being lapped: a `resume`
+ * PR on a `claude/*` branch carries no ticket number in its branch at all.
+ *
+ * Never a false stop, as the claim lock is not: an unreachable remote proceeds.
+ */
+const lapBranch = (n) => `lap/pr-${Number(n)}`;
+const isLapMarker = (name) => /^lap\/pr-\d+$/.test(name);
+const lapPrOf = (name) => Number(/^lap\/pr-(\d+)$/.exec(name)?.[1] ?? NaN);
+
+/** A branch pushed this recently, with no lap marker on its PR, may still be a run
+ *  lapping it that predates `lap` — said as a caution, never as a hold. */
+const LAP_FRESH_HOURS = 1;
 
 // ---------------------------------------------------------------------------
 // T-1287. AN ID IS RESERVED ON THE REMOTE BEFORE IT IS USED, NOT SCANNED FOR.
@@ -2157,6 +2199,44 @@ function claimIsDead(t) {
 }
 
 /**
+ * T-2138. THE OPEN PULL REQUESTS THAT CARRY A TICKET, BY TITLE OR BY BRANCH.
+ *
+ * A branch name is a convention and a PR title is another, and a session working by
+ * hand keeps only the second: the owner's project-thread session opened #449 on
+ * `claude/project-thread-gfksyy`, titled `T-2122: …`. Every instrument that read
+ * branches saw nothing, T-2122's claim aged past RUN_HOURS, `claim` stole it, and a
+ * slice rebuilt the whole fix — gated it green at both viewports — before finding #449
+ * merged on top of it (2026-10-05, run 37307506107). So the open-PR question reads the
+ * title (`prTicketIds`, the id in the one position the convention reserves) as well as
+ * the branch, and `claim`, `split` and `inflight` all ask it here.
+ *
+ * OWN is a PR on the branch this checkout stands on — finishing your own PR is not a
+ * rival to it. `open` null (the list was unreadable) answers nothing either way; the
+ * caller says so rather than concluding anything from it.
+ */
+function openPullsCarrying(t, open, here = currentBranch()) {
+  const rival = []; const own = [];
+  for (const p of open ?? []) {
+    if (!p || (p.state && p.state !== 'open')) continue;
+    const ref = p.head?.ref ?? '';
+    if (!prTicketIds(p.title).includes(t.id) && !branchCarries(ref, t.id)) continue;
+    ((ref && ref === here) ? own : rival).push(p);
+  }
+  return { rival, own };
+}
+
+/** `--pr-json <file>`: a constructed PR list, `[pull]` or `{ pulls: [pull] }`, read
+ *  through `normalizePull` exactly as the API's answer is (T-1427). Undefined when the
+ *  flag is absent, so the caller asks GitHub; null when the file holds no list. */
+function pullsFromFlag() {
+  const prJson = flag('pr-json');
+  if (typeof prJson !== 'string') return undefined;
+  const raw = JSON.parse(readFileSync(prJson, 'utf8'));
+  const list = Array.isArray(raw) ? raw : raw?.pulls;
+  return Array.isArray(list) ? list.map(normalizePull) : null;
+}
+
+/**
  * T-1344. WHO IS ALREADY ON A TICKET THAT IS ABOUT TO BE SPLIT.
  *
  * The claim lock is per id, and a split mints NEW ids out of an old one. So a parent
@@ -2206,13 +2286,11 @@ function liveWorkOn(t, { pulls = undefined, lockless = false } = {}) {
   const open = pulls !== undefined ? pulls : restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
   if (open === null) notes.push('the open pull requests could not be read, so only the claim was checked');
   else {
-    for (const p of open) {
-      if (p.state && p.state !== 'open') continue;
-      const ref = p.head?.ref ?? '';
-      if (!prTicketIds(p.title).includes(t.id) && !branchCarries(ref, t.id)) continue;
-      if (t.state === 'review' && String(p.number) === String(t.pr)) continue;   // said above
-      ((ref && ref === here) ? own : rival).push(`PR #${p.number} on ${ref || 'an unknown branch'} — ${p.title}`);
-    }
+    const carrying = openPullsCarrying(t, open, here);
+    const line = (p) => `PR #${p.number} on ${p.head?.ref || 'an unknown branch'} — ${p.title}`;
+    own.push(...carrying.own.map(line));
+    // The review ticket's own PR was said above.
+    rival.push(...carrying.rival.filter((p) => !(t.state === 'review' && String(p.number) === String(t.pr))).map(line));
   }
   const branches = remoteBranches()
     .filter((b) => b.name !== here && !isClaimMarker(b.name) && !isIdLock(b.name) && branchCarries(b.name, t.id))
@@ -2587,6 +2665,33 @@ switch (cmd) {
         + `  node tools/ticket.mjs claim ${t.id} --force`);
       process.exit(1);
     }
+    // AN OPEN PULL REQUEST WHOSE TITLE CARRIES THE TICKET IS WORK IN FLIGHT, whatever
+    // its branch is called and however old its claim (T-2138). The scan above reads
+    // branch names only, so #449 on `claude/project-thread-*` was invisible to it and
+    // T-2122's dead claim was stolen and rebuilt in full. Asked before any claim is
+    // stolen, so a dead claim whose work sits in a PR is refused rather than taken.
+    // Best-effort like the scan: an unreadable list is a note, never a stop.
+    if (!has('force')) {
+      const pulls = pullsFromFlag();
+      const open = pulls !== undefined ? pulls : restGet(`repos/${REPO}/pulls?state=open&per_page=100`);
+      if (open === null) {
+        console.error(`  note: the open pull requests could not be read, so ${t.id} was checked against branches and its claim only`);
+      } else {
+        const { rival: carrying } = openPullsCarrying(t, open);
+        if (carrying.length) {
+          console.error(`${t.id} HAS AN OPEN PULL REQUEST already carrying it:\n`
+            + carrying.map((p) => `  PR #${p.number} on ${p.head?.ref || 'an unknown branch'}`
+              + `${(p.labels ?? []).length ? ` [${p.labels.join(', ')}]` : ''} — ${p.title}\n`
+              + `    ${REPO_URL}/pull/${p.number}`).join('\n')
+            + `\nRead it before you start. A \`resume\` PR is finished on its own branch, not rebuilt;\n`
+            + `anything else is somebody's work in flight. Take the next workable ticket:\n`
+            + `  node tools/ticket.mjs list --workable\n`
+            + `If that PR is dead, or you are coordinating with it, claim anyway:\n`
+            + `  node tools/ticket.mjs claim ${t.id} --force`);
+          process.exit(1);
+        }
+      }
+    }
     // A ticket waiting on the owner is not work yet: its question is on the board.
     if (t.decision === 'pending' && !has('force')) {
       console.error(`${t.id} is waiting on an owner decision — see its "## Decision needed" section.\n`
@@ -2878,14 +2983,7 @@ switch (cmd) {
 
     // A SPLIT MUST NOT PUT TWO RUNS ON ONE ACCEPTANCE (T-1344) — see `liveWorkOn`.
     // A rival claim or an open PR refuses, unless the splitter says why it knows better.
-    let pulls;
-    const prJson = flag('pr-json');
-    if (typeof prJson === 'string') {
-      const raw = JSON.parse(readFileSync(prJson, 'utf8'));
-      const list = Array.isArray(raw) ? raw : raw?.pulls;
-      pulls = Array.isArray(list) ? list.map(normalizePull) : null;
-    }
-    const live = liveWorkOn(t, { pulls, lockless: has('no-lock') });
+    const live = liveWorkOn(t, { pulls: pullsFromFlag(), lockless: has('no-lock') });
     for (const n of live.notes) console.error(`  note: ${n}`);
     const why = typeof flag('why') === 'string' ? flag('why').trim() : '';
     if (live.rival.length && !(has('anyway') && why)) {
@@ -3237,12 +3335,21 @@ switch (cmd) {
     // in flight. Filtered on the way in rather than at the print, so the fixture
     // mode is held to the same reading — and after the fixture is parsed, because
     // the gate constructs the list a real remote would hand over.
-    const branches = (typeof fixtureFile === 'string'
+    const everyBranch = (typeof fixtureFile === 'string'
       ? JSON.parse(readFileSync(fixtureFile, 'utf8')).map((b) => ({
           name: b.name, age: b.age_hours === null || b.age_hours === undefined ? null : Number(b.age_hours),
         }))
-      : remoteBranches().map((b) => ({ name: b.name, age: branchAgeHours(b.sha) }))
+      : remoteBranches().map((b) => ({ name: b.name, sha: b.sha, age: branchAgeHours(b.sha) }))
     ).filter((b) => !isIdLock(b.name));
+    // LAP LOCKS ARE NOT WORK BRANCHES EITHER (T-1721): each says a run is lapping one
+    // pull request, and is read beside that PR below. A marker is a parentless commit
+    // this clone never fetched, so live mode asks the remote for its age and holder.
+    const laps = new Map();
+    for (const b of everyBranch.filter((x) => isLapMarker(x.name))) {
+      const info = typeof fixtureFile === 'string' ? { ageHours: b.age, by: null } : inspectMarker(b.name);
+      laps.set(lapPrOf(b.name), { age: info.ageHours, by: info.by?.split('\n')[0] ?? null });
+    }
+    const branches = everyBranch.filter((b) => !isLapMarker(b.name));
     const locked = lockedIds(branches);
     const rows = [];
     for (const b of branches) {
@@ -3282,6 +3389,33 @@ switch (cmd) {
       const prev = openPrByRef.get(ref);
       if (!prev || Number(pr.number) > Number(prev.number)) openPrByRef.set(ref, pr);
     }
+    // WHO IS LAPPING EACH `resume` PULL REQUEST (T-1721). `held` is a lap lock younger
+    // than a run; `recent` is no lock but a branch pushed inside LAP_FRESH_HOURS, which
+    // is what #442's second lap looked like two minutes in; `free` is neither. A branch
+    // tip this clone does not hold is fetched first — one ref per resume PR — because an
+    // unknowable age is exactly the case that hid #442's lap.
+    const lapOf = new Map();
+    for (const [ref, pr] of openPrByRef) {
+      if (!(pr.labels ?? []).includes('resume') || (pr.labels ?? []).includes('hold')) continue;
+      const b = branches.find((x) => x.name === ref);
+      if (b && b.age === null && b.sha) {
+        gitTry(['fetch', '--quiet', 'origin', `refs/heads/${ref}`]);
+        b.age = branchAgeHours(b.sha);
+      }
+      const lock = laps.get(Number(pr.number)) ?? null;
+      const lockLive = !!lock && (lock.age === null || lock.age <= RUN_HOURS);
+      const pushed = b?.age ?? null;
+      lapOf.set(ref, {
+        pr, ref, lock, pushed,
+        reading: lockLive ? 'held' : pushed !== null && pushed <= LAP_FRESH_HOURS ? 'recent' : 'free',
+      });
+    }
+    // …and a row whose age that fetch just learned is read again, by the same rule.
+    for (const r of rows) {
+      if (r.age !== null) continue;
+      r.age = branches.find((x) => x.name === r.b)?.age ?? null;
+      if (r.age !== null) r.how = inflightState(r.t.state, r.age, locked.has(r.t.id));
+    }
     if (landed?.ok) {
       const landedIds = new Set(landed.found.map(({ t }) => t.id));
       // A branch that ever HAD a pull request was never invisible, whatever became of
@@ -3299,6 +3433,18 @@ switch (cmd) {
         if (openPrByRef.has(r.b)) { r.how = 'open_pr'; continue; }
         if (landedIds.has(r.t.id) || hadPr.has(r.b)) continue;
         r.how = 'recoverable';
+      }
+      // AN OPEN PULL REQUEST WHOSE TITLE NAMES A TICKET ITS BRANCH DOES NOT (T-2138).
+      // Every row above came from a branch name, so #449 — `T-2122: …` on
+      // `claude/project-thread-gfksyy` — printed nothing under T-2122 while it sat open
+      // with the whole fix. It is listed under its ticket by the title instead.
+      for (const [ref, pr] of openPrByRef) {
+        for (const id of prTicketIds(pr.title)) {
+          const t = tickets.find((x) => x.id === id);
+          if (!t || !WORKABLE.includes(t.state) || branchCarries(ref, id)) continue;
+          if (rows.some((r) => r.b === ref && r.t.id === id)) continue;
+          rows.push({ b: ref, t, age: branches.find((x) => x.name === ref)?.age ?? null, how: 'open_pr', byTitle: true });
+        }
       }
     }
 
@@ -3323,7 +3469,10 @@ switch (cmd) {
       const pr = openPrByRef.get(branch);
       if (!pr) return '';
       const labels = (pr.labels ?? []).length ? ` · ${pr.labels.join(', ')}` : '';
-      return `   · PR #${pr.number} OPEN${labels}`;
+      const lap = lapOf.get(branch);
+      const lapping = lap?.reading === 'held' ? ` · BEING LAPPED (lap lock ${ageWords(lap.lock.age) || 'age unknown'})`
+        : lap?.reading === 'recent' ? ` · pushed ${ageWords(lap.pushed)}, no lap lock` : '';
+      return `   · PR #${pr.number} OPEN${labels}${lapping}`;
     };
     const say = (r) => {
       console.log(`  ${r.t.id}  ${String(r.t.state).padEnd(9)} ${r.t.requested_by === 'owner' ? 'OWNER ' : '      '}${r.t.title}`);
@@ -3334,6 +3483,8 @@ switch (cmd) {
       console.log(JSON.stringify(rows.map((r) => ({
         id: r.t.id, state: r.t.state, branch: r.b, age_hours: r.age, reading: r.how,
         open_pr: openPrByRef.get(r.b)?.number ?? null,
+        by_title: !!r.byTitle,
+        lap: lapOf.get(r.b)?.reading ?? null,
       })), null, 2));
       break;
     }
@@ -3361,7 +3512,7 @@ switch (cmd) {
         const pr = openPrByRef.get(r.b);
         const labels = (pr.labels ?? []);
         console.log(`  ${r.t.id}  ${String(r.t.state).padEnd(9)} ${r.t.requested_by === 'owner' ? 'OWNER ' : '      '}${r.t.title}`);
-        console.log(`          ↳ ${r.b}   ${age(r)}`);
+        console.log(`          ↳ ${r.b}   ${age(r)}${r.byTitle ? '   (the branch names no ticket — its PR title does)' : ''}`);
         console.log(`          PR #${pr.number} is OPEN${labels.length ? ` and labelled ${labels.join(', ')}` : ''}: ${REPO_URL}/pull/${pr.number}`);
         if (labels.includes('hold')) {
           console.log(`          \`hold\` means a run PARKED it for the owner on purpose. Do not rebuild it,`);
@@ -3369,9 +3520,27 @@ switch (cmd) {
         }
         console.log('');
       }
-      console.log('The branch is older than a run, so every age reading here calls it cold — but the');
-      console.log('work is visible, somebody put it up, and deleting the branch would shut the pull');
-      console.log('request. Read the PR before you touch the ticket.\n');
+      console.log('The branch is older than a run, or names no ticket at all, so every branch reading');
+      console.log('here calls it cold or misses it — but the work is visible, somebody put it up, and');
+      console.log('deleting the branch would shut the pull request. Read the PR before you touch the ticket.\n');
+    }
+
+    if (lapOf.size) {
+      console.log(`RESUME PULL REQUESTS — ${lapOf.size}, and who is lapping each (T-1721):\n`);
+      for (const { pr, ref, lock, pushed, reading } of lapOf.values()) {
+        console.log(`  PR #${pr.number}  ${ref}   ${REPO_URL}/pull/${pr.number}`);
+        if (reading === 'held') {
+          console.log(`          BEING LAPPED — ${lapBranch(pr.number)} ${sinceWords(lock.age)}${lock.by ? `, ${lock.by}` : ''}.`);
+          console.log('          A live sibling\'s row: do not take it. Take your own row of the queue.');
+        } else if (reading === 'recent') {
+          console.log(`          its branch was pushed ${ageWords(pushed)} and nobody holds ${lapBranch(pr.number)} — a run`);
+          console.log('          may be lapping it without the lock. Read its newest commit and comment first.');
+        } else {
+          console.log(`          FREE${lock ? ` — ${lapBranch(pr.number)} ${sinceWords(lock.age)}, a dead run's` : ''}. Take it before you merge a line:`);
+          console.log(`            node tools/ticket.mjs lap ${pr.number}`);
+        }
+        console.log('');
+      }
     }
 
     if (recoverable.length) {
@@ -3511,18 +3680,69 @@ switch (cmd) {
       + (warned.length ? ` — and ${warned.length} inherited fault(s) reported above as WARN, none of them this branch's` : ''));
     break;
   }
+  /**
+   * TAKE A `resume` PULL REQUEST BEFORE LAPPING IT (T-1721) — see "the lap lock" above.
+   *
+   *   ticket.mjs lap 466              take lap/pr-466, or be told who holds it (exit 1)
+   *   ticket.mjs lap 466 --release    give it back: merged, handed on, or abandoned
+   *   ticket.mjs lap 466 --force      take it from a live holder, deliberately
+   *
+   * A refusal is the whole point: the PR is a sibling's for this run, and the run takes
+   * its own row of the queue instead. A marker older than RUN_HOURS is a dead run's and
+   * is stolen without asking, so a crashed lap strands a PR for three hours at most.
+   */
+  case 'lap': {
+    const n = Number(String(args[0] ?? '').replace(/^#/, ''));
+    if (!Number.isInteger(n) || n <= 0) {
+      console.error('usage: ticket.mjs lap <PR number> [--release] [--force] [--by who] [--run url]');
+      process.exit(2);
+    }
+    const branch = lapBranch(n);
+    if (has('release')) {
+      const r = gitTry(['push', 'origin', '--delete', branch]);
+      const gone = /remote ref does not exist|unable to delete/i.test(r.err || '');
+      console.log(r.ok ? `${branch} released` : gone ? `${branch} was not held — nothing to release`
+        : `${branch} NOT released (${(r.err || '').split('\n').filter(Boolean).pop() || 'no reason given'})`
+          + ` — litter, not a block: it is stolen once it is ${RUN_HOURS}h old`);
+      break;
+    }
+    const by = `${flag('by') ?? 'run'} ${new Date().toLocaleString('en-US', { timeZone: 'America/Chicago' })} CT`;
+    const lock = takeMarker(branch, `lap PR #${n}`, by, flag('run') ?? runUrl(), { steal: has('force') });
+    if (lock.unknown) {
+      console.error(`  note: lap lock not taken (${lock.unknown}) — proceeding; a remote that cannot`
+        + ` answer is never a stop`);
+      break;
+    }
+    if (!lock.held) {
+      const run = lock.by?.split('\n').find((l) => l.startsWith('run: '));
+      console.error(`PR #${n} IS BEING LAPPED by another run — ${branch} ${sinceWords(lock.ageHours)}`
+        + `${lock.raced ? ', and another run took it while this one looked' : ''}\n`
+        + `  ${lock.by ? lock.by.split('\n')[0] : 'holder unknown'}\n${run ? `  ${run}\n` : ''}`
+        + `\nIt is a live sibling's row. Take your own row of the queue instead:\n`
+        + `  node tools/ticket.mjs list --workable\n`
+        + `A lap older than ${RUN_HOURS}h is a dead run's and is stolen automatically. To override now:\n`
+        + `  node tools/ticket.mjs lap ${n} --force`);
+      process.exit(1);
+    }
+    if (lock.stolen) console.log(`  stole a dead lap (${sinceWords(lock.stolen.ageHours)}) — ${lock.stolen.by?.split('\n')[0] ?? 'holder unknown'}`);
+    console.log(`PR #${n}: ${branch} taken — this run laps it. Every other run's \`inflight\` now says so.\n`
+      + `Give it back once the PR merges or is handed on:  node tools/ticket.mjs lap ${n} --release`);
+    break;
+  }
   case 'claims': {
     // The claim locks, and a broom for the ones nobody released. A stale marker
     // is never a BLOCK — the next claim steals it — so this is hygiene, and it
     // is a separate verb because deleting other runs' claims is not something
     // `check` should ever do on its way past.
-    const markers = remoteBranches().filter((b) => isClaimMarker(b.name));
-    if (!markers.length) { console.log('no claim locks held'); break; }
-    console.log(`CLAIM LOCKS — ${markers.length} held:\n`);
+    // Lap locks (T-1721) are leases on a pull request and age out by the same rule.
+    const markers = remoteBranches().filter((b) => isClaimMarker(b.name) || isLapMarker(b.name));
+    if (!markers.length) { console.log('no claim or lap locks held'); break; }
+    console.log(`CLAIM AND LAP LOCKS — ${markers.length} held:\n`);
     const stale = [];
     for (const m of markers) {
       const id = tickets.find((t) => branchCarries(m.name, t.id))?.id;
-      const info = inspectClaim(id ?? m.name.replace(/^claim\//, '').toUpperCase());
+      const info = isLapMarker(m.name) ? inspectMarker(m.name)
+        : inspectClaim(id ?? m.name.replace(/^claim\//, '').toUpperCase());
       const dead = info.ageHours !== null && info.ageHours > RUN_HOURS;
       if (dead) stale.push(m.name);
       console.log(`  ${m.name.padEnd(18)} ${sinceWords(info.ageHours)}${dead ? '  ← older than a run' : ''}`);
@@ -3673,7 +3893,7 @@ switch (cmd) {
     break;
   }
   default:
-    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|claims|prune|reconcile|board|check|tripwire-self-test');
+    console.log('usage: ticket.mjs new|claim|done|block|unblock|withdraw|restamp|split|list|ask|settle|sync|inflight|landed|lap|claims|prune|reconcile|board|check|tripwire-self-test');
     process.exit(cmd ? 1 : 0);
 }
 

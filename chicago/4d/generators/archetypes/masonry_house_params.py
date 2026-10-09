@@ -375,6 +375,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
             "eave_lo_z": eave_lo,
             "eave_hi_z": eave_hi,
             "kick": kick,
+            "eave_lo_overhang": float(rid.get("courtyard_overhang_ft", .20 / FT)) * FT,
             "roof_extend": extend,
             "walls": {f: r["walls"].get(f, "none") for f in FACES},
             "wall_skip": {f: [list(_urange(fr, f, *span)) for span in spans]
@@ -769,6 +770,7 @@ def from_phase(phase: dict, record: dict | None = None) -> MasonryHouseParams:
                 "parapet_m": float(bt.get("parapet_height_ft", 2.2)) * FT,
                 "stair_steps": int(bt.get("stair_steps", 9))}
         p.detail["dining_roof_junction"] = raw.get("dining_roof_junction", False)
+        p.detail["dining_crested_connection"] = raw.get("dining_crested_connection", False)
         p.detail["continuous_copper_corner"] = raw.get("continuous_copper_corner", False)
         p.detail["bow_first_floor_central_door"] = bool(raw.get("bow_first_floor_central_door"))
         service_stair = raw.get("north_court_service_stair")

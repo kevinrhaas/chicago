@@ -179,9 +179,69 @@ function boardTone(tone, cx, cz) {
 /** `TIMBER` as the linear triple the vertex stream carries for fences and posts. */
 const TIMBER_LINEAR = new THREE.Color(TIMBER).toArray();
 
-/** An empty timber buffer: positions, normals, confidence and colour. */
-const timberBuf = () => ({ pos: [], nrm: [], conf: [], col: [], uv: [], seam: [],
-  walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
+/**
+ * A GROWING TYPED ARRAY with the two things the builders ask of a plain array,
+ * `push` (of one to three values) and `length` (T-2152). The buffers were JS
+ * number arrays, and growing a town's worth of them by doubling copied about a
+ * gigabyte through the heap while the walks were laid — garbage that held a
+ * phone's heap near 500 MB mid-load. `plainTimber` hands a harness the plain
+ * arrays back.
+ *
+ * T-2158: the store is 32-bit, the width of the attribute it becomes, so the
+ * geometry is built straight from it (`float32()`) rather than copied out of a
+ * 64-bit store twice its size — a town's walks held about 290 MB of 64-bit
+ * scratch at once while they were laid. Each value is rounded to float32 when
+ * it is pushed instead of when it is uploaded, which is the same rounding.
+ */
+class Grow {
+  constructor(Type) { this.Type = Type; this.a = new Type(1024); this.length = 0; }
+
+  push(x, y, z) {
+    const n = arguments.length;
+    if (this.length + n > this.a.length) {
+      let cap = this.a.length * 2;
+      while (cap < this.length + n) cap *= 2;
+      const b = new this.Type(cap);
+      b.set(this.a.subarray(0, this.length));
+      this.a = b;
+    }
+    const a = this.a;
+    const i = this.length;
+    a[i] = x;
+    if (n > 1) a[i + 1] = y;
+    if (n > 2) a[i + 2] = z;
+    this.length = i + n;
+    return this.length;
+  }
+
+  /** The values pushed, as a view onto the store (no copy). */
+  view() { return this.a.subarray(0, this.length); }
+
+  /** The values pushed as an exactly sized Float32Array, handed over: the
+   *  store itself when it is already that, so nothing is copied twice. */
+  float32() {
+    const a = this.a;
+    const out = a instanceof Float32Array
+      ? (a.length === this.length ? a : a.slice(0, this.length))
+      : Float32Array.from(this.view());
+    this.a = out;
+    return out;
+  }
+}
+
+/** An empty timber buffer: positions, normals, confidence and colour. A check
+ *  that asserts the builders' arithmetic below float32 asks for Float64Array. */
+const timberBuf = (Type = Float32Array) => ({ pos: new Grow(Type), nrm: new Grow(Type),
+  conf: new Grow(Type), col: new Grow(Type), uv: new Grow(Type),
+  seam: new Grow(Type), walkTopRanges: [], tone: TIMBER_LINEAR, vary: false });
+
+/** The streams of a built buffer as plain arrays, for a check that indexes them. */
+function plainTimber(buf) {
+  for (const k of ['pos', 'nrm', 'conf', 'col', 'uv', 'seam']) {
+    if (buf[k]?.view) buf[k] = Array.from(buf[k].view());
+  }
+  return buf;
+}
 
 /**
  * DROP A BUFFER'S SCRATCH ONCE ITS GEOMETRY HOLDS A COPY (T-2063). The arrays
@@ -298,6 +358,29 @@ const CORNER = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1],
   [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
 /** The box axis each of `pushBox`'s six faces looks along. */
 const FACE_AXIS = [0, 0, 1, 1, 2, 2];
+/**
+ * `pushBox`'s faces as fixed tables (T-2152): the two triangles of each face as
+ * six corner indices, and its outward normal as weights on (u, v, up). They
+ * were array literals rebuilt on every call, and with the per-call corner
+ * arrays that was about a gigabyte of short-lived garbage across the town's
+ * walks, fences and posts — enough to hold the heap near 500 MB mid-load on a
+ * phone before the collector caught up. Same faces, same order, same values.
+ */
+const BOX_FACE_TRIS = [[1, 5, 6, 1, 6, 2], [4, 0, 3, 4, 3, 7], [3, 2, 6, 3, 6, 7],
+  [0, 4, 5, 0, 5, 1], [4, 7, 6, 4, 6, 5], [0, 1, 2, 0, 2, 3]];
+const BOX_FACE_NORMAL = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]];
+const BOX_P = new Float64Array(24);
+const BOX_HALF = [0, 0, 0];
+/** The eight corners of a box into `out` as x,y,z triples, in `CORNER` order. */
+function boxCorners(out, cx, cy, cz, ux, uz, vx, vz, halfLen, halfW, halfH) {
+  for (let i = 0; i < 8; i += 1) {
+    const [a, b, c] = CORNER[i];
+    out[i * 3] = cx + ux * a * halfLen + vx * b * halfW;
+    out[i * 3 + 1] = cy + c * halfH;
+    out[i * 3 + 2] = cz + uz * a * halfLen + vz * b * halfW;
+  }
+  return out;
+}
 
 /**
  * Load the board face's relief and derive its albedo modulation. Resolves to
@@ -307,7 +390,7 @@ const FACE_AXIS = [0, 0, 1, 1, 2, 2];
  * street edge in its weathered tones without grain, which is the state this
  * ticket improves on, not a boot failure.
  */
-async function loadTimberRelief(assetBase) {
+async function readTimberRelief(assetBase) {
   try {
     const here = new URL(`${RELIEF_DIR}/`, assetBase);
     const res = await fetch(new URL('material.json', here), { cache: 'no-cache' });
@@ -379,6 +462,9 @@ async function loadTimberRelief(assetBase) {
     return {
       id: sheet.id,
       problem: null,
+      // The raw maps, for a layer that binds the same grain on a uv of its own
+      // (the yard goods, T-2121) instead of through `apply`.
+      normalMap, ormMap, modMap, tileM, meanRough, headroom: GRAIN_HEADROOM,
       apply(material) {
         material.normalMap = normalMap;
         // One file in two slots, as the roofs bind it: R is AO, G roughness.
@@ -400,6 +486,39 @@ async function loadTimberRelief(assetBase) {
   } catch (err) {
     return { problem: `board-face relief not bound — ${err.message}`, apply: () => null };
   }
+}
+
+/**
+ * ONE COPY OF THE GRAIN FOR EVERY LAYER THAT WEARS IT (T-2121). The yard goods carry
+ * the walks' board face too, and a second load would be a second 1024² modulation
+ * texture and a second upload on a phone that was killed for memory once already
+ * (T-2063). So the load is shared per asset base and counted: each caller's
+ * `dispose` releases its hold, and the last one out frees the maps.
+ */
+const reliefShared = new Map();
+export function loadTimberRelief(assetBase) {
+  const key = String(assetBase);
+  let entry = reliefShared.get(key);
+  if (!entry) {
+    entry = { holds: 0, p: readTimberRelief(assetBase) };
+    reliefShared.set(key, entry);
+  }
+  entry.holds += 1;
+  return entry.p.then((relief) => {
+    if (relief.problem) return relief;
+    let held = true;
+    return {
+      ...relief,
+      dispose() {
+        if (!held) return;
+        held = false;
+        entry.holds -= 1;
+        if (entry.holds > 0) return;
+        reliefShared.delete(key);
+        relief.dispose();
+      },
+    };
+  });
 }
 
 
@@ -540,23 +659,7 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
                  skipUnderside = false, seamHalfM = 0) {
   const vx = -uz;
   const vz = ux;
-  const P = (a, b, c) => [
-    cx + ux * a * halfLen + vx * b * halfW,
-    cy + c * halfH,
-    cz + uz * a * halfLen + vz * b * halfW,
-  ];
-  const p = [
-    P(-1, -1, -1), P(1, -1, -1), P(1, 1, -1), P(-1, 1, -1),
-    P(-1, -1, 1), P(1, -1, 1), P(1, 1, 1), P(-1, 1, 1),
-  ];
-  const faces = [
-    [[1, 5, 6], [1, 6, 2], [ux, 0, uz]],
-    [[4, 0, 3], [4, 3, 7], [-ux, 0, -uz]],
-    [[3, 2, 6], [3, 6, 7], [vx, 0, vz]],
-    [[0, 4, 5], [0, 5, 1], [-vx, 0, -vz]],
-    [[4, 7, 6], [4, 6, 5], [0, 1, 0]],
-    [[0, 1, 2], [0, 2, 3], [0, -1, 0]],
-  ];
+  const p = boxCorners(BOX_P, cx, cy, cz, ux, uz, vx, vz, halfLen, halfW, halfH);
   // `skipUnderside` drops the last pair, which is the buried face of a fence
   // board standing in the ground — the same two triangles `enclosures.js`
   // drops off a pale, for the same reason: at a town's worth of boards it is
@@ -565,7 +668,8 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   // the buffer's one tone.
   const c = buf.vary ? boardTone(buf.tone, cx, cz) : (buf.tone ?? TIMBER_LINEAR);
   // THE GRAIN (T-1815): the longest side is the grain; see `RELIEF_DIR`.
-  const half = [halfLen, halfW, halfH];
+  const half = BOX_HALF;
+  half[0] = halfLen; half[1] = halfW; half[2] = halfH;
   const g = halfLen >= halfW ? (halfLen >= halfH ? 0 : 2) : (halfW >= halfH ? 1 : 2);
   // The board's own place on the tile, seeded on where it lies (to the cm), so
   // a walk cut into pieces differently by a later generator keeps its figure.
@@ -576,25 +680,28 @@ function pushBox(buf, cx, cy, cz, ux, uz, halfLen, halfW, halfH, level,
   const ov = ((h >>> 16) / 0x10000) * 4.48;
   // Full contact on anything up to 0.3 m tall, fading to a third on a post.
   const contact = 1 - CONTACT_K * Math.min(1, Math.max(0.35, 0.15 / halfH));
-  const list = skipUnderside ? faces.slice(0, 5) : faces;
-  for (let f = 0; f < list.length; f += 1) {
-    const [t1, t2, n] = list[f];
+  const faceCount = skipUnderside ? 5 : 6;
+  for (let f = 0; f < faceCount; f += 1) {
+    const tris = BOX_FACE_TRIS[f];
+    const s = BOX_FACE_NORMAL[f];
+    const n0 = s[0] * ux + s[1] * vx;
+    const n1 = s[2];
+    const n2 = s[0] * uz + s[1] * vz;
     const ax = FACE_AXIS[f];
     const endGrain = ax === g;
     const ua = endGrain ? (ax === 0 ? 1 : 0) : g;
     const va = 3 - ax - ua;
     const kFace = (endGrain ? END_GRAIN_K : 1) * (f === 5 ? UNDERSIDE_K : 1);
-    for (const tri of [t1, t2]) {
-      for (const i of tri) {
-        buf.pos.push(p[i][0], p[i][1], p[i][2]);
-        buf.nrm.push(n[0], n[1], n[2]);
-        buf.conf.push(level);
-        buf.seam.push(vx * CORNER[i][1] * seamHalfM, 0,
-          vz * CORNER[i][1] * seamHalfM);
-        buf.uv?.push(CORNER[i][ua] * half[ua] + ou, CORNER[i][va] * half[va] + ov);
-        const k = kFace * (ax < 2 && CORNER[i][2] < 0 ? contact : 1);
-        buf.col?.push(c[0] * k, c[1] * k, c[2] * k);
-      }
+    for (let q = 0; q < 6; q += 1) {
+      const i = tris[q];
+      buf.pos.push(p[i * 3], p[i * 3 + 1], p[i * 3 + 2]);
+      buf.nrm.push(n0, n1, n2);
+      buf.conf.push(level);
+      buf.seam.push(vx * CORNER[i][1] * seamHalfM, 0,
+        vz * CORNER[i][1] * seamHalfM);
+      buf.uv?.push(CORNER[i][ua] * half[ua] + ou, CORNER[i][va] * half[va] + ov);
+      const k = kFace * (ax < 2 && CORNER[i][2] < 0 ? contact : 1);
+      buf.col?.push(c[0] * k, c[1] * k, c[2] * k);
     }
   }
 }
@@ -1789,12 +1896,12 @@ export async function createFrontage({
   }
 
   const geo = new THREE.BufferGeometry();
-  geo.setAttribute('position', new THREE.Float32BufferAttribute(buf.pos, 3));
-  geo.setAttribute('normal', new THREE.Float32BufferAttribute(buf.nrm, 3));
-  geo.setAttribute('_confidence', new THREE.Float32BufferAttribute(buf.conf, 1));
-  geo.setAttribute('color', new THREE.Float32BufferAttribute(buf.col, 3));
-  geo.setAttribute('uv', new THREE.Float32BufferAttribute(buf.uv, 2));
-  geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam));
+  geo.setAttribute('position', new THREE.BufferAttribute(buf.pos.float32(), 3));
+  geo.setAttribute('normal', new THREE.BufferAttribute(buf.nrm.float32(), 3));
+  geo.setAttribute('_confidence', new THREE.BufferAttribute(buf.conf.float32(), 1));
+  geo.setAttribute('color', new THREE.BufferAttribute(buf.col.float32(), 3));
+  geo.setAttribute('uv', new THREE.BufferAttribute(buf.uv.float32(), 2));
+  geo.setAttribute('aChiPlankGap', plankGapAttribute(buf.seam.view()));
   geo.computeBoundingSphere();
   releaseTimberBuf(buf);
 
@@ -1888,12 +1995,12 @@ export async function createFrontage({
   const walkTopSources = [{ mesh, ranges: buf.walkTopRanges }];
   for (const chunk of chunks) {
     const cgeo = new THREE.BufferGeometry();
-    cgeo.setAttribute('position', new THREE.Float32BufferAttribute(chunk.buf.pos, 3));
-    cgeo.setAttribute('normal', new THREE.Float32BufferAttribute(chunk.buf.nrm, 3));
-    cgeo.setAttribute('_confidence', new THREE.Float32BufferAttribute(chunk.buf.conf, 1));
-    cgeo.setAttribute('color', new THREE.Float32BufferAttribute(chunk.buf.col, 3));
-    cgeo.setAttribute('uv', new THREE.Float32BufferAttribute(chunk.buf.uv, 2));
-    cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam));
+    cgeo.setAttribute('position', new THREE.BufferAttribute(chunk.buf.pos.float32(), 3));
+    cgeo.setAttribute('normal', new THREE.BufferAttribute(chunk.buf.nrm.float32(), 3));
+    cgeo.setAttribute('_confidence', new THREE.BufferAttribute(chunk.buf.conf.float32(), 1));
+    cgeo.setAttribute('color', new THREE.BufferAttribute(chunk.buf.col.float32(), 3));
+    cgeo.setAttribute('uv', new THREE.BufferAttribute(chunk.buf.uv.float32(), 2));
+    cgeo.setAttribute('aChiPlankGap', plankGapAttribute(chunk.buf.seam.view()));
     cgeo.computeBoundingSphere();
     releaseTimberBuf(chunk.buf);
     const cmesh = new THREE.Mesh(cgeo, mat);

@@ -143,8 +143,30 @@ ADOPTIONS = DATA / "research" / "newspapers" / "street_face_adoptions.json"
 # 2 -> 1 on 2026-10-05 (T-2129): the Market block's five houses take five of the deal's
 # slot requests as roofs, and the slot room that frees seats hh_bennet_lyman on a slot
 # (blk_washington_dearborn#04) in the deal itself, so a release no longer gains him.
-BUSINESS_DEAL_HOLDS = 40
-BUSINESS_DEAL_COSTS = 1
+# 40 -> 44 on 2026-10-05 (T-2141): the business deal no longer reads T-2134's four Dearborn
+# workshops as yard buildings, since each stands on the street line, and seats firms in all
+# four. They are workshops this deal never seats a household in, so no seat moved and the
+# cost below is unchanged (L270).
+# 44 -> 45 on 2026-10-08 (T-2174): the F2 warehouse behind the stores at South Water and
+# Dearborn fronts South Water, so the street-face adoption seats a firm on it. A warehouse
+# seats no household in this deal, so the cost below is unchanged (L270).
+BUSINESS_DEAL_HOLDS = 45
+# 1 -> 2 on 2026-10-05 (T-2130): the nine roofs it raised on blk_washington_dearborn and
+# blk_washington_clark are not in the business deal's pool, so the hold stays 40; but with them
+# standing beside T-2129's Market block the deal hands hh_bennet_lyman on, and a release would
+# seat him again (L270).
+# 2 -> 1 on 2026-10-05 (T-2136): the keepers pass now writes household ids onto the
+# Washington tier's roofs, and a roof carrying one is offered to that household alone (the
+# T-1638 return above) — in the release counterfactual as in the deal. So the households on
+# those roofs no longer move when the business deal's roofs are released, and the cascade
+# that vacated recon_1835_blk_washington_lasalle_d7_05 for him does not run. No seat in the
+# deal itself moved (L270).
+# 1 -> 0 on 2026-10-06 (T-2146): the household a release of the business deal's roofs would
+# have seated again was hh_bennet_lyman, handed on since T-2130. The thirteen roofs T-2146
+# raised on the School Section tier's blocks 94 and 95 seat him in the deal itself (the H1 on
+# blk_school_section_tier_94#06), so releasing the business deal's roofs no longer moves the
+# household count. The hold is unchanged at 44 (L270).
+BUSINESS_DEAL_COSTS = 0
 
 TICKET = "T-1613"
 PARENT = "T-1199"

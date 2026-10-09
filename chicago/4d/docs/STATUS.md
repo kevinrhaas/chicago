@@ -1,3 +1,712 @@
+## T-2183 — Glessner courtyard windows and continuous eave (2026-10-08)
+
+Recovered the source checkpoint `c497167` on the owner's request. Principal
+bay openings share the north-wing first-floor sill and head; upper courtyard
+openings share the short tower band. The projecting rear eave, copper apron,
+tiled connector and gutters meet continuously. Dark glass defaults at every
+scene detail level; explicit comparisons remain available.
+
+L-glessner-courtyard-windows-2183 records the reconstructed dimensions and
+supersedes the earlier principal-window ratio. Research and validation receipts:
+`RESEARCH/glessner-courtyard-windows-2183/README.md`.
+
+Canonical full/light assets and the recovery package are rebuilt. The 3,000
+roof checks and seven glass checks pass. Six published-app views on desktop
+Full and mobile Light pass with no page, resource or loader errors and within
+existing budgets; switching all three detail levels retains dark glass.
+Final preflight after integrating dev `2649aaf` passes all 790 repository checks; the combined tree is checked again after dev `525abde` lands and all 790 still pass. Mobile published stage 13–14 completes with zero page errors. Desktop passes every stage 13 assertion, including Glessner, before a workspace restart interrupts stage 14; the isolated desktop stage 14 rerun completes with zero page errors. The interrupted run is retained as incomplete, not counted as a pass. Focused desktop/mobile Glessner review is complete.
+
+## T-2174 — a two-storey warehouse behind the stores at the foot of the Dearborn Street drawbridge (2026-10-08)
+
+**What changed in the scene.** One F2 narrow two-storey warehouse,
+`recon_1835_blk_south_water_dearborn_f2_11`, dealt as the
+`phase3_platted_block_south_water_dearborn_warehouse_deal` entry in
+`data/reconstruction/1835_platted_block_parcels.json`. It stands on lot 0, the South Water and
+Dearborn corner, 13.0 m back from the South Water lot line and 3.4-3.5 m behind the Chicago
+American office and John Holbrook's store, facing the 2.84 m gap between them. Baked
+(`tools/bake.sh --only`), L406 records it. Order book: South `warehouses_freight/street_line`
+7/10, 3 owed, now to T-2175.
+
+**What it found (T-1673, split into T-2174 and T-2175).** Of the four street-line warehouses
+the 668-roof schedule deals, only this one has ground today. The F3 on `blk_south_water_wells`
+is refused on any platted lot by `generate_block_infill.py` (`REFUSED_FAMILIES`: a river
+warehouse that does not reach the river, T-0275), and the F3 and F4 on `blk_south_water_market`
+wait on that block's street control. On this block the placement was narrowed by the
+generator's own rules. A non-dwelling must take the better face (Dearborn is ordinary,
+South Water and Lake principal). Lot 6's South Water frontage has 12 m clear between the C3
+row and the bank shed, but the Chappel infant school on its State Street side exhausts the
+lot. Every Lake lot but the reserved lot 7 is held. Lot 0's street line is full. So the
+warehouse stands behind the stores rather than on the street. That is the one way the scene
+differs from the row the owner's reference draws, and it is a choice about this lot, not a
+claim about 1835.
+
+**What it moved.** Lot 0 was the block's last unreserved free lot, so the schedule returns the
+block's other two scheduled roofs (a D2 and a D6) to the South's balance and re-apportions it,
+and the block itself goes to capacity. Merged over T-2147's six houses on School Section block 81
+and T-2170's five Kinzie-core barns, the re-deal seats one more household on the plat (213 -> 214,
+L270): hh_dewey_s is dealt a D5 slot on block 81 lot 1 and hh_dickson_david a D6 slot on block 95
+lot 1, while hh_laframboise_franois, who held the D2 slot on block 95 lot 1 after T-2170, is
+handed on, owed to T-1614 in writing. So T-2176's slots read a D5 on block 81 lot 1 and a D6 on
+block 95 lot 1. The street-face adoption gives the warehouse Briggs & Humphrey (carriage and
+sleigh making, South Water Street, no narrower address) and reshuffles that face's firms. The
+business deal holds 45 roofs (was 44).
+
+**Unverified.** The position is invented on a generated lot (L406). No source seats a warehouse
+here, and the warehouse itself seats no household.
+
+## T-2068 — the scene bundle is published from the content build (2026-10-08)
+
+Piece 2 of T-1357, made in an owner-visible PR because it edits `chicago-4d-bake.yml` (the owner's
+ruling on the ticket, 2026-10-04). The owner chose GitHub Release assets for storage on 2026-10-08.
+On a nightly or dispatched bake of `dev`, the bake job packs the commit its own gate just passed
+and verifies the archive. After the smoke passes, `publish-bundle` releases it under its own tag
+and moves the latest-good pointer in the `scene-bundle-index` release, but only to a bake of the
+same or a newer `dev` commit. `fresh-consumer` then downloads by digest on a new runner, verifies,
+and attaches a receipt. `docs/unreal/SCENE-BUNDLE.md` § Publication is the page.
+
+- **Not yet demonstrated on GitHub.** The logic is self-tested (`scene_bundle.py advance`), and the
+  publish and consumer scripts were run end to end against a stand-in `gh`. The first real
+  publication needs a bake of `dev` on this workflow file. The nightly runs `main`'s copy, so it
+  publishes only after a promotion.
+- **Dev today would not publish as it stands.** Three committed GLBs disagree in size with
+  `assets/manifest.json` (`recon_1835_blk_south_water_clark_d4_02`, `…_dearborn_h1_03`,
+  `recon_1835_blk_washington_dearborn_d4_09`), so `verify` refuses a bundle packed from dev's own
+  commit. A full bake rewrites both the meshes and the record, so the commit it packs should agree;
+  if it does not, the bundle is refused before it is published, which is what the check is for.
+
+## T-2170 — five barns in the yards of the Wolcott-Kinzie core's houses (2026-10-08)
+
+The order book still owed the North five A2 barns or carriage sheds (`structures/barns_stables/north`).
+The 668-roof schedule dealt all five to `blk_indiana_north_wolcott`, whose lots T-2165 measured too
+narrow for them, so they stand behind the houses they serve: recipe rows 94-98 of
+`1835_north_division_initial_parcel.json` (`kinzie_core_barns`), built by `generate_north_infill.py` —
+`recon_1835_north_a2_094` behind D5 `_d5_026`, `_095` behind D6 `_d6_027`, `_096` behind D7 `_d7_076`,
+`_097` behind D7 `_d7_088`, `_098` behind D5 `_d5_092`. Houses chosen by a rule (largest families
+first), positions by a deterministic search against the generator's own tests; **L407** records it.
+North `barns_stables` reads 17 ordered / 17 standing / 0 owed. The five meshes are baked.
+
+- **Lapped over T-2147 (#493), 2026-10-08.** Generated files took dev's side; dev's own tree is its own
+  fixpoint under the same walk (checked on a clean worktree). Keepers → the four infill generators →
+  `reconcile_665` → the seating chain settled in two laps; then `rederive.mjs --tail` from
+  `adopt_street_faces` (one lap, nothing moved), and by hand the redeal re-audit (543/2/0), roof-id
+  surface, land tracts, Newberry leads (all four volumes re-parsed), register, population profile and
+  hay limits.
+- **The count fell by one, and this says so.** With the five barns built, the schedule re-apportions
+  the roofs it held for them and the South's owed family list moves (D2 1→2, D4 3→2, D5 3→2, D6 1→2).
+  The two slot requests T-2147 left — hh_dewey_s's D4 on block 81 lot 1 and hh_dickson_david's D5 on
+  block 95 lot 1 — are no longer planned and both are handed on (owed to T-1614 in writing);
+  hh_laframboise_franois is dealt the new D2 slot on block 95 lot 1. **214 → 213 platted, 99 off-plat;**
+  no adopted roof changes hands. L270 and L407 restated; the order book's seated pin 313 → 312; L263
+  653 → 658; generator-half 698/692. T-2176 (the South's still-owed dwellings) now builds to this plan.
+
+## T-2147 — the School Section tier's Market block (81): six ordinary dwellings, the first roofs south of Madison on Market (2026-10-05, re-dealt 2026-10-08)
+
+Piece 4 of T-1755, on the ground T-2144 opened. The seating held seven `slot` requests on
+`blk_school_section_tier_81` and the schedule gives it `lot_ceiling_principal` 7 (one roof a lot,
+lot 0 kept open) with one A2 yard roof.
+
+- Recipe entry `phase3_platted_block_school_section_tier_81`: D6@1, D5@2, D4@3, D4@4, D3@5, D5@6,
+  D7@7 and an A2 carriage shed behind the D7 — the schedule's family list to the roof. Baked with
+  the pinned Blender (`bake.sh --only`, nine meshes: the eight plus `blk_washington_market_d4_11`,
+  whose siding stock the parcel deal advanced). **L397** records the invention (renumbered from L392 on the lap over T-1746: T-2066 took L392).
+- The keeper pass gains a seventh district, `school_section_tier` (carried by T-2147); without
+  it the block's two writable keepers were owed to T-2136, which is done, and
+  `name_the_keepers_1835.py --check` was red. Blocks 94/95/118/119 share the prefix.
+- Seating walked to its fixpoint (four full laps, then 25 inner keeper↔seat laps — the walk moves
+  one roof a lap down the household order, as T-2129 saw): **216 seated, held**; adopted
+  175 → 182, slots 47 → 40. The seven who asked re-slot on blocks 94, 118 and 119 (T-2145,
+  T-2146). Keepers 81 → 83. L263 (577), L270 and L276 restated.
+- **Lapped over T-2143 (#492).** Merged onto dev after plat block 51 landed: the derived files were
+  taken from dev and rebuilt, the recipe keeps both blocks' entries, and the seating re-walked to
+  the same fixpoint the branch measured before the merge — the same seven move in, the same seven
+  re-slot, 63 change roof, 222 seated. Upstream readers of the moved roofs re-derived (hay limits,
+  land tracts, register, profile, street faces, housing seats, aprons, alley lanes, woodpiles,
+  remedies, roof-id migration, Newberry leads); T-0059's figures 608/602 → 616/610.
+- **Lapped again, over T-1746, T-1977, T-2140 and T-2149 (2026-10-06).** T-2149 gave the Monroe
+  face its frontage corridor, so `measure_block_redeal_remedies.py --self-test` — the one red left
+  on the last lap — is green, and the frontage census's streetless count stays at dev's 35 (the
+  four Monroe-face roofs on this block now front Monroe). The derived files took dev's side; the
+  seating chain settled in seventeen laps at the same seven in, the same seven re-slotted, 63
+  changed: **209 seated** (dev's count after T-1746), adopted 175 → 182, slots 34 → 27; keepers
+  81 → 83. Then `rederive.mjs` over the layer, its second pass, woodpiles, the roof-id surface,
+  the remedies report and the Newberry re-parse. The liberty is renumbered **L397** (T-2066 took
+  L392 on dev); L263 595 → 603, L270 209 (held) and L276 83 restated; T-0059's figures
+  635/629 → 643/637. `validate.py --stale` clean: no mesh moved on the lap.
+- **Lapped over T-2148, T-2058, T-2022, T-2151, T-2152 and T-2154 (2026-10-08).** Derived files
+  re-derived (`rederive.mjs --run`, its second pass, the settled tail); the seating chain walked
+  with `generate_west_infill` inside the lap (without it the keepers never settle) to its fixpoint
+  at pass nine: 212 seated (200 adopted, 12 slots), keepers 87 → 89, three on block 81. Five of
+  the six slot requests on block 81 adopt standing roofs north of Madison; the sixth re-slots on
+  block 94. Fifteen meshes rebaked. L263 623 → 631, L276 87 → 89; L397's slot count restated.
+  T-1983 was split mid-lap, so the order book's yard rows move to T-2156 (as #508 does).
+- **Lapped over T-2157, T-2158, T-2155, then T-2165, T-2172 and T-2093 (2026-10-08).** The
+  derived files took dev's side and were rebuilt: the seating lap (adopt_street_faces →
+  reconcile_665 → redeal → name_the_keepers → generate_west_infill → `rederive.mjs --tail
+  seat_platted_ground`) settled with a second lap moving nothing, then hay limits, land tracts,
+  the register, the population profile and the Newberry leads re-derived above it. L263 is 639
+  phases with T-2165's three yard roofs below T-2147's eight; the generator half is stated at
+  679/673. T-1673 was split mid-lap (T-2174, T-2175), so the South's street-line warehouse band
+  and its fallback row now name T-2175, which holds three of its four roofs.
+
+- **Re-dealt over T-2146 (#511), 2026-10-08.** T-2146 landed on dev while this PR waited and
+  spent the town's last D3 and D7 against their family targets (65 and 18), so the old deal (D6,
+  two D5, two D4, a D3, a D7 and an A2 carriage shed) no longer fit: `generate_block_infill.py`
+  refused it (`D3: 66 anonymous roofs against a programme target of 65`). The merge took dev's
+  side of every generated file and the recipe was re-dealt to dev's schedule and seating: six
+  `slot` requests (D5 lot 2, D5 lot 3, D4 lot 4, D4 lot 5, D2 lot 6, D6 lot 7) and a schedule
+  list of those six plus an H3, no yard roof. The H3 is not raised, as T-2146 left block 95's
+  (lodging model, T-1957). Seating lap (adopt_street_faces → reconcile_665 → redeal → keepers →
+  the four infill generators → reconcile_665 → the seating chain) walked 33 laps to a repeat:
+  **214 seated** (212 adopted, 2 slots — a D4 on this block's lot 1 and a D5 on block 95's lot 1,
+  the next deal's), keepers 92 → 96. Six older households adopt the six houses; one keeper
+  (hh_burke_james) is written on them. 38 meshes baked (`bake.sh --only`, pinned Blender): the six
+  new houses and 32 roofs the walk moved. Then `rederive --tail` from the seating, the completion
+  audit, the tail from town_census, hay limits, land tracts, register, profile, the Newberry
+  re-parse and the tail from compile_liberties. L263 644 → 650, L270 212 → 214, L276 92 → 96;
+  L397 rewritten for the six. Generator half 684/678 → 690/684.
+
+## T-2100 — two in-town measurement stands re-posed to show the yard and the shop front (2026-10-08)
+
+- **What changed:** `tools/measure_detail_ceilings.mjs` (and the copy in
+  `tools/measure_still_frame.mjs`) gain `town_yard` (388, -440, looking north at the backs of
+  two Washington Street houses across their yards) and `town_store_front` (501, 12, looking
+  south at the South Water Street fronts from the street). `town_backyard` and
+  `town_south_water_store` keep their ids and coordinates, because T-2091/T-2092/T-2099's
+  numbers and the still-frame gate's ceilings were read there; their captures remain a wall
+  and a door.
+- **Measured on dev @ 12cb2f3d4, every tier, both viewports** (`docs/measurements/T-2100-town-stands.md`):
+  the yard stand costs within 2 % of the wall stand, the store stand 1-2 % more; all inside
+  dev's ceilings, the nearest desktop `balanced` at the yard (98.8 %), the margin the old stand
+  already ran at.
+- **Not verified:** nothing in the scene changed, so no visual parcel was re-judged at the new
+  stands in this run; T-2085..T-2087's own acceptances were judged at the old poses.
+
+## T-2169 — the West's last three yard buildings, behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2168 (itself the rest of T-2166 → T-2156: the yard-building roofs built or
+re-budgeted, priced against the dwellings, T-1692). T-2170 keeps the North's five A2 barns that
+no Wolcott lot can hold.
+
+- **Visible.** After T-2167's deal the 668-roof schedule re-apportioned the West's three yard roofs
+  from `west_division_beyond_committed_control` (a district balance with no block) onto
+  `blk_washington_clinton` (`ancillary_room` 4). A third recipe entry
+  (`phase3_platted_block_washington_clinton_yard_deal_2`, `seq_start` 18) deals them: a chicken
+  house or small utility shed (A5, `_a5_18`) mid-yard behind the D5 on plat lot 7, a barn or
+  carriage shed (A2, `_a2_19`) on the woodshed's side of the D4's yard on plat lot 8, 16 m off the
+  alley, and a woodshed (A4, `_a4_20`) mid-yard behind the H1 on the Madison corner. Baked
+  (`bake.sh --only`, web derivatives). **L404**; L263 631 → 634 (on top of T-2165's 628 → 631).
+- **Where the barn could go.** Mid-yard in the D5's yard it stood 1.98 m from the house (the
+  generator holds 3.0 m), so it went to the D4's yard, the deepest of the three; 14 m off the alley
+  it stood 2.97 m from the barn beside it, 15 m and beyond clears both.
+- **Order book.** The West's `barns_stables` and `small_outbuildings` cells owe nothing now.
+  `build_order_book_1835.OWNERS`: West → T-2169, North → T-2170 (T-2168 is split).
+- **Seating.** No household moves onto a yard building. `measure_generator_half` 684 → 687 /
+  678 → 681 (on top of T-2165's three and T-2146's thirteen); the derived tail from `reconcile_665.py` settled in 2 laps; entrances, alley lanes,
+  redeal (510 keep / 8 refamily / 0 retire, no roof moved), land tracts, street-face adoptions,
+  register, population profile, hay limits and the Newberry parse re-derived.
+
+## T-2059 — the mobile flora heartbeat back under 250 ms (2026-10-08)
+
+**What a visitor sees:** a phone's loading screen keeps moving while the trees and grass are
+planted. The town itself is unchanged.
+
+- **Two tasks held the frame**, found with a CPU profile of the two longest gaps in the flora
+  phase (mobile/light on dev @ a2def24a: 396 ms cold, 315 ms warm). (1) T-2015's leaf-and-bark
+  atlas: fourteen sprays plus the coverage-preserving mipmaps, about 270 ms in one task.
+  (2) The turf mask (`handTurfToGround`): T-2125's four finder questions a texel, about 200 ms.
+- **The fix.** The atlas is painted by a generator. The boot drains it through
+  `bootCheckpoint` (`createTreeAtlasSliced`), and `createTreeAtlas()` still drains it in one go
+  for `tree_surface_review.mjs`. The turf mask yields once a row. Neither changes what is drawn.
+- **Measured** (`measure_boot_phases.mjs --published`, one steward runner): mobile/light
+  161 ms cold and 192 ms warm. All twelve cells read 149-204 ms under `--check` (they were
+  320-427 ms). The flora phase did not get longer (4.71 → 4.64 s cold). `--compare` against
+  dev's run matches every flora/tree geometry digest, the roll, the stats and the placement
+  census, and the sliced atlas matches dev's unsliced one on all 12 mip levels.
+
+## T-2060 — boot-weights.js re-measured, calibrated to the reference machine (2026-10-08)
+
+- **The machine question, answered by measuring both trees here.** The weights were read on
+  the owner's Apple M5 Max (T-1246, 2026-09-20, tree `custom@e53e46c3b`), and a run reaches
+  only a software-WebGL runner. So the runner was not asked how long the boot takes. It was
+  asked how much each phase GREW: it published and measured the reference reading's own
+  tree and dev `1ab737cb4`, all 12 cells each, and every weight is now the Mac's reading
+  times that phase's growth in that cell. On the same tree the runner reads each phase
+  slower by a different factor (medians 2.1× for interaction to 7.3× for buildings, and
+  buildings 14.6× in one warm cell), so one machine-wide factor would have been wrong too.
+- **What grew**: terrain 2.8-5.3× and ground 2.7-5.6× in every cell; scene 1.3-1.7×,
+  interaction 1.3-2.0×; flora 0.7-1.6×. The essential boot's expected total goes from
+  3.3-4.9 s to 5.3-7.9 s. Terrain + ground were 9-12 % of the bar and are now 15-41 %
+  (cold mobile light: 12 % → 41 %). The bar used to stall there.
+- **Why it mattered beyond pacing**: a returning visitor's own timings are clamped to
+  0.25-4× the committed default. Terrain and ground grew past 4× in nine of twelve cells,
+  so the stale defaults were clipping visitors' real histories.
+- **Derived, not hand-written**: `tools/calibrate_boot_weights.mjs` writes `boot-weights.js`
+  from `tools/boot_phase_measurements.json` (the Mac's receipt, unchanged) and the new
+  `tools/boot_weights_calibration.json` (both runner readings, compact); `check.sh` re-derives
+  it with `--check`.
+- **Kept in reference-machine seconds on purpose.** T-2164's forecast clock (#514, merged
+  while this was in flight) reads each weight as CPU seconds on the reference machine and
+  multiplies it by a learned `pace` for the visitor's own device (`PACE_PRIOR` 1.5 desktop,
+  2.5 mobile). Raw runner seconds would have been counted that slowdown twice; calibrated
+  ones fit unchanged.
+- **What this is not.** One reading per tree per cell, on one runner. The method assumes a
+  phase's growth is the same on both machines. That is weakest where the work changed in
+  kind: terrain now opens with a ~2.9 s main-thread task. The census phase no longer runs at
+  boot. It is optional, so it paces nothing and keeps its Mac reading. Re-reading on the Mac
+  (`measure_boot_phases.mjs --published --json`, then `--write` with that output as TODAY
+  and the receipt's tree as THEN) would replace the inference. The terrain long task itself
+  is unowned work and is not fixed here. The mobile flora heartbeat stays T-2059's.
+
+## PR #498 — Wells integrated onto current dev and browser failures repaired (2026-10-07)
+
+This integration supersedes the older T-2146 checkpoints below. The current deal
+raises thirteen houses, one to a requested lot: west block 94 has D3, D4, three
+D5, D7 and H1; east block 95 has D2, two D4, two D5 and D6. Both west Madison
+corner lots remain open. Block 95 also reserves its second lot for the unbuilt
+H3, still owned by T-1957. The town's H2 ceiling is already met elsewhere.
+L405 covers the reconstructed deal (renumbered from L401 when dev's T-2165 took that number;
+T-2167 holds L402 and two open siblings L403 and L404); no source is promoted to a historical address.
+
+**Lapped onto dev's T-2165, T-2167, T-2155, T-2158, T-2157 and T-2164 (2026-10-08).** Generated
+files took dev's side; the keeper → four infill generators → `reconcile_665` → seating chain walk
+settled after twenty-one laps at **212 platted and 99 off-plat seats (311 total, the same as dev)** and
+92 named keepers (dev 87). The same thirteen older households adopt the new houses; of the thirteen
+whose slots stood on the two blocks, seven are seated on standing roofs and six re-slot on block 81
+(T-2147). L263 records 644 phases (dev 631 + 13); generator-half counts 684/678. The derived layer
+(`rederive --tail`, settled), the completion audit, the redeal re-audit (523/8/0), the population
+profile and the Newberry re-parse over all four volumes were re-run. T-2165 noted that the schedule
+had moved one block-94 request from a D5 to a D4; at this fixpoint every one of the thirteen houses
+is adopted as built and no slot request is left on either Wells block, so the deal stands unchanged.
+
+Before that lap: the keeper/seating cycle settled at 213 platted and 99 off-plat seats (312 total)
+and 92 named keepers. L263 records 636 phases. Forty-four models were rebuilt
+from the settled records, and all 676 master/web pairs passed the derivative gate.
+The pre-browser integration passed all 786 source checks with no stale assets.
+
+Review found that the bridge census was assigning nearby trade goods to a pile
+by radius; meshes now expose exact lot-item triangle spans. Frontage and plant
+panel counts are pinned to the current canonical records. The scene-wide flora
+census retains its original stations and surveys all cardinal bearings, because
+one north-facing sample cannot establish absence from the scene.
+
+The desktop road drape exposed an end-line correction evaluated before its final
+Float32 coordinates: a cut could extrapolate the preceding half-cell plane by
+11 micrometres. The drape now reads its final coordinates and actual field/ridge
+bounds, with a folded-cell regression; the original 10-micrometre gate remains.
+
+Roads, yard surfaces and terrain are partitioned into fixed world pieces in
+BatchedMesh, retaining the original triangles, material and attribute bytes.
+The terrain reach operates on those pieces; its 240 m Light reach, authoritative
+heightfield, protected crossing clearance, plant population and 90-call floor
+are unchanged. CPU checks exercise actual Three culling, restoration, bounding
+corners, indexed/nonindexed attributes and repeated protected-base disposal.
+The final full source gate and all 14 browser parts at both viewports are required
+before this draft may merge; exact receipts are recorded on PR #498.
+
+## T-2146 — the School Section tier's Wells blocks (94, 95): thirteen houses on their requested lots (2026-10-06)
+
+Piece 3 of T-1755, on the owner's ruling (b): the South's owed dwellings cross Madison. T-2144
+opened the tier and left thirteen `slot` requests on blocks 94 and 95 with no roof under them.
+
+- **The deal.** Two recipe entries in `1835_platted_block_parcels.json`, one roof to a lot, lot 0
+  (the west Madison corner) kept open on each. Block 94 takes its seven requests (D2, D3, two D4,
+  two D5, D6), the schedule's whole plan for it. Block 95 takes its six (D2, D4, D5, D7, H1, H2).
+  **L394**.
+- **The H3 that was withdrawn.** The schedule also plans an H3 boarding house on block 95. No
+  household asks for it, because no banded South clause admits the family. It was built here first.
+  Its beds then moved the lodging model, and `seat_lodgers_1835.py` refused the result: it would draw
+  8 lodgers out of `persons/male/10_19/south/lodging/trade`, and the book holds 7 there. That stage
+  stops on purpose until its basis is deliberately re-frozen, so raising the H3 is a lodging decision.
+  Lot 2 is left open for it, and the roof goes to **T-1957** with the South's other owed boarding houses.
+- **Keeper district.** `name_the_keepers_1835.py` gains `school_section_tier`. The hunk is
+  byte-identical to the one on T-2145's and T-2147's branches, so whichever merges first carries it.
+- **The fixpoint.** The lap is keepers → the four infill generators → `reconcile_665` → the
+  seating chain, about 42 s each. It settled after eighteen laps on each of three trees: before and
+  after dev's T-1746 merged in, and again without the H3. Then `rederive.mjs --tail
+  tools/compile_liberties.py` ran (three laps). **209 seated, held** (dev's figure after T-1746):
+  adopted 175 → 188, slot requests 34 → 21. As on T-2130, adoption runs first, so 13 older
+  households take the new houses and the 13 who asked re-slot on blocks 81, 118 and 119.
+  - hh_democrat_printers is handed on, and hh_laframboise_franois is seated.
+  - hh_bennet_lyman, handed on since T-2130, takes the H1, so the business deal's release cost drops 1 → 0.
+  - 75 seated households change roof or lot. Keepers go 81 → 86.
+- **Re-run by hand, outside the manifest:** the roof re-audit, land tracts, street-face adoptions,
+  population profile, lodging model, reconstructed-trades seating, register, entrances, alley lanes,
+  woodpiles, hay limits, and the Newberry leads (all four volumes re-parsed). T-0059's asset counts
+  go 635/629 → 648/642 (dev's T-1977 camp is the one between).
+- **Baked** with the pinned Blender 4.5.3 (`build.py --only` + `web_derivatives.sh --only`): the
+  thirteen new meshes, the four whose siding stock moved, and the meshes the keeper cascade staled.
+- Restated: **L263** 595 → 608, **L270** (the count held; who moved), **L276** 81 → 86.
+- **Lapped onto dev's T-1977, T-2149 and T-2018 (2026-10-06)**, finishing salvage draft #498.
+  Generated files took dev's side; `rederive.mjs --run` (twice — the first stopped at
+  `rebuild_closing_set.py` until the mirror was published), and one walk of keepers → the four
+  infill generators → the seating chain moved nothing: the fixpoint held. Then the redeal re-audit
+  (487/8/0 keep/refamily/retire), the block remedies report, the roof-id surface and the
+  Newberry re-parse over all four volumes. L394 stands beside dev's L395 (the Wolf Point camp).
+- **Lapped onto dev's T-2145 (2026-10-06), NOT YET GATE-GREEN.** The recipe merged by `block_id`
+  (94/95 beside 118/119), generated files took dev's side, and the keeper/seating walk took fourteen
+  laps. **The count now FALLS: 209 → 199 platted (298 seated in all, dev 308).** Older households
+  adopt the thirteen new roofs first, and with 118/119 built and block 81's lots requested, ten of the
+  thirteen who asked find no lot to re-slot on and are handed on to T-1614 (named in L270). L263 is
+  622. Still owed: one more keeper walk (the closing `rederive --run` moved the seating once more),
+  the redeal / block-remedies / roof-id / Newberry steps, the order-book seated pin, the bake of the
+  meshes the keeper cascade staled, then check.sh and smoke part 1.
+## T-2171 — continuous 1812 lake shore (2026-10-08)
+
+The unsupported notch at the sand-spit attachment is replaced by a smooth,
+continuous lake face. The river-side bend, lower spit and southern outlet keep
+their coordinates. The curve is explicitly reconstructed (L403), based on the
+map comparison in `RESEARCH/shore_1812_pre_cut.md`. Terrain and compressed assets are rebuilt; published desktop/full and mobile/light
+1812 checks pass with zero page errors or failed requests. The PR records the final
+repository and smoke gates; docs/measurements/t2171 holds the visual proof.
+
+## T-2172 — courtyard tower window and roof proportions (2026-10-08)
+
+The 3.1-ft upper glazing band rises 3.5 ft, aligning its head with the north-wing
+upper windows. The cap rise falls from 13.6 to 10.1 ft at the unchanged ridge.
+Principal sash heads rise 2 ft, retaining their sills and historical divisions.
+These are declared proportional reconstructions, about +/-1 ft.
+
+Canonical full/light assets and recovery archive rebuilt; 3,000 independent roof
+samples pass. Six published desktop/full and mobile/light app views load without
+page, HTTP or loader errors and remain inside their rendering budgets. The local
+repository gate passed 786 checks; its two stale generated outputs were rebuilt
+and passed unchanged direct rechecks. Required CI and broader smoke are recorded
+on the pull request.
+See `RESEARCH/glessner-tower-proportions-2172/README.md`.
+
+## T-2165 — three yard buildings where the schedule puts them and the ground holds them; the North's five barns measured off the Wolcott block (2026-10-08)
+
+**What changed in the scene.** Three anonymous yard roofs, dealt as `*_yard_deal` entries in
+`data/reconstruction/1835_platted_block_parcels.json` behind houses earlier deals raised: an A1
+stable on `blk_indiana_north_wolcott` lot 9, an A2 barn or carriage shed on
+`blk_south_water_wells` lot 5, an A5 smokehouse on `blk_south_water_dearborn` lot 1. Baked
+(`tools/bake.sh --only`), L401 records them. Order book: North `barns_stables` 12/17 (5 owed),
+South `barns_stables` 34/35 (the last is T-2147's block 81), South `small_outbuildings` 48/48.
+
+**What it found (T-1692's question, half answered).** The schedule places the North's whole
+remainder — an A1 and five A2 — on the Wolcott block because it is the North's only platted block
+with ancillary room. That room is counted in roofs, not ground: its lots are 14.71 × 31.33 m, each
+cottage lot already keeps a woodshed or privy, and the generator's 1.5 m lot margin and 3.0 m
+separation leave 4.85-5.55 m beside it, narrower than any A2 (5.49 m at the band's floor; the
+recipe's A2s sample 6.2-7.9 m). Priced against ordinary dwellings before this deal: North 31 yard
+roofs / 84 = 0.37, West 27 / 75 = 0.36, South 80 / 150 = 0.53 — the North and West are the short
+divisions, so the five barns are owed behind the Kinzie core's houses rather than cut. T-2156 was
+split: T-2165 is this, and T-2166 — split again the same day — went to T-2167 (the West's four
+on blk_washington_clinton) and T-2168, itself split into T-2169 (the West's last three) and T-2170 (the North's five barns
+and the re-budget question). The order book's yard rows now name T-2170 (North), T-2169 (West)
+and T-2147 (the South's last barn, on its block 81); the South's civic row names T-2170.
+
+**Unverified.** The positions are invented on generated lots (L401); no source seats any of the
+three. A yard building seats nobody, so no household moved; the schedule's re-apportionment did
+move one School Section request's family (blk 94, D5 to D4), which T-2146's open PR will meet.
+
+## T-2157 — courtyard dining-tower roof connection (2026-10-08)
+
+The copper hip now ends over the bay shoulders and meets a raised, tiled cross
+ridge carrying the same terracotta collars as the north wing. The host eave is
+continuous; only the exact triangular valley intersection is removed. Copper
+and tile share the flared apron profile. Existing materials and the northeast
+courtyard copper return are retained. This is a declared reconstruction from
+the owner reference, bounded by the existing HABS-derived plan and roof heights.
+
+Validation: 1,200 independent courtyard roof rays prove one roof surface in the
+former cut, never below the original host plane; 1,800 stable-roof samples also
+pass. The canonical bake, full/light derivatives and recovery package are rebuilt.
+Desktop/full and mobile/light load the actual 1904 scene without page, resource
+or loader errors, and remain within the existing draw/triangle budgets. Review
+images and measurements: `docs/RESEARCH/glessner-courtyard-roof-2157/`.
+
+## T-2167 — four more yard buildings behind the Canal Street houses of plat block 50 (2026-10-08)
+
+Piece 1 of 2 of T-2166, itself piece 2 of T-2156 (the yard-building roofs built or re-budgeted,
+priced against the dwellings, T-1692). T-2168 keeps the rest: the North's five A2 barns no
+Wolcott lot can hold and the West's three yard roofs still on
+`west_division_beyond_committed_control`.
+
+- **Visible.** `blk_washington_clinton` (plat block 50) gains four yard buildings from a second
+  recipe entry (`phase3_platted_block_washington_clinton_yard_deal`, `seq_start` 14): a woodshed
+  (A4) beside the barn in the D5's yard on plat lot 5, a barn or carriage shed (A2) beside the
+  woodshed in the D4's yard on plat lot 8, and a privy (A3) and smokehouse (A5) mid-yard, 20 m off
+  the alley, behind the H2 and the H3, whose yards already kept two outbuildings each. Baked
+  (`bake.sh --only`, web derivatives). **L402**; L263 624 → 628.
+- **Schedule.** The 668-roof schedule gave this block `ancillary_room` 4 after T-2148's deal; the
+  order book's West `barns_stables` reads 1 owed and `small_outbuildings` 2 owed after it (the
+  three on the balance). The yard layer's drawn privy on lot 5 gives way to the standing one.
+- **The entry must say `frontage_argued_on: west_division_thompson_1830`.** Without it
+  `generate_plat_lots` reads the block as dealt on the South module's faces and holds it off the
+  West arrangement, re-cutting the lots under T-2148's thirteen roofs. The first run of this deal
+  did exactly that; the field is now on the entry.
+- **Owners moved.** `build_order_book_1835.OWNERS`: the South's barn and outbuilding rows →
+  T-2165 (building them), the North's and West's → T-2168; T-2156 and T-2166 are split.
+- **Seating.** No household moves onto a yard building. One slot request re-families D5 → D4 as
+  the schedule re-apportions. `measure_generator_half` 664 → 668 / 658 → 662; entrances, alley
+  lanes, redeal, land tracts, street-face adoptions, register, profile, hay limits and the
+  Newberry parse re-derived.
+
+## T-2154 — Evidence → City sets the town against the November census: dwellings standing, and the people split (2026-10-08)
+
+T-1983 ("the programme reconciled") was split three ways on claim: this piece (its
+acceptance item 2), T-2155 (the census's `people.housed` against the completion audit,
+item 3) and T-2156 (the yard-building roofs built or re-budgeted, item 1 with T-1692).
+
+- **Dwellings standing, as a bracket.** `tools/town_census.py` writes
+  `buildings.dwellings`: 309 roofs in the programme's `ordinary_dwellings` group, 358 with
+  the 39 `larger_boarding_houses` and 10 `inns_taverns`, against the November census's 398
+  (Andreas vol. 1, p. 180). It is a bracket because the town model's own open question —
+  whether the enumerator's "dwelling" took in boarding houses and taverns — is unanswered.
+  Stores with rooms over them are counted with the stores on both readings; nothing the
+  project holds says the enumerator counted them as dwellings. The programme's own order
+  for the same groups is 335–387, so even the finished programme sits below 398 on the
+  low reading. That is expected (the census is four months later) and it is not a target.
+- **The people, split.** `people.split`: 2,799 townspeople and 127 garrison (every
+  present household the layer files in the `fort` division — two officers and eleven
+  reconstructed company and family households), summing to the population rung's 2,926.
+  The 307 transients stay outside both, said so on the card.
+- **What is not verified.** The garrison figure is the layer's fort households, not a
+  roster: T-1176's pieces own the garrison's real strength. If a soldier's household is
+  ever filed outside the `fort` division, it reads as a townsperson here.
+
+## T-2148 — Clinton, Jefferson and Des Plaines carried to Madison; plat block 50's thirteen roofs; the West's last freight roof handed to T-2150 (2026-10-06)
+
+**What a visitor sees.** Clinton, Jefferson and Des Plaines run on south of Washington to
+Madison, as Canal and West Water have since T-2143. The block between Clinton and Canal (plat
+block 50, `blk_washington_clinton`) is built along its Canal face: an H2 merchant's house on the
+Washington corner, an H3 boarding house, a D5 and a D4 cottage and an H1 house on the Madison
+corner, with eight yard buildings behind them. Its Clinton face, and plat blocks 49 and 48 west
+of it, stay open lots. Changelog v1510.
+
+- **The carry.** Each line is extended from its old end at local N -400 to Madison on its own
+  straight bearing, the old end kept as a vertex: Clinton to [-273.65, -519.05], Jefferson to
+  [-388.29, -519.05], Des Plaines to [-512.12, -519.05], with full precision so Jefferson and Des
+  Plaines still carry Clinton's bearing to 1e-9 (`measure_west_division_streets.py`). All three
+  join `generate_plat_lots.CARRIED_REACHES`, and every pre-existing block re-derives
+  byte-identical.
+- **Three blocks on the layer.** 50 is cut on the Original Town's west tier (twin of the West
+  Division cell, as `blk_randolph_clinton` and `blk_lake_clinton` north of it); 49
+  (`blk_west_washington_jefferson`) and 48 (`blk_west_washington_des_plaines`) on the West
+  Division module. 87 blocks, 428 lots; all ground samples dry.
+- **The deal.** Block 50 is the first empty block of the Original Town's west tier the schedule
+  reaches, so it takes that tier's density and 14 of the 21 roofs that stood gated as
+  `west_division_beyond_committed_control`. 13 are built; the F3 is deferred (inland; waterside
+  T-0316, L203). The seating's four requests (H2, D5, D4, H1) stand on Canal and the H3 takes the
+  last Canal lot. Blocks 48 and 49 are dealt nothing at the West density, and asked nothing.
+- **The corporate boundary.** `measure_corporation_limits.py` refused the new Jefferson: the
+  West Division line no longer started north of the School Section line's end, because both now
+  end on Madison. The 119 m neither line drew is gone; the ring takes the 8.3 m jog between the
+  two surveys along Madison, and the check now refuses only a line reaching PAST that end
+  (218.2 ha, 535 inside, 61 outside, no extrapolated leg deciding one).
+- **Fixpoint.** Keepers → infill → `reconcile_665` → seating settled at **212 seated** (209 on
+  dev, after T-1746). The four requesters are seated on standing West roofs and four older West households
+  adopt the new houses; 42 households change roof or lot, among them the School Section tier's
+  slot requests, which shift a lot each, and `hh_democrat_printers` is handed on. Mid-walk one lap left
+  `recon_1835_west_046` without its merchant; at the fixpoint `hh_behan_thos` adopts it, so
+  `MERCHANT_H2` is unchanged. 13 new and 14 keeper-moved meshes baked, terrain and water rebaked
+  (Clinton's track now reaches Madison).
+- **Restated.** L263 595 → 608, L270 209 → 212, L276 81 → 82; new **L394** for block 50.
+- **Lapped over T-2145 and T-2058 (2026-10-06).** Recipe entries kept from both sides; derived files
+  taken from dev and rebuilt (`rederive.mjs --run`, the keeper ↔ seating chain settled in two laps, then
+  lodgers, order book, re-family rule and report, redeal, woodpiles, Newberry re-parse). **212 platted
+  seated** (dev 209 + the four West requesters − one School Section tier-94 slot), named keepers 87.
+  L263 609 → **622**, L276 86 → **87**, T-0059's figures 662/656. `validate.py --stale` clean: no mesh moved.
+- **Order book.** West dwellings 75 of 75. The one West freight roof left, and the complete
+  stores and workshops rows, move to **T-2150**.
+
+## T-2145 — the School Section tier's Clark blocks (118, 119) built to their lot ceilings (2026-10-06)
+
+Piece 2 of 4 of T-1755, on the owner's (b) ruling. T-2144 left seven `slot` requests on each
+of `blk_school_section_tier_118` and `blk_school_section_tier_119`, and the schedule's family
+list for each block matches them to the roof, with no yard roof.
+
+- Two recipe entries in `1835_platted_block_parcels.json` raise **14 dwellings** (118: D2, D3,
+  2×D4, 2×D5, D6; 119: D3, 2×D4, 2×D5, D6, D7). Lot 0 stays open on each block. **L396** records
+  the invention.
+- `name_the_keepers_1835.py` carries the tier as a seventh district, `school_section_tier`,
+  under the same entry T-2147's branch writes (identical lines, so the two merge cleanly).
+- Seating walked to its fixpoint (tail laps, then six keeper↔seat laps): **222 seated, held**.
+  Adopted went 175 → 189 and slots went 47 → 33. All 14 who asked for these lots adopt standing
+  roofs, and 14 older households move into the new houses. 64 households change roof or lot.
+  Keepers went 81 → 86.
+- Restated: **L263** 569 → 583, **L270** (count held; who moved), **L276** 81 → 86.
+- Baked: the 14 new meshes and the 23 the keeper cascade left stale (`bake.sh --only`, pinned
+  Blender, web derivatives included).
+
+## T-1746 — the Addition's 26 dwellings built south of Michigan Street (2026-10-05)
+
+- **Ruled**: the north-division memo stands and the seating gives way. The 26 ordinary
+  dwellings the schedule had dealt to `blk_indiana_north_wolcott` (20) and
+  `blk_indiana_north_cass` (6), both already at the memo's four-roof ceiling, stand instead
+  in the memo's three inner clusters south of Michigan Street: recipe rows 68-93 of
+  `1835_north_division_initial_parcel.json` (`addition_surplus`), family for family.
+  Recorded in the memo's new section and **L393**.
+- **Visible**: 26 new houses north of the river (9 on Kinzie's north face, 5 on its south
+  face, 12 in the Kinzie-Michigan interior), baked. Seven older north roofs and the Watkins
+  school house were rebaked for the siding re-deal their new neighbours caused.
+- **Seated**: the order book's `structures/ordinary_dwellings/north` reads 84 standing, 0 to
+  build. The platted deal requests no slot on the Addition (it had 13, all on those two blocks);
+  those 13 households and 13 more owed North households are seated by the off-plat deal, and
+  all 26 new roofs are occupied. L219, L263, L270 and L271 restated.
+- **Laid onto dev's T-2062/T-2132/T-1726/T-2144**: a salvage of a cancelled run, finished by
+  merging `dev` and walking the seating chain and the keeper pass to their fixpoint. The
+  liberty was renumbered L391 -> L392 -> **L393** (T-2062 took L391, T-2066 L392). Three of the 26 (rows 76, 90, 93)
+  stood 69-92 m from any street corridor and moved `FRONTAGE_REACH_M`'s measured band from
+  66.06-85.10 m to 142.58-223.16 m (the self-test refuses that); they were re-searched under a
+  fourth predicate, at most 58 m from a corridor, and moved 6, 47 and 45 m. The band reads
+  66.06-85.10 m again, midpoint 75.58 m, 36 streetless rows.
+- **Not measured**: no source places any of these houses; every position is a search result
+  against the placement predicates, stated as such.
+- **Lapped over T-2143 (2026-10-06).** Merged `dev` a third time, after T-2143 raised plat
+  block 51: derived files took dev's side and were rebuilt (`rederive.mjs --run`, then keepers ->
+  the four infill generators -> `reconcile_665` -> the seating chain, settled in two laps, then
+  the scene tail, hay limits, woodpiles, the redeal, the roof-id surface and the Newberry
+  re-parse). Settled at **308 seated** (dev 295 + the 13): **209 platted** (dev 222 less the
+  Addition's 13 slots), **99 off-plat** (73 + 26). L263 595 phases, L270 209, order-book pin
+  295 -> 308, T-0059's figures 634/628. `validate.py --stale` clean: no mesh moved.
+
+## T-2143 — Canal and West Water carried to Madison; plat block 51 on the layer and its six houses built; the West remainder handed to T-2148 (2026-10-05)
+
+**What a visitor sees.** Canal Street and West Water Street run on south of Washington to
+Madison, and the block between them — plat block 51, the West Division's last tier — carries
+six houses: five on the Canal face (D6 on the Washington corner, D5, D4, D3, and a D7 on the
+Madison corner) and a D2 shanty on West Water. Changelog v1506.
+
+**Why the block was not there.** T-2132 named plat block 51 as the next West ground (180 ft
+under its west column, 88 under its east), "but the committed grid does not build that block at
+all". The reason was two lines short and one line unheld: every West column stopped at local N
+-400, the OLD south edge of the heightfield — the clip T-1707 removed from the South Division's
+seven columns — and the tier's south line, the plat's "south town line", returned None.
+
+**What changed, and the rules each change keeps.**
+
+- `canal` carried on its own southern bearing to `madison` ([-147.18, -519.05]); the old end
+  kept as a vertex.
+- `west_water` carried by its own rule — the committed bank offset one half-corridor west —
+  onto `branches.geojson`'s west bank of the South Branch (same Wright 1834 sheet, inferred),
+  cut at Madison. The old south end is kept rather than re-mitred (re-mitring moved it 0.21 m
+  and re-cut block 44), and the one hard bank turn (N -446.7, a mitre 12.51 m from the water) is
+  BEVELLED so the existing 0.15 m vertex assertion holds unwidened.
+  `tools/measure_west_division_streets.py` derives and asserts the whole line.
+- `generate_plat_lots.WEST_TOWN_LINES` maps "south town line" to `madison`, the Original Town's
+  south line (`build_survey_tracts.ORIGINAL_TOWN_BOUNDS`). The north town line still returns None.
+- **A carried reach is cut on its own chord** (`CARRIED_REACHES`, `face_chord`, `own_reach`). A
+  block face is the chord of its column's edge, end to end; carrying West Water moved that chord
+  and re-cut block 44's east face 8.2 m WEST, away from its own kerb, under T-2132's four houses.
+  With the rule, every pre-existing block and omission in `thompson_lots.json` re-derives
+  byte-identical, and line means (the clinton → canal spacing, the "255 m apart" refusals) are
+  read off the old reach, so `measure_west_division_module.py`'s finding stands unmoved.
+- Block 51 cuts at 321.4 ft of face against the sheet's 286 (180 + 18 + 88); columns 57.7-66.5 m
+  and 28.2-32.5 m deep; all 434 ground samples dry.
+- **`square_to_face`** (`generate_block_infill.squared_to_face`): the West Water face runs 7.5°
+  off the lot axis (the sheet prints "North 8 East" up that side), past the 5° facade gate. The
+  shanty's slot asks to stand square to its face; the gate stays at 5°, and the key refuses a lot
+  less than 2° off (it is for a skewed lot, not a setting).
+
+**Fixpoint.** Keepers → infill → `reconcile_665` → seating, 17 laps, settled at **188 seated**
+(182 on dev): the six who asked are seated on standing West roofs and six older West households
+adopt the new houses; 32 households change roof, none handed on. Named keepers 80 → 81. 19
+keeper-moved meshes, the six new ones, and terrain + water (Canal's worked bed now graded to
+Madison) rebaked with the pinned Blender.
+
+**Restated, with why.** L263 563 → 569, L270 182 → 188, L276 80 → 81, L313 covers block 51.
+T-0059's figures 602/596 → 608/602 (six new frame meshes). `tools/corridor_strip_baseline.json`
+`--write-baseline`: the counterfactual's `lots_after` 340 → 350 and `blocks_after` 77 → 78 are
+this block's ten lots; nothing else moved. `north_of_box_reading.json`: drawn on-grid street
+20,280 → 20,517 m, the two carried reaches.
+
+**Handed on.** 2 West ordinary dwellings and 1 freight roof remain. They go to **T-2148**:
+blocks 48-50 on the same tier print 180 ft under both columns and are omitted now only because
+Des Plaines, Jefferson and Clinton stop at N -400.
+
+**Lapped over T-2144 (2026-10-05).** Merged onto dev after the School Section tier landed:
+`generate_plat_lots.py` re-cut 84 blocks and 398 lots (dev 83 / 388, plus block 51's ten), and
+the keeper → infill → `reconcile_665` → seating walk settled in four laps at **222 platted
+seats** (dev 216 + the six who asked) and 73 off-plat, 295 in the order book (dev 289). Every
+West seat reads as it did on this branch before the merge. No mesh went stale. Corridor-strip
+baseline: `blocks_after` 82 → 83, `lots_after` 380 → 390, block 51 alone. L270 restated 216 → 222.
+
+## T-2144 — the School Section tier joins the grid and the roof schedule (2026-10-05)
+
+The owner answered T-1755 (b): the South's owed dwellings cross Madison onto the School
+Section's Madison–Monroe tier. The run that took T-1755 found it was more than one run — the
+tier's lots lived only in `school_section_tier_lots.json`, which neither `reconcile_665.py` nor
+`generate_block_infill.py` reads — and split it: **T-2144** (this) opens the ground, and
+**T-2145** (Clark blocks 118, 119), **T-2146** (Wells blocks 94, 95) and **T-2147** (Market
+block 81) build on it.
+
+- `generate_plat_lots.py` quotes the tier as a third seated tract, the way Michigan St tract and
+  Wabansia join: only the cells east of the forks with lots on dry ground — **81, 94, 95, 118,
+  119, forty lots**. Blocks 24–72 (West), 80 (under datum at its river corners) and 1/142 (never
+  cut) stay on the off-plat ledger, which now skips any tier block the grid carries.
+- `reconcile_665.py` schedules the tier **one principal roof to a lot, no party-line row**, each
+  block keeping a lot open: 7 principal + 2 yard roofs of room per block. The South balance
+  (`south_plat_beyond_committed_control`, 20 roofs) empties; the tier is dealt **36 roofs —
+  32 dwellings (D2–D7), three boarding houses (H1–H3) on block 95, one yard building** — and the
+  Market wedge (`blk_south_water_market`, still the owner's) keeps 6 of its 22.
+- The seating walked to a fixpoint: **216 seated** after the T-2132 merge (182 on dev), the 34 new ones
+  slot requests on the tier that T-2145..T-2147 raise. 56 keeper rows moved; no mesh went stale.
+- The order book's `ordinary_dwellings/south` row moves to **T-2145** (T-1755 is split).
+- Corridor-strip baseline re-written: only `blocks_after` and `lots_after` moved, by the tier's 5 blocks and 40 lots (77→82, 340→380 on the merged tree).
+
+## T-2132 — plat block 44 cut on its own two depths, and its four houses built; the West remainder handed to T-2143 (2026-10-05)
+
+T-1829 left the West Division 12 ordinary dwellings and a freight roof short, with every
+lot-ruled West block at capacity and the rest gated on a lot line. One of the gated cells was not
+like the others. Plat block 44 (`blk_west_randolph_canal`, Randolph to Washington between Canal
+and West Water) prints **two** depths on the sheet, 180 ft under its west column and 150 ft under
+its east (`thompson_west_division_lots.json`): the South Branch has cut into the West Water lots.
+`thompson_west_division_lots.json` leaves `lot_depth_ft` null there because it will not average
+them, and `generate_plat_lots.west_lot_figure` read that null as "prints no dimension". That is
+the wrong pile. The block prints more of itself than block 29 does, and block 29 was already
+cut on a single depth.
+
+- **The cut.** `west_lot_figure` now returns `lot_depth_ft_per_column` when both column depths
+  are read, and `subdivide_west` gives each column its printed share of what the committed face
+  leaves after the 18 ft alley (west 59.7 m, east 49.8 m deep). The figures are never averaged.
+  The closure is published as before: the sheet asks 348 ft, and the committed lines give 367.4.
+  Block 51 (180 / 88) would cut the same way, but the committed grid does not build it today.
+- **The deal.** `reconcile_665.py` opens the block at the West density (6 per 10 lots) beside
+  the Western Hotel and its stable: 4 roofs of room. The seating's four slot requests fill it
+  exactly. The recipe raises a D5 at plat lot 6, a D4 at plat lot 7 and a D5 at plat lot 10 (the
+  Washington corner) on Canal, and a D6 at plat lot 8 on West Water. The other four West Water
+  lots stay open. Baked with `generators/build.py --only` and `web_derivatives.sh --only`.
+- **The fixpoint.** As on T-1829, `rederive.mjs` alone does not settle: the keeper pass is not
+  in the manifest. Walking keepers → the three infill generators → `reconcile_665` → the seating
+  took six laps, plus one more after the tail, and lands at **182 seated** (dev 178; West 28 → 32).
+  The four requesters are seated on standing West roofs, and four older West households adopt the
+  new houses. 21 households change roof, and none is handed on. Named keepers 77 → 80. Twelve
+  meshes whose keepers moved were rebaked (26 s for the twelve).
+- Liberties: **L263** 554 → 558, **L270** 178 → 182 (who moved), **L276** 77 → 80, **L313**
+  covers block 44's lot ruling and four roofs.
+- Order book: `ordinary_dwellings/west` 67 of 75, **8 left**; `warehouses_freight/west` 1 left.
+  These rows, and the complete stores and workshops rows, move to **T-2143**, filed with this
+  finding as its acceptance.
+
+## T-2062 — the first fort's factory, agency, stables and gardens, by the draught's own figures (2026-10-05)
+
+**Visible:** seven structures now stand outside the first Fort Dearborn in the 1812 scene. They
+are the factory (a two-storey log trading house) and the agent's house west and south-west of the
+fort, three stables south of those, the Commanding Officer's paled garden south of the fort, and the
+sutler's garden toward the beach. Each is a new `first_fort_outer_*` record, baked with `bake.sh --only`.
+
+**The rule, because the draught refuses a scale out here.** Whistler states his scale for the garrison
+only. The register gains `outside_the_stockade`: every part is its sheet offset from the main gate,
+multiplied by a figure the drafter wrote. That is 297 ft over the 89 ft drawn (3.32) for the agent's
+house, the factory and the stables, and the garden's own "5o feete to the Inch" (2.5) for the two
+gardens. The "5o" was read at T-2062 off a 4x crop and is inferred. Footprints are the drawn boxes at
+the index's forty feet to the inch, an upper bound because the drawings are pictorial.
+`read_whistler_1808.py --check` re-derives all seven from the register's pixel boxes (to 0.01 m) and
+refuses one that moves. L391 records the whole of it as reconstructed.
+
+**What is not settled.** The factory's numeral 18 is not read. It is identified as the paled house due
+west, which agrees with Quaife and with the 1857 Chicago Magazine passage on chicagology_prefire052.
+That page's rights are unresolved, so it is cited in prose and stands under no built value. The
+drafter's figures disagree: the interpreter's house's 48 perches is 6.8 times the drawing, not 3.3. It
+is not built, because its figure puts it on the water's edge. The factory's low corner is 0.93 m off
+the falling bank (`approach_not_modelled`). The middle stable's numeral may be 23, not 24. That is not
+asserted. Nobody is seated in any of the seven (L1).
+
+**Gate:** the T-2062 gate run is named in the PR. `validate.py` passes with 0 errors. L263 (559) and
+L266 (93) are restated, and `measure_generator_half` is restated 591 → 598.
+
 ## T-1829 — blk_west_lake_canal's three requested roofs built; the West remainder handed to T-2132 (2026-10-05)
 
 The first piece of the West Division's remainder T-1826 handed on. `blk_west_lake_canal` (plat
@@ -70,6 +779,29 @@ ring's 11, and the sward asks millions per deal. Desktop smoke part 10, whose ce
 lookups at each of three tiers, ran past the 600 s foreground limit twice on the branch. flora.js
 now bins each ring's edges by northing once and reads one bin per point: 0.15 us a lookup, and the
 identical answer at 2.1 million points compared on the committed rings.
+## T-2136 — the last three districts' roofs name their keepers (2026-10-05)
+
+`tools/name_the_keepers_1835.py` now runs over every block the platted deal seats on: three
+districts join `DISTRICTS` with T-2136 as their ticket — `washington` (`blk_washington_`),
+`west` (`blk_west_`) and `indiana_north` (`blk_indiana_north_`) — and carry no `parent`,
+because T-2136 was a piece of no programme ticket.
+
+- **59 seats, 27 keepers written, 32 refusals said on the roof** (every one the letter-list
+  ruling of 2026-08-30). Town-wide: written 50 → **77**, refused 88 (all on the roof), owed
+  27 → **0** (24 when filed; T-2130's new Washington-tier roofs added three); the ledger's `owed_to` is null. L276 restated.
+- **The self-test no longer needs something owed.** Its owner-liveness cases asked the
+  committed ledger's owed rows, so a ledger owing nothing failed as NOT EXERCISED. With nothing
+  owed it now asks a copy with one written row moved to owed and `OWED_TO` as its owner.
+- **21 roofs re-baked** (`generators/build.py --only` those ids, then `web_derivatives.sh --only`): the T-1816 finish rule (L330) reads the
+  keeper's arrival year, so roof condition and finish moved. The other named roofs and the
+  refused ones carry prose only.
+- Downstream re-derived: platted seats (the business deal's counterfactual now moves fewer
+  households, because a roof carrying its keeper's id is offered to that household alone; the
+  seat cost it pins is unchanged), the roof redeal audit, entrance aprons, woodpiles, 1835 sidecars, source-use backlinks.
+
+**Unverified:** no source places any of these households on these lots; the seat is L270's
+invention and the card says so.
+
 ## T-1691 — the Lake Street blocks' roofs name their keepers (2026-10-04)
 
 `tools/name_the_keepers_1835.py` now runs over a third district, `lake` (of T-1201), and is
@@ -215,7 +947,15 @@ the household model drew for them (508 people), and 121 stand alone with a card 
 - **Measured:** town converges 2,605 → 3,113; under-ten share 0.1894 → 0.2699; adult sex ratio
   435.4 → 282.4 (the model's 120.9–150.0 is still not met, and the measurement says why).
 - **The book** orders exactly the ruling's cells (`ordered_by_the_family_ruling`), filled under
-  T-2021, counted apart from the re-cut. The family rows still owed name **T-2043**.
+  T-2021, counted apart from the re-cut. The family rows still owed named **T-2043**, which split
+  on 2026-10-08: the 392 family and store households are **T-2188**'s (form them around the
+  1,244 present head records awaiting a household), and the adult men were **T-2187**'s ruling.
+- **The adult men (T-2187).** The book credits the known people to its cells pro rata, so the
+  named heads (men, nearly all) were counted partly as women and children and the adult-male
+  family cells read 202 short. Read off the present cards: the model's civil town wants 943 men
+  aged twenty and over, the cards name 1,190 and the stages drew 276, so the town holds 1,466,
+  523 over. The 202 are discharged in the book (`adult_men_ruling`); it converges 3,135 → 2,933.
+  The same credit holds the women's and children's orders down; that is not touched here.
 - **What it moved downstream, measured on the rebuilt layer.** The ruling's first names stepped
   past full names only, so two invented children (Henry Stewart, Sarah Smith) turned the
   re-admission stage away from the roster's Hart L. Stewart and Siman Smith on surname and first

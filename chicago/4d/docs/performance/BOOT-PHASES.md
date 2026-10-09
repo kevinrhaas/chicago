@@ -52,11 +52,31 @@ emulations on the recorded Mac, not measurements of a physical phone. No CPU
 throttling or network shaping was used. Values are planning estimates, not a
 promise of load time on another device.
 
+**T-2060 recalibration (2026-10-08).** The boot grew after September 20, so the weights were
+re-measured on a software-WebGL runner and calibrated back to the Mac. The runner measured the
+Mac's own tree (`custom@e53e46c3b`) and dev, and each weight is the Mac's reading times that
+phase's growth in that cell. `tools/calibrate_boot_weights.mjs --write THEN.json TODAY.json
+--then-tree SHA --today-tree SHA` writes `tools/boot_weights_calibration.json` and
+regenerates `boot-weights.js`; `--check` (in `check.sh`) refuses a hand edit. Re-read the
+weights when the boot moves more than 10 %: run `measure_boot_phases.mjs --published --json`
+on dev and with `--root` on the THEN tree's mirror, on the same machine, then `--write`.
+
 Mobile/light's flora repaint gap was 974.5 ms cold before slicing; it is 123.8 ms
 cold and 116.5 ms warm afterward. All twelve comparisons are byte-identical.
 The full long-task reading includes software WebGL/compositor work at first
 presentation; it is reported separately and is not the flora heartbeat metric.
 No claim is made that all browser rendering tasks now take under 250 ms.
+
+T-2059 (2026-10-08) brought the gap back under the check after T-2015's
+leaf-scale trees took it to 315-396 ms. A CPU profile of the two longest frames
+named the leaf-and-bark atlas (`tree-surface.js`, painted with its coverage
+mipmaps in one task, about 270 ms) and the turf mask (`flora.js`
+`handTurfToGround`, four finder questions a texel, about 200 ms). The atlas is
+now painted by a generator that the boot drains through the checkpoint, and the
+mask yields once a row. On one steward runner, mobile/light reads 161 ms cold and
+192 ms warm, and all twelve cells read 149-204 ms (they were 320-427 ms). The
+`--compare` digests match dev's, and the sliced atlas matches dev's unsliced one
+pixel for pixel at all 12 levels.
 
 History is optional: `c4d.boot.timings.v1` stores one build stamp and at most six
 device/tier cells. Each reading is clamped to 0.25–4 times the committed default,

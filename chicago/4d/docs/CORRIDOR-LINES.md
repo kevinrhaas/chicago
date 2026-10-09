@@ -98,15 +98,56 @@ text — every one of these modules discusses both lines at length in its prose,
 for `from_control` would report almost all of them as control readers — and it fails a
 module that declares nothing, declares a word that is not one of the three, declares
 without a reason, or declares a line its own calls disagree with. `check.sh` runs it with
-its self-test. **Thirteen readers today: 8 drawn, 2 control, 3 both.** A fourteenth that
-does not declare is red before it can ship.
+its self-test. **Fifteen readers today (2026-10-05): 10 drawn, 2 control, 3 both.** A
+sixteenth that does not declare is red before it can ship.
 
 `tools/plat_corridors.py` is excluded by name: it *derives* both lines rather than reading
 one, and `plat_corridors.LINES` is the one place the three words live.
+
+## The platted layer and the drawn town are two layers (T-1726, 2026-10-05)
+
+`corridors()` covers **44 of the 80** streets `data/streets/1835.json` draws. The other 36
+are out of it on purpose, and T-1726 decided they **stay out**: the platted layer is a
+module-width rectangle on the block grid's rows and columns, read by gates that hold a
+corridor edge against a block face, and on these streets that rectangle would assert a
+plat nobody drew.
+
+| out of the platted layer | streets | why |
+|---|---|---|
+| cut from a riverbank | `north_water`, `west_water` | the line is the bank offset half a corridor (`street_control.json` § north_bank, § west_bank) |
+| held on an open question | `jefferson` | north of Kinzie it crosses Wabansia block 59, which Wright draws whole (T-2018) |
+| laid by another survey | the School Section's 21 lines and tiers, `monroe`, `adams`, `jackson` | 66 ft and 80 ft lines of the 1833 subdivision, not the Original Town's module |
+| | `michigan_north_tract`, `market_north_tract`, the tract's two alleys | their own widths from `seat_michigan_st_tract.py` |
+| not platted at all | `fort_road`, `fort_bank_track`, `state_road_south` | roads, 6 m wide as drawn |
+
+**What changed is the generators' question.** Asking "may I put a roof here" is a question
+about the street, not the plat, so every generator's no-roof-in-the-road assertion now reads
+`plat_corridors.every_corridor()`: the platted layer plus each omitted street at its **own
+declared width** (`omitted_corridors()`, which was `generate_west_infill`'s private
+`omitted_street_corridors` until now). `check_corridor_line.py` counts it as the DRAWN line.
+
+**What turning it on found**, measured over every phase of every record on 2026-10-05: 20
+footprints in an omitted street, and **one** of them a generator's. That one was
+`inf_boatman_cabin_north`, an invented cabin standing 1.0 m from North Water Street's
+centreline. The household programme's `corridor_clearance` now moves it `toward` north (south is
+the river), 20.04 m, to 0.5 m clear of the drawn street. The other 19 are hand-placed or
+sourced bodies, and `check_structure_corridors.py` already banks every one at its depth: 15
+on North Water's bank, which is where the North Side's oldest houses were placed from
+sources, the two Wabansia doctor's bodies in Jefferson (T-2018's question), and the two
+bridges. One generator position was a false alarm. The household pass still derives
+Heacock's pre-T-0884 house, in a School Section street, but it no longer owns that position,
+so the assertion skips positions the ownership settlement withholds.
+
+**A tension this records rather than settles.** North Water's record declares an 80 ft
+corridor, and that width is what the generators now clear. But its frontage rule
+(`measure_north_bank_frontage.py`) is the travelled track, with faces 5 m from the
+centreline, so a roof dealt onto that rule would stand inside the declared width. No
+generator deals one today. A future one that does has to choose between the two
+figures, and the choice belongs to that parcel's ticket.
 
 ## Links
 
 T-0419 · T-0009 (the 2026-08-29 ruling) · T-0827 (`not_corridor_control_for`) ·
 T-0429 (the roofs on `blk_south_water_lasalle`) · `tools/plat_corridors.py` ·
 `tools/generate_plat_lots.py` · `tools/measure_corridor_strip.py` ·
-`tools/check_corridor_line.py`
+`tools/check_corridor_line.py` · T-1726 (`every_corridor()`)

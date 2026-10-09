@@ -24,6 +24,8 @@ const H_FOV_DEG = 76;
 const DEG = Math.PI / 180;
 
 import { createBoot, createCheckpoint, yieldToPaint } from './boot-phases.js';
+import { createForecast, createNetMeter, expectedBytes } from './boot-forecast.js';
+import { createGateFrame } from './gate-frame.js';
 import { createArrival } from './arrival.js';
 import { loadScene, resolveBases, hasInspectionLod, detailAssetUrl,
   createLatestDetailSwitch, disposeLoadedAsset } from './scene-loader.js';
@@ -54,10 +56,12 @@ import { createYardGoods } from './yard.js';
 import { keptGround } from './kept-ground.js';
 import { createFrontage } from './frontage.js';
 import { createFarMerge } from './far-merge.js';
+import { releaseAfterUpload, uploadLayerNow, uploadReleaseState } from './upload-release.js';
 import { createWharves } from './wharves.js';
 import { createWorkingBank } from './working-bank.js';
 import { createBoats } from './boats.js';
 import { createWells } from './wells.js';
+import { createFlags } from './flags.js';
 import { createStreetGrid } from './street-grid.js';
 import { mountExclusions } from './exclusions.js';
 import { mountPopulation } from './population.js';
@@ -700,7 +704,24 @@ const DETAIL_DECLARED = {
   // T-0672 was written, so the later ruling stands and this takes back only
   // the slack the town no longer uses. Nothing in the renderer moves. The
   // draw-call caps are unchanged (worst 275 at `full`, 81 at `light`).
-  full:     { triangles: 2685000, shadowReachM: 240, furnitureCastsShadow: true,
+  // PR #498 integration, 2026-10-07: conscious re-budget under AGENTS.md's
+  // 2026-08-21 owner ruling. The 2026-10-04 ceilings above described dev
+  // 7504e4fc, before the subsequent requested parcels. Current dev dbc788b2
+  // itself fails all three triangle gates and the call gate on mobile; Wells
+  // f899a73d adds the requested thirteen houses, not a reason to shrink them.
+  // First retain Light's floor by batching ORIGINAL ground triangles and
+  // applying its unchanged 240 m reach to small pieces. Then measure all six
+  // published stands at both release viewports, through production setDetail
+  // and two production steps plus GPU finish (Chrome headless shell 151).
+  // docs/measurements/pr498-ground-batching.json retains the instrument,
+  // pre-budget source hashes, full readings and its stored-Light boot choice.
+  // No consumer FPS claim; the complete normal-loop smoke remains the gate.
+  //
+  // full:     3,139,013 (desktop West prairie) + 18,059 = 3,157,072 -> 3,160,000
+  // balanced: 2,270,978 (desktop West prairie) + 16,806 = 2,287,784 -> 2,290,000
+  // These are T-0672's original absolute margins, rounded up to 5,000; no
+  // room is priced for a future parcel. Light remains 1,005,000 and 90 calls.
+  full:     { triangles: 3160000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: null, groundDetailReachM: null,
               // T-0135's ruling asks every rung to say WHAT IT IS FOR and WHAT
               // MEASUREMENT SET IT, because "a rung that cannot say what it
@@ -709,7 +730,11 @@ const DETAIL_DECLARED = {
               // lines are the answer a reader needs before any of it.
               protects: 'the machine this project targets: a desktop with a real '
                 + 'GPU, running the town at 1280x800 with every layer at full detail',
-              measured: '2,685,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+              measured: '3,160,000 set 2026-10-07 (PR #498 integration): published Wells '
+                + 'f899a73d plus exact ground batching, six stands at both viewports: '
+                + 'worst 3,139,013 at desktop West prairie; +18,059 rounded up to '
+                + '5,000. docs/measurements/pr498-ground-batching.json. Previously '
+                + '2,685,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
                 + 'six published stands, worst 2,665,994 and 250 calls at west prairie, '
                 + '1280x800 (390x780 read 2,433,217); +18,059 rounded up to 5,000. '
                 + 'Previously 2,840,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
@@ -828,11 +853,14 @@ const DETAIL_DECLARED = {
   // same rule — the reading is in the block above `full`.
   // T-0672, 2026-10-04: 2,145,000 -> 2,090,000, the return — the reading and
   // the rule are in the block above `full`.
-  balanced: { triangles: 2090000, shadowReachM: 240, furnitureCastsShadow: true,
+  balanced: { triangles: 2290000, shadowReachM: 240, furnitureCastsShadow: true,
               furnitureReachM: FURNITURE_REACH_BALANCED_M, groundDetailReachM: null,
               protects: 'the median visitor: integrated graphics on an ordinary '
                 + 'laptop, which is what most people arrive on',
-              measured: '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
+              measured: '2,290,000 set 2026-10-07 (PR #498 integration): same published '
+                + 'six-stand, two-viewport sweep, worst 2,270,978 at desktop West '
+                + 'prairie; +16,806 rounded up to 5,000. Previously '
+                + '2,090,000 set 2026-10-04 (T-0672), the return: dev 7504e4fc, '
                 + 'six published stands, worst 2,072,747 and 233 calls at Lake Street '
                 + 'at Canal, 1280x800 (390x780 read 1,913,781); +16,806 rounded up to '
                 + '5,000. Previously 2,145,000 set 2026-10-03 (T-2035/T-2037), owner-authorized '
@@ -1149,7 +1177,11 @@ const GLESSNER_V4_FULL_TRIANGLES = 3800000;
 // T-2015: the six-stand integration sweep includes west prairie, where the
 // narrow viewport reaches 277 calls (desktop 276). The defended 15-call margin,
 // rounded up to five, gives 295. Light peaks at 74 and keeps its 90-call cap.
-const BUDGET = { drawCalls: 295, triangles: DETAIL.full.triangles };
+// PR #498 integration, 2026-10-07: six stands at both viewports after exact
+// ground batching peak at 313 calls (mobile West prairie, full). The defended
+// 15-call margin, rounded up to five, moves 295 -> 330. Light's separate 90
+// remains unchanged; the complete normal-loop smoke rechecks both ceilings.
+const BUDGET = { drawCalls: 330, triangles: DETAIL.full.triangles };
 
 /**
  * THE DERIVED FURNITURE — which layers `furnitureCastsShadow` governs, by the
@@ -1272,6 +1304,12 @@ const api = {
   // and null forever if it could not be read — the smoke asserts the displayed
   // figures against this, so a silent failure reads as one.
   census: null,
+  // T-2058: `mountLiberties`'s handle. Null until the list is first needed —
+  // Evidence opened, or a building card drawn — because 0.6 MB that only those
+  // two read is not a cost every first visit should pay. `loadLiberties()`
+  // starts it (once) and resolves to the handle.
+  liberties: null,
+  loadLiberties: () => Promise.resolve(null),
   welcome: { state: 'arrival', enter: () => false },
   // T-1126: the town's roll call — indexed, expected to draw, and actually
   // standing, with every absentee named. Null until the buildings are batched.
@@ -1287,13 +1325,18 @@ window.__chicago4d = api;
 document.body.classList.toggle('touch-first', prefersTouch());
 let bootStorage;
 try { bootStorage = window.localStorage; } catch { /* private mode */ }
-const bootController = createBoot({
+const bootCell = {
   device: prefersTouch() ? 'mobile' : 'desktop',
   detail: DETAIL[readDetailPreference()] ? readDetailPreference() : (prefersTouch() ? 'light' : 'full'),
   build: document.getElementById('gate-build')?.textContent || VERSION,
-  storage: bootStorage, problems,
-});
+  storage: bootStorage,
+};
+const bootController = createBoot({ ...bootCell, problems });
 api.boot = bootController;
+// T-2164: the arrival clock forecasts the downloads too — bytes over the measured link.
+const bootForecast = createForecast({ ...bootCell, boot: bootController,
+  meter: createNetMeter(), bytes: expectedBytes(bootCell) });
+bootController.forecast = bootForecast;
 const arrival = createArrival({
   boot: bootController,
   targetYear: YEAR,
@@ -1307,6 +1350,11 @@ const arrival = createArrival({
   cardEl: document.getElementById('arrival-card'),
   barEl: gateBar,
   buttonEl: gateBtn,
+  forecast: bootForecast,
+  headlineEl: document.getElementById('arrival-headline'),
+  logEl: document.getElementById('arrival-log'),
+  lampsEl: document.getElementById('arrival-lamps'),
+  readoutEl: document.getElementById('arrival-readout'),
   onWelcome: () => api.welcome?.show(),
 });
 api.arrival = arrival;
@@ -1413,6 +1461,9 @@ async function boot() {
 
   const scene3d = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(62, 1, NEAR.min, 3000);
+  // T-2113. While the welcome is up the walk is held, so the town under it is
+  // drawn only when something it is made of has changed — see gate-frame.js.
+  const gateFrame = createGateFrame({ renderer, scene: scene3d, camera });
 
   const loaded = await loadScene(YEAR, bases, {
     onProgress: (done, total) => bootController.progress('scene', done, total),
@@ -1500,6 +1551,30 @@ async function boot() {
   });
   if (!terrain.loaded) throw new Error('Terrain heightfield did not load');
   scene3d.add(terrain.group);
+  /** T-2158: on a phone, a heavy layer goes to the GPU the moment it is built
+   *  and lets go of its page arrays (upload-release.js), keeping back what this
+   *  tier never shows. */
+  const settleOnGpu = (layer) => {
+    if (!coarse) return;
+    const want = DETAIL[detailLevel] ?? DETAIL.full;
+    // What the reach will hold back from where the visitor stands is left for
+    // the walk to upload when it comes near, as it always was.
+    const reach = layer.name === 'terrain' ? want.groundDetailReachM
+      : FURNITURE_LAYERS.includes(layer.name) ? want.furnitureReachM : null;
+    const eye = camera.position;
+    const sphere = new THREE.Sphere();
+    const beyond = (o) => {
+      if (typeof reach !== 'number' || !o.isMesh || !o.geometry?.attributes.position) return false;
+      if (!o.geometry.boundingSphere) o.geometry.computeBoundingSphere();
+      sphere.copy(o.geometry.boundingSphere).applyMatrix4(o.matrixWorld);
+      return eye.distanceTo(sphere.center) - sphere.radius > reach;
+    };
+    layer.updateWorldMatrix(true, true);
+    uploadLayerNow(renderer, scene3d, camera, layer, {
+      hide: (o) => (want.crossStreetWalks === false && !!o.userData.crossStreet)
+        || (want.woodpiles === false && !!o.userData.woodpiles) || beyond(o),
+    });
+  };
   // T-1154 — the ground's reach, set from the fog the world just made rather
   // than from a literal here, so a scene that changes its haze moves the reach
   // with it and the two can never drift apart. See terrain.js hazeReachM().
@@ -1516,6 +1591,7 @@ async function boot() {
   });
   problems.push(...buildings.problems);
   scene3d.add(buildings.group);
+  settleOnGpu(buildings.group);
   bootController.end('buildings');
   bootController.start('ground');
   await yieldToPaint();
@@ -1572,6 +1648,8 @@ async function boot() {
     ?? groundProof?.STRIP_ANCHORS[0] ?? loaded.scene.spawn ?? {};
   const walker = createWalker({ camera, terrain, footprints, decks, spawn });
   walker.apply();
+  // From where the visitor will stand, so the ground's reach can be read.
+  settleOnGpu(terrain.group);
 
   // The dated street layer is a skin on the heightfield, never a replacement
   // for it.  Mount it before vegetation so the travelled strips can clear only
@@ -1583,6 +1661,7 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(streets.group);
+  settleOnGpu(streets.group);
   if (groundProof) {
     api.groundStrip = await groundProof.createGroundStrip({
       terrain, assetBase: bases.assetBase, problems,
@@ -1622,6 +1701,7 @@ async function boot() {
     dataBase: layerBase('enclosures'), terrain, confidence, problems: layerProblems('enclosures'), ...detailOpts(),
   });
   scene3d.add(enclosures.group);
+  settleOnGpu(enclosures.group);
   api.enclosures = enclosures;
 
   /**
@@ -1643,6 +1723,7 @@ async function boot() {
     records: enclosures.records, terrain, confidence, problems,
   });
   scene3d.add(yards.group);
+  settleOnGpu(yards.group);
   api.yards = yards;
 
   // The boards the businesses hung out over the footway. Like a fence, a
@@ -1652,7 +1733,7 @@ async function boot() {
   // measured from the same wall base `buildings.js` anchors them at.
   const signage = await createSignage({
     dataBase: layerBase('signage'), terrain, confidence, problems: layerProblems('signage'), hostMissing,
-    assetBase: bases.assetBase,
+    assetBase: bases.assetBase, lowSpec: coarse,
   });
   scene3d.add(signage.group);
   api.signage = signage;
@@ -1667,8 +1748,10 @@ async function boot() {
   // than on the building's wall base — it is resting on the ground it is on.
   const yard = await createYardGoods({
     dataBase: layerBase('yard_goods'), terrain, confidence, problems: layerProblems('yard_goods'), hostMissing,
+    lowSpec: coarse,
   });
   scene3d.add(yard.group);
+  settleOnGpu(yard.group);
   api.yard = yard;
 
   // The frontage works — the plank walks along a building's street walls, the
@@ -1683,7 +1766,9 @@ async function boot() {
     dataBase: layerBase('frontage'), terrain, confidence, problems: layerProblems('frontage'), hostMissing,
   });
   scene3d.add(frontage.group);
+  settleOnGpu(frontage.group);
   api.frontage = frontage;
+  terrain.batchDistantGround();
   /**
    * A walk that RIDES a committed deck registers its planks as a surface the
    * walker stands on (T-0119): the river walk's crossing footway lies over the
@@ -1751,6 +1836,13 @@ async function boot() {
   });
   scene3d.add(wells.group);
   api.wells = wells;
+
+  // The colours on the fort's flagstaff (T-2124): hung from the staff the
+  // buildings drew, at the pattern and grade the staff's own record carries
+  // (`flag`, `flag_flying`). One draw call a flag, moved in the vertex shader.
+  const flags = createFlags({ registry: loaded.registry, buildings, confidence, problems });
+  scene3d.add(flags.group);
+  api.flags = flags;
 
   /**
    * What the PLANTERS treat as built ground: the buildings' footprints plus the
@@ -2080,6 +2172,7 @@ async function boot() {
     ...detailOpts(),
   });
   scene3d.add(trees.group);
+  settleOnGpu(trees.group);
   await flora.prepare?.(camera, bootCheckpoint, plantingProgress);
   bootController.end('flora');
   bootController.start('interaction');
@@ -2111,9 +2204,8 @@ async function boot() {
           if (next.asset.assetIsPlaceholder) throw new Error('the requested detail asset is a placeholder');
           next.registry = new Map([...loaded.registry].map(([id, row]) => [id, { ...row }]));
           Object.assign(next.registry.get(record.id), next.asset, { node: null, instanceId: null });
-          // T-2109: the glass changes exactly where the asset does (transmission
-          // on the full model, the dark plate on the shared `.light` one), so
-          // this rebuild is also the one that changes the glass.
+          // Reapply the requested glass when swapping the full/light asset.
+          // T-2183 defaults both to dark; an explicit comparison stays selected.
           next.buildings = await createBuildings({ registry: next.registry, confidence, terrain,
             checkpoint: bootCheckpoint, preserveMaterials: true, lowSpec: coarse,
             glass: glassForDetail(level, GLASS_REQUEST) });
@@ -2175,6 +2267,7 @@ async function boot() {
       applyShadowTier(level);
       applyFurnitureReach(level);
       applyGroundDetailReach(level);
+      if (coarse) releaseAfterUpload(scene3d, renderer);
       confidence.set(confidence.enabled);
       hud.say(`${level[0].toUpperCase()}${level.slice(1)} detail loaded.`);
     },
@@ -2242,6 +2335,7 @@ async function boot() {
         ...detailOpts(),
       });
       scene3d.add(trees.group);
+      if (coarse) releaseAfterUpload(scene3d, renderer);
       api.flora = flora;
       api.trees = trees;
       confidence.set(confidence.enabled);
@@ -2258,7 +2352,66 @@ async function boot() {
   // own card in the drawer (T-1325). Late-bound on purpose — `openBusiness` is
   // declared with the business index, several hundred lines below, and only ever
   // runs on a tap.
-  const popup = createPopup(popupRoot, { onBusiness: (id) => openBusiness(id) });
+  const popup = createPopup(popupRoot, {
+    onBusiness: (id) => openBusiness(id),
+    onShow: (record) => { void ensureLiberties(); void ensureHouseholdNotes(record); },
+  });
+  // The households' reasoning, per record, on first need (T-2151). publish.sh ships a
+  // seated record's households slim — names, roles, grades and basis, which the title,
+  // the search and the card draw at once — and the paragraphs behind each `why` toggle
+  // in sidecars/<scene>/households/<id>.json: 0.87 MB a first visit no longer loads.
+  // A household with no `why` is one whose notes were deferred (tools/
+  // defer_household_notes.mjs --check holds that every source household has one).
+  // The popup holds the full households beside the record, which stays as shipped, and
+  // redraws. A failure records a problem and leaves the card as drawn, toggles absent.
+  const householdNotes = new Map();
+  const ensureHouseholdNotes = (record) => {
+    const s = record?.sidecar;
+    const households = Array.isArray(s?.residents) ? s.residents : [];
+    if (!households.some((h) => !Object.hasOwn(h, 'why')) || householdNotes.has(record.id)) return;
+    const url = new URL(`sidecars/${loaded.scene.id ?? YEAR}/households/${record.id}.json`, bases.dataBase);
+    householdNotes.set(record.id, fetch(url, { cache: 'no-cache' })
+      .then((res) => {
+        if (!res.ok) throw new Error(`${res.status}`);
+        return res.json();
+      })
+      .then((doc) => {
+        if (!Array.isArray(doc?.residents) || doc.residents.length !== households.length) {
+          throw new Error('does not hold this record\'s households');
+        }
+        popup.setHouseholds(record.id, doc.residents);
+      })
+      .catch((err) => {
+        problems.push(`households/${record.id}.json: ${err.message} — this card shows its households without their notes`);
+      }));
+  };
+  // The liberties the scene takes, in the Evidence panel and on the card. Not
+  // on the boot path (T-2058): only those two read the list, and it was 0.6 MB
+  // of a first visit's 13 MB budget (docs/SITE-BUDGET.md §4b). Fetched once, on
+  // first need, and the card redraws when it lands. A failure degrades the panel
+  // and records a problem; it does not stop the walkthrough.
+  let libertiesPromise = null;
+  const ensureLiberties = () => {
+    if (!libertiesPromise) {
+      libertiesPromise = mountLiberties({
+        mount: document.getElementById('liberties'),
+        noteMount: document.getElementById('liberties-note'),
+        dataBase: bases.dataBase,
+        registry: loaded.registry,
+        problems,
+      }).then((handle) => {
+        api.liberties = handle;
+        // The same list, filtered to the building being inspected, in the
+        // provenance popup. One fetch feeds both views: the panel says what the
+        // scene made up, the card says what THIS building made up, and neither
+        // can drift from the markdown they are both quoting.
+        popup.setLiberties(handle.liberties);
+        return handle;
+      });
+    }
+    return libertiesPromise;
+  };
+  api.loadLiberties = ensureLiberties;
   const navigation = createNavigation({
     root: hudRoot, terrain, registry: loaded.registry, streets,
   });
@@ -2371,8 +2524,11 @@ async function boot() {
     onFly: (on) => { intent.flying = !!on; },
     onGoTo: (target) => goToTarget(target),
     // Hiding a level removes it from the view outright — see confidence.setHidden.
-    onHideLevel: (level, hide) => confidence.setHidden(level, hide),
+    onHideLevel: (level, hide) => { confidence.setHidden(level, hide); gateFrame.invalidate(); },
     onSetting: (key, value) => {
+      // A setting can write a value no material owns (a patched shader's
+      // uniform), which the gate's signature cannot see: draw once regardless.
+      gateFrame.invalidate();
       if (key === 'speed' || key === 'wagonSpeed' || key === 'horseSpeed' || key === 'eyeHeight' || key === 'pace') {
         // The slider values and the pace compose into WALK in one place —
         // travel.applyPace() — so a wagon seat and a raised eye-height slider
@@ -2411,11 +2567,6 @@ async function boot() {
     },
   });
 
-  // The liberties the scene takes, in the Evidence panel. Awaited rather than
-  // fired and forgotten: it is one small JSON, and a visitor who opens the panel
-  // in the first second should not find it empty. A failure here degrades the
-  // panel and records a problem; it does not stop the walkthrough.
-
   // The Evidence panel as a hub of topics rather than one scroll; it reorganises
   // the section's own static markup, so the mounts below keep their ids.
   let sourcesPromise = null;
@@ -2433,7 +2584,10 @@ async function boot() {
   api.evidenceHub = createEvidenceHub({
     root: hudRoot.querySelector('[data-panel="evidence"]'),
     omit: api.drawerOmitted.topics,
-    onTopic: id => { if (id === 'sources') openSources(); },
+    onTopic: id => {
+      if (id === 'sources') openSources();
+      if (id === 'liberties') void ensureLiberties();
+    },
     onTitle: (text, onBack) => hud.setTitle(text, onBack),
   });
   // The town summary used to be part of the loader. It now costs nothing on a
@@ -2454,23 +2608,11 @@ async function boot() {
   hud.onTabChange((tab) => {
     if (tab === 'evidence') {
       void ensureCityCensus();
+      void ensureLiberties();
       api.evidenceHub?.showHub?.({ keep: true });
     }
     if (tab === 'goto') hud.goTo?.refreshDistances?.();
   });
-
-  api.liberties = await mountLiberties({
-    mount: document.getElementById('liberties'),
-    noteMount: document.getElementById('liberties-note'),
-    dataBase: bases.dataBase,
-    registry: loaded.registry,
-    problems,
-  });
-  // The same list, filtered to the building being inspected, in the provenance
-  // popup. One fetch feeds both views: the panel says what the scene made up,
-  // the card says what THIS building made up, and neither can drift from the
-  // markdown they are both quoting.
-  popup.setLiberties(api.liberties.liberties);
 
   // And the town's own law, which belongs to no attribute either. The 5 August 1835
   // ordinance fenced the ground the Trustees thought was built up closely enough to
@@ -3162,6 +3304,7 @@ async function boot() {
     pause: () => {
       if (jauntRuntime?.state.jaunt && !['menu', 'outcome'].includes(jauntRuntime.state.phase)) jauntRuntime.menu();
       gateOpen = true;
+      gateFrame.reset();
       backends.activate(null);
       if (document.pointerLockElement) document.exitPointerLock?.();
       intent.clear();
@@ -3241,7 +3384,7 @@ async function boot() {
   const FLORA_SLICE_MS = 4;
   let stepFloraSpread = false;
 
-  function tick(floraBudget = FLORA_SLICE_MS) {
+  function tick(floraBudget = FLORA_SLICE_MS, force = false) {
     // Keep visual simulation stable, but do not make a visitor crawl in direct
     // proportion to a slow renderer. At 2 fps the former 0.05 s clamp advanced
     // walking by only 0.10 s per real second. Movement now consumes up to a
@@ -3289,10 +3432,16 @@ async function boot() {
     terrain.updateGroundReach(camera.position);
     flora.update(dt, camera, floraBudget);
     trees.update(dt, camera, scene3d.fog?.color);
+    flags.update(dt);
 
-    renderer.render(scene3d, camera);
-    bootController.frameRendered();
-    resolveFirstFrame();
+    // T-2113. Under the gate, draw only a frame that differs from the last one
+    // drawn: the first, one a capture or a test asked for, or one in which
+    // something the renderer reads has moved. Out in the town, every frame.
+    if (!gateOpen || force || pendingCapture || gateFrame.due()) {
+      renderer.render(scene3d, camera);
+      bootController.frameRendered();
+      resolveFirstFrame();
+    }
 
     // Read back inside the frame that drew it. Outside the loop the drawing
     // buffer has already been composited and cleared, and readPixels quietly
@@ -3327,6 +3476,9 @@ async function boot() {
       fpsMark = now;
     }
   }
+  // T-2158: before anything is uploaded, a phone marks the layers that may let
+  // go of their page arrays once the GPU has them (upload-release.js).
+  if (coarse) releaseAfterUpload(scene3d, renderer);
   // Compile programs while the gate can still repaint, before the first draw.
   // The horizon creates its initial geometry on update, so include that too.
   trees.update(0, camera, scene3d.fog?.color);
@@ -3503,7 +3655,7 @@ async function boot() {
       return state;
     },
     /** Force one frame — for tests that must not race the animation loop. */
-    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity); },
+    step() { tick(stepFloraSpread ? FLORA_SLICE_MS : Infinity, true); },
     /** T-2106. Let `step()` spread the flora rebuild as the animation loop
      *  does — for `tools/measure_walk_frames.mjs`, which times that loop. */
     setFloraSpread(on) { stepFloraSpread = !!on; return stepFloraSpread; },
@@ -3621,6 +3773,8 @@ async function boot() {
      */
     farMerge: { get: () => farMerge.state, enumerable: true },
     confidenceView: { get: () => confidence.enabled, enumerable: true },
+    /** T-2113. Ticks the welcome let pass without drawing an unchanged town. */
+    gateFramesHeld: { get: () => gateFrame.held, enumerable: true },
     controlBackend: { get: () => backends.name, enumerable: true },
     footprints: { get: () => footprints, enumerable: false },
     decks: { get: () => decks, enumerable: false },
@@ -3628,6 +3782,7 @@ async function boot() {
     brightness: { get: () => world.brightness, enumerable: true },
     exposure: { get: () => renderer.toneMappingExposure, enumerable: true },
     facadeWeathering: { get: () => buildings.weathering, enumerable: true },
+    uploadRelease: { get: () => uploadReleaseState(), enumerable: true },
   });
 
   // Optional census work may finish later; it cannot hold the street closed.

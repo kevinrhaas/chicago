@@ -58,7 +58,7 @@ SOURCES = ROOT / "data" / "sources"
 TAKES = ("carry", "carry_except", "replace", "drop", "own")
 AUTHORED = ("lake_stage_1812", "water_bodies_1812", "shore_runs_1812", "north_lake_shore_1812",
             "spit_1812", "isthmus_1812", "outlet_channel_1812", "channel_west_bank_ruling",
-            "not_modelled_1812")
+            "not_modelled_1812", "south_lake_sand_hills_1812")
 # The harbour works and the 1835 town, by the block or item that models them. None may
 # survive into the effective 1812 table.
 WORKS = {"approaches", "approaches_note", "street_sections", "islands", "water"}
@@ -315,6 +315,12 @@ def validate(spec: dict, base: dict, shore: dict, epochs: dict,
         if x.get("keep_clear"):
             bad.append(f"dunes.{item_id(x)} keeps clear of a building that stood in 1835, not 1812")
 
+    curve = spec.get("north_lake_shore_1812", {}).get("curve", {})
+    if not isinstance(curve.get("spit_vertex_index"), int) or curve.get("spit_vertex_index", -1) < 0:
+        bad.append("north_lake_shore_1812 needs an outer spit vertex for its reconstructed curve")
+    if not isinstance(curve.get("segments"), int) or not 2 <= curve.get("segments", 0) <= 256:
+        bad.append("north_lake_shore_1812 curve needs 2..256 segments")
+
     # 6. The epoch register points at this file.
     ep = next((e for e in epochs.get("epochs", []) if e.get("id") == "e1830_natural"), {})
     if (ep.get("layers") or {}).get("terrain_spec") != "e1830_natural/terrain_spec.json":
@@ -374,6 +380,32 @@ def self_test(spec, base, shore, epochs) -> int:
            lambda s: s["channel_west_bank_ruling"].__setitem__("west_band_m", 100.0))
     breaks("keeping the 1835 boarding house's keep-clear fails",
            lambda s: s["inherits"]["blocks"]["dunes"].__setitem__("drop_keys", {}))
+    breaks("removing the reconstructed outer join fails",
+           lambda s: s["north_lake_shore_1812"].pop("curve"))
+    # T-2171: exercise the generated boundary, not merely the configured values.
+    import terrain_gen_e1830 as gen
+    datum = load(ROOT / "data" / "datum.json")
+    origin = (datum["origin_utm_e"], datum["origin_utm_n"])
+    feats = {f["id"]: f for name in gen.BASE_VECTORS
+             for f in load(gen.BASE_DIR / name)["features"]}
+    geo = gen.derive_mouth(feats, shore, spec, origin)
+    curve = geo["lake_join"]
+    cases.append(("outer lake join has no inlet or northing reversal",
+                  all(a[0] >= b[0] and a[1] < b[1] for a, b in zip(curve, curve[1:]))))
+    cases.append(("outer lake join is continuous with both retained shores",
+                  gen.same(curve[-1], geo["north"][0]) and curve[0] in geo["shore"]
+                  and geo["shore"][-1] == geo["north"][0]))
+    # Independent baseline positions from the pre-correction geometry, in metres.
+    cases.append(("river bend and southern outlet retain their pre-correction positions",
+                  gen.same(geo["p_sw"], (1209.18978, 321.36944), .001)
+                  and gen.same(geo["x_sw"], (1315.69969, 196.30398), .001)
+                  and gen.same(geo["outlet"], (1163.84, -426.75), .02)
+                  and gen.same(geo["bar_tip"], (1346.94, -435.95), .02)))
+    spit = next(f for f in shore["features"] if f["id"] == "baymouth_bar_1812")
+    lower = [p for p in gen.to_local(spit["geometry"]["coordinates"][0], origin)
+             if p[1] <= curve[0][1]]
+    cases.append(("every lower-spit trace vertex is retained",
+                  all(any(gen.same(p, q) for q in geo["shore"]) for p in lower)))
     for label, ok in cases:
         print(("   ok   " if ok else "   FAIL ") + label)
     return 0 if all(ok for _, ok in cases) else 1

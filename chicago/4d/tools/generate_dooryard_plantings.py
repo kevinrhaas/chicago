@@ -317,6 +317,33 @@ class World:
         self.labels = labels
         self.bank_count = bank_count
         self.taken = taken
+        # WHAT `clear` ASKS OF THESE ON EVERY POINT, ASKED ONCE (T-2117). Each footprint's
+        # centroid, summed the same way `clear` summed it per call, and each street's
+        # and fence's box. `clear` is asked about 61,000 points, and re-summing every
+        # footprint and measuring every street and fence from every one of them was
+        # nearly all of this check's 78 s inside tools/check.sh. The lists are complete
+        # before a World is made (`world()` builds them first) and never grow after.
+        self.obstruction_centroids = [
+            (sum(q[0] for q in fp) / len(fp), sum(q[1] for q in fp) / len(fp), fp)
+            for fp in obstructions]
+        self.street_boxes = [(_box(pts), pts, track_w) for pts, track_w, _b in streets]
+        self.fence_boxes = [(_box(pts), pts) for pts in fences]
+
+
+# A distance below this much of a box's gap is the rounding of a point projected onto a
+# segment, never geometry: `clear` skips a line only when its box clears the margin by
+# more than this, so the verdict is the one the full measurement gives (T-2117).
+_BOX_SLACK_M = 1e-6
+
+
+def _box(pts) -> tuple[float, float, float, float]:
+    return (min(q[0] for q in pts), min(q[1] for q in pts),
+            max(q[0] for q in pts), max(q[1] for q in pts))
+
+
+def _box_gap(e, n, box) -> float:
+    """The least distance from (e, n) to anything inside `box` — a lower bound."""
+    return max(box[0] - e, e - box[2], box[1] - n, n - box[3], 0.0)
 
 
 def world():
@@ -382,8 +409,7 @@ def world():
 
 def clear(p, w) -> bool:
     e, n = p
-    obstructions, streets, fences, walks, hf, taken = (
-        w.obstructions, w.streets, w.fences, w.walks, w.hf, w.taken)
+    walks, hf, taken = w.walks, w.hf, w.taken
     if not (hf.origin_e + EDGE_INSET_M <= e
             <= hf.origin_e + (hf.cols - 1) * hf.cell_m - EDGE_INSET_M
             and hf.origin_n + EDGE_INSET_M <= n
@@ -391,18 +417,22 @@ def clear(p, w) -> bool:
         return False
     if hf.height(e, n) < float(hf.meta.get("water_surface_m", 0.0)) + DRY_FLOOR_M:
         return False
-    for fp in obstructions:
-        cx = sum(q[0] for q in fp) / len(fp)
-        cy = sum(q[1] for q in fp) / len(fp)
+    for cx, cy, fp in w.obstruction_centroids:
         if abs(e - cx) > 60 or abs(n - cy) > 60:
             continue
         if poly_contains(p, fp) or poly_edge_dist(p, fp) < FOOTPRINT_MARGIN_M:
             return False
-    # THE REFUSAL IS UNBOUNDED ON PURPOSE (T-0255): every street, either bank.
-    for pts, track_w, _banks in streets:
-        if path_dist(p, pts) < track_w / 2 + TRACK_SHOULDER_M + TRACK_MARGIN_M:
+    # THE REFUSAL IS UNBOUNDED ON PURPOSE (T-0255): every street, either bank. A street
+    # whose box stands clear of the margin cannot refuse, so it is not measured (T-2117).
+    for box, pts, track_w in w.street_boxes:
+        margin = track_w / 2 + TRACK_SHOULDER_M + TRACK_MARGIN_M
+        if _box_gap(e, n, box) > margin + _BOX_SLACK_M:
+            continue
+        if path_dist(p, pts) < margin:
             return False
-    for pts in fences:
+    for box, pts in w.fence_boxes:
+        if _box_gap(e, n, box) > FENCE_MARGIN_M + _BOX_SLACK_M:
+            continue
         if path_dist(p, pts) < FENCE_MARGIN_M:
             return False
     for a, b, half in walks:

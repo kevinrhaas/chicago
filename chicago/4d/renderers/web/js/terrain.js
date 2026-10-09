@@ -47,6 +47,7 @@
  */
 
 import * as THREE from 'three';
+import { spatialBatch } from './spatial-batch.js';
 import { adaptiveGroundGrid } from './terrain-base.js';
 import { floraInScene } from './flora.js';
 import { PRAIRIE_TILE_PX, prairieTilePixels, prairieTileMeanLuma } from './prairie-tile.js';
@@ -477,7 +478,22 @@ export async function createTerrain({
   // or throw the floor away by mistake. True of one mesh; not true of the ground.
   // Cut it into tiles and the half of the world behind you stops being drawn —
   // see tileGround() for the measurements behind the grid below.
-  const tiles = tileGround(ground, groundTileGrid);
+  const sourceTiles = tileGround(ground, groundTileGrid);
+  // Keep each source tile's draw call, but give its dense ground 40 m pieces
+  // with independently tested bounds. The 240 m Light reach used to retain a
+  // whole ~235 m tile when only its nearest corner was in range. Batching keeps
+  // every original triangle/attribute and the same reach; the continuous base
+  // already carries everything beyond it. The small apron remainder stays one
+  // mesh: it is deliberately outside the detailed heightfield's reach policy.
+  const tiles = sourceTiles?.map((tile) => {
+    if (tile.name.endsWith('__tthin')) return tile;
+    const batch = spatialBatch(tile.geometry, tile.material);
+    batch.name = tile.name;
+    batch.receiveShadow = tile.receiveShadow;
+    batch.castShadow = tile.castShadow;
+    tile.geometry.dispose();
+    return batch;
+  });
   /** One banked WORLD bounding box per ground tile, for the reach below.
    *  Empty when the ground was too coarse to tile, which is the case the reach
    *  has nothing to say about: one mesh around the camera is always near. */
@@ -485,7 +501,7 @@ export async function createTerrain({
   if (tiles) {
     for (const tile of tiles) {
       group.add(tile);
-      disposables.push(tile.geometry);
+      disposables.push(tile.isBatchedMesh ? tile : tile.geometry);
     }
     // The source mesh is never added to the scene, so nothing else will dispose it.
     ground.geometry.dispose();
@@ -533,6 +549,9 @@ export async function createTerrain({
     groundBase.frustumCulled = true;
     group.add(groundBase);
     disposables.push(groundBase.geometry);
+    // batchDistantGround() re-reads these arrays after a phone has already
+    // uploaded the terrain layer, so they must outlive that upload (T-2180).
+    groundBase.geometry.userData.rereadBeforeRelease = true;
   }
 
   // ---- the water --------------------------------------------------------- //
@@ -589,6 +608,19 @@ export async function createTerrain({
   if (tiles) {
     group.updateWorldMatrix(true, true);
     for (const tile of tiles) {
+      if (tile.isBatchedMesh) {
+        for (let instance = 0; instance < tile.userData.spatialBatch.pieces; instance++) {
+          // spatialBatch owns one geometry per identity instance, in the same
+          // order. Read its actual bounds, including corners across a grid edge.
+          const box = tile.getBoundingBoxAt(instance, new THREE.Box3()).clone();
+          box.applyMatrix4(tile.matrixWorld);
+          const e = (box.min.x + box.max.x) / 2;
+          const n = -(box.min.z + box.max.z) / 2;
+          groundBounds.push({ mesh: tile, instance, min: box.min, max: box.max,
+                              overField: heightfield.contains(e, n) });
+        }
+        continue;
+      }
       if (!tile.geometry.boundingBox) tile.geometry.computeBoundingBox();
       const box = tile.geometry.boundingBox?.clone();
       if (!box) continue;
@@ -636,13 +668,50 @@ export async function createTerrain({
     protectGroundUnder(footprints) {
       if (!groundBase || !heightfield.loaded) return null;
       const geometry = gridGeometry(heightfield, GROUND_BASE_STEP, footprints);
+      if (groundBase.isBatchedMesh) {
+        const next = spatialBatch(geometry, groundBase.material);
+        next.name = groundBase.name;
+        next.position.copy(groundBase.position);
+        next.receiveShadow = groundBase.receiveShadow;
+        next.castShadow = groundBase.castShadow;
+        const slot = disposables.indexOf(groundBase);
+        if (slot >= 0) disposables[slot] = next;
+        else disposables.push(next);
+        group.remove(groundBase);
+        groundBase.dispose();
+        geometry.dispose();
+        group.add(next);
+        groundBase = next;
+        return geometry.userData.adaptiveGround;
+      }
       const previous = groundBase.geometry;
+      geometry.userData.rereadBeforeRelease = true;
       const slot = disposables.indexOf(previous);
       if (slot >= 0) disposables[slot] = geometry;
       else disposables.push(geometry);
       groundBase.geometry = geometry;
       previous.dispose();
       return geometry.userData.adaptiveGround;
+    },
+    /** Batch the protected continuous base too: one draw call, with original
+     *  triangles behind the eye or beyond the frustum omitted per piece. Called
+     *  after frontage publishes its accepted crossing protection at boot. */
+    batchDistantGround() {
+      if (!groundBase || groundBase.isBatchedMesh) return false;
+      const previous = groundBase;
+      const batch = spatialBatch(previous.geometry, previous.material);
+      batch.name = previous.name;
+      batch.position.copy(previous.position);
+      batch.receiveShadow = previous.receiveShadow;
+      batch.castShadow = previous.castShadow;
+      const slot = disposables.indexOf(previous.geometry);
+      if (slot >= 0) disposables[slot] = batch;
+      else disposables.push(batch);
+      group.remove(previous);
+      previous.geometry.dispose();
+      group.add(batch);
+      groundBase = batch;
+      return true;
     },
     /**
      * Point the water at the same distance the air is pointing at — T-1631.
@@ -733,8 +802,11 @@ export async function createTerrain({
         const reach = bound.overField
           ? Math.min(groundReachM, groundDetailReachM) : groundReachM;
         const far = dx * dx + dy * dy + dz * dz > reach * reach;
-        bound.mesh.visible = !far;
-        bound.mesh.userData.reachCulled = far;
+        if (bound.instance !== undefined) bound.mesh.setVisibleAt(bound.instance, !far);
+        else {
+          bound.mesh.visible = !far;
+          bound.mesh.userData.reachCulled = far;
+        }
         if (far) held++; else drawn++;
       }
       groundDrawn = drawn;
@@ -884,14 +956,33 @@ function tileGround(mesh, grid) {
   const tiles = [];
   const built = [...buckets.entries()].sort((x, y) => x[0] - y[0]);
   if (thin.length) built.push(['thin', thin]);
+  // T-2158: an indexed ground stays indexed in its tiles. Copying three vertices
+  // per triangle made each tile about six times the vertices the grid shares —
+  // 98 MB of ground, held once in the page and again on the GPU, which is what a
+  // phone ran out of. A tile's corners are the source's own vertices, renumbered,
+  // so every triangle reads exactly the values it read before.
+  const local = index ? new Int32Array(pos.count).fill(-1) : null;
   for (const [key, verts] of built) {
     const tileGeo = new THREE.BufferGeometry();
+    let picks = verts;
+    if (local) {
+      picks = [];
+      const tileIndex = new Uint32Array(verts.length);
+      for (let i = 0; i < verts.length; i++) {
+        const v = verts[i];
+        if (local[v] < 0) { local[v] = picks.length; picks.push(v); }
+        tileIndex[i] = local[v];
+      }
+      for (const v of picks) local[v] = -1;
+      tileGeo.setIndex(new THREE.BufferAttribute(
+        picks.length <= 65535 ? Uint16Array.from(tileIndex) : tileIndex, 1));
+    }
     for (const name of names) {
       const src = geo.attributes[name];
       const size = src.itemSize;
-      const out = new Float32Array(verts.length * size);
-      for (let i = 0; i < verts.length; i++) {
-        const v = verts[i];
+      const out = new Float32Array(picks.length * size);
+      for (let i = 0; i < picks.length; i++) {
+        const v = picks[i];
         for (let k = 0; k < size; k++) out[i * size + k] = src.array[v * size + k];
       }
       tileGeo.setAttribute(name, new THREE.BufferAttribute(out, size));
@@ -1653,10 +1744,14 @@ const TURF_FRAGMENT = /* glsl */`
   if (chiTurfQ.x > 0.0 && chiTurfQ.y > 0.0 && chiTurfQ.x < 1.0 && chiTurfQ.y < 1.0) {
     float chiTurfM = textureLod(uTurfMask, chiTurfQ, 0.0).r;
     if (chiTurfM > 0.002) {
-      // The edge grades over the mask's own ramp and is ragged at 3 m, so the
-      // town's ground meets the prairie as a worn margin and not a contour.
-      chiTurfW = smoothstep(0.25, 0.75,
-        chiTurfM + 0.35 * (chiTurfNoise(chiTurfEN / 3.3 + 5.1) - 0.5));
+      // The mask is the SHARE of the sward the town holds (T-2125: the zone
+      // finder blends the edge over about 100 m), so the turf grades across that
+      // whole band — broken into 20 m tongues and patches of worn ground and
+      // ragged at 3 m — and the town's ground meets the prairie as a margin
+      // that thins out, not a contour.
+      chiTurfW = smoothstep(0.12, 0.88, chiTurfM
+        + 0.30 * (chiTurfNoise(chiTurfEN / 21.0 + 9.4) - 0.5)
+        + 0.30 * (chiTurfNoise(chiTurfEN / 3.3 + 5.1) - 0.5));
       // The turf carries its own relief, so the prairie's grass grain (T-2089)
       // gives way to it, as it does inside every zone that is not prairie.
       chiSwardW *= 1.0 - chiTurfW;

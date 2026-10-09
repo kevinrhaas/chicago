@@ -118,6 +118,30 @@
   },
   "note": "THE RECORD DOES NOT REACH THE DAY. Every source that names this person falls on one side of 1 July 1835, and nothing follows them to it or says they left. `uncertain` rather than dropped — the distinction index.json draws for Jeremiah Porter, and a finding, not a gap."
  },
+ "kin": [
+  {
+   "person": "bourassa_noel",
+   "relation": "son",
+   "household": "hh_bourrassa_leon",
+   "value": "bourrassa_leon",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_23_2_father, st_marys_bapt_1834_23_1_child), so no identification is made here. The son term is the entry's: 'Noel Bourassa fils de Léon Bourassa'."
+  },
+  {
+   "person": "bourassa_noel",
+   "relation": "son",
+   "household": "hh_laframboise_marguerite",
+   "value": "laframboise_marguerite",
+   "confidence": "attested",
+   "sources": [
+    "st_marys_baptismal_register_1833_1835"
+   ],
+   "note": "STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, NOT BY NAME. Le 29 10bre mil huit cent trente quatre, je soussigné ai baptisé Noel Bourassa fils de Léon Bourassa et de Marguerite Laframboise, âgé de deux ans. Parrain et marraine ont été M. Rowe[?] et Thérèse Peltier Laframboise. Both cards were minted from this entry's rows (st_marys_bapt_1834_23_3_mother, st_marys_bapt_1834_23_1_child), so no identification is made here. The son term is the entry's: 'Noel Bourassa fils de Léon Bourassa'."
+  }
+ ],
  "persons": [
   {
    "id": "bourassa_noel",
@@ -146,23 +170,6 @@
      "rule": "G2c"
     }
    ],
-   "sex": "male",
-   "sex_basis": {
-    "value": "male",
-    "confidence": "reconstructed",
-    "tier": "reconstructed",
-    "basis": {
-     "kind": "model",
-     "id": "sex_share_of_the_roll",
-     "note": "Drawn at 94.7% male, the rate measured on the civic roll's own people whose sex the evidence settles. data/reconstruction/1835_sex_age_model.json holds the measurement."
-    },
-    "seed": "bourassa_noel:sex_ratio",
-    "replaceable_by": {
-     "kind": "person",
-     "match": "a source that records this person's sex, a gendered title on their name, or a forename the project's evidence lets fire"
-    },
-    "note": "A DRAW, NOT A READING. Nothing about this person says which sex they were: T-1303 refused the name and was right to. This value is drawn from the measured male share of the roll the person was named on, seeded by their own id so the draw reproduces - retype 'bourassa_noel:sex_ratio' and the same face comes up. It carries no weight as evidence about this person and it is never promoted. The rate is a ceiling rather than a point reading, because the forename table that settled the rest was built mostly on men's names."
-   },
    "age_band": {
     "value": "0-4",
     "low": 0,
@@ -180,6 +187,15 @@
      "match": "a source that states this person's age, their birth year, or an interval either can be read out of"
     },
     "note": "AN AGE BAND, NEVER A YEAR. No source this project holds bears on when this person was born, so the band is drawn from the only committed sex by age distribution the project has - the 1840 Chicago schedule, five years after the scene and a town twice the size - seeded by this person's own id ('bourassa_noel:age_bands_1840'). AND THE CONDITIONING IS THE MODEL'S, NOT A SOURCE'S: nothing beyond what the record already says: the band is drawn from the schedule's child bands because the record calls them a child. No exact year is written, because a year drawn from a decadal band would read as a record of a birth."
+   },
+   "sex": "male",
+   "sex_basis": {
+    "value": "male",
+    "confidence": "inferred",
+    "note": "THE REGISTER STATES IT. St Mary's baptismal register, in the priest's own hand, entry 1834-23 writes 'Noel Bourassa fils' — so this person was male, and that is read off the entry rather than off the name or the roll. A role and a kinship word are statements about the person; no draw stands against them.",
+    "sources": [
+     "st_marys_baptismal_register_1833_1835"
+    ]
    }
   }
  ],

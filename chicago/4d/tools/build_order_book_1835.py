@@ -157,7 +157,24 @@ HOUSEHOLD_TYPES = (
 # households these rows still order: those are a reconciliation against the head records
 # awaiting a household, which is T-2043's. A row that still owes work may not name a
 # ticket that is finished.
-FAMILY_OWNER = "T-2043"
+# SWEPT AGAIN ON T-2043's SPLIT (2026-10-08, ported by T-2186 so every branch's gate
+# stops reading a split owner). T-2043 split into T-2187 (rule on the adult men the book
+# still orders into family houses) and T-2188 (seat the family and store households), so
+# the person rows go to the first and the household rows to the second.
+# The two halves were never one question. The MEN are a counting artifact, measured and ruled by
+# T-2187 (`ADULT_MEN_OWNER`, `adult_men_ruling` below): the known people are credited to the
+# cells PRO RATA, so the town's named heads — men, nearly every one — were counted partly
+# as women and children, and the adult-male family cells read short of men the cards hold
+# several hundred over. The HOUSEHOLDS are real work: 392 family and store houses the model
+# wants, and 1,244 present head records with no reading about a dwelling to form them
+# around. That is T-2188's.
+# SWEPT AGAIN ON T-2188's SPLIT (2026-10-08, ported by T-2190 so its gate stops reading a
+# split owner): the family dwellings go to T-2193, which counts the ones the town already
+# forms around held heads, and the store residences to T-2194.
+FAMILY_OWNER = "T-2187"
+FAMILY_HOUSEHOLD_OWNER = "T-2193"
+STORE_RESIDENCE_OWNER = "T-2194"
+ADULT_MEN_OWNER = FAMILY_OWNER
 # …and the ruling T-2021 made, whose fills are an order of their own (`family_ruling_orders`).
 FAMILY_RULING_TICKET = "T-2021"
 
@@ -240,9 +257,19 @@ PERSON_TICKET_RULES = (
     # T-1347 repointed this off its split parent. T-1173 was the epic; it split into
     # T-1346 (read the 1839 trade table) and T-1347 (draw the heads), and a bucket whose
     # owning ticket is a SPLIT parent names nobody who can act on it (T-1237).
-    ("an adult at a trade", lambda a: a["trade"] == "trade", "T-1347"),
+    # SWEPT ON T-2178 (2026-10-08). T-1347 drew the trade heads and is done; its cells sat
+    # at their order until six St Mary's infants, carded as heads and counted in them,
+    # were ruled not yet born on the day and left one owing. Every cell that reaches this
+    # rule is a FAMILY cell (the fort, transient and lodging rows are taken above), so
+    # what is left in it is the family reconciliation, which is FAMILY_OWNER's.
+    # Repointed on T-2043's split: what reaches the two rules below is an adult man in a
+    # family house, at a trade or not (women and the young are taken by T-1174's rule
+    # first), so it is T-2187's ruling on the adult men, which discharges what the cards
+    # already hold. A row that owes again once it has closed is a re-ruling, and the
+    # live-ticket gate says so.
+    ("an adult at a trade", lambda a: a["trade"] == "trade", ADULT_MEN_OWNER),
     ("a woman or a person under twenty", lambda a: a["sex"] == "female" or a["age_band"] in ("under_10", "10_19"), "T-1174"),
-    ("otherwise: a family drawn from the household model", lambda a: True, FAMILY_OWNER),
+    ("otherwise: a family drawn from the household model", lambda a: True, ADULT_MEN_OWNER),
 )
 
 # The roster's classes, and the ticket each class is offered to. A roster class is
@@ -260,8 +287,8 @@ ROSTER_TICKETS = {
 # Household types against the roof groups that hold them, and the ticket that
 # reconstructs the household (not the roof — that is the structure band).
 HOUSEHOLD_BUCKETS = (
-    ("family_dwelling", "ordinary_dwellings", FAMILY_OWNER),
-    ("store_residence", "stores_mixed_use", FAMILY_OWNER),
+    ("family_dwelling", "ordinary_dwellings", FAMILY_HOUSEHOLD_OWNER),
+    ("store_residence", "stores_mixed_use", STORE_RESIDENCE_OWNER),
     # Swept with the person rule above (T-1420 -> T-1500 -> T-1534 -> T-1537 on
     # 2026-09-24, T-1534 having split the same day). Of
     # T-1500's three successors T-1534 is the one that holds a lodging HOUSEHOLD: the
@@ -384,13 +411,37 @@ STRUCTURE_TICKETS = {
     # T-2129 (the Market block's five houses) and T-2130 (the Dearborn and Clark blocks' slots)
     # — and a row naming a split ticket orders work nobody can claim. That took dev's own gate
     # red on this one row, after the split's own branch had gated green, and every open pull
-    # request with it. Both children are live and both raise this cell's dwellings, so the rule
-    # above would accept either; it goes to T-2130 because that is the one that raises the
-    # dwellings LEFT once the Market block in flight is built. The cell owes far more than
-    # either block, so naming T-2129 would only order the next sweep the moment it closes,
-    # inside a pull request already mid-build; naming T-2130 lets T-2129 close untouched and
-    # moves the row again only when T-2130 closes with it still owing, as the chain expects.
-    ("south", "ordinary_dwellings"): "T-2130",
+    # request with it.
+    #
+    # AND ON TO T-1755 WITH T-2130's OWN PR, because T-2130 raises the Dearborn and Clark blocks
+    # to their lot ceilings and closes with the cell still owing — a row naming a done ticket
+    # orders work nobody can claim, exactly as a split one does. T-1755 is "the South
+    # Division's remaining ordinary dwellings ... after the plat's last tier" in as many words,
+    # `open` and claimable, so the row stops moving with every block of this tier and waits
+    # where the remainder is owned.
+    #
+    # DEV MOVED IT TO T-2144 FIRST, the moment the split landed, so the row would name a
+    # claimable child; T-2144 is this PR and goes `done` when it merges, so the row moves
+    # one piece on, to T-2145, in the same commit.
+    #
+    # AND ON TO T-2145 WITH T-2144's OWN PR (2026-10-05). The owner answered T-1755's
+    # question (b) — cross Madison onto the School Section's Madison-Monroe tier — and the
+    # run that took it split it four ways: T-2144 joins the tier to the grid and the
+    # schedule, and T-2145/T-2146/T-2147 build its Clark, Wells and Market blocks. The row
+    # waits on the first build piece, the one the tier's dwellings are dealt to next.
+    #
+    # AND ON TO T-2146 WITH T-2145's OWN PR (2026-10-06). T-2145 builds the Clark blocks
+    # (118, 119) and goes `done` when it merges, so the row moves one piece on to the Wells
+    # blocks (94, 95), the next build piece still open.
+    #
+    # AND ON TO T-2147 WITH T-2146's OWN PR (2026-10-06). T-2146 builds the Wells blocks
+    # and goes `done` when it merges, so the row moves to the Market block (81), the last
+    # build piece of the tier still live.
+    #
+    # AND ON TO T-2176 WITH T-2147's OWN PR (2026-10-08). T-2147 built block 81's six dwellings
+    # and goes `done` when it merges; the seating's fixpoint over them leaves South dwellings
+    # still ordered (a D4 slot on block 81's lot 1, a D5 on block 95's), and T-2176 owns them.
+    ("south", "ordinary_dwellings"): "T-2176",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
     # whose `owning_ticket` names a ticket in state `split` orders work nobody can claim,
@@ -455,7 +506,10 @@ STRUCTURE_TICKETS = {
     # the cell moves to T-1957, which owns the five the book still orders: the one H3 the
     # schedule re-apportions to blk_washington_market once those three stand, the one on
     # the gated blk_south_water_market, and three the plan holds no roof for at all.
-    ("south", "larger_boarding_houses"): "T-1957",
+    # T-1957 SPLIT on 2026-10-08 (ported by T-2190 so its gate stops reading a split
+    # owner): T-2195 cuts the Market wedge into lots and T-2196 raises the South's two owed
+    # boarding houses on them, so the cell moves to T-2196.
+    ("south", "larger_boarding_houses"): "T-2196",
     # The taverns' cell is FULL — 5 of 5, nothing owed — so this names the child that
     # would answer for it if it ever owed again: T-1683 closes the district's books and
     # states its headroom, which is where a cell that reopens would be found.
@@ -500,15 +554,23 @@ STRUCTURE_TICKETS = {
     # and the street line carries the whole order, on T-1673. This entry is what a banded
     # cell falls back to if its bands are ever taken out of the inventory, so it names the
     # half that would still owe. It is not read while the bands stand.
-    ("south", "warehouses_freight"): "T-1673",
+    #
+    # AND ON TO T-2175 WHEN T-1673 WAS SPLIT (2026-10-08, T-2174 + T-2175). T-2174 raises the
+    # street line's F2 and goes `done` when it merges, so the order moves to the piece that
+    # carries the rest of the line, as the band in the inventory does.
+    ("south", "warehouses_freight"): "T-2175",
     # T-1202 WAS SPLIT on 2026-09-27 and closed with T-1688, the Randolph tier's books, so
     # this row named a ticket nobody can claim (T-1705). It orders nothing — the five
     # civic roofs the matrix sets all stand, and T-1202 raised none of them, so its id here
     # was never the provenance of a fill that the gate's own rule would have kept. A sixth
     # civic roof in the South would be the programme re-budgeted, and the ticket that owns
     # the programme's remainders is T-1983, "the programme reconciled", the same owner the
-    # South's stable and outbuilding rows below were moved to for the same reason.
-    ("south", "institutional_public"): "T-1983",
+    # South's stable and outbuilding rows below were moved to for the same reason. T-1983
+    # was split on 2026-10-08 and its roof re-budget went to T-2156, so this row follows.
+    # T-2156 WAS SPLIT the same day (T-2165, T-2166), and T-2166 in turn (T-2167, T-2168);
+    # the re-budget went to T-2168.
+    # T-2168 was split as well (T-2169, T-2170); the re-budget question is T-2170's.
+    ("south", "institutional_public"): "T-2170",
     # T-1212 WAS SPLIT on 2026-10-02 (T-1958..T-1961): the stables and the privies were
     # T-1960's, "wells, privies and stables by household", in all three divisions.
     # MOVED TO T-1215, THEN T-1967, by the pull request that closed T-1960. T-1960 dealt its privies and
@@ -520,8 +582,22 @@ STRUCTURE_TICKETS = {
     # T-1967 shipped the completion report and the City card's completion row and handed
     # "the programme reconciled" — these roofs with it — to T-1983, which answers now.
     # Naming the closed T-1960 or the split T-1215 would order work nobody can claim.
-    ("south", "barns_stables"): "T-1983",
-    ("south", "small_outbuildings"): "T-1983",
+    # T-1983 WAS SPLIT on 2026-10-08 (T-2154..T-2156) and its roofs went to T-2156, "build
+    # or re-budget the barns_stables and small_outbuildings roofs" — the piece that answers
+    # for these cells, here and in the West and North rows below.
+    # T-2156 WAS SPLIT on 2026-10-08 too: T-2165 dealt the yard roofs the schedule places
+    # on lots that can hold them (the South's barn and smokehouse, the North's stable), and
+    # T-2166 (split again the same day into T-2167, the West's four on blk_washington_clinton,
+    # and T-2168) took the rest. The South's last barn is T-2147's block 81 while that PR is
+    # open, so these rows name T-2168, the live owner of what is left, and not T-2165, which
+    # closes with nothing of the South's still owed to it. T-2168 was then split too
+    # (T-2169, the West's last three on blk_washington_clinton; T-2170, the North's five
+    # barns and the re-budget question), so the South's rows name T-2147 itself — the
+    # build that carries the South's one owed barn (an A2 on blk_school_section_tier_81).
+    # T-2147 was re-dealt over T-2146 (2026-10-08) and the schedule no longer gives block 81
+    # a yard roof, so the South's one owed barn moves to T-2176 with its owed dwellings.
+    ("south", "barns_stables"): "T-2176",
+    ("south", "small_outbuildings"): "T-2176",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West
     # blocks at a West density and built blk_west_randolph_des_plaines's three cottages. What
     # is left in this cell — blk_west_lake_canal's four dealt cottages and the district
@@ -538,7 +614,16 @@ STRUCTURE_TICKETS = {
     # to T-1829, filed for exactly this remainder, blk_west_lake_canal's three cottages first.
     # T-1829 built blk_west_lake_canal's three cottages (2026-10-05) and handed the 12 left
     # here, and the West rows below, to T-2132: every lot-ruled West block reads at_capacity.
-    ("west", "ordinary_dwellings"): "T-2132",
+    # T-2132 cut plat block 44 on its own two printed depths and built its four (2026-10-05),
+    # and handed the 8 left here, and the West rows below, to T-2143.
+    # T-2143 carried Canal and West Water to Madison, brought plat block 51 onto the layer
+    # and built its six (2026-10-05), and handed the 2 left here, and the West rows below,
+    # to T-2148: blocks 48-50 on the same tier print 180 ft and wait only on three lines.
+    # T-2148 carried Clinton, Jefferson and Des Plaines to Madison and built plat block 50's
+    # thirteen roofs (2026-10-06): West dwellings read 75 of 75, and the one freight roof
+    # left (block 50's F3, deferred because the block is inland) goes with these rows to
+    # T-2150, filed for exactly that.
+    ("west", "ordinary_dwellings"): "T-2150",
     # T-1207 WAS SPLIT on 2026-09-29 (T-1760 … T-1764) and these four rows move with it, by
     # the same test the T-1206 and T-1754 sweeps below and above used: WHICH CHILD RAISES THE
     # ROOFS THAT ARE LEFT. The gate went red on three of them within twenty minutes of the
@@ -562,10 +647,10 @@ STRUCTURE_TICKETS = {
     # which closes the West's books and hands T-1208 "the West's exact remainder".
     # Both read complete (6 of 6, 8 of 8) when T-1774 split, and move with the remainder to
     # T-1829 so the row names a live ticket.
-    ("west", "stores_mixed_use"): "T-2132",
+    ("west", "stores_mixed_use"): "T-2150",
     ("west", "larger_boarding_houses"): "T-1953",
     ("west", "inns_taverns"): "T-1762",
-    ("west", "workshops"): "T-2132",
+    ("west", "workshops"): "T-2150",
     # T-1764 WAS SPLIT on 2026-10-01: T-1773 is "the West's last freight roof" by name.
     # T-1773 landed (#217) and the row reads 2 of 2; it moves to its sibling T-1774, which
     # names T-1773 in the builds it closes the Wolf Point books behind. When T-1774 split
@@ -573,11 +658,11 @@ STRUCTURE_TICKETS = {
     # verdict, which T-1827 carries out, takes a roof out of this row. T-1827 did (046 is
     # an H2 house now), so the row reads 1 of 2 and the freight roof it orders goes with the
     # rest of the West's remainder to T-1829, which already holds stores and workshops.
-    ("west", "warehouses_freight"): "T-2132",
+    ("west", "warehouses_freight"): "T-2150",
     # T-1208 was split the same hour (T-1781): its closer T-1785 answers for this empty cell.
     ("west", "institutional_public"): "T-1785",
-    ("west", "barns_stables"): "T-1983",  # moved with the South's, above
-    ("west", "small_outbuildings"): "T-1983",  # moved with the South's, above
+    ("west", "barns_stables"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
+    ("west", "small_outbuildings"): "T-2169",  # T-2156 -> T-2166 -> T-2168 -> T-2169, above
     # T-1206 WAS SPLIT on 2026-09-28 (T-1741, T-1742) and this row moved with it, for the
     # reason the T-1200 block below states at length: a bucket whose `owning_ticket` names a
     # ticket in state `split` orders work nobody can claim, and the gate says so — it went red
@@ -639,6 +724,11 @@ STRUCTURE_TICKETS = {
     # apportioned `roofs: 0`, so there is nowhere on this addition the 26 can stand without
     # either the memo or the seating giving way. Ordering them from T-1746 is the order book
     # saying so: the next run on this cell rules, and does not deal.
+    #
+    # T-1746 RULED, 2026-10-05: the memo stands and the seating gives way. The 26 stand
+    # south of Michigan Street as recipe rows 68-93 of 1835_north_division_initial_parcel.json
+    # (`addition_surplus`, L393), so the row reads 0 left. It keeps T-1746's name as the
+    # ticket that closed it; a later raise of the North's target is a new ticket.
     ("north", "ordinary_dwellings"): "T-1746",
     ("north", "stores_mixed_use"): "T-1205",
     ("north", "larger_boarding_houses"): "T-1952",
@@ -650,8 +740,8 @@ STRUCTURE_TICKETS = {
     # warehouse there. T-2022 is filed for exactly that cell.
     ("north", "warehouses_freight"): "T-2022",
     ("north", "institutional_public"): "T-1205",
-    ("north", "barns_stables"): "T-1983",  # moved with the South's, above
-    ("north", "small_outbuildings"): "T-1983",  # moved with the South's, above
+    ("north", "barns_stables"): "T-2170",  # T-2156 -> T-2166 -> T-2168 -> T-2170, above
+    ("north", "small_outbuildings"): "T-2170",  # T-2156 -> T-2166 -> T-2168 -> T-2170, above
     ("fort", "fort_principal"): "T-1204",
     ("fort", "stores_mixed_use"): "T-1204",
     ("fort", "workshops"): "T-1204",
@@ -885,7 +975,121 @@ def load(root: Path = ROOT) -> dict:
     ruling = root / "data" / "reconstruction" / "1835_family_ruling.json"
     out["family_ruling"] = (json.loads(ruling.read_text(encoding="utf-8"))
                             if ruling.exists() else {})
+    # T-2187's MEASURE, read off the cards the index points at. Only the committed tree
+    # carries it; a fixture book has none, and orders as it always did.
+    out["adult_men"] = adult_men_on_the_cards(out["residents"], out["presence_rulings"],
+                                              root / "data" / "residents")
     return out
+
+
+def adult_men_on_the_cards(residents: dict, rulings: dict, folder: Path) -> dict:
+    """THE MEN THE TOWN ALREADY HOLDS, BY THEIR OWN CARDS (T-2187).
+
+    `known_layer` reads the index, which counts people and not who they are, and
+    `person_buckets` spreads them over the cells PRO RATA (rule 2). For most purposes that
+    is the honest thing to do with a count. For the adult men it is not, because the named
+    town is not a cross-section of the model: two records in three are a letter-list name,
+    and that roll is 94.3% male. Spread pro rata, the named heads are credited mostly to
+    women's and children's cells, and the adult-male family cells read short of men.
+
+    So this reads each present card — the same test `known_layer` applies: `present`, or
+    `uncertain` and ruled in — and counts the NAMED persons (never a reconstructed one,
+    whose cell is `filled`) the card itself gives as male and aged twenty or more. The fort
+    and the man outside the town are not the civil town the cells apportion. A man whose
+    card carries no age is not counted, and the count of them is said."""
+    ruled = ruled_present(rulings)
+    men, unaged = Counter(), 0
+    for hh in residents.get("households", []):
+        presence = hh.get("present_on_scene_date")
+        if not (presence == "present" or (presence == "uncertain" and hh.get("id") in ruled)):
+            continue
+        division = hh.get("division")
+        if division not in CIVIL_DIVISIONS + ("unplaced",):
+            continue
+        card = json.loads((folder / hh["file"]).read_text(encoding="utf-8"))
+        for person in card.get("persons") or []:
+            if person.get("grade") == "reconstructed":
+                continue
+            basis = person.get("sex_basis")
+            sex = (basis.get("value") if isinstance(basis, dict) else basis) or person.get("sex")
+            if sex != "male":
+                continue
+            band = person.get("age_band")
+            low = band.get("low") if isinstance(band, dict) else None
+            if low is None:
+                unaged += 1
+            elif int(low) >= ADULT_FROM:
+                men[division] += 1
+    return {"named_adult_men": sum(men.values()),
+            "by_division": {d: men[d] for d in CIVIL_DIVISIONS + ("unplaced",)},
+            "named_men_with_no_age_not_counted": unaged}
+
+
+def adult_men_ruling(buckets: list, measure: dict) -> dict:
+    """T-2187: the adult men the family cells order, set against the men the town holds. In place.
+
+    The model's civil town wants a number of men aged twenty and over; the town holds its
+    NAMED adult men (read off the cards, `adult_men_on_the_cards`) and the adult men the
+    stages DREW (`filled` in the adult-male cells). Whatever the town still lacks of the
+    model's figure is all the men it can be owed. The family cells' remainder above that is
+    the pro-rata credit's artifact, and it is DISCHARGED here: the cell's order falls to its
+    own `filled`, and `discharged_by_the_men_ruling` carries what it was ordering, so the
+    discharge is read rather than clamped in silence. Cells are walked in key order, so a
+    partial discharge is the same discharge on every build. Nobody is retired, moved or
+    drawn; a cell that would owe again when the town stops holding the men reopens on the
+    next build."""
+    def adult_man(a: dict) -> bool:
+        return (a.get("sex") == "male" and a.get("division") in CIVIL_DIVISIONS
+                and a.get("household_type") in ("family", "lodging")
+                and a.get("age_band") not in ("under_10", "10_19"))
+    men = [b for b in buckets if adult_man(b["axes"])]
+    target = sum(b["target"] for b in men)
+    drawn = sum(b["filled"] for b in men)
+    named = measure["named_adult_men"]
+    lacking = max(0, target - named - drawn)
+    cells = [b for b in sorted(men, key=lambda b: b["key"])
+             if b["axes"]["household_type"] == "family"
+             and b.get("owning_ticket") == ADULT_MEN_OWNER
+             and (b["to_reconstruct"] or 0) > b["filled"]]
+    ordered = sum((b["to_reconstruct"] or 0) - b["filled"] for b in cells)
+    left = max(0, ordered - lacking)
+    discharged = {}
+    for b in cells:
+        if not left:
+            break
+        take = min(left, (b["to_reconstruct"] or 0) - b["filled"])
+        b["discharged_by_the_men_ruling"] = take
+        b["to_reconstruct"] -= take
+        discharged[b["key"]] = take
+        left -= take
+    credited = sum(b.get("known_attested", 0) + b.get("known_inferred", 0) for b in men)
+    return {
+        "ticket": ADULT_MEN_OWNER,
+        "asks": "The family cells order adult men the town does not hold. Does it hold them?",
+        "model_civil_adult_men": target,
+        "named_adult_men_on_the_cards": named,
+        "named_by_division": measure["by_division"],
+        "named_men_with_no_age_not_counted": measure["named_men_with_no_age_not_counted"],
+        "adult_men_drawn": drawn,
+        "the_town_holds": named + drawn,
+        "the_pro_rata_credit_gave_these_cells": credited,
+        "the_family_cells_ordered": ordered,
+        "the_town_still_lacks": lacking,
+        "discharged": sum(discharged.values()),
+        "discharged_by_cell": discharged,
+        "measured": (f"The model's civil town wants {target:,} men aged twenty and over. The "
+                     f"present cards name {named:,} and the stages drew {drawn:,}, so the town "
+                     f"holds {named + drawn:,}"
+                     + (f", {named + drawn - target:,} over the model's figure"
+                        if named + drawn >= target else f", {lacking:,} short of it")
+                     + f". The pro-rata credit gave these cells {credited:,} of the named; the "
+                     f"rest were counted in women's and children's cells. The family cells "
+                     f"ordered {ordered:,} more and {sum(discharged.values()):,} are discharged."),
+        "what_this_does_not_do": "It moves nobody, retires nobody and draws nobody, and it "
+                                 "does not touch the women's or children's cells, whose orders "
+                                 "the same credit holds down: that is T-1174's and T-2021's "
+                                 "ground, and their own ratio and under-ten gates bound it.",
+    }
 
 
 def figure(model: dict, section_key: str, name: str) -> dict:
@@ -3151,6 +3355,8 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
                     raise Fault(f"the bucket {b['key']} is overfilled: {b['filled']} of {todo}")
 
     family_ruling_orders(families[0]["buckets"], data.get("family_ruling") or {}, ruled_fills)
+    men_ruling = (adult_men_ruling(families[0]["buckets"], data["adult_men"])
+                  if data.get("adult_men") else None)
 
     spent = Counter()
     for fill in fills:
@@ -3315,6 +3521,9 @@ def build(data: dict, fills: list | None = None, occupancy: dict | None = None,
         # re-derives (T-1463). Two of these are adjudications the ticket asked for out
         # loud, and the third is a collision this run declines to rule on.
         "what_the_re_cut_found": recut_findings(known, before, families, recut_refusals),
+        # THE ADULT MEN, RULED ON THEIR CARDS (T-2187). Absent from a book built without
+        # the measure, so a fixture book is byte-identical to one built before it.
+        **({"adult_men_ruling": men_ruling} if men_ruling else {}),
         "bucket_families": families,
         "programme_deltas": programme_deltas(data["model"], data["inventory"],
                                              data["programme"], persons, households),
@@ -3626,7 +3835,8 @@ def recut_findings(known: dict, before: dict, families: list, refusals: list) ->
         return sum(max(0, (b["to_reconstruct"] or 0) - b["filled"]) for b in fam["buckets"]
                    if ticket is None or b["owning_ticket"] == ticket)
     persons, households = families[0], families[1]
-    p_1171, h_1171 = owed(persons, FAMILY_OWNER), owed(households, FAMILY_OWNER)
+    p_1171 = owed(persons, FAMILY_OWNER)
+    h_1171 = owed(households, FAMILY_HOUSEHOLD_OWNER) + owed(households, STORE_RESIDENCE_OWNER)
     held = sum(r["already_drawn"] - r["the_re_cut_would_have_ordered"] for r in refusals)
     target = persons["summary"]["town_target"]
     low, high = persons["summary"]["town_target_range"]
@@ -4031,10 +4241,21 @@ def _moves_on_disk() -> list:
     return (book.get("re_family_ledger") or {}).get("moves", [])
 
 
-def cmd_build() -> int:
+def cmd_build(owners_gate: bool = True) -> int:
+    """Re-derive the book. `owners_gate=False` is for a FILLER re-deriving it mid-chain.
+
+    T-2189. A filler that WITHDRAWS people — the modelled-families stage taking the wives
+    and children off a head ruled dead before the day — leaves the cells it vacated owing
+    until the stage that fills them runs next (T-1174's women and children, one step
+    below it). Whether every owed row names a live ticket is a claim about the FINISHED
+    book, so it is held at the book's own `--build` and `--check`, which run after every
+    filler; refusing it mid-chain stopped the chain one step short of the stage that pays
+    the debt. The overfill check, which is about the filler's own draw, is never deferred.
+    """
     doc = build(load(), _fills_on_disk(), moves=_moves_on_disk())
     lands = converges_inside_the_model(doc)
-    owners = every_work_order_names_a_live_ticket(doc)
+    owners = (every_work_order_names_a_live_ticket(doc) if owners_gate else
+              "the live-owner gate is the book's own --build's, after every filler")
     finish = the_programme_finishes_where_the_rule_does(doc)
     BOOK.parent.mkdir(parents=True, exist_ok=True)
     BOOK.write_text(json.dumps(doc, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
@@ -4889,8 +5110,10 @@ def cmd_self_test() -> int:
     # them — no lot rule had been read for that plat — so the whole North Division's headroom
     # was 0 and T-1205 is blocked-tech on it. Reading the rules Wright actually draws inside
     # the Addition's cells cut 60 lots on the five he rules, the programme marks them `open`,
-    # and the platted pass goes 140 -> 160: eleven labourers' households onto
-    # blk_indiana_north_wolcott and nine onto blk_indiana_north_cass. All twenty are SLOTS.
+    # and the platted pass goes 140 -> 160: eleven households onto blk_indiana_north_wolcott
+    # and nine onto blk_indiana_north_cass, thirteen of them tradesmen's, six merchant and
+    # professional and one labourer's (T-1744 corrected the "eleven labourers'" this comment
+    # and L270 first carried). All twenty are SLOTS.
     # A slot is a request and not a roof: T-1742 raises them.
     #
     # T-1734 added the other two, from the same ruling and the second of the same pair of
@@ -5012,8 +5235,45 @@ def cmd_self_test() -> int:
     # D2 shanty's lot and the shanty takes the Dearborn corner, where `labourer_dwellings`
     # seats no one; hh_clark_john_k and nine more step down one roof each and
     # hh_humphrey_fre_lemuel is owed to T-1614 (179 -> 178 platted seats, L270, L373).
+    # 251 -> 255 on 2026-10-05 (T-2132): plat block 44 is cut on its own two printed depths
+    # and its four houses raised; the four households that asked for them are seated on
+    # standing West roofs and nobody is handed on (178 -> 182 platted seats, L270, L313).
+    # 255 -> 289 on 2026-10-05 (T-2144): the School Section tier's five South blocks join
+    # the plat on the owner's T-1755 ruling and the schedule gives them room, so 34
+    # households the platted pass had handed on are dealt a slot there (182 -> 216 platted
+    # seats, L270) — requests T-2145..T-2147 raise.
+    # 289 -> 295 on 2026-10-05 (T-2143, merged over T-2144): Canal and West Water are carried to Madison, plat
+    # block 51 comes onto the layer and its six houses are raised; the six households that
+    # asked for them are seated on standing West roofs and nobody is handed on (216 -> 222
+    # platted seats, L270, L313).
+    # 295 -> 308 on 2026-10-05 (T-1746, merged over T-2143): the North's 26 owed dwellings stand
+    # south of Michigan Street instead of on Kinzie's Addition; the thirteen households whose
+    # slots stood on its two blocks are seated off the plat under standing North roofs, and
+    # thirteen more owed North households beside them (222 -> 209 platted seats, 73 -> 99
+    # off-plat, L270, L271, L393).
+    # 308 -> 311 on 2026-10-06 (T-2148, merged over T-1746): Clinton, Jefferson and Des
+    # Plaines are carried to Madison, plat blocks 48-50 come onto the layer and block 50's
+    # thirteen roofs are raised; the four households that asked for its houses are seated
+    # on standing West roofs, older households adopt the new ones, and the platted pass
+    # seats three more at its fixpoint (209 -> 212 platted seats, 99 off-plat, L270, L394).
+    # 311 holds on 2026-10-08 (T-2146, merged over T-2165 and T-2167): thirteen Wells-block
+    # houses dealt to the post-T-2148 requests; older households adopt them, the requesters
+    # are seated on standing roofs or re-slot on block 81, and the settled pass seats 212 on
+    # the plat and 99 off it, as before.
+    # 311 -> 313 on 2026-10-08 (T-2147, re-dealt over T-2146): block 81's six dwellings;
+    # six older households adopt them and the walk settles two seats up on the plat
+    # (212 -> 214 platted seats, 99 off-plat, L270, L397).
+    # 313 -> 312 on 2026-10-08 (T-2170, lapped over T-2147): the North's five owed A2 barns
+    # stand behind the Wolcott-Kinzie core's houses, so the 668-roof schedule re-deals the
+    # roofs it held for them; the South's two remaining slot requests (block 81 lot 1, block
+    # 95 lot 1) are no longer planned, one household is dealt the D2 slot the new plan puts on
+    # block 95 and the settled pass seats 213 on the plat and 99 off it (L270, L407).
+    # 312 -> 313 on 2026-10-08 (T-2174, on top of T-2170): an F2 warehouse takes
+    # blk_south_water_dearborn's last unreserved free lot and the schedule returns that
+    # block's D2 and D6 to the South balance; the School Section tier re-deals a D5 slot on
+    # block 81 and a D6 on block 95 (213 -> 214 platted seats, 99 off-plat, L270, L406).
     assert seats_against_roofs(data, structure_buckets(
-        data["inventory"], data["programme"], occ))["seated"] == 251
+        data["inventory"], data["programme"], occ))["seated"] == 313
     fires("a seating pass whose seated and owed miss its own scope",
           seats_with("platted_seats", owed=1))
     fires("a seating pass whose adoptions and slots miss its own seated count",
@@ -5048,6 +5308,25 @@ def cmd_self_test() -> int:
         "a filler that built nothing kept its rows"
     once = splice_fills(ledger, {"T-B"}, new_b)
     assert splice_fills(once, {"T-B"}, new_b) == once, "splicing is not a fixed point"
+
+    # T-2187: the men ruling discharges only what the town already holds of the model's
+    # adult men — a town short of them keeps that much on order, and the walk is the same
+    # walk on every build.
+    def man_cell(key, division, target, order, filled=0, htype="family"):
+        return {"key": key, "target": target, "to_reconstruct": order, "filled": filled,
+                "owning_ticket": ADULT_MEN_OWNER,
+                "axes": {"sex": "male", "age_band": "20_29", "division": division,
+                         "household_type": htype, "trade": "none"}}
+    short = [man_cell("m/a", "south", 60, 30), man_cell("m/b", "west", 40, 20)]
+    ruled = adult_men_ruling(short, {"named_adult_men": 80, "by_division": {},
+                                     "named_men_with_no_age_not_counted": 0})
+    assert ruled["the_town_still_lacks"] == 20 and ruled["discharged"] == 30, ruled
+    assert [b["to_reconstruct"] for b in short] == [0, 20], "the walk is not in key order"
+    held = [man_cell("m/a", "south", 60, 30), man_cell("m/b", "west", 40, 20, htype="lodging")]
+    assert adult_men_ruling(held, {"named_adult_men": 500, "by_division": {},
+                                   "named_men_with_no_age_not_counted": 0})["discharged"] == 30
+    assert held[1]["to_reconstruct"] == 20, "the men ruling discharged a lodging cell"
+    assert "adult_men_ruling" in doc, "the committed book carries no ruling on the adult men"
 
     print(f"build_order_book_1835 self-tests pass ({fired} guards fired, "
           f"{sum(len(f['buckets']) for f in doc['bucket_families'])} buckets, "

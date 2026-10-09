@@ -3,7 +3,7 @@
   "district": "north",
   "target_date": "1835-07-01",
   "status": "inferred_anonymous_parcel_recipe",
-  "description": "Sixty anonymous inferred roofs on the already modelled North Division ground between the north bank, Kinzie Street, and Michigan Street, and since T-1205 six trade roofs on the north face of Kinzie Street (sequences 61-66). These are production slots, not recovered buildings or recovered lots.",
+  "description": "Sixty anonymous inferred roofs on the already modelled North Division ground between the north bank, Kinzie Street, and Michigan Street, and since T-1205 six trade roofs on the north face of Kinzie Street (sequences 61-66). Since T-1746, 26 ordinary dwellings carried off Kinzie's Addition's two subdivided blocks into the three clusters south of Michigan Street (sequences 68-93). Since T-2170, five barns or carriage sheds in the yards of five Wolcott-Kinzie core houses (sequences 94-98). These are production slots, not recovered buildings or recovered lots.",
   "source_ids": [
     "owner_chicago_1835_reconstruction_spec_2026",
     "wright_1834",
@@ -51,33 +51,33 @@
     "extension_note": "Extend the terrain, water mask, North Branch bank traces, flora zones, and collision heightfield together from N +400 to at least N +760 before placing roofs north of Michigan Street. Ohio Street control lies near N +633; the extra 127 m provides a complete outer block and visible open prairie rather than ending the world on a street. Keep E +1700: it already clears the 1834 lake shore. Do not extend west for this North parcel; Wabansia and the west side of the North Branch require a separately traced hydrology parcel."
   },
   "inventory": {
-    "roof_total": 66,
-    "principal_functional": 50,
-    "ancillary": 16,
-    "share_of_north_district_target": 0.4,
+    "roof_total": 97,
+    "principal_functional": 76,
+    "ancillary": 21,
+    "share_of_north_district_target": 0.647,
     "north_district_target": 150,
     "group_totals": {
-      "ordinary_dwellings": 38,
+      "ordinary_dwellings": 64,
       "larger_boarding_houses": 5,
       "workshops": 3,
-      "barns_stables": 8,
+      "barns_stables": 13,
       "small_outbuildings": 8,
       "stores_mixed_use": 3,
       "inns_taverns": 1
     },
     "family_totals": {
       "D1": 6,
-      "D2": 4,
-      "D3": 8,
-      "D4": 10,
-      "D5": 5,
-      "D6": 4,
-      "D7": 1,
+      "D2": 7,
+      "D3": 11,
+      "D4": 17,
+      "D5": 12,
+      "D6": 8,
+      "D7": 3,
       "H1": 1,
       "H2": 4,
       "W5": 1,
       "A1": 5,
-      "A2": 3,
+      "A2": 8,
       "A3": 3,
       "A4": 3,
       "A5": 2,
@@ -1001,6 +1001,409 @@
       180,
       "wolcott_kinzie_core",
       null
+    ],
+    [
+      68,
+      "d5_068",
+      432.0,
+      282.3,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      69,
+      "d4_069",
+      477.4,
+      277.9,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      70,
+      "d6_070",
+      527.7,
+      277.5,
+      "D6",
+      "principal_functional",
+      22,
+      30,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      71,
+      "d5_071",
+      573.8,
+      277.2,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      72,
+      "d4_072",
+      605.7,
+      276.9,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      73,
+      "d3_073",
+      637.4,
+      278.7,
+      "D3",
+      "principal_functional",
+      18,
+      22,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      74,
+      "d5_074",
+      681.2,
+      276.5,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      75,
+      "d4_075",
+      951.0,
+      274.2,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      76,
+      "d7_076",
+      994.0,
+      282.0,
+      "D7",
+      "principal_functional",
+      24,
+      32,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      77,
+      "d2_077",
+      432.0,
+      237.4,
+      "D2",
+      "principal_functional",
+      14,
+      20,
+      0,
+      "north_water_west",
+      null
+    ],
+    [
+      78,
+      "d5_078",
+      491.5,
+      235.5,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      0,
+      "north_water_west",
+      null
+    ],
+    [
+      79,
+      "d4_079",
+      551.2,
+      231.0,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      0,
+      "north_water_west",
+      null
+    ],
+    [
+      80,
+      "d6_080",
+      667.2,
+      234.1,
+      "D6",
+      "principal_functional",
+      22,
+      30,
+      0,
+      "north_water_west",
+      null
+    ],
+    [
+      81,
+      "d3_081",
+      740.6,
+      231.5,
+      "D3",
+      "principal_functional",
+      18,
+      22,
+      0,
+      "north_water_west",
+      null
+    ],
+    [
+      82,
+      "d5_082",
+      432.0,
+      357.2,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      0,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      83,
+      "d4_083",
+      499.2,
+      312.1,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      84,
+      "d6_084",
+      562.7,
+      310.1,
+      "D6",
+      "principal_functional",
+      22,
+      30,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      85,
+      "d2_085",
+      695.0,
+      314.7,
+      "D2",
+      "principal_functional",
+      14,
+      20,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      86,
+      "d5_086",
+      780.1,
+      336.6,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      0,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      87,
+      "d4_087",
+      873.2,
+      317.9,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      88,
+      "d7_088",
+      947.8,
+      312.5,
+      "D7",
+      "principal_functional",
+      24,
+      32,
+      180,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      89,
+      "d3_089",
+      1007.1,
+      346.8,
+      "D3",
+      "principal_functional",
+      18,
+      22,
+      0,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      90,
+      "d4_090",
+      1043.8,
+      316.8,
+      "D4",
+      "principal_functional",
+      20,
+      26,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      91,
+      "d2_091",
+      880.0,
+      360.0,
+      "D2",
+      "principal_functional",
+      14,
+      20,
+      0,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      92,
+      "d5_092",
+      812.0,
+      366.0,
+      "D5",
+      "principal_functional",
+      22,
+      30,
+      0,
+      "wolcott_kinzie_core",
+      null
+    ],
+    [
+      93,
+      "d6_093",
+      1029.0,
+      336.0,
+      "D6",
+      "principal_functional",
+      22,
+      30,
+      180,
+      "kinzie_michigan_interior",
+      null
+    ],
+    [
+      94,
+      "a2_094",
+      850.0,
+      339.4,
+      "A2",
+      "ancillary",
+      20,
+      32,
+      180,
+      "wolcott_kinzie_core",
+      "wk_d5_026_yard"
+    ],
+    [
+      95,
+      "a2_095",
+      900.0,
+      314.4,
+      "A2",
+      "ancillary",
+      20,
+      32,
+      180,
+      "wolcott_kinzie_core",
+      "wk_d6_027_yard"
+    ],
+    [
+      96,
+      "a2_096",
+      994.0,
+      296.8,
+      "A2",
+      "ancillary",
+      20,
+      32,
+      180,
+      "wolcott_kinzie_core",
+      "wk_d7_076_yard"
+    ],
+    [
+      97,
+      "a2_097",
+      947.8,
+      327.3,
+      "A2",
+      "ancillary",
+      20,
+      32,
+      180,
+      "wolcott_kinzie_core",
+      "wk_d7_088_yard"
+    ],
+    [
+      98,
+      "a2_098",
+      812.0,
+      351.6,
+      "A2",
+      "ancillary",
+      20,
+      32,
+      0,
+      "wolcott_kinzie_core",
+      "wk_d5_092_yard"
     ]
   ],
   "placement_constraints": [
@@ -1044,7 +1447,7 @@
         "footprint_moved": false,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 47.61 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 47.61 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_c1_047",
@@ -1065,7 +1468,7 @@
         "footprint_moved": false,
         "was_inventory_class": "principal_functional",
         "inventory_class": "ancillary",
-        "why": "the placement policy refuses this family here — stands 34.50 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 34.50 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_c2_027",
@@ -1086,7 +1489,7 @@
         "footprint_moved": true,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 28.78 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 28.78 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_f1_022",
@@ -1107,7 +1510,7 @@
         "footprint_moved": false,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 9.36 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 9.36 m off the street line (2.71 m), and commercial_front puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_h3_045",
@@ -1128,7 +1531,7 @@
         "footprint_moved": true,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 6.53 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 6.53 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_i2_015",
@@ -1170,7 +1573,7 @@
         "footprint_moved": false,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 27.49 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 27.49 m off the street line (2.71 m), and lodging_near_the_landings puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_w1_018",
@@ -1191,7 +1594,7 @@
         "footprint_moved": true,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 12.28 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 12.28 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
       },
       {
         "was_id": "recon_1835_north_w2_005",
@@ -1212,7 +1615,7 @@
         "footprint_moved": false,
         "was_inventory_class": "principal_functional",
         "inventory_class": "principal_functional",
-        "why": "the placement policy refuses this family here — stands 37.63 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
+        "why": "the placement policy refuses this family here \u2014 stands 37.63 m off the street line (2.71 m), and mechanics_streets puts it on the line; the slot is wanted and the position stands"
       }
     ]
   },
@@ -1235,5 +1638,68 @@
         "why": "The North Water bank is where a forwarding warehouse would stand and it is the one north street the committed hierarchy grades `light`; the commercial-front clause avoids light streets and the block generator refuses a store, warehouse or workshop on one. Seating it needs a bank-landing clause or a regrade of North Water argued on its own evidence, which is a separate question from this deal, so it is left owed rather than forced onto Kinzie Street."
       }
     ]
+  },
+  "addition_surplus": {
+    "on": "2026-10-05",
+    "ticket": "T-1746",
+    "sequences": [
+      68,
+      69,
+      70,
+      71,
+      72,
+      73,
+      74,
+      75,
+      76,
+      77,
+      78,
+      79,
+      80,
+      81,
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      90,
+      91,
+      92,
+      93
+    ],
+    "families": {
+      "D2": 3,
+      "D3": 3,
+      "D4": 7,
+      "D5": 7,
+      "D6": 4,
+      "D7": 2
+    },
+    "why": "THE MEMO STANDS AND THE SEATING GIVES WAY: THE ADDITION'S 26 DWELLINGS COME SOUTH OF MICHIGAN STREET. The order book owes the North 26 ordinary dwellings (`structures/ordinary_dwellings/north`: target 84, standing 58), and the 665-roof schedule had dealt every one of them to Kinzie's Addition's two subdivided blocks, 20 to blk_indiana_north_wolcott (D2 2, D3 2, D4 6, D5 5, D6 3, D7 2) and 6 to blk_indiana_north_cass (D2, D3, D4 and D6 one each, D5 two). Both blocks already stand at the ceiling docs/RESEARCH/1835_north_division_extent_and_infill.md puts on them, four roofs each with open ground on both sides of every one (L294), and the three other lotted cells of the Addition are apportioned none (T-1757). So one of the two had to move. The memo does not: it is this project's committed reading of the July 1835 north side (a large platted addition with no buildings drawn on it, kept visibly speculative), and the seating is a policy deal that reads no source about these blocks. Nor does the memo refuse the roofs themselves: its own full North target is 90 ordinary dwellings against the 84 the inventory asks, and what it refuses is spending them north of Michigan Street. So the 26 stand, family for family as the schedule dealt them, in the memo's three inner clusters: a loose run along the north face of Kinzie Street west of Dearborn and east of Wolcott (Kinzie between Dearborn and Wolcott is left as T-1205 dealt it, with no house between its trade roofs), a few on the south face of Kinzie in the North Water band, and the rest scattered through the Kinzie-Michigan interior with Michigan Street left a sparse outer edge. Each centre was chosen by a deterministic search against the generator's own predicates and three more, all measured at the deal: no platted corridor on its drawn line, dry covered ground with no more than 0.35 m of relief, at least 14 m from every committed roof (an open yard between every pair, never a street wall), at least 25 m from every named structure (the recipe's review buffer), and inside the initial occupied envelope (E 430-1300, N 105-390). Every value is reconstructed and none is a reading of a source about these houses (L391)."
+  },
+  "kinzie_core_barns": {
+    "on": "2026-10-08",
+    "ticket": "T-2170",
+    "sequences": [
+      94,
+      95,
+      96,
+      97,
+      98
+    ],
+    "families": {
+      "A2": 5
+    },
+    "serves": {
+      "a2_094": "d5_026 (sequence 26)",
+      "a2_095": "d6_027 (sequence 27)",
+      "a2_096": "d7_076 (sequence 76)",
+      "a2_097": "d7_088 (sequence 88)",
+      "a2_098": "d5_092 (sequence 92)"
+    },
+    "why": "THE NORTH'S FIVE OWED BARNS STAND IN THE YARDS OF THE HOUSES THEY SERVE, NOT ON THE ADDITION. The order book owes the North five A2 barns or carriage sheds (`structures/barns_stables/north`, 17 ordered, 11 standing, one A1 more dealt to blk_indiana_north_wolcott lot 9 by T-2165), and the 668-roof schedule dealt all of them to blk_indiana_north_wolcott because it is the North's only platted block with ancillary room. That room is counted in roofs, not ground: T-2165 measured every cottage lot there at 14.71 m wide with a woodshed or privy already off the alley, which leaves 4.85-5.55 m beside it against an A2's 18 ft (5.49 m) narrowest band and at most 7.6 m of depth against its 28 ft. blk_indiana_north_cass is the same plat and the same arrangement, and every lot it builds on already keeps a yard building. Priced against the dwellings they serve, the North is a short division, not an overbuilt one (31 yard roofs to 84 ordinary dwellings, 0.37, against the South's 0.53), and this recipe carries 64 dwellings with sixteen yard buildings among them and none behind any of T-1746's 26. So the barns go where the houses are. THE HOUSES ARE CHOSEN BY A RULE, NOT BY HAND: of the Wolcott-Kinzie core's dwellings that keep no yard building in this recipe and have room for one, the five of the largest families (the two D7s, the one D6, then the D5s by the open ground left around the barn), on the reading that a household able to keep a horse or a carriage is likelier in the larger house. EACH POSITION IS A DETERMINISTIC SEARCH against the generator's own tests (no platted corridor on its drawn line, covered dry ground, at most 0.35 m of relief; all five read 0.00-0.02 m) and four more, measured at the deal: behind its own house on the house's axis, its front wall 5 m off the house's rear wall; at least 3 m from every committed roof (generate_block_infill's MIN_SEPARATION_M); nearer its own house than any other roof, so the yard it stands in is that house's; at least 25 m from every named structure, the recipe's review buffer; and inside the initial occupied envelope (E 430-1300, N 105-390). The size is the 20 x 32 ft every other A2 in this recipe carries. Every value is reconstructed and none is a reading of a source about these yards (L407)."
   }
 }

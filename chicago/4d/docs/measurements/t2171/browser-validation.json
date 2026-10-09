@@ -1,0 +1,359 @@
+{
+  "method": "Actual published /1812/ app, normal boot, full desktop and light mobile; animation paused after readiness for deterministic review cameras. Overhead and lake-facing cameras; actual heightfield samples prove the former notch is dry and the lake and river remain water.",
+  "results": [
+    {
+      "label": "desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "detail": "full",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1812"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:40117/data/gltf/terrain__e1830_natural.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:40117/data/gltf/water__e1830_natural.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "overhead",
+          "detail": "full",
+          "problems": [
+            "trees: the scene index carries no centreline for wells, which is the documented east end of the south division's timber — the woody layer is held at the old E +316 edge rather than planting a wood over the beach ridges"
+          ],
+          "stats": {
+            "drawCalls": 27,
+            "triangles": 859765,
+            "programs": 27,
+            "geometries": 43,
+            "textures": 28,
+            "batches": 4,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 21,
+            "structuresExpected": 21,
+            "structuresStanding": 21,
+            "bytes": 1054804,
+            "fps": 0,
+            "cameraNear": 8,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 2685000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1340,
+            350,
+            640
+          ],
+          "target": [
+            1340,
+            200,
+            0
+          ],
+          "samples": [
+            {
+              "e": 1300,
+              "n": 320,
+              "height": 1.2300000190734863
+            },
+            {
+              "e": 1370,
+              "n": 300,
+              "height": 1.2200000286102295
+            },
+            {
+              "e": 1480,
+              "n": 300,
+              "height": -1.5850000381469727
+            },
+            {
+              "e": 1250,
+              "n": 180,
+              "height": -0.42500001192092896
+            }
+          ]
+        },
+        {
+          "name": "lake-facing",
+          "detail": "full",
+          "problems": [
+            "trees: the scene index carries no centreline for wells, which is the documented east end of the south division's timber — the woody layer is held at the old E +316 edge rather than planting a wood over the beach ridges"
+          ],
+          "stats": {
+            "drawCalls": 34,
+            "triangles": 1671756,
+            "programs": 27,
+            "geometries": 45,
+            "textures": 28,
+            "batches": 4,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 1024,
+                  "tileM": 4.48,
+                  "meanRough": 0.867
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 1024,
+                  "tileM": 4.08,
+                  "meanRough": 0.907
+                }
+              }
+            },
+            "structures": 21,
+            "structuresExpected": 21,
+            "structuresStanding": 21,
+            "bytes": 1054804,
+            "fps": 0,
+            "cameraNear": 5.6000000000000005,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 2685000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1730,
+            350,
+            140
+          ],
+          "target": [
+            1370,
+            285,
+            0
+          ],
+          "samples": [
+            {
+              "e": 1300,
+              "n": 320,
+              "height": 1.2300000190734863
+            },
+            {
+              "e": 1370,
+              "n": 300,
+              "height": 1.2200000286102295
+            },
+            {
+              "e": 1480,
+              "n": 300,
+              "height": -1.5850000381469727
+            },
+            {
+              "e": 1250,
+              "n": 180,
+              "height": -0.42500001192092896
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 780
+      },
+      "detail": "light",
+      "boot": {
+        "ready": true,
+        "error": null,
+        "scene": "1812"
+      },
+      "errors": [],
+      "bad": [],
+      "assets": [
+        {
+          "url": "http://127.0.0.1:40117/data/gltf/terrain__e1830_natural.glb",
+          "status": 200
+        },
+        {
+          "url": "http://127.0.0.1:40117/data/gltf/water__e1830_natural.glb",
+          "status": 200
+        }
+      ],
+      "stands": [
+        {
+          "name": "overhead",
+          "detail": "light",
+          "problems": [
+            "trees: the scene index carries no centreline for wells, which is the documented east end of the south division's timber — the woody layer is held at the old E +316 edge rather than planting a wood over the beach ridges"
+          ],
+          "stats": {
+            "drawCalls": 23,
+            "triangles": 262775,
+            "programs": 16,
+            "geometries": 41,
+            "textures": 28,
+            "batches": 4,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 21,
+            "structuresExpected": 21,
+            "structuresStanding": 21,
+            "bytes": 1054804,
+            "fps": 1,
+            "cameraNear": 8,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1340,
+            350,
+            640
+          ],
+          "target": [
+            1340,
+            200,
+            0
+          ],
+          "samples": [
+            {
+              "e": 1300,
+              "n": 320,
+              "height": 1.2300000190734863
+            },
+            {
+              "e": 1370,
+              "n": 300,
+              "height": 1.2200000286102295
+            },
+            {
+              "e": 1480,
+              "n": 300,
+              "height": -1.5850000381469727
+            },
+            {
+              "e": 1250,
+              "n": 180,
+              "height": -0.42500001192092896
+            }
+          ]
+        },
+        {
+          "name": "lake-facing",
+          "detail": "light",
+          "problems": [
+            "trees: the scene index carries no centreline for wells, which is the documented east end of the south division's timber — the woody layer is held at the old E +316 edge rather than planting a wood over the beach ridges"
+          ],
+          "stats": {
+            "drawCalls": 24,
+            "triangles": 440575,
+            "programs": 16,
+            "geometries": 45,
+            "textures": 28,
+            "batches": 4,
+            "wallRelief": {
+              "off": false,
+              "substrates": {
+                "clapboard": {
+                  "id": "clapboard_board_face",
+                  "px": 512,
+                  "tileM": 4.48,
+                  "meanRough": 0.8663
+                },
+                "hewn_log": {
+                  "id": "hewn_log_face",
+                  "px": 512,
+                  "tileM": 4.08,
+                  "meanRough": 0.9062
+                }
+              }
+            },
+            "structures": 21,
+            "structuresExpected": 21,
+            "structuresStanding": 21,
+            "bytes": 1054804,
+            "fps": 0,
+            "cameraNear": 5.6000000000000005,
+            "budget": {
+              "drawCalls": 295,
+              "triangles": 1005000
+            },
+            "withinBudget": true
+          },
+          "camera": [
+            1730,
+            350,
+            140
+          ],
+          "target": [
+            1370,
+            285,
+            0
+          ],
+          "samples": [
+            {
+              "e": 1300,
+              "n": 320,
+              "height": 1.2300000190734863
+            },
+            {
+              "e": 1370,
+              "n": 300,
+              "height": 1.2200000286102295
+            },
+            {
+              "e": 1480,
+              "n": 300,
+              "height": -1.5850000381469727
+            },
+            {
+              "e": 1250,
+              "n": 180,
+              "height": -0.42500001192092896
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

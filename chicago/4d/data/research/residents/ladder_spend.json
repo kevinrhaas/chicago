@@ -11,10 +11,10 @@
   "proposed_not_written": 864
  },
  "counts": {
-  "person_records": 2928,
-  "carried_by_the_civic_mint": 511,
+  "person_records": 2925,
+  "carried_by_the_civic_mint": 509,
   "rungs_spent": 845,
-  "conflicts_for_the_owner": 81,
+  "conflicts_for_the_owner": 82,
   "spent_by_rule": {
    "G1a": 22,
    "G1b": 92,
@@ -24,7 +24,7 @@
    "G3": 665
   },
   "conflicts_by_kind": {
-   "abstention": 44,
+   "abstention": 45,
    "downgrade": 35,
    "subtype": 2
   }
@@ -4025,7 +4025,7 @@
   },
   {
    "person_id": "kimberly_edmund_s",
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "name": "Dr Edmund Stoughton Kimberly",
    "identity": "id_kimberly_edmund_stoughton",
    "rule": "G1a",
@@ -8296,6 +8296,21 @@
    "rule": "G5",
    "grade": "inferred",
    "resident_subtype": "projected_resident",
+   "kind": "abstention",
+   "proposed": {
+    "grade": null,
+    "resident_subtype": null
+   },
+   "why": "the ladder abstains (G5): every appearance it can see describes a date after the scene year, and it declines to demote a resident on evidence it has not read. An abstention is not a rung, so there is none to write."
+  },
+  {
+   "person_id": "kimberly_marie_theresa",
+   "household_id": "hh_kimberly_edmund_s",
+   "name": "Marie Theresa Ellis Kimberly",
+   "identity": "id_kimberly_marie_theresa_ellis",
+   "rule": "G5",
+   "grade": "inferred",
+   "resident_subtype": null,
    "kind": "abstention",
    "proposed": {
     "grade": null,

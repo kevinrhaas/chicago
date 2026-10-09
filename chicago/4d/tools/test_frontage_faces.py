@@ -204,9 +204,12 @@ def main(break_it: bool = False) -> int:
     # `EDGE_SKIP_BLOCKS` and its Lake and Randolph faces are laid, but its ten lots
     # front Clinton and Canal, which nothing covers — the same row-end shape, so its
     # walk is laid and its store takes its post by the door instead.
+    # `blk_washington_clinton` joined them on 2026-10-06 (T-2148): plat block 50,
+    # the same tier's next cell south, came onto the layer when Clinton was carried
+    # to Madison, and its ten lots front Clinton and Canal the same way.
     UNREACHED = ["blk_lake_clinton", "blk_randolph_clinton"] + [
         f"blk_washington_{c}" for c in
-        ("clark", "dearborn", "franklin", "lasalle", "market", "wells")]
+        ("clark", "clinton", "dearborn", "franklin", "lasalle", "market", "wells")]
     check("every lot this layer cannot reach is named, not silently dropped",
           out_of_reach == UNREACHED,
           f"blocks whose lots front a face nothing lays: {out_of_reach}. Faces laid: "

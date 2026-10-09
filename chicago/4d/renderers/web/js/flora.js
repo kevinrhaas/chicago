@@ -52,6 +52,8 @@ import * as THREE from 'three';
 // without a second copy of the corner arithmetic. See K57.
 import { SHRUB_GRAIN, FAR_SHRUB_GRAIN, shrubLayout } from './shrub-grain.js';
 import { softExtentWeight, ditherHash } from './lakeshore.js';
+// T-2125: where a community's edge is asked, so the edges blend and wander.
+import { blendPoint, blendBuffer, ZONE_BLEND, ZONE_BLEND_MAX_M } from './zone-blend.js';
 import { foliageAtlas, foliageFamily } from './foliage-atlas.js';
 // T-2085: which community is short turf, and the box its extent can reach.
 import { isTurfCommunity, extentBounds } from './turf-tile.js';
@@ -345,17 +347,14 @@ const TUNE = {
    * and that only ever adds margin.)
    */
   step: { near: 0.6, mid: 3.0, forb: 3.0 },
-  /**
-   * T-2085 — SHORT TURF IS DRAWN BY THE GROUND, NOT BY CARDS. On a community
-   * `isTurfCommunity` selects (the settled town: a 0.05-0.20 m sward) the mid
-   * and far clump cards and their carries draw nothing — the terrain paints
-   * the turf's texture there — and the near tufts and the weeds stand only to
-   * `radius`, ragged by `fringe` so the edge is no circle. At `full` that is
-   * the near ring's own radius, so the walker's own ground is unchanged; the
-   * lower tiers take it in (MID, LOW). Which species grow, in what share, is
-   * untouched: this decides how far the turf is DRAWN as plants, nothing else.
-   */
-  turf: { radius: 7.6, fringe: 0.8 },
+  // T-2085 / T-2122 — SHORT TURF IS DRAWN BY THE GROUND, NOT BY PLANTS. On a
+  // community `isTurfCommunity` selects (the settled town: a 0.05-0.20 m
+  // sward) no near tuft, mid card, far card or carry is drawn — the terrain
+  // paints the turf's texture there. T-2085 kept the near tufts and the weeds on
+  // a ring of their own to 7.6 m; the owner, 2026-10-05, found them popping up
+  // around the walker in town, so T-2122 drops the tufts and stands the weeds
+  // only along kept lot lines, on the ordinary forb ring (see the passes).
+  // Which species grow, in what share, is untouched.
 };
 
 /**
@@ -822,9 +821,6 @@ const LOW = {
   // T-2014. Shallower on the phone, as its far band is: the sward's own far
   // band stops at 120 m here and the shrubs stop well inside it.
   farShrub: { radius: 70.0, ramp: 24.0 },
-  // T-2085: a slow phone in the town spends almost nothing on ground cover —
-  // the tufts at its feet and the texture beyond.
-  turf: { radius: 3.4, fringe: 0.5 },
   cap: { near: 600, mid: 900, forb: 260, head: 480, far: 190, farShrub: 900 },
 };
 
@@ -857,7 +853,6 @@ const MID = {
     minPx: 2.0,
   },
   farShrub: { radius: 105.0, ramp: 35.0 },
-  turf: { radius: 4.8, fringe: 0.6 },
   cap: { near: 1500, mid: 2700, forb: 580, head: 1040, far: 300, farShrub: 2000 },
 };
 
@@ -1216,7 +1211,7 @@ export async function createFlora({
   const blocks = circleGrid(footprintCircles(footprints));
   const finder = zoneFinder(zones, terrain, water);
   stats.unzonedLandFraction = await auditCoverage(terrain, finder, checkpoint);
-  stats.turf = handTurfToGround(zones, finder, water, terrain, problems);
+  stats.turf = await handTurfToGround(zones, finder, water, terrain, problems, checkpoint);
   if (stats.unzonedLandFraction >= 0.999) {
     // Not a tolerance: records exist, ground exists, and NOTHING matches — the
     // layer would draw an empty prairie while looking healthy. Any fraction
@@ -1333,19 +1328,6 @@ export async function createFlora({
     rings[layer] = ringsFor(tune[layer], step);
     rings[layer].head = headRingOf(rings[layer].fade);
   }
-  // T-2085. The near tufts and the weeds on short turf stand on rings of their
-  // own, built by `ringsFor` like every layer's, so a turf plant is placed at
-  // coverage zero past its edge and arrives through the same handover as any
-  // other — a cut instead of a ring would pop them in whole. Kept out of
-  // `rings` because the gate holds that to the three layers it names.
-  const turfBand = (band) => Math.min(band, tune.turf.radius * 0.3);
-  const turfRings = {
-    near: ringsFor({ ...tune.near, radius: Math.min(tune.turf.radius, tune.near.radius),
-      band: turfBand(tune.near.band) }, step),
-    forb: ringsFor({ ...tune.forb, radius: Math.min(tune.turf.radius, tune.forb.radius),
-      band: turfBand(tune.forb.band), fringe: tune.turf.fringe }, step),
-  };
-  turfRings.forb.head = headRingOf(turfRings.forb.fade);
   /** Which ring each rooted set is drawn on. A rosette is a forb. */
   const ringOfSet = {
     'flora-near': rings.near, 'flora-mid': rings.mid,
@@ -1503,9 +1485,14 @@ export async function createFlora({
         // lattice, so the frame pays nothing for them either.
         const zone = finder(e, n);
         if (!zone || !zone.graminoids.length) return;
-        // T-2085: past the turf's own lattice nothing is dealt at all.
-        if (zone.turf && r > turfRings.near.lattice.outer) return;
-        const ring = slotRing(zone.turf ? turfRings.near : near, e, n, 0, _ring);
+        // T-2122: no near tufts on short turf. The turf's texture is the
+        // ground there, and a 0.05-0.20 m sward drawn as blades only to the
+        // near ring was a band of plants growing up out of bare ground a few
+        // metres ahead on every step — the owner, 2026-10-05: "things
+        // constantly pop up". Returned before the deal, as the mid and far
+        // bands already do here, so no turf slot is counted as drawn.
+        if (zone.turf) return;
+        const ring = slotRing(near, e, n, 0, _ring);
         // The community's own recorded matrix cover decides whether this slot
         // carries a plant — the same rule the forb layer has always applied to
         // its own recorded densities, on the field the matrix layer ignored.
@@ -1600,10 +1587,13 @@ export async function createFlora({
         if (r > f.fade[0] + off + step) return;
         const zone = finder(e, n);
         if (!zone || !zone.forbs.length) return;
-        // T-2085: the weeds on turf stand on the turf's forb ring.
-        const fr = zone.turf ? turfRings.forb : f;
-        const fo = zone.turf ? fringeOf(e, n, fr.fringe) : off;
-        if (zone.turf && r > fr.fade[0] + fo + step) return;
+        // T-2122: the weeds on turf stand on the forb ring like every other
+        // community's, so they arrive at its ragged outer edge twenty-odd
+        // metres out and not a few paces in front of the walker (T-2085 had
+        // them on a ring of their own the size of the near one). Only the ones
+        // a kept lot re-seats along its line survive — see below.
+        const fr = f;
+        const fo = off;
         // The forb layer's density is the zone's OWN summed density_per_ha, so a
         // sparse community stays sparse. `share` is the chance this lattice slot
         // is used at all — of the half of the community that may stand on this
@@ -1623,6 +1613,12 @@ export async function createFlora({
         // everything again at its new foot, and must still be inside the ring.
         const seat = forbSeat(e, n);
         if (seat === false) { if (c) c.row.rejStation++; return; }
+        // T-2122: on short turf a weed stands only where a kept lot re-seats it
+        // against its fence line. Loose on open turf, out to the forb ring,
+        // they read as a sprinkle of spikes over the town's bare and trodden
+        // ground — and on the near ring T-2085 gave them they popped up a few
+        // paces ahead. Counted as a station refusal, which is what it is.
+        if (zone.turf && !seat) { if (c) c.row.rejStation++; return; }
         if (seat) {
           e = seat[0]; n = seat[1];
           r = Math.hypot(e - camE, n - camN);
@@ -2118,6 +2114,9 @@ export async function createFlora({
     communities() {
       return zones.map((z) => ({
         id: z.id, matrixShare: z.matrixShare, bareSoil: z.bareSoil,
+        /** T-2122. Short turf: drawn by the ground's texture, not as plants,
+         *  so a census of drawn plants has to stand somewhere else. */
+        turf: !!z.turf,
         /** T-1056. The recorded woody band, so a reader of this report can see
          *  WHY a sand zone's shrub count stands below its recorded density. */
         woodyBand: z.woody?.establishes ?? null,
@@ -2520,7 +2519,7 @@ function mergeTune(level) {
   const t = {
     near: { ...TUNE.near }, mid: { ...TUNE.mid }, forb: { ...TUNE.forb },
     far: { ...TUNE.far }, farShrub: { ...TUNE.farShrub },
-    cap: { ...TUNE.cap }, step: { ...TUNE.step }, turf: { ...TUNE.turf },
+    cap: { ...TUNE.cap }, step: { ...TUNE.step },
   };
   const preset = level === 'light' ? LOW : level === 'balanced' ? MID : null;
   if (preset) {
@@ -2530,7 +2529,6 @@ function mergeTune(level) {
     Object.assign(t.far, preset.far);
     Object.assign(t.farShrub, preset.farShrub);
     Object.assign(t.cap, preset.cap);
-    Object.assign(t.turf, preset.turf);
   }
   return t;
 }
@@ -2918,7 +2916,7 @@ function compileZones({ index, files }, terrain, problems, stats) {
     out.push({
       id: entry.id,
       zone: entry.zone,
-      /** T-2085. Short turf: drawn as near tufts and the ground's texture. */
+      /** T-2085 / T-2122. Short turf: drawn by the ground's texture. */
       turf: isTurfCommunity(rec),
       /** ...and the recorded tones that texture is painted in (handTurfToGround). */
       turfTones: isTurfCommunity(rec) ? {
@@ -3502,7 +3500,10 @@ async function waterField(terrain, checkpoint) {
  */
 const TURF_MASK_MAX_PX = 256;
 const TURF_MASK_MIN_M = 2;
-function handTurfToGround(zones, finder, water, terrain, problems) {
+/** T-2125: questions per texel, at fixed offsets inside it (a rotated grid). */
+const TURF_MASK_TAP_AT = [[-0.30, -0.10], [0.10, -0.30], [0.30, 0.10], [-0.10, 0.30]];
+const TURF_MASK_TAPS = TURF_MASK_TAP_AT.length;
+async function handTurfToGround(zones, finder, water, terrain, problems, checkpoint = () => null) {
   const turf = zones.filter((z) => z.turf);
   const out = { zones: turf.map((z) => z.id), painted: false, cellM: null, texels: 0 };
   if (!turf.length || typeof terrain?.setTurf !== 'function') return out;
@@ -3514,8 +3515,12 @@ function handTurfToGround(zones, finder, water, terrain, problems) {
         + 'its cards are not drawn and its ground stays prairie');
       continue;
     }
-    box = box ? { e0: Math.min(box.e0, b.e0), e1: Math.max(box.e1, b.e1),
-      n0: Math.min(box.n0, b.n0), n1: Math.max(box.n1, b.n1) } : { ...b };
+    // T-2125: the finder now asks a polygon up to ZONE_BLEND_MAX_M off the
+    // plant's point, so the community reaches that far past its own bounds.
+    const p = ZONE_BLEND_MAX_M;
+    box = box ? { e0: Math.min(box.e0, b.e0 - p), e1: Math.max(box.e1, b.e1 + p),
+      n0: Math.min(box.n0, b.n0 - p), n1: Math.max(box.n1, b.n1 + p) }
+      : { e0: b.e0 - p, e1: b.e1 + p, n0: b.n0 - p, n1: b.n1 + p };
   }
   const tones = turf[0].turfTones;
   if (!box || !tones || ![tones.sodDark, tones.sodLight, tones.bare, tones.dust, tones.wet]
@@ -3531,10 +3536,23 @@ function handTurfToGround(zones, finder, water, terrain, problems) {
   const n0 = box.n0 - 2 * cell;
   const raw = new Uint8Array(w * h);
   for (let j = 0; j < h; j++) {
+    // T-2059: four finder questions a texel over the whole mask held the
+    // phone's flora phase for 200 ms in one task; a row is a few milliseconds.
+    const pause = checkpoint(); if (pause) await pause;
     for (let i = 0; i < w; i++) {
-      const e = e0 + (i + 0.5) * cell;
-      const n = n0 + (j + 0.5) * cell;
-      if (finder(e, n)?.turf && !water.isWater(e, n)) { raw[j * w + i] = 255; out.texels++; }
+      // T-2125: the finder answers each plant from a draw across the blend
+      // band, so one question per texel would speckle the mask. TURF_MASK_TAPS
+      // questions, spread over the texel, give the SHARE of plants the town
+      // holds there — the gradient the sward thins across.
+      const ce = e0 + (i + 0.5) * cell;
+      const cn = n0 + (j + 0.5) * cell;
+      if (water.isWater(ce, cn)) continue;
+      let hits = 0;
+      for (let t = 0; t < TURF_MASK_TAPS; t++) {
+        const [oe, on] = TURF_MASK_TAP_AT[t];
+        if (finder(ce + oe * cell, cn + on * cell)?.turf) hits++;
+      }
+      if (hits) { raw[j * w + i] = Math.round((255 * hits) / TURF_MASK_TAPS); out.texels++; }
     }
   }
   const data = new Uint8Array(w * h);
@@ -3555,11 +3573,206 @@ function handTurfToGround(zones, finder, water, terrain, problems) {
 }
 
 function zoneFinder(zones, terrain, water) {
-  return function find(e, n) {
+  // T-2125 (zone-blend.js): every extent is asked at the plant's point MOVED
+  // across a wide, wandering band, so two communities meet in a margin that
+  // thins over about 100 m rather than on the recorded line. Computed once per
+  // question and shared by every zone it reaches; reused, never allocated.
+  const q = { e: 0, n: 0, w: 0, d: 0 };
+  const exact = (e, n) => {
     for (const z of zones) {
       if (matches(z.extent, e, n, terrain, water)) return z;
     }
     return null;
+  };
+  // Most of the ground is far from any edge, and there the moved question
+  // gets the same answer as the plain one at a cost the plant layer pays
+  // millions of times a deal (T-2096, T-2099). So the band is only asked for
+  // where an edge is near: the plain answer on a BLEND_CELL_M grid, and every
+  // cell within the band's reach of a cell answering differently is marked.
+  // A patch laid over the town's own ground at a higher priority (the vacant
+  // lots of T-2101) is bounded by lot lines, which were fenced and kept: it is
+  // not blended either way, and it is one class with the town in the grid.
+  const turf = zones.find((z) => z.turf) ?? null;
+  const lots = turf ? zones.filter((z) => lotBound(z, turf)) : [];
+  const grid = blendNearEdge(exact, terrain, turf && lots.length ? new Set(lots) : null, turf);
+  const near = grid?.near ?? null;
+  // THE TOWN'S MARGIN IS GRAZED (and the plant layer is not made dearer by it).
+  // A prairie slot in the band beside the town's turf is handed to the turf at
+  // a share that falls from TOWN_GRAZE at the recorded line to none at the band's
+  // far side: the margin's prairie is thinner and shorter-cropped than the open
+  // prairie, as grazed ground is, and the turf the ground paints there follows it
+  // (the turf mask is this finder's own answer). A turf slot is the cheapest the
+  // plant layer deals, so this keeps the band's cost at or under the hard edge's
+  // (T-2096, T-2099), where a plain blend drew prairie cards over the town side.
+  const gap = turf ? grid?.townGap ?? null : null;
+  // A slot's answer never changes, and the plant layer re-deals the same
+  // world-anchored slots every 0.6 m walked, so the answers are kept in a
+  // direct-mapped cache keyed by the slot's own coordinates (T-2096). 64k
+  // entries, about 1.1 MB; a collision only costs the question again.
+  const CACHE = 1 << 16;
+  const keyE = new Float64Array(CACHE).fill(NaN);
+  const keyN = new Float64Array(CACHE);
+  const val = new Uint8Array(CACHE);
+  const byIndex = [null, ...zones];
+  const indexOf = new Map(zones.map((z, i) => [z, i + 1]));
+  return function find(e, n) {
+    let h = Math.imul(Math.round(e * 8) | 0, 0x27d4eb2d) ^ Math.imul(Math.round(n * 8) | 0, 0x165667b1);
+    h = (h ^ (h >>> 15)) & (CACHE - 1);
+    if (keyE[h] === e && keyN[h] === n) return byIndex[val[h]];
+    const z = answer(e, n);
+    keyE[h] = e; keyN[h] = n; val[h] = z ? indexOf.get(z) : 0;
+    return z;
+  };
+  function answer(e, n) {
+    if (near && !near(e, n)) return exact(e, n);
+    for (const z of lots) {
+      if (matches(z.extent, e, n, terrain, water)) return z;
+    }
+    blendPoint(e, n, q);
+    let hit = null;
+    for (const z of zones) {
+      if (lots.length && lots.includes(z)) continue;
+      if (matches(z.extent, e, n, terrain, water, q)) { hit = z; break; }
+    }
+    if (gap && hit && !hit.turf && hit.priority < turf.priority && hit.extent?.kind !== 'lake_shore') {
+      const d = gap(e, n);
+      if (d < ZONE_BLEND_MAX_M
+        && ditherHash(e + 0.27, n - 0.41) < TOWN_GRAZE * (1 - d / ZONE_BLEND_MAX_M)) return turf;
+    }
+    return hit;
+  }
+}
+
+/** T-2125: the share of prairie slots handed to the town's turf at its recorded
+ *  edge; it falls to none at the far side of the band. */
+const TOWN_GRAZE = 0.6;
+
+/** A community whose edges this band does not blend: an elevation band, or an
+ *  extent with its own soft ramp (lakeshore.js). */
+function openClass(z) {
+  const x = z.extent;
+  return x?.kind === 'elevation_band' || x?.kind === 'lake_shore' || !!(x?.edge && x?.box);
+}
+
+/** A polygon community over the town's turf at a higher priority: a patch of
+ *  the town bounded by its lot lines (T-2101's vacant lots), not blended. */
+function lotBound(z, turf) {
+  return !z.turf && z.extent?.kind === 'polygon' && z.priority > turf.priority;
+}
+
+/** T-2125: the grid `zoneFinder` reads to skip the band far from any edge. */
+const BLEND_CELL_M = 24;
+function blendNearEdge(exact, terrain, lots = null, turf = null) {
+  const hf = terrain?.heightfield;
+  if (!hf?.loaded || !(hf.widthM > 0 && hf.depthM > 0)) return null;
+  const c = BLEND_CELL_M;
+  const w = Math.ceil(hf.widthM / c) + 1;
+  const h = Math.ceil(hf.depthM / c) + 1;
+  const ids = new Map();
+  const turfIds = new Set();
+  const zone = new Uint16Array(w * h);
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const z = exact(hf.originE + (i + 0.5) * c, hf.originN + (j + 0.5) * c);
+      // The open communities are one class here: the prairies' elevation
+      // bands are not blended, and the sand's soft extents ramp themselves
+      // (T-1819), so the lines between them are no edge of this band's.
+      const key = z ? (openClass(z) ? '~open' : lots?.has(z) ? turf.id : z.id) : '';
+      if (z?.turf) turfIds.add(key);
+      if (!ids.has(key)) ids.set(key, ids.size);
+      zone[j * w + i] = ids.get(key);
+    }
+  }
+  // A cell is at an edge when a neighbour answers differently; the band
+  // reaches ZONE_BLEND_MAX_M plus a cell of slack either side of one.
+  const edge = new Uint8Array(w * h);
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const v = zone[j * w + i];
+      if ((i + 1 < w && zone[j * w + i + 1] !== v) || (j + 1 < h && zone[(j + 1) * w + i] !== v)) {
+        edge[j * w + i] = 1;
+        if (i + 1 < w) edge[j * w + i + 1] = 1;
+        if (j + 1 < h) edge[(j + 1) * w + i] = 1;
+      }
+    }
+  }
+  const r = Math.ceil(ZONE_BLEND_MAX_M / c) + 1;
+  const row = new Uint8Array(w * h);
+  for (let j = 0; j < h; j++) {
+    let last = -Infinity;
+    for (let i = 0; i < w; i++) { if (edge[j * w + i]) last = i; if (i - last <= r) row[j * w + i] = 1; }
+    last = Infinity;
+    for (let i = w - 1; i >= 0; i--) { if (edge[j * w + i]) last = i; if (last - i <= r) row[j * w + i] = 1; }
+  }
+  const mark = new Uint8Array(w * h);
+  for (let i = 0; i < w; i++) {
+    let last = -Infinity;
+    for (let j = 0; j < h; j++) { if (row[j * w + i]) last = j; if (j - last <= r) mark[j * w + i] = 1; }
+    last = Infinity;
+    for (let j = h - 1; j >= 0; j--) { if (row[j * w + i]) last = j; if (last - j <= r) mark[j * w + i] = 1; }
+  }
+  // How far each cell lies from the TOWN'S edge (a turf cell beside one that is
+  // not), in cells, by a two-pass chamfer, capped past the band.
+  const turfOf = [...ids.keys()].map((id) => turfIds.has(id));
+  const cap = r + 1;
+  const dist = new Float32Array(w * h).fill(cap);
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const t = turfOf[zone[j * w + i]];
+      if ((i + 1 < w && turfOf[zone[j * w + i + 1]] !== t)
+        || (j + 1 < h && turfOf[zone[(j + 1) * w + i]] !== t)) {
+        dist[j * w + i] = 0;
+        if (i + 1 < w) dist[j * w + i + 1] = 0;
+        if (j + 1 < h) dist[(j + 1) * w + i] = 0;
+      }
+    }
+  }
+  const D = Math.SQRT2;
+  const relax = (k, v) => { if (v < dist[k]) dist[k] = v; };
+  for (let j = 0; j < h; j++) {
+    for (let i = 0; i < w; i++) {
+      const k = j * w + i;
+      if (i > 0) relax(k, dist[k - 1] + 1);
+      if (j > 0) {
+        relax(k, dist[k - w] + 1);
+        if (i > 0) relax(k, dist[k - w - 1] + D);
+        if (i + 1 < w) relax(k, dist[k - w + 1] + D);
+      }
+    }
+  }
+  for (let j = h - 1; j >= 0; j--) {
+    for (let i = w - 1; i >= 0; i--) {
+      const k = j * w + i;
+      if (i + 1 < w) relax(k, dist[k + 1] + 1);
+      if (j + 1 < h) {
+        relax(k, dist[k + w] + 1);
+        if (i + 1 < w) relax(k, dist[k + w + 1] + D);
+        if (i > 0) relax(k, dist[k + w - 1] + D);
+      }
+    }
+  }
+  const e0 = hf.originE;
+  const n0 = hf.originN;
+  return {
+    near: (e, n) => {
+      const i = Math.floor((e - e0) / c);
+      const j = Math.floor((n - n0) / c);
+      if (i < 0 || j < 0 || i >= w || j >= h) return true;
+      return mark[j * w + i] === 1;
+    },
+    /** Metres to the town's edge, bilinear between cell centres. */
+    townGap: (e, n) => {
+      const x = Math.min(w - 1.001, Math.max(0, (e - e0) / c - 0.5));
+      const y = Math.min(h - 1.001, Math.max(0, (n - n0) / c - 0.5));
+      const i = Math.floor(x);
+      const j = Math.floor(y);
+      const tx = x - i;
+      const ty = y - j;
+      const k = j * w + i;
+      const a = dist[k] + (dist[k + 1] - dist[k]) * tx;
+      const b = dist[k + w] + (dist[k + w + 1] - dist[k + w]) * tx;
+      return (a + (b - a) * ty) * c;
+    },
   };
 }
 
@@ -3582,15 +3795,19 @@ function zoneFinder(zones, terrain, water) {
  * community stays a hole. Which ground this admits, and on what evidence, is a
  * claim in the zone record's own extent note, never a rule in here.
  */
-function matches(x, e, n, terrain, water) {
+function matches(x, e, n, terrain, water, q = null) {
   if (!x) return false;
+  // T-2125: `q` is where a polygon or a box is asked (zone-blend.js). The soft
+  // extents below carry their own ramp and are asked at the plant's own point.
+  const qe = q ? q.e : e;
+  const qn = q ? q.n : n;
   // A box whose sides carry `edge` is soft (T-1819): its ramp reaches past the
   // stated line, so the hard clip would cut the ramp's outer half off.
   if (x.box && !x.edge) {
     const be = x.box.e;
     const bn = x.box.n;
-    if (be && (e < be[0] || e > be[1])) return false;
-    if (bn && (n < bn[0] || n > bn[1])) return false;
+    if (be && (qe < be[0] || qe > be[1])) return false;
+    if (bn && (qn < bn[0] || qn > bn[1])) return false;
   }
   let ok = false;
   // THE LAKE'S SAND (T-1819): a band from the lake's edge, or a box with
@@ -3605,31 +3822,37 @@ function matches(x, e, n, terrain, water) {
       ok = true;
       break;
     case 'elevation_band': {
+      // Not blended (T-2125): a band is a contour on ground with under two
+      // metres of relief, so it already wanders with the swales, and blending
+      // it would put the whole prairie inside an edge band.
       const y = terrain.surfaceHeight(e, n);
       ok = Array.isArray(x.elev_m) && y >= x.elev_m[0] && y <= x.elev_m[1];
       break;
     }
     case 'polygon':
-      ok = Array.isArray(x.polygon) && pointInPolygon(x.polygon, e, n);
+      ok = Array.isArray(x.polygon) && pointInPolygon(x.polygon, qe, qn);
       break;
     case 'buffer': {
       if (x.of !== 'water') return false;
       const dist = water.distance(e, n);
       const band = x.distance_m ?? [0, 0];
-      ok = dist >= band[0] && dist <= band[1];
+      // T-2125: only a buffer that reaches far from the water spreads, and only
+      // on its far side; the marsh stays at the water's edge.
+      const far = band[1] + (q && band[1] >= ZONE_BLEND.buffer.from ? blendBuffer(q) : 0);
+      ok = dist >= band[0] && dist <= far;
       break;
     }
     default:
       return false;
   }
   if (!ok) {
-    for (const patch of ringsNear(x.include_polygons, e, n)) {
-      if (pointInPolygon(patch, e, n)) { ok = true; break; }
+    for (const patch of ringsNear(x.include_polygons, qe, qn)) {
+      if (pointInPolygon(patch, qe, qn)) { ok = true; break; }
     }
   }
   if (!ok) return false;
-  for (const hole of ringsNear(x.exclude_polygons, e, n)) {
-    if (pointInPolygon(hole, e, n)) return false;
+  for (const hole of ringsNear(x.exclude_polygons, qe, qn)) {
+    if (pointInPolygon(hole, qe, qn)) return false;
   }
   return true;
 }

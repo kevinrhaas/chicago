@@ -6380,7 +6380,7 @@
   {
    "outcome": "matched",
    "person_id": "kimberly_edmund_s",
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "resident": "Dr Edmund Stoughton Kimberly",
    "volume": "fergus_1839",
    "source_id": "fergus_chicago_directory_1839",
@@ -6402,7 +6402,7 @@
   {
    "outcome": "matched",
    "person_id": "kimberly_edmund_s",
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "resident": "Dr Edmund Stoughton Kimberly",
    "volume": "fergus_1843",
    "source_id": "fergus_chicago_directory_1843",
@@ -6416,17 +6416,13 @@
    "match_status": "single_entry",
    "rule": "Surname 'Kimberly' folds to the same string as the 1843 entry's, and the given name of both begins E.",
    "carried": [],
-   "refused_to_carry": [
-    "address"
-   ],
-   "why_refused": {
-    "address": "AN EARLIER VOLUME ALREADY CARRIES THIS FIELD. The four volumes are read earliest first because the one closest to 1835 is the reading worth most and the one whose value is carried when two disagree: Fergus's Chicago directory of 1843 prints an address against this person, and Fergus's Chicago directory of 1839 — 1839, nearer the scene — had printed one already. The refusal is the precedence rule and nothing about this line. What this volume prints stands in the layer beside the value that won, and its entry id is named on the card, so a reader can compare them rather than take the earlier reading on trust."
-   }
+   "refused_to_carry": [],
+   "why_refused": null
   },
   {
    "outcome": "matched",
    "person_id": "kimberly_edmund_s",
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "resident": "Dr Edmund Stoughton Kimberly",
    "volume": "norris_1844",
    "source_id": "norris_directory_1844",
@@ -6440,12 +6436,8 @@
    "match_status": "single_entry",
    "rule": "Surname 'Kimberly' folds to the same string as the 1844 entry's, and the given name of both begins E.",
    "carried": [],
-   "refused_to_carry": [
-    "address"
-   ],
-   "why_refused": {
-    "address": "AN EARLIER VOLUME ALREADY CARRIES THIS FIELD. The four volumes are read earliest first because the one closest to 1835 is the reading worth most and the one whose value is carried when two disagree: Norris's Chicago directory of 1844 prints an address against this person, and Fergus's Chicago directory of 1839 — 1839, nearer the scene — had printed one already. The refusal is the precedence rule and nothing about this line. What this volume prints stands in the layer beside the value that won, and its entry id is named on the card, so a reader can compare them rather than take the earlier reading on trust."
-   }
+   "refused_to_carry": [],
+   "why_refused": null
   },
   {
    "outcome": "matched",

@@ -1,0 +1,363 @@
+{
+ "ticket": "T-2100",
+ "tree": "dev @ 12cb2f3d4",
+ "command": "node tools/measure_detail_ceilings.mjs --town --flora --stepped --stands town_backyard,town_yard,town_south_water_store,town_store_front, cut by --only and --levels",
+ "readings": [
+  {
+   "tree": "this tree",
+   "root": "site/4d",
+   "renderLoop": "two production steps and GPU finish",
+   "passes": [
+    {
+     "viewport": "desktop 1280x800",
+     "seen": [
+      {
+       "level": "balanced",
+       "ceiling": 2290000,
+       "atStands": [
+        {
+         "id": "town_backyard",
+         "label": "a back yard on Washington and Wells",
+         "tris": 2269319,
+         "calls": 293,
+         "flora": {
+          "tris": 4460,
+          "calls": 6
+         },
+         "structures": null
+        },
+        {
+         "id": "town_south_water_store",
+         "label": "a storefront on South Water Street",
+         "tris": 1967427,
+         "calls": 276,
+         "flora": {
+          "tris": 2954,
+          "calls": 7
+         },
+         "structures": null
+        },
+        {
+         "id": "town_yard",
+         "label": "the back yards of two Washington Street houses, looking at their backs",
+         "tris": 2263449,
+         "calls": 292,
+         "flora": {
+          "tris": 4553,
+          "calls": 5
+         },
+         "structures": null
+        },
+        {
+         "id": "town_store_front",
+         "label": "the South Water Street store fronts, from the street",
+         "tris": 1989577,
+         "calls": 274,
+         "flora": {
+          "tris": 3686,
+          "calls": 4
+         },
+         "structures": null
+        }
+       ]
+      },
+      {
+       "level": "light",
+       "ceiling": 1005000,
+       "atStands": [
+        {
+         "id": "town_backyard",
+         "label": "a back yard on Washington and Wells",
+         "tris": 882547,
+         "calls": 79,
+         "flora": {
+          "tris": 1482,
+          "calls": 5
+         },
+         "structures": null
+        },
+        {
+         "id": "town_south_water_store",
+         "label": "a storefront on South Water Street",
+         "tris": 745679,
+         "calls": 81,
+         "flora": {
+          "tris": 1356,
+          "calls": 3
+         },
+         "structures": null
+        },
+        {
+         "id": "town_yard",
+         "label": "the back yards of two Washington Street houses, looking at their backs",
+         "tris": 868108,
+         "calls": 78,
+         "flora": {
+          "tris": 1842,
+          "calls": 5
+         },
+         "structures": null
+        },
+        {
+         "id": "town_store_front",
+         "label": "the South Water Street store fronts, from the street",
+         "tris": 758254,
+         "calls": 83,
+         "flora": {
+          "tris": 2270,
+          "calls": 3
+         },
+         "structures": null
+        }
+       ]
+      }
+     ],
+     "errors": [],
+     "heap": 1115903338
+    }
+   ]
+  },
+  {
+   "tree": "dev",
+   "root": "site/4d",
+   "renderLoop": "two production steps and GPU finish",
+   "passes": [
+    {
+     "viewport": "desktop 1280x800",
+     "seen": [
+      {
+       "level": "full",
+       "ceiling": 3160000,
+       "atStands": [
+        {
+         "id": "town_backyard",
+         "label": "a back yard on Washington and Wells",
+         "tris": 3037625,
+         "calls": 304,
+         "flora": {
+          "tris": 10730,
+          "calls": 7
+         },
+         "structures": null
+        },
+        {
+         "id": "town_south_water_store",
+         "label": "a storefront on South Water Street",
+         "tris": 2470626,
+         "calls": 278,
+         "flora": {
+          "tris": 22181,
+          "calls": 9
+         },
+         "structures": null
+        },
+        {
+         "id": "town_yard",
+         "label": "back yards behind two Washington St houses",
+         "tris": 3018126,
+         "calls": 303,
+         "flora": {
+          "tris": 9462,
+          "calls": 8
+         },
+         "structures": null
+        },
+        {
+         "id": "town_store_front",
+         "label": "South Water St store fronts, from the street",
+         "tris": 2494164,
+         "calls": 278,
+         "flora": {
+          "tris": 16991,
+          "calls": 8
+         },
+         "structures": null
+        }
+       ]
+      }
+     ],
+     "errors": [],
+     "heap": 816574238
+    }
+   ]
+  },
+  {
+   "tree": "dev",
+   "root": "site/4d",
+   "renderLoop": "two production steps and GPU finish",
+   "passes": [
+    {
+     "viewport": "mobile 390x780",
+     "seen": [
+      {
+       "level": "balanced",
+       "ceiling": 2290000,
+       "atStands": [
+        {
+         "id": "town_backyard",
+         "label": "a back yard on Washington and Wells",
+         "tris": 1930581,
+         "calls": 250,
+         "flora": {
+          "tris": 4460,
+          "calls": 6
+         },
+         "structures": null
+        },
+        {
+         "id": "town_south_water_store",
+         "label": "a storefront on South Water Street",
+         "tris": 1698751,
+         "calls": 251,
+         "flora": {
+          "tris": 2954,
+          "calls": 7
+         },
+         "structures": null
+        },
+        {
+         "id": "town_yard",
+         "label": "back yards behind two Washington St houses",
+         "tris": 1919928,
+         "calls": 250,
+         "flora": {
+          "tris": 4553,
+          "calls": 5
+         },
+         "structures": null
+        },
+        {
+         "id": "town_store_front",
+         "label": "South Water St store fronts, from the street",
+         "tris": 1724150,
+         "calls": 250,
+         "flora": {
+          "tris": 3686,
+          "calls": 4
+         },
+         "structures": null
+        }
+       ]
+      },
+      {
+       "level": "light",
+       "ceiling": 1005000,
+       "atStands": [
+        {
+         "id": "town_backyard",
+         "label": "a back yard on Washington and Wells",
+         "tris": 705527,
+         "calls": 72,
+         "flora": {
+          "tris": 1482,
+          "calls": 5
+         },
+         "structures": null
+        },
+        {
+         "id": "town_south_water_store",
+         "label": "a storefront on South Water Street",
+         "tris": 614032,
+         "calls": 72,
+         "flora": {
+          "tris": 1356,
+          "calls": 3
+         },
+         "structures": null
+        },
+        {
+         "id": "town_yard",
+         "label": "back yards behind two Washington St houses",
+         "tris": 696006,
+         "calls": 72,
+         "flora": {
+          "tris": 1842,
+          "calls": 5
+         },
+         "structures": null
+        },
+        {
+         "id": "town_store_front",
+         "label": "South Water St store fronts, from the street",
+         "tris": 625463,
+         "calls": 74,
+         "flora": {
+          "tris": 2270,
+          "calls": 3
+         },
+         "structures": null
+        }
+       ]
+      }
+     ],
+     "errors": [],
+     "heap": 1102800152
+    }
+   ]
+  },
+  {
+   "tree": "dev",
+   "root": "site/4d",
+   "renderLoop": "two production steps and GPU finish",
+   "passes": [
+    {
+     "viewport": "mobile 390x780",
+     "seen": [
+      {
+       "level": "full",
+       "ceiling": 3160000,
+       "atStands": [
+        {
+         "id": "town_backyard",
+         "label": "a back yard on Washington and Wells",
+         "tris": 2582837,
+         "calls": 256,
+         "flora": {
+          "tris": 10730,
+          "calls": 7
+         },
+         "structures": null
+        },
+        {
+         "id": "town_south_water_store",
+         "label": "a storefront on South Water Street",
+         "tris": 2164250,
+         "calls": 253,
+         "flora": {
+          "tris": 22181,
+          "calls": 9
+         },
+         "structures": null
+        },
+        {
+         "id": "town_yard",
+         "label": "back yards behind two Washington St houses",
+         "tris": 2581255,
+         "calls": 258,
+         "flora": {
+          "tris": 9462,
+          "calls": 8
+         },
+         "structures": null
+        },
+        {
+         "id": "town_store_front",
+         "label": "South Water St store fronts, from the street",
+         "tris": 2181755,
+         "calls": 254,
+         "flora": {
+          "tris": 16991,
+          "calls": 8
+         },
+         "structures": null
+        }
+       ]
+      }
+     ],
+     "errors": [],
+     "heap": 804045984
+    }
+   ]
+  }
+ ]
+}

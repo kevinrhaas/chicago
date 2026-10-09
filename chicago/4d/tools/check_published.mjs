@@ -86,6 +86,21 @@ const COPIES = [
  * one of these is REPORTED, never silently skipped: the report is the point,
  * because it is the list of places where what ships is not what was checked.
  */
+/**
+ * The sidecars that seat a household, read from the SOURCE so the transform below
+ * covers exactly them and every other sidecar is still compared byte for byte.
+ */
+const SEATED = new Set();
+for (const scene of existsSync(path.join(REPO, 'data/sidecars')) ? readdirSync(path.join(REPO, 'data/sidecars')) : []) {
+  const dir = path.join(REPO, 'data/sidecars', scene);
+  if (!statSync(dir).isDirectory()) continue;
+  for (const f of readdirSync(dir)) {
+    if (!f.endsWith('.json') || !statSync(path.join(dir, f)).isFile()) continue;
+    const rec = JSON.parse(readFileSync(path.join(dir, f), 'utf8'));
+    if (Array.isArray(rec?.residents) && rec.residents.length) SEATED.add(`data/sidecars/${scene}/${f}`);
+  }
+}
+
 const TRANSFORMED = [
   { re: /^(?:\d{4}\/)?index\.html$/,
     what: 'the front doors — /4d/ and /4d/<year>/ on chicago.polecat.live. tools/write_entry_pages.mjs '
@@ -135,6 +150,18 @@ const TRANSFORMED = [
         + 'measured 31.999 MB on 2026-09-05, and the next resident pass could not land. '
         + 'Whitespace is the one thing in it a visitor never reads — the renderer fetches '
         + 'these with response.json().' },
+  { re: /^data\/sidecars\/[^/]+\/households\/[^/]+\.json$/,
+    what: 'tools/defer_household_notes.mjs (run by publish.sh) writes each seated record\'s households, '
+        + 'whole, beside it for the card to fetch when it opens (T-2151)',
+    gate: 'defer_household_notes.mjs --check (check.sh) asserts each is its source record\'s `residents`, '
+        + 'value for value, with none missing and none extra.' },
+  { re: { test: (rel) => SEATED.has(rel) },
+    what: 'the same tool ships every sidecar that seats a household with its households SLIM — no `why`, '
+        + '`research_note` or person `note` — because those paragraphs were 0.87 MB of a first visit '
+        + 'that was 0.65 MB over its 13 MB budget, and only an open card reads them (T-2151)',
+    gate: 'defer_household_notes.mjs --check (check.sh) asserts each shipped record deep-equals its '
+        + 'source with exactly those fields taken out, and that every source household carries the '
+        + '`why` whose absence is how the card knows to fetch the rest.' },
   { re: /^data\/gltf\/.*\.glb$/,
     what: 'gltf-transform meshopt derivative built by bake.sh from assets/gltf masters',
     gate: 'R-BUG3c-b: check.sh asserts the committed master against the heightfield and REPORTS the '

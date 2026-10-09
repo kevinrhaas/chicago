@@ -55,6 +55,8 @@
       "phases[].form.fence_height_m.note",
       "phases[].form.fenestration.note",
       "phases[].form.fire_rings.note",
+      "phases[].form.flag.note",
+      "phases[].form.flag_flying.note",
       "phases[].form.forge.note",
       "phases[].form.frame_addition.note",
       "phases[].form.frame_addition_depth_m.note",
@@ -320,6 +322,8 @@
     },
     "households": {
       "modelled_family.ruling.what_happened": "T-2021. Says why a married house no woman in the town fits was given its drawn family or left standing alone, and quotes no name at all: it gives the house's drawn size, its rank in the seeded order and the bounds the ruling held. Its kin, where it has any, stand on the same card's `persons[]` as reconstructed people and are read there; reading this sentence could add no name the town has not said something about.",
+      "modelled_family.printed_wife.printed": "T-2190. The marriage notice the printed wife is seated on, quoted as the column prints it. Its three names are the magistrate's, the groom's and the bride's: the groom is the card's own head and the bride stands on the same card's `persons[]`, both already read where they stand, and the magistrate is read off the press layer that holds the column. Reading the quote again could add no name the town has not said something about.",
+      "modelled_family.printed_wife.what_happened": "T-2190. Says why a married house holds the wife a source prints rather than a drawn one, and names only her, who stands on the same card's `persons[]` and is read there. Reading the sentence again could add no name the town has not said something about.",
       "modelled_family.married.what_happened": "T-2020. Says why a married house holds a wife and children it did not draw, and quotes only two names: the wife's, which stands on the same card's `persons[]` as a reconstructed person, and the head's, which is the card's own head. Both are already read where they stand, so reading the sentence again could add no name the town has not said something about — and it would put an invented wife's name into the pool as if a record had said it."
     },
     "exclusions": {}

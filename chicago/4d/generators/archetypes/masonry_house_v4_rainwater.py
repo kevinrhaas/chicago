@@ -117,7 +117,8 @@ def add_courtyard_rainwater(b,params):
     # do not run a gutter through their rooms or through the projecting tower.
     kick=north.get('kick')
     slope=math.tan(math.radians(kick['pitch_deg'])) if kick and kick['side']=='south' else (north['ridge_z']-north['eave_lo_z'])/(north['ridge_at']-north['y0'])
-    ny=north['y0']-overhang;nz=north['eave_lo_z']-overhang*slope
+    north_overhang=north.get('eave_lo_overhang',overhang)
+    ny=north['y0']-north_overhang;nz=north['eave_lo_z']-north_overhang*slope
     right=copper['x0'] if copper else north['x1']
     runs=[(north['x0'],right)]
     if dining:
@@ -126,19 +127,26 @@ def add_courtyard_rainwater(b,params):
     for a,c in runs:
         if c>a+.02:
             edge=[(a,ny,nz),(c,ny,nz)]
-            if params.detail.get('dining_roof_junction') and dining:
+            if params.detail.get('dining_roof_junction') and dining and not params.detail.get('dining_crested_connection'):
                 if abs(c-da)<.001:edge=[(a,ny,nz),(da-.24,ny,nz),(da,ny,dining['band_top_z'])]
                 elif abs(a-dc)<.001:edge=[(dc,ny,dining['band_top_z']),(dc+.24,ny,nz),(c,ny,nz)]
             _gutter(b,edge,[(0,-1,0)]*len(edge))
+    if copper and params.detail.get('continuous_copper_corner') and north_overhang>.21:
+        from archetypes.masonry_house_v4_courtyard_roof import copper as copper_roof
+        _,a,c=copper_roof(params)[0][0]
+        dx,dy=c[0]-a[0],c[1]-a[1];length=math.hypot(dx,dy)
+        normal=(dy/length,-dx/length,0)
+        _gutter(b,[a,c],[normal,normal])
     if copper and not params.detail.get('continuous_copper_corner'):
         _gutter(b,[(copper['x0'],copper['y0'],copper['wall_top_z']),
                    (copper['x1'],copper['y0'],copper['wall_top_z'])],[(0,-1,0)]*2)
 
     if dining:
-        edge=[(*p,dining['band_top_z']) for p in dining['pts']]
+        outline=dining['pts'][1:-1] if north_overhang>.21 else dining['pts']
+        edge=[(*p,dining['band_top_z']) for p in outline]
         _gutter(b,edge,_outline_normals(edge))
         # HABS05's conspicuous pipe at the photo-left/west bay junction.
-        x,y=dining['pts'][0]
+        x,y=outline[0]
         _downpipe(b,x-.085,y-.085,dining['band_top_z'],(x-.032,y-.085))
 
     if bow:

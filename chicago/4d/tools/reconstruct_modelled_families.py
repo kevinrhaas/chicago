@@ -52,6 +52,17 @@ admits one. Seven refusals, each with a reason a reader can check:
      this stage applies are the same rule now. A dwelling these men are DOCUMENTED to have
      kept retires the container, not the refusal; until a source says one did, the trade
      argument is met by naming the man and stops there.
+  3b. A HEAD A SOURCE MARRIES AFTER THE SCENE DATE GETS NOTHING, since 2026-10-05
+     (T-2140). Rule 3 says a head whose family a source names, counts or rules on is not
+     a head the sources leave alone, and it tested that by counting the card's people.
+     Peter Pruyne showed the gap: Andreas marries him to Rebecca Sherman on 20 August
+     1835, `data/residents/stated_family_rulings.json` rules that marriage `later_only`,
+     and he stood alone on no card until T-2140 took Dr Kimberly off his partnership's.
+     The day it did, this stage drew him a wife called Almira and three sons - a wife
+     on 1 July for a man the record marries seven weeks later, which is inventing
+     against the record and not into a gap in it. So a `later_only` marriage ruling
+     refuses the house; the other verdicts do not, because none of them dates the head
+     out of a marriage on the day.
   4. The fort and the country outside the town get nothing. T-1176 musters the garrison
      and the order book never apportions the fort division.
   5. A household under a standing review gets nothing, and neither does a head whose own
@@ -120,7 +131,9 @@ BOOK = ROOT / "data" / "reconstruction" / "1835_reconstruction_order_book.json"
 LEDGER = ROOT / "data" / "reconstruction" / "1835_modelled_families.json"
 RULINGS = ROOT / "data" / "reconstruction" / "1835_presence_rulings.json"
 FOLDS = ROOT / "data" / "reconstruction" / "1835_folded_houses.json"
+RETIRED = ROOT / "data" / "residents" / "merged"
 RULING = ROOT / "data" / "reconstruction" / "1835_family_ruling.json"
+STATED = ROOT / "data" / "residents" / "stated_family_rulings.json"
 ROSTER = ROOT / "data" / "reconstruction" / "1835_borderline_roster.json"
 # The roster classes tools/readmit_borderline_roster.py mints a card from by its read name.
 READMIT_MINTS = ("R2_in_window_single_source", "R3_1834_return_or_muster",
@@ -144,6 +157,30 @@ KIN_MAX = 8
 # the one kind of draw a model may never make. Protestant ministers married and are not
 # here: Jeremiah Porter's household is a family the sources name.
 CELIBATE_TRADES = ("priest",)
+
+# THE WIFE THE PAPER PRINTS, WHERE THE TOWN HOLDS HER ON A CARD OF HER OWN (T-2190). A
+# head this stage draws a married house for may have a wife a source names, and the town
+# may already hold her — as the head of a house of her own, minted off the very column
+# that married them. Drawing a wife for him beside her would state two wives. So his house
+# is drawn exactly as before, by the same seeds, and its wife is NOT drawn: the printed
+# bride is seated in her place, her card folded into his, and counted in the order-book
+# cell a drawn wife of her band would fill. Each row is a reading of the source it quotes, authored here and
+# held by `--check`; the fold is undone before every derivation (`unseat_printed`), so the
+# stage still draws from the layer as the mints left it. Married before the scene date,
+# by a source that dates it, or the row is refused.
+PRINTED_TICKET = "T-2190"
+PRINTED_KEY = "seated_as_printed_wife"
+PRINTED_WIVES = {
+    "hh_ingersoll_chester": {
+        "wife_household": "hh_weaver_betsy",
+        "wife": "weaver_betsy",
+        "married": "1833-12-12",
+        "source": "chicago_democrat_1833_1835",
+        "locator": "chicago_democrat_1833_12_17#c001",
+        "printed": "MARRIED, In this town, on the evening of the 12th inst., by the Hon. R. "
+                   "J. Hamilton, Mr. CHESTER INGERSOLL, to Miss BETSY WEAVER.",
+    },
+}
 
 # The evidence-only containers T-0489 kept: `hh_inf_*`, named "Evidence-only household
 # — <head>", one head the papers name and no dwelling that is anything but hypothesis.
@@ -201,6 +238,22 @@ def value_of(block):
 
 
 _RULED = None
+_MARRIED_LATER = None
+
+
+def married_after_the_scene_date() -> frozenset:
+    """3b. The households whose head a source marries after 1 July 1835.
+
+    Read off the authored stated-family rulings: a `marriage:<household>:<wife>` row at
+    `later_only` is a source dating the head's marriage after the scene date, and a wife
+    drawn for him on the day would contradict it."""
+    global _MARRIED_LATER
+    if _MARRIED_LATER is None:
+        rows = json.loads(STATED.read_text(encoding="utf-8"))["rulings"]
+        _MARRIED_LATER = frozenset(key.split(":")[1] for key, row in rows.items()
+                                   if key.startswith("marriage:")
+                                   and row.get("verdict") == "later_only")
+    return _MARRIED_LATER
 
 
 def ruled_present() -> frozenset:
@@ -300,13 +353,16 @@ def evidence_only(card: dict) -> bool:
             or str(card.get("name") or "").startswith(EVIDENCE_ONLY_NAME))
 
 
-def eligibility(card: dict, ruled=None) -> tuple:
+def eligibility(card: dict, ruled=None, married_later=None) -> tuple:
     """(eligible, the refusal). One rule a line, in the docstring's order.
 
-    `ruled` is the T-1386 ruling set; it defaults to the committed one and is passed
-    explicitly only by the self-test, which owns no household id in the file."""
+    `ruled` is the T-1386 ruling set and `married_later` rule 3b's; each defaults to the
+    committed one and is passed explicitly only by the self-test, which owns no household
+    id in either file."""
     if ruled is None:
         ruled = ruled_present()
+    if married_later is None:
+        married_later = married_after_the_scene_date()
     if not settled_present(card, ruled):
         return False, "presence on the scene date is not settled (T-1172's roster holds it)"
     if str(card.get("source_pass") or "") == "letter_list":
@@ -317,6 +373,8 @@ def eligibility(card: dict, ruled=None) -> tuple:
     persons = card.get("persons") or []
     if len(persons) > 1:
         return False, "a source already names, counts or rules on this household's family"
+    if card.get("id") in married_later:
+        return False, "a source marries the head after the scene date"
     head = head_of(card)
     if head is None:
         return False, "the record carries no single head to draw a family around"
@@ -678,7 +736,14 @@ def fill(base: dict) -> tuple:
         card = out[hid]
         return (0 if value_of(card.get("present_on_scene_date")) == "present" else 1, hid)
 
+    brides = {spec["wife_household"]: host for host, spec in PRINTED_WIVES.items()}
+    printed = {}
     for hid in sorted(out, key=service_order):
+        if hid in brides:
+            # Seated below as her husband's printed wife, never drawn for on her own.
+            refusals["a source prints her as the wife of a head this stage seats her "
+                     "beside (T-2190)"] += 1
+            continue
         card = out[hid]
         ok, why = eligibility(card, ruled)
         if not ok:
@@ -696,7 +761,26 @@ def fill(base: dict) -> tuple:
         household_type = type_of(size)
 
         drafted = draft(hid, card, size)
-        if size >= 2:
+        if hid in PRINTED_WIVES:
+            # T-2190: THE PRINTED BRIDE, IN PLACE OF THE DRAWN WIFE. The draft above is
+            # the same draft, so every child keeps its seed and its name; the drawn wife
+            # is set aside unseated, and nothing it drew is spent.
+            wife, printed[PRINTED_WIVES[hid]["wife_household"]] = seat_printed(
+                out, hid, PRINTED_WIVES[hid])
+            # SHE IS COUNTED WHERE A DRAWN WIFE WOULD BE: in the cell her own sex, band and
+            # his division name. Withdrawing the drawn wife and seating a real woman of the
+            # same cell leaves the cell holding what it held, so no other house's draw moves.
+            # A cell with no room left for her is a question for a ruling, never a refusal
+            # of a woman a source names.
+            bucket = bucket_for(hid, card, "female", int(wife["age_band"]["low"]), "wife")
+            if left.get(bucket, 0) <= 0:
+                raise SystemExit("FAIL %s's printed wife falls in %s, which has no room left"
+                                 % (hid, bucket))
+            left[bucket] -= 1
+            fills[bucket] += 1
+            members.append(wife)
+            counts["printed_wives"] += 1
+        elif size >= 2:
             wife = drafted[0]
             bucket = wife["bucket"]
             if left.get(bucket, 0) <= 0:
@@ -735,11 +819,20 @@ def fill(base: dict) -> tuple:
             drawn_band[book_band(child["low"])] += 1
             counts["children"] += 1
 
-        seat(card, members, family_block(size, 1 + len(members),
-                                         seed_for(hid, "household_size")))
+        block = family_block(size, 1 + len(members), seed_for(hid, "household_size"))
+        if hid in PRINTED_WIVES:
+            block["printed_wife"] = printed_wife_note(PRINTED_WIVES[hid], members[0])
+        seat(card, members, block)
         kin_size[1 + len(members)] += 1
         per_card[hid] = {"size_drawn": size, "kin_seated": 1 + len(members),
                          "household_type": household_type}
+        if hid in PRINTED_WIVES:
+            per_card[hid]["printed_wife"] = PRINTED_WIVES[hid]["wife_household"]
+
+    unseated = sorted(set(brides) - set(printed))
+    if unseated:
+        raise SystemExit("FAIL a printed wife's husband was not drawn for, so she has no "
+                         "house to be seated in: %s" % ", ".join(unseated))
 
     ledger = {
         "_doc": "DERIVED — regenerate with tools/reconstruct_modelled_families.py --build. "
@@ -766,6 +859,19 @@ def fill(base: dict) -> tuple:
         "by_household": {k: per_card[k] for k in sorted(per_card)},
         "houses_the_book_refused_by_household": {k: refused_houses[k]
                                                   for k in sorted(refused_houses)},
+        "printed_wives": {
+            "ticket": PRINTED_TICKET,
+            "houses": counts["printed_wives"],
+            "by_household": {h: PRINTED_WIVES[h]["wife_household"]
+                             for h in sorted(PRINTED_WIVES) if h in per_card},
+            "what_happened": "The wife a source prints, seated from her own card in place "
+                             "of the wife the model drew. The drawn wife is not seated; the "
+                             "printed one is counted in the cell her own sex, band and his "
+                             "division name, as a drawn wife would be, and is in `fills` "
+                             "beside the drawn people (she is not in `wives` or "
+                             "`people_drawn`).",
+        },
+        "_printed_folds": printed,
     }
     ledger["re_housing"] = re_housing(base, refused_houses)
 
@@ -1278,8 +1384,17 @@ def trade_women() -> str:
 def re_housing(base: dict, refused: dict) -> dict:
     """How many of the refused married houses the town's own women could be wife to."""
     ruled = ruled_present()
+    # A HOUSE THE FROZEN RULING RULED ON IS NOT ON OFFER (T-2179). T-2021 gave each one
+    # its answer — the whole family it drew, or standing alone — and "a later re-cut
+    # re-deals nobody". When the ruling froze, every house it ruled on was one no woman in
+    # the town fitted, so on the tree it was frozen on this changes no pair; it matters only
+    # when the pool moves. A card merge that retires a married host frees his wife, and a
+    # greedy match left free to give her to a ruled house would overturn the ruling: an
+    # admitted house would lose the family the book orders for it, and a house ruled to
+    # stand alone would be married after all. She heads her own house again instead.
+    ruled_on = set(((load_ruling() or {}).get("houses") or {}))
     heads = [(houses["wife_cell"].split("/")[3], houses["head_band_low"], hid)
-             for hid, houses in refused.items()]
+             for hid, houses in refused.items() if hid not in ruled_on]
     women, held, held_back_ids = [], Counter(), set()
     pool = [card for card in base.values()
             if card.get("source_pass") == WOMEN_PASS
@@ -1384,7 +1499,95 @@ def load_folds() -> dict:
     return json.loads(FOLDS.read_text(encoding="utf-8")).get("houses") or {}
 
 
-def folds_doc(folds: dict) -> dict:
+def load_printed() -> dict:
+    if not FOLDS.exists():
+        return {}
+    return json.loads(FOLDS.read_text(encoding="utf-8")).get("printed_wives") or {}
+
+
+def seat_printed(out: dict, host_hid: str, spec: dict) -> tuple:
+    """(her record as his wife, the folded card's sidecar row), her card taken out of
+    `out`. The printed bride of PRINTED_WIVES, refused by name unless she is exactly the
+    card the row says: one person, its head, read female, married before the day."""
+    her_hid = spec["wife_household"]
+    her = out.pop(her_hid, None)
+    persons = (her or {}).get("persons") or []
+    if (her is None or len(persons) != 1 or persons[0].get("id") != spec["wife"]
+            or her.get("head") != spec["wife"] or persons[0].get("sex") != "female"
+            or not spec["married"] < SCENE_DATE):
+        raise SystemExit("FAIL %s is not the card %s's printed wife row names (%s, one "
+                         "female head, married before %s)"
+                         % (her_hid, host_hid, spec["wife"], SCENE_DATE))
+    # The mark goes right after `relationship`, not at the end: the sex and age passes
+    # re-append what they write at the end of a person, and must find it there both ways.
+    record = {}
+    for key, value in json.loads(json.dumps(persons[0])).items():
+        record[key] = value
+        if key == "relationship":
+            record["relationship"] = "wife"
+            record[PRINTED_KEY] = {"ticket": PRINTED_TICKET, "from_household": her_hid,
+                                   "relationship_as_dealt": "head"}
+    card = json.loads(json.dumps(her))
+    card["persons"] = [record["id"]]
+    return record, {"folded_into": host_hid, "card": card}
+
+
+def printed_wife_note(spec: dict, wife: dict) -> dict:
+    return {
+        "ticket": PRINTED_TICKET,
+        "wife": wife["id"],
+        "from_household": spec["wife_household"],
+        "married": spec["married"],
+        "sources": [spec["source"]],
+        "locator": spec["locator"],
+        "printed": spec["printed"],
+        "what_happened": (
+            "THE WIFE IS PRINTED, SO SHE IS NOT DRAWN. The paper marries them on %s, before "
+            "the scene date, and the town already held %s on a card of her own, minted off "
+            "the same column. She is seated here as his wife and that card is folded into "
+            "this house; the wife the household model drew for it is not seated, and she is "
+            "counted in the order book's cell for a woman of her band in his division, as a "
+            "drawn wife would be. The house's size and its children are the model's, "
+            "drawn by the same seeds as before and still the town's invention at the "
+            "`reconstructed` tier: the paper names a marriage, not a family. It does not say "
+            "where they lived, or that she was in Chicago on 1 July 1835; she stands in his "
+            "house because a wife of eighteen months keeps her husband's house, and that is "
+            "the reconstruction, not the source." % (spec["married"], wife.get("name"))),
+    }
+
+
+def unseat_printed(live: dict, printed: dict | None = None) -> dict:
+    """The layer with every printed wife back on her own card. The inverse of
+    `seat_printed`, exact or refused by name, as `unfold` is for T-2020's folds."""
+    printed = load_printed() if printed is None else printed
+    out = dict(live)
+    for her_hid, row in sorted(printed.items()):
+        host = out.get(row.get("folded_into"))
+        if host is None or her_hid in out:
+            raise SystemExit("FAIL %s is seated in %s, which the layer does not hold, or "
+                             "stands as a card as well" % (her_hid, row.get("folded_into")))
+        moved = [p for p in host.get("persons") or []
+                 if (p.get(PRINTED_KEY) or {}).get("from_household") == her_hid]
+        card = json.loads(json.dumps(row["card"]))
+        if [p.get("id") for p in moved] != card["persons"]:
+            raise SystemExit("FAIL the printed wife of %s on %s is not the folded card's"
+                             % (her_hid, host["id"]))
+        person = json.loads(json.dumps(moved[0]))
+        person["relationship"] = person.pop(PRINTED_KEY)["relationship_as_dealt"]
+        card["persons"] = [person]
+        out[her_hid] = card
+        stripped = json.loads(json.dumps(host))
+        stripped["persons"] = [p for p in stripped["persons"] if p.get("id") != person["id"]]
+        out[host["id"]] = stripped
+    stray = [p.get("id") for card in out.values() for p in card.get("persons") or []
+             if PRINTED_KEY in p]
+    if stray:
+        raise SystemExit("FAIL printed wives no fold accounts for: %s" % ", ".join(stray[:4]))
+    return out
+
+
+def folds_doc(folds: dict, printed: dict | None = None) -> dict:
+    printed = load_printed() if printed is None else printed
     return {
         "_doc": "DERIVED — regenerate with tools/reconstruct_modelled_families.py --build. "
                 "Do not hand-edit.",
@@ -1402,6 +1605,12 @@ def folds_doc(folds: dict) -> dict:
                         "gone from it, and their people keep house with the men named in "
                         "`folded_into`.",
         "houses": {k: folds[k] for k in sorted(folds)},
+        "printed_wives_are": "T-2190: the cards of women a source prints as the wife of a "
+                             "head this stage draws for (PRINTED_WIVES), folded into his "
+                             "house in place of a drawn wife. Kept apart from `houses`, "
+                             "which are T-1174's and are undone by `unfold`; these are "
+                             "undone by `unseat_printed`.",
+        "printed_wives": {k: printed[k] for k in sorted(printed)},
     }
 
 
@@ -1464,18 +1673,39 @@ def marry(host: dict, her: dict, size: int, seed: str) -> tuple:
     return out, {"folded_into": host["id"], "card": card}
 
 
-def unfold(live: dict, folds: dict | None = None) -> tuple:
+def retired_host(hid: str) -> dict | None:
+    """The card a host WAS, when a card merge has since retired it (T-2179).
+
+    `consolidate_town_cards.py` folds a duplicate card onto its survivor and keeps the
+    whole record under `data/residents/merged/` as `superseded_record`. If the retired
+    card was hosting a wife T-2020 moved in, her people are on that record and nowhere
+    else, so the unfold reads them from it: her house comes back as she was dealt and
+    the next marry pass is free to seat her again. The retired host is NOT restored —
+    the merge is what retired it."""
+    path = RETIRED / f"{hid}.json"
+    if not hid or not path.exists():
+        return None
+    stub = json.loads(path.read_text(encoding="utf-8"))
+    if not stub.get("merged_into"):
+        return None
+    return stub.get("superseded_record")
+
+
+def unfold(live: dict, folds: dict | None = None, retired=retired_host) -> tuple:
     """(the layer as T-1174 dealt it, {folded house: host}). The inverse of `marry`.
 
     Every folded house is restored from `FOLDS` with its own people taken back off the
     host, and every host is stripped of what the fold put there. A folded person no row
     accounts for, or a row whose people are not all on its host, is refused by name: the
-    fold is undone exactly or not at all."""
+    fold is undone exactly or not at all. A host a card merge has retired is read from
+    its retired record (`retired_host`); only a host that is nowhere is refused."""
     folds = load_folds() if folds is None else folds
     out = dict(live)
     hosts = {}
     for her_hid, row in sorted(folds.items()):
         host = live.get(row.get("folded_into"))
+        if host is None:
+            host = retired(row.get("folded_into"))
         if host is None:
             raise SystemExit("FAIL %s is folded into %s, which the layer does not hold"
                              % (her_hid, row.get("folded_into")))
@@ -1635,12 +1865,14 @@ def measurement(base: dict, live: dict, ledger: dict) -> dict:
 
 def base_layer(live: dict) -> dict:
     """The layer as it stood before this stage ran: unfolded, then this pass stripped."""
-    return {hid: without_this_pass(card) for hid, card in unfold(live)[0].items()}
+    return {hid: without_this_pass(card)
+            for hid, card in unseat_printed(unfold(live)[0]).items()}
 
 
 def build() -> int:
     base = base_layer(cards())
     filled, ledger, folds = fill(base)
+    printed = ledger.pop("_printed_folds")
     written = 0
     for hid, card in filled.items():
         path = HOUSEHOLDS / f"{hid}.json"
@@ -1648,12 +1880,12 @@ def build() -> int:
         if not path.exists() or path.read_text(encoding="utf-8") != text:
             path.write_text(text, encoding="utf-8")
             written += 1
-    for hid in sorted(folds):
+    for hid in sorted(set(folds) | set(printed)):
         path = HOUSEHOLDS / f"{hid}.json"
         if path.exists():
             path.unlink()
             written += 1
-    FOLDS.write_text(dumps(folds_doc(folds)), encoding="utf-8")
+    FOLDS.write_text(dumps(folds_doc(folds, printed)), encoding="utf-8")
     if not RULING.exists():
         # THE ONE TIME THE RULING IS WRITTEN. `fill` made it because none stood; from
         # here on it is read, and a re-cut re-deals nobody (T-2021).
@@ -1683,7 +1915,9 @@ def write_fills(ledger: dict) -> None:
              for key, n in sorted(ledger["family_ruling"]["fills"].items())]
     book["fills"] = ob.splice_fills(book.get("fills", []), {TICKET, RULING_TICKET}, rows)
     BOOK.write_text(json.dumps(book, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    ob.cmd_build()
+    # The live-owner gate waits for the stage below that refills what this one withdrew
+    # (T-2189); the overfill check does not.
+    ob.cmd_build(owners_gate=False)
 
 
 def check() -> int:
@@ -1691,6 +1925,7 @@ def check() -> int:
     base = base_layer(live)
     filled, ledger, folds = fill(base)
     ledger.pop("_ruling_made", None)
+    printed = ledger.pop("_printed_folds")
     if set(live) != set(filled):
         print("  FAIL the layer's cards are not the set this stage leaves (%d standing, "
               "%d derived; folded but standing %s; missing %s)"
@@ -1702,7 +1937,8 @@ def check() -> int:
         print("  FAIL %d card(s) are not what this stage derives: %s"
               % (len(bad), ", ".join(bad[:6])))
         return 1
-    if not FOLDS.exists() or FOLDS.read_text(encoding="utf-8") != dumps(folds_doc(folds)):
+    if not FOLDS.exists() or (FOLDS.read_text(encoding="utf-8")
+                              != dumps(folds_doc(folds, printed))):
         print("  FAIL %s is not what --build writes" % FOLDS.relative_to(ROOT))
         return 1
     ledger["measurement"] = measurement(base, filled, ledger)
@@ -1731,8 +1967,12 @@ def check() -> int:
         return 1
     ruling = load_ruling()
     fr = ledger["family_ruling"]
+    # A house a card merge RETIRED is not re-dealt, it is gone: its record is kept whole
+    # under data/residents/merged/ and its person stands on the survivor (T-2179). So is a
+    # printed wife's own house, gone into her husband's (T-2190).
     gone = sorted(hid for hid, row in (ruling.get("houses") or {}).items()
-                  if hid not in fr_houses(filled))
+                  if hid not in fr_houses(filled) and retired_host(hid) is None
+                  and hid not in printed)
     if gone:
         print("  FAIL the ruling rules on %d house(s) no longer refused a wife: %s — a "
               "re-cut may not re-deal the ruling; re-rule it deliberately"
@@ -1906,8 +2146,17 @@ def self_test() -> int:
     # (38 and 961 until T-2071's concordance read hh_crissy_william onto hh_crisey_william;
     # 960 until T-2076 read hh_palmer_n_h's 1 July 1835 printing onto his card, which
     # settles him present on the card itself and leaves no uncertainty to rule on).
+    # T-2179 RESTATED IT FROM 959 TO 955: it folded two duplicate cards (hh_baptist_john
+    # onto hh_bourassa_jean_baptiste, hh_bourassa_lon onto hh_bourrassa_leon), and the two
+    # survivors, each now carrying a baptism and a burial, read present on their own cards.
+    # T-2178 RESTATED IT FROM 959 TO 953: six St Mary's children whose own baptismal entries
+    # put their births after 1 July 1835 are carded `absent` by the civic mint now, so they
+    # reach the presence stage as evidenced absences and not as households to rule on.
+    # Merged, the two read 949 together: four folded and six absent, and no card is both.
+    # T-2190 RESTATED IT FROM 949 TO 948: Betsy Weaver's card, ruled present, is folded into
+    # Chester Ingersoll's as the wife the Democrat prints, so it is no household to rule on.
     fires("every household the rulings file names was ruled present",
-          len(ruled_present()) == 959)
+          len(ruled_present()) == 948)
     fires("a letter-list mint is refused",
           eligibility(card(source_pass="letter_list"))[0] is False)
     fires("an evidence-only container is refused by its id",
@@ -1924,6 +2173,9 @@ def self_test() -> int:
                if (p_.get("reconstruction") or {}).get("stage") == STAGE])
     fires("a household that already holds a second person is refused",
           eligibility(card(persons=base["persons"] + [dict(base["persons"][0], id="y")]))[0] is False)
+    fires("a head a source marries after the scene date is refused (3b)",
+          eligibility(card(), None, frozenset({"hh_x"}))[0] is False
+          and eligibility(card(), None, frozenset())[0] is True)
     fires("the fort is refused", eligibility(card(division="fort"))[0] is False)
     fires("a household under a standing review is refused",
           eligibility(card(review_required=True))[0] is False
@@ -1984,7 +2236,19 @@ def self_test() -> int:
     fires("a house T-1564 already re-familied is held back",
           wife_floor(dict(woman, refamilied={"rule": "C1"}))[0] is None)
     live = cards()
-    filled, ledger, folds = fill(base_layer(live))
+    base = base_layer(live)
+    filled, ledger, folds = fill(base)
+    # T-2190, the printed wife: back on her own card before the draw, and seated in the
+    # drawn wife's place after it, the drawn wife nowhere.
+    fires("a printed wife is unseated onto her own card before the draw",
+          all(spec["wife_household"] in base and len(base[h]["persons"]) == 1
+              for h, spec in PRINTED_WIVES.items()))
+    fires("…and seated as the wife in place of the one the model drew",
+          all(any(p_["id"] == spec["wife"] and p_["relationship"] == "wife"
+                  for p_ in filled[h]["persons"])
+              and not any(p_["id"] == f"{PREFIX}{h[3:]}_wife" for p_ in filled[h]["persons"])
+              and spec["wife_household"] not in filled
+              for h, spec in PRINTED_WIVES.items()))
     fires("every pair names a refused house",
           all(p_["house"] in ledger["houses_the_book_refused_by_household"]
               for p_ in ledger["re_housing"]["pairs"]))
@@ -2008,6 +2272,15 @@ def self_test() -> int:
     fires("unfold strips the host back to his lone head",
           [p_["id"] for p_ in back["hh_h"]["persons"]] == ["h"]
           and MARRIED_KEY not in back["hh_h"]["modelled_family"] and hosts == {"hh_w": "hh_h"})
+    back, hosts = unfold({}, {"hh_w": row}, retired=lambda hid: host if hid == "hh_h" else None)
+    fires("a host a card merge retired gives her house back, and stays retired",
+          dumps(back.get("hh_w")) == dumps(hers) and "hh_h" not in back
+          and hosts == {"hh_w": "hh_h"})
+    try:
+        unfold({}, {"hh_w": row}, retired=lambda hid: None)
+        fires("a host that is nowhere is refused", False)
+    except SystemExit:
+        fires("a host that is nowhere is refused", True)
     stray = json.loads(json.dumps(host))
     try:
         unfold({"hh_h": stray}, {})

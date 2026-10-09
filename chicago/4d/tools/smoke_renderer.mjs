@@ -1204,7 +1204,10 @@ const server = http.createServer((req, res) => {
 });
 
 await new Promise((r) => server.listen(PORT, r));
-const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}`;
+// T-2158: a phone lets go of its geometry's page arrays once uploaded; the
+// probes below read vertices back, so they ask it to keep them. The release
+// itself is held to account by tools/check_upload_release.mjs.
+const base = `http://127.0.0.1:${PORT}${ENTRY}?year=${YEAR}&keep-geometry=1`;
 console.log(`serving ${ROOT} on ${PORT} — ${wantPublished ? 'PUBLISHED mirror '
   + '(compressed assets, visitor layout)' : 'source tree (uncompressed masters)'}\n`);
 if (wantPublished && !fs.existsSync(path.join(ROOT, 'walk', 'index.html'))) {
@@ -1391,10 +1394,51 @@ for (const [label, viewport, touch] of [
   // run every branch below is a no-op — which is what lets it be called at the
   // head of four different parts. T-0060 wrote it inline twice; T-0121 needed
   // it twice more and made it one function instead of four copies.
+  // T-2122. The nearest station to the street checks' pose (107, -103) that
+  // stands on a sward drawn as plants: a community off the short turf, with a
+  // matrix, plantable at the point and six metres round it. The settled town
+  // draws its turf with the ground's texture, so a census of drawn plants read
+  // in the town reads nothing. Found once, by rings outward; null if none.
+  let swardStationMemo;
+  const swardStation = async () => {
+    if (swardStationMemo !== undefined) return swardStationMemo;
+    swardStationMemo = await page.evaluate(() => {
+      const f = window.__chicago4d.flora;
+      const swards = new Set(f.communities()
+        .filter((c) => !c.turf && c.graminoids > 0 && c.matrixShare > 0).map((c) => c.id));
+      const ok = (e, n) => swards.has(f.zoneAt(e, n)) && f.plantableAt(e, n);
+      for (let r = 0; r <= 600; r += 6) {
+        for (let k = 0; k < Math.max(1, Math.round((2 * Math.PI * r) / 6)); k++) {
+          const t = r ? (k / Math.round((2 * Math.PI * r) / 6)) * Math.PI * 2 : 0;
+          const e = Math.round(107 + Math.cos(t) * r);
+          const n = Math.round(-103 + Math.sin(t) * r);
+          if (ok(e, n) && ok(e + 6, n) && ok(e - 6, n) && ok(e, n + 6) && ok(e, n - 6)) {
+            return { e, n, zone: f.zoneAt(e, n) };
+          }
+        }
+      }
+      return null;
+    });
+    return swardStationMemo;
+  };
+  // T-2186: `ready` is not yet "enterable". After the boot finishes, the arrival runs
+  // its year-settle on animation frames (300 ms, arrival.js `settle`) and only then
+  // shows the welcome; until it does, `welcome.enter` refuses with a bare `false`
+  // (state 'arrival'). On a quiet box that window closes in a frame. On a loaded
+  // runner, where one frame has measured 17-26 s (see the click note below), a
+  // re-boot's enterTown landed inside it, so the town was never entered and desktop
+  // part 3's version chip read visible:false inside a hidden HUD. So wait for the
+  // welcome (bounded), and retry the entry until the welcome says it took.
   const enterTown = () => page.evaluate(async () => {
     if (!document.getElementById('gate').hasAttribute('hidden')) {
-      if (window.__chicago4d.welcome) window.__chicago4d.welcome.enter('spawn');
-      else document.getElementById('gate-btn')?.click();
+      const welcome = window.__chicago4d.welcome;
+      if (welcome) {
+        const deadline = Date.now() + 90_000;
+        while (welcome.state !== 'world' && Date.now() < deadline) {
+          if (welcome.state === 'welcome') welcome.enter('spawn');
+          if (welcome.state !== 'world') await new Promise((r) => setTimeout(r, 100));
+        }
+      } else document.getElementById('gate-btn')?.click();
       await new Promise((r) => setTimeout(r, 150));
       document.exitPointerLock?.();
     }
@@ -1571,6 +1615,19 @@ for (const [label, viewport, touch] of [
       !!roll && roll.expected > 0 && roll.standing === roll.expected,
       roll ? `${roll.standing} of ${roll.expected} standing; missing `
         + `${roll.missing.slice(0, 5).join(', ')}` : 'no roll call was taken');
+
+    // T-2058 — THE LIBERTIES ARE NOT ON THE BOOT PATH. `data/liberties.json` is
+    // 0.6 MB that only the Evidence panel and a building card read, so the
+    // walkthrough fetches it on first need. Asserted at ready, before anything
+    // here has opened either reader: a handle already filled means boot paid for
+    // it again. The checks further down that read the list synchronously call
+    // `libertiesLoaded()` first — the same fetch a visitor's first click starts,
+    // awaited rather than raced.
+    const libertiesAtBoot = await page.evaluate(() => window.__chicago4d.liberties);
+    check(`${label}: the liberties wait for their first reader, not for boot (T-2058)`,
+      libertiesAtBoot === null,
+      libertiesAtBoot ? `${libertiesAtBoot.count} loaded at ready` : 'no handle');
+    const libertiesLoaded = () => page.evaluate(() => window.__chicago4d.loadLiberties().then(() => true));
 
     // T-0848 — THE POSE EVERY DELTA CHECK IS CALIBRATED AT, read here because
     // this is the last line before the stage-guarded body, and nothing above it
@@ -2314,7 +2371,10 @@ for (const [label, viewport, touch] of [
     // loudly instead of quietly costing a phone its frame.
     const encl = await page.evaluate(() => {
       const e = window.__chicago4d.enclosures;
-      const meshes = (e?.group?.children ?? []).filter((c) => c.isMesh);
+      // Far batches intentionally span several source chunks. Their sphere is
+      // not a source chunk's culling bound; the far-merge gate verifies them.
+      const meshes = (e?.group?.children ?? [])
+        .filter((c) => c.isMesh && !c.userData?.farMerged);
       const box = { minE: Infinity, maxE: -Infinity, minN: Infinity, maxN: -Infinity };
       for (const r of e?.records ?? []) {
         for (const run of r.runs ?? []) {
@@ -3773,24 +3833,15 @@ for (const [label, viewport, touch] of [
         }
         return null;
       };
-      // The piles are nine objects on one lot 130 m from the nearest wagon and
-      // further still from the nearest cask, so a plain radius claims them with
-      // nothing to collide with. The radius is the widest pile's own reach — a
-      // timber stick 3.66 m long lying across its pile — plus a margin.
-      // It returns the NEAREST pile and not the first one inside the radius: the
-      // brick stacks stand 3.2 m apart, so a vertex at the near end of one falls
-      // inside its neighbour's radius too, and taking the first match measured
-      // it against the wrong anchor and reported 2.49 m of stray on geometry
-      // that is exactly where the record puts it.
-      const pileNear = (e, n) => {
-        let best = null;
-        let bestD = 2.6;
-        for (const pl of piles) {
-          const d = Math.hypot(e - pl.e, n - pl.n);
-          if (d <= bestD) { bestD = d; best = pl; }
-        }
-        return best;
-      };
+      // Measure the exact vertices emitted for each lot item. The old radius
+      // classifier absorbed nearby wagons/trade goods into bridge repair piles.
+      // Ownership includes every emitted vertex, so a displaced pile fails its
+      // bound instead of disappearing outside a search radius.
+      const lotOwners = new Map(meshes.map((m) => [m.geometry,
+        (m.userData.lotItemSpans ?? []).map((span) => ({ ...span,
+          pile: piles.find((pl) => pl.structure_id === span.id
+            && pl.e === span.at[0] && pl.n === span.at[1]) }))]));
+      const unknownLotOwners = [...lotOwners.values()].flat().filter((s) => !s.pile).length;
       const inQuad = (e, n, quad) => {
         let inside = false;
         for (let i = 0, j = quad.length - 1; i < quad.length; j = i, i += 1) {
@@ -3803,12 +3854,39 @@ for (const [label, viewport, touch] of [
       };
       for (const geo of (items.length ? geos : [])) {
         const pos = geo.getAttribute('position');
+        const owners = lotOwners.get(geo) ?? [];
+        let ownerIndex = 0;
         for (let i = 0; i < pos.count; i++) {
+          while (ownerIndex < owners.length && i >= owners[ownerIndex].to * 3) ownerIndex++;
+          const owner = owners[ownerIndex];
+          const pl = owner && i >= owner.from * 3 && i < owner.to * 3 ? owner.pile : null;
           // world is (E, up, -N)
           const e = pos.getX(i);
           const n = -pos.getZ(i);
           lowest = Math.min(lowest, pos.getY(i));
           highest = Math.max(highest, pos.getY(i));
+          // T-0057's piles, claimed before the wagons: a pile is measured for how
+          // far it reaches from its own anchor and for the one thing that would
+          // make it wrong, which is a stack of brick standing inside the building
+          // it was delivered for.
+          if (pl) {
+            pileVerts++;
+            pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
+            if (inQuad(e, n, pl.quad)) pileInLot++;
+            if (pl.bridge) {
+              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
+              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
+              pl.vertices++;
+              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
+              pl.minAlong = Math.min(pl.minAlong, along);
+              pl.maxAlong = Math.max(pl.maxAlong, along);
+              pl.minAcross = Math.min(pl.minAcross, across);
+              pl.maxAcross = Math.max(pl.maxAcross, across);
+              pl.minY = Math.min(pl.minY, pos.getY(i));
+              pl.maxY = Math.max(pl.maxY, pos.getY(i));
+            }
+            continue;
+          }
           // The shed's bay first: along the wall and out of it, in the shed's own
           // frame. The wagon's tongue reaches past the bay and is left to the
           // wagon bound below, which is exactly where it belongs.
@@ -3840,29 +3918,6 @@ for (const [label, viewport, touch] of [
             break;
           }
           if (inBay) continue;
-          // T-0057's piles, claimed before the wagons: a pile is measured for how
-          // far it reaches from its own anchor and for the one thing that would
-          // make it wrong, which is a stack of brick standing inside the building
-          // it was delivered for.
-          const pl = pileNear(e, n);
-          if (pl) {
-            pileVerts++;
-            pileStray = Math.max(pileStray, Math.hypot(e - pl.e, n - pl.n));
-            if (inQuad(e, n, pl.quad)) pileInLot++;
-            if (pl.bridge) {
-              const along = (e - pl.e) * Math.cos(pl.b) - (n - pl.n) * Math.sin(pl.b);
-              const across = -(e - pl.e) * Math.sin(pl.b) - (n - pl.n) * Math.cos(pl.b);
-              pl.vertices++;
-              if (geo.getAttribute('_confidence')?.getX(i) !== 1) pl.badConfidence++;
-              pl.minAlong = Math.min(pl.minAlong, along);
-              pl.maxAlong = Math.max(pl.maxAlong, along);
-              pl.minAcross = Math.min(pl.minAcross, across);
-              pl.maxAcross = Math.max(pl.maxAcross, across);
-              pl.minY = Math.min(pl.minY, pos.getY(i));
-              pl.maxY = Math.max(pl.maxY, pos.getY(i));
-            }
-            continue;
-          }
           // A wagon is 3 m of body and a 2.75 m tongue, so it is measured by its
           // own bound rather than lumped in with the casks.
           const w = wagonNear(e, n);
@@ -3937,6 +3992,8 @@ for (const [label, viewport, touch] of [
         benchInside,
         benches,
         pileVerts,
+        unknownLotOwners,
+        lotSpans: [...lotOwners.values()].flat().length,
         pileStray,
         pileInLot,
         lots,
@@ -3991,7 +4048,15 @@ for (const [label, viewport, touch] of [
                 + `${c.getZ(i).toFixed(4)}`);
             }
           }
-          return seen.size;
+          // T-2121: and how many of them are the tilt's duck — canvas aged lighter
+          // or darker, so the ratio of its channels is canvas's and nothing else's.
+          let canvas = 0;
+          for (const t of seen) {
+            const [r, g, b] = t.split(',').map(Number);
+            if (g > 0 && b > 0 && Math.abs(r / g - 1.1413) < 0.012
+              && Math.abs(g / b - 1.3923) < 0.015) canvas += 1;
+          }
+          return { all: seen.size, canvas };
         })(),
         span: Number.isFinite(lowest) ? highest - lowest : null,
         frontages: frontages.length,
@@ -4166,6 +4231,9 @@ for (const [label, viewport, touch] of [
       `${goods.census?.piles} pile(s) on ${goods.census?.lots} lot(s) `
       + `(${JSON.stringify(goods.census?.byMaterial ?? {})}), ${goods.pileVerts} `
       + `vertices, lot ${goods.lots?.[0]?.structure_id ?? 'MISSING'}`);
+    check(`${label}: every lot item has an exact rendered ownership span`,
+      goods.lotSpans === goods.piles && goods.unknownLotOwners === 0,
+      `${goods.lotSpans} spans for ${goods.piles} items, ${goods.unknownLotOwners} unknown owners`);
     // T-1765: the bridge stock uses the existing stack renderer. Check its
     // rendered boxes, not just the manifest's declared counts.
     check(`${label}: both branch bridges carry four reconstructed repair piles`,
@@ -4217,14 +4285,16 @@ for (const [label, viewport, touch] of [
       + `${goods.pileInLot} vertex/vertices inside the lot's own footprint`);
 
     // The canvas is canvas. The tilt arrived without a second material, which is
-    // only possible because the colour moved onto the geometry — so the whole
-    // layer, chunks and all, has to carry exactly two tones: timber and duck.
+    // only possible because the colour moved onto the geometry. It held the layer to
+    // exactly its own tones (six after T-1961) until T-2121, when the owner asked
+    // for every cask, case and wagon in its own weathered wood or faded paint: the
+    // tones are now dealt per object and per board, so their COUNT is no longer a
+    // claim, and the check asks the two things it was for — one material, and duck
+    // on the covered wagons — plus the variety the owner asked for.
     check(`${label}: the tilt is drawn in canvas on the layer's one material`,
-      // Six since T-1961: timber, duck, brick, stone, and the hay and hides of
-      // the working trades' yards.
-      goods.tones === 6 && goods.materials === 1,
-      `${goods.tones} vertex tone(s) across ${goods.meshes} chunk(s) on `
-      + `${goods.materials} material(s)`);
+      goods.tones?.canvas >= 1 && goods.tones?.all >= 50 && goods.materials === 1,
+      `${goods.tones?.all} vertex tone(s), ${goods.tones?.canvas} of them canvas, across `
+      + `${goods.meshes} chunk(s) on ${goods.materials} material(s)`);
 
     // ---- T-1960: a privy behind every house, a stable for the horse-keepers ---- //
     // Every record the layer loaded is drawn — a privy no taller than a man can
@@ -4987,6 +5057,10 @@ for (const [label, viewport, touch] of [
         problems: (a?.problems ?? []).filter((x) => /frontage/.test(x)),
       };
     });
+    // PR #498 integration, 2026-10-07: the canonical records on f899a73d
+    // carry 119 walks, 100 crossings, 53 posts, 37 fences and 184 refusals.
+    // Authored meshes 124, derived top faces 108376, laid faces 95, bare fronts 7.
+    // These are exact scope readings, not relaxed minima; geometry bars remain.
     check(`${label}: the frontage layer lays all five records' walks and stands their posts`,
       // T-0241 laid Washington's seven block faces on top of Randolph's
       // thirteen: 42 walks to 49, 28 crossings to 33, 26 fence runs to 35 and
@@ -5152,8 +5226,14 @@ for (const [label, viewport, touch] of [
       // Randolph (+1); its Lake face was already one fronts-only run and stays one
       // run: 113 to 114 and 98 to 99. Refusals hold — the block's own refusal
       // retires and nothing new is refused. ID-set deltas, read off the record.
-      frontage.census?.records === 5 && frontage.census?.walks === 114
-        && frontage.census?.crossings === 99
+      // T-2093 — five merged PRs moved town_street_edge.json and not this line, so
+      // dev read 121 / 100 against 114 / 99. Read commit by commit off the record:
+      // T-2134 (#481) +4 walks, the four Dearborn corner workshops' fronts; T-2148
+      // (af5988ec) +1 walk and +1 crossing, the face the Madison jog brings inside
+      // the boundary; T-2150 (#510) +1 walk and +1 decked walk, the West Water
+      // warehouse's: 114 + 4 + 1 + 2 = 121 walks, 99 + 1 = 100 crossings.
+      frontage.census?.records === 5 && frontage.census?.walks === 121
+        && frontage.census?.crossings === 100
         // T-0626 takes it back to NINETEEN, and it is the first time this count
         // has gone DOWN. Nothing was refused for being badly placed: the log
         // cabin beside the Sauganash stopped being a drug store. Its record was
@@ -5215,7 +5295,11 @@ for (const [label, viewport, touch] of [
         // T-1679 (#396) moved Haddock's Tavern one lot east on blk_south_water_dearborn,
         // and the Lake Street face it left now takes a street fence
         // (blk_south_water_dearborn_south_fence_6): 32 to 33. Restated in T-2102 for T-2093.
-        && frontage.census?.posts === 53 && frontage.census?.fences === 33
+        // T-2093 — the plat's last Washington tier built to its seats: T-2129 (#465)
+        // fences the Market block's two improved north faces (+2, the Washington
+        // north fences renumbered round them) and T-2130 (#466) the Dearborn
+        // block's two (blk_washington_dearborn_north_fence_36/_37, +2): 33 to 37.
+        && frontage.census?.posts === 53 && frontage.census?.fences === 37
         // T-1630 takes the 91st: Philo Carpenter's landing no longer cuts the river
         // walk, because the straight reach passes 4 m south of it. Jones's remains.
         // T-1647 puts one back, and it is a refusal the rule could not reach before.
@@ -5290,7 +5374,12 @@ for (const [label, viewport, touch] of [
         // 172 — each cross face states why it takes no fence and no post (the
         // end of a lot row), and the one clause that refused the seven on the
         // frame budget retires. dev's own reading was 134 against this 128.
-        && frontage.census?.refused === 182
+        // T-2093 — the town record's refusal list, commit by commit: T-2129 -3 and
+        // T-2130 -4 (unimproved-lot refusals retire as the houses rise), T-2134 +8
+        // (the workshops' fronts refuse a fence and a post each), T-2148 +1 (the new
+        // face's end of a lot row), T-2150 +2 (the warehouse's fence and post):
+        // 172 to 176 in the record, 182 to 186 on the layer.
+        && frontage.census?.refused === 186
         && frontage.recordIds.join(',')
           === 'green_tree_frontage,sauganash_frontage,river_walk_frontage,'
             + 'lasalle_crossing_frontage,town_street_edge'
@@ -5481,7 +5570,10 @@ for (const [label, viewport, touch] of [
       // T-0193 — blk_lake_clinton's new Randolph run names its chunk (+1) and the
       // block's standing timber rides a west-bank mesh of its own rather than
       // Lake's and Randolph's (+1): 119.
-      frontage.authored === (frontage.census?.lettered === 1 ? 120 : 119)
+      // T-2093 — and the walks those five PRs laid name SIX chunks of their own
+      // (the record's named chunks go 102 to 108: T-2134 +4, T-2148 +1, T-2150 +1):
+      // 125, read on dev with no board lettered.
+      frontage.authored === (frontage.census?.lettered === 1 ? 126 : 125)
         && frontage.mergedNames.every((nm) => nm === 'frontage-far-merge'),
       `${frontage.authored} authored mesh(es) (${tallyNames(frontage.authoredNames)}), `
       + `${frontage.merged} far-merge artefact(s) `
@@ -5498,7 +5590,8 @@ for (const [label, viewport, touch] of [
         && frontage.farWalkTops.every((m) => m.name === 'frontage-far-walk-tops'
           && m.sharedMaterial && !m.castsShadow && m.groundHugging
           && m.candidates === frontage.farWalkState?.candidateTriangles
-          && m.candidates === 107532
+          // T-2093 — the six new walk chunks' top faces: 107532 to 108554, read on dev.
+          && m.candidates === 108554
           && m.drawn === frontage.farWalkState?.triangles),
       JSON.stringify({ meshes: frontage.farWalkTops, state: frontage.farWalkState }));
     // THE NAME IS DRAWN, AND IT IS THE RECORD'S. This is the only lettering in the
@@ -5721,6 +5814,10 @@ for (const [label, viewport, touch] of [
     // stand, no taller than a tie rail's 1.07 m. The counts are exact for the
     // same reason the posts' are: a fitting appearing or vanishing is worth
     // failing over, and a run that moves one updates them here.
+    // T-2093 — T-2150 (#510) moved one and did not: the West Water warehouse is a
+    // forwarding house, so its front takes a wagon apron
+    // (blk_west_washington_canal_east_wagon_apron_recon_1835_branch_freight_f2_001),
+    // 48 to 49 and four aprons to five.
     const fitKinds = frontage.census?.fittingKinds ?? {};
     // A part is good when it was drawn and its highest vertex stands within its
     // recorded top, give or take what the ground does under it: the top is
@@ -5732,10 +5829,10 @@ for (const [label, viewport, touch] of [
         && p.top <= p.recorded + 0.25)));
     // T-1823 — the Western Hotel's mounting block and the West Water freight
     // house's wagon apron, 46 to 48.
-    check(`${label}: the forty-eight business-front fittings are drawn at their own fronts`,
-      frontage.census?.fittings === 48 && (frontage.fittings ?? []).length === 48
+    check(`${label}: the forty-nine business-front fittings are drawn at their own fronts`,
+      frontage.census?.fittings === 49 && (frontage.fittings ?? []).length === 49
         && fitKinds.stoop === 37 && fitKinds.mounting_block === 6
-        && fitKinds.wagon_apron === 4 && fitKinds.tie_rail === 1
+        && fitKinds.wagon_apron === 5 && fitKinds.tie_rail === 1
         && fitBad.length === 0,
       `${frontage.census?.fittings} fitting(s) ${JSON.stringify(fitKinds)}; `
       + `${fitBad.length} bad: `
@@ -6229,7 +6326,10 @@ for (const [label, viewport, touch] of [
         // `faces_laid` (dev's record already read 47 against the 45 pinned here).
         // T-0193 — blk_lake_clinton off the skip list: its Lake face stops being
         // fronts-only and is laid as a street face, and its Randolph face is new: 94.
-        && edge.faces === 94 && edge.walkM >= 3050 && edge.fences >= 31
+        // T-2093 — T-2148 lays the face the Madison jog brings inside the
+        // boundary (95) and T-2150 the West Water warehouse's (96): faces_laid,
+        // read off the record at each commit.
+        && edge.faces === 96 && edge.walkM >= 3050 && edge.fences >= 31
         && edge.decks >= 232,
       `record ${edge.hasRecord}, card ${edge.cardId}, ${edge.faces} block face(s), `
       + `${edge.walkM} m of walk, ${edge.fences} fence run(s), `
@@ -6244,11 +6344,14 @@ for (const [label, viewport, touch] of [
     check(`${label}: the forwarding houses' decked walks are under the boot, the smith's front is bare`,
       // T-1823 — the West Water freight house's deck makes four, and two West
       // Division works front bare ground (the Pierce smithy, a joiner on Randolph).
-      edge.byBusiness.records === 4 && edge.byBusiness.drawn === 4
-        && edge.byBusiness.onDeck === 4
+      // T-2093 — T-2150's warehouse is the fifth forwarding house with a decked
+      // walk (4 to 5), and T-2134's four Dearborn corner workshops each keep a
+      // bare front (3 to 7). Both read off the record at each commit.
+      edge.byBusiness.records === 5 && edge.byBusiness.drawn === 5
+        && edge.byBusiness.onDeck === 5
         && edge.byBusiness.bareGap > 4 && edge.byBusiness.bareLift !== null
         && edge.byBusiness.bareLift <= 0.04
-        && edge.byBusiness.bareRecs === 3 && edge.byBusiness.bareKept === 3,
+        && edge.byBusiness.bareRecs === 7 && edge.byBusiness.bareKept === 7,
       `${edge.byBusiness.drawn} of ${edge.byBusiness.records} decked walk(s) drawn, `
       + `${edge.byBusiness.onDeck} stood on; the smith's gap `
       + `${edge.byBusiness.bareGap?.toFixed(2)} m, lift there `
@@ -6260,8 +6363,10 @@ for (const [label, viewport, touch] of [
     check(`${label}: the fronts-only walks beyond the covered streets are under the boot`,
       // T-0193 — four: blk_lake_clinton's Lake face is a covered face now, its
       // walk the whole face rather than the store's front.
-      edge.byBusiness.frontsRecs === 4 && edge.byBusiness.frontsDrawn === 4
-        && edge.byBusiness.frontsOn === 4,
+      // T-2093 — T-2150 lays the warehouse's West Water face fronts-only: 4 to 5
+      // (the record's fronts_only_runs, 67.7 m to 83.1).
+      edge.byBusiness.frontsRecs === 5 && edge.byBusiness.frontsDrawn === 5
+        && edge.byBusiness.frontsOn === 5,
       `${edge.byBusiness.frontsDrawn} of ${edge.byBusiness.frontsRecs} fronts-only walk(s) `
       + `drawn, ${edge.byBusiness.frontsOn} stood on`);
     check(`${label}: Lake Street's walk is continuous and walkable end to end`,
@@ -7784,6 +7889,7 @@ for (const [label, viewport, touch] of [
     // liberties record. Asserted per-building rather than as a count, because
     // the failure this guards against is the card showing the whole list (or the
     // wrong subset) instead of the ones the markdown attaches to this structure.
+    await libertiesLoaded();
     const popLib = await page.evaluate(() => {
       const read = (id) => {
         window.__chicago4d.pick(id);
@@ -9160,9 +9266,12 @@ for (const [label, viewport, touch] of [
     // walks are 46 more block-face chunks: worst frame 224 -> 259 calls at
     // `full`, Lake Street at Canal, 1280x800; 259 + 15 rounds up to 275).
     // T-2015: combined six-stand maximum 277 at narrow prairie, +15 -> 295.
+    // PR #498: all six published stands at both widths after exact ground
+    // batching peak at 313 (mobile West prairie, full); +15, rounded to five,
+    // moves the general ceiling to 330. Light still has its own 90-call gate.
     // The measured argument is beside BUDGET in main.js; light stays at 90.
     check(`${label}: the scene's draw-call ceiling is the one this gate was written against`,
-      stats.budget.drawCalls === 295,
+      stats.budget.drawCalls === 330,
       `budget reads ${stats.budget.drawCalls} calls / ${stats.budget.triangles} tris`);
     check(`${label}: draw calls under budget at the reference stand`,
       stats.drawCalls <= stats.budget.drawCalls,
@@ -10825,9 +10934,43 @@ for (const [label, viewport, touch] of [
     // The mobile cone here holds 67 rooted plants where it held about 150 while
     // every community was planted at prairie density. The 1e-5 m tolerance is
     // untouched.
+    //
+    // T-2122: the settled town's short turf is drawn by the ground alone now —
+    // no near tuft, and weeds only along kept lot lines — so the street
+    // station plants almost nothing and its count stopped guarding anything.
+    // The roots are read where a sward IS drawn: the nearest station off the
+    // turf, found by `swardStation`, and the walker is put back afterwards.
+    const swardAt = await swardStation();
+    const rootLayer = await page.evaluate((st) => {
+      const a = window.__chicago4d;
+      const out = { rootedPlants: 0, worstPlantRoot: 0 };
+      if (!st) return out;
+      a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
+      for (let i = 0; i < 3; i++) a.step();
+      const waterY = a.terrain.heightfield?.meta?.water_surface_m ?? 0;
+      for (const name of ['flora-near', 'flora-mid', 'flora-forb', 'flora-rosette',
+        'flora-shrub', 'flora-shrub-far']) {
+        const mesh = a.flora.group.getObjectByName(name);
+        const matrix = mesh?.instanceMatrix?.array;
+        if (!matrix) continue;
+        for (let i = 0; i < mesh.count; i++) {
+          const o = i * 16;
+          const e = matrix[o + 12];
+          const y = matrix[o + 13];
+          const n = -matrix[o + 14];
+          const expected = a.terrain.isWater(e, n) ? waterY : a.terrain.surfaceHeight(e, n);
+          out.worstPlantRoot = Math.max(out.worstPlantRoot, Math.abs(y - expected));
+          out.rootedPlants++;
+        }
+      }
+      a.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
+      for (let i = 0; i < 3; i++) a.step();
+      return out;
+    }, swardAt);
     check(`${label}: detailed flora roots share the terrain and water surfaces`,
-      streetLayer.rootedPlants > 50 && streetLayer.worstPlantRoot < 1e-5,
-      `${streetLayer.rootedPlants} roots, worst error ${streetLayer.worstPlantRoot}`);
+      !!swardAt && rootLayer.rootedPlants > 50 && rootLayer.worstPlantRoot < 1e-5,
+      `${rootLayer.rootedPlants} roots at ${swardAt ? `${swardAt.zone} (${swardAt.e}, ${swardAt.n})`
+        : 'no station off the turf'}, worst error ${rootLayer.worstPlantRoot}`);
     check(`${label}: emergent flora stays within eight metres of a riverbank`,
       streetLayer.deepWaterPlants === 0,
       `${streetLayer.waterPlants} water plants, ${streetLayer.deepWaterPlants} in deep water`);
@@ -11226,10 +11369,19 @@ for (const [label, viewport, touch] of [
     // What IS gated is that the instrument works: every slot dealt is a slot
     // attributed to a species, and it is counting a populated sward rather than
     // an empty one.
-    const sward = await page.evaluate(() => {
-      const s = window.__chicago4d.flora.stats;
-      return {
-        abundance: s.abundance,
+    //
+    // T-2122: read at the sward station, not the town street — see the roots
+    // check. The walker is put back where the parts after this expect it.
+    const swardCensusAt = await swardStation();
+    const sward = await page.evaluate((st) => {
+      const a = window.__chicago4d;
+      if (st) {
+        a.walker.teleport({ local_e: st.e, local_n: st.n, yaw_deg: 180 });
+        for (let i = 0; i < 3; i++) a.step();
+      }
+      const s = a.flora.stats;
+      const out = {
+        abundance: JSON.parse(JSON.stringify(s.abundance ?? null)),
         draws: (s.draws ?? []).map((d) => ({
           community: d.community, list: d.list, drawn: d.drawn,
           species: d.species.map((x) => ({
@@ -11238,7 +11390,12 @@ for (const [label, viewport, touch] of [
           })),
         })),
       };
-    });
+      if (st) {
+        a.walker.teleport({ local_e: 107, local_n: -103, yaw_deg: 180 });
+        for (let i = 0; i < 3; i++) a.step();
+      }
+      return out;
+    }, swardCensusAt);
     const dealt = sward.draws.filter((d) => d.drawn > 0);
     const unattributed = sward.draws.filter(
       (d) => d.species.reduce((t, x) => t + x.drawn, 0) !== d.drawn);
@@ -11318,15 +11475,24 @@ for (const [label, viewport, touch] of [
           if (z && !spots[z] && a.flora.plantableAt(e, n)) spots[z] = [e, n];
         }
       }
+      // A scene-wide absence cannot be inferred from north-facing views alone.
+      // Keep every original plantable station and survey all four cardinal
+      // bearings there. Sampling is fixed independently of the species; the
+      // original north-facing samples and the owed/drawn bar stay in the census.
+      const stations = Object.entries(spots).flatMap(([zone, at]) =>
+        [0, 90, 180, 270].map((bearing) => ({ zone, at, bearing })));
       const started = a.detail;
       const levels = [];
       for (const level of a.detailOrder) {
         await a.setDetail(level);
         const rows = [];
-        for (const [zone, [e, n]] of Object.entries(spots)) {
+        for (const { zone, at: [e, n], bearing } of stations) {
           const camera = {
             getWorldPosition: (v) => { v.set(e, 1.7, -n); return v; },
-            getWorldDirection: (v) => { v.set(0, 0, -1); return v; },
+            getWorldDirection: (v) => {
+              const angle = bearing * Math.PI / 180;
+              v.set(Math.sin(angle), 0, -Math.cos(angle)); return v;
+            },
           };
           a.flora.update(0.016, camera);
           a.flora.update(0.016, camera);
@@ -11352,7 +11518,7 @@ for (const [label, viewport, touch] of [
         a.flora.update(0.016, a.camera);
         a.flora.update(0.016, a.camera);
       }
-      return { spots: Object.keys(spots), levels };
+      return { spots: Object.keys(spots), stationCount: stations.length, levels };
     });
     // Summed over every station, per (community, list, species) — the scene's
     // answer, at one detail level.
@@ -11381,7 +11547,7 @@ for (const [label, viewport, touch] of [
     check(`${label}: no sward species its own list owes a plant to is drawn nowhere, `
       + `in ANY community`,
       everywhere.spots.length >= 2 && richest.pairs >= 2 && richest.nowhere.length === 0,
-      `${everywhere.spots.length} communities stood in, ${richest.lists} populated list(s), `
+      `${everywhere.spots.length} communities stood in at ${everywhere.stationCount} cardinal views, ${richest.lists} populated list(s), `
       + `${richest.pairs} (list, species) pairs, ${richest.slots} slots dealt at detail `
       + `'${richest.level}'`
       + `${richest.nowhere.length ? `; DRAWN NOWHERE: ${richest.nowhere.join(', ')}` : ''}`);
@@ -11906,10 +12072,10 @@ for (const [label, viewport, touch] of [
       const dense = new Set(a.flora.communities()
         .filter((c) => c.graminoids && c.matrixShare >= 0.7).map((c) => c.id));
       const R = a.flora.rings.layers.mid.lattice.outer;
-      const clear = (e, n) => {
+      const clear = (e, n, margin = []) => {
         for (let k = 0; k < 12; k++) {
           const t = (k / 12) * Math.PI * 2;
-          for (const rr of [R * 0.45, R * 0.75, R]) {
+          for (const rr of [R * 0.45, R * 0.75, R, ...margin]) {
             const pe = e + Math.cos(t) * rr;
             const pn = n + Math.sin(t) * rr;
             if (!dense.has(a.flora.zoneAt(pe, pn))) return false;
@@ -11918,11 +12084,22 @@ for (const [label, viewport, touch] of [
         }
         return dense.has(a.flora.zoneAt(e, n)) && a.flora.plantableAt(e, n);
       };
+      // The town's box first; then a wider one. Since T-2125 the town's edge
+      // thins into the prairie over about 100 m instead of stopping on a line,
+      // so the one clear disc the town's box held (at its very corner) is now
+      // speckled with town ground, and the next one lies out on the open
+      // plain. Out there the disc is also asked to stand clear of any other
+      // community's blend band (`ZONE_BLEND_MAX_M`, 76 m), because the twelve
+      // bearings would miss a speckle of it falling between them.
       let station = null;
-      for (let e = -300; e <= 900 && !station; e += 8) {
-        for (let n = -300; n <= 500 && !station; n += 8) {
-          if (clear(e, n)) station = { e, n };
+      for (const [e0, e1, n0, n1, margin] of [[-300, 900, -300, 500, []],
+        [-900, 1500, -900, 1100, [R + 40, R + 80]]]) {
+        for (let e = e0; e <= e1 && !station; e += 8) {
+          for (let n = n0; n <= n1 && !station; n += 8) {
+            if (clear(e, n, margin)) station = { e, n };
+          }
         }
+        if (station) break;
       }
       if (!station) return { station: null };
       a.walker.teleport({ local_e: station.e, local_n: station.n, yaw_deg: 0 });
@@ -12173,11 +12350,20 @@ for (const [label, viewport, touch] of [
       const rows = [];
       for (const c of compiled) {
         if (!c.graminoids || !(c.matrixShare > 0)) continue;
+        // T-2122: short turf draws no near tuft by design; the ground carries it.
+        if (c.turf) continue;
+        // The town's box first, then a wider one: since T-2125 a community's
+        // edge is a ~100 m band of mixed ground, and a small community the
+        // town's box held only in its margins can no longer give a clean disc
+        // there.
         let station = null;
-        for (let e = -300; e <= 900 && !station; e += 6) {
-          for (let n = -300; n <= 500 && !station; n += 6) {
-            if (a.flora.zoneAt(e, n) === c.id && clean(c.id, e, n)) station = { e, n };
+        for (const [e0, e1, n0, n1] of [[-300, 900, -300, 500], [-900, 1500, -900, 1100]]) {
+          for (let e = e0; e <= e1 && !station; e += 6) {
+            for (let n = n0; n <= n1 && !station; n += 6) {
+              if (a.flora.zoneAt(e, n) === c.id && clean(c.id, e, n)) station = { e, n };
+            }
           }
+          if (station) break;
         }
         if (!station) continue;
         a.walker.teleport({ local_e: station.e, local_n: station.n, yaw_deg: 0 });
@@ -13808,6 +13994,7 @@ for (const [label, viewport, touch] of [
     // ladders are fetched only when this tab opens.
     await page.evaluate(() => { window.__chicago4d.hud.setPanel(true); });
     await clickChrome('.panel-tab[data-tab="evidence"]');
+    await libertiesLoaded();
     const hub = await page.evaluate(async () => {
       const api = window.__chicago4d;
       const hubEl = document.getElementById('evidence-hub');
@@ -13857,6 +14044,15 @@ for (const [label, viewport, touch] of [
           segs: city.querySelectorAll('.gc-done-seg').length,
           shares: city.querySelector('.gc-done-shares')?.textContent.trim() || '',
         },
+        // T-2154: the dwellings against the November census, and the people split.
+        dwellings: {
+          figure: city.querySelector('.gc-dw-n')?.textContent.trim() || '',
+          segs: city.querySelectorAll('.gc-dw-seg').length,
+          of: city.querySelector('.gc-dw-of')?.textContent.trim() || '',
+          inBuildings: !!city.querySelector('.gc-row:first-of-type .gc-dw'),
+        },
+        split: [...city.querySelectorAll('.gc-split li')].map((el) => el.textContent.trim()),
+        apart: city.querySelector('.gc-apart')?.textContent.trim() || '',
       };
       document.getElementById('panel-back').click();
       api.evidenceHub.showTopic('liberties');
@@ -13935,6 +14131,38 @@ for (const [label, viewport, touch] of [
         === `${grouped(housed)} of them are placed in a building that stands`
       && hub.city.aria.includes(`${grouped(housed)} of them are placed`),
       JSON.stringify(hub.city.note));
+    // T-2154: the dwellings standing are a BRACKET against the census's 398, read from
+    // the committed census and never typed; the split's two figures sum to the people
+    // rung, and the visitors are said to be counted apart rather than added in.
+    const cityDw = hub.city.data?.buildings?.dwellings || null;
+    const citySplit = hub.city.data?.people?.split || null;
+    const dwWant = cityDw && (cityDw.standing_high > cityDw.standing_low
+      ? `${grouped(cityDw.standing_low)}–${grouped(cityDw.standing_high)}` : grouped(cityDw.standing_low));
+    check(`${label}: Evidence → City sets the dwellings standing against the census's 398`,
+      !!cityDw && hub.city.dwellings.figure === dwWant && hub.city.dwellings.segs === 2
+      && hub.city.dwellings.inBuildings
+      && hub.city.dwellings.of === `of the ${grouped(cityDw.census)} the November 1835 census counted`
+      && hub.city.aria.includes(`${dwWant} dwellings standing`),
+      JSON.stringify({ shown: hub.city.dwellings, data: cityDw && [cityDw.standing_low, cityDw.standing_high, cityDw.census] }));
+    check(`${label}: Evidence → City splits the people into townspeople and garrison, visitors apart`,
+      !!citySplit && hub.city.split.length === 2
+      && hub.city.split[0] === `${grouped(citySplit.residents)} townspeople`
+      && hub.city.split[1] === `${grouped(citySplit.garrison)} the garrison at Fort Dearborn`
+      && citySplit.residents + citySplit.garrison === (cityPopulation ? cityPopulation.persons : cityScene?.persons)
+      && (!(citySplit.transients_apart > 0) || hub.city.apart.startsWith(`${grouped(citySplit.transients_apart)} summer visitors are counted apart`)),
+      JSON.stringify({ split: hub.city.split, apart: hub.city.apart, data: citySplit }));
+    // T-2155: housed is read by the audit's two joins, so the census and the completion
+    // audit must sum to the same people present, and the screen says what it leaves out.
+    const cityWaiting = Number(hub.city.data?.people?.waiting_on_a_roof);
+    const cityBeyond = Number(hub.city.data?.beyond_the_index?.persons_present_housed);
+    check(`${label}: City states who waits on a roof and who is housed beyond the index`,
+      (!(cityWaiting > 0) || hub.city.note.includes(
+        `${grouped(cityWaiting)} wait on a roof the town does not stand yet`))
+      && (!(cityBeyond > 0) || hub.city.note.includes(
+        `${grouped(cityBeyond)} more the reconstruction houses — trades, lodgers and `
+        + 'others it seats — are not counted in this figure'))
+      && Number.isFinite(cityWaiting) && Number.isFinite(cityBeyond),
+      JSON.stringify({ notes: hub.city.note, cityWaiting, cityBeyond }));
     let residentCounts = null;
     try {
       residentCounts = JSON.parse(
@@ -14142,6 +14370,7 @@ for (const [label, viewport, touch] of [
     // made up. The confidence view covers attributes; these are the decisions
     // that belong to no attribute, and they are only a disclosure if they are
     // reachable from the page rather than from the repository.
+    await libertiesLoaded();
     const lib = await page.evaluate(() => {
       // The what's-new checks above leave the panel open on their tab, and a
       // toggle here would close it — open only if it is shut.
@@ -14684,11 +14913,17 @@ for (const [label, viewport, touch] of [
         overflow: document.documentElement.scrollWidth <= window.innerWidth + 1,
       };
     });
+    const floraIndex = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/flora/index.json'), 'utf8'));
+    const plantZones = floraIndex.zones.filter((z) => !z.scenes || z.scenes.includes('1835'));
+    const plantSpecies = plantZones.reduce((n, z) => {
+      const record = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/flora', z.file), 'utf8'));
+      return n + (record.species ?? []).length;
+    }, 0);
     check(`${label}: the plant list loads every community`,
-      plants.zones === 10 && plants.renderedZones === 10 && !plants.busy,
+      plants.zones === plantZones.length && plants.renderedZones === plantZones.length && !plants.busy,
       `${plants.zones} loaded / ${plants.renderedZones} rendered (${plants.error})`);
-    check(`${label}: every species in the ten communities is on the card`,
-      plants.species === 155 && plants.renderedSpecies === 155,
+    check(`${label}: every species in the committed communities is on the card`,
+      plants.species === plantSpecies && plants.renderedSpecies === plantSpecies,
       `${plants.species} counted / ${plants.renderedSpecies} rendered`);
     // The finding, asserted as numbers so it cannot quietly go away: ten
     // (community, stratum, side) layers are over the lattice's ceiling, across
@@ -14711,7 +14946,7 @@ for (const [label, viewport, touch] of [
       + `"${plants.denseText.slice(Math.max(0, plants.denseText.indexOf('records ask')), 
         Math.max(240, plants.denseText.indexOf('records ask') + 240))}"`);
     check(`${label}: the note names the worst case rather than only the total`,
-      /155 plants across 10 communities/.test(plants.note)
+      plants.note.includes(`${plantSpecies} plants across ${plantZones.length} communities`)
       && /dense forest/.test(plants.note) && /0\.5 %/.test(plants.note),
       plants.note.slice(0, 220));
     check(`${label}: the plant records quote their sources, not their source ids`,

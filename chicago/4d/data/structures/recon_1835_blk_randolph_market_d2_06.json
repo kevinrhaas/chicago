@@ -156,11 +156,11 @@
     "roof_condition": "fresh",
     "age_state": "new",
     "fabric_basis": {
-      "rule": "F-T",
-      "class": "tradesman",
+      "rule": "F-L",
+      "class": "labourer",
       "by": "keeper_trade",
       "household": "hh_dewey_d_s",
-      "words": "new-sawn boards under a new roof — The Dewey household's, a milliner, in Chicago since 1835 (rule F-T)"
+      "words": "new-sawn boards under a new roof — The Dewey household's, a laundress, in Chicago since 1835 (rule F-L)"
     }
   },
   "resident_assignment": {

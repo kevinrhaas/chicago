@@ -8,12 +8,12 @@
     "upheld": 134,
     "named": 2,
     "refused": 68,
-    "unruled": 7
+    "unruled": 8
   },
   "counts": {
     "purchasers": 647,
-    "matched": 143,
-    "refused": 504,
+    "matched": 144,
+    "refused": 503,
     "firms": 2,
     "bodies": 3
   },
@@ -2172,7 +2172,7 @@
       ],
       "resident_id": "kimberly_edmund_s",
       "resident_name": "Dr Edmund Stoughton Kimberly",
-      "household_id": "hh_pruyne_kimberly",
+      "household_id": "hh_kimberly_edmund_s",
       "match": "forename_agrees",
       "rule": "KIMBERLEY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 1 person of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held kimberley_ed until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried.",
       "via_card_merge": "kimberley_ed",
@@ -3427,11 +3427,29 @@
       ],
       "resident_id": "kimberly_edmund_s",
       "resident_name": "Dr Edmund Stoughton Kimberly",
-      "household_id": "hh_pruyne_kimberly",
+      "household_id": "hh_kimberly_edmund_s",
       "match": "forename_agrees",
-      "rule": "KIMBERLY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 3 people of this surname, and the forename agrees in full.",
+      "rule": "KIMBERLY EDMUND S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 4 people of this surname, and the forename agrees in full.",
       "via_card_merge": null,
       "rivals": [
+        {
+          "key": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "forename_agrees": true,
+          "why": "the forenames agree in full — same (M1)",
+          "middle_initial": "S",
+          "reading_middle_initial": "S",
+          "outcome": "survives"
+        },
+        {
+          "key": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "T",
+          "reading_middle_initial": "S",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "kimberly_ira",
           "name": "Ira Kimberly",
@@ -3449,15 +3467,6 @@
           "middle_initial": null,
           "reading_middle_initial": "S",
           "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "forename_agrees": true,
-          "why": "the forenames agree in full — same (M1)",
-          "middle_initial": "S",
-          "reading_middle_initial": "S",
-          "outcome": "survives"
         }
       ],
       "residence_column": "UNKNOWN",
@@ -5520,6 +5529,60 @@
       "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
     },
     {
+      "purchaser_as_read": "BOURASSA LEON",
+      "record_ids": [
+        "ls1001"
+      ],
+      "resident_id": "bourrassa_leon",
+      "resident_name": "Leon Bourrassa",
+      "household_id": "hh_bourrassa_leon",
+      "match": "forename_agrees",
+      "rule": "BOURASSA LEON matches Leon Bourrassa: the forename names Leon Bourrassa of the 4 people of this surname, and the forename agrees in full. The surname reaches him through a ruled card merge and not off his card: the town held bourassa_lon until data/residents/card_merge_rulings.json folded it onto this person, and the register's spelling is the one that card carried.",
+      "via_card_merge": "bourassa_lon",
+      "rivals": [
+        {
+          "key": "bourassa_jean_baptiste",
+          "name": "Jean Baptiste Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "B",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourassa_mark",
+          "name": "Mark Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourassa_noel",
+          "name": "Noel Bourassa",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "bourrassa_leon",
+          "name": "Leon Bourrassa",
+          "forename_agrees": true,
+          "why": "the forenames agree in full — same (M1)",
+          "middle_initial": null,
+          "reading_middle_initial": null,
+          "outcome": "survives"
+        }
+      ],
+      "residence_column": "UNKNOWN",
+      "evidence_grade": "inferred",
+      "ruling": null,
+      "what_it_evidences": "A purchase and nothing more. It dates and places a transaction; it proposes no residence, and under the ratified ladder it corroborates rather than mints."
+    },
+    {
       "purchaser_as_read": "CARPENTER P",
       "record_ids": [
         "ls1026"
@@ -6271,11 +6334,29 @@
       ],
       "resident_id": "kimberly_edmund_s",
       "resident_name": "Dr Edmund Stoughton Kimberly",
-      "household_id": "hh_pruyne_kimberly",
+      "household_id": "hh_kimberly_edmund_s",
       "match": "initial_agrees",
-      "rule": "KIMBERLY E S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 3 people of this surname, and the forename agrees as an initial only.",
+      "rule": "KIMBERLY E S matches Dr Edmund Stoughton Kimberly: the forename names Dr Edmund Stoughton Kimberly of the 4 people of this surname, and the forename agrees as an initial only.",
       "via_card_merge": null,
       "rivals": [
+        {
+          "key": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "forename_agrees": true,
+          "why": "an initial standing for the forename (M2)",
+          "middle_initial": "S",
+          "reading_middle_initial": "S",
+          "outcome": "survives"
+        },
+        {
+          "key": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "T",
+          "reading_middle_initial": "S",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "kimberly_ira",
           "name": "Ira Kimberly",
@@ -6293,15 +6374,6 @@
           "middle_initial": null,
           "reading_middle_initial": "S",
           "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "forename_agrees": true,
-          "why": "an initial standing for the forename (M2)",
-          "middle_initial": "S",
-          "reading_middle_initial": "S",
-          "outcome": "survives"
         }
       ],
       "residence_column": "UNKNOWN",
@@ -9240,9 +9312,27 @@
     },
     {
       "a": "KIMBERLY J E",
-      "b": "3 residents named Kimberly",
-      "rule": "KIMBERLY J E is refused against Ira Kimberly and Osa Kimberly and Dr Edmund Stoughton Kimberly: the forename names 0 of the 3 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "4 residents named Kimberly",
+      "rule": "KIMBERLY J E is refused against 4 residents named Kimberly: the forename names 0 of the 4 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "S",
+          "reading_middle_initial": "E",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "T",
+          "reading_middle_initial": "E",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "kimberly_ira",
           "name": "Ira Kimberly",
@@ -9258,15 +9348,6 @@
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
-          "reading_middle_initial": "E",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": "S",
           "reading_middle_initial": "E",
           "outcome": "refused_on_the_forename"
         }
@@ -9280,9 +9361,27 @@
     },
     {
       "a": "KIMBERLY S A",
-      "b": "3 residents named Kimberly",
-      "rule": "KIMBERLY S A is refused against Ira Kimberly and Osa Kimberly and Dr Edmund Stoughton Kimberly: the forename names 0 of the 3 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "4 residents named Kimberly",
+      "rule": "KIMBERLY S A is refused against 4 residents named Kimberly: the forename names 0 of the 4 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "S",
+          "reading_middle_initial": "A",
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "forename_agrees": false,
+          "why": "the initials differ",
+          "middle_initial": "T",
+          "reading_middle_initial": "A",
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "kimberly_ira",
           "name": "Ira Kimberly",
@@ -9298,15 +9397,6 @@
           "forename_agrees": false,
           "why": "the initials differ",
           "middle_initial": null,
-          "reading_middle_initial": "A",
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "forename_agrees": false,
-          "why": "the initials differ",
-          "middle_initial": "S",
           "reading_middle_initial": "A",
           "outcome": "refused_on_the_forename"
         }
@@ -15887,55 +15977,6 @@
       ]
     },
     {
-      "a": "BOURASSA LEON",
-      "b": "4 residents named Bourassa",
-      "rule": "BOURASSA LEON is refused against 4 residents named Bourassa: the forename names 0 of the 4 people of this surname, and a reading is named onto exactly one or onto none.",
-      "rivals": [
-        {
-          "key": "bourassa_jean_baptiste",
-          "name": "Jean Baptiste Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": "B",
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "bourassa_lon",
-          "name": "Lon Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "bourassa_mark",
-          "name": "Mark Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "bourassa_noel",
-          "name": "Noel Bourassa",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        }
-      ],
-      "record_ids": [
-        "ls1001"
-      ],
-      "evidence": [
-        "data/residents/index.json"
-      ]
-    },
-    {
       "a": "BOURRISSA LYON",
       "b": "0 residents named Bourrissa",
       "rule": "BOURRISSA LYON is refused against 0 residents named Bourrissa: the residents layer holds nobody of the surname.",
@@ -17500,9 +17541,27 @@
     },
     {
       "a": "KIMBERLY EDWARD",
-      "b": "3 residents named Kimberly",
-      "rule": "KIMBERLY EDWARD is refused against Ira Kimberly and Osa Kimberly and Dr Edmund Stoughton Kimberly: the forename names 0 of the 3 people of this surname, and a reading is named onto exactly one or onto none.",
+      "b": "4 residents named Kimberly",
+      "rule": "KIMBERLY EDWARD is refused against 4 residents named Kimberly: the forename names 0 of the 4 people of this surname, and a reading is named onto exactly one or onto none.",
       "rivals": [
+        {
+          "key": "kimberly_edmund_s",
+          "name": "Dr Edmund Stoughton Kimberly",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "S",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
+        {
+          "key": "kimberly_marie_theresa",
+          "name": "Marie Theresa Ellis Kimberly",
+          "forename_agrees": false,
+          "why": "two full forenames that do not agree (R4)",
+          "middle_initial": "T",
+          "reading_middle_initial": null,
+          "outcome": "refused_on_the_forename"
+        },
         {
           "key": "kimberly_ira",
           "name": "Ira Kimberly",
@@ -17518,15 +17577,6 @@
           "forename_agrees": false,
           "why": "two full forenames that do not agree (R4)",
           "middle_initial": null,
-          "reading_middle_initial": null,
-          "outcome": "refused_on_the_forename"
-        },
-        {
-          "key": "kimberly_edmund_s",
-          "name": "Dr Edmund Stoughton Kimberly",
-          "forename_agrees": false,
-          "why": "two full forenames that do not agree (R4)",
-          "middle_initial": "S",
           "reading_middle_initial": null,
           "outcome": "refused_on_the_forename"
         }

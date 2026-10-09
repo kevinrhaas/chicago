@@ -11004,11 +11004,11 @@
   },
   {
    "person_id": "kimberly_edmund_s",
-   "household_id": "hh_pruyne_kimberly",
+   "household_id": "hh_kimberly_edmund_s",
    "resident": "Dr Edmund Stoughton Kimberly",
    "grade_1835": "attested",
    "occupation_1835": "physician",
-   "lives_at_1835": null,
+   "lives_at_1835": "kimberly_residence",
    "works_at_1835": null,
    "appearances": [
     {
@@ -11049,9 +11049,7 @@
        "as_printed": "Kimberly, Edmund Stoughten, physician, 101 Lake, res 77 State [died. Barrington, Ill., October 25, 1874, aged 72.]"
       }
      ],
-     "holds": [
-      "address"
-     ],
+     "holds": [],
      "split_refused": {},
      "sources": [
       "fergus_chicago_directory_1843"
@@ -11072,9 +11070,7 @@
        "as_printed": "Kimberly Ed. S. physician, 101 Lake st. house State st"
       }
      ],
-     "holds": [
-      "address"
-     ],
+     "holds": [],
      "split_refused": {},
      "sources": [
       "norris_directory_1844"

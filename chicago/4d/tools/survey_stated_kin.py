@@ -4,6 +4,7 @@
     python3 tools/survey_stated_kin.py             the survey, on stdout
     python3 tools/survey_stated_kin.py --write     write data/residents/kin_survey.json
     python3 tools/survey_stated_kin.py --check     re-derive, and hold every proposal to a ruling
+    python3 tools/survey_stated_kin.py --land      write the kin rows every term-carrying `landed` ruling owes
     python3 tools/survey_stated_kin.py --self-test the assertions of --check, broken on purpose
 
 WHAT THIS IS FOR.
@@ -274,26 +275,29 @@ def read_church() -> list[dict]:
             loc = r.get("locator") or {}
             key = (loc.get("year_series"), loc.get("entry"))
             role = loc.get("role")
-            if role in ("child", "father", "mother"):
+            # EVERY CHILD OF THE ENTRY, not the first (T-1335). Entry 9 of 1833 baptises
+            # twins, Mary and Catherine Wode, on one line; reading one child per entry
+            # proposed Mary's father and never Catherine's.
+            if role == "child":
+                entries[key].setdefault("children", []).append(r)
+            elif role in ("father", "mother"):
                 entries[key].setdefault(role, r)
         for key, roles in sorted(entries.items(), key=lambda kv: (str(kv[0][0]), str(kv[0][1]))):
-            child = roles.get("child")
-            if not child:
-                continue
-            for parent_role, child_side in (("father", "son"), ("mother", "son")):
-                parent = roles.get(parent_role)
-                if not parent:
-                    continue
-                # The register names the parent; the child's sex is not stated by the
-                # role, so the CHILD end is proposed as the parent's relation only and
-                # the ruling names the child's term. Proposed from the parent's side.
-                out.append(_statement(
-                    f"{parent['id']}__parent_of__{child['id']}",
-                    src, f"{parent['id']}", (parent.get("cells") or {}).get("entry_as_read", "")[:300],
-                    parent.get("normalized") or parent.get("as_read"),
-                    parent_role,
-                    child.get("normalized") or child.get("as_read"),
-                    parent["id"], child["id"]))
+            for child in roles.get("children") or []:
+                for parent_role, child_side in (("father", "son"), ("mother", "son")):
+                    parent = roles.get(parent_role)
+                    if not parent:
+                        continue
+                    # The register names the parent; the child's sex is not stated by the
+                    # role, so the CHILD end is proposed as the parent's relation only and
+                    # the ruling names the child's term. Proposed from the parent's side.
+                    out.append(_statement(
+                        f"{parent['id']}__parent_of__{child['id']}",
+                        src, f"{parent['id']}", (parent.get("cells") or {}).get("entry_as_read", "")[:300],
+                        parent.get("normalized") or parent.get("as_read"),
+                        parent_role,
+                        child.get("normalized") or child.get("as_read"),
+                        parent["id"], child["id"]))
 
     marriages = CHURCH / "st_cyr_marriages_1834_1839.json"
     if marriages.exists():
@@ -556,11 +560,113 @@ def derive() -> dict:
 
 
 # --------------------------------------------------------------------------
+# the writes: a landed ruling's two rows, and the term each end carries (T-1553)
+#
+# Until T-1553 every `landed` ruling here had its rows written by hand, and the
+# deferral of St Mary's sixty-one parentage ties said why that stops scaling:
+# 122 records is how a derived layer stops being derived. So a ruling may now
+# carry the one thing the survey cannot derive — the MIRROR TERM, the word the
+# far end's row takes — and `--land` writes both rows from it.
+#
+# THE MIRROR IS READ, NEVER LOOKED UP. A parent's mirror is `son` or `daughter`,
+# and which one is a fact about the child's sex. The child's card is the wrong
+# place to look: for most of the register's children `persons[].sex` is a DRAW
+# from the roll's male rate (tools/reconstruct_sex_age.py), and on 2026-10-08
+# it contradicted the register on 22 of the 40 children (and on 20 of the 46
+# parents, every one a mother drawn male). The entry says `fils` or `fille`,
+# `son` or `daughter`, so the ruling quotes those words as `mirror_as_read` and
+# --check holds the quote to the entry's own text.
+
+PARENT_TERMS = {"father": ("son", "daughter"), "mother": ("son", "daughter")}
+
+
+def _kin_row_on(doc: dict, person: str, other_hid: str, other_pid: str):
+    for row in doc.get("kin") or []:
+        if (row.get("person") == person and row.get("household") == other_hid
+                and row.get("value") == other_pid):
+            return row
+    return None
+
+
+def land(apply: bool = True) -> list[str]:
+    """Write the two rows of every `landed` ruling that carries a mirror term."""
+    survey = json.loads(SURVEY.read_text(encoding="utf-8"))
+    rulings = json.loads(RULINGS.read_text(encoding="utf-8")).get("rulings") or {}
+    proposals = {p["id"]: p for p in survey.get("proposals") or []}
+    touched: dict[str, dict] = {}
+    written = []
+    for pid, r in sorted(rulings.items()):
+        if r.get("ruling") != "landed" or not r.get("mirror") or pid not in proposals:
+            continue
+        p = proposals[pid]
+        a, b = p["subject"][0], p["other"][0]
+        for near, far, relation in ((a, b, p["relation"]), (b, a, r["mirror"])):
+            hid = near["household"]
+            doc = touched.get(hid) or json.loads(
+                (HOUSEHOLDS / f"{hid}.json").read_text(encoding="utf-8"))
+            touched[hid] = doc
+            if _kin_row_on(doc, near["person"], far["household"], far["person"]):
+                continue
+            if "kin" not in doc:
+                # the slot every minter carries a kin block back into: just before persons
+                doc = {k2: v for k, v in doc.items()
+                       for k2, v in ((("kin", []), (k, v)) if k == "persons" else ((k, v),))}
+                touched[hid] = doc
+            rows = doc["kin"]
+            rows.append({
+                "person": near["person"], "relation": relation,
+                "household": far["household"], "value": far["person"],
+                "confidence": "attested", "sources": [p["source"]],
+                "note": (f"STATED IN THE REGISTER'S OWN WORDS, AND RESOLVED BY BACK-LINK, "
+                         f"NOT BY NAME. {p['as_read']} Both cards were minted from this "
+                         f"entry's rows ({p['subject_record']}, {p['other_record']}), so no "
+                         f"identification is made here. The {relation} term is the entry's: "
+                         + (f"'{r['mirror_as_read']}'." if relation == r["mirror"] else
+                            f"it names the {relation} of the child.")),
+            })
+            rows.sort(key=lambda k: (k.get("person") or "", k.get("value") or ""))
+            written.append(f"{hid}/{near['person']} {relation} "
+                           f"{far['household']}/{far['person']}")
+    if apply:
+        for hid, doc in touched.items():
+            (HOUSEHOLDS / f"{hid}.json").write_text(
+                json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8")
+    return written
+
+
+# --------------------------------------------------------------------------
 # the gate: every proposal answered, every answer honoured
 
 def kin_pairs(docs: dict[str, dict]) -> set[tuple]:
     return {(hid, k.get("person"), k.get("relation"), k.get("household"), k.get("value"))
             for hid, h in docs.items() for k in (h.get("kin") or [])}
+
+
+def _mirror_problems(pid, p, r, a, b, docs) -> list[str]:
+    """A ruling's mirror term is the source's word, and both rows carry the terms."""
+    out = []
+    mirror, quote = r.get("mirror"), (r.get("mirror_as_read") or "").strip()
+    if mirror not in PARENT_TERMS.get(p.get("relation"), ()):
+        out.append(f"ruling '{pid}' gives the far end the term '{mirror}', which is not a "
+                   f"mirror of '{p.get('relation')}' — the only mirror terms --land writes are "
+                   f"a parent's child terms {PARENT_TERMS}")
+    if not quote or quote not in (p.get("as_read") or ""):
+        out.append(f"ruling '{pid}' says the far end is a '{mirror}' and its mirror_as_read "
+                   f"({quote!r}) is not in the entry's own text. The term is READ off the "
+                   f"source, never off a card whose sex may be a draw")
+    if r.get("ruling") == "landed":
+        near = _kin_row_on(docs.get(a[0]) or {}, a[1], b[0], b[1])
+        far = _kin_row_on(docs.get(b[0]) or {}, b[1], a[0], a[1])
+        if near is not None and near.get("relation") != p.get("relation"):
+            out.append(f"ruling '{pid}': {a[0]} writes '{near.get('relation')}' where the "
+                       f"entry states '{p.get('relation')}'")
+        if far is None:
+            out.append(f"ruling '{pid}' says landed and {b[0]} carries no mirror row for "
+                       f"{a[1]} — run `python3 tools/survey_stated_kin.py --land`")
+        elif far.get("relation") != mirror:
+            out.append(f"ruling '{pid}': {b[0]} writes '{far.get('relation')}' where the "
+                       f"entry says '{quote}' ({mirror})")
+    return out
 
 
 def check(quiet: bool = False, docs: dict | None = None,
@@ -616,6 +722,8 @@ def check(quiet: bool = False, docs: dict | None = None,
                 f"ruling '{pid}' says {verdict} and the records carry the kin row anyway")
         if verdict not in ("landed", "refused", "deferred"):
             problems.append(f"ruling '{pid}' has no verdict of landed|refused|deferred")
+        if r.get("mirror") is not None:
+            problems += _mirror_problems(pid, p, r, a, b, docs)
 
     for rid in sorted(ruled):
         if rid not in proposals:
@@ -688,6 +796,34 @@ def self_test() -> int:
     check_that("'refused' with the kin row written anyway is an error",
                any("carry the kin row anyway" in p for p in check(
                    True, landed, survey, {"rulings": {"x1": {"ruling": "refused", "why": "w"}}})))
+    # T-1553 — the mirror term, read off the entry and written on the far end.
+    pprop = dict(prop, id="x2", relation="mother", as_read="Susan daughter of Jane Doe",
+                 subject=[{"household": "hh_a", "person": "p_a"}],
+                 other=[{"household": "hh_b", "person": "p_b"}])
+    psurvey = {"proposals": [pprop]}
+    both = {"hh_a": dict(hh_a, kin=[{"person": "p_a", "relation": "mother",
+                                     "household": "hh_b", "value": "p_b"}]),
+            "hh_b": dict(hh_b, kin=[{"person": "p_b", "relation": "daughter",
+                                     "household": "hh_a", "value": "p_a"}])}
+    good = {"ruling": "landed", "why": "w", "mirror": "daughter",
+            "mirror_as_read": "Susan daughter of Jane Doe"}
+    check_that("a landed parent tie with its read mirror on both rows passes",
+               not check(True, both, psurvey, {"rulings": {"x2": good}}))
+    check_that("a mirror term the entry does not say is refused",
+               any("not in the entry's own text" in p for p in check(
+                   True, both, psurvey, {"rulings": {"x2": dict(
+                       good, mirror_as_read="Susan son of Jane Doe")}})))
+    check_that("a mirror that is no inverse of the stated relation is refused",
+               any("not a mirror of" in p for p in check(
+                   True, both, psurvey, {"rulings": {"x2": dict(good, mirror="wife")}})))
+    check_that("a far row whose term disagrees with the read mirror is refused",
+               any("where the entry says" in p for p in check(
+                   True, both, psurvey, {"rulings": {"x2": dict(good, mirror="son",
+                                                                 mirror_as_read="Susan")}})))
+    check_that("a landed tie whose far row is missing is refused",
+               any("no mirror row" in p for p in check(
+                   True, dict(both, hh_b=dict(hh_b)), psurvey, {"rulings": {"x2": good}})))
+
     check_that("a ruling answering a proposal the survey no longer makes is an error",
                any("no longer makes" in p for p in check(
                    True, docs, {"proposals": []}, {"rulings": {"x1": {"ruling": "refused",
@@ -747,6 +883,12 @@ def main(argv: list[str]) -> int:
             print(f"\n{len(problems)} problem(s) — see above")
             return 1
         print("kin survey re-derives, and every landable proposal carries a ruling")
+        return 0
+    if "--land" in argv:
+        written = land()
+        print(f"wrote {len(written)} kin row(s)")
+        for line in written:
+            print("  " + line)
         return 0
     survey = derive()
     if "--write" in argv:

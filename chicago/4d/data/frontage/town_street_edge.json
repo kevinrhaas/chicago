@@ -40,24 +40,24 @@
       "dearborn",
       "state"
     ],
-    "faces_laid": 94,
-    "walk_m": 8807.0,
-    "crossing_m": 2289.0,
-    "fence_m": 1822.0,
-    "walking_decks": 813,
+    "faces_laid": 96,
+    "walk_m": 8902.6,
+    "crossing_m": 2311.0,
+    "fence_m": 1893.4,
+    "walking_decks": 827,
     "hitching_posts": 51,
     "fittings": {
       "mounting_block": 6,
       "stoop": 37,
       "tie_rail": 1,
-      "wagon_apron": 4
+      "wagon_apron": 6
     },
-    "decked_walks": 4,
-    "decked_walk_m": 46.8,
-    "bare_fronts": 3,
-    "fronts_only_faces": 4,
-    "fronts_only_runs": 4,
-    "fronts_only_walk_m": 67.7
+    "decked_walks": 6,
+    "decked_walk_m": 61.5,
+    "bare_fronts": 7,
+    "fronts_only_faces": 5,
+    "fronts_only_runs": 5,
+    "fronts_only_walk_m": 83.1
   },
   "card": {
     "id": "town_street_edge",
@@ -72,16 +72,16 @@
         "note": "Asked for by the owner, 2026-08-18, of the first Cook County jail engraving: 'note the fences lining the street and what appears to be plank sidewalks. all of the streets should be updated like this... at least south of the river or near the river.' No 1835 source names a walk or a fence on any particular stretch of these streets."
       },
       "walk_m": {
-        "value": 8807.0,
+        "value": 8902.6,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "102 run(s) of sidewalk on 94 platted block face(s), plus 2289.0 m of board crossing at 97 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
+        "note": "108 run(s) of sidewalk on 96 platted block face(s), plus 2311.0 m of board crossing at 98 corner(s). Nothing measured: every metre is derived from the committed plat and audited against the committed ground."
       },
       "fence_m": {
-        "value": 1822.0,
+        "value": 1893.4,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "35 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
+        "note": "37 street-lining fence run(s), on the lots the rule found improved and standing back from their own frontage line."
       },
       "hitching_posts": {
         "value": 51,
@@ -90,10 +90,10 @@
         "note": "51 post(s) at the road edge — two at an inn, one at each other trading frontage the rule accepts, a trade this project rules takes its custom from a stranger off the street, at whatever tier the trade is held, with a walk laid in front of it and dry ground clear of the track to stand on. Every frontage it refused is named in `refused` with the clause that refused it. No source states that a post stood at any of them; what the plates give is that the town's frontages had them at all (T-0090)."
       },
       "fittings": {
-        "value": 48,
+        "value": 50,
         "confidence": "reconstructed",
         "sources": [],
-        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 4 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
+        "note": "What each business's front takes beyond the walk, dealt by its trade (T-1813): 6 mounting block(s), 37 stoop(s), 1 tie rail(s), 6 wagon apron(s). A stoop at a store's or an inn's door, a mounting block at an inn, a wagon apron at a forwarding house or warehouse, a tie rail at a works. Every one is invented carpentry laid by rule and names the business it serves; no source puts any of them at any door in 1835."
       },
       "width_m": {
         "value": 1.83,
@@ -7300,7 +7300,7 @@
       "confidence": "reconstructed",
       "street": "dearborn",
       "street_name": "Dearborn Street",
-      "chunk": "blk_randolph_clark_east_1",
+      "chunk": "blk_randolph_clark_east_3",
       "centreline_local_enu_m": [
         [
           686.17,
@@ -7403,8 +7403,8 @@
           -381.17
         ],
         [
-          686.17,
-          -270.25
+          685.71,
+          -344.19
         ]
       ],
       "width_m": 1.83,
@@ -7469,12 +7469,12 @@
               -349.55
             ],
             [
-              684.87,
-              -333.54
+              684.8,
+              -344.11
             ],
             [
-              686.7,
-              -333.56
+              686.63,
+              -344.12
             ],
             [
               686.6,
@@ -7482,69 +7482,131 @@
             ]
           ],
           "ground_roll_m": 0.0
-        },
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_clark's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.62 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 0.0 m to 37.0 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_randolph_clark_east_walk_2",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "dearborn",
+      "street_name": "Dearborn Street",
+      "chunk": "blk_randolph_clark_east_2",
+      "centreline_local_enu_m": [
+        [
+          685.75,
+          -338.91
+        ],
+        [
+          685.91,
+          -312.5
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 6.62,
+      "footway_decks": [
         {
-          "y": 1.0,
+          "y": 0.999,
           "pts": [
             [
-              684.87,
-              -333.7
+              684.83,
+              -338.99
             ],
             [
-              684.96,
-              -317.7
+              684.93,
+              -322.98
             ],
             [
-              686.79,
-              -317.71
+              686.76,
+              -322.99
             ],
             [
-              686.7,
-              -333.72
+              686.66,
+              -339.0
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.009
         },
+        {
+          "y": 1.005,
+          "pts": [
+            [
+              684.93,
+              -323.14
+            ],
+            [
+              685.0,
+              -312.42
+            ],
+            [
+              686.83,
+              -312.43
+            ],
+            [
+              686.76,
+              -323.15
+            ]
+          ],
+          "ground_roll_m": 0.006
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_clark's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.62 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 42.3 m to 68.7 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_randolph_clark_east_walk_3",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "dearborn",
+      "street_name": "Dearborn Street",
+      "chunk": "blk_randolph_clark_east_3",
+      "centreline_local_enu_m": [
+        [
+          685.94,
+          -307.22
+        ],
+        [
+          686.17,
+          -270.25
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 6.62,
+      "footway_decks": [
         {
           "y": 1.01,
           "pts": [
             [
-              684.96,
-              -317.86
+              685.03,
+              -307.29
             ],
             [
-              685.06,
-              -301.85
+              685.13,
+              -291.29
             ],
             [
-              686.89,
-              -301.86
+              686.96,
+              -291.3
             ],
             [
-              686.79,
-              -317.87
-            ]
-          ],
-          "ground_roll_m": 0.01
-        },
-        {
-          "y": 1.01,
-          "pts": [
-            [
-              685.06,
-              -302.01
-            ],
-            [
-              685.16,
-              -286.01
-            ],
-            [
-              686.99,
-              -286.02
-            ],
-            [
-              686.89,
-              -302.02
+              686.86,
+              -307.31
             ]
           ],
           "ground_roll_m": 0.005
@@ -7553,8 +7615,30 @@
           "y": 1.005,
           "pts": [
             [
-              685.16,
-              -286.17
+              685.13,
+              -291.45
+            ],
+            [
+              685.23,
+              -275.44
+            ],
+            [
+              687.06,
+              -275.45
+            ],
+            [
+              686.96,
+              -291.46
+            ]
+          ],
+          "ground_roll_m": 0.01
+        },
+        {
+          "y": 0.995,
+          "pts": [
+            [
+              685.23,
+              -275.6
             ],
             [
               685.26,
@@ -7565,14 +7649,14 @@
               -270.17
             ],
             [
-              686.99,
-              -286.18
+              687.06,
+              -275.61
             ]
           ],
-          "ground_roll_m": 0.015
+          "ground_roll_m": 0.005
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_clark's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.62 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 0.0 m to 110.9 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_clark's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.62 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 73.9 m to 110.9 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_randolph_clark_north_crossing_blk_randolph_dearborn_north",
@@ -8746,6 +8830,80 @@
       "note": "THE PLANK SIDEWALK ON THE RANDOLPH STREET FRONTAGE of blk_randolph_clinton's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Randolph Street track. This run is the stretch from 0.0 m to 98.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_randolph_clinton_south_crossing_over_washington",
+      "belongs_to": "town_street_edge",
+      "kind": "board_crossing",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_randolph_clinton_south_1",
+      "centreline_local_enu_m": [
+        [
+          -260.37,
+          -374.65
+        ],
+        [
+          -260.35,
+          -396.71
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.06,
+      "plank_run": "along",
+      "plank_count": 6,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "plank_step_m": 1.8,
+      "run_m": 22.06,
+      "footway_decks": [
+        {
+          "y": 1.331,
+          "pts": [
+            [
+              -261.28,
+              -374.57
+            ],
+            [
+              -261.28,
+              -385.76
+            ],
+            [
+              -259.45,
+              -385.76
+            ],
+            [
+              -259.45,
+              -374.57
+            ]
+          ],
+          "ground_roll_m": 0.091
+        },
+        {
+          "y": 1.33,
+          "pts": [
+            [
+              -261.28,
+              -385.6
+            ],
+            [
+              -261.27,
+              -396.79
+            ],
+            [
+              -259.44,
+              -396.79
+            ],
+            [
+              -259.45,
+              -385.6
+            ]
+          ],
+          "ground_roll_m": 0.103
+        }
+      ],
+      "note": "A BOARD CROSSING OVER WASHINGTON STREET. The Petford watercolour and the Braunhold engraving of the Sauganash (images 8 and 9) both put a board crossing over the road between walks on opposite frontages. Its boards run the way a foot travels rather than across it, which is what a crossing is FOR — it spans the ruts instead of lying in them — and it lies lower than the walk because a wheel crosses it. WHERE is derived: the two ends are the two walks it joins, so the run is the corridor those walks stop either side of, 22.1 m of it, and the crossing exists only where both of them were laid. docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_randolph_clinton_south_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -9530,7 +9688,7 @@
       "confidence": "reconstructed",
       "street": "dearborn",
       "street_name": "Dearborn Street",
-      "chunk": "blk_randolph_dearborn_west_1",
+      "chunk": "blk_randolph_dearborn_west_2",
       "centreline_local_enu_m": [
         [
           708.24,
@@ -9729,8 +9887,8 @@
           -381.35
         ],
         [
-          708.24,
-          -270.43
+          707.97,
+          -312.69
         ]
       ],
       "width_m": 1.83,
@@ -9832,45 +9990,76 @@
           "ground_roll_m": 0.005
         },
         {
-          "y": 1.005,
+          "y": 1.0,
           "pts": [
             [
               708.85,
               -318.06
             ],
             [
-              708.95,
-              -302.05
+              708.89,
+              -312.61
             ],
             [
-              707.12,
-              -302.04
+              707.06,
+              -312.6
             ],
             [
               707.02,
               -318.04
             ]
           ],
-          "ground_roll_m": 0.005
-        },
+          "ground_roll_m": 0.0
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_dearborn's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 0.0 m to 68.7 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_randolph_dearborn_west_walk_2",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "dearborn",
+      "street_name": "Dearborn Street",
+      "chunk": "blk_randolph_dearborn_west_2",
+      "centreline_local_enu_m": [
+        [
+          708.01,
+          -307.41
+        ],
+        [
+          708.24,
+          -270.43
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 6.61,
+      "footway_decks": [
         {
           "y": 1.005,
           "pts": [
             [
-              708.95,
-              -302.21
+              708.92,
+              -307.49
             ],
             [
-              709.05,
-              -286.2
+              709.02,
+              -291.49
             ],
             [
-              707.22,
-              -286.19
+              707.19,
+              -291.47
             ],
             [
-              707.12,
-              -302.2
+              707.09,
+              -307.48
             ]
           ],
           "ground_roll_m": 0.005
@@ -9879,8 +10068,30 @@
           "y": 1.0,
           "pts": [
             [
-              709.05,
-              -286.36
+              709.02,
+              -291.65
+            ],
+            [
+              709.12,
+              -275.64
+            ],
+            [
+              707.29,
+              -275.63
+            ],
+            [
+              707.19,
+              -291.63
+            ]
+          ],
+          "ground_roll_m": 0.009
+        },
+        {
+          "y": 0.991,
+          "pts": [
+            [
+              709.12,
+              -275.8
             ],
             [
               709.15,
@@ -9891,14 +10102,14 @@
               -270.35
             ],
             [
-              707.22,
-              -286.35
+              707.29,
+              -275.79
             ]
           ],
-          "ground_roll_m": 0.01
+          "ground_roll_m": 0.001
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_dearborn's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 0.0 m to 110.9 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_randolph_dearborn's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 73.9 m to 110.9 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_randolph_franklin_east_crossing_blk_lake_franklin_east",
@@ -15987,6 +16198,64 @@
       "note": "THE PLANK SIDEWALK ON THE STATE STREET FRONTAGE of blk_south_water_dearborn's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.11 m of verge between its outer edge and the State Street track. This run is the stretch from 58.4 m to 79.7 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_south_water_dearborn_north_decked_walk_recon_1835_blk_south_water_dearborn_f2_11",
+      "belongs_to": "town_street_edge",
+      "kind": "decked_walk",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_dearborn_north_1",
+      "serves": "recon_1835_blk_south_water_dearborn_f2_11",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #11",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "centreline_local_enu_m": [
+        [
+          720.52,
+          -3.12
+        ],
+        [
+          728.52,
+          -3.34
+        ]
+      ],
+      "width_m": 1.22,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.075,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 2.69,
+      "verge_to_track_m": 3.64,
+      "footway_decks": [
+        {
+          "y": 0.741,
+          "pts": [
+            [
+              720.42,
+              -3.72
+            ],
+            [
+              728.59,
+              -3.96
+            ],
+            [
+              728.62,
+              -2.74
+            ],
+            [
+              720.46,
+              -2.51
+            ]
+          ],
+          "ground_roll_m": 0.029
+        }
+      ],
+      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #11, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_south_water_dearborn's north face, 9.4 m to 17.4 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.03 m and leaving 3.64 m to the South Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
       "id": "blk_south_water_dearborn_north_walk_1",
       "belongs_to": "town_street_edge",
       "kind": "plank_walk",
@@ -20073,6 +20342,191 @@
       "note": "THE PLANK SIDEWALK ON THE CLARK STREET FRONTAGE of blk_washington_clark's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Clark Street track. This run is the stretch from 0.0 m to 102.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
+      "id": "blk_washington_clinton_north_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_clinton_north_1",
+      "centreline_local_enu_m": [
+        [
+          -264.35,
+          -396.68
+        ],
+        [
+          -163.03,
+          -397.51
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 7.21,
+      "footway_decks": [
+        {
+          "y": 1.384,
+          "pts": [
+            [
+              -264.44,
+              -397.59
+            ],
+            [
+              -248.28,
+              -397.72
+            ],
+            [
+              -248.27,
+              -395.89
+            ],
+            [
+              -264.42,
+              -395.76
+            ]
+          ],
+          "ground_roll_m": 0.027
+        },
+        {
+          "y": 1.357,
+          "pts": [
+            [
+              -248.44,
+              -397.72
+            ],
+            [
+              -232.28,
+              -397.85
+            ],
+            [
+              -232.27,
+              -396.02
+            ],
+            [
+              -248.43,
+              -395.89
+            ]
+          ],
+          "ground_roll_m": 0.022
+        },
+        {
+          "y": 1.335,
+          "pts": [
+            [
+              -232.44,
+              -397.85
+            ],
+            [
+              -216.28,
+              -397.98
+            ],
+            [
+              -216.27,
+              -396.15
+            ],
+            [
+              -232.43,
+              -396.02
+            ]
+          ],
+          "ground_roll_m": 0.02
+        },
+        {
+          "y": 1.315,
+          "pts": [
+            [
+              -216.44,
+              -397.98
+            ],
+            [
+              -200.29,
+              -398.11
+            ],
+            [
+              -200.27,
+              -396.28
+            ],
+            [
+              -216.43,
+              -396.15
+            ]
+          ],
+          "ground_roll_m": 0.015
+        },
+        {
+          "y": 1.3,
+          "pts": [
+            [
+              -200.45,
+              -398.11
+            ],
+            [
+              -184.29,
+              -398.25
+            ],
+            [
+              -184.27,
+              -396.42
+            ],
+            [
+              -200.43,
+              -396.28
+            ]
+          ],
+          "ground_roll_m": 0.021
+        },
+        {
+          "y": 1.279,
+          "pts": [
+            [
+              -184.45,
+              -398.24
+            ],
+            [
+              -168.29,
+              -398.38
+            ],
+            [
+              -168.28,
+              -396.55
+            ],
+            [
+              -184.43,
+              -396.41
+            ]
+          ],
+          "ground_roll_m": 0.023
+        },
+        {
+          "y": 1.257,
+          "pts": [
+            [
+              -168.45,
+              -398.38
+            ],
+            [
+              -162.96,
+              -398.42
+            ],
+            [
+              -162.94,
+              -396.59
+            ],
+            [
+              -168.44,
+              -396.55
+            ]
+          ],
+          "ground_roll_m": 0.011
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WASHINGTON STREET FRONTAGE of blk_washington_clinton's north face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Washington Street track. This run is the stretch from 0.0 m to 101.3 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
       "id": "blk_washington_dearborn_east_crossing_blk_randolph_dearborn_east",
       "belongs_to": "town_street_edge",
       "kind": "board_crossing",
@@ -20457,7 +20911,7 @@
       "confidence": "reconstructed",
       "street": "dearborn",
       "street_name": "Dearborn Street",
-      "chunk": "blk_washington_dearborn_west_1",
+      "chunk": "blk_washington_dearborn_west_2",
       "centreline_local_enu_m": [
         [
           707.4,
@@ -20612,8 +21066,8 @@
           -506.85
         ],
         [
-          707.4,
-          -405.73
+          707.13,
+          -448.31
         ]
       ],
       "width_m": 1.83,
@@ -20700,20 +21154,51 @@
               -459.04
             ],
             [
-              708.08,
-              -442.91
+              708.05,
+              -448.24
             ],
             [
-              706.25,
-              -442.9
+              706.22,
+              -448.22
             ],
             [
               706.15,
               -459.03
             ]
           ],
-          "ground_roll_m": 0.012
-        },
+          "ground_roll_m": 0.007
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_washington_dearborn's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 0.0 m to 58.5 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_dearborn_west_walk_2",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "dearborn",
+      "street_name": "Dearborn Street",
+      "chunk": "blk_washington_dearborn_west_2",
+      "centreline_local_enu_m": [
+        [
+          707.16,
+          -442.99
+        ],
+        [
+          707.4,
+          -405.73
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 6.61,
+      "footway_decks": [
         {
           "y": 0.985,
           "pts": [
@@ -20781,7 +21266,7 @@
           "ground_roll_m": 0.004
         }
       ],
-      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_washington_dearborn's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 0.0 m to 101.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
+      "note": "THE PLANK SIDEWALK ON THE DEARBORN STREET FRONTAGE of blk_washington_dearborn's west face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 6.61 m of verge between its outer edge and the Dearborn Street track. This run is the stretch from 63.9 m to 101.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_washington_franklin_east_crossing_blk_randolph_franklin_east",
@@ -24206,6 +24691,117 @@
         }
       ],
       "note": "THE PLANK SIDEWALK ON THE CLINTON STREET FRONTAGE of blk_west_randolph_jefferson's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 7.21 m of verge between its outer edge and the Clinton Street track. This run is the stretch from 84.6 m to 100.4 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed C2 store-residence #024 (store_residence, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
+    },
+    {
+      "id": "blk_west_washington_canal_east_decked_walk_recon_1835_branch_freight_f2_001",
+      "belongs_to": "town_street_edge",
+      "kind": "decked_walk",
+      "confidence": "reconstructed",
+      "street": "west_water",
+      "street_name": "West Water Street",
+      "chunk": "blk_west_washington_canal_east_1",
+      "serves": "recon_1835_branch_freight_f2_001",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #002",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "centreline_local_enu_m": [
+        [
+          -30.61,
+          -410.19
+        ],
+        [
+          -29.73,
+          -403.55
+        ]
+      ],
+      "width_m": 1.22,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.075,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 2.69,
+      "verge_to_track_m": 5.97,
+      "footway_decks": [
+        {
+          "y": 1.12,
+          "pts": [
+            [
+              -31.22,
+              -410.19
+            ],
+            [
+              -30.33,
+              -403.39
+            ],
+            [
+              -29.12,
+              -403.55
+            ],
+            [
+              -30.01,
+              -410.35
+            ]
+          ],
+          "ground_roll_m": 0.002
+        }
+      ],
+      "note": "THE DECKED WALK IN FRONT OF RECONSTRUCTED F2 NARROW TWO-STORY WAREHOUSE #002, a `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding house: the town's 1.83 m board walk widened by 1.22 m of 75 mm plank on its street side, a 3.05 m deck where goods were landed and loaded across the front. WHERE is derived: the house's own frontage projected onto blk_west_washington_canal's east face, 97.9 m to 104.6 m along it, clipped to the walk run laid there, on dry committed ground rolling 0.00 m and leaving 5.97 m to the West Water Street track. WHAT IS INVENTED: that the deck stood here on 1 July 1835, its width and its stock — no source in this repository measures a Chicago forwarding house's walk. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
+      "id": "blk_west_washington_canal_east_walk_1",
+      "belongs_to": "town_street_edge",
+      "kind": "plank_walk",
+      "confidence": "reconstructed",
+      "street": "west_water",
+      "street_name": "West Water Street",
+      "chunk": "blk_west_washington_canal_east_1",
+      "centreline_local_enu_m": [
+        [
+          -32.81,
+          -415.19
+        ],
+        [
+          -30.79,
+          -399.88
+        ]
+      ],
+      "width_m": 1.83,
+      "rise_m": 0.11,
+      "plank_run": "across",
+      "plank_pitch_m": 0.32,
+      "plank_thickness_m": 0.055,
+      "plank_underside": false,
+      "stringer_pitch_m": 2.08,
+      "lot_line_offset_m": 1.17,
+      "verge_to_track_m": 4.88,
+      "footway_decks": [
+        {
+          "y": 1.122,
+          "pts": [
+            [
+              -33.73,
+              -415.15
+            ],
+            [
+              -31.68,
+              -399.68
+            ],
+            [
+              -29.87,
+              -399.92
+            ],
+            [
+              -31.91,
+              -415.39
+            ]
+          ],
+          "ground_roll_m": 0.007
+        }
+      ],
+      "note": "THE PLANK SIDEWALK ON THE WEST WATER STREET FRONTAGE of blk_west_washington_canal's east face, at the lot line. WHERE is DERIVED and nothing here is placed: the face is a committed street centreline offset by half the committed 80 ft corridor (data/traces/vectors/thompson_lots.json, re-derived by tools/generate_plat_lots.py), and the walk's centre lies 1.165 m outward of it — 0.25 m of daylight off the fence line and half a walk's width — leaving 4.88 m of verge between its outer edge and the West Water Street track. This run is the stretch from 92.6 m to 108.1 m along the face that passed the march: dry committed ground, flat enough for one walking deck, and nothing already standing on it. What is invented is the width, the rise, the plank pitch and that a walk stood on this ground at noon on 1 July 1835: docs/LIBERTIES.md L160. LAID FRONTS-ONLY (T-1823): this face is beyond the covered streets, so the walk is laid only in front of the business that opens onto it — Reconstructed F2 narrow two-story warehouse #002 (narrow_two_story_warehouse, held `reconstructed`) — and half a march step past each end of its frontage, and nowhere else on the face."
     }
   ],
   "fences": [
@@ -26564,8 +27160,8 @@
       "chunk": "blk_washington_clark_north_1",
       "path_local_enu_m": [
         [
-          634.87,
-          -405.14
+          610.21,
+          -404.94
         ],
         [
           659.61,
@@ -26579,17 +27175,18 @@
       "post_square_m": 0.12,
       "rail_courses": 2,
       "lots": [
+        2,
         4
       ],
-      "least_setback_m": 5.5,
+      "least_setback_m": 4.99,
       "openings": [
         {
           "id": "blk_washington_clark_north_fence_35_gate_1",
           "on": "street",
-          "serves": "recon_1835_blk_washington_clark_d5_01",
+          "serves": "recon_1835_blk_washington_clark_d4_14",
           "at_local_enu_m": [
-            645.71,
-            -405.23
+            624.06,
+            -405.05
           ],
           "width_m": 1.067,
           "gate": {
@@ -26600,6 +27197,29 @@
             "swing_deg": 82.4
           },
           "opens_into_local_enu_m": [
+            624.02,
+            -409.05
+          ],
+          "confidence": "reconstructed",
+          "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_clark_d4_14, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
+        },
+        {
+          "id": "blk_washington_clark_north_fence_35_gate_2",
+          "on": "street",
+          "serves": "recon_1835_blk_washington_clark_d5_01",
+          "at_local_enu_m": [
+            645.71,
+            -405.23
+          ],
+          "width_m": 1.067,
+          "gate": {
+            "kind": "foot_gate",
+            "leaves": 1,
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 70.5
+          },
+          "opens_into_local_enu_m": [
             645.68,
             -409.23
           ],
@@ -26607,7 +27227,117 @@
           "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_clark_d5_01, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
         }
       ],
-      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_clark's own platted frontage line from 49.3 m to 74.1 m along the north face, covering lot(s) 4 — every one of them improved by a committed building whose nearest wall stands 5.50 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_clark's own platted frontage line from 24.7 m to 74.1 m along the north face, covering lot(s) 2, 4 — every one of them improved by a committed building whose nearest wall stands 4.99 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_dearborn_north_fence_36",
+      "belongs_to": "town_street_edge",
+      "kind": "board_fence",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_dearborn_north_1",
+      "path_local_enu_m": [
+        [
+          708.56,
+          -405.74
+        ],
+        [
+          734.55,
+          -405.95
+        ]
+      ],
+      "height_m": 1.37,
+      "board_width_m": 0.305,
+      "board_gap_m": 0.006,
+      "post_spacing_m": 2.44,
+      "post_square_m": 0.12,
+      "rail_courses": 2,
+      "lots": [
+        0
+      ],
+      "least_setback_m": 5.49,
+      "openings": [
+        {
+          "id": "blk_washington_dearborn_north_fence_36_gate_1",
+          "on": "street",
+          "serves": "recon_1835_blk_washington_dearborn_d7_04",
+          "at_local_enu_m": [
+            723.03,
+            -405.86
+          ],
+          "width_m": 1.067,
+          "gate": {
+            "kind": "foot_gate",
+            "leaves": 1,
+            "leaf_stock": "board",
+            "hinge": "a",
+            "swing_deg": 0.0
+          },
+          "opens_into_local_enu_m": [
+            723.0,
+            -409.86
+          ],
+          "confidence": "reconstructed",
+          "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_dearborn_d7_04, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
+        }
+      ],
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_dearborn's own platted frontage line from 0.0 m to 26.0 m along the north face, covering lot(s) 0 — every one of them improved by a committed building whose nearest wall stands 5.49 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
+    },
+    {
+      "id": "blk_washington_dearborn_north_fence_37",
+      "belongs_to": "town_street_edge",
+      "kind": "board_fence",
+      "confidence": "reconstructed",
+      "street": "washington",
+      "street_name": "Washington Street",
+      "chunk": "blk_washington_dearborn_north_1",
+      "path_local_enu_m": [
+        [
+          760.36,
+          -406.16
+        ],
+        [
+          781.09,
+          -406.33
+        ]
+      ],
+      "height_m": 1.37,
+      "board_width_m": 0.305,
+      "board_gap_m": 0.006,
+      "post_spacing_m": 2.44,
+      "post_square_m": 0.12,
+      "rail_courses": 2,
+      "lots": [
+        4
+      ],
+      "least_setback_m": 6.0,
+      "openings": [
+        {
+          "id": "blk_washington_dearborn_north_fence_37_gate_1",
+          "on": "street",
+          "serves": "recon_1835_blk_washington_dearborn_h2_05",
+          "at_local_enu_m": [
+            771.83,
+            -406.25
+          ],
+          "width_m": 1.067,
+          "gate": {
+            "kind": "foot_gate",
+            "leaves": 1,
+            "leaf_stock": "picket",
+            "hinge": "a",
+            "swing_deg": 35.8
+          },
+          "opens_into_local_enu_m": [
+            771.8,
+            -410.25
+          ],
+          "confidence": "reconstructed",
+          "note": "INVENTED (T-2112): the way into this lot from Washington Street, in front of recon_1835_blk_washington_dearborn_h2_05, which is the building nearest the street on it. A house's foot gate, one leaf, by the rule in tools/gate_kinds.py; no source places, sizes or describes it (L382)."
+        }
+      ],
+      "note": "A FENCE LINING THE STREET, on the lot line with the plank walk at its foot — which is the first Cook County jail engraving read literally (data/sources/assets/owner_brief_2026_08_18/README.md, image 1: board fences at the frontage line, a plank walk beside them). WHERE is derived: it stands on blk_washington_dearborn's own platted frontage line from 51.8 m to 72.5 m along the north face, covering lot(s) 4 — every one of them improved by a committed building whose nearest wall stands 6.00 m back from that line, which is the clause that decides a fence is what lines the street here rather than a wall. The board width, the gap, the bay, the post and the height are the treatment the plate shows and no source gives: docs/LIBERTIES.md L160."
     },
     {
       "id": "blk_washington_franklin_north_fence_32",
@@ -29869,6 +30599,129 @@
       "note": "A stoop at the door — a landing at the sill and a step down to the walk, at Reconstructed C2 store-residence #07. WHY HERE is a rule and not a placement: the front's trade is `store_residence` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a store, and a store's front takes stoop and its post(s). WHERE is derived: 0.66 of the building's own frontage along blk_south_water_dearborn's north face — at the door its front elevation states (T-1984) — its front wall stands 1.50 m back of the lot line at the door, so the stoop spans 1.75 m to the walk: a 1.07 m landing 0.38 m up, a 0.30 m step and 0.38 m of boards, on committed ground at +0.75 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
     },
     {
+      "id": "blk_south_water_dearborn_north_wagon_apron_recon_1835_blk_south_water_dearborn_f2_11",
+      "belongs_to": "town_street_edge",
+      "kind": "wagon_apron",
+      "confidence": "reconstructed",
+      "street": "south_water",
+      "street_name": "South Water Street",
+      "chunk": "blk_south_water_dearborn_north_1",
+      "serves": "recon_1835_blk_south_water_dearborn_f2_11",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #11",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "at_local_enu_m": [
+        724.58,
+        -1.12
+      ],
+      "facade_bearing_deg": 1.6,
+      "along_frontage_frac": 0.5,
+      "parts": [
+        {
+          "part": "plank_1",
+          "at_local_enu_m": [
+            724.55,
+            -2.47
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_2",
+          "at_local_enu_m": [
+            724.55,
+            -2.17
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_3",
+          "at_local_enu_m": [
+            724.56,
+            -1.87
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_4",
+          "at_local_enu_m": [
+            724.57,
+            -1.57
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_5",
+          "at_local_enu_m": [
+            724.58,
+            -1.27
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_6",
+          "at_local_enu_m": [
+            724.59,
+            -0.97
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_7",
+          "at_local_enu_m": [
+            724.6,
+            -0.67
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_8",
+          "at_local_enu_m": [
+            724.6,
+            -0.37
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_9",
+          "at_local_enu_m": [
+            724.61,
+            -0.07
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_10",
+          "at_local_enu_m": [
+            724.62,
+            0.23
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        }
+      ],
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #11. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_south_water_dearborn's north face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 0.64 m to the South Water Street track, on committed ground at +0.37 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813)."
+    },
+    {
       "id": "blk_south_water_dearborn_south_mounting_block_mansion_house",
       "belongs_to": "town_street_edge",
       "kind": "mounting_block",
@@ -31115,9 +31968,253 @@
       ],
       "note": "A mounting block in the verge, between the inn's two posts, at Western Hotel. WHY HERE is a rule and not a placement: the front's trade is `tavern_inn` (held `attested`), which FRONTAGE_BY_BUSINESS reads as an inn, and an inn's front takes stoop, mounting block and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_randolph_canal's north face — the middle of the front, where no elevation places a door — between the inn's two posts on the same verge line, 2.98 m out from the lot line, its two steps 0.23 and 0.46 m high, on committed ground at +1.12 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
       "standing_chunk": "town_street_edge__fronts_only__standing"
+    },
+    {
+      "id": "blk_west_washington_canal_east_wagon_apron_recon_1835_branch_freight_f2_001",
+      "belongs_to": "town_street_edge",
+      "kind": "wagon_apron",
+      "confidence": "reconstructed",
+      "street": "west_water",
+      "street_name": "West Water Street",
+      "chunk": "blk_west_washington_canal_east_1",
+      "serves": "recon_1835_branch_freight_f2_001",
+      "serves_name": "Reconstructed F2 narrow two-story warehouse #002",
+      "trade": "narrow_two_story_warehouse",
+      "trade_confidence": "reconstructed",
+      "business_class": "forwarding",
+      "at_local_enu_m": [
+        -28.08,
+        -407.15
+      ],
+      "facade_bearing_deg": 97.5,
+      "along_frontage_frac": 0.5,
+      "parts": [
+        {
+          "part": "plank_1",
+          "at_local_enu_m": [
+            -29.42,
+            -406.97
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_2",
+          "at_local_enu_m": [
+            -29.12,
+            -407.01
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_3",
+          "at_local_enu_m": [
+            -28.82,
+            -407.05
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_4",
+          "at_local_enu_m": [
+            -28.52,
+            -407.09
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_5",
+          "at_local_enu_m": [
+            -28.23,
+            -407.13
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_6",
+          "at_local_enu_m": [
+            -27.93,
+            -407.17
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_7",
+          "at_local_enu_m": [
+            -27.63,
+            -407.21
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_8",
+          "at_local_enu_m": [
+            -27.34,
+            -407.25
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_9",
+          "at_local_enu_m": [
+            -27.04,
+            -407.28
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        },
+        {
+          "part": "plank_10",
+          "at_local_enu_m": [
+            -26.74,
+            -407.32
+          ],
+          "len_m": 3.05,
+          "depth_m": 0.288,
+          "top_m": 0.075
+        }
+      ],
+      "note": "A wagon apron of 3-inch plank laid from the walk's outer edge across the verge, so a loaded dray comes off the track onto boards, at Reconstructed F2 narrow two-story warehouse #002. WHY HERE is a rule and not a placement: the front's trade is `narrow_two_story_warehouse` (held `reconstructed`), which FRONTAGE_BY_BUSINESS reads as a forwarding, and a forwarding's front takes wagon apron and its post(s). WHERE is derived: 0.50 of the building's own frontage along blk_west_washington_canal's east face — the middle of the front, where no elevation places a door — 10 planks across the verge from the walk's outer edge, 3.00 m deep and 3.05 m wide, leaving 2.98 m to the West Water Street track, on committed ground at +1.01 m. WHAT IS INVENTED: that it stood here on 1 July 1835, and every dimension, which is ordinary carpentry rather than anything measured in Chicago. docs/LIBERTIES.md L160 (amended by T-1813).",
+      "standing_chunk": "town_street_edge__fronts_only__standing"
     }
   ],
   "bare_fronts": [
+    {
+      "id": "blk_washington_dearborn_west_bare_ground_recon_1835_blk_washington_dearborn_w2_10",
+      "belongs_to": "town_street_edge",
+      "kind": "bare_ground",
+      "confidence": "reconstructed",
+      "serves": "recon_1835_blk_washington_dearborn_w2_10",
+      "serves_name": "Reconstructed W2 carpenter or joiner shop #10",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "business_class": "works",
+      "pts_local_enu_m": [
+        [
+          708.29,
+          -448.32
+        ],
+        [
+          708.33,
+          -442.99
+        ],
+        [
+          705.05,
+          -442.97
+        ],
+        [
+          705.01,
+          -448.3
+        ]
+      ],
+      "note": "THE BARE FRONT OF RECONSTRUCTED W2 CARPENTER OR JOINER SHOP #10: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 58.5 m to 63.9 m along blk_washington_dearborn's west face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
+      "id": "blk_randolph_dearborn_west_bare_ground_recon_1835_blk_randolph_dearborn_w2_18",
+      "belongs_to": "town_street_edge",
+      "kind": "bare_ground",
+      "confidence": "reconstructed",
+      "serves": "recon_1835_blk_randolph_dearborn_w2_18",
+      "serves_name": "Reconstructed W2 carpenter or joiner shop #18",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "business_class": "works",
+      "pts_local_enu_m": [
+        [
+          709.14,
+          -312.7
+        ],
+        [
+          709.17,
+          -307.41
+        ],
+        [
+          705.89,
+          -307.39
+        ],
+        [
+          705.86,
+          -312.67
+        ]
+      ],
+      "note": "THE BARE FRONT OF RECONSTRUCTED W2 CARPENTER OR JOINER SHOP #18: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 68.7 m to 73.9 m along blk_randolph_dearborn's west face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
+      "id": "blk_randolph_clark_east_bare_ground_recon_1835_blk_randolph_clark_w1_10",
+      "belongs_to": "town_street_edge",
+      "kind": "bare_ground",
+      "confidence": "reconstructed",
+      "serves": "recon_1835_blk_randolph_clark_w1_10",
+      "serves_name": "Reconstructed W1 blacksmith shop #10",
+      "trade": "blacksmith_shop",
+      "trade_confidence": "reconstructed",
+      "business_class": "works",
+      "pts_local_enu_m": [
+        [
+          684.55,
+          -344.19
+        ],
+        [
+          684.58,
+          -338.9
+        ],
+        [
+          687.86,
+          -338.93
+        ],
+        [
+          687.83,
+          -344.21
+        ]
+      ],
+      "note": "THE BARE FRONT OF RECONSTRUCTED W1 BLACKSMITH SHOP #10: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 37.0 m to 42.3 m along blk_randolph_clark's east face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
+    {
+      "id": "blk_randolph_clark_east_bare_ground_recon_1835_blk_randolph_clark_w2_09",
+      "belongs_to": "town_street_edge",
+      "kind": "bare_ground",
+      "confidence": "reconstructed",
+      "serves": "recon_1835_blk_randolph_clark_w2_09",
+      "serves_name": "Reconstructed W2 carpenter or joiner shop #09",
+      "trade": "carpenter_or_joiner_shop",
+      "trade_confidence": "reconstructed",
+      "business_class": "works",
+      "pts_local_enu_m": [
+        [
+          684.75,
+          -312.5
+        ],
+        [
+          684.78,
+          -307.21
+        ],
+        [
+          688.06,
+          -307.23
+        ],
+        [
+          688.03,
+          -312.52
+        ]
+      ],
+      "note": "THE BARE FRONT OF RECONSTRUCTED W2 CARPENTER OR JOINER SHOP #09: no plank walk, and nothing planted, from the lot line out past the tie rail's line over 68.7 m to 73.9 m along blk_randolph_clark's east face. A works fronts its own trodden ground (FRONTAGE_BY_BUSINESS). WHAT IS INVENTED: that this front was unplanked and worn bare on 1 July 1835. docs/LIBERTIES.md L160 (amended by T-1814)."
+    },
     {
       "id": "blk_lake_dearborn_north_bare_ground_mason_blacksmith_shop",
       "belongs_to": "town_street_edge",
@@ -31766,11 +32863,6 @@
       "why": "recon_1835_blk_washington_clark_h3_11 stands 1.54 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
     },
     {
-      "structure_id": "blk_washington_clark_lot2",
-      "wall": "blk_washington_clark north face, lot 2",
-      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
-    },
-    {
       "structure_id": "blk_washington_clark_lot6",
       "wall": "blk_washington_clark north face, lot 6",
       "why": "recon_1835_blk_washington_clark_h3_06 stands 1.54 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
@@ -31781,29 +32873,19 @@
       "why": "no fence and no hitching post are laid on this Clark Street frontage: both rules are per-lot, and not one of this block's platted lots fronts a cross street — every lot in the Thompson plat fronts an east-west street, so this face is the END of a lot row rather than a frontage any lot owns. The walk is laid; the fence line behind it belongs to the lots either side, which carry their own on their own frontages."
     },
     {
+      "structure_id": "blk_washington_clinton_north_crossing_blk_washington_market_north",
+      "wall": "corner crossing",
+      "why": "the two walks stop 259.4 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+    },
+    {
       "structure_id": "blk_washington_dearborn_east_fences",
       "wall": "blk_washington_dearborn east face",
       "why": "no fence and no hitching post are laid on this State Street frontage: both rules are per-lot, and not one of this block's platted lots fronts a cross street — every lot in the Thompson plat fronts an east-west street, so this face is the END of a lot row rather than a frontage any lot owns. The walk is laid; the fence line behind it belongs to the lots either side, which carry their own on their own frontages."
     },
     {
-      "structure_id": "blk_washington_dearborn_lot0",
-      "wall": "blk_washington_dearborn north face, lot 0",
-      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
-    },
-    {
       "structure_id": "blk_washington_dearborn_lot2",
       "wall": "blk_washington_dearborn north face, lot 2",
       "why": "recon_1835_blk_washington_dearborn_h3_01 stands 1.54 m from this lot's frontage line, inside the 3.0 m a street fence needs — the building IS the street wall here, and a fence in front of it would be a second one."
-    },
-    {
-      "structure_id": "blk_washington_dearborn_lot4",
-      "wall": "blk_washington_dearborn north face, lot 4",
-      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
-    },
-    {
-      "structure_id": "blk_washington_dearborn_lot6",
-      "wall": "blk_washington_dearborn north face, lot 6",
-      "why": "no committed building stands on this platted lot — an unimproved lot is open prairie and takes no street fence."
     },
     {
       "structure_id": "blk_washington_dearborn_west_fences",
@@ -31871,6 +32953,11 @@
       "why": "no stretch of this face 10.4 m long passed the march (first refusal: bare ground in front of recon_1835_blk_west_randolph_des_plaines_w2_01, a carpenter_or_joiner_shop — FRONTAGE_BY_BUSINESS lays a works no walk) — no walk is laid."
     },
     {
+      "structure_id": "blk_west_washington_canal_east_crossing_blk_west_lake_canal_east",
+      "wall": "corner crossing",
+      "why": "the two walks stop 262.8 m apart, wider than the platted corridor between them — the walk on one side was refused short of its corner, so no crossing is laid."
+    },
+    {
       "structure_id": "brown_boarding_house",
       "wall": "blk_south_water_wells north face, lot 6",
       "why": "no stoop at brown_boarding_house: the front wall stands 19.51 m back from the lot line, behind the street fence this layer lines that lot with; the door is reached through the yard, not off the walk."
@@ -31931,6 +33018,36 @@
       "why": "no plank walk in front of pierce_blacksmith_shop, a blacksmith_shop (held `attested`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_lake_canal's north face stops either side of it, from 5.2 m to 15.7 m along the face (10.5 m, the march steps whose middle lies in front of its 9.1 m frontage)."
     },
     {
+      "structure_id": "recon_1835_blk_randolph_clark_w1_10",
+      "wall": "blk_randolph_clark south face, lot 7",
+      "why": "recon_1835_blk_randolph_clark_w1_10 is a blacksmith_shop — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_w1_10_walk",
+      "wall": "blk_randolph_clark east face, at its door",
+      "why": "no plank walk in front of recon_1835_blk_randolph_clark_w1_10, a blacksmith_shop (held `reconstructed`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_randolph_clark's east face stops either side of it, from 37.0 m to 42.3 m along the face (5.3 m, the march steps whose middle lies in front of its 7.0 m frontage)."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_w2_09",
+      "wall": "blk_randolph_clark north face, lot 6",
+      "why": "recon_1835_blk_randolph_clark_w2_09 is a carpenter_or_joiner_shop — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_clark_w2_09_walk",
+      "wall": "blk_randolph_clark east face, at its door",
+      "why": "no plank walk in front of recon_1835_blk_randolph_clark_w2_09, a carpenter_or_joiner_shop (held `reconstructed`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_randolph_clark's east face stops either side of it, from 68.7 m to 73.9 m along the face (5.3 m, the march steps whose middle lies in front of its 6.2 m frontage)."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_w2_18",
+      "wall": "blk_randolph_dearborn north face, lot 0",
+      "why": "recon_1835_blk_randolph_dearborn_w2_18 is a carpenter_or_joiner_shop — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_randolph_dearborn_w2_18_walk",
+      "wall": "blk_randolph_dearborn west face, at its door",
+      "why": "no plank walk in front of recon_1835_blk_randolph_dearborn_w2_18, a carpenter_or_joiner_shop (held `reconstructed`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_randolph_dearborn's west face stops either side of it, from 68.7 m to 73.9 m along the face (5.3 m, the march steps whose middle lies in front of its 6.1 m frontage)."
+    },
+    {
       "structure_id": "recon_1835_blk_south_water_clark_f2_01",
       "wall": "blk_south_water_clark north face, lot 4",
       "why": "recon_1835_blk_south_water_clark_f2_01 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
@@ -31959,6 +33076,11 @@
       "structure_id": "recon_1835_blk_south_water_dearborn_c3_02",
       "wall": "blk_south_water_dearborn north face, lot 4",
       "why": "no stoop at recon_1835_blk_south_water_dearborn_c3_02: no walk is laid at 69.1 m along this face, in front of the door it would serve, and every fitting here is laid against the walk."
+    },
+    {
+      "structure_id": "recon_1835_blk_south_water_dearborn_f2_11",
+      "wall": "blk_south_water_dearborn north face, lot 0",
+      "why": "recon_1835_blk_south_water_dearborn_f2_11 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
     },
     {
       "structure_id": "recon_1835_blk_south_water_lasalle_c1_08",
@@ -32001,9 +33123,24 @@
       "why": "no decked walk in front of recon_1835_blk_south_water_lasalle_f2_10: no board walk is laid along 2.0 m or more of its 7.6 m frontage, and the deck is laid against that walk's street side."
     },
     {
+      "structure_id": "recon_1835_blk_washington_dearborn_w2_10",
+      "wall": "blk_washington_dearborn north face, lot 0",
+      "why": "recon_1835_blk_washington_dearborn_w2_10 is a carpenter_or_joiner_shop — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
+    },
+    {
+      "structure_id": "recon_1835_blk_washington_dearborn_w2_10_walk",
+      "wall": "blk_washington_dearborn west face, at its door",
+      "why": "no plank walk in front of recon_1835_blk_washington_dearborn_w2_10, a carpenter_or_joiner_shop (held `reconstructed`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_washington_dearborn's west face stops either side of it, from 58.5 m to 63.9 m along the face (5.3 m, the march steps whose middle lies in front of its 6.3 m frontage)."
+    },
+    {
       "structure_id": "recon_1835_blk_west_randolph_des_plaines_w2_01_walk",
       "wall": "blk_west_randolph_des_plaines north face, at its door",
       "why": "no plank walk in front of recon_1835_blk_west_randolph_des_plaines_w2_01, a carpenter_or_joiner_shop (held `reconstructed`): FRONTAGE_BY_BUSINESS reads it as a works, and a works fronts bare ground — its customers bring a horse to be shod or a wheel to be mended, and the trodden yard in front of a shoeing floor is its working ground. The walk on blk_west_randolph_des_plaines's north face stops either side of it, from 0.0 m to 5.2 m along the face (5.2 m, the march steps whose middle lies in front of its 5.9 m frontage)."
+    },
+    {
+      "structure_id": "recon_1835_branch_freight_f2_001",
+      "wall": "blk_west_washington_canal east face, at its door",
+      "why": "recon_1835_branch_freight_f2_001 is a narrow_two_story_warehouse — a works and a warehouse took carts and drays at a yard gate, not riders at a post, which is the same distinction that hangs a board over a footway at a counter and paints a firm's name on a works front. No hitching post is set."
     },
     {
       "structure_id": "recon_1835_forks_freight_f2_001",

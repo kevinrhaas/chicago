@@ -874,7 +874,30 @@ function paintTimberCell(ctxs, wood) {
  * which is the layer as T-0039 shipped it and is a degradation rather than a
  * failure.
  */
-function buildAtlas(signs, wood = null) {
+/**
+ * A PHONE TAKES THE ATLAS AT HALF SIZE (T-2152). The atlas is painted at full
+ * size, so the layout, every cell and every uv are unchanged, and then drawn
+ * down onto a canvas a quarter of the area, which is what is uploaded; the
+ * full-size canvas is emptied so its backing store goes. On an iPhone the tab
+ * is killed for memory, and this atlas was one of its largest single costs
+ * (the canvas plus the GPU copy with its mip chain). At a phone's screen size a
+ * board seen from the footway samples well below this resolution anyway.
+ */
+function shrinkForPhone(canvas, factor = 2) {
+  const small = document.createElement('canvas');
+  small.width = Math.max(1, Math.round(canvas.width / factor));
+  small.height = Math.max(1, Math.round(canvas.height / factor));
+  const sctx = small.getContext('2d');
+  if (!sctx) return canvas;
+  sctx.imageSmoothingEnabled = true;
+  sctx.imageSmoothingQuality = 'high';
+  sctx.drawImage(canvas, 0, 0, small.width, small.height);
+  canvas.width = 0;
+  canvas.height = 0;
+  return small;
+}
+
+function buildAtlas(signs, wood = null, lowSpec = false) {
   if (typeof document === 'undefined') return null;
   const canvas = document.createElement('canvas');
   const cells = [];
@@ -968,11 +991,15 @@ function buildAtlas(signs, wood = null) {
       solid: uvOf(x + 4, y + 4),
     });
   }
-  const texture = new THREE.CanvasTexture(canvas);
+  // What was painted, before a phone halves it (the uvs are fractions of it).
+  out.size = [canvas.width, canvas.height];
+  const upload = lowSpec ? shrinkForPhone(canvas) : canvas;
+  const texture = new THREE.CanvasTexture(upload);
   texture.colorSpace = THREE.SRGBColorSpace;
   texture.anisotropy = 4;
   texture.needsUpdate = true;
   out.texture = texture;
+  out.uploaded = [upload.width, upload.height];
   const dataTexture = (c) => {
     const t = new THREE.CanvasTexture(c);
     t.colorSpace = THREE.NoColorSpace;
@@ -980,10 +1007,9 @@ function buildAtlas(signs, wood = null) {
     t.needsUpdate = true;
     return t;
   };
-  if (normalCanvas) out.normalMap = dataTexture(normalCanvas);
-  if (roughCanvas) out.roughnessMap = dataTexture(roughCanvas);
+  if (normalCanvas) out.normalMap = dataTexture(lowSpec ? shrinkForPhone(normalCanvas) : normalCanvas);
+  if (roughCanvas) out.roughnessMap = dataTexture(lowSpec ? shrinkForPhone(roughCanvas) : roughCanvas);
   out.cells = cells.length;
-  out.size = [canvas.width, canvas.height];
   return out;
 }
 
@@ -1417,6 +1443,8 @@ export async function createSignage({
    * `../data/` in the published one). Absent, the boards are painted flat.
    */
   assetBase = null,
+  /** A touch device: the sign atlases are uploaded at half size (T-2152). */
+  lowSpec = false,
   /**
    * IS THIS BOARD'S BUILDING ACTUALLY STANDING? — T-1126.
    *
@@ -1480,7 +1508,7 @@ export async function createSignage({
   // ONE ATLAS FOR THE WHOLE TOWN, painted before a triangle is emitted, because
   // every triangle needs the uv it hands back.
   const wood = await woodLoading;
-  const atlas = buildAtlas(all, wood);
+  const atlas = buildAtlas(all, wood, lowSpec);
   if (!atlas) {
     problems.push('signage: no canvas to paint the signs on — the boards are drawn '
       + 'blank, in plain timber');
@@ -1592,7 +1620,7 @@ export async function createSignage({
   group.add(mesh);
   group.userData.census = out.census;
   if (atlas) {
-    out.atlas = { cells: atlas.cells, size: atlas.size, wood: wood ? [wood.board.id, wood.timber.id] : null };
+    out.atlas = { cells: atlas.cells, size: atlas.size, uploaded: atlas.uploaded, wood: wood ? [wood.board.id, wood.timber.id] : null };
   }
 
   const raycaster = new THREE.Raycaster();

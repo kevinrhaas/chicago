@@ -4,20 +4,20 @@
  "generated_by": "tools/consolidate_town_cards.py --apply",
  "ticket": "T-0839",
  "counts": {
-  "town_people": 1441,
+  "town_people": 1440,
   "open_clusters": 21,
   "cards_in_open_clusters": 45,
   "rulings": {
    "distinct": 72,
-   "merge": 48,
+   "merge": 50,
    "undecided_T-1281": 1,
    "undecided_T-1550": 1,
    "undecided_T-1554": 1,
    "undecided_owner": 1,
    "undecided_rule": 12
   },
-  "landed_merges": 48,
-  "cards_folded": 67
+  "landed_merges": 50,
+  "cards_folded": 69
  },
  "landed": [
   {
@@ -92,6 +92,26 @@
     "blanchard_gantry"
    ],
    "rule": "C8"
+  },
+  {
+   "cluster": "baptist-bourassa",
+   "survivor": "bourassa_jean_baptiste",
+   "survivor_household": "hh_bourassa_jean_baptiste",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "baptist_john"
+   ],
+   "rule": "C15"
+  },
+  {
+   "cluster": "bourassa-bourrassa",
+   "survivor": "bourrassa_leon",
+   "survivor_household": "hh_bourrassa_leon",
+   "survivor_on_the_cards": true,
+   "folded": [
+    "bourassa_lon"
+   ],
+   "rule": "C16"
   },
   {
    "cluster": "brown-william-h",
@@ -293,7 +313,7 @@
   {
    "cluster": "kimberley",
    "survivor": "kimberly_edmund_s",
-   "survivor_household": "hh_pruyne_kimberly",
+   "survivor_household": "hh_kimberly_edmund_s",
    "survivor_on_the_cards": true,
    "folded": [
     "kimberley_ed"
@@ -303,7 +323,7 @@
   {
    "cluster": "kimberly",
    "survivor": "kimberly_edmund_s",
-   "survivor_household": "hh_pruyne_kimberly",
+   "survivor_household": "hh_kimberly_edmund_s",
    "survivor_on_the_cards": true,
    "folded": [
     "kimberly_e_s",
