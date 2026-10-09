@@ -1,9 +1,14 @@
 export const CHANGELOG = [ // newest first
-  { v: 1570, ts: '2026-10-09T10:49:47.568Z', date: 'Oct 9, 2026, 5:49 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
+  { v: 1571, ts: '2026-10-09T10:55:42.178Z', date: 'Oct 9, 2026, 5:55 AM CT', title: 'Thirteen people buried before 1 July 1835 leave the town', kind: 'fix',
     items: [
       'The St Cyr burial register and the Chicago Democrat\u2019s death notices bury thirteen people before the scene date, among them W. Brannen, John Hogan, William Bourque, Sarah Hoit and two-year-old Charles Rollins. They were still counted in the town. Their cards in the People directory now say they had died, and cite the entry.',
       'Three of them headed houses that had been given a reconstructed wife and children. Those twelve invented people are withdrawn. Two women who had been reconstructed as wives of men who had died now head their own houses again.',
       'Two people the town had added from the burial register itself are no longer added. The postmaster John S. C. Hogan is a different man and stays.',
+    ] },
+  { v: 1570, ts: '2026-10-09T09:59:25.297Z', date: 'Oct 9, 2026, 4:59 AM CT', title: 'The town plan stops promising a lot that has no room', kind: 'fix',
+    items: [
+      'Nothing you can see changes. The plan of where the 1835 town\u2019s last roofs could go still counted the South Water Street lot at the Wells corner, on the block between Wells and La Salle, as free, because the clause for shop fronts lets a house share a lot with H. Jones\u2019s store. The store leaves about 7.5 m of that lot\u2019s front, less than the narrowest house the plan ever deals.',
+      'The plan now counts that lot as full. The two houses and the warehouse it had been placing there move to the ground south of the platted town, which no street reaches yet. Nobody is moved and no building changes.',
     ] },
   { v: 1569, ts: '2026-10-09T08:58:32.691Z', date: 'Oct 9, 2026, 3:58 AM CT', title: 'A house on the riverside block at Lake and Franklin', kind: 'feature',
     items: [

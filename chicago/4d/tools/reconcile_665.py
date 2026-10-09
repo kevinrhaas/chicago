@@ -64,8 +64,10 @@ sys.path.insert(0, str(ROOT / "tools"))
 
 # Lot occupancy is derived in ONE place and imported by both halves of the T-A6 rule.
 # See tools/plat_occupancy.py for why it is a module rather than a copied loop.
-from plat_occupancy import (block_of_structure, exclusive_lots,  # noqa: E402
+from plat_occupancy import (block_of_structure, business_fronts,  # noqa: E402
+                            declared_front, exclusive_lots, footprints, lot_holders,
                             occupied_lots)
+from block_faces import face_frame, project  # noqa: E402  (T-2241)
 # The business-front term (T-0213). Both halves are measurements the census makes, not
 # constants authored here: `trade_share_by_class` is the DOCUMENTED trade share per class
 # of street, and `street_traffic` is the committed hierarchy those classes come from.
@@ -839,6 +841,83 @@ def lot_ceiling_principal(free_lots: int) -> int:
     return max(0, free_lots - 1)
 
 
+# T-2241. ONE PARTY-LINE UNIT OF FACE: the platted lot's 80 ft front (24.384 m, the figure
+# tools/generate_plat_lots.py cuts every Original Town lot to) shared among the
+# `ROW_UNITS_PER_LOT` units the row density allows a lot. A frontage roof narrower than
+# this is a narrower roof than the schedule's own density ever deals.
+PLATTED_LOT_FRONT_M = 24.384
+ROW_UNIT_FACE_M = PLATTED_LOT_FRONT_M / ROW_UNITS_PER_LOT
+
+
+def narrow_business_fronts(grid: dict, datum: dict, taken: dict, available: dict
+                           ) -> dict[str, dict[int, dict]]:
+    """The business-front lots a documented store leaves too little face to build on.
+
+    {block_id: {lot_index: {holder, face_m, face_left_m, unit_m}}}, for every lot the
+    owner's 2026-08-27 clause frees — `taken` holds it and `available` does not, so a
+    documented store stands at the street on it alone — whose WIDEST stretch of face not
+    under that store is narrower than one party-line unit (`ROW_UNIT_FACE_M`).
+
+    WHY THE SCHEDULE HAS TO ASK THIS (T-2241, of T-2239 and T-2182). The clause says a
+    documented storefront does not exhaust a business-front lot, and `exclusive_lots` answers that
+    question exactly. It does not say the lot has room left, and the schedule read the one
+    answer as the other: `blk_south_water_wells` was counted two free lots — lot 1, its
+    reserved open corner, and lot 0, where H. Jones's store stands at the street — so its
+    `lot_ceiling_principal` read 1 and the deal gave it a D2, a D4 and an F4. T-1623
+    measured lot 0 on 2026-09-26: 4.46 m of face east of the store, once the 1.5 m lot
+    margin is off both sides of it. The owner ruled (a) on it — leave the households owed
+    and keep the open lot — and tools/seat_platted_ground_1835.py has refused a slot on a
+    lot carrying a standing roof ever since. So the schedule promised room that neither
+    the seating nor `tools/generate_block_infill.py` will use, and the roofs it dealt there
+    read as owed by a block that cannot take them.
+
+    THE MEASUREMENT, and it is deliberately the generous one: the lot's own span along
+    the face, less the along-face extent of every footprint standing on the lot, with no
+    margin taken anywhere. A lot is narrow only when even that reading is under one unit.
+    """
+    narrow: dict[str, dict[int, dict]] = {}
+    shared = {block_id: sorted(set(lots) - set(available.get(block_id, {})))
+              for block_id, lots in taken.items()}
+    shared = {block_id: lots for block_id, lots in shared.items() if lots}
+    if not shared:
+        return narrow
+    held = lot_holders(grid, datum)
+    fronts = business_fronts()
+    blocks = {block["id"]: block for block in grid["blocks"]}
+    placed: dict[str, list] = {}
+    for structure_id, world in footprints(datum):
+        placed.setdefault(structure_id, []).append(world)
+    for block_id, lots in sorted(shared.items()):
+        block = blocks[block_id]
+        for index in lots:
+            face = next((f["face"] for f in fronts.get(block_id, [])
+                         if index in declared_front(f)), None)
+            if face is None:
+                raise SystemExit(f"{block_id} lot {index} reads free under the business-"
+                                 "front clause and no frontage entry declares it")
+            frame = face_frame(block, face)
+            along = [project(frame, tuple(p))[0] for p in block["lots"][index]["polygon"]]
+            lo, hi = min(along), max(along)
+            covered = sorted(
+                (min(xs), max(xs))
+                for holder in held[block_id][index] for world in placed.get(holder, [])
+                for xs in [[project(frame, p)[0] for p in world]])
+            widest, cursor = 0.0, lo
+            for start, end in covered:
+                widest = max(widest, min(start, hi) - cursor)
+                cursor = max(cursor, end)
+            widest = max(widest, hi - cursor)
+            if widest < ROW_UNIT_FACE_M:
+                narrow.setdefault(block_id, {})[index] = {
+                    "holder": ", ".join(held[block_id][index]),
+                    "face": face,
+                    "face_m": round(hi - lo, 2),
+                    "face_left_m": round(max(0.0, widest), 2),
+                    "unit_m": round(ROW_UNIT_FACE_M, 3),
+                }
+    return narrow
+
+
 def row_lots_required(free_lots: int, principal: int) -> int:
     """The fewest lots of FRONTAGE a block's run must be dealt for the principal roofs
     it was dealt to have anywhere to stand (T-0834).
@@ -1160,6 +1239,10 @@ def programme_document():
     # block room its own generator will not build (T-A6, and the reason both halves
     # call one module).
     available = exclusive_lots(grid, datum)
+    # …and a FOURTH, which the third does not answer: whether a lot the clause frees has
+    # FACE left to build on (T-2241). A lot freed by a store that leaves under one
+    # party-line unit of face beside it is not free for the sizing below.
+    narrow = narrow_business_fronts(grid, datum, taken, available)
     west_density = west_lot_ceiling(grid, rows, west_recipe["id"])
 
     # ---- what stands ------------------------------------------------------------
@@ -1262,7 +1345,8 @@ def programme_document():
         lots = len(block["lots"])
         capacity = block_capacity(lots)
         stands = built_block.get(block["id"], 0)
-        free = lots - len(available.get(block["id"], ()))
+        refused = narrow.get(block["id"], {})
+        free = lots - len(available.get(block["id"], ())) - len(refused)
         rooms = block_rooms(free, max(0, capacity - stands))
         unit = {
             "id": block["id"], "kind": "platted_block",
@@ -1273,6 +1357,9 @@ def programme_document():
             "headroom": rooms[0] + rooms[1],
             "state": "open" if rooms[0] + rooms[1] > 0 else "at_capacity",
         }
+        if refused:
+            unit["narrow_front_lots"] = [
+                {"lot_index": index, **row} for index, row in sorted(refused.items())]
         # A block the town held in common is not headroom. It reaches here with no lots
         # at all — the plat module withholds the subdivision (ROADMAP T-A16) — so the
         # arithmetic above already gives it nothing; what this does is stop it reading
@@ -1736,6 +1823,20 @@ def programme_document():
                                          for k, v in sorted(trade_shares.items())},
                 "moved": business_front,
                 "ticket": "T-0213",
+            },
+            "narrow_business_front": {
+                "what": "A lot the business-front clause frees — a documented store stands "
+                        "at the street on it alone — is free for the sizing only if the "
+                        "store leaves at least one party-line unit of face beside it: the "
+                        "platted lot's 24.384 m front over ROW_UNITS_PER_LOT. The face left "
+                        "is the lot's own span along the face less every footprint standing "
+                        "on the lot, with no margin taken, so a lot is refused only when "
+                        "even the generous reading is narrower than a unit. A refused lot "
+                        "is listed on its block as `narrow_front_lots`; the roofs the block "
+                        "can no longer take go back to the district's balance.",
+                "unit_m": round(ROW_UNIT_FACE_M, 3),
+                "refused": {block_id: sorted(lots) for block_id, lots in sorted(narrow.items())},
+                "ticket": "T-2241",
             },
             "waterside": {
                 "what": "A family whose own crosswalk record makes water access a "

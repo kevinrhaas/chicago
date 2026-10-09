@@ -461,6 +461,11 @@ STRUCTURE_TICKETS = {
     # wedge's D5 the seating asked for (blk_south_water_market's lot 7, after T-2195 cut the
     # wedge), and no `slot` request is left on the plat; the five the schedule still deals
     # (a D2 and a D4 on blk_south_water_wells, a D2, D4 and D5 gated) are T-2239's.
+    #
+    # AND ON TO T-2242 WITH T-2241's OWN PR (2026-10-09). T-2239 was split: T-2241 makes
+    # reconcile_665's sizing refuse Wells' lot 0, which H. Jones's store leaves 7.46 m of face
+    # against an 8.128 m party-line unit, so Wells' D2 and D4 join the gated South balance and
+    # all five owed dwellings stand there. T-2242 owns re-budgeting them by name.
     ("south", "ordinary_dwellings"): "T-2242",
     # T-1201 WAS SPLIT on 2026-09-27 (T-1680, T-1681, T-1682, T-1683) and its three rows
     # moved with it, for the reason the T-1200 block below states at length: a bucket
@@ -619,7 +624,8 @@ STRUCTURE_TICKETS = {
     # T-2176 built the South's last owed barn (an A2 behind the D3 on blk_south_water_wells'
     # lot 7) and the row reads 0 owed; the pair follows the dwellings to T-2182 so a row that
     # re-opens when the schedule re-apportions still names a live ticket. T-2182 was split
-    # (2026-10-09) and the pair follows the dwellings on to T-2239.
+    # (2026-10-09) and the pair follows the dwellings on to T-2239, and with T-2239's split
+    # on to T-2242, the piece that still owes them.
     ("south", "barns_stables"): "T-2242",
     ("south", "small_outbuildings"): "T-2242",
     # T-1208 WAS SPLIT on 2026-10-01 (T-1781..T-1785): T-1783 opened the outer platted West

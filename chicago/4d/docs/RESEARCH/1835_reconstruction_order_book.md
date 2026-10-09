@@ -670,9 +670,9 @@ The roofs the 668-roof programme still owes, by archetype group and division.
 
 The streets, terrain and lots a structure bucket waits on.
 
-- `roofs_on_committed_ground`: 3
-- `roofs_gated_on_coverage`: 7
-- `statement`: 3 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 7 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
+- `roofs_on_committed_ground`: 0
+- `roofs_gated_on_coverage`: 10
+- `statement`: 0 of the 10 remaining roofs stand on ground this project has already surveyed, platted and modelled. The other 10 have nowhere to go until street control, terrain and hydrology reach them. The binding constraint on the 668-roof programme is coverage, not recipes.
 
 | bucket | target | known | to do | filled | ticket |
 |---|---:|---:|---:|---:|---|
@@ -698,7 +698,7 @@ The streets, terrain and lots a structure bucket waits on.
 | `ground/blk_wabansia_c_t6` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_b_t7` | 0 | — | — | 0 |  |
 | `ground/blk_wabansia_c_t7` | 0 | — | — | 0 |  |
-| `ground/south_plat_beyond_committed_control` | 7 | — | — | 0 |  |
+| `ground/south_plat_beyond_committed_control` | 10 | — | — | 0 |  |
 
 ## Where the model and the roof programme disagree
 
