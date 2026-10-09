@@ -121,6 +121,31 @@
     "confidence": "reconstructed",
     "note": "No source records an occupation for this person. A list of uncalled-for letters prints a name and no trade, and this pass will not read one in."
    },
+   "workplaces": [
+    {
+     "business_id": "biz_j_l_wilson_co",
+     "business_name": "J. L. Wilson & Co.",
+     "role": "partner",
+     "printed_as": "J. L. Wilson",
+     "from": "1834-09-17",
+     "to": "1835-07-18",
+     "tier": "attested",
+     "basis": "A proprietor string the gazetteer reads as a person, which the register's own person list does not carry under this spelling. The name is the evidence; no link is claimed. Linked to the town card wilson_john at inferred (T-2245): The register already matches this house's own advertisement of 1834-09-17 (chicago_democrat_1834_09_17#c003, set 'L. WILSON & CO.', read 'Wilson, J. L. & Co.') to the town card wilson_john, under the gazetteer's identity policy, surname plus forename initials (register person person_wilson_j_l_co, action enrich). identity.json's firm merge reads 'Jno. L. Wilson & Co.' as this same house with the forename set as this corpus's abbreviation for John. The partner row 'J. L. Wilson' is that man; the register could not carry its match here only because it links by exact spelling. Inferred, not attested: the card is a letter list's John Wilson and carries no middle initial. Dated by the printing window, which bounds the reading and does not date the partnership.",
+     "source_id": "chicago_newspapers_1833_1835",
+     "claim_ids": [
+      "chicago_american_1835_06_08#c012",
+      "chicago_american_1835_06_20#c002",
+      "chicago_american_1835_07_18#c005",
+      "chicago_democrat_1834_09_17#c003",
+      "chicago_democrat_1834_10_15#c001",
+      "chicago_democrat_1834_11_05#c008",
+      "chicago_democrat_1834_11_12#c013",
+      "chicago_democrat_1834_12_03#c006",
+      "chicago_democrat_1835_05_20#c018"
+     ],
+     "business_present_at_scene_date": true
+    }
+   ],
    "sources": [
     "calumet_club_early_chicago_1879",
     "census_1840_chicago_familysearch_images",
