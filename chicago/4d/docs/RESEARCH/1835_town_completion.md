@@ -47,9 +47,9 @@ Of the **3,446** people housed in a standing building: **11.3 % attested** (391)
 
 | | attested | inferred | reconstructed | all |
 |---|---:|---:|---:|---:|
-| at a workplace | 159 | 8 | 159 | 326 |
+| at a workplace | 158 | 8 | 160 | 326 |
 | no fixed premises (stated) | 20 | 0 | 317 | 337 |
-| owed a workplace | 1 | 0 | 27 | 28 |
+| owed a workplace | 2 | 0 | 26 | 28 |
 | no trade recorded | 232 | 969 | 365 | 1,566 |
 | **all** | **412** | **977** | **868** | **2,257** |
 | share | 18.3 % | 43.3 % | 38.5 % | |

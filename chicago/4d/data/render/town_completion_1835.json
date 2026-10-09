@@ -75,9 +75,9 @@
   "at_work": {
     "working_age": 2257,
     "placed": {
-      "attested": 159,
+      "attested": 158,
       "inferred": 8,
-      "reconstructed": 159
+      "reconstructed": 160
     },
     "stated_no_fixed_premises": {
       "attested": 20,
@@ -85,9 +85,9 @@
       "reconstructed": 317
     },
     "owed": {
-      "attested": 1,
+      "attested": 2,
       "inferred": 0,
-      "reconstructed": 27
+      "reconstructed": 26
     },
     "no_trade_recorded": {
       "attested": 232,
