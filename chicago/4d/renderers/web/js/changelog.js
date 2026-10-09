@@ -1,4 +1,10 @@
 export const CHANGELOG = [ // newest first
+  { v: 1581, ts: '2026-10-09T16:00:24.406Z', date: 'Oct 9, 2026, 11:00 AM CT', title: 'Glessner gains stone edging and clear entrance paving', kind: 'fix',
+    items: [
+      'The Prairie frontage now has rounded stone lawn edging with gaps at the front door and carriage entrance. Stone paving and low steps meet the front-door sill.',
+      'A stone threshold and continuous carriage surface replace the grass showing through the porte-cochere, joining the existing courtyard drive.',
+      'Historic photographs and HABS drawings guide the layout. Uncertain 1904 paving materials, stone joints and curb dimensions are labeled as reconstructions.',
+    ] },
   { v: 1580, ts: '2026-10-09T15:39:46.317Z', date: 'Oct 9, 2026, 10:39 AM CT', title: 'The town\u2019s plan now says why ten South roofs are still unbuilt', kind: 'fix',
     items: [
       'Ten roofs the South Division still owes have nowhere to stand. The town\u2019s plan said they were waiting for its streets to be carried south to Madison Street. That work was finished on 28 September: all seven north\u2013south streets from Market to State now reach Madison.',
