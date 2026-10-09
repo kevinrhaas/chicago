@@ -20149,6 +20149,18 @@ store's card as having worked there; the other two are not, because their cards 
 where they worked. **What is invented** is that nobody slept over those five stores, which no
 source says either way; it is the reading that leaves every keeper where the town already
 had them.
+**Amended 2026-10-09 (T-2246):** a store roof nobody sleeps or works in, standing a house of
+trade none of whose keepers the town holds a card for, is ruled a store nobody is seated over,
+and the book's order for a household over it is discharged. Four stores, each on the roof the
+street-face adoption gave the firm: H. Doty & Co., Rockwell's cabinet furniture warehouse, the
+Chicago Bakery (D. Graves) and Harmon, Loomis & Co. (whose Harmon brothers the town places at
+the firm's documented store). The register's mint refuses the first three keepers a card (a
+firm, not a person; a surname, a trade and nothing else; the town already names a Graves), and
+no keeper is minted here to fill the order. **What is invented** is that nobody slept over
+those four stores. And the West's empty C2 store recon_1835_west_020, whose stated use (L310)
+named no trade and retired when a keeper could take it, is now kept by L. Chevalier
+(watches, jewelry and fancy goods, a Canal Street house of trade on no roof), seated over it
+by the keeper rung: which store roof his house stands in is the invention, as for every keeper.
 
 ### L355 — Two camps on conjectural ground: the land-sale crowd on the reservation shore and a wagon party at the west approach
 
